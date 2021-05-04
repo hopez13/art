@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a90a7d2f_591f8cc3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b4d0db6_34d4d083",
+      "range": {
+        "startLine": 664,
+        "startChar": 37,
+        "endLine": 664,
+        "endChar": 44
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86d1a781_8d1aca67",
@@ -55,6 +79,30 @@
       "writtenOn": "2021-04-30T16:02:31Z",
       "side": 1,
       "message": "Is it not in 1:1 correspondence? The comment gives the idea that these are different things.",
+      "range": {
+        "startLine": 183,
+        "startChar": 28,
+        "endLine": 183,
+        "endChar": 72
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e7db0ff_763546a0",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Adjusted the comment a little bit.",
+      "parentUuid": "86d1a781_8d1aca67",
       "range": {
         "startLine": 183,
         "startChar": 28,
@@ -88,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c57589de_6f126d5c",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Added additional comments.",
+      "parentUuid": "e53454d7_5ed2a1da",
+      "range": {
+        "startLine": 195,
+        "startChar": 39,
+        "endLine": 195,
+        "endChar": 72
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f036fac_dbe885fb",
@@ -101,6 +173,30 @@
       "writtenOn": "2021-04-30T16:02:31Z",
       "side": 1,
       "message": "Please add a comment to explain why this is chosen as a maximum.",
+      "range": {
+        "startLine": 309,
+        "startChar": 5,
+        "endLine": 309,
+        "endChar": 41
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4190faa9_3ce200e4",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "As the `kMaxFileSectionCount` is `uint32_t` I find it quite natural to use that as the limit. It is a ridiculously large limit anyway.",
+      "parentUuid": "4f036fac_dbe885fb",
       "range": {
         "startLine": 309,
         "startChar": 5,
@@ -134,6 +230,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99352de7_02327b39",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Adjusted comment.",
+      "parentUuid": "d947d9b6_828ffbe7",
+      "range": {
+        "startLine": 387,
+        "startChar": 3,
+        "endLine": 387,
+        "endChar": 79
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0392e2e2_4ea50ce3",
@@ -147,6 +267,30 @@
       "writtenOn": "2021-04-30T16:02:31Z",
       "side": 1,
       "message": "Source and destination can never overlap, right?",
+      "range": {
+        "startLine": 430,
+        "startChar": 4,
+        "endLine": 430,
+        "endChar": 10
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f58edcdc_24f8f7a7",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Yes, the destination is in the SafeBuffer but the source should not be from the same SafeBuffer that we\u0027re writing to.",
+      "parentUuid": "0392e2e2_4ea50ce3",
       "range": {
         "startLine": 430,
         "startChar": 4,
@@ -180,6 +324,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c42279_7434120d",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "We\u0027re pre-sizing the SafeBuffer to the exact number of bytes we want to write. This just checks that we have written all data that we intended to write and compress.",
+      "parentUuid": "376ce4f9_d145ac3f",
+      "range": {
+        "startLine": 442,
+        "startChar": 4,
+        "endLine": 442,
+        "endChar": 39
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abeaed99_c3f30d7b",
@@ -193,6 +361,30 @@
       "writtenOn": "2021-04-30T16:02:31Z",
       "side": 1,
       "message": "const ?",
+      "range": {
+        "startLine": 479,
+        "startChar": 28,
+        "endLine": 479,
+        "endChar": 29
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f003ed55_07f6c555",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abeaed99_c3f30d7b",
       "range": {
         "startLine": 479,
         "startChar": 28,
@@ -226,6 +418,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e58ced45_808f3308",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "But we definitely do not want the operator\u003c\u003c from the DCHECK failure to pick the `const char*` overload and interpret the value as a C string, trying to read an arbitrary amount of memory and triggering a SIGSEGV.",
+      "parentUuid": "64d19430_051d3c4b",
+      "range": {
+        "startLine": 480,
+        "startChar": 14,
+        "endLine": 480,
+        "endChar": 25
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be2f3579_3d670c0f",
@@ -239,6 +455,30 @@
       "writtenOn": "2021-04-30T16:02:31Z",
       "side": 1,
       "message": "Can you add a comment what the equality of class_ref.dex_file and \u0026dex_file means, and why class_ref.TypeIndex() can be used here?",
+      "range": {
+        "startLine": 640,
+        "startChar": 4,
+        "endLine": 640,
+        "endChar": 33
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a155498_5492dca4",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be2f3579_3d670c0f",
       "range": {
         "startLine": 640,
         "startChar": 4,
@@ -272,6 +512,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0ef0c76_f061708f",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "The `AddExtraDescriptor()` function has it\u0027s own checking because it\u0027s also used for merging extra descriptors from two profiles with no dex files involved. That\u0027s why we just check `kMaxExtraDescriptors` there.\n\nHere we have a dex file and therefore we can do a better check for that particular dex file. Since different dex files can have different `NumTypeIds()`, the index we found above may not be usable for this particular dex file. And if we did not find an existing index, we do a strict check below to make sure the new extra descriptor is usable for this dex file; if it is, we call `AddExtraDescriptor()` knowing it shall succeed.\n\n(I did consider adding the limit as an argument to `AddExtraDescriptor()` but didn\u0027t do that micro optimization.)",
+      "parentUuid": "01c1a497_66b8d867",
+      "range": {
+        "startLine": 659,
+        "startChar": 4,
+        "endLine": 659,
+        "endChar": 94
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6d60717_b8705cb6",
@@ -285,6 +549,30 @@
       "writtenOn": "2021-04-30T16:02:31Z",
       "side": 1,
       "message": "Why would we what to allow gaps?",
+      "range": {
+        "startLine": 842,
+        "startChar": 25,
+        "endLine": 842,
+        "endChar": 52
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13c381e7_009caf25",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "This is an extensible file format, so I didn\u0027t want to put any unnecessary restrictions on it. Maybe we shall want some uncompressed aligned sections in the future.",
+      "parentUuid": "e6d60717_b8705cb6",
       "range": {
         "startLine": 842,
         "startChar": 25,
@@ -318,6 +606,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0044e6ae_5eea90b3",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Not really. But if it happens to be large, I expect it to compress well.",
+      "parentUuid": "2e74e25d_afa13424",
+      "range": {
+        "startLine": 846,
+        "startChar": 5,
+        "endLine": 846,
+        "endChar": 40
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd77b6b8_685b7099",
@@ -331,6 +643,30 @@
       "writtenOn": "2021-04-30T16:02:31Z",
       "side": 1,
       "message": "Is it NULL-terminated? \"Delimited\" usually means a sequence with delimiter between every pair of adjacent elements (I think).",
+      "range": {
+        "startLine": 853,
+        "startChar": 28,
+        "endLine": 853,
+        "endChar": 42
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8720a524_32d6bf56",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Done (I use \"terminated\" in other places, not sure why I wrote \"delimited\" here.)",
+      "parentUuid": "fd77b6b8_685b7099",
       "range": {
         "startLine": 853,
         "startChar": 28,
@@ -364,6 +700,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4321f8a_f51ccb50",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26714de8_8ea6945a",
+      "range": {
+        "startLine": 858,
+        "startChar": 33,
+        "endLine": 858,
+        "endChar": 47
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22314e76_d6ab0d24",
@@ -377,6 +737,30 @@
       "writtenOn": "2021-04-30T16:02:31Z",
       "side": 1,
       "message": "What is this? Can you add a comment?",
+      "range": {
+        "startLine": 862,
+        "startChar": 6,
+        "endLine": 862,
+        "endChar": 23
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d2a7f06_abb09f0f",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "I would consider this self-explanatory, there would be no value in additional comments.",
+      "parentUuid": "22314e76_d6ab0d24",
       "range": {
         "startLine": 862,
         "startChar": 6,
@@ -410,6 +794,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b32a3e3_6ccf8d2d",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cb882c2_e43ff749",
+      "range": {
+        "startLine": 863,
+        "startChar": 6,
+        "endLine": 863,
+        "endChar": 21
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18ac26a9_6a777844",
@@ -423,6 +831,30 @@
       "writtenOn": "2021-04-30T16:02:31Z",
       "side": 1,
       "message": "What is this?",
+      "range": {
+        "startLine": 874,
+        "startChar": 6,
+        "endLine": 874,
+        "endChar": 23
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b96bb35e_c0a668a9",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18ac26a9_6a777844",
       "range": {
         "startLine": 874,
         "startChar": 6,
@@ -456,6 +888,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10644515_86f4a46b",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Yes, the next write can be unaigned.",
+      "parentUuid": "b1e39af3_7f17ae2a",
+      "range": {
+        "startLine": 969,
+        "startChar": 6,
+        "endLine": 969,
+        "endChar": 95
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d4ce970_8b0822f4",
@@ -479,6 +935,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97196693_2a3a5c43",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d4ce970_8b0822f4",
+      "range": {
+        "startLine": 906,
+        "startChar": 19,
+        "endLine": 906,
+        "endChar": 34
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63ce110d_6e86b583",
@@ -492,6 +972,30 @@
       "writtenOn": "2021-04-30T16:02:31Z",
       "side": 1,
       "message": "Do I understand correctly that this is a dchecked_vector because we may be indexing it with the unsafe information that comes from the profile, so we want all access to be bounds-checked?",
+      "range": {
+        "startLine": 930,
+        "startChar": 2,
+        "endLine": 930,
+        "endChar": 17
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a98d0dc_d14de2fa",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T10:52:36Z",
+      "side": 1,
+      "message": "We always verify the data coming from a profile, so we should never have an out-of-bounds access. This is just to enforce this in debug build to guard against bugs. And I prefer a dchecked_vector\u003c\u003e over sprinkling the code with DCHECK_LT() before any use of the vector. (See for example GetTypeDescriptor() above, line 593.)",
+      "parentUuid": "63ce110d_6e86b583",
       "range": {
         "startLine": 930,
         "startChar": 2,
