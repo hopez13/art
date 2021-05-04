@@ -286,6 +286,24 @@
       "parentUuid": "a424ae09_5cce903c",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cb8213e_3a40539a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-04T18:02:45Z",
+      "side": 1,
+      "message": "The code comment there states the requirement but it is silent about the reason. I\u0027m saying that THPs could be implemented to support middle regions of unaligned sections. (No matter how rarely we would actually have a section span a whole aligned 2MiB part of memory.)\n\nYou\u0027re working with the existing kernel implementation. I\u0027m questioning the rationale behind it, pointing to the fact that the requirements could be relaxed.",
+      "parentUuid": "af6b35b0_7f71f0b8",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
