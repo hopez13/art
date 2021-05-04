@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83c902d9_66bfd7bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-05-04T15:16:54Z",
+      "side": 1,
+      "message": "(it\u0027s a Standard C invention rather than a BSD-ism. C11 chose the quick_exit() name specifically because it _wasn\u0027t_ already used anywhere else: \"For the new facility, we have chosen quick_exit and at_quick_exit. Other logical choices, like _Exit already seem to be in use, while there are no occurances of quick_exit in a Google code search.\" [http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2440.htm])",
+      "parentUuid": "3d040506_f0cf8716",
+      "revId": "e8d1b1d05f456c65caf8b86aa816c8260977a261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d104212_4fb08605",
