@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d104212_4fb08605",
+        "filename": "dalvikvm/dalvikvm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-04T08:09:31Z",
+      "side": 1,
+      "message": "Should we introduce a ArtExit (also to be used in dex2oat) to have one place that handles those exit issues? (and comments)",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 12
+      },
+      "revId": "e8d1b1d05f456c65caf8b86aa816c8260977a261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
