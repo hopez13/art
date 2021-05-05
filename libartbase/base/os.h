@@ -19,6 +19,8 @@
 
 #include <stdint.h>
 
+#include <base/macros.h>
+
 namespace unix_file {
 class FdFile;
 }  // namespace unix_file
@@ -56,6 +58,12 @@ class OS {
 
   // Get the size of a file (or -1 if it does not exist).
   static int64_t GetFileSizeBytes(const char* name);
+
+  // Terminate program without completely cleaning the resources (e.g. without
+  // calling destructors). Call functions registered with `at_quick_exit` (for
+  // instance LLVM's code coverage profile dumping routine, when running with
+  // code coverage instrumentation) before exiting.
+  NO_RETURN static void QuickExit(int exit_code);
 };
 
 }  // namespace art

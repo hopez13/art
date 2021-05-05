@@ -17,6 +17,7 @@
 #include "os.h"
 
 #include <fcntl.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 
@@ -101,6 +102,15 @@ int64_t OS::GetFileSizeBytes(const char* name) {
   } else {
     return -1;
   }
+}
+
+NO_RETURN void OS::QuickExit(int exit_code) {
+#ifdef _WIN32
+  // Windows toolchain does not support `quick_exit`; use `_exit` instead.
+  _exit(exit_code);
+#else
+  quick_exit(exit_code);
+#endif
 }
 
 }  // namespace art
