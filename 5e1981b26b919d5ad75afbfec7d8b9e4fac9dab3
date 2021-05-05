@@ -33,6 +33,41 @@
       "message": "Sorry for the delay, LGTM. How did you find this potential race?",
       "revId": "5e1981b26b919d5ad75afbfec7d8b9e4fac9dab3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e571ddb2_1b79a968",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-05T07:42:34Z",
+      "side": 1,
+      "message": "Thanks Ulya!",
+      "revId": "5e1981b26b919d5ad75afbfec7d8b9e4fac9dab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0105806d_3bce7320",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-05T07:42:34Z",
+      "side": 1,
+      "message": "After landing the feature, I realized that this could potentially happen, due to the other threads doing normal verification. The severity is somewhat ok (vdex-only execution might execute a class where it should actually throw a verification error), but better be consistent.",
+      "parentUuid": "cb54a81c_5fb4ead7",
+      "revId": "5e1981b26b919d5ad75afbfec7d8b9e4fac9dab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
