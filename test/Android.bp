@@ -107,7 +107,6 @@ art_cc_defaults {
     shared_libs: [
         "libartd",
         "libartd-disassembler",
-        "libvixld",
         "libart-gtest",
         "libdexfiled",
         "libprofiled",
