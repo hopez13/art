@@ -51,6 +51,24 @@
       "parentUuid": "afa284a2_4141a6bf",
       "revId": "de6e515b14fe0c1bc5ed837193e835d4dfaf6136",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b36e14e_b405f1a6",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-05T15:15:36Z",
+      "side": 1,
+      "message": "Well, the images I want to keep around aren\u0027t stale, and that\u0027s why I want to keep them. I\u0027m fine with this compromise; see also the rather long discussion on https://r.android.com/1688226.",
+      "parentUuid": "53339956_52920372",
+      "revId": "de6e515b14fe0c1bc5ed837193e835d4dfaf6136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
