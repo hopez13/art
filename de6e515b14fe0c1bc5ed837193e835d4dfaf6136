@@ -105,6 +105,24 @@
       "parentUuid": "a9b5de06_0c02489d",
       "revId": "de6e515b14fe0c1bc5ed837193e835d4dfaf6136",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15a88a05_9c34160d",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-05T21:31:20Z",
+      "side": 1,
+      "message": "I\u0027m not a proponent of the warning, but I\u0027m fine with it as a compromise. At the lowest level I want a script that only does what it needs to do and nothing else, and installclean isn\u0027t at all side-effect free (see the other thread for further arguments - let\u0027s not rehash it here).\n\nIf we choose to make installclean the default I intend to add an environment variable to turn it off, because I\u0027m certain I will trip on forgetting the flag otherwise, and that will annoy me.",
+      "parentUuid": "292e301d_2b4861dd",
+      "revId": "de6e515b14fe0c1bc5ed837193e835d4dfaf6136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
