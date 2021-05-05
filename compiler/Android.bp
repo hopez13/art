@@ -210,37 +210,15 @@ art_cc_library {
     codegen: {
         arm: {
             // VIXL assembly support for ARM targets.
-            static: {
-                whole_static_libs: [
-                    "libvixl",
-                ],
-            },
-            shared: {
-                shared_libs: [
-                    "libvixl",
-                ],
-                // Export vixl headers as they are included in this library's exported headers.
-                export_shared_lib_headers: [
-                    "libvixl",
-                ],
-            },
+            static_libs: [
+                "libvixl",
+            ],
         },
         arm64: {
             // VIXL assembly support for ARM64 targets.
-            static: {
-                whole_static_libs: [
-                    "libvixl",
-                ],
-            },
-            shared: {
-                shared_libs: [
-                    "libvixl",
-                ],
-                // Export vixl headers as they are included in this library's exported headers.
-                export_shared_lib_headers: [
-                    "libvixl",
-                ],
-            },
+            static_libs: [
+                "libvixl",
+            ],
         },
     },
     shared_libs: [
