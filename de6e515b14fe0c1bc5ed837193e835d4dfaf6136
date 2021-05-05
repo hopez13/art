@@ -33,6 +33,24 @@
       "message": "Can we remove these? I don\u0027t want to see those warnings every time I build :)",
       "revId": "de6e515b14fe0c1bc5ed837193e835d4dfaf6136",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53339956_52920372",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-05T14:46:22Z",
+      "side": 1,
+      "message": "That is WAI (being semi-annoying). You should pass the argument every time you build.\n\nIt is compromise between me and Martin.\n1) I think installclean should be default as it guarantees good working build and has very small cost.\n2) It breaks Martin\u0027s workflow where he intentionally wants to keep stale system image around.\n\nThe compromise is that people should always pass that flag locally, and it will warn them if they don\u0027t. If you don\u0027t pass that flag, it is likely ok, but it is a quick visual reminder that if things oddly break, that might be the reason.\n\nOn further thought, I think bazel is right - tests should not be allowed to use files which are not explicit build dependency.  In other words, we should be using chroot on host as well, which would make the flag irrelevant.  But that is big task.",
+      "parentUuid": "afa284a2_4141a6bf",
+      "revId": "de6e515b14fe0c1bc5ed837193e835d4dfaf6136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
