@@ -217,6 +217,8 @@ int main(int argc, char** argv) {
   // Do not allow static destructors to be called, since it's conceivable that
   // daemons may still awaken (literally); but still have functions registered
   // with `at_quick_exit` (for instance LLVM's code coverage profile dumping
-  // routine) be called before exiting.
+  // routine) be called before exiting (note that we cannot use
+  // `art::OS::QuickExit` here as `dalvikvm` is not linked with `libartbase` nor
+  // `libartbased`).
   quick_exit(art::dalvikvm(argc, argv));
 }
