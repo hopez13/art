@@ -168,6 +168,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56eed0e5_48df7b20",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-05-05T18:50:18Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c9a1f713_f6c20b35",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1111,
+        "endChar": 3
+      },
+      "revId": "43ce1ef87decef3e74dbc74268fb311daaaa4f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89b3cf9e_4f107f92",
@@ -301,6 +325,30 @@
       "side": 1,
       "message": "That\u0027s a good point, but no, libart.so is dlopen\u0027ed with RTLD_NOW (https://cs.android.com/android/platform/superproject/+/master:libnativehelper/DlHelp.c;l\u003d36;drc\u003dd6ec41b4e1b44de6c9f82101a20b6b0cfc461551), so its DT_NEEDED dependencies are already loaded here.",
       "parentUuid": "99ce691d_04d39508",
+      "range": {
+        "startLine": 1851,
+        "startChar": 0,
+        "endLine": 1858,
+        "endChar": 3
+      },
+      "revId": "43ce1ef87decef3e74dbc74268fb311daaaa4f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2a92dbf_5becf58b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1858,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-05-05T18:50:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2aa5758d_16840beb",
       "range": {
         "startLine": 1851,
         "startChar": 0,
