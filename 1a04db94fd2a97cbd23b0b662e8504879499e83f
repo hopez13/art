@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03070080_cd8fabd6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-05T20:22:05Z",
+      "side": 1,
+      "message": "You can now remove this.",
+      "range": {
+        "startLine": 1108,
+        "startChar": 0,
+        "endLine": 1108,
+        "endChar": 20
+      },
+      "revId": "1a04db94fd2a97cbd23b0b662e8504879499e83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eebcd720_5a894c0b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-05T20:22:05Z",
+      "side": 1,
+      "message": "Can you add a comment that we\u0027re using that marker (is it just useful for a dev, or does perfetto expects to see it?)",
+      "revId": "1a04db94fd2a97cbd23b0b662e8504879499e83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
