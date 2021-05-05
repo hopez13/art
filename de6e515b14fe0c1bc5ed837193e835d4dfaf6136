@@ -87,6 +87,24 @@
       "parentUuid": "0b36e14e_b405f1a6",
       "revId": "de6e515b14fe0c1bc5ed837193e835d4dfaf6136",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "292e301d_2b4861dd",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-05T20:20:07Z",
+      "side": 1,
+      "message": "Martin wants to strictly preserve the old behavior of the script and (hopefully) doesn\u0027t mind the stdout warning, as installclean breaks his workflow.\n\nI wanted to always do installclean for correctness, but as compromise, I settled for always having to add explicit --installclean and being nagged if I forget it.",
+      "parentUuid": "a9b5de06_0c02489d",
+      "revId": "de6e515b14fe0c1bc5ed837193e835d4dfaf6136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
