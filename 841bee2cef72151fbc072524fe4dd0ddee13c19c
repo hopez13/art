@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ce2e1489_0057b51f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-06T09:46:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1549dee_60d7d671",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 53
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "66b85f41_1ae26ce6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40fb3c93_7c92fe64",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-06T09:46:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df2f8497_fde613d2",
+      "range": {
+        "startLine": 41,
+        "startChar": 26,
+        "endLine": 41,
+        "endChar": 39
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd94936f_911764bc",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-04-29T22:40:43Z",
       "side": 1,
       "message": "Isn\u0027t this redundant?",
+      "range": {
+        "startLine": 508,
+        "startChar": 26,
+        "endLine": 508,
+        "endChar": 78
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4fefbe8_ec19e0f6",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-06T09:46:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd94936f_911764bc",
       "range": {
         "startLine": 508,
         "startChar": 26,
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9787f03d_e9accdfa",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-06T09:46:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ea10d0d_2439ff08",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 512,
+        "endChar": 5
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c15ea74_2d7fcccc",
@@ -123,6 +219,30 @@
       "writtenOn": "2021-04-29T22:40:43Z",
       "side": 1,
       "message": "Please use MonitorId as the type.\n\nI think you can use an invalid MonitorID, like 0xffffffff to indicate the timeout is disabled. (See lock_word.h.) That\u0027s likely to save a word here in the future; see line 166.",
+      "range": {
+        "startLine": 292,
+        "startChar": 2,
+        "endLine": 292,
+        "endChar": 6
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03749d7c_6c501099",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-06T09:46:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c15ea74_2d7fcccc",
       "range": {
         "startLine": 292,
         "startChar": 2,
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b91d017c_39c82429",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1727,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-06T09:46:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60ab5cde_e8ea4091",
+      "range": {
+        "startLine": 1727,
+        "startChar": 14,
+        "endLine": 1727,
+        "endChar": 19
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "432f9121_370a4808",
@@ -169,6 +313,30 @@
       "writtenOn": "2021-04-29T22:40:43Z",
       "side": 1,
       "message": "Again, please specify units in the name. Milliseconds may make more sense than noanoseconds, but that\u0027s your call.",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 71
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f829403a_1e49e39e",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-06T09:46:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "432f9121_370a4808",
       "range": {
         "startLine": 63,
         "startChar": 2,
@@ -204,6 +372,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5830dcb4_c2de8155",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1364,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-06T09:46:53Z",
+      "side": 1,
+      "message": "I think large timeout is harmless, so only check small value.",
+      "parentUuid": "031b874a_0040bb1e",
+      "range": {
+        "startLine": 1364,
+        "startChar": 2,
+        "endLine": 1364,
+        "endChar": 71
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1cd1a91_4ab2226d",
         "filename": "runtime/runtime.h",
         "patchSetId": 4
@@ -215,6 +407,30 @@
       "writtenOn": "2021-04-29T22:40:43Z",
       "side": 1,
       "message": "Again, this and the field should mention the unit. For nanoseconds, should almost certainly match the tv_nsec type.",
+      "range": {
+        "startLine": 981,
+        "startChar": 2,
+        "endLine": 981,
+        "endChar": 28
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aa4aade_549b31c5",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-06T09:46:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1cd1a91_4ab2226d",
       "range": {
         "startLine": 981,
         "startChar": 2,
@@ -238,6 +454,30 @@
       "writtenOn": "2021-04-29T22:40:43Z",
       "side": 1,
       "message": "Should be long, since that\u0027s what tv_nsec is.",
+      "range": {
+        "startLine": 1235,
+        "startChar": 2,
+        "endLine": 1235,
+        "endChar": 10
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9af4f02_2325adf9",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-06T09:46:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40140771_443777b2",
       "range": {
         "startLine": 1235,
         "startChar": 2,
