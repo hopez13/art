@@ -1,0 +1,458 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4aeeba7_ac7f806e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "(This is the final set of comments.)",
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19fb70d4_522e0403",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Why flush here and not just at the end?\n\nAnd why flush explicitly at all, is it what we usually do when writing to file?",
+      "range": {
+        "startLine": 1049,
+        "startChar": 0,
+        "endLine": 1051,
+        "endChar": 3
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec8f1333_0853c0f6",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Why not const ref? I\u0027ve see other places use it by value, but it\u0027s a struct with a few fields.",
+      "range": {
+        "startLine": 1304,
+        "startChar": 16,
+        "endLine": 1304,
+        "endChar": 25
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "260c26e1_6500ea24",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2328,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "It may be more efficient to make used_flags uint32_t and do one cast before return.",
+      "range": {
+        "startLine": 2328,
+        "startChar": 20,
+        "endLine": 2328,
+        "endChar": 42
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c92b2a8c_860edfad",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2524,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "16 ?",
+      "range": {
+        "startLine": 2524,
+        "startChar": 34,
+        "endLine": 2524,
+        "endChar": 36
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "493c9aac_d3b51042",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2569,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Deduplicate with lines 2521-2528.",
+      "range": {
+        "startLine": 2562,
+        "startChar": 0,
+        "endLine": 2569,
+        "endChar": 3
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "486bc690_4f596988",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2586,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "This is repeated 3 times, maybe add a function.",
+      "range": {
+        "startLine": 2586,
+        "startChar": 34,
+        "endLine": 2586,
+        "endChar": 93
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62dbc088_9c222968",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "This code is similar in structure to GetUsedBitmapFlags, but it does the opposite. Maybe extract it into a function SetUsedBitmapFlags and put close to GetUsedBitmapFlags ?",
+      "range": {
+        "startLine": 2590,
+        "startChar": 0,
+        "endLine": 2605,
+        "endChar": 3
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b654f44_d53399c4",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2636,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Is this still for Calin?",
+      "range": {
+        "startLine": 2636,
+        "startChar": 14,
+        "endLine": 2636,
+        "endChar": 19
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b361ec45_edd3472b",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2685,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "It is unclear why this means that the profile contains data for boot image (as opposed to checking kFlagLastBoot flag).",
+      "range": {
+        "startLine": 2685,
+        "startChar": 28,
+        "endLine": 2685,
+        "endChar": 82
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120d6413_6fb3f451",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2716,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Possible candidate for deduplication with lines 2590-2605. I see that it\u0027s doing yet another different thing (reading from saved_bitmap instead of writing to it), but maybe this difference can be abstracted away with a functor.",
+      "range": {
+        "startLine": 2699,
+        "startChar": 0,
+        "endLine": 2716,
+        "endChar": 3
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5efb9008_4d0492e1",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2721,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Why this constant? Can it have a name?",
+      "range": {
+        "startLine": 2721,
+        "startChar": 59,
+        "endLine": 2721,
+        "endChar": 67
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7a980df_eea5bc08",
+        "filename": "libprofile/profile/profile_compilation_info_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "The name kInvalidDexFileLocationLength suggests that the test should fail in some way. Is it the load failure at line 480?",
+      "range": {
+        "startLine": 474,
+        "startChar": 27,
+        "endLine": 474,
+        "endChar": 56
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b1795f2_5d6fd2f3",
+        "filename": "libprofile/profile/profile_compilation_info_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Why 33?",
+      "range": {
+        "startLine": 657,
+        "startChar": 26,
+        "endLine": 657,
+        "endChar": 30
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c88a4ffa_9b70f984",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Why all the _x suffixes? Does it mean something special?",
+      "range": {
+        "startLine": 445,
+        "startChar": 23,
+        "endLine": 445,
+        "endChar": 25
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e5c3479_478ddea2",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "I somehow got the idea that arrays of primitive types don\u0027t have type IDs no matter how many dimensions. Is this wrong?",
+      "range": {
+        "startLine": 778,
+        "startChar": 35,
+        "endLine": 778,
+        "endChar": 94
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5069f70_cb2a3ad8",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1885,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Nit: remove spaces inside of the comments to match the style elsewhere (here and below).",
+      "range": {
+        "startLine": 1885,
+        "startChar": 38,
+        "endLine": 1885,
+        "endChar": 53
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a57d5c09_d6cd98ab",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Nit: forgotten \"\u003d\"",
+      "range": {
+        "startLine": 1957,
+        "startChar": 48,
+        "endLine": 1957,
+        "endChar": 49
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "523a43a9_78448dc7",
+        "filename": "profman/profman.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "Can you add a comment?\n\nIf this is trying to find if the string has more than one \u0027(\u0027, maybe `std::count(...) !\u003d 1` would be shorter.",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1072,
+        "endChar": 37
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4972f45_70b9d14a",
+        "filename": "profman/profman.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-06T16:59:57Z",
+      "side": 1,
+      "message": "This seems simpler to me:\n\n  size_t array_dim \u003d 0;\n  while (array_dim \u003c klass.size() \u0026\u0026 klass[array_dim] \u003d\u003d \u0027[\u0027) ++array_dim;",
+      "range": {
+        "startLine": 1394,
+        "startChar": 0,
+        "endLine": 1395,
+        "endChar": 64
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
