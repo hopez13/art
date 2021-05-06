@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc0b4891_b3ad9c45",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1168158
+      },
+      "writtenOn": "2021-05-06T17:24:49Z",
+      "side": 1,
+      "message": "\"ExtraDescriptor\" seems to be the only extra information compared with the old version profile besides the structure changes, right? May I ask what\u0027s \"ExtraDescriptor\" for?",
+      "range": {
+        "startLine": 853,
+        "startChar": 5,
+        "endLine": 853,
+        "endChar": 21
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19fb70d4_522e0403",
         "filename": "libprofile/profile/profile_compilation_info.cc",
         "patchSetId": 14
