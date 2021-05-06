@@ -396,6 +396,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "515ec1d4_59e42fe5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1364,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-06T18:38:33Z",
+      "side": 1,
+      "message": "It still needs to be limited to less than a second to avoid crashes after setting the timeout, right?",
+      "parentUuid": "5830dcb4_c2de8155",
+      "range": {
+        "startLine": 1364,
+        "startChar": 2,
+        "endLine": 1364,
+        "endChar": 71
+      },
+      "revId": "841bee2cef72151fbc072524fe4dd0ddee13c19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1cd1a91_4ab2226d",
         "filename": "runtime/runtime.h",
         "patchSetId": 4
