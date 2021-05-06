@@ -22,6 +22,30 @@
       },
       "revId": "680d768b1aec1daf7a8faeb01d04e164afdc07bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aeebc2c_a2786b0d",
+        "filename": "tools/create_minidebuginfo/create_minidebuginfo.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-06T14:03:14Z",
+      "side": 0,
+      "message": "I have explicitly added it to the ElfBuilder (so strtab-\u003eStart() does it).\nSo on the contrary - I wanted to really enforce that it is always called.",
+      "parentUuid": "2e9ffb4f_6280de46",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 65
+      },
+      "revId": "680d768b1aec1daf7a8faeb01d04e164afdc07bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
