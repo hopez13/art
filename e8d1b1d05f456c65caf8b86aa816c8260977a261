@@ -75,6 +75,30 @@
       },
       "revId": "e8d1b1d05f456c65caf8b86aa816c8260977a261",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28a9cb27_2864259c",
+        "filename": "dalvikvm/dalvikvm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-05-06T08:55:56Z",
+      "side": 1,
+      "message": "I implemented that suggestion in a follow-up CL (https://android-review.googlesource.com/c/platform/art/+/1698385) because it\u0027s a refactoring, and also because I\u0027m not certain of its benefits; let\u0027s discuss on the other CL.",
+      "parentUuid": "7d104212_4fb08605",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 12
+      },
+      "revId": "e8d1b1d05f456c65caf8b86aa816c8260977a261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
