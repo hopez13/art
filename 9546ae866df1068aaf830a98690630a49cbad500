@@ -22,6 +22,30 @@
       },
       "revId": "9546ae866df1068aaf830a98690630a49cbad500",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f282c1c_2af5c693",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T14:47:45Z",
+      "side": 1,
+      "message": "We do ship libart-disassembler.so in ART Module. But there is probably very little overlap in what these two binaries use and a lot of code that is not used by either.",
+      "parentUuid": "51c32341_32dee65c",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 10,
+        "endChar": 47
+      },
+      "revId": "9546ae866df1068aaf830a98690630a49cbad500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
