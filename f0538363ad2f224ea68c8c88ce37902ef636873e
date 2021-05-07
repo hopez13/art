@@ -109,6 +109,30 @@
       },
       "revId": "f0538363ad2f224ea68c8c88ce37902ef636873e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4d51dd8_b6fd88ca",
+        "filename": "test/2040-huge-native-alloc/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-07T11:43:00Z",
+      "side": 1,
+      "message": "I\u0027m not a code optimization expert, but looking at this code snippet it looks so obvious that the objects aren\u0027t being held, so why not eliminate it 😊\n\nI was suggesting having a single static holder and overwriting it in the loop.",
+      "parentUuid": "2e1c8dab_6b82e79b",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "f0538363ad2f224ea68c8c88ce37902ef636873e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
