@@ -935,6 +935,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e21cfb_247fe581",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "Done. (Though both cases are now a bit awkward because some functions are taking a `std::string` or `const char*` instead of `std::string_view`.)",
+      "parentUuid": "3ee9eaf7_db417987",
+      "range": {
+        "startLine": 1476,
+        "startChar": 0,
+        "endLine": 1481,
+        "endChar": 99
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fba9d4b3_8ab95b31",
@@ -948,6 +972,30 @@
       "writtenOn": "2021-05-06T16:59:57Z",
       "side": 1,
       "message": "Can you expand the comment to emphasize that we skip it on purpose so that older ART versions can read profiles from the future?",
+      "range": {
+        "startLine": 1765,
+        "startChar": 8,
+        "endLine": 1765,
+        "endChar": 36
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e98eeaef_c371fd7c",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1765,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fba9d4b3_8ab95b31",
       "range": {
         "startLine": 1765,
         "startChar": 8,

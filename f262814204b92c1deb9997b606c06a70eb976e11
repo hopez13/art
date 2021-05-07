@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca226fdc_b832b8a5",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "See comment for `kExtraDescriptors` starting on line 198.",
+      "parentUuid": "cc0b4891_b3ad9c45",
+      "range": {
+        "startLine": 853,
+        "startChar": 5,
+        "endLine": 853,
+        "endChar": 21
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19fb70d4_522e0403",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-05-06T16:59:57Z",
       "side": 1,
       "message": "Why flush here and not just at the end?\n\nAnd why flush explicitly at all, is it what we usually do when writing to file?",
+      "range": {
+        "startLine": 1049,
+        "startChar": 0,
+        "endLine": 1051,
+        "endChar": 3
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d76851_fe2dba65",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "I\u0027d prefer to avoid bad files with valid headers, so we write data, then flush, then write header, then flush again. We do the same for `art` files and `oat` files even though the latter needs to be cleaned up as the `oat file` is embedded in an ELF file.",
+      "parentUuid": "19fb70d4_522e0403",
       "range": {
         "startLine": 1049,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93cd1f69_1ad32b5d",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "Done.\n\nThanks for catching this. I have flagged this issue before but I missed this instance.",
+      "parentUuid": "ec8f1333_0853c0f6",
+      "range": {
+        "startLine": 1304,
+        "startChar": 16,
+        "endLine": 1304,
+        "endChar": 25
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "260c26e1_6500ea24",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-05-06T16:59:57Z",
       "side": 1,
       "message": "It may be more efficient to make used_flags uint32_t and do one cast before return.",
+      "range": {
+        "startLine": 2328,
+        "startChar": 20,
+        "endLine": 2328,
+        "endChar": 42
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffee4454_6cf242fe",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2328,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "260c26e1_6500ea24",
       "range": {
         "startLine": 2328,
         "startChar": 20,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bf75d11_31efb307",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2524,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c92b2a8c_860edfad",
+      "range": {
+        "startLine": 2524,
+        "startChar": 34,
+        "endLine": 2524,
+        "endChar": 36
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "493c9aac_d3b51042",
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83962884_21807d0b",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2569,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "493c9aac_d3b51042",
+      "range": {
+        "startLine": 2562,
+        "startChar": 0,
+        "endLine": 2569,
+        "endChar": 3
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "486bc690_4f596988",
@@ -169,6 +313,30 @@
       "writtenOn": "2021-05-06T16:59:57Z",
       "side": 1,
       "message": "This is repeated 3 times, maybe add a function.",
+      "range": {
+        "startLine": 2586,
+        "startChar": 34,
+        "endLine": 2586,
+        "endChar": 93
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d68fa3d_eaa59591",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2586,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "Done using `BitsToBytesRoundUp()` from `bit_utils.h`.",
+      "parentUuid": "486bc690_4f596988",
       "range": {
         "startLine": 2586,
         "startChar": 34,
@@ -225,6 +393,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "870f130f_8a042aba",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2636,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "5b654f44_d53399c4",
+      "range": {
+        "startLine": 2636,
+        "startChar": 14,
+        "endLine": 2636,
+        "endChar": 19
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b361ec45_edd3472b",
@@ -238,6 +430,30 @@
       "writtenOn": "2021-05-06T16:59:57Z",
       "side": 1,
       "message": "It is unclear why this means that the profile contains data for boot image (as opposed to checking kFlagLastBoot flag).",
+      "range": {
+        "startLine": 2685,
+        "startChar": 28,
+        "endLine": 2685,
+        "endChar": 82
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93c42c62_011df28a",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2685,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "We need to check all flags higher than `kFlagLastRegular`, from `kFlag32bit` to `kFlagStartupMaxBin`.",
+      "parentUuid": "b361ec45_edd3472b",
       "range": {
         "startLine": 2685,
         "startChar": 28,
@@ -317,6 +533,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "140dd25c_1f9d0d5a",
+        "filename": "libprofile/profile/profile_compilation_info_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "f7a980df_eea5bc08",
+      "range": {
+        "startLine": 474,
+        "startChar": 27,
+        "endLine": 474,
+        "endChar": 56
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b1795f2_5d6fd2f3",
@@ -330,6 +570,30 @@
       "writtenOn": "2021-05-06T16:59:57Z",
       "side": 1,
       "message": "Why 33?",
+      "range": {
+        "startLine": 657,
+        "startChar": 26,
+        "endLine": 657,
+        "endChar": 30
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "743b5362_7f74b00a",
+        "filename": "libprofile/profile/profile_compilation_info_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "Arbitrary; that dex pc is already used in this file. I could change that to the traditional 42 but I don\u0027t think it matters.",
+      "parentUuid": "9b1795f2_5d6fd2f3",
       "range": {
         "startLine": 657,
         "startChar": 26,
@@ -376,6 +640,30 @@
       "writtenOn": "2021-05-06T16:59:57Z",
       "side": 1,
       "message": "I somehow got the idea that arrays of primitive types don\u0027t have type IDs no matter how many dimensions. Is this wrong?",
+      "range": {
+        "startLine": 778,
+        "startChar": 35,
+        "endLine": 778,
+        "endChar": 94
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c4c2cb6_46e207fd",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 778,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "If a method takes an array argument or returns an array type, there shall be a `TypeId` for that array in the dex file, whether the element type is primitive or not.",
+      "parentUuid": "2e5c3479_478ddea2",
       "range": {
         "startLine": 778,
         "startChar": 35,
@@ -468,6 +756,30 @@
       "writtenOn": "2021-05-06T16:59:57Z",
       "side": 1,
       "message": "This seems simpler to me:\n\n  size_t array_dim \u003d 0;\n  while (array_dim \u003c klass.size() \u0026\u0026 klass[array_dim] \u003d\u003d \u0027[\u0027) ++array_dim;",
+      "range": {
+        "startLine": 1394,
+        "startChar": 0,
+        "endLine": 1395,
+        "endChar": 64
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "407867d7_39557e26",
+        "filename": "profman/profman.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-07T16:29:44Z",
+      "side": 1,
+      "message": "There is a composite condition in the `while`, so it\u0027s not really that simple to read. And the while-body needs braces to conform to ART style, so it\u0027s also two lines longer.",
+      "parentUuid": "e4972f45_70b9d14a",
       "range": {
         "startLine": 1394,
         "startChar": 0,
