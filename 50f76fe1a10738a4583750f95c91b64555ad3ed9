@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f66b80_22b19546",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-07T07:30:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73c1af3c_276bed51",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 73
+      },
+      "revId": "50f76fe1a10738a4583750f95c91b64555ad3ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "618214ba_546ad76e",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c57415d0_7d19a343",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-07T07:30:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "618214ba_546ad76e",
+      "range": {
+        "startLine": 457,
+        "startChar": 12,
+        "endLine": 457,
+        "endChar": 75
+      },
+      "revId": "50f76fe1a10738a4583750f95c91b64555ad3ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af00ce48_5e2c5629",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-05-06T18:38:33Z",
       "side": 1,
       "message": "Does it work to include monitor.h instead, as in\n\n#include \"monitor.h\"  // For MonitorId.\n\nIf not, we should probably just use uint32_t below. Duplicating the definition here seems questionable.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 27
+      },
+      "revId": "50f76fe1a10738a4583750f95c91b64555ad3ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5260bd82_8ac15e54",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-07T07:30:07Z",
+      "side": 1,
+      "message": "It has conflict if  #include \"monitor.h\" in mutex.h, I fallback to use uint32_t.",
+      "parentUuid": "af00ce48_5e2c5629",
       "range": {
         "startLine": 57,
         "startChar": 0,
