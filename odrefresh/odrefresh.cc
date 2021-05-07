@@ -610,7 +610,7 @@ class OnDeviceRefresh final {
       return cleanup_system_server_return(ExitCode::kCompilationRequired);
     }
 
-    // Cache info looks  good, check all compilation artifacts exist.
+    // Cache info looks good, check all compilation artifacts exist.
     auto cleanup_boot_extensions_return = [this](ExitCode exit_code, InstructionSet isa) {
       return RemoveBootExtensionArtifactsFromData(isa) ? exit_code : ExitCode::kCleanupFailed;
     };
@@ -920,17 +920,6 @@ class OnDeviceRefresh final {
     return exit_code;
   }
 
-  static void ReportSpace() {
-    uint64_t bytes;
-    std::string data_dir = GetArtApexData();
-    if (GetUsedSpace(data_dir, &bytes)) {
-      LOG(INFO) << "Used space " << bytes << " bytes.";
-    }
-    if (GetFreeSpace(data_dir, &bytes)) {
-      LOG(INFO) << "Available space " << bytes << " bytes.";
-    }
-  }
-
   WARN_UNUSED bool CleanApexdataDirectory() const {
     const std::string& apex_data_path = GetArtApexData();
     if (config_.GetDryRun()) {
@@ -1214,22 +1203,56 @@ class OnDeviceRefresh final {
   void ReportNextBootAnimationProgress(uint32_t current_compilation) const {
     uint32_t number_of_compilations =
         config_.GetBootExtensionIsas().size() + systemserver_compilable_jars_.size();
-    // We arbitrarly show progress until 90%, expecting that our compilations
+    // We arbitrarily show progress until 90%, expecting that our compilations
     // take a large chunk of boot time.
     uint32_t value = (90 * current_compilation) / number_of_compilations;
     android::base::SetProperty("service.bootanim.progress", std::to_string(value));
   }
 
+  WARN_UNUSED bool CheckCompilationSpace() const {
+    static constexpr uint64_t kMinimumSpaceForCompilation = 16 * 1024 * 1024;
+
+    uint64_t bytes_available;
+    if (!GetFreeSpace(GetArtApexData().c_str(), &bytes_available)) {
+      return false;
+    }
+
+    if (bytes_available < kMinimumSpaceForCompilation) {
+      LOG(WARNING) << "Skipping compilation, insufficient space of " << bytes_available << " bytes";
+      return false;
+    }
+
+    return true;
+  }
 
   WARN_UNUSED ExitCode Compile(OdrMetrics& metrics, bool force_compile) const {
-    ReportSpace();  // TODO(oth): Factor available space into compilation logic.
-
     const char* staging_dir = nullptr;
     metrics.SetStage(OdrMetrics::Stage::kPreparation);
     // Clean-up existing files.
     if (force_compile && !CleanApexdataDirectory()) {
       metrics.SetStatus(OdrMetrics::Status::kIoError);
       return ExitCode::kCleanupFailed;
+    }
+
+    const auto& bcp_instruction_sets = config_.GetBootExtensionIsas();
+    if (!CheckCompilationSpace()) {
+      // When there is insufficient space, purge everything before trying to compile.
+      // Any artifacts that we do manage to generate will be up-to-date and potentially
+      // usable with the current ART APEX version.
+      for (const InstructionSet isa : bcp_instruction_sets) {
+        if (!RemoveBootExtensionArtifactsFromData(isa)) {
+          metrics.SetStatus(OdrMetrics::Status::kNoSpace);
+          return ExitCode::kCleanupFailed;
+        }
+      }
+      if (!RemoveSystemServerArtifactsFromData()) {
+        metrics.SetStatus(OdrMetrics::Status::kNoSpace);
+        return ExitCode::kCleanupFailed;
+      }
+      if (!CheckCompilationSpace()) {
+        metrics.SetStatus(OdrMetrics::Status::kNoSpace);
+        return ExitCode::kCleanupFailed;
+      }
     }
 
     // Create staging area and assign label for generating compilation artifacts.
@@ -1246,7 +1269,6 @@ class OnDeviceRefresh final {
     uint32_t dex2oat_invocation_count = 0;
     ReportNextBootAnimationProgress(dex2oat_invocation_count);
 
-    const auto& bcp_instruction_sets = config_.GetBootExtensionIsas();
     DCHECK(!bcp_instruction_sets.empty() && bcp_instruction_sets.size() <= 2);
     for (const InstructionSet isa : bcp_instruction_sets) {
       auto stage = (isa == bcp_instruction_sets.front()) ?
@@ -1259,6 +1281,13 @@ class OnDeviceRefresh final {
         if (!RemoveBootExtensionArtifactsFromData(isa)) {
             return ExitCode::kCleanupFailed;
         }
+
+        if (!CheckCompilationSpace()) {
+          metrics.SetStatus(OdrMetrics::Status::kNoSpace);
+          // Return kOkay so odsign will keep and sign whatever we have been able to compile.
+          return ExitCode::kOkay;
+        }
+
         if (!CompileBootExtensionArtifacts(
                 isa, staging_dir, metrics, &dex2oat_invocation_count, &error_msg)) {
           LOG(ERROR) << "Compilation of BCP failed: " << error_msg;
@@ -1272,6 +1301,13 @@ class OnDeviceRefresh final {
 
     if (force_compile || !SystemServerArtifactsExistOnData(&error_msg)) {
       metrics.SetStage(OdrMetrics::Stage::kSystemServerClasspath);
+
+      if (!CheckCompilationSpace()) {
+        metrics.SetStatus(OdrMetrics::Status::kNoSpace);
+        // Return kOkay so odsign will keep and sign whatever we have been able to compile.
+        return ExitCode::kOkay;
+      }
+
       if (!CompileSystemServerArtifacts(
               staging_dir, metrics, &dex2oat_invocation_count, &error_msg)) {
         LOG(ERROR) << "Compilation of system_server failed: " << error_msg;
