@@ -133,6 +133,30 @@
       },
       "revId": "f0538363ad2f224ea68c8c88ce37902ef636873e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9921f91f_8b772132",
+        "filename": "test/2040-huge-native-alloc/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-05-07T11:53:38Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not a code optimization expert, but looking at this code snippet it looks so obvious that the objects aren\u0027t being held, so why not eliminate it 😊\n\nAt first glance, yes, but the compiler must ensure that any transformation preserves the behavior of the program (according to the runtime\u0027s specification). In this case, BufferHolder\u0027s constructor has a side effect (calling a native method) that the compiler cannot elide (or even understand). Same thing with the finalizer (once the object is constructed).",
+      "parentUuid": "b4d51dd8_b6fd88ca",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "f0538363ad2f224ea68c8c88ce37902ef636873e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
