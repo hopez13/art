@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f73fd7bb_3afdd9f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-07T09:30:39Z",
+      "side": 1,
+      "message": "Other than the below comment, LGTM.",
+      "revId": "f0538363ad2f224ea68c8c88ce37902ef636873e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0865591b_bc3b0c66",
+        "filename": "test/2040-huge-native-alloc/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-07T09:30:39Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this get optimized out by the compiler? Maybe have a static variable to hold the buffer each time?",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "f0538363ad2f224ea68c8c88ce37902ef636873e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
