@@ -157,6 +157,30 @@
       },
       "revId": "f0538363ad2f224ea68c8c88ce37902ef636873e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25f1b245_fd8373fa",
+        "filename": "test/2040-huge-native-alloc/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-07T16:21:12Z",
+      "side": 1,
+      "message": "As Roland said, I don\u0027t think this is much of a concern. The Java conpiler would have to optimize out the native allocation somehow. We\u0027re nowhere near that. Currently, if we do optimize this out, we want tests to fail :-)",
+      "parentUuid": "9921f91f_8b772132",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 5
+      },
+      "revId": "f0538363ad2f224ea68c8c88ce37902ef636873e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
