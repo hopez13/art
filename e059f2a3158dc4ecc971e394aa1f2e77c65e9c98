@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7abbf306_9db81274",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1213,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-05-07T15:59:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ab4d153_74ca4fca",
+      "range": {
+        "startLine": 1213,
+        "startChar": 0,
+        "endLine": 1213,
+        "endChar": 77
+      },
+      "revId": "e059f2a3158dc4ecc971e394aa1f2e77c65e9c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8d4a959_6041cfd6",
@@ -72,6 +96,30 @@
       "writtenOn": "2021-05-07T14:34:38Z",
       "side": 1,
       "message": "can you expand on what\u0027s \"everything\" here?",
+      "range": {
+        "startLine": 1239,
+        "startChar": 49,
+        "endLine": 1239,
+        "endChar": 59
+      },
+      "revId": "e059f2a3158dc4ecc971e394aa1f2e77c65e9c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b85ea77_ce806d7c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-05-07T15:59:24Z",
+      "side": 1,
+      "message": "Dropped this entirely. I don\u0027t think it\u0027s necessary since we purge any stale artifacts during the checking stage.",
+      "parentUuid": "b8d4a959_6041cfd6",
       "range": {
         "startLine": 1239,
         "startChar": 49,
