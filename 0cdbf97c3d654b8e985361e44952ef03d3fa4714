@@ -46,6 +46,30 @@
       },
       "revId": "0cdbf97c3d654b8e985361e44952ef03d3fa4714",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9704f15f_f31bdca9",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-08T13:03:15Z",
+      "side": 1,
+      "message": "We debated this a lot in:\nhttps://android-review.googlesource.com/c/platform/art/+/1688226\nThe most recent version is:\nhttps://android-review.googlesource.com/c/platform/art/+/1695663\n\nTL:DR; I think ToT should work for you now, and note that you can pass --host and --target at the same time now.  You can also pass --installclean if that works with your setup.",
+      "parentUuid": "34ea0180_4f7db035",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 50
+      },
+      "revId": "0cdbf97c3d654b8e985361e44952ef03d3fa4714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
