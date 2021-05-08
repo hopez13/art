@@ -22,6 +22,30 @@
       },
       "revId": "0cdbf97c3d654b8e985361e44952ef03d3fa4714",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34ea0180_4f7db035",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-05-08T12:58:11Z",
+      "side": 1,
+      "message": "This also breaks our ART VIXL simulator setup which relies on artefacts from two builds - armv8 and host x86.",
+      "parentUuid": "d0f9f73e_e34d2df2",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 50
+      },
+      "revId": "0cdbf97c3d654b8e985361e44952ef03d3fa4714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
