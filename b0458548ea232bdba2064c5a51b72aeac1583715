@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b866b08_4425eb72",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-10T08:58:27Z",
+      "side": 1,
+      "message": "Unnecessary, should be restored by `.cfi_restore_state`.",
+      "range": {
+        "startLine": 1515,
+        "startChar": 4,
+        "endLine": 1515,
+        "endChar": 29
+      },
+      "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "246ec081_57ea179a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-10T08:58:27Z",
+      "side": 1,
+      "message": "We should use `.cfi_def_cfa_offset` after `.cfi_restore_state`.",
+      "range": {
+        "startLine": 1516,
+        "startChar": 5,
+        "endLine": 1516,
+        "endChar": 26
+      },
+      "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d67200a_8c094267",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-10T08:58:27Z",
+      "side": 1,
+      "message": "What about `DELIVER_PENDING_EXCEPTION_FRAME_READY`? We already have a valid transition frame.",
+      "range": {
+        "startLine": 1522,
+        "startChar": 4,
+        "endLine": 1522,
+        "endChar": 36
+      },
+      "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f577fa1c_a6d83319",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1528,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-10T08:58:27Z",
+      "side": 1,
+      "message": "The same commens apply to the other three architectures.",
+      "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

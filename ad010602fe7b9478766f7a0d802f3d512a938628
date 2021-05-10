@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ea50ac4_be7ea563",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-10T08:58:27Z",
+      "side": 0,
+      "message": "Are you removing this to make the debug data smaller? Because it does not really matter as both sp and r10 should now have the same value.\n\nBut that means the previous three lines can be replaced by \"mov sp, r10\", or we can just shuffle the instruction from line 1500 (and the `.cfi_def_cfa_register sp` from line 1502) before the exception check.",
+      "range": {
+        "startLine": 1520,
+        "startChar": 4,
+        "endLine": 1520,
+        "endChar": 28
+      },
+      "revId": "ad010602fe7b9478766f7a0d802f3d512a938628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
