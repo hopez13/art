@@ -16,6 +16,24 @@
       "message": "It looks like GetFreeSpace() takes a const std::string\u0026, so we don\u0027t need to (or want to) call c_str() here, since it creates a string copy.  Follow-up at https://android-review.googlesource.com/c/platform/art/+/1701165",
       "revId": "263c39eaef07d56a34f853320dae76ab5693c377",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f31c990_db50cfae",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-05-10T14:20:51Z",
+      "side": 1,
+      "message": "Reviewed +2, thanks.",
+      "parentUuid": "890c7693_dc8037b2",
+      "revId": "263c39eaef07d56a34f853320dae76ab5693c377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
