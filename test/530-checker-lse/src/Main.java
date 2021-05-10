@@ -3455,6 +3455,37 @@ public class Main {
     return sum;
   }
 
+  /// CHECK-START: int Main.testLoop36(int) load_store_elimination (before)
+  /// CHECK-NOT:                 BoundsCheck
+
+  /// CHECK-START: int Main.testLoop36(int) load_store_elimination (before)
+  /// CHECK:                     Deoptimize
+
+  // Regression test for b/187487955.
+  // We previously failed a DCHECK() during the search for kept stores when
+  // we encountered two array locations for the same array and considered
+  // non-aliasing by LSA when only one of the array locations had index
+  // defined inside the loop. Note that this situation requires that BCE
+  // eliminates BoundsCheck instructions, otherwise LSA considers those
+  // locations aliasing.
+  private static int testLoop36(int n) {
+    int[] a = new int[n];
+    int zero = 0;
+    int i = 0;
+    for (; i < n; ++i) {
+      a[i] = i;
+      // Extra instructions to avoid loop unrolling.
+      zero = (((zero ^ 1) + 2) ^ 1) - 2;
+      zero = (((zero ^ 4) + 8) ^ 4) - 8;
+    }
+    // Use 4 loads with consecutive fixed offsets from the loop Phi for `i`.
+    // BCE shall replace BoundsChecks with Deoptimize, so that indexes here are
+    // the Phi plus/minus a constant, something that LSA considers non-aliasing
+    // with the Phi (LSA does not take different loop iterations into account)
+    // but LSE must consider aliasing across dfferent loop iterations.
+    return a[i - 1] + a[i - 2] + a[i - 3] + a[i - 4] + zero;
+  }
+
   /// CHECK-START: int Main.testNestedLoop1(TestClass, int) load_store_elimination (before)
   /// CHECK-DAG:                 InstanceFieldSet
   /// CHECK-DAG:                 InstanceFieldGet
@@ -4445,6 +4476,7 @@ public class Main {
     assertIntEquals(testLoop35(1), 1);
     assertIntEquals(testLoop35(2), 3);
     assertIntEquals(testLoop35(3), 6);
+    assertIntEquals(testLoop36(4), 6);
 
     assertIntEquals(testNestedLoop1(new TestClass(), 0), 1);
     assertIntEquals(testNestedLoop1(new TestClass(), 1), 1);
