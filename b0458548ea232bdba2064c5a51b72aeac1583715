@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ddc741b_fb7a065c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-10T11:11:10Z",
+      "side": 1,
+      "message": "CFA is not a register and thus the restore does not need to restore it.\nBut it is clearly the intent of restore.\nThe spec is unclear and tools have been observed to do both in practice.\nI think the only safe thing is to always set it.  Same with the offset.\nI am contemplating some objdump+python test, to catch all these cases.",
+      "parentUuid": "0b866b08_4425eb72",
+      "range": {
+        "startLine": 1515,
+        "startChar": 4,
+        "endLine": 1515,
+        "endChar": 29
+      },
+      "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "246ec081_57ea179a",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5d36dbf_34ac78af",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-10T11:11:10Z",
+      "side": 1,
+      "message": "Ups, yes.  Definitely.",
+      "parentUuid": "246ec081_57ea179a",
+      "range": {
+        "startLine": 1516,
+        "startChar": 5,
+        "endLine": 1516,
+        "endChar": 26
+      },
+      "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d67200a_8c094267",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2021-05-10T08:58:27Z",
       "side": 1,
       "message": "What about `DELIVER_PENDING_EXCEPTION_FRAME_READY`? We already have a valid transition frame.",
+      "range": {
+        "startLine": 1522,
+        "startChar": 4,
+        "endLine": 1522,
+        "endChar": 36
+      },
+      "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e99827ea_a2d1200b",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1522,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-10T11:11:10Z",
+      "side": 1,
+      "message": "Conservative... I don\u0027t know enough details to know the transition frame is ready. I was confident \"bl\" does not break anything.",
+      "parentUuid": "5d67200a_8c094267",
       "range": {
         "startLine": 1522,
         "startChar": 4,
