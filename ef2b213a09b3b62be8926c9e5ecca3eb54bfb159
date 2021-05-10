@@ -46,6 +46,30 @@
       },
       "revId": "ef2b213a09b3b62be8926c9e5ecca3eb54bfb159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33af843d_4ca742b0",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1909,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-10T12:30:31Z",
+      "side": 1,
+      "message": "Looks like you moved this to a map in thread_list? This isn\u0027t what I suggested: my comment is to use the custom_tls_ map in thread.h to store the info you need for each thread.",
+      "parentUuid": "f798e5cd_1ebff0eb",
+      "range": {
+        "startLine": 1909,
+        "startChar": 0,
+        "endLine": 1909,
+        "endChar": 36
+      },
+      "revId": "ef2b213a09b3b62be8926c9e5ecca3eb54bfb159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
