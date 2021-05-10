@@ -432,7 +432,6 @@ OatWriter::OatWriter(const CompilerOptions& compiler_options,
     size_oat_header_key_value_store_(0),
     size_dex_file_(0),
     size_verifier_deps_(0),
-    size_verifier_deps_alignment_(0),
     size_quickening_info_(0),
     size_quickening_info_alignment_(0),
     size_vdex_lookup_table_alignment_(0),
@@ -2519,27 +2518,18 @@ void OatWriter::WriteQuickeningInfo(/*out*/std::vector<uint8_t>* ATTRIBUTE_UNUSE
 
 void OatWriter::WriteVerifierDeps(verifier::VerifierDeps* verifier_deps,
                                   /*out*/std::vector<uint8_t>* buffer) {
+  // Writing dex files should have always aligned the current size.
+  DCHECK_EQ(RoundUp(vdex_size_, 4u), vdex_size_);
   if (verifier_deps == nullptr) {
-    // Nothing to write. Record the offset, but no need
-    // for alignment.
     vdex_verifier_deps_offset_ = vdex_size_;
     return;
   }
 
   TimingLogger::ScopedTiming split("VDEX verifier deps", timings_);
 
-  size_t initial_offset = vdex_size_;
-  size_t start_offset = RoundUp(initial_offset, 4u);
-
-  vdex_size_ = start_offset;
   vdex_verifier_deps_offset_ = vdex_size_;
-  size_verifier_deps_alignment_ = start_offset - initial_offset;
-  buffer->resize(buffer->size() + size_verifier_deps_alignment_, 0u);
-
-  size_t old_buffer_size = buffer->size();
   verifier_deps->Encode(*dex_files_, buffer);
-
-  size_verifier_deps_ = buffer->size() - old_buffer_size;
+  size_verifier_deps_ = buffer->size();
   vdex_size_ += size_verifier_deps_;
 }
 
@@ -2632,7 +2622,6 @@ bool OatWriter::CheckOatSize(OutputStream* out, size_t file_offset, size_t relat
     DO_STAT(size_oat_header_key_value_store_);
     DO_STAT(size_dex_file_);
     DO_STAT(size_verifier_deps_);
-    DO_STAT(size_verifier_deps_alignment_);
     DO_STAT(size_vdex_lookup_table_);
     DO_STAT(size_vdex_lookup_table_alignment_);
     DO_STAT(size_quickening_info_);
@@ -3235,6 +3224,12 @@ bool OatWriter::WriteDexFiles(File* file,
         return false;
       }
     }
+
+    // The next section in the vdex file (verifier deps) requires the dex file
+    // section to be 4-byte aligned.
+    size_t old_vdex_size = vdex_size_;
+    vdex_size_ = RoundUp(vdex_size_, 4u);
+    size_dex_file_alignment_ += vdex_size_ - old_vdex_size;
 
     // Write shared dex file data section and fix up the dex file headers.
     if (shared_data_size != 0u) {
