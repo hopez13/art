@@ -94,6 +94,30 @@
       },
       "revId": "ef2b213a09b3b62be8926c9e5ecca3eb54bfb159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c7c71ae_773e778b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1909,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-11T08:39:00Z",
+      "side": 1,
+      "message": "You can do:\nthread-\u003eSetCustomTLS(\"LastDumpStackTime\", last_dump_stack_time);",
+      "parentUuid": "f8907e85_726f4ed5",
+      "range": {
+        "startLine": 1909,
+        "startChar": 0,
+        "endLine": 1909,
+        "endChar": 36
+      },
+      "revId": "ef2b213a09b3b62be8926c9e5ecca3eb54bfb159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
