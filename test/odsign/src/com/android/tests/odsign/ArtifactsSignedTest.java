@@ -16,6 +16,7 @@
 
 package com.android.tests.odsign;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
 
@@ -30,6 +31,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +39,15 @@ public class ArtifactsSignedTest {
     private static final String TAG = "VerifyArtArtifactsSignedTest";
     private static final String ARTIFACTS_DIR = "/data/misc/apexdata/com.android.art/dalvik-cache";
     private static final String FS_VERITY_PROC_PATH = "/proc/sys/fs/verity";
+
+    private static final String[] REQUIRED_ARTIFACT_NAMES = {
+        "boot-framework.art",
+        "boot-framework.oat",
+        "boot-framework.vdex",
+        "services.art",
+        "services.oat",
+        "services.vdex"
+    };
 
     static {
         System.loadLibrary("OdsignTestAppJni");
@@ -55,12 +66,17 @@ public class ArtifactsSignedTest {
             map(Path::toFile)
             .collect(Collectors.toList());
 
+        int requiredArtifactsFound = 0;
         for (File file : files) {
             if (file.isFile()) {
                 assertTrue(file.getPath() + " is not in fs-verity",
                         hasFsverityNative(file.getPath()));
                 Log.i(TAG, file.getPath() + " is in fs-verity");
+                if (Arrays.stream(REQUIRED_ARTIFACT_NAMES).anyMatch(file.getName()::equals)) {
+                    requiredArtifactsFound++;
+                }
             }
         }
+        assertEquals(REQUIRED_ARTIFACT_NAMES.length, requiredArtifactsFound);
     }
 }
