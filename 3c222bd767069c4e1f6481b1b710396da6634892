@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "345e34f3_6cc7a00a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-05-11T08:07:59Z",
+      "side": 1,
+      "message": "Martin, can you review this? I\u0027m not sure if host tools (transitively depending on libdexfile) are okay without \"libdexfile\".",
+      "revId": "3c222bd767069c4e1f6481b1b710396da6634892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
