@@ -39,6 +39,30 @@
       },
       "revId": "3cd02d8328696fa74965c8d1b0808cb8f396f799",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a846d6c7_4ed733f6",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-11T18:41:05Z",
+      "side": 1,
+      "message": "I agree with you, except that I think IsMovingAllocator() probably isn\u0027t quite the right criterion here. Neither RosAlloc nor DLMalloc move objects. But I think we always use NonMoving in cases in which the semantics guarantee non-moving? So I think this is actually the correct test? Maybe add the helper function as MustBeNonMoving()?",
+      "parentUuid": "22a08de0_7f4481d4",
+      "range": {
+        "startLine": 291,
+        "startChar": 11,
+        "endLine": 291,
+        "endChar": 53
+      },
+      "revId": "3cd02d8328696fa74965c8d1b0808cb8f396f799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
