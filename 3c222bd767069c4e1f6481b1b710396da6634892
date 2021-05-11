@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ba80d4b_7480ce31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-05-11T11:56:04Z",
+      "side": 1,
+      "message": "aosp/1702492 is the related change.\n\nFor now, there\u0027s two module types of \"Packaging\": filesystem and cvd-host-package. These are very similar to \"apex\", but it gathers listed dependencies including transitive dependencies if dependency tags tells to do so. (InstallNeededDependencyTag). \n\ncvd-host-package is to collect host tools to run \"cvd(cuttlefish)\" as zip.\n\n\u003e  It doesn\u0027t seem ideal to have to explicitly add transitive dependencies to packages.\n\nYeah, I agree.\n\nWith the current change, I\u0027d like to know if host version of \"libdexfile\" is meaningful. The dependency chain is \"libbacktrace -\u003e libunwindstack -\u003e libdexfile_support -\u003e(dlopen)-\u003e libdexfile\". What would happen if libdexfile is missing? Is it necessary part of the (host) libdexfile_support or accidental dependency?",
+      "parentUuid": "7efc0c46_57794c86",
+      "range": {
+        "startLine": 12,
+        "startChar": 46,
+        "endLine": 12,
+        "endChar": 54
+      },
+      "revId": "3c222bd767069c4e1f6481b1b710396da6634892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "345e34f3_6cc7a00a",
