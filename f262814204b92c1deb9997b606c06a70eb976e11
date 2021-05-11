@@ -418,6 +418,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5bcd980_418c2561",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-11T14:45:05Z",
+      "side": 1,
+      "message": "Extracted the loop structure to a helper template function. The remaining lambda is not similar to `GetUsedBitmapFlags` at all.",
+      "parentUuid": "62dbc088_9c222968",
+      "range": {
+        "startLine": 2590,
+        "startChar": 0,
+        "endLine": 2605,
+        "endChar": 3
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b654f44_d53399c4",
@@ -525,6 +549,30 @@
       "writtenOn": "2021-05-06T16:59:57Z",
       "side": 1,
       "message": "Possible candidate for deduplication with lines 2590-2605. I see that it\u0027s doing yet another different thing (reading from saved_bitmap instead of writing to it), but maybe this difference can be abstracted away with a functor.",
+      "range": {
+        "startLine": 2699,
+        "startChar": 0,
+        "endLine": 2716,
+        "endChar": 3
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfaad2ee_31690034",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2716,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-11T14:45:05Z",
+      "side": 1,
+      "message": "Extracted the loop structure to a helper template function. There are enough differences between the remaining writing and reading lambdas.",
+      "parentUuid": "120d6413_6fb3f451",
       "range": {
         "startLine": 2699,
         "startChar": 0,
@@ -675,6 +723,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9ce62ff_147357cd",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-11T14:45:05Z",
+      "side": 1,
+      "message": "It\u0027s different from the member variables `dex1` and `dex2`.",
+      "parentUuid": "c88a4ffa_9b70f984",
+      "range": {
+        "startLine": 445,
+        "startChar": 23,
+        "endLine": 445,
+        "endChar": 25
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e5c3479_478ddea2",
@@ -745,6 +817,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78526ac9_65741ac2",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1885,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-11T14:45:05Z",
+      "side": 1,
+      "message": "Done in a separate CL, including the one line I did not previously touch in this file.",
+      "parentUuid": "c5069f70_cb2a3ad8",
+      "range": {
+        "startLine": 1885,
+        "startChar": 38,
+        "endLine": 1885,
+        "endChar": 53
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a57d5c09_d6cd98ab",
@@ -768,6 +864,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a15f6f07_572348a9",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-11T14:45:05Z",
+      "side": 1,
+      "message": "Done; also done for pre-existing code that I copy-pasted here in a separate CL.",
+      "parentUuid": "a57d5c09_d6cd98ab",
+      "range": {
+        "startLine": 1957,
+        "startChar": 48,
+        "endLine": 1957,
+        "endChar": 49
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "523a43a9_78448dc7",
@@ -781,6 +901,30 @@
       "writtenOn": "2021-05-06T16:59:57Z",
       "side": 1,
       "message": "Can you add a comment?\n\nIf this is trying to find if the string has more than one \u0027(\u0027, maybe `std::count(...) !\u003d 1` would be shorter.",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1072,
+        "endChar": 37
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ec5cfda_8345dd57",
+        "filename": "profman/profman.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-11T14:45:05Z",
+      "side": 1,
+      "message": "Using `substr(.).contains(.)` would be shorter but `contains()` shall be available only from C++23. So, I just dropped this condition and let it fail with the \"Could not create type list\" message below.",
+      "parentUuid": "523a43a9_78448dc7",
       "range": {
         "startLine": 1069,
         "startChar": 0,
