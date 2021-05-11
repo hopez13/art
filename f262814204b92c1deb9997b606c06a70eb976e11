@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a500c321_9f73d11c",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-11T09:48:20Z",
+      "side": 1,
+      "message": "dex2oat is fetching descriptors as strings using `GetClassDescriptors()` which has been updated to use `GetTypeDescriptor()` and that checks `if (type_index.index_ \u003c num_type_ids)` and returns either a descriptor from the dex file, or an \"extra descriptor\". The inliner similarly calls `GetTypeDescriptor()` for inline caches.\n\nWhen aggregating profiles, all type indexes where `type_index.index_ \u003e\u003d num_type_ids` are referencing the type with the descriptor `extra_descriptors_[type_index.index_ - num_type_ids]`. As the array of extra descriptors can differ between profiles, these need to be grouped based on the descriptor string instead of the numeric type index. When some extra descriptor does not reach the threshold for inclusion in the combined profile, it does not need to be written to the file (unless referenced by an inline cache that passed the threshold for inclusion).",
+      "parentUuid": "2b23011d_88561f42",
+      "range": {
+        "startLine": 853,
+        "startChar": 5,
+        "endLine": 853,
+        "endChar": 21
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19fb70d4_522e0403",
