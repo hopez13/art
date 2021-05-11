@@ -204,6 +204,10 @@ art_cc_library {
         symbol_file: "libdexfile.map.txt",
         versions: ["1"],
     },
+    visibility: [
+        // required by cvd-host_package
+        "//device/google/cuttlefish/build",
+    ],
 }
 
 art_cc_library {
