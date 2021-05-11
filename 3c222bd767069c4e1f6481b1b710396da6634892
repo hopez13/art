@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7efc0c46_57794c86",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-11T10:23:56Z",
+      "side": 1,
+      "message": "What is this \"package\" thing in this context? The ticket below discusses runtime_libs behaviour on device, but this is host where APEX boundaries don\u0027t apply. Since the libraries won\u0027t be provided any other way on host, runtime_libs should install its dependencies there, shouldn\u0027t it? It doesn\u0027t seem ideal to have to explicitly add transitive dependencies to packages.",
+      "range": {
+        "startLine": 12,
+        "startChar": 46,
+        "endLine": 12,
+        "endChar": 54
+      },
+      "revId": "3c222bd767069c4e1f6481b1b710396da6634892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "345e34f3_6cc7a00a",
