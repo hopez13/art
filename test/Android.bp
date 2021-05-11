@@ -34,7 +34,7 @@ soong_config_module_type_import {
 
 art_module_cc_defaults {
     name: "art_test_defaults",
-    host_supported: true,
+    defaults: ["art_defaults"],
     soong_config_variables: {
         source_build: {
             target: {
