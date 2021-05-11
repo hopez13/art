@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f0c11a_345129bf",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-11T11:06:04Z",
+      "side": 1,
+      "message": "This still allows over-read below for one instruction. We should instead check if the instruction size is \u003c\u003d remaining code units.",
+      "range": {
+        "startLine": 1132,
+        "startChar": 14,
+        "endLine": 1132,
+        "endChar": 36
+      },
+      "revId": "e97359a7af3ad682ae7fdd7c619adc85a2a2ab37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
