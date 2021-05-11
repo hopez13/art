@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "05010f6f_4cfc83ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-11T12:12:20Z",
+      "side": 1,
+      "message": "\u003e aosp/1702492 is the related change.\n\nShouldn\u0027t it treat install on host and device differently then?\n\n\u003e What would happen if libdexfile is missing?\n\nI think it logs a warning (https://cs.android.com/android/platform/superproject/+/master:system/unwinding/libunwindstack/DexFile.cpp;l\u003d43-44;drc\u003dcb436a5104afaf290aac63d1fe1a8e0076c39702) and just doesn\u0027t give much info on dex stack frames.\n\n\u003e Is it necessary part of the (host) libdexfile_support or accidental dependency?\n\nIt depends on what that \"root-canal\" binary does. If it needs to unwind stacks and see dex (i.e. java) frames from code in an ART VM then it needs the dependencies all the way down to libdexfile, otherwise it\u0027s probably better off building with libbacktrace_no_dex instead.",
+      "parentUuid": "9ba80d4b_7480ce31",
+      "range": {
+        "startLine": 12,
+        "startChar": 46,
+        "endLine": 12,
+        "endChar": 54
+      },
+      "revId": "3c222bd767069c4e1f6481b1b710396da6634892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "345e34f3_6cc7a00a",
