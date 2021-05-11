@@ -442,6 +442,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2ac2b55_818a358e",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-11T15:46:59Z",
+      "side": 1,
+      "message": "Ah, this is an unexpected failure mode.",
+      "parentUuid": "e58ced45_808f3308",
+      "range": {
+        "startLine": 480,
+        "startChar": 14,
+        "endLine": 480,
+        "endChar": 25
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be2f3579_3d670c0f",
@@ -526,6 +550,30 @@
       "side": 1,
       "message": "The `AddExtraDescriptor()` function has it\u0027s own checking because it\u0027s also used for merging extra descriptors from two profiles with no dex files involved. That\u0027s why we just check `kMaxExtraDescriptors` there.\n\nHere we have a dex file and therefore we can do a better check for that particular dex file. Since different dex files can have different `NumTypeIds()`, the index we found above may not be usable for this particular dex file. And if we did not find an existing index, we do a strict check below to make sure the new extra descriptor is usable for this dex file; if it is, we call `AddExtraDescriptor()` knowing it shall succeed.\n\n(I did consider adding the limit as an argument to `AddExtraDescriptor()` but didn\u0027t do that micro optimization.)",
       "parentUuid": "01c1a497_66b8d867",
+      "range": {
+        "startLine": 659,
+        "startChar": 4,
+        "endLine": 659,
+        "endChar": 94
+      },
+      "revId": "0ce29a7285f19b61b8f06198825fbefed2550dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e0d7214_49d68df2",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-05-11T15:46:59Z",
+      "side": 1,
+      "message": "Thanks for the explanation!",
+      "parentUuid": "d0ef0c76_f061708f",
       "range": {
         "startLine": 659,
         "startChar": 4,
