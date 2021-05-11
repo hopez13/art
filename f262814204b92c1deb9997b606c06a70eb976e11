@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b23011d_88561f42",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1168158
+      },
+      "writtenOn": "2021-05-11T02:10:49Z",
+      "side": 1,
+      "message": "Sorry I mean how the \"ExtraDescriptor\" will be used in dex2oat? Will it be used for any optimization? Because the profile will aggregate methods/classes in method/class section and filter them based on the count. How should it handle \"ExtraDescriptor\"? Shall we just ignore all of them or union them?",
+      "parentUuid": "ca226fdc_b832b8a5",
+      "range": {
+        "startLine": 853,
+        "startChar": 5,
+        "endLine": 853,
+        "endChar": 21
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19fb70d4_522e0403",
         "filename": "libprofile/profile/profile_compilation_info.cc",
         "patchSetId": 14
