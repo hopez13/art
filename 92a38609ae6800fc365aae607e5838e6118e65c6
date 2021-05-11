@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2450efcd_e922f2e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-11T19:32:18Z",
+      "side": 1,
+      "message": "$ ls -lh prebuilts/module_sdk/art/current/host-exports/x86_64/bin/\ntotal 60M\n-rwx------ 1 mast primarygroup  19M May 11 20:14 dex2oat64*\n-rwx------ 1 mast primarygroup  24M May 11 20:14 dex2oatd64*\n-rwx------ 1 mast primarygroup 999K May 11 20:14 dexdump*\n-rwx------ 1 mast primarygroup 1.5M May 11 20:14 hiddenapi*\n-rwx------ 1 mast primarygroup  13M May 11 20:14 oatdump*\n-rwx------ 1 mast primarygroup 1.5M May 11 20:14 profman*\n-rwx------ 1 mast primarygroup 1.1M May 11 20:14 veridex*\n\noatdump is pretty big, probably because it contains the whole runtime including the compiler. Why is that? (Not that it matters much for host tools, just curious.)",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "92a38609ae6800fc365aae607e5838e6118e65c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70b69bee_0b22e38c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-11T19:32:18Z",
+      "side": 1,
+      "message": "Roland, I recall you argued for including oatdump as a prebuilt. Is this accurate? Do we have other more precise reasons? I\u0027d like to document them here for later reference.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "92a38609ae6800fc365aae607e5838e6118e65c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
