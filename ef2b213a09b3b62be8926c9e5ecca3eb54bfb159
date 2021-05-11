@@ -70,6 +70,30 @@
       },
       "revId": "ef2b213a09b3b62be8926c9e5ecca3eb54bfb159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8907e85_726f4ed5",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1909,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-11T02:06:08Z",
+      "side": 1,
+      "message": "Sorry, I can not understand you, why use map can save space? the map only store an uint64_t data per thread,\nit is because of custom map? could you give an example, thanks.",
+      "parentUuid": "33af843d_4ca742b0",
+      "range": {
+        "startLine": 1909,
+        "startChar": 0,
+        "endLine": 1909,
+        "endChar": 36
+      },
+      "revId": "ef2b213a09b3b62be8926c9e5ecca3eb54bfb159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
