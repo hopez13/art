@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5546b978_de758988",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1168158
+      },
+      "writtenOn": "2021-05-11T17:19:14Z",
+      "side": 1,
+      "message": "The non-deterministic of the extra descriptor index makes the merging of app profile very tricky. Could we use the fixed index of the extra descriptor in the dex files instead? Maybe an array of (index, extra descriptor) pairs?",
+      "parentUuid": "a500c321_9f73d11c",
+      "range": {
+        "startLine": 853,
+        "startChar": 5,
+        "endLine": 853,
+        "endChar": 21
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19fb70d4_522e0403",
         "filename": "libprofile/profile/profile_compilation_info.cc",
         "patchSetId": 14
