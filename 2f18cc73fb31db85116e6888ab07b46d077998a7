@@ -22,6 +22,30 @@
       },
       "revId": "2f18cc73fb31db85116e6888ab07b46d077998a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea5f35c3_274cfd7c",
+        "filename": "runtime/backtrace_helper.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-12T17:09:46Z",
+      "side": 0,
+      "message": "I have not. It is same as \u0027error \u003d\u003d unwindstack::ERROR_MAX_FRAMES_EXCEEDED\u0027.\nThat is, \"we have seen more than 16 frames\" is still considered a successful unwind.",
+      "parentUuid": "d7466ae8_fed2d5f1",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 3
+      },
+      "revId": "2f18cc73fb31db85116e6888ab07b46d077998a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
