@@ -93,6 +93,30 @@
       },
       "revId": "c0746674649834b14d6a6bb5fbca3ec059ca7483",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d436ea_edff0074",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1730,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-12T10:04:06Z",
+      "side": 1,
+      "message": "I meant, could we remove the debug.art.monitor.app check? And always enable the timeout?",
+      "parentUuid": "924d09be_03bd1bf9",
+      "range": {
+        "startLine": 1730,
+        "startChar": 38,
+        "endLine": 1730,
+        "endChar": 69
+      },
+      "revId": "c0746674649834b14d6a6bb5fbca3ec059ca7483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
