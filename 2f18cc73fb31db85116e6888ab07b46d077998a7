@@ -46,6 +46,30 @@
       },
       "revId": "2f18cc73fb31db85116e6888ab07b46d077998a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9791a8f_0690ba07",
+        "filename": "runtime/backtrace_helper.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-12T17:16:46Z",
+      "side": 0,
+      "message": "Actually there is a difference.  With kStrictUnwindChecks disabled, the method will return false in some cases where it returned true before.\nBut if kStrictUnwindChecks is disabled, the caller will never report error anyway.",
+      "parentUuid": "ea5f35c3_274cfd7c",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 3
+      },
+      "revId": "2f18cc73fb31db85116e6888ab07b46d077998a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
