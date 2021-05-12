@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5b3bc608_25db7e4b",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-12T18:52:38Z",
+      "side": 1,
+      "message": "Leaving this with a TODO for now.",
+      "parentUuid": "21b0861c_bfc705e4",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 41
+      },
+      "revId": "73a7276d23cedf7c1db7e0017f63f0595afee737",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "29cd3e8f_374f802d",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 1
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "Actually, the logic here looks wrong to me. If the allocator changes during thread suspension, and we were allocating a nonmovable object, we seem to switch to a movable allocator. Is there some unstated restriction on when the allocator can change?\n\nIf we need to pick up allocator changes, we should probably also do so above.\n\nIf we always call AllocObjectWithAllocator recursively, then I think the compiler should complain if this doesn\u0027t get compiled as tail recursion, since we say ALWAYS_INLINE.\n\nI\u0027ll take a stab at this, but I\u0027m not confident, my understanding here is correct.",
       "parentUuid": "29cd3e8f_374f802d",
+      "range": {
+        "startLine": 164,
+        "startChar": 19,
+        "endLine": 164,
+        "endChar": 30
+      },
+      "revId": "73a7276d23cedf7c1db7e0017f63f0595afee737",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66734c3a_e821e523",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-12T18:52:38Z",
+      "side": 1,
+      "message": "I\u0027ll go ahead and submit this with a fix.",
+      "parentUuid": "118ebd17_7bd00236",
       "range": {
         "startLine": 164,
         "startChar": 19,
