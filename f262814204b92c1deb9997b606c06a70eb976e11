@@ -161,6 +161,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a46a15e_117a0cad",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1168158
+      },
+      "writtenOn": "2021-05-12T16:33:32Z",
+      "side": 1,
+      "message": "I see. The tricky part in inline cache. We only store the idx for classes there. I will figure a way to work it around. Thanks.",
+      "parentUuid": "9c614326_ce3c22a0",
+      "range": {
+        "startLine": 853,
+        "startChar": 5,
+        "endLine": 853,
+        "endChar": 21
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19fb70d4_522e0403",
