@@ -137,6 +137,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c614326_ce3c22a0",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-12T08:19:54Z",
+      "side": 1,
+      "message": "It is not possible to have a fixed index for a given extra descriptor. There is no index in dex file for that descriptor, otherwise we would have used it.\n\nI don\u0027t see what\u0027s tricky about merging app profiles. In addition to the old index-based structure (I\u0027m making assumptions about code I have never seen), we just add a `HashMap\u003cString, .\u003e` (or maybe `HashMap\u003cbyte[], .\u003e`) for indexes above the num_type_ids. There are additional remapping and pruning steps for extra descriptors when reading and writing profiles but I don\u0027t think it\u0027s too complicated.",
+      "parentUuid": "5546b978_de758988",
+      "range": {
+        "startLine": 853,
+        "startChar": 5,
+        "endLine": 853,
+        "endChar": 21
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19fb70d4_522e0403",
