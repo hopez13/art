@@ -16,6 +16,23 @@
       "message": "Thanks!",
       "revId": "32439f30b740be0babcce0b9b0f8e2eea43e876b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7674d095_92f8a178",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1660,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-12T16:02:15Z",
+      "side": 1,
+      "message": "All other architectures have an extra comment here.",
+      "revId": "32439f30b740be0babcce0b9b0f8e2eea43e876b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
