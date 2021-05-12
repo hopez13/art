@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feebc6dd_2a0e46ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-12T16:32:46Z",
+      "side": 1,
+      "message": "Jiyong, is this ok? The ro.debuggable restriction originates from what you introduced for the corresponding ANDROID_ADDITIONAL_PUBLIC_LIBRARIES environment variable in https://r.android.com/588580. I\u0027d like to ensure I haven\u0027t missed some aspect when removing it here.",
+      "revId": "900545cbdd1c050b873a3057ceeed11e735c55c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
