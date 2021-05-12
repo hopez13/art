@@ -51,6 +51,42 @@
       "parentUuid": "419e2ee8_de6b325b",
       "revId": "900545cbdd1c050b873a3057ceeed11e735c55c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2473643_5da9144c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-05-12T17:14:15Z",
+      "side": 1,
+      "message": "Oops, sorry. Ignore my comment. I thought this as a different one and then realized what this is, but forgot to delete the unfinished comment.",
+      "parentUuid": "dd705095_c9f0f592",
+      "revId": "900545cbdd1c050b873a3057ceeed11e735c55c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "922a2735_c4353f7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2021-05-12T17:14:15Z",
+      "side": 1,
+      "message": "ANDROID_ADDITIONAL_PUBLIC_LIBRARIES has existed before I touched libnativeloader, perhaps it\u0027s from dimitry. I think we no longer uses that debugging feature. At least the feature has been unmaintained, AFAIK.",
+      "parentUuid": "feebc6dd_2a0e46ea",
+      "revId": "900545cbdd1c050b873a3057ceeed11e735c55c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
