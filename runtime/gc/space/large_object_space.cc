@@ -167,6 +167,8 @@ mirror::Object* LargeObjectMapSpace::Alloc(Thread* self, size_t num_bytes,
   total_bytes_allocated_ += allocation_size;
   ++num_objects_allocated_;
   ++total_objects_allocated_;
+  // Java Heap Profiler check and sample allocation.
+  Runtime::Current()->GetHeap()->JHPCheckNonTlabSampleAllocation(self, obj, allocation_size);
   return obj;
 }
 
@@ -551,6 +553,8 @@ mirror::Object* FreeListSpace::Alloc(Thread* self, size_t num_bytes, size_t* byt
   }
   new_info->SetPrevFreeBytes(0);
   new_info->SetByteSize(allocation_size, false);
+  // Java Heap Profiler check and sample allocation.
+  Runtime::Current()->GetHeap()->JHPCheckNonTlabSampleAllocation(self, obj, allocation_size);
   return obj;
 }
 

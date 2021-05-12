@@ -4165,7 +4165,7 @@ void Heap::JHPCheckNonTlabSampleAllocation(Thread* self, mirror::Object* ret, si
     if (take_sample) {
       prof_heap_sampler.ReportSample(ret, alloc_size);
     }
-    VLOG(heap) << "JHP:NonTlab:AllocNonvirtual";
+    VLOG(heap) << "JHP:NonTlab or Large Allocation";
   }
 }
 
