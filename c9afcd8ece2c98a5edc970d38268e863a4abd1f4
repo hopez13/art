@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a9f6b4c_7fb00709",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-12T15:20:56Z",
+      "side": 1,
+      "message": "You may want to add `178-app-image-native-method` as it tests the GenericJNI (not just compiled JNI stubs), including exceptional paths.",
+      "revId": "c9afcd8ece2c98a5edc970d38268e863a4abd1f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf7931eb_1c35614c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-12T15:20:56Z",
+      "side": 1,
+      "message": "These can be merged to a `.cfi_def_cfa`, right?",
+      "range": {
+        "startLine": 1515,
+        "startChar": 4,
+        "endLine": 1516,
+        "endChar": 53
+      },
+      "revId": "c9afcd8ece2c98a5edc970d38268e863a4abd1f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2ab3704_3197119c",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1831,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-12T15:20:56Z",
+      "side": 1,
+      "message": "While you\u0027re touching this... remove one blank line, please.",
+      "revId": "c9afcd8ece2c98a5edc970d38268e863a4abd1f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ea76fd3_4ca49eda",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-12T15:20:56Z",
+      "side": 1,
+      "message": "Style: Blank lines are quite inconsistent between the architectures. At least align x86 and x86-64.",
+      "revId": "c9afcd8ece2c98a5edc970d38268e863a4abd1f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

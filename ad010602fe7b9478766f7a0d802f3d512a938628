@@ -46,6 +46,30 @@
       },
       "revId": "ad010602fe7b9478766f7a0d802f3d512a938628",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c411174_c03d9895",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-12T15:20:56Z",
+      "side": 0,
+      "message": "Actually, I now rememer that the `artQuickGenericJniEndTrampoline()` can rewrite the frame and they are not the same anymore. So my comments here were really misleading.",
+      "parentUuid": "a97e0202_13ee63b6",
+      "range": {
+        "startLine": 1520,
+        "startChar": 4,
+        "endLine": 1520,
+        "endChar": 28
+      },
+      "revId": "ad010602fe7b9478766f7a0d802f3d512a938628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
