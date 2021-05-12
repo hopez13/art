@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09d880a1_e422d614",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-12T08:53:43Z",
+      "side": 1,
+      "message": "Use a static constexpr for this. Also, move it in method MaybeEnableTimeout",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 33
+      },
+      "revId": "c0746674649834b14d6a6bb5fbca3ec059ca7483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e95f4dce_a73368aa",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1730,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-12T08:53:43Z",
+      "side": 1,
+      "message": "Any reason we would want to limit it to an app? Does it provide value for all apps without too much overhead?",
+      "range": {
+        "startLine": 1730,
+        "startChar": 38,
+        "endLine": 1730,
+        "endChar": 69
+      },
+      "revId": "c0746674649834b14d6a6bb5fbca3ec059ca7483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
