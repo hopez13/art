@@ -259,11 +259,14 @@ class Heap {
                !*backtrace_lock_,
                !process_state_update_lock_,
                !Roles::uninterruptible_) {
-    return AllocObjectWithAllocator<kInstrumented>(self,
-                                                   klass,
-                                                   num_bytes,
-                                                   GetCurrentNonMovingAllocator(),
-                                                   pre_fence_visitor);
+    mirror::Object* obj = AllocObjectWithAllocator<kInstrumented>(self,
+                                                                  klass,
+                                                                  num_bytes,
+                                                                  GetCurrentNonMovingAllocator(),
+                                                                  pre_fence_visitor);
+    // Java Heap Profiler check and sample allocation.
+    JHPCheckNonTlabSampleAllocation(self, obj, num_bytes);
+    return obj;
   }
 
   template <bool kInstrumented = true, bool kCheckLargeObject = true, typename PreFenceVisitor>

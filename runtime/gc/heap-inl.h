@@ -97,19 +97,24 @@ inline mirror::Object* Heap::AllocObjectWithAllocator(Thread* self,
       // AllocLargeObject can suspend and will recall PreObjectAllocated if needed.
       obj = AllocLargeObject<kInstrumented, PreFenceVisitor>(self, &klass, byte_count,
                                                              pre_fence_visitor);
-      if (obj != nullptr) {
-        return obj.Ptr();
-      }
-      // There should be an OOM exception, since we are retrying, clear it.
-      self->ClearException();
+      mirror::Object* objm;
+      if (obj == nullptr) {
+        // There should be an OOM exception, since we are retrying, clear it.
+        self->ClearException();
 
-      // If the large object allocation failed, try to use the normal spaces (main space,
-      // non moving space). This can happen if there is significant virtual address space
-      // fragmentation.
-      // kInstrumented may be out of date, so recurse without large object checking, rather than
-      // continue.
-      return AllocObjectWithAllocator</*kInstrumented=*/ true, /*kCheckLargeObject=*/ false>
-          (self, klass, byte_count, GetUpdatedAllocator(allocator), pre_fence_visitor);
+        // If the large object allocation failed, try to use the normal spaces (main space,
+        // non moving space). This can happen if there is significant virtual address space
+        // fragmentation.
+        // kInstrumented may be out of date, so recurse without large object checking, rather than
+        // continue.
+        objm = AllocObjectWithAllocator</*kInstrumented=*/ true, /*kCheckLargeObject=*/ false>
+               (self, klass, byte_count, GetUpdatedAllocator(allocator), pre_fence_visitor);
+      } else {
+        objm = obj.Ptr();
+      }
+      // Java Heap Profiler check and sample allocation.
+      JHPCheckNonTlabSampleAllocation(self, objm, byte_count);
+      return objm;
     }
     ScopedAssertNoThreadSuspension ants("Called PreObjectAllocated, no suspend until alloc");
     if (IsTLABAllocator(allocator)) {
