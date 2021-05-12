@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8797004e_52d6131a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-05-12T01:10:15Z",
+      "side": 1,
+      "message": "Thanks, Martin.\n\n\u003e It doesn\u0027t seem ideal to have to explicitly add transitive dependencies to packages.\n\nWith Colin\u0027s help, I figured out the way and we don\u0027t need to add transitive deps manually. Abandoning this.",
+      "parentUuid": "05010f6f_4cfc83ae",
+      "range": {
+        "startLine": 12,
+        "startChar": 46,
+        "endLine": 12,
+        "endChar": 54
+      },
+      "revId": "3c222bd767069c4e1f6481b1b710396da6634892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "345e34f3_6cc7a00a",
