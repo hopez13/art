@@ -63,6 +63,30 @@
       },
       "revId": "3cd02d8328696fa74965c8d1b0808cb8f396f799",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84440af3_428b64b4",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-12T08:06:48Z",
+      "side": 1,
+      "message": "I see. Feel free to add the `MustBeNonMoving()` function. Or just submit as is.",
+      "parentUuid": "a846d6c7_4ed733f6",
+      "range": {
+        "startLine": 291,
+        "startChar": 11,
+        "endLine": 291,
+        "endChar": 53
+      },
+      "revId": "3cd02d8328696fa74965c8d1b0808cb8f396f799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
