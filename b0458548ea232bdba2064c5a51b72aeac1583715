@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa0b768a_c6799932",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-12T11:25:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5d36dbf_34ac78af",
+      "range": {
+        "startLine": 1516,
+        "startChar": 5,
+        "endLine": 1516,
+        "endChar": 26
+      },
+      "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d67200a_8c094267",
@@ -142,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b924382_55086b40",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1522,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-12T11:25:06Z",
+      "side": 1,
+      "message": "I tried with _FRAME_READY, but then the tests fail with:\n\u0027Check failed: reinterpret_cast\u003cuintptr_t\u003e(Thread::Current()) \u003d\u003d gprs[TR]\u0027",
+      "parentUuid": "e99827ea_a2d1200b",
+      "range": {
+        "startLine": 1522,
+        "startChar": 4,
+        "endLine": 1522,
+        "endChar": 36
+      },
+      "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f577fa1c_a6d83319",
@@ -155,6 +203,24 @@
       "writtenOn": "2021-05-10T08:58:27Z",
       "side": 1,
       "message": "The same commens apply to the other three architectures.",
+      "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4f9fe15_8bfe07a5",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1528,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-12T11:25:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f577fa1c_a6d83319",
       "revId": "b0458548ea232bdba2064c5a51b72aeac1583715",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
