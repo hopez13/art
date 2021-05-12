@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2d8faac_49bc1e6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1151059
+      },
+      "writtenOn": "2021-05-12T01:03:08Z",
+      "side": 1,
+      "message": "I updated as Patchset4.\n\nRemove LongWait and GcWithSoftCount values.\nI want to commit GcObjectsAllocated and GcTotalTimeWaitingForGC.\n\nPlease review about those. (ART and libcore)",
+      "revId": "2a72fcc1729ee1efacd2fce3554098f2c407d7a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
