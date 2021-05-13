@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fe789f9_36f88b49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-13T16:26:19Z",
+      "side": 1,
+      "message": "Nicolas - Any idea what\u0027s causing failures like the following? They seem to be unrelated, but repeatable. And they don\u0027t seem to occur in ToT.\n\nGuibo - Can you try re-syncing your tree and rebasing? Also please fix the trivial problem below. I\u0027m OK with this, but would like to get a cleaner presubmit run.\n\nart/dex2oat/driver/compiler_driver_test.cc:(251) Failure in test CompilerDriverProfileTest.ProfileGuidedCompilation\nart/dex2oat/driver/compiler_driver_test.cc:(251) Failure in test CompilerDriverProfileTest.ProfileGuidedCompilation\nValue of: class_linker-\u003eIsQuickToInterpreterBridge(code)\nActual: true\nExpected: false\nart/dex2oat/driver/compiler_driver_test.cc:(251) Failure in test CompilerDriverProfileTest.ProfileGuidedCompilation\nValue of: class_linker-\u003eIsQuickToInterpreterBridge(code)\nActual: true\nExpected: false\nart/dex2oat/driver/compiler_driver_test.cc:(251) Failure in test CompilerDriverProfileTest.ProfileGuidedCompilation\nValue of: class_linker-\u003eIsQuickToInterpreterBridge(code)\nActual: true\nExpected: false\nart/dex2oat/driver/compiler_driver_test.cc:(251) Failure in test CompilerDriverProfileTest.ProfileGuidedCompilation\nValue of: class_linker-\u003eIsQuickToInterpreterBridge(code)\nActual: true\nExpected: false\nCompilerDriverProfileTest.ProfileGuidedCompilation exited with exitcode 1.",
+      "revId": "90d3203471c1871c89c9dde4d5c622ab1b93e4ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de498639_7bdde6e4",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-13T16:26:19Z",
+      "side": 1,
+      "message": "Sorry I missed this. Our lint insists on\n\n;\u003csp\u003e\u003csp\u003e// ...\n\nPlease move the added space to before the slashes.",
+      "range": {
+        "startLine": 68,
+        "startChar": 46,
+        "endLine": 68,
+        "endChar": 64
+      },
+      "revId": "90d3203471c1871c89c9dde4d5c622ab1b93e4ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
