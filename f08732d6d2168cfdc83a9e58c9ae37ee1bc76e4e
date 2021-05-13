@@ -16,6 +16,29 @@
       "message": "Hi Lokesh and Hans,\nPlease review. \nI have added the changes suggested by Lokesh this morning. Also I updated after Hans cl that went in this afternoon per my discussion with Hans.\nThanks,\nWessam",
       "revId": "f08732d6d2168cfdc83a9e58c9ae37ee1bc76e4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45ed16c2_c15e207f",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-13T02:13:02Z",
+      "side": 1,
+      "message": "Could we merge all calls to this function in one place, probably further down in this function? Currently the proliferation of calls at different levels of the hierarchy makes it very opaque whether we\u0027re counting everything exactly once.\n\nNote that the AllocLargeObject call just turns into a recursive call to this function, with a different allocator. It seems to me that the right place to do this is near the instrumentation checks near the bottom of this function, probably inside the check for bytes_tl_bulk_allocated \u003e 0 ?\n\nWe presumably do not want to turn on kInstrumented for the sampling profiler, to minimize impact at low sampling rate? Thus this can\u0027t be inside a kInstrumented conditional?",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 62
+      },
+      "revId": "f08732d6d2168cfdc83a9e58c9ae37ee1bc76e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
