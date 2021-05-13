@@ -45,6 +45,30 @@
       },
       "revId": "92a38609ae6800fc365aae607e5838e6118e65c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "168aa5d1_6ce05ba3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-05-13T15:55:33Z",
+      "side": 1,
+      "message": "I think it made sense to include `oatdump` to the prebuilts, as the Oat file format is not fixed / standardized. If you want to inspect an Oat file, you usually need a version of `oatdump` compatible with it (i.e. built around the same time as the version of `dex2oat` that produced the Oat file. Providing `oatdump` as a prebuilt makes this more convenient (especially for third parties), as it does not require to identify the correct source revision of the ART Module and building `oatdump` from them.",
+      "parentUuid": "70b69bee_0b22e38c",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "92a38609ae6800fc365aae607e5838e6118e65c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
