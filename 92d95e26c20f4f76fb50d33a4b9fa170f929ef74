@@ -73,6 +73,24 @@
       "message": "This does not look like a good place for the alignment. You should add the alignment in `FinishVdexFile()` if the `buffer` has any data and attribute it to `size_verifier_deps_alignment_` or `size_vdex_lookup_table_alignment_` depending on whether the verifier deps are null.",
       "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f243de4_dd9c7141",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3232,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-13T12:24:53Z",
+      "side": 1,
+      "message": "I\u0027m doing this here as that\u0027s when the mmaps are being created. FinishVdexFile adjusts the mmap based on the buffer containing verifierdeps and typelookuptable data, and it\u0027s much simpler if that buffer doesn\u0027t start with padding.\n\nI could push_front the padding after populating the buffer, but that seems unoptimal.",
+      "parentUuid": "566c3fcb_03bf5c1d",
+      "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
