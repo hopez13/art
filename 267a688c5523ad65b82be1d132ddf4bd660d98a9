@@ -70,6 +70,30 @@
       },
       "revId": "267a688c5523ad65b82be1d132ddf4bd660d98a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6637b510_a6978749",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-13T23:01:42Z",
+      "side": 1,
+      "message": "This sounds OK, with the comment we discussed.",
+      "parentUuid": "22809c72_cc16317a",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 37
+      },
+      "revId": "267a688c5523ad65b82be1d132ddf4bd660d98a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
