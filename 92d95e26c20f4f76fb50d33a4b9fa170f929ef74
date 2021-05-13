@@ -58,6 +58,53 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff74174_52053e99",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-13T16:20:07Z",
+      "side": 1,
+      "message": "This is moot.",
+      "parentUuid": "27cd7428_9342cec9",
+      "range": {
+        "startLine": 2522,
+        "startChar": 2,
+        "endLine": 2522,
+        "endChar": 49
+      },
+      "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9123db6_1e57efcf",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2531,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-13T16:20:07Z",
+      "side": 1,
+      "message": "Actually, the original bug is here and we should fix it here.\n\nThe `WriteVerifierDeps()` was adding padding to make the VerifierDeps aligned based on `vdex_size_` but the `VerifierDeps::Encode()` was then adding its own padding based on the `buffer-\u003esize()`. So I think we should just fix the `VerifierDeps::Encode()` to assume that the original `buffer-\u003esize()` may contain padding for alignment. Given that the offsets are written that way, the alignment of individual dex file\u0027s data there looks really odd.\n\nPlease revert all changes in OatWriter and fix `VerifierDeps::Encode()`.",
+      "range": {
+        "startLine": 2531,
+        "startChar": 17,
+        "endLine": 2531,
+        "endChar": 23
+      },
+      "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "566c3fcb_03bf5c1d",
@@ -89,6 +136,24 @@
       "side": 1,
       "message": "I\u0027m doing this here as that\u0027s when the mmaps are being created. FinishVdexFile adjusts the mmap based on the buffer containing verifierdeps and typelookuptable data, and it\u0027s much simpler if that buffer doesn\u0027t start with padding.\n\nI could push_front the padding after populating the buffer, but that seems unoptimal.",
       "parentUuid": "566c3fcb_03bf5c1d",
+      "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e874723f_98d07eb2",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-13T16:20:07Z",
+      "side": 1,
+      "message": "This is moot.",
+      "parentUuid": "1f243de4_dd9c7141",
       "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
