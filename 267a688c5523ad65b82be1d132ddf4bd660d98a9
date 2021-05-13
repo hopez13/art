@@ -46,6 +46,30 @@
       },
       "revId": "267a688c5523ad65b82be1d132ddf4bd660d98a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22809c72_cc16317a",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-13T16:47:15Z",
+      "side": 1,
+      "message": "That\u0027s right.\n\nAlso, while you are uploading the next patch. Please fix the \u0027ret\u0027 issue in JHPCheckNonTlabSampleAllocation() definition. Please name it \u0027obj\u0027",
+      "parentUuid": "5258e491_a966fe36",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 37
+      },
+      "revId": "267a688c5523ad65b82be1d132ddf4bd660d98a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
