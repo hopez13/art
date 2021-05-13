@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "779d611f_8809a9a7",
+        "filename": "runtime/javaheapprof/javaheapsampler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-13T21:31:30Z",
+      "side": 1,
+      "message": "Actually, I think this is incorrect in the *take_sample \u003d\u003d false case. What should it say? If we\u0027re actually returning two different things here, I think they should be different parameters. But since the only difference between the result and *next_tlab_offset seems to be tlab_used, why are we bothering to return it all?",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 79
+      },
+      "revId": "5f3a963ee084bac0a1855f108f4c0eac0733dab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
