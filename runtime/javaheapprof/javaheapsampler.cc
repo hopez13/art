@@ -70,14 +70,10 @@ void HeapSampler::ReportSample(art::mirror::Object* obj, size_t allocation_size)
 #endif
 }
 
-// Check whether we should take a sample or not at this allocation and calculate the sample
-// offset to use in the expand Tlab calculation. Thus the offset from current pos to the next
-// sample.
-// tlab_used = pos - start
 size_t HeapSampler::GetSampleOffset(size_t alloc_size,
                                     size_t tlab_used,
-                                    bool* take_sample,
-                                    size_t* temp_bytes_until_sample) {
+                                    /*out*/ bool* take_sample,
+                                    /*out*/ size_t* next_tlab_offset) {
   size_t exhausted_size = alloc_size + tlab_used;
   VLOG(heap) << "JHP:GetSampleOffset: exhausted_size = " << exhausted_size;
   // Note bytes_until_sample is used as an offset from the start point
@@ -92,23 +88,21 @@ size_t HeapSampler::GetSampleOffset(size_t alloc_size,
     size_t next_bytes_until_sample = PickAndAdjustNextSample(sample_adj_bytes);
     VLOG(heap) << "JHP:GetSampleOffset: Take sample, next_bytes_until_sample = "
                << next_bytes_until_sample;
-    next_bytes_until_sample += tlab_used;
     VLOG(heap) << "JHP:GetSampleOffset:Next sample offset = "
-               << (next_bytes_until_sample - tlab_used);
+               << next_bytes_until_sample;
     // This function is called before the actual allocation happens so we cannot update
     // the bytes_until_sample till after the allocation happens, save it to temp which
     // will be saved after the allocation by the calling function.
-    *temp_bytes_until_sample = next_bytes_until_sample;
-    return (next_bytes_until_sample - tlab_used);
-    // original bytes_until_sample, not offseted
+    *next_tlab_offset = next_bytes_until_sample + tlab_used;
+    return next_bytes_until_sample;
   } else {
     *take_sample = false;
     // The following 2 lines are used in the NonTlab case but have no effect on the
-    // Tlab case, because we will only use the temp_bytes_until_sample if the
+    // Tlab case, because we will only use the next_tlab_offset if the
     // take_sample was true (after returning from this function in Tlab case in the
     // SetBytesUntilSample).
     size_t next_bytes_until_sample = bytes_until_sample - alloc_size;
-    *temp_bytes_until_sample = next_bytes_until_sample;
+    *next_tlab_offset = next_bytes_until_sample;
     VLOG(heap) << "JHP:GetSampleOffset: No sample, next_bytes_until_sample= "
                << next_bytes_until_sample << " alloc= " << alloc_size;
     return diff;
