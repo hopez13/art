@@ -423,12 +423,12 @@ class Thread {
   // Returns the java.lang.Thread's name, or null if this Thread* doesn't have a peer.
   ObjPtr<mirror::String> GetThreadName() const REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Sets 'name' to the java.lang.Thread's name. This requires no transition to managed code,
-  // allocation, or locking.
-  void GetThreadName(std::string& name) const;
+  // Sets 'name' to the java.lang.Thread's name.
+  void GetThreadName(std::string& name) const REQUIRES(!Locks::custom_tls_lock_);
 
   // Sets the thread's name.
-  void SetThreadName(const char* name) REQUIRES_SHARED(Locks::mutator_lock_);
+  void SetThreadName(const char* name) REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::custom_tls_lock_);
 
   // Returns the thread-specific CPU-time clock in microseconds or -1 if unavailable.
   uint64_t GetCpuMicroTime() const;
@@ -1789,8 +1789,9 @@ class Thread {
     // set local values there first.
     FrameIdToShadowFrame* frame_id_to_shadow_frame;
 
-    // A cached copy of the java.lang.Thread's name.
-    std::string* name;
+    // A cached copy of the java.lang.Thread's name. We use the custom tls lock
+    // to guard access to the field to avoid introducing a new lock.
+    std::string* name GUARDED_BY(Locks::custom_tls_lock_);
 
     // A cached pthread_t for the pthread underlying this Thread*.
     pthread_t pthread_self;

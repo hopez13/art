@@ -1064,8 +1064,8 @@ Thread* Thread::Attach(const char* thread_name,
     } else {
       // These aren't necessary, but they improve diagnostics for unit tests & command-line tools.
       if (thread_name != nullptr) {
-        self->tlsPtr_.name->assign(thread_name);
-        ::art::SetThreadName(thread_name);
+        ScopedObjectAccess soa(self);
+        self->SetThreadName(thread_name);
       } else if (self->GetJniEnv()->IsCheckJniEnabled()) {
         LOG(WARNING) << *Thread::Current() << " attached without supplying a name";
       }
@@ -1231,7 +1231,10 @@ void Thread::InitPeer(ScopedObjectAccessAlreadyRunnable& soa,
 }
 
 void Thread::SetThreadName(const char* name) {
-  tlsPtr_.name->assign(name);
+  {
+    MutexLock mu(Thread::Current(), *Locks::custom_tls_lock_);
+    tlsPtr_.name->assign(name);
+  }
   ::art::SetThreadName(name);
   Dbg::DdmSendThreadNotification(this, CHUNK_TYPE("THNM"));
 }
@@ -1356,10 +1359,12 @@ void Thread::ShortDump(std::ostream& os) const {
     os << GetThreadId()
        << ",tid=" << GetTid() << ',';
   }
+  std::string thread_name;
+  GetThreadName(thread_name);
   os << GetState()
      << ",Thread*=" << this
      << ",peer=" << tlsPtr_.opeer
-     << ",\"" << (tlsPtr_.name != nullptr ? *tlsPtr_.name : "null") << "\""
+     << ",\"" << thread_name << "\""
      << "]";
 }
 
@@ -1379,7 +1384,8 @@ ObjPtr<mirror::String> Thread::GetThreadName() const {
 }
 
 void Thread::GetThreadName(std::string& name) const {
-  name.assign(*tlsPtr_.name);
+  MutexLock mu(Thread::Current(), *Locks::custom_tls_lock_);
+  name.assign(tls_Ptr_.name == nullptr ? "" : *tlsPtr_.name);
 }
 
 uint64_t Thread::GetCpuMicroTime() const {
@@ -1865,7 +1871,9 @@ void Thread::DumpState(std::ostream& os, const Thread* thread, pid_t tid) {
   }
 
   if (thread != nullptr) {
-    os << '"' << *thread->tlsPtr_.name << '"';
+    std::string thread_name;
+    thread->GetThreadName(thread_name);
+    os << '"' << thread_name << '"';
     if (is_daemon) {
       os << " daemon";
     }
@@ -2340,12 +2348,11 @@ bool Thread::CanLoadClasses() const {
 bool Thread::IsStillStarting() const {
   // You might think you can check whether the state is kStarting, but for much of thread startup,
   // the thread is in kNative; it might also be in kVmWait.
-  // You might think you can check whether the peer is null, but the peer is actually created and
+  // You might think you can check whether the peer is null, but the jpeer is actually created and
   // assigned fairly early on, and needs to be.
-  // It turns out that the last thing to change is the thread name; that's a good proxy for "has
-  // this thread _ever_ entered kRunnable".
-  return (tlsPtr_.jpeer == nullptr && tlsPtr_.opeer == nullptr) ||
-      (*tlsPtr_.name == kThreadNameDuringStartup);
+  // When the jpeer becomes null, and we start assigning opeer, we know the
+  // thread has started.
+  return (tlsPtr_.jpeer != nullptr) || (tlsPtr_.opeer == nullptr)
 }
 
 void Thread::AssertPendingException() const {
