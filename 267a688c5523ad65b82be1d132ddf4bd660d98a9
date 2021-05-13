@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b506fc65_20de0866",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-13T07:32:38Z",
+      "side": 1,
+      "message": "This change should be reverted and this function should be just called right after line 99 above. Otherwise, and also to alleviate Hans\u0027 concern about recursion, you can move this to AllocLargeObject() below.\n\nThe fallback here should not be covered by this function because the allocator in the fallback case would be the default Region-space based TLAB allocator, which is already covered in AllocWithNewTlab().\n\nHans can you please confirm if I\u0027m right?",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 37
+      },
+      "revId": "267a688c5523ad65b82be1d132ddf4bd660d98a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
