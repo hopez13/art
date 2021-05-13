@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a86f404_2a38789c",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2539,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-13T09:13:33Z",
+      "side": 0,
+      "message": "If you\u0027re removing this, you should at least DCHECK() that the buffer is empty.",
+      "range": {
+        "startLine": 2539,
+        "startChar": 2,
+        "endLine": 2539,
+        "endChar": 42
+      },
+      "revId": "6e1b7d85d9b86971885d13a464482e9f42870709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

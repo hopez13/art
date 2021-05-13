@@ -33,6 +33,46 @@
       "message": "Friendly TH-reminder 😊",
       "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27cd7428_9342cec9",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-13T09:13:33Z",
+      "side": 1,
+      "message": "This is incompatible with my suggestion below to move the aligning to `FinishVdexFile()`.",
+      "range": {
+        "startLine": 2522,
+        "startChar": 2,
+        "endLine": 2522,
+        "endChar": 49
+      },
+      "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "566c3fcb_03bf5c1d",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-13T09:13:33Z",
+      "side": 1,
+      "message": "This does not look like a good place for the alignment. You should add the alignment in `FinishVdexFile()` if the `buffer` has any data and attribute it to `size_verifier_deps_alignment_` or `size_vdex_lookup_table_alignment_` depending on whether the verifier deps are null.",
+      "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
