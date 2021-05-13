@@ -87,6 +87,24 @@
       "parentUuid": "feebc6dd_2a0e46ea",
       "revId": "900545cbdd1c050b873a3057ceeed11e735c55c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d27276_da7446ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-13T15:42:40Z",
+      "side": 1,
+      "message": "To be clear, we\u0027ve been using ANDROID_ADDITIONAL_PUBLIC_LIBRARIES for ART run tests up until I introduced NATIVELOADER_DEFAULT_NAMESPACE_LIBS just recently. I think that\u0027s the only use.\n\nYou\u0027re right it wasn\u0027t introduced in that CL, my mistake. The originator is indeed Dimitry in https://r.android.com/223038, and the stated reason for ro.debuggable is that it\u0027s intended to be available only in test runs with dalvikvm. However I understand from Roland that we may want to change that, so I\u0027ll go ahead with this. Thanks.",
+      "parentUuid": "922a2735_c4353f7f",
+      "revId": "900545cbdd1c050b873a3057ceeed11e735c55c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
