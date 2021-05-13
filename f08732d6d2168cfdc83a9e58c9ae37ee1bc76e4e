@@ -39,6 +39,76 @@
       },
       "revId": "f08732d6d2168cfdc83a9e58c9ae37ee1bc76e4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6920164f_f2334459",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-13T06:20:32Z",
+      "side": 1,
+      "message": "The problem with moving to bottom of this function is that sampling in case of TLAB allocators is quite involved and is handled in AllocWithNewTlab() (in gc/heap.c). So I suggested that we cover Large and non-moving allocations here and TLAB cases in AllocWithNewTlab().\n\nAllocLargeObject does recursively call this function again, but always with kCheckLargeObject\u003dfalse, hence will never enter this if condition.\n\nWessam can her thoughts as well.",
+      "parentUuid": "45ed16c2_c15e207f",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 62
+      },
+      "revId": "f08732d6d2168cfdc83a9e58c9ae37ee1bc76e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc55a873_821a06c9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4149,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-13T06:20:32Z",
+      "side": 1,
+      "message": "\u0027obj\u0027 would be a better name. Usually \u0027ret\u0027 is used for what\u0027s returned from the function.",
+      "range": {
+        "startLine": 4149,
+        "startChar": 73,
+        "endLine": 4149,
+        "endChar": 76
+      },
+      "revId": "f08732d6d2168cfdc83a9e58c9ae37ee1bc76e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87ed0cd1_21f56041",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4168,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-13T06:20:32Z",
+      "side": 1,
+      "message": "It should say Non-moving or Large Allocation\"",
+      "range": {
+        "startLine": 4168,
+        "startChar": 30,
+        "endLine": 4168,
+        "endChar": 52
+      },
+      "revId": "f08732d6d2168cfdc83a9e58c9ae37ee1bc76e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
