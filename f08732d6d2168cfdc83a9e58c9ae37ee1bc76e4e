@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b90b1d4a_adc94c63",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-05-13T06:46:29Z",
+      "side": 1,
+      "message": "Yes, as Lokesh mentioned we are already handling the Tlab allocations so here we are only handling large space and non-movable which is why we used this location. We can\u0027t move to the bottom of the function because of the Tlab cases. We moved from the locations in my patch1 so as to make sure everything is covered. So the current location seems the best option.",
+      "parentUuid": "6920164f_f2334459",
+      "range": {
+        "startLine": 116,
+        "startChar": 6,
+        "endLine": 116,
+        "endChar": 62
+      },
+      "revId": "f08732d6d2168cfdc83a9e58c9ae37ee1bc76e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc55a873_821a06c9",
@@ -88,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dcf6658_1c073794",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4149,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-05-13T06:46:29Z",
+      "side": 1,
+      "message": "Lets not change the naming here since it is unrelated to this cl as well as we discussed ret vs obj in the previous cl already, ret was used in other places so that\u0027s why we had chosen it here.",
+      "parentUuid": "bc55a873_821a06c9",
+      "range": {
+        "startLine": 4149,
+        "startChar": 73,
+        "endLine": 4149,
+        "endChar": 76
+      },
+      "revId": "f08732d6d2168cfdc83a9e58c9ae37ee1bc76e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87ed0cd1_21f56041",
@@ -101,6 +149,30 @@
       "writtenOn": "2021-05-13T06:20:32Z",
       "side": 1,
       "message": "It should say Non-moving or Large Allocation\"",
+      "range": {
+        "startLine": 4168,
+        "startChar": 30,
+        "endLine": 4168,
+        "endChar": 52
+      },
+      "revId": "f08732d6d2168cfdc83a9e58c9ae37ee1bc76e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b167c67_d4493475",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4168,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2021-05-13T06:46:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87ed0cd1_21f56041",
       "range": {
         "startLine": 4168,
         "startChar": 30,
