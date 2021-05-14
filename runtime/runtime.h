@@ -998,6 +998,14 @@ class Runtime {
     return apex_versions_;
   }
 
+  bool IsMonitorTimeoutEnabled() const {
+    return monitor_timeout_enable_;
+  }
+
+  long GetMonitorTimeoutNs() const {
+    return monitor_timeout_ns_;
+  }
+
  private:
   static void InitPlatformSignalHandlers();
 
@@ -1238,6 +1246,9 @@ class Runtime {
 
   // Whether Java code needs to be debuggable.
   bool is_java_debuggable_;
+
+  bool monitor_timeout_enable_;
+  long monitor_timeout_ns_;
 
   // Whether or not this application can be profiled by the shell user,
   // even when running on a device that is running in user mode.
