@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a72dbb21_8f7b5731",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-14T13:45:44Z",
+      "side": 1,
+      "message": "name",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "e65196d14af3b21316ae714638b30a93e1d3fc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acf84fa0_c8e8eabc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-14T13:45:44Z",
+      "side": 1,
+      "message": "This seems to be public interface that can be used by apps, so it should be retained.",
+      "range": {
+        "startLine": 9,
+        "startChar": 30,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "e65196d14af3b21316ae714638b30a93e1d3fc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c06e281_35d77ecc",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-14T13:45:44Z",
+      "side": 1,
+      "message": "Now that you\u0027re calling this from `ShortDump()` you need to handle `tlsPtr_.name \u003d\u003d nullptr`.",
+      "range": {
+        "startLine": 1388,
+        "startChar": 14,
+        "endLine": 1388,
+        "endChar": 27
+      },
+      "revId": "e65196d14af3b21316ae714638b30a93e1d3fc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b1c28b_01eca46f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-14T13:45:44Z",
+      "side": 1,
+      "message": "The new expression can be simplified:\n\n    (tlsPtr_.jpeer !\u003d nullptr) || (tlsPtr_.opeer \u003d\u003d nullptr)\n\nBut does it really have the same result as the old code?",
+      "range": {
+        "startLine": 2355,
+        "startChar": 9,
+        "endLine": 2355,
+        "endChar": 93
+      },
+      "revId": "e65196d14af3b21316ae714638b30a93e1d3fc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
