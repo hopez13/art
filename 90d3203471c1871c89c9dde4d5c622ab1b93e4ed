@@ -56,6 +56,30 @@
       },
       "revId": "90d3203471c1871c89c9dde4d5c622ab1b93e4ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fe6722f_d75c860e",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-05-14T09:44:58Z",
+      "side": 1,
+      "message": "So sorry for my mistake, I delete below sentence unconsciously in runtime.cc\nverify_ \u003d runtime_options.GetOrDefault(Opt::Verify);\n\nAfter modify this, make test-art-host-gtest-art_runtime_tests64 sucessfully on my host.",
+      "parentUuid": "de498639_7bdde6e4",
+      "range": {
+        "startLine": 68,
+        "startChar": 46,
+        "endLine": 68,
+        "endChar": 64
+      },
+      "revId": "90d3203471c1871c89c9dde4d5c622ab1b93e4ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
