@@ -153,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56488f81_712682cc",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2531,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-14T13:04:05Z",
+      "side": 1,
+      "message": "As discussed, keeping the alignment logic in WriteVerifierDeps.",
+      "parentUuid": "2329e8a2_b9855270",
+      "range": {
+        "startLine": 2531,
+        "startChar": 17,
+        "endLine": 2531,
+        "endChar": 23
+      },
+      "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "566c3fcb_03bf5c1d",
