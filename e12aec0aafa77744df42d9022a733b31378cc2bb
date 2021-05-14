@@ -16,6 +16,29 @@
       "message": "Wessam,\nAfter our discussion yesterday on the effect of only updating bytes_until_sample and not TLAB counters on every non-TLAB allocation, I went through the main CL which had introduced this sampler. After considering the code it is clear that non-TLAB allocations are going to impact the sampler\u0027s accuracy on when the next sample is taken. However, since you had said that it is tolerable, so I\u0027m +2 this CL.",
       "revId": "e12aec0aafa77744df42d9022a733b31378cc2bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6000da7b_e2086dd3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4170,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-14T16:40:04Z",
+      "side": 1,
+      "message": "At least the check for whether the sampler is enabled should really go in an inlined function. We currently call this from a bunch of inlined functions, but then make an unconditional out-of-line call here just to check for sampling.\n\nSince this is called several times, I would probably just inline a wrapper that does the IsEnabled check, and then passes the HeapSampler into this out-of-line function.\n\nThis is a micro-optimization. But we should preserve the existing micro-optimizations unless we know they\u0027re not pulling their weight.",
+      "range": {
+        "startLine": 4149,
+        "startChar": 0,
+        "endLine": 4170,
+        "endChar": 1
+      },
+      "revId": "e12aec0aafa77744df42d9022a733b31378cc2bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
