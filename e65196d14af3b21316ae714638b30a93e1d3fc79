@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a304d32_c02d7993",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-14T13:50:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a72dbb21_8f7b5731",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "e65196d14af3b21316ae714638b30a93e1d3fc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acf84fa0_c8e8eabc",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-05-14T13:45:44Z",
       "side": 1,
       "message": "This seems to be public interface that can be used by apps, so it should be retained.",
+      "range": {
+        "startLine": 9,
+        "startChar": 30,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "e65196d14af3b21316ae714638b30a93e1d3fc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "869e0c7f_0f69a2ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-14T13:50:53Z",
+      "side": 1,
+      "message": "I have yet to see how and where. What bothers me with the current state is the copy/paste of the implementation with java_lang_Thread. I could create a helper that both places call, but I\u0027m willing to see what breaks if we just remove JVM_SetNativeThreadName (note I do not plan on landing this today).",
+      "parentUuid": "acf84fa0_c8e8eabc",
       "range": {
         "startLine": 9,
         "startChar": 30,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "513944c8_13d0540f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-14T13:50:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c06e281_35d77ecc",
+      "range": {
+        "startLine": 1388,
+        "startChar": 14,
+        "endLine": 1388,
+        "endChar": 27
+      },
+      "revId": "e65196d14af3b21316ae714638b30a93e1d3fc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4b1c28b_01eca46f",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-05-14T13:45:44Z",
       "side": 1,
       "message": "The new expression can be simplified:\n\n    (tlsPtr_.jpeer !\u003d nullptr) || (tlsPtr_.opeer \u003d\u003d nullptr)\n\nBut does it really have the same result as the old code?",
+      "range": {
+        "startLine": 2355,
+        "startChar": 9,
+        "endLine": 2355,
+        "endChar": 93
+      },
+      "revId": "e65196d14af3b21316ae714638b30a93e1d3fc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a48cad6a_a6b09046",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2355,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-14T13:50:53Z",
+      "side": 1,
+      "message": "That\u0027s my understanding - if you look at when jpeer becomes null, the rename of the thread name happens just after. (to limit risk, I\u0027m not planning on landing this today)",
+      "parentUuid": "a4b1c28b_01eca46f",
       "range": {
         "startLine": 2355,
         "startChar": 9,
