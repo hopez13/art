@@ -16,6 +16,23 @@
       "message": "Hi Nicolas, I had make test-art-host-gtest-art_runtime_tests64 sucessfully on my host,\nCould you please help to rerun Presubmit verify.",
       "revId": "7db16652969e194df80e3026a91ec2aaa1bc8908",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20706b06_e2a525ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-14T12:24:55Z",
+      "side": 1,
+      "message": "Hi Guibo, we\u0027re still getting this failure:\nart/runtime/base/mutex.cc:56:  Single-parameter constructors should be marked explicit.  [runtime/explicit] [5]",
+      "revId": "7db16652969e194df80e3026a91ec2aaa1bc8908",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
