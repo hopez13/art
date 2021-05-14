@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bcdcb78_4633dd7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-14T09:12:30Z",
+      "side": 1,
+      "message": "Other than the comment, LGTM",
+      "revId": "8e0e097438033ce8c0d1253b3b31c0572420d821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac4c229b_0bffd5d9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4150,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-14T09:12:30Z",
+      "side": 1,
+      "message": "During the meeting Hans had said to have this comment above the declaration, not definition, which is in heap.h\nIn ART characteristics/requirements about functions are commented above the declaration.",
+      "range": {
+        "startLine": 4149,
+        "startChar": 0,
+        "endLine": 4150,
+        "endChar": 96
+      },
+      "revId": "8e0e097438033ce8c0d1253b3b31c0572420d821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
