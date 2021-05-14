@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e3311cb_11c44586",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-14T00:05:06Z",
+      "side": 1,
+      "message": "Investigating some of the other failures, and looking where the light appears best:\n\nIn art_runtime_tests32, CheckArtMirrorFieldsOfProxyStaticFields is failing, with\n\nart_runtime_tests F 05-12 18:52:47 1908 1908 art_field.cc:46] Check failed: klass !\u003d nullptr\n\nThe same failure appears in the 64-bit version.\n\nNicolas suggested that the problem may be some assumption about the sizeof(Mutex). \n\nCan you try\n\nm -j\u003c#cores\u003e test-art-host-gtest-art_runtime_tests64 ?",
+      "revId": "90d3203471c1871c89c9dde4d5c622ab1b93e4ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de498639_7bdde6e4",
