@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4bd1dad7_a99ce8e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-14T13:57:42Z",
+      "side": 1,
+      "message": "The question is whether `libcore/ojluni/src/main/native/jvm.h` is public API that can be used by an app.\n\nUsing a shared helper, or implementing one by a forwarding call to the other, would be OK.",
+      "parentUuid": "869e0c7f_0f69a2ac",
+      "range": {
+        "startLine": 9,
+        "startChar": 30,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "e65196d14af3b21316ae714638b30a93e1d3fc79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c06e281_35d77ecc",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
