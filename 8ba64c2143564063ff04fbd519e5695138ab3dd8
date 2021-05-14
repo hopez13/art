@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ccd11dd_10480190",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-14T19:35:05Z",
+      "side": 0,
+      "message": "This part is still correct, right? It might be worth preserving the comment, since the asymmetry with Set is weird.\n\nI\u0027m concerned that someone earlier decided it was important not to lock here. Are we sure this isn\u0027t used from a signal handler?",
+      "range": {
+        "startLine": 426,
+        "startChar": 49,
+        "endLine": 426,
+        "endChar": 92
+      },
+      "revId": "8ba64c2143564063ff04fbd519e5695138ab3dd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
