@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb560626_1d413dc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-14T16:24:41Z",
+      "side": 1,
+      "message": "Wessam,\nAfter our discussion yesterday on the effect of only updating bytes_until_sample and not TLAB counters on every non-TLAB allocation, I went through the main CL which had introduced this sampler. After considering the code it is clear that non-TLAB allocations are going to impact the sampler\u0027s accuracy on when the next sample is taken. However, since you had said that it is tolerable, so I\u0027m +2 this CL.",
+      "revId": "e12aec0aafa77744df42d9022a733b31378cc2bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
