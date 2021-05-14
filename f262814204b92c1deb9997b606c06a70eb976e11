@@ -256,6 +256,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "017da7c6_8849dc34",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-14T11:30:48Z",
+      "side": 1,
+      "message": "I removed the fsync() for 2 reasons. TH was failing for one target with `error: use of undeclared identifier \u0027fsync\u0027` despite including `unistd.h`. And I also found some comments saying that we deliberately do not fsync().",
+      "parentUuid": "4aeb22b8_1bc3146f",
+      "range": {
+        "startLine": 1049,
+        "startChar": 0,
+        "endLine": 1051,
+        "endChar": 3
+      },
+      "revId": "f262814204b92c1deb9997b606c06a70eb976e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec8f1333_0853c0f6",
