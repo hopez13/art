@@ -3109,6 +3109,7 @@ void Runtime::NotifyStartupCompleted() {
     std::string compilation_reason;
     CompilerFilter::Filter compiler_filter;
     if (oat_file_manager_->GetPrimaryOatFileInfo(&compilation_reason, &compiler_filter)) {
+      LOG(ERROR) << "ART COMPILATION REASON: "  << compilation_reason << " (" << compilation_reason.length() << ")";
       metrics_reporter_->SetCompilationInfo(
           compilation_reason.empty() ? metrics::CompilationReasonFromName(compilation_reason)
                                      : metrics::CompilationReason::kUnknown,
