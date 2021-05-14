@@ -16,6 +16,29 @@
       "message": "Thanks for the feedback, PTAL.",
       "revId": "6a9772901599355d0e9bdc9b75b5643f0b86bd28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b4b7632_e81c0a1e",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2539,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-14T13:22:09Z",
+      "side": 1,
+      "message": "This includes the alignment but it should not. Move it right after the `Encode()` call.",
+      "range": {
+        "startLine": 2539,
+        "startChar": 2,
+        "endLine": 2539,
+        "endChar": 39
+      },
+      "revId": "6a9772901599355d0e9bdc9b75b5643f0b86bd28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
