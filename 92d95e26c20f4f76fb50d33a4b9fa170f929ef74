@@ -107,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34b833ac_7c6e8421",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2531,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-14T08:23:15Z",
+      "side": 1,
+      "message": "The issue is VerifierDeps::Encode (and all its callers) uses buffer-\u003esize() as offset, but that breaks as we\u0027ll want to have the verifier_deps start at an aligned offset and not point to where we do the padding.",
+      "parentUuid": "a9123db6_1e57efcf",
+      "range": {
+        "startLine": 2531,
+        "startChar": 17,
+        "endLine": 2531,
+        "endChar": 23
+      },
+      "revId": "92d95e26c20f4f76fb50d33a4b9fa170f929ef74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "566c3fcb_03bf5c1d",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 2
