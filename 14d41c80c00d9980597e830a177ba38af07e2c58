@@ -16,6 +16,24 @@
       "message": "Unfortunately, I\u0027m afraid this is going to break elsewhere because we call the getter from a context, like a signal handler, in which we can\u0027t lock. If we\u0027re sure that\u0027s not the case, then this CL looks fine to me.\n\nIf we\u0027re not, I\u0027m afraid we\u0027re going to need a messier solution. If Android had something like an RCU facility, we could maybe use that. As it stands, I would probably allocate the C++ thread name as a struct containing a C character array and an atomic reference count. The updater deallocates it if the refcount is zero, and enqueues the deletion if not. Later updates check for enqueued deletions with a zero refcount, so that readers never have to deallocate. I don\u0027t think a straight shared_ptr solution works, unless atomic\u003cshared_ptr\u003e is lock-free, which it probably isn\u0027t.",
       "revId": "14d41c80c00d9980597e830a177ba38af07e2c58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cff04e5a_2dcbab32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-17T13:50:01Z",
+      "side": 1,
+      "message": "I don\u0027t think atomic\u003cshared_ptr\u003e is lock-free (before C++20), but is that a practical problem?\n\nAs a bit more messy solution, could it just be atomic\u003cconst char[]\u003e where the readers are naive, but updates will delay the free past GC suspend point?",
+      "parentUuid": "5fd68956_e1d5bd55",
+      "revId": "14d41c80c00d9980597e830a177ba38af07e2c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
