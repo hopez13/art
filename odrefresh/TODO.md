@@ -3,6 +3,7 @@
 ## TODO (STOPSHIP until done)
 
 1. Implement back off on trying compilation when previous attempt(s) failed.
+2. denylist for AOT artifacts.
 
 ## DONE
 
