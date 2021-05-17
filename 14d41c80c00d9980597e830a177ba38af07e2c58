@@ -34,6 +34,24 @@
       "parentUuid": "5fd68956_e1d5bd55",
       "revId": "14d41c80c00d9980597e830a177ba38af07e2c58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04d575b4_9b7aabc7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-17T23:30:35Z",
+      "side": 1,
+      "message": "I think atomic\u003cshared_ptr\u003e is still not required to be lock-free. The C++ committee debates occasionally whether a fully-conforming lock-free implementation is feasible. It\u0027s tricky.\nThis again matters because otherwise the signal handler may run while the lock it needs to read is already held by the same thread.\nIf you can delay the deallocation long enough for all readers of the old value to finish, that should work. But since the readers don\u0027t have to be runnable, I don\u0027t think suspend points give us a handle on that. A count of the number of active readers would. There are lower overhead ways to enforce this, but I can\u0027t immediately think of any simpler ones. And I suspect we care more about simplicity than overhead here.",
+      "parentUuid": "cff04e5a_2dcbab32",
+      "revId": "14d41c80c00d9980597e830a177ba38af07e2c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

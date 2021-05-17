@@ -46,6 +46,30 @@
       },
       "revId": "8ba64c2143564063ff04fbd519e5695138ab3dd8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51067684_8debaadb",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-17T23:30:35Z",
+      "side": 0,
+      "message": "I hope we avoid that as much as possible. The main practical problem is that it deadlocks if the handler is invoked while holding the lock. It\u0027s also officially undefined; there might be more subtle things that can break as well. Using reentrant locks may break in more devious ways, since we generally assume that if we already own the lock we\u0027re not in the middle of acquisition or release code. All of this is hard to prevent without disabling signals in various places.",
+      "parentUuid": "abf1dfec_9f48ca9c",
+      "range": {
+        "startLine": 426,
+        "startChar": 49,
+        "endLine": 426,
+        "endChar": 92
+      },
+      "revId": "8ba64c2143564063ff04fbd519e5695138ab3dd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
