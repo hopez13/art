@@ -70,6 +70,24 @@
       "parentUuid": "04d575b4_9b7aabc7",
       "revId": "14d41c80c00d9980597e830a177ba38af07e2c58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a31de8fb_adc92ca6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-18T16:28:44Z",
+      "side": 1,
+      "message": "I think a rwlock with writers blocking signal delivery might work in practice in our current environment. But it\u0027s certainly not conforming. (See \"man signal-safety\".) But this makes rwlock implementation assumptions. And there\u0027s some risk that some rwlock slow path will effectively end up acquiring another lock in the future. We also can\u0027t easily check that the atomics used inside the rwlock are in fact lock-free.\n\nNone of these options seem clean to me. If this is indeed called in a signal handler, I think we should do something lock-free that\u0027s actually conforming. It\u0027s a small amount of moderately tricky code, but I think less tricky than reasoning about the unsanctioned solutions. I can do that, but it will take me a little while to get to it.",
+      "parentUuid": "08314b77_bddee8e0",
+      "revId": "14d41c80c00d9980597e830a177ba38af07e2c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
