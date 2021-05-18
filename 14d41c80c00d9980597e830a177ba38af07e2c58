@@ -52,6 +52,24 @@
       "parentUuid": "cff04e5a_2dcbab32",
       "revId": "14d41c80c00d9980597e830a177ba38af07e2c58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08314b77_bddee8e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-18T09:52:23Z",
+      "side": 1,
+      "message": "What about read-write lock?\nI think the underlying question here is when can the signal handler that would read the thread be called.",
+      "parentUuid": "04d575b4_9b7aabc7",
+      "revId": "14d41c80c00d9980597e830a177ba38af07e2c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
