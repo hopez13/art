@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fe95749_220bd299",
+        "filename": "odrefresh/odr_compilation_log.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-05-18T19:58:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bf49fdf_f5206145",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 83,
+        "endChar": 34
+      },
+      "revId": "5d0cabd9d68029cf6eb40c8e37cd6d95f1b18e28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06febbcf_75d14cbe",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-05-18T15:21:58Z",
       "side": 1,
       "message": "nit: add a comment about the logic here.",
+      "revId": "5d0cabd9d68029cf6eb40c8e37cd6d95f1b18e28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd9ea1b_a33f1854",
+        "filename": "odrefresh/odr_compilation_log.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-05-18T19:58:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06febbcf_75d14cbe",
       "revId": "5d0cabd9d68029cf6eb40c8e37cd6d95f1b18e28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7aae39e7_b8533cb4",
+        "filename": "odrefresh/odr_compilation_log.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-05-18T19:58:44Z",
+      "side": 1,
+      "message": "We create the metrics log in the same location. \n\nIf it goes here, it doesn\u0027t need to be co-ordinated with anything else, e.g. deletion code in odsign, it persists after rollbacks should we ever care, no need to create a subdir for \"logs\".\n\nThe log is constrained to a maximum of 4 entries so the file will always be \u003c 512b.\n\nNo strong preference either way here. Re-open if you\u0027d prefer it in the ART data apex dir.",
+      "parentUuid": "a57b729f_534a1a97",
+      "range": {
+        "startLine": 52,
+        "startChar": 54,
+        "endLine": 52,
+        "endChar": 96
+      },
+      "revId": "5d0cabd9d68029cf6eb40c8e37cd6d95f1b18e28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34d2a9c4_29165f8e",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-05-18T15:21:58Z",
       "side": 1,
       "message": "NumberOfEntries?",
+      "range": {
+        "startLine": 64,
+        "startChar": 9,
+        "endLine": 64,
+        "endChar": 13
+      },
+      "revId": "5d0cabd9d68029cf6eb40c8e37cd6d95f1b18e28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "980d2b44_cd594da4",
+        "filename": "odrefresh/odr_compilation_log.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-05-18T19:58:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34d2a9c4_29165f8e",
       "range": {
         "startLine": 64,
         "startChar": 9,
