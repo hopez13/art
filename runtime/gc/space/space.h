@@ -243,6 +243,9 @@ class AllocSpace {
   // from Heap::num_bytes_allocated_ or zero if unnecessary.
   virtual size_t RevokeAllThreadLocalBuffers() = 0;
 
+  // Compute largest free contiguous chunk of memory available in the space and
+  // log it if it's smaller than failed_alloc_bytes. Otherwise leave os
+  // untouched as the caller may decide to log something else in that case.
   virtual void LogFragmentationAllocFailure(std::ostream& os, size_t failed_alloc_bytes) = 0;
 
  protected:
