@@ -304,6 +304,24 @@
       "parentUuid": "af6b35b0_7f71f0b8",
       "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e8a6b3b_93b8c585",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-18T16:16:23Z",
+      "side": 1,
+      "message": "For the time being, let\u0027s work with the current kernel implementation and get this in. After all the discussions, the most concerning impact seems to be the additional virtual address space use (scarce resource on 32-bit targets) but we expect that to be OK.",
+      "parentUuid": "1cb8213e_3a40539a",
+      "revId": "3369bd01d96b67d5d7cd7af87771ad5db941978f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
