@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "216dde20_c6c927fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-18T17:56:22Z",
+      "side": 1,
+      "message": "\"improve the corresponding log\"\n\nAlso limit to 72 columns?",
+      "range": {
+        "startLine": 9,
+        "startChar": 63,
+        "endLine": 9,
+        "endChar": 71
+      },
+      "revId": "09fa2bb52c06cfa78428423d3dad3b5f0d98eab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "984a253f_f7330637",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-18T17:56:22Z",
+      "side": 1,
+      "message": "I would not rely on the stream position here. But I don\u0027t feel very strongly about it. Please update the commit message.",
+      "revId": "09fa2bb52c06cfa78428423d3dad3b5f0d98eab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53c2b9a5_3cb56f03",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-18T17:56:22Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be cleaner to have this return a bool, rather than using the stream position?",
+      "range": {
+        "startLine": 249,
+        "startChar": 10,
+        "endLine": 249,
+        "endChar": 14
+      },
+      "revId": "09fa2bb52c06cfa78428423d3dad3b5f0d98eab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
