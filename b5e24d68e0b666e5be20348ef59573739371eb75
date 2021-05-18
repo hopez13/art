@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8642a180_920042b4",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-18T08:47:47Z",
+      "side": 1,
+      "message": "This will be 0 in the default case, is that what you intended?",
+      "range": {
+        "startLine": 185,
+        "startChar": 26,
+        "endLine": 185,
+        "endChar": 54
+      },
+      "revId": "b5e24d68e0b666e5be20348ef59573739371eb75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "871458f9_e3d1a0bd",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-18T08:47:47Z",
+      "side": 1,
+      "message": "Move this a local variable (and use it too line 238)",
+      "range": {
+        "startLine": 233,
+        "startChar": 17,
+        "endLine": 233,
+        "endChar": 34
+      },
+      "revId": "b5e24d68e0b666e5be20348ef59573739371eb75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eed24612_b3d57d16",
+        "filename": "runtime/jit/profile_saver_options.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-18T08:47:47Z",
+      "side": 1,
+      "message": "Should this be kMinSavePeriodMs ?",
+      "range": {
+        "startLine": 26,
+        "startChar": 52,
+        "endLine": 26,
+        "endChar": 53
+      },
+      "revId": "b5e24d68e0b666e5be20348ef59573739371eb75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
