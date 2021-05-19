@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "019b23c0_029198c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-19T17:17:42Z",
+      "side": 1,
+      "message": "Thanks for doing this.",
+      "revId": "e6d218012ede45bedddf27a520f81bc3af20ef61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c721c98_7bb0e277",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2731,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-19T17:17:42Z",
+      "side": 1,
+      "message": "I think this has a data race. This isn\u0027t performance critical at all, so just making accumulated_duration_ns atomic should fix it. \"\u003d 0\" should probably be an atomic decrement.",
+      "range": {
+        "startLine": 2731,
+        "startChar": 4,
+        "endLine": 2731,
+        "endChar": 40
+      },
+      "revId": "e6d218012ede45bedddf27a520f81bc3af20ef61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa191b18_21e86e14",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2746,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-19T17:17:42Z",
+      "side": 1,
+      "message": "Can we indicated here when this is sampled, e.g. by including \"(sampled)\"?",
+      "range": {
+        "startLine": 2746,
+        "startChar": 4,
+        "endLine": 2746,
+        "endChar": 56
+      },
+      "revId": "e6d218012ede45bedddf27a520f81bc3af20ef61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
