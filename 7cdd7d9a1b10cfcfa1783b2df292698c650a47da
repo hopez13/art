@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "641bddd3_c07f043c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-19T23:35:18Z",
+      "side": 1,
+      "message": "This fixes the build error: https://android-build.googleplex.com/builds/abtd/run/L92300000894197589\n\nThe TH failures are not related - there are lots of problems with git_master head atm.\n\nI\u0027m pretty sure this bug (and fix) is unrelated to the failing tests. It\u0027s more likely to cause a build failure, and there\u0027s only one failing build in TH that could theoretically hide a problem, and it\u0027s on our own master-art branch.\n\nHence I think it should be safe to submit this.",
+      "revId": "7cdd7d9a1b10cfcfa1783b2df292698c650a47da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
