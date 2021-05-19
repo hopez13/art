@@ -82,6 +82,11 @@ NO_RETURN static void Usage(const char* fmt, ...) {
   UsageError("    --api-flags=<filename>:");
   UsageError("        CSV file with signatures of methods/fields and their respective flags");
   UsageError("");
+  UsageError("    --max-hiddenapi-level:<sdk>");
+  UsageError("        the maximum hidden api level for APIs. If an API was originally restricted");
+  UsageError("        to a newer sdk, turn it into a regular unsupported API instead.");
+  UsageError("        instead.");
+  UsageError("");
   UsageError("    --no-force-assign-all:");
   UsageError("        Disable check that all dex entries have been assigned a flag");
   UsageError("");
@@ -899,6 +904,9 @@ class HiddenApi final {
             api_flags_path_ = std::string(option.substr(strlen("--api-flags=")));
           } else if (option == "--no-force-assign-all") {
             force_assign_all_ = false;
+          } else if(option == "--max-hiddenapi-level=") {
+            const auto sdkString = std::string(option.substr(strlen("--max-hiddenapi-level=")));
+            max_hidden_api_target_sdk_ = atoi(sdkString.c_str());
           } else {
             Usage("Unknown argument '%s'", raw_option);
           }
@@ -1006,6 +1014,15 @@ class HiddenApi final {
 
       const std::string& signature = values[0];
 
+      std::vector<std::string> clampedApiLists;
+      auto clamp_fn = [this](const std::string& apiListName) {
+                       return ApiList::ClampApiListName(apiListName, max_hidden_api_target_sdk_);
+                    };
+      clampedApiLists.reserve(values.size() - 1);
+      std::transform(values.begin() + 1, values.end(),
+                     std::back_inserter(clampedApiLists),
+                     clamp_fn);
+
       CHECK(api_flag_map.find(signature) == api_flag_map.end()) << path << ":" << line_number
           << ": Duplicate entry: " << signature << kErrorHelp;
 
@@ -1111,6 +1128,9 @@ class HiddenApi final {
   // Path to CSV file containing the list of API members and their flags.
   // This could be both an input and output path.
   std::string api_flags_path_;
+
+  // Override limit for sdk-max-* hidden APIs.
+  std::string max_hidden_api_target_sdk_;
 };
 
 }  // namespace hiddenapi

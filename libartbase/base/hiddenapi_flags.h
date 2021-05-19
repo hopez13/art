@@ -254,9 +254,27 @@ class ApiList {
     return true;
   }
 
+  // Clamp a max-target-* up to the given maxSdk; if the given api list is higher than
+  // maxSdk, return unsupported instead.
+  static std::string ClampApiListName(const std::string& name, const std::string& maxSdk) {
+    const auto apiListToClamp = FromName(name);
+    // If the api list is not max-target-*, return it unmodified
+    if (apiListToClamp <= Blocked() || apiListToClamp >= CorePlatformApi()) {
+      return name;
+    }
+    const auto maxApiList = FromName(maxSdk);
+    if (apiListToClamp > maxApiList) {
+      return kValueNames[Unsupported().GetIntValue()];
+    }
+    return name;
+  }
+
   bool operator==(const ApiList& other) const { return dex_flags_ == other.dex_flags_; }
   bool operator!=(const ApiList& other) const { return !(*this == other); }
   bool operator<(const ApiList& other) const { return dex_flags_ < other.dex_flags_; }
+  bool operator<=(const ApiList& other) const { return (*this < other) || (*this == other); }
+  bool operator>(const ApiList& other) const { return !(*this <= other); }
+  bool operator>=(const ApiList& other) const { return !(*this < other); }
 
   // Returns true if combining this ApiList with `other` will succeed.
   bool CanCombineWith(const ApiList& other) const {
