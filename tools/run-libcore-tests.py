@@ -190,11 +190,6 @@ def get_vogar_command(test_name):
       cmd.append("--vm-arg -Xcompiler-option --vm-arg --compiler-filter=quicken")
     cmd.append("--vm-arg -Xusejit:{}".format(str(args.jit).lower()))
 
-    if args.gcstress:
-      # Bump pause threshold as long pauses cause explicit gc logging to occur irrespective
-      # of -XX:AlwayLogExplicitGcs:false.
-      cmd.append("--vm-arg -XX:LongPauseLogThreshold=15") # 15 ms (default: 5ms))
-
   # Suppress color codes if not attached to a terminal
   if not sys.stdout.isatty():
     cmd.append("--no-color")
