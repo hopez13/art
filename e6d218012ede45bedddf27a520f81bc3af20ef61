@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95afc958_3f359b35",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2731,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-19T18:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c721c98_7bb0e277",
+      "range": {
+        "startLine": 2731,
+        "startChar": 4,
+        "endLine": 2731,
+        "endChar": 40
+      },
+      "revId": "e6d218012ede45bedddf27a520f81bc3af20ef61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa191b18_21e86e14",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-05-19T17:17:42Z",
       "side": 1,
       "message": "Can we indicated here when this is sampled, e.g. by including \"(sampled)\"?",
+      "range": {
+        "startLine": 2746,
+        "startChar": 4,
+        "endLine": 2746,
+        "endChar": 56
+      },
+      "revId": "e6d218012ede45bedddf27a520f81bc3af20ef61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24d1a3f3_a8dbe3eb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2746,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-19T18:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa191b18_21e86e14",
       "range": {
         "startLine": 2746,
         "startChar": 4,
