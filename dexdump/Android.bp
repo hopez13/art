@@ -60,6 +60,9 @@ art_cc_binary {
         darwin: {
             enabled: true,
         },
+        windows: {
+            enabled: true,
+        },
     },
     apex_available: [
         "com.android.art",
