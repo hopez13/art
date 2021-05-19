@@ -199,6 +199,12 @@ uint8_t* const Heap::kPreferredAllocSpaceBegin = reinterpret_cast<uint8_t*>(0x40
 #endif
 #endif
 
+// Log GC on regular (but fairly large) intervals during GC stress mode.
+// It is expected that the other runtime options will be used to reduce the usual logging.
+// This allows us to make the logging much less verbose while still reporting some
+// progress (biased towards expensive GCs), and while still reporting pathological cases.
+static constexpr uint64_t kGcStressModeGcLogSampleFrequencyNs = MsToNs(10000);
+
 static inline bool CareAboutPauseTimes() {
   return Runtime::Current()->InJankPerceptibleProcessState();
 }
@@ -2718,6 +2724,14 @@ void Heap::LogGC(GcCause gc_cause, collector::GarbageCollector* collector) {
         (gc_cause == kGcCauseForAlloc && duration > long_pause_log_threshold_);
     for (uint64_t pause : pause_times) {
       log_gc = log_gc || pause >= long_pause_log_threshold_;
+    }
+  }
+  if (UNLIKELY(gc_stress_mode_)) {
+    static uint64_t accumulated_duration_ns = 0;
+    accumulated_duration_ns += duration;
+    if (accumulated_duration_ns >= kGcStressModeGcLogSampleFrequencyNs) {
+      accumulated_duration_ns = 0;
+      log_gc = true;
     }
   }
   if (log_gc) {
