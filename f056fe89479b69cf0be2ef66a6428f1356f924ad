@@ -22,6 +22,30 @@
       },
       "revId": "f056fe89479b69cf0be2ef66a6428f1356f924ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15cd5aff_3f4c1d9c",
+        "filename": "odrefresh/odr_compilation_log.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-05-19T13:01:33Z",
+      "side": 1,
+      "message": "Yes, 12 hours is the minimum re-attempt period. I suspect we may want to tweak the timing and general policy in future, but it\u0027s updatable in the module.",
+      "parentUuid": "5bd7d60d_86963d98",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 83
+      },
+      "revId": "f056fe89479b69cf0be2ef66a6428f1356f924ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
