@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bd7d60d_86963d98",
+        "filename": "odrefresh/odr_compilation_log.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-19T09:43:58Z",
+      "side": 1,
+      "message": "So I understand: if we fail compilation, and then the user reboots right away, then that reboot will not try to recompile, right?",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 83
+      },
+      "revId": "f056fe89479b69cf0be2ef66a6428f1356f924ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
