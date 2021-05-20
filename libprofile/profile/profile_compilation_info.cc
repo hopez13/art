@@ -696,20 +696,6 @@ dex::TypeIndex ProfileCompilationInfo::FindOrCreateTypeIndex(const DexFile& dex_
 }
 
 bool ProfileCompilationInfo::AddClass(const DexFile& dex_file,
-                                      dex::TypeIndex type_index,
-                                      const ProfileSampleAnnotation& annotation) {
-  DCHECK(type_index.IsValid());
-  DCHECK(type_index.index_ <= dex_file.NumTypeIds() ||
-         type_index.index_ - dex_file.NumTypeIds() < extra_descriptors_.size());
-  DexFileData* const data = GetOrAddDexFileData(&dex_file, annotation);
-  if (data == nullptr) {  // checksum mismatch
-    return false;
-  }
-  data->class_set.insert(type_index);
-  return true;
-}
-
-bool ProfileCompilationInfo::AddClass(const DexFile& dex_file,
                                       const char* descriptor,
                                       const ProfileSampleAnnotation& annotation) {
   DexFileData* const data = GetOrAddDexFileData(&dex_file, annotation);

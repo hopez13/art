@@ -475,7 +475,7 @@ class ClassLinker {
     return boot_class_path_;
   }
 
-  void VisitClasses(ClassVisitor* visitor)
+  void VisitClasses(ClassVisitor* visitor, bool visit_bcp_classes = true)
       REQUIRES(!Locks::classlinker_classes_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -897,7 +897,7 @@ class ClassLinker {
   void DeleteClassLoader(Thread* self, const ClassLoaderData& data, bool cleanup_cha)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void VisitClassesInternal(ClassVisitor* visitor)
+  void VisitClassesInternal(ClassVisitor* visitor, bool visit_bcp_classes)
       REQUIRES_SHARED(Locks::classlinker_classes_lock_, Locks::mutator_lock_);
 
   // Returns the number of zygote and image classes.
