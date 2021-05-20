@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "872a3654_8178e5ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-20T08:41:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f07b473_c8a0ae38",
+      "range": {
+        "startLine": 10,
+        "startChar": 25,
+        "endLine": 10,
+        "endChar": 28
+      },
+      "revId": "aa868c18bdb222b63840a59d30d187f357963be1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34d13cd7_2b8e9751",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-05-20T04:46:21Z",
       "side": 1,
       "message": "Just curious, shouldn\u0027t this be based on long_gc_log_threshold_, rather than being a constant? For instance, 10x of long_gc_log_threshold_.",
+      "range": {
+        "startLine": 206,
+        "startChar": 25,
+        "endLine": 206,
+        "endChar": 77
+      },
+      "revId": "aa868c18bdb222b63840a59d30d187f357963be1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c9dc36_56e8ff28",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-05-20T08:41:01Z",
+      "side": 1,
+      "message": "I see those as different values.  For example, it might be reasonable to set long_gc_log_threshold_ to very large value to effectively disable it.",
+      "parentUuid": "34d13cd7_2b8e9751",
       "range": {
         "startLine": 206,
         "startChar": 25,
