@@ -2225,22 +2225,23 @@ class VisitClassLoaderClassesVisitor : public ClassLoaderVisitor {
   bool done_;
 };
 
-void ClassLinker::VisitClassesInternal(ClassVisitor* visitor) {
-  if (boot_class_table_->Visit(*visitor)) {
-    VisitClassLoaderClassesVisitor loader_visitor(visitor);
-    VisitClassLoaders(&loader_visitor);
+void ClassLinker::VisitClassesInternal(ClassVisitor* visitor, bool visit_bcp_classes) {
+  if (visit_bcp_classes && !boot_class_table_->Visit(*visitor)) {
+    return;
   }
+  VisitClassLoaderClassesVisitor loader_visitor(visitor);
+  VisitClassLoaders(&loader_visitor);
 }
 
-void ClassLinker::VisitClasses(ClassVisitor* visitor) {
+void ClassLinker::VisitClasses(ClassVisitor* visitor, bool visit_bcp_classes) {
   Thread* const self = Thread::Current();
   ReaderMutexLock mu(self, *Locks::classlinker_classes_lock_);
   // Not safe to have thread suspension when we are holding a lock.
   if (self != nullptr) {
     ScopedAssertNoThreadSuspension nts(__FUNCTION__);
-    VisitClassesInternal(visitor);
+    VisitClassesInternal(visitor, visit_bcp_classes);
   } else {
-    VisitClassesInternal(visitor);
+    VisitClassesInternal(visitor, visit_bcp_classes);
   }
 }
 
