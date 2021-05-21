@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebb8b7d9_baa9534c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-05-21T21:31:03Z",
+      "side": 1,
+      "message": "This change is not the cause of the build breakage as the build immediately following the broken build has passed. The build breakage is due to an intermittent infrastructure issue. ",
+      "revId": "091c42afb5134de070436e5fd282f401de3d965d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
