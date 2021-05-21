@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e9fc191_a73e4a1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-21T23:05:03Z",
+      "side": 1,
+      "message": "Alex - Do you know why SuspendThreadByPeer had a request_suspension argument? It seemed to always be true. And AOSP boots without it. Am I missing something?",
+      "revId": "7d82a9e483f717b2ea2bc930cb3c5cf145f78694",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
