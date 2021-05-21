@@ -874,10 +874,11 @@ static void ThreadSuspendByPeerWarning(Thread* self,
 }
 
 Thread* ThreadList::SuspendThreadByPeer(jobject peer,
-                                        bool request_suspension,
                                         SuspendReason reason,
                                         bool* timed_out) {
+  bool request_suspension = true;
   const uint64_t start_time = NanoTime();
+  int self_suspend_count = 0;
   useconds_t sleep_us = kThreadSuspendInitialSleepUs;
   *timed_out = false;
   Thread* const self = Thread::Current();
@@ -926,6 +927,7 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer,
             // We hold the suspend count lock but another thread is trying to suspend us. Its not
             // safe to try to suspend another thread in case we get a cycle. Start the loop again
             // which will allow this thread to be suspended.
+            ++self_suspend_count;
             continue;
           }
           CHECK(suspended_thread == nullptr);
@@ -957,12 +959,20 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer,
         }
         const uint64_t total_delay = NanoTime() - start_time;
         if (total_delay >= thread_suspend_timeout_ns_) {
-          ThreadSuspendByPeerWarning(self,
-                                     ::android::base::FATAL,
-                                     "Thread suspension timed out",
-                                     peer);
-          if (suspended_thread != nullptr) {
+          if (suspended_thread == nullptr) {
+            ThreadSuspendByPeerWarning(self,
+                                       ::android::base::FATAL,
+                                       "Failed to issue suspend request",
+                                       peer);
+          } else {
             CHECK_EQ(suspended_thread, thread);
+            LOG(WARNING) << "Suspended thread state_and_flags: "
+                         << suspended_thread->StateAndFlagsAsHexString()
+                         << ", self_suspend_count = " << self_suspend_count;
+            ThreadSuspendByPeerWarning(self,
+                                       ::android::base::FATAL,
+                                       "Thread suspension timed out",
+                                       peer);
             bool updated = suspended_thread->ModifySuspendCount(soa.Self(),
                                                                 -1,
                                                                 nullptr,
