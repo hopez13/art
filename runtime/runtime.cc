@@ -146,7 +146,6 @@
 #include "native_stack_dump.h"
 #include "nativehelper/scoped_local_ref.h"
 #include "oat.h"
-#include "oat_file.h"
 #include "oat_file_manager.h"
 #include "oat_quick_method_header.h"
 #include "object_callbacks.h"
@@ -1350,35 +1349,8 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   DCHECK(boot_class_path_locations_.empty() ||
          boot_class_path_locations_.size() == boot_class_path_.size());
   if (boot_class_path_.empty()) {
-    // Try to extract the boot class path from the system boot image.
-    if (image_locations_.empty()) {
-      LOG(ERROR) << "Empty boot class path, cannot continue without image.";
-      return false;
-    }
-    std::string system_oat_filename = ImageHeader::GetOatLocationFromImageLocation(
-        GetSystemImageFilename(image_locations_[0].c_str(), instruction_set_));
-    std::string system_oat_location = ImageHeader::GetOatLocationFromImageLocation(
-        image_locations_[0]);
-    std::string error_msg;
-    std::unique_ptr<OatFile> oat_file(OatFile::Open(/*zip_fd=*/ -1,
-                                                    system_oat_filename,
-                                                    system_oat_location,
-                                                    /*executable=*/ false,
-                                                    /*low_4gb=*/ false,
-                                                    &error_msg));
-    if (oat_file == nullptr) {
-      LOG(ERROR) << "Could not open boot oat file for extracting boot class path: " << error_msg;
-      return false;
-    }
-    const OatHeader& oat_header = oat_file->GetOatHeader();
-    const char* oat_boot_class_path = oat_header.GetStoreValueByKey(OatHeader::kBootClassPathKey);
-    if (oat_boot_class_path != nullptr) {
-      Split(oat_boot_class_path, ':', &boot_class_path_);
-    }
-    if (boot_class_path_.empty()) {
-      LOG(ERROR) << "Boot class path missing from boot image oat file " << oat_file->GetLocation();
-      return false;
-    }
+    LOG(ERROR) << "Extracting boot classpath from boot image is not supported";
+    return false;
   }
 
   class_path_string_ = runtime_options.ReleaseOrDefault(Opt::ClassPath);
