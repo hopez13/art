@@ -16,6 +16,24 @@
       "message": "This is breaking the aosp-build-tools branch in multiple ways:  https://android-build.googleplex.com/builds/submitted/7378919/linux/latest/view/logs/build_error.log\n\nThe first issue is the fuzzer packaging being unhappy with a fuzzer that depends on the disabled libdexfile module.  If you fix that it passes Soong but then there\u0027s no definition of the create_minidebuginfo module that we build on that branch.",
       "revId": "1dc77abf87d303a8f4aa35148c57f7ab20832222",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2794f115_a873cb22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2021-05-21T01:02:12Z",
+      "side": 1,
+      "message": "If you test on ToT you\u0027ll also need aosp/1714750 to fix another stacked breakage.",
+      "parentUuid": "8aa086f0_4d24529f",
+      "revId": "1dc77abf87d303a8f4aa35148c57f7ab20832222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
