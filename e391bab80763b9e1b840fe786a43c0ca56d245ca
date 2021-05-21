@@ -94,6 +94,30 @@
       },
       "revId": "e391bab80763b9e1b840fe786a43c0ca56d245ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "033799e2_c76d76a3",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-05-21T23:15:54Z",
+      "side": 1,
+      "message": "1. I\u0027ve added debugging information to `art/README.md` in a followup CL and added you as a reviewer.\n\n2. The debugging commands are really resistant to scripting and they should only have to be used in rare situations where we add a call to an external library function that is annotated with `alwaysinline`.  Now that our internal macros also use `no_stack_protector` I hope no one has to go through this again (though I did document the process).  I don\u0027t think it\u0027s worth the time to turn this into a standalone script.\n\n3. These commands don\u0027t need to be run on presubmit.  Any change that causes a regression will cause boot tests or WebViewZygote/AppZygote tests to fail in presubmit.  These commands only need to be run in the situation I described in #2.",
+      "parentUuid": "499e000c_7a44ba3c",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 313,
+        "endChar": 18
+      },
+      "revId": "e391bab80763b9e1b840fe786a43c0ca56d245ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
