@@ -22,6 +22,30 @@
       },
       "revId": "e391bab80763b9e1b840fe786a43c0ca56d245ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7912c50_a6a8b735",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-05-21T18:38:14Z",
+      "side": 1,
+      "message": "We need to remove the stack protector from all functions that appear in any call stack that leads to the fork code.  It\u0027s easy to identify these functions from the stack dump caused by the __stack_chk_fail function.  After adding the NO_STACK_PROTECTOR attribute this process may need to be iterated several times.\n\nSometimes, after adding the attribute, the failure will still trigger in the same location.  This is an indication that there is an alwaysinline function being called, causing the stack protector to get installed in the function despite our annotation.  There is a document describing the process for identifying them that I will send you.\n\nI\u0027d love to write this all up somewhere for future ART maintainers if you can point me to a place you think is appropriate.",
+      "parentUuid": "66ba4c4b_9040b57c",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 313,
+        "endChar": 18
+      },
+      "revId": "e391bab80763b9e1b840fe786a43c0ca56d245ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
