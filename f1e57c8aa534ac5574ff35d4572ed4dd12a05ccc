@@ -62,6 +62,30 @@
       },
       "revId": "f1e57c8aa534ac5574ff35d4572ed4dd12a05ccc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2c3983b_7f413870",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-05-21T15:28:15Z",
+      "side": 1,
+      "message": "Hmm.. does it just work coincidentally in the original case?  For this change, is it sufficient to remove the DCHECK given the empty check above?\n\n\u003e The retrieval of BCP from boot image is obsolete and should be removed.\n\nCould you elaborate?  Happy to remove obsolete code (the whole if block from L1352??) in this change or a follow-up, whichever you think makes sense.",
+      "parentUuid": "602ac0be_02d8830f",
+      "range": {
+        "startLine": 1358,
+        "startChar": 4,
+        "endLine": 1358,
+        "endChar": 43
+      },
+      "revId": "f1e57c8aa534ac5574ff35d4572ed4dd12a05ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
