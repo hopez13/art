@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "563c8d7c2852e59d21362a2c9bb3d8c807c347f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "920a115f_373b38f4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1352,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-21T16:57:08Z",
+      "side": 1,
+      "message": "The extraction from boot image was a convenience. I don\u0027t think we need to reference it anymore.\n\nJust complain that the BCP is empty. (We cannot continue without definitions of essential classes such as j.l.Object and j.l.Class.)",
+      "range": {
+        "startLine": 1352,
+        "startChar": 19,
+        "endLine": 1352,
+        "endChar": 77
+      },
+      "revId": "563c8d7c2852e59d21362a2c9bb3d8c807c347f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
