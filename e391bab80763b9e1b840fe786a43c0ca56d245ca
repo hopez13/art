@@ -46,6 +46,30 @@
       },
       "revId": "e391bab80763b9e1b840fe786a43c0ca56d245ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "499e000c_7a44ba3c",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-21T19:22:05Z",
+      "side": 1,
+      "message": "You could:\n\n- write docs in an art/Readme.md\n- add a script to run all those commands in the doc so people contributing can run it\n- add it the script as part of presubmits? assuming this matters a lot we need a way to prevent regression.\n\nI\u0027ll defer to Orion and Nicolas to what extent this should be enforced via presubmits or just handled on a best effort case.",
+      "parentUuid": "c7912c50_a6a8b735",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 313,
+        "endChar": 18
+      },
+      "revId": "e391bab80763b9e1b840fe786a43c0ca56d245ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
