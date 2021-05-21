@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "756eaa42_e82621c7",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-21T20:08:10Z",
+      "side": 1,
+      "message": "There is something I don\u0027t understand about how the extra type indices work.\n\n- the virtual type index is computed based on the given dex_file\n- but when we store them, we do it globally, without any reference of the dex files (presumedly to avoid duplication).\n- but then different dex files can have different number of type IDs, so how do we avoid the non-deterministic behavior that `DCHECK_LT(new_extra_descriptor_index, max_artificial_ids);` can have different results based on order?\n\nWhat am I missing?",
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a75c94_23bfc0f0",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-21T20:08:10Z",
+      "side": 1,
+      "message": "make a note that this is the index in the DexFiles section.",
+      "range": {
+        "startLine": 888,
+        "startChar": 6,
+        "endLine": 888,
+        "endChar": 19
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e33658_191a4cce",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-21T20:08:10Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 895,
+        "startChar": 6,
+        "endLine": 895,
+        "endChar": 19
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc552de6_198b9773",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-21T20:08:10Z",
+      "side": 1,
+      "message": "nit: I\u0027d add the same  for the classes for consistency.",
+      "range": {
+        "startLine": 896,
+        "startChar": 6,
+        "endLine": 896,
+        "endChar": 25
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10fcf4b4_db15a537",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-21T20:08:10Z",
+      "side": 1,
+      "message": "so, is this the uint16_t which specified the flags that can be set on the method? and essentially dictates that number of bits you need per method in bitmap_data?\n\nCould you add some clarification comments",
+      "range": {
+        "startLine": 897,
+        "startChar": 6,
+        "endLine": 897,
+        "endChar": 18
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77b66106_9891386a",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-21T20:08:10Z",
+      "side": 1,
+      "message": "I strongly recommend we write/read this data explicitly instead or relying on the memory layout.\n\nThere are more and more consumers of the profile data, and many use this code as reference which will be error prone (for them) without a deep understanding of the c++ layout.",
+      "range": {
+        "startLine": 1066,
+        "startChar": 23,
+        "endLine": 1066,
+        "endChar": 43
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88e403f6_34688ff1",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-21T20:08:10Z",
+      "side": 1,
+      "message": "Is there any legit case when this will fail?",
+      "range": {
+        "startLine": 308,
+        "startChar": 48,
+        "endLine": 309,
+        "endChar": 48
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
