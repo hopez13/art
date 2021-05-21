@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be15293a_09307de8",
+        "filename": "runtime/dexopt_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-05-21T16:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfb9ec9f_eaf185bb",
+      "range": {
+        "startLine": 155,
+        "startChar": 36,
+        "endLine": 155,
+        "endChar": 63
+      },
+      "revId": "f1e57c8aa534ac5574ff35d4572ed4dd12a05ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "602ac0be_02d8830f",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "It used to work fine when we had a single boot image. Since it has been split, this tends to fail completely because the default two-component image location shall not point to a file at all. You\u0027re kind of making it work by using only the first component but the result is probably not what we want anyway.\n\nIf you don\u0027t want to do the cleanup, just remove the DCHECK(). Otherwise, everything in the `if (boot_class_path_.empty())` block should be replaced with a simple `LOG(ERROR)` and `return false`.",
       "parentUuid": "a2c3983b_7f413870",
+      "range": {
+        "startLine": 1358,
+        "startChar": 4,
+        "endLine": 1358,
+        "endChar": 43
+      },
+      "revId": "f1e57c8aa534ac5574ff35d4572ed4dd12a05ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82597386_4c036429",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-05-21T16:36:50Z",
+      "side": 1,
+      "message": "OK, let me remove the DCHECK for keep the change within the change scope.  I\u0027ll send you another change for the actual cleanup.",
+      "parentUuid": "f9c6a58a_742c9c3e",
       "range": {
         "startLine": 1358,
         "startChar": 4,
