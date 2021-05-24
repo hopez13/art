@@ -22,6 +22,30 @@
       },
       "revId": "980afdb66d8688d6b3c0eaea3ee7494e694897b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddf2a089_3ce6ee0d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-24T13:02:59Z",
+      "side": 1,
+      "message": "FATAL would abort. We want an orderly exit with status 1 (kOther).",
+      "parentUuid": "dbcdae8b_40b034b2",
+      "range": {
+        "startLine": 1574,
+        "startChar": 12,
+        "endLine": 1574,
+        "endChar": 17
+      },
+      "revId": "980afdb66d8688d6b3c0eaea3ee7494e694897b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
