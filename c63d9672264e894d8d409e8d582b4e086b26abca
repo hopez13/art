@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbac2267_c1b32ba3",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-24T13:15:56Z",
+      "side": 1,
+      "message": "An extra descriptor has a \"global\" index, say `extra_descriptor_index` and it can be referenced in dex file data by using the artifical TypeIndex `dex_file_data-\u003enum_type_ids + extra_descriptor_index` as long as that\u0027s less than `kDexNoIndex16`.\n\nYes, we store them globally, there is no reason to duplicate strings.\n\nThe `DCHECK()` you reference is in a code path where we know that `dex_file_data-\u003enum_type_ids + extra_descriptor_index` shall be a valid artificial TypeIndex, see the code above the `DCHECK()` checking `if (UNLIKELY(extra_descriptors_.size() \u003e\u003d max_artificial_ids))` before calling `AddExtraDescriptor().",
+      "parentUuid": "756eaa42_e82621c7",
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32a75c94_23bfc0f0",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-05-21T20:08:10Z",
       "side": 1,
       "message": "make a note that this is the index in the DexFiles section.",
+      "range": {
+        "startLine": 888,
+        "startChar": 6,
+        "endLine": 888,
+        "endChar": 19
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff5d2fc7_515d2d61",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-24T13:15:56Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/1716117 .",
+      "parentUuid": "32a75c94_23bfc0f0",
       "range": {
         "startLine": 888,
         "startChar": 6,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18be16cf_aadb3978",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-24T13:15:56Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/1716117 .",
+      "parentUuid": "14e33658_191a4cce",
+      "range": {
+        "startLine": 895,
+        "startChar": 6,
+        "endLine": 895,
+        "endChar": 19
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc552de6_198b9773",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-05-21T20:08:10Z",
       "side": 1,
       "message": "nit: I\u0027d add the same  for the classes for consistency.",
+      "range": {
+        "startLine": 896,
+        "startChar": 6,
+        "endLine": 896,
+        "endChar": 25
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac5d7a79_bb6bd63b",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-24T13:15:56Z",
+      "side": 1,
+      "message": "I don\u0027t want to duplicate the information already provided by `number_of_classes`. And at this point I\u0027d rather not change the format again.\n\n(Note that this is a relic of the old format, not really an original idea. But easy skipping was the reason why I kept it.)",
+      "parentUuid": "dc552de6_198b9773",
       "range": {
         "startLine": 896,
         "startChar": 6,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e73781b9_d0cfc99f",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-24T13:15:56Z",
+      "side": 1,
+      "message": "This is a union of recorded flags used to save size by not writing large number (n * num_method_ids) of zeros. Added comment in https://android-review.googlesource.com/1716117 .",
+      "parentUuid": "10fcf4b4_db15a537",
+      "range": {
+        "startLine": 897,
+        "startChar": 6,
+        "endLine": 897,
+        "endChar": 18
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77b66106_9891386a",
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bec67a64_a9938b6c",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-24T13:15:56Z",
+      "side": 1,
+      "message": "Explicit copying to SafeBuffer implemented in https://android-review.googlesource.com/1716117 .",
+      "parentUuid": "77b66106_9891386a",
+      "range": {
+        "startLine": 1066,
+        "startChar": 23,
+        "endLine": 1066,
+        "endChar": 43
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88e403f6_34688ff1",
@@ -146,6 +284,30 @@
       "writtenOn": "2021-05-21T20:08:10Z",
       "side": 1,
       "message": "Is there any legit case when this will fail?",
+      "range": {
+        "startLine": 308,
+        "startChar": 48,
+        "endLine": 309,
+        "endChar": 48
+      },
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d11065a1_c3928c4e",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-24T13:15:56Z",
+      "side": 1,
+      "message": "Yes, one could craft such dex files. But the method index limit is usually reached much earlier than type index limit, so we do not normally see dex files with more than 10000 type ids. So there is usually plenty of available artificial type ids and we do not expect to hit this failure often (if ever, outside of tests).",
+      "parentUuid": "88e403f6_34688ff1",
       "range": {
         "startLine": 308,
         "startChar": 48,
