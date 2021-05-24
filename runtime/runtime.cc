@@ -1381,6 +1381,9 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
     }
   }
 
+  boot_class_path_fds_ = runtime_options.ReleaseOrDefault(Opt::BootClassPathFds);
+  DCHECK(boot_class_path_fds_.empty() || boot_class_path_fds_.size() == boot_class_path_.size());
+
   class_path_string_ = runtime_options.ReleaseOrDefault(Opt::ClassPath);
   properties_ = runtime_options.ReleaseOrDefault(Opt::PropertiesList);
 
@@ -1504,6 +1507,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
                        runtime_options.GetOrDefault(Opt::NonMovingSpaceCapacity),
                        GetBootClassPath(),
                        GetBootClassPathLocations(),
+                       GetBootClassPathFds(),
                        image_locations_,
                        instruction_set_,
                        // Override the collector type to CC if the read barrier config.
