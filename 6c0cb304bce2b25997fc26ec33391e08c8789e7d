@@ -39,6 +39,30 @@
       },
       "revId": "6c0cb304bce2b25997fc26ec33391e08c8789e7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee6567d6_72531917",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-24T17:31:59Z",
+      "side": 1,
+      "message": "I kind of thought that as well, but was being overly cautious. Fixed.",
+      "parentUuid": "580fec9d_71e265e6",
+      "range": {
+        "startLine": 973,
+        "startChar": 56,
+        "endLine": 973,
+        "endChar": 61
+      },
+      "revId": "6c0cb304bce2b25997fc26ec33391e08c8789e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
