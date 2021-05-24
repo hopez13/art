@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "580fec9d_71e265e6",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-24T09:16:31Z",
+      "side": 1,
+      "message": "The log severity `FATAL` means that the code below is unreachable and should be replaced with `UNREACHABLE()`.",
+      "range": {
+        "startLine": 973,
+        "startChar": 56,
+        "endLine": 973,
+        "endChar": 61
+      },
+      "revId": "6c0cb304bce2b25997fc26ec33391e08c8789e7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
