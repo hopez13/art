@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ce11104_4ec9a2c2",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-24T17:06:37Z",
+      "side": 1,
+      "message": "Still not super clear.\n\nSay we have 2 dex files.\n\n- dex1 with (2^16 - 5) typeIds\n- dex2 with (2^16 - 10) typeIds\n- dex2 can accommodate 10 virtual typeId and dex1 only 5.\n- If I\u0027m calling FindOrCreateTypeIndex() on dex2 7 times and then try to call it on dex1 with a new type id I will fail. But not if I reverse the order.\n- Is the assumption that in the field the dex files have way less then 2^16 ids and we\u0027ll never technically hit this case?\n\nLemme know if I\u0027m misunderstanding something. \n\nI\u0027m think that\u0027s a real possibility in multidex apks where apps or tools distribute their classes in an unequal and many times unpredictable ways.",
+      "parentUuid": "dbac2267_c1b32ba3",
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "32a75c94_23bfc0f0",
         "filename": "libprofile/profile/profile_compilation_info.cc",
         "patchSetId": 20
