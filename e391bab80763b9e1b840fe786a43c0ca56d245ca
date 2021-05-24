@@ -177,6 +177,30 @@
       },
       "revId": "e391bab80763b9e1b840fe786a43c0ca56d245ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74e9be50_4f08c93c",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-05-24T20:40:14Z",
+      "side": 1,
+      "message": "Any issue with the main Zygote fork path will cause a boot failure, so that should be easy to detect.\n\nI was using the KeyboardVisibilityControlTest to check the WebViewZygote paths, as it failed before I removed the stack protection from the interpreter.  If any issues arise with the interpreter-based zygote paths any of the existing tests that create a new WebView element from the WebViewZygote will crash.",
+      "parentUuid": "d42663d6_d992d033",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 313,
+        "endChar": 18
+      },
+      "revId": "e391bab80763b9e1b840fe786a43c0ca56d245ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
