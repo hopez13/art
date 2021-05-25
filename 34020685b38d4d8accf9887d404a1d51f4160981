@@ -18,6 +18,41 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4a2bcfd_85a9b16b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-05-25T11:59:33Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "34020685b38d4d8accf9887d404a1d51f4160981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2f1706d_cb7c1b15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-05-25T11:59:33Z",
+      "side": 1,
+      "message": "Yes, it\u0027s laying out the groundwork to ensure that older platforms do not receive dex code updated that has unknown hidden api flags.\nIncluding this information in the commit message.",
+      "parentUuid": "1f590176_403505f2",
+      "revId": "34020685b38d4d8accf9887d404a1d51f4160981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99139d32_e25bfa8d",
@@ -31,6 +66,30 @@
       "writtenOn": "2021-05-21T19:32:16Z",
       "side": 1,
       "message": "coerceAtMost (following some kotlin/java util names) or something more descriptive?",
+      "range": {
+        "startLine": 259,
+        "startChar": 21,
+        "endLine": 259,
+        "endChar": 26
+      },
+      "revId": "34020685b38d4d8accf9887d404a1d51f4160981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ac5b15b_2e433468",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-05-25T11:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99139d32_e25bfa8d",
       "range": {
         "startLine": 259,
         "startChar": 21,
@@ -64,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "043e8349_5a854558",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-05-25T11:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5337bdc2_7408dd4f",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 5
+      },
+      "revId": "34020685b38d4d8accf9887d404a1d51f4160981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3131dcb_7d1825d1",
@@ -77,6 +160,30 @@
       "writtenOn": "2021-05-21T19:37:42Z",
       "side": 1,
       "message": "we don\u0027t expect an int here? maybe just exhaustive list of possible options foo|bar|baz|max-target-*?",
+      "range": {
+        "startLine": 85,
+        "startChar": 41,
+        "endLine": 85,
+        "endChar": 44
+      },
+      "revId": "34020685b38d4d8accf9887d404a1d51f4160981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5278a0ab_c195ed63",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-05-25T11:59:33Z",
+      "side": 1,
+      "message": "The initial intention was to make it ints, but I subsequently dropped that idea.\nDone.",
+      "parentUuid": "b3131dcb_7d1825d1",
       "range": {
         "startLine": 85,
         "startChar": 41,
@@ -110,6 +217,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e09cac9_bcdd7466",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-05-25T11:59:33Z",
+      "side": 1,
+      "message": "Changed the code a bit, removed the need for an extra copy.\nAdded an explanatory comment anyway.",
+      "parentUuid": "f9a4ea1c_1adf4a36",
+      "range": {
+        "startLine": 1021,
+        "startChar": 35,
+        "endLine": 1021,
+        "endChar": 39
+      },
+      "revId": "34020685b38d4d8accf9887d404a1d51f4160981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fa4cbfc_6e9e8201",
@@ -123,6 +254,30 @@
       "writtenOn": "2021-05-21T19:37:42Z",
       "side": 1,
       "message": "tests for other values: blocked, unsupported, etc?",
+      "range": {
+        "startLine": 727,
+        "startChar": 22,
+        "endLine": 727,
+        "endChar": 68
+      },
+      "revId": "34020685b38d4d8accf9887d404a1d51f4160981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a3def1c_46b5f27a",
+        "filename": "tools/hiddenapi/hiddenapi_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1431994
+      },
+      "writtenOn": "2021-05-25T11:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fa4cbfc_6e9e8201",
       "range": {
         "startLine": 727,
         "startChar": 22,
