@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "160caf23_c69255f1",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-25T08:24:02Z",
+      "side": 1,
+      "message": "That example is correct. And I do not expect to hit the type index limit under normal circumstances. And even if we do hit the limit, we can only miss some array classes and inline cache entries (marking them as \"missing classes\") which is OK as profiles have always been only best effort.",
+      "parentUuid": "7ce11104_4ec9a2c2",
+      "revId": "c63d9672264e894d8d409e8d582b4e086b26abca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32a75c94_23bfc0f0",
