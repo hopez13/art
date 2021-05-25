@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2721145e_791435af",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-05-25T13:21:49Z",
+      "side": 1,
+      "message": "`deapexer` depends on `debugfs_static` (https://cs.android.com/android/platform/superproject/+/master:system/apex/tools/Android.bp;l\u003d36-38;drc\u003d23e15419485d2c7cede47f6c970ad6210fabbeae); could we rely on this (indirect) dependency instead?",
+      "range": {
+        "startLine": 56,
+        "startChar": 51,
+        "endLine": 56,
+        "endChar": 63
+      },
+      "revId": "1af12388ac7c5c9d285aa06cc0c9be8e3b6bbdf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
