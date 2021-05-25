@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ca746ee_1bd4a0ee",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-05-25T13:56:30Z",
+      "side": 1,
+      "message": "Should we remove this, now that `debugfs` is \"just\" a dependency of `deapexer`? (Sorry if my previous comment was unclear.)",
+      "range": {
+        "startLine": 56,
+        "startChar": 51,
+        "endLine": 56,
+        "endChar": 70
+      },
+      "revId": "e86019c9933ce8a8ead4c87a8dd090096fb9c1a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
