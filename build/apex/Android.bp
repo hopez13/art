@@ -445,6 +445,7 @@ python_binary_host {
 // Genrules so we can run the checker, and empty Java library so that it gets executed.
 
 art_check_apex_gen_stem = "$(location art-apex-tester)" +
+    " --deapexer $(location deapexer)" +
     " --debugfs $(location debugfs)" +
     " --tmpdir $(genDir)"
 
@@ -463,6 +464,7 @@ art_module_genrule_defaults {
 
     tools: [
         "art-apex-tester",
+        "deapexer",
         "debugfs",
     ],
 }
