@@ -196,6 +196,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a013cfb_0ff583bf",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-05-25T14:24:04Z",
+      "side": 1,
+      "message": "Maybe include max-target-* and mention that the list is defined hiddenapi_flags.h to avoid having this being stale once we add max-target-s, etc.",
+      "parentUuid": "5278a0ab_c195ed63",
+      "range": {
+        "startLine": 85,
+        "startChar": 41,
+        "endLine": 85,
+        "endChar": 44
+      },
+      "revId": "34020685b38d4d8accf9887d404a1d51f4160981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9a4ea1c_1adf4a36",
         "filename": "tools/hiddenapi/hiddenapi.cc",
         "patchSetId": 3

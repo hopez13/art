@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97aaf9aa_cde64858",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2021-05-25T14:24:04Z",
+      "side": 1,
+      "message": "nit: the flag is called max-hiddenapi-level but the local variable is max_hidden_api_target_sdk_, maybe worth renaming one or the other for consistency?",
+      "range": {
+        "startLine": 1019,
+        "startChar": 11,
+        "endLine": 1019,
+        "endChar": 37
+      },
+      "revId": "a9df367b6c4204b684dbef0ec04bb74443b7137b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
