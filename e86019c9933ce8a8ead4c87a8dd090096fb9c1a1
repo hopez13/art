@@ -22,6 +22,30 @@
       },
       "revId": "e86019c9933ce8a8ead4c87a8dd090096fb9c1a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4303aabb_e95569fb",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-05-25T14:32:15Z",
+      "side": 1,
+      "message": "Aha, well, it\u0027s true deapexer can look up debugfs itself in this case since $ANDROID_HOST_OUT is set. However in the genrule tests it can\u0027t, and this way there\u0027s less logic in art_apex_test.py to handle an optional debugfs path to deapexer. And given we want to pass --debugfs in this script I think it\u0027s cleaner to explicitly build it as well.",
+      "parentUuid": "4ca746ee_1bd4a0ee",
+      "range": {
+        "startLine": 56,
+        "startChar": 51,
+        "endLine": 56,
+        "endChar": 70
+      },
+      "revId": "e86019c9933ce8a8ead4c87a8dd090096fb9c1a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
