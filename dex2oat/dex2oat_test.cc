@@ -208,6 +208,20 @@ class Dex2oatTest : public Dex2oatEnvironmentTest {
   std::string error_msg_ = "";
 };
 
+// This test class provides an easy way to validate an expected filter which is different
+// then the one pass to generate the odex file (compared to adding yet another argument
+// to what's already huge test methods).
+class Dex2oatWithExpectedFilterTest : public Dex2oatTest {
+ protected:
+  void CheckFilter(
+        CompilerFilter::Filter expected ATTRIBUTE_UNUSED,
+        CompilerFilter::Filter actual) override {
+    EXPECT_EQ(expected_filter_, actual);
+  }
+
+  CompilerFilter::Filter expected_filter_;
+};
+
 class Dex2oatSwapTest : public Dex2oatTest {
  protected:
   void RunTest(bool use_fd, bool expect_use, const std::vector<std::string>& extra_args = {}) {
@@ -443,6 +457,14 @@ class Dex2oatVeryLargeTest : public Dex2oatTest {
                bool expect_large,
                bool expect_downgrade,
                const std::vector<std::string>& extra_args = {}) {
+    RunTest(filter, filter, expect_large, expect_downgrade, extra_args);
+  }
+
+  void RunTest(CompilerFilter::Filter filter,
+               CompilerFilter::Filter expected_filter,
+               bool expect_large,
+               bool expect_downgrade,
+               const std::vector<std::string>& extra_args = {}) {
     std::string dex_location = GetScratchDir() + "/DexNoOat.jar";
     std::string odex_location = GetOdexDir() + "/DexOdexNoOat.odex";
     std::string app_image_file = GetScratchDir() + "/Test.art";
@@ -458,6 +480,7 @@ class Dex2oatVeryLargeTest : public Dex2oatTest {
                 odex_location,
                 app_image_file,
                 filter,
+                expected_filter,
                 expect_large,
                 expect_downgrade);
   }
@@ -466,6 +489,7 @@ class Dex2oatVeryLargeTest : public Dex2oatTest {
                    const std::string& odex_location,
                    const std::string& app_image_file,
                    CompilerFilter::Filter filter,
+                   CompilerFilter::Filter expected_filter,
                    bool expect_large,
                    bool expect_downgrade) {
     if (expect_downgrade) {
@@ -503,7 +527,7 @@ class Dex2oatVeryLargeTest : public Dex2oatTest {
 
       // If the input filter was "below," it should have been used.
       if (!CompilerFilter::IsAsGoodAs(CompilerFilter::kExtract, filter)) {
-        EXPECT_EQ(odex_file->GetCompilerFilter(), filter);
+        EXPECT_EQ(odex_file->GetCompilerFilter(), expected_filter);
       }
 
       // If expect large, make sure the app image isn't generated or is empty.
@@ -511,7 +535,7 @@ class Dex2oatVeryLargeTest : public Dex2oatTest {
         EXPECT_EQ(file->GetLength(), 0u);
       }
     } else {
-      EXPECT_EQ(odex_file->GetCompilerFilter(), filter);
+      EXPECT_EQ(odex_file->GetCompilerFilter(), expected_filter);
       ASSERT_TRUE(file != nullptr) << app_image_file;
       EXPECT_GT(file->GetLength(), 0u);
     }
@@ -576,7 +600,7 @@ TEST_F(Dex2oatVeryLargeTest, UseVeryLarge) {
 // Regressin test for b/35665292.
 TEST_F(Dex2oatVeryLargeTest, SpeedProfileNoProfile) {
   // Test that dex2oat doesn't crash with speed-profile but no input profile.
-  RunTest(CompilerFilter::kSpeedProfile, false, false);
+  RunTest(CompilerFilter::kSpeedProfile, CompilerFilter::kVerify, false, false);
 }
 
 class Dex2oatLayoutTest : public Dex2oatTest {
@@ -1841,7 +1865,10 @@ TEST_F(Dex2oatTest, CompactDexInZip) {
   ASSERT_TRUE(WIFEXITED(status) && WEXITSTATUS(status) != 0) << status << " " << output_;
 }
 
-TEST_F(Dex2oatTest, AppImageNoProfile) {
+TEST_F(Dex2oatWithExpectedFilterTest, AppImageNoProfile) {
+  // Set the expected filter.
+  expected_filter_ = CompilerFilter::Filter::kVerify;
+
   ScratchFile app_image_file;
   const std::string out_dir = GetScratchDir();
   const std::string odex_location = out_dir + "/base.odex";
@@ -1890,7 +1917,10 @@ TEST_F(Dex2oatTest, ZipFd) {
                                   /*use_zip_fd=*/ true));
 }
 
-TEST_F(Dex2oatTest, AppImageEmptyDex) {
+TEST_F(Dex2oatWithExpectedFilterTest, AppImageEmptyDex) {
+  // Set the expected filter.
+  expected_filter_ = CompilerFilter::Filter::kVerify;
+
   // Create a profile with the startup method marked.
   ScratchFile profile_file;
   ScratchFile temp_dex;
