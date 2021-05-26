@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "017d6670_9fd35ef0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-26T20:54:58Z",
+      "side": 1,
+      "message": "Can you expand the message with the changes you did (or have to do) in the profile saver? It\u0027s a significant rewrite and it will help to have some guidelines.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3e5f8808_b5b4ee95",
@@ -19,6 +42,52 @@
         "startChar": 36,
         "endLine": 12,
         "endChar": 53
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26c50051_3e382e51",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-26T20:54:58Z",
+      "side": 1,
+      "message": "Can you make this private? It will be good to keep the concept of profileIndex internal.\n\nOr, if it will introduce a lot of complexity, maybe make it friends to the profile saver.",
+      "range": {
+        "startLine": 332,
+        "startChar": 7,
+        "endLine": 332,
+        "endChar": 15
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9ef6a8d_0515de0f",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-26T20:54:58Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 393,
+        "startChar": 7,
+        "endLine": 393,
+        "endChar": 16
       },
       "revId": "f4abea079f06a0108534b111fbe927726de2d523",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
