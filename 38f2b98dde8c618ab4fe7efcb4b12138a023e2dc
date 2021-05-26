@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e84ef6cc_5f35c62a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-05-26T10:05:09Z",
+      "side": 1,
+      "message": "Looks good!",
+      "revId": "38f2b98dde8c618ab4fe7efcb4b12138a023e2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aa7b990_9dcfd343",
+        "filename": "libartbase/base/hiddenapi_flags.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1010681
+      },
+      "writtenOn": "2021-05-26T10:05:09Z",
+      "side": 1,
+      "message": "include the invalid name in the error message",
+      "range": {
+        "startLine": 266,
+        "startChar": 35,
+        "endLine": 266,
+        "endChar": 59
+      },
+      "revId": "38f2b98dde8c618ab4fe7efcb4b12138a023e2dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
