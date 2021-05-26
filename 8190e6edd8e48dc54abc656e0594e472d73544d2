@@ -16,6 +16,24 @@
       "message": "Do you have any insights why this could happen?",
       "revId": "8190e6edd8e48dc54abc656e0594e472d73544d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4c7ed53_0b36dec6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2021-05-26T20:07:41Z",
+      "side": 1,
+      "message": "LLVM prevents inlining of functions with different stack protector attributes. By adding more no-stack-protector annotations, we prevent inlining of those functions, so that\u0027s where the performance hit is coming from.",
+      "parentUuid": "48e868a6_6f52cd9e",
+      "revId": "8190e6edd8e48dc54abc656e0594e472d73544d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
