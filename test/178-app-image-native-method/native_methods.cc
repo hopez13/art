@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
+#include <sstream>
+
 #include "jni.h"
+
+#include "scoped_thread_state_change-inl.h"
+#include "thread-current-inl.h"
 
 namespace art {
 
@@ -636,6 +641,26 @@ extern "C" JNIEXPORT jint JNICALL Java_CriticalClinitCheck_nativeMethodWithManyP
       i7, l7, f7, d7,
       i8, l8, f8, d8);
   return ok ? 42 : -1;
+}
+
+extern "C" JNIEXPORT jint JNICALL Java_Main_b189235039CallThrough(JNIEnv* env, jobject m) {
+  jclass main_klass = env->GetObjectClass(m);
+  jmethodID checkLocks = env->GetStaticMethodID(main_klass, "b189235039CheckLocks", "(ILMain;)I");
+  if (checkLocks == nullptr) {
+    return -1;
+  }
+  return env->CallStaticIntMethod(main_klass, checkLocks, 42, m);
+}
+
+extern "C" JNIEXPORT jint JNICALL Java_Main_b189235039CheckLocks(JNIEnv*,
+                                                                 jclass,
+                                                                 int arg,
+                                                                 jobject) {
+  // Check that we do not crash when dumping locks.
+  ScopedObjectAccess soa(Thread::Current());
+  std::ostringstream oss;
+  soa.Self()->DumpJavaStack(oss, /*check_suspended=*/ false, /*dump_locks=*/ true);
+  return arg;
 }
 
 }  // namespace art
