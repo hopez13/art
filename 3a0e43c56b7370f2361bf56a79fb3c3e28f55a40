@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69dbcff8_29c2670e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3734,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-27T20:46:00Z",
+      "side": 1,
+      "message": "This should always be true given line 3732.",
+      "range": {
+        "startLine": 3734,
+        "startChar": 59,
+        "endLine": 3734,
+        "endChar": 77
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf7a8119_1120d872",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3737,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-27T20:46:00Z",
+      "side": 1,
+      "message": "by what?",
+      "range": {
+        "startLine": 3737,
+        "startChar": 68,
+        "endLine": 3737,
+        "endChar": 76
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
