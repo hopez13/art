@@ -34,6 +34,24 @@
       "parentUuid": "48e868a6_6f52cd9e",
       "revId": "8190e6edd8e48dc54abc656e0594e472d73544d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b49e1f_bb3e3365",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-27T09:57:21Z",
+      "side": 1,
+      "message": "Sigh - Chris I think this means we\u0027ll want all interpreter methods to be annotated with no stack protection.",
+      "parentUuid": "b4c7ed53_0b36dec6",
+      "revId": "8190e6edd8e48dc54abc656e0594e472d73544d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
