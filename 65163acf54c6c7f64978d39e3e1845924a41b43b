@@ -1,0 +1,30 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011215054",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1720410?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "41e3ae4b_ca9acb09",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-05-27T00:46:09Z",
+      "side": 1,
+      "message": "Third-party license (BSD) disallowed in repository platform/art:\nUse of this source code is governed by a BSD-style license\n",
+      "range": {
+        "startLine": 3,
+        "startChar": 3,
+        "endLine": 3,
+        "endChar": 61
+      },
+      "revId": "65163acf54c6c7f64978d39e3e1845924a41b43b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
