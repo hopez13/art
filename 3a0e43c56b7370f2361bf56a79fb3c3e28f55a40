@@ -45,6 +45,30 @@
       },
       "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d8cf7e_6ac9f2f4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3737,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-27T22:16:02Z",
+      "side": 1,
+      "message": "Good point. Looking at it again, the only case in which we don\u0027t count it as a dummy GC is the kGcTypePartial one which, as I just pointed out, we should have retried with kGcTypeFull, something I had missed when I first wrote this. I should just put a CHECK here. Which unfortunately gets me back to square zero.",
+      "parentUuid": "bf7a8119_1120d872",
+      "range": {
+        "startLine": 3737,
+        "startChar": 68,
+        "endLine": 3737,
+        "endChar": 76
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
