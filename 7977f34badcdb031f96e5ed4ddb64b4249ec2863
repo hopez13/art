@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d51a24d2_14cdd3c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1141797
+      },
+      "writtenOn": "2021-05-27T23:38:07Z",
+      "side": 1,
+      "message": "Just FYI; I\u0027m OOO this next week.\n\nOnce this CL lands:\n  * Update https://chrome-internal.googlesource.com/infradata/config/+/refs/heads/main/configs/luci-config/projects.cfg#45 to change \u0027path\u0027 to have \u0027/generated\u0027 at the end (any OWNERS can review)\n  * Add another CL here to delete the old config files.",
+      "revId": "7977f34badcdb031f96e5ed4ddb64b4249ec2863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
