@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0b8398c1_0242da38",
+        "filename": "tools/luci/config/generated/cr-buildbucket.cfg",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-05-27T15:09:47Z",
+      "side": 1,
+      "message": "Can we add a README file next to these that explains how to auto-generate them?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 28
+      },
+      "revId": "e559f4324b98a933942face0610b871227952927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "163363bf_6ed1e63b",
         "filename": "tools/luci/config/main.star",
         "patchSetId": 4
