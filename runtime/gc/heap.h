@@ -836,8 +836,10 @@ class Heap {
 
   // Request asynchronous GC. Observed_gc_num is the value of GetCurrentGcNum() when we started to
   // evaluate the GC triggering condition. If a GC has been completed since then, we consider our
-  // job done. Ensures that gcs_completed_ will eventually be incremented beyond observed_gc_num.
-  void RequestConcurrentGC(Thread* self, GcCause cause, bool force_full, uint32_t observed_gc_num)
+  // job done. If we return true, then we ensured that gcs_completed_ will eventually be
+  // incremented beyond observed_gc_num. We return false only in corner cases in which we cannot
+  // ensure that.
+  bool RequestConcurrentGC(Thread* self, GcCause cause, bool force_full, uint32_t observed_gc_num)
       REQUIRES(!*pending_task_lock_);
 
   // Whether or not we may use a garbage collector, used so that we only create collectors we need.

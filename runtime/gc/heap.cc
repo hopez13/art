@@ -2581,6 +2581,9 @@ static inline bool GCNumberLt(uint32_t gcs_completed, uint32_t gcs_requested) {
   return difference > 0 && !completed_more_than_requested;
 }
 
+// TEMPORARY
+uint32_t last_gc_no = 0;
+int last_return = 0;
 
 collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
                                                GcCause gc_cause,
@@ -2592,6 +2595,10 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
   switch (gc_type) {
     case collector::kGcTypePartial: {
       if (!HasZygoteSpace()) {
+        // Do not increment gcs_completed_ . We should retry with kGcTypeFull.
+        // TEMPORARY
+        last_gc_no = GetCurrentGcNum();
+        last_return = 1;
         return collector::kGcTypeNone;
       }
       break;
@@ -2608,6 +2615,9 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
     // space to run the GC.
     // Count this as a GC in case someone is waiting for it to complete.
     gcs_completed_.fetch_add(1, std::memory_order_release);
+    // TEMPORARY
+    last_gc_no = GetCurrentGcNum();
+    last_return = 2;
     return collector::kGcTypeNone;
   }
   bool compacting_gc;
@@ -2619,6 +2629,9 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
     WaitForGcToCompleteLocked(gc_cause, self);
     if (requested_gc_num != GC_NUM_ANY && !GCNumberLt(GetCurrentGcNum(), requested_gc_num)) {
       // The appropriate GC was already triggered elsewhere.
+      // TEMPORARY
+      last_gc_no = GetCurrentGcNum();
+      last_return = 3;
       return collector::kGcTypeNone;
     }
     compacting_gc = IsMovingGc(collector_type_);
@@ -2627,10 +2640,16 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
       LOG(WARNING) << "Skipping GC due to disable moving GC count " << disable_moving_gc_count_;
       // Again count this as a GC.
       gcs_completed_.fetch_add(1, std::memory_order_release);
+      // TEMPORARY
+      last_gc_no = GetCurrentGcNum();
+      last_return = 4;
       return collector::kGcTypeNone;
     }
     if (gc_disabled_for_shutdown_) {
       gcs_completed_.fetch_add(1, std::memory_order_release);
+      // TEMPORARY
+      last_gc_no = GetCurrentGcNum();
+      last_return = 5;
       return collector::kGcTypeNone;
     }
     collector_type_running_ = collector_type_;
@@ -2685,7 +2704,7 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
       }
       CHECK(temp_space_->IsEmpty());
     }
-    gc_type = collector::kGcTypeFull;  // TODO: Not hard code this in.
+    gc_type = collector::kGcTypeFull;  // TODO: Not hard code this in. ????
   } else if (current_allocator_ == kAllocatorTypeRosAlloc ||
       current_allocator_ == kAllocatorTypeDlMalloc) {
     collector = FindCollectorByGcType(gc_type);
@@ -2705,6 +2724,7 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
   GrowForUtilization(collector, bytes_allocated_before_gc);
   old_native_bytes_allocated_.store(GetNativeBytes());
   LogGC(gc_cause, collector);
+  last_return = 0;
   FinishGC(self, gc_type);
   // Actually enqueue all cleared references. Do this after the GC has officially finished since
   // otherwise we can deadlock.
@@ -2719,6 +2739,9 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
     ScopedObjectAccess soa(self);
     soa.Vm()->UnloadNativeLibraries();
   }
+  // TEMPORARY
+  last_gc_no = GetCurrentGcNum();
+  last_return += 6;
   return gc_type;
 }
 
@@ -2789,8 +2812,10 @@ void Heap::FinishGC(Thread* self, collector::GcType gc_type) {
   // Reset.
   running_collection_is_blocking_ = false;
   thread_running_gc_ = nullptr;
+  last_return += 10;
   if (gc_type != collector::kGcTypeNone) {
     gcs_completed_.fetch_add(1, std::memory_order_release);
+    last_return += 10;
   }
   // Wake anyone who may have been waiting for the GC to complete.
   gc_complete_cond_->Broadcast(self);
@@ -3727,8 +3752,15 @@ class Heap::ConcurrentGCTask : public HeapTask {
   ConcurrentGCTask(uint64_t target_time, GcCause cause, bool force_full, uint32_t gc_num)
       : HeapTask(target_time), cause_(cause), force_full_(force_full), my_gc_num_(gc_num) {}
   void Run(Thread* self) override {
-    gc::Heap* heap = Runtime::Current()->GetHeap();
+    Runtime* runtime = Runtime::Current();
+    gc::Heap* heap = runtime->GetHeap();
+    CHECK(GCNumberLt(my_gc_num_, heap->GetCurrentGcNum() + 2));  // <= current_gc_num + 1
     heap->ConcurrentGC(self, cause_, force_full_, my_gc_num_);
+    CHECK(!GCNumberLt(heap->GetCurrentGcNum(), my_gc_num_) || runtime->IsShuttingDown(self))
+        << " GcNum = " << (heap->GetCurrentGcNum()) << " Request = " << my_gc_num_
+        << " Cause = " << PrettyCause(cause_) << " gcs_requested_ = "
+        << heap->gcs_requested_.load(std::memory_order_relaxed)
+        << " last_gc_no = " << last_gc_no << " last_return = " << last_return;
   }
 
  private:
@@ -3743,43 +3775,55 @@ static bool CanAddHeapTask(Thread* self) REQUIRES(!Locks::runtime_shutdown_lock_
       !self->IsHandlingStackOverflow();
 }
 
-void Heap::RequestConcurrentGC(Thread* self,
+bool Heap::RequestConcurrentGC(Thread* self,
                                GcCause cause,
                                bool force_full,
                                uint32_t observed_gc_num) {
   uint32_t gcs_requested = gcs_requested_.load(std::memory_order_relaxed);
   if (!GCNumberLt(observed_gc_num, gcs_requested)) {
-    // Nobody beat us to requesting the next gc after observed_gc_num.
-    if (CanAddHeapTask(self)
-        && gcs_requested_.CompareAndSetStrongRelaxed(gcs_requested, observed_gc_num + 1)) {
-      task_processor_->AddTask(self, new ConcurrentGCTask(NanoTime(),  // Start straight away.
-                                                          cause,
-                                                          force_full,
-                                                          observed_gc_num + 1));
+    // observed_gc_num >= gcs_requested: Nobody beat us to requesting the next gc.
+    if (CanAddHeapTask(self)) {
+      // Since observed_gc_num >= gcs_requested, this increases gcs_requested_, if successful.
+      if (gcs_requested_.CompareAndSetStrongRelaxed(gcs_requested, observed_gc_num + 1)) {
+        task_processor_->AddTask(self, new ConcurrentGCTask(NanoTime(),  // Start straight away.
+                                                            cause,
+                                                            force_full,
+                                                            observed_gc_num + 1));
+      }
+      DCHECK(GCNumberLt(observed_gc_num, gcs_requested_.load(std::memory_order_relaxed)));
+      // If we increased gcs_requested_, then we added a task that will eventually cause
+      // gcs_completed_ to be incremented (to at least observed_gc_num + 1).
+      // If the CAS failed, somebody else did.
+      return true;
     }
+    return false;
   }
+  return true;  // Vacuously.
 }
 
 void Heap::ConcurrentGC(Thread* self, GcCause cause, bool force_full, uint32_t requested_gc_num) {
   if (!Runtime::Current()->IsShuttingDown(self)) {
-    // Wait for any GCs currently running to finish.
-    if (WaitForGcToComplete(cause, self) == collector::kGcTypeNone) {
-      // If we can't run the GC type we wanted to run, find the next appropriate one and try
-      // that instead. E.g. can't do partial, so do full instead.
+    // Wait for any GCs currently running to finish. If this incremented GC number, we're done.
+    WaitForGcToComplete(cause, self);
+    if (GCNumberLt(GetCurrentGcNum(), requested_gc_num)) {
       collector::GcType next_gc_type = next_gc_type_;
       // If forcing full and next gc type is sticky, override with a non-sticky type.
       if (force_full && next_gc_type == collector::kGcTypeSticky) {
         next_gc_type = NonStickyGcType();
       }
+      // If we can't run the GC type we wanted to run, find the next appropriate one and try
+      // that instead. E.g. can't do partial, so do full instead.
+      // We must ensure that we run something that ends up inrementing gcs_completed_.
+      // In the kGcTypePartial case, the initial CollectGarbageInternal call may not have that
+      // effect, but the subsequent KGcTypeFull call will.
       if (CollectGarbageInternal(next_gc_type, cause, false, requested_gc_num)
           == collector::kGcTypeNone) {
         for (collector::GcType gc_type : gc_plan_) {
-          // Attempt to run the collector, if we succeed, we are done.
-          uint32_t gcs_completed = GetCurrentGcNum();
-          if (!GCNumberLt(gcs_completed, requested_gc_num)) {
+          if (!GCNumberLt(GetCurrentGcNum(), requested_gc_num)) {
             // Somebody did it for us.
             break;
           }
+          // Attempt to run the collector, if we succeed, we are done.
           if (gc_type > next_gc_type &&
               CollectGarbageInternal(gc_type, cause, false, requested_gc_num)
               != collector::kGcTypeNone) {
@@ -3985,14 +4029,19 @@ inline void Heap::CheckGCForNative(Thread* self) {
   float gc_urgency = NativeMemoryOverTarget(current_native_bytes, is_gc_concurrent);
   if (UNLIKELY(gc_urgency >= 1.0)) {
     if (is_gc_concurrent) {
-      RequestConcurrentGC(self, kGcCauseForNativeAlloc, /*force_full=*/true, starting_gc_num);
+      bool requested =
+          RequestConcurrentGC(self, kGcCauseForNativeAlloc, /*force_full=*/true, starting_gc_num);
       if (gc_urgency > kStopForNativeFactor
           && current_native_bytes > stop_for_native_allocs_) {
         // We're in danger of running out of memory due to rampant native allocation.
         if (VLOG_IS_ON(heap) || VLOG_IS_ON(startup)) {
           LOG(INFO) << "Stopping for native allocation, urgency: " << gc_urgency;
         }
-        WaitForGcToComplete(kGcCauseForNativeAlloc, self);
+        if (WaitForGcToComplete(kGcCauseForNativeAlloc, self) == collector::kGcTypeNone) {
+          CHECK(!requested
+                || GCNumberLt(starting_gc_num, gcs_requested_.load(std::memory_order_relaxed)));
+          // TODO: Eventually sleep here again.
+        }
       }
     } else {
       CollectGarbageInternal(NonStickyGcType(), kGcCauseForNativeAlloc, false, starting_gc_num + 1);
