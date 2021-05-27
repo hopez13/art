@@ -21,18 +21,19 @@
 
 namespace android {
 
-constexpr const char* kNativeBridgeLibrary2 = "libnativebridge2-test-case.so";
+// Signal handling was added in v2, but native_bridge.cc no longer accepts that
+// version, so we load it with v3.
 
 TEST_F(NativeBridgeTest, V2_Signal) {
     // Init
-    ASSERT_TRUE(LoadNativeBridge(kNativeBridgeLibrary2, nullptr));
+    ASSERT_TRUE(LoadNativeBridge(kNativeBridgeLibrary3, nullptr));
     ASSERT_TRUE(NativeBridgeAvailable());
     ASSERT_TRUE(PreInitializeNativeBridge(".", "isa"));
     ASSERT_TRUE(NativeBridgeAvailable());
     ASSERT_TRUE(InitializeNativeBridge(nullptr, nullptr));
     ASSERT_TRUE(NativeBridgeAvailable());
 
-    ASSERT_EQ(2U, NativeBridgeGetVersion());
+    ASSERT_EQ(3U, NativeBridgeGetVersion());
     ASSERT_NE(nullptr, NativeBridgeGetSignalHandler(SIGSEGV));
 
     // Clean-up code_cache

@@ -26,6 +26,7 @@ namespace android {
 // exists.
 TEST_F(NativeBridgeTest, CodeCacheCreate) {
     // Make sure that code_cache does not exists
+    rmdir(kCodeCache);
     struct stat st;
     ASSERT_EQ(-1, stat(kCodeCache, &st));
     ASSERT_EQ(ENOENT, errno);
