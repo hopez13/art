@@ -3727,8 +3727,20 @@ class Heap::ConcurrentGCTask : public HeapTask {
   ConcurrentGCTask(uint64_t target_time, GcCause cause, bool force_full, uint32_t gc_num)
       : HeapTask(target_time), cause_(cause), force_full_(force_full), my_gc_num_(gc_num) {}
   void Run(Thread* self) override {
-    gc::Heap* heap = Runtime::Current()->GetHeap();
+    Runtime* runtime = Runtime::Current();
+    gc::Heap* heap = runtime->GetHeap();
     heap->ConcurrentGC(self, cause_, force_full_, my_gc_num_);
+    if (GCNumberLt(heap->GetCurrentGcNum(), my_gc_num_) && runtime != nullptr
+        && !runtime->IsShuttingDown(self)) {
+      // Mission not accomplished; schedule another one.
+        static constexpr uint64_t kRetryDelayNanos = 10'000'000;
+        heap->task_processor_->AddTask(self, new ConcurrentGCTask(NanoTime() + kRetryDelayNanos,
+                                                                  cause_,
+                                                                  force_full_,
+                                                                  my_gc_num_));
+    }
+    // We either successfully ran a GC that incremented the count, or we scheduled another one, or
+    // we're about to shut down. Losing requests is dangerous.
   }
 
  private:
