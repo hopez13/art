@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d29b3704_64767cc2",
+        "filename": "tools/luci/config/generated/cr-buildbucket.cfg",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1141797
+      },
+      "writtenOn": "2021-05-27T22:41:02Z",
+      "side": 1,
+      "message": "Sure thing!",
+      "parentUuid": "0b8398c1_0242da38",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 28
+      },
+      "revId": "e559f4324b98a933942face0610b871227952927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "163363bf_6ed1e63b",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-05-27T10:30:48Z",
       "side": 1,
       "message": "not here and I doubt android folks use `git cl`",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 45
+      },
+      "revId": "e559f4324b98a933942face0610b871227952927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c05c95a7_f3cf8fcb",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1141797
+      },
+      "writtenOn": "2021-05-27T22:41:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "163363bf_6ed1e63b",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c08863be_34a312e7",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1141797
+      },
+      "writtenOn": "2021-05-27T22:41:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f54c1331_3b791c33",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 6
+      },
+      "revId": "e559f4324b98a933942face0610b871227952927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d552a27d_0ed4a2fc",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d07c5838_55b2abdc",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1141797
+      },
+      "writtenOn": "2021-05-27T22:41:02Z",
+      "side": 1,
+      "message": "I had this to appease semantic-diff; removed",
+      "parentUuid": "d552a27d_0ed4a2fc",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 74,
+        "endChar": 10
+      },
+      "revId": "e559f4324b98a933942face0610b871227952927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4975fe0a_4d389292",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-05-27T10:30:48Z",
       "side": 1,
       "message": "i don\u0027t think this is needed.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 41
+      },
+      "revId": "e559f4324b98a933942face0610b871227952927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a524586_5e2a55fc",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1141797
+      },
+      "writtenOn": "2021-05-27T22:41:02Z",
+      "side": 1,
+      "message": "Oop, you\u0027re right.",
+      "parentUuid": "4975fe0a_4d389292",
       "range": {
         "startLine": 92,
         "startChar": 0,

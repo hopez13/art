@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8097242f_cb59cd7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1141797
+      },
+      "writtenOn": "2021-05-27T22:41:02Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "a9243af8be5f53b0a0d573fdcba3d2d33917c29d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "755588a2_3c9c4200",
+        "filename": "tools/luci/config/validate.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1141797
+      },
+      "writtenOn": "2021-05-27T22:41:02Z",
+      "side": 1,
+      "message": "ngeoffray@google.com et al.; I\u0027ll leave this for you folks to do :)\n\n(but as you can see, it should be straightforward)",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 75
+      },
+      "revId": "a9243af8be5f53b0a0d573fdcba3d2d33917c29d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
