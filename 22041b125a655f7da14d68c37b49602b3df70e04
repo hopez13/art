@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41551db6_9abf3eb9",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-27T15:26:20Z",
+      "side": 1,
+      "message": "We had one, as part of the app image test but we didn\u0027t check the filter there. I added another check to verify it.",
+      "parentUuid": "2b7c0c54_d87a4497",
+      "revId": "22041b125a655f7da14d68c37b49602b3df70e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e1e090a_befe1d98",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-05-27T09:53:41Z",
       "side": 1,
       "message": "Add a comment, eg \"add one class to prevent the compiler changing the compiler filter to verify\".",
+      "revId": "22041b125a655f7da14d68c37b49602b3df70e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd5be23c_14d140e8",
+        "filename": "runtime/dexopt_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-05-27T15:26:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e1e090a_befe1d98",
       "revId": "22041b125a655f7da14d68c37b49602b3df70e04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
