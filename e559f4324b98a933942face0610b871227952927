@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "163363bf_6ed1e63b",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1098293
+      },
+      "writtenOn": "2021-05-27T10:30:48Z",
+      "side": 1,
+      "message": "not here and I doubt android folks use `git cl`",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 45
+      },
+      "revId": "e559f4324b98a933942face0610b871227952927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f54c1331_3b791c33",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1098293
+      },
+      "writtenOn": "2021-05-27T10:30:48Z",
+      "side": 1,
+      "message": "strictly speaking, it\u0027s not needed, and default is IMO better.\nThis is only useful if some output files are to be suppressed.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 6
+      },
+      "revId": "e559f4324b98a933942face0610b871227952927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d552a27d_0ed4a2fc",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1098293
+      },
+      "writtenOn": "2021-05-27T10:30:48Z",
+      "side": 1,
+      "message": "also not needed.",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 74,
+        "endChar": 10
+      },
+      "revId": "e559f4324b98a933942face0610b871227952927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4975fe0a_4d389292",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1098293
+      },
+      "writtenOn": "2021-05-27T10:30:48Z",
+      "side": 1,
+      "message": "i don\u0027t think this is needed.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 41
+      },
+      "revId": "e559f4324b98a933942face0610b871227952927",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
