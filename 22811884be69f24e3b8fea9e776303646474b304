@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d63c8c3f_f3e87bc3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-27T14:08:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d81adfee_f50415da",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "22811884be69f24e3b8fea9e776303646474b304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8778a2cb_ea129730",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-05-27T11:03:03Z",
       "side": 1,
       "message": "Can you add a comment why lock can be obtained by GetDeclaringClass? Previously used GetGenericJniSynchronizationObject looked related to locking.",
+      "range": {
+        "startLine": 1459,
+        "startChar": 8,
+        "endLine": 1459,
+        "endChar": 38
+      },
+      "revId": "22811884be69f24e3b8fea9e776303646474b304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a132c8ea_cc7322b7",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-27T14:08:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8778a2cb_ea129730",
       "range": {
         "startLine": 1459,
         "startChar": 8,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23f98ac4_ca8cfe3c",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1465,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-27T14:08:46Z",
+      "side": 1,
+      "message": "The only shared code is the `sp + frame_size + static_cast\u003csize_t\u003e(kRuntimePointerSize)` and I don\u0027t think that\u0027s enough code for a helper function.\n\nAdded a comment about synchronizing on `this`.",
+      "parentUuid": "d3535e90_36d2cc2f",
+      "range": {
+        "startLine": 1461,
+        "startChar": 0,
+        "endLine": 1465,
+        "endChar": 87
+      },
+      "revId": "22811884be69f24e3b8fea9e776303646474b304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f519124d_2f9374d2",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-05-27T11:03:03Z",
       "side": 1,
       "message": "The word \"we\" is missing, or \"that\" should be removed.",
+      "range": {
+        "startLine": 662,
+        "startChar": 60,
+        "endLine": 662,
+        "endChar": 61
+      },
+      "revId": "22811884be69f24e3b8fea9e776303646474b304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9945724_53e2465b",
+        "filename": "test/178-app-image-native-method/native_methods.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-05-27T14:08:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f519124d_2f9374d2",
       "range": {
         "startLine": 662,
         "startChar": 60,
