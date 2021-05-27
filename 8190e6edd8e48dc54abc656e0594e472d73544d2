@@ -52,6 +52,24 @@
       "parentUuid": "b4c7ed53_0b36dec6",
       "revId": "8190e6edd8e48dc54abc656e0594e472d73544d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23bbf2c4_be7d714e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-05-27T18:14:42Z",
+      "side": 1,
+      "message": "Either that, or break the interpreter off into it\u0027s own build target and remove the `-fstack-protector` option, whichever is easier.",
+      "parentUuid": "16b49e1f_bb3e3365",
+      "revId": "8190e6edd8e48dc54abc656e0594e472d73544d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
