@@ -684,6 +684,33 @@ class OnDeviceRefresh final {
     return profile_file;
   }
 
+  static bool AddBootClasspathFdsForCompilationOs(
+      /*inout*/ std::vector<std::string>& args,
+      /*inout*/ std::vector<std::unique_ptr<File>>& output_files,
+      const std::vector<std::string>& bcp_jars) {
+    auto bcp_fds = std::vector<std::string>();
+    for (const std::string& jar : bcp_jars) {
+      int fd;
+      // BCP jars in /apex can be accessed by path and are verified by dm-verity. For jars in other
+      // places, they are not available in the PVM, so we need to pass the FDs over the VM boundary.
+      if (StartsWith(jar, "/apex/")) {
+        fd = -1;
+      } else {
+        std::unique_ptr<File> jar_file(OS::OpenFileForReading(jar.c_str()));
+        if (!jar_file->IsValid()) {
+          LOG(ERROR) << "Failed to open a BCP jar " << jar;
+          return false;
+        }
+        fd = jar_file->Fd();
+        output_files.push_back(std::move(jar_file));
+      }
+      bcp_fds.push_back(std::to_string(fd));
+    }
+    args.emplace_back("--runtime-arg");
+    args.emplace_back(Concatenate({"-Xbootclasspathfds:", android::base::Join(bcp_fds, ':')}));
+    return true;
+  }
+
   WARN_UNUSED bool VerifySystemServerArtifactsAreUpToDate(bool on_system) const {
     std::vector<std::string> classloader_context;
     for (const std::string& jar_path : systemserver_compilable_jars_) {
@@ -1033,6 +1060,12 @@ class OnDeviceRefresh final {
 
     args.emplace_back("--runtime-arg");
     args.emplace_back(Concatenate({"-Xbootclasspath:", config_.GetDex2oatBootClasspath()}));
+    if (config_.UseCompilationOs()) {
+      auto bcp_jars = android::base::Split(config_.GetDex2oatBootClasspath(), ":");
+      if (!AddBootClasspathFdsForCompilationOs(args, readonly_files_raii, bcp_jars)) {
+        return false;
+      }
+    }
 
     const std::string image_location = GetBootImageExtensionImagePath(isa);
     const OdrArtifacts artifacts = OdrArtifacts::ForBootImageExtension(image_location);
@@ -1182,6 +1215,13 @@ class OnDeviceRefresh final {
 
       args.emplace_back("--runtime-arg");
       args.emplace_back(Concatenate({"-Xbootclasspath:", config_.GetDex2oatBootClasspath()}));
+      if (config_.UseCompilationOs()) {
+        auto bcp_jars = android::base::Split(config_.GetDex2oatBootClasspath(), ":");
+        if (!AddBootClasspathFdsForCompilationOs(args, readonly_files_raii, bcp_jars)) {
+          return false;
+        }
+      }
+
       const std::string context_path = android::base::Join(classloader_context, ':');
       args.emplace_back(Concatenate({"--class-loader-context=PCL[", context_path, "]"}));
       if (!classloader_context.empty()) {
@@ -1438,8 +1478,11 @@ class OnDeviceRefresh final {
 
     int n = 1;
     for (; n < argc - 1; ++n) {
-      if (!InitializeCommonConfig(argv[n], config)) {
-        UsageError("Unrecognized argument: '%s'", argv[n]);
+      const char* arg = argv[n];
+      if (ArgumentEquals(arg, "--use-compos")) {
+        config->SetUseCompilationOs();
+      } else if (!InitializeCommonConfig(arg, config)) {
+        UsageError("Unrecognized argument: '%s'", arg);
       }
     }
     return n;
