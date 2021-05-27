@@ -16,6 +16,29 @@
       "message": "PTAL.  Hope my understanding is close enough.",
       "revId": "5a7722c617c6aa352a0c50d1b44d576c2b3b8513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ebf8935_466a20f0",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-05-27T22:56:34Z",
+      "side": 1,
+      "message": "Honestly I\u0027m not sure what\u0027s the correct behavior.  IIUC this is for multidex support.  But then there seems to be a bit overlap between zip_fd and dex_fds?  Is the priority below making sense?",
+      "range": {
+        "startLine": 736,
+        "startChar": 8,
+        "endLine": 736,
+        "endChar": 33
+      },
+      "revId": "5a7722c617c6aa352a0c50d1b44d576c2b3b8513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
