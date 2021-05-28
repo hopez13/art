@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4fd02a9d_11135e8a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2611,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-28T01:40:45Z",
+      "side": 1,
+      "message": "Don\u0027t we need to ensure here (and other places where it\u0027s incremented as well) that requested_gc_num isn\u0027t GC_NUM_ANY?",
+      "range": {
+        "startLine": 2611,
+        "startChar": 4,
+        "endLine": 2611,
+        "endChar": 28
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69dbcff8_29c2670e",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -66,6 +89,53 @@
         "startChar": 68,
         "endLine": 3737,
         "endChar": 76
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86bafc25_9f160740",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3737,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-28T01:40:45Z",
+      "side": 1,
+      "message": "I believe this is already been taken care of in ConcurrentGC() at line 3793 (below).\n\nWhen we\u0027ll get a kGcTypeNone, for a partial GC, we\u0027ll loop on all the GC types higher than kGcTypePartial, and hence should invoke kGcTYpeFull. Isn\u0027t it?",
+      "parentUuid": "81d8cf7e_6ac9f2f4",
+      "range": {
+        "startLine": 3737,
+        "startChar": 68,
+        "endLine": 3737,
+        "endChar": 76
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5595c518_e094743d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3783,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-05-28T01:40:45Z",
+      "side": 1,
+      "message": "It seems to me that this is the only place where if we get a non-none return value then we would skip incrementing the gcs_completed_.\n\nConsider the scenario:\n1) Mutator thread M1 triggers a GC with GC_NUM_ANY\n2) M1 starts GC\n3) GC-thread triggers a background GC. Thereby increments gcs_requested_\n4) GC-thread waits WaitForGcToComplete() as M1 isn\u0027t done\n5) GC-thread resumes execution, but skips GC as a GC was just run\n6) At this point gcs_requested_ \u003e gcs_completed_ and hence any subsequent GC with a non-GC_NUM_ANY requested_gc_num is skipped.\n\nIs the above scenario not possible?",
+      "range": {
+        "startLine": 3783,
+        "startChar": 8,
+        "endLine": 3783,
+        "endChar": 27
       },
       "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
