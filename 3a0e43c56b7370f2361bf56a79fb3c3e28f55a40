@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "795ee7d5_505bd775",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-28T18:38:25Z",
+      "side": 1,
+      "message": "I\u0027ll upload a PS with just added comments and checks shortly.",
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fd02a9d_11135e8a",
@@ -26,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79910ef8_5e363210",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2611,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-28T18:38:25Z",
+      "side": 1,
+      "message": "I don\u0027t think so. See below.",
+      "parentUuid": "4fd02a9d_11135e8a",
+      "range": {
+        "startLine": 2611,
+        "startChar": 4,
+        "endLine": 2611,
+        "endChar": 28
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69dbcff8_29c2670e",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -37,6 +78,30 @@
       "writtenOn": "2021-05-27T20:46:00Z",
       "side": 1,
       "message": "This should always be true given line 3732.",
+      "range": {
+        "startLine": 3734,
+        "startChar": 59,
+        "endLine": 3734,
+        "endChar": 77
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53a01225_885ff99a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3734,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-28T18:38:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69dbcff8_29c2670e",
       "range": {
         "startLine": 3734,
         "startChar": 59,
@@ -120,6 +185,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a7981f3_731f1ed9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3737,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-28T18:38:25Z",
+      "side": 1,
+      "message": "Agreed. That was the piece I had originally missed.",
+      "parentUuid": "86bafc25_9f160740",
+      "range": {
+        "startLine": 3737,
+        "startChar": 68,
+        "endLine": 3737,
+        "endChar": 76
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5595c518_e094743d",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -131,6 +220,30 @@
       "writtenOn": "2021-05-28T01:40:45Z",
       "side": 1,
       "message": "It seems to me that this is the only place where if we get a non-none return value then we would skip incrementing the gcs_completed_.\n\nConsider the scenario:\n1) Mutator thread M1 triggers a GC with GC_NUM_ANY\n2) M1 starts GC\n3) GC-thread triggers a background GC. Thereby increments gcs_requested_\n4) GC-thread waits WaitForGcToComplete() as M1 isn\u0027t done\n5) GC-thread resumes execution, but skips GC as a GC was just run\n6) At this point gcs_requested_ \u003e gcs_completed_ and hence any subsequent GC with a non-GC_NUM_ANY requested_gc_num is skipped.\n\nIs the above scenario not possible?",
+      "range": {
+        "startLine": 3783,
+        "startChar": 8,
+        "endLine": 3783,
+        "endChar": 27
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c5d246b_64e91a31",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3783,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-28T18:38:25Z",
+      "side": 1,
+      "message": "Good question, in that we need to try to poke holes in the correctness argument here. But I don\u0027t see how this could happen. The next version of this CL will make these arguments more explicit.\n\nLet\u0027s say the GC number is N when this starts. The explicit GC sets it to N+1 .\n\nIf the GC number (observed_gc_num) is N at the request time, then gcs_requested will be set to N+1. When we\u0027re done, both will be N+1, so we should be OK.\n\nIf the GC number is N+1 at request time, then we issue a request for GC N+2, so the GC invocation should not be skipped.\n\nI think the crucial property is that if we set gcs_requested_ to M, then some GC will shortly finish inc increment the GC number to M. Unfortunately, I still don\u0027t see how that could fail to hold.",
+      "parentUuid": "5595c518_e094743d",
       "range": {
         "startLine": 3783,
         "startChar": 8,
