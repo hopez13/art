@@ -252,6 +252,30 @@
       },
       "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee0c47cc_84bc7d00",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3783,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-30T04:08:14Z",
+      "side": 1,
+      "message": "Actually, I think I see your concern, now.",
+      "parentUuid": "4c5d246b_64e91a31",
+      "range": {
+        "startLine": 3783,
+        "startChar": 8,
+        "endLine": 3783,
+        "endChar": 27
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
