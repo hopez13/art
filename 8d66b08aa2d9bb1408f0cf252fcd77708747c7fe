@@ -16,6 +16,29 @@
       "message": "Interesting failures for one of the new CHECKs; retrying with more diagnostic output.",
       "revId": "8d66b08aa2d9bb1408f0cf252fcd77708747c7fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a18ad4fa_16a2d422",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3737,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-30T02:04:22Z",
+      "side": 1,
+      "message": "This fails rarely, and somewhat randomly, with\n\n+dalvikvm64 F 05-29 05:16:15 38999 39342 heap.cc:3734] Check failed: !GCNumberLt(heap-\u003eGetCurrentGcNum(), my_gc_num_) || runtime-\u003eIsShuttingDown(self)  GcNum \u003d 15 Request \u003d 16 Cause \u003d Background gcs_requested_ \u003d 16\n\nand\n\n+dalvikvm64 F 05-29 05:34:09  4809  4976 heap.cc:3734] Check failed: !GCNumberLt(heap-\u003eGetCurrentGcNum(), my_gc_num_) || runtime-\u003eIsShuttingDown(self)  GcNum \u003d 1 Request \u003d 2 Cause \u003d Background gcs_requested_ \u003d 2\n\nAll failures I\u0027ve seen so far have been on host.\n\ngcs_completed_ is only ever set to zero (when a heap is constructed) or atomically incremented. It must have been at least my_gc_num_ - 1 when we triggered the GC. So it looks like there is still some feasible path through ConcurrentGC() that doesn\u0027t increment it.",
+      "range": {
+        "startLine": 3734,
+        "startChar": 4,
+        "endLine": 3737,
+        "endChar": 64
+      },
+      "revId": "8d66b08aa2d9bb1408f0cf252fcd77708747c7fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
