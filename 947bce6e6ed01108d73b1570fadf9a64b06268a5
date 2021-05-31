@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed12efd_e1431f4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-31T04:26:45Z",
+      "side": 1,
+      "message": "This is once again intended to be ready to submit.",
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a914c8a7_66f8d366",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-05-31T04:26:45Z",
+      "side": 1,
+      "message": "Lokesh - Do you understand why this is here?",
+      "range": {
+        "startLine": 2689,
+        "startChar": 4,
+        "endLine": 2689,
+        "endChar": 69
+      },
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
