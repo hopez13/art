@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d53305e_b83d3d94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-01T17:08:42Z",
+      "side": 1,
+      "message": "Looks good to me except ",
+      "revId": "7ce9ad35f281e091a11fbc03c3c94ced483ee220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f834bfe3_9bad7b63",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2578,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-01T17:08:42Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be name GCNumberLE because the condition you are checking below is for gc_num2 \u003e gc_num1",
+      "range": {
+        "startLine": 2578,
+        "startChar": 19,
+        "endLine": 2578,
+        "endChar": 29
+      },
+      "revId": "7ce9ad35f281e091a11fbc03c3c94ced483ee220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2545fe00_eb5f97eb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3734,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-01T17:08:42Z",
+      "side": 1,
+      "message": "Why is this guaranteed to be always true? What if several GC_NUM_ANY GCs take place between the time this task was enqueued and this Run() is executed.",
+      "range": {
+        "startLine": 3734,
+        "startChar": 4,
+        "endLine": 3734,
+        "endChar": 64
+      },
+      "revId": "7ce9ad35f281e091a11fbc03c3c94ced483ee220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "377023ca_8d54db89",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3736,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-01T17:08:42Z",
+      "side": 1,
+      "message": "Do we need to repeatedly load gcs_completed_? Can\u0027t we just load it once and use it at both the places in this and also pass it to ConcurrentGC()?",
+      "range": {
+        "startLine": 3736,
+        "startChar": 28,
+        "endLine": 3736,
+        "endChar": 46
+      },
+      "revId": "7ce9ad35f281e091a11fbc03c3c94ced483ee220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

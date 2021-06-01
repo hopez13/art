@@ -262,6 +262,30 @@
       },
       "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "287e3924_a3b70314",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3759,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-01T17:08:42Z",
+      "side": 1,
+      "message": "\u003e I agree entirely with the first paragraph.\n\u003e \n\u003e Let\u0027s assume that gcs_requested_ \u003d 1, gcs_completed_ \u003d 6. Let\u0027s assume that we then get a call to RequestConcurrentGC() that\u0027s based on current data, i.e. observed_gc_num \u003d 6. We have observed_gc_num \u003e\u003d gcs_requested, so we go ahead and execute the rest of this, replacing the old gcs_requested value of 1 by 7. so I think we\u0027re back to normal. Note that we don\u0027t just increment gcs_requested_ by one. Maybe it should be named max_gc_requested_?\n\u003e \nI had missed this part: that it\u0027s not just an increment, but advancing gcs_requested, based on current value of gcs_completed. Thanks for correcting me.\n\n\u003e I don\u0027t think we can have more than one GC running at a time anyway. I think we have a complicated custom-mutex equivalent around the GC: We wait for collector_type_running_ to be none, and protect accesses to it by gc_complete_lock_ .\n\nI meant to say that multiple GC tasks could get queued up. Of course simultaneous GCs isn\u0027t possible. Anyways, it doesn\u0027t matter after your explanation above.\n\u003e \n\u003e I don\u0027t think gcs_requested_ is essential for correctness. We could always add the task, and all the unnecessary GCs would get filtered out later. But it seems common to get 100s and maybe 1000s of RequestConcurrentGC() calls per GC, so it unfortunately seems useful to put a filtering mechanism here to avoid blowing up the task queue.\n\u003e \n\u003e Taking this as a request to fix the naming of and comment for gcs_requested_, which I\u0027ve now done.",
+      "parentUuid": "d662c388_6005302f",
+      "range": {
+        "startLine": 3759,
+        "startChar": 10,
+        "endLine": 3759,
+        "endChar": 51
+      },
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
