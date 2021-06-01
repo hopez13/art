@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "324f536c_7a9fbd5a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-01T08:21:15Z",
+      "side": 1,
+      "message": "not required?",
+      "range": {
+        "startLine": 11,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91a9605b_c5463670",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-01T08:21:15Z",
+      "side": 1,
+      "message": "\"in ConcurrentGCTask::Run\"",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6ed12efd_e1431f4f",
@@ -70,6 +116,53 @@
         "startChar": 4,
         "endLine": 2689,
         "endChar": 69
+      },
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b39fa47c_bc719895",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-01T08:21:15Z",
+      "side": 1,
+      "message": "I\u0027m not sure if it serves any purpose. I looked at all the invocations of CollectGarbageInternal, and all they care about is whether it\u0027s \u0027None\u0027 or not.\n\nOnly FinishGC() uses it to set last_gc_type_, which is returned from WaitForGcToComplete().\n\nHowever, I think we should remove this as it can cause problems in AllocateInternalWithGc() (here https://cs.android.com/android/platform/superproject/+/master:art/runtime/gc/heap.cc;drc\u003dmaster;l\u003d1868). I can elaborate more on this if you want.",
+      "parentUuid": "a914c8a7_66f8d366",
+      "range": {
+        "startLine": 2689,
+        "startChar": 4,
+        "endLine": 2689,
+        "endChar": 69
+      },
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd8339c1_b8e304a2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3759,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-01T08:21:15Z",
+      "side": 1,
+      "message": "I think this is the only place where gcs_requested_ is incremented. This means that any GC with GC_NUM_ANY won\u0027t increment it, right? But these GCs do increment gcs_completed_. This means we allow gcs_completed_ \u003e\u003d gcs_requested_.\n\nTherefore, if multiple GC_NUM_ANY GCs are done and hence gcs_completed_ - gcs_requested_ \u003e 1 (say 5). In this case we will allow multiple simultaneous background GCs. And given that background GCs increment both gcs_requested_ as well as gcs_completed_, it would never catch up. Doesn\u0027t it defeat the whole purpose of introducing the concept of gc-number?\n\nWouldn\u0027t it make sense to increment gcs_requested_ even when a GC_NUM_ANY GC is being done? With this, we can ensure that there are never more than one simultaneous background GCs. At the same time GC_NUM_ANY ensures that such GCs are always performed, as intended.\n\nI guess I\u0027m missing something, but not sure what.",
+      "range": {
+        "startLine": 3759,
+        "startChar": 10,
+        "endLine": 3759,
+        "endChar": 51
       },
       "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
