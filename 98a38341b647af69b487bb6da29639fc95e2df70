@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6573f427_c83975f6",
+        "filename": "PREUPLOAD.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-01T17:38:41Z",
+      "side": 1,
+      "message": "Oh, it already is - that\u0027s why it passes PREUPLOAD_FILES. If there\u0027s a way to configure that restriction directly here I\u0027m happy to change.",
+      "parentUuid": "b58250c8_9067156e",
+      "revId": "98a38341b647af69b487bb6da29639fc95e2df70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "258bbecc_75722535",
         "filename": "libnativebridge/tests/CodeCacheCreate_test.cpp",
         "patchSetId": 2
