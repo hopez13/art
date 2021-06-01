@@ -22,6 +22,30 @@
       },
       "revId": "dc65a4505a62b8ebd7e8c65bccbc469c01e500a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8516c320_a4be72aa",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-01T15:22:44Z",
+      "side": 0,
+      "message": "PrettyMethod() requires mutator lock and want to read the member without holding it.",
+      "parentUuid": "584bf56a_b7228e17",
+      "range": {
+        "startLine": 421,
+        "startChar": 23,
+        "endLine": 421,
+        "endChar": 42
+      },
+      "revId": "dc65a4505a62b8ebd7e8c65bccbc469c01e500a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "057023cd_c2144de8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-01T15:22:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "017d6670_9fd35ef0",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aad83443_9afae1f9",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-01T09:14:33Z",
       "side": 1,
       "message": "It would be interesting to see if this has any measurable impact on boot time tests (I think it should, especially compared to profile without hardcoded array classes).",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 5
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba2fcfac_b4382292",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-01T15:22:44Z",
+      "side": 1,
+      "message": "We already know that the hard-coded classes helped when we were adding them. This CL should make the hard-coded classes unnecessary as we should get them in the profile. Maybe additional array classes shall help a bit more but I\u0027m not measuring the boot time or memory impact now.",
+      "parentUuid": "aad83443_9afae1f9",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -93,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f334cdd6_e0c31f86",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-01T15:22:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0ddd68d_8469bc0b",
+      "range": {
+        "startLine": 1055,
+        "startChar": 65,
+        "endLine": 1055,
+        "endChar": 81
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26c50051_3e382e51",
@@ -106,6 +178,30 @@
       "writtenOn": "2021-05-26T20:54:58Z",
       "side": 1,
       "message": "Can you make this private? It will be good to keep the concept of profileIndex internal.\n\nOr, if it will introduce a lot of complexity, maybe make it friends to the profile saver.",
+      "range": {
+        "startLine": 332,
+        "startChar": 7,
+        "endLine": 332,
+        "endChar": 15
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2925fdf_308f3c69",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-01T15:22:44Z",
+      "side": 1,
+      "message": "For performance reasons I want to _keep_ the profile index public (the `using` declaration at line 103 has been public before I started touching profiles). It shall be used by CompilerDriver and HInliner in the future (or maybe I\u0027ll have a `HashMap\u003cconst DexFile*, ProfileIndexType\u003e` in `CompilerOptions` instead). See profile in b/181943478#comment18 with pivot `FindDexDataUsingAnnotations`; this was before we were using inline caches for AOT.\n\nI don\u0027t think it makes much sense to keep adding friend declarations.",
+      "parentUuid": "26c50051_3e382e51",
       "range": {
         "startLine": 332,
         "startChar": 7,
@@ -162,6 +258,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d8e6668_807940e9",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-01T15:22:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84e5a606_3993b0f4",
+      "range": {
+        "startLine": 421,
+        "startChar": 0,
+        "endLine": 421,
+        "endChar": 24
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b4bdbb3_0be9f10c",
@@ -185,6 +305,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f2eaf1e_6c03fbd0",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-01T15:22:44Z",
+      "side": 1,
+      "message": "Most classes shall not be primitive (or primitive arrays).",
+      "parentUuid": "8b4bdbb3_0be9f10c",
+      "range": {
+        "startLine": 441,
+        "startChar": 10,
+        "endLine": 441,
+        "endChar": 18
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c499b90_0b8f2758",
@@ -198,6 +342,30 @@
       "writtenOn": "2021-06-01T09:14:33Z",
       "side": 1,
       "message": "I would generally expect the compiler to be able to put an integral field in a register if it\u0027s not modified. Did you objdump the generated profile_saver.o file and observe a difference?",
+      "range": {
+        "startLine": 565,
+        "startChar": 2,
+        "endLine": 565,
+        "endChar": 85
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54c830f3_eb77aa88",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-01T15:22:44Z",
+      "side": 1,
+      "message": "That happens only if everything is inlined or if interprocedural analysis determines that no called function can modify those variables. I would not expect that to be the case here as we are calling many non-inline functions. (I did not look at the generated code.)",
+      "parentUuid": "8c499b90_0b8f2758",
       "range": {
         "startLine": 565,
         "startChar": 2,
