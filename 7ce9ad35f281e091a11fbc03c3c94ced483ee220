@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88a9393d_ff506a66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-01T17:27:42Z",
+      "side": 1,
+      "message": "Please double-check, but I think these are all OK as is.",
+      "revId": "7ce9ad35f281e091a11fbc03c3c94ced483ee220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f834bfe3_9bad7b63",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-06-01T17:08:42Z",
       "side": 1,
       "message": "Shouldn\u0027t it be name GCNumberLE because the condition you are checking below is for gc_num2 \u003e gc_num1",
+      "range": {
+        "startLine": 2578,
+        "startChar": 19,
+        "endLine": 2578,
+        "endChar": 29
+      },
+      "revId": "7ce9ad35f281e091a11fbc03c3c94ced483ee220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e23c6a30_86ae5e91",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2578,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-01T17:27:42Z",
+      "side": 1,
+      "message": "It\u0027s definitely intended to be gc_num1 \u003c gc_num2. And I think it is. We\u0027re effectively checking gc_num2 - gc_num1 \u003e 0.",
+      "parentUuid": "f834bfe3_9bad7b63",
       "range": {
         "startLine": 2578,
         "startChar": 19,
@@ -64,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b9bb442_782e6473",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3734,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-01T17:27:42Z",
+      "side": 1,
+      "message": "current_gc_num_ is monotone increasing, and was effectively set to GetCurrentGcNum() + 1 sometime in the past.  The current GetCurrentGcNum() must be at least as large (theoretically modulo wrapping).",
+      "parentUuid": "2545fe00_eb5f97eb",
+      "range": {
+        "startLine": 3734,
+        "startChar": 4,
+        "endLine": 3734,
+        "endChar": 64
+      },
+      "revId": "7ce9ad35f281e091a11fbc03c3c94ced483ee220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "377023ca_8d54db89",
@@ -77,6 +142,30 @@
       "writtenOn": "2021-06-01T17:08:42Z",
       "side": 1,
       "message": "Do we need to repeatedly load gcs_completed_? Can\u0027t we just load it once and use it at both the places in this and also pass it to ConcurrentGC()?",
+      "range": {
+        "startLine": 3736,
+        "startChar": 28,
+        "endLine": 3736,
+        "endChar": 46
+      },
+      "revId": "7ce9ad35f281e091a11fbc03c3c94ced483ee220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4747097_853ec0f2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3736,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-01T17:27:42Z",
+      "side": 1,
+      "message": "The one we\u0027re passing to ConcurrentGc() is intentionally different. That one reflects when we decided that a GC was necessary, and we may end up skipping the GC if that one has already occurred.\n\nAnd the other two are also different, since we expect the GC number to be incremented by ConcurrentGC(). The last CHECK confirms that it was. The initial DCHECK is just a general sanity check. The CHECK is the one that matters, since it would have caught this problem; it failed repeatedly in presubmit without the rest of this.",
+      "parentUuid": "377023ca_8d54db89",
       "range": {
         "startLine": 3736,
         "startChar": 28,
