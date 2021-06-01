@@ -24,6 +24,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad83443_9afae1f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-01T09:14:33Z",
+      "side": 1,
+      "message": "It would be interesting to see if this has any measurable impact on boot time tests (I think it should, especially compared to profile without hardcoded array classes).",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 5
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3e5f8808_b5b4ee95",
@@ -42,6 +65,29 @@
         "startChar": 36,
         "endLine": 12,
         "endChar": 53
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0ddd68d_8469bc0b",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-01T09:14:33Z",
+      "side": 1,
+      "message": "Nit: add a local variable.",
+      "range": {
+        "startLine": 1055,
+        "startChar": 65,
+        "endLine": 1055,
+        "endChar": 81
       },
       "revId": "f4abea079f06a0108534b111fbe927726de2d523",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -111,6 +157,52 @@
         "startChar": 0,
         "endLine": 421,
         "endChar": 24
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b4bdbb3_0be9f10c",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-01T09:14:33Z",
+      "side": 1,
+      "message": "Why is it unlikely?",
+      "range": {
+        "startLine": 441,
+        "startChar": 10,
+        "endLine": 441,
+        "endChar": 18
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c499b90_0b8f2758",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-01T09:14:33Z",
+      "side": 1,
+      "message": "I would generally expect the compiler to be able to put an integral field in a register if it\u0027s not modified. Did you objdump the generated profile_saver.o file and observe a difference?",
+      "range": {
+        "startLine": 565,
+        "startChar": 2,
+        "endLine": 565,
+        "endChar": 85
       },
       "revId": "f4abea079f06a0108534b111fbe927726de2d523",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
