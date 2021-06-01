@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66221a9d_6f70d006",
+        "filename": "PREUPLOAD.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-01T14:27:53Z",
+      "side": 1,
+      "message": "Passing --skip-target to the script is accepted. I made that more clear in the error message.",
+      "parentUuid": "9ef18d4d_516b4400",
+      "revId": "98a38341b647af69b487bb6da29639fc95e2df70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "258bbecc_75722535",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-06-01T12:54:25Z",
       "side": 1,
       "message": "exist",
+      "range": {
+        "startLine": 28,
+        "startChar": 42,
+        "endLine": 28,
+        "endChar": 48
+      },
+      "revId": "98a38341b647af69b487bb6da29639fc95e2df70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8801925d_a856d7a9",
+        "filename": "libnativebridge/tests/CodeCacheCreate_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-01T14:27:53Z",
+      "side": 1,
+      "message": "Not a line I touched, but fixed a couple.",
+      "parentUuid": "258bbecc_75722535",
       "range": {
         "startLine": 28,
         "startChar": 42,
