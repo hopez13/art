@@ -348,6 +348,30 @@
       },
       "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "949d744a_e49311a2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3783,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-01T16:11:20Z",
+      "side": 1,
+      "message": "Marking this resolved.",
+      "parentUuid": "217cd9da_c82f5459",
+      "range": {
+        "startLine": 3783,
+        "startChar": 8,
+        "endLine": 3783,
+        "endChar": 27
+      },
+      "revId": "3a0e43c56b7370f2361bf56a79fb3c3e28f55a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

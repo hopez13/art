@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "543de19b_805231bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-01T16:11:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "324f536c_7a9fbd5a",
+      "range": {
+        "startLine": 11,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91a9605b_c5463670",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-01T08:21:15Z",
       "side": 1,
       "message": "\"in ConcurrentGCTask::Run\"",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1e8b132_6cf912fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-01T16:11:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91a9605b_c5463670",
       "range": {
         "startLine": 17,
         "startChar": 29,
@@ -145,6 +193,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c61115b_d882aade",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-01T16:11:20Z",
+      "side": 1,
+      "message": "OK. I\u0027ll upload a follow-on CL . It seems a bit risky, and orthogonal to this CL. Filed b/189830999 for further discussion.",
+      "parentUuid": "b39fa47c_bc719895",
+      "range": {
+        "startLine": 2689,
+        "startChar": 4,
+        "endLine": 2689,
+        "endChar": 69
+      },
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd8339c1_b8e304a2",
@@ -158,6 +230,30 @@
       "writtenOn": "2021-06-01T08:21:15Z",
       "side": 1,
       "message": "I think this is the only place where gcs_requested_ is incremented. This means that any GC with GC_NUM_ANY won\u0027t increment it, right? But these GCs do increment gcs_completed_. This means we allow gcs_completed_ \u003e\u003d gcs_requested_.\n\nTherefore, if multiple GC_NUM_ANY GCs are done and hence gcs_completed_ - gcs_requested_ \u003e 1 (say 5). In this case we will allow multiple simultaneous background GCs. And given that background GCs increment both gcs_requested_ as well as gcs_completed_, it would never catch up. Doesn\u0027t it defeat the whole purpose of introducing the concept of gc-number?\n\nWouldn\u0027t it make sense to increment gcs_requested_ even when a GC_NUM_ANY GC is being done? With this, we can ensure that there are never more than one simultaneous background GCs. At the same time GC_NUM_ANY ensures that such GCs are always performed, as intended.\n\nI guess I\u0027m missing something, but not sure what.",
+      "range": {
+        "startLine": 3759,
+        "startChar": 10,
+        "endLine": 3759,
+        "endChar": 51
+      },
+      "revId": "947bce6e6ed01108d73b1570fadf9a64b06268a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d662c388_6005302f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3759,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-01T16:11:20Z",
+      "side": 1,
+      "message": "I agree entirely with the first paragraph.\n\nLet\u0027s assume that gcs_requested_ \u003d 1, gcs_completed_ \u003d 6. Let\u0027s assume that we then get a call to RequestConcurrentGC() that\u0027s based on current data, i.e. observed_gc_num \u003d 6. We have observed_gc_num \u003e\u003d gcs_requested, so we go ahead and execute the rest of this, replacing the old gcs_requested value of 1 by 7. so I think we\u0027re back to normal. Note that we don\u0027t just increment gcs_requested_ by one. Maybe it should be named max_gc_requested_?\n\nI don\u0027t think we can have more than one GC running at a time anyway. I think we have a complicated custom-mutex equivalent around the GC: We wait for collector_type_running_ to be none, and protect accesses to it by gc_complete_lock_ .\n\nI don\u0027t think gcs_requested_ is essential for correctness. We could always add the task, and all the unnecessary GCs would get filtered out later. But it seems common to get 100s and maybe 1000s of RequestConcurrentGC() calls per GC, so it unfortunately seems useful to put a filtering mechanism here to avoid blowing up the task queue.\n\nTaking this as a request to fix the naming of and comment for gcs_requested_, which I\u0027ve now done.",
+      "parentUuid": "dd8339c1_b8e304a2",
       "range": {
         "startLine": 3759,
         "startChar": 10,
