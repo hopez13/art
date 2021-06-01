@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ef18d4d_516b4400",
+        "filename": "PREUPLOAD.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-01T12:54:25Z",
+      "side": 1,
+      "message": "Are you adding a test that relies on having a device attached for pre-uploading? That doesn\u0027t sound desirable.",
+      "revId": "98a38341b647af69b487bb6da29639fc95e2df70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "258bbecc_75722535",
+        "filename": "libnativebridge/tests/CodeCacheCreate_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-01T12:54:25Z",
+      "side": 1,
+      "message": "exist",
+      "range": {
+        "startLine": 28,
+        "startChar": 42,
+        "endLine": 28,
+        "endChar": 48
+      },
+      "revId": "98a38341b647af69b487bb6da29639fc95e2df70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
