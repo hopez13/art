@@ -374,6 +374,30 @@
       },
       "revId": "f4abea079f06a0108534b111fbe927726de2d523",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3390e2f6_df1a65c0",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-01T15:32:48Z",
+      "side": 1,
+      "message": "Right, I forgot about non-inlined function calls.",
+      "parentUuid": "54c830f3_eb77aa88",
+      "range": {
+        "startLine": 565,
+        "startChar": 2,
+        "endLine": 565,
+        "endChar": 85
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
