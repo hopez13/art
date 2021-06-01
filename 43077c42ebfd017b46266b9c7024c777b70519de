@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4bb4a3a_881e921e",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-01T19:11:00Z",
+      "side": 1,
+      "message": "I\u0027m open to rename, but the rationale for the name is the OS can in theory handle any kind of \"comp\"utational tasks, compilation being an example.  The APEX is also named com.android.compos.  Let me know if you prefer to rename.",
+      "parentUuid": "22cb67cc_891eff76",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 18
+      },
+      "revId": "43077c42ebfd017b46266b9c7024c777b70519de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "146687b7_7ee4c736",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-01T17:33:38Z",
       "side": 1,
       "message": "Would it make sense to pass FDs for those, so we consistenly only pass fds with compilation os?",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 16
+      },
+      "revId": "43077c42ebfd017b46266b9c7024c777b70519de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d0dbb94_f2c66575",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-01T19:11:00Z",
+      "side": 1,
+      "message": "I\u0027m a bit torn between consistency and avoid unnecessary setup here, but prefer the current implementation.\n\nSo the problem we\u0027re solving here is to ensure the input/BCP jars integrity by trusted signature.  For the VM to verify the signatures, for each BCP jars we need to generate the fs-verity signature and Merkle tree as files next to each jar (so bcp-foo.jar would come with bcp-foo.jar.{fsv_sig, merkle_tree}.  We need this for JARs in /system.  The question here is whether we want to apply the same method to JARs in APEXes.\n\nSince APEX is already signed, the extra signature would be not necessary from security perspective.  Instead of generating additional files and changing the build/release signing for JARs in APEX, my current preference is to isolate the complexity here in one place.\n\nAny thoughts?",
+      "parentUuid": "146687b7_7ee4c736",
       "range": {
         "startLine": 694,
         "startChar": 0,
