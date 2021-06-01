@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22cb67cc_891eff76",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-01T17:33:38Z",
+      "side": 1,
+      "message": "why not use_compilation_os_ ?",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 18
+      },
+      "revId": "43077c42ebfd017b46266b9c7024c777b70519de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "146687b7_7ee4c736",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-01T17:33:38Z",
+      "side": 1,
+      "message": "Would it make sense to pass FDs for those, so we consistenly only pass fds with compilation os?",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 16
+      },
+      "revId": "43077c42ebfd017b46266b9c7024c777b70519de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aacd0e4_9dcda5bb",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-01T17:33:38Z",
+      "side": 1,
+      "message": "--use-compilation-os?",
+      "range": {
+        "startLine": 1482,
+        "startChar": 31,
+        "endLine": 1482,
+        "endChar": 41
+      },
+      "revId": "43077c42ebfd017b46266b9c7024c777b70519de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
