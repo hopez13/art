@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92c23b6e_0b6c98aa",
+        "filename": "tools/buildbot-symbolize-crashes.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-02T14:12:08Z",
+      "side": 1,
+      "message": "If this were:\nPATH\u003d$PATH:$(dirname \"${BASH_SOURCE[0]}\")/../../prebuilts/clang/host/linux-x86\nthen no other changes needed here which\u0027ll make the undo more predictable.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 70
+      },
+      "revId": "fa692e3b146a1bb3029d7937b0775468751f6c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
