@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "836d3ba8_731a33b7",
+        "filename": "libnativebridge/libnativebridge.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-02T14:34:27Z",
+      "side": 0,
+      "message": "Note for NDK-API review: This (and the similar change in libnativeloader.map.txt) isn\u0027t a real change of the API, it\u0027s rather a cleanup of internal symbols that had to be exposed here earlier. I intend to cherry-pick it into sc-dev.",
+      "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
