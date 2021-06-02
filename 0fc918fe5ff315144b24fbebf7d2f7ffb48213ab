@@ -22,6 +22,30 @@
       },
       "revId": "0fc918fe5ff315144b24fbebf7d2f7ffb48213ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c10c46b0_0ed86e0c",
+        "filename": "profman/profman.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1738,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-02T11:01:18Z",
+      "side": 1,
+      "message": "It\u0027s not needed.\n\nThe other reason is that profman supports annotations. I\u0027m not really sure about the use case but we do not use them for boot image profile, so this is OK. If we are using annotations for app profiles, using the `kNone` annotation (default arg) would be wrong here.",
+      "parentUuid": "01c82dbe_0c843351",
+      "range": {
+        "startLine": 1738,
+        "startChar": 0,
+        "endLine": 1738,
+        "endChar": 25
+      },
+      "revId": "0fc918fe5ff315144b24fbebf7d2f7ffb48213ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
