@@ -28,3 +28,14 @@ __x86.get_pc_thunk.bx:
     movl (%esp), %ebx
     ret
     .cfi_endproc
+
+    .section .text.__x86.get_pc_thunk.ax,"axG",@progbits,__x86.get_pc_thunk.ax,comdat
+    .globl __x86.get_pc_thunk.ax
+    .hidden __x86.get_pc_thunk.ax
+    .p2align 4
+    .type __x86.get_pc_thunk.ax,@function
+__x86.get_pc_thunk.ax:
+    .cfi_startproc
+    movl (%esp), %eax
+    ret
+    .cfi_endproc
