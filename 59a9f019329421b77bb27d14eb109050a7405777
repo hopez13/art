@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9730ea96_d611c161",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-02T15:38:29Z",
+      "side": 1,
+      "message": "No worries!",
+      "parentUuid": "d45bcc61_385cf099",
+      "revId": "59a9f019329421b77bb27d14eb109050a7405777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebc170b1_e88c0405",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-06-02T07:57:23Z",
       "side": 1,
       "message": "const std::string\u0026 (avoid auto if the type can be easily written).",
+      "range": {
+        "startLine": 1189,
+        "startChar": 13,
+        "endLine": 1189,
+        "endChar": 17
+      },
+      "revId": "59a9f019329421b77bb27d14eb109050a7405777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53d10009_5009fdeb",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-02T15:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebc170b1_e88c0405",
       "range": {
         "startLine": 1189,
         "startChar": 13,
