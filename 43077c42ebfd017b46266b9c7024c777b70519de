@@ -193,6 +193,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66b1ecf8_ceaef746",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-02T22:08:17Z",
+      "side": 1,
+      "message": "The way to think about this is a secure computer/VM with an untrusted remote storage (Android).  Files on the remote storage can still be proven safe with signature.  /system is verified by Android with dm-verity, but it\u0027s still an untrusted remote.\n\n(Though I suspect it might not be impossible to pass raw block devices as files to the VM, then apply dm-verity inside the VM... We\u0027d need to punch a lot of holes and add exceptions to the existing SELinux rules, etc. to achieve that though.  +David to keep me honest)",
+      "parentUuid": "15a23543_7804453d",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 16
+      },
+      "revId": "43077c42ebfd017b46266b9c7024c777b70519de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3aacd0e4_9dcda5bb",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 2
