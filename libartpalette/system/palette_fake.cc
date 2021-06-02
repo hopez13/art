@@ -39,7 +39,7 @@ palette_status_t PaletteSchedSetPriority(int32_t tid, int32_t priority) {
 }
 
 palette_status_t PaletteSchedGetPriority(int32_t tid,
-                                           /*out*/int32_t* priority) {
+                                         /*out*/int32_t* priority) {
   std::lock_guard guard(g_tid_priority_map_mutex);
   if (g_tid_priority_map.find(tid) == g_tid_priority_map.end()) {
     g_tid_priority_map[tid] = art::palette::kNormalManagedThreadPriority;
@@ -67,28 +67,63 @@ palette_status_t PaletteTraceEnd() {
 }
 
 palette_status_t PaletteTraceIntegerValue(const char* name ATTRIBUTE_UNUSED,
-                                            int32_t value ATTRIBUTE_UNUSED) {
+                                          int32_t value ATTRIBUTE_UNUSED) {
   return PALETTE_STATUS_OK;
 }
 
 palette_status_t PaletteAshmemCreateRegion(const char* name ATTRIBUTE_UNUSED,
-                                             size_t size ATTRIBUTE_UNUSED,
-                                             int* fd) {
+                                           size_t size ATTRIBUTE_UNUSED,
+                                           int* fd) {
   *fd = -1;
   return PALETTE_STATUS_NOT_SUPPORTED;
 }
 
 palette_status_t PaletteAshmemSetProtRegion(int fd ATTRIBUTE_UNUSED,
-                                              int prot ATTRIBUTE_UNUSED) {
-  return PALETTE_STATUS_NOT_SUPPORTED;
-}
-
-palette_status_t PaletteGetHooks(PaletteHooks** hooks) {
-  *hooks = nullptr;
+                                            int prot ATTRIBUTE_UNUSED) {
   return PALETTE_STATUS_NOT_SUPPORTED;
 }
 
 palette_status_t PaletteCreateOdrefreshStagingDirectory(const char** staging_dir) {
   *staging_dir = nullptr;
   return PALETTE_STATUS_NOT_SUPPORTED;
+}
+
+palette_status_t PaletteShouldReportDex2oatCompilation(int* value) {
+  *value = 0;
+  return PALETTE_STATUS_OK;
+}
+
+palette_status_t PaletteNotifyStartDex2oatCompilation(int source_fd ATTRIBUTE_UNUSED,
+                                                      int art_fd ATTRIBUTE_UNUSED,
+                                                      int oat_fd ATTRIBUTE_UNUSED,
+                                                      int vdex_fd ATTRIBUTE_UNUSED) {
+  return PALETTE_STATUS_OK;
+}
+
+palette_status_t PaletteNotifyEndDex2oatCompilation(int source_fd ATTRIBUTE_UNUSED,
+                                                    int art_fd ATTRIBUTE_UNUSED,
+                                                    int oat_fd ATTRIBUTE_UNUSED,
+                                                    int vdex_fd ATTRIBUTE_UNUSED) {
+  return PALETTE_STATUS_OK;
+}
+
+palette_status_t PaletteNotifyDexFileLoaded(const char* path ATTRIBUTE_UNUSED) {
+  return PALETTE_STATUS_OK;
+}
+
+palette_status_t PaletteNotifyOatFileLoaded(const char* path ATTRIBUTE_UNUSED) {
+  return PALETTE_STATUS_OK;
+}
+
+palette_status_t PaletteShouldReportJniInvocations(int* value) {
+  *value = 0;
+  return PALETTE_STATUS_OK;
+}
+
+palette_status_t PaletteNotifyBeginJniInvocation(JNIEnv* env ATTRIBUTE_UNUSED) {
+  return PALETTE_STATUS_OK;
+}
+
+palette_status_t PaletteNotifyEndJniInvocation(JNIEnv* env ATTRIBUTE_UNUSED) {
+  return PALETTE_STATUS_OK;
 }
