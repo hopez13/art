@@ -23,53 +23,6 @@
 
     /*
      * Macro that sets up the callee save frame to conform with
-     * Runtime::CreateCalleeSaveMethod(kSaveAllCalleeSaves)
-     */
-MACRO2(SETUP_SAVE_ALL_CALLEE_SAVES_FRAME, got_reg, temp_reg)
-    PUSH edi  // Save callee saves (ebx is saved/restored by the upcall)
-    PUSH esi
-    PUSH ebp
-    subl MACRO_LITERAL(12), %esp  // Grow stack by 3 words.
-    CFI_ADJUST_CFA_OFFSET(12)
-    LOAD_RUNTIME_INSTANCE \temp_reg, \got_reg
-    // Push save all callee-save method.
-    pushl RUNTIME_SAVE_ALL_CALLEE_SAVES_METHOD_OFFSET(REG_VAR(temp_reg))
-    CFI_ADJUST_CFA_OFFSET(4)
-    // Store esp as the top quick frame.
-    movl %esp, %fs:THREAD_TOP_QUICK_FRAME_OFFSET
-    // Ugly compile-time check, but we only have the preprocessor.
-    // Last +4: implicit return address pushed on stack when caller made call.
-#if (FRAME_SIZE_SAVE_ALL_CALLEE_SAVES != 3*4 + 16 + 4)
-#error "FRAME_SIZE_SAVE_ALL_CALLEE_SAVES(X86) size not as expected."
-#endif
-END_MACRO
-
-    /*
-     * Macro that sets up the callee save frame to conform with
-     * Runtime::CreateCalleeSaveMethod(kSaveRefsOnly)
-     */
-MACRO2(SETUP_SAVE_REFS_ONLY_FRAME, got_reg, temp_reg)
-    PUSH edi  // Save callee saves (ebx is saved/restored by the upcall)
-    PUSH esi
-    PUSH ebp
-    subl MACRO_LITERAL(12), %esp  // Grow stack by 3 words.
-    CFI_ADJUST_CFA_OFFSET(12)
-    LOAD_RUNTIME_INSTANCE \temp_reg, \got_reg
-    // Push save all callee-save method.
-    pushl RUNTIME_SAVE_REFS_ONLY_METHOD_OFFSET(REG_VAR(temp_reg))
-    CFI_ADJUST_CFA_OFFSET(4)
-    // Store esp as the top quick frame.
-    movl %esp, %fs:THREAD_TOP_QUICK_FRAME_OFFSET
-
-    // Ugly compile-time check, but we only have the preprocessor.
-    // Last +4: implicit return address pushed on stack when caller made call.
-#if (FRAME_SIZE_SAVE_REFS_ONLY != 3*4 + 16 + 4)
-#error "FRAME_SIZE_SAVE_REFS_ONLY(X86) size not as expected."
-#endif
-END_MACRO
-
-    /*
-     * Macro that sets up the callee save frame to conform with
      * Runtime::CreateCalleeSaveMethod(kSaveRefsOnly)
      * and preserves the value of got_reg at entry.
      */
@@ -96,14 +49,6 @@ MACRO2(SETUP_SAVE_REFS_ONLY_FRAME_PRESERVE_GOT_REG, got_reg, temp_reg)
 #if (FRAME_SIZE_SAVE_REFS_ONLY != 3*4 + 16 + 4)
 #error "FRAME_SIZE_SAVE_REFS_ONLY(X86) size not as expected."
 #endif
-END_MACRO
-
-MACRO0(RESTORE_SAVE_REFS_ONLY_FRAME)
-    addl MACRO_LITERAL(16), %esp  // Unwind stack up to saved values
-    CFI_ADJUST_CFA_OFFSET(-16)
-    POP ebp  // Restore callee saves (ebx is saved/restored by the upcall)
-    POP esi
-    POP edi
 END_MACRO
 
     /*
@@ -260,15 +205,6 @@ MACRO0(RESTORE_SAVE_EVERYTHING_FRAME_KEEP_EAX)
     CFI_ADJUST_CFA_OFFSET(-(16 + 8 * 8 + 4))
 
     RESTORE_SAVE_EVERYTHING_FRAME_GPRS_EXCEPT_EAX
-END_MACRO
-
-    /*
-     * Macro that calls through to artDeliverPendingExceptionFromCode, where the pending
-     * exception is Thread::Current()->exception_.
-     */
-MACRO0(DELIVER_PENDING_EXCEPTION)
-    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME ebx, ebx // save callee saves for throw
-    DELIVER_PENDING_EXCEPTION_FRAME_READY
 END_MACRO
 
 MACRO2(NO_ARG_RUNTIME_EXCEPTION, c_name, cxx_name)
@@ -889,14 +825,6 @@ MACRO0(RETURN_IF_EAX_ZERO)
     DELIVER_PENDING_EXCEPTION
 END_MACRO
 
-MACRO0(RETURN_OR_DELIVER_PENDING_EXCEPTION)
-    cmpl MACRO_LITERAL(0),%fs:THREAD_EXCEPTION_OFFSET // exception field == 0 ?
-    jne 1f                                            // if exception field != 0 goto 1
-    ret                                               // return
-1:                                                    // deliver exception on current thread
-    DELIVER_PENDING_EXCEPTION
-END_MACRO
-
 // Generate the allocation entrypoints for each allocator.
 GENERATE_ALLOC_ENTRYPOINTS_FOR_NON_TLAB_ALLOCATORS
 
@@ -1094,8 +1022,6 @@ MACRO1(ALLOC_ARRAY_TLAB_FAST_PATH_RESOLVED_WITH_SIZE, slowPathLabel)
 END_MACRO
 
 MACRO1(COMPUTE_ARRAY_SIZE_UNKNOWN, slow_path)
-    // We should never enter here. Code is provided for reference.
-    int3
     // Possibly a large object, go slow.
     // Also does negative array size check.
     cmpl LITERAL((MIN_LARGE_OBJECT_THRESHOLD - MIRROR_WIDE_ARRAY_DATA_OFFSET) / 8), %ecx
