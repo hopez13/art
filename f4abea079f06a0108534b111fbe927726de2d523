@@ -212,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47816903_3e96b6a6",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-02T08:38:16Z",
+      "side": 1,
+      "message": "Closing as resolved before submission. Please reopen if you strongly prefer friend declarations.\n\nBtw., profman shall use the `FindOrAddDexFile()` (returning profile index) in a CL I\u0027m going to upload shorty after submitting this one.",
+      "parentUuid": "d2925fdf_308f3c69",
+      "range": {
+        "startLine": 332,
+        "startChar": 7,
+        "endLine": 332,
+        "endChar": 15
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9ef6a8d_0515de0f",
@@ -225,6 +249,30 @@
       "writtenOn": "2021-05-26T20:54:58Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 393,
+        "startChar": 7,
+        "endLine": 393,
+        "endChar": 16
+      },
+      "revId": "f4abea079f06a0108534b111fbe927726de2d523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8431e9fa_e7521697",
+        "filename": "libprofile/profile/profile_compilation_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-02T08:38:16Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "d9ef6a8d_0515de0f",
       "range": {
         "startLine": 393,
         "startChar": 7,
