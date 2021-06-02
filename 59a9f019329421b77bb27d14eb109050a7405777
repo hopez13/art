@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d45bcc61_385cf099",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-02T07:57:23Z",
+      "side": 1,
+      "message": "Small nit again, sorry I missed initially.",
+      "revId": "59a9f019329421b77bb27d14eb109050a7405777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc170b1_e88c0405",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-02T07:57:23Z",
+      "side": 1,
+      "message": "const std::string\u0026 (avoid auto if the type can be easily written).",
+      "range": {
+        "startLine": 1189,
+        "startChar": 13,
+        "endLine": 1189,
+        "endChar": 17
+      },
+      "revId": "59a9f019329421b77bb27d14eb109050a7405777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
