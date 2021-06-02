@@ -169,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15a23543_7804453d",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-02T21:03:36Z",
+      "side": 1,
+      "message": "Actually, this is getting very confusing to me :)  For BCP jars in /system why isn\u0027t the dm-verity for /system enough?",
+      "parentUuid": "3b8935da_cac8585e",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 16
+      },
+      "revId": "43077c42ebfd017b46266b9c7024c777b70519de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3aacd0e4_9dcda5bb",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 2
