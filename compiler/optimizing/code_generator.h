@@ -36,6 +36,7 @@
 #include "optimizing_compiler_stats.h"
 #include "read_barrier_option.h"
 #include "stack.h"
+#include "utils/assembler.h"
 #include "utils/label.h"
 
 namespace art {
@@ -1032,6 +1033,8 @@ class InstructionCodeGenerator : public HGraphVisitor {
   // TODO: under current regime, only deopt sharing make sense; extend later.
   SlowPathGenerator<HDeoptimize> deopt_slow_paths_;
 };
+
+ScaleFactor ScaleFactorForType(DataType::Type type);
 
 }  // namespace art
 
