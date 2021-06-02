@@ -22,6 +22,30 @@
       },
       "revId": "fa692e3b146a1bb3029d7937b0775468751f6c02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06ddd77c_6504f810",
+        "filename": "tools/buildbot-symbolize-crashes.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-02T14:24:18Z",
+      "side": 1,
+      "message": "Unfortunately, the script doesn\u0027t use PATH, see:\nhttps://source.corp.google.com/android/development/scripts/symbol.py;l\u003d441",
+      "parentUuid": "92c23b6e_0b6c98aa",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 70
+      },
+      "revId": "fa692e3b146a1bb3029d7937b0775468751f6c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
