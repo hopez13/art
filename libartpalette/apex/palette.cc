@@ -158,16 +158,64 @@ palette_status_t PaletteAshmemSetProtRegion(int fd, int prot) {
   return m(fd, prot);
 }
 
-palette_status_t PaletteGetHooks(PaletteHooks** hooks) {
-  PaletteGetHooksMethod m =
-      PaletteLoader::Instance().GetPaletteGetHooksMethod();
-  return m(hooks);
-}
-
 palette_status_t PaletteCreateOdrefreshStagingDirectory(const char** staging_dir) {
   PaletteCreateOdrefreshStagingDirectoryMethod m =
       PaletteLoader::Instance().GetPaletteCreateOdrefreshStagingDirectoryMethod();
   return m(staging_dir);
+}
+
+palette_status_t PaletteShouldReportDex2oatCompilations(int* value) {
+  PaletteShouldReportDex2oatCompilationsMethod m =
+      PaletteLoader::Instance().GetPaletteShouldReportDex2oatCompilationsMethod();
+  return m(value);
+}
+
+palette_status_t PaletteNotifyStartDex2oatCompilation(int source_fd,
+                                                      int art_fd,
+                                                      int oat_fd,
+                                                      int vdex_fd) {
+  PaletteNotifyStartDex2oatCompilationMethod m =
+      PaletteLoader::Instance().GetPaletteNotifyStartDex2oatCompilationMethod();
+  return m(source_fd, art_fd, oat_fd, vdex_fd);
+}
+
+palette_status_t PaletteNotifyEndDex2oatCompilation(int source_fd,
+                                                    int art_fd,
+                                                    int oat_fd,
+                                                    int vdex_fd) {
+  PaletteNotifyEndDex2oatCompilationMethod m =
+      PaletteLoader::Instance().GetPaletteNotifyEndDex2oatCompilationMethod();
+  return m(source_fd, art_fd, oat_fd, vdex_fd);
+}
+
+palette_status_t PaletteNotifyDexFileLoaded(const char* path) {
+  PaletteNotifyDexFileLoadedMethod m =
+      PaletteLoader::Instance().GetPaletteNotifyDexFileLoadedMethod();
+  return m(path);
+}
+
+palette_status_t PaletteNotifyOatFileLoaded(const char* path) {
+  PaletteNotifyOatFileLoadedMethod m =
+      PaletteLoader::Instance().GetPaletteNotifyOatFileLoadedMethod();
+  return m(path);
+}
+
+palette_status_t PaletteShouldReportJniInvocations(int* value) {
+  PaletteShouldReportJniInvocationsMethod m =
+      PaletteLoader::Instance().GetPaletteShouldReportJniInvocationsMethod();
+  return m(value);
+}
+
+palette_status_t PaletteNotifyBeginJniInvocation(JNIEnv* env) {
+  PaletteNotifyBeginJniInvocationMethod m =
+      PaletteLoader::Instance().GetPaletteNotifyBeginJniInvocationMethod();
+  return m(env);
+}
+
+palette_status_t PaletteNotifyEndJniInvocation(JNIEnv* env) {
+  PaletteNotifyEndJniInvocationMethod m =
+      PaletteLoader::Instance().GetPaletteNotifyEndJniInvocationMethod();
+  return m(env);
 }
 
 }  // extern "C"

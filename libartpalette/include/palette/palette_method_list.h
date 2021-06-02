@@ -20,6 +20,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "jni.h"
+
 // Methods in version 1 API
 #define PALETTE_METHOD_LIST(M)                                              \
   M(PaletteSchedSetPriority, int32_t tid, int32_t java_priority)            \
@@ -31,11 +33,24 @@
   M(PaletteTraceIntegerValue, const char* name, int32_t value)              \
   M(PaletteAshmemCreateRegion, const char* name, size_t size, int* fd)      \
   M(PaletteAshmemSetProtRegion, int, int)                                   \
-  M(PaletteGetHooks, /*out*/PaletteHooks**)                                 \
   /* Create the staging directory for on-device signing.                 */ \
   /* `staging_dir` is updated to point to a constant string in the       */ \
   /* palette implementation.                                             */ \
   /* This method is not thread-safe.                                     */ \
-  M(PaletteCreateOdrefreshStagingDirectory, /*out*/const char** staging_dir)
+  M(PaletteCreateOdrefreshStagingDirectory, /*out*/const char** staging_dir)\
+  M(PaletteShouldReportDex2oatCompilation, int*)                            \
+  M(PaletteNotifyStartDex2oatCompilation, int source_fd,                    \
+                                          int art_fd,                       \
+                                          int oat_fd,                       \
+                                          int vdex_fd)                      \
+  M(PaletteNotifyEndDex2oatCompilation, int source_fd,                      \
+                                        int art_fd,                         \
+                                        int oat_fd,                         \
+                                        int vdex_fd)                        \
+  M(PaletteNotifyDexFileLoaded, const char* path)                           \
+  M(PaletteNotifyOatFileLoaded, const char* path)                           \
+  M(PaletteShouldReportJniInvocations, int*)                                \
+  M(PaletteNotifyBeginJniInvocation, JNIEnv* env)                           \
+  M(PaletteNotifyEndJniInvocation, JNIEnv* env)                             \
 
 #endif  // ART_LIBARTPALETTE_INCLUDE_PALETTE_PALETTE_METHOD_LIST_H_

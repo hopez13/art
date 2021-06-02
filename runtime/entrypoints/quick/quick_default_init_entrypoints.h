@@ -131,8 +131,9 @@ static void DefaultInitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qp
   qpoints->pUpdateInlineCache = art_quick_update_inline_cache;
   qpoints->pCompileOptimized = art_quick_compile_optimized;
 
-  PaletteHooks* hooks = nullptr;
-  if (PaletteGetHooks(&hooks) == PALETTE_STATUS_OK && hooks->ShouldReportJniInvocations()) {
+  int should_report = 0;
+  PaletteShouldReportJniInvocations(&should_report);
+  if (should_report != 0) {
     qpoints->pJniMethodStart = JniMonitoredMethodStart;
     qpoints->pJniMethodStartSynchronized = JniMonitoredMethodStartSynchronized;
     qpoints->pJniMethodEnd = JniMonitoredMethodEnd;
