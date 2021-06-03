@@ -264,6 +264,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df2a1b79_3cad99cc",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-03T17:42:17Z",
+      "side": 1,
+      "message": "APEX is signed as part of the format, so it can be verified in the trusted VM.  The APEXes are actually mounted by apexd in microdroid, with dm-verity just like on Android.  So it\u0027s safe to access the JARs by path in the VM.\n\nThough +Alan Stokes and I are now considering about also generate fs-verity metadata for JARs in all APEXes, just like for JARs in /system.  That\u0027ll give us the consistency to avoid this hack, i.e. we can always pass BCP JARs as FDs unconditionally.  Will ping this thread once we reach the conclusion.",
+      "parentUuid": "5da84ebe_7a242f50",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 16
+      },
+      "revId": "43077c42ebfd017b46266b9c7024c777b70519de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3aacd0e4_9dcda5bb",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 2
