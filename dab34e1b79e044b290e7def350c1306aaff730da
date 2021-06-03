@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9323767_fb3b098e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-06-03T20:23:51Z",
+      "side": 1,
+      "message": "API guidelines don\u0027t say much about _implementation_, which is where this one is. We didn\u0027t say anything about stdbool.h for the API surface either though. Fixed: http://cl/377358563\n\nAgree that real bool is better than fake bool 😊",
+      "parentUuid": "2c7ae995_daa0a121",
+      "revId": "dab34e1b79e044b290e7def350c1306aaff730da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5dfa202b_0e70fd48",
