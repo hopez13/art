@@ -49,6 +49,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53a255d5_3a443d48",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6222,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-03T08:33:40Z",
+      "side": 1,
+      "message": "This seems to be a second `MaybeRecordImplicitNullCheck` call in this code path.",
+      "range": {
+        "startLine": 6222,
+        "startChar": 4,
+        "endLine": 6222,
+        "endChar": 56
+      },
+      "revId": "18e8ae1398fe8e82c43738579382ef04a6d0271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f209b8e8_03c55beb",
         "filename": "compiler/optimizing/code_generator_x86.h",
         "patchSetId": 1
@@ -60,6 +83,30 @@
       "writtenOn": "2021-06-02T21:05:40Z",
       "side": 1,
       "message": "nit: \u0027*\u0027 and \u0027\u0026\u0027 should be next to the type.",
+      "range": {
+        "startLine": 449,
+        "startChar": 44,
+        "endLine": 449,
+        "endChar": 45
+      },
+      "revId": "18e8ae1398fe8e82c43738579382ef04a6d0271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20f8b952_526bf177",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-03T08:33:40Z",
+      "side": 1,
+      "message": "They are considered part of the type.",
+      "parentUuid": "f209b8e8_03c55beb",
       "range": {
         "startLine": 449,
         "startChar": 44,
