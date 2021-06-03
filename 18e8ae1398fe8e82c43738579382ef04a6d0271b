@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "525c111b_58d3f56a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1482,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-03T10:50:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48d785cf_b3672ec1",
+      "range": {
+        "startLine": 1482,
+        "startChar": 60,
+        "endLine": 1482,
+        "endChar": 61
+      },
+      "revId": "18e8ae1398fe8e82c43738579382ef04a6d0271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb2fa040_cecf115f",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fedcaa0_4f094eaf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5748,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-03T10:50:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb2fa040_cecf115f",
+      "range": {
+        "startLine": 5748,
+        "startChar": 0,
+        "endLine": 5748,
+        "endChar": 6
+      },
+      "revId": "18e8ae1398fe8e82c43738579382ef04a6d0271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53a255d5_3a443d48",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-06-03T08:33:40Z",
       "side": 1,
       "message": "This seems to be a second `MaybeRecordImplicitNullCheck` call in this code path.",
+      "range": {
+        "startLine": 6222,
+        "startChar": 4,
+        "endLine": 6222,
+        "endChar": 56
+      },
+      "revId": "18e8ae1398fe8e82c43738579382ef04a6d0271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f69041b_8daa0a94",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6222,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-03T10:50:48Z",
+      "side": 1,
+      "message": "Thanks for catching, this got here by accident. Removed.",
+      "parentUuid": "53a255d5_3a443d48",
       "range": {
         "startLine": 6222,
         "startChar": 4,
@@ -107,6 +179,30 @@
       "side": 1,
       "message": "They are considered part of the type.",
       "parentUuid": "f209b8e8_03c55beb",
+      "range": {
+        "startLine": 449,
+        "startChar": 44,
+        "endLine": 449,
+        "endChar": 45
+      },
+      "revId": "18e8ae1398fe8e82c43738579382ef04a6d0271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a5661dd_c1271626",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-03T10:50:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20f8b952_526bf177",
       "range": {
         "startLine": 449,
         "startChar": 44,
