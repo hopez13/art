@@ -34,6 +34,24 @@
       "parentUuid": "836d3ba8_731a33b7",
       "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ed4941e_fb26f3e4",
+        "filename": "libnativebridge/libnativebridge.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-06-03T23:46:47Z",
+      "side": 0,
+      "message": "It looks like this map file is used when building the library and not just the stub (or does \"linux\" here mean \"gnu\"? I can never remember): https://cs.android.com/android/platform/superproject/+/master:libnativehelper/Android.bp;l\u003d152-156;drc\u003db4938f91fc8a58543d0a37040ec81b5a9866f67b\n\nIf that\u0027s correct, this does actually hide symbols that were previously accessible.\n\nWhat\u0027s the context here? Was this not a stable ABI until S? Can we even still make breaks to S? (last question is for other API reviewers, not mast)",
+      "parentUuid": "7dda55ac_52b05875",
+      "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
