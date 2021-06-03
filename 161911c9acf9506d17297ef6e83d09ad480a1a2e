@@ -22,6 +22,30 @@
       },
       "revId": "161911c9acf9506d17297ef6e83d09ad480a1a2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b82fa77b_90a08461",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6340,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-03T11:23:54Z",
+      "side": 0,
+      "message": "This was an error in the old code. The unnecessary stack map was on the `movzxw` that cannot fault, so it was just taking space without any other consequences.",
+      "parentUuid": "2b0a5d9e_73066fa3",
+      "range": {
+        "startLine": 6340,
+        "startChar": 4,
+        "endLine": 6340,
+        "endChar": 56
+      },
+      "revId": "161911c9acf9506d17297ef6e83d09ad480a1a2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
