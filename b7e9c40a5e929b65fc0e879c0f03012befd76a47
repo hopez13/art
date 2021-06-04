@@ -124,6 +124,24 @@
       "parentUuid": "e64911b2_7a2eb8fc",
       "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7ef71cb_f22a3a5a",
+        "filename": "libnativebridge/libnativebridge.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2021-06-04T14:34:07Z",
+      "side": 0,
+      "message": "This would be classified as system API and the internal API freeze date still applies to that, so this can\u0027t be cherry-picked to sc-dev. Going immediately from available to removed without a deprecation release would be considered aggressive, but since I think apex_available is only scoping this system API to ART I think that\u0027s fine as clearly all impacted clients are aware of the change. Policy is that platform-exposed system API\u0027s can be removed at any point, so this is OK policy-wise ( https://g3doc.corp.google.com/company/teams/android-api-council/guidelines/rules-of-engagement.md?cl\u003dhead )",
+      "parentUuid": "198462cd_f6187ffb",
+      "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
