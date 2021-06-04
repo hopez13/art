@@ -1,0 +1,532 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7901e045_561033b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Partial review.",
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65b2a0c0_d043d1ae",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Reorder with mterp genrule? The other nterp genrules are grouped together.",
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9750a36d_0f6b2d44",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "We should not need to use the $_GLOBAL_OFFSET_TABLE for referencing our own symbols in nterp. We need it only for PLT calls.\n\nI\u0027ve prepared a cleanup CL:\n\n  https://android-review.googlesource.com/1728131",
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebdff845_ce4103c4",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Split out the code moving to its own CL.",
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "574793e9_d643dfc8",
+        "filename": "runtime/interpreter/mterp/x86ng/array.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Nit: The is a multiplier, not a \"shift\".",
+      "range": {
+        "startLine": 1,
+        "startChar": 26,
+        "endLine": 1,
+        "endChar": 31
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8c0598e_55263520",
+        "filename": "runtime/interpreter/mterp/x86ng/array.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Can this be a single instruction?\n\n    movq $data_offset(%eax,%ecx,8), %xmm0",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc5cfb53_9ef76c0c",
+        "filename": "runtime/interpreter/mterp/x86ng/array.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Either drop this as it is the default, or add also `is_wide\u003d\"0\"`.",
+      "range": {
+        "startLine": 40,
+        "startChar": 83,
+        "endLine": 40,
+        "endChar": 98
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3abe86e6_5c9aed6b",
+        "filename": "runtime/interpreter/mterp/x86ng/array.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "multiplier",
+      "range": {
+        "startLine": 57,
+        "startChar": 46,
+        "endLine": 57,
+        "endChar": 51
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "227fa35d_d2061e85",
+        "filename": "runtime/interpreter/mterp/x86ng/array.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Merge with the MOVQ?",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 43
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8630b664_7592cf3b",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Remove extra spaces.",
+      "range": {
+        "startLine": 15,
+        "startChar": 15,
+        "endLine": 15,
+        "endChar": 17
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47668142_665e85e4",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Remove extra spaces.",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 17
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22e3471f_8ce3d704",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Misplaced comment?",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 67,
+        "endChar": 48
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c857084_6f782546",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Add spaces for consistent arg indentation.",
+      "range": {
+        "startLine": 120,
+        "startChar": 10,
+        "endLine": 120,
+        "endChar": 11
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65104b94_6c43a4f3",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Add spaces; missing CFI directives.",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 14
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dee72a18_9619532d",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "CFI",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 31
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c351f76e_20476b41",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Also add the appropriate `CFI_DEF_CFA_BREG_PLUS_UCONST` to reliably restore all the state. (This should be added to x86-64 as well.)",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 21
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bb625dc_db0139e7",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "+CFI_DEF_CFA_BREG_PLUS_UCONST",
+      "range": {
+        "startLine": 161,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 21
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8016106_80515d71",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "GET_VREG_HIGH",
+      "range": {
+        "startLine": 168,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 39
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2af87e0_18f28f97",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "+CFI_DEF_CFA_BREG_PLUS_UCONST",
+      "range": {
+        "startLine": 176,
+        "startChar": 4,
+        "endLine": 176,
+        "endChar": 21
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f05bfb91_ff2594eb",
+        "filename": "runtime/interpreter/mterp/x86ng/invoke.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Move after `jne 2f`.",
+      "range": {
+        "startLine": 82,
+        "startChar": 3,
+        "endLine": 83,
+        "endChar": 19
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2add4139_5216a9fa",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Please use\n\n  SETUP_PC_REL_BASE_0 rIBASE\n  addl SYMBOL(artNterpAsmInstructionStart) - 0b, rIBASE\n\nwhere the macro SETUP_PC_REL_BASE_0 is introduced in\n\n  https://android-review.googlesource.com/c/platform/art/+/1728131 .",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 57
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f92c100_e8e42258",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "You should not need this macro after the above change.",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 5
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a5d2ee6_520d6ee9",
+        "filename": "runtime/interpreter/mterp/x86ng/object.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "Move after `op_check_cast`.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f51a1ba2_ae42c63b",
+        "filename": "runtime/interpreter/mterp/x86ng/other.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-04T14:23:37Z",
+      "side": 1,
+      "message": "There is no such instruction in the x86 manual. Is it an alias for CDQ?",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 8
+      },
+      "revId": "e60d346042c7f52633917f37ed42943fd37c4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
