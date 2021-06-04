@@ -70,6 +70,24 @@
       "parentUuid": "1ed4941e_fb26f3e4",
       "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f57712d_d50de710",
+        "filename": "libnativebridge/libnativebridge.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-06-04T00:40:24Z",
+      "side": 0,
+      "message": "\u003e Your pointer is to libnativehelper, whereas this is about libnativebridge and libnativeloader.\n\nDamn my muscle memory! Never mind that part 😊\n\n\u003e These ABIs are solely between ART and platform\n\nIf it\u0027s used by stubs (and this is, even now that I\u0027m looking at the correct Android.bp) it\u0027s a public API. I\u0027m pretty sure API freeze dates apply, and I think APEX is bound by the same date as the NDK, but the others here can correct me if that\u0027s wrong. I\u0027d certainly prefer the cleanup as well, but after API freeze that isn\u0027t always possible.",
+      "parentUuid": "e64911b2_7a2eb8fc",
+      "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
