@@ -52,6 +52,24 @@
       "parentUuid": "7dda55ac_52b05875",
       "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e64911b2_7a2eb8fc",
+        "filename": "libnativebridge/libnativebridge.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-04T00:27:20Z",
+      "side": 0,
+      "message": "\"linux\" means Bionic (host and device) and GNU libc: https://cs.android.com/android/platform/superproject/+/master:build/soong/android/arch.go;l\u003d69-71;drc\u003dc194ffbcf39db04af3800c9240b400e6c2bac0b2\n\n\u003e It looks like this map file is used when building the library and not just the stub /.../\n\nYour pointer is to libnativehelper, whereas this is about libnativebridge and libnativeloader. These map.txt files aren\u0027t used as version scripts, only for APEX stubs (hence no strict need for \"# apex\" in them, although that should perhaps be added anyway for clarity).\n\nThese ABIs are solely between ART and platform, and have been in use from at least R (most of them are much older, but I haven\u0027t dug into the history). Of course, up until then they\u0027ve been entirely internal since ART has been part of platform. Platform outside the ART module only uses a subset of the functions, which this cleanup will now reflect.\n\nThe platform dependencies go through the libnative{bridge,loader}_lazy libs which load them dynamically. They were added to paper over a layer inversion through libs like libandroid_runtime in early boot (see https://r.android.com/886995 and its linked tickets). That\u0027s however a side issue, since even if we get rid of those lazy libs we\u0027d have dependencies on these ABIs from the app processes.\n\n\u003e Can we even still make breaks to S?\n\nWell, I argue that it isn\u0027t a break, just a cleanup of superfluous symbols. In any case, that\u0027s a question for the cherry-picks to sc-dev. We\u0027re not there yet, but I\u0027m happy to start that discussion as well now.",
+      "parentUuid": "1ed4941e_fb26f3e4",
+      "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
