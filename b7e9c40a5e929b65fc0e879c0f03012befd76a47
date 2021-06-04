@@ -88,6 +88,24 @@
       "parentUuid": "e64911b2_7a2eb8fc",
       "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbb95b21_97561f63",
+        "filename": "libnativebridge/libnativebridge.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-06-04T00:46:36Z",
+      "side": 0,
+      "message": "(oh, and ack on the fact that this cleanup can be made for T even if it can\u0027t be for S, I just don\u0027t know how to spell that in an APEX map file, but I think it\u0027s different than this?)",
+      "parentUuid": "9f57712d_d50de710",
+      "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
