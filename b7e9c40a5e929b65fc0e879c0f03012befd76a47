@@ -106,6 +106,24 @@
       "parentUuid": "9f57712d_d50de710",
       "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "198462cd_f6187ffb",
+        "filename": "libnativebridge/libnativebridge.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-04T00:51:26Z",
+      "side": 0,
+      "message": "How is \"public API\" defined here? They\u0027re certainly not ndk_library.\n\nAlso, I made a faulty conclusion that this only matters in the sc-dev cherry-pick. To put it more succinctly: These are hitherto internal ABIs that now become surfaces between platform and the ART module (and nothing else). We\u0027d like to limit the accessible symbols as much as possible, and if it\u0027s not safe to do SC it\u0027s unlikely to be safe to do later - i.e. here in AOSP - either.",
+      "parentUuid": "e64911b2_7a2eb8fc",
+      "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
