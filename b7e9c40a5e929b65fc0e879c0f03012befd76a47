@@ -142,6 +142,24 @@
       "parentUuid": "198462cd_f6187ffb",
       "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfb7458c_535e3343",
+        "filename": "libnativebridge/libnativebridge.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-04T17:36:45Z",
+      "side": 0,
+      "message": "\u003e /.../ I think that\u0027s fine as clearly all impacted clients are aware of the change\n\nYes, and furthermore there has been no release of this as a system API, since it before S has been an internal API.\n\nI\u0027m not clear on the take-away - is ok or not to go into sc-dev in the end? If not, I\u0027d like to remove the internal shim functions from the lazy libs, just to ensure they don\u0027t unnoticed grow dependencies from platform in S.",
+      "parentUuid": "a7ef71cb_f22a3a5a",
+      "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
