@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0b00358_a6c7b804",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2021-06-06T02:00:38Z",
+      "side": 1,
+      "message": "Hi Hans, I make a mistake when merge FindThreadByTid(tid) and Contains(tid).\nNot contains thread should equals thread is null. Please help to submit, thanks.",
+      "revId": "9ccc9a79d25110dc60d3e23dc74a9a8e54b04265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
