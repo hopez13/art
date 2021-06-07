@@ -693,6 +693,7 @@ ArtMethod* Class::FindClassMethod(std::string_view name,
   return FindClassMethodWithSignature(this, name, signature, pointer_size);
 }
 
+FLATTEN
 ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
                                   uint32_t dex_method_idx,
                                   PointerSize pointer_size) {
@@ -714,18 +715,17 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
   const DexFile& dex_file = *dex_cache->GetDexFile();
   const dex::MethodId& method_id = dex_file.GetMethodId(dex_method_idx);
   const Signature signature = dex_file.GetMethodSignature(method_id);
-  std::string_view name;  // Delay strlen() until actually needed.
+  std::string_view name = dex_file.GetMethodNameView(method_id);
   // If we do not have a dex_cache match, try to find the declared method in this class now.
   if (this_dex_cache != dex_cache && !GetDeclaredMethodsSlice(pointer_size).empty()) {
-    DCHECK(name.empty());
-    // Avoid string comparisons by comparing the respective unicode lengths first.
-    uint32_t length, other_length;  // UTF16 length.
-    name = dex_file.GetMethodName(method_id, &length);
+    const DexFile& this_dex_file = *this_dex_cache->GetDexFile();
     for (ArtMethod& method : GetDeclaredMethodsSlice(pointer_size)) {
+      // Do not use ArtMethod::GetNameView() to avoid reloading dex file through the same
+      // declaring class from different methods and also avoid the runtime method check.
+      DCHECK(method.GetDexFile() == &this_dex_file);
       DCHECK_NE(method.GetDexMethodIndex(), dex::kDexNoIndex);
-      const char* other_name = method.GetDexFile()->GetMethodName(
-          method.GetDexMethodIndex(), &other_length);
-      if (length == other_length && name == other_name && signature == method.GetSignature()) {
+      std::string_view other_name = this_dex_file.GetMethodNameView(method.GetDexMethodIndex());
+      if (other_name == name && method.GetSignature() == signature) {
         return &method;
       }
     }
@@ -750,12 +750,15 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
           break;
         }
       }
-    } else {
-      if (!declared_methods.empty() && name.empty()) {
-        name = dex_file.StringDataByIdx(method_id.name_idx_);
-      }
+    } else if (!declared_methods.empty()) {
+      const DexFile& other_dex_file = klass->GetDexFile();
       for (ArtMethod& method : declared_methods) {
-        if (method.GetName() == name && method.GetSignature() == signature) {
+        // Do not use ArtMethod::GetNameView() to avoid reloading dex file through the same
+        // declaring class from different methods and also avoid the runtime method check.
+        DCHECK(method.GetDexFile() == &other_dex_file);
+        DCHECK_NE(method.GetDexMethodIndex(), dex::kDexNoIndex);
+        std::string_view other_name = other_dex_file.GetMethodNameView(method.GetDexMethodIndex());
+        if (other_name == name && method.GetSignature() == signature) {
           candidate_method = &method;
           break;
         }
