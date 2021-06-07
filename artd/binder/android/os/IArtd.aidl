@@ -18,4 +18,5 @@ package android.os;
 
 /** {@hide} */
 interface IArtd {
+    boolean isAlive();
 }
