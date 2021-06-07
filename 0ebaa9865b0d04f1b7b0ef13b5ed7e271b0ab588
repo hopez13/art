@@ -51,6 +51,24 @@
       "parentUuid": "ca24c50d_81aa43c0",
       "revId": "0ebaa9865b0d04f1b7b0ef13b5ed7e271b0ab588",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f7be6d4_14d65fce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-06-07T21:10:18Z",
+      "side": 1,
+      "message": "Ah, right.\n\nFor the NDK tests of no-op APIs are still useful because they make sure that the headers actually expose the APIs. I don\u0027t think that\u0027s the case for APEX though, so +1.",
+      "parentUuid": "dc177e24_1294be66",
+      "revId": "0ebaa9865b0d04f1b7b0ef13b5ed7e271b0ab588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
