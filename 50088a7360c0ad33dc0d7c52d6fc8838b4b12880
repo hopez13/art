@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b043d6a7_15e1b58c",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-07T17:15:50Z",
+      "side": 1,
+      "message": "Given this is obsolete, should you just call GetMethodNameView here?",
+      "range": {
+        "startLine": 717,
+        "startChar": 26,
+        "endLine": 717,
+        "endChar": 66
+      },
+      "revId": "50088a7360c0ad33dc0d7c52d6fc8838b4b12880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
