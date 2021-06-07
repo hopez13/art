@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4017b95c_29a4d55f",
+        "filename": "artd/artd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-07T23:58:52Z",
+      "side": 1,
+      "message": "It\u0027s used in the followup CL to test that the artd interface can be found and called.  My plan is to remove it once we have ported the first actual bit of functionality and associated tests over.",
+      "parentUuid": "cd9d251a_7af80753",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 3
+      },
+      "revId": "49fc3c0203b4164bcbddcc11fcba6e28053723e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f11ad95_0978b7ee",
         "filename": "artd/binder/Android.bp",
         "patchSetId": 6
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-07T23:42:20Z",
       "side": 1,
       "message": "does \u0027T\u0027 or master work?\nif not, add a TODO.",
+      "range": {
+        "startLine": 45,
+        "startChar": 30,
+        "endLine": 45,
+        "endChar": 31
+      },
+      "revId": "49fc3c0203b4164bcbddcc11fcba6e28053723e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dff83b26_e52b3e6c",
+        "filename": "artd/binder/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-07T23:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f11ad95_0978b7ee",
       "range": {
         "startLine": 45,
         "startChar": 30,
