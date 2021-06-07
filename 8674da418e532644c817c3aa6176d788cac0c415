@@ -16,6 +16,52 @@
       "message": "Prior failures seem to be due to a misconfigured test.",
       "revId": "8674da418e532644c817c3aa6176d788cac0c415",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edf3dd39_37afa410",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4475,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-07T21:52:21Z",
+      "side": 1,
+      "message": "This may just be me, but I generally expect the task that will be executed first to be listed first.",
+      "range": {
+        "startLine": 4475,
+        "startChar": 4,
+        "endLine": 4475,
+        "endChar": 32
+      },
+      "revId": "8674da418e532644c817c3aa6176d788cac0c415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fc1f833_577613ef",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4483,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-07T21:52:21Z",
+      "side": 1,
+      "message": "If initial_heap_size_ is the max value won\u0027t the second task be redundant?",
+      "range": {
+        "startLine": 4483,
+        "startChar": 72,
+        "endLine": 4483,
+        "endChar": 90
+      },
+      "revId": "8674da418e532644c817c3aa6176d788cac0c415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
