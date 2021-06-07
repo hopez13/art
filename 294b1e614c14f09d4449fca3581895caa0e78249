@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f297a04e_dd38c2e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-07T08:29:10Z",
+      "side": 1,
+      "message": "Unfinished commit message?",
+      "revId": "294b1e614c14f09d4449fca3581895caa0e78249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54c16e83_f6ac4d63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-07T08:29:10Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "294b1e614c14f09d4449fca3581895caa0e78249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6b756346_72b545cb",
@@ -14,6 +48,86 @@
       "writtenOn": "2021-06-03T17:43:43Z",
       "side": 1,
       "message": "Ping, Vladimir? Also aosp/1721607 :)",
+      "revId": "294b1e614c14f09d4449fca3581895caa0e78249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b8dc3c_bc17e7f5",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-07T08:29:10Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "294b1e614c14f09d4449fca3581895caa0e78249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "834e6d76_1d89087d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-07T08:29:10Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "294b1e614c14f09d4449fca3581895caa0e78249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ee64399_55c66506",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-07T08:29:10Z",
+      "side": 1,
+      "message": "You should use a loop-invariant condition. Maybe\n\n  bool has_bcp_fds \u003d !boot_class_path_fds.empty();",
+      "range": {
+        "startLine": 558,
+        "startChar": 23,
+        "endLine": 558,
+        "endChar": 53
+      },
+      "revId": "294b1e614c14f09d4449fca3581895caa0e78249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b040838_3d9ba75c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-07T08:29:10Z",
+      "side": 1,
+      "message": "If the validation fails here, we should `LOG(ERROR)` and `return false`.",
+      "range": {
+        "startLine": 1385,
+        "startChar": 2,
+        "endLine": 1385,
+        "endChar": 97
+      },
       "revId": "294b1e614c14f09d4449fca3581895caa0e78249",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
