@@ -33,6 +33,24 @@
       "message": "Where are the tests for the new APIs?",
       "revId": "0ebaa9865b0d04f1b7b0ef13b5ed7e271b0ab588",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc177e24_1294be66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-07T08:48:17Z",
+      "side": 1,
+      "message": "Note those are not new APIs - they were already being used by ART through the Hooks interface.\n\nAlso, those APIs are customization hooks - our implementations are empty, and OEMs are free to implement them, with the behavior that suits them. Therefore there isn\u0027t any real behavior to test for us.",
+      "parentUuid": "ca24c50d_81aa43c0",
+      "revId": "0ebaa9865b0d04f1b7b0ef13b5ed7e271b0ab588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
