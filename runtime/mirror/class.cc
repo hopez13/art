@@ -718,14 +718,10 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
   // If we do not have a dex_cache match, try to find the declared method in this class now.
   if (this_dex_cache != dex_cache && !GetDeclaredMethodsSlice(pointer_size).empty()) {
     DCHECK(name.empty());
-    // Avoid string comparisons by comparing the respective unicode lengths first.
-    uint32_t length, other_length;  // UTF16 length.
-    name = dex_file.GetMethodName(method_id, &length);
+    name = dex_file.GetMethodNameView(method_id);
     for (ArtMethod& method : GetDeclaredMethodsSlice(pointer_size)) {
       DCHECK_NE(method.GetDexMethodIndex(), dex::kDexNoIndex);
-      const char* other_name = method.GetDexFile()->GetMethodName(
-          method.GetDexMethodIndex(), &other_length);
-      if (length == other_length && name == other_name && signature == method.GetSignature()) {
+      if (method.GetNameView() == name && method.GetSignature() == signature) {
         return &method;
       }
     }
@@ -752,10 +748,10 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
       }
     } else {
       if (!declared_methods.empty() && name.empty()) {
-        name = dex_file.StringDataByIdx(method_id.name_idx_);
+        name = dex_file.GetMethodNameView(method_id);
       }
       for (ArtMethod& method : declared_methods) {
-        if (method.GetName() == name && method.GetSignature() == signature) {
+        if (method.GetNameView() == name && method.GetSignature() == signature) {
           candidate_method = &method;
           break;
         }

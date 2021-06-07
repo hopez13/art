@@ -57,8 +57,8 @@ inline const char* DexFile::GetStringData(const dex::StringId& string_id) const 
   return GetStringDataAndUtf16Length(string_id, &ignored);
 }
 
-inline const char* DexFile::StringDataAndUtf16LengthByIdx(dex::StringIndex idx,
-                                                          uint32_t* utf16_length) const {
+ALWAYS_INLINE inline const char* DexFile::StringDataAndUtf16LengthByIdx(
+    dex::StringIndex idx, uint32_t* utf16_length) const {
   if (!idx.IsValid()) {
     *utf16_length = 0;
     return nullptr;
@@ -72,7 +72,7 @@ inline const char* DexFile::StringDataByIdx(dex::StringIndex idx) const {
   return StringDataAndUtf16LengthByIdx(idx, &unicode_length);
 }
 
-inline std::string_view DexFile::StringViewByIdx(dex::StringIndex idx) const {
+ALWAYS_INLINE inline std::string_view DexFile::StringViewByIdx(dex::StringIndex idx) const {
   uint32_t unicode_length;
   const char* data = StringDataAndUtf16LengthByIdx(idx, &unicode_length);
   return data != nullptr ? StringViewFromUtf16Length(data, unicode_length) : std::string_view("");
@@ -136,6 +136,16 @@ inline const char* DexFile::GetMethodName(uint32_t idx) const {
 
 inline const char* DexFile::GetMethodName(uint32_t idx, uint32_t* utf_length) const {
   return StringDataAndUtf16LengthByIdx(GetMethodId(idx).name_idx_, utf_length);
+}
+
+ALWAYS_INLINE
+inline std::string_view DexFile::GetMethodNameView(const dex::MethodId& method_id) const {
+  return StringViewByIdx(method_id.name_idx_);
+}
+
+ALWAYS_INLINE
+inline std::string_view DexFile::GetMethodNameView(uint32_t idx) const {
+  return GetMethodNameView(GetMethodId(idx));
 }
 
 inline const char* DexFile::GetMethodShorty(uint32_t idx) const {
