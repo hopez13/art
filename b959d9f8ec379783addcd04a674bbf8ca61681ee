@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed557112_41064e32",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-07T13:45:05Z",
+      "side": 1,
+      "message": "Remove one blank line; maybe in the nterp CL to avoid wasting TH resouces.\n\n(You\u0027re not \"moving\" CFI_DEF_CFA_BREG_PLUS_UCONST in this CL, you are adding it. But I\u0027m OK with having it in this CL. Same for CFI_RESTORE_STATE above.)",
+      "revId": "b959d9f8ec379783addcd04a674bbf8ca61681ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
