@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd9d251a_7af80753",
+        "filename": "artd/artd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-07T23:42:20Z",
+      "side": 1,
+      "message": "Do we need to submit this? i.e. we could have an aidl without any methods to my knowlegde.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 3
+      },
+      "revId": "49fc3c0203b4164bcbddcc11fcba6e28053723e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f11ad95_0978b7ee",
+        "filename": "artd/binder/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-07T23:42:20Z",
+      "side": 1,
+      "message": "does \u0027T\u0027 or master work?\nif not, add a TODO.",
+      "range": {
+        "startLine": 45,
+        "startChar": 30,
+        "endLine": 45,
+        "endChar": 31
+      },
+      "revId": "49fc3c0203b4164bcbddcc11fcba6e28053723e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
