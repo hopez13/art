@@ -18,5 +18,5 @@ package android.os;
 
 /** {@hide} */
 interface IArtd {
-    void buildTest();
+    boolean buildTest();
 }
