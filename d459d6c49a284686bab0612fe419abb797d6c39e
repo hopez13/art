@@ -187,6 +187,30 @@
       },
       "revId": "d459d6c49a284686bab0612fe419abb797d6c39e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da93d3a1_a5092a29",
+        "filename": "artd/tests/src/com/android/art/ArtdIntegrationTests.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-08T17:40:18Z",
+      "side": 1,
+      "message": "ok. Can I suggest we name this checkLiveness() or isAlive(). \n\nIt\u0027s something that seems legit to keep for longer term without polluting the interface with test methods.",
+      "parentUuid": "033d09c4_e61061fa",
+      "range": {
+        "startLine": 65,
+        "startChar": 32,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "d459d6c49a284686bab0612fe419abb797d6c39e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
