@@ -46,6 +46,30 @@
       },
       "revId": "50088a7360c0ad33dc0d7c52d6fc8838b4b12880",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16ce1998_26dca150",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-08T11:30:43Z",
+      "side": 1,
+      "message": "Done in PS6 and undone in PS7. There is still value in not touching the dex file string data. (But I\u0027m not doing sufficient benchmarking to prove this conclusively.)",
+      "parentUuid": "b043d6a7_15e1b58c",
+      "range": {
+        "startLine": 717,
+        "startChar": 26,
+        "endLine": 717,
+        "endChar": 66
+      },
+      "revId": "50088a7360c0ad33dc0d7c52d6fc8838b4b12880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
