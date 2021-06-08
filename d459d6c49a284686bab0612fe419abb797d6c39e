@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7ca5c5e_48555f50",
+        "filename": "artd/tests/AndroidTest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-08T17:26:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa65f7bb_e9fc27eb",
+      "range": {
+        "startLine": 2,
+        "startChar": 19,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "d459d6c49a284686bab0612fe419abb797d6c39e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "159b5652_742782e9",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-08T14:37:11Z",
       "side": 1,
       "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "d459d6c49a284686bab0612fe419abb797d6c39e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba0a8c2b_b5f6ff1f",
+        "filename": "artd/tests/src/com/android/art/ArtdIntegrationTests.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-08T17:26:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "159b5652_742782e9",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd74004e_2d531c70",
+        "filename": "artd/tests/src/com/android/art/ArtdIntegrationTests.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-08T17:26:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74b4746e_2021ca7f",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 46
+      },
+      "revId": "d459d6c49a284686bab0612fe419abb797d6c39e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "031cf372_8d5b1fe9",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-08T14:37:11Z",
       "side": 1,
       "message": "Isn\u0027t this guarantee to succeed if ` IArtd.Stub.asInterface(rawBinderService)` returns non null? Does it add extra value to the test?",
+      "range": {
+        "startLine": 65,
+        "startChar": 32,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "d459d6c49a284686bab0612fe419abb797d6c39e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "033d09c4_e61061fa",
+        "filename": "artd/tests/src/com/android/art/ArtdIntegrationTests.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-08T17:26:17Z",
+      "side": 1,
+      "message": "`find` and `call` are different binder operations.  If the SELinux permissions aren\u0027t set up correctly this operation could fail even if the service handle was retrieved.",
+      "parentUuid": "031cf372_8d5b1fe9",
       "range": {
         "startLine": 65,
         "startChar": 32,
