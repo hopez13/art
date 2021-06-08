@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa65f7bb_e9fc27eb",
+        "filename": "artd/tests/AndroidTest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-08T14:37:11Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 19,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "d459d6c49a284686bab0612fe419abb797d6c39e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "159b5652_742782e9",
+        "filename": "artd/tests/src/com/android/art/ArtdIntegrationTests.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-08T14:37:11Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "d459d6c49a284686bab0612fe419abb797d6c39e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74b4746e_2021ca7f",
+        "filename": "artd/tests/src/com/android/art/ArtdIntegrationTests.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-08T14:37:11Z",
+      "side": 1,
+      "message": "There\u0027s some debug leftovers. Here and bellow.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 46
+      },
+      "revId": "d459d6c49a284686bab0612fe419abb797d6c39e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "031cf372_8d5b1fe9",
+        "filename": "artd/tests/src/com/android/art/ArtdIntegrationTests.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-08T14:37:11Z",
+      "side": 1,
+      "message": "Isn\u0027t this guarantee to succeed if ` IArtd.Stub.asInterface(rawBinderService)` returns non null? Does it add extra value to the test?",
+      "range": {
+        "startLine": 65,
+        "startChar": 32,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "d459d6c49a284686bab0612fe419abb797d6c39e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
