@@ -39,6 +39,30 @@
       },
       "revId": "5a7722c617c6aa352a0c50d1b44d576c2b3b8513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15908e2a_49689309",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-08T15:58:47Z",
+      "side": 1,
+      "message": "Vladimir, could you help me make sense of the correct behavior?",
+      "parentUuid": "4ebf8935_466a20f0",
+      "range": {
+        "startLine": 736,
+        "startChar": 8,
+        "endLine": 736,
+        "endChar": 33
+      },
+      "revId": "5a7722c617c6aa352a0c50d1b44d576c2b3b8513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
