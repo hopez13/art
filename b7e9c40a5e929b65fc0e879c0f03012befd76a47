@@ -160,6 +160,24 @@
       "parentUuid": "a7ef71cb_f22a3a5a",
       "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eecf2f4b_89957a5d",
+        "filename": "libnativebridge/libnativebridge.map.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2021-06-09T10:08:30Z",
+      "side": 0,
+      "message": "Sounds like we\u0027re agreed that it\u0027s definitely okay in master, so +1. I want to check with rajukulkarni tomorrow re sc-dev, but go ahead and upload the cherry-pick for it.",
+      "parentUuid": "dfb7458c_535e3343",
+      "revId": "b7e9c40a5e929b65fc0e879c0f03012befd76a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
