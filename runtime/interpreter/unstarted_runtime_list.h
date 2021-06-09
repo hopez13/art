@@ -89,6 +89,7 @@
   V(MathExp, "Ljava/lang/Math;", "exp", "(D)D") \
   V(AtomicLongVMSupportsCS8, "Ljava/util/concurrent/atomic/AtomicLong;", "VMSupportsCS8", "()Z") \
   V(ClassGetNameNative, "Ljava/lang/Class;", "getNameNative", "()Ljava/lang/String;") \
+  V(ClassGetPublicFieldRecursive, "Ljava/lang/Class;", "getPublicFieldRecursive", "(Ljava/lang/String;)Ljava/lang/reflect/Field;") \
   V(DoubleLongBitsToDouble, "Ljava/lang/Double;", "longBitsToDouble", "(J)D") \
   V(FloatFloatToRawIntBits, "Ljava/lang/Float;", "floatToRawIntBits", "(F)I") \
   V(FloatIntBitsToFloat, "Ljava/lang/Float;", "intBitsToFloat", "(I)F") \

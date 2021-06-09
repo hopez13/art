@@ -1126,6 +1126,7 @@ void ClassLinker::RunRootClinits(Thread* self) {
     if (!c->IsArrayClass() && !c->IsPrimitive()) {
       StackHandleScope<1> hs(self);
       Handle<mirror::Class> h_class(hs.NewHandle(c));
+      LOG(ERROR) << "Initializing " << h_class->PrettyClass();
       if (!EnsureInitialized(self, h_class, true, true)) {
         LOG(FATAL) << "Exception when initializing " << h_class->PrettyClass()
             << ": " << self->GetException()->Dump();
@@ -5237,15 +5238,18 @@ bool ClassLinker::InitializeClass(Thread* self,
                                   bool can_init_parents) {
   // see JLS 3rd edition, 12.4.2 "Detailed Initialization Procedure" for the locking protocol
 
+  LOG(ERROR) << "InitializeClass(" << klass->PrettyClass() << ")";
   // Are we already initialized and therefore done?
   // Note: we differ from the JLS here as we don't do this under the lock, this is benign as
   // an initialized class will never change its state.
   if (klass->IsInitialized()) {
+    LOG(ERROR) << "Already initialized";
     return true;
   }
 
   // Fast fail if initialization requires a full runtime. Not part of the JLS.
   if (!CanWeInitializeClass(klass.Get(), can_init_statics, can_init_parents)) {
+    LOG(ERROR) << "We cannot initialize";
     return false;
   }
 
@@ -5258,6 +5262,7 @@ bool ClassLinker::InitializeClass(Thread* self,
 
     // Re-check under the lock in case another thread initialized ahead of us.
     if (klass->IsInitialized()) {
+      LOG(ERROR) << "Class is already initialized now";
       return true;
     }
 
@@ -5265,6 +5270,7 @@ bool ClassLinker::InitializeClass(Thread* self,
     if (klass->IsErroneous()) {
       ThrowEarlierClassFailure(klass.Get(), true, /* log= */ true);
       VlogClassInitializationFailure(klass);
+      LOG(ERROR) << "Class is erroneous";
       return false;
     }
 
@@ -5299,6 +5305,7 @@ bool ClassLinker::InitializeClass(Thread* self,
           self->SetException(Runtime::Current()->GetPreAllocatedNoClassDefFoundError());
         }
         self->AssertPendingException();
+        LOG(ERROR) << "Some error happened";
         return false;
       } else {
         self->AssertNoPendingException();
@@ -5309,6 +5316,7 @@ bool ClassLinker::InitializeClass(Thread* self,
       // will implicitly initialize the superclass, if scheduled that way). b/28254258
       DCHECK(!klass->IsErroneous()) << klass->GetStatus();
       if (klass->IsInitialized()) {
+        LOG(ERROR) << "Class is already initialized now now";
         return true;
       }
     }
@@ -5322,14 +5330,17 @@ bool ClassLinker::InitializeClass(Thread* self,
       // Could have got an exception during verification.
       if (self->IsExceptionPending()) {
         VlogClassInitializationFailure(klass);
+        LOG(ERROR) << "Class has exception pending";
         return false;
       }
       // We caught somebody else in the act; was it us?
       if (klass->GetClinitThreadId() == self->GetTid()) {
         // Yes. That's fine. Return so we can continue initializing.
+        LOG(ERROR) << "Caught ourselves in the act";
         return true;
       }
       // No. That's fine. Wait for another thread to finish initializing.
+      LOG(ERROR) << "Wait for initialize";
       return WaitForInitializeClass(klass, self, lock);
     }
 
@@ -5504,6 +5515,9 @@ bool ClassLinker::InitializeClass(Thread* self,
     ObjectLock<mirror::Class> lock(self, klass);
 
     if (self->IsExceptionPending()) {
+      LOG(ERROR) << "Exception when initializing "
+                 << mirror::Class::PrettyDescriptor(klass.Get());
+      LOG(ERROR) << self->GetException()->Dump();
       WrapExceptionInInitializer(klass);
       mirror::Class::SetStatus(klass, ClassStatus::kErrorResolved, self);
       success = false;

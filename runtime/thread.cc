@@ -3244,6 +3244,8 @@ void Thread::ThrowNewExceptionV(const char* exception_class_descriptor,
 
 void Thread::ThrowNewException(const char* exception_class_descriptor,
                                const char* msg) {
+  LOG(ERROR) << "Throwing exception";
+  DumpNativeStack(LOG_STREAM(ERROR), GetTid());
   // Callers should either clear or call ThrowNewWrappedException.
   AssertNoPendingExceptionForNewException(msg);
   ThrowNewWrappedException(exception_class_descriptor, msg);

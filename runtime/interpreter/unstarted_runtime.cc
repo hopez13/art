@@ -193,20 +193,26 @@ static ObjPtr<mirror::String> GetClassName(Thread* self,
 }
 
 static std::function<hiddenapi::AccessContext()> GetHiddenapiAccessContextFunction(
-    ShadowFrame* frame) {
+    ArtMethod* method) {
   return [=]() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return hiddenapi::AccessContext(frame->GetMethod()->GetDeclaringClass());
+    return hiddenapi::AccessContext(method->GetDeclaringClass());
   };
+}
+
+template<typename T>
+static ALWAYS_INLINE bool ShouldDenyAccessToMember(T* member, ArtMethod* method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // All uses in this file are from reflection
+  constexpr hiddenapi::AccessMethod kAccessMethod = hiddenapi::AccessMethod::kReflection;
+  return hiddenapi::ShouldDenyAccessToMember(member,
+                                             GetHiddenapiAccessContextFunction(method),
+                                             kAccessMethod);
 }
 
 template<typename T>
 static ALWAYS_INLINE bool ShouldDenyAccessToMember(T* member, ShadowFrame* frame)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  // All uses in this file are from reflection
-  constexpr hiddenapi::AccessMethod kAccessMethod = hiddenapi::AccessMethod::kReflection;
-  return hiddenapi::ShouldDenyAccessToMember(member,
-                                             GetHiddenapiAccessContextFunction(frame),
-                                             kAccessMethod);
+  return ShouldDenyAccessToMember(member, frame->GetMethod());
 }
 
 void UnstartedRuntime::UnstartedClassForNameCommon(Thread* self,
@@ -382,7 +388,7 @@ void UnstartedRuntime::UnstartedClassGetDeclaredMethod(
   ObjPtr<mirror::ObjectArray<mirror::Class>> args =
       shadow_frame->GetVRegReference(arg_offset + 2)->AsObjectArray<mirror::Class>();
   PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
-  auto fn_hiddenapi_access_context = GetHiddenapiAccessContextFunction(shadow_frame);
+  auto fn_hiddenapi_access_context = GetHiddenapiAccessContextFunction(shadow_frame->GetMethod());
   ObjPtr<mirror::Method> method = (pointer_size == PointerSize::k64)
       ? mirror::Class::GetDeclaredMethodInternal<PointerSize::k64>(
             self, klass, name, args, fn_hiddenapi_access_context)
@@ -1806,6 +1812,160 @@ void UnstartedRuntime::UnstartedJNIClassGetNameNative(
     uint32_t* args ATTRIBUTE_UNUSED, JValue* result) {
   StackHandleScope<1> hs(self);
   result->SetL(mirror::Class::ComputeName(hs.NewHandle(receiver->AsClass())));
+}
+
+// Performs a binary search through an array of fields, TODO: Is this fast enough if we don't use
+// the dex cache for lookups? I think CompareModifiedUtf8ToUtf16AsCodePointValues should be fairly
+// fast.
+ALWAYS_INLINE static inline ArtField* FindFieldByName(ObjPtr<mirror::String> name,
+                                                      LengthPrefixedArray<ArtField>* fields)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (fields == nullptr) {
+    return nullptr;
+  }
+  size_t low = 0;
+  size_t high = fields->size();
+  const bool is_name_compressed = name->IsCompressed();
+  const uint16_t* const data = (is_name_compressed) ? nullptr : name->GetValue();
+  const uint8_t* const data_compressed = (is_name_compressed) ? name->GetValueCompressed()
+                                                              : nullptr;
+  const size_t length = name->GetLength();
+  while (low < high) {
+    auto mid = (low + high) / 2;
+    ArtField& field = fields->At(mid);
+    int result = 0;
+    if (is_name_compressed) {
+      size_t field_length = strlen(field.GetName());
+      size_t min_size = (length < field_length) ? length : field_length;
+      result = memcmp(field.GetName(), data_compressed, min_size);
+      if (result == 0) {
+        result = field_length - length;
+      }
+    } else {
+      result = CompareModifiedUtf8ToUtf16AsCodePointValues(field.GetName(), data, length);
+    }
+    // Alternate approach, only a few % faster at the cost of more allocations.
+    // int result = field->GetStringName(self, true)->CompareTo(name);
+    if (result < 0) {
+      low = mid + 1;
+    } else if (result > 0) {
+      high = mid;
+    } else {
+      return &field;
+    }
+  }
+  if (kIsDebugBuild) {
+    for (ArtField& field : MakeIterationRangeFromLengthPrefixedArray(fields)) {
+      CHECK_NE(field.GetName(), name->ToModifiedUtf8());
+    }
+  }
+  return nullptr;
+}
+
+ALWAYS_INLINE static inline ObjPtr<mirror::Field> GetDeclaredField(Thread* self,
+                                                                   ObjPtr<mirror::Class> c,
+                                                                   ObjPtr<mirror::String> name)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (UNLIKELY(c->IsObsoleteObject())) {
+    ThrowRuntimeException("Obsolete Object!");
+    return nullptr;
+  }
+  ArtField* art_field = FindFieldByName(name, c->GetIFieldsPtr());
+  if (art_field != nullptr) {
+    return mirror::Field::CreateFromArtField(self, art_field, true);
+  }
+  art_field = FindFieldByName(name, c->GetSFieldsPtr());
+  if (art_field != nullptr) {
+    return mirror::Field::CreateFromArtField(self, art_field, true);
+  }
+  return nullptr;
+}
+
+static ObjPtr<mirror::Field> GetPublicFieldRecursive(
+    Thread* self, ObjPtr<mirror::Class> clazz, ObjPtr<mirror::String> name)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  DCHECK(clazz != nullptr);
+  DCHECK(name != nullptr);
+  DCHECK(self != nullptr);
+
+  if (UNLIKELY(clazz->IsObsoleteObject())) {
+    ThrowRuntimeException("Obsolete Object!");
+    return nullptr;
+  }
+  StackHandleScope<2> hs(self);
+  MutableHandle<mirror::Class> h_clazz(hs.NewHandle(clazz));
+  Handle<mirror::String> h_name(hs.NewHandle(name));
+
+  // We search the current class, its direct interfaces then its superclass.
+  while (h_clazz != nullptr) {
+    ObjPtr<mirror::Field> result = GetDeclaredField(self, h_clazz.Get(), h_name.Get());
+    // TODO: refactor this
+    if ((result != nullptr) && (result->GetAccessFlags() & 0xFFFFFFFF )) {
+      return result;
+    } else if (UNLIKELY(self->IsExceptionPending())) {
+      // Something went wrong. Bail out.
+      return nullptr;
+    }
+
+    uint32_t num_direct_interfaces = h_clazz->NumDirectInterfaces();
+    for (uint32_t i = 0; i < num_direct_interfaces; i++) {
+      ObjPtr<mirror::Class> iface = mirror::Class::ResolveDirectInterface(self, h_clazz, i);
+      if (UNLIKELY(iface == nullptr)) {
+        self->AssertPendingException();
+        return nullptr;
+      }
+      result = GetPublicFieldRecursive(self, iface, h_name.Get());
+      if (result != nullptr) {
+        // TODO: refactor this
+        DCHECK(result->GetAccessFlags() & 0xFFFFFFFF );
+        return result;
+      } else if (UNLIKELY(self->IsExceptionPending())) {
+        // Something went wrong. Bail out.
+        return nullptr;
+      }
+    }
+
+    // We don't try the superclass if we are an interface.
+    if (h_clazz->IsInterface()) {
+      break;
+    }
+
+    // Get the next class.
+    h_clazz.Assign(h_clazz->GetSuperClass());
+  }
+  return nullptr;
+}
+
+void UnstartedRuntime::UnstartedJNIClassGetPublicFieldRecursive(
+    Thread* self,
+    ArtMethod* method,
+    mirror::Object* receiver,
+    uint32_t* args,
+    JValue* result) {
+
+  ObjPtr<mirror::Object> name = reinterpret_cast32<mirror::Object*>(args[0]);
+  if (UNLIKELY(name == nullptr)) {
+    ThrowNullPointerException("name == null");
+    return;
+  }
+
+  StackHandleScope<3> hs(self);
+  Handle<mirror::Object> h_name = hs.NewHandle(name);
+  Handle<mirror::Class> klass =
+    hs.NewHandle(reinterpret_cast<mirror::Class*>(receiver)->AsClass());
+  Handle<mirror::Field> field = hs.NewHandle(GetPublicFieldRecursive(
+      self, klass.Get(), h_name.Get()->AsString()));
+  if (field.Get() == nullptr || ShouldDenyAccessToMember(field->GetArtField(), method)) {
+    LOG(ERROR) << "Cannot find " <<
+               h_name.Get()->AsString()->ToModifiedUtf8().c_str() << " for " <<
+               klass->PrettyClass().c_str();
+    ThrowNoSuchFieldException(klass.Get(), h_name.Get()->AsString()->ToModifiedUtf8().c_str());
+    return;
+  }
+  result->SetL(mirror::Object::Clone(field, self));
+  LOG(ERROR) << "Found field " <<
+             h_name.Get()->AsString()->ToModifiedUtf8().c_str() << " for " <<
+             klass->PrettyClass().c_str();
 }
 
 void UnstartedRuntime::UnstartedJNIDoubleLongBitsToDouble(
