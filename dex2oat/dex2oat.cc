@@ -526,7 +526,9 @@ class Dex2Oat final {
       image_storage_mode_(ImageHeader::kStorageModeUncompressed),
       passes_to_run_filename_(nullptr),
       dirty_image_objects_filename_(nullptr),
+      dirty_image_objects_fd_(-1),
       updatable_bcp_packages_filename_(nullptr),
+      updatable_bcp_packages_fd_(-1),
       is_host_(false),
       elf_writers_(),
       oat_writers_(),
@@ -813,8 +815,17 @@ class Dex2Oat final {
       }
     }
 
-    if ((IsBootImage() || IsBootImageExtension()) && updatable_bcp_packages_filename_ != nullptr) {
-      Usage("Do not specify --updatable-bcp-packages-file for boot image compilation.");
+    if (dirty_image_objects_filename_ != nullptr && dirty_image_objects_fd_ != -1) {
+      Usage("--dirty-image-objects and --dirty-image-objects-fd should not be both specified");
+    }
+
+    if ((IsBootImage() || IsBootImageExtension()) && (updatable_bcp_packages_filename_ != nullptr ||
+                                                      updatable_bcp_packages_fd_ != -1)) {
+      Usage("Do not specify --updatable-bcp-packages-file[-fd] for boot image compilation.");
+    }
+    if (updatable_bcp_packages_filename_ != nullptr && updatable_bcp_packages_fd_ != -1) {
+      Usage("--updatable-bcp-packages-file and --updatable-bcp-packages-fd should not be "
+            "both specified");
     }
 
     if (!cpu_set_.empty()) {
@@ -1073,7 +1084,9 @@ class Dex2Oat final {
     AssignIfExists(args, M::NoInlineFrom, &no_inline_from_string_);
     AssignIfExists(args, M::ClasspathDir, &classpath_dir_);
     AssignIfExists(args, M::DirtyImageObjects, &dirty_image_objects_filename_);
+    AssignIfExists(args, M::DirtyImageObjectsFd, &dirty_image_objects_fd_);
     AssignIfExists(args, M::UpdatableBcpPackagesFile, &updatable_bcp_packages_filename_);
+    AssignIfExists(args, M::UpdatableBcpPackagesFd, &updatable_bcp_packages_fd_);
     AssignIfExists(args, M::ImageFormat, &image_storage_mode_);
     AssignIfExists(args, M::CompilationReason, &compilation_reason_);
     AssignTrueIfExists(args, M::CheckLinkageConditions, &check_linkage_conditions_);
@@ -2511,14 +2524,24 @@ class Dex2Oat final {
     return dex_files_size >= very_large_threshold_;
   }
 
+  std::string PreparePathToOpen(int fd, const char* filename) {
+    if (fd != -1) {
+      return StringPrintf("/proc/self/fd/%d", fd);
+    } else {
+      return std::string(filename);
+    }
+  }
+
   bool PrepareDirtyObjects() {
-    if (dirty_image_objects_filename_ != nullptr) {
+    std::string input_filename = PreparePathToOpen(dirty_image_objects_fd_,
+                                                   dirty_image_objects_filename_);
+    if (!input_filename.empty()) {
       dirty_image_objects_ = ReadCommentedInputFromFile<HashSet<std::string>>(
-          dirty_image_objects_filename_,
+          input_filename.c_str(),
           nullptr);
       if (dirty_image_objects_ == nullptr) {
         LOG(ERROR) << "Failed to create list of dirty objects from '"
-            << dirty_image_objects_filename_ << "'";
+            << input_filename << "'";
         return false;
       }
     } else {
@@ -2530,13 +2553,15 @@ class Dex2Oat final {
   bool PrepareUpdatableBcpPackages() {
     DCHECK(!IsBootImage() && !IsBootImageExtension());
     AotClassLinker* aot_class_linker = down_cast<AotClassLinker*>(runtime_->GetClassLinker());
-    if (updatable_bcp_packages_filename_ != nullptr) {
+    std::string input_filename = PreparePathToOpen(updatable_bcp_packages_fd_,
+                                                   updatable_bcp_packages_filename_);
+    if (!input_filename.empty()) {
       std::unique_ptr<std::vector<std::string>> updatable_bcp_packages =
-          ReadCommentedInputFromFile<std::vector<std::string>>(updatable_bcp_packages_filename_,
+          ReadCommentedInputFromFile<std::vector<std::string>>(input_filename.c_str(),
                                                                nullptr);  // No post-processing.
       if (updatable_bcp_packages == nullptr) {
         LOG(ERROR) << "Failed to load updatable boot class path packages from '"
-            << updatable_bcp_packages_filename_ << "'";
+            << input_filename << "'";
         return false;
       }
       return aot_class_linker->SetUpdatableBootClassPackages(*updatable_bcp_packages);
@@ -2945,8 +2970,10 @@ class Dex2Oat final {
   ImageHeader::StorageMode image_storage_mode_;
   const char* passes_to_run_filename_;
   const char* dirty_image_objects_filename_;
-  const char* updatable_bcp_packages_filename_;
+  int dirty_image_objects_fd_;
   std::unique_ptr<HashSet<std::string>> dirty_image_objects_;
+  const char* updatable_bcp_packages_filename_;
+  int updatable_bcp_packages_fd_;
   std::unique_ptr<std::vector<std::string>> passes_to_run_;
   bool is_host_;
   std::string android_root_;
