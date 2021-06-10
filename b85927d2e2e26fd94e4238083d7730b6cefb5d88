@@ -16,6 +16,746 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45ec2590_8917fc30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Partial review.",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7297b307_48dcd6ce",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Add spaces to align comments.",
+      "range": {
+        "startLine": 166,
+        "startChar": 26,
+        "endLine": 166,
+        "endChar": 27
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2847b4e9_2a4ad0c7",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8a603e2_d41dbfdb",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "This is a valuable callee-save register. Given that we\u0027re usually doing EXPORT_PC before calling to the runtime, maybe we should use EDX for rPC and use the ESI as rIBASE to avoid the more expensive RESTORE_IBASE code in most places.",
+      "range": {
+        "startLine": 49,
+        "startChar": 17,
+        "endLine": 49,
+        "endChar": 21
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bce5fc04_319aa493",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Remove. We reserve only 3 slots for locals.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 17
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27bad9fa_3faf34e1",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Is this an alias for MOVSD? (I have MOVQ associated with 64-bit GPRs on x86-64.)",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 8
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ed1f78a_aebef83e",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "movzbl 1(rPC), rINST\n\nOn other architectures this is a `FETCH_B reg, 0, 1`.",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 25
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cdb195b_2350d72b",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "CALLEE_SAVES_SIZE+PARAMETERS_SAVES_SIZE",
+      "range": {
+        "startLine": 199,
+        "startChar": 47,
+        "endLine": 199,
+        "endChar": 64
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce92cbf8_9ea2972f",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Replace comment: \"We do not need CFI directives because the CFA register is not ESP in nterp handlers.\"\n\nYou should explicitly inline the `SETUP_PC_REL_BASE_0` and drop the CFI directives. Or extend the macro (and `SETUP_PC_REL_BASE_IMPL`) to take an extra `emit_cfi` argument.",
+      "range": {
+        "startLine": 204,
+        "startChar": 4,
+        "endLine": 210,
+        "endChar": 26
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc839e19_e81a8e33",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "4",
+      "range": {
+        "startLine": 238,
+        "startChar": 22,
+        "endLine": 238,
+        "endChar": 23
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eefd0c1_f4af0e8a",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "These are arguments, so use PUSH_ARG to avoid the CFI_REL_OFFSET.",
+      "range": {
+        "startLine": 267,
+        "startChar": 2,
+        "endLine": 270,
+        "endChar": 10
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "676a4abf_f1aee001",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "\"refs\" and \"fp\" are undocumented outputs (same on x86-64).",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40c86aed_dffa1c61",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Use one of the \"available\" registers here. EBX is already taken, so EAX or EDX.",
+      "range": {
+        "startLine": 399,
+        "startChar": 14,
+        "endLine": 399,
+        "endChar": 17
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ecc1c3d_8326c6fe",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "I think we have only one piece of padding on 32-bit targets.",
+      "range": {
+        "startLine": 412,
+        "startChar": 4,
+        "endLine": 413,
+        "endChar": 80
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b5278ab_9c5f6fde",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Not applicable on x86.",
+      "range": {
+        "startLine": 421,
+        "startChar": 40,
+        "endLine": 421,
+        "endChar": 61
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2604c525_4da6b6af",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Can we use the \"locals\" instead (say LOCAL1-LOCAL2 for aligned load)?",
+      "range": {
+        "startLine": 472,
+        "startChar": 4,
+        "endLine": 472,
+        "endChar": 31
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86805489_ffbc6c65",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": ".else\n\n(Avoid emitting unreachable code.)",
+      "range": {
+        "startLine": 547,
+        "startChar": 4,
+        "endLine": 547,
+        "endChar": 10
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9905706_cbbb1955",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Unnecessary, the shorty should end now. SHRL and ADDL above can be merged with those below. (See also ARM nterp.)",
+      "range": {
+        "startLine": 576,
+        "startChar": 4,
+        "endLine": 577,
+        "endChar": 9
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7e3d04a_73115dc1",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Is this `\\stack_offset`? Then the comment is unnecessary.",
+      "range": {
+        "startLine": 610,
+        "startChar": 17,
+        "endLine": 610,
+        "endChar": 19
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b78f96a_24004fc4",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Isn\u0027t this 4 for x86? (xmm0-xmm3)",
+      "range": {
+        "startLine": 701,
+        "startChar": 47,
+        "endLine": 701,
+        "endChar": 48
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b99fb13_05666c09",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Remove extra space.",
+      "range": {
+        "startLine": 743,
+        "startChar": 7,
+        "endLine": 743,
+        "endChar": 8
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0e62d56_84854b80",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "We could place the label SKIP_FLOAT here to reduce code size.",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4e5a68f_aab91dc8",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "We could place the SKIP_DOUBLE label here to reduce code size.",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ea87aa_6ffb6b5d",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Reorder before the \"6:\" and drop the `jmp`.",
+      "range": {
+        "startLine": 869,
+        "startChar": 0,
+        "endLine": 873,
+        "endChar": 10
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9748eff2_3fd0e81a",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Place SKIP_FLOAT here.",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae9d7f9_1bfe4904",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Place SKIP_DOUBLE here.",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4868b71f_95c36903",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Can we move them to xmm4-xmm7 instead? (Trying to support methods with 4 more vregs.)",
+      "range": {
+        "startLine": 1780,
+        "startChar": 4,
+        "endLine": 1780,
+        "endChar": 29
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c8f25d9_46ee2c9f",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "This is the dex PC, so maybe we should save it to the PC slot `-8(rREFS)`?",
+      "range": {
+        "startLine": 1789,
+        "startChar": 4,
+        "endLine": 1789,
+        "endChar": 27
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75937b67_d220a490",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1809,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "You\u0027re saving \"rFP\" above and using \"edi\" here. Both names reference the same register but using different names makes the code confusing. And maybe we could use xmm4 as the temp and avoid saving rFP.",
+      "range": {
+        "startLine": 1809,
+        "startChar": 65,
+        "endLine": 1809,
+        "endChar": 68
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439d89e9_37fee4b1",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1830,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Unnecessary; EBX is callee-save in native x86 ABI.",
+      "range": {
+        "startLine": 1830,
+        "startChar": 4,
+        "endLine": 1830,
+        "endChar": 27
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dab4e482_af6a4074",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1839,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Unaligned ESP at call site. (Needs 12 bytes padding before pushing the method pointer.)",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbd7f4da_ba8de671",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1868,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Do not increment EDX. That way you can share two `LOOP_OVER_SHORTY_STORING_GPRS` with the static method path.",
+      "range": {
+        "startLine": 1868,
+        "startChar": 4,
+        "endLine": 1868,
+        "endChar": 18
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e66f7c06_71530bca",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1881,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "We can save `shorty + 1` above instead of the raw `shorty`.",
+      "range": {
+        "startLine": 1881,
+        "startChar": 4,
+        "endLine": 1881,
+        "endChar": 69
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65e41417_fef69ddb",
+        "filename": "runtime/interpreter/mterp/x86ng/other.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T16:18:40Z",
+      "side": 1,
+      "message": "Replace all occurrences with `cdq` (including comments).",
+      "range": {
+        "startLine": 95,
+        "startChar": 4,
+        "endLine": 95,
+        "endChar": 8
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
