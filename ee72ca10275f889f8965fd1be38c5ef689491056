@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1232af61_0b00e6d9",
+        "filename": "artd/binder/android/os/IArtd.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-10T00:03:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb1ecbda_5b15f5c3",
+      "range": {
+        "startLine": 21,
+        "startChar": 12,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "ee72ca10275f889f8965fd1be38c5ef689491056",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5639cbe_9ed88256",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7448ff1_0b66a8d0",
+        "filename": "artd/tests/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-10T00:03:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5639cbe_9ed88256",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ee72ca10275f889f8965fd1be38c5ef689491056",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72880b05_65ca3dca",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-06-09T21:45:36Z",
       "side": 1,
       "message": "do you know why this is needed?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 22
+      },
+      "revId": "ee72ca10275f889f8965fd1be38c5ef689491056",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "756d73c1_fd51a944",
+        "filename": "artd/tests/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-10T00:03:21Z",
+      "side": 1,
+      "message": "I\u0027ve pruned this down.",
+      "parentUuid": "72880b05_65ca3dca",
       "range": {
         "startLine": 31,
         "startChar": 0,
