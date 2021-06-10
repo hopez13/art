@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b8c3b11_9652f3a3",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-10T09:16:49Z",
+      "side": 1,
+      "message": "This looks entirely new, presumably it\u0027s an optimization because the layout of proxy classes is fixed. Can you add a comment that these fields are added by CreateProxyClass (or some other pointer that gives the reader a bit of a clue).",
+      "range": {
+        "startLine": 1007,
+        "startChar": 0,
+        "endLine": 1020,
+        "endChar": 3
+      },
+      "revId": "51bd9169a3b789f46d780304bba62154237fa0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "166a138f_aca08fde",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-10T09:16:49Z",
+      "side": 1,
+      "message": "A Pointer to jls version and section would be helpful.",
+      "range": {
+        "startLine": 1086,
+        "startChar": 3,
+        "endLine": 1086,
+        "endChar": 52
+      },
+      "revId": "51bd9169a3b789f46d780304bba62154237fa0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c36e62d_e43b1757",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-10T09:16:49Z",
+      "side": 1,
+      "message": "This looks like it could be a little cleaner if there were separate code paths for \"k-\u003eGetIFieldsPtr() !\u003d nullptr\" and \"k-\u003eGetSFieldsPtr() !\u003d nullptr\".",
+      "range": {
+        "startLine": 1192,
+        "startChar": 0,
+        "endLine": 1194,
+        "endChar": 7
+      },
+      "revId": "51bd9169a3b789f46d780304bba62154237fa0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f21652d_6e07d47e",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-10T09:16:49Z",
+      "side": 1,
+      "message": "We differ on combining CLs: changes below here are unrelated. Chris did a good job with the art/.clang-format which could be applied to this file and would clean up lines above this too.",
+      "range": {
+        "startLine": 435,
+        "startChar": 1,
+        "endLine": 436,
+        "endChar": 84
+      },
+      "revId": "51bd9169a3b789f46d780304bba62154237fa0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
