@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d941a6e6_bc250478",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T09:45:22Z",
+      "side": 1,
+      "message": "Added a comment.\n\nI have optimized `FindFieldByNameAndType` for speed and it no longer goes through `ArtField::GetName/GetTypeDescriptor` which handle proxy classes correctly.",
+      "parentUuid": "5b8c3b11_9652f3a3",
+      "range": {
+        "startLine": 1007,
+        "startChar": 0,
+        "endLine": 1020,
+        "endChar": 3
+      },
+      "revId": "51bd9169a3b789f46d780304bba62154237fa0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "166a138f_aca08fde",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-10T09:16:49Z",
       "side": 1,
       "message": "A Pointer to jls version and section would be helpful.",
+      "range": {
+        "startLine": 1086,
+        "startChar": 3,
+        "endLine": 1086,
+        "endChar": 52
+      },
+      "revId": "51bd9169a3b789f46d780304bba62154237fa0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1108f7b_81f56687",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T09:45:22Z",
+      "side": 1,
+      "message": "I just moved the comment out of the body. I may do some follow-up investigation but that\u0027s outside the scope of this CL.",
+      "parentUuid": "166a138f_aca08fde",
       "range": {
         "startLine": 1086,
         "startChar": 3,
@@ -72,6 +120,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ea6ec504_9eb9f2b7",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T09:45:22Z",
+      "side": 1,
+      "message": "But that would require two separate `ensure_name_and_type_initialized()` calls, so I\u0027d rather keep it as is.",
+      "parentUuid": "0c36e62d_e43b1757",
+      "range": {
+        "startLine": 1192,
+        "startChar": 0,
+        "endLine": 1194,
+        "endChar": 7
+      },
+      "revId": "51bd9169a3b789f46d780304bba62154237fa0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6f21652d_6e07d47e",
         "filename": "runtime/well_known_classes.cc",
         "patchSetId": 2
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-10T09:16:49Z",
       "side": 1,
       "message": "We differ on combining CLs: changes below here are unrelated. Chris did a good job with the art/.clang-format which could be applied to this file and would clean up lines above this too.",
+      "range": {
+        "startLine": 435,
+        "startChar": 1,
+        "endLine": 436,
+        "endChar": 84
+      },
+      "revId": "51bd9169a3b789f46d780304bba62154237fa0da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a834e597_0340c124",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-10T09:45:22Z",
+      "side": 1,
+      "message": "I tend to clean up stuff around my changes. But having missed the long lines above, I\u0027ll keep it as is.",
+      "parentUuid": "6f21652d_6e07d47e",
       "range": {
         "startLine": 435,
         "startChar": 1,
