@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "654ee0e6f0fc207beb435841b05101cf5ac4a27d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02b574b9_0486bbbb",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2533,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-11T10:42:29Z",
+      "side": 1,
+      "message": "Move this to a helper as the code is duped here and below.\n\nBlah opening the fd again, but no good path to an istream to use ReadCommentedInputStream afaik.",
+      "range": {
+        "startLine": 2529,
+        "startChar": 0,
+        "endLine": 2533,
+        "endChar": 5
+      },
+      "revId": "654ee0e6f0fc207beb435841b05101cf5ac4a27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
