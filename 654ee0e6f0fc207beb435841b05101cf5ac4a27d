@@ -39,6 +39,30 @@
       },
       "revId": "654ee0e6f0fc207beb435841b05101cf5ac4a27d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff084af3_e344bca9",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2533,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-11T15:52:02Z",
+      "side": 1,
+      "message": "Done.  I can\u0027t find anything either with istream, and figured this is the simplest.  We could re-implement ReadCommentedInputStream with fdopen/fopen/getline though, if preferred.\n\nBTW, I also found ReadCommentedInputFromZip is never used.  I can send another CL to remove it unless it may be used later.",
+      "parentUuid": "02b574b9_0486bbbb",
+      "range": {
+        "startLine": 2529,
+        "startChar": 0,
+        "endLine": 2533,
+        "endChar": 5
+      },
+      "revId": "654ee0e6f0fc207beb435841b05101cf5ac4a27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
