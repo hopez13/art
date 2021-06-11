@@ -482,6 +482,10 @@ std::string GetApexDataDalvikCacheFilename(std::string_view dex_location,
       dex_location, isa, /*encode_location=*/true, file_extension);
 }
 
+std::string GetAppImageFilename(const std::string& oat_location) {
+  return ReplaceFileExtension(oat_location, "art");
+}
+
 std::string GetVdexFilename(const std::string& oat_location) {
   return ReplaceFileExtension(oat_location, "vdex");
 }

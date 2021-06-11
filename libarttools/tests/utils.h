@@ -14,15 +14,34 @@
  * limitations under the License.
  */
 
-#include "tools.h"
-#include "gtest/gtest.h"
+#pragma once
+
+#include <art-tools/utils.h>
+
+#include <string>
 
 namespace art {
+namespace tools {
+namespace tests {
 
-class ArtToolsTest : public testing::Test {};
+extern const std::string kRuntimeIsa;
 
-TEST_F(ArtToolsTest, Hello) {
-  EXPECT_EQ("hello world!", art::tools::getMsg());
-}
+int MkDir(const std::string& path, uid_t owner, gid_t group, mode_t mode);
+void RunCmd(const std::string& cmd);
+void WriteRandomData(const std::string& path, size_t num_bytes);
 
+/*
+ * Cloned Functions
+ *
+ * These must be kept in sync with the implementations in libcutils/multiuser.h
+ */
+
+typedef uid_t userid_t;
+typedef uid_t appid_t;
+
+uid_t multiuser_get_uid(userid_t user_id, appid_t app_id);
+gid_t multiuser_get_shared_gid(userid_t, appid_t app_id);
+
+}  // namespace tests
+}  // namespace tools
 }  // namespace art

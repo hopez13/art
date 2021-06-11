@@ -14,17 +14,10 @@
  * limitations under the License.
  */
 
-#ifndef ART_LIBARTTOOLS_TOOLS_TOOLS_H_
-#define ART_LIBARTTOOLS_TOOLS_TOOLS_H_
+#pragma once
 
 #include <string>
 
 namespace art {
-namespace tools {
-
-std::string getMsg();
-
-}  // namespace tools
+namespace tools {}  // namespace tools
 }  // namespace art
-
-#endif  // ART_LIBARTTOOLS_TOOLS_TOOLS_H_
