@@ -14,10 +14,16 @@
  * limitations under the License.
  */
 
-package android.os;
+#include "tools.h"
 
-/** {@hide} */
-interface IArtd {
-    long deleteOdex(@utf8InCpp String apkPath, @utf8InCpp String instructionSet,
-            @nullable @utf8InCpp String outputPath);
+#include "gtest/gtest.h"
+
+namespace art {
+
+class ArtToolsTest : public testing::Test {};
+
+TEST_F(ArtToolsTest, Hello) {
+  EXPECT_EQ("hello world!", art::tools::getMsg());
 }
+
+}  // namespace art

@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-#include "tools.h"
-#include "gtest/gtest.h"
+#pragma once
+
+#include <string>
 
 namespace art {
+namespace tools {
+namespace utils {
 
-class ArtToolsTest : public testing::Test {};
+int validate_apk_path(const std::string& path);
 
-TEST_F(ArtToolsTest, Hello) {
-  EXPECT_EQ("hello world!", art::tools::getMsg());
-}
-
+}  // namespace utils
+}  // namespace tools
 }  // namespace art

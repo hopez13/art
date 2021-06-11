@@ -14,10 +14,27 @@
  * limitations under the License.
  */
 
-package android.os;
+#ifndef ART_LIBARTTOOLS_TOOLS_DEX_H_
+#define ART_LIBARTTOOLS_TOOLS_DEX_H_
 
-/** {@hide} */
-interface IArtd {
-    long deleteOdex(@utf8InCpp String apkPath, @utf8InCpp String instructionSet,
-            @nullable @utf8InCpp String outputPath);
-}
+#include <optional>
+#include <string>
+
+#include "constants.h"
+
+using art::tools::PKG_PATH_MAX;
+
+namespace art {
+namespace tools {
+namespace dex {
+
+// Returns the total bytes that were freed, or -1 in the case of errors.
+int64_t delete_odex(const std::string& apk_path,
+                    const std::string& instruction_set,
+                    const std::optional<const std::string>& output_path);
+
+}  // namespace dex
+}  // namespace tools
+}  // namespace art
+
+#endif  // ART_LIBARTTOOLS_TOOLS_DEX_H_

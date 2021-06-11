@@ -19,21 +19,85 @@
 
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
+#include <android/binder_status.h>
+#include <android-base/stringprintf.h>
+#include <private/android_filesystem_config.h>
+#include <utils/String8.h>
+
 #include <unistd.h>
 #include <utils/Errors.h>
+
+#include <mutex>
 
 #include "aidl/android/os/BnArtd.h"
 #include "base/logging.h"
 #include "base/macros.h"
-#include "tools/tools.h"
+#include "tools/dex.h"
 
+using ::android::base::StringPrintf;
 using ::ndk::ScopedAStatus;
+
+#define ENFORCE_UID(uid) {                                  \
+    ScopedAStatus status = checkUid((uid));                 \
+    if (!status.isOk()) {                                   \
+        return status;                                      \
+    }                                                       \
+}
+
+#define CHECK_ARGUMENT_PATH(path) {                         \
+    ScopedAStatus status = checkArgumentPath((path));       \
+    if (!status.isOk()) {                                   \
+        return status;                                      \
+    }                                                       \
+}
 
 namespace android {
 namespace artd {
 
+/*
+ * Helper Functions
+ */
+
+static ScopedAStatus exception(uint32_t code, const std::string& msg) {
+    LOG(ERROR) << msg << " (" << code << ")";
+    return ScopedAStatus::fromExceptionCodeWithMessage(code, msg.c_str());
+}
+
+static ScopedAStatus checkUid(uid_t expectedUid) {
+    uid_t uid = AIBinder_getCallingUid();
+    if (uid == expectedUid || uid == AID_ROOT) {
+        return ScopedAStatus::ok();
+    } else {
+        return exception(EX_SECURITY,
+                StringPrintf("UID %d is not expected UID %d", uid, expectedUid));
+    }
+}
+
+static ScopedAStatus checkArgumentPath(const std::string& path) {
+    if (path.empty()) {
+        return exception(EX_ILLEGAL_ARGUMENT, "Missing path");
+    }
+    if (path[0] != '/') {
+        return exception(EX_ILLEGAL_ARGUMENT,
+                StringPrintf("Path %s is relative", path.c_str()));
+    }
+    if ((path + '/').find("/../") != std::string::npos) {
+        return exception(EX_ILLEGAL_ARGUMENT,
+                StringPrintf("Path %s is shady", path.c_str()));
+    }
+    for (const char& c : path) {
+        if (c == '\0' || c == '\n') {
+            return exception(EX_ILLEGAL_ARGUMENT,
+                    StringPrintf("Path %s is malformed", path.c_str()));
+        }
+    }
+    return ScopedAStatus::ok();
+}
+
 class Artd : public aidl::android::os::BnArtd {
   constexpr static const char* const SERVICE_NAME = "artd";
+
+  std::recursive_mutex mLock;
 
  public:
   Artd() {}
@@ -42,10 +106,21 @@ class Artd : public aidl::android::os::BnArtd {
    * Binder API
    */
 
-  ScopedAStatus isAlive(bool* _aidl_return) {
-    *_aidl_return = true;
-    return ScopedAStatus::ok();
-  }
+  ScopedAStatus deleteOdex(const std::string& apkPath,
+                           const std::string& instructionSet,
+                           const std::optional<std::string>& outputPath,
+                           int64_t* _aidl_return) {
+    ENFORCE_UID(AID_SYSTEM);
+    CHECK_ARGUMENT_PATH(apkPath);
+    if (outputPath) {
+      CHECK_ARGUMENT_PATH(outputPath.value());
+    }
+    std::lock_guard<std::recursive_mutex> lock(mLock);
+
+    *_aidl_return = art::tools::dex::delete_odex(apkPath, instructionSet, outputPath);
+    return *_aidl_return == -1 ? ScopedAStatus::fromStatus(STATUS_UNKNOWN_ERROR) : ScopedAStatus::ok();
+}
+
 
   /*
    * Server API

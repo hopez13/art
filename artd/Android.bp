@@ -31,12 +31,14 @@ art_cc_binary {
         "artd.cc",
     ],
 
+    static_libs: ["libarttools"],
+
     shared_libs: [
         "artd-aidl-ndk",
         "libartbase",
-        "libarttools",
         "libbase",
         "libbinder_ndk",
+        "libcutils",
     ],
 
     apex_available: [

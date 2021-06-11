@@ -14,10 +14,15 @@
  * limitations under the License.
  */
 
-package android.os;
+#pragma once
 
-/** {@hide} */
-interface IArtd {
-    long deleteOdex(@utf8InCpp String apkPath, @utf8InCpp String instructionSet,
-            @nullable @utf8InCpp String outputPath);
-}
+#include <stdlib.h>
+#include <string.h>
+#include <sys/capability.h>
+
+#include <android-base/logging.h>
+#include <android-base/stringprintf.h>
+
+uint8_t* DecodeBase64(const char* src, size_t* dst_size);
+bool WriteBase64ToFile(const char* base64, const std::string& file,
+        uid_t uid, gid_t gid, int mode, std::string* error_msg);

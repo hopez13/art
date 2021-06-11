@@ -19,6 +19,10 @@
 
 #include <string>
 
+#include "constants.h"
+#include "dex.h"
+#include "utils.h"
+
 namespace art {
 namespace tools {
 
