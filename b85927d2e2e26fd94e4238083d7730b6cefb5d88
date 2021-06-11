@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3ef5f67_befd83bd",
+        "filename": "runtime/interpreter/mterp/x86ng/control_flow.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7297b307_48dcd6ce",
+      "range": {
+        "startLine": 166,
+        "startChar": 26,
+        "endLine": 166,
+        "endChar": 27
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2847b4e9_2a4ad0c7",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "2021",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6a19f99_56fb80c1",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2847b4e9_2a4ad0c7",
       "range": {
         "startLine": 3,
         "startChar": 17,
@@ -104,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "661f0095_208b1c59",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Good idea! I\u0027ve filed b/190800459 for this.",
+      "parentUuid": "f8a603e2_d41dbfdb",
+      "range": {
+        "startLine": 49,
+        "startChar": 17,
+        "endLine": 49,
+        "endChar": 21
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bce5fc04_319aa493",
@@ -117,6 +189,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "Remove. We reserve only 3 slots for locals.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 17
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "391b94fc_de95be60",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bce5fc04_319aa493",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -150,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0eb93da_d2cb5c70",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Yes it is. movq is used in mterp x86 and I kept it this way.",
+      "parentUuid": "27bad9fa_3faf34e1",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 8
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ed1f78a_aebef83e",
@@ -163,6 +283,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "movzbl 1(rPC), rINST\n\nOn other architectures this is a `FETCH_B reg, 0, 1`.",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 25
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f62f484_896c7b2c",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ed1f78a_aebef83e",
       "range": {
         "startLine": 167,
         "startChar": 4,
@@ -196,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b070f96a_30be35cc",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cdb195b_2350d72b",
+      "range": {
+        "startLine": 199,
+        "startChar": 47,
+        "endLine": 199,
+        "endChar": 64
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce92cbf8_9ea2972f",
@@ -209,6 +377,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "Replace comment: \"We do not need CFI directives because the CFA register is not ESP in nterp handlers.\"\n\nYou should explicitly inline the `SETUP_PC_REL_BASE_0` and drop the CFI directives. Or extend the macro (and `SETUP_PC_REL_BASE_IMPL`) to take an extra `emit_cfi` argument.",
+      "range": {
+        "startLine": 204,
+        "startChar": 4,
+        "endLine": 210,
+        "endChar": 26
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a728c4b9_3ac1d834",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce92cbf8_9ea2972f",
       "range": {
         "startLine": 204,
         "startChar": 4,
@@ -242,6 +434,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33cbef01_a0c1e505",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc839e19_e81a8e33",
+      "range": {
+        "startLine": 238,
+        "startChar": 22,
+        "endLine": 238,
+        "endChar": 23
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5eefd0c1_f4af0e8a",
@@ -255,6 +471,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "These are arguments, so use PUSH_ARG to avoid the CFI_REL_OFFSET.",
+      "range": {
+        "startLine": 267,
+        "startChar": 2,
+        "endLine": 270,
+        "endChar": 10
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84211a2c_9113ed0f",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5eefd0c1_f4af0e8a",
       "range": {
         "startLine": 267,
         "startChar": 2,
@@ -282,6 +522,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c431b344_290f0605",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "676a4abf_f1aee001",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40c86aed_dffa1c61",
@@ -295,6 +553,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "Use one of the \"available\" registers here. EBX is already taken, so EAX or EDX.",
+      "range": {
+        "startLine": 399,
+        "startChar": 14,
+        "endLine": 399,
+        "endChar": 17
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "307702b9_3f94b470",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40c86aed_dffa1c61",
       "range": {
         "startLine": 399,
         "startChar": 14,
@@ -328,6 +610,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "718c3f67_18ca6b65",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ecc1c3d_8326c6fe",
+      "range": {
+        "startLine": 412,
+        "startChar": 4,
+        "endLine": 413,
+        "endChar": 80
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b5278ab_9c5f6fde",
@@ -341,6 +647,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "Not applicable on x86.",
+      "range": {
+        "startLine": 421,
+        "startChar": 40,
+        "endLine": 421,
+        "endChar": 61
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c83c6f05_e78ed781",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b5278ab_9c5f6fde",
       "range": {
         "startLine": 421,
         "startChar": 40,
@@ -374,6 +704,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "260a925a_106d9d3d",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "No, there are already being used in the caller of LOOP_OVER_SHORTY_LOADING_XMMS.",
+      "parentUuid": "2604c525_4da6b6af",
+      "range": {
+        "startLine": 472,
+        "startChar": 4,
+        "endLine": 472,
+        "endChar": 31
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86805489_ffbc6c65",
@@ -387,6 +741,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": ".else\n\n(Avoid emitting unreachable code.)",
+      "range": {
+        "startLine": 547,
+        "startChar": 4,
+        "endLine": 547,
+        "endChar": 10
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e34e21c9_abe8e3d3",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86805489_ffbc6c65",
       "range": {
         "startLine": 547,
         "startChar": 4,
@@ -420,6 +798,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54a24138_4fc298ec",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9905706_cbbb1955",
+      "range": {
+        "startLine": 576,
+        "startChar": 4,
+        "endLine": 577,
+        "endChar": 9
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7e3d04a_73115dc1",
@@ -433,6 +835,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "Is this `\\stack_offset`? Then the comment is unnecessary.",
+      "range": {
+        "startLine": 610,
+        "startChar": 17,
+        "endLine": 610,
+        "endChar": 19
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13430821_593a7bc1",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7e3d04a_73115dc1",
       "range": {
         "startLine": 610,
         "startChar": 17,
@@ -466,6 +892,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2406a0c7_55d89d53",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b78f96a_24004fc4",
+      "range": {
+        "startLine": 701,
+        "startChar": 47,
+        "endLine": 701,
+        "endChar": 48
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b99fb13_05666c09",
@@ -479,6 +929,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "Remove extra space.",
+      "range": {
+        "startLine": 743,
+        "startChar": 7,
+        "endLine": 743,
+        "endChar": 8
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39702c1b_d346cf2e",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b99fb13_05666c09",
       "range": {
         "startLine": 743,
         "startChar": 7,
@@ -506,6 +980,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c5135cb_71821101",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0e62d56_84854b80",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4e5a68f_aab91dc8",
@@ -519,6 +1011,24 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "We could place the SKIP_DOUBLE label here to reduce code size.",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6c67cd4_33d05fea",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4e5a68f_aab91dc8",
       "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -548,6 +1058,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b76f757_9995be26",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Sorry, but reorder what before the 6: ?",
+      "parentUuid": "08ea87aa_6ffb6b5d",
+      "range": {
+        "startLine": 869,
+        "startChar": 0,
+        "endLine": 873,
+        "endChar": 10
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9748eff2_3fd0e81a",
         "filename": "runtime/interpreter/mterp/x86ng/main.S",
         "patchSetId": 8
@@ -559,6 +1093,24 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "Place SKIP_FLOAT here.",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4259f56_dae698cd",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9748eff2_3fd0e81a",
       "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -580,6 +1132,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4587bc3c_dc2e8b72",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bae9d7f9_1bfe4904",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4868b71f_95c36903",
@@ -593,6 +1163,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "Can we move them to xmm4-xmm7 instead? (Trying to support methods with 4 more vregs.)",
+      "range": {
+        "startLine": 1780,
+        "startChar": 4,
+        "endLine": 1780,
+        "endChar": 29
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04baf9d3_266feb61",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Unfortunately, the call to GetShorty below might clobber the xmm4-7 registers.",
+      "parentUuid": "4868b71f_95c36903",
       "range": {
         "startLine": 1780,
         "startChar": 4,
@@ -626,6 +1220,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b38a24cc_495b663e",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c8f25d9_46ee2c9f",
+      "range": {
+        "startLine": 1789,
+        "startChar": 4,
+        "endLine": 1789,
+        "endChar": 27
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75937b67_d220a490",
@@ -639,6 +1257,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "You\u0027re saving \"rFP\" above and using \"edi\" here. Both names reference the same register but using different names makes the code confusing. And maybe we could use xmm4 as the temp and avoid saving rFP.",
+      "range": {
+        "startLine": 1809,
+        "startChar": 65,
+        "endLine": 1809,
+        "endChar": 68
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df242981_c5be3c9a",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1809,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75937b67_d220a490",
       "range": {
         "startLine": 1809,
         "startChar": 65,
@@ -672,6 +1314,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e3d1f79_a62e9cb1",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1830,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "439d89e9_37fee4b1",
+      "range": {
+        "startLine": 1830,
+        "startChar": 4,
+        "endLine": 1830,
+        "endChar": 27
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dab4e482_af6a4074",
@@ -689,6 +1355,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd8bc85_78953c2f",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1839,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dab4e482_af6a4074",
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbd7f4da_ba8de671",
@@ -702,6 +1386,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "Do not increment EDX. That way you can share two `LOOP_OVER_SHORTY_STORING_GPRS` with the static method path.",
+      "range": {
+        "startLine": 1868,
+        "startChar": 4,
+        "endLine": 1868,
+        "endChar": 18
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4d3a112_91e7c6c9",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1868,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Right, but I still need to have it incremented before LOOP_OVER_INTs, which is making it difficult.",
+      "parentUuid": "dbd7f4da_ba8de671",
       "range": {
         "startLine": 1868,
         "startChar": 4,
@@ -735,6 +1443,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc5d6ce6_e7ad1c05",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1881,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e66f7c06_71530bca",
+      "range": {
+        "startLine": 1881,
+        "startChar": 4,
+        "endLine": 1881,
+        "endChar": 69
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65e41417_fef69ddb",
@@ -748,6 +1480,30 @@
       "writtenOn": "2021-06-10T16:18:40Z",
       "side": 1,
       "message": "Replace all occurrences with `cdq` (including comments).",
+      "range": {
+        "startLine": 95,
+        "startChar": 4,
+        "endLine": 95,
+        "endChar": 8
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a425b1a_0a261c67",
+        "filename": "runtime/interpreter/mterp/x86ng/other.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-11T14:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65e41417_fef69ddb",
       "range": {
         "startLine": 95,
         "startChar": 4,
