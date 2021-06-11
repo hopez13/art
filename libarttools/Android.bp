@@ -33,7 +33,10 @@ cc_library {
     defaults: ["art_defaults"],
     host_supported: true,
     srcs: [
+        "tools/dex.cc",
+        "tools/globals.cc",
         "tools/tools.cc",
+        "tools/utils.cc",
     ],
     export_include_dirs: ["."],
     apex_available: [
@@ -41,21 +44,28 @@ cc_library {
         "com.android.art.debug",
     ],
     shared_libs: [
+        "libartbase",
         "libbase",
     ],
     export_shared_lib_headers: ["libbase"],
 }
 
-art_cc_test {
+cc_test {
     name: "art_libarttools_tests",
-    defaults: [
-        "art_gtest_defaults",
-    ],
+    //defaults: ["art_defaults"],
+    test_config: "tests/art_libarttools_tests.xml",
+    test_suites: ["device-tests"],
+
     srcs: [
-        "tools/tools_test.cc",
+        "tests/dex_test.cc",
+        "tests/utils.cc",
     ],
     shared_libs: [
         "libbase",
+        "libcutils",
+        "libziparchive",
+    ],
+    static_libs: [
         "libarttools",
     ],
 }

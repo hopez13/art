@@ -14,14 +14,26 @@
  * limitations under the License.
  */
 
-#include "tools.h"
+#ifndef ART_LIBARTTOOLS_TOOLS_CONSTANTS_H_
+#define ART_LIBARTTOOLS_TOOLS_CONSTANTS_H_
+
+#include <sys/types.h>
 
 namespace art {
 namespace tools {
 
-std::string getMsg() {
-  return "hello world!";
-}
+// This is used as a string literal, can't be constants. TODO: std::string...
+#define DALVIK_CACHE "dalvik-cache"
+constexpr const char* DALVIK_CACHE_POSTFIX = "@classes.dex";
+
+constexpr size_t PKG_NAME_MAX = 128u;  /* largest allowed package name */
+constexpr size_t PKG_PATH_MAX = 1024u; /* max size of any path we use */
+
+// NOTE: keep in sync with StorageManager
+constexpr int FLAG_STORAGE_DE = 1 << 0;
+constexpr int FLAG_STORAGE_CE = 1 << 1;
 
 }  // namespace tools
 }  // namespace art
+
+#endif  // ART_LIBARTTOOLS_TOOLS_CONSTANTS_H_
