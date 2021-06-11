@@ -63,6 +63,30 @@
       },
       "revId": "654ee0e6f0fc207beb435841b05101cf5ac4a27d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3004d117_307f7f6d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2533,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-11T16:25:13Z",
+      "side": 1,
+      "message": "Thanks Victor. \n\nCould we drop ReadCommentedInputFromZip and replace it with a ReadCommentedInput variant that takes an fd and drops the process argument?\n\nThe issue with istream and file descriptors might be around the ownership / lifetime of the fd. We don\u0027t need it here after it\u0027s been read so could close it too.",
+      "parentUuid": "ff084af3_e344bca9",
+      "range": {
+        "startLine": 2529,
+        "startChar": 0,
+        "endLine": 2533,
+        "endChar": 5
+      },
+      "revId": "654ee0e6f0fc207beb435841b05101cf5ac4a27d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
