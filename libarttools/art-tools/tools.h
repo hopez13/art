@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-#include "tools.h"
-#include "gtest/gtest.h"
+#pragma once
+
+#include <string>
+
+#include "constants.h"
+#include "dex.h"
+#include "paths.h"
+#include "utils.h"
 
 namespace art {
-
-class ArtToolsTest : public testing::Test {};
-
-TEST_F(ArtToolsTest, Hello) {
-  EXPECT_EQ("hello world!", art::tools::getMsg());
-}
-
+namespace tools {}  // namespace tools
 }  // namespace art
