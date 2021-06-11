@@ -21,27 +21,6 @@ package {
     default_applicable_licenses: ["art_license"],
 }
 
-cc_library {
-    // This native library contains JNI support code for the ART Service Java
-    // Language library.
-
-    name: "libartservice",
-    defaults: ["art_defaults"],
-    host_supported: true,
-    srcs: [
-        "service/native/service.cc",
-    ],
-    export_include_dirs: ["."],
-    apex_available: [
-        "com.android.art",
-        "com.android.art.debug",
-    ],
-    shared_libs: [
-        "libbase",
-    ],
-    export_shared_lib_headers: ["libbase"],
-}
-
 // Provides the API and implementation of the ART Service class that will be
 // loaded by the System Server.
 java_sdk_library {
@@ -58,7 +37,7 @@ java_sdk_library {
     ],
 
     impl_library_visibility: [
-        "//art/libartservice/tests",
+        "//art/libartservice/tests/java",
     ],
 
     stubs_library_visibility: ["//visibility:public"],
@@ -68,8 +47,10 @@ java_sdk_library {
         "com.android.art",
         "com.android.art.debug",
     ],
-    sdk_version: "core_platform",
+    sdk_version: "system_server_current",
+    // TODO (b/177273468): Update to 32 when ready
     min_sdk_version: "31",
+    platform_apis: true,
 
     // The API elements are the ones annotated with
     //   libcore.api.CorePlatformApi(status=libcore.api.CorePlatformApi.Status.STABLE)
@@ -89,26 +70,13 @@ java_sdk_library {
 
     srcs: [
         "service/java/com/android/server/art/ArtManagerLocal.java",
+        "service/java/com/android/server/art/ArtPackageInfo.java",
     ],
 
-    libs: [
-        "art.module.api.annotations.for.system.modules",
+    static_libs: [
+        "artd-aidl-java",
     ],
 
     plugins: ["java_api_finder"],
     dist_group: "android",
-}
-
-art_cc_test {
-    name: "art_libartservice_tests",
-    defaults: [
-        "art_gtest_defaults",
-    ],
-    srcs: [
-        "service/native/service_test.cc",
-    ],
-    shared_libs: [
-        "libbase",
-        "libartservice",
-    ],
 }
