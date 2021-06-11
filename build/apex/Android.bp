@@ -62,7 +62,6 @@ art_runtime_base_native_shared_libs = [
     // dependencies work with APEX libraries.
     "libart",
     "libart-compiler",
-    "libartservice",
     "libdt_fd_forward",
     "libdt_socket",
     "libjdwp",
@@ -350,7 +349,6 @@ art_gtests = [
     "art_imgdiag_tests",
     "art_libartbase_tests",
     "art_libartpalette_tests",
-    "art_libartservice_tests",
     "art_libarttools_tests",
     "art_libdexfile_tests",
     "art_libdexfile_support_tests",

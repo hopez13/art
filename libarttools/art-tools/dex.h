@@ -14,17 +14,22 @@
  * limitations under the License.
  */
 
-#ifndef ART_LIBARTTOOLS_TOOLS_TOOLS_H_
-#define ART_LIBARTTOOLS_TOOLS_TOOLS_H_
+#pragma once
 
+#include <optional>
 #include <string>
+
+#include "constants.h"
 
 namespace art {
 namespace tools {
+namespace dex {
 
-std::string getMsg();
+// Returns the total bytes that were freed, or -1 in the case of errors.
+int64_t DeleteOdex(const std::string& apk_path,
+                   const std::string& instruction_set,
+                   const std::optional<const std::string>& output_path);
 
+}  // namespace dex
 }  // namespace tools
 }  // namespace art
-
-#endif  // ART_LIBARTTOOLS_TOOLS_TOOLS_H_

@@ -14,15 +14,23 @@
  * limitations under the License.
  */
 
-#include "tools.h"
-#include "gtest/gtest.h"
+#pragma once
+
+#include <sys/types.h>
 
 namespace art {
+namespace tools {
 
-class ArtToolsTest : public testing::Test {};
+// This is used as a string literal, can't be constants. TODO: std::string...
+#define DALVIK_CACHE "dalvik-cache"
+constexpr const char* DALVIK_CACHE_POSTFIX = "@classes.dex";
 
-TEST_F(ArtToolsTest, Hello) {
-  EXPECT_EQ("hello world!", art::tools::getMsg());
-}
+constexpr size_t PKG_NAME_MAX = 128u;  /* largest allowed package name */
+constexpr size_t PKG_PATH_MAX = 1024u; /* max size of any path we use */
 
+// NOTE: keep in sync with StorageManager
+constexpr int FLAG_STORAGE_DE = 1 << 0;
+constexpr int FLAG_STORAGE_CE = 1 << 1;
+
+}  // namespace tools
 }  // namespace art

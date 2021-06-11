@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-#ifndef ART_LIBARTSERVICE_SERVICE_NATIVE_SERVICE_H_
-#define ART_LIBARTSERVICE_SERVICE_NATIVE_SERVICE_H_
+#pragma once
 
 #include <string>
 
+#include "constants.h"
+#include "dex.h"
+#include "paths.h"
+#include "utils.h"
+
 namespace art {
-namespace service {
-
-std::string getMsg();
-
-}  // namespace service
+namespace tools {}  // namespace tools
 }  // namespace art
-
-#endif  // ART_LIBARTSERVICE_SERVICE_NATIVE_SERVICE_H_

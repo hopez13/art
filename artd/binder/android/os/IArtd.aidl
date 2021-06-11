@@ -18,6 +18,6 @@ package android.os;
 
 /** {@hide} */
 interface IArtd {
-    // Test to see if the artd service is available.
-    boolean isAlive();
+    long deleteOdex(@utf8InCpp String apkPath, @utf8InCpp String instructionSet,
+            @nullable @utf8InCpp String outputPath);
 }

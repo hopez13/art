@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-#include "tools.h"
+#pragma once
+
+#include <string>
 
 namespace art {
 namespace tools {
+namespace utils {
 
-std::string getMsg() {
-    return "hello world!";
-}
+int ValidateApkPath(const std::string& path);
 
-}
-}
+}  // namespace utils
+}  // namespace tools
+}  // namespace art
