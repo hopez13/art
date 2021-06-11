@@ -14,17 +14,34 @@
  * limitations under the License.
  */
 
-#ifndef ART_LIBARTSERVICE_SERVICE_NATIVE_SERVICE_H_
-#define ART_LIBARTSERVICE_SERVICE_NATIVE_SERVICE_H_
+#pragma once
+
+#include <art-tools/utils.h>
 
 #include <string>
 
 namespace art {
-namespace service {
+namespace tools {
+namespace tests {
 
-std::string getMsg();
+extern const std::string kRuntimeIsa;
 
-}  // namespace service
+int MkDir(const std::string& path, uid_t owner, gid_t group, mode_t mode);
+void RunCmd(const std::string& cmd);
+void WriteRandomData(const std::string& path, size_t num_bytes);
+
+/*
+ * Cloned Functions
+ *
+ * These must be kept in sync with the implementations in libcutils/multiuser.h
+ */
+
+typedef uid_t userid_t;
+typedef uid_t appid_t;
+
+uid_t multiuser_get_uid(userid_t user_id, appid_t app_id);
+gid_t multiuser_get_shared_gid(userid_t, appid_t app_id);
+
+}  // namespace tests
+}  // namespace tools
 }  // namespace art
-
-#endif  // ART_LIBARTSERVICE_SERVICE_NATIVE_SERVICE_H_

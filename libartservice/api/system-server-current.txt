@@ -3,6 +3,8 @@ package com.android.server.art {
 
   public final class ArtManagerLocal {
     ctor public ArtManagerLocal();
+    method public long deleteOptimizedFiles(com.android.server.art.ArtPackageInfo);
+    field public static final boolean ENABLED = false;
   }
 
 }

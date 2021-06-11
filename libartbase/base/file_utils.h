@@ -116,7 +116,10 @@ std::string GetApexDataDalvikCacheFilename(std::string_view dex_location,
 std::string GetSystemImageFilename(const char* location, InstructionSet isa);
 
 // Returns the vdex filename for the given oat filename.
-std::string GetVdexFilename(const std::string& oat_filename);
+std::string GetVdexFilename(const std::string& oat_location);
+
+// Returns the AppImage filename for the given oat filename.
+std::string GetAppImageFilename(const std::string& oat_location);
 
 // Returns `filename` with the text after the last occurrence of '.' replaced with
 // `extension`. If `filename` does not contain a period, returns a string containing `filename`,
