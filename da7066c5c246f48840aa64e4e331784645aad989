@@ -16,6 +16,52 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "da7066c5c246f48840aa64e4e331784645aad989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ab1c972_67f618d5",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-11T16:12:21Z",
+      "side": 1,
+      "message": "Actually, 3 would be correct. While this macro deals only with FP registers, the comment is about a general approach to copy if there are any arguments passed on the stack. And there are only 3 argument core registers.",
+      "range": {
+        "startLine": 695,
+        "startChar": 47,
+        "endLine": 695,
+        "endChar": 48
+      },
+      "revId": "da7066c5c246f48840aa64e4e331784645aad989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ae50bb0_ce7548a5",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1816,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-11T16:12:21Z",
+      "side": 1,
+      "message": "You do not need to save this callee-save register for calling `NterpGetShorty`. Save it just before you need the register for other work.",
+      "range": {
+        "startLine": 1815,
+        "startChar": 4,
+        "endLine": 1816,
+        "endChar": 26
+      },
+      "revId": "da7066c5c246f48840aa64e4e331784645aad989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

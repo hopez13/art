@@ -730,6 +730,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4833621d_ea7a275a",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-11T16:12:21Z",
+      "side": 1,
+      "message": "I\u0027ll keep this comment unresolved to revisit when reviewing those callers.",
+      "parentUuid": "260a925a_106d9d3d",
+      "range": {
+        "startLine": 472,
+        "startChar": 4,
+        "endLine": 472,
+        "endChar": 31
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86805489_ffbc6c65",
         "filename": "runtime/interpreter/mterp/x86ng/main.S",
         "patchSetId": 8
@@ -1082,6 +1106,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14820f77_6462d24b",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-11T16:12:21Z",
+      "side": 1,
+      "message": "It should have been \"5:\", sorry for the typo. Move the entire \"NOT_REFERENCE\" section there and you can drop the `jmp`.",
+      "parentUuid": "4b76f757_9995be26",
+      "range": {
+        "startLine": 869,
+        "startChar": 0,
+        "endLine": 873,
+        "endChar": 10
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9748eff2_3fd0e81a",
         "filename": "runtime/interpreter/mterp/x86ng/main.S",
         "patchSetId": 8
@@ -1187,6 +1235,30 @@
       "side": 1,
       "message": "Unfortunately, the call to GetShorty below might clobber the xmm4-7 registers.",
       "parentUuid": "4868b71f_95c36903",
+      "range": {
+        "startLine": 1780,
+        "startChar": 4,
+        "endLine": 1780,
+        "endChar": 29
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a648c340_0766a021",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-11T16:12:21Z",
+      "side": 1,
+      "message": "So we can spill and restore them around that call (and avoid those spills in the fast path). The 12-byte padding would be a good place to store args from `xmm5-xmm7` and the method would be stored from `xmm4` instead of using the weird `pushl \u003coffset\u003e(%esp)`. Note that we shall not need to restore the method in `xmm4` anymore.",
+      "parentUuid": "04baf9d3_266feb61",
       "range": {
         "startLine": 1780,
         "startChar": 4,
@@ -1410,6 +1482,30 @@
       "side": 1,
       "message": "Right, but I still need to have it incremented before LOOP_OVER_INTs, which is making it difficult.",
       "parentUuid": "dbd7f4da_ba8de671",
+      "range": {
+        "startLine": 1868,
+        "startChar": 4,
+        "endLine": 1868,
+        "endChar": 18
+      },
+      "revId": "b85927d2e2e26fd94e4238083d7730b6cefb5d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd679c1_d1577d49",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1868,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-11T16:12:21Z",
+      "side": 1,
+      "message": "If you move core args to `xmm5-xmm7`, you can keep the increment and still share the two `LOOP_OVER_SHORTY_STORING_GPRS` as they shall take `xmm6` and `xmm7` instead of `edx` and offsets.",
+      "parentUuid": "b4d3a112_91e7c6c9",
       "range": {
         "startLine": 1868,
         "startChar": 4,
