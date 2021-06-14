@@ -939,7 +939,12 @@ static ArtField* FindFieldByNameAndType(LengthPrefixedArray<ArtField>* fields,
         break;
       }
     }
-    CHECK_EQ(found, ret) << "Found " << found->PrettyField() << " vs  " << ret->PrettyField();
+
+    auto pretty_field = [](ArtField* field) -> std::string {
+      return field ? field->PrettyField() : "(null)";
+    };
+
+    CHECK_EQ(found, ret) << "Found " << pretty_field(found) << " vs  " << pretty_field(ret);
   }
   return ret;
 }
