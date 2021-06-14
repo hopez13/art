@@ -101,10 +101,10 @@ atest ArtGtestsTargetInstallApex -- \
 ### Running ART gtests on device using a `chroot` environment
 
 You can run ART gtests on device with the chroot-based strategy by using the
-following `atest` command:
+following command:
 
 ```bash
-atest ArtGtestsTargetChroot
+m art_chroot && atest ArtGtestsTargetChroot
 ```
 
 This command:
