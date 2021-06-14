@@ -87,6 +87,30 @@
       },
       "revId": "5a7722c617c6aa352a0c50d1b44d576c2b3b8513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "595c2156_41538796",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-14T18:31:38Z",
+      "side": 1,
+      "message": "Done.  Let me know if it\u0027s better to rename dex_fds to maybe jar_fds.",
+      "parentUuid": "709a53b2_05214b1f",
+      "range": {
+        "startLine": 736,
+        "startChar": 8,
+        "endLine": 736,
+        "endChar": 33
+      },
+      "revId": "5a7722c617c6aa352a0c50d1b44d576c2b3b8513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
