@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f1b946f_ee9eb6f3",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-14T20:13:21Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "1631ecc7_676d4ecc",
+      "range": {
+        "startLine": 695,
+        "startChar": 9,
+        "endLine": 695,
+        "endChar": 50
+      },
+      "revId": "43077c42ebfd017b46266b9c7024c777b70519de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "146687b7_7ee4c736",
@@ -300,6 +324,30 @@
       "side": 1,
       "message": "Ack, thanks!",
       "parentUuid": "df2a1b79_3cad99cc",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 16
+      },
+      "revId": "43077c42ebfd017b46266b9c7024c777b70519de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d63cd15a_c0fc328b",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-14T20:13:21Z",
+      "side": 1,
+      "message": "The exception is removed.  We decided to pass JARs in APEX as FD remotely in the same way, even though it\u0027s available by path in the VM.  Actually, this change now passes BCP FDs to dex2oat regardless of CompOS (but please let me know if you have concerns).\n\nSee the actual CompOS change in aosp/1736084.",
+      "parentUuid": "27a8444b_48cc3077",
       "range": {
         "startLine": 694,
         "startChar": 0,
