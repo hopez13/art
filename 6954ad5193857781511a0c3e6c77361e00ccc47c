@@ -16,6 +16,493 @@
       "message": "Thanks! PTAL.",
       "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09c895dc_61f3337e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Another partial review.",
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde4df0c_2c24a50b",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "PUSH_ARG",
+      "range": {
+        "startLine": 208,
+        "startChar": 4,
+        "endLine": 211,
+        "endChar": 12
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ea5f3fe_0de26ec5",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "POP_ARG",
+      "range": {
+        "startLine": 215,
+        "startChar": 4,
+        "endLine": 218,
+        "endChar": 11
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a7ebb07_d9e80bfc",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Only `.if \\is_interface`.",
+      "range": {
+        "startLine": 994,
+        "startChar": 3,
+        "endLine": 995,
+        "endChar": 12
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adaf0a5b_d9998cb0",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Currently unaligned SP at call site. Should be aligned when the storing of `xmm7` is moved to the `.if \\is_interface` block.",
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8e2fc7c_2d55483e",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f649b5e2_a0fb9e0e",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Unaligned SP at call site. Shall need 12-byte padding. As we shall need to adjust SP, the `mmx7` can be stored directly to the stack after the adjustment instead of going through `ecx`.",
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b936238_59510d6f",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1015,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Currently aligned SP at call site but shall need padding when the `xmm7` saving is moved to the `.if \\is_interface` block.",
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6952038_a566429b",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 1027,
+        "startChar": 4,
+        "endLine": 1029,
+        "endChar": 14
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff1bbcad_30a047e7",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "EBX does not need to be saved.",
+      "range": {
+        "startLine": 1030,
+        "startChar": 4,
+        "endLine": 1030,
+        "endChar": 14
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f7d067e_b5e9e5ab",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Only 32 bits need to be saved.",
+      "range": {
+        "startLine": 1032,
+        "startChar": 3,
+        "endLine": 1032,
+        "endChar": 21
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6618cbfd_5b7a7cb8",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Restore the FP arg before adjusting SP and merge the two adjustments.",
+      "range": {
+        "startLine": 1040,
+        "startChar": 3,
+        "endLine": 1042,
+        "endChar": 30
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c62f3551_67dee300",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Unaligned SP at call site.",
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e068c3e_052f9ff0",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Doesn\u0027t the unwinder look at the exported dex PC?",
+      "range": {
+        "startLine": 1138,
+        "startChar": 5,
+        "endLine": 1139,
+        "endChar": 13
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e32b5ad_585fa326",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Clobbering rREFS means breaking CFI until we reload rREFS. Can we use rFP instead?",
+      "range": {
+        "startLine": 1191,
+        "startChar": 22,
+        "endLine": 1191,
+        "endChar": 25
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ca578ee_3857c5d8",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Unnecessary. Let the check for \u0027F\u0027 do this.",
+      "range": {
+        "startLine": 1210,
+        "startChar": 3,
+        "endLine": 1211,
+        "endChar": 34
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac79aef6_a48cbdba",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Nit: At this point we\u0027ve had 5 FP vregs, so there shall be no integers/references and we can jump to the call. We should also know the value of EBP, so we could replace the indexed load above. (But this is a very rare case, so it does not really matter.)",
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2719a569_c97ba60d",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Doesn\u0027t the unwinder look at the exported dex PC?",
+      "range": {
+        "startLine": 1265,
+        "startChar": 3,
+        "endLine": 1265,
+        "endChar": 11
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29c278e2_fcf939b6",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "We could use LOCAL1, LOCAL2. (And actually use LOCAL2 for `long` return high word as well to avoid re-loading it here.)",
+      "range": {
+        "startLine": 1288,
+        "startChar": 3,
+        "endLine": 1289,
+        "endChar": 21
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b8137c9_fdb9f73e",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1297,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "We don\u0027t need to store EDX for `float` return. If you also rewrite `double`return as suggested above, you can reorder the `.Ldone_return_\\suffix` and EDX spill.",
+      "range": {
+        "startLine": 1297,
+        "startChar": 3,
+        "endLine": 1297,
+        "endChar": 28
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "321dfd82_5eabb40d",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Can we use rFP instead of rREFS?",
+      "range": {
+        "startLine": 1395,
+        "startChar": 27,
+        "endLine": 1395,
+        "endChar": 30
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1047bb3_72471626",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Same as non-range.",
+      "range": {
+        "startLine": 1486,
+        "startChar": 3,
+        "endLine": 1487,
+        "endChar": 21
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9b197a2_10790a04",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-14T16:08:52Z",
+      "side": 1,
+      "message": "Same as non-range.",
+      "range": {
+        "startLine": 1495,
+        "startChar": 3,
+        "endLine": 1495,
+        "endChar": 34
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
