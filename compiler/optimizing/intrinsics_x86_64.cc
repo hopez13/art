@@ -3251,11 +3251,19 @@ static void GenerateVarHandleSet(HInvoke* invoke, CodeGeneratorX86_64* codegen) 
   VarHandleTarget target = GetVarHandleTarget(invoke);
   GenerateVarHandleTarget(invoke, target, codegen);
 
+  bool is_atomic = true;  // All variants have to be atomic.
+  bool is_volatile = false;
   switch (invoke->GetIntrinsic()) {
     case Intrinsics::kVarHandleSet:
+    case Intrinsics::kVarHandleSetOpaque:
+      break;
+    case Intrinsics::kVarHandleSetRelease:
+      codegen->GenerateMemoryBarrier(MemBarrierKind::kAnyStore);
+      break;
+    case Intrinsics::kVarHandleSetVolatile:
+      is_volatile = true;
       break;
     default:
-      // TODO: implement setOpaque, setRelease, setVolatile.
       LOG(FATAL) << "unsupported intrinsic " << invoke->GetIntrinsic();
   }
 
@@ -3271,7 +3279,8 @@ static void GenerateVarHandleSet(HInvoke* invoke, CodeGeneratorX86_64* codegen) 
                                 value_type,
                                 dst,
                                 CpuRegister(target.object),
-                                /*is_volatile=*/ false,
+                                is_volatile,
+                                is_atomic,
                                 /*value_can_be_null=*/ true);
 
   __ Bind(slow_path->GetExitLabel());
@@ -3282,6 +3291,30 @@ void IntrinsicLocationsBuilderX86_64::VisitVarHandleSet(HInvoke* invoke) {
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleSet(HInvoke* invoke) {
+  GenerateVarHandleSet(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86_64::VisitVarHandleSetOpaque(HInvoke* invoke) {
+  CreateVarHandleSetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86_64::VisitVarHandleSetOpaque(HInvoke* invoke) {
+  GenerateVarHandleSet(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86_64::VisitVarHandleSetRelease(HInvoke* invoke) {
+  CreateVarHandleSetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86_64::VisitVarHandleSetRelease(HInvoke* invoke) {
+  GenerateVarHandleSet(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderX86_64::VisitVarHandleSetVolatile(HInvoke* invoke) {
+  CreateVarHandleSetLocations(invoke);
+}
+
+void IntrinsicCodeGeneratorX86_64::VisitVarHandleSetVolatile(HInvoke* invoke) {
   GenerateVarHandleSet(invoke, codegen_);
 }
 
@@ -3347,9 +3380,6 @@ UNIMPLEMENTED_INTRINSIC(X86_64, VarHandleGetAndBitwiseXorRelease)
 UNIMPLEMENTED_INTRINSIC(X86_64, VarHandleGetAndSet)
 UNIMPLEMENTED_INTRINSIC(X86_64, VarHandleGetAndSetAcquire)
 UNIMPLEMENTED_INTRINSIC(X86_64, VarHandleGetAndSetRelease)
-UNIMPLEMENTED_INTRINSIC(X86_64, VarHandleSetOpaque)
-UNIMPLEMENTED_INTRINSIC(X86_64, VarHandleSetRelease)
-UNIMPLEMENTED_INTRINSIC(X86_64, VarHandleSetVolatile)
 UNIMPLEMENTED_INTRINSIC(X86_64, VarHandleWeakCompareAndSet)
 UNIMPLEMENTED_INTRINSIC(X86_64, VarHandleWeakCompareAndSetAcquire)
 UNIMPLEMENTED_INTRINSIC(X86_64, VarHandleWeakCompareAndSetPlain)
