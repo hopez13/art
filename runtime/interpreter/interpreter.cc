@@ -249,6 +249,7 @@ static JValue ExecuteSwitch(Thread* self,
                             ShadowFrame& shadow_frame,
                             JValue result_register,
                             bool interpret_one_instruction) REQUIRES_SHARED(Locks::mutator_lock_) {
+  self->DumpJavaStack(LOG_STREAM(ERROR));
   if (Runtime::Current()->IsActiveTransaction()) {
     if (shadow_frame.GetMethod()->SkipAccessChecks()) {
       return ExecuteSwitchImpl<false, true>(

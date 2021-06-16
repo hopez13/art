@@ -1917,7 +1917,7 @@ static ObjPtr<mirror::Field> GetPublicFieldRecursive(
       result = GetPublicFieldRecursive(self, iface, h_name.Get());
       if (result != nullptr) {
         // TODO: refactor this
-        DCHECK(result->GetAccessFlags() & 0xFFFFFFFF );
+        DCHECK(result->GetAccessFlags() & 0xFFFFFFFF);
         return result;
       } else if (UNLIKELY(self->IsExceptionPending())) {
         // Something went wrong. Bail out.
@@ -2160,6 +2160,30 @@ void UnstartedRuntime::UnstartedJNIUnsafeGetArrayIndexScaleForComponentType(
   }
   Primitive::Type primitive_type = component->AsClass()->GetPrimitiveType();
   result->SetI(Primitive::ComponentSize(primitive_type));
+}
+
+void UnstartedRuntime::UnstartedJNIFieldGetArtField(
+    Thread* self ATTRIBUTE_UNUSED,
+    ArtMethod* method ATTRIBUTE_UNUSED,
+    mirror::Object* receiver,
+    uint32_t* args ATTRIBUTE_UNUSED,
+    JValue* result) {
+  // StackHandleScope<1> hs(self);
+  ObjPtr<mirror::Field> field = ObjPtr<mirror::Field>::DownCast(receiver);
+  // Handle<mirror::Field> h_field = hs.NewHandle(field);
+  ArtField* art_field = field->GetArtField();
+  result->SetJ(reinterpret_cast<int64_t>(art_field));
+}
+
+void UnstartedRuntime::UnstartedJNIFieldGetNameInternal(
+    Thread* self ATTRIBUTE_UNUSED,
+    ArtMethod* method ATTRIBUTE_UNUSED,
+    mirror::Object* receiver,
+    uint32_t* args ATTRIBUTE_UNUSED,
+    JValue* result) {
+  ObjPtr<mirror::Field> field = ObjPtr<mirror::Field>::DownCast(receiver);
+  ArtField* art_field = field->GetArtField();
+  result->SetL(art_field->ResolveNameString());
 }
 
 using InvokeHandler = void(*)(Thread* self,

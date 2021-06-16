@@ -1332,6 +1332,12 @@ int32_t VarHandle::GetAccessModesBitMask() {
 VarHandle::MatchKind VarHandle::GetMethodTypeMatchForAccessMode(AccessMode access_mode,
                                                                 ObjPtr<MethodType> method_type) {
   MatchKind match = MatchKind::kExact;
+  LOG(ERROR) << "GetMethodTypeForAccessMode()";
+  if (!method_type.IsNull()) {
+    LOG(ERROR) << "GetMethodTypeForAccessMode(not null)";
+  } else {
+    LOG(ERROR) << "No method type";
+  }
 
   ObjPtr<VarHandle> vh = this;
   ObjPtr<Class> var_type = vh->GetVarType();
@@ -1339,8 +1345,14 @@ VarHandle::MatchKind VarHandle::GetMethodTypeMatchForAccessMode(AccessMode acces
   ObjPtr<Class> void_type = WellKnownClasses::ToClass(WellKnownClasses::java_lang_Void);
   AccessModeTemplate access_mode_template = GetAccessModeTemplate(access_mode);
 
+  if (mt_rtype.IsNull()) {
+    LOG(ERROR) << "No mt_rtype";
+  }
   // Check return type first.
   ObjPtr<Class> vh_rtype = GetReturnType(access_mode_template, var_type);
+  if (vh_rtype.IsNull()) {
+    LOG(ERROR) << "No vh_rtype";
+  }
   if (mt_rtype->GetPrimitiveType() != Primitive::Type::kPrimVoid &&
       !mt_rtype->IsAssignableFrom(vh_rtype)) {
     // Call-site is an expression (expects a return value) and the value returned by the accessor
@@ -1363,8 +1375,10 @@ VarHandle::MatchKind VarHandle::GetMethodTypeMatchForAccessMode(AccessMode acces
   }
 
   // Check the parameter types are compatible.
+  LOG(ERROR) << "Get PTypes";
   ObjPtr<ObjectArray<Class>> mt_ptypes = method_type->GetPTypes();
   for (int32_t i = 0; i < vh_ptypes_count; ++i) {
+    LOG(ERROR) << "Check if is assignable";
     if (vh_ptypes[i]->IsAssignableFrom(mt_ptypes->Get(i))) {
       continue;
     }
