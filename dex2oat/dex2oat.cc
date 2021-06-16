@@ -1917,7 +1917,7 @@ class Dex2Oat final {
       driver_->SetClasspathDexFiles(class_loader_context_->FlattenOpenedDexFiles());
     }
 
-    const bool compile_individually = ShouldCompileDexFilesIndividually();
+    const bool compile_individually = false;  //  ShouldCompileDexFilesIndividually();
     if (compile_individually) {
       // Set the compiler driver in the callbacks so that we can avoid re-verification. This not
       // only helps performance but also prevents reverifying quickened bytecodes. Attempting
@@ -2419,7 +2419,6 @@ class Dex2Oat final {
         compiler_options_->GetCompilerFilter() == CompilerFilter::kSpeedProfile) {
       VLOG(compiler) << "Changing compiler filter to verify from speed-profile "
           << "because of empty or non existing profile";
-
       compiler_options_->SetCompilerFilter(CompilerFilter::kVerify);
 
       // Note that we could reset the image_type to CompilerOptions::ImageType::kNone
