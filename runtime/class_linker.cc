@@ -2628,6 +2628,35 @@ bool ClassLinker::FindClassInSharedLibraries(ScopedObjectAccessAlreadyRunnable& 
   return true;
 }
 
+bool ClassLinker::FindClassInSharedLibrariesAfter(ScopedObjectAccessAlreadyRunnable& soa,
+                                             Thread* self,
+                                             const char* descriptor,
+                                             size_t hash,
+                                             Handle<mirror::ClassLoader> class_loader,
+                                             /*out*/ ObjPtr<mirror::Class>* result) {
+  ArtField* field =
+      jni::DecodeArtField(WellKnownClasses::dalvik_system_BaseDexClassLoader_sharedLibraryLoadersAfter);
+  ObjPtr<mirror::Object> raw_shared_libraries = field->GetObject(class_loader.Get());
+  if (raw_shared_libraries == nullptr) {
+    return true;
+  }
+
+  StackHandleScope<2> hs(self);
+  Handle<mirror::ObjectArray<mirror::ClassLoader>> shared_libraries(
+      hs.NewHandle(raw_shared_libraries->AsObjectArray<mirror::ClassLoader>()));
+  MutableHandle<mirror::ClassLoader> temp_loader = hs.NewHandle<mirror::ClassLoader>(nullptr);
+  for (auto loader : shared_libraries.Iterate<mirror::ClassLoader>()) {
+    temp_loader.Assign(loader);
+    if (!FindClassInBaseDexClassLoader(soa, self, descriptor, hash, temp_loader, result)) {
+      return false;  // One of the shared libraries is not supported.
+    }
+    if (*result != nullptr) {
+      return true;  // Found the class up the chain.
+    }
+  }
+  return true;
+}
+
 bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
                                                 Thread* self,
                                                 const char* descriptor,
@@ -2650,6 +2679,7 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
     // Create a handle as RegisterDexFile may allocate dex caches (and cause thread suspension).
     StackHandleScope<1> hs(self);
     Handle<mirror::ClassLoader> h_parent(hs.NewHandle(class_loader->GetParent()));
+<<<<<<< HEAD   (73c4f7 Reland^2: Create an abstraction for dexopt tasks)
     RETURN_IF_UNRECOGNIZED_OR_FOUND_OR_EXCEPTION(
         FindClassInBaseDexClassLoader(soa, self, descriptor, hash, h_parent, result),
         *result,
@@ -2665,6 +2695,37 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
     // We did not find a class, but the class loader chain was recognized, so we
     // return true.
     return true;
+=======
+    if (!FindClassInBaseDexClassLoader(soa, self, descriptor, hash, h_parent, result)) {
+      return false;  // One of the parents is not supported.
+    }
+    if (*result != nullptr) {
+      return true;  // Found the class up the chain.
+    }
+
+    if (!FindClassInSharedLibraries(soa, self, descriptor, hash, class_loader, result)) {
+      return false;  // One of the shared library loader is not supported.
+    }
+    if (*result != nullptr) {
+      return true;  // Found the class in a shared library.
+    }
+
+    // Search the current class loader classpath.
+    *result = FindClassInBaseDexClassLoaderClassPath(soa, descriptor, hash, class_loader);
+
+    if (*result != nullptr) {
+      return true;  // Found the class in dex.
+    }
+
+    if (!FindClassInSharedLibrariesAfter(soa, self, descriptor, hash, class_loader, result)) {
+      return false;  // One of the shared library loader is not supported.
+    }
+
+    if (*result != nullptr) {
+      return true;  // Found the class in a shared library.
+    }
+    return !soa.Self()->IsExceptionPending();
+>>>>>>> CHANGE (eacfe1 Add support to place shared libraries after the dex path)
   }
 
   if (IsDelegateLastClassLoader(soa, class_loader)) {
@@ -2684,7 +2745,36 @@ bool ClassLinker::FindClassInBaseDexClassLoader(ScopedObjectAccessAlreadyRunnabl
         *result,
         self);
 
+<<<<<<< HEAD   (73c4f7 Reland^2: Create an abstraction for dexopt tasks)
     // Create a handle as RegisterDexFile may allocate dex caches (and cause thread suspension).
+=======
+    if (!FindClassInSharedLibraries(soa, self, descriptor, hash, class_loader, result)) {
+      return false;  // One of the shared library loader is not supported.
+    }
+    if (*result != nullptr) {
+      return true;  // Found the class in a shared library.
+    }
+
+    *result = FindClassInBaseDexClassLoaderClassPath(soa, descriptor, hash, class_loader);
+    if (*result != nullptr) {
+      return true;  // Found the class in the current class loader
+    }
+
+    if (!FindClassInSharedLibrariesAfter(soa, self, descriptor, hash, class_loader, result)) {
+      return false;  // One of the shared library loader is not supported.
+    }
+    if (*result != nullptr) {
+      return true;  // Found the class in a shared library.
+    }
+
+    if (self->IsExceptionPending()) {
+      // Pending exception means there was an error other than ClassNotFound that must be returned
+      // to the caller.
+      return false;
+    }
+
+    // Handles as RegisterDexFile may allocate dex caches (and cause thread suspension).
+>>>>>>> CHANGE (eacfe1 Add support to place shared libraries after the dex path)
     StackHandleScope<1> hs(self);
     Handle<mirror::ClassLoader> h_parent(hs.NewHandle(class_loader->GetParent()));
     RETURN_IF_UNRECOGNIZED_OR_FOUND_OR_EXCEPTION(
@@ -9847,7 +9937,8 @@ ObjPtr<mirror::ClassLoader> ClassLinker::CreateWellKnownClassLoader(
     const std::vector<const DexFile*>& dex_files,
     Handle<mirror::Class> loader_class,
     Handle<mirror::ClassLoader> parent_loader,
-    Handle<mirror::ObjectArray<mirror::ClassLoader>> shared_libraries) {
+    Handle<mirror::ObjectArray<mirror::ClassLoader>> shared_libraries,
+    Handle<mirror::ObjectArray<mirror::ClassLoader>> shared_libraries_after) {
 
   StackHandleScope<5> hs(self);
 
@@ -9967,6 +10058,12 @@ ObjPtr<mirror::ClassLoader> ClassLinker::CreateWellKnownClassLoader(
   DCHECK(shared_libraries_field != nullptr);
   shared_libraries_field->SetObject<false>(h_class_loader.Get(), shared_libraries.Get());
 
+  ArtField* shared_libraries_after_field =
+        jni::DecodeArtField(
+        WellKnownClasses::dalvik_system_BaseDexClassLoader_sharedLibraryLoadersAfter);
+  DCHECK(shared_libraries_after_field != nullptr);
+  shared_libraries_after_field->SetObject<false>(h_class_loader.Get(), shared_libraries_after.Get());
+
   return h_class_loader.Get();
 }
 
@@ -9974,7 +10071,8 @@ jobject ClassLinker::CreateWellKnownClassLoader(Thread* self,
                                                 const std::vector<const DexFile*>& dex_files,
                                                 jclass loader_class,
                                                 jobject parent_loader,
-                                                jobject shared_libraries) {
+                                                jobject shared_libraries,
+                                                jobject shared_libraries_after) {
   CHECK(self->GetJniEnv()->IsSameObject(loader_class,
                                         WellKnownClasses::dalvik_system_PathClassLoader) ||
         self->GetJniEnv()->IsSameObject(loader_class,
@@ -9987,7 +10085,7 @@ jobject ClassLinker::CreateWellKnownClassLoader(Thread* self,
   ScopedObjectAccessUnchecked soa(self);
 
   // For now, create a libcore-level DexFile for each ART DexFile. This "explodes" multidex.
-  StackHandleScope<4> hs(self);
+  StackHandleScope<5> hs(self);
 
   Handle<mirror::Class> h_loader_class =
       hs.NewHandle<mirror::Class>(soa.Decode<mirror::Class>(loader_class));
@@ -9995,13 +10093,16 @@ jobject ClassLinker::CreateWellKnownClassLoader(Thread* self,
       hs.NewHandle<mirror::ClassLoader>(soa.Decode<mirror::ClassLoader>(parent_loader));
   Handle<mirror::ObjectArray<mirror::ClassLoader>> h_shared_libraries =
       hs.NewHandle(soa.Decode<mirror::ObjectArray<mirror::ClassLoader>>(shared_libraries));
+  Handle<mirror::ObjectArray<mirror::ClassLoader>> h_shared_libraries_after =
+        hs.NewHandle(soa.Decode<mirror::ObjectArray<mirror::ClassLoader>>(shared_libraries_after));
 
   ObjPtr<mirror::ClassLoader> loader = CreateWellKnownClassLoader(
       self,
       dex_files,
       h_loader_class,
       h_parent,
-      h_shared_libraries);
+      h_shared_libraries,
+      h_shared_libraries_after);
 
   // Make it a global ref and return.
   ScopedLocalRef<jobject> local_ref(
