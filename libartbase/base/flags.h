@@ -261,7 +261,9 @@ struct Flags {
   // Metric infra flags.
   Flag<bool> WriteMetricsToStatsd{ "metrics.write-to-statsd", false, FlagType::kDeviceConfig};
   Flag<bool> WriteMetricsToLogcat{ "metrics.write-to-logcat", false, FlagType::kCmdlineOnly};
-  Flag<int> MetricsReportingPeriod{"metrics.reporting-period", 0, FlagType::kCmdlineOnly};
+  Flag<std::string> MetricsReportingSpec{"metrics.reporting-spec", "", FlagType::kDeviceConfig};
+  Flag<std::string> MetricsReportingSpecSystemServer{"metrics.reporting-spec-server", "",
+      FlagType::kDeviceConfig};
   Flag<std::string> WriteMetricsToFile{"metrics.write-to-file", "", FlagType::kCmdlineOnly};
 };
 
