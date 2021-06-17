@@ -199,7 +199,7 @@ constexpr CompilationReason CompilationReasonFromName(std::string_view name) {
 
 // SessionData contains metadata about a metrics session (basically the lifetime of an ART process).
 // This information should not change for the lifetime of the session.
-struct SessionData {
+struct  SessionData {
   static SessionData CreateDefault();
 
   static constexpr int64_t kInvalidSessionId = -1;
