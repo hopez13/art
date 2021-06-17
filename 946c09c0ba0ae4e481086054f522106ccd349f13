@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a820e1cf_aea95d87",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-06-17T20:13:39Z",
+      "side": 1,
+      "message": "I\u0027m not really sure the condition here is correct in general (since it\u0027s currently only used in the case of `odrefresh --use-compilation-os`).  Maybe the easiest thing to do is to add a check to exclude non-BCP case, but I don\u0027t know how.  In any case, happy to take any advises.",
+      "range": {
+        "startLine": 744,
+        "startChar": 10,
+        "endLine": 749,
+        "endChar": 61
+      },
+      "revId": "946c09c0ba0ae4e481086054f522106ccd349f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
