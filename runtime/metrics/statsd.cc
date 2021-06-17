@@ -84,6 +84,14 @@ constexpr std::optional<int32_t> EncodeDatumId(DatumId datum_id) {
     case DatumId::kJitMethodCompileCount:
       return std::make_optional(
           statsd::ART_DATUM_REPORTED__KIND__ART_DATUM_JIT_METHOD_COMPILE_COUNT);
+    case DatumId::kYoungGcWorkThroughput:
+      return std::make_optional(
+          statsd::
+              ART_DATUM_REPORTED__KIND__ART_DATUM_GC_YOUNG_HEAP_COLLECTION_WORK_THROUGHPUT_MB_PER_SEC);
+    case DatumId::kFullGcWorkThroughput:
+      return std::make_optional(
+          statsd::
+              ART_DATUM_REPORTED__KIND__ART_DATUM_GC_FULL_HEAP_COLLECTION_WORK_THROUGHPUT_MB_PER_SEC);
   }
 }
 
