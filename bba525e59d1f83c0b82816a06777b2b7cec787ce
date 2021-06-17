@@ -1,0 +1,133 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011894520",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740165?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "9384c24c_b4c9d589",
+          "description": "Change to \"runtime/metrics/reporter.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/metrics/reporter.cc",
+              "range": {
+                "startLine": 192,
+                "startChar": 74,
+                "endLine": 192,
+                "endChar": 85
+              },
+              "replacement": "continuously"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "07b6c0f3_85d9e386",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T22:57:56Z",
+      "side": 1,
+      "message": "Common typo found: \"continuosly\" -- should it be \"continuously\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 192,
+        "startChar": 74,
+        "endLine": 192,
+        "endChar": 85
+      },
+      "revId": "bba525e59d1f83c0b82816a06777b2b7cec787ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011894520",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740165?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "7afd4324_88b3d22c",
+          "description": "Change to \"runtime/metrics/reporter.h\"",
+          "replacements": [
+            {
+              "path": "runtime/metrics/reporter.h",
+              "range": {
+                "startLine": 42,
+                "startChar": 57,
+                "endLine": 42,
+                "endChar": 68
+              },
+              "replacement": "continuously"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "f93a3831_b289209e",
+        "filename": "runtime/metrics/reporter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T22:57:56Z",
+      "side": 1,
+      "message": "Common typo found: \"continuosly\" -- should it be \"continuously\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 42,
+        "startChar": 57,
+        "endLine": 42,
+        "endChar": 68
+      },
+      "revId": "bba525e59d1f83c0b82816a06777b2b7cec787ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000011894520",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1740165?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "85c3aed8_bf0f28ad",
+          "description": "Change to \"runtime/metrics/reporter.h\"",
+          "replacements": [
+            {
+              "path": "runtime/metrics/reporter.h",
+              "range": {
+                "startLine": 47,
+                "startChar": 10,
+                "endLine": 47,
+                "endChar": 18
+              },
+              "replacement": "beginning"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "04d5f3a5_8d2cdd58",
+        "filename": "runtime/metrics/reporter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-17T22:57:56Z",
+      "side": 1,
+      "message": "Common typo found: \"begining\" -- should it be \"beginning\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "bba525e59d1f83c0b82816a06777b2b7cec787ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
