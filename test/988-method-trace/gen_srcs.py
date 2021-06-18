@@ -38,7 +38,8 @@ IDX_METHOD_NAME = -2
 IDX_CLASS_NAME = -3
 
 # Exclude all hidden API.
-KLASS_BLACK_LIST = ['sun.misc.Unsafe', 'libcore.io.Memory', 'java.lang.StringFactory',
+KLASS_BLACK_LIST = ['jdk.internal.misc.Unsafe', 'sun.misc.Unsafe',
+                    'libcore.io.Memory', 'java.lang.StringFactory',
                     'java.lang.invoke.MethodHandle', # invokes are tested by 956-method-handles
                     'java.lang.invoke.VarHandle' ]  # TODO(b/65872996): will tested separately
 METHOD_BLACK_LIST = [('java.lang.ref.Reference', 'getReferent'),
