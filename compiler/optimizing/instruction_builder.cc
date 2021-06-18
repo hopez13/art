@@ -1762,14 +1762,17 @@ bool HInstructionBuilder::BuildSimpleIntrinsic(ArtMethod* method,
       instruction =
           new (allocator_) HArrayLength(/*array=*/ nullptr, dex_pc, /* is_string_length= */ true);
       break;
+    case Intrinsics::kDeprecatedUnsafeLoadFence:
     case Intrinsics::kUnsafeLoadFence:
       receiver_arg = ReceiverArg::kNullCheckedOnly;
       instruction = new (allocator_) HMemoryBarrier(MemBarrierKind::kLoadAny, dex_pc);
       break;
+    case Intrinsics::kDeprecatedUnsafeStoreFence:
     case Intrinsics::kUnsafeStoreFence:
       receiver_arg = ReceiverArg::kNullCheckedOnly;
       instruction = new (allocator_) HMemoryBarrier(MemBarrierKind::kAnyStore, dex_pc);
       break;
+    case Intrinsics::kDeprecatedUnsafeFullFence:
     case Intrinsics::kUnsafeFullFence:
       receiver_arg = ReceiverArg::kNullCheckedOnly;
       instruction = new (allocator_) HMemoryBarrier(MemBarrierKind::kAnyAny, dex_pc);

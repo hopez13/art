@@ -284,8 +284,11 @@ UNREACHABLE_INTRINSIC(Arch, LongSignum)                         \
 UNREACHABLE_INTRINSIC(Arch, StringCharAt)                       \
 UNREACHABLE_INTRINSIC(Arch, StringIsEmpty)                      \
 UNREACHABLE_INTRINSIC(Arch, StringLength)                       \
+UNREACHABLE_INTRINSIC(Arch, DeprecatedUnsafeLoadFence)          \
 UNREACHABLE_INTRINSIC(Arch, UnsafeLoadFence)                    \
+UNREACHABLE_INTRINSIC(Arch, DeprecatedUnsafeStoreFence)         \
 UNREACHABLE_INTRINSIC(Arch, UnsafeStoreFence)                   \
+UNREACHABLE_INTRINSIC(Arch, DeprecatedUnsafeFullFence)          \
 UNREACHABLE_INTRINSIC(Arch, UnsafeFullFence)                    \
 UNREACHABLE_INTRINSIC(Arch, VarHandleFullFence)                 \
 UNREACHABLE_INTRINSIC(Arch, VarHandleAcquireFence)              \

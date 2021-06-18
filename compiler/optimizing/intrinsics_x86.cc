@@ -1725,45 +1725,103 @@ static void CreateIntIntIntToIntLocations(ArenaAllocator* allocator,
   }
 }
 
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafeGet(HInvoke* invoke) {
+  VisitUnsafeGet(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafeGet(HInvoke* invoke) {
   CreateIntIntIntToIntLocations(
       allocator_, invoke, DataType::Type::kInt32, /* is_volatile= */ false);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafeGetVolatile(HInvoke* invoke) {
+  VisitUnsafeGetVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafeGetVolatile(HInvoke* invoke) {
   CreateIntIntIntToIntLocations(allocator_, invoke, DataType::Type::kInt32, /* is_volatile= */ true);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafeGetLong(HInvoke* invoke) {
+  VisitUnsafeGetLong(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafeGetLong(HInvoke* invoke) {
   CreateIntIntIntToIntLocations(
       allocator_, invoke, DataType::Type::kInt64, /* is_volatile= */ false);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafeGetLongVolatile(HInvoke* invoke) {
+  VisitUnsafeGetLongVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafeGetLongVolatile(HInvoke* invoke) {
   CreateIntIntIntToIntLocations(allocator_, invoke, DataType::Type::kInt64, /* is_volatile= */ true);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafeGetObject(HInvoke* invoke) {
+  VisitUnsafeGetObject(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafeGetObject(HInvoke* invoke) {
   CreateIntIntIntToIntLocations(
       allocator_, invoke, DataType::Type::kReference, /* is_volatile= */ false);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafeGetObjectVolatile(HInvoke* invoke) {
+  VisitUnsafeGetObjectVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafeGetObjectVolatile(HInvoke* invoke) {
   CreateIntIntIntToIntLocations(
       allocator_, invoke, DataType::Type::kReference, /* is_volatile= */ true);
 }
 
 
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafeGet(HInvoke* invoke) {
+  VisitUnsafeGet(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafeGet(HInvoke* invoke) {
   GenUnsafeGet(invoke, DataType::Type::kInt32, /* is_volatile= */ false, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafeGetVolatile(HInvoke* invoke) {
+  VisitUnsafeGetVolatile(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafeGetVolatile(HInvoke* invoke) {
   GenUnsafeGet(invoke, DataType::Type::kInt32, /* is_volatile= */ true, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafeGetLong(HInvoke* invoke) {
+  VisitUnsafeGetLong(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafeGetLong(HInvoke* invoke) {
   GenUnsafeGet(invoke, DataType::Type::kInt64, /* is_volatile= */ false, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafeGetLongVolatile(HInvoke* invoke) {
+  VisitUnsafeGetLongVolatile(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafeGetLongVolatile(HInvoke* invoke) {
   GenUnsafeGet(invoke, DataType::Type::kInt64, /* is_volatile= */ true, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafeGetObject(HInvoke* invoke) {
+  VisitUnsafeGetObject(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafeGetObject(HInvoke* invoke) {
   GenUnsafeGet(invoke, DataType::Type::kReference, /* is_volatile= */ false, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafeGetObjectVolatile(HInvoke* invoke) {
+  VisitUnsafeGetObjectVolatile(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafeGetObjectVolatile(HInvoke* invoke) {
   GenUnsafeGet(invoke, DataType::Type::kReference, /* is_volatile= */ true, codegen_);
 }
@@ -1790,38 +1848,82 @@ static void CreateIntIntIntIntToVoidPlusTempsLocations(ArenaAllocator* allocator
   }
 }
 
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafePut(HInvoke* invoke) {
+  VisitUnsafePut(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafePut(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kInt32, invoke, /* is_volatile= */ false);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafePutOrdered(HInvoke* invoke) {
+  VisitUnsafePutOrdered(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafePutOrdered(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kInt32, invoke, /* is_volatile= */ false);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafePutVolatile(HInvoke* invoke) {
+  VisitUnsafePutVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafePutVolatile(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kInt32, invoke, /* is_volatile= */ true);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafePutObject(HInvoke* invoke) {
+  VisitUnsafePutObject(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafePutObject(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kReference, invoke, /* is_volatile= */ false);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafePutObjectOrdered(HInvoke* invoke) {
+  VisitUnsafePutObjectOrdered(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafePutObjectOrdered(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kReference, invoke, /* is_volatile= */ false);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafePutObjectVolatile(HInvoke* invoke) {
+  VisitUnsafePutObjectVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafePutObjectVolatile(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kReference, invoke, /* is_volatile= */ true);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafePutLong(HInvoke* invoke) {
+  VisitUnsafePutLong(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafePutLong(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kInt64, invoke, /* is_volatile= */ false);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafePutLongOrdered(HInvoke* invoke) {
+  VisitUnsafePutLongOrdered(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafePutLongOrdered(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kInt64, invoke, /* is_volatile= */ false);
 }
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafePutLongVolatile(HInvoke* invoke) {
+  VisitUnsafePutLongVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafePutLongVolatile(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kInt64, invoke, /* is_volatile= */ true);
@@ -1875,33 +1977,77 @@ static void GenUnsafePut(LocationSummary* locations,
   }
 }
 
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafePut(HInvoke* invoke) {
+  VisitUnsafePut(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafePut(HInvoke* invoke) {
   GenUnsafePut(invoke->GetLocations(), DataType::Type::kInt32, /* is_volatile= */ false, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafePutOrdered(HInvoke* invoke) {
+  VisitUnsafePutOrdered(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafePutOrdered(HInvoke* invoke) {
   GenUnsafePut(invoke->GetLocations(), DataType::Type::kInt32, /* is_volatile= */ false, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafePutVolatile(HInvoke* invoke) {
+  VisitUnsafePutVolatile(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafePutVolatile(HInvoke* invoke) {
   GenUnsafePut(invoke->GetLocations(), DataType::Type::kInt32, /* is_volatile= */ true, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafePutObject(HInvoke* invoke) {
+  VisitUnsafePutObject(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafePutObject(HInvoke* invoke) {
   GenUnsafePut(
       invoke->GetLocations(), DataType::Type::kReference, /* is_volatile= */ false, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafePutObjectOrdered(HInvoke* invoke) {
+  VisitUnsafePutObjectOrdered(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafePutObjectOrdered(HInvoke* invoke) {
   GenUnsafePut(
       invoke->GetLocations(), DataType::Type::kReference, /* is_volatile= */ false, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafePutObjectVolatile(HInvoke* invoke) {
+  VisitUnsafePutObjectVolatile(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafePutObjectVolatile(HInvoke* invoke) {
   GenUnsafePut(
       invoke->GetLocations(), DataType::Type::kReference, /* is_volatile= */ true, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafePutLong(HInvoke* invoke) {
+  VisitUnsafePutLong(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafePutLong(HInvoke* invoke) {
   GenUnsafePut(invoke->GetLocations(), DataType::Type::kInt64, /* is_volatile= */ false, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafePutLongOrdered(HInvoke* invoke) {
+  VisitUnsafePutLongOrdered(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafePutLongOrdered(HInvoke* invoke) {
   GenUnsafePut(invoke->GetLocations(), DataType::Type::kInt64, /* is_volatile= */ false, codegen_);
 }
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafePutLongVolatile(HInvoke* invoke) {
+  VisitUnsafePutLongVolatile(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafePutLongVolatile(HInvoke* invoke) {
   GenUnsafePut(invoke->GetLocations(), DataType::Type::kInt64, /* is_volatile= */ true, codegen_);
 }
@@ -1944,12 +2090,24 @@ static void CreateIntIntIntIntIntToInt(ArenaAllocator* allocator,
   }
 }
 
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafeCASInt(HInvoke* invoke) {
+  VisitUnsafeCASInt(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafeCASInt(HInvoke* invoke) {
   CreateIntIntIntIntIntToInt(allocator_, DataType::Type::kInt32, invoke);
 }
 
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafeCASLong(HInvoke* invoke) {
+  VisitUnsafeCASLong(invoke);
+}
+
 void IntrinsicLocationsBuilderX86::VisitUnsafeCASLong(HInvoke* invoke) {
   CreateIntIntIntIntIntToInt(allocator_, DataType::Type::kInt64, invoke);
+}
+
+void IntrinsicLocationsBuilderX86::VisitDeprecatedUnsafeCASObject(HInvoke* invoke) {
+  VisitUnsafeCASObject(invoke);
 }
 
 void IntrinsicLocationsBuilderX86::VisitUnsafeCASObject(HInvoke* invoke) {
@@ -2182,12 +2340,24 @@ static void GenCAS(DataType::Type type, HInvoke* invoke, CodeGeneratorX86* codeg
   }
 }
 
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafeCASInt(HInvoke* invoke) {
+  VisitUnsafeCASInt(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafeCASInt(HInvoke* invoke) {
   GenCAS(DataType::Type::kInt32, invoke, codegen_);
 }
 
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafeCASLong(HInvoke* invoke) {
+  VisitUnsafeCASLong(invoke);
+}
+
 void IntrinsicCodeGeneratorX86::VisitUnsafeCASLong(HInvoke* invoke) {
   GenCAS(DataType::Type::kInt64, invoke, codegen_);
+}
+
+void IntrinsicCodeGeneratorX86::VisitDeprecatedUnsafeCASObject(HInvoke* invoke) {
+  VisitUnsafeCASObject(invoke);
 }
 
 void IntrinsicCodeGeneratorX86::VisitUnsafeCASObject(HInvoke* invoke) {
@@ -4635,10 +4805,15 @@ UNIMPLEMENTED_INTRINSIC(X86, StringBuilderLength);
 UNIMPLEMENTED_INTRINSIC(X86, StringBuilderToString);
 
 // 1.8.
+UNIMPLEMENTED_INTRINSIC(X86, DeprecatedUnsafeGetAndAddInt)
 UNIMPLEMENTED_INTRINSIC(X86, UnsafeGetAndAddInt)
+UNIMPLEMENTED_INTRINSIC(X86, DeprecatedUnsafeGetAndAddLong)
 UNIMPLEMENTED_INTRINSIC(X86, UnsafeGetAndAddLong)
+UNIMPLEMENTED_INTRINSIC(X86, DeprecatedUnsafeGetAndSetInt)
 UNIMPLEMENTED_INTRINSIC(X86, UnsafeGetAndSetInt)
+UNIMPLEMENTED_INTRINSIC(X86, DeprecatedUnsafeGetAndSetLong)
 UNIMPLEMENTED_INTRINSIC(X86, UnsafeGetAndSetLong)
+UNIMPLEMENTED_INTRINSIC(X86, DeprecatedUnsafeGetAndSetObject)
 UNIMPLEMENTED_INTRINSIC(X86, UnsafeGetAndSetObject)
 
 UNIMPLEMENTED_INTRINSIC(X86, MethodHandleInvokeExact)

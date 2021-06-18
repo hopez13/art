@@ -2842,8 +2842,16 @@ static void GenUnsafeGet(HInvoke* invoke,
                        /*maybe_temp3=*/ Location::NoLocation());
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafeGet(HInvoke* invoke) {
+  VisitUnsafeGet(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeGet(HInvoke* invoke) {
   CreateUnsafeGetLocations(invoke, codegen_, DataType::Type::kInt32, /*atomic=*/ false);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafeGet(HInvoke* invoke) {
+  VisitUnsafeGet(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGet(HInvoke* invoke) {
@@ -2851,8 +2859,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGet(HInvoke* invoke) {
       invoke, codegen_, DataType::Type::kInt32, std::memory_order_relaxed, /*atomic=*/ false);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafeGetVolatile(HInvoke* invoke) {
+  VisitUnsafeGetVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeGetVolatile(HInvoke* invoke) {
   CreateUnsafeGetLocations(invoke, codegen_, DataType::Type::kInt32, /*atomic=*/ true);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafeGetVolatile(HInvoke* invoke) {
+  VisitUnsafeGetVolatile(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGetVolatile(HInvoke* invoke) {
@@ -2860,8 +2876,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGetVolatile(HInvoke* invoke) {
       invoke, codegen_, DataType::Type::kInt32, std::memory_order_seq_cst, /*atomic=*/ true);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafeGetLong(HInvoke* invoke) {
+  VisitUnsafeGetLong(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeGetLong(HInvoke* invoke) {
   CreateUnsafeGetLocations(invoke, codegen_, DataType::Type::kInt64, /*atomic=*/ false);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafeGetLong(HInvoke* invoke) {
+  VisitUnsafeGetLong(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGetLong(HInvoke* invoke) {
@@ -2869,8 +2893,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGetLong(HInvoke* invoke) {
       invoke, codegen_, DataType::Type::kInt64, std::memory_order_relaxed, /*atomic=*/ false);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafeGetLongVolatile(HInvoke* invoke) {
+  VisitUnsafeGetLongVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeGetLongVolatile(HInvoke* invoke) {
   CreateUnsafeGetLocations(invoke, codegen_, DataType::Type::kInt64, /*atomic=*/ true);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafeGetLongVolatile(HInvoke* invoke) {
+  VisitUnsafeGetLongVolatile(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGetLongVolatile(HInvoke* invoke) {
@@ -2878,8 +2910,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGetLongVolatile(HInvoke* invoke) 
       invoke, codegen_, DataType::Type::kInt64, std::memory_order_seq_cst, /*atomic=*/ true);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafeGetObject(HInvoke* invoke) {
+  VisitUnsafeGetObject(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeGetObject(HInvoke* invoke) {
   CreateUnsafeGetLocations(invoke, codegen_, DataType::Type::kReference, /*atomic=*/ false);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafeGetObject(HInvoke* invoke) {
+  VisitUnsafeGetObject(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGetObject(HInvoke* invoke) {
@@ -2887,8 +2927,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGetObject(HInvoke* invoke) {
       invoke, codegen_, DataType::Type::kReference, std::memory_order_relaxed, /*atomic=*/ false);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafeGetObjectVolatile(HInvoke* invoke) {
+  VisitUnsafeGetObjectVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeGetObjectVolatile(HInvoke* invoke) {
   CreateUnsafeGetLocations(invoke, codegen_, DataType::Type::kReference, /*atomic=*/ true);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafeGetObjectVolatile(HInvoke* invoke) {
+  VisitUnsafeGetObjectVolatile(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeGetObjectVolatile(HInvoke* invoke) {
@@ -3045,8 +3093,16 @@ static void GenUnsafePut(HInvoke* invoke,
   }
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafePut(HInvoke* invoke) {
+  VisitUnsafePut(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafePut(HInvoke* invoke) {
   CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kInt32, /*atomic=*/ false);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafePut(HInvoke* invoke) {
+  VisitUnsafePut(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePut(HInvoke* invoke) {
@@ -3057,8 +3113,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePut(HInvoke* invoke) {
                codegen_);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafePutOrdered(HInvoke* invoke) {
+  VisitUnsafePutOrdered(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafePutOrdered(HInvoke* invoke) {
   CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kInt32, /*atomic=*/ true);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafePutOrdered(HInvoke* invoke) {
+  VisitUnsafePutOrdered(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutOrdered(HInvoke* invoke) {
@@ -3069,8 +3133,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutOrdered(HInvoke* invoke) {
                codegen_);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafePutVolatile(HInvoke* invoke) {
+  VisitUnsafePutVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafePutVolatile(HInvoke* invoke) {
   CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kInt32, /*atomic=*/ true);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafePutVolatile(HInvoke* invoke) {
+  VisitUnsafePutVolatile(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutVolatile(HInvoke* invoke) {
@@ -3080,8 +3152,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutVolatile(HInvoke* invoke) {
                /*atomic=*/ true,
                codegen_);
 }
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafePutObject(HInvoke* invoke) {
+  VisitUnsafePutObject(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafePutObject(HInvoke* invoke) {
   CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kReference, /*atomic=*/ false);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafePutObject(HInvoke* invoke) {
+  VisitUnsafePutObject(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutObject(HInvoke* invoke) {
@@ -3092,8 +3172,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutObject(HInvoke* invoke) {
                codegen_);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafePutObjectOrdered(HInvoke* invoke) {
+  VisitUnsafePutObjectOrdered(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafePutObjectOrdered(HInvoke* invoke) {
   CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kReference, /*atomic=*/ true);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafePutObjectOrdered(HInvoke* invoke) {
+  VisitUnsafePutObjectOrdered(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutObjectOrdered(HInvoke* invoke) {
@@ -3104,8 +3192,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutObjectOrdered(HInvoke* invoke)
                codegen_);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafePutObjectVolatile(HInvoke* invoke) {
+  VisitUnsafePutObjectVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafePutObjectVolatile(HInvoke* invoke) {
   CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kReference, /*atomic=*/ true);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafePutObjectVolatile(HInvoke* invoke) {
+  VisitUnsafePutObjectVolatile(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutObjectVolatile(HInvoke* invoke) {
@@ -3116,8 +3212,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutObjectVolatile(HInvoke* invoke
                codegen_);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafePutLong(HInvoke* invoke) {
+  VisitUnsafePutLong(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafePutLong(HInvoke* invoke) {
   CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kInt64, /*atomic=*/ false);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafePutLong(HInvoke* invoke) {
+  VisitUnsafePutLong(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutLong(HInvoke* invoke) {
@@ -3128,8 +3232,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutLong(HInvoke* invoke) {
                codegen_);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafePutLongOrdered(HInvoke* invoke) {
+  VisitUnsafePutLongOrdered(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafePutLongOrdered(HInvoke* invoke) {
   CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kInt64, /*atomic=*/ true);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafePutLongOrdered(HInvoke* invoke) {
+  VisitUnsafePutLongOrdered(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutLongOrdered(HInvoke* invoke) {
@@ -3140,8 +3252,16 @@ void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutLongOrdered(HInvoke* invoke) {
                codegen_);
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafePutLongVolatile(HInvoke* invoke) {
+  VisitUnsafePutLongVolatile(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafePutLongVolatile(HInvoke* invoke) {
   CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kInt64, /*atomic=*/ true);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafePutLongVolatile(HInvoke* invoke) {
+  VisitUnsafePutLongVolatile(invoke);
 }
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafePutLongVolatile(HInvoke* invoke) {
@@ -3550,9 +3670,18 @@ static void GenUnsafeCas(HInvoke* invoke, DataType::Type type, CodeGeneratorARMV
   }
 }
 
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafeCASInt(HInvoke* invoke) {
+  VisitUnsafeCASInt(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeCASInt(HInvoke* invoke) {
   CreateUnsafeCASLocations(allocator_, invoke);
 }
+
+void IntrinsicLocationsBuilderARMVIXL::VisitDeprecatedUnsafeCASObject(HInvoke* invoke) {
+  VisitUnsafeCASObject(invoke);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeCASObject(HInvoke* invoke) {
   // The only read barrier implementation supporting the
   // UnsafeCASObject intrinsic is the Baker-style read barriers. b/173104084
@@ -3562,9 +3691,19 @@ void IntrinsicLocationsBuilderARMVIXL::VisitUnsafeCASObject(HInvoke* invoke) {
 
   CreateUnsafeCASLocations(allocator_, invoke);
 }
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafeCASInt(HInvoke* invoke) {
+  VisitUnsafeCASInt(invoke);
+}
+
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeCASInt(HInvoke* invoke) {
   GenUnsafeCas(invoke, DataType::Type::kInt32, codegen_);
 }
+
+void IntrinsicCodeGeneratorARMVIXL::VisitDeprecatedUnsafeCASObject(HInvoke* invoke) {
+  VisitUnsafeCASObject(invoke);
+}
+
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeCASObject(HInvoke* invoke) {
   GenUnsafeCas(invoke, DataType::Type::kReference, codegen_);
 }
@@ -5356,6 +5495,7 @@ void VarHandleSlowPathARMVIXL::EmitByteArrayViewCode(CodeGenerator* codegen_in) 
 }
 
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathRoundDouble)   // Could be done by changing rounding mode, maybe?
+UNIMPLEMENTED_INTRINSIC(ARMVIXL, DeprecatedUnsafeCASLong)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, UnsafeCASLong)     // High register pressure.
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, SystemArrayCopyChar)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, LongDivideUnsigned)
@@ -5392,10 +5532,15 @@ UNIMPLEMENTED_INTRINSIC(ARMVIXL, StringBuilderLength);
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, StringBuilderToString);
 
 // 1.8.
+UNIMPLEMENTED_INTRINSIC(ARMVIXL, DeprecatedUnsafeGetAndAddInt)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, UnsafeGetAndAddInt)
+UNIMPLEMENTED_INTRINSIC(ARMVIXL, DeprecatedUnsafeGetAndAddLong)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, UnsafeGetAndAddLong)
+UNIMPLEMENTED_INTRINSIC(ARMVIXL, DeprecatedUnsafeGetAndSetInt)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, UnsafeGetAndSetInt)
+UNIMPLEMENTED_INTRINSIC(ARMVIXL, DeprecatedUnsafeGetAndSetLong)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, UnsafeGetAndSetLong)
+UNIMPLEMENTED_INTRINSIC(ARMVIXL, DeprecatedUnsafeGetAndSetObject)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, UnsafeGetAndSetObject)
 
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, MethodHandleInvokeExact)

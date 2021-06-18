@@ -2820,8 +2820,11 @@ void InstructionSimplifierVisitor::VisitInvoke(HInvoke* instruction) {
     case Intrinsics::kFloatIsNaN:
     case Intrinsics::kDoubleIsNaN:
     case Intrinsics::kStringIsEmpty:
+    case Intrinsics::kDeprecatedUnsafeLoadFence:
     case Intrinsics::kUnsafeLoadFence:
+    case Intrinsics::kDeprecatedUnsafeStoreFence:
     case Intrinsics::kUnsafeStoreFence:
+    case Intrinsics::kDeprecatedUnsafeFullFence:
     case Intrinsics::kUnsafeFullFence:
     case Intrinsics::kVarHandleFullFence:
     case Intrinsics::kVarHandleAcquireFence:
