@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62163ca6_e6b24893",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1835,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-18T08:21:30Z",
+      "side": 1,
+      "message": "I think you can drop all this:\n- For Go, compile_individually_ is set, so before, we would always do it. Your change now makes it dependent on other things, which could introduce regressions.\n- On non-Go, compile_individually_ is not set, so before, it\u0027s that set of conditions that would make it happen. Your \u0027\u0026\u0026\u0027 makes it that the set of conditions is now unused.",
+      "range": {
+        "startLine": 1831,
+        "startChar": 33,
+        "endLine": 1835,
+        "endChar": 3
+      },
+      "revId": "c7ec2ca018f951b2bc65e99b27eab991da200097",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
