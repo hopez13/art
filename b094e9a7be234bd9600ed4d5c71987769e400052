@@ -226,6 +226,30 @@
       },
       "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bc20450_cfc57862",
+        "filename": "runtime/gc/collector/garbage_collector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-18T17:29:20Z",
+      "side": 1,
+      "message": "You can dump metrics in a file and in logcat. So you can query them there. We should also integrate them in LAB, but that\u0027s not done yet either. The timeline is TBD right now.\n\n+rpl fyi",
+      "parentUuid": "63204a92_e52f0cee",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 9
+      },
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
