@@ -147,6 +147,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df0e663e_1c217e7e",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-18T17:23:31Z",
+      "side": 1,
+      "message": "bytes_moved_gc_thread_ was never atomic. It is only accessed by gc-thread.\n\nI modified cumulative_bytes/objects_moved_ from atomic to not-atomic. And the reason was because it\u0027s only accessed by GC-thread as well. All the four of them are only accessed by GC thread, and hence in the comment I said \"Used by GC thread\". I\u0027ll add \u0027only\u0027 to it in the next patch 😊",
+      "parentUuid": "31b90e4b_d9abfcbe",
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2238c5d6_df23b1f5",
         "filename": "runtime/gc/collector/garbage_collector.h",
         "patchSetId": 2
@@ -158,6 +176,30 @@
       "writtenOn": "2021-06-18T08:30:51Z",
       "side": 1,
       "message": "why is this int64 and not uint64?",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 9
+      },
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63204a92_e52f0cee",
+        "filename": "runtime/gc/collector/garbage_collector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-18T17:23:31Z",
+      "side": 1,
+      "message": "I\u0027ll have to check but maybe because given that we have concurrent GCs, the simultaneous allocations could be higher than freed-bytes. If it can be unsigned then I\u0027ll change in next patch.",
+      "parentUuid": "2238c5d6_df23b1f5",
       "range": {
         "startLine": 170,
         "startChar": 2,
