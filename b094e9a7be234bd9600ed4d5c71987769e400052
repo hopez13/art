@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b682ecb_ed909610",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-18T21:23:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2827a46b_c24c9e4b",
+      "range": {
+        "startLine": 12,
+        "startChar": 57,
+        "endLine": 12,
+        "endChar": 61
+      },
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a905d37f_be5b9fd9",
@@ -60,6 +84,54 @@
       "writtenOn": "2021-06-18T08:30:51Z",
       "side": 1,
       "message": "histogram",
+      "range": {
+        "startLine": 14,
+        "startChar": 13,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a2d9138_f9dff52d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-18T21:23:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a905d37f_be5b9fd9",
+      "range": {
+        "startLine": 14,
+        "startChar": 53,
+        "endLine": 14,
+        "endChar": 64
+      },
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7234a4f_3cb3e477",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-18T21:23:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1e6ae93_8ded4a9a",
       "range": {
         "startLine": 14,
         "startChar": 13,
@@ -128,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "558c8501_a0e3d4cf",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-18T21:23:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a657685_558862b4",
+      "range": {
+        "startLine": 436,
+        "startChar": 59,
+        "endLine": 436,
+        "endChar": 66
+      },
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2347b8f_980dfabe",
@@ -177,6 +273,24 @@
       "side": 1,
       "message": "bytes_moved_gc_thread_ was never atomic. It is only accessed by gc-thread.\n\nI modified cumulative_bytes/objects_moved_ from atomic to not-atomic. And the reason was because it\u0027s only accessed by GC-thread as well. All the four of them are only accessed by GC thread, and hence in the comment I said \"Used by GC thread\". I\u0027ll add \u0027only\u0027 to it in the next patch 😊",
       "parentUuid": "31b90e4b_d9abfcbe",
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4dc86f3_f73fb0fc",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-18T21:23:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df0e663e_1c217e7e",
       "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -242,6 +356,30 @@
       "side": 1,
       "message": "You can dump metrics in a file and in logcat. So you can query them there. We should also integrate them in LAB, but that\u0027s not done yet either. The timeline is TBD right now.\n\n+rpl fyi",
       "parentUuid": "63204a92_e52f0cee",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 9
+      },
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47dc2ade_c28fad51",
+        "filename": "runtime/gc/collector/garbage_collector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-18T21:23:50Z",
+      "side": 1,
+      "message": "As per a comment in runtime/gc/collector/object_byte_pair.h:\n\n\"Freed bytes are signed since the GC can free negative bytes if it promotes objects to a space which has a larger allocation size.\"\n\nSo it makes sense to have total_freed_bytes_ as signed.",
+      "parentUuid": "2bc20450_cfc57862",
       "range": {
         "startLine": 170,
         "startChar": 2,
