@@ -218,8 +218,12 @@ enum class ProfileCompilationInfo::FileSectionType : uint32_t {
   // Methods included in the profile, their hotness flags and inline caches.
   kMethods = 3,
 
+  // The aggregation counts of the profile, classes and methods. This section is
+  // an optional reserved section not implemented on client yet.
+  kAggregationCounts = 4,
+
   // The number of known sections.
-  kNumberOfSections = 4
+  kNumberOfSections = 5
 };
 
 class ProfileCompilationInfo::FileSectionInfo {
@@ -874,6 +878,7 @@ static bool WriteBuffer(int fd, const void* buffer, size_t byte_count) {
  *   ExtraDescriptors - optional, zipped
  *   Classes - optional, zipped
  *   Methods - optional, zipped
+ *   AggregationCounts - optional, zipped, server-side
  *
  * DexFiles:
  *    number_of_dex_files
@@ -912,6 +917,19 @@ static bool WriteBuffer(int fd, const void* buffer, size_t byte_count) {
  *    type_index_diff[dex_map_size]
  * where `M` stands for special encodings indicating missing types (kIsMissingTypesEncoding)
  * or memamorphic call (kIsMegamorphicEncoding) which both imply `dex_map_size == 0`.
+ *
+ * AggregationCounts contains aggregation count for the profile/classes/methods.
+ *   uint16 profile_aggregation_count
+ *   uint16 aggregation_count_for_each_dex_file_size
+ *   aggregation_count_for_each_dex_file[]
+ *
+ *   The format of aggregation_count_for_each_dex_file is:
+ *     uint16 profile_index
+ *     uint16 class_aggregation_count_size
+ *     uint16 class_aggregation_count[]
+ *     uint16 method_aggregation_count_size
+ *     uint16 method_aggregation_count[]
+ *   The aggregation count for classes/methods are in the ascending order of their indices.
  **/
 bool ProfileCompilationInfo::Save(int fd) {
   uint64_t start = NanoTime();
