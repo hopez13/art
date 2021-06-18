@@ -144,6 +144,7 @@
 #include "native/org_apache_harmony_dalvik_ddmc_DdmServer.h"
 #include "native/org_apache_harmony_dalvik_ddmc_DdmVmInternal.h"
 #include "native/sun_misc_Unsafe.h"
+#include "native/jdk_internal_misc_Unsafe.h"
 #include "native_bridge_art_interface.h"
 #include "native_stack_dump.h"
 #include "nativehelper/scoped_local_ref.h"
@@ -2188,6 +2189,7 @@ void Runtime::RegisterRuntimeNativeMethods(JNIEnv* env) {
   register_org_apache_harmony_dalvik_ddmc_DdmServer(env);
   register_org_apache_harmony_dalvik_ddmc_DdmVmInternal(env);
   register_sun_misc_Unsafe(env);
+  register_jdk_internal_misc_Unsafe(env);
 }
 
 std::ostream& operator<<(std::ostream& os, const DeoptimizationKind& kind) {
