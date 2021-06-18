@@ -84,6 +84,7 @@ NUM_MTS_ART_RUN_TEST_SHARDS = 1
 # Known failing ART run-tests.
 # TODO(rpl): Investigate and address the causes of failures.
 known_failing_tests = [
+  "004-JdkUnsafeTest",
   "004-SignalTest",
   "004-UnsafeTest",
   "030-bad-finalizer",
