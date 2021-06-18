@@ -22,6 +22,30 @@
       },
       "revId": "c7ec2ca018f951b2bc65e99b27eab991da200097",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1b9b239_10aee6f8",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1835,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-18T14:38:32Z",
+      "side": 1,
+      "message": "The only diff is that on Go, we would not have set compile_individually_ which was never used.\n\nSo by removing the rest we would always force the individual compilation.",
+      "parentUuid": "62163ca6_e6b24893",
+      "range": {
+        "startLine": 1831,
+        "startChar": 33,
+        "endLine": 1835,
+        "endChar": 3
+      },
+      "revId": "c7ec2ca018f951b2bc65e99b27eab991da200097",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
