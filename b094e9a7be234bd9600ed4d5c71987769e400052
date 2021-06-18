@@ -72,6 +72,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a51b0fd2_4c6f1df3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-18T15:29:03Z",
+      "side": 1,
+      "message": "Note that right now statsd histograms are not implemented. So no histograms will be reported :( ",
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a657685_558862b4",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-18T15:29:03Z",
+      "side": 1,
+      "message": "missing a \u0027.\u0027 at the end.",
+      "range": {
+        "startLine": 436,
+        "startChar": 59,
+        "endLine": 436,
+        "endChar": 66
+      },
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2347b8f_980dfabe",
         "filename": "runtime/gc/collector/concurrent_copying.h",
         "patchSetId": 2
@@ -83,6 +123,24 @@
       "writtenOn": "2021-06-18T08:30:51Z",
       "side": 1,
       "message": "Add a note on why they are not atomic (anymore)?",
+      "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31b90e4b_d9abfcbe",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-18T15:29:03Z",
+      "side": 1,
+      "message": "Could that be a problem?",
+      "parentUuid": "a2347b8f_980dfabe",
       "revId": "b094e9a7be234bd9600ed4d5c71987769e400052",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
