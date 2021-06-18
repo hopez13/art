@@ -848,6 +848,7 @@ cc_defaults {
         "art_defaults",
     ],
     srcs: [
+        "004-JdkUnsafeTest/unsafe_test.cc",
         "004-JniTest/jni_test.cc",
         "004-ReferenceMap/stack_walk_refmap_jni.cc",
         "004-SignalTest/signaltest.cc",
