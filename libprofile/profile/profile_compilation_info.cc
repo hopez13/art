@@ -218,8 +218,12 @@ enum class ProfileCompilationInfo::FileSectionType : uint32_t {
   // Methods included in the profile, their hotness flags and inline caches.
   kMethods = 3,
 
+  // The aggregation counts of the profile, classes and methods. This section is
+  // an optional reserved section not implemented on client yet.
+  kAggregationCounts = 4,
+
   // The number of known sections.
-  kNumberOfSections = 4
+  kNumberOfSections = 5
 };
 
 class ProfileCompilationInfo::FileSectionInfo {
@@ -874,6 +878,7 @@ static bool WriteBuffer(int fd, const void* buffer, size_t byte_count) {
  *   ExtraDescriptors - optional, zipped
  *   Classes - optional, zipped
  *   Methods - optional, zipped
+ *   AggregationCounts - optional, zipped, server-side
  *
  * DexFiles:
  *    number_of_dex_files
@@ -912,6 +917,9 @@ static bool WriteBuffer(int fd, const void* buffer, size_t byte_count) {
  *    type_index_diff[dex_map_size]
  * where `M` stands for special encodings indicating missing types (kIsMissingTypesEncoding)
  * or memamorphic call (kIsMegamorphicEncoding) which both imply `dex_map_size == 0`.
+ *
+ * AggregationCounts contains aggregation count for the profile/classes/methods.
+ * It's reserved on server side.
  **/
 bool ProfileCompilationInfo::Save(int fd) {
   uint64_t start = NanoTime();
@@ -1791,6 +1799,9 @@ ProfileCompilationInfo::ProfileLoadStatus ProfileCompilationInfo::LoadInternal(
           status = ReadMethodsSection(
               *source, section_info, dex_profile_index_remap, extra_descriptors_remap, error);
         }
+        break;
+      case FileSectionType::kAggregationCounts:
+        // This section is only used on server side.
         break;
       default:
         // Unknown section. Skip it. New versions of ART are allowed
