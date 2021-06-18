@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "sun_misc_Unsafe.h"
+#include "jdk_internal_misc_Unsafe.h"
 
 #include <unistd.h>
 
@@ -609,8 +609,8 @@ static JNINativeMethod gMethods[] = {
   FAST_NATIVE_METHOD(Unsafe, fullFence, "()V"),
 };
 
-void register_sun_misc_Unsafe(JNIEnv* env) {
-  REGISTER_NATIVE_METHODS("sun/misc/Unsafe");
+void register_jdk_internal_misc_Unsafe(JNIEnv* env) {
+  REGISTER_NATIVE_METHODS("jdk/internal/misc/Unsafe");
 }
 
 }  // namespace art

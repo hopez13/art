@@ -1747,6 +1747,10 @@ void IntrinsicLocationsBuilderX86::VisitUnsafeGetObjectVolatile(HInvoke* invoke)
   CreateIntIntIntToIntLocations(
       allocator_, invoke, DataType::Type::kReference, /* is_volatile= */ true);
 }
+void IntrinsicLocationsBuilderX86::VisitUnsafeGetInt(HInvoke* invoke) {
+  CreateIntIntIntToIntLocations(
+      allocator_, invoke, DataType::Type::kInt32, /* is_volatile= */ false);
+}
 
 
 void IntrinsicCodeGeneratorX86::VisitUnsafeGet(HInvoke* invoke) {
@@ -1766,6 +1770,9 @@ void IntrinsicCodeGeneratorX86::VisitUnsafeGetObject(HInvoke* invoke) {
 }
 void IntrinsicCodeGeneratorX86::VisitUnsafeGetObjectVolatile(HInvoke* invoke) {
   GenUnsafeGet(invoke, DataType::Type::kReference, /* is_volatile= */ true, codegen_);
+}
+void IntrinsicCodeGeneratorX86::VisitUnsafeGetInt(HInvoke* invoke) {
+  GenUnsafeGet(invoke, DataType::Type::kInt32, /* is_volatile= */ false, codegen_);
 }
 
 

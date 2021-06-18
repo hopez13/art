@@ -333,7 +333,7 @@ static ALWAYS_INLINE bool name(ShadowFrame* shadow_frame ATTRIBUTE_UNUSED, \
   return true;                                                             \
 }
 
-// The VarHandle fence methods are static (unlike sun.misc.Unsafe versions).
+// The VarHandle fence methods are static (unlike jdk.internal.misc.Unsafe versions).
 // The fences for the LoadLoadFence and StoreStoreFence are stronger
 // than strictly required, but the impact should be marginal.
 VARHANDLE_FENCE_INTRINSIC(MterpVarHandleFullFence, std::memory_order_seq_cst)
@@ -552,6 +552,7 @@ bool MterpHandleIntrinsic(ShadowFrame* shadow_frame,
     UNIMPLEMENTED_CASE(UnsafeGetObject /* (Ljava/lang/Object;J)Ljava/lang/Object; */)
     UNIMPLEMENTED_CASE(UnsafeGetObjectVolatile /* (Ljava/lang/Object;J)Ljava/lang/Object; */)
     UNIMPLEMENTED_CASE(UnsafeGetLong /* (Ljava/lang/Object;J)J */)
+    UNIMPLEMENTED_CASE(UnsafeGetInt /* (Ljava/lang/Object;J)J */)
     UNIMPLEMENTED_CASE(UnsafeGetLongVolatile /* (Ljava/lang/Object;J)J */)
     UNIMPLEMENTED_CASE(UnsafePut /* (Ljava/lang/Object;JI)V */)
     UNIMPLEMENTED_CASE(UnsafePutOrdered /* (Ljava/lang/Object;JI)V */)

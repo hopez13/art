@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_NATIVE_SUN_MISC_UNSAFE_H_
-#define ART_RUNTIME_NATIVE_SUN_MISC_UNSAFE_H_
+#ifndef ART_RUNTIME_NATIVE_JDK_INTERNAL_MISC_UNSAFE_H_
+#define ART_RUNTIME_NATIVE_JDK_INTERNAL_MISC_UNSAFE_H_
 
 #include <jni.h>
 
 namespace art {
 
-void register_sun_misc_Unsafe(JNIEnv* env);
+void register_jdk_internal_misc_Unsafe(JNIEnv* env);
 
 }  // namespace art
 
-#endif  // ART_RUNTIME_NATIVE_SUN_MISC_UNSAFE_H_
+#endif  // ART_RUNTIME_NATIVE_JDK_INTERNAL_MISC_UNSAFE_H_
