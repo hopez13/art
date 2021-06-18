@@ -299,25 +299,45 @@ ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtMethod* method)
       case Intrinsics::kMemoryPokeIntNative:
       case Intrinsics::kMemoryPokeLongNative:
       case Intrinsics::kMemoryPokeShortNative:
+      case Intrinsics::kDeprecatedUnsafeCASInt:
       case Intrinsics::kUnsafeCASInt:
+      case Intrinsics::kDeprecatedUnsafeCASLong:
       case Intrinsics::kUnsafeCASLong:
+      case Intrinsics::kDeprecatedUnsafeCASObject:
       case Intrinsics::kUnsafeCASObject:
+      case Intrinsics::kDeprecatedUnsafeGetAndAddInt:
       case Intrinsics::kUnsafeGetAndAddInt:
+      case Intrinsics::kDeprecatedUnsafeGetAndAddLong:
       case Intrinsics::kUnsafeGetAndAddLong:
+      case Intrinsics::kDeprecatedUnsafeGetAndSetInt:
       case Intrinsics::kUnsafeGetAndSetInt:
+      case Intrinsics::kDeprecatedUnsafeGetAndSetLong:
       case Intrinsics::kUnsafeGetAndSetLong:
+      case Intrinsics::kDeprecatedUnsafeGetAndSetObject:
       case Intrinsics::kUnsafeGetAndSetObject:
+      case Intrinsics::kDeprecatedUnsafeGetLongVolatile:
       case Intrinsics::kUnsafeGetLongVolatile:
+      case Intrinsics::kDeprecatedUnsafeGetObjectVolatile:
       case Intrinsics::kUnsafeGetObjectVolatile:
+      case Intrinsics::kDeprecatedUnsafeGetVolatile:
       case Intrinsics::kUnsafeGetVolatile:
+      case Intrinsics::kDeprecatedUnsafePutLongOrdered:
       case Intrinsics::kUnsafePutLongOrdered:
+      case Intrinsics::kDeprecatedUnsafePutLongVolatile:
       case Intrinsics::kUnsafePutLongVolatile:
+      case Intrinsics::kDeprecatedUnsafePutObjectOrdered:
       case Intrinsics::kUnsafePutObjectOrdered:
+      case Intrinsics::kDeprecatedUnsafePutObjectVolatile:
       case Intrinsics::kUnsafePutObjectVolatile:
+      case Intrinsics::kDeprecatedUnsafePutOrdered:
       case Intrinsics::kUnsafePutOrdered:
+      case Intrinsics::kDeprecatedUnsafePutVolatile:
       case Intrinsics::kUnsafePutVolatile:
+      case Intrinsics::kDeprecatedUnsafeLoadFence:
       case Intrinsics::kUnsafeLoadFence:
+      case Intrinsics::kDeprecatedUnsafeStoreFence:
       case Intrinsics::kUnsafeStoreFence:
+      case Intrinsics::kDeprecatedUnsafeFullFence:
       case Intrinsics::kUnsafeFullFence:
         return 0u;
       case Intrinsics::kFP16Ceil:
@@ -329,11 +349,17 @@ ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtMethod* method)
       case Intrinsics::kFP16ToFloat:
       case Intrinsics::kFP16ToHalf:
       case Intrinsics::kFP16Rint:
+      case Intrinsics::kDeprecatedUnsafeGet:
       case Intrinsics::kUnsafeGet:
+      case Intrinsics::kDeprecatedUnsafeGetLong:
       case Intrinsics::kUnsafeGetLong:
+      case Intrinsics::kDeprecatedUnsafeGetObject:
       case Intrinsics::kUnsafeGetObject:
+      case Intrinsics::kDeprecatedUnsafePutLong:
       case Intrinsics::kUnsafePutLong:
+      case Intrinsics::kDeprecatedUnsafePut:
       case Intrinsics::kUnsafePut:
+      case Intrinsics::kDeprecatedUnsafePutObject:
       case Intrinsics::kUnsafePutObject:
         return kAccCorePlatformApi;
       default:

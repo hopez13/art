@@ -70,11 +70,16 @@
   V(StringToCharArray, "Ljava/lang/String;", "toCharArray", "()[C") \
   V(ThreadCurrentThread, "Ljava/lang/Thread;", "currentThread", "()Ljava/lang/Thread;") \
   V(ThreadGetNativeState, "Ljava/lang/Thread;", "nativeGetStatus", "(Z)I") \
-  V(UnsafeCompareAndSwapLong, "Lsun/misc/Unsafe;", "compareAndSwapLong", "(Ljava/lang/Object;JJJ)Z") \
-  V(UnsafeCompareAndSwapObject, "Lsun/misc/Unsafe;", "compareAndSwapObject", "(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z") \
-  V(UnsafeGetObjectVolatile, "Lsun/misc/Unsafe;", "getObjectVolatile", "(Ljava/lang/Object;J)Ljava/lang/Object;") \
-  V(UnsafePutObjectVolatile, "Lsun/misc/Unsafe;", "putObjectVolatile", "(Ljava/lang/Object;JLjava/lang/Object;)V") \
-  V(UnsafePutOrderedObject, "Lsun/misc/Unsafe;", "putOrderedObject", "(Ljava/lang/Object;JLjava/lang/Object;)V") \
+  V(DeprecatedUnsafeCompareAndSwapLong, "Lsun/misc/Unsafe;", "compareAndSwapLong", "(Ljava/lang/Object;JJJ)Z") \
+  V(DeprecatedUnsafeCompareAndSwapObject, "Lsun/misc/Unsafe;", "compareAndSwapObject", "(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z") \
+  V(DeprecatedUnsafeGetObjectVolatile, "Lsun/misc/Unsafe;", "getObjectVolatile", "(Ljava/lang/Object;J)Ljava/lang/Object;") \
+  V(DeprecatedUnsafePutObjectVolatile, "Lsun/misc/Unsafe;", "putObjectVolatile", "(Ljava/lang/Object;JLjava/lang/Object;)V") \
+  V(DeprecatedUnsafePutOrderedObject, "Lsun/misc/Unsafe;", "putOrderedObject", "(Ljava/lang/Object;JLjava/lang/Object;)V") \
+  V(UnsafeCompareAndSwapLong, "Ljdk/internal/misc/Unsafe;", "compareAndSwapLong", "(Ljava/lang/Object;JJJ)Z") \
+  V(UnsafeCompareAndSwapObject, "Ljdk/internal/misc/Unsafe;", "compareAndSwapObject", "(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z") \
+  V(UnsafeGetObjectVolatile, "Ljdk/internal/misc/Unsafe;", "getObjectVolatile", "(Ljava/lang/Object;J)Ljava/lang/Object;") \
+  V(UnsafePutObjectVolatile, "Ljdk/internal/misc/Unsafe;", "putObjectVolatile", "(Ljava/lang/Object;JLjava/lang/Object;)V") \
+  V(UnsafePutOrderedObject, "Ljdk/internal/misc/Unsafe;", "putOrderedObject", "(Ljava/lang/Object;JLjava/lang/Object;)V") \
   V(IntegerParseInt, "Ljava/lang/Integer;", "parseInt", "(Ljava/lang/String;)I") \
   V(LongParseLong, "Ljava/lang/Long;", "parseLong", "(Ljava/lang/String;)J") \
   V(SystemIdentityHashCode, "Ljava/lang/System;", "identityHashCode", "(Ljava/lang/Object;)I")
@@ -99,11 +104,16 @@
   V(ArrayCreateMultiArray, "Ljava/lang/reflect/Array;", "createMultiArray", "(Ljava/lang/Class;[I)Ljava/lang/Object;") \
   V(ArrayCreateObjectArray, "Ljava/lang/reflect/Array;", "createObjectArray", "(Ljava/lang/Class;I)Ljava/lang/Object;") \
   V(ThrowableNativeFillInStackTrace, "Ljava/lang/Throwable;", "nativeFillInStackTrace", "()Ljava/lang/Object;") \
-  V(UnsafeCompareAndSwapInt, "Lsun/misc/Unsafe;", "compareAndSwapInt", "(Ljava/lang/Object;JII)Z") \
-  V(UnsafeGetIntVolatile, "Lsun/misc/Unsafe;", "getIntVolatile", "(Ljava/lang/Object;J)I") \
-  V(UnsafePutObject, "Lsun/misc/Unsafe;", "putObject", "(Ljava/lang/Object;JLjava/lang/Object;)V") \
-  V(UnsafeGetArrayBaseOffsetForComponentType, "Lsun/misc/Unsafe;", "getArrayBaseOffsetForComponentType", "(Ljava/lang/Class;)I") \
-  V(UnsafeGetArrayIndexScaleForComponentType, "Lsun/misc/Unsafe;", "getArrayIndexScaleForComponentType", "(Ljava/lang/Class;)I") \
+  V(DeprecatedUnsafeCompareAndSwapInt, "Lsun/misc/Unsafe;", "compareAndSwapInt", "(Ljava/lang/Object;JII)Z") \
+  V(DeprecatedUnsafeGetIntVolatile, "Lsun/misc/Unsafe;", "getIntVolatile", "(Ljava/lang/Object;J)I") \
+  V(DeprecatedUnsafePutObject, "Lsun/misc/Unsafe;", "putObject", "(Ljava/lang/Object;JLjava/lang/Object;)V") \
+  V(DeprecatedUnsafeGetArrayBaseOffsetForComponentType, "Lsun/misc/Unsafe;", "getArrayBaseOffsetForComponentType", "(Ljava/lang/Class;)I") \
+  V(DeprecatedUnsafeGetArrayIndexScaleForComponentType, "Lsun/misc/Unsafe;", "getArrayIndexScaleForComponentType", "(Ljava/lang/Class;)I") \
+  V(UnsafeCompareAndSwapInt, "Ljdk/internal/misc/Unsafe;", "compareAndSwapInt", "(Ljava/lang/Object;JII)Z") \
+  V(UnsafeGetIntVolatile, "Ljdk/internal/misc/Unsafe;", "getIntVolatile", "(Ljava/lang/Object;J)I") \
+  V(UnsafePutObject, "Ljdk/internal/misc/Unsafe;", "putObject", "(Ljava/lang/Object;JLjava/lang/Object;)V") \
+  V(UnsafeGetArrayBaseOffsetForComponentType, "Ljdk/internal/misc/Unsafe;", "getArrayBaseOffsetForComponentType", "(Ljava/lang/Class;)I") \
+  V(UnsafeGetArrayIndexScaleForComponentType, "Ljdk/internal/misc/Unsafe;", "getArrayIndexScaleForComponentType", "(Ljava/lang/Class;)I") \
   V(FieldGetArtField, "Ljava/lang/reflect/Field;", "getArtField", "()J") \
   V(FieldGetNameInternal, "Ljava/lang/reflect/Field;", "getNameInternal", "()Ljava/lang/String;")
 
