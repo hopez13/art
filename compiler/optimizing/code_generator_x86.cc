@@ -573,6 +573,8 @@ class ReadBarrierMarkAndUpdateFieldSlowPathX86 : public SlowPathCode {
   void EmitNativeCode(CodeGenerator* codegen) override {
     LocationSummary* locations = instruction_->GetLocations();
     Register ref_reg = ref_.AsRegister<Register>();
+    Thread::Current()->DumpJavaStack(LOG_STREAM(ERROR));
+    DCHECK(locations);
     DCHECK(locations->CanCall());
     DCHECK(!locations->GetLiveRegisters()->ContainsCoreRegister(ref_reg)) << ref_reg;
     // This slow path is only used by the UnsafeCASObject intrinsic.

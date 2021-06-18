@@ -59,6 +59,7 @@ static const std::vector<std::string> kWarningExemptions = {
     "Ljava/nio/Buffer;",
     "Llibcore/io/Memory;",
     "Lsun/misc/Unsafe;",
+    "Ljdk/internal/misc/Unsafe;",
 };
 
 static inline std::ostream& operator<<(std::ostream& os, AccessMethod value) {
