@@ -1453,6 +1453,11 @@ void UnstartedRuntime::UnstartedRuntimeAvailableProcessors(
 
 // This allows accessing ConcurrentHashMap/SynchronousQueue.
 
+void UnstartedRuntime::UnstartedDeprecatedUnsafeCompareAndSwapLong(
+    Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
+  UnstartedUnsafeCompareAndSwapLong(self, shadow_frame, result, arg_offset);
+}
+
 void UnstartedRuntime::UnstartedUnsafeCompareAndSwapLong(
     Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
   // Argument 0 is the Unsafe instance, skip.
@@ -1480,6 +1485,11 @@ void UnstartedRuntime::UnstartedUnsafeCompareAndSwapLong(
                                                                  newValue);
   }
   result->SetZ(success ? 1 : 0);
+}
+
+void UnstartedRuntime::UnstartedDeprecatedUnsafeCompareAndSwapObject(
+    Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
+  UnstartedUnsafeCompareAndSwapObject(self, shadow_frame, result, arg_offset);
 }
 
 void UnstartedRuntime::UnstartedUnsafeCompareAndSwapObject(
@@ -1532,6 +1542,11 @@ void UnstartedRuntime::UnstartedUnsafeCompareAndSwapObject(
   result->SetZ(success ? 1 : 0);
 }
 
+void UnstartedRuntime::UnstartedDeprecatedUnsafeGetObjectVolatile(
+    Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
+  UnstartedUnsafeGetObjectVolatile(self, shadow_frame, result, arg_offset);
+}
+
 void UnstartedRuntime::UnstartedUnsafeGetObjectVolatile(
     Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset)
     REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1544,6 +1559,11 @@ void UnstartedRuntime::UnstartedUnsafeGetObjectVolatile(
   int64_t offset = shadow_frame->GetVRegLong(arg_offset + 2);
   ObjPtr<mirror::Object> value = obj->GetFieldObjectVolatile<mirror::Object>(MemberOffset(offset));
   result->SetL(value);
+}
+
+void UnstartedRuntime::UnstartedDeprecatedUnsafePutObjectVolatile(
+    Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
+  UnstartedUnsafePutObjectVolatile(self, shadow_frame, result, arg_offset);
 }
 
 void UnstartedRuntime::UnstartedUnsafePutObjectVolatile(
@@ -1566,6 +1586,11 @@ void UnstartedRuntime::UnstartedUnsafePutObjectVolatile(
   } else {
     obj->SetFieldObjectVolatile<false>(MemberOffset(offset), value);
   }
+}
+
+void UnstartedRuntime::UnstartedDeprecatedUnsafePutOrderedObject(
+    Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
+  UnstartedUnsafePutOrderedObject(self, shadow_frame, result, arg_offset);
 }
 
 void UnstartedRuntime::UnstartedUnsafePutOrderedObject(
@@ -1899,6 +1924,15 @@ void UnstartedRuntime::UnstartedJNIThrowableNativeFillInStackTrace(
   result->SetL(soa.Decode<mirror::Object>(stack_trace.get()));
 }
 
+void UnstartedRuntime::UnstartedJNIDeprecatedUnsafeCompareAndSwapInt(
+    Thread* self,
+    ArtMethod* method,
+    mirror::Object* receiver,
+    uint32_t* args,
+    JValue* result) {
+  UnstartedJNIUnsafeCompareAndSwapInt(self, method, receiver, args, result);
+}
+
 void UnstartedRuntime::UnstartedJNIUnsafeCompareAndSwapInt(
     Thread* self,
     ArtMethod* method ATTRIBUTE_UNUSED,
@@ -1934,6 +1968,15 @@ void UnstartedRuntime::UnstartedJNIUnsafeCompareAndSwapInt(
   result->SetZ(success ? JNI_TRUE : JNI_FALSE);
 }
 
+void UnstartedRuntime::UnstartedJNIDeprecatedUnsafeGetIntVolatile(
+    Thread* self,
+    ArtMethod* method,
+    mirror::Object* receiver,
+    uint32_t* args,
+    JValue* result) {
+  UnstartedJNIUnsafeGetIntVolatile(self, method, receiver, args, result);
+}
+
 void UnstartedRuntime::UnstartedJNIUnsafeGetIntVolatile(Thread* self,
                                                         ArtMethod* method ATTRIBUTE_UNUSED,
                                                         mirror::Object* receiver ATTRIBUTE_UNUSED,
@@ -1947,6 +1990,15 @@ void UnstartedRuntime::UnstartedJNIUnsafeGetIntVolatile(Thread* self,
 
   jlong offset = (static_cast<uint64_t>(args[2]) << 32) | args[1];
   result->SetI(obj->GetField32Volatile(MemberOffset(offset)));
+}
+
+void UnstartedRuntime::UnstartedJNIDeprecatedUnsafePutObject(
+    Thread* self,
+    ArtMethod* method,
+    mirror::Object* receiver,
+    uint32_t* args,
+    JValue* result) {
+  UnstartedJNIUnsafePutObject(self, method, receiver, args, result);
 }
 
 void UnstartedRuntime::UnstartedJNIUnsafePutObject(Thread* self,
@@ -1972,6 +2024,15 @@ void UnstartedRuntime::UnstartedJNIUnsafePutObject(Thread* self,
   }
 }
 
+void UnstartedRuntime::UnstartedJNIDeprecatedUnsafeGetArrayBaseOffsetForComponentType(
+    Thread* self,
+    ArtMethod* method,
+    mirror::Object* receiver,
+    uint32_t* args,
+    JValue* result) {
+  UnstartedJNIUnsafeGetArrayBaseOffsetForComponentType(self, method, receiver, args, result);
+}
+
 void UnstartedRuntime::UnstartedJNIUnsafeGetArrayBaseOffsetForComponentType(
     Thread* self,
     ArtMethod* method ATTRIBUTE_UNUSED,
@@ -1985,6 +2046,15 @@ void UnstartedRuntime::UnstartedJNIUnsafeGetArrayBaseOffsetForComponentType(
   }
   Primitive::Type primitive_type = component->AsClass()->GetPrimitiveType();
   result->SetI(mirror::Array::DataOffset(Primitive::ComponentSize(primitive_type)).Int32Value());
+}
+
+void UnstartedRuntime::UnstartedJNIDeprecatedUnsafeGetArrayIndexScaleForComponentType(
+    Thread* self,
+    ArtMethod* method,
+    mirror::Object* receiver,
+    uint32_t* args,
+    JValue* result) {
+  UnstartedJNIUnsafeGetArrayIndexScaleForComponentType(self, method, receiver, args, result);
 }
 
 void UnstartedRuntime::UnstartedJNIUnsafeGetArrayIndexScaleForComponentType(
