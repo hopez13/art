@@ -188,6 +188,7 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
   bool expected_link_with_platform_ns = true;
   bool expected_link_with_art_ns = true;
   bool expected_link_with_i18n_ns = true;
+  bool expected_link_with_conscrypt_ns = false;
   bool expected_link_with_sphal_ns = !vendor_public_libraries().empty();
   bool expected_link_with_vndk_ns = false;
   bool expected_link_with_vndk_product_ns = false;
@@ -196,6 +197,7 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
   std::string expected_shared_libs_to_platform_ns = default_public_libraries();
   std::string expected_shared_libs_to_art_ns = apex_public_libraries().at("com_android_art");
   std::string expected_shared_libs_to_i18n_ns = apex_public_libraries().at("com_android_i18n");
+  std::string expected_shared_libs_to_conscrypt_ns = apex_jni_libraries("com_android_conscrypt");
   std::string expected_shared_libs_to_sphal_ns = vendor_public_libraries();
   std::string expected_shared_libs_to_vndk_ns = vndksp_libraries_vendor();
   std::string expected_shared_libs_to_vndk_product_ns = vndksp_libraries_product();
@@ -215,11 +217,20 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
                            StrEq(expected_library_path), expected_namespace_flags,
                            StrEq(expected_permitted_path), NsEq(expected_parent_namespace.c_str())))
         .WillOnce(Return(TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE(dex_path.c_str()))));
+
+    // The order of EXPECT_CALLs matters.
+    // 1. link to "system" public libraries (the name can be "default")
     if (expected_link_with_platform_ns) {
       EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("system"),
                                               StrEq(expected_shared_libs_to_platform_ns)))
           .WillOnce(Return(true));
     }
+    if (expected_link_with_default_ns) {
+      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("default"),
+                                              StrEq(expected_shared_libs_to_default_ns)))
+          .WillOnce(Return(true));
+    }
+    // 2. link to "apex" public libraries
     if (expected_link_with_art_ns) {
       EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("com_android_art"),
                                               StrEq(expected_shared_libs_to_art_ns)))
@@ -230,11 +241,12 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
                                               StrEq(expected_shared_libs_to_i18n_ns)))
           .WillOnce(Return(true));
     }
-    if (expected_link_with_sphal_ns) {
-      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("sphal"),
-                                              StrEq(expected_shared_libs_to_sphal_ns)))
+    if (expected_link_with_neuralnetworks_ns) {
+      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("com_android_neuralnetworks"),
+                                              StrEq(expected_shared_libs_to_neuralnetworks_ns)))
           .WillOnce(Return(true));
     }
+    // 3. link VNDK libs
     if (expected_link_with_vndk_ns) {
       EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("vndk"),
                                               StrEq(expected_shared_libs_to_vndk_ns)))
@@ -245,14 +257,16 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
                                               StrEq(expected_shared_libs_to_vndk_product_ns)))
           .WillOnce(Return(true));
     }
-    if (expected_link_with_default_ns) {
-      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("default"),
-                                              StrEq(expected_shared_libs_to_default_ns)))
+    // 4. link to JNI libs from APEXes
+    if (expected_link_with_conscrypt_ns) {
+      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("com_android_conscrypt"),
+                                              StrEq(expected_shared_libs_to_conscrypt_ns)))
           .WillOnce(Return(true));
     }
-    if (expected_link_with_neuralnetworks_ns) {
-      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("com_android_neuralnetworks"),
-                                              StrEq(expected_shared_libs_to_neuralnetworks_ns)))
+    // 5. link to vendor public libs
+    if (expected_link_with_sphal_ns) {
+      EXPECT_CALL(*mock, mock_link_namespaces(Eq(IsBridged()), _, NsEq("sphal"),
+                                              StrEq(expected_shared_libs_to_sphal_ns)))
           .WillOnce(Return(true));
     }
   }
@@ -332,6 +346,17 @@ TEST_P(NativeLoaderTest_Create, BundledProductApp) {
 
   expected_namespace_name = "classloader-namespace-shared";
   expected_namespace_flags |= ANDROID_NAMESPACE_TYPE_SHARED;
+  SetExpectations();
+  RunTest();
+}
+
+TEST_P(NativeLoaderTest_Create, SystemServerWithApexJars) {
+  dex_path = "/system/framework/services.jar:/apex/com.android.conscrypt/javalib/service-foo.jar";
+  is_shared = true;
+
+  expected_namespace_name = "classloader-namespace-shared";
+  expected_namespace_flags |= ANDROID_NAMESPACE_TYPE_SHARED;
+  expected_link_with_conscrypt_ns = true;
   SetExpectations();
   RunTest();
 }
