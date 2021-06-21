@@ -70,6 +70,24 @@
       "parentUuid": "1a8fd653_8bbbd1e2",
       "revId": "304c14d11029e9fc87fba21d2fffe95c8e794c31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a68564c2_5d3affaa",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-21T16:21:42Z",
+      "side": 1,
+      "message": "Oh, I was wrong. Because we didn\u0027t use \"testing::InSequence\", the order of EXPECT_CALLs doesn\u0027t matter.",
+      "parentUuid": "6f166e60_cebdbbca",
+      "revId": "304c14d11029e9fc87fba21d2fffe95c8e794c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
