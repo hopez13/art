@@ -16,6 +16,24 @@
       "message": "Can\u0027t understand why the order is suddenly different here, in all the other tests. Maybe it\u0027s just a partial order? Anyway, if they all pass I suppose it\u0027s more of academic interest.",
       "revId": "304c14d11029e9fc87fba21d2fffe95c8e794c31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a84a1e24_cafa69c8",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-21T15:03:24Z",
+      "side": 1,
+      "message": "We\u0027re testing the implementation of `LibraryNamespaces::Create()`, and the order of `EXPECT_CALL` should match with it. We could introduce \"partial order\" for expectations instead, but it would make the expectations much harder to read ;-) http://google.github.io/googletest/gmock_cook_book.html",
+      "parentUuid": "676e8514_90a83a3d",
+      "revId": "304c14d11029e9fc87fba21d2fffe95c8e794c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
