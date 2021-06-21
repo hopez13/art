@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fb587ae_aa68a73a",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-06-21T08:27:04Z",
+      "side": 1,
+      "message": "Write permission are no longer there in dual view mode with this patch, so this comment is not up-to-date with the code as far as I understand. Was the removal of the workaround intended?",
+      "range": {
+        "startLine": 396,
+        "startChar": 16,
+        "endLine": 397,
+        "endChar": 76
+      },
+      "revId": "670ff8854cf075617e0abee77b2259903757d86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
