@@ -612,6 +612,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4771d9d_71d3c4fe",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T19:16:39Z",
+      "side": 1,
+      "message": "There\u0027s a bit of magic around how libunwind treats this as a dex pc (CFI_DEFINE_DEX_PC_WITH_OFFSET), I don\u0027t think we can have a memory reference here, but I\u0027ved filed b/191674171 to follow-up.",
+      "parentUuid": "6993aacb_f38ef3d3",
+      "range": {
+        "startLine": 1138,
+        "startChar": 5,
+        "endLine": 1139,
+        "endChar": 13
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e32b5ad_585fa326",
         "filename": "runtime/interpreter/mterp/x86ng/main.S",
         "patchSetId": 10
@@ -671,6 +695,30 @@
       "side": 1,
       "message": "You are not using rFP/EBP in GET_SHORTY, so you should replace all uses of EBP with rFP in this macro, including the save/restore to/from LOCAL1.",
       "parentUuid": "c43d6319_9d53224e",
+      "range": {
+        "startLine": 1191,
+        "startChar": 22,
+        "endLine": 1191,
+        "endChar": 25
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11064eab_05a03267",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T19:16:39Z",
+      "side": 1,
+      "message": "wdym? LOOP_OVER_SHORTY_LOADING_XMMS and LOOP_OVER_SHORTY_LOADING_GPRS will use rFP so I cannot reuse it.",
+      "parentUuid": "cab84056_d9c16606",
       "range": {
         "startLine": 1191,
         "startChar": 22,
@@ -965,6 +1013,30 @@
       "side": 1,
       "message": "ditto, replace all uses of EBP with rFP in this macro.",
       "parentUuid": "5e2d4d7d_633963b6",
+      "range": {
+        "startLine": 1395,
+        "startChar": 27,
+        "endLine": 1395,
+        "endChar": 30
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20949535_186a93ac",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T19:16:39Z",
+      "side": 1,
+      "message": "ditto LOOP_RANGE_OVER_SHORTY_LOADING_XMMS and LOOP_RANGE_OVER_SHORTY_LOADING_GPRS are using rFP.",
+      "parentUuid": "3975057b_e07e435c",
       "range": {
         "startLine": 1395,
         "startChar": 27,
