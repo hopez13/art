@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e53dd351_2f8c0b19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "I added \",\". As it reads a bit more natural.",
+      "parentUuid": "a6289a18_17db5589",
+      "range": {
+        "startLine": 12,
+        "startChar": 44,
+        "endLine": 12,
+        "endChar": 55
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46972c75_9190f3d2",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-21T08:33:03Z",
       "side": 1,
       "message": "No need?",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa02b09d_f446e5cf",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "can\u0027t do :(.\n\nThat\u0027s because the config has std::unique_ptr\u003cReportingPeriodSpec\u003e which requires the move...\n\nI could make that an optional and just copy data if the move bothers you.",
+      "parentUuid": "46972c75_9190f3d2",
       "range": {
         "startLine": 51,
         "startChar": 12,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e941e181_e5b7609d",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "020b17b8_72376de9",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 207,
+        "endChar": 7
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab3b341a_41625e37",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-21T08:33:03Z",
       "side": 1,
       "message": "Nit: align the \u0027-\u0027.",
+      "range": {
+        "startLine": 34,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 40
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76d0f3e1_41ce5fe2",
+        "filename": "runtime/metrics/reporter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab3b341a_41625e37",
       "range": {
         "startLine": 34,
         "startChar": 1,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d15e793f_cef89a58",
+        "filename": "runtime/metrics/reporter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c1b0864_f498a3e9",
+      "range": {
+        "startLine": 57,
+        "startChar": 34,
+        "endLine": 57,
+        "endChar": 37
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c558bce6_a56668fc",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-06-21T08:33:03Z",
       "side": 1,
       "message": "ShouldContinueReporting?",
+      "range": {
+        "startLine": 139,
+        "startChar": 7,
+        "endLine": 139,
+        "endChar": 27
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c552d1_35867b3e",
+        "filename": "runtime/metrics/reporter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c558bce6_a56668fc",
       "range": {
         "startLine": 139,
         "startChar": 7,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f909096_e39a8bc3",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dfcf118_433fe1d4",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcbb9577_d99356dd",
@@ -175,6 +343,30 @@
       "writtenOn": "2021-06-21T08:33:03Z",
       "side": 1,
       "message": "indentical (and to what?)",
+      "range": {
+        "startLine": 31,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 35
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7bfad2f_300893aa",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "To the original base class. I expanded the comment.",
+      "parentUuid": "dcbb9577_d99356dd",
       "range": {
         "startLine": 31,
         "startChar": 24,
@@ -202,6 +394,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3db5a619_2c233f3e",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3e7e748_9501e961",
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c296e3c_52df55fb",
@@ -219,6 +429,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4250848a_5e40b53e",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c296e3c_52df55fb",
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e489dfa3_11e83136",
@@ -232,6 +460,24 @@
       "writtenOn": "2021-06-21T08:33:03Z",
       "side": 1,
       "message": "private ?",
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d353ec8_9282c84d",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e489dfa3_11e83136",
       "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -272,6 +518,30 @@
       "writtenOn": "2021-06-21T08:33:03Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1950,
+        "startChar": 60,
+        "endLine": 1950,
+        "endChar": 64
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee97e3ed_0bdde500",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T17:07:26Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "8b23187c_6848b2e9",
       "range": {
         "startLine": 1950,
         "startChar": 60,
