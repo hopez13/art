@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7844f7d2_8e3e5fa2",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T19:08:44Z",
+      "side": 1,
+      "message": "It reads odd to move a value object, but that\u0027s probably me.",
+      "parentUuid": "aa02b09d_f446e5cf",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "020b17b8_72376de9",
@@ -542,6 +566,30 @@
       "side": 1,
       "message": "ditto",
       "parentUuid": "8b23187c_6848b2e9",
+      "range": {
+        "startLine": 1950,
+        "startChar": 60,
+        "endLine": 1950,
+        "endChar": 64
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a724dd80_311ab994",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T19:08:44Z",
+      "side": 1,
+      "message": "The ditto was related to the comment above?\n\"can we drop the auto above? it\u0027s unclear why we need to move if the type is absent.\"",
+      "parentUuid": "ee97e3ed_0bdde500",
       "range": {
         "startLine": 1950,
         "startChar": 60,
