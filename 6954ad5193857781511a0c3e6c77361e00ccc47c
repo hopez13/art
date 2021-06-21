@@ -588,6 +588,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6993aacb_f38ef3d3",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-21T14:43:46Z",
+      "side": 1,
+      "message": "Can we add CFI directives to make the unwinder look at `-8(rREFS)`?",
+      "parentUuid": "7896f09a_9f4e0302",
+      "range": {
+        "startLine": 1138,
+        "startChar": 5,
+        "endLine": 1139,
+        "endChar": 13
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e32b5ad_585fa326",
         "filename": "runtime/interpreter/mterp/x86ng/main.S",
         "patchSetId": 10
@@ -623,6 +647,30 @@
       "side": 1,
       "message": "Unfortunately no, as rFP will be used to fetch dex registers and place them in the right location.",
       "parentUuid": "2e32b5ad_585fa326",
+      "range": {
+        "startLine": 1191,
+        "startChar": 22,
+        "endLine": 1191,
+        "endChar": 25
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cab84056_d9c16606",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-21T14:43:46Z",
+      "side": 1,
+      "message": "You are not using rFP/EBP in GET_SHORTY, so you should replace all uses of EBP with rFP in this macro, including the save/restore to/from LOCAL1.",
+      "parentUuid": "c43d6319_9d53224e",
       "range": {
         "startLine": 1191,
         "startChar": 22,
@@ -893,6 +941,30 @@
       "side": 1,
       "message": "ditto that rFP is being used for fetching dex register values.",
       "parentUuid": "321dfd82_5eabb40d",
+      "range": {
+        "startLine": 1395,
+        "startChar": 27,
+        "endLine": 1395,
+        "endChar": 30
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3975057b_e07e435c",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-21T14:43:46Z",
+      "side": 1,
+      "message": "ditto, replace all uses of EBP with rFP in this macro.",
+      "parentUuid": "5e2d4d7d_633963b6",
       "range": {
         "startLine": 1395,
         "startChar": 27,
