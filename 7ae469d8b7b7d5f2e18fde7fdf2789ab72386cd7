@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68387683_afcb09a8",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5070,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-21T15:09:37Z",
+      "side": 1,
+      "message": "Changing the index from 0 to 1 requires updating comments in `LocationsBuilderX86::HandleFieldSet()`.",
+      "range": {
+        "startLine": 5070,
+        "startChar": 48,
+        "endLine": 5070,
+        "endChar": 64
+      },
+      "revId": "7ae469d8b7b7d5f2e18fde7fdf2789ab72386cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
