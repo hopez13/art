@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e22b34ad_49d75107",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3255,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-21T15:53:02Z",
+      "side": 1,
+      "message": "Can we just pass these as arguments to `GenerateVarHandleSet()`?",
+      "range": {
+        "startLine": 3254,
+        "startChar": 2,
+        "endLine": 3255,
+        "endChar": 27
+      },
+      "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f314e829_662ec396",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3264,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-21T15:53:02Z",
+      "side": 1,
+      "message": "Add a `kAnyStore` barrier also for `volatile`. (Though it\u0027s a no-op.)",
+      "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ed1dac4_658e7b10",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3285,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-21T15:53:02Z",
+      "side": 1,
+      "message": "For `volatile` we also need a `kAnyAny` barrier which is not a no-op. I\u0027m not sure if we need that for \"release\" operations.",
+      "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
