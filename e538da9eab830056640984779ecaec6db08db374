@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "add592b7_3a5eff8c",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-21T18:48:12Z",
+      "side": 1,
+      "message": "instead of being \"server\" specific, you can say this is an optional reserved section not implemented on client yet.",
+      "range": {
+        "startLine": 222,
+        "startChar": 13,
+        "endLine": 222,
+        "endChar": 25
+      },
+      "revId": "e538da9eab830056640984779ecaec6db08db374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
