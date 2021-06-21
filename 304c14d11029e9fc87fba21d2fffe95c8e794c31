@@ -52,6 +52,24 @@
       "parentUuid": "a84a1e24_cafa69c8",
       "revId": "304c14d11029e9fc87fba21d2fffe95c8e794c31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f166e60_cebdbbca",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-21T15:46:27Z",
+      "side": 1,
+      "message": "Just a luck, I guess. Or, test cases were not enough.\n\nFor example, \"sphal\" is only valid when the system\u0027s namespace is \"default\". So if we had a test whch needs to link to both \"default\" and \"sphal\", it would have failed.",
+      "parentUuid": "1a8fd653_8bbbd1e2",
+      "revId": "304c14d11029e9fc87fba21d2fffe95c8e794c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
