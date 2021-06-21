@@ -22,6 +22,30 @@
       },
       "revId": "870d2635ca942978af92a3a8e95282e6db4b96d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52dc3b24_2ae8cb0f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2021-06-21T13:46:54Z",
+      "side": 1,
+      "message": "Done. However, the test uses the actual files which makes it very hard to test this kind of behavior. b/191644631 filed for better testability.",
+      "parentUuid": "b4399e5b_b261b973",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 26
+      },
+      "revId": "870d2635ca942978af92a3a8e95282e6db4b96d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
