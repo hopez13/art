@@ -3,12 +3,5 @@
   "version": 1,
   "provideNativeLibs": [
     "libjdwp.so"
-  ],
-  "requireNativeLibs": [
-    "libicu.so",
-    "libicuuc.so",
-    "libicui18n.so",
-    "libicu_jni.so",
-    "libneuralnetworks.so"
   ]
 }
