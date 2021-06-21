@@ -70,6 +70,30 @@
       },
       "revId": "670ff8854cf075617e0abee77b2259903757d86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b5bac26_7b9daaff",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T09:10:05Z",
+      "side": 1,
+      "message": "Are you suggesting we could write:\n\nif (HasDualCodeMapping()) {\n  // Flush non-exectuable mapping\n} else {\n  // Flush executable mapping\n}\n\n?",
+      "parentUuid": "f5a4c36e_674e5771",
+      "range": {
+        "startLine": 396,
+        "startChar": 16,
+        "endLine": 397,
+        "endChar": 76
+      },
+      "revId": "670ff8854cf075617e0abee77b2259903757d86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
