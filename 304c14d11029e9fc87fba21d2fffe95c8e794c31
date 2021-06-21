@@ -88,6 +88,24 @@
       "parentUuid": "6f166e60_cebdbbca",
       "revId": "304c14d11029e9fc87fba21d2fffe95c8e794c31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43c2ee16_aed3b2af",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-21T16:27:46Z",
+      "side": 1,
+      "message": "Ok, so the reordering here is actually unnecessary? It sounds better to me that we don\u0027t need to test the order, since it semantically doesn\u0027t matter.\n\nThen can we restore the order here, or at least remove the comment above saying that it does matter?",
+      "parentUuid": "a68564c2_5d3affaa",
+      "revId": "304c14d11029e9fc87fba21d2fffe95c8e794c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
