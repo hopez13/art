@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6289a18_17db5589",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "could we add \u0027:\u0027 in there, eg:\nS:1:2:4:8:*\n\nThis is inline with other arguments (I think \u0027,\u0027 could do too)/",
+      "range": {
+        "startLine": 12,
+        "startChar": 44,
+        "endLine": 12,
+        "endChar": 55
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46972c75_9190f3d2",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "No need?",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "020b17b8_72376de9",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "DCHECK ?",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 207,
+        "endChar": 7
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab3b341a_41625e37",
+        "filename": "runtime/metrics/reporter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "Nit: align the \u0027-\u0027.",
+      "range": {
+        "startLine": 34,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 40
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c1b0864_f498a3e9",
+        "filename": "runtime/metrics/reporter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "is",
+      "range": {
+        "startLine": 57,
+        "startChar": 34,
+        "endLine": 57,
+        "endChar": 37
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c558bce6_a56668fc",
+        "filename": "runtime/metrics/reporter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "ShouldContinueReporting?",
+      "range": {
+        "startLine": 139,
+        "startChar": 7,
+        "endLine": 139,
+        "endChar": 27
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dfcf118_433fe1d4",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcbb9577_d99356dd",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "indentical (and to what?)",
+      "range": {
+        "startLine": 31,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 35
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3e7e748_9501e961",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "private ?",
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c296e3c_52df55fb",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "indentation is off",
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e489dfa3_11e83136",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "private ?",
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8af3041_2c03e8ae",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "can we drop the auto above? it\u0027s unclear why we need to move if the type is absent.",
+      "range": {
+        "startLine": 1095,
+        "startChar": 36,
+        "endLine": 1095,
+        "endChar": 45
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b23187c_6848b2e9",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-21T08:33:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1950,
+        "startChar": 60,
+        "endLine": 1950,
+        "endChar": 64
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
