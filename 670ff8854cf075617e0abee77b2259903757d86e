@@ -46,6 +46,30 @@
       },
       "revId": "670ff8854cf075617e0abee77b2259903757d86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5a4c36e_674e5771",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-06-21T08:59:09Z",
+      "side": 1,
+      "message": "The WA was merged in 2016, long before the dual view mode introduced:\n\nOriginal workaround: https://android-review.googlesource.com/c/platform/art/+/304947\nComments update: https://android-review.googlesource.com/c/platform/art/+/336745\n\nIf I understand it correctly, that kernel bug requires to have W permissions for the pages you are flushing. But in dual view mode the lines 409-411 are doing an invalidate on the pages which are RX.",
+      "parentUuid": "92b8b27f_7b350a12",
+      "range": {
+        "startLine": 396,
+        "startChar": 16,
+        "endLine": 397,
+        "endChar": 76
+      },
+      "revId": "670ff8854cf075617e0abee77b2259903757d86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
