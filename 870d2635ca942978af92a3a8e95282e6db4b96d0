@@ -46,6 +46,30 @@
       },
       "revId": "870d2635ca942978af92a3a8e95282e6db4b96d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4197fc1_70048ded",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-21T14:35:42Z",
+      "side": 1,
+      "message": "Yes, the problem is that it\u0027s difficult to mock libc calls. We\u0027d probably have to introduce a shim API for these particular files to do it. Thanks for figuring out a way anyway.",
+      "parentUuid": "52dc3b24_2ae8cb0f",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 26
+      },
+      "revId": "870d2635ca942978af92a3a8e95282e6db4b96d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

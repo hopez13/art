@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "676e8514_90a83a3d",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-21T14:35:42Z",
+      "side": 1,
+      "message": "Can\u0027t understand why the order is suddenly different here, in all the other tests. Maybe it\u0027s just a partial order? Anyway, if they all pass I suppose it\u0027s more of academic interest.",
+      "revId": "304c14d11029e9fc87fba21d2fffe95c8e794c31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
