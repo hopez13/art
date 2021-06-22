@@ -142,6 +142,30 @@
       },
       "revId": "670ff8854cf075617e0abee77b2259903757d86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab7d652f_7bc9ee92",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-06-22T15:13:39Z",
+      "side": 1,
+      "message": "I) Sorry, I know that, I was just addressing Nicolas comments in paragraph I); I assumed he was suggesting to have only one code flush for the dual view mode.\n\nII) This is exactly the point of my original thought: after this patch that scope effectively does nothing for the dual view mode:\n\n   if (kIsDebugBuild || !region.HasDualCodeMapping()) {\n     // do the permissions flip.\n   }\n   \nIII) I suppose the idea whether the workaround is still needed (whether it was fixed in the kernel) is a bit separate one. I will take a closer look into the links and research the topic (e.g. the ART fix for __build_clear_cache is arm32 only; I don\u0027t know whether it addresses the same issue there).",
+      "parentUuid": "a2e98a7b_12996ce2",
+      "range": {
+        "startLine": 396,
+        "startChar": 16,
+        "endLine": 397,
+        "endChar": 76
+      },
+      "revId": "670ff8854cf075617e0abee77b2259903757d86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
