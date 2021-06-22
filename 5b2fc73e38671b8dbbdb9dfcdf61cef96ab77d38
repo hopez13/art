@@ -22,6 +22,30 @@
       },
       "revId": "5b2fc73e38671b8dbbdb9dfcdf61cef96ab77d38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbf1b2ee_0ce853f5",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-22T15:16:50Z",
+      "side": 1,
+      "message": "There\u0027s no bias because the a session_id with value 0 will not report is the sample rate is 0 (the comparison is strict).\n\nYou are right though that that this method may return a different result if called before MaybeStartBackgroundThread() which injects the actual session id. I could fix that but doesn\u0027t seem worthwhile, since what\u0027s important is what happens when/after we start the reporting thread.",
+      "parentUuid": "dbd102ed_c627fe79",
+      "range": {
+        "startLine": 197,
+        "startChar": 9,
+        "endLine": 197,
+        "endChar": 34
+      },
+      "revId": "5b2fc73e38671b8dbbdb9dfcdf61cef96ab77d38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
