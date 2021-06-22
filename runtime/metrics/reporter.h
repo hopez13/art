@@ -79,6 +79,15 @@ struct ReportingConfig {
 
   // The reporting period configuration.
   std::optional<ReportingPeriodSpec> period_spec;
+
+  // The reporting sample rate.
+  // This controls whether or not we should report metrics at all and is
+  // independent of the period spec.
+  //
+  // Valid values are integers between 0 and 100:
+  //    - 0 effectively disabling reporting and
+  //    - 100 enabling reporting all the time according to the period spec.
+  uint32_t sample_rate_percentage{0};
 };
 
 // MetricsReporter handles periodically reporting ART metrics.
@@ -126,6 +135,9 @@ class MetricsReporter {
   MetricsReporter(const ReportingConfig& config, Runtime* runtime);
 
  private:
+  // Whether or not we should reporting metrics according to the sampling rate.
+  bool IsMetricsReportingEnabled(const SessionData& session_data) const;
+
   // The background reporting thread main loop.
   void BackgroundThreadRun();
 
@@ -162,12 +174,6 @@ class MetricsReporter {
   // A message indicating that app startup has completed.
   struct StartupCompletedMessage {};
 
-  // A message marking the beginning of a metrics logging session.
-  //
-  // The primary purpose of this is to pass the session metadata from the Runtime to the metrics
-  // backends.
-  struct BeginSessionMessage{ SessionData session_data; };
-
   // A message requesting an explicit metrics report.
   //
   // The synchronous field specifies whether the reporting thread will send a message back when
@@ -183,7 +189,6 @@ class MetricsReporter {
 
   MessageQueue<ShutdownRequestedMessage,
                StartupCompletedMessage,
-               BeginSessionMessage,
                RequestMetricsReportMessage,
                CompilationInfoMessage>
       messages_;
