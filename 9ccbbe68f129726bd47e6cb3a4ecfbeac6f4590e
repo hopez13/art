@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b759039d_56ddbe99",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3254,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-22T11:23:14Z",
+      "side": 1,
+      "message": "\u003e the spec requires\n\nIt\u0027s not the spec, it\u0027s just my understanding of our own doc (go/varhandlesforandroid), so could be far from reality. I need to find and read the spec.",
+      "parentUuid": "f6a35253_416ffd46",
+      "range": {
+        "startLine": 3254,
+        "startChar": 27,
+        "endLine": 3254,
+        "endChar": 59
+      },
+      "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e22b34ad_49d75107",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 2
@@ -61,6 +85,30 @@
       "writtenOn": "2021-06-21T15:53:02Z",
       "side": 1,
       "message": "Can we just pass these as arguments to `GenerateVarHandleSet()`?",
+      "range": {
+        "startLine": 3254,
+        "startChar": 2,
+        "endLine": 3255,
+        "endChar": 27
+      },
+      "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f054678_eebf35a1",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3255,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-22T11:23:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e22b34ad_49d75107",
       "range": {
         "startLine": 3254,
         "startChar": 2,
@@ -84,6 +132,24 @@
       "writtenOn": "2021-06-21T15:53:02Z",
       "side": 1,
       "message": "Add a `kAnyStore` barrier also for `volatile`. (Though it\u0027s a no-op.)",
+      "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba975202_32294048",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3264,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-22T11:23:14Z",
+      "side": 1,
+      "message": "It is already done in HandleFieldSet: https://source.corp.google.com/aosp-master/art/compiler/optimizing/code_generator_x86_64.cc;l\u003d5034-5036\n\nI added a comment.",
+      "parentUuid": "f314e829_662ec396",
       "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -137,6 +203,24 @@
       "side": 1,
       "message": "Note: We\u0027re not really using `mfence` for the barrier. We merged an Intel patch to use `lock addl 0, (%esp)`.",
       "parentUuid": "c77a1ca2_7fa898b4",
+      "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c190a4e_cf5f0072",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3285,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-22T11:23:14Z",
+      "side": 1,
+      "message": "`kAnyAny` barrier for volatile is already done in HandleFieldSet: https://source.corp.google.com/aosp-master/art/compiler/optimizing/code_generator_x86_64.cc;l\u003d5149-5151\n\nI added a comment.",
+      "parentUuid": "7e962618_b81e9ee7",
       "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
