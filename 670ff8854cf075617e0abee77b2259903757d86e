@@ -94,6 +94,30 @@
       },
       "revId": "670ff8854cf075617e0abee77b2259903757d86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a011f4ea_461b10f7",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-06-22T12:13:28Z",
+      "side": 1,
+      "message": "I)\n\nActually no, for the dual-mapped mode we would need two flushes, as the cache maintenance operations are done on virtual addresses. Here is a quote from Mark Rutland, our kernel expert:\n\n\"In ARMV8, we still have VIPT (Virtually Indexed, Physically taged) I-caches, which require maintenance at the target VA. In Linux the userspace needs to do the I-cache maintenance at the VA to be executed from; The prior D-cache maintenance can happen at either VA. I$ maintenance at the RW VA is not guaranteed to knock out VIPT entires for the RX VA.\"\n\nMore info:\nhttps://developer.arm.com/documentation/den0024/a/Caches/Cache-terminology/Cache-tags-and-Physical-Addresses\n\"D4.4.7 About cache maintenance in AArch64 state\" of ARM ARM: https://developer.arm.com/documentation/ddi0487/latest/\n\nII)\n\nTo implement a workaround for the Qualcomm kernel bug, we\u0027d need to have the pages with Writeable for __builtin___clear_cache (FlushCpuCaches) - for both virtual mappings of the physical memory.\n\n  bool cache_flush_success \u003d true;\n  if (HasDualCodeMapping()) {\n    // Flush d-cache for the non-executable mapping.\n    // This is already writeable.\n    cache_flush_success \u003d FlushCpuCaches(w_memory, w_memory + total_size);\n  }\n\n  // Invalidate i-cache for the executable mapping.\n  if (cache_flush_success) {\n    // This region is RX, but to address a Qualcomm kernel bug we need W access.\n    MakeTheRegionWriteable(x_memory);\n    cache_flush_success \u003d FlushCpuCaches(x_memory, x_memory + total_size);\n    MakeTheRegionNonWriteable(x_memory);\n  }\n  \nIII) \n\nBut this workaround is only need for the legacy devices which are affected by the bug (I assume Nexus 6P, this is what a corresponding comment says).",
+      "parentUuid": "2b5bac26_7b9daaff",
+      "range": {
+        "startLine": 396,
+        "startChar": 16,
+        "endLine": 397,
+        "endChar": 76
+      },
+      "revId": "670ff8854cf075617e0abee77b2259903757d86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
