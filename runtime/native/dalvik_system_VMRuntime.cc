@@ -364,6 +364,20 @@ static void VMRuntime_runHeapTasks(JNIEnv* env, jobject) {
   Runtime::Current()->GetHeap()->GetTaskProcessor()->RunAllTasks(ThreadForEnv(env));
 }
 
+static void VMRuntime_setVerifierEnabled(JNIEnv*, jobject, jboolean enabled) {
+  Runtime* runtime = Runtime::Current();
+  if (enabled) {
+    runtime->EnableVerifier();
+  } else {
+    runtime->DisableVerifier();
+  }
+}
+
+static jboolean VMRuntime_getVerifierEnabled(JNIEnv*, jobject) {
+  Runtime* runtime = Runtime::Current();
+  return runtime->IsVerificationEnabled() ? JNI_TRUE : JNI_FALSE;
+}
+
 static void VMRuntime_preloadDexCaches(JNIEnv* env ATTRIBUTE_UNUSED, jobject) {
 }
 
@@ -545,6 +559,8 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMRuntime, vmInstructionSet, "()Ljava/lang/String;"),
   FAST_NATIVE_METHOD(VMRuntime, is64Bit, "()Z"),
   FAST_NATIVE_METHOD(VMRuntime, isCheckJniEnabled, "()Z"),
+  NATIVE_METHOD(VMRuntime, setVerifierEnabled, "(Z)V"),
+  NATIVE_METHOD(VMRuntime, getVerifierEnabled, "()Z"),
   NATIVE_METHOD(VMRuntime, preloadDexCaches, "()V"),
   NATIVE_METHOD(VMRuntime, registerAppInfo,
       "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;I)V"),

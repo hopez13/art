@@ -644,6 +644,7 @@ class Runtime {
   }
 
   void DisableVerifier();
+  void EnableVerifier();
   bool IsVerificationEnabled() const;
   bool IsVerificationSoftFail() const;
 
