@@ -52,10 +52,21 @@ void MetricsReporter::ReloadConfig(const ReportingConfig& config) {
   config_ = config;
 }
 
+bool MetricsReporter::IsMetricsReportingEnabled(const SessionData& session_data) const {
+  return session_data.session_id % 100 < config_.sample_rate_percentage;
+}
+
 bool MetricsReporter::MaybeStartBackgroundThread(SessionData session_data) {
   CHECK(!thread_.has_value());
+
+  session_data_ = session_data;
+  LOG_STREAM(DEBUG) << "Received session metadata: " << session_data_.session_id;
+
+  if (!IsMetricsReportingEnabled(session_data_)) {
+    return false;
+  }
+
   thread_.emplace(&MetricsReporter::BackgroundThreadRun, this);
-  messages_.SendMessage(BeginSessionMessage{session_data});
   return true;
 }
 
@@ -68,7 +79,7 @@ void MetricsReporter::MaybeStopBackgroundThread() {
 }
 
 void MetricsReporter::NotifyStartupCompleted() {
-  if (thread_.has_value()) {
+  if (ShouldReportAtStartup() && thread_.has_value()) {
     messages_.SendMessage(StartupCompletedMessage{});
   }
 }
@@ -118,10 +129,6 @@ void MetricsReporter::BackgroundThreadRun() {
 
   while (running) {
     messages_.SwitchReceive(
-        [&](BeginSessionMessage message) {
-          session_data_ = message.session_data;
-          LOG_STREAM(DEBUG) << "Received session metadata: " << session_data_.session_id;
-        },
         [&]([[maybe_unused]] ShutdownRequestedMessage message) {
           LOG_STREAM(DEBUG) << "Shutdown request received " << session_data_.session_id;
           running = false;
@@ -187,13 +194,16 @@ void MetricsReporter::ReportMetrics() {
 }
 
 bool MetricsReporter::ShouldReportAtStartup() const {
-  return config_.period_spec.has_value() &&
+  return IsMetricsReportingEnabled(session_data_) &&
+      config_.period_spec.has_value() &&
       config_.period_spec->report_startup_first;
 }
 
 bool MetricsReporter::ShouldContinueReporting() const {
   bool result =
-      // Only if we have period spec
+      // Only if the reporting is enabled
+      IsMetricsReportingEnabled(session_data_) &&
+      // and if we have period spec
       config_.period_spec.has_value() &&
       // and the periods are non empty
       !config_.period_spec->periods_seconds.empty() &&
@@ -229,6 +239,7 @@ ReportingConfig ReportingConfig::FromFlags(bool is_system_server) {
       : gFlags.MetricsReportingSpec.GetValueOptional();
 
   std::optional<ReportingPeriodSpec> period_spec = std::nullopt;
+
   if (spec_str.has_value()) {
     std::string error;
     period_spec = ReportingPeriodSpec::Parse(spec_str.value(), &error);
@@ -237,11 +248,19 @@ ReportingConfig ReportingConfig::FromFlags(bool is_system_server) {
           << " with error: " << error;
     }
   }
+
+  uint32_t sample_rate_percentage = gFlags.MetricsSamplingRatePercentage();
+  if (sample_rate_percentage > 100u) {
+    LOG(ERROR) << "Invalid metrics sampling rate: " << sample_rate_percentage;
+    sample_rate_percentage = 0;
+  }
+
   return {
       .dump_to_logcat = gFlags.WriteMetricsToLogcat(),
       .dump_to_file = gFlags.WriteMetricsToFile.GetValueOptional(),
       .dump_to_statsd = gFlags.WriteMetricsToStatsd(),
       .period_spec = period_spec,
+      .sample_rate_percentage = sample_rate_percentage,
   };
 }
 

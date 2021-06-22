@@ -267,6 +267,8 @@ struct Flags {
   Flag<std::string> MetricsReportingSpec{"metrics.reporting-spec", "", FlagType::kDeviceConfig};
   Flag<std::string> MetricsReportingSpecSystemServer{"metrics.reporting-spec-server", "",
       FlagType::kDeviceConfig};
+  Flag<uint32_t> MetricsSamplingRatePercentage{"metrics.sampling-rate-percentage", 0,
+      FlagType::kDeviceConfig};
 };
 
 // This is the actual instance of all the flags.
