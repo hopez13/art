@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6a35253_416ffd46",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T08:43:11Z",
+      "side": 1,
+      "message": "I remember that Java allows tearing for 64-bit fields on 32-bit platforms but is tearing really allowed on 64-bit platforms as well?",
+      "parentUuid": "1685251a_1addd728",
+      "range": {
+        "startLine": 3254,
+        "startChar": 27,
+        "endLine": 3254,
+        "endChar": 59
+      },
+      "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e22b34ad_49d75107",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 2
@@ -95,6 +119,24 @@
       "side": 1,
       "message": "x86 load and store operations have acquire/release semantics by default. So you don\u0027t.\n\nIdeally an x86 volatile store should be compiled to an XCHG instruction. XCHG is generally faster than MFENCE and you get the store \"for free\". MOV; MFENCE is not too bad. It would probably be even better to always replace store; MFENCE with XCHG even if they\u0027re logically unrelated.",
       "parentUuid": "5ed1dac4_658e7b10",
+      "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e962618_b81e9ee7",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3285,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T08:43:11Z",
+      "side": 1,
+      "message": "Note: We\u0027re not really using `mfence` for the barrier. We merged an Intel patch to use `lock addl 0, (%esp)`.",
+      "parentUuid": "c77a1ca2_7fa898b4",
       "revId": "9ccbbe68f129726bd47e6cb3a4ecfbeac6f4590e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
