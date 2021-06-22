@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c61321a9_c206738b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5013,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-22T11:22:03Z",
+      "side": 1,
+      "message": "Note: this change is removing a copy-paste from x86 implementation. I reread the intel manual for x86_64 about byte registers, and it seems that unlike x86 there are no restrictions on particular registers (all GPRs can be used, but upper halves AH, BH, CH, DH cannot be encoded with REX prefixes).",
+      "range": {
+        "startLine": 5013,
+        "startChar": 0,
+        "endLine": 5013,
+        "endChar": 100
+      },
+      "revId": "13c9ccd707596f09cc7e44a12b8bf326cdfcd5fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
