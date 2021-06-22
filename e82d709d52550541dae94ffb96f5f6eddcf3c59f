@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2069d31c_ed605cbd",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-22T03:41:49Z",
+      "side": 1,
+      "message": "I would multiply be a million here rather than by a thousand below. There shouldn\u0027t be real risk of overflow, and it gets you a more accurate answer.\n\nI also think you still need to add in the one, but it\u0027s now a usec rather than a millisecond.",
+      "range": {
+        "startLine": 212,
+        "startChar": 66,
+        "endLine": 212,
+        "endChar": 70
+      },
+      "revId": "e82d709d52550541dae94ffb96f5f6eddcf3c59f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
