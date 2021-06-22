@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e849f38b_fb563fdc",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-22T04:14:13Z",
+      "side": 1,
+      "message": "I made the config a pure value type. There will be some string/array copying involved but they should be small and not on the critical paths, so I think it\u0027s ok.",
+      "parentUuid": "7844f7d2_8e3e5fa2",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "020b17b8_72376de9",
@@ -529,6 +553,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "635b2d0d_162d5cad",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-22T04:14:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8af3041_2c03e8ae",
+      "range": {
+        "startLine": 1095,
+        "startChar": 36,
+        "endLine": 1095,
+        "endChar": 45
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b23187c_6848b2e9",
@@ -590,6 +638,30 @@
       "side": 1,
       "message": "The ditto was related to the comment above?\n\"can we drop the auto above? it\u0027s unclear why we need to move if the type is absent.\"",
       "parentUuid": "ee97e3ed_0bdde500",
+      "range": {
+        "startLine": 1950,
+        "startChar": 60,
+        "endLine": 1950,
+        "endChar": 64
+      },
+      "revId": "2d0eeaa3dd51f6edaac7c25e84f6dffdded1d0c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11570a7_643b80ba",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-22T04:14:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a724dd80_311ab994",
       "range": {
         "startLine": 1950,
         "startChar": 60,
