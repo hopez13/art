@@ -118,6 +118,30 @@
       },
       "revId": "670ff8854cf075617e0abee77b2259903757d86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2e98a7b_12996ce2",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-22T14:22:30Z",
+      "side": 1,
+      "message": "I) We have two flushes for dual mapped already see lines 402-411.\n\nII) The ScopedCodeCacheWrite at the top of the function should have this covered: \n\nhttps://cs.android.com/android/platform/superproject/+/master:art/runtime/jit/jit_scoped_code_cache_write.h;drc\u003dmaster;l\u003d36\n\nThe documentation could be clearer here.\n\nIII) Ack. JFYI, we also have workarounds for badly behaved __builtin__clear_cache behaviour in FlushCpuCaches:\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/utils.cc;drc\u003d60117aeeffda3d01a5314984694ae3d6d4588fc1;l\u003d108\n\nhttps://lore.kernel.org/patchwork/patch/1135988/",
+      "parentUuid": "a011f4ea_461b10f7",
+      "range": {
+        "startLine": 396,
+        "startChar": 16,
+        "endLine": 397,
+        "endChar": 76
+      },
+      "revId": "670ff8854cf075617e0abee77b2259903757d86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
