@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d73add12_0fd9491a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-22T01:23:05Z",
+      "side": 1,
+      "message": "A few minor suggestions. \"Work throughput\" doesn\u0027t seem very descriptive to me. The other two are just coding nits.",
+      "revId": "ffe8c26deb57ec6243d88f18489017dbe00bdd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b68b29cc_f3bb975f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2343,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-22T01:23:05Z",
+      "side": 1,
+      "message": "It seems cleaner to just pass in the previous expression, rather than evolving the meaning of obj_size.",
+      "range": {
+        "startLine": 2343,
+        "startChar": 40,
+        "endLine": 2343,
+        "endChar": 48
+      },
+      "revId": "ffe8c26deb57ec6243d88f18489017dbe00bdd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "850294e7_ad2036d0",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-22T01:23:05Z",
+      "side": 1,
+      "message": "Microseconds seem like a better choice for the division here. With milliseconds, the rounding and \"add 1\" effects don\u0027t seem negligible.",
+      "range": {
+        "startLine": 212,
+        "startChar": 66,
+        "endLine": 212,
+        "endChar": 70
+      },
+      "revId": "ffe8c26deb57ec6243d88f18489017dbe00bdd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9898d132_8c69dfb8",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-22T01:23:05Z",
+      "side": 1,
+      "message": "\"tracing throughput\"?",
+      "range": {
+        "startLine": 362,
+        "startChar": 23,
+        "endLine": 362,
+        "endChar": 27
+      },
+      "revId": "ffe8c26deb57ec6243d88f18489017dbe00bdd67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
