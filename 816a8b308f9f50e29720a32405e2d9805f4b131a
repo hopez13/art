@@ -346,6 +346,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1fa4fe6_99c0a6ba",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T08:34:29Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "61d987f5_c55ff983",
+      "range": {
+        "startLine": 1950,
+        "startChar": 34,
+        "endLine": 1950,
+        "endChar": 35
+      },
+      "revId": "816a8b308f9f50e29720a32405e2d9805f4b131a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8391f95d_40458854",
@@ -524,6 +548,30 @@
       "side": 1,
       "message": "It\u0027s already been loaded in nterp_get_static_field (see NTERP_TRAMPOLINE).",
       "parentUuid": "9d671893_bbd42a71",
+      "range": {
+        "startLine": 2119,
+        "startChar": 3,
+        "endLine": 2119,
+        "endChar": 24
+      },
+      "revId": "816a8b308f9f50e29720a32405e2d9805f4b131a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e30f9e45_258c0690",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 2119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T08:34:29Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "57f8255e_5a9d20e0",
       "range": {
         "startLine": 2119,
         "startChar": 3,
@@ -806,6 +854,30 @@
       "side": 1,
       "message": "The assembler complains calling free directly:\n\nld.lld: error: relocation R_386_PC32 cannot be used against symbol free; recompile with -fPIC\n\u003e\u003e\u003e defined in prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/sysroot/usr/lib/../lib32/libc.so.6\n\u003e\u003e\u003e referenced by mterp_x86ng.S:8005 (out/soong/.intermediates/art/runtime/libart_mterp.x86ng/gen/mterp_x86ng.S:8005)\n\u003e\u003e\u003e               out/soong/.intermediates/art/runtime/libartd/linux_glibc_x86_static/obj/.intermediates/art/runtime/libart_mterp.x86ng/gen/mterp_x86ng.o:(nterp_helper)\nclang-12: error: linker command failed with exit code 1 (use -v to see invocation)",
       "parentUuid": "938f9524_454d4249",
+      "range": {
+        "startLine": 2347,
+        "startChar": 16,
+        "endLine": 2347,
+        "endChar": 25
+      },
+      "revId": "816a8b308f9f50e29720a32405e2d9805f4b131a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfde1575_b0d66be4",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 2347,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T08:34:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "285f8643_b218fd0c",
       "range": {
         "startLine": 2347,
         "startChar": 16,

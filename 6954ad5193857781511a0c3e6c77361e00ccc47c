@@ -634,6 +634,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f829c11c_0b044196",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T08:34:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a4771d9d_71d3c4fe",
+      "range": {
+        "startLine": 1138,
+        "startChar": 5,
+        "endLine": 1139,
+        "endChar": 13
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e32b5ad_585fa326",
@@ -719,6 +743,30 @@
       "side": 1,
       "message": "wdym? LOOP_OVER_SHORTY_LOADING_XMMS and LOOP_OVER_SHORTY_LOADING_GPRS will use rFP so I cannot reuse it.",
       "parentUuid": "cab84056_d9c16606",
+      "range": {
+        "startLine": 1191,
+        "startChar": 22,
+        "endLine": 1191,
+        "endChar": 25
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f174036_0d8ad8a4",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T08:34:29Z",
+      "side": 1,
+      "message": "Sorry, my reference to GET_SHORTY was odd, I guess I was a bit confused.\n\nI see, the rFP/EDI uses in LOOP_OVER_SHORTY_LOADING_XMMS and LOOP_OVER_SHORTY_LOADING_GPRS are hidden in the GET_VREG. So just add a FIXME comment and we can deal with that later.",
+      "parentUuid": "11064eab_05a03267",
       "range": {
         "startLine": 1191,
         "startChar": 22,
@@ -1037,6 +1085,30 @@
       "side": 1,
       "message": "ditto LOOP_RANGE_OVER_SHORTY_LOADING_XMMS and LOOP_RANGE_OVER_SHORTY_LOADING_GPRS are using rFP.",
       "parentUuid": "3975057b_e07e435c",
+      "range": {
+        "startLine": 1395,
+        "startChar": 27,
+        "endLine": 1395,
+        "endChar": 30
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f97661_52d8e26f",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T08:34:29Z",
+      "side": 1,
+      "message": "ditto, add a FIXME comment.",
+      "parentUuid": "20949535_186a93ac",
       "range": {
         "startLine": 1395,
         "startChar": 27,
