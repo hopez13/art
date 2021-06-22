@@ -166,6 +166,30 @@
       },
       "revId": "670ff8854cf075617e0abee77b2259903757d86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1883a7cc_c0616ea4",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-22T16:55:49Z",
+      "side": 1,
+      "message": "Thanks Artem\n\nDual view is the common case today. Dual view depends on memfd_create() which appeared in 3.17.  Android R required \u003e4.14 (https://source.android.com/devices/architecture/kernel/android-common). AFAIK, we don\u0027t have any open code cache issues and haven\u0027t seen any for a while (except for device bring up misconfigurations).\n\n5X / 6P shipped with a 3.10.x kernel. We still have lab test devices labelled as bullhead (5X) so the toggling W likely stops issues there while these devices still test newer ART builds in chroot. Otherwise, we probably don\u0027t need to extend W toggling to dual view.",
+      "parentUuid": "ab7d652f_7bc9ee92",
+      "range": {
+        "startLine": 396,
+        "startChar": 16,
+        "endLine": 397,
+        "endChar": 76
+      },
+      "revId": "670ff8854cf075617e0abee77b2259903757d86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
