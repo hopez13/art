@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbd102ed_c627fe79",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-22T14:54:26Z",
+      "side": 1,
+      "message": "Do we start with a random number session id or with 0? Are we biasing towards very rarely reporting app startup?",
+      "range": {
+        "startLine": 197,
+        "startChar": 9,
+        "endLine": 197,
+        "endChar": 34
+      },
+      "revId": "5b2fc73e38671b8dbbdb9dfcdf61cef96ab77d38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
