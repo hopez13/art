@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8ec98441_e85782ab",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1518,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T15:44:14Z",
+      "side": 1,
+      "message": "I\u0027m just preserving existing behavior here. Do you want to dig into the history to find out why?\n\n(But I\u0027ve just been looking at transactions and I suspect the lack of transaction support for resolved types in dex cache could bite us if we did not resolve array classes here for boot image.)",
+      "parentUuid": "434c0cc7_9f32a2b2",
+      "revId": "9c2b28881fea2826bd97c8d900c85b4069005d53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9b8a716_a4386ba4",
         "filename": "dex2oat/driver/compiler_driver.cc",
         "patchSetId": 3
@@ -31,6 +49,30 @@
       "writtenOn": "2021-06-22T15:07:40Z",
       "side": 1,
       "message": "Why 4 and 2? Maybe add a comment.",
+      "range": {
+        "startLine": 1522,
+        "startChar": 21,
+        "endLine": 1522,
+        "endChar": 35
+      },
+      "revId": "9c2b28881fea2826bd97c8d900c85b4069005d53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b29ca132_7a8666f5",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T15:44:14Z",
+      "side": 1,
+      "message": "It depend on how many handles we need. Just look for hs.NewHandle and you\u0027ll see 2 in the shared path and 2 under `if (kApp)`. I don\u0027t think it\u0027s worth a comment.",
+      "parentUuid": "f9b8a716_a4386ba4",
       "range": {
         "startLine": 1522,
         "startChar": 21,
