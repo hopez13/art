@@ -22,6 +22,30 @@
       },
       "revId": "88a6dafdf15195e056f1878db3698a7e5dfa5d32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e74b823d_e55d55ba",
+        "filename": "runtime/mirror/method_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-22T13:08:23Z",
+      "side": 1,
+      "message": "The usual implementation would be\n\n  if (is-transaction-active) {\n    \u003c/*kTransactionActive\u003d*/ true, /*kCheckTransaction\u003d*/ true\u003e\n  } else {\n    \u003c/*kTransactionActive\u003d*/ false, /*kCheckTransaction\u003d*/ true\u003e\n  }\n\nThe comment here explains why we do not need to record the stores. That allows us to pretend that the transaction is not active even when it is, but that requires`/*kCheckTransaction\u003d*/ false` in case of an active transaction to avoid the DCHECK() in `Object::VerifyTransaction()`.",
+      "parentUuid": "0eb96272_2efb6fd5",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 29
+      },
+      "revId": "88a6dafdf15195e056f1878db3698a7e5dfa5d32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
