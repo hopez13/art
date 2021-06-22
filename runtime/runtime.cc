@@ -2956,6 +2956,12 @@ void Runtime::DisableVerifier() {
   verify_ = verifier::VerifyMode::kNone;
 }
 
+
+void Runtime::EnableVerifier() {
+  verify_ = verifier::VerifyMode::kEnable;
+}
+
+
 bool Runtime::IsVerificationEnabled() const {
   return verify_ == verifier::VerifyMode::kEnable ||
       verify_ == verifier::VerifyMode::kSoftFail;
