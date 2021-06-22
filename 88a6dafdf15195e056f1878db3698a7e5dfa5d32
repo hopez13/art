@@ -46,6 +46,30 @@
       },
       "revId": "88a6dafdf15195e056f1878db3698a7e5dfa5d32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8337022_61decaa1",
+        "filename": "runtime/mirror/method_type.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-22T13:28:21Z",
+      "side": 1,
+      "message": "It would be call out disabling the check as that makes the diff comprehensible, but as you wish.",
+      "parentUuid": "e74b823d_e55d55ba",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 29
+      },
+      "revId": "88a6dafdf15195e056f1878db3698a7e5dfa5d32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
