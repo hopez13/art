@@ -46,6 +46,30 @@
       },
       "revId": "5b2fc73e38671b8dbbdb9dfcdf61cef96ab77d38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "697ed566_cb6f410c",
+        "filename": "runtime/metrics/reporter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-23T02:38:42Z",
+      "side": 1,
+      "message": "btw, I opted to go with two flags mimicking mendel terminology: mods and num_mods. Essentially the reporting condition becomes `session_id % num_mods \u003c mods`. This will enable finer controls if needed.",
+      "parentUuid": "cbf1b2ee_0ce853f5",
+      "range": {
+        "startLine": 197,
+        "startChar": 9,
+        "endLine": 197,
+        "endChar": 34
+      },
+      "revId": "5b2fc73e38671b8dbbdb9dfcdf61cef96ab77d38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
