@@ -32,6 +32,7 @@ import com.android.tradefed.util.CommandResult;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
@@ -225,7 +226,11 @@ public class OnDeviceSigningHostTest extends BaseHostJUnit4Test {
         // having a separate test because the device reboots between each @Test method and
         // that is an expensive use of time.
         verifyZygotesLoadedArtifacts();
-        verifySystemServerLoadedArtifacts();
+
+        // Temporarily disable system_server artifacts test (b/180949581).
+        if (false) {
+            verifySystemServerLoadedArtifacts();
+        }
     }
 
     private boolean haveCompilationLog() throws Exception {
