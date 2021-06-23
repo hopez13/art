@@ -777,6 +777,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0780d80a_4a6bee5c",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-23T13:22:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f174036_0d8ad8a4",
+      "range": {
+        "startLine": 1191,
+        "startChar": 22,
+        "endLine": 1191,
+        "endChar": 25
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ca578ee_3857c5d8",
@@ -1109,6 +1133,30 @@
       "side": 1,
       "message": "ditto, add a FIXME comment.",
       "parentUuid": "20949535_186a93ac",
+      "range": {
+        "startLine": 1395,
+        "startChar": 27,
+        "endLine": 1395,
+        "endChar": 30
+      },
+      "revId": "6954ad5193857781511a0c3e6c77361e00ccc47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36eac6a2_fe630d24",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-23T13:22:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31f97661_52d8e26f",
       "range": {
         "startLine": 1395,
         "startChar": 27,
