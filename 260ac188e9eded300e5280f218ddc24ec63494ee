@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b4b2869_312178c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-23T12:55:29Z",
+      "side": 1,
+      "message": "This keeps the zygote checks added, but disables the system_server ones until there is a proper fix.",
+      "revId": "260ac188e9eded300e5280f218ddc24ec63494ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
