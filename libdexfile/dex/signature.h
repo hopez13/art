@@ -51,6 +51,15 @@ class Signature : public ValueObject {
 
   bool operator==(std::string_view rhs) const;
 
+  // Three-way compare. Return a value >0 if `rhs` is higher than `*this`, <0 if lower and 0 if equal.
+  //
+  // The order is the same as the `ProtoId` order required by dex file specification if both
+  // signatures were in the same dex file.
+  //
+  // Used for binary search in methods declared by one class (i.e. having the same `class_idx`)
+  // in a dex file different from the one referenced by the sought signature.
+  int Compare(const Signature& rhs) const;
+
  private:
   Signature(const DexFile* dex, const dex::ProtoId& proto) : dex_file_(dex), proto_id_(&proto) {
   }

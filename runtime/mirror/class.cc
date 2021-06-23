@@ -689,6 +689,141 @@ ArtMethod* Class::FindClassMethod(std::string_view name,
   return FindClassMethodWithSignature(this, name, signature, pointer_size);
 }
 
+template <typename Compare>
+ALWAYS_INLINE
+std::tuple<bool, uint32_t, uint32_t, uint32_t> BinarySearch(uint32_t begin,
+                                                            uint32_t end,
+                                                            Compare&& cmp)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  while (begin != end) {
+    uint32_t mid = (begin + end) >> 1;
+    auto cmp_result = cmp(mid);
+    if (cmp_result == 0) {
+      return {true, mid, begin, end};
+    }
+    if (cmp_result > 0) {
+      begin = mid + 1u;
+    } else {
+      end = mid;
+    }
+  }
+  return {false, 0u, 0u, 0u};
+}
+
+template <typename NameCompare, typename SecondCompare, typename NameIndexGetter>
+ALWAYS_INLINE
+std::tuple<bool, uint32_t> FindDeclaredClassMember(uint32_t num_items,
+                                                   NameCompare&& name_cmp,
+                                                   SecondCompare&& second_cmp,
+                                                   NameIndexGetter&& get_name_idx)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // First search for the item with the given name.
+  bool success;
+  uint32_t mid, begin, end;
+  std::tie(success, mid, begin, end) = BinarySearch(0, num_items, name_cmp);
+  if (!success) {
+    return {false, 0u};
+  }
+  // If found, do the secondary comparison.
+  auto second_cmp_result = second_cmp(mid);
+  if (second_cmp_result == 0) {
+    return {true, mid};
+  }
+  // We have matched the name but not the secondary comparison. We no longer need to
+  // search for the name as string as we know the matching name string index.
+  // Repeat the above binary searches and secondary comparisons with a simpler name
+  // index compare until the search range contains only matching name.
+  auto name_idx = get_name_idx(mid);
+  if (second_cmp_result > 0) {
+    do {
+      begin = mid + 1u;
+      auto name_index_cmp = [&](uint32_t mid2) REQUIRES_SHARED(Locks::mutator_lock_) {
+        return (name_idx != get_name_idx(mid2)) ? -1 : 0;
+      };
+      std::tie(success, mid, begin, end) = BinarySearch(begin, end, name_index_cmp);
+      if (!success) {
+        return {false, 0u};
+      }
+      second_cmp_result = second_cmp(mid);
+    } while (second_cmp_result > 0);
+    end = mid;
+  } else {
+    do {
+      end = mid;
+      auto name_index_cmp = [&](uint32_t mid2) REQUIRES_SHARED(Locks::mutator_lock_) {
+        return (name_idx != get_name_idx(mid2)) ? 1 : 0;
+      };
+      std::tie(success, mid, begin, end) = BinarySearch(begin, end, name_index_cmp);
+      if (!success) {
+        return {false, 0u};
+      }
+      second_cmp_result = second_cmp(mid);
+    } while (second_cmp_result < 0);
+    begin = mid + 1u;
+  }
+  if (second_cmp_result == 0) {
+    return {true, mid};
+  }
+  // All items in the remaining range have a matching name, so search with secondary comparison.
+  std::tie(success, mid, std::ignore, std::ignore) = BinarySearch(begin, end, second_cmp);
+  return {success, mid};
+}
+
+static std::tuple<bool, ArtMethod*> FindDeclaredClassMethod(ObjPtr<mirror::Class> klass,
+                                                            const DexFile& dex_file,
+                                                            std::string_view name,
+                                                            Signature signature,
+                                                            PointerSize pointer_size)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  DCHECK(!klass->GetDeclaredMethodsSlice(pointer_size).empty());
+  DCHECK(&klass->GetDexFile() == &dex_file);
+  DCHECK(!name.empty());
+
+  ArraySlice<ArtMethod> searched_slice;
+  auto get_method_id = [&](uint32_t mid) REQUIRES_SHARED(Locks::mutator_lock_) ALWAYS_INLINE
+      -> const dex::MethodId& {
+    ArtMethod& method = searched_slice[mid];
+    DCHECK(method.GetDexFile() == &dex_file);
+    DCHECK_NE(method.GetDexMethodIndex(), dex::kDexNoIndex);
+    return dex_file.GetMethodId(method.GetDexMethodIndex());
+  };
+  auto name_cmp = [&](uint32_t mid) REQUIRES_SHARED(Locks::mutator_lock_) ALWAYS_INLINE {
+    // Do not use ArtMethod::GetNameView() to avoid reloading dex file through the same
+    // declaring class from different methods and also avoid the runtime method check.
+    const dex::MethodId& method_id = get_method_id(mid);
+    return name.compare(dex_file.GetMethodNameView(method_id));
+  };
+  auto signature_cmp = [&](uint32_t mid) REQUIRES_SHARED(Locks::mutator_lock_) ALWAYS_INLINE {
+    // Do not use ArtMethod::GetSignature() to avoid reloading dex file through the same
+    // declaring class from different methods and also avoid the runtime method check.
+    const dex::MethodId& method_id = get_method_id(mid);
+    return signature.Compare(dex_file.GetMethodSignature(method_id));
+  };
+  auto get_name_idx = [&](uint32_t mid) REQUIRES_SHARED(Locks::mutator_lock_) ALWAYS_INLINE {
+    const dex::MethodId& method_id = get_method_id(mid);
+    return method_id.name_idx_;
+  };
+
+  // Use binary search in the sorted declared direct methods.
+  searched_slice = klass->GetDirectMethodsSlice(pointer_size);
+  auto [success, mid] =
+      FindDeclaredClassMember(searched_slice.size(), name_cmp, signature_cmp, get_name_idx);
+  if (success) {
+    return {true, &searched_slice[mid]};
+  }
+
+  // Use binary search in the sorted declared virtual methods.
+  searched_slice = klass->GetDeclaredVirtualMethodsSlice(pointer_size);
+  std::tie(success, mid) =
+      FindDeclaredClassMember(searched_slice.size(), name_cmp, signature_cmp, get_name_idx);
+  if (success) {
+    return {true, &searched_slice[mid]};
+  }
+
+  // Did not find a declared method in either slice.
+  return {false, nullptr};
+}
+
 FLATTEN
 ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
                                   uint32_t dex_method_idx,
@@ -707,25 +842,22 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
       }
     }
   }
+
   // If not found, we need to search by name and signature.
   const DexFile& dex_file = *dex_cache->GetDexFile();
   const dex::MethodId& method_id = dex_file.GetMethodId(dex_method_idx);
   const Signature signature = dex_file.GetMethodSignature(method_id);
   std::string_view name;  // Do not touch the dex file string data until actually needed.
+
   // If we do not have a dex_cache match, try to find the declared method in this class now.
   if (this_dex_cache != dex_cache && !GetDeclaredMethodsSlice(pointer_size).empty()) {
     DCHECK(name.empty());
     name = dex_file.GetMethodNameView(method_id);
-    const DexFile& this_dex_file = *this_dex_cache->GetDexFile();
-    for (ArtMethod& method : GetDeclaredMethodsSlice(pointer_size)) {
-      // Do not use ArtMethod::GetNameView() to avoid reloading dex file through the same
-      // declaring class from different methods and also avoid the runtime method check.
-      DCHECK(method.GetDexFile() == &this_dex_file);
-      DCHECK_NE(method.GetDexMethodIndex(), dex::kDexNoIndex);
-      std::string_view other_name = this_dex_file.GetMethodNameView(method.GetDexMethodIndex());
-      if (other_name == name && method.GetSignature() == signature) {
-        return &method;
-      }
+    auto [success, method] = FindDeclaredClassMethod(
+        this, *this_dex_cache->GetDexFile(), name, signature, pointer_size);
+    DCHECK_EQ(success, method != nullptr);
+    if (success) {
+      return method;
     }
   }
 
@@ -737,7 +869,8 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
   for (; klass != nullptr; klass = klass->GetSuperClass()) {
     ArtMethod* candidate_method = nullptr;
     ArraySlice<ArtMethod> declared_methods = klass->GetDeclaredMethodsSlice(pointer_size);
-    if (klass->GetDexCache() == dex_cache) {
+    ObjPtr<DexCache> klass_dex_cache = klass->GetDexCache();
+    if (klass_dex_cache == dex_cache) {
       // Matching dex_cache. We cannot compare the `dex_method_idx` anymore because
       // the type index differs, so compare the name index and proto index.
       for (ArtMethod& method : declared_methods) {
@@ -752,17 +885,11 @@ ArtMethod* Class::FindClassMethod(ObjPtr<DexCache> dex_cache,
       if (name.empty()) {
         name = dex_file.GetMethodNameView(method_id);
       }
-      const DexFile& other_dex_file = klass->GetDexFile();
-      for (ArtMethod& method : declared_methods) {
-        // Do not use ArtMethod::GetNameView() to avoid reloading dex file through the same
-        // declaring class from different methods and also avoid the runtime method check.
-        DCHECK(method.GetDexFile() == &other_dex_file);
-        DCHECK_NE(method.GetDexMethodIndex(), dex::kDexNoIndex);
-        std::string_view other_name = other_dex_file.GetMethodNameView(method.GetDexMethodIndex());
-        if (other_name == name && method.GetSignature() == signature) {
-          candidate_method = &method;
-          break;
-        }
+      auto [success, method] = FindDeclaredClassMethod(
+          klass, *klass_dex_cache->GetDexFile(), name, signature, pointer_size);
+      DCHECK_EQ(success, method != nullptr);
+      if (success) {
+        candidate_method = method;
       }
     }
     if (candidate_method != nullptr) {
