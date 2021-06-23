@@ -190,6 +190,30 @@
       },
       "revId": "670ff8854cf075617e0abee77b2259903757d86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b08362ec_49afb358",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-23T12:28:45Z",
+      "side": 1,
+      "message": "So about \"II) To implement a workaround for the Qualcomm kernel bug, we\u0027d need to have the pages with Writeable for __builtin___clear_cache (FlushCpuCaches) \"\n\nThe fact we haven\u0027t seen any issues after removing the toggling of the \u0027W\u0027 bit can indicate the bug has been fixed in all places we run, do you agree?",
+      "parentUuid": "1883a7cc_c0616ea4",
+      "range": {
+        "startLine": 396,
+        "startChar": 16,
+        "endLine": 397,
+        "endChar": 76
+      },
+      "revId": "670ff8854cf075617e0abee77b2259903757d86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
