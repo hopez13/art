@@ -39,6 +39,30 @@
       },
       "revId": "946c09c0ba0ae4e481086054f522106ccd349f13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccb6410a_053f3762",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-23T08:53:22Z",
+      "side": 1,
+      "message": "I would just drop the FIXME comment. OatFile can provide support for opening app oat files with `dex_fds` even if we\u0027re never going to use that.",
+      "parentUuid": "a820e1cf_aea95d87",
+      "range": {
+        "startLine": 744,
+        "startChar": 10,
+        "endLine": 749,
+        "endChar": 61
+      },
+      "revId": "946c09c0ba0ae4e481086054f522106ccd349f13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
