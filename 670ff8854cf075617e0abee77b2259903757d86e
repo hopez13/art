@@ -214,6 +214,30 @@
       },
       "revId": "670ff8854cf075617e0abee77b2259903757d86e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c51b785_2111c219",
+        "filename": "runtime/jit/jit_memory_region.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-06-23T12:40:04Z",
+      "side": 1,
+      "message": "Looking at http://go/art-buildbot the columns labelled as bullhead appear to run on walleye. If we don\u0027t have any 5X/6P in the test infra, we don\u0027t need ScopedCodeCacheWrite any more. We still have Fugu on an old kernel, but that\u0027s not affected by the bug.",
+      "parentUuid": "b08362ec_49afb358",
+      "range": {
+        "startLine": 396,
+        "startChar": 16,
+        "endLine": 397,
+        "endChar": 76
+      },
+      "revId": "670ff8854cf075617e0abee77b2259903757d86e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
