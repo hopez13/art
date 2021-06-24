@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d357c73_a43a240d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3504,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-24T13:16:41Z",
+      "side": 1,
+      "message": "Looking at the implementation of this, it seems we\u0027re lucky the boot classpath consists of .jar files and not .dex files? (as for a dex file we call ArtDexFileLoader::OpenFile).\n\nEven for jar, the code does some file opening that it\u0027d be great to avoid. Can we have oat_file_manager cache the checksums instead?",
+      "range": {
+        "startLine": 3504,
+        "startChar": 25,
+        "endLine": 3504,
+        "endChar": 45
+      },
+      "revId": "93dec63a499123150665cca94fda354963addc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
