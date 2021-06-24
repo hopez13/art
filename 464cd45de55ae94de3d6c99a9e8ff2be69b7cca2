@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c910c51b_35358520",
+        "filename": "libdexfile/dex/signature-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-24T09:57:57Z",
+      "side": 1,
+      "message": "Should this be \u0027\u0026\u0026\u0027 ?",
+      "range": {
+        "startLine": 82,
+        "startChar": 27,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67327196_4c658b89",
+        "filename": "libdexfile/dex/signature-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-24T09:57:57Z",
+      "side": 1,
+      "message": "Can you add a comment of what a shorty size of 1 means?",
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d25fc0a_05ebdeef",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-24T09:57:57Z",
+      "side": 1,
+      "message": "why does this need to be \u0027\u0026\u0026\u0027 ?",
+      "range": {
+        "startLine": 701,
+        "startChar": 68,
+        "endLine": 701,
+        "endChar": 69
+      },
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
