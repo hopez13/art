@@ -190,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f04d036d_e9b10d4d",
+        "filename": "libdexfile/dex/signature-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-24T12:44:39Z",
+      "side": 1,
+      "message": "Done (but only once here for the whole function).",
+      "parentUuid": "c22cd87d_ff29503e",
+      "range": {
+        "startLine": 82,
+        "startChar": 27,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67327196_4c658b89",
@@ -239,6 +263,24 @@
       "side": 1,
       "message": "I know shortys, but I find it always easier to understand when comments match our understanding of the code.\n\nSo here, I think it can help to add\n// If both shortys contain parameters, check each of the parameter.\n\nOr something.",
       "parentUuid": "6405b293_169ff65c",
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08223d64_4075e376",
+        "filename": "libdexfile/dex/signature-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-24T12:44:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fe4655e_e60c42c0",
       "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
