@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1454836d_2772705d",
+        "filename": "libdexfile/dex/signature-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-24T10:46:29Z",
+      "side": 1,
+      "message": "No, unfortunately \u0027L\u0027 in shorty can refer to an array type, and \u0027[\u0027 is after \u0027S\u0027, \u0027Z\u0027 and \u0027V\u0027. (And I did not want to over-optimize this to avoid the string comparison for other cases.)",
+      "parentUuid": "c910c51b_35358520",
+      "range": {
+        "startLine": 82,
+        "startChar": 27,
+        "endLine": 82,
+        "endChar": 30
+      },
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67327196_4c658b89",
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6405b293_169ff65c",
+        "filename": "libdexfile/dex/signature-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-24T10:46:29Z",
+      "side": 1,
+      "message": "I\u0027d think this is obvious as the shorty[0] is used for the return type above.\n\nTo understand the code, you need to understand what shorty stands for anyway. Or should we add links to https://source.android.com/devices/tech/dalvik/dex-format#shortydescriptor all around the code?",
+      "parentUuid": "67327196_4c658b89",
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d25fc0a_05ebdeef",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 2
@@ -54,6 +96,30 @@
       "writtenOn": "2021-06-24T09:57:57Z",
       "side": 1,
       "message": "why does this need to be \u0027\u0026\u0026\u0027 ?",
+      "range": {
+        "startLine": 701,
+        "startChar": 68,
+        "endLine": 701,
+        "endChar": 69
+      },
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "505e9b9e_46686e26",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-24T10:46:29Z",
+      "side": 1,
+      "message": "This is more generic and allows binding to temporary objects (which yield const-qualified deduced `Compare`).",
+      "parentUuid": "0d25fc0a_05ebdeef",
       "range": {
         "startLine": 701,
         "startChar": 68,
