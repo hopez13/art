@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eab9a9fc_ea99008e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-24T11:39:28Z",
+      "side": 1,
+      "message": "The other option would be to search forward/backward for a signature match as long as the name index matches. But I prefer doing the \"complex\" binary searches, keeping in mind that proguard and similar tools tend to create large overload sets. (And there are also some decent overload sets in the boot image, for example `StringBuilder.append`.)\n\nCreating a hash table would have memory overhead which I\u0027m not very keen on. (I\u0027d imagine a hash table per dex file; per class would be even worse.)",
+      "parentUuid": "12952e1d_23408ac2",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 12,
+        "endChar": 30
+      },
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cea1bc35_c51966ca",
         "filename": "libdexfile/dex/dex_file-inl.h",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-24T11:16:40Z",
       "side": 1,
       "message": "utf8, not mutf8?",
+      "range": {
+        "startLine": 201,
+        "startChar": 85,
+        "endLine": 201,
+        "endChar": 90
+      },
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "106b95e4_8ce04380",
+        "filename": "libdexfile/dex/dex_file-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-24T11:39:28Z",
+      "side": 1,
+      "message": "This references \"Modified UTF-8\" (note: cut-and-paste).",
+      "parentUuid": "cea1bc35_c51966ca",
       "range": {
         "startLine": 201,
         "startChar": 85,
@@ -189,6 +237,30 @@
       "writtenOn": "2021-06-24T11:16:40Z",
       "side": 1,
       "message": "Nit: why not pass size_t to ClassMemberBinarySearch? Or if that\u0027s inconvenient, then make ranges store uint32_t and convert on initialization.",
+      "range": {
+        "startLine": 826,
+        "startChar": 0,
+        "endLine": 827,
+        "endChar": 62
+      },
+      "revId": "464cd45de55ae94de3d6c99a9e8ff2be69b7cca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3820156_9a60c2bc",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-24T11:39:28Z",
+      "side": 1,
+      "message": "Done (make ranges uint32_t).",
+      "parentUuid": "db7bd0fa_2a6a4a11",
       "range": {
         "startLine": 826,
         "startChar": 0,
