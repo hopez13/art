@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1926213_a17b6ce3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-25T14:46:15Z",
+      "side": 1,
+      "message": "It seems I have misinterpreted TH data by calling the failure a flake. It was a pre-existing failure which does not look like a flake on closer inspection.",
+      "revId": "70e126af8a14b68f08acc9acadcdf5b4b0510781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20b42f22_09a1eff6",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-06-25T14:33:10Z",
       "side": 1,
       "message": "Judging by DCHECK at line 1110 this cannot be nullptr, so I don\u0027t understand why you return tuple and not just a pointer.",
+      "range": {
+        "startLine": 1096,
+        "startChar": 18,
+        "endLine": 1096,
+        "endChar": 34
+      },
+      "revId": "70e126af8a14b68f08acc9acadcdf5b4b0510781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc98fe22_f6d23796",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-25T14:46:15Z",
+      "side": 1,
+      "message": "I hope clang++ shall perform thorough jump threading after inlining with the tuple approach. I do not trust clang++ to assume that `\u0026fields-\u003eAt(mid)` cannot be null, so I would expect code without the tuple to perform unnecessary null checks.",
+      "parentUuid": "20b42f22_09a1eff6",
       "range": {
         "startLine": 1096,
         "startChar": 18,
