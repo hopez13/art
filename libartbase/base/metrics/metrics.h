@@ -29,7 +29,6 @@
 
 #include "android-base/logging.h"
 #include "base/bit_utils.h"
-#include "base/compiler_filter.h"
 #include "base/time_utils.h"
 
 #pragma clang diagnostic push
@@ -199,6 +198,63 @@ constexpr CompilationReason CompilationReasonFromName(std::string_view name) {
   return CompilationReason::kError;
 }
 
+// Augmented copmiler filter enum, used in the reporting infra.
+enum class CompilerFilterReporting {
+  // Error (invalid value) condition
+  kError,
+  // Unknown (not set) condition
+  kUnknown,
+  // Standard compiler filters
+  kAssumeVerified,
+  kExtract,
+  kVerify,
+  kSpaceProfile,
+  kSpace,
+  kSpeedProfile,
+  kSpeed,
+  kEverythingProfile,
+  kEverything,
+  // Augmented compiler filters as produces by OatFileAssistant#GetOptimizationStatus
+  kRunFromApk,
+  kRunFromApkFallback,
+};
+
+constexpr const char* CompilerFilterReportingName(CompilerFilterReporting filter) {
+  switch (filter) {
+    case CompilerFilterReporting::kError: return "error";
+    case CompilerFilterReporting::kUnknown: return "unknown";
+    case CompilerFilterReporting::kAssumeVerified: return "assume-verified";
+    case CompilerFilterReporting::kExtract: return "extract";
+    case CompilerFilterReporting::kVerify: return "verify";
+    case CompilerFilterReporting::kSpaceProfile: return "space-profile";
+    case CompilerFilterReporting::kSpace: return "space";
+    case CompilerFilterReporting::kSpeedProfile: return "speed-profile";
+    case CompilerFilterReporting::kSpeed: return "speed";
+    case CompilerFilterReporting::kEverythingProfile: return "everything-profile";
+    case CompilerFilterReporting::kEverything: return "everything";
+    case CompilerFilterReporting::kRunFromApk: return "run-from-apk";
+    case CompilerFilterReporting::kRunFromApkFallback: return "run-from-apk-fallback";
+  }
+}
+
+constexpr CompilerFilterReporting CompilerFilterReportingFromName(std::string_view name) {
+  if (name == "error") { return CompilerFilterReporting::kError; }
+  if (name == "unknown") { return CompilerFilterReporting::kUnknown; }
+  if (name == "assume-verified") { return CompilerFilterReporting::kAssumeVerified; }
+  if (name == "extract") { return CompilerFilterReporting::kExtract; }
+  if (name == "verify") { return CompilerFilterReporting::kVerify; }
+  if (name == "space-profile") { return CompilerFilterReporting::kSpaceProfile; }
+  if (name == "space") { return CompilerFilterReporting::kSpace; }
+  if (name == "speed-profile") { return CompilerFilterReporting::kSpeedProfile; }
+  if (name == "speed") { return CompilerFilterReporting::kSpeed; }
+  if (name == "everything-profile") { return CompilerFilterReporting::kEverythingProfile; }
+  if (name == "everything") { return CompilerFilterReporting::kEverything; }
+  if (name == "run-from-apk") { return CompilerFilterReporting::kRunFromApk; }
+  if (name == "run-from-apk-fallback") { return CompilerFilterReporting::kRunFromApkFallback; }
+
+  return CompilerFilterReporting::kError;
+}
+
 // SessionData contains metadata about a metrics session (basically the lifetime of an ART process).
 // This information should not change for the lifetime of the session.
 struct SessionData {
@@ -210,7 +266,7 @@ struct SessionData {
   int64_t session_id;
   int32_t uid;
   CompilationReason compilation_reason;
-  std::optional<CompilerFilter::Filter> compiler_filter;
+  CompilerFilterReporting compiler_filter;
 };
 
 // MetricsBackends are used by a metrics reporter to write metrics to some external location. For

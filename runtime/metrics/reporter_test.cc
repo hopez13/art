@@ -84,6 +84,10 @@ class TestBackend : public MetricsBackend {
     return reports_;
   }
 
+  const SessionData& GetSessionData() {
+    return session_data_;
+  }
+
  private:
   SessionData session_data_;
   std::vector<Report> reports_;
@@ -163,7 +167,11 @@ class MetricsReporterTest : public CommonRuntimeTest {
   //   1) don't add metrics (with_metrics = false)
   //   2) or always add the same metrics (see MaybeStartBackgroundThread)
   // So we can write a global verify method.
-  void VerifyReports(uint32_t size, bool with_metrics) {
+  void VerifyReports(
+        uint32_t size,
+        bool with_metrics,
+        CompilerFilterReporting filter = CompilerFilterReporting::kUnknown,
+        CompilationReason reason = CompilationReason::kUnknown) {
     // TODO: we should iterate through all the other metrics to make sure they were not
     // reported. However, we don't have an easy to use iteration mechanism over metrics yet.
     // We should ads one
@@ -172,6 +180,9 @@ class MetricsReporterTest : public CommonRuntimeTest {
       ASSERT_EQ(report.data.Get(DatumId::kClassVerificationCount), with_metrics ? 2u : 0u);
       ASSERT_EQ(report.data.Get(DatumId::kJitMethodCompileCount), with_metrics ? 1u : 0u);
     }
+
+    ASSERT_EQ(backend_->GetSessionData().compiler_filter, filter);
+    ASSERT_EQ(backend_->GetSessionData().compilation_reason, reason);
   }
 
   // Sleeps until the backend received the give number of reports.
@@ -182,6 +193,10 @@ class MetricsReporterTest : public CommonRuntimeTest {
       }
       usleep(sleep_period_ms * 1000);
     }
+  }
+
+  void NotifyDexFileLoaded(const AppInfo& app_info) {
+    reporter_->NotifyDexFileLoaded(app_info);
   }
 
  private:
@@ -352,13 +367,38 @@ TEST_F(MetricsReporterTest, SampleRateEnable50) {
 TEST_F(MetricsReporterTest, SampleRateEnableAll) {
   SetupReporter("1", /*session_id=*/ 1099, /*reporting_mods=*/ 100);
 
-  // The background thread should not start.
+  // The background thread should start.
   ASSERT_TRUE(MaybeStartBackgroundThread(/*add_metrics=*/ false));
 
   ASSERT_FALSE(ShouldReportAtStartup());
   ASSERT_TRUE(ShouldContinueReporting());
 }
 
+TEST_F(MetricsReporterTest, CompilerFilter) {
+  SetupReporter("1", /*session_id=*/ 1099, /*reporting_mods=*/ 100);
+  ASSERT_TRUE(MaybeStartBackgroundThread(/*add_metrics=*/ true));
+
+  AppInfo app_info;
+  app_info.RegisterOdexStatus(
+      "code_location",
+      "verify",
+      "install",
+      "odex_status");
+  app_info.RegisterAppInfo(
+      "package_name",
+      std::vector<std::string>({"code_location"}),
+      "",
+      "",
+      AppInfo::CodeType::kPrimaryApk);
+  NotifyDexFileLoaded(app_info);
+
+  WaitForReport(/*report_count=*/ 1, /*sleep_period_ms=*/ 500);
+  VerifyReports(
+      /*size=*/ 1,
+      /*with_metrics*/ true,
+      CompilerFilterReporting::kVerify,
+      CompilationReason::kInstall);
+}
 
 // Test class for period spec parsing
 class ReportingPeriodSpecTest : public testing::Test {
