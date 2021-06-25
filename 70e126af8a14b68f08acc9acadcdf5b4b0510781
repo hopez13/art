@@ -87,6 +87,30 @@
       },
       "revId": "70e126af8a14b68f08acc9acadcdf5b4b0510781",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f17843a_72ae2112",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-25T16:18:28Z",
+      "side": 1,
+      "message": "You need to consider that `ClassMemberBinarySearch` and `BinarySearch` are `ALWAYS_INLINE`. Every return from `BinarySearch` has a constant `success`, so the checks in `ClassMemberBinarySearch` can be statically resolved. Same for the checks of return value `success` in `FindFieldByNameAndType` and again in its callers. I would not expect that to make a difference in `FindDeclared{Instance,Static}Field` where we just return the field or null, but in `FindFieldImpl` clang++ should avoid some null checks by redirecting the code flow.",
+      "parentUuid": "e0a81de4_e838def8",
+      "range": {
+        "startLine": 1096,
+        "startChar": 18,
+        "endLine": 1096,
+        "endChar": 34
+      },
+      "revId": "70e126af8a14b68f08acc9acadcdf5b4b0510781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
