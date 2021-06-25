@@ -1316,6 +1316,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   MemMap::Init();
 
   verifier_missing_kthrow_fatal_ = runtime_options.GetOrDefault(Opt::VerifierMissingKThrowFatal);
+  allow_indefinite_thread_suspension_ = runtime_options.GetOrDefault(Opt::AllowIndefiniteThreadSuspension);
   perfetto_hprof_enabled_ = runtime_options.GetOrDefault(Opt::PerfettoHprof);
   perfetto_javaheapprof_enabled_ = runtime_options.GetOrDefault(Opt::PerfettoJavaHeapStackProf);
 

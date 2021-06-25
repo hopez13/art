@@ -978,6 +978,10 @@ class Runtime {
     return verifier_missing_kthrow_fatal_;
   }
 
+  bool IsIndefiniteThreadSuspensionAllowed() const {
+    return allow_indefinite_thread_suspension_;
+  }
+
   bool IsPerfettoHprofEnabled() const {
     return perfetto_hprof_enabled_;
   }
@@ -1395,6 +1399,7 @@ class Runtime {
   std::atomic<bool> startup_completed_ = false;
 
   bool verifier_missing_kthrow_fatal_;
+  bool allow_indefinite_thread_suspension_;
   bool perfetto_hprof_enabled_;
   bool perfetto_javaheapprof_enabled_;
 
