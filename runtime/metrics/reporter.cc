@@ -21,6 +21,7 @@
 #include <android-base/parseint.h>
 
 #include "base/flags.h"
+#include "oat_file_manager.h"
 #include "runtime.h"
 #include "runtime_options.h"
 #include "statsd.h"
@@ -84,6 +85,18 @@ void MetricsReporter::NotifyStartupCompleted() {
   }
 }
 
+void MetricsReporter::NotifyDexFileLoaded(AppInfo* app_info) {
+  std::string compilation_reason;
+  std::string compiler_filter;
+
+  app_info->GetPrimaryApkOptimizationStatus(
+      &compiler_filter, &compilation_reason);
+
+  SetCompilationInfo(
+      CompilationReasonFromName(compilation_reason),
+      CompilerFilterReportingFromName(compiler_filter));
+}
+
 void MetricsReporter::RequestMetricsReport(bool synchronous) {
   if (thread_.has_value()) {
     messages_.SendMessage(RequestMetricsReportMessage{synchronous});
@@ -94,7 +107,7 @@ void MetricsReporter::RequestMetricsReport(bool synchronous) {
 }
 
 void MetricsReporter::SetCompilationInfo(CompilationReason compilation_reason,
-                                         CompilerFilter::Filter compiler_filter) {
+                                         CompilerFilterReporting compiler_filter) {
   if (thread_.has_value()) {
     messages_.SendMessage(CompilationInfoMessage{compilation_reason, compiler_filter});
   }
