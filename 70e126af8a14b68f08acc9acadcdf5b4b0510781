@@ -63,6 +63,30 @@
       },
       "revId": "70e126af8a14b68f08acc9acadcdf5b4b0510781",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a81de4_e838def8",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-25T15:40:40Z",
+      "side": 1,
+      "message": "TBH I still don\u0027t understand how the boolean component of the tuple helps clang++ to generate fewer checks. To clarify what I mean, I consider the code roughly equivalent to this (godbolt): https://godbolt.org/z/v4r1Eej1v\n\nTo me it seems that if you check the pointer the compiler knows as much or (likely) more about the pointer than if you check the accompanying boolean.",
+      "parentUuid": "fc98fe22_f6d23796",
+      "range": {
+        "startLine": 1096,
+        "startChar": 18,
+        "endLine": 1096,
+        "endChar": 34
+      },
+      "revId": "70e126af8a14b68f08acc9acadcdf5b4b0510781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
