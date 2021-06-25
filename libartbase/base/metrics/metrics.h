@@ -29,7 +29,6 @@
 
 #include "android-base/logging.h"
 #include "base/bit_utils.h"
-#include "base/compiler_filter.h"
 #include "base/time_utils.h"
 
 #pragma clang diagnostic push
@@ -106,102 +105,118 @@ enum class CompilationReason {
   kCmdLine
 };
 
+#define ReasonName(enumType, returnString) \
+    case CompilationReason::enumType: return returnString;
 constexpr const char* CompilationReasonName(CompilationReason reason) {
   switch (reason) {
-    case CompilationReason::kError:
-      return "error";
-    case CompilationReason::kUnknown:
-      return "unknown";
-    case CompilationReason::kFirstBoot:
-      return "first-boot";
-    case CompilationReason::kBootAfterOTA:
-      return "boot-after-ota";
-    case CompilationReason::kPostBoot:
-      return "post-boot";
-    case CompilationReason::kInstall:
-      return "install";
-    case CompilationReason::kInstallFast:
-      return "install-fast";
-    case CompilationReason::kInstallBulk:
-      return "install-bulk";
-    case CompilationReason::kInstallBulkSecondary:
-      return "install-bulk-secondary";
-    case CompilationReason::kInstallBulkDowngraded:
-      return "install-bulk-downgraded";
-    case CompilationReason::kInstallBulkSecondaryDowngraded:
-      return "install-bulk-secondary-downgraded";
-    case CompilationReason::kBgDexopt:
-      return "bg-dexopt";
-    case CompilationReason::kABOTA:
-      return "ab-ota";
-    case CompilationReason::kInactive:
-      return "inactive";
-    case CompilationReason::kShared:
-      return "shared";
-    case CompilationReason::kInstallWithDexMetadata:
-      return "install-with-dex-metadata";
-    case CompilationReason::kPrebuilt:
-      return "prebuilt";
-    case CompilationReason::kCmdLine:
-      return "cmdline";
+    ReasonName(kError, "error")
+    ReasonName(kUnknown, "unknown")
+    ReasonName(kFirstBoot, "first-boot")
+    ReasonName(kBootAfterOTA, "boot-after-ota")
+    ReasonName(kPostBoot, "post-boot")
+    ReasonName(kInstall, "install")
+    ReasonName(kInstallFast, "install-fast")
+    ReasonName(kInstallBulk, "install-bulk")
+    ReasonName(kInstallBulkSecondary, "install-bulk-secondary")
+    ReasonName(kInstallBulkDowngraded, "install-bulk-downgraded")
+    ReasonName(kInstallBulkSecondaryDowngraded, "install-bulk-secondary-downgraded")
+    ReasonName(kBgDexopt, "bg-dexopt")
+    ReasonName(kABOTA, "ab-ota")
+    ReasonName(kInactive, "inactive")
+    ReasonName(kShared, "shared")
+    ReasonName(kInstallWithDexMetadata, "install-with-dex-metadata")
+    ReasonName(kPrebuilt, "prebuilt")
+    ReasonName(kCmdLine, "cmdline")
   }
 }
+#undef ReasonName
 
+#define ReasonFromName(value, returnEnum) \
+    if (name == value) { return CompilationReason::returnEnum; }
 constexpr CompilationReason CompilationReasonFromName(std::string_view name) {
   // Names come from PackageManagerServiceCompilerMapping.java
-  if (name == "unknown") {
-    return CompilationReason::kUnknown;
-  }
-  if (name == "first-boot") {
-    return CompilationReason::kFirstBoot;
-  }
-  if (name == "boot-after-ota") {
-    return CompilationReason::kBootAfterOTA;
-  }
-  if (name == "post-boot") {
-    return CompilationReason::kPostBoot;
-  }
-  if (name == "install") {
-    return CompilationReason::kInstall;
-  }
-  if (name == "install-fast") {
-    return CompilationReason::kInstallFast;
-  }
-  if (name == "install-bulk") {
-    return CompilationReason::kInstallBulk;
-  }
-  if (name == "install-bulk-secondary") {
-    return CompilationReason::kInstallBulkSecondary;
-  }
-  if (name == "install-bulk-downgraded") {
-    return CompilationReason::kInstallBulkDowngraded;
-  }
-  if (name == "install-bulk-secondary-downgraded") {
-    return CompilationReason::kInstallBulkSecondaryDowngraded;
-  }
-  if (name == "bg-dexopt") {
-    return CompilationReason::kBgDexopt;
-  }
-  if (name == "ab-ota") {
-    return CompilationReason::kABOTA;
-  }
-  if (name == "inactive") {
-    return CompilationReason::kInactive;
-  }
-  if (name == "shared") {
-    return CompilationReason::kShared;
-  }
-  if (name == "install-with-dex-metadata") {
-    return CompilationReason::kInstallWithDexMetadata;
-  }
-  if (name == "prebuilt") {
-    return CompilationReason::kPrebuilt;
-  }
-  if (name == "cmdline") {
-    return CompilationReason::kCmdLine;
-  }
+  ReasonFromName("unknown", kUnknown)
+  ReasonFromName("first-boot", kFirstBoot)
+  ReasonFromName("boot-after-ota", kBootAfterOTA)
+  ReasonFromName("post-boot", kPostBoot)
+  ReasonFromName("install", kInstall)
+  ReasonFromName("install-fast", kInstallFast)
+  ReasonFromName("install-bulk", kInstallBulk)
+  ReasonFromName("install-bulk-secondary", kInstallBulkSecondary)
+  ReasonFromName("install-bulk-downgraded", kInstallBulkDowngraded)
+  ReasonFromName("install-bulk-secondary-downgraded", kInstallBulkSecondaryDowngraded)
+  ReasonFromName("bg-dexopt", kBgDexopt)
+  ReasonFromName("ab-ota", kABOTA)
+  ReasonFromName("inactive", kInactive)
+  ReasonFromName("shared", kShared)
+  ReasonFromName("install-with-dex-metadata", kInstallWithDexMetadata)
+  ReasonFromName("prebuilt", kPrebuilt)
+  ReasonFromName("cmdline", kCmdLine)
   return CompilationReason::kError;
 }
+#undef ReasonFromName
+
+// Augmented copmiler filter enum, used in the reporting infra.
+enum class CompilerFilterReporting {
+  // Error (invalid value) condition
+  kError,
+  // Unknown (not set) condition
+  kUnknown,
+  // Standard compiler filters
+  kAssumeVerified,
+  kExtract,
+  kVerify,
+  kSpaceProfile,
+  kSpace,
+  kSpeedProfile,
+  kSpeed,
+  kEverythingProfile,
+  kEverything,
+  // Augmented compiler filters as produces by OatFileAssistant#GetOptimizationStatus
+  kRunFromApk,
+  kRunFromApkFallback,
+};
+
+#define FilterName(enumType, returnString) \
+    case CompilerFilterReporting::enumType: return returnString;
+constexpr const char* CompilerFilterReportingName(CompilerFilterReporting filter) {
+  switch (filter) {
+    FilterName(kError, "error")
+    FilterName(kUnknown, "unknown")
+    FilterName(kAssumeVerified, "assume-verified")
+    FilterName(kExtract, "extract")
+    FilterName(kVerify, "verify")
+    FilterName(kSpaceProfile, "space-profile")
+    FilterName(kSpace, "space")
+    FilterName(kSpeedProfile, "speed-profile")
+    FilterName(kSpeed, "speed")
+    FilterName(kEverythingProfile, "everything-profile")
+    FilterName(kEverything, "everything")
+    FilterName(kRunFromApk, "run-from-apk")
+    FilterName(kRunFromApkFallback, "run-from-apk-fallback")
+  }
+}
+#undef FilterName
+
+#define FilterFromName(value, returnEnum) \
+    if (name == value) { return CompilerFilterReporting::returnEnum; }
+constexpr CompilerFilterReporting CompilerFilterReportingFromName(std::string_view name) {
+  FilterFromName("error", kError)
+  FilterFromName("unknown", kUnknown)
+  FilterFromName("assume-verified", kAssumeVerified)
+  FilterFromName("extract", kExtract)
+  FilterFromName("verify", kVerify)
+  FilterFromName("space-profile", kSpaceProfile)
+  FilterFromName("space", kSpace)
+  FilterFromName("speed-profile", kSpeedProfile)
+  FilterFromName("speed", kSpeed)
+  FilterFromName("everything-profile", kEverythingProfile)
+  FilterFromName("everything", kEverything)
+  FilterFromName("run-from-apk", kRunFromApk)
+  FilterFromName("run-from-apk-fallback", kRunFromApkFallback)
+  return CompilerFilterReporting::kError;
+}
+#undef FilterFromName
 
 // SessionData contains metadata about a metrics session (basically the lifetime of an ART process).
 // This information should not change for the lifetime of the session.
@@ -214,7 +229,7 @@ struct SessionData {
   int64_t session_id;
   int32_t uid;
   CompilationReason compilation_reason;
-  std::optional<CompilerFilter::Filter> compiler_filter;
+  CompilerFilterReporting compiler_filter;
 };
 
 // MetricsBackends are used by a metrics reporter to write metrics to some external location. For
@@ -229,7 +244,10 @@ class MetricsBackend {
   // includes a session id which is used to correlate any metric reports with the same instance of
   // the ART runtime. Additionally, session_data includes useful metadata such as the package name
   // for this process.
-  virtual void BeginSession(const SessionData& session_data) = 0;
+  //
+  // It may also be called whenever there is an update to the session metadata (e.g. optimization
+  // state).
+  virtual void BeginOrUpdateSession(const SessionData& session_data) = 0;
 
  protected:
   // Called by the metrics reporter to indicate that a new metrics report is starting.
@@ -468,7 +486,7 @@ class StringBackend : public MetricsBackend {
  public:
   StringBackend();
 
-  void BeginSession(const SessionData& session_data) override;
+  void BeginOrUpdateSession(const SessionData& session_data) override;
 
   void BeginReport(uint64_t timestamp_millis) override;
 
