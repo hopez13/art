@@ -16,6 +16,29 @@
       "message": "Thanks for the comments, I\u0027ll add a test before sending for review. This was very much a quick run yesterday evening, not sure all the bases are covered despite passing existing tests.",
       "revId": "54ca6b62d623d65d25e71c75ae8730ddf8bce033",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6070da90_906251f3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4510,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-25T11:21:15Z",
+      "side": 1,
+      "message": "This shall catch StaticFieldVarHandle and call the wrong function.",
+      "range": {
+        "startLine": 4510,
+        "startChar": 65,
+        "endLine": 4510,
+        "endChar": 81
+      },
+      "revId": "54ca6b62d623d65d25e71c75ae8730ddf8bce033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
