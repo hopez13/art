@@ -16,6 +16,52 @@
       "message": "Not ready for review: needs a class unloading test.",
       "revId": "43d9b3001dadd0283a3bc01b3c43a46d088945c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8a6bc7b_d9190108",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-25T08:32:02Z",
+      "side": 1,
+      "message": "Nit: These should all be `down_cast\u003c.\u003e(this)` or `ObjPtr\u003c.\u003e::DownCast(this)`.",
+      "range": {
+        "startLine": 1458,
+        "startChar": 14,
+        "endLine": 1458,
+        "endChar": 53
+      },
+      "revId": "43d9b3001dadd0283a3bc01b3c43a46d088945c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43ef975f_8cd096ae",
+        "filename": "runtime/oat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-25T08:32:02Z",
+      "side": 1,
+      "message": "Wrong description. Copy-paste error?",
+      "range": {
+        "startLine": 35,
+        "startChar": 38,
+        "endLine": 35,
+        "endChar": 96
+      },
+      "revId": "43d9b3001dadd0283a3bc01b3c43a46d088945c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
