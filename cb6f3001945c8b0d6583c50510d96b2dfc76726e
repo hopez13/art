@@ -22,6 +22,30 @@
       },
       "revId": "cb6f3001945c8b0d6583c50510d96b2dfc76726e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37726503_37db4f73",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-06-25T11:19:08Z",
+      "side": 1,
+      "message": "Why? That requires more changes, is more intrusive and I don\u0027t see what benefit it provides.",
+      "parentUuid": "92f7a452_e977f692",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 20
+      },
+      "revId": "cb6f3001945c8b0d6583c50510d96b2dfc76726e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
