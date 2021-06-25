@@ -29,6 +29,7 @@
 #include "base/bit_vector-inl.h"
 #include "base/file_utils.h"
 #include "base/logging.h"  // For VLOG.
+#include "base/metrics/metrics.h"
 #include "base/mutex-inl.h"
 #include "base/sdk_version.h"
 #include "base/stl_util.h"
@@ -45,6 +46,7 @@
 #include "jit/jit.h"
 #include "jni/java_vm_ext.h"
 #include "jni/jni_internal.h"
+#include "metrics/reporter.h"
 #include "mirror/class_loader.h"
 #include "mirror/object-inl.h"
 #include "oat_file.h"
@@ -418,6 +420,19 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
 
   if (Runtime::Current()->GetJit() != nullptr) {
     Runtime::Current()->GetJit()->RegisterDexFiles(dex_files, class_loader);
+  }
+
+  // Now that we loaded the dex/odex files, notify the metrics reporter about the compilation
+  // filter and reason.
+  if (Runtime::Current()->GetMetricsReporter() != nullptr) {
+    std::string compilation_reason;
+    CompilerFilter::Filter compiler_filter;
+    if (GetPrimaryOatFileInfo(&compilation_reason, &compiler_filter)) {
+      Runtime::Current()->GetMetricsReporter()->SetCompilationInfo(
+          compilation_reason.empty() ? metrics::CompilationReason::kUnknown
+                                     : metrics::CompilationReasonFromName(compilation_reason),
+          compiler_filter);
+    }
   }
 
   return dex_files;

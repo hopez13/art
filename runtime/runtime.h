@@ -997,6 +997,7 @@ class Runtime {
   bool GetOatFilesExecutable() const;
 
   metrics::ArtMetrics* GetMetrics() { return &metrics_; }
+  metrics::MetricsReporter* GetMetricsReporter() { return metrics_reporter_.get(); }
 
   void RequestMetricsReport(bool synchronous = true);
 

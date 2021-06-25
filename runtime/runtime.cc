@@ -3155,8 +3155,8 @@ void Runtime::NotifyStartupCompleted() {
     CompilerFilter::Filter compiler_filter;
     if (oat_file_manager_->GetPrimaryOatFileInfo(&compilation_reason, &compiler_filter)) {
       metrics_reporter_->SetCompilationInfo(
-          compilation_reason.empty() ? metrics::CompilationReasonFromName(compilation_reason)
-                                     : metrics::CompilationReason::kUnknown,
+          compilation_reason.empty() ? metrics::CompilationReason::kUnknown
+                                     : metrics::CompilationReasonFromName(compilation_reason),
           compiler_filter);
     }
     metrics_reporter_->NotifyStartupCompleted();

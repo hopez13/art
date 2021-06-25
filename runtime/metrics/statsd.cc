@@ -16,6 +16,7 @@
 
 #include "statsd.h"
 
+#include "arch/instruction_set.h"
 #include "base/compiler_filter.h"
 #include "base/metrics/metrics.h"
 #include "statslog_art.h"
@@ -169,6 +170,23 @@ constexpr int32_t EncodeCompilationReason(CompilationReason reason) {
   }
 }
 
+constexpr int32_t EncodeInstructionSet(InstructionSet isa) {
+  switch (isa) {
+    case InstructionSet::kArm:
+      // Fall-through.
+    case InstructionSet::kThumb2:
+      return statsd::ART_DATUM_REPORTED__ISA__ART_ISA_ARM;
+    case InstructionSet::kArm64:
+      return statsd::ART_DATUM_REPORTED__ISA__ART_ISA_ARM64;
+    case InstructionSet::kX86:
+      return statsd::ART_DATUM_REPORTED__ISA__ART_ISA_X86;
+    case InstructionSet::kX86_64:
+      return statsd::ART_DATUM_REPORTED__ISA__ART_ISA_X86_64;
+    case InstructionSet::kNone:
+      return statsd::ART_DATUM_REPORTED__ISA__ART_ISA_UNKNOWN;
+  }
+}
+
 class StatsdBackend : public MetricsBackend {
  public:
   void BeginSession(const SessionData& session_data) override { session_data_ = session_data; }
@@ -194,7 +212,7 @@ class StatsdBackend : public MetricsBackend {
           static_cast<int64_t>(value),
           statsd::ART_DATUM_REPORTED__DEX_METADATA_TYPE__ART_DEX_METADATA_TYPE_UNKNOWN,
           statsd::ART_DATUM_REPORTED__APK_TYPE__ART_APK_TYPE_UNKNOWN,
-          statsd::ART_DATUM_REPORTED__ISA__ART_ISA_UNKNOWN);
+          EncodeInstructionSet(kRuntimeISA));
     }
   }
 
