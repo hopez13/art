@@ -1453,7 +1453,8 @@ bool VarHandle::Access(AccessMode access_mode,
                        JValue* result) {
   ObjPtr<ObjectArray<Class>> class_roots = Runtime::Current()->GetClassLinker()->GetClassRoots();
   ObjPtr<Class> klass = GetClass();
-  if (klass == GetClassRoot<FieldVarHandle>(class_roots)) {
+  if (klass == GetClassRoot<FieldVarHandle>(class_roots) ||
+      klass == GetClassRoot<StaticFieldVarHandle>(class_roots)) {
     auto vh = reinterpret_cast<FieldVarHandle*>(this);
     return vh->Access(access_mode, shadow_frame, operands, result);
   } else if (klass == GetClassRoot<ArrayElementVarHandle>(class_roots)) {
@@ -2001,6 +2002,17 @@ void FieldVarHandle::VisitTarget(ReflectiveValueVisitor* v) {
   if (orig != new_value) {
     SetField64</*kTransactionActive*/ false>(ArtFieldOffset(),
                                              reinterpret_cast<uintptr_t>(new_value));
+  }
+}
+
+void StaticFieldVarHandle::VisitTarget(ReflectiveValueVisitor* v) {
+  ArtField* orig = GetField();
+  ArtField* new_value =
+      v->VisitField(orig, HeapReflectiveSourceInfo(kSourceJavaLangInvokeFieldVarHandle, this));
+  if (orig != new_value) {
+    SetField64</*kTransactionActive*/ false>(ArtFieldOffset(),
+                                             reinterpret_cast<uintptr_t>(new_value));
+    SetFieldObject<false>(DeclaringClassOffset(), new_value->GetDeclaringClass());
   }
 }
 
