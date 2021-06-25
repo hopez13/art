@@ -43,6 +43,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "18607653_7317d13a",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2008,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-25T08:36:51Z",
+      "side": 1,
+      "message": "You need to adjust the code in heap.cc to call this.",
+      "revId": "43d9b3001dadd0283a3bc01b3c43a46d088945c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "43ef975f_8cd096ae",
         "filename": "runtime/oat.h",
         "patchSetId": 2
