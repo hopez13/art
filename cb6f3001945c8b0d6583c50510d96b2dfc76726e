@@ -70,6 +70,30 @@
       },
       "revId": "cb6f3001945c8b0d6583c50510d96b2dfc76726e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae129f46_6b545a69",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-25T12:26:04Z",
+      "side": 1,
+      "message": "For consistency, and also static variables / global state should be avoided in general.\n\nI\u0027ve uploaded a new PS to address it.",
+      "parentUuid": "ec7c3bd0_66428e38",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 20
+      },
+      "revId": "cb6f3001945c8b0d6583c50510d96b2dfc76726e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
