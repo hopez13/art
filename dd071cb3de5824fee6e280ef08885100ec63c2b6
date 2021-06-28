@@ -22,6 +22,30 @@
       },
       "revId": "dd071cb3de5824fee6e280ef08885100ec63c2b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0281b8a7_62a6f986",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-28T11:42:29Z",
+      "side": 1,
+      "message": "Done (prefix swap and CL split).\nFor some reason I didn\u0027t look into x86 implementation for CMPXCHG.",
+      "parentUuid": "f15baa7b_61b660da",
+      "range": {
+        "startLine": 970,
+        "startChar": 2,
+        "endLine": 971,
+        "endChar": 77
+      },
+      "revId": "dd071cb3de5824fee6e280ef08885100ec63c2b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
