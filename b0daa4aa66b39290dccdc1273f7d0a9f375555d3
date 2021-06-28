@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15d8a696_16f47791",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2122,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-28T17:34:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2652c22a_0c610c97",
+      "range": {
+        "startLine": 2122,
+        "startChar": 38,
+        "endLine": 2122,
+        "endChar": 43
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9610ea1_afc81b1c",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-28T13:46:26Z",
       "side": 1,
       "message": "These assumptions look easy to break. (Pre-existing bug being extended to new use cases?)",
+      "range": {
+        "startLine": 2211,
+        "startChar": 4,
+        "endLine": 2212,
+        "endChar": 66
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b254c5d1_1a06c31c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2212,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-28T17:34:50Z",
+      "side": 1,
+      "message": "Note that we have exact same code in ReadBarrierMarkAndUpdateFieldSlowPathX86_64: https://source.corp.google.com/aosp-master/art/compiler/optimizing/code_generator_x86_64.cc;l\u003d676-685\n\nI\u0027m not sure what to do about it aside from adding more DCHECKs in callers of this function. Temporary register handling generally seems rather fragile (in the few parts of code where I looked), and my code does not make it any better. It might be possible to rewrite the code with some invariants to make temp handling more robust, but that would require more changes unrelated to this CL.",
+      "parentUuid": "b9610ea1_afc81b1c",
       "range": {
         "startLine": 2211,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af55f2ca_8a62e314",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3342,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-28T17:34:50Z",
+      "side": 1,
+      "message": "Done. (I kept it in one place to make debug easier and then forgot to move).",
+      "parentUuid": "e0763189_0f847ffa",
+      "range": {
+        "startLine": 3340,
+        "startChar": 2,
+        "endLine": 3342,
+        "endChar": 31
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34b719f1_3f2b30e1",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-28T13:46:26Z",
       "side": 1,
       "message": "Do we need this temp only for references?",
+      "range": {
+        "startLine": 3347,
+        "startChar": 6,
+        "endLine": 3347,
+        "endChar": 55
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72e7ba3d_8d92daf2",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3347,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-28T17:34:50Z",
+      "side": 1,
+      "message": "No, we actually use it as a temp reg when writing 64-bit constants to memory in HandleFieldSet. I updated the comment, as I don\u0027t think it\u0027s worth checking all the special cases when the temporary is/isn\u0027t needed. Reopen if you think otherwise.",
+      "parentUuid": "34b719f1_3f2b30e1",
       "range": {
         "startLine": 3347,
         "startChar": 6,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a06345b_84de73d6",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3352,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-28T17:34:50Z",
+      "side": 1,
+      "message": "I rewrote this to add temps separately for FP types, references, etc. so that it maps on the expectations of GenCompareAndSetOrExchange. Also, no temp is needed for integral types (aside from RAX).",
+      "parentUuid": "9c3a421d_ba232cb1",
+      "range": {
+        "startLine": 3351,
+        "startChar": 6,
+        "endLine": 3352,
+        "endChar": 55
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4a0387d_06e9085f",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-06-28T13:46:26Z",
       "side": 1,
       "message": "But we also need to add RAX as a temporary because we shall clobber it and if another instruction was using the same `expected` as input later, register allocator would just give it the clobbered register.",
+      "range": {
+        "startLine": 3364,
+        "startChar": 8,
+        "endLine": 3364,
+        "endChar": 82
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e95f505b_18206b1d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3364,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-28T17:34:50Z",
+      "side": 1,
+      "message": "Right, I didn\u0027t think of this. Fixed.",
+      "parentUuid": "e4a0387d_06e9085f",
       "range": {
         "startLine": 3364,
         "startChar": 8,
