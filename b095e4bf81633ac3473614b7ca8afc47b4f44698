@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fd2110af_38eec1b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-28T12:07:56Z",
+      "side": 1,
+      "message": "That\u0027s not the only difference – the new standalone tests also:\n- aren\u0027t included in the Testing ART APEX;\n- have to link with the libraries included in the ART APEX via the `test_for` property;\n- link statically all libraries which are not in the ART APEX.\n\nThe fact that they link with the non-debug ART APEX libraries is essentially orthogonal to their status of standalone tests. As a matter of fact I plan to also introduce \"debug\" standalone ART gtests linking with the debug ART APEX libraries (contained in the Debug ART APEX) later.\n\nI have refrained from renaming existing tests for simplicity, because:\n* people working on ART are used to existing names, and I\u0027d like to take some precautions before changing them (sending a PSA, etc.); and\n* this is some more work to do in a rather late stage of the release, that is not strictly necessary.\n\nEventually, when the Testing ART APEX is no longer used (which also requires a bit of work on the test infrastructures), the original tests modules (e.g. `art_cmdline_tests`) can be removed and we can consider renaming the standalone ones.",
+      "parentUuid": "61cf00f3_3a046589",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "b095e4bf81633ac3473614b7ca8afc47b4f44698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "86e687d0_a1052f8d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -71,6 +95,24 @@
       "writtenOn": "2021-06-28T08:30:47Z",
       "side": 1,
       "message": "Should you add a TODO: Deprecate this version?",
+      "revId": "b095e4bf81633ac3473614b7ca8afc47b4f44698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b76f33f7_cb0ffdbd",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-28T12:07:56Z",
+      "side": 1,
+      "message": "Right; the deprecation of these tests is also tied to the removal of the Testing ART APEX. I\u0027ll add a TODO in a coming patch set.",
+      "parentUuid": "5089f95a_bf014413",
       "revId": "b095e4bf81633ac3473614b7ca8afc47b4f44698",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
