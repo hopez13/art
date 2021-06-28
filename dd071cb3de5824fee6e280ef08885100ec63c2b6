@@ -70,6 +70,30 @@
       },
       "revId": "dd071cb3de5824fee6e280ef08885100ec63c2b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "724315b0_6fe518b8",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-28T13:01:50Z",
+      "side": 1,
+      "message": "We can add standalone tests for CMPXCHG without LOCK if we want to.",
+      "parentUuid": "d2a63d4b_cf372f1d",
+      "range": {
+        "startLine": 970,
+        "startChar": 2,
+        "endLine": 971,
+        "endChar": 77
+      },
+      "revId": "dd071cb3de5824fee6e280ef08885100ec63c2b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
