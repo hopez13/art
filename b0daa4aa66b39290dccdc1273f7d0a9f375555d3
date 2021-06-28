@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2652c22a_0c610c97",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-28T13:46:26Z",
+      "side": 1,
+      "message": "Maybe \"FP\"? \"Float\" could be misinterpreted to refer only to \"float\" and exclude \"double\".",
+      "range": {
+        "startLine": 2122,
+        "startChar": 38,
+        "endLine": 2122,
+        "endChar": 43
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9610ea1_afc81b1c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-28T13:46:26Z",
+      "side": 1,
+      "message": "These assumptions look easy to break. (Pre-existing bug being extended to new use cases?)",
+      "range": {
+        "startLine": 2211,
+        "startChar": 4,
+        "endLine": 2212,
+        "endChar": 66
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0763189_0f847ffa",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3342,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-28T13:46:26Z",
+      "side": 1,
+      "message": "On arm64, we have this extra code in callers of `CreateVarHandleCommonLocations()` which means we do not need a switch at all.",
+      "range": {
+        "startLine": 3340,
+        "startChar": 2,
+        "endLine": 3342,
+        "endChar": 31
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34b719f1_3f2b30e1",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3347,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-28T13:46:26Z",
+      "side": 1,
+      "message": "Do we need this temp only for references?",
+      "range": {
+        "startLine": 3347,
+        "startChar": 6,
+        "endLine": 3347,
+        "endChar": 55
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c3a421d_ba232cb1",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3352,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-28T13:46:26Z",
+      "side": 1,
+      "message": "This temp has different uses, not just for the marking.",
+      "range": {
+        "startLine": 3351,
+        "startChar": 6,
+        "endLine": 3352,
+        "endChar": 55
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4a0387d_06e9085f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3364,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-28T13:46:26Z",
+      "side": 1,
+      "message": "But we also need to add RAX as a temporary because we shall clobber it and if another instruction was using the same `expected` as input later, register allocator would just give it the clobbered register.",
+      "range": {
+        "startLine": 3364,
+        "startChar": 8,
+        "endLine": 3364,
+        "endChar": 82
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
