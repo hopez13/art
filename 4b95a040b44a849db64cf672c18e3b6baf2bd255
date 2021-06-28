@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c647685_19845511",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-28T08:34:02Z",
+      "side": 1,
+      "message": "Move to line before 336?",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 333,
+        "endChar": 25
+      },
+      "revId": "4b95a040b44a849db64cf672c18e3b6baf2bd255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6032b4a_68a1038a",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-28T08:34:02Z",
+      "side": 1,
+      "message": "count !\u003d 0 ?",
+      "range": {
+        "startLine": 336,
+        "startChar": 27,
+        "endLine": 336,
+        "endChar": 32
+      },
+      "revId": "4b95a040b44a849db64cf672c18e3b6baf2bd255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dca80fc1_2aaf0fe1",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-28T08:34:02Z",
+      "side": 1,
+      "message": "Is there a risk of a race here, with value being incremented in \"Add\", but not count?",
+      "range": {
+        "startLine": 336,
+        "startChar": 70,
+        "endLine": 336,
+        "endChar": 75
+      },
+      "revId": "4b95a040b44a849db64cf672c18e3b6baf2bd255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0da12abf_e0a93d68",
+        "filename": "runtime/gc/collector/garbage_collector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-28T08:34:02Z",
+      "side": 1,
+      "message": "are?",
+      "range": {
+        "startLine": 180,
+        "startChar": 7,
+        "endLine": 180,
+        "endChar": 9
+      },
+      "revId": "4b95a040b44a849db64cf672c18e3b6baf2bd255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
