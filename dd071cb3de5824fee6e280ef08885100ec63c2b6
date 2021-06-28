@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f15baa7b_61b660da",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-28T11:21:49Z",
+      "side": 1,
+      "message": "Please follow the x86 assembler and align prefix order with clang.\n\n(This is a good reason to split out the assembler parts to a separate CL.)",
+      "range": {
+        "startLine": 970,
+        "startChar": 2,
+        "endLine": 971,
+        "endChar": 77
+      },
+      "revId": "dd071cb3de5824fee6e280ef08885100ec63c2b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
