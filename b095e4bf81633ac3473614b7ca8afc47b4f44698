@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e2f2659_7a4c3f48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-28T11:46:12Z",
+      "side": 1,
+      "message": "I need to land this change internally first because of a merge conflict, apparently caused by ag/14096757, which does not seem to be in AOSP (and it\u0027s not clear to me whether this change could/should be cherry-picked to AOSP).",
+      "revId": "b095e4bf81633ac3473614b7ca8afc47b4f44698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5089f95a_bf014413",
