@@ -93,6 +93,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de8e9bbd_fdd95f80",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-06-28T16:25:16Z",
+      "side": 1,
+      "message": "That\u0027s certainly a risk. But I\u0027m not sure if it\u0027s worth to implement it via a 128-bit atomic, or a lock.\n\nOnce count is big enough, even if we occasionally read in-between the modifications to the two values, it wouldn\u0027t be perfect, but not too far from the right value either.\n\nMaybe I should at least use acquire-release semantics to reduce the race. I\u0027ll fix it in next patch-set",
+      "parentUuid": "dca80fc1_2aaf0fe1",
+      "range": {
+        "startLine": 336,
+        "startChar": 70,
+        "endLine": 336,
+        "endChar": 75
+      },
+      "revId": "4b95a040b44a849db64cf672c18e3b6baf2bd255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0da12abf_e0a93d68",
