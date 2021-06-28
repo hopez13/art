@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "61cf00f3_3a046589",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-28T11:46:46Z",
+      "side": 1,
+      "message": "Iiuc the difference between these tests and the \"normal\" ones (e.g. art_cmdline_tests) is that the latter link against the -d ART libs? If so, wouldn\u0027t a better naming scheme be \"art_something_tests\" for these and \"artd_something_tests\" for the current ones?",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "b095e4bf81633ac3473614b7ca8afc47b4f44698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "86e687d0_a1052f8d",
