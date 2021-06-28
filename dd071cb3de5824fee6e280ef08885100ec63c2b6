@@ -46,6 +46,30 @@
       },
       "revId": "dd071cb3de5824fee6e280ef08885100ec63c2b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2a63d4b_cf372f1d",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-28T11:45:29Z",
+      "side": 1,
+      "message": "By the way, why is it better to align prefix order with clang than to have \u0027\\n\u0027 in the test? With \u0027\\n\u0027 we tested CMPXCHG, not only LOCK CMPXCHG.",
+      "parentUuid": "0281b8a7_62a6f986",
+      "range": {
+        "startLine": 970,
+        "startChar": 2,
+        "endLine": 971,
+        "endChar": 77
+      },
+      "revId": "dd071cb3de5824fee6e280ef08885100ec63c2b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
