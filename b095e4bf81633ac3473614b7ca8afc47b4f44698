@@ -82,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18331c97_217d4fe0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-28T21:57:41Z",
+      "side": 1,
+      "message": "Cherry-picked CL to internal tree here: ag/15128561. Will add cherry-pick and Merged-In information to this AOSP change ASAP.",
+      "parentUuid": "8e2f2659_7a4c3f48",
+      "revId": "b095e4bf81633ac3473614b7ca8afc47b4f44698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5089f95a_bf014413",
@@ -113,6 +131,24 @@
       "side": 1,
       "message": "Right; the deprecation of these tests is also tied to the removal of the Testing ART APEX. I\u0027ll add a TODO in a coming patch set.",
       "parentUuid": "5089f95a_bf014413",
+      "revId": "b095e4bf81633ac3473614b7ca8afc47b4f44698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b099c756_4d4d0d7d",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-28T21:57:41Z",
+      "side": 1,
+      "message": "Done in PS5 (and in ag/15128561).",
+      "parentUuid": "b76f33f7_cb0ffdbd",
       "revId": "b095e4bf81633ac3473614b7ca8afc47b4f44698",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
