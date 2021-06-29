@@ -54,9 +54,9 @@ class TestFlag {
   }
 
   void AssertSysPropValue(bool has_value, int expected) {
-    ASSERT_EQ(flag_->from_system_property_.has_value(), has_value);
+    ASSERT_EQ(flag_->from_dalvik_vm_property_.has_value(), has_value);
     if (has_value) {
-      ASSERT_EQ(flag_->from_system_property_.value(), expected);
+      ASSERT_EQ(flag_->from_dalvik_vm_property_.value(), expected);
     }
   }
 

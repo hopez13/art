@@ -149,7 +149,7 @@ class FlagsTests;
 enum class FlagOrigin {
   kDefaultValue,
   kCmdlineArg,
-  kSystemProperty,
+  kDalvikVmProperty,
   kServerSetting,
 };
 
@@ -199,8 +199,8 @@ class Flag : public FlagBase {
     if (from_server_setting_.has_value()) {
       return std::pair{from_server_setting_.value(), FlagOrigin::kServerSetting};
     }
-    if (from_system_property_.has_value()) {
-      return std::pair{from_system_property_.value(), FlagOrigin::kSystemProperty};
+    if (from_dalvik_vm_property_.has_value()) {
+      return std::pair{from_dalvik_vm_property_.value(), FlagOrigin::kDalvikVmProperty};
     }
     if (from_command_line_.has_value()) {
       return std::pair{from_command_line_.value(), FlagOrigin::kCmdlineArg};
@@ -222,7 +222,7 @@ class Flag : public FlagBase {
   bool initialized_;
   const Value default_;
   std::optional<Value> from_command_line_;
-  std::optional<Value> from_system_property_;
+  std::optional<Value> from_dalvik_vm_property_;
   std::optional<Value> from_server_setting_;
 
   friend class TestFlag;
