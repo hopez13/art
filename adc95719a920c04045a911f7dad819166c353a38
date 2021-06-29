@@ -1,0 +1,125 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000012475624",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1751323?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "446da50a_ab5b4f2f",
+        "filename": "libarttools/tools/dex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-29T18:04:36Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027deny list\u0027 or \u0027allow list\u0027; see https://developers.google.com/style/word-list#blacklist for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 53,
+        "startChar": 24,
+        "endLine": 53,
+        "endChar": 33
+      },
+      "revId": "adc95719a920c04045a911f7dad819166c353a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000012475620",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1751323?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "c1e67f3f_7afc3fed",
+          "description": "Change to \"libarttools/tools/dex.cc\"",
+          "replacements": [
+            {
+              "path": "libarttools/tools/dex.cc",
+              "range": {
+                "startLine": 149,
+                "startChar": 40,
+                "endLine": 149,
+                "endChar": 47
+              },
+              "replacement": "the"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "6e8b5ad2_8bfc94c0",
+        "filename": "libarttools/tools/dex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-29T18:04:36Z",
+      "side": 1,
+      "message": "Common typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 149,
+        "startChar": 40,
+        "endLine": 149,
+        "endChar": 47
+      },
+      "revId": "adc95719a920c04045a911f7dad819166c353a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000012475624",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1751323?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "0dc279f6_1c408a9f",
+        "filename": "libarttools/tools/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-29T18:04:36Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027valid\u0027, \u0027validity check\u0027 or \u0027initial check\u0027; see https://source.android.com/setup/contribute/respectful-code for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 40,
+        "startChar": 14,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "adc95719a920c04045a911f7dad819166c353a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000012475624",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1751323?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "b4b88026_f4b9d758",
+        "filename": "libarttools/tools/utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-29T18:04:36Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027deny list\u0027 or \u0027allow list\u0027; see https://developers.google.com/style/word-list#blacklist for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 77,
+        "startChar": 16,
+        "endLine": 77,
+        "endChar": 25
+      },
+      "revId": "adc95719a920c04045a911f7dad819166c353a38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
