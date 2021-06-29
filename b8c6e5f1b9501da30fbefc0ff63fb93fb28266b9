@@ -1,0 +1,331 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e5f8d47_b307a447",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "I also don\u0027t see any libnativebridge or libnativeloader tests. I\u0027m aware some of them require more work to support, but doesn\u0027t any apply here?",
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d06dddba_7bec0c83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "Gosh I wish I\u0027d\u0027ve had the time to land the ART debug mutator refactoring to avoid all this boilerplate nonsense!",
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb4ea19c_7ee872f6",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "I note that for libart-compiler-gtest below, also with a single source file, you opted to duplicate it instead of introducing a cc_defaults. I\u0027d prefer that way - this cc_defaults adds more boilerplate than it saves. Looking at the history it doesn\u0027t seem likely this test will grow more files or other build options either.",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c55d8c5_6bca3f26",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "There\u0027s a fair amount of duplication here - consider a defaults?",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 6
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8a77faf_d81f1eb2",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "Why is this added?",
+      "range": {
+        "startLine": 324,
+        "startChar": 9,
+        "endLine": 324,
+        "endChar": 17
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09ac1644_db80edb6",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "This change could affect the test functionality. It may be worth doing separately.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 37
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ef50b8e_62c3c5e4",
+        "filename": "profman/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be profman for the standalone tests?",
+      "range": {
+        "startLine": 176,
+        "startChar": 17,
+        "endLine": 176,
+        "endChar": 25
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b3e01dc_44a36412",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "Here too it looks like enough duplication to warrant a defaults.",
+      "range": {
+        "startLine": 636,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 6
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6ea36e1_ceed81a1",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "Use dex2oat for standalone test?",
+      "range": {
+        "startLine": 789,
+        "startChar": 17,
+        "endLine": 789,
+        "endChar": 25
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72d4e5f4_e2e6b114",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 835,
+        "startChar": 17,
+        "endLine": 835,
+        "endChar": 25
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9b275f9_8f1ae9ea",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this inherit art_test_defaults? I reckon the test_for stuff could be beneficial here too, and the relative_install_path\u0027s shouldn\u0027t hurt either, seeing that you\u0027re avoiding dynamic test libs.\n\nI also think it\u0027s useful to have a proper root for all test defaults.",
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "034d427a_45d03539",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "Another bit of duplication that would be nice to avoid, plus a number of shared libs.",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 6
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29d760e4_000f1cd6",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "Plenty of duplication here too.",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 6
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3990ce59_c04d39a4",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "Some here too.",
+      "range": {
+        "startLine": 381,
+        "startChar": 0,
+        "endLine": 404,
+        "endChar": 6
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a4a5f63_f5a520ab",
+        "filename": "test/art-gtests-target-standalone-root-template.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-29T02:25:15Z",
+      "side": 1,
+      "message": "No idea where this is surfaced, but just in case it\u0027s anywhere useful, why not mention that it runs it as root?",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 42
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
