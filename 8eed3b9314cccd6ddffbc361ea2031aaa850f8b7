@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ac453232_2be3e5fc",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-29T18:10:17Z",
+      "side": 1,
+      "message": "We no longer call this in NotifyStartupCompleted but it wouldn\u0027t be a problem calling it multiple times.",
+      "parentUuid": "942e5138_2f8b1e92",
+      "range": {
+        "startLine": 428,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 5
+      },
+      "revId": "8eed3b9314cccd6ddffbc361ea2031aaa850f8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cce56ce1_59f9917e",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-28T08:24:08Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 1000,
+        "startChar": 48,
+        "endLine": 1000,
+        "endChar": 49
+      },
+      "revId": "8eed3b9314cccd6ddffbc361ea2031aaa850f8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a149ac5f_7622f994",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-29T18:10:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "136a5d4b_1d40c514",
       "range": {
         "startLine": 1000,
         "startChar": 48,
