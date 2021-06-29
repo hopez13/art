@@ -29,7 +29,7 @@
 
 namespace {
 constexpr const char* kPhenotypeFlagPrefix = "persist.device_config.runtime_native.";
-constexpr const char* kSysPropertyFlagPrefix = "dalvik.vm.";
+constexpr const char* kDalvikVmPropertyFlagPrefix = "dalvik.vm.";
 constexpr const char* kUndefinedValue = "";
 
 // The various ParseValue functions store the parsed value into *destination. If parsing fails for
@@ -88,19 +88,29 @@ static std::string GenerateCmdLineArgName(const std::string& name) {
   return result;
 }
 
-static std::string GenerateSysPropName(const std::string& name) {
-  return kSysPropertyFlagPrefix + name;
+static std::string GenerateDalvikVmPropertyName(const std::string& name, FlagType type) {
+  switch (type) {
+    case FlagType::kCmdlineOnly:
+      return std::string {};
+    case FlagType::kDeviceConfig:
+      return kDalvikVmPropertyFlagPrefix + name;
+  }
 }
 
-static std::string GeneratePhenotypeName(const std::string& name) {
-  return kPhenotypeFlagPrefix + name;
+static std::string GeneratePhenotypeName(const std::string& name, FlagType type) {
+  switch (type) {
+    case FlagType::kCmdlineOnly:
+      return std::string {};
+    case FlagType::kDeviceConfig:
+      return kPhenotypeFlagPrefix + name;
+  }
 }
 
 template <typename Value>
 Flag<Value>::Flag(const std::string& name, Value default_value, FlagType type) :
     FlagBase(GenerateCmdLineArgName(name),
-             GenerateSysPropName(name),
-             GeneratePhenotypeName(name),
+             GenerateDalvikVmPropertyName(name, type),
+             GeneratePhenotypeName(name, type),
              type),
     initialized_{false},
     default_{default_value} {
@@ -122,11 +132,12 @@ void Flag<Value>::Reload() {
   }
 
   // Load system properties.
-  from_system_property_ = std::nullopt;
-  const std::string sysprop = ::android::base::GetProperty(system_property_name_, kUndefinedValue);
+  from_dalvik_vm_property_ = std::nullopt;
+  const std::string sysprop =
+      ::android::base::GetProperty(dalvik_vm_property_name_, kUndefinedValue);
   if (sysprop != kUndefinedValue) {
-    if (!ParseValue(sysprop, &from_system_property_)) {
-      LOG(ERROR) << "Failed to parse " << system_property_name_ << "=" << sysprop;
+    if (!ParseValue(sysprop, &from_dalvik_vm_property_)) {
+      LOG(ERROR) << "Failed to parse " << dalvik_vm_property_name_ << "=" << sysprop;
     }
   }
 
@@ -157,7 +168,7 @@ void Flag<Value>::Dump(std::ostream& oss) const {
   switch (std::get<1>(valueOrigin)) {
     case FlagOrigin::kDefaultValue: origin = "default_value"; break;
     case FlagOrigin::kCmdlineArg: origin = "cmdline_arg"; break;
-    case FlagOrigin::kSystemProperty: origin = "system_property"; break;
+    case FlagOrigin::kDalvikVmProperty: origin = "dalvik_vm_property"; break;
     case FlagOrigin::kServerSetting: origin = "server_setting"; break;
   }
 
@@ -166,8 +177,8 @@ void Flag<Value>::Dump(std::ostream& oss) const {
   oss << "\n default: " << default_;
   oss << "\n " << command_line_argument_name_ << ": ";
   DumpValue(oss, from_command_line_);
-  oss << "\n " << system_property_name_ << ": ";
-  DumpValue(oss, from_system_property_);
+  oss << "\n " << dalvik_vm_property_name_ << ": ";
+  DumpValue(oss, from_dalvik_vm_property_);
   oss << "\n " << server_setting_name_ << ": ";
   DumpValue(oss, from_server_setting_);
 }

@@ -38,7 +38,7 @@ class TestFlag {
     tmp_name = tmp_name.substr(tmp_last_slash + 1);
 
     flag_name_ = "art.gtest." + tmp_name;
-    system_prop_name_ = "dalvik.vm." + flag_name_;
+    dalvik_vm_property_name_ = "dalvik.vm." + flag_name_;
     server_name_ = "persist.device_config.runtime_native." + flag_name_;
     cmd_line_name_ = flag_name_;
     std::replace(cmd_line_name_.begin(), cmd_line_name_.end(), '.', '-');
@@ -53,10 +53,10 @@ class TestFlag {
     }
   }
 
-  void AssertSysPropValue(bool has_value, int expected) {
-    ASSERT_EQ(flag_->from_system_property_.has_value(), has_value);
+  void AssertDalvikVmPropertyValue(bool has_value, int expected) {
+    ASSERT_EQ(flag_->from_dalvik_vm_property_.has_value(), has_value);
     if (has_value) {
-      ASSERT_EQ(flag_->from_system_property_.value(), expected);
+      ASSERT_EQ(flag_->from_dalvik_vm_property_.value(), expected);
     }
   }
 
@@ -75,8 +75,8 @@ class TestFlag {
     return (*flag_)();
   }
 
-  std::string SystemProperty() const {
-    return system_prop_name_;
+  std::string DalvikVmProperty() const {
+    return dalvik_vm_property_name_;
   }
 
   std::string ServerSetting() const {
@@ -92,7 +92,7 @@ class TestFlag {
   std::unique_ptr<Flag<int>> flag_;
   std::string flag_name_;
   std::string cmd_line_name_;
-  std::string system_prop_name_;
+  std::string dalvik_vm_property_name_;
   std::string server_name_;
 };
 
@@ -123,7 +123,7 @@ class FlagsTestsWithCmdLineBase : public FlagsTests {
 
  protected:
   virtual void TearDown() {
-    android::base::SetProperty(test_flag_->SystemProperty(), "");
+    android::base::SetProperty(test_flag_->DalvikVmProperty(), "");
     android::base::SetProperty(test_flag_->ServerSetting(), "");
     FlagsTests::TearDown();
   }
@@ -155,7 +155,7 @@ TEST_F(FlagsTests, ValidateDefaultValue) {
   FlagBase::ReloadAllFlags("test");
 
   test_flag_->AssertCmdlineValue(false, 1);
-  test_flag_->AssertSysPropValue(false, 2);
+  test_flag_->AssertDalvikVmPropertyValue(false, 2);
   test_flag_->AssertServerSettingValue(false, 3);
   test_flag_->AssertDefaultValue(42);
 
@@ -168,9 +168,9 @@ TEST_F(FlagsTestsWithCmdLine, FlagsTestsGetValueServerSetting) {
   // limitations (e.g. for length) and setting the properties will fail.
   // On modern platforms this should not be the case, so condition the test
   // based on the success of setting the properties.
-  if (!android::base::SetProperty(test_flag_->SystemProperty(), "2")) {
+  if (!android::base::SetProperty(test_flag_->DalvikVmProperty(), "2")) {
     LOG(ERROR) << "Release does not support property setting, skipping test: "
-        << test_flag_->SystemProperty();
+        << test_flag_->DalvikVmProperty();
     return;
   }
 
@@ -183,7 +183,7 @@ TEST_F(FlagsTestsWithCmdLine, FlagsTestsGetValueServerSetting) {
   FlagBase::ReloadAllFlags("test");
 
   test_flag_->AssertCmdlineValue(true, 1);
-  test_flag_->AssertSysPropValue(true, 2);
+  test_flag_->AssertDalvikVmPropertyValue(true, 2);
   test_flag_->AssertServerSettingValue(true, 3);
   test_flag_->AssertDefaultValue(42);
 
@@ -192,16 +192,16 @@ TEST_F(FlagsTestsWithCmdLine, FlagsTestsGetValueServerSetting) {
 
 // Validate that the system property value is picked when the server one is not set.
 TEST_F(FlagsTestsWithCmdLine, FlagsTestsGetValueSysProperty) {
-  if (!android::base::SetProperty(test_flag_->SystemProperty(), "2")) {
+  if (!android::base::SetProperty(test_flag_->DalvikVmProperty(), "2")) {
     LOG(ERROR) << "Release does not support property setting, skipping test: "
-        << test_flag_->SystemProperty();
+        << test_flag_->DalvikVmProperty();
     return;
   }
 
   FlagBase::ReloadAllFlags("test");
 
   test_flag_->AssertCmdlineValue(true, 1);
-  test_flag_->AssertSysPropValue(true, 2);
+  test_flag_->AssertDalvikVmPropertyValue(true, 2);
   test_flag_->AssertServerSettingValue(false, 3);
   test_flag_->AssertDefaultValue(42);
 
@@ -213,7 +213,7 @@ TEST_F(FlagsTestsWithCmdLine, FlagsTestsGetValueCmdline) {
   FlagBase::ReloadAllFlags("test");
 
   test_flag_->AssertCmdlineValue(true, 1);
-  test_flag_->AssertSysPropValue(false, 2);
+  test_flag_->AssertDalvikVmPropertyValue(false, 2);
   test_flag_->AssertServerSettingValue(false, 3);
   test_flag_->AssertDefaultValue(42);
 
@@ -222,9 +222,9 @@ TEST_F(FlagsTestsWithCmdLine, FlagsTestsGetValueCmdline) {
 
 // Validate that cmdline only flags don't read system properties.
 TEST_F(FlagsTestsCmdLineOnly, CmdlineOnlyFlags) {
-  if (!android::base::SetProperty(test_flag_->SystemProperty(), "2")) {
+  if (!android::base::SetProperty(test_flag_->DalvikVmProperty(), "2")) {
     LOG(ERROR) << "Release does not support property setting, skipping test: "
-        << test_flag_->SystemProperty();
+        << test_flag_->DalvikVmProperty();
     return;
   }
 
@@ -237,7 +237,7 @@ TEST_F(FlagsTestsCmdLineOnly, CmdlineOnlyFlags) {
   FlagBase::ReloadAllFlags("test");
 
   test_flag_->AssertCmdlineValue(true, 1);
-  test_flag_->AssertSysPropValue(false, 2);
+  test_flag_->AssertDalvikVmPropertyValue(false, 2);
   test_flag_->AssertServerSettingValue(false, 3);
   test_flag_->AssertDefaultValue(42);
 

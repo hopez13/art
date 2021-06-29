@@ -29,11 +29,11 @@
 // configuration, system properties, or default values. This flexibility enables easier development
 // and also larger experiments.
 //
-// The value is retrieved in the following oder:
-//   1) server side (device config) property
-//   2) system property
-//   3) cmdline flag
-//   4) default value
+// The value is retrieved in the following order:
+//   1) a server side (device config) property
+//   2) a dalvik.vm system property
+//   3) a cmdline flag
+//   4) a default value
 //
 // The flags are defined in the Flags struct near the bottom of the file. To define a new flag, add
 // a Flag field to the struct. Then to read the value of the flag, use gFlag.MyNewFlag().
@@ -59,11 +59,11 @@ template <typename... T>
 class FlagMetaBase {
  public:
   FlagMetaBase(const std::string&& command_line_argument_name,
-               const std::string&& system_property_name,
+               const std::string&& dalvik_vm_property_name,
                const std::string&& server_setting_name,
                FlagType type) :
       command_line_argument_name_(command_line_argument_name),
-      system_property_name_(system_property_name),
+      dalvik_vm_property_name_(dalvik_vm_property_name),
       server_setting_name_(server_setting_name),
       type_(type) {}
   virtual ~FlagMetaBase() {}
@@ -133,7 +133,7 @@ class FlagMetaBase {
   static std::forward_list<FlagMetaBase<T...>*> ALL_FLAGS;
 
   const std::string command_line_argument_name_;
-  const std::string system_property_name_;
+  const std::string dalvik_vm_property_name_;
   const std::string server_setting_name_;
   FlagType type_;
 };
@@ -149,7 +149,7 @@ class FlagsTests;
 enum class FlagOrigin {
   kDefaultValue,
   kCmdlineArg,
-  kSystemProperty,
+  kDalvikVmProperty,
   kServerSetting,
 };
 
@@ -167,7 +167,7 @@ class Flag : public FlagBase {
   //
   // The value is retrieved in the following oder:
   //   1) server side (device config) property
-  //   2) system property
+  //   2) dalvik.vm system property
   //   3) cmdline flag
   //   4) default value
   ALWAYS_INLINE Value GetValue() const {
@@ -181,7 +181,7 @@ class Flag : public FlagBase {
   // Return the value of the flag as optional.
   //
   // Returns the value of the flag if and only if the flag is set via
-  // a server side setting, system property or a cmdline arg.
+  // a server side setting, dalvik.vm system property or a cmdline arg.
   // Otherwise it returns nullopt (meaning this never returns the default value).
   //
   // This is useful for properties that do not have a good default natural value
@@ -199,8 +199,8 @@ class Flag : public FlagBase {
     if (from_server_setting_.has_value()) {
       return std::pair{from_server_setting_.value(), FlagOrigin::kServerSetting};
     }
-    if (from_system_property_.has_value()) {
-      return std::pair{from_system_property_.value(), FlagOrigin::kSystemProperty};
+    if (from_dalvik_vm_property_.has_value()) {
+      return std::pair{from_dalvik_vm_property_.value(), FlagOrigin::kDalvikVmProperty};
     }
     if (from_command_line_.has_value()) {
       return std::pair{from_command_line_.value(), FlagOrigin::kCmdlineArg};
@@ -222,7 +222,7 @@ class Flag : public FlagBase {
   bool initialized_;
   const Value default_;
   std::optional<Value> from_command_line_;
-  std::optional<Value> from_system_property_;
+  std::optional<Value> from_dalvik_vm_property_;
   std::optional<Value> from_server_setting_;
 
   friend class TestFlag;
