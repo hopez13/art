@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3037141e_9f1ef3b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "These",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 4
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab93e1a_df66356b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "at",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 9
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9319d2c_37fe6fec",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "Looks like an easy macro can remove the duplication?",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 95
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29aca570_18cd6c19",
+        "filename": "runtime/app_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "For a normal android app, we know the path is #registerAppInfo and then fine grained after loading oat files. Maybe phrase it this way?",
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c16b55a_9e203639",
+        "filename": "runtime/app_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "given",
+      "range": {
+        "startLine": 65,
+        "startChar": 66,
+        "endLine": 65,
+        "endChar": 70
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddb06b35_7844ebee",
+        "filename": "runtime/app_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "Add a note on why this doesn\u0027t need to be guarded by a lock.",
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62aa6494_fecb8e52",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "for this dex file, but we\u0027re going to notify for any dex file loaded, right?",
+      "range": {
+        "startLine": 409,
+        "startChar": 71,
+        "endLine": 409,
+        "endChar": 79
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f01a4b6_036c86fa",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "Comment why we create empty. Do we expect it to be replaced with another call to RegisterAppInfo in the lifetime of this runtime?",
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b975fb1_6f1b16fe",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "done?",
+      "range": {
+        "startLine": 1065,
+        "startChar": 43,
+        "endLine": 1065,
+        "endChar": 47
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d862f15_b7efee5c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "I know system server being called \"android\" is seen in other places, but could we name it \"system_server\" here?",
+      "range": {
+        "startLine": 1071,
+        "startChar": 33,
+        "endLine": 1071,
+        "endChar": 40
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f095b68e_68a02451",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "nit: indentation is off.",
+      "range": {
+        "startLine": 1072,
+        "startChar": 0,
+        "endLine": 1075,
+        "endChar": 63
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33380f86_e53b5608",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "-\u003e we load a new dex file / set of dex files in a class loader?",
+      "range": {
+        "startLine": 978,
+        "startChar": 22,
+        "endLine": 978,
+        "endChar": 47
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c371a428_267a47a4",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-29T19:20:37Z",
+      "side": 1,
+      "message": "Should this be const? Otherwise, follow the pattern with GetMetrics and return a pointer?",
+      "range": {
+        "startLine": 1008,
+        "startChar": 2,
+        "endLine": 1008,
+        "endChar": 9
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
