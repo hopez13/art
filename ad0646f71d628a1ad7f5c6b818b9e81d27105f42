@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b1a38ae8_4c3fcdd4",
+        "filename": "artd/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-29T23:58:54Z",
+      "side": 1,
+      "message": "There are several values and functions from libcutils that are needed for the tests.  Are we OK with copying them into the ART codebase?",
+      "parentUuid": "6e3517be_c10ab38d",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 18
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30055c16_726ddfbf",
         "filename": "artd/binder/Android.bp",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-29T20:05:09Z",
       "side": 1,
       "message": "Actually I\u0027m not sure how this will work given ART module wants to target min_sdk S. Do you? If not, I\u0027ll raise the question to the mainline team.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 73
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b729ae75_41ecb79e",
+        "filename": "artd/binder/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-29T23:58:54Z",
+      "side": 1,
+      "message": "I think it should be fine leaving it at S?  My understanding is that if an S device installed a later version of the ART apex it simply won\u0027t do anything with these libraries and and services.",
+      "parentUuid": "30055c16_726ddfbf",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4023174_009e571f",
+        "filename": "libarttools/tests/dex_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-29T23:58:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffc2d27c_94749a8e",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 48
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99dcf3aa_34d041b8",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-06-29T20:19:38Z",
       "side": 1,
       "message": "nit: I think it will be good to unify the style with what we use in ART. Installd is a mess with namings and super inconsistent.\n\ne.g:\nMyMethodFoo();\nmy_arg_or_local_var;\n\n\nThis is a generic comment that applies in the other files as well.",
+      "range": {
+        "startLine": 68,
+        "startChar": 12,
+        "endLine": 68,
+        "endChar": 38
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fe12c7d_f005b6a6",
+        "filename": "libarttools/tests/dex_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-29T23:58:54Z",
+      "side": 1,
+      "message": "I was wondering about the mixed naming :-)  Now\u0027s the best chance we are going to get to fix this.",
+      "parentUuid": "99dcf3aa_34d041b8",
       "range": {
         "startLine": 68,
         "startChar": 12,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f95b8977_e0e19ff7",
+        "filename": "libarttools/tests/dex_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-29T23:58:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a708439_45abe43a",
+      "range": {
+        "startLine": 182,
+        "startChar": 27,
+        "endLine": 182,
+        "endChar": 35
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d39b62eb_7982485d",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-06-29T20:19:38Z",
       "side": 1,
       "message": "use different number of Ks so that you can catch more errors in case something goes bad.",
+      "range": {
+        "startLine": 199,
+        "startChar": 79,
+        "endLine": 199,
+        "endChar": 80
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d59f8912_ad83af9a",
+        "filename": "libarttools/tests/dex_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-29T23:58:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d39b62eb_7982485d",
       "range": {
         "startLine": 199,
         "startChar": 79,
@@ -202,6 +346,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96eca1da_381e19dc",
+        "filename": "libarttools/tools/dex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-29T23:58:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "58a59609_5bf91120",
+      "range": {
+        "startLine": 227,
+        "startChar": 6,
+        "endLine": 227,
+        "endChar": 10
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfe0bc12_c629e811",
@@ -215,6 +383,30 @@
       "writtenOn": "2021-06-29T20:19:38Z",
       "side": 1,
       "message": "verbose",
+      "range": {
+        "startLine": 242,
+        "startChar": 8,
+        "endLine": 242,
+        "endChar": 12
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a028755_b8ee35d8",
+        "filename": "libarttools/tools/dex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-29T23:58:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bfe0bc12_c629e811",
       "range": {
         "startLine": 242,
         "startChar": 8,
@@ -273,6 +465,30 @@
       "writtenOn": "2021-06-29T20:19:38Z",
       "side": 1,
       "message": "I\u0027d argue that this is a good example where we could encapsulate all this configs with OOO principles.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 0
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6923c13_1ef519b9",
+        "filename": "libarttools/tools/globals.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-06-29T23:58:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91b009df_ed0b7666",
       "range": {
         "startLine": 31,
         "startChar": 0,
