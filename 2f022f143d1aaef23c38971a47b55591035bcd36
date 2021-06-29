@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26c58c37_46a4ec93",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-29T17:13:56Z",
+      "side": 1,
+      "message": "PS4: done as you suggested.\nPS5: reworked to use RAX as out, so not adding it as temp anymore.",
+      "parentUuid": "44936718_6d6f8d31",
+      "revId": "2f022f143d1aaef23c38971a47b55591035bcd36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a03aac3e_6f67d25e",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-06-29T08:41:50Z",
       "side": 1,
       "message": "Optimization opportunity: For CompareAndExchange, we could instead have RAX as the output location and avoid an explicit move. (Register allocator may or may not move the output later.)\n\nBut feel free leave this as is, x86-64 is not a primary target and this is good enough.",
+      "revId": "2f022f143d1aaef23c38971a47b55591035bcd36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b74fb8c_1b75f086",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3534,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-29T17:13:56Z",
+      "side": 1,
+      "message": "PS4: left as-is.\nPS5: reworked to use RAX as output. This required another temporary for references, as GenerateReferenceLoadWithBakerReadBarrier previously used `out` and clobbered it. To me the tradeoff seems ok (extra temp for references in exchange for reusing CMPXCHG effect). Also, I chose to not pass `expected` and `out` as parameters when they are certain to be RAX, and check in the caller. Reopen if you prefer PS4.\n\n(I chose to spend more time on this because I previously tried to set RAX as output, and now that you suggested it I wanted to understand why I failed.)",
+      "parentUuid": "a03aac3e_6f67d25e",
       "revId": "2f022f143d1aaef23c38971a47b55591035bcd36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
