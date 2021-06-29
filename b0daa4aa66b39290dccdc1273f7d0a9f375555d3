@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6794ef79_d8608d5b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-29T08:41:50Z",
+      "side": 1,
+      "message": "Maybe requesting a fixed register for `expected` and unspecified registers for the other inputs shall result in a different register being assigned to the other inputs? These would be register allocator details I\u0027d rather not rely on.\n\nNevertheless, as this is a pre-existing bug and only for heap poisoning, I\u0027m OK with leaving this as is for now.",
+      "parentUuid": "b254c5d1_1a06c31c",
+      "range": {
+        "startLine": 2211,
+        "startChar": 4,
+        "endLine": 2212,
+        "endChar": 66
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0763189_0f847ffa",
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "No, we actually use it as a temp reg when writing 64-bit constants to memory in HandleFieldSet. I updated the comment, as I don\u0027t think it\u0027s worth checking all the special cases when the temporary is/isn\u0027t needed. Reopen if you think otherwise.",
       "parentUuid": "34b719f1_3f2b30e1",
+      "range": {
+        "startLine": 3347,
+        "startChar": 6,
+        "endLine": 3347,
+        "endChar": 55
+      },
+      "revId": "b0daa4aa66b39290dccdc1273f7d0a9f375555d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0513d4d_cc06136b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3347,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-29T08:41:50Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "72e7ba3d_8d92daf2",
       "range": {
         "startLine": 3347,
         "startChar": 6,

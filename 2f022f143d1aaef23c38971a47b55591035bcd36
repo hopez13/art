@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44936718_6d6f8d31",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-29T08:41:50Z",
+      "side": 1,
+      "message": "Add RAX as a temp to fix pre-existing bug. (And maybe rename the function to CreateUnsafeCASLocations.)",
+      "revId": "2f022f143d1aaef23c38971a47b55591035bcd36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a03aac3e_6f67d25e",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3534,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-29T08:41:50Z",
+      "side": 1,
+      "message": "Optimization opportunity: For CompareAndExchange, we could instead have RAX as the output location and avoid an explicit move. (Register allocator may or may not move the output later.)\n\nBut feel free leave this as is, x86-64 is not a primary target and this is good enough.",
+      "revId": "2f022f143d1aaef23c38971a47b55591035bcd36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
