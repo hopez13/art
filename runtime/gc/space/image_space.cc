@@ -3457,6 +3457,11 @@ bool ImageSpace::VerifyBootClassPathChecksums(std::string_view oat_checksums,
     return false;
   }
 
+  // Fast path: oat_checksums matches runtime checksums.
+  if (oat_checksums == Runtime::Current()->GetBootClassPathChecksums()) {
+    return true;
+  }
+
   size_t bcp_pos = 0u;
   if (StartsWith(oat_checksums, "i")) {
     // Use only the matching part of the BCP for validation.  FDs are optional, so only pass the
