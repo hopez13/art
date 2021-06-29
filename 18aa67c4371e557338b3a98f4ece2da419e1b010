@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d1381ad_1659dec8",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-06-29T23:32:46Z",
+      "side": 1,
+      "message": "I don\u0027t think this needs to be exported explicitly. It will be automatically exported by the \"core-module-lib-stubs-system-modules\" below.\n\nAlso, this is not actually used when compiling against \"module_current\". That uses a different stub library.\n\nUnless you are going to add an sdk_version: \"core_module\".",
+      "range": {
+        "startLine": 108,
+        "startChar": 16,
+        "endLine": 108,
+        "endChar": 38
+      },
+      "revId": "18aa67c4371e557338b3a98f4ece2da419e1b010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
