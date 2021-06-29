@@ -44,7 +44,7 @@
   METRIC(FullGcCount, MetricsCounter)                              \
   METRIC(TotalBytesAllocated, MetricsCounter)                      \
   METRIC(TotalGcMetaDataSize, MetricsCounter)                      \
-  METRIC(JitMethodCompileTime, MetricsHistogram, 15, 0, 1'000'000) \
+  METRIC(JitMethodCompileTotalTime, MetricsCounter)                \
   METRIC(JitMethodCompileCount, MetricsCounter)                    \
   METRIC(YoungGcCollectionTime, MetricsHistogram, 15, 0, 60'000)   \
   METRIC(FullGcCollectionTime, MetricsHistogram, 15, 0, 60'000)    \
