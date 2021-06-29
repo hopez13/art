@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000012473621",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1749621?revision\u003d5",
+      "fixSuggestions": [
+        {
+          "fixId": "51d9cf0f_630e57ab",
+          "description": "Change to \"compiler/optimizing/intrinsics_x86_64.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/intrinsics_x86_64.cc",
+              "range": {
+                "startLine": 2158,
+                "startChar": 14,
+                "endLine": 2158,
+                "endChar": 22
+              },
+              "replacement": "supported"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "86f1836e_5faf5f64",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-06-29T17:12:19Z",
+      "side": 1,
+      "message": "Common typo found: \"suported\" -- should it be \"supported\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 2158,
+        "startChar": 14,
+        "endLine": 2158,
+        "endChar": 22
+      },
+      "revId": "5ab6724c7635b6cb90e3c3cbe885f1773a3dfb77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
