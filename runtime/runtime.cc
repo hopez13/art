@@ -1308,6 +1308,13 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   // Reload all the flags value (from system properties and device configs).
   ReloadAllFlags(__FUNCTION__);
 
+
+  deny_art_apex_data_files_ = runtime_options.Exists(Opt::DenyArtApexDataFiles);
+  if (deny_art_apex_data_files_) {
+    // We will run slower without those files if the system has taken an ART APEX update.
+    LOG(WARNING) << "ART APEX data files are untrusted.";
+  }
+
   // Early override for logging output.
   if (runtime_options.Exists(Opt::UseStderrLogger)) {
     android::base::SetLogger(android::base::StderrLogger);
