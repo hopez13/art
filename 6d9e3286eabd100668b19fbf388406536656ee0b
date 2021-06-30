@@ -34,6 +34,24 @@
       "parentUuid": "f56e873d_2016e870",
       "revId": "6d9e3286eabd100668b19fbf388406536656ee0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c9d6226_659b1b44",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3461,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T13:30:03Z",
+      "side": 1,
+      "message": "I think we would still need some checks anyway. And the boot image validation also performs some I/O, so it\u0027s better to do it here.",
+      "parentUuid": "7d6a01fb_ead6e1d3",
+      "revId": "6d9e3286eabd100668b19fbf388406536656ee0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
