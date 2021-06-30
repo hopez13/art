@@ -1308,6 +1308,13 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   // Reload all the flags value (from system properties and device configs).
   ReloadAllFlags(__FUNCTION__);
 
+
+  deny_art_apex_data_files_ = runtime_options.Exists(Opt::DenyArtApexDataFiles);
+  if (deny_art_apex_data_files_) {
+    // We will run slower without those files if the system has taken an ART APEX update.
+    LOG(WARNING) << "ART APEX data files are untrusted.";
+  }
+
   // Early override for logging output.
   if (runtime_options.Exists(Opt::UseStderrLogger)) {
     android::base::SetLogger(android::base::StderrLogger);
@@ -1373,6 +1380,12 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
         GetSystemImageFilename(image_locations_[0].c_str(), instruction_set_));
     std::string system_oat_location = ImageHeader::GetOatLocationFromImageLocation(
         image_locations_[0]);
+    if (deny_art_apex_data_files_ && (LocationIsOnArtApexData(system_oat_filename) ||
+                                      LocationIsOnArtApexData(system_oat_location))) {
+      LOG(ERROR) << "Could not open boot oat file from untrusted location: " << system_oat_filename;
+      return false;
+    }
+
     std::string error_msg;
     std::unique_ptr<OatFile> oat_file(OatFile::Open(/*zip_fd=*/ -1,
                                                     system_oat_filename,
