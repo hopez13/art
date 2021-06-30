@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d32d8c7d_0414f6b2",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-30T15:07:07Z",
+      "side": 1,
+      "message": "oh, another nit from me, Do we serialize this numbers? if so, don\u0027t modify the old ones, just keep adding.",
+      "range": {
+        "startLine": 226,
+        "startChar": 22,
+        "endLine": 226,
+        "endChar": 23
+      },
+      "revId": "2bb1240d1fcd97c0d0875f1e12ee8730fc21c63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d12c1ffe_dd9e14f0",
         "filename": "libprofile/profile/profile_compilation_info.cc",
         "patchSetId": 2
