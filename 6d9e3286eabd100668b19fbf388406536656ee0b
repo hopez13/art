@@ -16,6 +16,24 @@
       "message": "I think we should also check that `image_isa`, `image_locations`, `boot_class_path_locations` and `boot_class_path` match the values in Runtime. But keep the `oat_checksums` check first before doing the additional comparisons.\n\nMaybe defensively protect from `Runtime::Current() \u003d\u003d nullptr`.",
       "revId": "6d9e3286eabd100668b19fbf388406536656ee0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d6a01fb_ead6e1d3",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-30T12:17:17Z",
+      "side": 1,
+      "message": "Do you think it\u0027d make sense to move this fast path after the boot image validation? And then we wouldn\u0027t need all the checks you mention?",
+      "parentUuid": "f56e873d_2016e870",
+      "revId": "6d9e3286eabd100668b19fbf388406536656ee0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
