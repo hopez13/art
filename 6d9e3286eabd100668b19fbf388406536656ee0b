@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f56e873d_2016e870",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3461,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T10:25:46Z",
+      "side": 1,
+      "message": "I think we should also check that `image_isa`, `image_locations`, `boot_class_path_locations` and `boot_class_path` match the values in Runtime. But keep the `oat_checksums` check first before doing the additional comparisons.\n\nMaybe defensively protect from `Runtime::Current() \u003d\u003d nullptr`.",
+      "revId": "6d9e3286eabd100668b19fbf388406536656ee0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
