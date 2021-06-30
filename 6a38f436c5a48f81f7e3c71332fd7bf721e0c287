@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb4fb59f_37b10eca",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-30T15:33:59Z",
+      "side": 1,
+      "message": "Nit: you could even use COMPILER_FILTER_REPORTING_LIST for defining all cases here. Same for CompilationReason.\n\nSee enum class DatumId where we already do this.",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 22
+      },
+      "revId": "6a38f436c5a48f81f7e3c71332fd7bf721e0c287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
