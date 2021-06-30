@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7fc3824_4e433234",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-30T12:14:07Z",
+      "side": 1,
+      "message": "Thanks Orion.",
+      "revId": "51af276a42a802f766975b570f1522786d095389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "514ffb9f_a7448207",
@@ -31,6 +48,30 @@
       "writtenOn": "2021-06-30T07:38:50Z",
       "side": 1,
       "message": "These don\u0027t ever end up in the vdex file, no version bump necessary?",
+      "range": {
+        "startLine": 90,
+        "startChar": 35,
+        "endLine": 90,
+        "endChar": 42
+      },
+      "revId": "51af276a42a802f766975b570f1522786d095389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d5dc3f7_bf83a928",
+        "filename": "runtime/verifier/verifier_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-30T12:14:07Z",
+      "side": 1,
+      "message": "No, the vdex file only encodes a yes/no verification status.",
+      "parentUuid": "514ffb9f_a7448207",
       "range": {
         "startLine": 90,
         "startChar": 35,
