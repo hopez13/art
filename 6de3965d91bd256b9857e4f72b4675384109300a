@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86c078e7_f5998f55",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T13:03:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "24162cf9_8ec2db9c",
+      "range": {
+        "startLine": 5506,
+        "startChar": 8,
+        "endLine": 5506,
+        "endChar": 38
+      },
+      "revId": "6de3965d91bd256b9857e4f72b4675384109300a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aaea0de5_177aae7f",
@@ -96,6 +120,24 @@
       "side": 1,
       "message": "Because the implementation uses api_level_, and that\u0027s only defined in the child (implementation) class.\n\nI\u0027m not quite clear what\u0027s the rationale for the two classes and which field should go where. I could also move api_level_ to the abstract class.",
       "parentUuid": "aaea0de5_177aae7f",
+      "revId": "6de3965d91bd256b9857e4f72b4675384109300a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d6310c_ed21ab92",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T13:03:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12e6ee73_0800d968",
       "revId": "6de3965d91bd256b9857e4f72b4675384109300a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
