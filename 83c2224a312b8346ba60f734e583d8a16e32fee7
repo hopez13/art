@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d800ba42_f554d2bf",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-30T21:24:49Z",
+      "side": 1,
+      "message": "I changed it.",
+      "parentUuid": "8d0eb354_21bb21eb",
+      "range": {
+        "startLine": 445,
+        "startChar": 52,
+        "endLine": 445,
+        "endChar": 53
+      },
+      "revId": "83c2224a312b8346ba60f734e583d8a16e32fee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "355a5966_32498131",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-06-28T08:37:33Z",
       "side": 1,
       "message": "Line too long",
+      "revId": "83c2224a312b8346ba60f734e583d8a16e32fee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c9d5a51_d2aaa8fe",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-06-30T21:24:49Z",
+      "side": 1,
+      "message": "Implicitly fixed.",
+      "parentUuid": "355a5966_32498131",
       "revId": "83c2224a312b8346ba60f734e583d8a16e32fee7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
