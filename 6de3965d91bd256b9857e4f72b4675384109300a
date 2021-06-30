@@ -16,6 +16,46 @@
       "message": "Vladimir, friendly ping.",
       "revId": "6de3965d91bd256b9857e4f72b4675384109300a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6bb4bd4_3f360ff8",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5506,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T10:06:47Z",
+      "side": 1,
+      "message": "Are you intentionally adding a path here to the `IsVerifierMissingKThrowFatal()` check?",
+      "range": {
+        "startLine": 5506,
+        "startChar": 8,
+        "endLine": 5506,
+        "endChar": 38
+      },
+      "revId": "6de3965d91bd256b9857e4f72b4675384109300a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaea0de5_177aae7f",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T10:06:47Z",
+      "side": 1,
+      "message": "Why do you need this to be virtual?",
+      "revId": "6de3965d91bd256b9857e4f72b4675384109300a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
