@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fac5ecf_34f5a53a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T09:20:31Z",
+      "side": 1,
+      "message": "Update: RAX is now the output register.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b6fd1e_d50fe57f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2029,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T09:20:31Z",
+      "side": 1,
+      "message": "Put this under\n\n    if (kEmitCompilerReadBarrier) {\n      DCHECK(kUseBakerReadBarrier);\n      ...\n    }\n\n(You shall need to update `GenCompareAndSetOrExchange()` and `CreateVarHandleCompareAndSetOrExchangeLocations()` as well. Or maybe just leave as is for simplicity.)",
+      "range": {
+        "startLine": 2029,
+        "startChar": 4,
+        "endLine": 2029,
+        "endChar": 53
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a25eb3a_ea736e0f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2089,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T09:20:31Z",
+      "side": 1,
+      "message": "Not moving anymore.",
+      "range": {
+        "startLine": 2089,
+        "startChar": 7,
+        "endLine": 2089,
+        "endChar": 11
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b58999fb_32b138aa",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2104,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T09:20:31Z",
+      "side": 1,
+      "message": "We do not need to extend to 64 bits. (Remove the `case` and go to `default:`.)",
+      "range": {
+        "startLine": 2104,
+        "startChar": 8,
+        "endLine": 2104,
+        "endChar": 28
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6a7cbdc_675c5f8a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T09:20:31Z",
+      "side": 1,
+      "message": "No-op.",
+      "range": {
+        "startLine": 2107,
+        "startChar": 8,
+        "endLine": 2107,
+        "endChar": 26
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "312990ca_b1188c72",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T09:20:31Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 2158,
+        "startChar": 52,
+        "endLine": 2158,
+        "endChar": 67
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4f52dae_3e623875",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2270,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T09:20:31Z",
+      "side": 1,
+      "message": "Pull this out of `else` block to check the assumption also in the FP case.",
+      "range": {
+        "startLine": 2270,
+        "startChar": 4,
+        "endLine": 2270,
+        "endChar": 47
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4497f4ae_a8787749",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2277,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T09:20:31Z",
+      "side": 1,
+      "message": "If not heap poisoning, base \u003d\u003d RAX is OK. (We should try to use Unsafe/VarHandle CAS to point a linked list node to itself.)",
+      "range": {
+        "startLine": 2277,
+        "startChar": 6,
+        "endLine": 2277,
+        "endChar": 89
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5122390_2aa81d59",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T09:20:31Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether we should keep the default out location initialization in `CreateVarHandleCommonLocations()` (as on ARM/ARM64) and just override the non-default cases in specialized functions. I\u0027m undecided, so it\u0027s whatever you want to do here.",
+      "range": {
+        "startLine": 3517,
+        "startChar": 2,
+        "endLine": 3522,
+        "endChar": 3
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
