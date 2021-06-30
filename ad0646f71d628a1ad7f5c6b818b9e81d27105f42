@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c302d250_003c629c",
+        "filename": "artd/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-30T00:20:53Z",
+      "side": 1,
+      "message": "In this case yes. If libcutils doesn\u0027t have dessert guarantees we\u0027ll need to just dup the utils we need.\n\nHowever, if this is needed for tests, can we move the dependency to the test binary?",
+      "parentUuid": "b1a38ae8_4c3fcdd4",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 18
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30055c16_726ddfbf",
         "filename": "artd/binder/Android.bp",
         "patchSetId": 2
