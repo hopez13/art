@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06b05dc6_a8b03354",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T10:16:09Z",
+      "side": 1,
+      "message": "Just minor comments. (Feel free to ACK them and keep the CL as is.)",
+      "revId": "2bb1240d1fcd97c0d0875f1e12ee8730fc21c63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d12c1ffe_dd9e14f0",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T10:16:09Z",
+      "side": 1,
+      "message": "As we do not support AggregationCounts here, maybe the format does not need to be described in detail?",
+      "revId": "2bb1240d1fcd97c0d0875f1e12ee8730fc21c63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5be5b69e_dcd45e32",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1812,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T10:16:09Z",
+      "side": 1,
+      "message": "Maybe add an explicit `case FileSectionType::kAggregationCounts:`?",
+      "revId": "2bb1240d1fcd97c0d0875f1e12ee8730fc21c63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
