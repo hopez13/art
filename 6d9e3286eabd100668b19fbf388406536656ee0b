@@ -52,6 +52,24 @@
       "parentUuid": "7d6a01fb_ead6e1d3",
       "revId": "6d9e3286eabd100668b19fbf388406536656ee0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ae2926d_3d5c4a31",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-30T15:54:38Z",
+      "side": 1,
+      "message": "Done in oat_file_assistant (which looked like a better place given the presence of a runtime).",
+      "parentUuid": "2c9d6226_659b1b44",
+      "revId": "6d9e3286eabd100668b19fbf388406536656ee0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
