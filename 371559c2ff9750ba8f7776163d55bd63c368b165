@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55bf7820_eaf2de7f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2608,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-06-30T00:48:48Z",
+      "side": 1,
+      "message": "made this more generic, cause we need to notify in both cases.",
+      "range": {
+        "startLine": 2608,
+        "startChar": 23,
+        "endLine": 2608,
+        "endChar": 43
+      },
+      "revId": "371559c2ff9750ba8f7776163d55bd63c368b165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
