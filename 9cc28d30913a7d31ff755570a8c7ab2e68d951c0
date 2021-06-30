@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0373b7c_576e091b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-30T10:59:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fac5ecf_34f5a53a",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4b6fd1e_d50fe57f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-06-30T09:20:31Z",
       "side": 1,
       "message": "Put this under\n\n    if (kEmitCompilerReadBarrier) {\n      DCHECK(kUseBakerReadBarrier);\n      ...\n    }\n\n(You shall need to update `GenCompareAndSetOrExchange()` and `CreateVarHandleCompareAndSetOrExchangeLocations()` as well. Or maybe just leave as is for simplicity.)",
+      "range": {
+        "startLine": 2029,
+        "startChar": 4,
+        "endLine": 2029,
+        "endChar": 53
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce020b11_8f206ae5",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2029,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-30T10:59:55Z",
+      "side": 1,
+      "message": "Applied your suggestion. I use `CpuRegister(kNoRegister)` for temp3 in `GenCompareAndSetOrExchange()` if there are no barriers.",
+      "parentUuid": "b4b6fd1e_d50fe57f",
       "range": {
         "startLine": 2029,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "808f80bc_7f6f7e76",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2089,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-30T10:59:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a25eb3a_ea736e0f",
+      "range": {
+        "startLine": 2089,
+        "startChar": 7,
+        "endLine": 2089,
+        "endChar": 11
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b58999fb_32b138aa",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-06-30T09:20:31Z",
       "side": 1,
       "message": "We do not need to extend to 64 bits. (Remove the `case` and go to `default:`.)",
+      "range": {
+        "startLine": 2104,
+        "startChar": 8,
+        "endLine": 2104,
+        "endChar": 28
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14d9377c_63fcdfc2",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2104,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-30T10:59:55Z",
+      "side": 1,
+      "message": "Done. (I was unsure if 32-bit CMPXCHG touches the upper half of RAX.)",
+      "parentUuid": "b58999fb_32b138aa",
       "range": {
         "startLine": 2104,
         "startChar": 8,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f0276a9_a4d4cd68",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2107,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-30T10:59:55Z",
+      "side": 1,
+      "message": "I was unsure if 32-bit CMPXCHG touches the upper half of RAX (if it left it dirty from previous operations, `movl rax, rax` would clear it).",
+      "parentUuid": "e6a7cbdc_675c5f8a",
+      "range": {
+        "startLine": 2107,
+        "startChar": 8,
+        "endLine": 2107,
+        "endChar": 26
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "312990ca_b1188c72",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-06-30T09:20:31Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 2158,
+        "startChar": 52,
+        "endLine": 2158,
+        "endChar": 67
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59ac71bf_a8981f87",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-30T10:59:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "312990ca_b1188c72",
       "range": {
         "startLine": 2158,
         "startChar": 52,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae271260_176b55ed",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2270,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-30T10:59:55Z",
+      "side": 1,
+      "message": "This is not true for floating-point compareAndExchange (its output is in XMM register).",
+      "parentUuid": "f4f52dae_3e623875",
+      "range": {
+        "startLine": 2270,
+        "startChar": 4,
+        "endLine": 2270,
+        "endChar": 47
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4497f4ae_a8787749",
@@ -185,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3220af0_1a64ff06",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2277,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-30T10:59:55Z",
+      "side": 1,
+      "message": "Removed RAX from the list (I may look into the test later).",
+      "parentUuid": "4497f4ae_a8787749",
+      "range": {
+        "startLine": 2277,
+        "startChar": 6,
+        "endLine": 2277,
+        "endChar": 89
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5122390_2aa81d59",
@@ -198,6 +390,30 @@
       "writtenOn": "2021-06-30T09:20:31Z",
       "side": 1,
       "message": "I\u0027m wondering whether we should keep the default out location initialization in `CreateVarHandleCommonLocations()` (as on ARM/ARM64) and just override the non-default cases in specialized functions. I\u0027m undecided, so it\u0027s whatever you want to do here.",
+      "range": {
+        "startLine": 3517,
+        "startChar": 2,
+        "endLine": 3522,
+        "endChar": 3
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c5e1694_9a39b21c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3522,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-30T10:59:55Z",
+      "side": 1,
+      "message": "I wanted to override initially (as we do for input registers), but currently output can only be set once (there is a DCHECK that it\u0027s invalid that prevents from overriding it: https://source.corp.google.com/android/art/compiler/optimizing/locations.h;l\u003d558). \n\nMaybe we should relax that DCHECK or add a function OverrideOut() or else add a boolean parameter to SetOut() that would be false by default and when set to tre, would allow overriding?",
+      "parentUuid": "e5122390_2aa81d59",
       "range": {
         "startLine": 3517,
         "startChar": 2,
