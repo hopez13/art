@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "51583bfb_cc460e39",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Yes, I intend to handle them later. For now I\u0027m only converting the ART gtests bundled with the Testing ART APEX.",
+      "parentUuid": "1e5f8d47_b307a447",
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d06dddba_7bec0c83",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -58,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51506822_449437be",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "I made this choice for the sake of consistency, which I think also matters in our case given the complexity of our build rules.\n\nAll `art_*_tests` modules have been turned into three modules:\n- `art_*_tests_defaults`, containing common parts;\n- `art_*_tests`, for the original gtest (that I have tried to keep as close to the original);\n- `art_standalone_*_tests`, for the new standalone module.",
+      "parentUuid": "eb4ea19c_7ee872f6",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c55d8c5_6bca3f26",
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d1ef480_6e193e8e",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Good idea; done.",
+      "parentUuid": "0c55d8c5_6bca3f26",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 6
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8a77faf_d81f1eb2",
@@ -94,6 +160,30 @@
       "writtenOn": "2021-06-29T02:25:15Z",
       "side": 1,
       "message": "Why is this added?",
+      "range": {
+        "startLine": 324,
+        "startChar": 9,
+        "endLine": 324,
+        "endChar": 17
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7cdec04_634b5ae2",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Because of https://android-review.googlesource.com/c/platform/art/+/1749282/5/libartbase/base/utils_test.cc.",
+      "parentUuid": "a8a77faf_d81f1eb2",
       "range": {
         "startLine": 324,
         "startChar": 9,
@@ -129,6 +219,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4eda501d_34090f30",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Right; I\u0027ll move this bit out of this CL.",
+      "parentUuid": "09ac1644_db80edb6",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 37
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ef50b8e_62c3c5e4",
         "filename": "profman/Android.bp",
         "patchSetId": 5
@@ -140,6 +254,30 @@
       "writtenOn": "2021-06-29T02:25:15Z",
       "side": 1,
       "message": "Shouldn\u0027t this be profman for the standalone tests?",
+      "range": {
+        "startLine": 176,
+        "startChar": 17,
+        "endLine": 176,
+        "endChar": 25
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d94ab07b_46484994",
+        "filename": "profman/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Right; note that this CL is really about standalone test for devices only. I intend to tackle the host case later (maybe at the same time the \"bundled\" test modules are removed).",
+      "parentUuid": "5ef50b8e_62c3c5e4",
       "range": {
         "startLine": 176,
         "startChar": 17,
@@ -173,6 +311,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ecc3f5_1c5a0450",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b3e01dc_44a36412",
+      "range": {
+        "startLine": 636,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 6
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6ea36e1_ceed81a1",
@@ -186,6 +348,30 @@
       "writtenOn": "2021-06-29T02:25:15Z",
       "side": 1,
       "message": "Use dex2oat for standalone test?",
+      "range": {
+        "startLine": 789,
+        "startChar": 17,
+        "endLine": 789,
+        "endChar": 25
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5656b6e_65be0e4d",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6ea36e1_ceed81a1",
       "range": {
         "startLine": 789,
         "startChar": 17,
@@ -219,6 +405,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac913056_3a62537c",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72d4e5f4_e2e6b114",
+      "range": {
+        "startLine": 835,
+        "startChar": 17,
+        "endLine": 835,
+        "endChar": 25
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9b275f9_8f1ae9ea",
@@ -236,6 +446,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fba4ce0f_2be06305",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Good idea; I introduced a new defaults module for shared properties, as I find this easier to understand.",
+      "parentUuid": "e9b275f9_8f1ae9ea",
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "034d427a_45d03539",
@@ -249,6 +477,30 @@
       "writtenOn": "2021-06-29T02:25:15Z",
       "side": 1,
       "message": "Another bit of duplication that would be nice to avoid, plus a number of shared libs.",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 6
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "272e7601_9aed7737",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "034d427a_45d03539",
       "range": {
         "startLine": 239,
         "startChar": 0,
@@ -282,6 +534,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a87e9f80_c56e8e12",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29d760e4_000f1cd6",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 6
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3990ce59_c04d39a4",
@@ -305,6 +581,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "045cb017_e5293772",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3990ce59_c04d39a4",
+      "range": {
+        "startLine": 381,
+        "startChar": 0,
+        "endLine": 404,
+        "endChar": 6
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a4a5f63_f5a520ab",
@@ -318,6 +618,30 @@
       "writtenOn": "2021-06-29T02:25:15Z",
       "side": 1,
       "message": "No idea where this is surfaced, but just in case it\u0027s anywhere useful, why not mention that it runs it as root?",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 42
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9256e8f8_b0ec39e4",
+        "filename": "test/art-gtests-target-standalone-root-template.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-06-30T09:53:52Z",
+      "side": 1,
+      "message": "I\u0027m not sure either where this is shown, but I added a mention about the root access.",
+      "parentUuid": "1a4a5f63_f5a520ab",
       "range": {
         "startLine": 17,
         "startChar": 28,
