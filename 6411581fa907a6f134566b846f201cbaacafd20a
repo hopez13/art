@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37e4f6ee_d0fd7541",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5058,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-06-30T10:57:55Z",
+      "side": 1,
+      "message": "Would it be better to check in `mirror::Class::SetStatus` if the new status is the same as the old one and exit immediately?",
+      "range": {
+        "startLine": 5058,
+        "startChar": 6,
+        "endLine": 5058,
+        "endChar": 37
+      },
+      "revId": "6411581fa907a6f134566b846f201cbaacafd20a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
