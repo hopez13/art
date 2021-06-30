@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab925e2_50d7ad4c",
+        "filename": "test/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-30T19:41:28Z",
+      "side": 1,
+      "message": "Even though it wouldn\u0027t strictly do anything, I suggest a line\n\n    host_supported: false,\n\nhere, with a comment that the scope of the standalone tests are device only. That\u0027d help set the expectations when reading other parts of the code. Ok for follow-up.",
+      "revId": "d17a10994788d6c75c78002fe340ab45365b4378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62f91c98_aa181384",
+        "filename": "test/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-30T19:41:28Z",
+      "side": 1,
+      "message": "Like above, I think it\u0027s better to have this common to all gtests, provided it doesn\u0027t break the current ones. If it does, it\u0027s useful to comment why. Ok for follow-up.",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 240,
+        "endChar": 0
+      },
+      "revId": "d17a10994788d6c75c78002fe340ab45365b4378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9608d008_763d8fcc",
+        "filename": "test/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-30T19:41:28Z",
+      "side": 1,
+      "message": "Yet it doesn\u0027t, or am I missing something?",
+      "range": {
+        "startLine": 250,
+        "startChar": 11,
+        "endLine": 250,
+        "endChar": 73
+      },
+      "revId": "d17a10994788d6c75c78002fe340ab45365b4378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

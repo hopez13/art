@@ -100,6 +100,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbd8dbd3_dbf64a07",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-30T19:41:28Z",
+      "side": 1,
+      "message": "Very well. Then libart(d)-compiler-gtest should have a default too?",
+      "parentUuid": "51506822_449437be",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c55d8c5_6bca3f26",
@@ -312,6 +336,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc0e74e0_000997ae",
+        "filename": "profman/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-30T19:41:28Z",
+      "side": 1,
+      "message": "I see. Thanks for doing it anyway - it\u0027s good for clarity.",
+      "parentUuid": "d94ab07b_46484994",
+      "range": {
+        "startLine": 176,
+        "startChar": 17,
+        "endLine": 176,
+        "endChar": 25
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b3e01dc_44a36412",
@@ -484,6 +532,24 @@
       "side": 1,
       "message": "Good idea; I introduced a new defaults module for shared properties, as I find this easier to understand.",
       "parentUuid": "e9b275f9_8f1ae9ea",
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "478bf9b8_24baebb3",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-06-30T19:41:28Z",
+      "side": 1,
+      "message": "I still think all of the properties in art_test_defaults should apply to all tests. Even though all of them may not be strictly necessary, the fact that they only apply to some subset without a clear reason causes confusion.\n\nIow, unless there is a specific reason why test_for, relative_install_path, etc do _not_ work for the standalone tests, they should be included.\n\nOk for follow-up.",
+      "parentUuid": "fba4ce0f_2be06305",
       "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
