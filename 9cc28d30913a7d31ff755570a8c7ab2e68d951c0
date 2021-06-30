@@ -330,6 +330,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5fe8bb5_18742283",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2270,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T11:07:24Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "ae271260_176b55ed",
+      "range": {
+        "startLine": 2270,
+        "startChar": 4,
+        "endLine": 2270,
+        "endChar": 47
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4497f4ae_a8787749",
@@ -414,6 +438,30 @@
       "side": 1,
       "message": "I wanted to override initially (as we do for input registers), but currently output can only be set once (there is a DCHECK that it\u0027s invalid that prevents from overriding it: https://source.corp.google.com/android/art/compiler/optimizing/locations.h;l\u003d558). \n\nMaybe we should relax that DCHECK or add a function OverrideOut() or else add a boolean parameter to SetOut() that would be false by default and when set to tre, would allow overriding?",
       "parentUuid": "e5122390_2aa81d59",
+      "range": {
+        "startLine": 3517,
+        "startChar": 2,
+        "endLine": 3522,
+        "endChar": 3
+      },
+      "revId": "9cc28d30913a7d31ff755570a8c7ab2e68d951c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84df2411_18aed4ee",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-06-30T11:07:24Z",
+      "side": 1,
+      "message": "Then let\u0027s get this in as is.",
+      "parentUuid": "3c5e1694_9a39b21c",
       "range": {
         "startLine": 3517,
         "startChar": 2,
