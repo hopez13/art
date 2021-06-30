@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30e123eb_736dc706",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-06-30T12:21:59Z",
+      "side": 1,
+      "message": "Ah, you didn\u0027t get my macro suggestion :) You can do:\n\n#define COMPILER_FILTER_REPORTING_LIST(V) \\\n V(CompilerFilterReporting::kError, \"error\") \\\n ...\n \nAnd then do:\n#define RETURN_KIND(kind, kind_name) \\\n  if (name \u003d\u003d kind_name) return kind;\n\nconstexpr CompilerFilterReporting CompilerFilterReportingFromName(std::string_view name) {\nCOMPILER_FILTER_REPORTING_LIST(RETURN_KIND)\n}",
+      "parentUuid": "b644af21_77567c10",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 95
+      },
+      "revId": "47527e6e4e7c4b6a01f6809c527c4cc0855b6008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29aca570_18cd6c19",
         "filename": "runtime/app_info.h",
         "patchSetId": 3
