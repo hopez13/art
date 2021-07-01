@@ -272,8 +272,13 @@ ReportingConfig ReportingConfig::FromFlags(bool is_system_server) {
     }
   }
 
-  uint32_t reporting_num_mods = gFlags.MetricsReportingNumMods();
-  uint32_t reporting_mods = gFlags.MetricsReportingMods();
+  uint32_t reporting_num_mods = is_system_server
+      ? gFlags.MetricsReportingNumModsServer()
+      : gFlags.MetricsReportingNumMods();
+  uint32_t reporting_mods = is_system_server
+      ? gFlags.MetricsReportingModsServer()
+      : gFlags.MetricsReportingMods();
+
   if (reporting_mods > reporting_num_mods) {
     LOG(ERROR) << "Invalid metrics reporting mods: " << reporting_mods
         << " num modes=" << reporting_num_mods;
