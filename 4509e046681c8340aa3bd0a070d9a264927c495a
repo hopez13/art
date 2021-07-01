@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3af9ec3a_289fad37",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5001,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-01T14:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ce9eb5e_81003445",
+      "range": {
+        "startLine": 5001,
+        "startChar": 67,
+        "endLine": 5001,
+        "endChar": 69
+      },
+      "revId": "4509e046681c8340aa3bd0a070d9a264927c495a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ccba633_768a97ba",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-07-01T13:46:43Z",
       "side": 1,
       "message": "Move this comment back (before the `if (work_insn_idx_ \u003c dex::kDexNoIndex)`).",
+      "range": {
+        "startLine": 5008,
+        "startChar": 4,
+        "endLine": 5009,
+        "endChar": 19
+      },
+      "revId": "4509e046681c8340aa3bd0a070d9a264927c495a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a48cdc1_60cdeee9",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5009,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-01T14:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ccba633_768a97ba",
       "range": {
         "startLine": 5008,
         "startChar": 4,
