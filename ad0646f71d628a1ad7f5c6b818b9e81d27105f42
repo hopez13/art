@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab3cef67_85964fcc",
+        "filename": "artd/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-07-01T03:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c302d250_003c629c",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 18
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30055c16_726ddfbf",
@@ -361,6 +385,30 @@
       "writtenOn": "2021-06-29T20:19:38Z",
       "side": 1,
       "message": "We should aim to import this utility methods from libartbase which already has equivalent. It might drag this change too much though so could you add a TODO?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 1
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aad2b677_7d57d58d",
+        "filename": "libarttools/tools/dex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-07-01T03:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6df99afb_161af3c6",
       "range": {
         "startLine": 39,
         "startChar": 0,
