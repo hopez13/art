@@ -186,6 +186,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6a4dc99_cdcd21ff",
+        "filename": "artd/binder/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2021-07-01T21:31:03Z",
+      "side": 1,
+      "message": "You mean stubs for features added to other parts of Android in T?",
+      "parentUuid": "84184cbd_eda03b1f",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 73
+      },
+      "revId": "ad0646f71d628a1ad7f5c6b818b9e81d27105f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffc2d27c_94749a8e",
         "filename": "libarttools/tests/dex_test.cc",
         "patchSetId": 2
