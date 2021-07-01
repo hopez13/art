@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a54b4825_d9b2af77",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-01T13:13:11Z",
+      "side": 1,
+      "message": "There\u0027s two things here:\n\n1) the runtime is still in Init() when this is called so can\u0027t access Runtime::Current() yet.\n\n2) using R::C-\u003eDenyArtApexDataFiles() here would stop the device from booting completely.\n\nClarifying comment here?",
+      "parentUuid": "f65e13d7_ee398932",
+      "range": {
+        "startLine": 818,
+        "startChar": 53,
+        "endLine": 818,
+        "endChar": 85
+      },
+      "revId": "e5c7dea25792338ec31d3284281138f0f11efa69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22701ca7_f88cd42a",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2021-07-01T12:56:46Z",
       "side": 1,
       "message": "I wonder if for simplicity, we should just make this the first thing with check (regardless of whether boot class path is empty) - that would make the device non-booting always, right?",
+      "range": {
+        "startLine": 1383,
+        "startChar": 0,
+        "endLine": 1387,
+        "endChar": 5
+      },
+      "revId": "e5c7dea25792338ec31d3284281138f0f11efa69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acaaccfa_ea3a90b4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-01T13:13:11Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m not quite getting the meaning.\n\nWe could hoist the code within the if block to here, moving to L1367?\n\n(The aim is just to deny these files rather than make the device non-booting.)",
+      "parentUuid": "22701ca7_f88cd42a",
       "range": {
         "startLine": 1383,
         "startChar": 0,
