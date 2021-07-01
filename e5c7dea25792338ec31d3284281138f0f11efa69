@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9480c05b_c932dff8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-01T12:56:46Z",
+      "side": 1,
+      "message": "A less intrusive change could be to pass a -Ximage:/apex/com.android.art/boot.art. This means we",
+      "revId": "e5c7dea25792338ec31d3284281138f0f11efa69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f65e13d7_ee398932",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-01T12:56:46Z",
+      "side": 1,
+      "message": "Why not using Runtime::Current()-\u003eDenyArtApexDataFiles here?",
+      "range": {
+        "startLine": 818,
+        "startChar": 53,
+        "endLine": 818,
+        "endChar": 85
+      },
+      "revId": "e5c7dea25792338ec31d3284281138f0f11efa69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22701ca7_f88cd42a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-01T12:56:46Z",
+      "side": 1,
+      "message": "I wonder if for simplicity, we should just make this the first thing with check (regardless of whether boot class path is empty) - that would make the device non-booting always, right?",
+      "range": {
+        "startLine": 1383,
+        "startChar": 0,
+        "endLine": 1387,
+        "endChar": 5
+      },
+      "revId": "e5c7dea25792338ec31d3284281138f0f11efa69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
