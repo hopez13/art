@@ -16,6 +16,24 @@
       "message": "I\u0027m not 100% sure why this is failing downstream.",
       "revId": "e6c42b9a3d22e94c4208c51c2b87b52a802b9b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3992be87_212218cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-02T16:29:30Z",
+      "side": 1,
+      "message": "The error is:\n\n  multiple rules generate out/soong/vsoc_x86_64/dex_artjars/boot.prof\n  \nThat\u0027s what I get when I reproduce locally on master/cf_x86_64_phone-userdebug (two occurrences that differ in apex versions 10000 vs 31):\n\n  $ fgrep \u0027build out/soong/vsoc_x86_64/dex_artjars/boot.prof\u0027 \\\n      out/soong/build.ninja -A5\n      \n  build out/soong/vsoc_x86_64/dex_artjars/boot.prof: $\n      m.art-bootclasspath-fragment_android_common_apex10000.bootJarsProfile\n      ...\n      description \u003d ${m.art-bootclasspath-fragment_android_common_apex10000.moduleDesc}profile boot jars${m.art-bootclasspath-fragment_android_common_apex10000.moduleDescSuffix}\n\n  build out/soong/vsoc_x86_64/dex_artjars/boot.prof: $\n      m.art-bootclasspath-fragment_android_common_apex31.bootJarsProfile    \n      ...\n      description \u003d ${m.art-bootclasspath-fragment_android_common_apex31.moduleDesc}profile boot jars${m.art-bootclasspath-fragment_android_common_apex31.moduleDescSuffix}",
+      "parentUuid": "2f0dec7f_77f669fb",
+      "revId": "e6c42b9a3d22e94c4208c51c2b87b52a802b9b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
