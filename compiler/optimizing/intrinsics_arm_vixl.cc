@@ -2518,7 +2518,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitReferenceGetReferent(HInvoke* invoke) {
     __ Ldr(temp,
            MemOperand(tr, Thread::WeakRefAccessEnabledOffset<kArmPointerSize>().Uint32Value()));
     __ Cmp(temp, 0);
-    __ B(eq, slow_path->GetEntryLabel());
+    __ B(ne, slow_path->GetEntryLabel());  // Branch if !VISIBLY_ENABLED.
   }
 
   {

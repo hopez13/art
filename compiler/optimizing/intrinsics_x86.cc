@@ -3335,7 +3335,7 @@ void IntrinsicCodeGeneratorX86::VisitReferenceGetReferent(HInvoke* invoke) {
     // Check self->GetWeakRefAccessEnabled().
     ThreadOffset32 offset = Thread::WeakRefAccessEnabledOffset<kX86PointerSize>();
     __ fs()->cmpl(Address::Absolute(offset), Immediate(0));
-    __ j(kEqual, slow_path->GetEntryLabel());
+    __ j(kNotEqual, slow_path->GetEntryLabel());  // Branch if !VISIBLY_ENABLED.
   }
 
   // Load the java.lang.ref.Reference class, use the output register as a temporary.

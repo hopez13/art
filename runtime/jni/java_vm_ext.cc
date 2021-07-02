@@ -857,6 +857,10 @@ ObjPtr<mirror::Object> JavaVMExt::DecodeWeakGlobalLocked(Thread* self, IndirectR
   if (kDebugLocking) {
     Locks::jni_weak_globals_lock_->AssertHeld(self);
   }
+  // TODO: Handle the already null case without waiting.
+  // TODO: O.w. we should just wait for INIT_MARKING_DONE, and track which weak globals were
+  // marked at that point. We would only need one mark bit per entry in the weak_globals_ table,
+  // and a quick pass over that early on during reference processing.
   WaitForWeakGlobalsAccess(self);
   return weak_globals_.Get(ref);
 }

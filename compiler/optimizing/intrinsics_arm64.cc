@@ -3458,7 +3458,7 @@ void IntrinsicCodeGeneratorARM64::VisitReferenceGetReferent(HInvoke* invoke) {
     Register temp = temps.AcquireW();
     __ Ldr(temp,
            MemOperand(tr, Thread::WeakRefAccessEnabledOffset<kArm64PointerSize>().Uint32Value()));
-    __ Cbz(temp, slow_path->GetEntryLabel());
+    __ Cbnz(temp, slow_path->GetEntryLabel());  // Branch if !VISIBLY_ENABLED.
   }
 
   {
