@@ -16,6 +16,24 @@
       "message": "This copies the files from the com.android.art instead of from the \u003cx\u003e-hostdex. It does not copy them from com.android.art.host because switching that to use bootclasspath_fragment breaks downstream. I think this will be a quicker fix.\n\nThis is predicated on the assumption that the hostdex and target dex jars are identical, and always will be. If true then we may be able to remove support for hostdex completely at some point.",
       "revId": "6cfee79b85f9727fb727f3b3dd331b1368a9da96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0a025e6_4dcf29e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-02T16:10:12Z",
+      "side": 1,
+      "message": "Nicolas, do you know why we need hostdex jars at all?",
+      "parentUuid": "c1ac17d9_538237ea",
+      "revId": "6cfee79b85f9727fb727f3b3dd331b1368a9da96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
