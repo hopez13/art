@@ -396,6 +396,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5846cc81_bec926d3",
+        "filename": "libarttools/art-tools/tools.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-07-02T17:58:14Z",
+      "side": 1,
+      "message": "I\u0027d remove them. I think it\u0027s better to be explicit in the implementation files. A while ago, Andreas was also working to make sure we have only what we need included.",
+      "parentUuid": "08ef0c36_cfb3009c",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "31dde3534e9ebf907ab249b8ada30860b47daa4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "634f6701_9921ff0b",
         "filename": "libarttools/art-tools/utils.cc",
         "patchSetId": 5
@@ -478,6 +502,30 @@
       "side": 1,
       "message": "Normally I would say yes, but we want to keep this in-sync with the source from cutils and I think that would be easier if we make as few changes as possible.",
       "parentUuid": "24be0574_8ead9208",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 72
+      },
+      "revId": "31dde3534e9ebf907ab249b8ada30860b47daa4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a305ce0c_eb14d2df",
+        "filename": "libarttools/art-tools/utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2021-07-02T17:58:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d90cb736_6c869429",
       "range": {
         "startLine": 34,
         "startChar": 0,
