@@ -70,6 +70,24 @@
       "parentUuid": "52b1876f_7c11ec60",
       "revId": "e6c42b9a3d22e94c4208c51c2b87b52a802b9b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa4f0d3a_ad568662",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-02T16:53:54Z",
+      "side": 1,
+      "message": "Also, to recall the context for bootImageProfileRule: we have two profiles, one for the ART boot image and one for the platform extension. They are currently the same (both for platform), but should become different later.\n\nPreviosuly bootImageProfileRule used to be wrapped in Once() and we generated only the platform profile, but Once() was removed recently, so now when that function gets called twice for different variants of the apex, but for the same type of boot image, it generates duplicate rules.\n\nMaybe we can parameterize the profile file paths on apex version and have some additional rule to choose the latest version and install it where necessary. Or else we can generate the profile for the latest version only. I\u0027m not sure because I don\u0027t understand why we have these different apex versions and how they get installed.",
+      "parentUuid": "f488a07b_1f70fa94",
+      "revId": "e6c42b9a3d22e94c4208c51c2b87b52a802b9b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
