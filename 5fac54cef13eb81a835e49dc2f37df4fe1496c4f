@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "446d3eec_3c5ed762",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-02T12:48:43Z",
+      "side": 1,
+      "message": "Sorry, the style changes were completely inadvertent.\nI had carefully preserved the formatting up until a mistake at the very last minute. (I\u0027ve configured emacs to auto-format on save, and forgot to disable it for a last-minute edit.)\nI\u0027ve undone that now.",
+      "parentUuid": "3383d000_03c3edbf",
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e6a813ee_12c7d069",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2021-07-02T11:50:37Z",
       "side": 1,
       "message": "lgtm modulo the test needing updating and a few of the clang-format changes.",
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54113972_f51e9756",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-02T12:48:43Z",
+      "side": 1,
+      "message": "Thanks; I\u0027ll work on the tests next.",
+      "parentUuid": "e6a813ee_12c7d069",
       "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -81,6 +117,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a828eb7_d8dd21b1",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-02T12:48:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "98674f04_50aaee41",
+      "range": {
+        "startLine": 739,
+        "startChar": 5,
+        "endLine": 739,
+        "endChar": 49
+      },
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9aae51f0_9bf59ae7",
@@ -104,6 +164,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19dc0bd9_31f5a42c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-02T12:48:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9aae51f0_9bf59ae7",
+      "range": {
+        "startLine": 1084,
+        "startChar": 8,
+        "endLine": 1084,
+        "endChar": 61
+      },
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7dff0e8_1702a553",
@@ -117,6 +201,30 @@
       "writtenOn": "2021-07-02T11:50:37Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 1201,
+        "startChar": 61,
+        "endLine": 1201,
+        "endChar": 63
+      },
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "298546e0_8c931df0",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1201,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-07-02T12:48:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b7dff0e8_1702a553",
       "range": {
         "startLine": 1201,
         "startChar": 61,
