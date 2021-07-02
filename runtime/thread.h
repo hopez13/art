@@ -996,12 +996,16 @@ class Thread {
 
   bool GetWeakRefAccessEnabled() const {
     CHECK(kUseReadBarrier);
-    return tls32_.weak_ref_access_enabled;
+    return tls32_.weak_ref_access_enabled.load(std::memory_order_acquire);
+    // TODO(b/211784084) The intrinsified GetReferent code still uses a plain load, which does not
+    // suffice.  Make  tls32_.weak_ref_access_enabled hold 3 distinct values, one of which
+    // indicates that access is enabled, and this thread has observed that fact before, so no
+    // ordering is required.
   }
 
   void SetWeakRefAccessEnabled(bool enabled) {
     CHECK(kUseReadBarrier);
-    tls32_.weak_ref_access_enabled = enabled;
+    tls32_.weak_ref_access_enabled.store(enabled, std::memory_order_release);
   }
 
   uint32_t GetDisableThreadFlipCount() const {
@@ -1734,7 +1738,8 @@ class Thread {
     // disabled and concurrent reference processing begins (if weak ref access is disabled during a
     // pause, this is not an issue.) Other collectors use Runtime::DisallowNewSystemWeaks() and
     // ReferenceProcessor::EnableSlowPath().
-    bool32_t weak_ref_access_enabled;
+    // Can be accessed by GetReferent() and set (by iterating over threads) concurrently.
+    std::atomic<bool32_t> weak_ref_access_enabled;
 
     // A thread local version of Heap::disable_thread_flip_count_. This keeps track of how many
     // levels of (nested) JNI critical sections the thread is in and is used to detect a nested JNI
