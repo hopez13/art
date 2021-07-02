@@ -100,7 +100,8 @@ class ReferenceQueue {
   // Unlink the reference list clearing references objects with white referents. Cleared references
   // registered to a reference queue are scheduled for appending by the heap worker thread.
   void ClearWhiteReferences(ReferenceQueue* cleared_references,
-                            collector::GarbageCollector* collector)
+                            collector::GarbageCollector* collector,
+                            bool report_cleared = false)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void Dump(std::ostream& os) const REQUIRES_SHARED(Locks::mutator_lock_);
@@ -124,8 +125,10 @@ class ReferenceQueue {
   // Lock, used for parallel GC reference enqueuing. It allows for multiple threads simultaneously
   // calling AtomicEnqueueIfNotEnqueued.
   Mutex* const lock_;
-  // The actual reference list. Only a root for the mark compact GC since it will be null for other
-  // GC types. Not an ObjPtr since it is accessed from multiple threads.
+  // The actual reference list. Only a root for the mark compact GC since it
+  // will be null during root marking for other GC types. Not an ObjPtr since it
+  // is accessed from multiple threads.  Points to a singly-linked circular list
+  // using the pendingNext field.
   mirror::Reference* list_;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(ReferenceQueue);
