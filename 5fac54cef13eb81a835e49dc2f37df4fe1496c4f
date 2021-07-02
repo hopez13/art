@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3383d000_03c3edbf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-02T11:50:37Z",
+      "side": 1,
+      "message": "Apply clang-format.\n\nThe clang-format doesn\u0027t quite match the existing ART style: it\u0027s an approximation (go/artstyle) and some of the changes here are definitely good.",
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6a813ee_12c7d069",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-02T11:50:37Z",
+      "side": 1,
+      "message": "lgtm modulo the test needing updating and a few of the clang-format changes.",
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4cb2f40_46a7872d",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-02T11:50:37Z",
+      "side": 1,
+      "message": "These are external to odrefresh, slight preference to leave them where they were.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98674f04_50aaee41",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-02T11:50:37Z",
+      "side": 1,
+      "message": "`art/.clang-format` doesn\u0027t deal with this to match ART style.",
+      "range": {
+        "startLine": 739,
+        "startChar": 5,
+        "endLine": 739,
+        "endChar": 49
+      },
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aae51f0_9bf59ae7",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-02T11:50:37Z",
+      "side": 1,
+      "message": "Not ART style.",
+      "range": {
+        "startLine": 1084,
+        "startChar": 8,
+        "endLine": 1084,
+        "endChar": 61
+      },
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7dff0e8_1702a553",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1201,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-02T11:50:37Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 1201,
+        "startChar": 61,
+        "endLine": 1201,
+        "endChar": 63
+      },
+      "revId": "5fac54cef13eb81a835e49dc2f37df4fe1496c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
