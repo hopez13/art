@@ -161,15 +161,6 @@ art_tools_host_only_binaries = [
     "hprof-conv",
 ]
 
-// Core Java libraries.
-libcore_java_libs = [
-    "core-oj",
-    "core-libart",
-    "okhttp",
-    "bouncycastle",
-    "apache-xml",
-]
-
 // Native libraries that support the core Java libraries.
 //
 // Note: ART on-device chroot-based testing and benchmarking is not yet using
@@ -243,7 +234,6 @@ apex_defaults {
     bootclasspath_fragments: ["art-bootclasspath-fragment"],
     systemserverclasspath_fragments: ["art-systemserverclasspath-fragment"],
     compat_configs: ["libcore-platform-compat-config"],
-    java_libs: libcore_java_libs,
     native_shared_libs: art_runtime_base_native_shared_libs +
         art_runtime_base_native_device_only_shared_libs +
         libcore_native_shared_libs,
@@ -390,8 +380,8 @@ art_apex_test_host {
     device_supported: false,
     manifest: "manifest-art.json",
     updatable: false,
-    java_libs: libcore_java_libs,
     ignore_system_library_special_case: true,
+    bootclasspath_fragments: ["art-bootclasspath-fragment"],
     native_shared_libs: art_runtime_base_native_shared_libs +
         art_runtime_debug_native_shared_libs +
         libcore_native_shared_libs +
