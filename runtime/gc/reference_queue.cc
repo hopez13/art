@@ -131,7 +131,8 @@ size_t ReferenceQueue::GetLength() const {
 }
 
 void ReferenceQueue::ClearWhiteReferences(ReferenceQueue* cleared_references,
-                                          collector::GarbageCollector* collector) {
+                                          collector::GarbageCollector* collector,
+                                          bool report_cleared) {
   while (!IsEmpty()) {
     ObjPtr<mirror::Reference> ref = DequeuePendingReference();
     mirror::HeapReference<mirror::Object>* referent_addr = ref->GetReferentReferenceAddr();
@@ -145,6 +146,15 @@ void ReferenceQueue::ClearWhiteReferences(ReferenceQueue* cleared_references,
         ref->ClearReferent<false>();
       }
       cleared_references->EnqueueReference(ref);
+      if (report_cleared) {
+        static bool already_reported = false;
+        if (!already_reported) {
+          // TODO: Maybe do this only if the queue is non-null?
+          LOG(WARNING)
+              << "Cleared Reference was only reachable from finalizer (only reported once)";
+          already_reported = true;
+        }
+      }
     }
     // Delay disabling the read barrier until here so that the ClearReferent call above in
     // transaction mode will trigger the read barrier.
@@ -191,9 +201,7 @@ uint32_t ReferenceQueue::ForwardSoftReferences(MarkObjectVisitor* visitor) {
   do {
     mirror::HeapReference<mirror::Object>* referent_addr = ref->GetReferentReferenceAddr();
     if (referent_addr->AsMirrorPtr() != nullptr) {
-      // do_atomic_update is false because mutators can't access the referent due to the weak ref
-      // access blocking.
-      visitor->MarkHeapReference(referent_addr, /*do_atomic_update=*/ false);
+      visitor->MarkHeapReference(referent_addr, /*do_atomic_update=*/ true);
       ++num_refs;
     }
     ref = ref->GetPendingNext();
