@@ -70,6 +70,24 @@
       "parentUuid": "78bb44b9_ce7c4e65",
       "revId": "6cfee79b85f9727fb727f3b3dd331b1368a9da96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa15caf0_f34fe7b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-07-02T17:13:44Z",
+      "side": 1,
+      "message": "Sigh! This doesn\u0027t work because sometimes the APEX contents get output to $(PRODUCT_OUT)/apex, sometimes to $(PRODUCT_OUT)/system_ext/apex and sometimes to $(PRODUCT_OUT)/system/apex",
+      "parentUuid": "05f35dec_b5258964",
+      "revId": "6cfee79b85f9727fb727f3b3dd331b1368a9da96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
