@@ -34,6 +34,24 @@
       "parentUuid": "2f0dec7f_77f669fb",
       "revId": "e6c42b9a3d22e94c4208c51c2b87b52a802b9b54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52b1876f_7c11ec60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-02T16:31:23Z",
+      "side": 1,
+      "message": "So this must have something to do with git_master/sc-dev lagging behind aosp in terms of the current SDK version.",
+      "parentUuid": "3992be87_212218cf",
+      "revId": "e6c42b9a3d22e94c4208c51c2b87b52a802b9b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
