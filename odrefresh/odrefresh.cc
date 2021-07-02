@@ -65,14 +65,13 @@
 #include "dexoptanalyzer.h"
 #include "exec_utils.h"
 #include "log/log.h"
-#include "palette/palette.h"
-#include "palette/palette_types.h"
-
 #include "odr_artifacts.h"
 #include "odr_compilation_log.h"
 #include "odr_config.h"
 #include "odr_fs_utils.h"
 #include "odr_metrics.h"
+#include "palette/palette.h"
+#include "palette/palette_types.h"
 
 namespace art {
 namespace odrefresh {
@@ -187,8 +186,8 @@ static bool MoveOrEraseFiles(const std::vector<std::unique_ptr<File>>& files,
 
     const size_t file_bytes = file->GetLength();
     if (!output_files.back()->Copy(file.get(), /*offset=*/0, file_bytes)) {
-      PLOG(ERROR) << "Failed to copy " << QuotePath(file->GetPath())
-                  << " to " << QuotePath(output_file_path);
+      PLOG(ERROR) << "Failed to copy " << QuotePath(file->GetPath()) << " to "
+                  << QuotePath(output_file_path);
       EraseFiles(output_files);
       EraseFiles(files);
       return false;
@@ -276,7 +275,9 @@ class OnDeviceRefresh final {
     }
   }
 
-  time_t GetExecutionTimeUsed() const { return time(nullptr) - start_time_; }
+  time_t GetExecutionTimeUsed() const {
+    return time(nullptr) - start_time_;
+  }
 
   time_t GetExecutionTimeRemaining() const {
     return kMaximumExecutionSeconds - GetExecutionTimeUsed();
@@ -328,7 +329,7 @@ class OnDeviceRefresh final {
 
     // There can be only one CacheProvence in the XML file, but `xsdc` does not have
     // minOccurs/maxOccurs in the xsd schema.
-    const std::vector<art_apex::ArtModuleInfo> art_module_infos { art_module_info.value() };
+    const std::vector<art_apex::ArtModuleInfo> art_module_infos{art_module_info.value()};
 
     std::optional<std::vector<art_apex::Component>> bcp_components =
         GenerateBootExtensionComponents();
@@ -382,11 +383,11 @@ class OnDeviceRefresh final {
         return false;
       }
       if (expected.getSize() != actual.getSize()) {
-        *error_msg = android::base::StringPrintf("Component %zu size differs (%" PRIu64
-                                                 " != %" PRIu64 ")",
-                                                 i,
-                                                 expected.getSize(),
-                                                 actual.getSize());
+        *error_msg =
+            android::base::StringPrintf("Component %zu size differs (%" PRIu64 " != %" PRIu64 ")",
+                                        i,
+                                        expected.getSize(),
+                                        actual.getSize());
         return false;
       }
       if (expected.getChecksums() != actual.getChecksums()) {
@@ -487,7 +488,7 @@ class OnDeviceRefresh final {
 
     // Clean-up helper used to simplify clean-ups and handling failures there.
     auto cleanup_return = [this](ExitCode exit_code) {
-      return CleanApexdataDirectory() ? exit_code : ExitCode::kCleanupFailed;
+      return RemoveArtifactsDirectory() ? exit_code : ExitCode::kCleanupFailed;
     };
 
     const auto apex_info = GetArtApexInfo();
@@ -538,16 +539,14 @@ class OnDeviceRefresh final {
     const auto cached_info = cache_info->getFirstArtModuleInfo();
 
     if (cached_info->getVersionCode() != current_info->getVersionCode()) {
-      LOG(INFO) << "ART APEX version code mismatch ("
-                << cached_info->getVersionCode()
+      LOG(INFO) << "ART APEX version code mismatch (" << cached_info->getVersionCode()
                 << " != " << current_info->getVersionCode() << ").";
       metrics.SetTrigger(OdrMetrics::Trigger::kApexVersionMismatch);
       return cleanup_return(ExitCode::kCompilationRequired);
     }
 
     if (cached_info->getVersionName() != current_info->getVersionName()) {
-      LOG(INFO) << "ART APEX version code mismatch ("
-                << cached_info->getVersionName()
+      LOG(INFO) << "ART APEX version code mismatch (" << cached_info->getVersionName()
                 << " != " << current_info->getVersionName() << ").";
       metrics.SetTrigger(OdrMetrics::Trigger::kApexVersionMismatch);
       return cleanup_return(ExitCode::kCompilationRequired);
@@ -737,8 +736,7 @@ class OnDeviceRefresh final {
       std::pair<const std::string, const char*> location_args[] = {
           std::make_pair(artifacts.OatPath(), "--oat-fd="),
           std::make_pair(artifacts.VdexPath(), "--vdex-fd="),
-          std::make_pair(jar_path, "--zip-fd=")
-      };
+          std::make_pair(jar_path, "--zip-fd=")};
 
       // Open file descriptors for dexoptanalyzer file inputs and add to the command-line.
       std::vector<std::unique_ptr<File>> files;
@@ -827,8 +825,7 @@ class OnDeviceRefresh final {
 
     bool success = true;
     for (const std::string& jar_path : systemserver_compilable_jars_) {
-      const std::string image_location =
-          GetSystemServerImagePath(/*on_system=*/false, jar_path);
+      const std::string image_location = GetSystemServerImagePath(/*on_system=*/false, jar_path);
       const OdrArtifacts artifacts = OdrArtifacts::ForSystemServer(image_location);
       LOG(INFO) << "Removing system_server artifacts on /data for " << QuotePath(jar_path);
       success &= RemoveArtifacts(artifacts);
@@ -943,13 +940,13 @@ class OnDeviceRefresh final {
     return exit_code;
   }
 
-  WARN_UNUSED bool CleanApexdataDirectory() const {
-    const std::string& apex_data_path = GetArtApexData();
+  WARN_UNUSED bool RemoveArtifactsDirectory() const {
     if (config_.GetDryRun()) {
-      LOG(INFO) << "Files under `" << QuotePath(apex_data_path) << " would be removed (dry-run).";
+      LOG(INFO) << "Directory " << QuotePath(kOdrefreshArtifactDirectory)
+                << " and contents would be removed (dry-run).";
       return true;
     }
-    return CleanDirectory(apex_data_path);
+    return RemoveDirectory(kOdrefreshArtifactDirectory);
   }
 
   WARN_UNUSED bool RemoveArtifacts(const OdrArtifacts& artifacts) const {
@@ -1012,18 +1009,19 @@ class OnDeviceRefresh final {
     return Concatenate({staging_dir, "/", android::base::Basename(path)});
   }
 
-  std::string JoinFilesAsFDs(const std::vector<std::unique_ptr<File>>& files, char delimiter) const {
-      std::stringstream output;
-      bool is_first = true;
-      for (const auto& f : files) {
-        if (is_first) {
-          is_first = false;
-        } else {
-          output << delimiter;
-        }
-        output << std::to_string(f->Fd());
+  std::string JoinFilesAsFDs(const std::vector<std::unique_ptr<File>>& files,
+                             char delimiter) const {
+    std::stringstream output;
+    bool is_first = true;
+    for (const auto& f : files) {
+      if (is_first) {
+        is_first = false;
+      } else {
+        output << delimiter;
       }
-      return output.str();
+      output << std::to_string(f->Fd());
+    }
+    return output.str();
   }
 
   WARN_UNUSED bool CompileBootExtensionArtifacts(const InstructionSet isa,
@@ -1083,8 +1081,7 @@ class OnDeviceRefresh final {
     const std::pair<const std::string, const char*> location_kind_pairs[] = {
         std::make_pair(artifacts.ImagePath(), "image"),
         std::make_pair(artifacts.OatPath(), "oat"),
-        std::make_pair(artifacts.VdexPath(), "output-vdex")
-    };
+        std::make_pair(artifacts.VdexPath(), "output-vdex")};
 
     std::vector<std::unique_ptr<File>> staging_files;
     for (const auto& location_kind_pair : location_kind_pairs) {
@@ -1117,19 +1114,19 @@ class OnDeviceRefresh final {
 
     if (config_.UseCompilationOs()) {
       std::vector<std::string> prefix_args = {
-        "/apex/com.android.compos/bin/pvm_exec",
-        "--cid=" + config_.GetCompilationOsAddress(),
-        "--in-fd=" + JoinFilesAsFDs(readonly_files_raii, ','),
-        "--out-fd=" + JoinFilesAsFDs(staging_files, ','),
-        "--",
+          "/apex/com.android.compos/bin/pvm_exec",
+          "--cid=" + config_.GetCompilationOsAddress(),
+          "--in-fd=" + JoinFilesAsFDs(readonly_files_raii, ','),
+          "--out-fd=" + JoinFilesAsFDs(staging_files, ','),
+          "--",
       };
       args.insert(args.begin(), prefix_args.begin(), prefix_args.end());
     }
 
     const time_t timeout = GetSubprocessTimeout();
     const std::string cmd_line = android::base::Join(args, ' ');
-    LOG(INFO) << "Compiling boot extensions (" << isa << "): " << cmd_line
-              << " [timeout " << timeout << "s]";
+    LOG(INFO) << "Compiling boot extensions (" << isa << "): " << cmd_line << " [timeout "
+              << timeout << "s]";
     if (config_.GetDryRun()) {
       LOG(INFO) << "Compilation skipped (dry-run).";
       return true;
@@ -1201,8 +1198,7 @@ class OnDeviceRefresh final {
       const std::pair<const std::string, const char*> location_kind_pairs[] = {
           std::make_pair(artifacts.ImagePath(), "app-image"),
           std::make_pair(artifacts.OatPath(), "oat"),
-          std::make_pair(artifacts.VdexPath(), "output-vdex")
-      };
+          std::make_pair(artifacts.VdexPath(), "output-vdex")};
 
       std::vector<std::unique_ptr<File>> staging_files;
       for (const auto& location_kind_pair : location_kind_pairs) {
@@ -1229,7 +1225,8 @@ class OnDeviceRefresh final {
           return false;
         }
         std::unique_ptr<File> file(OS::OpenFileForReading(bcp_packages.c_str()));
-        args.emplace_back(android::base::StringPrintf("--updatable-bcp-packages-fd=%d", file->Fd()));
+        args.emplace_back(
+            android::base::StringPrintf("--updatable-bcp-packages-fd=%d", file->Fd()));
         readonly_files_raii.push_back(std::move(file));
       }
 
@@ -1262,11 +1259,11 @@ class OnDeviceRefresh final {
 
       if (config_.UseCompilationOs()) {
         std::vector<std::string> prefix_args = {
-          "/apex/com.android.compos/bin/pvm_exec",
-          "--cid=" + config_.GetCompilationOsAddress(),
-          "--in-fd=" + JoinFilesAsFDs(readonly_files_raii, ','),
-          "--out-fd=" + JoinFilesAsFDs(staging_files, ','),
-          "--",
+            "/apex/com.android.compos/bin/pvm_exec",
+            "--cid=" + config_.GetCompilationOsAddress(),
+            "--in-fd=" + JoinFilesAsFDs(readonly_files_raii, ','),
+            "--out-fd=" + JoinFilesAsFDs(staging_files, ','),
+            "--",
         };
         args.insert(args.begin(), prefix_args.begin(), prefix_args.end());
       }
@@ -1343,7 +1340,7 @@ class OnDeviceRefresh final {
     const char* staging_dir = nullptr;
     metrics.SetStage(OdrMetrics::Stage::kPreparation);
     // Clean-up existing files.
-    if (force_compile && !CleanApexdataDirectory()) {
+    if (force_compile && !RemoveArtifactsDirectory()) {
       metrics.SetStatus(OdrMetrics::Status::kIoError);
       return ExitCode::kCleanupFailed;
     }
@@ -1373,7 +1370,7 @@ class OnDeviceRefresh final {
         // Remove artifacts we are about to generate. Ordinarily these are removed in the checking
         // step, but this is not always run (e.g. during manual testing).
         if (!RemoveBootExtensionArtifactsFromData(isa)) {
-            return ExitCode::kCleanupFailed;
+          return ExitCode::kCleanupFailed;
         }
 
         if (!CheckCompilationSpace()) {
@@ -1385,7 +1382,7 @@ class OnDeviceRefresh final {
         if (!CompileBootExtensionArtifacts(
                 isa, staging_dir, metrics, &dex2oat_invocation_count, &error_msg)) {
           LOG(ERROR) << "Compilation of BCP failed: " << error_msg;
-          if (!config_.GetDryRun() && !CleanDirectory(staging_dir)) {
+          if (!config_.GetDryRun() && !RemoveDirectory(staging_dir)) {
             return ExitCode::kCleanupFailed;
           }
           return ExitCode::kCompilationFailed;
@@ -1405,7 +1402,7 @@ class OnDeviceRefresh final {
       if (!CompileSystemServerArtifacts(
               staging_dir, metrics, &dex2oat_invocation_count, &error_msg)) {
         LOG(ERROR) << "Compilation of system_server failed: " << error_msg;
-        if (!config_.GetDryRun() && !CleanDirectory(staging_dir)) {
+        if (!config_.GetDryRun() && !RemoveDirectory(staging_dir)) {
           return ExitCode::kCleanupFailed;
         }
         return ExitCode::kCompilationFailed;
