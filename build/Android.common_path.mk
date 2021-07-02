@@ -64,15 +64,17 @@ HOST_CORE_IMG_DEX_FILES   := $(foreach jar,$(HOST_CORE_IMG_JARS),  $(call interm
 TARGET_CORE_IMG_DEX_FILES := $(foreach jar,$(TARGET_CORE_IMG_JARS),$(call intermediates-dir-for,JAVA_LIBRARIES,$(jar).com.android.art.testing, ,COMMON)/javalib.jar)
 
 # Also copy the jar files next to host boot.art image.
+# The jars are copied from the files provided by the appropriate device specific
+# APEX file. It is ok to use them as the files are OS independent.
 HOST_BOOT_IMAGE_JARS := $(foreach jar,$(CORE_IMG_JARS),$(HOST_OUT)/apex/com.android.art/javalib/$(jar).jar)
-$(HOST_BOOT_IMAGE_JARS): $(HOST_OUT)/apex/com.android.art/javalib/%.jar : $(HOST_OUT_JAVA_LIBRARIES)/%-hostdex.jar
+$(HOST_BOOT_IMAGE_JARS): $(HOST_OUT)/apex/com.android.art/javalib/%.jar : $(PRODUCT_OUT)/apex/com.android.art/javalib/%.jar
 	$(copy-file-to-target)
 
 HOST_BOOT_IMAGE_JARS += $(HOST_OUT)/apex/com.android.conscrypt/javalib/conscrypt.jar
-$(HOST_OUT)/apex/com.android.conscrypt/javalib/conscrypt.jar : $(HOST_OUT_JAVA_LIBRARIES)/conscrypt-hostdex.jar
+$(HOST_OUT)/apex/com.android.conscrypt/javalib/conscrypt.jar : $(PRODUCT_OUT)/apex/com.android.conscrypt/javalib/conscrypt.jar
 	$(copy-file-to-target)
 HOST_BOOT_IMAGE_JARS += $(HOST_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar
-$(HOST_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar : $(HOST_OUT_JAVA_LIBRARIES)/core-icu4j-hostdex.jar
+$(HOST_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar : $(PRODUCT_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar
 	$(copy-file-to-target)
 
 HOST_CORE_IMG_OUTS += $(HOST_BOOT_IMAGE_JARS) $(HOST_BOOT_IMAGE) $(2ND_HOST_BOOT_IMAGE)

@@ -39,11 +39,14 @@ my_files += \
 icu_data_file := $(firstword $(wildcard external/icu/icu4c/source/stubdata/icu*.dat))
 my_files += $(foreach infix,_ _VDEX_,$(foreach suffix,$(HOST_ARCH) $(HOST_2ND_ARCH), \
   $(DEXPREOPT_IMAGE$(infix)BUILT_INSTALLED_art_host_$(suffix))))
+
+# The jars are copied from the files provided by the appropriate device specific
+# APEX file. It is ok to use them as the files are OS independent.
 my_files += \
   $(foreach jar,$(CORE_IMG_JARS),\
-    $(HOST_OUT_JAVA_LIBRARIES)/$(jar)-hostdex.jar:apex/com.android.art/javalib/$(jar).jar) \
-  $(HOST_OUT_JAVA_LIBRARIES)/conscrypt-hostdex.jar:apex/com.android.conscrypt/javalib/conscrypt.jar\
-  $(HOST_OUT_JAVA_LIBRARIES)/core-icu4j-hostdex.jar:apex/com.android.i18n/javalib/core-icu4j.jar \
+    $(PRODUCT_OUT)/apex/com.android.art/javalib/$(jar).jar:apex/com.android.art/javalib/$(jar).jar) \
+  $(PRODUCT_OUT)/apex/com.android.conscrypt/javalib/conscrypt.jar:apex/com.android.conscrypt/javalib/conscrypt.jar\
+  $(PRODUCT_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar:apex/com.android.i18n/javalib/core-icu4j.jar \
   $(icu_data_file):com.android.i18n/etc/icu/$(notdir $(icu_data_file))
 
 # Create phony module that will copy all the data files into testcases directory.
