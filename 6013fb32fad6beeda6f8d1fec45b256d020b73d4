@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5791b5d_9599f432",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-07-03T20:09:50Z",
+      "side": 1,
+      "message": "This seems to apply cleanly to other branches as well. I decided to go with two separate values after all for now, because that was easier, especially given the existing locking structure.",
+      "revId": "6013fb32fad6beeda6f8d1fec45b256d020b73d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
