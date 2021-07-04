@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bed4192_2d53138f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-07-04T21:41:35Z",
+      "side": 1,
+      "message": "Here\u0027s a quick summary of changes introduced by recent patch sets:\n\n- PS13 is a rebase;\n- PS14 adds proper support for Android test suite packaging (I had only tested locally with Atest until then);\n- PS15 is a rebase;\n- PS16 adjusts the commit message (to take account the abandonment of ag/15128561);\n- PS17 addresses Martin\u0027s comments;\n- PS18 is a rebase.\n\nPTAL.\n",
+      "revId": "a1afa6b26b139b266018eca266668b9ad860cfac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
