@@ -124,6 +124,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1366635d_0f5e3c6c",
+        "filename": "cmdline/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-07-04T21:19:52Z",
+      "side": 1,
+      "message": "Agreed; done in PS17.",
+      "parentUuid": "bbd8dbd3_dbf64a07",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c55d8c5_6bca3f26",
@@ -550,6 +574,24 @@
       "side": 1,
       "message": "I still think all of the properties in art_test_defaults should apply to all tests. Even though all of them may not be strictly necessary, the fact that they only apply to some subset without a clear reason causes confusion.\n\nIow, unless there is a specific reason why test_for, relative_install_path, etc do _not_ work for the standalone tests, they should be included.\n\nOk for follow-up.",
       "parentUuid": "fba4ce0f_2be06305",
+      "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c85b9fff_7b85f905",
+        "filename": "test/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-07-04T21:19:52Z",
+      "side": 1,
+      "message": "SGTM.",
+      "parentUuid": "478bf9b8_24baebb3",
       "revId": "b8c6e5f1b9501da30fbefc0ff63fb93fb28266b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

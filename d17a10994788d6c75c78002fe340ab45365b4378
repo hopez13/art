@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b6a942b6_09990235",
+        "filename": "test/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-07-04T21:19:52Z",
+      "side": 1,
+      "message": "Good idea; done in PS17.",
+      "parentUuid": "5ab925e2_50d7ad4c",
+      "revId": "d17a10994788d6c75c78002fe340ab45365b4378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "62f91c98_aa181384",
         "filename": "test/Android.bp",
         "patchSetId": 11
@@ -31,6 +49,30 @@
       "writtenOn": "2021-06-30T19:41:28Z",
       "side": 1,
       "message": "Like above, I think it\u0027s better to have this common to all gtests, provided it doesn\u0027t break the current ones. If it does, it\u0027s useful to comment why. Ok for follow-up.",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 240,
+        "endChar": 0
+      },
+      "revId": "d17a10994788d6c75c78002fe340ab45365b4378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47078b66_5566c9bb",
+        "filename": "test/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-07-04T21:19:52Z",
+      "side": 1,
+      "message": "SGTM.",
+      "parentUuid": "62f91c98_aa181384",
       "range": {
         "startLine": 228,
         "startChar": 0,
@@ -54,6 +96,30 @@
       "writtenOn": "2021-06-30T19:41:28Z",
       "side": 1,
       "message": "Yet it doesn\u0027t, or am I missing something?",
+      "range": {
+        "startLine": 250,
+        "startChar": 11,
+        "endLine": 250,
+        "endChar": 73
+      },
+      "revId": "d17a10994788d6c75c78002fe340ab45365b4378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f30aa8b2_ffb63558",
+        "filename": "test/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-07-04T21:19:52Z",
+      "side": 1,
+      "message": "Thanks for spotting this – I messed up the comment, sorry; fixed in PS17.",
+      "parentUuid": "9608d008_763d8fcc",
       "range": {
         "startLine": 250,
         "startChar": 11,
