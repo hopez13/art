@@ -404,7 +404,10 @@ art_cc_defaults {
     defaults: [
         "art_module_source_build_defaults",
     ],
-    test_suites: ["general-tests"],
+    test_suites: [
+        "general-tests",
+        "mts-art",
+    ],
     srcs: [
         "external/dex_file_supp_test.cc",
     ],
