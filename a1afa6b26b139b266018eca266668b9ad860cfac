@@ -16,6 +16,41 @@
       "message": "Here\u0027s a quick summary of changes introduced by recent patch sets:\n\n- PS13 is a rebase;\n- PS14 adds proper support for Android test suite packaging (I had only tested locally with Atest until then);\n- PS15 is a rebase;\n- PS16 adjusts the commit message (to take account the abandonment of ag/15128561);\n- PS17 addresses Martin\u0027s comments;\n- PS18 is a rebase.\n\nPTAL.\n",
       "revId": "a1afa6b26b139b266018eca266668b9ad860cfac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1881b5c1_8378a953",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-07-05T20:27:46Z",
+      "side": 1,
+      "message": "Noticed +2 is sticky now, not used to that. Worse, it didn\u0027t put me back in the attention set, which I rely a bit on nowadays.",
+      "parentUuid": "6bed4192_2d53138f",
+      "revId": "a1afa6b26b139b266018eca266668b9ad860cfac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "201211cc_78d9e0ce",
+        "filename": "dex2oat/art_standalone_dex2oat_tests.xml",
+        "patchSetId": 18
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-07-05T20:27:46Z",
+      "side": 1,
+      "message": "All this \"push\" boilerplate is unfortunate, and the proliferation of test XML files is also a maintenance problem by themselves. I presume these \"push\" elements are the reason the template XML files cannot be used anymore.\n\nIs there a ticket to improve things to avoid them? Or else, maybe we should consider extending the template approach to autogenerate this stuff with a genrule? I rather hope this won\u0027t be around for too long.\n\nIn particular, what happens if we add new tests with jars and forget them in this list? Will we get errors?",
+      "revId": "a1afa6b26b139b266018eca266668b9ad860cfac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
