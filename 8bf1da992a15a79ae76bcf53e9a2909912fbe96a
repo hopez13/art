@@ -22,6 +22,30 @@
       },
       "revId": "8bf1da992a15a79ae76bcf53e9a2909912fbe96a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "881fa831_daebc863",
+        "filename": "libdexfile/dex/utf.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-05T15:11:39Z",
+      "side": 0,
+      "message": "I collect profiles on ARM cores (dex2oat32; little cores, the device does not have big cores) and it shows ~2x improvement. I guess the `std::string_view` version allows better instruction scheduling because the end-of-loop check is independent from the processed data.\n\n(Unlike the old overload, the `std::string_view` version could potentially be vectorized but clang++ does not do that automatically and manual vectorization would require some non-trivial effort.)",
+      "parentUuid": "1c181de9_2db661d8",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 3
+      },
+      "revId": "8bf1da992a15a79ae76bcf53e9a2909912fbe96a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
