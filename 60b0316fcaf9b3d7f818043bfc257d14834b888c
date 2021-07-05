@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a15cfb20_2c377b0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-05T14:40:26Z",
+      "side": 1,
+      "message": "In general in all the recent commits that are optimizing dex2oat compile time, how do you measure time? It is just a `time` command in shell, or some more fine-grained measurement with `perf` or something else? It could be worth mention in the commit message, both for the record and for others to use this in the future.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 4
+      },
+      "revId": "60b0316fcaf9b3d7f818043bfc257d14834b888c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

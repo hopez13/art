@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c181de9_2db661d8",
+        "filename": "libdexfile/dex/utf.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-05T14:40:26Z",
+      "side": 0,
+      "message": "The explanation for faster version with string_view seems to be the small string optimization that is used for string_view but not C-strings. I checked with godbolt (clang trunk -O3 -std\u003dc++17 for armv8 and x86_64):\n\n - x84_64: https://godbolt.org/z/a9czfP9To\n - armv8: https://godbolt.org/z/1r1fx9Yvr\n \nNote the loop-unrolled code generated for x86_64 string_view: I think this is SSO (otherwise I can\u0027t explain it). For ARM there is no such optimization (why? what so arch-specific in small strings?), so probably your change has a positive impact only on x86_64. Maybe it will later be implemented for arm.\n\nI also added another implementation that is slightly better than the original for C-strings:\n\n  uint32_t ComputeModifiedUtf8Hash(const char* chars) {\n    uint32_t hash \u003d 0;\n    while (true) {\n      char c \u003d *chars++;\n      if (c \u003d\u003d 0) {\n        return hash;\n      } else {\n        hash \u003d hash * 31 + static_cast\u003cuint8_t\u003e(c);\n      }\n    }\n    return hash;\n  }\n\nMaybe I got it all wrong but I\u0027m interested in your explanation.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 3
+      },
+      "revId": "8bf1da992a15a79ae76bcf53e9a2909912fbe96a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
