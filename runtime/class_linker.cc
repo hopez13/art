@@ -4709,7 +4709,6 @@ verifier::FailureKind ClassLinker::PerformClassVerification(Thread* self,
                                               class_loader,
                                               *klass->GetClassDef(),
                                               runtime->GetCompilerCallbacks(),
-                                              runtime->IsAotCompiler(),
                                               log_level,
                                               Runtime::Current()->GetTargetSdkVersion(),
                                               error_msg);
