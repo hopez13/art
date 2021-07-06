@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11625bf8_33f337b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-07-06T11:34:01Z",
+      "side": 1,
+      "message": "Sorry I missed this CL yesterday.",
+      "revId": "e87434642defda6df666f4c286bc04eb6de105f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fd17831_4642f2e8",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-07-06T11:34:01Z",
+      "side": 1,
+      "message": "Aren\u0027t these explanations a bit superfluous? Also considering this boilerplate gets repeated a lot. What the two APEXes are is mentioned in e.g. art/build/README.md. (The explanation for MainlineTestModuleController otoh is useful.)",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 56
+      },
+      "revId": "e87434642defda6df666f4c286bc04eb6de105f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
