@@ -123,6 +123,24 @@
       "parentUuid": "ab75aac7_7f48b54d",
       "revId": "a1afa6b26b139b266018eca266668b9ad860cfac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d337f9c_5661554f",
+        "filename": "dex2oat/art_standalone_dex2oat_tests.xml",
+        "patchSetId": 18
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-07-06T10:57:10Z",
+      "side": 1,
+      "message": "Sorry if I wasn\u0027t explicit here. :-) I confirm that if a Dex/JAR file required by a test is not being pushed to the device, this would fail the test, and be reported by TradeFed/Atest, and therefore TreeHugger.",
+      "parentUuid": "f488fcf9_d61d0c54",
+      "revId": "a1afa6b26b139b266018eca266668b9ad860cfac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
