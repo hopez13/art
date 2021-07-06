@@ -22,6 +22,30 @@
       },
       "revId": "9460b815dbde46994f39f3b97f4cf6dc3926c964",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aed9d716_beada80d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-06T13:47:40Z",
+      "side": 1,
+      "message": "Done. Note that we also do this check to know if we need to wrap the error with NoClassDefFoundError. But that\u0027s still something I wouldn\u0027t want to optimize.",
+      "parentUuid": "41791e7e_b8dfcb2f",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 97
+      },
+      "revId": "9460b815dbde46994f39f3b97f4cf6dc3926c964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
