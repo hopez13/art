@@ -16,6 +16,29 @@
       "message": "Thanks Vladimir.",
       "revId": "f0f87db772170873a9b17fbec8a6f271b9c3abc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2f9a830_84a2f9df",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-06T14:13:17Z",
+      "side": 1,
+      "message": "This is relative. The new code is not exactly \"free\" but it is much faster than the old one.",
+      "range": {
+        "startLine": 186,
+        "startChar": 13,
+        "endLine": 186,
+        "endChar": 17
+      },
+      "revId": "f0f87db772170873a9b17fbec8a6f271b9c3abc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
