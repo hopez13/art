@@ -1833,7 +1833,6 @@ class VerifyClassVisitor : public CompilationVisitor {
                                                class_loader,
                                                class_def,
                                                Runtime::Current()->GetCompilerCallbacks(),
-                                               true /* allow soft failures */,
                                                log_level_,
                                                sdk_version_,
                                                &error_msg);
