@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "463df0c3_d449e0b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-07-06T10:51:09Z",
+      "side": 1,
+      "message": "Yeah, me too; maybe sticky Code-Review votes have an expiration date?",
+      "parentUuid": "b796b612_35de239c",
+      "revId": "a1afa6b26b139b266018eca266668b9ad860cfac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "201211cc_78d9e0ce",
@@ -67,6 +85,24 @@
       "writtenOn": "2021-07-05T20:27:46Z",
       "side": 1,
       "message": "All this \"push\" boilerplate is unfortunate, and the proliferation of test XML files is also a maintenance problem by themselves. I presume these \"push\" elements are the reason the template XML files cannot be used anymore.\n\nIs there a ticket to improve things to avoid them? Or else, maybe we should consider extending the template approach to autogenerate this stuff with a genrule? I rather hope this won\u0027t be around for too long.\n\nIn particular, what happens if we add new tests with jars and forget them in this list? Will we get errors?",
+      "revId": "a1afa6b26b139b266018eca266668b9ad860cfac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab75aac7_7f48b54d",
+        "filename": "dex2oat/art_standalone_dex2oat_tests.xml",
+        "patchSetId": 18
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-07-06T10:51:09Z",
+      "side": 1,
+      "message": "\u003e All this \"push\" boilerplate is unfortunate, and the proliferation of test XML files is also a maintenance problem by themselves. I presume these \"push\" elements are the reason the template XML files cannot be used anymore.\n\nYes, that\u0027s the reason why we cannot use the template everywhere.\n\n\u003e Is there a ticket to improve things to avoid them? Or else, maybe we should consider extending the template approach to autogenerate this stuff with a genrule? I rather hope this won\u0027t be around for too long.\n\nI haven\u0027t filed a ticket about that yet – I suggest we discuss this with the test harness team first, as this is a general TradeFed issue IMO.\n\n\u003e In particular, what happens if we add new tests with jars and forget them in this list? Will we get errors?\n\nIndeed – but I think this won\u0027t happen very often, and because of presubmits, we\u0027ll be made aware of it by Treehugger.",
+      "parentUuid": "201211cc_78d9e0ce",
       "revId": "a1afa6b26b139b266018eca266668b9ad860cfac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
