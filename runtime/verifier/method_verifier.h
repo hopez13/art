@@ -219,7 +219,6 @@ class MethodVerifier {
                  uint32_t dex_method_idx,
                  bool can_load_classes,
                  bool allow_thread_suspension,
-                 bool allow_soft_failures,
                  bool aot_mode)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -255,7 +254,6 @@ class MethodVerifier {
                                   const dex::ClassDef& class_def_idx,
                                   const dex::CodeItem* code_item,
                                   uint32_t method_access_flags,
-                                  bool allow_soft_failures,
                                   HardFailLogMode log_level,
                                   bool need_precise_constants,
                                   uint32_t api_level,
@@ -275,7 +273,6 @@ class MethodVerifier {
                                   const dex::ClassDef& class_def_idx,
                                   const dex::CodeItem* code_item,
                                   uint32_t method_access_flags,
-                                  bool allow_soft_failures,
                                   HardFailLogMode log_level,
                                   bool need_precise_constants,
                                   uint32_t api_level,
@@ -298,7 +295,6 @@ class MethodVerifier {
                                         uint32_t method_idx,
                                         uint32_t access_flags,
                                         bool can_load_classes,
-                                        bool allow_soft_failures,
                                         bool need_precise_constants,
                                         bool verify_to_dump,
                                         bool allow_thread_suspension,
@@ -363,10 +359,6 @@ class MethodVerifier {
   uint32_t encountered_failure_types_;
 
   const bool can_load_classes_;
-
-  // Converts soft failures to hard failures when false. Only false when the compiler isn't
-  // running and the verifier is called from the class linker.
-  const bool allow_soft_failures_;
 
   // Classlinker to use when resolving.
   ClassLinker* class_linker_;

@@ -157,7 +157,6 @@ class MethodVerifier final : public ::art::verifier::MethodVerifier {
                  uint32_t method_idx,
                  bool can_load_classes,
                  bool allow_thread_suspension,
-                 bool allow_soft_failures,
                  bool aot_mode,
                  Handle<mirror::DexCache> dex_cache,
                  Handle<mirror::ClassLoader> class_loader,
@@ -177,7 +176,6 @@ class MethodVerifier final : public ::art::verifier::MethodVerifier {
                                      method_idx,
                                      can_load_classes,
                                      allow_thread_suspension,
-                                     allow_soft_failures,
                                      aot_mode),
        method_access_flags_(access_flags),
        return_type_(nullptr),
@@ -2205,24 +2203,16 @@ bool MethodVerifier<kVerifierDebug>::CodeFlowVerifyInstruction(uint32_t* start_g
                                               << reg_type;
           } else if (!return_type.IsAssignableFrom(reg_type, this)) {
             if (reg_type.IsUnresolvedTypes() || return_type.IsUnresolvedTypes()) {
-              Fail(api_level_ > 29u
-                      ? VERIFY_ERROR_BAD_CLASS_SOFT : VERIFY_ERROR_UNRESOLVED_TYPE_CHECK)
+              Fail(VERIFY_ERROR_UNRESOLVED_TYPE_CHECK)
                   << " can't resolve returned type '" << return_type << "' or '" << reg_type << "'";
             } else {
-              bool soft_error = false;
               // Check whether arrays are involved. They will show a valid class status, even
               // if their components are erroneous.
               if (reg_type.IsArrayTypes() && return_type.IsArrayTypes()) {
-                return_type.CanAssignArray(reg_type, reg_types_, class_loader_, this, &soft_error);
-                if (soft_error) {
-                  Fail(VERIFY_ERROR_BAD_CLASS_SOFT) << "array with erroneous component type: "
-                        << reg_type << " vs " << return_type;
+                if (!return_type.CanAssignArray(reg_type, reg_types_, class_loader_, this)) {
+                  Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "returning '" << reg_type
+                      << "', but expected from declaration '" << return_type << "'";
                 }
-              }
-
-              if (!soft_error) {
-                Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "returning '" << reg_type
-                    << "', but expected from declaration '" << return_type << "'";
               }
             }
           }
@@ -2557,7 +2547,7 @@ bool MethodVerifier<kVerifierDebug>::CodeFlowVerifyInstruction(uint32_t* start_g
           Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "thrown value of non-reference type " << res_type;
         } else {
           Fail(res_type.IsUnresolvedTypes()
-                  ? VERIFY_ERROR_UNRESOLVED_TYPE_CHECK : VERIFY_ERROR_BAD_CLASS_SOFT)
+                  ? VERIFY_ERROR_UNRESOLVED_TYPE_CHECK : VERIFY_ERROR_BAD_CLASS_HARD)
                 << "thrown class " << res_type << " not instanceof Throwable";
         }
       }
@@ -3679,7 +3669,7 @@ const RegType& MethodVerifier<kVerifierDebug>::ResolveClass(dex::TypeIndex class
   DCHECK(result != nullptr);
   if (result->IsConflict()) {
     const char* descriptor = dex_file_->StringByTypeIdx(class_idx);
-    Fail(VERIFY_ERROR_BAD_CLASS_SOFT) << "accessing broken descriptor '" << descriptor
+    Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "accessing broken descriptor '" << descriptor
         << "' in " << GetDeclaringClass();
     return *result;
   }
@@ -3718,6 +3708,7 @@ bool MethodVerifier<kVerifierDebug>::HandleMoveException(const Instruction* inst
   auto caught_exc_type_fn = [&]() REQUIRES_SHARED(Locks::mutator_lock_) ->
       std::pair<bool, const RegType*> {
     const RegType* common_super = nullptr;
+    bool handler_found = false;
     if (code_item_accessor_.TriesSize() != 0) {
       const uint8_t* handlers_ptr = code_item_accessor_.GetCatchHandlerData();
       uint32_t handlers_size = DecodeUnsignedLeb128(&handlers_ptr);
@@ -3726,6 +3717,7 @@ bool MethodVerifier<kVerifierDebug>::HandleMoveException(const Instruction* inst
         CatchHandlerIterator iterator(handlers_ptr);
         for (; iterator.HasNext(); iterator.Next()) {
           if (iterator.GetHandlerAddress() == (uint32_t) work_insn_idx_) {
+            handler_found = true;
             if (!iterator.GetHandlerTypeIndex().IsValid()) {
               common_super = &reg_types_.JavaLangThrowable(false);
             } else {
@@ -3741,7 +3733,7 @@ bool MethodVerifier<kVerifierDebug>::HandleMoveException(const Instruction* inst
                     unresolved = &unresolved->SafeMerge(exception, &reg_types_, this);
                   }
                 } else {
-                  Fail(VERIFY_ERROR_BAD_CLASS_SOFT) << "unexpected non-exception class "
+                  Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "unexpected non-exception class "
                                                     << exception;
                   return std::make_pair(true, &reg_types_.Conflict());
                 }
@@ -3778,7 +3770,8 @@ bool MethodVerifier<kVerifierDebug>::HandleMoveException(const Instruction* inst
     }
     if (common_super == nullptr) {
       /* no catch blocks, or no catches with classes we can find */
-      Fail(VERIFY_ERROR_BAD_CLASS_SOFT) << "unable to find exception handler";
+      Fail(handler_found ? VERIFY_ERROR_UNRESOLVED_TYPE_CHECK : VERIFY_ERROR_BAD_CLASS_HARD)
+          << "unable to find exception handler";
       return std::make_pair(true, &reg_types_.Conflict());
     }
     return std::make_pair(true, common_super);
@@ -3997,9 +3990,13 @@ ArtMethod* MethodVerifier<kVerifierDebug>::VerifyInvocationArgsFromIterator(
             false);
       }
       if (!res_method_class->IsAssignableFrom(adjusted_type, this)) {
-        Fail(adjusted_type.IsUnresolvedTypes()
+        Fail(adjusted_type.IsUnresolvedTypes() || res_method_class->IsUnresolvedTypes()
                  ? VERIFY_ERROR_UNRESOLVED_TYPE_CHECK
-                 : VERIFY_ERROR_BAD_CLASS_SOFT)
+                 // Due to jvmti verifying classes before they are properly
+                 // inserted in the class loader table, we need to report this
+                 // as a soft failure so jvmti re-tries verification later with
+                 // the class properly inserted.
+                 : VERIFY_ERROR_BAD_CLASS_HARD)
             << "'this' argument '" << actual_arg_type << "' not instance of '"
             << *res_method_class << "'";
         // Continue on soft failures. We need to find possible hard failures to avoid problems in
@@ -4194,7 +4191,9 @@ ArtMethod* MethodVerifier<kVerifierDebug>::VerifyInvocationArgs(
         dex_file_->StringByTypeIdx(class_idx),
         false);
     if (reference_type.IsUnresolvedTypes()) {
-      Fail(VERIFY_ERROR_BAD_CLASS_SOFT) << "Unable to find referenced class from invoke-super";
+      // We cannot differentiate on whether this is a class change error or just
+      // a missing method. This will be handled at runtime.
+      Fail(VERIFY_ERROR_NO_METHOD) << "Unable to find referenced class from invoke-super";
       return nullptr;
     }
     if (reference_type.GetClass()->IsInterface()) {
@@ -4724,18 +4723,14 @@ void MethodVerifier<kVerifierDebug>::VerifyISFieldAccess(const Instruction* inst
     if (UNLIKELY(flags_.have_pending_hard_failure_)) {
       return;
     }
-    if (should_adjust) {
-      if (field == nullptr) {
-        Fail(VERIFY_ERROR_BAD_CLASS_SOFT) << "Might be accessing a superclass instance field prior "
-                                          << "to the superclass being initialized in "
-                                          << dex_file_->PrettyMethod(dex_method_idx_);
-      } else if (field->GetDeclaringClass() != GetDeclaringClass().GetClass()) {
-        Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "cannot access superclass instance field "
-                                          << field->PrettyField() << " of a not fully initialized "
-                                          << "object within the context of "
-                                          << dex_file_->PrettyMethod(dex_method_idx_);
-        return;
-      }
+    if (should_adjust &&
+        (field != nullptr) &&
+        (field->GetDeclaringClass() != GetDeclaringClass().GetClass())) {
+      Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "cannot access superclass instance field "
+                                        << field->PrettyField() << " of a not fully initialized "
+                                        << "object within the context of "
+                                        << dex_file_->PrettyMethod(dex_method_idx_);
+      return;
     }
   }
   const RegType* field_type = nullptr;
@@ -4799,11 +4794,12 @@ void MethodVerifier<kVerifierDebug>::VerifyISFieldAccess(const Instruction* inst
       VerifyPrimitivePut(*field_type, insn_type, vregA);
     } else {
       if (!insn_type.IsAssignableFrom(*field_type, this)) {
-        // If the field type is not a reference, this is a global failure rather than
-        // a class change failure as the instructions and the descriptors for the type
-        // should have been consistent within the same file at compile time.
-        VerifyError error = field_type->IsReferenceTypes() ? VERIFY_ERROR_BAD_CLASS_SOFT
-                                                           : VERIFY_ERROR_BAD_CLASS_HARD;
+        VerifyError error;
+        if (insn_type.IsUnresolvedTypes() || field_type->IsUnresolvedTypes()) {
+          error = VERIFY_ERROR_UNRESOLVED_TYPE_CHECK;
+        } else {
+          error = VERIFY_ERROR_BAD_CLASS_HARD;
+        }
         Fail(error) << "expected field " << ArtField::PrettyField(field)
                     << " to be compatible with type '" << insn_type
                     << "' but found type '" << *field_type
@@ -4831,11 +4827,12 @@ void MethodVerifier<kVerifierDebug>::VerifyISFieldAccess(const Instruction* inst
       }
     } else {
       if (!insn_type.IsAssignableFrom(*field_type, this)) {
-        // If the field type is not a reference, this is a global failure rather than
-        // a class change failure as the instructions and the descriptors for the type
-        // should have been consistent within the same file at compile time.
-        VerifyError error = field_type->IsReferenceTypes() ? VERIFY_ERROR_BAD_CLASS_SOFT
-                                                           : VERIFY_ERROR_BAD_CLASS_HARD;
+        VerifyError error;
+        if (insn_type.IsUnresolvedTypes() || field_type->IsUnresolvedTypes()) {
+          error = VERIFY_ERROR_UNRESOLVED_TYPE_CHECK;
+        } else {
+          error = VERIFY_ERROR_BAD_CLASS_HARD;
+        }
         Fail(error) << "expected field " << ArtField::PrettyField(field)
                     << " to be compatible with type '" << insn_type
                     << "' but found type '" << *field_type
@@ -5000,7 +4997,6 @@ MethodVerifier::MethodVerifier(Thread* self,
                                uint32_t dex_method_idx,
                                bool can_load_classes,
                                bool allow_thread_suspension,
-                               bool allow_soft_failures,
                                bool aot_mode)
     : self_(self),
       arena_stack_(arena_pool),
@@ -5016,7 +5012,6 @@ MethodVerifier::MethodVerifier(Thread* self,
       flags_({false, false, aot_mode}),
       encountered_failure_types_(0),
       can_load_classes_(can_load_classes),
-      allow_soft_failures_(allow_soft_failures),
       class_linker_(class_linker),
       verifier_deps_(verifier_deps),
       link_(nullptr) {
@@ -5039,7 +5034,6 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                                          const dex::ClassDef& class_def,
                                                          const dex::CodeItem* code_item,
                                                          uint32_t method_access_flags,
-                                                         bool allow_soft_failures,
                                                          HardFailLogMode log_level,
                                                          bool need_precise_constants,
                                                          uint32_t api_level,
@@ -5057,7 +5051,6 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                               class_def,
                               code_item,
                               method_access_flags,
-                              allow_soft_failures,
                               log_level,
                               need_precise_constants,
                               api_level,
@@ -5075,7 +5068,6 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                class_def,
                                code_item,
                                method_access_flags,
-                               allow_soft_failures,
                                log_level,
                                need_precise_constants,
                                api_level,
@@ -5113,7 +5105,6 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                                          const dex::ClassDef& class_def,
                                                          const dex::CodeItem* code_item,
                                                          uint32_t method_access_flags,
-                                                         bool allow_soft_failures,
                                                          HardFailLogMode log_level,
                                                          bool need_precise_constants,
                                                          uint32_t api_level,
@@ -5131,7 +5122,6 @@ MethodVerifier::FailureData MethodVerifier::VerifyMethod(Thread* self,
                                                 method_idx,
                                                 /* can_load_classes= */ true,
                                                 /* allow_thread_suspension= */ true,
-                                                allow_soft_failures,
                                                 aot_mode,
                                                 dex_cache,
                                                 class_loader,
@@ -5245,7 +5235,6 @@ MethodVerifier* MethodVerifier::CalculateVerificationInfo(
                                       method->GetDexMethodIndex(),
                                       /* can_load_classes= */ false,
                                       /* allow_thread_suspension= */ false,
-                                      /* allow_soft_failures= */ true,
                                       Runtime::Current()->IsAotCompiler(),
                                       dex_cache,
                                       class_loader,
@@ -5291,7 +5280,6 @@ MethodVerifier* MethodVerifier::VerifyMethodAndDump(Thread* self,
       dex_method_idx,
       /* can_load_classes= */ true,
       /* allow_thread_suspension= */ true,
-      /* allow_soft_failures= */ true,
       Runtime::Current()->IsAotCompiler(),
       dex_cache,
       class_loader,
@@ -5332,7 +5320,6 @@ void MethodVerifier::FindLocksAtDexPc(
                                        m->GetDexMethodIndex(),
                                        /* can_load_classes= */ false,
                                        /* allow_thread_suspension= */ false,
-                                       /* allow_soft_failures= */ true,
                                        Runtime::Current()->IsAotCompiler(),
                                        dex_cache,
                                        class_loader,
@@ -5357,7 +5344,6 @@ MethodVerifier* MethodVerifier::CreateVerifier(Thread* self,
                                                uint32_t method_idx,
                                                uint32_t access_flags,
                                                bool can_load_classes,
-                                               bool allow_soft_failures,
                                                bool need_precise_constants,
                                                bool verify_to_dump,
                                                bool allow_thread_suspension,
@@ -5371,7 +5357,6 @@ MethodVerifier* MethodVerifier::CreateVerifier(Thread* self,
                                          method_idx,
                                          can_load_classes,
                                          allow_thread_suspension,
-                                         allow_soft_failures,
                                          Runtime::Current()->IsAotCompiler(),
                                          dex_cache,
                                          class_loader,
@@ -5422,13 +5407,6 @@ std::ostream& MethodVerifier::Fail(VerifyError error, bool pending_exc) {
         // This will be reported to the runtime as a soft failure.
         break;
 
-      // Indication that verification should be retried at runtime.
-      case VERIFY_ERROR_BAD_CLASS_SOFT:
-        if (!allow_soft_failures_) {
-          flags_.have_pending_hard_failure_ = true;
-        }
-        break;
-
       // Hard verification failures at compile time will still fail at runtime, so the class is
       // marked as rejected to prevent it from being compiled.
       case VERIFY_ERROR_BAD_CLASS_HARD: {
@@ -5441,7 +5419,6 @@ std::ostream& MethodVerifier::Fail(VerifyError error, bool pending_exc) {
       }
     }
   } else if (kIsDebugBuild) {
-    CHECK_NE(error, VERIFY_ERROR_BAD_CLASS_SOFT);
     CHECK_NE(error, VERIFY_ERROR_BAD_CLASS_HARD);
   }
 
