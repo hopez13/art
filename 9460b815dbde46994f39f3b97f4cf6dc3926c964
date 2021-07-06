@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41791e7e_b8dfcb2f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-06T13:36:09Z",
+      "side": 1,
+      "message": "The string concatenation and replacement of \"/\" with \".\" is slow. Use\n\n  return obj-\u003eGetClass()-\u003eDescriptorEquals(\"Ljava/lang/VerifyError;\");\n\n(And even though this is used only in a DCHECK(), let\u0027s not spread slow code around.)",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 97
+      },
+      "revId": "9460b815dbde46994f39f3b97f4cf6dc3926c964",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
