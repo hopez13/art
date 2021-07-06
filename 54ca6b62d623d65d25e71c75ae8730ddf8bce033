@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1960f72_803b7d08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-06T10:29:31Z",
+      "side": 1,
+      "message": "Please submit as is.\nI\u0027ve written the regression test: https://android-review.googlesource.com/1757069\nUsing the default GC (Baker CC), the test crashes without this topic and passes with this topic.",
+      "parentUuid": "3180c2f1_ced64d2f",
+      "revId": "54ca6b62d623d65d25e71c75ae8730ddf8bce033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6070da90_906251f3",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-06-25T11:21:15Z",
       "side": 1,
       "message": "This shall catch StaticFieldVarHandle and call the wrong function.",
+      "range": {
+        "startLine": 4510,
+        "startChar": 65,
+        "endLine": 4510,
+        "endChar": 81
+      },
+      "revId": "54ca6b62d623d65d25e71c75ae8730ddf8bce033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e3b260c_afd2a5f4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4510,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-06T10:29:31Z",
+      "side": 1,
+      "message": "Done in PS4.",
+      "parentUuid": "6070da90_906251f3",
       "range": {
         "startLine": 4510,
         "startChar": 65,
