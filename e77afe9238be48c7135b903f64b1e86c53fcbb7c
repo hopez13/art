@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b836f536_6296f287",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-07-07T23:28:14Z",
+      "side": 1,
+      "message": "Suggest https://r.android.com/1711019 for clicking convenience.",
+      "range": {
+        "startLine": 11,
+        "startChar": 27,
+        "endLine": 11,
+        "endChar": 45
+      },
+      "revId": "e77afe9238be48c7135b903f64b1e86c53fcbb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "326a1f6d_e365b3ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-07-07T23:28:14Z",
+      "side": 1,
+      "message": "Thanks for the fix!",
+      "revId": "e77afe9238be48c7135b903f64b1e86c53fcbb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d50ff3a_10d3a498",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-07-07T23:28:14Z",
+      "side": 1,
+      "message": "Maybe use $(art_path) here, to restore the logic to what it was before my CL. But not that important - I doubt things work if the path actually changes anyway.",
+      "range": {
+        "startLine": 20,
+        "startChar": 14,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "e77afe9238be48c7135b903f64b1e86c53fcbb7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
