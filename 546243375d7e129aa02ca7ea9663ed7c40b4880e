@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c39edfa_482a3c7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-07-07T13:13:09Z",
+      "side": 1,
+      "message": "I need to look at this more closely.\n\nThe CL message says it is switch to DWARF v3, but the code doesn\u0027t do that.\n\nIt uses the \"DWARF for libraries libraries over 4GB in size extension\" instead,\nwhich as the spec says \"shouldn\u0027t be normally used\", and I don\u0027t expect we will ever use it on Android.\n(note that specifically this not related to x86_64 or AArach64 support - that is different \"64\").\n\nI assume if this CL fixes test bug, it is purely coincidental.",
+      "revId": "546243375d7e129aa02ca7ea9663ed7c40b4880e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
