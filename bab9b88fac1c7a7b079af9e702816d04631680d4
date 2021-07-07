@@ -49,6 +49,54 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "807a1ace_e3cc6548",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1883960
+      },
+      "writtenOn": "2021-07-07T14:52:10Z",
+      "side": 1,
+      "message": "Yes, sorry, this is internal script, I removed it from the description.",
+      "parentUuid": "2dc649f6_4791d4f9",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "bab9b88fac1c7a7b079af9e702816d04631680d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19747fd8_e975e94e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1883960
+      },
+      "writtenOn": "2021-07-07T14:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "262f5223_0f469832",
+      "range": {
+        "startLine": 16,
+        "startChar": 43,
+        "endLine": 16,
+        "endChar": 56
+      },
+      "revId": "bab9b88fac1c7a7b079af9e702816d04631680d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5a13a893_702fdbc5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -60,6 +108,24 @@
       "writtenOn": "2021-07-06T17:54:17Z",
       "side": 1,
       "message": "Thanks for spotting and fixing this!",
+      "revId": "bab9b88fac1c7a7b079af9e702816d04631680d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8da6dd5_a85c85b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1883960
+      },
+      "writtenOn": "2021-07-07T14:52:10Z",
+      "side": 1,
+      "message": "Sure, no worries! After fixing cpplint-art will start showing two errors (in elf_debug_reader.h:80 (unnecessary space) and in transaction.h:300 (unnecessary space). I will publish another patch to fix it soon and merge it before this one.",
+      "parentUuid": "5a13a893_702fdbc5",
       "revId": "bab9b88fac1c7a7b079af9e702816d04631680d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -77,6 +143,30 @@
       "writtenOn": "2021-07-06T17:54:17Z",
       "side": 1,
       "message": "Typo: ART_CPPLINT_SRC",
+      "range": {
+        "startLine": 19,
+        "startChar": 56,
+        "endLine": 19,
+        "endChar": 71
+      },
+      "revId": "bab9b88fac1c7a7b079af9e702816d04631680d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bb046a9_8db0f810",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1883960
+      },
+      "writtenOn": "2021-07-07T14:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e8d74ce_51ddfd9b",
       "range": {
         "startLine": 19,
         "startChar": 56,
