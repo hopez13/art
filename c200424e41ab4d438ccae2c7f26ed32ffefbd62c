@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "fc4fcdb9_6cac0759",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,27 @@
       "side": 1,
       "message": "\u003e Patch Set 32:\n\u003e \n\u003e (3 comments)\n\u003e \n\u003e Hi Neeraj,\n\u003e \n\u003e Thanks for another PS in the series.\n\u003e \n\u003e A few comments on the tests (as I commented before I would prefer not to go into reviewing the implementation (.cc) before the tests are fully provided and reviewed):\n\u003e \n\u003e 1. It is not clear for which types/categories of loops the optimization will be applied and for which it won\u0027t.\n\u003e   - Induction kind (kInvariant, kLinear, kPolynomial, kGeometric, kWrapAround, kPeriodic) \n\u003e   - Number of basic blocks (more than two?).\n\u003e   - while loops (if the last instruction of the loop header is not HIf exit).\n\u003e Basically if \"This optimization is applied to all loops except for A, B, and C types\" then I would suggest there should be negative tests for A, B, and C. E.g. when in the implementation in the corresponding method there is \"return false\" so the optimization is not applied then it might be worth to introduce a test to cover that case.\n\u003e \n\u003e 2. I am sorry, I didn\u0027t get are there still any cases when an extra induction is introduced now? I\u0027d suggest you could put a detailed comment around this into the sources/tests rather than having in only as a gerrit comment here.\n\u003e \n\u003e Thanks,\n\u003e Artem.\n\nHi Artem,\nI couldn\u0027t checked above comments due to other prior tasks.\nI will recheck and resolve the same.\n\nThanks \u0026 Regards\nNeeraj",
       "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06bf1567_9e535abe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-07-07T11:24:00Z",
+      "side": 1,
+      "message": "Hi Neeraj,\n\nMay I ask, are you or other Intel engineers planning to continue working on this effort? There has been no updates since June 2020.\n\nIf not, we in Linaro will be considering to continue on Dynamic Loop Unrolling on our own, providing our own brand-new implementation.\n\nThanks,\nArtem.\n\n",
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4daa18de_5c7f2c83",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
@@ -37,10 +55,10 @@
         "endChar": 42
       },
       "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "849e4b62_2273a466",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
@@ -60,10 +78,10 @@
         "endChar": 44
       },
       "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a4eb1062_5d865d97",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
@@ -83,8 +101,7 @@
         "endChar": 45
       },
       "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
