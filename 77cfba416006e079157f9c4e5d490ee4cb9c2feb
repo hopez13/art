@@ -16,6 +16,24 @@
       "message": "I\u0027m going to submit https://android-review.googlesource.com/c/platform/art/+/1757649/ first, as otherwise we would probably block presubmits in ART when landing this change.",
       "revId": "77cfba416006e079157f9c4e5d490ee4cb9c2feb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5402e062_bf35544a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1883960
+      },
+      "writtenOn": "2021-07-07T15:58:22Z",
+      "side": 1,
+      "message": "For me the tool also generated an error for transaction.h:310 file (unnecessary space before semicolon).",
+      "parentUuid": "b25e0ed5_0ad2288c",
+      "revId": "77cfba416006e079157f9c4e5d490ee4cb9c2feb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
