@@ -251,6 +251,10 @@ class OnDeviceRefresh final {
   // List of system_server components that should be compiled.
   std::vector<std::string> systemserver_compilable_jars_;
 
+  // List of all boot extension components. Used for checking if the system_server should be
+  // re-compiled.
+  std::vector<std::string> boot_extension_jars_;
+
   const time_t start_time_;
 
  public:
@@ -268,11 +272,11 @@ class OnDeviceRefresh final {
     }
 
     for (const std::string& jar : android::base::Split(config_.GetSystemServerClasspath(), ":")) {
-      // Only consider DEX files on the SYSTEMSERVERCLASSPATH for compilation that do not reside
-      // in APEX modules. Otherwise, we'll recompile on boot any time one of these APEXes updates.
-      if (!LocationIsOnApex(jar)) {
-        systemserver_compilable_jars_.emplace_back(jar);
-      }
+      systemserver_compilable_jars_.emplace_back(jar);
+    }
+
+    for (const std::string& jar : android::base::Split(config_.GetBootclasspath(), ":")) {
+      boot_extension_jars_.emplace_back(jar);
     }
   }
 
@@ -337,6 +341,13 @@ class OnDeviceRefresh final {
       return;
     }
 
+    std::optional<std::vector<art_apex::Component>> bcp_compilable_components =
+        GenerateBootExtensionCompilableComponents();
+    if (!bcp_compilable_components.has_value()) {
+      LOG(ERROR) << "No boot classpath extension compilable components.";
+      return;
+    }
+
     std::optional<std::vector<art_apex::Component>> system_server_components =
         GenerateSystemServerComponents();
     if (!system_server_components.has_value()) {
@@ -346,7 +357,8 @@ class OnDeviceRefresh final {
 
     std::ofstream out(cache_info_filename_.c_str());
     art_apex::CacheInfo info{art_module_infos,
-                             {{art_apex::Dex2oatBootClasspath{bcp_components.value()}}},
+                             {{art_apex::BootClasspath{bcp_components.value()}}},
+                             {{art_apex::Dex2oatBootClasspath{bcp_compilable_components.value()}}},
                              {{art_apex::SystemServerClasspath{system_server_components.value()}}}};
 
     art_apex::write(out, info);
@@ -437,6 +449,10 @@ class OnDeviceRefresh final {
   }
 
   std::vector<art_apex::Component> GenerateBootExtensionComponents() const {
+    return GenerateComponents(boot_extension_jars_);
+  }
+
+  std::vector<art_apex::Component> GenerateBootExtensionCompilableComponents() const {
     return GenerateComponents(boot_extension_compilable_jars_);
   }
 
@@ -561,9 +577,9 @@ class OnDeviceRefresh final {
     //
     // The boot class components may change unexpectedly, for example an OTA could update
     // framework.jar.
-    const std::vector<art_apex::Component> expected_bcp_components =
-        GenerateBootExtensionComponents();
-    if (expected_bcp_components.size() != 0 &&
+    const std::vector<art_apex::Component> expected_bcp_compilable_components =
+        GenerateBootExtensionCompilableComponents();
+    if (expected_bcp_compilable_components.size() != 0 &&
         (!cache_info->hasDex2oatBootClasspath() ||
          !cache_info->getFirstDex2oatBootClasspath()->hasComponent())) {
       LOG(INFO) << "Missing Dex2oatBootClasspath components.";
@@ -572,9 +588,10 @@ class OnDeviceRefresh final {
     }
 
     std::string error_msg;
-    const std::vector<art_apex::Component>& bcp_components =
+    const std::vector<art_apex::Component>& bcp_compilable_components =
         cache_info->getFirstDex2oatBootClasspath()->getComponent();
-    if (!CheckComponents(expected_bcp_components, bcp_components, &error_msg)) {
+    if (!CheckComponents(expected_bcp_compilable_components, bcp_compilable_components,
+                         &error_msg)) {
       LOG(INFO) << "Dex2OatClasspath components mismatch: " << error_msg;
       metrics.SetTrigger(OdrMetrics::Trigger::kDexFilesChanged);
       return cleanup_return(ExitCode::kCompilationRequired);
@@ -608,6 +625,25 @@ class OnDeviceRefresh final {
     if (!CheckComponents(expected_system_server_components, system_server_components, &error_msg)) {
       LOG(INFO) << "SystemServerClasspath components mismatch: " << error_msg;
       metrics.SetTrigger(OdrMetrics::Trigger::kDexFilesChanged);
+      return cleanup_system_server_return(ExitCode::kCompilationRequired);
+    }
+
+    const std::vector<art_apex::Component> expected_bcp_components =
+        GenerateBootExtensionComponents();
+    if (expected_bcp_components.size() != 0 &&
+        (!cache_info->hasBootClasspath() || !cache_info->getFirstBootClasspath()->hasComponent())) {
+      LOG(INFO) << "Missing BootClasspath components.";
+      metrics.SetTrigger(OdrMetrics::Trigger::kDexFilesChanged);
+      return cleanup_system_server_return(ExitCode::kCompilationRequired);
+    }
+
+    const std::vector<art_apex::Component>& bcp_components =
+        cache_info->getFirstBootClasspath()->getComponent();
+    if (!CheckComponents(expected_bcp_components, bcp_components, &error_msg)) {
+      LOG(INFO) << "BootClasspath components mismatch: " << error_msg;
+      metrics.SetTrigger(OdrMetrics::Trigger::kDexFilesChanged);
+      // Boot classpath components can be dependencies of system_server components, so system_server
+      // components need to be recompiled if boot classpath components are changed.
       return cleanup_system_server_return(ExitCode::kCompilationRequired);
     }
 
@@ -1490,6 +1526,7 @@ class OnDeviceRefresh final {
   static int InitializeTargetConfig(int argc, const char** argv, OdrConfig* config) {
     config->SetApexInfoListFile("/apex/apex-info-list.xml");
     config->SetArtBinDir(GetArtBinDir());
+    config->SetBootclasspath(GetEnvironmentVariableOrDie("BOOTCLASSPATH"));
     config->SetDex2oatBootclasspath(GetEnvironmentVariableOrDie("DEX2OATBOOTCLASSPATH"));
     config->SetSystemServerClasspath(GetEnvironmentVariableOrDie("SYSTEMSERVERCLASSPATH"));
     config->SetIsa(kRuntimeISA);
