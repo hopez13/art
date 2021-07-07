@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "458dfff4_bbb49a62",
+        "filename": "runtime/jni/java_vm_ext.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-07-07T20:21:06Z",
+      "side": 1,
+      "message": "Any reason why only 17?",
+      "range": {
+        "startLine": 275,
+        "startChar": 55,
+        "endLine": 275,
+        "endChar": 57
+      },
+      "revId": "f6d9d36321298f27f2bc52ac69e9874ec50f2bed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e0ac05_fbba69b1",
+        "filename": "runtime/jni/java_vm_ext.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-07-07T20:21:06Z",
+      "side": 1,
+      "message": "fields are suppose to end with \u0027_\u0027, IIRC.",
+      "range": {
+        "startLine": 276,
+        "startChar": 11,
+        "endLine": 276,
+        "endChar": 41
+      },
+      "revId": "f6d9d36321298f27f2bc52ac69e9874ec50f2bed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d9525f3_35af1b73",
+        "filename": "runtime/jni/java_vm_ext.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-07-07T20:21:06Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 278,
+        "startChar": 11,
+        "endLine": 278,
+        "endChar": 36
+      },
+      "revId": "f6d9d36321298f27f2bc52ac69e9874ec50f2bed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
