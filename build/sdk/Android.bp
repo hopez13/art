@@ -165,6 +165,11 @@ art_module_exports {
 
     prebuilt_visibility: prebuilt_visibility,
 
+    java_libs: [
+        // Needed for grpc-grpc-java
+        "okhttp-norepackage",
+    ],
+
     target: {
         host: {
             // Set in target.host because the top level compile_multilib
@@ -174,9 +179,6 @@ art_module_exports {
 
             java_libs: [
                 "art.module.api.annotations",
-
-                // Needed for grpc-grpc-java
-                "okhttp-norepackage",
             ],
             native_binaries: [
                 "dex2oat",
