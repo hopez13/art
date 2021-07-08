@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e29b4e5_08abc4ef",
+        "filename": "artd/artd.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-07-08T22:35:18Z",
+      "side": 1,
+      "message": "According to system/core/init/README.md, the class is \"default\" if there\u0027s no \"class\" option, so it\u0027s not clear to me that it never gets started. Isn\u0027t it better to add \"disabled\"?\n\n  `disabled`\n  \u003e This service will not automatically start with its class.\n    It must be explicitly started by name or by interface name.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 15
+      },
+      "revId": "07257327c472964290432b1f3a265440d1bb3c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
