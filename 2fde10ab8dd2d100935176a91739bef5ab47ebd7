@@ -63,6 +63,30 @@
       },
       "revId": "2fde10ab8dd2d100935176a91739bef5ab47ebd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a68b7716_eff86cf1",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-08T13:30:58Z",
+      "side": 1,
+      "message": "I meant as a java_sdk_lib (which we should interpret as a library that contributes to *any* SDK, not just the public one?)",
+      "parentUuid": "381ec3e2_fb64df22",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 30
+      },
+      "revId": "2fde10ab8dd2d100935176a91739bef5ab47ebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
