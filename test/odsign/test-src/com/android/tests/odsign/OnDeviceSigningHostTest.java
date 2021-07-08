@@ -228,6 +228,46 @@ public class OnDeviceSigningHostTest extends BaseHostJUnit4Test {
         verifySystemServerLoadedArtifacts();
     }
 
+    @Test
+    public void verifyGeneratedArtifactsLoadedForSamegradeUpdate() throws Exception {
+        // Install the ART APEX with the same version.
+        mInstallUtils.installApexes(APEX_FILENAME);
+        reboot();
+
+        final boolean adbEnabled = getDevice().enableAdbRoot();
+        assertTrue("ADB root failed and required to get odrefresh compilation log", adbEnabled);
+
+        // Check that odrefresh logged a compilation attempt due to samegrade ART APEX install.
+        String[] logLines = getDevice().pullFileContents(ODREFRESH_COMPILATION_LOG).split("\n");
+        assertTrue(
+                "Expected 3 lines in " + ODREFRESH_COMPILATION_LOG + ", found " + logLines.length,
+                logLines.length == 3);
+
+        // Check that the compilation log entries are the same except for the last update time
+        // values.
+        String[] firstCompilationEntry = logLines[1].split(" ");
+        String[] secondCompilationEntry = logLines[1].split(" ");
+        final int LOG_ENTRY_FIELDS = 5;
+        assertTrue(
+                "Unexpected number of fields: " + firstCompilationEntry.length + " != " +
+                LOG_ENTRY_FIELDS,
+                firstCompilationEntry.length == LOG_ENTRY_FIELDS);
+        assertTrue(firstCompilationEntry.length == secondCompilationEntry.length);
+
+        final int LAST_UPDATE_MILLIS_INDEX = 1;
+        for (int i = 0; i < firstCompilationEntry.length; ++i) {
+            if (i == LAST_UPDATE_MILLIS_INDEX) {
+                // Skip over last_update_millis because they will be different.
+            }
+            assertTrue(
+                    "Compilation entries differ for position " + i + ": " +
+                    firstCompilationEntry[i] + " != " + secondCompilationEntry[i],
+                    firstCompilationEntry[i].equals(secondCompilationEntry[i]));
+        }
+
+        verifyGeneratedArtifactsLoaded();
+    }
+
     private boolean haveCompilationLog() throws Exception {
         CommandResult result =
                 getDevice().executeShellV2Command("stat " + ODREFRESH_COMPILATION_LOG);
