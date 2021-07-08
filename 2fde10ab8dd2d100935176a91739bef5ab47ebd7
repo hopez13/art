@@ -39,6 +39,30 @@
       },
       "revId": "2fde10ab8dd2d100935176a91739bef5ab47ebd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "381ec3e2_fb64df22",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-07-08T12:52:53Z",
+      "side": 1,
+      "message": "If by \"place\" you mean one of sdk, host-exports and test-exports I think it this is the correct place.",
+      "parentUuid": "71122f51_19cce2c2",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 30
+      },
+      "revId": "2fde10ab8dd2d100935176a91739bef5ab47ebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
