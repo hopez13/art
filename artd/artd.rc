@@ -13,5 +13,6 @@
 # limitations under the License.
 
 service artd /apex/com.android.art/bin/artd
+    disabled
     class core
     user artd
