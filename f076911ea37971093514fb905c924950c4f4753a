@@ -34,6 +34,24 @@
       "parentUuid": "ef29601d_05740b0d",
       "revId": "f076911ea37971093514fb905c924950c4f4753a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cb477e5_95a0d116",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-07-08T15:35:03Z",
+      "side": 1,
+      "message": "Here: https://cs.android.com/android/platform/superproject/+/master:system/security/ondevice-signing/Android.bp;l\u003d93?q\u003dodrefresh_headers\u0026ss\u003dandroid\n\nObviously it\u0027s been a while since we (i.e. you, Paul) last did builds without sources. Ideally this ought to be in sc-dev too, but I\u0027m not sure it\u0027s worth the hassle to redo the prebuilts there.",
+      "parentUuid": "94f2042c_01c0b7a0",
+      "revId": "f076911ea37971093514fb905c924950c4f4753a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
