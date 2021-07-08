@@ -87,6 +87,30 @@
       },
       "revId": "2fde10ab8dd2d100935176a91739bef5ab47ebd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e9e8cc5_a9e29a7a",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-07-08T15:37:19Z",
+      "side": 1,
+      "message": "Yes. It just means that it is a java_sdk_library and so has an API. It doesn\u0027t mean that it has to contribute to the public SDK.",
+      "parentUuid": "a68b7716_eff86cf1",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 30
+      },
+      "revId": "2fde10ab8dd2d100935176a91739bef5ab47ebd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

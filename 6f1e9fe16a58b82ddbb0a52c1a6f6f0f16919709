@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e70a4c0d_acbe2b11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2021-07-08T15:37:19Z",
+      "side": 1,
+      "message": "This is failing in master-art because the service-art cannot build there and has never been built there. Adding it to the sdk causes master-art to try and build it which fails.",
+      "revId": "6f1e9fe16a58b82ddbb0a52c1a6f6f0f16919709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
