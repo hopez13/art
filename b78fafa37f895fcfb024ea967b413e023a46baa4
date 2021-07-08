@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "106da4c6_1c01e4a9",
+        "filename": "runtime/verifier/class_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-08T16:30:05Z",
+      "side": 1,
+      "message": "Line too long. Break between sentences?",
+      "revId": "b78fafa37f895fcfb024ea967b413e023a46baa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65a0ec64_56d9bb84",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3644,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-08T16:30:05Z",
+      "side": 1,
+      "message": "If you\u0027re not going through `Fail()`, you need to explicitly update `encountered_failure_types_` which is used by `HasInstructionThatWillThrow()`.",
+      "range": {
+        "startLine": 3644,
+        "startChar": 4,
+        "endLine": 3644,
+        "endChar": 52
+      },
+      "revId": "b78fafa37f895fcfb024ea967b413e023a46baa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67ca88c1_e28fbb4e",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4970,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-08T16:30:05Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "b78fafa37f895fcfb024ea967b413e023a46baa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70c2996a_61916368",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5454,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-08T16:30:05Z",
+      "side": 1,
+      "message": "LOG(FATAL) \u003c\u003c \"UNREACHABLE\";",
+      "revId": "b78fafa37f895fcfb024ea967b413e023a46baa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
