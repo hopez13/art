@@ -432,7 +432,9 @@ static std::string GetApexDataDalvikCacheFilename(std::string_view dex_location,
                                                   InstructionSet isa,
                                                   bool encode_location,
                                                   std::string_view file_extension) {
-  if (LocationIsOnApex(dex_location)) {
+  if (LocationIsOnApex(dex_location) && !encode_location) {
+    // Artifacts without their location encoded are boot images. We don't compile boot images for
+    // updatable APEXes.
     return {};
   }
   std::string apex_data_dalvik_cache = GetApexDataDalvikCacheDirectory(isa);
