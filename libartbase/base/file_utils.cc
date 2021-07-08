@@ -428,13 +428,9 @@ static std::string GetApexDataDalvikCacheDirectory(InstructionSet isa) {
   return GetDalvikCacheDirectory(GetArtApexData());
 }
 
-static std::string GetApexDataDalvikCacheFilename(std::string_view dex_location,
-                                                  InstructionSet isa,
+static std::string GetApexDataDalvikCacheFilename(std::string_view dex_location, InstructionSet isa,
                                                   bool encode_location,
                                                   std::string_view file_extension) {
-  if (LocationIsOnApex(dex_location)) {
-    return {};
-  }
   std::string apex_data_dalvik_cache = GetApexDataDalvikCacheDirectory(isa);
   if (encode_location) {
     // Arguments: "/system/framework/xyz.jar", "arm", true, "odex"
