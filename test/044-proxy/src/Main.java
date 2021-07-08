@@ -16,6 +16,8 @@
 
 import java.util.HashMap;
 
+import pkg𐀀.PackageTest;
+
 /**
  * Test java.lang.reflect.Proxy
  */
@@ -34,6 +36,7 @@ public class Main {
         ConstructorProxy.main();
         OOMEOnDispatch.main(args);
         HotProxy.main(args);
+        PackageTest.main();
     }
 
     // The following code maps from the actual proxy class names (eg $Proxy2) to their test output
