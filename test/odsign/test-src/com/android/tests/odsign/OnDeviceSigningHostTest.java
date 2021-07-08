@@ -116,7 +116,7 @@ public class OnDeviceSigningHostTest extends BaseHostJUnit4Test {
     private String[] getSystemServerClasspath() throws Exception {
         String systemServerClasspath =
                 getDevice().executeShellCommand("echo $SYSTEMSERVERCLASSPATH");
-        return systemServerClasspath.split(":");
+        return systemServerClasspath.trim().split(":");
     }
 
     private String getSystemServerIsa(String mappedArtifact) {
@@ -146,36 +146,21 @@ public class OnDeviceSigningHostTest extends BaseHostJUnit4Test {
         final String isa = getSystemServerIsa(mappedArtifacts.iterator().next());
         final String isaCacheDirectory = String.format("%s/%s", ART_APEX_DALVIK_CACHE_DIRNAME, isa);
 
-        // Check the non-APEX components in the system_server classpath have mapped artifacts.
+        // Check components in the system_server classpath have mapped artifacts.
         for (String element : classpathElements) {
-            // Skip system_server classpath elements from APEXes as these are not currently
-            // compiled.
-            if (element.startsWith("/apex")) {
-                continue;
-            }
-            String escapedPath = element.substring(1).replace('/', '@');
-            for (String extension : APP_ARTIFACT_EXTENSIONS) {
-                final String fullArtifactPath =
-                        String.format("%s/%s@classes%s", isaCacheDirectory, escapedPath, extension);
-                assertTrue(
-                        "Missing " + fullArtifactPath, mappedArtifacts.contains(fullArtifactPath));
-            }
+          String escapedPath = element.substring(1).replace('/', '@');
+          for (String extension : APP_ARTIFACT_EXTENSIONS) {
+            final String fullArtifactPath =
+                String.format("%s/%s@classes%s", isaCacheDirectory, escapedPath, extension);
+            assertTrue("Missing " + fullArtifactPath, mappedArtifacts.contains(fullArtifactPath));
+          }
         }
 
         for (String mappedArtifact : mappedArtifacts) {
-            // Check no APEX JAR artifacts are mapped for system_server since if there
-            // are, then the policy around not compiling APEX jars for system_server has
-            // changed and this test needs updating here and in the system_server classpath
-            // check above.
-            assertTrue(
-                    "Unexpected mapped artifact: " + mappedArtifact,
-                    mappedArtifact.contains("/apex"));
-
-            // Check the mapped artifact has a .art, .odex or .vdex extension.
-            final boolean knownArtifactKind =
-                    Arrays.stream(APP_ARTIFACT_EXTENSIONS)
-                            .anyMatch(e -> mappedArtifact.endsWith(e));
-            assertTrue("Unknown artifact kind: " + mappedArtifact, knownArtifactKind);
+          // Check the mapped artifact has a .art, .odex or .vdex extension.
+          final boolean knownArtifactKind =
+              Arrays.stream(APP_ARTIFACT_EXTENSIONS).anyMatch(e -> mappedArtifact.endsWith(e));
+          assertTrue("Unknown artifact kind: " + mappedArtifact, knownArtifactKind);
         }
     }
 
