@@ -26,8 +26,6 @@
 #include "data_type-inl.h"
 #include "dead_code_elimination.h"
 #include "dex/inline_method_analyser.h"
-#include "dex/verification_results.h"
-#include "dex/verified_method.h"
 #include "driver/compiler_options.h"
 #include "driver/dex_compilation_unit.h"
 #include "instruction_simplifier.h"
@@ -383,29 +381,10 @@ ArtMethod* HInliner::FindMethodFromCHA(ArtMethod* resolved_method) {
 
 static bool IsMethodUnverified(const CompilerOptions& compiler_options, ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (!method->GetDeclaringClass()->IsVerified()) {
-    if (compiler_options.IsJitCompiler()) {
-      // We're at runtime, we know this is cold code if the class
-      // is not verified, so don't bother analyzing.
-      return true;
-    }
-    uint16_t class_def_idx = method->GetDeclaringClass()->GetDexClassDefIndex();
-
-    const VerifiedMethod* verified_method =
-        compiler_options.GetVerifiedMethod(method->GetDexFile(), method->GetDexMethodIndex());
-    if (verified_method != nullptr && verified_method->HasRuntimeThrow()) {
-      // Compiler doesn't handle dead code as nicely as verifier.
-      return true;
-    }
-    if (!compiler_options.IsMethodVerifiedWithoutFailures(method->GetDexMethodIndex(),
-                                                          class_def_idx,
-                                                          *method->GetDexFile())) {
-      if (verified_method == nullptr ||
-          !verifier::CanCompilerHandleVerificationFailure(
-              verified_method->GetEncounteredVerificationFailures())) {
-       return true;
-      }
-    }
+  if (!method->GetDeclaringClass()->IsVerified() && compiler_options.IsJitCompiler()) {
+    // We're at runtime, we know this is cold code if the class
+    // is not verified, so don't bother analyzing.
+    return true;
   }
   return false;
 }
