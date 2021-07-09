@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33859834_2b89102a",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-09T08:21:52Z",
+      "side": 1,
+      "message": "nit: we do one argument per line",
+      "range": {
+        "startLine": 431,
+        "startChar": 81,
+        "endLine": 431,
+        "endChar": 100
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a7641ce_d45b99b6",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-09T08:21:52Z",
+      "side": 1,
+      "message": "Looks like name clashing could happen here? Should we add a prefix before the isa? Like system for /system files, or /apex for files in /apex?",
+      "range": {
+        "startLine": 172,
+        "startChar": 32,
+        "endLine": 172,
+        "endChar": 63
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a35aea7_2a73f420",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-09T08:21:52Z",
+      "side": 1,
+      "message": "This will include ART jars, is it expected to put them in boot_extension_jars_ ?",
+      "range": {
+        "startLine": 278,
+        "startChar": 63,
+        "endLine": 278,
+        "endChar": 79
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc5348c1_fc38ff5e",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-09T08:21:52Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 611,
+        "startChar": 61,
+        "endLine": 611,
+        "endChar": 86
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439a0609_82edd086",
+        "filename": "odrefresh/schema/current.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-09T08:21:52Z",
+      "side": 1,
+      "message": "If we want to trigger compilation on any system server / bootclasspath jar, don\u0027t you need this info also for all other modules?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
