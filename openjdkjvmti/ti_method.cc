@@ -635,26 +635,8 @@ class CommonLocalVariableClosure : public art::Closure {
                                        /*out*/ SlotType* type)
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
     art::Thread* self = art::Thread::Current();
-    art::StackHandleScope<2> hs(self);
-    std::unique_ptr<art::verifier::MethodVerifier> verifier(
-        art::verifier::MethodVerifier::CalculateVerificationInfo(
-            self,
-            method,
-            hs.NewHandle(method->GetDexCache()),
-            hs.NewHandle(method->GetDeclaringClass()->GetClassLoader())));
-    if (verifier == nullptr) {
-      JVMTI_LOG(WARNING, jvmti_) << "Unable to extract verification information from "
-                                 << method->PrettyMethod() << " due to hard verification failures! "
-                                 << "How did this method even get loaded!";
-      return ERR(INTERNAL);
-    }
-    art::verifier::RegisterLine* line = verifier->GetRegLine(dex_pc);
-    if (line == nullptr) {
-      JVMTI_LOG(WARNING, jvmti_) << "Unable to determine register line at dex-pc " << dex_pc
-                                 << " for method " << method->PrettyMethod();
-      return ERR(OPAQUE_FRAME);
-    }
-    const art::verifier::RegType& rt = line->GetRegisterType(verifier.get(), slot_);
+    const art::verifier::RegType& rt =
+        art::verifier::MethodVerifier::CalculateTypeInfo(self, method, dex_pc, slot_);
     if (rt.IsUndefined()) {
       return ERR(INVALID_SLOT);
     } else if (rt.IsNonZeroReferenceTypes() || rt.IsNull()) {
