@@ -675,6 +675,10 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
     return cha_single_implementation_list_;
   }
 
+  bool SuspendChecksAreAllowedToBeRemoved() const {
+    return !IsDebuggable() && !IsCompilingOsr();
+  }
+
   void AddCHASingleImplementationDependency(ArtMethod* method) {
     cha_single_implementation_list_.insert(method);
   }
