@@ -678,6 +678,15 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
     return cha_single_implementation_list_;
   }
 
+  // In case of OSR we intend to use SuspendChecks as an entry point to the
+  // function; for debuggable graphs we might deoptimize to interpreter from
+  // SuspendChecks; during CHA guard optimization we will use SuspendChecks to
+  // copy the environment during hoisting. In these cases we shouldn't remove
+  // them.
+  bool SuspendChecksAreAllowedToBeRemoved() const {
+    return !IsDebuggable() && !IsCompilingOsr() && GetNumberOfCHAGuards() == 0;
+  }
+
   void AddCHASingleImplementationDependency(ArtMethod* method) {
     cha_single_implementation_list_.insert(method);
   }
@@ -719,7 +728,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
     return ReferenceTypeInfo::Create(handle_cache_.GetObjectClassHandle(), /* is_exact= */ false);
   }
 
-  uint32_t GetNumberOfCHAGuards() { return number_of_cha_guards_; }
+  uint32_t GetNumberOfCHAGuards() const { return number_of_cha_guards_; }
   void SetNumberOfCHAGuards(uint32_t num) { number_of_cha_guards_ = num; }
   void IncrementNumberOfCHAGuards() { number_of_cha_guards_++; }
 
