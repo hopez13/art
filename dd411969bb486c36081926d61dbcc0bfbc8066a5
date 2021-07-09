@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebe8f3e5_c4953c7d",
+        "filename": "test/044-proxy/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-09T09:49:10Z",
+      "side": 0,
+      "message": "Why using 044-proxy for your test? Could you create a new test instead?",
+      "revId": "dd411969bb486c36081926d61dbcc0bfbc8066a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19e72c5a_cc10b154",
+        "filename": "test/ti-agent/ti_utf.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-09T09:49:10Z",
+      "side": 0,
+      "message": "Code duplicaiton with libdexfile? Is it possible to share?",
+      "revId": "dd411969bb486c36081926d61dbcc0bfbc8066a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
