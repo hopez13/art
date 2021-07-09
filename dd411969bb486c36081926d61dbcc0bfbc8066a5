@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "893e7e58_7ec62028",
+        "filename": "test/044-proxy/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-09T12:11:37Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "ebe8f3e5_c4953c7d",
+      "revId": "dd411969bb486c36081926d61dbcc0bfbc8066a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19e72c5a_cc10b154",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-07-09T09:49:10Z",
       "side": 0,
       "message": "Code duplicaiton with libdexfile? Is it possible to share?",
+      "revId": "dd411969bb486c36081926d61dbcc0bfbc8066a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69b14bf6_f6e9ca5a",
+        "filename": "test/ti-agent/ti_utf.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-09T12:11:37Z",
+      "side": 0,
+      "message": "I don\u0027t know the exact reasons for the duplication and I\u0027m not going to address it in this CL.",
+      "parentUuid": "19e72c5a_cc10b154",
       "revId": "dd411969bb486c36081926d61dbcc0bfbc8066a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
