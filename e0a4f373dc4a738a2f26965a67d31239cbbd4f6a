@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0802ffa6_9bdb9e58",
+        "filename": "runtime/jni/jni_internal_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2021-07-12T08:05:41Z",
+      "side": 1,
+      "message": "This will almost certainly break apps -- I don\u0027t see any discussion of the app compat impact in the commit message.",
+      "range": {
+        "startLine": 1516,
+        "startChar": 2,
+        "endLine": 1516,
+        "endChar": 50
+      },
+      "revId": "e0a4f373dc4a738a2f26965a67d31239cbbd4f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
