@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cebfc6a_c98c3780",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-12T16:56:19Z",
+      "side": 1,
+      "message": "nit: uint64_t, which is already required by by the PRIu64 below.",
+      "range": {
+        "startLine": 1315,
+        "startChar": 8,
+        "endLine": 1315,
+        "endChar": 12
+      },
+      "revId": "4bc7cb960cfe9d96fa87b05557b49343779a608f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
