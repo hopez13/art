@@ -306,6 +306,30 @@
       },
       "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09a6ee99_db9fa305",
+        "filename": "odrefresh/schema/current.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-12T13:25:02Z",
+      "side": 1,
+      "message": "We now need to deal with samegrade APEX versions where the checksum and size don\u0027t change so we should start using the information in apex-info-list.xml. A samegrade APEX update will have the same version number, but a different lastUpdateMillis value (modification time of the APEX).\n\nWe currently have back-off policy for the existing compilation path. This will need revisiting as the number of triggers and number of apexes is larger.",
+      "parentUuid": "8bbc26f5_a07e3f90",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

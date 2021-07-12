@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfa4bbf0_e740fa88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-12T13:25:02Z",
+      "side": 1,
+      "message": "Nice progress.",
+      "revId": "b61d7a5d19c491cac34e7c9864bda465b49e14ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "813b2acc_8fc448f4",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-12T13:25:02Z",
+      "side": 1,
+      "message": "How does this now distinguish between no mapped artifacts and process not running?\n\n[If we wanted to be more rigorous we could look at ro.zygote as odrefresh does.]",
+      "range": {
+        "startLine": 208,
+        "startChar": 48,
+        "endLine": 208,
+        "endChar": 72
+      },
+      "revId": "b61d7a5d19c491cac34e7c9864bda465b49e14ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
