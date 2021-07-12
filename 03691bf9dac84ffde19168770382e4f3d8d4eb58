@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5d04ec8_1692530e",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-12T12:02:02Z",
+      "side": 1,
+      "message": "I think we could still be exposed to name clashing between different mainline modules contributing to system server. It\u0027d be best to add some differentiator for jars coming from different apexes.",
+      "parentUuid": "4ee13a32_c783fc98",
+      "range": {
+        "startLine": 172,
+        "startChar": 32,
+        "endLine": 172,
+        "endChar": 63
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a35aea7_2a73f420",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 4
