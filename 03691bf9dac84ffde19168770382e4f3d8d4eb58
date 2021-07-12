@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb53573_31dce0ac",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-12T01:45:14Z",
+      "side": 1,
+      "message": "I found that clang-format can be configured to do so.",
+      "parentUuid": "33859834_2b89102a",
+      "range": {
+        "startLine": 431,
+        "startChar": 81,
+        "endLine": 431,
+        "endChar": 100
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a7641ce_d45b99b6",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-09T08:21:52Z",
       "side": 1,
       "message": "Looks like name clashing could happen here? Should we add a prefix before the isa? Like system for /system files, or /apex for files in /apex?",
+      "range": {
+        "startLine": 172,
+        "startChar": 32,
+        "endLine": 172,
+        "endChar": 63
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ee13a32_c783fc98",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-12T01:45:14Z",
+      "side": 1,
+      "message": "Thank you for raising this. I revisited it and decided to revert the changes for boot classpath artifacts. We don\u0027t have to provide artifact names for boot classpath components in /apex because we don\u0027t compile them. Even if we did compile them, boot classpath components would be compiled into a single file rather than one file per component.",
+      "parentUuid": "7a7641ce_d45b99b6",
       "range": {
         "startLine": 172,
         "startChar": 32,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44780321_f22f740a",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-12T01:45:14Z",
+      "side": 1,
+      "message": "Yes, that\u0027s fine. As mentioned in the comment, boot_extension_jars_ are just used as the dependencies for compiling the system_server. They won\u0027t actually be compiled. The compiled artifacts for those ART jars are already in the ART APEX.",
+      "parentUuid": "1a35aea7_2a73f420",
+      "range": {
+        "startLine": 278,
+        "startChar": 63,
+        "endLine": 278,
+        "endChar": 79
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc5348c1_fc38ff5e",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1f18b2d_ab9c856d",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-12T01:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc5348c1_fc38ff5e",
+      "range": {
+        "startLine": 611,
+        "startChar": 61,
+        "endLine": 611,
+        "endChar": 86
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "439a0609_82edd086",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-07-09T08:21:52Z",
       "side": 1,
       "message": "If we want to trigger compilation on any system server / bootclasspath jar, don\u0027t you need this info also for all other modules?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cce2ea4a_3d33763d",
+        "filename": "odrefresh/schema/current.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-12T01:45:14Z",
+      "side": 1,
+      "message": "I think comparing the size and checksums is sufficient for now. We may need the version and modified time info if we want to trigger compilation by just incrementing the version number or touching the jars for debugging purpose. Anyway, that can be a separate change. If you think that\u0027s necessary, I can create a subsequent CL to do so.",
+      "parentUuid": "439a0609_82edd086",
       "range": {
         "startLine": 4,
         "startChar": 0,
