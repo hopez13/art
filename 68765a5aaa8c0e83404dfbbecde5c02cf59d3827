@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb7771e3_954550b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-12T14:10:55Z",
+      "side": 1,
+      "message": "PS1 is pure revert, PS2 is a rebase, PS3 adds more tests (and renames the test).\n\nThis CLs is almost ready but the test shall need to change to use a prebuilt dex file instead of Java sources (LUCI does not support the filename with non-BMP character). It shall also need companion changes in libcore/ (`nativeGetStringPlatformChars` needs to encode as UTF-8) and `system/tools/hidl/test/java_test/hidl_test_java_native.cpp` (which explicitly checks that we re-encode with 4-byte UTF-8 sequence).\n",
+      "revId": "68765a5aaa8c0e83404dfbbecde5c02cf59d3827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
