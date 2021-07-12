@@ -70,6 +70,30 @@
       },
       "revId": "e0a4f373dc4a738a2f26965a67d31239cbbd4f6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5be3ba15_6ff4fd2f",
+        "filename": "runtime/jni/jni_internal_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-12T12:52:13Z",
+      "side": 1,
+      "message": "Runtime inconsistency:\n\n  Class\u003c?\u003e klass \u003d ...;  // Class with a non-BMP character.\n  Class.forName(klass.getName());  // Fails.\n  jniFindClass(klass.getName());  // native\n     -\u003e env-\u003eFindClass(env-\u003eGetStringUTFChars(name, .));  // Fails.\n\nand then the Proxy test case that I spotted first, where Class::IsInSamePackage() returns false causing some check during Proxy construction to fail; it it did not fail, the virtual methods would be linked incorrectly.\n\nAnd it\u0027s also a clear violation of the JNI spec.",
+      "parentUuid": "c4bb4891_40f093e0",
+      "range": {
+        "startLine": 1516,
+        "startChar": 2,
+        "endLine": 1516,
+        "endChar": 50
+      },
+      "revId": "e0a4f373dc4a738a2f26965a67d31239cbbd4f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
