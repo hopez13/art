@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7ed41d94_f4823ab4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-07-12T15:33:10Z",
+      "side": 1,
+      "message": "Yes. I am planning to revert the CL that introduced the issue.\n(so need to revert this as well so the other CL can be reverted)",
+      "parentUuid": "1b56c55d_f558d86e",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 57
+      },
+      "revId": "8abb678be69bd92fb8336f9f8f81447a4ae7dd8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ebb0ed70_006b9ce5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
