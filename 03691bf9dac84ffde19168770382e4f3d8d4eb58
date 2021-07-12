@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8438ca47_b6634ab0",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-12T12:00:25Z",
+      "side": 1,
+      "message": "I suggest not naming the field boot_extension_jars_ then. ART jars are usually referred as \"primary boot image\" and framework jars as \"extension\".",
+      "parentUuid": "44780321_f22f740a",
+      "range": {
+        "startLine": 278,
+        "startChar": 63,
+        "endLine": 278,
+        "endChar": 79
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc5348c1_fc38ff5e",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 4
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "I think comparing the size and checksums is sufficient for now. We may need the version and modified time info if we want to trigger compilation by just incrementing the version number or touching the jars for debugging purpose. Anyway, that can be a separate change. If you think that\u0027s necessary, I can create a subsequent CL to do so.",
       "parentUuid": "439a0609_82edd086",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "03691bf9dac84ffde19168770382e4f3d8d4eb58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bbc26f5_a07e3f90",
+        "filename": "odrefresh/schema/current.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-12T12:00:25Z",
+      "side": 1,
+      "message": "Where are the size and checksum checks?\n\nI think we need to go with something consistent: if we trigger recompilation for ART version changes, we should do the same for other modules.",
+      "parentUuid": "cce2ea4a_3d33763d",
       "range": {
         "startLine": 4,
         "startChar": 0,
