@@ -22,6 +22,30 @@
       },
       "revId": "e0a4f373dc4a738a2f26965a67d31239cbbd4f6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b5cedb0_f9a082cc",
+        "filename": "runtime/jni/jni_internal_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-12T08:46:50Z",
+      "side": 1,
+      "message": "The commit e16dad1d6388b0305f13e2171308a77f42e7c682 has opened the Pandora\u0027s box and we now have to choose between broken and broken. Any ideas how to get out of the quagmire?",
+      "parentUuid": "0802ffa6_9bdb9e58",
+      "range": {
+        "startLine": 1516,
+        "startChar": 2,
+        "endLine": 1516,
+        "endChar": 50
+      },
+      "revId": "e0a4f373dc4a738a2f26965a67d31239cbbd4f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
