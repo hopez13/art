@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db928359_91e2bfae",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-13T12:13:57Z",
+      "side": 1,
+      "message": "Maybe we want this to be more explicit, like \"is_boot_class_path_location\"? On the other hand, we could always encode the location instead?",
+      "range": {
+        "startLine": 435,
+        "startChar": 41,
+        "endLine": 435,
+        "endChar": 56
+      },
+      "revId": "f54a58fd6b88b0f6b8ccebc8bc29d6fcd01a9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7097670_ced42eb4",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-13T12:13:57Z",
+      "side": 1,
+      "message": "com.android.i18n is part of the boot classpath, so this shouldn\u0027t contain the location, according to the code?",
+      "range": {
+        "startLine": 251,
+        "startChar": 43,
+        "endLine": 251,
+        "endChar": 59
+      },
+      "revId": "f54a58fd6b88b0f6b8ccebc8bc29d6fcd01a9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
