@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "298bb82d_fc791463",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T16:06:53Z",
+      "side": 0,
+      "message": "The destructor still performs enough work, so I\u0027d prefer a non-inline version even if all the work is implicitly done by the member destructors.",
+      "revId": "ba1386f6f678b45924705410971e400af0a9d508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8075069_fe7ffec9",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T16:06:53Z",
+      "side": 0,
+      "message": "Keep the `DCHECK()`.",
+      "range": {
+        "startLine": 494,
+        "startChar": 6,
+        "endLine": 494,
+        "endChar": 33
+      },
+      "revId": "ba1386f6f678b45924705410971e400af0a9d508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

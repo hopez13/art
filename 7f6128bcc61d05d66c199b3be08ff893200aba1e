@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03802f5d_74bbb62c",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T16:06:53Z",
+      "side": 1,
+      "message": "Unnecessary brackets.\n\n(And I\u0027m looking forward to std::set::contains() once we update the toolchain to support C++20.)",
+      "range": {
+        "startLine": 56,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 10
+      },
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c32fda1_944fa956",
+        "filename": "compiler/dex/verification_results.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T16:06:53Z",
+      "side": 1,
+      "message": "Clean up #includes. There are a few we do not need anymore.",
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3266a9f1_84fde4f9",
+        "filename": "compiler/dex/verification_results.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T16:06:53Z",
+      "side": 1,
+      "message": "Forward declaration not needed anymore.",
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c41aeef0_46da2205",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T16:06:53Z",
+      "side": 1,
+      "message": "Are we now allowing inlining unverified methods at AOT? Or do they always have `method-\u003eIsCompilable() \u003d\u003d false`, so that we never get here for AOT? Can we\n\n    DCHECK(method-\u003eGetDeclaringClass()-\u003eIsVerified() ||\n           !compiler_options.IsAotCompiler());\n\nhere?",
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc6d1f74_1e944df6",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1934,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T16:06:53Z",
+      "side": 1,
+      "message": "Can you move the update to `ClassVerifier`?",
+      "range": {
+        "startLine": 1932,
+        "startChar": 4,
+        "endLine": 1934,
+        "endChar": 5
+      },
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fca44e1c_68983434",
+        "filename": "runtime/compiler_callbacks.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T16:06:53Z",
+      "side": 1,
+      "message": "Forward declaration no longer needed.",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
