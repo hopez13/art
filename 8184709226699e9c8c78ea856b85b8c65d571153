@@ -87,6 +87,29 @@
       "parentUuid": "561a6b21_5dc8732e",
       "revId": "8184709226699e9c8c78ea856b85b8c65d571153",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4978b3a_d05e341c",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T13:06:27Z",
+      "side": 1,
+      "message": "`testrunner.py --interpreter` shall go from mterp to switch interpreter? Same for Golem interpreter benchmarks?",
+      "range": {
+        "startLine": 46,
+        "startChar": 6,
+        "endLine": 46,
+        "endChar": 29
+      },
+      "revId": "8184709226699e9c8c78ea856b85b8c65d571153",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
