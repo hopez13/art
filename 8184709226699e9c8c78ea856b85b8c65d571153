@@ -69,6 +69,24 @@
       "parentUuid": "c675e882_b75da6cb",
       "revId": "8184709226699e9c8c78ea856b85b8c65d571153",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d78dabf_3bbfd53b",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-13T12:06:42Z",
+      "side": 1,
+      "message": "The. nterp entrypoint is considered like a AOT/JIT entrypoint. So only when the method needs to be in the swtch interpreter do we end up in this path.",
+      "parentUuid": "561a6b21_5dc8732e",
+      "revId": "8184709226699e9c8c78ea856b85b8c65d571153",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
