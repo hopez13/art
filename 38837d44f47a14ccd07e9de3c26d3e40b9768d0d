@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d61af60b_454b4599",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T09:45:10Z",
+      "side": 0,
+      "message": "Keep comment?",
+      "range": {
+        "startLine": 234,
+        "startChar": 2,
+        "endLine": 234,
+        "endChar": 66
+      },
+      "revId": "38837d44f47a14ccd07e9de3c26d3e40b9768d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6e66568_867f89f3",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-13T09:45:10Z",
+      "side": 0,
+      "message": "Thread offsets are changing. Bump oat version.",
+      "revId": "38837d44f47a14ccd07e9de3c26d3e40b9768d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
