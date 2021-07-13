@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0752d69d_ac560d55",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-13T11:55:03Z",
+      "side": 0,
+      "message": "Passing --interpreter disables nterp right now. I\u0027m planning on fixing this and re-use ART_USE_CXX_INTERPRETER for disabling nterp instead.",
+      "parentUuid": "e6295484_054e2eb9",
+      "revId": "38837d44f47a14ccd07e9de3c26d3e40b9768d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d61af60b_454b4599",
