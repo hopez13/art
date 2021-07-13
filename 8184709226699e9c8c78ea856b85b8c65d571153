@@ -51,6 +51,24 @@
       "parentUuid": "46dd5666_39c9c67d",
       "revId": "8184709226699e9c8c78ea856b85b8c65d571153",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "561a6b21_5dc8732e",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-07-13T12:03:42Z",
+      "side": 1,
+      "message": "Could this potentially be performance regression?\n(i.e. when is this path expected to be used?)\nDoes C++ invoke of Java code go to the nterp entrypoint?",
+      "parentUuid": "c675e882_b75da6cb",
+      "revId": "8184709226699e9c8c78ea856b85b8c65d571153",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

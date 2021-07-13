@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc6f12bd_32677713",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-07-13T12:03:42Z",
+      "side": 0,
+      "message": "Ack. Note that I am in favour of command line flags as opposed to macros.\n\nPS: We currently have go/ab config testing this - which will become no-op.",
+      "parentUuid": "0752d69d_ac560d55",
+      "revId": "38837d44f47a14ccd07e9de3c26d3e40b9768d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d61af60b_454b4599",
