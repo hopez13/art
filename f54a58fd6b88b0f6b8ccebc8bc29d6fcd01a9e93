@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f12ae6c1_7bbb64e4",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-14T07:40:25Z",
+      "side": 1,
+      "message": "Done. I renamed the parameter. However, I dare not change the existing behavior because it seems to me that some code elsewhere depends on GetDefaultBootImageLocation rather than this function to get the location of boot classpath artifacts, meaning that any change may break them.",
+      "parentUuid": "db928359_91e2bfae",
+      "range": {
+        "startLine": 435,
+        "startChar": 41,
+        "endLine": 435,
+        "endChar": 56
+      },
+      "revId": "f54a58fd6b88b0f6b8ccebc8bc29d6fcd01a9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7097670_ced42eb4",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-13T12:13:57Z",
       "side": 1,
       "message": "com.android.i18n is part of the boot classpath, so this shouldn\u0027t contain the location, according to the code?",
+      "range": {
+        "startLine": 251,
+        "startChar": 43,
+        "endLine": 251,
+        "endChar": 59
+      },
+      "revId": "f54a58fd6b88b0f6b8ccebc8bc29d6fcd01a9e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "665fecde_dde60e6e",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-14T07:40:25Z",
+      "side": 1,
+      "message": "I would say \"com.android.i18n\" happens to be a module in boot classpath, but it actually means an arbitrary APEX here. This function is not for boot classpath.",
+      "parentUuid": "b7097670_ced42eb4",
       "range": {
         "startLine": 251,
         "startChar": 43,
