@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b1fb3a_884efb77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-14T20:10:34Z",
+      "side": 1,
+      "message": "Thanks Jiakai, a few easy to address comments, (sticky) +2 so you can address and submit without waiting for LON.",
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e19ce84_997787b8",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-14T20:10:34Z",
+      "side": 1,
+      "message": "nit: keep uniform initialization.",
+      "range": {
+        "startLine": 233,
+        "startChar": 34,
+        "endLine": 233,
+        "endChar": 35
+      },
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "605bfbc1_aaac223c",
+        "filename": "odrefresh/CacheInfo.xsd",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-14T20:10:34Z",
+      "side": 1,
+      "message": "Not for this CL, but perhaps there could be a single classpath complex type that is used for bootClasspath, dex2oatbootClasspath, and systemServerClasspath? [We don\u0027t want to break the file format, but might be able to avoid the redundancy. ]",
+      "range": {
+        "startLine": 47,
+        "startChar": 24,
+        "endLine": 47,
+        "endChar": 37
+      },
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da089e8a_5211b6dd",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-14T20:10:34Z",
+      "side": 1,
+      "message": "systemserver_compilable_jars_ \u003d android::base::Split(config_.GetSystemServerClasspath(), \":\");\n\n[optional: we split classpaths in enough that it might be worth a trivial helper \"SplitClasspath\".]",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 5
+      },
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b66a4210_d7f597ed",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-14T20:10:34Z",
+      "side": 1,
+      "message": "And here too.",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 5
+      },
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b83b4831_7ed1231c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-14T20:10:34Z",
+      "side": 1,
+      "message": "optional: this could go before expected_bcp_compilable components to have the consistent ordering (boot classpath, boot extension compilable, system server).",
+      "range": {
+        "startLine": 649,
+        "startChar": 5,
+        "endLine": 650,
+        "endChar": 42
+      },
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
