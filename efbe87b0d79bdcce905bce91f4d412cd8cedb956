@@ -262,6 +262,30 @@
       },
       "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64bd2b3d_1f8c08b2",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-14T22:22:05Z",
+      "side": 1,
+      "message": "Thank you for the suggestion.\n\nexpected_bcp_components basically contains boot classpath components on /system plus those on /apex, while expected_bcp_compilable_components only contains those on /system.\n\nexpected_bcp_components here is used for checking whether to compile system server, while expected_bcp_compilable_components above is used for checking whether to compile the boot classpath extensions, so I can\u0027t change the order.\n\nNicolas suggests that we don\u0027t want to recompile boot classpath extensions when some APEXes are updated, which will take an extra 20s. That\u0027s the reason why we are doing it in this way. My assumption is that boot classpath extensions rarely depend on boot classpath components on /apex, so we should be fine.",
+      "parentUuid": "b83b4831_7ed1231c",
+      "range": {
+        "startLine": 649,
+        "startChar": 5,
+        "endLine": 650,
+        "endChar": 42
+      },
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
