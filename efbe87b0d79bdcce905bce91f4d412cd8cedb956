@@ -170,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10236ef_731f7275",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-14T22:00:09Z",
+      "side": 1,
+      "message": "Done. I need fresh eyes :)\n\n\n\u003e [optional: we split classpaths in enough that it might be worth a trivial helper \"SplitClasspath\".]\nA helper function may not be super useful because it\u0027s not flexible enough as we may want to do some additional operations on the classpaths like the filtering we do for boot_extension_compilable_jars_ above. I\u0027ll keep it as is for now.",
+      "parentUuid": "da089e8a_5211b6dd",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 5
+      },
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b66a4210_d7f597ed",
@@ -183,6 +207,30 @@
       "writtenOn": "2021-07-14T20:10:34Z",
       "side": 1,
       "message": "And here too.",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 5
+      },
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47208118_aa814ca7",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-14T22:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b66a4210_d7f597ed",
       "range": {
         "startLine": 278,
         "startChar": 0,
