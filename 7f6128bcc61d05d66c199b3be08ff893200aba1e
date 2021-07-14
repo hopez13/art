@@ -200,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c35798_c990e750",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1934,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-14T14:32:13Z",
+      "side": 1,
+      "message": "Actually, scratch that, just realized it\u0027s easy to retrieve it from the dex file.",
+      "parentUuid": "e12d5be6_835bda90",
+      "range": {
+        "startLine": 1932,
+        "startChar": 4,
+        "endLine": 1934,
+        "endChar": 5
+      },
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fca44e1c_68983434",
