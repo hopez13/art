@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ee2d86f_b614125c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3731,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-14T10:26:03Z",
+      "side": 1,
+      "message": "This needs to be `xchgl` for `kFloat32`.",
+      "range": {
+        "startLine": 3731,
+        "startChar": 7,
+        "endLine": 3731,
+        "endChar": 12
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b196a912_f1f6a1e0",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-14T10:26:03Z",
+      "side": 1,
+      "message": "Are we using the same `movd` for both `kFloat32` and `kFloat64`?\n\n(It seems that way in the codegen\u0027s `Move()`. And it seems we\u0027re using `movq` for moving 32-bit values in core registers. Would specialized `movs`/\u0027movl` generate smaller code?)",
+      "range": {
+        "startLine": 3732,
+        "startChar": 7,
+        "endLine": 3732,
+        "endChar": 11
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97f09a70_727c7fb7",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3733,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-14T10:26:03Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "775ed42b_2dfbd8af",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3756,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-14T10:26:03Z",
+      "side": 1,
+      "message": "Should we use a temp? (Can `valreg` be the same as `ref` for `vh.getAndSet(obj, obj)`?)",
+      "range": {
+        "startLine": 3756,
+        "startChar": 6,
+        "endLine": 3756,
+        "endChar": 36
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a5a23e7_053533eb",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3762,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-14T10:26:03Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43a58472_7d4e7819",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3789,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-14T10:26:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 3789,
+        "startChar": 8,
+        "endLine": 3789,
+        "endChar": 34
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f95e9cf_1fdd4a2e",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-14T10:26:03Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 3794,
+        "startChar": 8,
+        "endLine": 3794,
+        "endChar": 34
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
