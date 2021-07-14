@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee9767be_4e205bf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-14T20:17:55Z",
+      "side": 1,
+      "message": "Test failure from SELinux denials. See system/sepolicy/private/system_server.te, you\u0027ll need to change:\n\nallow system_server { apex_art_data_file dalvikcache_data_file }:file r_file_perms;\n\nto this:\n\nallow system_server { apex_art_data_file }:file rx_file_perms;\nallow system_server { dalvikcache_data_file }:file r_file_perms;\n\n[ it probably needs more tweaking than this, welcome to the android matrix :-) ]\n",
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "186eb1b2_f6701828",
