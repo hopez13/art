@@ -18,6 +18,41 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eed6caf_b8a4d631",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-14T21:46:25Z",
+      "side": 1,
+      "message": "\u003e Patch Set 7: Code-Review+1\n\u003e \n\u003e (1 comment)\n\u003e \n\u003e By voting Code-Review+1 the following files are now code-owner approved by \u003cGERRIT_ACCOUNT_1038443\u003e:\n\u003e * libartbase/base/file_utils.cc\n\u003e * libartbase/base/file_utils.h\n\u003e * libartbase/base/file_utils_test.cc\n\u003e * odrefresh/CacheInfo.xsd\n\u003e * odrefresh/odr_config.h\n\u003e * odrefresh/odrefresh.cc\n\u003e * odrefresh/schema/current.txt\n\u003e * test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java\n\u003e \n\nThank you for the review!",
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2beef9a3_803470a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-14T21:46:25Z",
+      "side": 1,
+      "message": "Thank you for the review!",
+      "parentUuid": "80b1fb3a_884efb77",
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e19ce84_997787b8",
@@ -31,6 +66,30 @@
       "writtenOn": "2021-07-14T20:10:34Z",
       "side": 1,
       "message": "nit: keep uniform initialization.",
+      "range": {
+        "startLine": 233,
+        "startChar": 34,
+        "endLine": 233,
+        "endChar": 35
+      },
+      "revId": "efbe87b0d79bdcce905bce91f4d412cd8cedb956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7330fdeb_1944ff18",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-14T21:46:25Z",
+      "side": 1,
+      "message": "Done.\n\nIMO, whether to use braced initializer list is controversial. I just learned today that this is go/artstyle, which states the rationale behind using it. However, it also has some drawbacks. For example, if I write std::vector{...}, it\u0027s not super clear whether the contents insides the braces are iterators for std::vector(InputIt first, InputIt last) or elements of an initializer list for std::vector(std::initializer_list\u003cT\u003e init).",
+      "parentUuid": "2e19ce84_997787b8",
       "range": {
         "startLine": 233,
         "startChar": 34,
