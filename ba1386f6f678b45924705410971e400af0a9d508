@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58bc4837_300e5d15",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-14T14:21:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "298bb82d_fc791463",
+      "revId": "ba1386f6f678b45924705410971e400af0a9d508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8075069_fe7ffec9",
@@ -31,6 +49,54 @@
       "writtenOn": "2021-07-13T16:06:53Z",
       "side": 0,
       "message": "Keep the `DCHECK()`.",
+      "range": {
+        "startLine": 494,
+        "startChar": 6,
+        "endLine": 494,
+        "endChar": 33
+      },
+      "revId": "ba1386f6f678b45924705410971e400af0a9d508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a2a9b0_7e2551a9",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-14T14:21:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e8075069_fe7ffec9",
+      "range": {
+        "startLine": 494,
+        "startChar": 6,
+        "endLine": 494,
+        "endChar": 33
+      },
+      "revId": "ba1386f6f678b45924705410971e400af0a9d508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7923095_798c6977",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-14T14:21:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e8075069_fe7ffec9",
       "range": {
         "startLine": 494,
         "startChar": 6,

@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "698c574c_31d5fc7c",
+        "filename": "compiler/dex/verification_results.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-14T14:21:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03802f5d_74bbb62c",
+      "range": {
+        "startLine": 56,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 10
+      },
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c32fda1_944fa956",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-07-13T16:06:53Z",
       "side": 1,
       "message": "Clean up #includes. There are a few we do not need anymore.",
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17c81ada_800e17d3",
+        "filename": "compiler/dex/verification_results.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-14T14:21:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c32fda1_944fa956",
       "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e877bc74_2f18d4eb",
+        "filename": "compiler/dex/verification_results.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-14T14:21:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3266a9f1_84fde4f9",
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c41aeef0_46da2205",
@@ -71,6 +131,24 @@
       "writtenOn": "2021-07-13T16:06:53Z",
       "side": 1,
       "message": "Are we now allowing inlining unverified methods at AOT? Or do they always have `method-\u003eIsCompilable() \u003d\u003d false`, so that we never get here for AOT? Can we\n\n    DCHECK(method-\u003eGetDeclaringClass()-\u003eIsVerified() ||\n           !compiler_options.IsAotCompiler());\n\nhere?",
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b042f1b_bf8f02ed",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-14T14:21:58Z",
+      "side": 1,
+      "message": "Good point, I need to check if the method is at least verified with access checks. I\u0027ve added that in the AOT Case.",
+      "parentUuid": "c41aeef0_46da2205",
       "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -98,6 +176,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e12d5be6_835bda90",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1934,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-14T14:21:58Z",
+      "side": 1,
+      "message": "No, because I don\u0027t have the class def index there.",
+      "parentUuid": "dc6d1f74_1e944df6",
+      "range": {
+        "startLine": 1932,
+        "startChar": 4,
+        "endLine": 1934,
+        "endChar": 5
+      },
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fca44e1c_68983434",
@@ -111,6 +213,30 @@
       "writtenOn": "2021-07-13T16:06:53Z",
       "side": 1,
       "message": "Forward declaration no longer needed.",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "7f6128bcc61d05d66c199b3be08ff893200aba1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b578fcd8_360ac816",
+        "filename": "runtime/compiler_callbacks.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-14T14:21:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fca44e1c_68983434",
       "range": {
         "startLine": 37,
         "startChar": 6,
