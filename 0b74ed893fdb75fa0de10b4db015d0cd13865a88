@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1306f7cb_bcec6eb4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-15T09:49:00Z",
+      "side": 1,
+      "message": "This comment was previously under `if (JIT)` and needs to be updated to reflect the new placement.",
+      "range": {
+        "startLine": 387,
+        "startChar": 5,
+        "endLine": 387,
+        "endChar": 21
+      },
+      "revId": "0b74ed893fdb75fa0de10b4db015d0cd13865a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
