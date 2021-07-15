@@ -117,6 +117,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ef6e74a_669ec14e",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-15T07:17:26Z",
+      "side": 1,
+      "message": "[Apologies for the cut-and-pasto, glad you found it]\n\nPlease contribute to the clang-format in the art repo (art/.clang-format). When Chris (chriswailes@) was exploring he tried to see which style adjustments led to the smallest diffs on large bodies chunks of existing art code. There likely further improvements available that would be benefit everyone.\n\nIf you want this order it\u0027s fine.",
+      "parentUuid": "d5d8c355_282d911a",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 34
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9f685a1_984b9799",
@@ -342,6 +366,30 @@
       "side": 1,
       "message": "This function assumes that the xml is either valid or non-exist. If there is an xml schema change, the caller will handle such case (https://android.googlesource.com/platform/art/+/refs/changes/06/1765306/4/odrefresh/odrefresh.cc#828), and this function won\u0027t be called at all.",
       "parentUuid": "b7fa2f3e_887fefbe",
+      "range": {
+        "startLine": 560,
+        "startChar": 1,
+        "endLine": 566,
+        "endChar": 19
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "301ec511_0dbaae4e",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-07-15T07:17:26Z",
+      "side": 1,
+      "message": "The point was the more precise error indication is lost. The comment was for the deletion of L541 in the base. The code that you are pointing to also doesn\u0027t distinguish between the two cases either.",
+      "parentUuid": "1e86a589_7202edc4",
       "range": {
         "startLine": 560,
         "startChar": 1,
