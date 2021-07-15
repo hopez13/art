@@ -54,6 +54,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d21112de_876675e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "1c6bedc1_591d2e04",
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "119aee30_edb1de54",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 4
@@ -65,6 +83,30 @@
       "writtenOn": "2021-07-14T20:47:56Z",
       "side": 1,
       "message": "Are you using an editor with clang-format? [ which will format this change ]. Just a heads-up, but the clang-format is a pretty good attempt, but still a work-in-progress. The current ART style (go/artsty) doesn\u0027t really align with anything that our formatters can deal with precisely.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 34
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5d8c355_282d911a",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Thank you for sharing the style guide (I assume there was a typo and it should be go/artstyle). I didn\u0027t know there is an ART-specific style guide.\n\nYes, I\u0027m using clang-format. It was required to use the formatter when I was working on google3, or the lint could hardly pass. It became kind of my habit, and I found it very inconvenient to work without the formatter, especially when dealing with line-wrapping. clang-format is highly customizable. I\u0027m adding some rules to my config, such as \"BinPackArguments: false\", to conform with go/artstyle. So far, I find it working well.\n\nRegarding the order of includes, looks like go/artstyle doesn\u0027t say anything about it, and the order that the formatter gives me conforms with go/cstyle#Names_and_Order_of_Includes. Is this fine?",
+      "parentUuid": "119aee30_edb1de54",
       "range": {
         "startLine": 75,
         "startChar": 0,
@@ -98,6 +140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28e9f1c1_e98ed2aa",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9f685a1_984b9799",
+      "range": {
+        "startLine": 294,
+        "startChar": 32,
+        "endLine": 294,
+        "endChar": 40
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fbb6fab_78496133",
@@ -111,6 +177,30 @@
       "writtenOn": "2021-07-14T20:47:56Z",
       "side": 1,
       "message": "consistency: APEX in human readable messages.",
+      "range": {
+        "startLine": 340,
+        "startChar": 85,
+        "endLine": 340,
+        "endChar": 89
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84fb0734_5803710f",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fbb6fab_78496133",
       "range": {
         "startLine": 340,
         "startChar": 85,
@@ -144,6 +234,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2727aa5_e5e4fdbd",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e4a552b_c91cf92c",
+      "range": {
+        "startLine": 346,
+        "startChar": 89,
+        "endLine": 346,
+        "endChar": 93
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "186eb1b2_f6701828",
@@ -157,6 +271,30 @@
       "writtenOn": "2021-07-14T08:51:50Z",
       "side": 1,
       "message": "There isn\u0027t an ART APEX change here, right? It just happens that the apex is on /data. I suggest dropping the code in this \u0027else\u0027 branch.",
+      "range": {
+        "startLine": 556,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 58
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "571ce83c_ec63f212",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "186eb1b2_f6701828",
       "range": {
         "startLine": 556,
         "startChar": 0,
@@ -190,6 +328,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e86a589_7202edc4",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "This function assumes that the xml is either valid or non-exist. If there is an xml schema change, the caller will handle such case (https://android.googlesource.com/platform/art/+/refs/changes/06/1765306/4/odrefresh/odrefresh.cc#828), and this function won\u0027t be called at all.",
+      "parentUuid": "b7fa2f3e_887fefbe",
+      "range": {
+        "startLine": 560,
+        "startChar": 1,
+        "endLine": 566,
+        "endChar": 19
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "184684be_a71d046d",
@@ -203,6 +365,30 @@
       "writtenOn": "2021-07-14T08:51:50Z",
       "side": 1,
       "message": "If the artifacts are on /system, should we still do this?",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 31
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70c85d5f_71332a82",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Part of the system server consists of some APEX jars, and they don\u0027t have artifacts on /system. APEX jars are not shipped with artifacts because they depends on /system/framework/services.jar, which is usually customized by OEMs. Therefore, I think we should always do on-device compilation for the system server during the first boot.",
+      "parentUuid": "184684be_a71d046d",
       "range": {
         "startLine": 659,
         "startChar": 0,
@@ -236,6 +422,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc38ff67_26094185",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "6ce8bf83_b7779b3b",
+      "range": {
+        "startLine": 668,
+        "startChar": 0,
+        "endLine": 671,
+        "endChar": 19
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddd58159_d4af08f1",
@@ -249,6 +459,30 @@
       "writtenOn": "2021-07-14T08:51:50Z",
       "side": 1,
       "message": "false?",
+      "range": {
+        "startLine": 762,
+        "startChar": 12,
+        "endLine": 762,
+        "endChar": 44
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5b8217e_28cfaeec",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Oops. I\u0027m surprised that this can compile :)",
+      "parentUuid": "ddd58159_d4af08f1",
       "range": {
         "startLine": 762,
         "startChar": 12,
@@ -282,6 +516,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ceb497_d76fb18d",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a291cf0_58bcf5f6",
+      "range": {
+        "startLine": 872,
+        "startChar": 11,
+        "endLine": 872,
+        "endChar": 61
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdff511e_3988c4a4",
@@ -295,6 +553,30 @@
       "writtenOn": "2021-07-14T08:51:50Z",
       "side": 1,
       "message": "I suggest moving this if in the caller, and dropping the force_compile argument?",
+      "range": {
+        "startLine": 1585,
+        "startChar": 8,
+        "endLine": 1585,
+        "endChar": 21
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4638514_840701dc",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1585,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Done. Thank you for the suggestion. The code is much cleaner now.",
+      "parentUuid": "bdff511e_3988c4a4",
       "range": {
         "startLine": 1585,
         "startChar": 8,
@@ -351,6 +633,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00f7459_679005e6",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39c2f22b_d25b6944",
+      "range": {
+        "startLine": 1611,
+        "startChar": 10,
+        "endLine": 1611,
+        "endChar": 23
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f3e84db_1c00d2d9",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "I was trying to handle the case where boot extensions are already compiled for one ISA, but not another. This can happen when the device runs out of space right after compilation is done for just one ISA. In that case, we want to skip the compilation for an ISA that is already compiled, even if compile_boot_extensions is true.\n\nI revisited this and realized that the logic was too tricky. I changed to using a vector to indicate which ISAs to compile boot extensions for, instead of using a single boolean.",
+      "parentUuid": "9af7c57b_37ed2df0",
+      "range": {
+        "startLine": 1611,
+        "startChar": 56,
+        "endLine": 1611,
+        "endChar": 83
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93025123_3789bdd7",
@@ -364,6 +694,30 @@
       "writtenOn": "2021-07-14T08:51:50Z",
       "side": 1,
       "message": "nit: put on new line, aligned with compile_boot_extensions.",
+      "range": {
+        "startLine": 1611,
+        "startChar": 55,
+        "endLine": 1612,
+        "endChar": 97
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fe5e36e_2081db48",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "93025123_3789bdd7",
       "range": {
         "startLine": 1611,
         "startChar": 55,
@@ -397,6 +751,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff331ddb_9792f277",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1636,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e949f84_c26e4b76",
+      "range": {
+        "startLine": 1636,
+        "startChar": 8,
+        "endLine": 1636,
+        "endChar": 21
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a185e6d_e4ea02f7",
@@ -410,6 +788,30 @@
       "writtenOn": "2021-07-14T08:51:50Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1637,
+        "startChar": 34,
+        "endLine": 1637,
+        "endChar": 61
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "739928e3_82648ef8",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-15T04:26:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a185e6d_e4ea02f7",
       "range": {
         "startLine": 1637,
         "startChar": 34,
