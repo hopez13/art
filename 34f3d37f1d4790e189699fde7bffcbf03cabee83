@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f57541a1_24c82319",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-15T15:03:11Z",
+      "side": 1,
+      "message": "\"// This code path exists for completeness, but we don\u0027t expect it to be hit.\"\n\nI assume this is still pretty safe to land.  If not, please feel free to revert / let me know.",
+      "revId": "34f3d37f1d4790e189699fde7bffcbf03cabee83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
