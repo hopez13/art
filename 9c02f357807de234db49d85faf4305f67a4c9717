@@ -449,6 +449,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cda019bb_823854e4",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-15T09:01:25Z",
+      "side": 1,
+      "message": "Ah, but another part of this change, is to change the build system to \"preopt\" those apex jars to avoid having to run odrefresh on the first boot.",
+      "parentUuid": "70c85d5f_71332a82",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 31
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ce8bf83_b7779b3b",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 4
