@@ -133,7 +133,6 @@ FailureKind ClassVerifier::VerifyClass(Thread* self,
                                      callbacks,
                                      allow_soft_failures,
                                      log_level,
-                                     /*need_precise_constants=*/ false,
                                      api_level,
                                      Runtime::Current()->IsAotCompiler(),
                                      &hard_failure_msg);
