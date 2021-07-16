@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb196f25_0eb73c1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-16T13:44:06Z",
+      "side": 1,
+      "message": "The verifier is very fragile and you\u0027re doing a lot in this CL. You should split it into smaller pieces.",
+      "revId": "957ef4b02ed06ff1f88cb2b354db112ad9bc0c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "143aad33_4afa728c",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-16T13:44:06Z",
+      "side": 1,
+      "message": "I think these cases where we previously had `soft_error \u003d\u003d true` yielding VERIFY_ERROR_BAD_CLASS_SOFT should really be VERIFY_ERROR_UNRESOLVED_TYPE_CHECK. The new code seems to completely reject valid cases.\n\n  Iface[] test() {\n    return new Unresolved[10];  // Is is unknown if Unresolved implements Iface.\n  }",
+      "range": {
+        "startLine": 2213,
+        "startChar": 23,
+        "endLine": 2213,
+        "endChar": 50
+      },
+      "revId": "957ef4b02ed06ff1f88cb2b354db112ad9bc0c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a98a134a_5e2428fd",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3670,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-16T13:44:06Z",
+      "side": 1,
+      "message": "How can this be conflict?",
+      "range": {
+        "startLine": 3670,
+        "startChar": 2,
+        "endLine": 3670,
+        "endChar": 27
+      },
+      "revId": "957ef4b02ed06ff1f88cb2b354db112ad9bc0c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61f2f3ab_119ec31f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3773,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-16T13:44:06Z",
+      "side": 1,
+      "message": "Unreachable with `handler_found \u003d\u003d true`. All paths from line 3720 either set `common_super !\u003d nullptr`, or set `unresolved !\u003d nullptr` forcing return on line 3768, or directly return from line 3738.",
+      "range": {
+        "startLine": 3773,
+        "startChar": 11,
+        "endLine": 3773,
+        "endChar": 24
+      },
+      "revId": "957ef4b02ed06ff1f88cb2b354db112ad9bc0c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c001666_f2a29a91",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-16T13:44:06Z",
+      "side": 1,
+      "message": "This looks like a bogus comment after you have removed the re-verification from jvmti.",
+      "range": {
+        "startLine": 3995,
+        "startChar": 17,
+        "endLine": 3998,
+        "endChar": 48
+      },
+      "revId": "957ef4b02ed06ff1f88cb2b354db112ad9bc0c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

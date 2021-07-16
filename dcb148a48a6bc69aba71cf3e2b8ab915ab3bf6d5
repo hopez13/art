@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c651e34_3514e195",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2216,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-16T13:44:06Z",
+      "side": 0,
+      "message": "Not checking the return value? Was the old code erroneously rejecting non-trivial array conversion other than `soft_error \u003d\u003d true`?\n\n  Iface[] test() {\n    return new Resolved[10];  // This should be OK.\n  }\n\nOr does the `!return_type.IsAssignableFrom(reg_type, this)` above imply `CanAssignArray(...) \u003d\u003d false`? If so, the new code shall always yield VERIFY_ERROR_BAD_CLASS_HARD.",
+      "range": {
+        "startLine": 2216,
+        "startChar": 16,
+        "endLine": 2216,
+        "endChar": 99
+      },
+      "revId": "dcb148a48a6bc69aba71cf3e2b8ab915ab3bf6d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4ba8b33_456f9f8e",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4731,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-16T13:44:06Z",
+      "side": 0,
+      "message": "This looks relevant and worth preserving but we don\u0027t have a good error type for it. Should we have a VERIFY_ERROR_NO_FIELD?",
+      "range": {
+        "startLine": 4729,
+        "startChar": 8,
+        "endLine": 4731,
+        "endChar": 86
+      },
+      "revId": "dcb148a48a6bc69aba71cf3e2b8ab915ab3bf6d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
