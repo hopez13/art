@@ -141,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3045704_d687dc88",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-16T05:56:21Z",
+      "side": 1,
+      "message": "I didn\u0027t know there is an existing config. Thank you for letting me know. I\u0027ll update it if needed.\n\nI\u0027m using VS code with clang-format to format modified lines only, so the diffs on existing art code are not a problem for me.",
+      "parentUuid": "6ef6e74a_669ec14e",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 34
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9f685a1_984b9799",
@@ -400,6 +424,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ae221a3_33053cec",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-16T05:56:21Z",
+      "side": 1,
+      "message": "The precise error indication is not lost. CheckArtifactsAreUpToDate is now split into three functions: CheckArtifactsAreUpToDate, CheckBootExtensionArtifactsAreUpToDate, CheckSystemServerArtifactsAreUpToDate.\n\nThe case where the xml file exists but invalid is handled by CheckArtifactsAreUpToDate (https://android.googlesource.com/platform/art/+/refs/changes/06/1765306/4/odrefresh/odrefresh.cc#828).\n\nThe case where the xml file doesn\u0027t exist is handled by the latter two functions (https://android.googlesource.com/platform/art/+/refs/changes/06/1765306/4/odrefresh/odrefresh.cc#560, https://android.googlesource.com/platform/art/+/refs/changes/06/1765306/4/odrefresh/odrefresh.cc#655)\n\nI separated the handling because the former case should definitely trigger a compilation and CheckArtifactsAreUpToDate can do an early return, while the latter case requires further checks.",
+      "parentUuid": "301ec511_0dbaae4e",
+      "range": {
+        "startLine": 560,
+        "startChar": 1,
+        "endLine": 566,
+        "endChar": 19
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "184684be_a71d046d",
@@ -461,6 +509,30 @@
       "side": 1,
       "message": "Ah, but another part of this change, is to change the build system to \"preopt\" those apex jars to avoid having to run odrefresh on the first boot.",
       "parentUuid": "70c85d5f_71332a82",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 31
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3557d4c5_e8e2d05f",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-16T05:56:21Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m not sure I get it. How can we \"preopt\" those apex jars without knowing about /system/framework/services.jar, which they depend on? Even if they can be AOT compiled by the build system, the execution won\u0027t achieve the best performance because the artifacts will not be complete and will be missing some information. Do I understand it correctly?",
+      "parentUuid": "cda019bb_823854e4",
       "range": {
         "startLine": 659,
         "startChar": 0,
