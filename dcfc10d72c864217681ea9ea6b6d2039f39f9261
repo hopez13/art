@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dae680b_6d77debd",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3731,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-16T16:55:30Z",
+      "side": 1,
+      "message": "Fixed (I thought about the reg-reg XCHG version which whould make no difference, but this one does).",
+      "parentUuid": "0ee2d86f_b614125c",
+      "range": {
+        "startLine": 3731,
+        "startChar": 7,
+        "endLine": 3731,
+        "endChar": 12
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b196a912_f1f6a1e0",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-14T10:26:03Z",
       "side": 1,
       "message": "Are we using the same `movd` for both `kFloat32` and `kFloat64`?\n\n(It seems that way in the codegen\u0027s `Move()`. And it seems we\u0027re using `movq` for moving 32-bit values in core registers. Would specialized `movs`/\u0027movl` generate smaller code?)",
+      "range": {
+        "startLine": 3732,
+        "startChar": 7,
+        "endLine": 3732,
+        "endChar": 11
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ad9dc33_a20da5c7",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3732,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-16T16:55:30Z",
+      "side": 1,
+      "message": "For some reason we have the same `movd` for 32/64 with a boolean flag `is64bit` instead of `movd`/`movq`. I changed to use the specialized version.\n\nAs for `Move`, is it possible to find, give two register locations (`CpuRegister` and `XmmRegister`) if the value is 32 or 64 bits? If no, all callers of `Move` will need to pass a parameter, and should be done in a separate CL.",
+      "parentUuid": "b196a912_f1f6a1e0",
       "range": {
         "startLine": 3732,
         "startChar": 7,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5f15419_3fec3b85",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3733,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-16T16:55:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97f09a70_727c7fb7",
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "775ed42b_2dfbd8af",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-07-14T10:26:03Z",
       "side": 1,
       "message": "Should we use a temp? (Can `valreg` be the same as `ref` for `vh.getAndSet(obj, obj)`?)",
+      "range": {
+        "startLine": 3756,
+        "startChar": 6,
+        "endLine": 3756,
+        "endChar": 36
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f756d7d7_a3941625",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3756,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-16T16:55:30Z",
+      "side": 1,
+      "message": "Right, I forgot that field address base may be an input register and not a temporary one. `valreg` is guaranteed to be `RAX`, but another input can be `RAX` as well.\n\nI saw the code with temp for x86 but didn\u0027t understand why it\u0027s needed and \"simplified\" it.",
+      "parentUuid": "775ed42b_2dfbd8af",
       "range": {
         "startLine": 3756,
         "startChar": 6,
@@ -104,6 +194,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db3e540c_d871028f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3762,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-16T16:55:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a5a23e7_053533eb",
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43a58472_7d4e7819",
@@ -127,6 +235,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e52b3e6_14e9d8f9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3789,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-16T16:55:30Z",
+      "side": 1,
+      "message": "Done. (Previously the other one was not `valreg` so it made sense).",
+      "parentUuid": "43a58472_7d4e7819",
+      "range": {
+        "startLine": 3789,
+        "startChar": 8,
+        "endLine": 3789,
+        "endChar": 34
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f95e9cf_1fdd4a2e",
@@ -140,6 +272,30 @@
       "writtenOn": "2021-07-14T10:26:03Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 3794,
+        "startChar": 8,
+        "endLine": 3794,
+        "endChar": 34
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b140537_b0f0c704",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3794,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-16T16:55:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f95e9cf_1fdd4a2e",
       "range": {
         "startLine": 3794,
         "startChar": 8,
