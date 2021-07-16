@@ -16,6 +16,24 @@
       "message": "Not in scope for this CL, but since the shard numbers are quite visible and gets used to identify them, maybe it\u0027d be better to make them more explicit in the source too? I.e. preallocate this array and then assign the tests to the shards by index instead of append().",
       "revId": "3e85a4668a517eb6b91483d23b94a5ca83a8bddf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a336703_3da2ff3f",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-07-16T14:20:08Z",
+      "side": 1,
+      "message": "Thanks for the suggestion, this looks like a good idea; will try to implement it in a separate CL.",
+      "parentUuid": "54517eb5_0b8cce2c",
+      "revId": "3e85a4668a517eb6b91483d23b94a5ca83a8bddf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
