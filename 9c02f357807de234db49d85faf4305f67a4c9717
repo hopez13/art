@@ -545,6 +545,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f931e40e_c4ab7801",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-16T07:33:20Z",
+      "side": 1,
+      "message": "At build time we know those dependencies. What we need to do is preopt all jars in SYSTEMSERVERCLASSPATH at build time (we currently only preopt non-apex ones).",
+      "parentUuid": "3557d4c5_e8e2d05f",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 31
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ce8bf83_b7779b3b",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 4
