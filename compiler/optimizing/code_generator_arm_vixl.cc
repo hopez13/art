@@ -1706,7 +1706,7 @@ static void GenerateConditionIntegralOrNonPrimitive(HCondition* cond,
   vixl32::Register in = InputRegisterAt(cond, 0);
   const vixl32::Register out = OutputRegister(cond);
   const Location right = cond->GetLocations()->InAt(1);
-  int64_t value;
+  int64_t value = 0;
 
   if (right.IsConstant()) {
     IfCondition opposite = cond->GetOppositeCondition();
