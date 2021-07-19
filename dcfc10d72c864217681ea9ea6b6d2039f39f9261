@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24e5cc88_f67b1cb5",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-19T08:43:45Z",
+      "side": 1,
+      "message": "Ack. It seems we cannot determine the size of the register from Location alone. We could rewrite the `Location` to support that but that would be a very significant change across all codegens and register allocator.",
+      "parentUuid": "5ad9dc33_a20da5c7",
+      "range": {
+        "startLine": 3732,
+        "startChar": 7,
+        "endLine": 3732,
+        "endChar": 11
+      },
+      "revId": "dcfc10d72c864217681ea9ea6b6d2039f39f9261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97f09a70_727c7fb7",
