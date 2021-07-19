@@ -72,6 +72,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "afd5fdc0_e7833604",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-19T08:31:45Z",
+      "side": 1,
+      "message": "I missed this tip. Thank you for explaining this to me over VC! I created aosp/1770906.",
+      "parentUuid": "ee9767be_4e205bf5",
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "119aee30_edb1de54",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 4
@@ -557,6 +575,30 @@
       "side": 1,
       "message": "At build time we know those dependencies. What we need to do is preopt all jars in SYSTEMSERVERCLASSPATH at build time (we currently only preopt non-apex ones).",
       "parentUuid": "3557d4c5_e8e2d05f",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 31
+      },
+      "revId": "9c02f357807de234db49d85faf4305f67a4c9717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a83ddee_a2254985",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-19T08:31:45Z",
+      "side": 1,
+      "message": "Done. Added a check, though it will never pass for now because we don\u0027t have preopted artifacts for APEXes on /system. Added a TODO on line 1233.",
+      "parentUuid": "f931e40e_c4ab7801",
       "range": {
         "startLine": 659,
         "startChar": 0,
