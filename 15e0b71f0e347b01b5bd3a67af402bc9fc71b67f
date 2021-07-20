@@ -22,6 +22,30 @@
       },
       "revId": "15e0b71f0e347b01b5bd3a67af402bc9fc71b67f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8586166_85592159",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-20T21:09:25Z",
+      "side": 1,
+      "message": "pidof does a full match against the process name, while pgrep does a partial match. I tried \"pgrep zygote\" on my device, and it gives me the pid of webview_zygote, which is not what I want.",
+      "parentUuid": "576c7c2e_04e4b631",
+      "range": {
+        "startLine": 139,
+        "startChar": 28,
+        "endLine": 139,
+        "endChar": 33
+      },
+      "revId": "15e0b71f0e347b01b5bd3a67af402bc9fc71b67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
