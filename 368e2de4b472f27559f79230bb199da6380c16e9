@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "232f2354_e124e69d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-20T09:59:48Z",
+      "side": 1,
+      "message": "Note that this is guarded by `if (right.IsConstant())` just like the path that leads to the initilization of `value`. Therefore the warning is a false positive.\n\nWe could rewrite this with `std::optional\u003cint64_t\u003e value` and `DCHECK(value.has_value())` before using `*value`.",
+      "range": {
+        "startLine": 1755,
+        "startChar": 30,
+        "endLine": 1755,
+        "endChar": 35
+      },
+      "revId": "368e2de4b472f27559f79230bb199da6380c16e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
