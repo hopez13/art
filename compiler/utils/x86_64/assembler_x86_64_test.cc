@@ -1020,6 +1020,22 @@ TEST_F(AssemblerX86_64Test, XaddbMem) {
   DriverStr(RepeatbA(&x86_64::X86_64Assembler::xaddb, "xaddb %{reg}, {mem}"), "xaddb");
 }
 
+TEST_F(AssemblerX86_64Test, LockXaddq) {
+  DriverStr(RepeatRA(&x86_64::X86_64Assembler::LockXaddq, "lock xaddq %{reg}, {mem}"), "lock_xaddq");
+}
+
+TEST_F(AssemblerX86_64Test, LockXaddl) {
+  DriverStr(RepeatrA(&x86_64::X86_64Assembler::LockXaddl, "lock xaddl %{reg}, {mem}"), "lock_xaddl");
+}
+
+TEST_F(AssemblerX86_64Test, LockXaddw) {
+  DriverStr(RepeatwA(&x86_64::X86_64Assembler::LockXaddw, "lock xaddw %{reg}, {mem}"), "lock_xaddw");
+}
+
+TEST_F(AssemblerX86_64Test, LockXaddb) {
+  DriverStr(RepeatbA(&x86_64::X86_64Assembler::LockXaddb, "lock xaddb %{reg}, {mem}"), "lock_xaddb");
+}
+
 TEST_F(AssemblerX86_64Test, Cmpxchgb) {
   DriverStr(RepeatAb(&x86_64::X86_64Assembler::cmpxchgb, "cmpxchgb %{reg}, {mem}"), "cmpxchgb");
 }
