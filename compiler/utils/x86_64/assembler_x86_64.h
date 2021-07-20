@@ -787,6 +787,18 @@ class X86_64Assembler final : public Assembler {
   void xchgq(CpuRegister dst, CpuRegister src);
   void xchgq(CpuRegister reg, const Address& address);
 
+  void xaddb(CpuRegister dst, CpuRegister src);
+  void xaddb(CpuRegister reg, const Address& address);
+
+  void xaddw(CpuRegister dst, CpuRegister src);
+  void xaddw(CpuRegister reg, const Address& address);
+
+  void xaddl(CpuRegister dst, CpuRegister src);
+  void xaddl(CpuRegister reg, const Address& address);
+
+  void xaddq(CpuRegister dst, CpuRegister src);
+  void xaddq(CpuRegister reg, const Address& address);
+
   void cmpb(const Address& address, const Immediate& imm);
   void cmpw(const Address& address, const Immediate& imm);
 

@@ -3914,6 +3914,80 @@ void X86_64Assembler::xchgq(CpuRegister reg, const Address& address) {
 }
 
 
+void X86_64Assembler::xaddb(CpuRegister dst, CpuRegister src) {
+  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
+  EmitOptionalByteRegNormalizingRex32(dst, src, /*normalize_both=*/ true);
+  EmitUint8(0x0F);
+  EmitUint8(0xC0);
+  EmitRegisterOperand(dst.LowBits(), src.LowBits());
+}
+
+
+void X86_64Assembler::xaddb(CpuRegister reg, const Address& address) {
+  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
+  EmitOptionalByteRegNormalizingRex32(reg, address);
+  EmitUint8(0x0F);
+  EmitUint8(0xC0);
+  EmitOperand(reg.LowBits(), address);
+}
+
+
+void X86_64Assembler::xaddw(CpuRegister dst, CpuRegister src) {
+  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
+  EmitOperandSizeOverride();
+  EmitOptionalRex32(dst, src);
+  EmitUint8(0x0F);
+  EmitUint8(0xC1);
+  EmitRegisterOperand(dst.LowBits(), src.LowBits());
+}
+
+
+void X86_64Assembler::xaddw(CpuRegister reg, const Address& address) {
+  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
+  EmitOperandSizeOverride();
+  EmitOptionalRex32(reg, address);
+  EmitUint8(0x0F);
+  EmitUint8(0xC1);
+  EmitOperand(reg.LowBits(), address);
+}
+
+
+void X86_64Assembler::xaddl(CpuRegister dst, CpuRegister src) {
+  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
+  EmitOptionalRex32(dst, src);
+  EmitUint8(0x0F);
+  EmitUint8(0xC1);
+  EmitRegisterOperand(dst.LowBits(), src.LowBits());
+}
+
+
+void X86_64Assembler::xaddl(CpuRegister reg, const Address& address) {
+  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
+  EmitOptionalRex32(reg, address);
+  EmitUint8(0x0F);
+  EmitUint8(0xC1);
+  EmitOperand(reg.LowBits(), address);
+}
+
+
+void X86_64Assembler::xaddq(CpuRegister dst, CpuRegister src) {
+  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
+  EmitRex64(dst, src);
+  EmitUint8(0x0F);
+  EmitUint8(0xC1);
+  EmitRegisterOperand(dst.LowBits(), src.LowBits());
+}
+
+
+void X86_64Assembler::xaddq(CpuRegister reg, const Address& address) {
+  AssemblerBuffer::EnsureCapacity ensured(&buffer_);
+  EmitRex64(reg, address);
+  EmitUint8(0x0F);
+  EmitUint8(0xC1);
+  EmitOperand(reg.LowBits(), address);
+}
+
+
 void X86_64Assembler::cmpb(const Address& address, const Immediate& imm) {
   AssemblerBuffer::EnsureCapacity ensured(&buffer_);
   CHECK(imm.is_int32());
