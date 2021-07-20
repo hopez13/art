@@ -16,6 +16,52 @@
       "message": "Note TH failures are existing issues not due to this change.",
       "revId": "ec7a084706ba432f85a8a29daa7f68d507eae4dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb5dce85_b0731e0a",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5222,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-20T09:03:23Z",
+      "side": 1,
+      "message": "Unnecessary, there is also `ArtMethod::GetClassLoader()`.",
+      "range": {
+        "startLine": 5222,
+        "startChar": 25,
+        "endLine": 5222,
+        "endChar": 46
+      },
+      "revId": "ec7a084706ba432f85a8a29daa7f68d507eae4dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0591512_9566f6d1",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-20T09:03:23Z",
+      "side": 1,
+      "message": "Returning reference to an object that may be destroyed with the verifier\u0027s `RegTypeCache`.",
+      "range": {
+        "startLine": 5258,
+        "startChar": 9,
+        "endLine": 5258,
+        "endChar": 53
+      },
+      "revId": "ec7a084706ba432f85a8a29daa7f68d507eae4dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
