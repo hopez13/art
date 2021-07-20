@@ -46,6 +46,30 @@
       },
       "revId": "368e2de4b472f27559f79230bb199da6380c16e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc244c4f_4d2819da",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1755,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-20T10:28:18Z",
+      "side": 1,
+      "message": "I\u0027m a bit against the CL as is. At the very least the initialization deserves an explicit comment about avoiding a false positive. And the commit message should be updated accordingly.",
+      "parentUuid": "0a4a9ee4_35a0e699",
+      "range": {
+        "startLine": 1755,
+        "startChar": 30,
+        "endLine": 1755,
+        "endChar": 35
+      },
+      "revId": "368e2de4b472f27559f79230bb199da6380c16e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
