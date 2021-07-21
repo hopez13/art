@@ -16,6 +16,24 @@
       "message": "Nice optimization. Do you have more ideas which checks can be done statically?",
       "revId": "d907597b34771592bd77a16a155896b06640514c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bd8283c_be538225",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-21T12:57:33Z",
+      "side": 1,
+      "message": "I plan to \"rely on compile-time details of `static final VarHandle` fields\", see the referenced bug.",
+      "parentUuid": "06054f5b_8999ca75",
+      "revId": "d907597b34771592bd77a16a155896b06640514c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
