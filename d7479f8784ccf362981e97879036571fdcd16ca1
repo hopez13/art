@@ -16,6 +16,69 @@
       "message": "Ping.",
       "revId": "d7479f8784ccf362981e97879036571fdcd16ca1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70acb247_7824ab42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-21T14:14:07Z",
+      "side": 1,
+      "message": "Apologies for the delay.",
+      "revId": "d7479f8784ccf362981e97879036571fdcd16ca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b283362_8fb91266",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-21T14:14:07Z",
+      "side": 1,
+      "message": "This wouldn\u0027t work for some shells (like dash). Use \u0027\u003d\u0027:\n\n  $ /bin/dash -c \u0027[ \"a\" \u003d\u003d \"a\" ] \u0026\u0026 echo ok\u0027\n  /bin/dash: 1: [: a: unexpected operator\n  $ /bin/dash -c \u0027[ \"a\" \u003d \"a\" ] \u0026\u0026 echo ok\u0027\n  ok\n\n\nBTW shellcheck utility may be useful to find such things.",
+      "range": {
+        "startLine": 1169,
+        "startChar": 28,
+        "endLine": 1169,
+        "endChar": 30
+      },
+      "revId": "d7479f8784ccf362981e97879036571fdcd16ca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6d3504d_9a03725a",
+        "filename": "test/testrunner/testrunner.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-21T14:14:07Z",
+      "side": 1,
+      "message": "Nit: specified?",
+      "range": {
+        "startLine": 1152,
+        "startChar": 56,
+        "endLine": 1152,
+        "endChar": 64
+      },
+      "revId": "d7479f8784ccf362981e97879036571fdcd16ca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
