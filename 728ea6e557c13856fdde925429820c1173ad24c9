@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a371de37_941ae016",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-21T10:59:14Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "eda5ea7a_ea85b484",
+      "range": {
+        "startLine": 791,
+        "startChar": 13,
+        "endLine": 791,
+        "endChar": 52
+      },
+      "revId": "728ea6e557c13856fdde925429820c1173ad24c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62927f12_5efaec4a",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-21T09:07:23Z",
       "side": 1,
       "message": "The ordering appears to be wrong, implying wrong implementation. See tests for OR/XOR/AND.\n\nNote that the `gas` assembler format has operands exchanged, compared to Intel\u0027s assembler and documentation.",
+      "range": {
+        "startLine": 992,
+        "startChar": 61,
+        "endLine": 992,
+        "endChar": 77
+      },
+      "revId": "728ea6e557c13856fdde925429820c1173ad24c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68b32df5_27563e20",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-21T10:59:14Z",
+      "side": 1,
+      "message": "Done.\n\nI changed the operands in the implementation to have (src, dst) order. I am confused because for reg/reg instructions we almost always have (dst, src) order both in the signature and in the implementation, but for XADD I had to flip it.\n\nThe tests for reg/reg use %{reg2}, %{reg1} order consistently.",
+      "parentUuid": "62927f12_5efaec4a",
       "range": {
         "startLine": 992,
         "startChar": 61,
