@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79df8bd_499afa68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-21T23:35:00Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "05baaa20a67cdfb9ae7d9ed3c7b91af85ae0270c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a42f1824_cfc16991",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-21T23:35:00Z",
+      "side": 1,
+      "message": "Not sure if this is always the right target, or should we also check /system or /apex.  And if so, the order of priority. Happy to take any suggestions!",
+      "range": {
+        "startLine": 758,
+        "startChar": 33,
+        "endLine": 758,
+        "endChar": 53
+      },
+      "revId": "05baaa20a67cdfb9ae7d9ed3c7b91af85ae0270c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
