@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38648a92_3ab63f52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-22T16:48:22Z",
+      "side": 1,
+      "message": "Thanks for the heads up!",
+      "parentUuid": "07ac082e_ee35644b",
+      "revId": "39690750d39a2b38012cc13ead15ffb5e02ddc4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b295c5fb_1df3ca49",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-07-22T16:11:28Z",
       "side": 1,
       "message": "Daft question: is this in scope? ie does this compile...oh i see it\u0027s failing presubmit...Good, I\u0027m not crazy :-)",
+      "range": {
+        "startLine": 745,
+        "startChar": 6,
+        "endLine": 745,
+        "endChar": 19
+      },
+      "revId": "39690750d39a2b38012cc13ead15ffb5e02ddc4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4f79f14_c35fe3c0",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-22T16:48:22Z",
+      "side": 1,
+      "message": "Oops, fixed :(",
+      "parentUuid": "b295c5fb_1df3ca49",
       "range": {
         "startLine": 745,
         "startChar": 6,
