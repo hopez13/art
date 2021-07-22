@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26475899_c9edd385",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4015,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-22T10:38:06Z",
+      "side": 1,
+      "message": "Use a temporary. We cannot clobber the value because we may need the original value for retrying. And we also don\u0027t know if the register is reused for a subsequent instruction.",
+      "range": {
+        "startLine": 4015,
+        "startChar": 5,
+        "endLine": 4015,
+        "endChar": 90
+      },
+      "revId": "8069c83c7f366b741ce18ca00461506b13d9c7fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df92ead_0b42486e",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4018,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-22T10:38:06Z",
+      "side": 1,
+      "message": "DataType::Is64BitType(type)",
+      "range": {
+        "startLine": 4018,
+        "startChar": 17,
+        "endLine": 4018,
+        "endChar": 84
+      },
+      "revId": "8069c83c7f366b741ce18ca00461506b13d9c7fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
