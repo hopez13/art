@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eacc29a_a73d5356",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4015,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-22T10:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26475899_c9edd385",
+      "range": {
+        "startLine": 4015,
+        "startChar": 5,
+        "endLine": 4015,
+        "endChar": 90
+      },
+      "revId": "8069c83c7f366b741ce18ca00461506b13d9c7fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5df92ead_0b42486e",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-22T10:38:06Z",
       "side": 1,
       "message": "DataType::Is64BitType(type)",
+      "range": {
+        "startLine": 4018,
+        "startChar": 17,
+        "endLine": 4018,
+        "endChar": 84
+      },
+      "revId": "8069c83c7f366b741ce18ca00461506b13d9c7fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a652b43_d214d683",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4018,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-22T10:53:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5df92ead_0b42486e",
       "range": {
         "startLine": 4018,
         "startChar": 17,
