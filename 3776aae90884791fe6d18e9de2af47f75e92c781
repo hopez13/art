@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee130cca_f069b5f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-22T15:53:44Z",
+      "side": 1,
+      "message": "Yes, just need your input.  Adding you to aosp/1773254.\n\nI also added a minor improvement to avoid adding the args if we\u0027re not really passing anything.",
+      "parentUuid": "948d82d6_a1005a94",
+      "revId": "3776aae90884791fe6d18e9de2af47f75e92c781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6542117d_bcc1c9f4",
@@ -58,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b419be2_ff629036",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-22T15:53:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6542117d_bcc1c9f4",
+      "range": {
+        "startLine": 1422,
+        "startChar": 1,
+        "endLine": 1425,
+        "endChar": 0
+      },
+      "revId": "3776aae90884791fe6d18e9de2af47f75e92c781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de28f521_cc38aa7d",
@@ -71,6 +113,30 @@
       "writtenOn": "2021-07-22T15:25:21Z",
       "side": 1,
       "message": "This is a painful trivial comment: we generally speak of image files rather than art files (in some sense all these files are art files). Can we update this CL to do that throughout?",
+      "range": {
+        "startLine": 44,
+        "startChar": 55,
+        "endLine": 44,
+        "endChar": 58
+      },
+      "revId": "3776aae90884791fe6d18e9de2af47f75e92c781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e363693_278abd40",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-22T15:53:44Z",
+      "side": 1,
+      "message": "Done! :)",
+      "parentUuid": "de28f521_cc38aa7d",
       "range": {
         "startLine": 44,
         "startChar": 55,
