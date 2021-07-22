@@ -94,6 +94,30 @@
       },
       "revId": "e0a4f373dc4a738a2f26965a67d31239cbbd4f6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b788f634_2b02d806",
+        "filename": "runtime/jni/jni_internal_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-07-22T10:55:27Z",
+      "side": 1,
+      "message": "I\u0027m going to keep the JNI behavior when I try to reland.",
+      "parentUuid": "5be3ba15_6ff4fd2f",
+      "range": {
+        "startLine": 1516,
+        "startChar": 2,
+        "endLine": 1516,
+        "endChar": 50
+      },
+      "revId": "e0a4f373dc4a738a2f26965a67d31239cbbd4f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
