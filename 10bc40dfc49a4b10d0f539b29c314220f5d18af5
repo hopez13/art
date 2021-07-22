@@ -22,6 +22,30 @@
       },
       "revId": "10bc40dfc49a4b10d0f539b29c314220f5d18af5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd094047_e1508d6c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4015,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-22T13:05:34Z",
+      "side": 1,
+      "message": "Added a local variable for value location.",
+      "parentUuid": "09b4bad0_d29a9ab0",
+      "range": {
+        "startLine": 4015,
+        "startChar": 26,
+        "endLine": 4015,
+        "endChar": 54
+      },
+      "revId": "10bc40dfc49a4b10d0f539b29c314220f5d18af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
