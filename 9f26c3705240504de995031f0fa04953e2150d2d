@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c1481aa_69ff681f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2186,
+      "author": {
+        "id": 1611842
+      },
+      "writtenOn": "2021-07-23T19:09:27Z",
+      "side": 1,
+      "message": "This appears inconsistent with https://android-review.googlesource.com/c/platform/art/+/1776230.",
+      "revId": "9f26c3705240504de995031f0fa04953e2150d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
