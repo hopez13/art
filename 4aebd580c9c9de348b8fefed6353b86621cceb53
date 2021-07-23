@@ -16,6 +16,24 @@
       "message": "What about this?",
       "revId": "4aebd580c9c9de348b8fefed6353b86621cceb53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fccbaf9c_9493979d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-23T16:31:28Z",
+      "side": 1,
+      "message": "type being a Handle means the null check above is about the contents of the handle. type.Get() won\u0027t crash, it returns the content and that\u0027s ok to be null.",
+      "parentUuid": "cb9b7cbe_1a86ef55",
+      "revId": "4aebd580c9c9de348b8fefed6353b86621cceb53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
