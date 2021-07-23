@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b52cc4f7_693eff6a",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-23T14:13:39Z",
+      "side": 1,
+      "message": "That case is covered line 2205 of this file, where we check if either types is unresolved and return VERIFY_ERROR_UNRESOLVED_TYPE_CHECK if that\u0027s the case.",
+      "parentUuid": "143aad33_4afa728c",
+      "range": {
+        "startLine": 2213,
+        "startChar": 23,
+        "endLine": 2213,
+        "endChar": 50
+      },
+      "revId": "957ef4b02ed06ff1f88cb2b354db112ad9bc0c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a98a134a_5e2428fd",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-07-16T13:44:06Z",
       "side": 1,
       "message": "How can this be conflict?",
+      "range": {
+        "startLine": 3670,
+        "startChar": 2,
+        "endLine": 3670,
+        "endChar": 27
+      },
+      "revId": "957ef4b02ed06ff1f88cb2b354db112ad9bc0c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4aee3952_226a1878",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3670,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-23T14:13:39Z",
+      "side": 1,
+      "message": "FromDescriptor can return a conflicting result. Now, it could be the dex file verifier already has rejected it? However, like you mentioned, the verifier is fragile and I wouldn\u0027t want to revisit this in this CL.",
+      "parentUuid": "a98a134a_5e2428fd",
       "range": {
         "startLine": 3670,
         "startChar": 2,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed3e0c1f_991af8ea",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3773,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-23T14:13:39Z",
+      "side": 1,
+      "message": "Good catch!",
+      "parentUuid": "61f2f3ab_119ec31f",
+      "range": {
+        "startLine": 3773,
+        "startChar": 11,
+        "endLine": 3773,
+        "endChar": 24
+      },
+      "revId": "957ef4b02ed06ff1f88cb2b354db112ad9bc0c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c001666_f2a29a91",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-07-16T13:44:06Z",
       "side": 1,
       "message": "This looks like a bogus comment after you have removed the re-verification from jvmti.",
+      "range": {
+        "startLine": 3995,
+        "startChar": 17,
+        "endLine": 3998,
+        "endChar": 48
+      },
+      "revId": "957ef4b02ed06ff1f88cb2b354db112ad9bc0c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67559c35_027a0b7c",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3998,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-23T14:13:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c001666_f2a29a91",
       "range": {
         "startLine": 3995,
         "startChar": 17,

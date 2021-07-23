@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "861698a0_8e050f62",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-23T14:13:39Z",
+      "side": 0,
+      "message": "No, see my comment on the diff.",
+      "parentUuid": "3c651e34_3514e195",
+      "range": {
+        "startLine": 2216,
+        "startChar": 16,
+        "endLine": 2216,
+        "endChar": 99
+      },
+      "revId": "dcb148a48a6bc69aba71cf3e2b8ab915ab3bf6d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4ba8b33_456f9f8e",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-07-16T13:44:06Z",
       "side": 0,
       "message": "This looks relevant and worth preserving but we don\u0027t have a good error type for it. Should we have a VERIFY_ERROR_NO_FIELD?",
+      "range": {
+        "startLine": 4729,
+        "startChar": 8,
+        "endLine": 4731,
+        "endChar": 86
+      },
+      "revId": "dcb148a48a6bc69aba71cf3e2b8ab915ab3bf6d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c35786bf_04805ef7",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4731,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-07-23T14:13:39Z",
+      "side": 0,
+      "message": "Actually, we can also lookup the fields in the dex file for avoiding the failure. I\u0027ll do that in a dedicated CL.",
+      "parentUuid": "b4ba8b33_456f9f8e",
       "range": {
         "startLine": 4729,
         "startChar": 8,
