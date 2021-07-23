@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9adb3165_544dbbe7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-07-23T18:39:59Z",
+      "side": 1,
+      "message": "PTAL.  PS1 is the original change.  Not sure how the problem wasn\u0027t caught in previous presubmit, but I can reproduce the problem in `odsign_e2e_tests` (and fixed it).",
+      "revId": "c102f2804fc0bfc630a419af8e1f4c1f072a84f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
