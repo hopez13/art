@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a4d1a67_34d53e5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-23T11:05:01Z",
+      "side": 1,
+      "message": "A longer explanation would help. Why did we stop needing them? Is this a consequence of some other work? It\u0027s hard to understand without context.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 34
+      },
+      "revId": "0b75d95fe9c40f3e7c8105b354469cfae6c333a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "37446c26_7940c1ac",
@@ -14,6 +37,29 @@
       "writtenOn": "2021-07-23T10:08:53Z",
       "side": 1,
       "message": "Thanks Vladimir!\n\nUlya, David, given Vladimir is now OOO could you take over the review?",
+      "revId": "0b75d95fe9c40f3e7c8105b354469cfae6c333a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2998e3ee_b1cdc3f1",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-07-23T11:05:01Z",
+      "side": 1,
+      "message": "Nit: I think it could be simplified a bit:\n\n  if ((i \u003d\u003d interesting_dex_pc) || flags[i].IsBranchTarget()) {\n    ...\n  }",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 5
+      },
       "revId": "0b75d95fe9c40f3e7c8105b354469cfae6c333a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
