@@ -16,6 +16,24 @@
       "message": "Jiakai, in the failing TH test that contains the selinux denial, why is there a \"/data/misc/apexdata/com.android.art/dalvik-cache/arm64/system@framework@com.android.location.provider.jar@classes.odex\" being generated? Normally, we should use the preopted one in /system/framework/oat/.",
       "revId": "566daa5001f29b2851df5dcfd7ddd2cc623ac4b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5172e9d3_a8ea1ddd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-24T01:50:55Z",
+      "side": 1,
+      "message": "odrefresh now checks if all system server components have artifacts on /system. Currently, the check will never pass because we don\u0027t have artifacts on /system for APEX jars, so odrefresh will always compile system server jars during the first boot.\n\nThis behavior will go away once we preopt APEX jars. I\u0027ll work on that once this CL is submitted.",
+      "parentUuid": "381869e9_28266e88",
+      "revId": "566daa5001f29b2851df5dcfd7ddd2cc623ac4b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
