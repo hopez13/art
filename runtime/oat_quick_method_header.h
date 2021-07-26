@@ -110,7 +110,7 @@ class PACKED(4) OatQuickMethodHeader {
       // On Thumb-2, the pc is offset by one.
       code_start++;
     }
-    return code_start <= pc && pc <= (code_start + GetCodeSize());
+    return code_start <= pc && code_size_ != 0xFFFFFFFF && pc <= (code_start + GetCodeSize());
   }
 
   const uint8_t* GetEntryPoint() const {
