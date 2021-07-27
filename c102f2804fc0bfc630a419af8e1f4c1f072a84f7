@@ -16,6 +16,57 @@
       "message": "PTAL.  PS1 is the original change.  Not sure how the problem wasn\u0027t caught in previous presubmit, but I can reproduce the problem in `odsign_e2e_tests` (and fixed it).",
       "revId": "c102f2804fc0bfc630a419af8e1f4c1f072a84f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a879c53_c54b6b2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-27T03:06:49Z",
+      "side": 1,
+      "message": "+1 for the odrefresh change.",
+      "revId": "c102f2804fc0bfc630a419af8e1f4c1f072a84f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6391a665_1430c4b9",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-27T03:06:49Z",
+      "side": 1,
+      "message": "if (!jar_file || !jar_file-\u003eIsValid())",
+      "revId": "c102f2804fc0bfc630a419af8e1f4c1f072a84f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8d6a7d7_79d1cd2c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-07-27T03:06:49Z",
+      "side": 1,
+      "message": "std::vector\u003cstd::string\u003e bcp_image_fds;\n\nHere and below.\n\ngo/cstyle#Variable_and_Array_Initialization",
+      "revId": "c102f2804fc0bfc630a419af8e1f4c1f072a84f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
