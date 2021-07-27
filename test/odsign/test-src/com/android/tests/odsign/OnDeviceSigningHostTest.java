@@ -248,6 +248,22 @@ public class OnDeviceSigningHostTest extends BaseHostJUnit4Test {
         verifySystemServerLoadedArtifacts();
     }
 
+    @Test
+    public void verifyGeneratedArtifactsLoadedAfterReboot() throws Exception {
+        reboot();
+
+        // Checking zygote and system_server need the device have adb root to walk process maps.
+        final boolean adbEnabled = getDevice().enableAdbRoot();
+        assertTrue("ADB root failed and required to get process maps", adbEnabled);
+
+        // Check both zygote and system_server processes to see that they have loaded the
+        // artifacts compiled and signed by odrefresh and odsign. We check both here rather than
+        // having a separate test because the device reboots between each @Test method and
+        // that is an expensive use of time.
+        verifyZygotesLoadedArtifacts();
+        verifySystemServerLoadedArtifacts();
+    }
+
     /**
      * Checks the input line by line and replaces all lines that match the regex with the given
      * replacement.
