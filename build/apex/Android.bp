@@ -29,11 +29,11 @@ art_runtime_base_binaries_both = [
 art_runtime_base_binaries_both_on_device_first_on_host = [
     "dex2oat",
 ]
-// - Base requirements (binaries for which a 32-bit version is preferred on device, but for which
-//   only the "first" (likely 64-bit) version is required on host).
-art_runtime_base_binaries_prefer32_on_device_first_on_host = [
-    "dexoptanalyzer",
+// - Base requirements (binaries for which the "first" version is preferred on device
+//  (likely 64-bit) and on host).
+art_runtime_base_binaries_first_on_device_first_on_host = [
     "odrefresh",
+    "dexoptanalyzer",
     "profman",
 ]
 
@@ -89,12 +89,13 @@ bionic_binaries_both = [
     "linker",
 ]
 
-// - Debug variants (binaries for which a 32-bit version is preferred on device, but for which
-//   only the "first" (likely 64-bit) version is required on host).
-art_runtime_debug_binaries_prefer32_on_device_first_on_host = [
+// - Debug variants (binaries for which the "first" version is preferred on device
+//  (likely 64-bit) and on host).
+art_runtime_debug_binaries_first_on_device_first_on_host = [
     "dexoptanalyzerd",
     "profmand",
 ]
+
 art_runtime_debug_binaries_both_on_device_first_on_host = [
     "dex2oatd",
 ]
@@ -255,11 +256,9 @@ apex_defaults {
             binaries: art_runtime_base_binaries_both +
                 art_runtime_base_binaries_both_on_device_first_on_host,
         },
-        prefer32: {
-            binaries: art_runtime_base_binaries_prefer32_on_device_first_on_host,
-        },
         first: {
-            binaries: art_tools_common_binaries +
+            binaries: art_runtime_base_binaries_first_on_device_first_on_host +
+                art_tools_common_binaries +
                 art_tools_device_only_binaries,
         },
     },
@@ -299,11 +298,9 @@ apex_defaults {
             binaries: art_tools_debug_binaries_both +
                 art_runtime_debug_binaries_both_on_device_first_on_host,
         },
-        prefer32: {
-            binaries: art_runtime_debug_binaries_prefer32_on_device_first_on_host,
-        },
         first: {
-            binaries: art_tools_debug_binaries +
+            binaries: art_runtime_debug_binaries_first_on_device_first_on_host +
+                art_tools_debug_binaries +
                 art_tools_debug_device_only_binaries,
         },
     },
@@ -404,9 +401,9 @@ art_apex_test_host {
                 art_tools_debug_binaries_both,
         },
         first: {
-            binaries: art_runtime_base_binaries_prefer32_on_device_first_on_host +
-                art_runtime_base_binaries_both_on_device_first_on_host +
-                art_runtime_debug_binaries_prefer32_on_device_first_on_host +
+            binaries: art_runtime_base_binaries_both_on_device_first_on_host +
+                art_runtime_base_binaries_first_on_device_first_on_host +
+                art_runtime_debug_binaries_first_on_device_first_on_host +
                 art_runtime_debug_binaries_both_on_device_first_on_host +
                 art_tools_common_binaries +
                 art_tools_debug_binaries + // Host APEX is always debug.
