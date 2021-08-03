@@ -64,6 +64,8 @@ enum GcCause {
   kGcCauseProfileSaver,
   // GC cause for running an empty checkpoint.
   kGcCauseRunEmptyCheckpoint,
+  // Not a real GC cause, used to prevent a deadlock between thread suspend and weak reference access.
+  kGcCauseThreadSuspend,
 };
 
 const char* PrettyCause(GcCause cause);

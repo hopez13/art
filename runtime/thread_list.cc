@@ -40,6 +40,7 @@
 #include "gc/heap.h"
 #include "gc/reference_processor.h"
 #include "gc_root.h"
+#include "gc/scoped_gc_critical_section.h"
 #include "jni/jni_internal.h"
 #include "lock_word.h"
 #include "monitor.h"
@@ -901,6 +902,9 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer,
       // than request thread suspension, to avoid potential cycles in threads requesting each other
       // suspend.
       ScopedObjectAccess soa(self);
+      // Prevent GC to disable weak reference access that may cause a deadlock.
+      gc::ScopedGCCriticalSection gcs(self, gc::kGcCauseThreadSuspend,
+                                      gc::kCollectorTypeCriticalSection);
       MutexLock thread_list_mu(self, *Locks::thread_list_lock_);
       thread = Thread::FromManagedThread(soa, peer);
       if (thread == nullptr) {
