@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7b16d34_701eb42c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-08-03T11:55:42Z",
+      "side": 1,
+      "message": "Could you also add\n\n  Test: art/build/apex/runtests.sh\n\nhere?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "fa24d9a58e0405e4498b42f647fa82aa65e1c2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52b5556f_2d87d880",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-08-03T11:55:42Z",
+      "side": 1,
+      "message": "Should we remove all occurrences of `art_runtime_debug_binaries_prefer32_on_device_first_on_host` now that it is empty?",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 104,
+        "endChar": 59
+      },
+      "revId": "fa24d9a58e0405e4498b42f647fa82aa65e1c2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
