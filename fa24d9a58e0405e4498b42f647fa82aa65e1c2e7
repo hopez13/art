@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f80b996b_0b9774d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-03T13:56:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b905288c_4abc05ac",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "fa24d9a58e0405e4498b42f647fa82aa65e1c2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92309a77_52e8899c",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-08-03T11:57:05Z",
       "side": 1,
       "message": "Also maybe mention the increase in size of the 32-bit (Arm and 86) APEXes here?",
+      "revId": "fa24d9a58e0405e4498b42f647fa82aa65e1c2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62793138_72f6bdc3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-03T13:56:19Z",
+      "side": 1,
+      "message": "Done.\n\nI triple checked the Intel numbers, but there really is no difference in the uncompressed APEX size there. The compressed Intel APEX ends up a little bigger though 27,697,152 bytes vs 27,693,056 bytes.",
+      "parentUuid": "92309a77_52e8899c",
       "revId": "fa24d9a58e0405e4498b42f647fa82aa65e1c2e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6375b591_db376a36",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-03T13:56:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7b16d34_701eb42c",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "fa24d9a58e0405e4498b42f647fa82aa65e1c2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52b5556f_2d87d880",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-08-03T11:55:42Z",
       "side": 1,
       "message": "Should we remove all occurrences of `art_runtime_debug_binaries_prefer32_on_device_first_on_host` now that it is empty?",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 104,
+        "endChar": 59
+      },
+      "revId": "fa24d9a58e0405e4498b42f647fa82aa65e1c2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c7cd863_c0fc9c11",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-03T13:56:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52b5556f_2d87d880",
       "range": {
         "startLine": 104,
         "startChar": 1,
