@@ -39,6 +39,23 @@
       "message": "As discussed in b/194971348, the correct issue for this CL is b/195336624 .",
       "revId": "1ac8d8a7d4ae5d8e93cca29024fe428d51967bab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8019a176_47101321",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-03T19:57:13Z",
+      "side": 1,
+      "message": "I commented on b/195336624. I\u0027m concerned about the cost of the GC critical section. And it looks to me like the root cause here is blocking on weak reference access while in runnable state. I would like to explore addressing that more directly.",
+      "revId": "1ac8d8a7d4ae5d8e93cca29024fe428d51967bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
