@@ -51,6 +51,24 @@
       "parentUuid": "fed29e87_5fb459c4",
       "revId": "367e5bb7b6576a9f6f01cfef8a36e5216d268974",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cbb4459_e5428045",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 9728,
+      "author": {
+        "id": 1083259
+      },
+      "writtenOn": "2021-08-04T00:07:52Z",
+      "side": 1,
+      "message": "In terms of class instance, soa.Self() seems to be more accurate, even though self_ is thread self. \nclass ScopedObjectAccessAlreadyRunnable : public ValueObject {\n public:\n  Thread* Self() const {\n    return self_;\n  }",
+      "parentUuid": "f5d08c20_88993261",
+      "revId": "367e5bb7b6576a9f6f01cfef8a36e5216d268974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
