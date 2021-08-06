@@ -227,6 +227,30 @@
       },
       "revId": "405d8c3f5c435d34ea32dd8c2c8feb6b1c14560e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bdacac9_cb6f2422",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9724,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-06T23:36:30Z",
+      "side": 1,
+      "message": "I also still like the fix here. I don\u0027t think this is fixable in ClassLinker::InsertClass . We have to be able to acquire locks in rummable mode. The root cause seems to be that DumpForSigQuit holds another lock while waiting in WeakReference access. Given the non-performance-critical nature of this code, just making sure that we don\u0027t block there, as this does, seems like a good way out.",
+      "parentUuid": "de960acf_912083dc",
+      "range": {
+        "startLine": 9723,
+        "startChar": 33,
+        "endLine": 9724,
+        "endChar": 33
+      },
+      "revId": "405d8c3f5c435d34ea32dd8c2c8feb6b1c14560e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
