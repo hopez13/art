@@ -134,6 +134,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50b2c046_d2cf7d71",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9721,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-06T22:40:40Z",
+      "side": 1,
+      "message": "Yeah it makes sense. The very checkpoint that disabled weak-ref access itself can cause this.",
+      "parentUuid": "35b928b8_5af89a17",
+      "range": {
+        "startLine": 9721,
+        "startChar": 51,
+        "endLine": 9721,
+        "endChar": 78
+      },
+      "revId": "405d8c3f5c435d34ea32dd8c2c8feb6b1c14560e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2ecfc27_c320eb08",
@@ -171,6 +195,30 @@
       "side": 1,
       "message": "My understanding of the theory here is that the mutator lock participates in the lock hierarchy, preventing lock-based deadlocks here. So long as we only acquire locks that should be acquired after the mutator lock while we\u0027re runnable, we should always be OK. The problematic piece here is waiting on a CV while runnable. WaitHoldingLocks has a TODO saying basically that it should not exist. And I agree. But it does. AFAICT, we\u0027ve dealt with any resulting deadlocks individually, which I think we should move away from.\n\nNote also that b/191921480 mentions some other deadlocks that may be related.",
       "parentUuid": "f2ecfc27_c320eb08",
+      "range": {
+        "startLine": 9723,
+        "startChar": 33,
+        "endLine": 9724,
+        "endChar": 33
+      },
+      "revId": "405d8c3f5c435d34ea32dd8c2c8feb6b1c14560e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de960acf_912083dc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9724,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-06T22:40:40Z",
+      "side": 1,
+      "message": "As per our offline discussion, I understand the issue. On one hand the thread waiting on acquiring a lock is breaking its promise that when it\u0027s runnable it will service the checkpoint requests. But at the same time, it is not possible to ensure that always as in some (or many) cases the threads are not in a position to run checkpoints when they are trying to acquire some lock.\n\nI\u0027m +2 this CL because in this case, at least, it seems safe to wait for any on-going GC to finish, even if that takes several milliseconds to finish.",
+      "parentUuid": "db840a2c_a2598659",
       "range": {
         "startLine": 9723,
         "startChar": 33,
