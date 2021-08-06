@@ -16,6 +16,75 @@
       "message": "The TreeHugger failure looks like it was something unrelated, though it\u0027s not clear to me exactly what failed. Retrying ...",
       "revId": "afb5a1ddbea9bf26802c39cf483415cab7eff83c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69db6155_bf041e0e",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-06T18:01:14Z",
+      "side": 1,
+      "message": "Not for this CL, but shouldn\u0027t we try to make it a reader-writer mutex for better scalability here? Almost nothing done below in this function seems to require exclusive access.",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 56
+      },
+      "revId": "afb5a1ddbea9bf26802c39cf483415cab7eff83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "503e37d0_d55934f9",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-06T18:01:14Z",
+      "side": 1,
+      "message": "needs to be re-worded",
+      "range": {
+        "startLine": 384,
+        "startChar": 74,
+        "endLine": 385,
+        "endChar": 30
+      },
+      "revId": "afb5a1ddbea9bf26802c39cf483415cab7eff83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83830364_c5fd5d70",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-06T18:01:14Z",
+      "side": 1,
+      "message": "I don\u0027t see the mutator_lock being released in the code.",
+      "range": {
+        "startLine": 92,
+        "startChar": 46,
+        "endLine": 92,
+        "endChar": 89
+      },
+      "revId": "afb5a1ddbea9bf26802c39cf483415cab7eff83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
