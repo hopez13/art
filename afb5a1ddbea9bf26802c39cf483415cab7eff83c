@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7934a8c_3ee2247d",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-07T00:49:19Z",
+      "side": 1,
+      "message": "We talked about this. I don\u0027t think the reference_processor_lock_ is usually held long enough, or contended long enough for it to matter. Here we release it quickly in the wait call below. It might also require lower-level changes, since we use it with a condition variable.",
+      "parentUuid": "69db6155_bf041e0e",
+      "range": {
+        "startLine": 114,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 56
+      },
+      "revId": "afb5a1ddbea9bf26802c39cf483415cab7eff83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "503e37d0_d55934f9",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "855e6301_a540e221",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-07T00:49:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "503e37d0_d55934f9",
+      "range": {
+        "startLine": 384,
+        "startChar": 74,
+        "endLine": 385,
+        "endChar": 30
+      },
+      "revId": "afb5a1ddbea9bf26802c39cf483415cab7eff83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83830364_c5fd5d70",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-08-06T18:01:14Z",
       "side": 1,
       "message": "I don\u0027t see the mutator_lock being released in the code.",
+      "range": {
+        "startLine": 92,
+        "startChar": 46,
+        "endLine": 92,
+        "endChar": 89
+      },
+      "revId": "afb5a1ddbea9bf26802c39cf483415cab7eff83c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "150e1ce8_79f70aa2",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-07T00:49:19Z",
+      "side": 1,
+      "message": "We talked about this. It logically does via the ScopedThreadSuspension. I think it\u0027s OK to leave this.",
+      "parentUuid": "83830364_c5fd5d70",
       "range": {
         "startLine": 92,
         "startChar": 46,
