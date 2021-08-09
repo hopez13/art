@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53ee6148_8a9ce744",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-09T22:01:29Z",
+      "side": 1,
+      "message": "I think the problem here is that we\u0027re now holding onto the ObjPtr reference across a thread suspension, at which point, it may no longer be valid. I\u0027ll generate another attempt. Unfortunately, that CL will be larger still.",
+      "revId": "0c3cc6350749a441fd54f8f3f67b7c69775000c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
