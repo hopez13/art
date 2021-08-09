@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98a26ff3_2cb0b3f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-09T15:14:02Z",
+      "side": 1,
+      "message": "Have you verified that the correct argument is passed to dex2oat?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "51423812ac3e592de4ae93052ff4572b6003a999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a342e6_f34c8431",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-09T15:14:02Z",
+      "side": 1,
+      "message": "Since this needs to be cherry-picked into sc-dev I suggest testing and landing it there first, and then cherry-pick to AOSP instead. (You may need a tag to override the AyeAye check, but imo it\u0027s still preferable in this case.)",
+      "revId": "51423812ac3e592de4ae93052ff4572b6003a999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e503fa1b_78cf687f",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-09T15:14:02Z",
+      "side": 1,
+      "message": "Can we test this logic? I doubt it\u0027s feasible in the e2e test, but rather in a unit test that checks that the created dex2oat command line has the expected argument.",
+      "range": {
+        "startLine": 1293,
+        "startChar": 0,
+        "endLine": 1299,
+        "endChar": 7
+      },
+      "revId": "51423812ac3e592de4ae93052ff4572b6003a999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
