@@ -47,7 +47,12 @@ constexpr const char* kApexPath = "/apex/";
 // to use to load vendor libraries to separate namespace with controlled interface between
 // vendor and system namespaces.
 constexpr const char* kVendorNamespaceName = "sphal";
+// Similar to sphal namespace, product namespace provides some product libraries.
+constexpr const char* kProductNamespaceName = "product";
+
+// vndk namespace for unbundled vendor apps
 constexpr const char* kVndkNamespaceName = "vndk";
+// vndk_product namespace for unbundled product apps
 constexpr const char* kVndkProductNamespaceName = "vndk_product";
 
 // classloader-namespace is a linker namespace that is created for the loaded
@@ -368,6 +373,21 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
     auto target_ns = vendor_ns.ok() ? vendor_ns : system_ns;
     if (target_ns.ok()) {
       linked = app_ns->Link(&target_ns.value(), vendor_libs);
+      if (!linked.ok()) {
+        return linked.error();
+      }
+    }
+  }
+
+  auto product_libs = filter_public_libraries(target_sdk_version, uses_libraries,
+                                              product_public_libraries());
+  if (!product_libs.empty()) {
+    auto product_ns =
+        NativeLoaderNamespace::GetExportedNamespace(kProductNamespaceName, is_bridged);
+    // when product_ns is not configured, link to the system namespace
+    auto target_ns = product_ns.ok() ? product_ns : system_ns;
+    if (target_ns.ok()) {
+      linked = app_ns->Link(&target_ns.value(), product_libs);
       if (!linked.ok()) {
         return linked.error();
       }
