@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ba4f434_c5e8a383",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-10T05:46:48Z",
+      "side": 1,
+      "message": "Added manual tests for now. Please see comments below for why unit tests can\u0027t be done in this CL.",
+      "parentUuid": "98a26ff3_2cb0b3f7",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "51423812ac3e592de4ae93052ff4572b6003a999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32a342e6_f34c8431",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c22d974_9bd2d45d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-10T05:46:48Z",
+      "side": 1,
+      "message": "Thank you for the suggestion. I plan to get this into AOSP and then cherry-pick it into sc-dev. This is because cherry-picking into sc-dev is nice-to-have, but not critical. For S, this bug only affects users who get samegrade placebos and have never received an ART mainline update (b/195653499#comment5), which is a low percent population. IMO, it might be hard to get this into sc-dev as we are at ZBB-P1, so I will try it after getting this into AOSP.",
+      "parentUuid": "32a342e6_f34c8431",
+      "revId": "51423812ac3e592de4ae93052ff4572b6003a999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e503fa1b_78cf687f",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-08-09T15:14:02Z",
       "side": 1,
       "message": "Can we test this logic? I doubt it\u0027s feasible in the e2e test, but rather in a unit test that checks that the created dex2oat command line has the expected argument.",
+      "range": {
+        "startLine": 1293,
+        "startChar": 0,
+        "endLine": 1299,
+        "endChar": 7
+      },
+      "revId": "51423812ac3e592de4ae93052ff4572b6003a999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c3a368_53f85760",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-10T05:46:48Z",
+      "side": 1,
+      "message": "Honestly, I was surprised that odrefresh doesn\u0027t have a unit test. The way it is written makes it hard to be unit-tested. Adding a unit test requires some refactoring and will make it hard to get this change into sc-dev because odrefresh on AOSP has already diverged a lot from the one on sc-dev.\n\nI have done manual tests for now and I will add unit tests in a separate CL (probably only on AOSP).",
+      "parentUuid": "e503fa1b_78cf687f",
       "range": {
         "startLine": 1293,
         "startChar": 0,
