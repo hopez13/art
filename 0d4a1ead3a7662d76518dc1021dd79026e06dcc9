@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fef1964_9e15ff50",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-10T19:55:39Z",
+      "side": 1,
+      "message": "Nit: Can you please add an empty line here, so that it\u0027s more clear that the comment only applies to the line above.",
+      "revId": "0d4a1ead3a7662d76518dc1021dd79026e06dcc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b28e6df_da30fb1a",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-10T19:55:39Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of this? It won\u0027t work to link to the system namespace for product libs if /product/${LIB} isn\u0027t in its search path.",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 62
+      },
+      "revId": "0d4a1ead3a7662d76518dc1021dd79026e06dcc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
