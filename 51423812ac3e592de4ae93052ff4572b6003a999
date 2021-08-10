@@ -83,6 +83,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81723969_717e20eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-10T09:00:38Z",
+      "side": 1,
+      "message": "Ok. From the ticket I got the impression that a fix in sc-dev is a priority.",
+      "parentUuid": "1c22d974_9bd2d45d",
+      "revId": "51423812ac3e592de4ae93052ff4572b6003a999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e503fa1b_78cf687f",
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "Honestly, I was surprised that odrefresh doesn\u0027t have a unit test. The way it is written makes it hard to be unit-tested. Adding a unit test requires some refactoring and will make it hard to get this change into sc-dev because odrefresh on AOSP has already diverged a lot from the one on sc-dev.\n\nI have done manual tests for now and I will add unit tests in a separate CL (probably only on AOSP).",
       "parentUuid": "e503fa1b_78cf687f",
+      "range": {
+        "startLine": 1293,
+        "startChar": 0,
+        "endLine": 1299,
+        "endChar": 7
+      },
+      "revId": "51423812ac3e592de4ae93052ff4572b6003a999",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "667bd42f_70880c7f",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-10T09:00:38Z",
+      "side": 1,
+      "message": "SG, thanks.",
+      "parentUuid": "82c3a368_53f85760",
       "range": {
         "startLine": 1293,
         "startChar": 0,
