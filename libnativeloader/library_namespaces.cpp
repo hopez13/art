@@ -47,7 +47,12 @@ constexpr const char* kApexPath = "/apex/";
 // to use to load vendor libraries to separate namespace with controlled interface between
 // vendor and system namespaces.
 constexpr const char* kVendorNamespaceName = "sphal";
+// Similar to sphal namespace, product namespace provides some product libraries.
+constexpr const char* kProductNamespaceName = "product";
+
+// vndk namespace for unbundled vendor apps
 constexpr const char* kVndkNamespaceName = "vndk";
+// vndk_product namespace for unbundled product apps
 constexpr const char* kVndkProductNamespaceName = "vndk_product";
 
 // classloader-namespace is a linker namespace that is created for the loaded
@@ -371,6 +376,30 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
       if (!linked.ok()) {
         return linked.error();
       }
+    }
+  }
+
+  auto product_libs = filter_public_libraries(target_sdk_version, uses_libraries,
+                                              product_public_libraries());
+  if (!product_libs.empty()) {
+    auto target_ns = system_ns;
+    if (is_product_vndk_version_defined()) {
+      // If ro.product.vndk.version is defined, product namespace provides the product libraries.
+      auto product_ns =
+          NativeLoaderNamespace::GetExportedNamespace(kProductNamespaceName, is_bridged);
+      if (product_ns.ok()) {
+        target_ns = product_ns;
+      } else {
+        // The linkerconfig must have a problem on defining the product namespace in the system
+        // section. This will not affect most of the apps. Only the apps that requires the product
+        // public libraries will fail. So, do not fail the native loader but log a warning message.
+        ALOGW("Namespace for product libs not found. Use the system namespace, instead.");
+      }
+    }
+    // target_ns must be 'ok' because both system_ns and product_ns have already been verified.
+    linked = app_ns->Link(&target_ns.value(), product_libs);
+    if (!linked.ok()) {
+      return linked.error();
     }
   }
 
