@@ -22,6 +22,30 @@
       },
       "revId": "a625c2e623fa6438c32edfa93ce5cc3a2649ec68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7305c60e_fbe39823",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2021-08-11T11:51:59Z",
+      "side": 1,
+      "message": "Done.\nLogged a message if the product name is not found.",
+      "parentUuid": "a5fc9ca5_4a964ce5",
+      "range": {
+        "startLine": 390,
+        "startChar": 8,
+        "endLine": 390,
+        "endChar": 22
+      },
+      "revId": "a625c2e623fa6438c32edfa93ce5cc3a2649ec68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
