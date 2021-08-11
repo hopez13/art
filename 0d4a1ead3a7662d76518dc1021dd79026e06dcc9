@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef33fda3_991bb5c2",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-11T08:48:56Z",
+      "side": 1,
+      "message": "I read it as an explanation of why it has the strange name \"sphal\", but this is fine too. Thanks.",
+      "parentUuid": "e8311b8c_8c309c32",
+      "revId": "0d4a1ead3a7662d76518dc1021dd79026e06dcc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b28e6df_da30fb1a",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "\u0027product\u0027 namespace is defined only if the target defined \u0027PRODUCT_PRODUCT_VNDK_VERSION\u0027. So, in some cases, product_ns does not exist. In that case the system namespace has the search path of /product/${LIB}.\n(https://cs.android.com/android/platform/superproject/+/master:system/linkerconfig/testdata/golden_output/stage2/ld.config.txt;drc\u003d294a3f8ed7a357d5d73ddcd860a450a86388c337;l\u003d32)",
       "parentUuid": "0b28e6df_da30fb1a",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 62
+      },
+      "revId": "0d4a1ead3a7662d76518dc1021dd79026e06dcc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ada462c0_c1468767",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-11T08:48:56Z",
+      "side": 1,
+      "message": "Aha, so it should be equivalent to using is_product_vndk_version_defined() as condition? Can we change it to that, and then do it before even calling GetExportedNamespace above? That way we\u0027d get better error propagation if for some reason it fails to find \"product\" when it should exist.",
+      "parentUuid": "44b14b02_ab49820d",
       "range": {
         "startLine": 383,
         "startChar": 0,
