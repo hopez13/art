@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da18cd0e_6dbd75ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-11T14:00:27Z",
+      "side": 1,
+      "message": "`pidof` outputs pids in ascending order, so the first one is the right one because its pid is a very small number. Actually, I\u0027m not sure why there are multiple zygote processes. Does zygote fork for some reason?",
+      "parentUuid": "2ed95634_2afc3122",
+      "range": {
+        "startLine": 9,
+        "startChar": 291,
+        "endLine": 9,
+        "endChar": 313
+      },
+      "revId": "3adee68798898cb8b1b94414ccc4073c499ab147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ae86c53_f9f7323b",
         "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-11T13:21:41Z",
       "side": 1,
       "message": "do we need to do the same thing here? Generally there is only one system_server",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 82
+      },
+      "revId": "3adee68798898cb8b1b94414ccc4073c499ab147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d59db620_f8ab3d1e",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-11T14:00:27Z",
+      "side": 1,
+      "message": "I do the same thing here just to be safe. I thought there was supposed to be only one `zygote` and one `zygote64`, but it turns out that there are multiple of them, so I\u0027m not sure about `system_server` either. There is probably only one system_server as you said, but taking the first pid doesn\u0027t hurt correctness.\n\nBTW, why can there be multiple zygote processes? Does zygote fork for some reason?",
+      "parentUuid": "5ae86c53_f9f7323b",
       "range": {
         "startLine": 158,
         "startChar": 0,
