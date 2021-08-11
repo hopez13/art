@@ -123,6 +123,30 @@
       },
       "revId": "0d4a1ead3a7662d76518dc1021dd79026e06dcc9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10cfb5ef_a3d44999",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2021-08-11T09:55:48Z",
+      "side": 1,
+      "message": "\u003e it should be equivalent to using is_product_vndk_version_defined() as condition?\nYes.\nAs suggested, with the new patchset, if `product` namespace is not found with the `PRODUCT_PRODUCT_VNDK_VERSION` configured, the namespace creation will report an error.",
+      "parentUuid": "ada462c0_c1468767",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 62
+      },
+      "revId": "0d4a1ead3a7662d76518dc1021dd79026e06dcc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
