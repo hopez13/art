@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd333d15_39617b72",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-11T12:21:40Z",
+      "side": 1,
+      "message": "In the VNDK version case there should be a separate product namespace isolated from system, so doing this may mean libraries get loaded in the wrong namespace, which can lead to subtle bugs. Isn\u0027t it better to simply not create the links in this case, so that apps that do need those libs fail with a more obvious dlopen error?\n\nAlso, please include the error message from product_ns.error().message().",
+      "range": {
+        "startLine": 396,
+        "startChar": 53,
+        "endLine": 396,
+        "endChar": 86
+      },
+      "revId": "0e34866e8e234e41451df2f701b773f57a530cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
