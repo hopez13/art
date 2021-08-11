@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5fc9ca5_4a964ce5",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-11T10:29:27Z",
+      "side": 1,
+      "message": "It still ignores the error if GetExportedNamespace fails. This is a pattern from many other namespace lookups above, but since this is a new one I think we can do better here.\n\nSince this code runs for all apps, and most won\u0027t need the product links, it\u0027s perhaps too harsh to fail completely if the namespace lookup fails, but I think it\u0027d be useful to log a warning level message.",
+      "range": {
+        "startLine": 390,
+        "startChar": 8,
+        "endLine": 390,
+        "endChar": 22
+      },
+      "revId": "a625c2e623fa6438c32edfa93ce5cc3a2649ec68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
