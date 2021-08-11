@@ -117,7 +117,7 @@ public class OnDeviceSigningHostTest extends BaseHostJUnit4Test {
     }
 
     private Set<String> getMappedArtifacts(String pid, String grepPattern) throws Exception {
-        final String grepCommand = String.format("grep \"%s\" /proc/%s/maps", grepPattern, pid);
+        final String grepCommand = String.format("grep \"%s\" \"/proc/%s/maps\"", grepPattern, pid);
         CommandResult result = getDevice().executeShellV2Command(grepCommand);
         assertTrue(result.toString(), result.getExitCode() == 0);
         Set<String> mappedFiles = new HashSet<>();
@@ -136,7 +136,8 @@ public class OnDeviceSigningHostTest extends BaseHostJUnit4Test {
      * process does not exist.
      */
     private Optional<Set<String>> getZygoteLoadedArtifacts(String zygoteName) throws Exception {
-        final CommandResult pgrepResult = getDevice().executeShellV2Command("pidof " + zygoteName);
+        final CommandResult pgrepResult =
+                getDevice().executeShellV2Command("pidof -s " + zygoteName);
         if (pgrepResult.getExitCode() != 0) {
             return Optional.empty();
         }
@@ -147,7 +148,7 @@ public class OnDeviceSigningHostTest extends BaseHostJUnit4Test {
     }
 
     private Set<String> getSystemServerLoadedArtifacts() throws Exception {
-        String systemServerPid = getDevice().executeShellCommand("pidof system_server");
+        String systemServerPid = getDevice().executeShellCommand("pidof -s system_server");
         assertTrue(systemServerPid != null);
 
         // system_server artifacts are in the APEX data dalvik cache and names all contain
