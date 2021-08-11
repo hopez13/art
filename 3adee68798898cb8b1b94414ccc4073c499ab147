@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a831ad29_ef234053",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-11T14:36:39Z",
+      "side": 1,
+      "message": "I recalled that zygote forks to start apps. My guess is that there can be a very short period of time where zygote just forks, in order to start an app, but hasn\u0027t executed the app binary yet, and therefore the child process is also named \"zygote\"/\"zygote64\". That may be why `pidof` sometimes finds multiple zygote processes. Does this make sense?\n\nIf that\u0027s the case, then which pid we take really doesn\u0027t matter, since our goal is to find mapped boot classpath artifacts.",
+      "parentUuid": "da18cd0e_6dbd75ef",
+      "range": {
+        "startLine": 9,
+        "startChar": 291,
+        "endLine": 9,
+        "endChar": 313
+      },
+      "revId": "3adee68798898cb8b1b94414ccc4073c499ab147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ae86c53_f9f7323b",
         "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
         "patchSetId": 2
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I do the same thing here just to be safe. I thought there was supposed to be only one `zygote` and one `zygote64`, but it turns out that there are multiple of them, so I\u0027m not sure about `system_server` either. There is probably only one system_server as you said, but taking the first pid doesn\u0027t hurt correctness.\n\nBTW, why can there be multiple zygote processes? Does zygote fork for some reason?",
       "parentUuid": "5ae86c53_f9f7323b",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 82
+      },
+      "revId": "3adee68798898cb8b1b94414ccc4073c499ab147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38fd5377_a21cf7d2",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-11T14:36:39Z",
+      "side": 1,
+      "message": "I took a guess and wrote it in the another comment. Does it make sense to you?",
+      "parentUuid": "d59db620_f8ab3d1e",
       "range": {
         "startLine": 158,
         "startChar": 0,
