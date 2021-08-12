@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "826aa363_a46fe89c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-12T21:54:05Z",
+      "side": 1,
+      "message": "What name changes? It would have been preferable to do them too separately to make review easier.",
+      "range": {
+        "startLine": 11,
+        "startChar": 27,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "ce4a88d1c7761f43294e6da7a8347377873b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dc31d94_963e3e72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-12T21:54:05Z",
+      "side": 1,
+      "message": "Since the diff for this change is too large to be practical, it\u0027s more important that the description explains exactly what was done in it.\n\nOne thing not mentioned here is the cleanup of \"static\" keywords inside the anonymous namespace.\n\nAnother is moving various static functions, like ArtifactsExist, out of the class.\n\nHas anything else been done?",
+      "revId": "ce4a88d1c7761f43294e6da7a8347377873b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e5933ce7_d9fe3abb",
@@ -14,6 +54,52 @@
       "writtenOn": "2021-08-12T14:17:13Z",
       "side": 1,
       "message": "Martin, this change only moves things around and does not change any function body. You may review it if you have time. Thanks.",
+      "revId": "ce4a88d1c7761f43294e6da7a8347377873b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef0b0b59_d526a889",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-12T21:54:05Z",
+      "side": 1,
+      "message": "Drop.",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 6
+      },
+      "revId": "ce4a88d1c7761f43294e6da7a8347377873b5e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1efbb61d_ba9ce549",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1779,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-12T21:54:05Z",
+      "side": 1,
+      "message": "Is it useful to have this in the class? It\u0027s just a bit of command line parsing in here - not much to write unit tests for. I\u0027d also keep some associated functions with little testing benefit, like UsageHelp and UsageError, in odrefresh_main.cc.",
+      "range": {
+        "startLine": 1779,
+        "startChar": 4,
+        "endLine": 1779,
+        "endChar": 25
+      },
       "revId": "ce4a88d1c7761f43294e6da7a8347377873b5e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
