@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c28642e_f2349cc1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-12T14:14:32Z",
+      "side": 1,
+      "message": "Done. Added a comment into the code on line 144.",
+      "parentUuid": "675a5e97_914cb731",
+      "range": {
+        "startLine": 9,
+        "startChar": 291,
+        "endLine": 9,
+        "endChar": 313
+      },
+      "revId": "3adee68798898cb8b1b94414ccc4073c499ab147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ae86c53_f9f7323b",
@@ -181,6 +205,30 @@
       "side": 1,
       "message": "The zygote forks to spawn the app processes, so it\u0027s very plausible that there can be races where more than one process have that name. Afaik system_server doesn\u0027t fork that way, so I think it\u0027s better to put this off until proven necessary.\n\nHowever, I think it\u0027s still a good idea to assert that pidof doesn\u0027t produce more than one line, to make the error more obvious.",
       "parentUuid": "38fd5377_a21cf7d2",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 82
+      },
+      "revId": "3adee68798898cb8b1b94414ccc4073c499ab147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67ded423_bc16fae5",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-12T14:14:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3020ec2c_c108b4e7",
       "range": {
         "startLine": 158,
         "startChar": 0,
