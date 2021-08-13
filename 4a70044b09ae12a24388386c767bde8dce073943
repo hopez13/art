@@ -113,6 +113,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93094fd4_674df38c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-13T14:52:21Z",
+      "side": 1,
+      "message": "I feel awkward if some functions are in the anonymous namespace while some others have a static modifier in the same file :)",
+      "parentUuid": "ed676001_aa1214fb",
+      "revId": "4a70044b09ae12a24388386c767bde8dce073943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cce2618_298344ed",
@@ -222,6 +240,30 @@
       "side": 1,
       "message": "I don\u0027t think using clang-tidy is enforced here though. Also, reviewers may still spend time checking for stale entries.",
       "parentUuid": "10435fd2_75da08fc",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "4a70044b09ae12a24388386c767bde8dce073943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82691f35_e80e926a",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-13T14:52:21Z",
+      "side": 1,
+      "message": "I see. Without clang-tidy being enforced, I still think the advantages outweigh the disadvantages. Anyway, this is a matter of preference, and I think you points make sense. Thank you for the discussion.",
+      "parentUuid": "153daddc_c391bc8a",
       "range": {
         "startLine": 36,
         "startChar": 0,
