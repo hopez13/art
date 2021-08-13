@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f87c884_7fa59990",
+        "filename": "odrefresh/include/odrefresh/odrefresh.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-13T10:57:02Z",
+      "side": 1,
+      "message": "Move this function out of the class as well?",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 8
+      },
+      "revId": "4a70044b09ae12a24388386c767bde8dce073943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cce2618_298344ed",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-13T10:57:02Z",
+      "side": 1,
+      "message": "Consider just expanding these where they occur. It means one less indirection in the code, and it looks to me like they aren\u0027t repeated that much below.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "4a70044b09ae12a24388386c767bde8dce073943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
