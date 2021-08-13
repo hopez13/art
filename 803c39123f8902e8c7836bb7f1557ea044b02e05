@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "670eb887_cea5dca2",
+        "filename": "libnativeloader/native_loader_test.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2021-08-13T14:22:07Z",
+      "side": 1,
+      "message": "I uploaded a new patchset.\nI found missing this line breaks the test when /product/etc/public.libraries.txt exists.",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 29
+      },
+      "revId": "803c39123f8902e8c7836bb7f1557ea044b02e05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
