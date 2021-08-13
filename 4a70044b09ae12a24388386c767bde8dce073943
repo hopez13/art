@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a43a83fe_86e1a659",
+        "filename": "odrefresh/include/odrefresh/odrefresh.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-13T11:43:57Z",
+      "side": 1,
+      "message": "It can still be in the same spot in odrefresh.cc, can\u0027t it? It just doesn\u0027t need to be mentioned here at all.",
+      "parentUuid": "b7189f35_d7d0c291",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 8
+      },
+      "revId": "4a70044b09ae12a24388386c767bde8dce073943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cce2618_298344ed",
         "filename": "odrefresh/odrefresh_main.cc",
         "patchSetId": 7
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Persoanlly, I think expanding these in the actual code makes the code looks verbose. One more indirection does not introduce one more click on Code Search, so I think it\u0027s fine. WDYT?",
       "parentUuid": "6cce2618_298344ed",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "4a70044b09ae12a24388386c767bde8dce073943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd1e666_c32cde94",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-13T11:43:57Z",
+      "side": 1,
+      "message": "It\u0027s not just Code Search that matters, and it somewhat forces future code to add more \"using\" directives for the sake of consistency, and the list may retain stale entries. I still prefer to avoid this, but it is after all a matter of preference so you can keep it if you think otherwise.",
+      "parentUuid": "9c60b17e_cf9b5ab9",
       "range": {
         "startLine": 36,
         "startChar": 0,
