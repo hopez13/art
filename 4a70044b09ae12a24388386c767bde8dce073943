@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7189f35_d7d0c291",
+        "filename": "odrefresh/include/odrefresh/odrefresh.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-13T11:09:15Z",
+      "side": 1,
+      "message": "The purpose of this function is very similar to the two functions below. It is static just because it happens not to depend on any class members, so I think it\u0027s better to keep it in the class for consistency.",
+      "parentUuid": "1f87c884_7fa59990",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 8
+      },
+      "revId": "4a70044b09ae12a24388386c767bde8dce073943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cce2618_298344ed",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-13T10:57:02Z",
       "side": 1,
       "message": "Consider just expanding these where they occur. It means one less indirection in the code, and it looks to me like they aren\u0027t repeated that much below.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "4a70044b09ae12a24388386c767bde8dce073943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c60b17e_cf9b5ab9",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-13T11:09:15Z",
+      "side": 1,
+      "message": "Persoanlly, I think expanding these in the actual code makes the code looks verbose. One more indirection does not introduce one more click on Code Search, so I think it\u0027s fine. WDYT?",
+      "parentUuid": "6cce2618_298344ed",
       "range": {
         "startLine": 36,
         "startChar": 0,
