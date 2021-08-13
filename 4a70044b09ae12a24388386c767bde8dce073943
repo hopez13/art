@@ -96,6 +96,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed676001_aa1214fb",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-13T12:39:02Z",
+      "side": 1,
+      "message": "I thought it could stay here close to its users with a static modifier, but ok.",
+      "revId": "4a70044b09ae12a24388386c767bde8dce073943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cce2618_298344ed",
@@ -181,6 +198,30 @@
       "side": 1,
       "message": "Thank you for the input. In fact, `ExitCode`, `OdrConfig`, and `ZygoteKind` are used more than 5 times, so I still prefer to keep the using statements. Other entries are kept here for consistency. So far, I don\u0027t see too much inconvenience in this pattern.\n\nRegarding stale entries, clang-tidy is able to catch them. IIRC, removing unused entires is enforced in google3, but I\u0027m not sure whether it is enforced in Android codebase or not. BTW, I\u0027m using VS Code, which integrates with clangd including clang-tidy, so it highlights unused entires if any.",
       "parentUuid": "9cd1e666_c32cde94",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "4a70044b09ae12a24388386c767bde8dce073943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "153daddc_c391bc8a",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-13T12:39:02Z",
+      "side": 1,
+      "message": "I don\u0027t think using clang-tidy is enforced here though. Also, reviewers may still spend time checking for stale entries.",
+      "parentUuid": "10435fd2_75da08fc",
       "range": {
         "startLine": 36,
         "startChar": 0,
