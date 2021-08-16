@@ -120,7 +120,7 @@ suspended thread stays suspended, and then running the function on its behalf.
 `RunCheckpoint()` does not wait for completion of the function calls triggered by
 the resulting `RequestCheckpoint()` invocations.
 
-**Empty Checkpoints**
+**Empty checkpoints**
 : ThreadList provides `RunEmptyCheckpoint()`, which waits until
 all threads have either passed a suspend point, or have been suspended. This
 ensures that no thread is still executing Java code inside the same
@@ -134,6 +134,52 @@ a `SuspendAll()` call to suspend one or all threads until they are resumed by
 `Resume()` or `ResumeAll()`. The `Suspend...` calls guarantee that the target
 thread(s) are suspended (again, only in the sense of not running Java code)
 when the call returns.
+
+Deadlock freedom
+----------------
+
+It is easy to deadlock while attempting to run checkpoints, or suspending
+threads. In particular, we need to avoid situations in which we cannot suspend
+a thread because it is blocked, directly, or indirectly, on the GC completing
+its task. Deadlocks are avoided as follows:
+
+**Mutator lock ordering**
+The mutator participates in the normal ART lock ordering hierarchy, as though it
+were a regular lock. See `base/locks.h` for the hierarchy. In particular, only
+locks at or below level `kPostMutatorTopLockLevel` may be acquired after
+acquiring the mutator lock, e.g. inside the scope of a `ScopedObjectAccess`.
+Similarly only locks at level strictly above `kMutatatorLock`may be held while
+acquiring the mutator lock, e.g. either by starting a `ScopedObjectAccess`, or
+ending a `ScopedThreadSuspension`.
+
+This ensures that code that uses purely mutexes and threads state changes cannot
+deadlock: Since we always wait on a lower-level lock, the holder of the
+lowest-level lock can always progress. An attempt to initiate a checkpoint or to
+suspend another thread must also be treated as an acquisition of the mutator
+lock: A thread that is waiting for a lock before it can respond to the request
+is itself holding the mutator lock, and can only be blocked on lower-level
+locks. And acquisition of those can never depend on acquiring the mutator
+lock.
+
+**Waiting**
+This becomes much more problematic when we wait for something other than a lock.
+Waiting for something that may depend on the GC, while holding the mutator lock,
+can clearly lead to deadlock, since it will prevent the waiting thread from
+participating in GC checkpoints. Waiting while holding a lower-level lock like
+`thread_list_lock_` is similarly unsafe in general, since a runnable thread may
+not respond to checkpoints until it acquires `thread_list_lock_`. In general,
+waiting for a condition variable while holding an unrelated lock is problematic,
+and these are specific instances of that general problem.
+
+We do currently provide `WaitHoldingLocks`, and it is sometimes used with
+low-level locks held. But such code must somehow ensure that such waits
+eventually terminate without deadlock.  In some cases, we are waiting on the GC,
+and we expect to handle only checkpoint requests that have already been
+issued, so it suffices to check for this before waiting.  (See
+`CheckEmptyCheckpointFromWeakRefAccess`.) But these solutions are all quite
+brittle and best avoided when possible. We are investigating ways to release
+locks during such `Wait` operations.
+
 
 [^1]: Some comments in the code refer to a not-yet-really-implemented scheme in
 which the compiler-generated code would load through the address at
