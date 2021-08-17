@@ -481,20 +481,20 @@ bool AdbConnectionState::SetupAdbConnection() {
   int sleep_ms = 500;
   const int sleep_max_ms = 2 * 1000;
 
-  const char* isa = GetInstructionSetString(art::Runtime::Current()->GetInstructionSet());
+  // const char* isa = GetInstructionSetString(art::Runtime::Current()->GetInstructionSet());
   const AdbConnectionClientInfo infos[] = {
       {.type = AdbConnectionClientInfoType::pid,
        .data.pid = static_cast<uint64_t>(getpid())},
       {.type = AdbConnectionClientInfoType::debuggable,
        .data.debuggable = IsDebuggingPossible()},
-      {.type = AdbConnectionClientInfoType::profileable,
-       .data.profileable = art::Runtime::Current()->IsProfileableFromShell()},
-      {.type = AdbConnectionClientInfoType::architecture,
-       // GetInstructionSetString() returns a null-terminating C-style string.
-       .data.architecture.name = isa,
-       .data.architecture.size = strlen(isa)},
+      // {.type = AdbConnectionClientInfoType::profileable,
+      //  .data.profileable = art::Runtime::Current()->IsProfileableFromShell()},
+      // {.type = AdbConnectionClientInfoType::architecture,
+      //  // GetInstructionSetString() returns a null-terminating C-style string.
+      //  .data.architecture.name = isa,
+      //  .data.architecture.size = strlen(isa)},
   };
-  const AdbConnectionClientInfo *info_ptrs[] = {&infos[0], &infos[1], &infos[2], &infos[3]};
+  const AdbConnectionClientInfo *info_ptrs[] = {&infos[0], &infos[1]};//, &infos[2], &infos[3]};
 
   while (!shutting_down_) {
     // If adbd isn't running, because USB debugging was disabled or
