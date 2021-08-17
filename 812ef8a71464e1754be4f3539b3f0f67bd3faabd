@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28189e92_634e68f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-17T18:05:34Z",
+      "side": 1,
+      "message": "I believe the argument Lokesh made here and in person. I\u0027ve updated this to reflect a current hypothetical state in which we use a STW pause to enable weak reference processing, and the related deadlock issues are gone.",
+      "revId": "812ef8a71464e1754be4f3539b3f0f67bd3faabd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

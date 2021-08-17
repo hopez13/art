@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd8164a1_ff098c5c",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-17T18:05:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdf91c8a_d6a89d1d",
+      "range": {
+        "startLine": 147,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 11
+      },
+      "revId": "5d013b8aa5bf0a663d8bb1c44cdf1d01f6c6c325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fa01bc3_f766f83e",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05f7d281_dfd42bc4",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-17T18:05:34Z",
+      "side": 1,
+      "message": "It is now kind of explained below.",
+      "parentUuid": "1fa01bc3_f766f83e",
+      "range": {
+        "startLine": 167,
+        "startChar": 30,
+        "endLine": 168,
+        "endChar": 32
+      },
+      "revId": "5d013b8aa5bf0a663d8bb1c44cdf1d01f6c6c325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "904c9e73_030a32da",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-08-17T01:25:55Z",
       "side": 1,
       "message": "I think we can avoid these checkpoint (which can force mutators to wait after the checkpoint, like weak-ref access disable checkpoint) related deadlocks by replacing them with a stop-the-world pause: SuspendAll requires exclusive access to mutator-lock, unlike RequestCheckpoint, which requires it only in shared-mode. This will ensure that the STW (and hence the weak-ref access revocation) will not start until *all* mutators are able to suspend. And subsequently when GC-thread lets mutators resume, it is guaranteed to be able to make progress.\n\nAnother way to look at this is: while the checkpoint is in progress, there is a time-period where GC-thread is blocked waiting for checkpoint to finish, and some mutators could be made to block on the GC due to the fact that they have already participated in the checkpoint. And this blocked mutator could make another mutator to not participate in the checkpoint, leading to a deadlock.\nWith STW pause, it\u0027s *all or nothing*. The transient state of the checkpoint doesn\u0027t arise. All mutators can progress without blocking on the GC prior to the pause. And the GC-thread can progress without blocking on the mutators after the pause.",
+      "range": {
+        "startLine": 176,
+        "startChar": 40,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "5d013b8aa5bf0a663d8bb1c44cdf1d01f6c6c325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e6088d_1857f328",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-17T18:05:34Z",
+      "side": 1,
+      "message": "I\u0027ll update this document to reflect that change.",
+      "parentUuid": "904c9e73_030a32da",
       "range": {
         "startLine": 176,
         "startChar": 40,
