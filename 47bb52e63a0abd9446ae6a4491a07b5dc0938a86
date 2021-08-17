@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01a2fbf5_3b3c99fa",
+        "filename": "test/1948-obsolete-const-method-handle/util-src/build-classes",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-17T13:12:34Z",
+      "side": 1,
+      "message": "Drop? D8 does not have an absolute path when defined in `run-test` so likely to fail.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 2
+      },
+      "revId": "47bb52e63a0abd9446ae6a4491a07b5dc0938a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c23c6c3_48f23b0f",
+        "filename": "test/909-attach-agent/src-art/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-17T13:12:34Z",
+      "side": 1,
+      "message": "How did this work before? Only one attachAgent method seems to exist.",
+      "range": {
+        "startLine": 46,
+        "startChar": 33,
+        "endLine": 46,
+        "endChar": 37
+      },
+      "revId": "47bb52e63a0abd9446ae6a4491a07b5dc0938a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
