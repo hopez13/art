@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddce2576_126a01fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-17T23:47:54Z",
+      "side": 1,
+      "message": "Only the last one may be important.",
+      "revId": "2da55f436598c3e16466ba54a580d9ac86a0b7b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b339762a_20c3bbb8",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1641,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-17T23:47:54Z",
+      "side": 1,
+      "message": "\"had a chance to\"?\n\nOtherwise \"participates\".",
+      "range": {
+        "startLine": 1641,
+        "startChar": 31,
+        "endLine": 1641,
+        "endChar": 65
+      },
+      "revId": "2da55f436598c3e16466ba54a580d9ac86a0b7b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23ff81a1_70f01a26",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2057,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-17T23:47:54Z",
+      "side": 1,
+      "message": "This makes me a bit nervous, since we\u0027re basically punching a hole in a critical section. Without documenting this in the interface even. But since we\u0027re the only thread that could jump in here, and grab the exclusive lock, and I see other code like this, I guess it\u0027s OK. Maybe still add a comment on the following line:\n\n// We\u0027re the only thread that could possibly ask for exclusive access here.",
+      "range": {
+        "startLine": 2057,
+        "startChar": 4,
+        "endLine": 2057,
+        "endChar": 45
+      },
+      "revId": "2da55f436598c3e16466ba54a580d9ac86a0b7b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b8d4e46_2cbbbcf3",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2064,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-17T23:47:54Z",
+      "side": 1,
+      "message": "Am I not going to run this on self twice, at least if the GC is being run from a mutator thread?",
+      "range": {
+        "startLine": 2064,
+        "startChar": 8,
+        "endLine": 2064,
+        "endChar": 32
+      },
+      "revId": "2da55f436598c3e16466ba54a580d9ac86a0b7b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
