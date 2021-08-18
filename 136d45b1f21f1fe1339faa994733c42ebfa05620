@@ -16,6 +16,24 @@
       "message": "lgtm, defer to Roland about 089 specifics.",
       "revId": "136d45b1f21f1fe1339faa994733c42ebfa05620",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d37a7de8_0e9b05e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-08-18T14:39:52Z",
+      "side": 1,
+      "message": "PS: The motivation for 089 is to establish invariant that exit-code 0 from build is success, and non-zero exit-code is failure.",
+      "parentUuid": "454b21d0_5d77f261",
+      "revId": "136d45b1f21f1fe1339faa994733c42ebfa05620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
