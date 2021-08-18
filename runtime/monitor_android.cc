@@ -24,6 +24,7 @@
 #include <log/log_event_list.h>
 
 #include "art_method.h"
+#include "palette/palette.h"
 #include "thread.h"
 
 #define EVENT_LOG_TAG_dvm_lock_sample 20003
@@ -41,14 +42,13 @@ void Monitor::LogContentionEvent(Thread* self,
   int32_t owner_line_number;
   TranslateLocation(owner_method, owner_dex_pc, &owner_filename, &owner_line_number);
 
-  // Emit the process name, <= 37 bytes.
+  // Emit the process name, <= 33 bytes.
+  char proc_name[33] = {};
   {
     int fd = open("/proc/self/cmdline", O_RDONLY  | O_CLOEXEC);
-    char procName[33];
-    memset(procName, 0, sizeof(procName));
-    read(fd, procName, sizeof(procName) - 1);
+    read(fd, proc_name, sizeof(proc_name) - 1);
     close(fd);
-    ctx << procName;
+    ctx << proc_name;
   }
 
   // Emit the sensitive thread ("main thread") status. We follow tradition that this corresponds
@@ -58,20 +58,18 @@ void Monitor::LogContentionEvent(Thread* self,
   ctx << (Thread::IsSensitiveThread() ? kIsSensitive : kIsNotSensitive);
 
   // Emit self thread name string.
-  {
-    std::string thread_name;
-    self->GetThreadName(thread_name);
-    ctx << thread_name;
-  }
+  std::string thread_name;
+  self->GetThreadName(thread_name);
+  ctx << thread_name;
 
   // Emit the wait time.
   ctx << wait_ms;
 
   const char* filename = nullptr;
+  int32_t line_number;
   {
     uint32_t pc;
     ArtMethod* m = self->GetCurrentMethod(&pc);
-    int32_t line_number;
     TranslateLocation(m, pc, &filename, &line_number);
 
     // Emit the source code file name.
@@ -103,6 +101,15 @@ void Monitor::LogContentionEvent(Thread* self,
   ctx << sample_percent;
 
   ctx << LOG_ID_EVENTS;
+
+  // Now report to other interested parties.
+  PaletteReportLockContention(wait_ms,
+                              filename,
+                              line_number,
+                              owner_filename,
+                              owner_line_number,
+                              proc_name,
+                              thread_name.c_str());
 }
 
 }  // namespace art

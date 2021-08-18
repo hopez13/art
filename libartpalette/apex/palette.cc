@@ -218,4 +218,22 @@ palette_status_t PaletteNotifyEndJniInvocation(JNIEnv* env) {
   return m(env);
 }
 
+palette_status_t PaletteReportLockContention(int32_t wait_ms,
+                                             const char* filename,
+                                             int32_t line_number,
+                                             const char* owner_filename,
+                                             int32_t owner_line_number,
+                                             const char* proc_name,
+                                             const char* thread_name) {
+  PaletteReportLockContentionMethod m =
+      PaletteLoader::Instance().GetPaletteReportLockContentionMethod();
+  return m(wait_ms,
+           filename,
+           line_number,
+           owner_filename,
+           owner_line_number,
+           proc_name,
+           thread_name);
+}
+
 }  // extern "C"
