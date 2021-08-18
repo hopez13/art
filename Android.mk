@@ -392,32 +392,19 @@ LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0 SPDX-license-identifie
 LOCAL_LICENSE_CONDITIONS := notice restricted
 LOCAL_NOTICE_FILE := $(LOCAL_PATH)/NOTICE
 
-# Reference the libraries and binaries in the appropriate APEX module, because
-# they don't have platform variants. However if
-# SOONG_CONFIG_art_module_source_build isn't true then the APEX modules are
-# disabled, so Soong won't apply the APEX mutators to them, and then they are
-# available with their plain names.
-ifeq (true,$(SOONG_CONFIG_art_module_source_build))
-  art_module_lib = $(1).com.android.art
-  art_module_debug_lib = $(1).com.android.art.debug
-else
-  art_module_lib = $(1)
-  art_module_debug_lib = $(1)
-endif
-
 # Base requirements.
 LOCAL_REQUIRED_MODULES := \
-    $(call art_module_lib,dalvikvm) \
-    $(call art_module_lib,dex2oat) \
-    $(call art_module_lib,dexoptanalyzer) \
-    $(call art_module_lib,libart) \
-    $(call art_module_lib,libart-compiler) \
-    $(call art_module_lib,libopenjdkjvm) \
-    $(call art_module_lib,libopenjdkjvmti) \
-    $(call art_module_lib,odrefresh) \
-    $(call art_module_lib,profman) \
-    $(call art_module_lib,libadbconnection) \
-    $(call art_module_lib,libperfetto_hprof) \
+    dalvikvm \
+    dex2oat \
+    dexoptanalyzer \
+    libart \
+    libart-compiler \
+    libopenjdkjvm \
+    libopenjdkjvmti \
+    odrefresh \
+    profman \
+    libadbconnection \
+    libperfetto_hprof \
 
 # Potentially add in debug variants:
 #
@@ -431,22 +418,19 @@ ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 endif
 ifeq (true,$(art_target_include_debug_build))
 LOCAL_REQUIRED_MODULES += \
-    $(call art_module_debug_lib,dex2oatd) \
-    $(call art_module_debug_lib,dexoptanalyzerd) \
-    $(call art_module_debug_lib,libartd) \
-    $(call art_module_debug_lib,libartd-compiler) \
-    $(call art_module_debug_lib,libopenjdkd) \
-    $(call art_module_debug_lib,libopenjdkjvmd) \
-    $(call art_module_debug_lib,libopenjdkjvmtid) \
-    $(call art_module_debug_lib,profmand) \
-    $(call art_module_debug_lib,libadbconnectiond) \
-    $(call art_module_debug_lib,libperfetto_hprofd) \
+    dex2oatd \
+    dexoptanalyzerd \
+    libartd \
+    libartd-compiler \
+    libopenjdkd \
+    libopenjdkjvmd \
+    libopenjdkjvmtid \
+    profmand \
+    libadbconnectiond \
+    libperfetto_hprofd \
 
 endif
 endif
-
-art_module_lib :=
-art_module_debug_lib :=
 
 include $(BUILD_PHONY_PACKAGE)
 
