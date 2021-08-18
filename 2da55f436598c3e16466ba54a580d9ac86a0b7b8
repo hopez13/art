@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4d9c6527_4cbf8652",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1641,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-18T01:10:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b339762a_20c3bbb8",
+      "range": {
+        "startLine": 1641,
+        "startChar": 31,
+        "endLine": 1641,
+        "endChar": 65
+      },
+      "revId": "2da55f436598c3e16466ba54a580d9ac86a0b7b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "23ff81a1_70f01a26",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2021-08-17T23:47:54Z",
       "side": 1,
       "message": "This makes me a bit nervous, since we\u0027re basically punching a hole in a critical section. Without documenting this in the interface even. But since we\u0027re the only thread that could jump in here, and grab the exclusive lock, and I see other code like this, I guess it\u0027s OK. Maybe still add a comment on the following line:\n\n// We\u0027re the only thread that could possibly ask for exclusive access here.",
+      "range": {
+        "startLine": 2057,
+        "startChar": 4,
+        "endLine": 2057,
+        "endChar": 45
+      },
+      "revId": "2da55f436598c3e16466ba54a580d9ac86a0b7b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f7da0eb_b871c07f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2057,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-18T01:10:45Z",
+      "side": 1,
+      "message": "Done.\n\nIdeally, it would be great if there was a way for a thread to upgrade a shared-held reader-writer lock to exclusive-held. But IIUC, there is no way to do that.\n\nI agree this opens a hole but I see this pattern at several places (many in this file itself) where we release shared lock before blocking self on the gc_barrier.",
+      "parentUuid": "23ff81a1_70f01a26",
       "range": {
         "startLine": 2057,
         "startChar": 4,
@@ -77,6 +125,30 @@
       "writtenOn": "2021-08-17T23:47:54Z",
       "side": 1,
       "message": "Am I not going to run this on self twice, at least if the GC is being run from a mutator thread?",
+      "range": {
+        "startLine": 2064,
+        "startChar": 8,
+        "endLine": 2064,
+        "endChar": 32
+      },
+      "revId": "2da55f436598c3e16466ba54a580d9ac86a0b7b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a54c62_3961e7ae",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2064,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-18T01:10:45Z",
+      "side": 1,
+      "message": "Agreed! I just realized that even the gc-thread is a java thread so it would be part of the thread-list.",
+      "parentUuid": "3b8d4e46_2cbbbcf3",
       "range": {
         "startLine": 2064,
         "startChar": 8,
