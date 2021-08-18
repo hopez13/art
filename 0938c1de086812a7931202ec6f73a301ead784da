@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea2d1b9f_4aef6034",
+        "filename": "runtime/monitor_android.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-08-18T22:27:21Z",
+      "side": 1,
+      "message": "why are you making this smaller? (and why was there such a low limit to start with?) won\u0027t this be the fully-qualified package name? (and won\u0027t the zygote have set argv[0] correspondingly, so you can just directly use that string?)\n\nanyway, if you are reading the file, why not just ReadFileToString() it?",
+      "range": {
+        "startLine": 45,
+        "startChar": 31,
+        "endLine": 45,
+        "endChar": 33
+      },
+      "revId": "0938c1de086812a7931202ec6f73a301ead784da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c678ec15_a73c1b8d",
+        "filename": "runtime/monitor_android.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2021-08-18T22:27:21Z",
+      "side": 1,
+      "message": "you can also write this as `char proc_name[33] \u003d {}`, which is probably more likely to be elided out (since you\u0027re opted in to auto-zero-initialize anyway).",
+      "revId": "0938c1de086812a7931202ec6f73a301ead784da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
