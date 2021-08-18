@@ -215,6 +215,7 @@ apex_key {
 
 art_module_apex_defaults {
     name: "com.android.art-defaults",
+    apex_name: "com.android.art",
 
     // Enable if SOONG_CONFIG_art_module_source_build is true.
     enabled: false,
