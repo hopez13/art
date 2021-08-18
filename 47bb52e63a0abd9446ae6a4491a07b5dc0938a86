@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c984e7da_d86b04a5",
+        "filename": "test/1948-obsolete-const-method-handle/util-src/build-classes",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-08-18T13:05:18Z",
+      "side": 1,
+      "message": "Ah, right.  \u0027run-test\u0027 only defaults it if it was not already set. It turns out something initializes to absolute path before run-test, so that test didn\u0027t fail.\n\nBut the comment is reasonable nontheless.  Done.",
+      "parentUuid": "01a2fbf5_3b3c99fa",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 2
+      },
+      "revId": "47bb52e63a0abd9446ae6a4491a07b5dc0938a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c23c6c3_48f23b0f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-17T13:12:34Z",
       "side": 1,
       "message": "How did this work before? Only one attachAgent method seems to exist.",
+      "range": {
+        "startLine": 46,
+        "startChar": 33,
+        "endLine": 46,
+        "endChar": 37
+      },
+      "revId": "47bb52e63a0abd9446ae6a4491a07b5dc0938a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4979778_075234a6",
+        "filename": "test/909-attach-agent/src-art/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-08-18T13:05:18Z",
+      "side": 1,
+      "message": "Yes, this was broken. The test didn\u0027t build.\n\nIt is also disabled, so we didn\u0027t see it, and nothing tried to build it.",
+      "parentUuid": "8c23c6c3_48f23b0f",
       "range": {
         "startLine": 46,
         "startChar": 33,
