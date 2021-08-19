@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c842e08f_696163fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-08-19T23:42:46Z",
+      "side": 1,
+      "message": "PTAL\n\nThis needs to land on internal master first (ag/15632605), due to a merge conflict around #include caused by an internal only change (ag/14096757).",
+      "revId": "0518a6afe800650cdd6c5ff067474525c5db326c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
