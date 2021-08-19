@@ -39,6 +39,29 @@
       "message": "you can also write this as `char proc_name[33] \u003d {}`, which is probably more likely to be elided out (since you\u0027re opted in to auto-zero-initialize anyway).",
       "revId": "0938c1de086812a7931202ec6f73a301ead784da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2750b6d8_f9ffc597",
+        "filename": "runtime/monitor_android.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-19T08:03:50Z",
+      "side": 1,
+      "message": "This will want documenting in the palette implementation (or perhaps don\u0027t do this for palette).",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 3
+      },
+      "revId": "0938c1de086812a7931202ec6f73a301ead784da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
