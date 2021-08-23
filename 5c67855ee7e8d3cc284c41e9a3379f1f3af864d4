@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81333eeb_28230762",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-08-23T15:40:42Z",
+      "side": 1,
+      "message": "Nit: we often use this form for revert commit headline:\n\n  Revert^2 \"Add unit tests for odrefresh - step 2\".\n  \nMakes it a bit easier when the number of reverts exceeds 2. :)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "5c67855ee7e8d3cc284c41e9a3379f1f3af864d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c14d1f52_e5b09e66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-08-23T15:40:42Z",
+      "side": 1,
+      "message": "Nit: add bug.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 4
+      },
+      "revId": "5c67855ee7e8d3cc284c41e9a3379f1f3af864d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1ac818e_760d4f0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-08-23T15:40:42Z",
+      "side": 1,
+      "message": "Minor comments, feel free to ignore and apply to subsequent CLs.",
+      "revId": "5c67855ee7e8d3cc284c41e9a3379f1f3af864d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
