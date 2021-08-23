@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a044e1b9_6563f6e8",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-23T04:47:03Z",
+      "side": 1,
+      "message": "I hope we can avoid too many special setups in odrefresh just for CompOS. It\u0027s better to add a general-purpose flag to odrefresh, say --child-process-timeout, and pass it from CompOS. WDYT?",
+      "range": {
+        "startLine": 486,
+        "startChar": 6,
+        "endLine": 486,
+        "endChar": 32
+      },
+      "revId": "b751ce79da741018e2e609f9268e674e4e4dd6cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff220b15_72307d18",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-23T04:47:03Z",
+      "side": 1,
+      "message": "It will be more straightforward to me if you simply override the default value rather than adding a value to it. Your call.",
+      "range": {
+        "startLine": 489,
+        "startChar": 31,
+        "endLine": 489,
+        "endChar": 33
+      },
+      "revId": "b751ce79da741018e2e609f9268e674e4e4dd6cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
