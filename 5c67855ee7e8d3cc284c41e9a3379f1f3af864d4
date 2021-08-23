@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb729d8c_23120121",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-23T16:00:36Z",
+      "side": 1,
+      "message": "Interesting. We don\u0027t do this in google3, so I didn\u0027t know such convention.",
+      "parentUuid": "81333eeb_28230762",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "5c67855ee7e8d3cc284c41e9a3379f1f3af864d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c14d1f52_e5b09e66",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-23T15:40:42Z",
       "side": 1,
       "message": "Nit: add bug.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 4
+      },
+      "revId": "5c67855ee7e8d3cc284c41e9a3379f1f3af864d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "430c6f22_0bd12143",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-23T16:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c14d1f52_e5b09e66",
       "range": {
         "startLine": 19,
         "startChar": 0,
