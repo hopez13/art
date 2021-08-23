@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f54e400c_a824ce63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-23T16:02:29Z",
+      "side": 1,
+      "message": "I lost the permission to give +2 in China due to a known bug. Please ask someone else for a +2. Sorry for the inconvenience.",
+      "revId": "b751ce79da741018e2e609f9268e674e4e4dd6cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a044e1b9_6563f6e8",
@@ -62,6 +79,30 @@
       "side": 1,
       "message": "That\u0027s my initial thought. Then I thought, since the original timeout is rather arbitrary, it\u0027s unlikely that any one else would use the new general flag.  I ended up with this special case.  That is, we run with only `--compilation-os\u003d$CID`, rather than `--compilation-os\u003d$CID --child-process-timeout\u003d120`.  I\u0027m also hoping to later remove this special case (if it\u0027s CPU bound, then adding an extra vCPU would be enough.  Otherwise, we need to wait until we implement persist file cache between different dex2oat).\n\nBut I\u0027m happy to make the change if you still prefer an extra flag.  WDYT?",
       "parentUuid": "aa4f754c_c47415db",
+      "range": {
+        "startLine": 486,
+        "startChar": 6,
+        "endLine": 486,
+        "endChar": 32
+      },
+      "revId": "b751ce79da741018e2e609f9268e674e4e4dd6cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68ef82ed_6ab16995",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-08-23T16:02:29Z",
+      "side": 1,
+      "message": "I\u0027m fine with this special case if you are sure it will be removed later. Please add a TODO if that\u0027s the case.",
+      "parentUuid": "2faaa3e3_ae045fa0",
       "range": {
         "startLine": 486,
         "startChar": 6,
