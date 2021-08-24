@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec8de5f6_9b1e9ab3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-24T11:02:12Z",
+      "side": 1,
+      "message": "Thanks Jaikai, good spot and fix.\n\nAnother way we could fix this is mock the system properties for greater determinism, but this would likely be a bigger change. If we see similar issues in future, something to consider.",
+      "revId": "ccbcfb17c9eabee791d674b794e696da10b1b28b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
