@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90e84871_150bdfe0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-08-24T16:55:33Z",
+      "side": 1,
+      "message": "How does one run this benchmark? Can it be done outside of ARM or your local environment? If there are some instructions how to run it, they may be worth mentioning here.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 36
+      },
+      "revId": "68947c71bbc80ef64c466a4c8e707590a7eb7db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5801162_40da0556",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-08-24T16:55:33Z",
+      "side": 1,
+      "message": "Joel, can you rebase the patch please so that I can start presubmit run on it? (This is not a review yet, sorry.)",
+      "revId": "68947c71bbc80ef64c466a4c8e707590a7eb7db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
