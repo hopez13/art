@@ -16,6 +16,23 @@
       "message": "Attempting to resurrect this, post S.",
       "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61ad7321_5e110c41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-24T16:23:55Z",
+      "side": 1,
+      "message": "Benchmark runs at https://dashboards.corp.google.com/_f31ff276_6cb2_4ed6_973b_9640c4fb0df4?fb\u003dBootImageProfileId:eq:4258 look good, though not exactly what I would have expected. I\u0027m not sure that\u0027s reproducible. But to me the revised heuristic makes a lot more sense, so I think we should go ahead with this early in the cycle, so we can deal with any fallout.",
+      "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
