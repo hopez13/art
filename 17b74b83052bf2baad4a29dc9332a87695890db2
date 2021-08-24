@@ -33,6 +33,52 @@
       "message": "Benchmark runs at https://dashboards.corp.google.com/_f31ff276_6cb2_4ed6_973b_9640c4fb0df4?fb\u003dBootImageProfileId:eq:4258 look good, though not exactly what I would have expected. I\u0027m not sure that\u0027s reproducible. But to me the revised heuristic makes a lot more sense, so I think we should go ahead with this early in the cycle, so we can deal with any fallout.",
       "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85fc6aec_e808b30e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4525,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-24T23:10:41Z",
+      "side": 1,
+      "message": "wouldn\u0027t this be lesser than the threshold at which we currently set, which is half of target_footprint?",
+      "range": {
+        "startLine": 4525,
+        "startChar": 4,
+        "endLine": 4525,
+        "endChar": 34
+      },
+      "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c3861b6_b60d61e0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4533,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-24T23:10:41Z",
+      "side": 1,
+      "message": "wouldn\u0027t this be lesser than the threshold at which we currently set, which is half of target_footprint?",
+      "range": {
+        "startLine": 4533,
+        "startChar": 42,
+        "endLine": 4533,
+        "endChar": 60
+      },
+      "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
