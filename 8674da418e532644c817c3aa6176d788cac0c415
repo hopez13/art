@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3611221f_16f8b2a6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4475,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-24T00:50:12Z",
+      "side": 1,
+      "message": "Actually, that\u0027s a failed attempt at micro-optimization. I\u0027ll switch them.",
+      "parentUuid": "edf3dd39_37afa410",
+      "range": {
+        "startLine": 4475,
+        "startChar": 4,
+        "endLine": 4475,
+        "endChar": 32
+      },
+      "revId": "8674da418e532644c817c3aa6176d788cac0c415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fc1f833_577613ef",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-06-07T21:52:21Z",
       "side": 1,
       "message": "If initial_heap_size_ is the max value won\u0027t the second task be redundant?",
+      "range": {
+        "startLine": 4483,
+        "startChar": 72,
+        "endLine": 4483,
+        "endChar": 90
+      },
+      "revId": "8674da418e532644c817c3aa6176d788cac0c415",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4292a6ae_c2e2cfb5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4483,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-24T00:50:12Z",
+      "side": 1,
+      "message": "Yes, though I don\u0027t think it\u0027s currently a likely situation. In fact they\u0027d both be redundant. Fixed.",
+      "parentUuid": "3fc1f833_577613ef",
       "range": {
         "startLine": 4483,
         "startChar": 72,
