@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14551e89_70fb38cf",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4525,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-25T01:00:55Z",
+      "side": 1,
+      "message": "We guessed concurrent_start_bytes_ in several different ways in different places before. I really want to guess a consistent function of the target footprint. I\u0027m entirely amenable to making the function a but smaller if the target is close to growth_limit_, so that we don\u0027t pause for GC. Is that what you had in mind? I suspect this basically never happens, but it probably is an improvement.",
+      "parentUuid": "85fc6aec_e808b30e",
+      "range": {
+        "startLine": 4525,
+        "startChar": 4,
+        "endLine": 4525,
+        "endChar": 34
+      },
+      "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c3861b6_b60d61e0",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 6
@@ -71,6 +95,30 @@
       "writtenOn": "2021-08-24T23:10:41Z",
       "side": 1,
       "message": "wouldn\u0027t this be lesser than the threshold at which we currently set, which is half of target_footprint?",
+      "range": {
+        "startLine": 4533,
+        "startChar": 42,
+        "endLine": 4533,
+        "endChar": 60
+      },
+      "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bafad26_6ca82505",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4533,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-25T01:00:55Z",
+      "side": 1,
+      "message": "Did you mean to say something else here?",
+      "parentUuid": "3c3861b6_b60d61e0",
       "range": {
         "startLine": 4533,
         "startChar": 42,
