@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb95a07b_6554633c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4525,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-25T01:19:35Z",
+      "side": 1,
+      "message": "I like the way you have made it consistent in this CL for every other place. But specifically at this location I think we intentionally wanted to keep the concurrent_start_bytes_ high enough to basically make GC triggering in first 2 seconds extremely unlikely. That\u0027s why in the current code it\u0027s being set to half of the growth_limit, which gives enough leg room, in case some process is doing extremely fast allocations, to finish the GC and not block the mutator(s). But at the same time it\u0027s large enough to make GC trigger highly unlikely.\n\nwith 1/4 it makes the GC trigger in first 2 seconds more likely than before. I was just pointing to that.",
+      "parentUuid": "14551e89_70fb38cf",
+      "range": {
+        "startLine": 4525,
+        "startChar": 4,
+        "endLine": 4525,
+        "endChar": 34
+      },
+      "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c3861b6_b60d61e0",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 6
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Did you mean to say something else here?",
       "parentUuid": "3c3861b6_b60d61e0",
+      "range": {
+        "startLine": 4533,
+        "startChar": 42,
+        "endLine": 4533,
+        "endChar": 60
+      },
+      "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fcd993f_1962e13a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4533,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-25T01:19:35Z",
+      "side": 1,
+      "message": "Sorry, I mistakenly left it here too :)",
+      "parentUuid": "1bafad26_6ca82505",
       "range": {
         "startLine": 4533,
         "startChar": 42,
