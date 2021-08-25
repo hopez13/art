@@ -407,7 +407,8 @@ Heap::Heap(size_t initial_size,
       dump_region_info_after_gc_(dump_region_info_after_gc),
       boot_image_spaces_(),
       boot_images_start_address_(0u),
-      boot_images_size_(0u) {
+      boot_images_size_(0u),
+      pre_oome_gc_count_(0u) {
   if (VLOG_IS_ON(heap) || VLOG_IS_ON(startup)) {
     LOG(INFO) << "Heap() entering";
   }
@@ -1241,7 +1242,7 @@ void Heap::DumpGcPerformanceInfo(std::ostream& os) {
   os << "Total GC time: " << PrettyDuration(GetGcTime()) << "\n";
   os << "Total blocking GC count: " << GetBlockingGcCount() << "\n";
   os << "Total blocking GC time: " << PrettyDuration(GetBlockingGcTime()) << "\n";
-
+  os << "Total pre-OOME GC count: " << GetPreOomeGcCount() << "\n";
   {
     MutexLock mu(Thread::Current(), *gc_complete_lock_);
     if (gc_count_rate_histogram_.SampleSize() > 0U) {
@@ -1288,6 +1289,7 @@ void Heap::ResetGcPerformanceInfo() {
   total_wait_time_ = 0;
   blocking_gc_count_ = 0;
   blocking_gc_time_ = 0;
+  pre_oome_gc_count_ = 0;
   gc_count_last_window_ = 0;
   blocking_gc_count_last_window_ = 0;
   last_update_time_gc_count_rate_histograms_ =  // Round down by the window duration.
@@ -1335,6 +1337,10 @@ void Heap::DumpBlockingGcCountRateHistogram(std::ostream& os) const {
   if (blocking_gc_count_rate_histogram_.SampleSize() > 0U) {
     blocking_gc_count_rate_histogram_.DumpBins(os);
   }
+}
+
+uint64_t Heap::GetPreOomeGcCount() const {
+  return pre_oome_gc_count_;
 }
 
 ALWAYS_INLINE
@@ -2721,6 +2727,9 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
   CHECK(collector != nullptr)
       << "Could not find garbage collector with collector_type="
       << static_cast<size_t>(collector_type_) << " and gc_type=" << gc_type;
+  if (clear_soft_references) {
+    ++pre_oome_gc_count_;
+  }
   collector->Run(gc_cause, clear_soft_references || runtime->IsZygote());
   IncrementFreedEver();
   RequestTrim(self);
