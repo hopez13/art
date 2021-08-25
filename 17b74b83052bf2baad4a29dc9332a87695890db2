@@ -108,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3249f158_e35762db",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4525,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-25T01:30:01Z",
+      "side": 1,
+      "message": "I believe we now basically set it to\ntarget_footprint - min(target_footprint/4, kMaxConcurrentRemainingBytes)\nwhere target_footprint \u003d growth_limit here.\nThat\u0027s higher than before.\n\nI actually think it\u0027s OK to leave it. If we run out during the first two seconds, we have a badly behaved app that pauses during startup, which is not really going to be noticeable. But we should make sure we agree this is what it does.",
+      "parentUuid": "cb95a07b_6554633c",
+      "range": {
+        "startLine": 4525,
+        "startChar": 4,
+        "endLine": 4525,
+        "endChar": 34
+      },
+      "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c3861b6_b60d61e0",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 6
