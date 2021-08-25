@@ -866,6 +866,8 @@ class Heap {
   uint64_t GetTotalTimeWaitingForGC() const {
     return total_wait_time_;
   }
+  uint64_t GetFullGcWithSoftRefCount() const;
+  uint64_t GetGcLongWaitTimeCount() const;
 
   // Perfetto Art Heap Profiler Support.
   HeapSampler& GetHeapSampler() {
@@ -1686,6 +1688,12 @@ class Heap {
   // Boot image address range. Includes images and oat files.
   uint32_t boot_images_start_address_;
   uint32_t boot_images_size_;
+
+  // The number of full GC runs.
+  uint64_t full_gc_with_softref_count_;
+
+  // The total count waiting for GC to complete for long time.
+  uint64_t gc_long_wait_time_count_;
 
   // An installed allocation listener.
   Atomic<AllocationListener*> alloc_listener_;
