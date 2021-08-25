@@ -130,6 +130,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d3f276d_4c430aef",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4525,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-25T01:35:08Z",
+      "side": 1,
+      "message": "Sorry about misunderstanding the calculation in SetDefaultConcurrentStartBytesLocked() above. I agree with you. Looks good to me.",
+      "parentUuid": "3249f158_e35762db",
+      "range": {
+        "startLine": 4525,
+        "startChar": 4,
+        "endLine": 4525,
+        "endChar": 34
+      },
+      "revId": "17b74b83052bf2baad4a29dc9332a87695890db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c3861b6_b60d61e0",
