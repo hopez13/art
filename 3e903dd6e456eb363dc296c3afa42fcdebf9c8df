@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "596f169f_0b25bebb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-08-26T21:58:20Z",
+      "side": 1,
+      "message": "This topic is a follow-up to add the proper runtime_libs dependencies in all other places that use libdexfile_supprt. It\u0027s for the sake of completeness - I don\u0027t think the lack of them to causes any observable bugs (although I\u0027m not entirely sure).",
+      "revId": "3e903dd6e456eb363dc296c3afa42fcdebf9c8df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
