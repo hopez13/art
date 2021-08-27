@@ -4114,6 +4114,10 @@ void Thread::VisitReflectiveTargets(ReflectiveValueVisitor* visitor) {
   }
 }
 
+// FIXME: clang-r433403 reports the below function exceeds frame size limit.
+// http://b/197647048
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wframe-larger-than="
 template <bool kPrecise>
 void Thread::VisitRoots(RootVisitor* visitor) {
   const uint32_t thread_id = GetThreadId();
@@ -4175,6 +4179,7 @@ void Thread::VisitRoots(RootVisitor* visitor) {
     visitor->VisitRootIfNonNull(&entry.second.this_object_, RootInfo(kRootVMInternal, thread_id));
   }
 }
+#pragma GCC diagnostic pop
 
 void Thread::SweepInterpreterCache(IsMarkedVisitor* visitor) {
   for (InterpreterCache::Entry& entry : GetInterpreterCache()->GetArray()) {
