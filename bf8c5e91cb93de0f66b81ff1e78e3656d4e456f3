@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cc9ab7c_5ba837ca",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-27T14:26:06Z",
+      "side": 1,
+      "message": "21",
+      "range": {
+        "startLine": 3,
+        "startChar": 18,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afbe2038_428b9a72",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-27T14:26:06Z",
+      "side": 1,
+      "message": "if these are effectively constants, google style prefixes with _.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3412627_6b5ec44a",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-27T14:26:06Z",
+      "side": 1,
+      "message": "Please run this file through pyformat / gpylint to make formatting more googley/consistent.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d20df13a_eb6f9af5",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-27T14:26:06Z",
+      "side": 1,
+      "message": "Prefer to make these module level constants, _BUILD_MODE_HOST \u003d \"host, etc.",
+      "range": {
+        "startLine": 89,
+        "startChar": 77,
+        "endLine": 89,
+        "endChar": 83
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2da54dc4_0ccee4f6",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-27T14:26:06Z",
+      "side": 1,
+      "message": "where is this defined?",
+      "range": {
+        "startLine": 160,
+        "startChar": 12,
+        "endLine": 160,
+        "endChar": 17
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b437f37_6e92ef87",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-27T14:26:06Z",
+      "side": 1,
+      "message": "shellisms, line too long.",
+      "range": {
+        "startLine": 177,
+        "startChar": 29,
+        "endLine": 177,
+        "endChar": 43
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22a1de8c_e15595f6",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-27T14:26:06Z",
+      "side": 1,
+      "message": "nit: line length",
+      "range": {
+        "startLine": 213,
+        "startChar": 100,
+        "endLine": 213,
+        "endChar": 105
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af8589d4_aaaf4d4a",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-27T14:26:06Z",
+      "side": 1,
+      "message": "nit: line length",
+      "range": {
+        "startLine": 219,
+        "startChar": 49,
+        "endLine": 219,
+        "endChar": 109
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

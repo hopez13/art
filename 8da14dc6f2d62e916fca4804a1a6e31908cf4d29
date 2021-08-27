@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c16e4a6_fae9b75c",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-27T14:26:06Z",
+      "side": 0,
+      "message": "Default not carried across.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 19
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e48b50a1_5185d043",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-08-27T14:26:06Z",
+      "side": 0,
+      "message": "Not carried across, potentially used when not defined.",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 32
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
