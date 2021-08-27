@@ -22,6 +22,30 @@
       },
       "revId": "533ac5a70570db77316fe33b22ae360250d5fcb9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "994d8cc4_d16a2fc1",
+        "filename": "test/180-native-default-method/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-08-27T16:39:22Z",
+      "side": 1,
+      "message": "It should be 38 specifically (that corresponds to the default API_LEVEL in the script).\nThe 39 was just the \"maximum supported\" (result of asking for API_LEVEL 1000 in the merger).\nI mean, 38 vs 39 makes no difference really, but 38 is what the script generates now (and bunch of other tests use 39 as well when var-handles are used).",
+      "parentUuid": "39e0bf74_59297bda",
+      "range": {
+        "startLine": 23,
+        "startChar": 78,
+        "endLine": 23,
+        "endChar": 80
+      },
+      "revId": "533ac5a70570db77316fe33b22ae360250d5fcb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
