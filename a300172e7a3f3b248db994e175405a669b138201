@@ -16,6 +16,29 @@
       "message": "Looking at the context, I think this is what the code was intending to do. Feel free to update the change with the correct fix.",
       "revId": "a300172e7a3f3b248db994e175405a669b138201",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf1e0fe3_997ff4e3",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-28T00:26:44Z",
+      "side": 1,
+      "message": "I understand removing collector_type_ as it\u0027s not being used. But I don\u0027t understand why here you are replacing it with background_collector_type_.\n\ncan you please elaborate?",
+      "range": {
+        "startLine": 708,
+        "startChar": 8,
+        "endLine": 708,
+        "endChar": 58
+      },
+      "revId": "a300172e7a3f3b248db994e175405a669b138201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
