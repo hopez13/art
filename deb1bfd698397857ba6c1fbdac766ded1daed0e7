@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12291393_4eb782eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-28T03:44:26Z",
+      "side": 1,
+      "message": "I think your original CL had an important unintended (?) benefit. It forced all processes to perform a  GC after startup, even if they didn\u0027t allocate enough to normally force that. Which means that applications that allocated and dropped objects only on startup got their heap compacted even if they wouldn\u0027t normally trigger any GC. Based on the bug that forced the initial revert, that seems to be important. Our initial heap size seems to be big enough to make that a common occurrence.\n\nI don\u0027t know whether this problem also arises in the low memory cases. It maybe that the thresholds are enough lower that these processes collect anyway. But it\u0027s very cheap to do this if it\u0027s not needed; we\u0027ll see that we already collected and do nothing. So I believe this is the safe option.",
+      "parentUuid": "bfbff2e6_55f335e9",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 60
+      },
+      "revId": "deb1bfd698397857ba6c1fbdac766ded1daed0e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd94b44d_093a5c8e",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-28T01:49:12Z",
       "side": 1,
       "message": "Don\u0027t see any real usage of this.",
+      "range": {
+        "startLine": 4554,
+        "startChar": 11,
+        "endLine": 4554,
+        "endChar": 23
+      },
+      "revId": "deb1bfd698397857ba6c1fbdac766ded1daed0e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c470f182_acdec701",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4554,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-28T03:44:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd94b44d_093a5c8e",
       "range": {
         "startLine": 4554,
         "startChar": 11,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5872f14_52373740",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4585,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-28T03:44:26Z",
+      "side": 1,
+      "message": "Yes, but it\u0027s not a time at which we adjusted the heap size, so I think the naming would be off. I did change to underscores, for consistency.",
+      "parentUuid": "c60a50bb_e69dc3b5",
+      "range": {
+        "startLine": 4585,
+        "startChar": 11,
+        "endLine": 4585,
+        "endChar": 25
+      },
+      "revId": "deb1bfd698397857ba6c1fbdac766ded1daed0e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac4fa8e4_85ec95d9",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-08-28T01:49:12Z",
       "side": 1,
       "message": "Why do we need to randomize the wait-time before the first GC?",
+      "range": {
+        "startLine": 4586,
+        "startChar": 48,
+        "endLine": 4586,
+        "endChar": 72
+      },
+      "revId": "deb1bfd698397857ba6c1fbdac766ded1daed0e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cbda2f9_52ec2498",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4586,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-08-28T03:44:26Z",
+      "side": 1,
+      "message": "I\u0027m concerned about getting a bunch of GCs at the same time shortly after startup. I want to spread them out a bit. Ideally we should figure out to do the scheduling on a system-wide basis. But that\u0027s hard. This is easy and hopefully good enough.",
+      "parentUuid": "ac4fa8e4_85ec95d9",
       "range": {
         "startLine": 4586,
         "startChar": 48,
