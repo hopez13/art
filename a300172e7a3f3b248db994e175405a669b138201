@@ -39,6 +39,30 @@
       },
       "revId": "a300172e7a3f3b248db994e175405a669b138201",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb0f865c_431ed001",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1087625
+      },
+      "writtenOn": "2021-08-28T02:20:49Z",
+      "side": 1,
+      "message": "Otherwise -Xgc flag will be ignored? Given it\u0027s a documented option (https://source.android.com/devices/tech/dalvik/gc-debug#changing_the_gc_type), this should control background GC now that foreground GC is gone?",
+      "parentUuid": "bf1e0fe3_997ff4e3",
+      "range": {
+        "startLine": 708,
+        "startChar": 8,
+        "endLine": 708,
+        "endChar": 58
+      },
+      "revId": "a300172e7a3f3b248db994e175405a669b138201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
