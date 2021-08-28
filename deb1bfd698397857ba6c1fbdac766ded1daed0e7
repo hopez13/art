@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfbff2e6_55f335e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-28T01:49:12Z",
+      "side": 1,
+      "message": "If we aren\u0027t temporarily delaying the GC for low memory mode, then why do we need to trigger GC? The target_footprint_, which is initially set to initial_heap_size, should take care of that, right?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 60
+      },
+      "revId": "deb1bfd698397857ba6c1fbdac766ded1daed0e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd94b44d_093a5c8e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4554,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-28T01:49:12Z",
+      "side": 1,
+      "message": "Don\u0027t see any real usage of this.",
+      "range": {
+        "startLine": 4554,
+        "startChar": 11,
+        "endLine": 4554,
+        "endChar": 23
+      },
+      "revId": "deb1bfd698397857ba6c1fbdac766ded1daed0e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c60a50bb_e69dc3b5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4585,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-28T01:49:12Z",
+      "side": 1,
+      "message": "Could have reused last_adj_time here?",
+      "range": {
+        "startLine": 4585,
+        "startChar": 11,
+        "endLine": 4585,
+        "endChar": 25
+      },
+      "revId": "deb1bfd698397857ba6c1fbdac766ded1daed0e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac4fa8e4_85ec95d9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4586,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-28T01:49:12Z",
+      "side": 1,
+      "message": "Why do we need to randomize the wait-time before the first GC?",
+      "range": {
+        "startLine": 4586,
+        "startChar": 48,
+        "endLine": 4586,
+        "endChar": 72
+      },
+      "revId": "deb1bfd698397857ba6c1fbdac766ded1daed0e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
