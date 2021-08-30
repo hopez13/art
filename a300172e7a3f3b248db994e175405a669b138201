@@ -63,6 +63,30 @@
       },
       "revId": "a300172e7a3f3b248db994e175405a669b138201",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91778a4e_83774cd1",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-08-30T16:52:05Z",
+      "side": 1,
+      "message": "Foreground GC is not gone. It\u0027s same as background. If you have seen it otherwise then let me know as I might be missing something.\n\nAlso, they are same only for the current default GC, ConcurrentCopying. But we still do support another GC, Concurrent Mark Sweep (CMS), which used different foreground and background GCs.\n\nSo I think we either have to keep it as is, or somehow make this change conditional on which GC is being used.",
+      "parentUuid": "fb0f865c_431ed001",
+      "range": {
+        "startLine": 708,
+        "startChar": 8,
+        "endLine": 708,
+        "endChar": 58
+      },
+      "revId": "a300172e7a3f3b248db994e175405a669b138201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
