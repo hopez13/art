@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d946d5_a47797b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1880290
+      },
+      "writtenOn": "2021-09-01T13:30:22Z",
+      "side": 1,
+      "message": "I have added a link to the benchmark patch in the commit.\nThe microbenchmark used is a small function and could be copied (along with some globals) and run manually with minimal modification.\nAlternatively the Linaro public script benchmarks/benchmark_run_target.sh can be used https://android-review.linaro.org/plugins/gitiles/linaro-art/art-build-scripts.",
+      "parentUuid": "90e84871_150bdfe0",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 36
+      },
+      "revId": "68947c71bbc80ef64c466a4c8e707590a7eb7db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a5801162_40da0556",
