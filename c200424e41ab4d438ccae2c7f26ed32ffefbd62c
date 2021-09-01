@@ -55,6 +55,184 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01dfd5dd_80ed199c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-09-01T15:10:22Z",
+      "side": 1,
+      "message": "Hi Neeraj,\n\nSorry for a delayed reply!\n\nLet me please summarise the current state of the review from my side.\n\nI). My CL-level comment from PS32 (Jul 03, 2020 3:52 PM) on “which types/categories of loops the optimization will be applied” and insufficient (in my opinion) test coverage has not been addressed. Am including it here again:\n\u003e 1. It is not clear for which types/categories of loops the optimization will be applied and for which it won\u0027t.\n\u003e  - Induction kind (kInvariant, kLinear, kPolynomial, kGeometric, kWrapAround, kPeriodic) \n\u003e  - Number of basic blocks (more than two?).\n\u003e  - while loops (if the last instruction of the loop header is not HIf exit).\n\u003e Basically if \"This optimization is applied to all loops except for A, B, and C types\" then I would suggest there should be negative tests for A, B, and C. E.g. when in the implementation in the corresponding method there is \"return false\" so the optimization is not applied then it might be worth to introduce a test to cover that case.\n\u003e 2. I am sorry, I didn\u0027t get are there still any cases when an extra induction is introduced now? I\u0027d suggest you could put a detailed comment around this into the sources/tests rather than having in only as a gerrit comment here.”\n\nII). There were 6 file-level unresolved comments from previous reviews.\n\nIII). I have submitted a first portion of implementation review comments just now.\n\nIV). As the CL has some formatting issues I would suggest to consider using clang format and cpp-lint as a presubmit check.\n\nThanks,\nArtem.\n",
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d27dafc2_98149c1b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-09-01T15:10:22Z",
+      "side": 1,
+      "message": "As suggested in the CL general comment about testing, I\u0027d suggest to have a clear way to describe which loop patterns are supported, e.g. by having a function IsLoopSupportedForDynamicUnrolling.",
+      "range": {
+        "startLine": 954,
+        "startChar": 8,
+        "endLine": 954,
+        "endChar": 47
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7b95f6f_3073542c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-09-01T15:10:22Z",
+      "side": 1,
+      "message": "The expected logic behind \"generate_code\" is that once you enter the section, you do the full optimization in full.\n\nIn this function you do versioning first (line 948) and only then have a partial check whether the optimization should be applied at all (here), leaving the graph in an unexpected mid-way through state.",
+      "range": {
+        "startLine": 955,
+        "startChar": 6,
+        "endLine": 955,
+        "endChar": 19
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ce15b1_3ccca01f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-09-01T15:10:22Z",
+      "side": 1,
+      "message": "nit: function arguments - either all on one line or one per line.",
+      "range": {
+        "startLine": 979,
+        "startChar": 43,
+        "endLine": 980,
+        "endChar": 60
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31e84152_67163453",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-09-01T15:10:22Z",
+      "side": 1,
+      "message": "nit: double space here and in other places.",
+      "range": {
+        "startLine": 1010,
+        "startChar": 62,
+        "endLine": 1010,
+        "endChar": 64
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f920a3b_463a143f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-09-01T15:10:22Z",
+      "side": 1,
+      "message": "Please add a comment for this function, e.g. defining what is a main induction variable.",
+      "range": {
+        "startLine": 1061,
+        "startChar": 12,
+        "endLine": 1061,
+        "endChar": 30
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b527c564_1a7bbe46",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-09-01T15:10:22Z",
+      "side": 1,
+      "message": "This function is too big in my opinion (https://google.github.io/styleguide/cppguide.html#Write_Short_Functions); could you please split it?",
+      "range": {
+        "startLine": 1087,
+        "startChar": 24,
+        "endLine": 1087,
+        "endChar": 62
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd91c167_c2c9808f",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-09-01T15:10:22Z",
+      "side": 1,
+      "message": "nit: long line.",
+      "range": {
+        "startLine": 1131,
+        "startChar": 100,
+        "endLine": 1131,
+        "endChar": 103
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4daa18de_5c7f2c83",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 32
