@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24727dde_b2d2fe99",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-01T18:33:08Z",
+      "side": 1,
+      "message": "Please move it above (after line 1291)",
+      "range": {
+        "startLine": 1301,
+        "startChar": 2,
+        "endLine": 1301,
+        "endChar": 25
+      },
+      "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f4442d8_d3a24600",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2732,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-01T18:33:08Z",
+      "side": 1,
+      "message": "Please move this to function AllocateInternalWithGc(). Also, please remove the condition for clear_soft_reference.\n\nApplication threads reach AllocateInternalWithGc() when they are unable to allocate due to heap being full. The problem, however, is that many threads could be in this function, and we want to increment only once every time this situation arises.\n\nHans, any suggestion on how to handle concurrency here? What if we were to increment inside some critical if the gc-cause is allocation? But again, how do we avoid multiple increments as we perform multiple GCs in this function?",
+      "range": {
+        "startLine": 2730,
+        "startChar": 2,
+        "endLine": 2732,
+        "endChar": 3
+      },
+      "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
