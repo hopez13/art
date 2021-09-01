@@ -45,6 +45,30 @@
       },
       "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120b0c6e_f3796b2c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2732,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-01T19:31:37Z",
+      "side": 1,
+      "message": "I\u0027d make the counter atomic, and increment it (with fetch_add()) immediately after\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/runtime/gc/heap.cc;l\u003d1909?q\u003dAllocateInternalWithGc ,\n\nThat\u0027s not ideal, in that, as Lokesh said, we can start this kind of GC from multiple threads, and have this happen more than once for a single near-OOM situation. But there is already a TODO there to fix that. And that\u0027s a harder problem.\n\nProbably more of these counters should eventually be atomic, so this moves us in the right direction.",
+      "parentUuid": "0f4442d8_d3a24600",
+      "range": {
+        "startLine": 2730,
+        "startChar": 2,
+        "endLine": 2732,
+        "endChar": 3
+      },
+      "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
