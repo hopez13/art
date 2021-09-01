@@ -16,6 +16,46 @@
       "message": "LGTM; Hans, can you also have a look at this please?",
       "revId": "b93f16788800773d81a4d1efb1fb0633227f9c4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "734c3bd8_e77e3044",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-01T18:05:45Z",
+      "side": 1,
+      "message": "LGTM, with one nit. Thanks for adding the tests!\n\nSomeone with more compiler code experience should also look at this. I was mostly trying to convince myself the algorithm is correct. It\u0027s annoyingly difficult to match the somewhat weird spec of Float.compare().",
+      "revId": "b93f16788800773d81a4d1efb1fb0633227f9c4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd66b39_12b441c4",
+        "filename": "test/580-checker-fp16/src-art/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-01T18:05:45Z",
+      "side": 1,
+      "message": "This is a NaN with a nonzero payload? I\u0027d add a comment to that effect. or maybe use FP16.NaN | ... . I was looking for such a test and initially missed it.\n\nMaybe also check the reverse argument order here?",
+      "range": {
+        "startLine": 355,
+        "startChar": 8,
+        "endLine": 355,
+        "endChar": 64
+      },
+      "revId": "b93f16788800773d81a4d1efb1fb0633227f9c4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
