@@ -117,6 +117,30 @@
       },
       "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cd27aca_c2e14d85",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2732,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-02T17:36:36Z",
+      "side": 1,
+      "message": "Sekyeong, Can you make this change as well so that we can approve the CL? Basically, change pre_oome_gc_count_ into an \u0027Atomic\u003cuint64_t\u003e and then update it the way Hans suggested in the second comment above.",
+      "parentUuid": "679b7659_50874841",
+      "range": {
+        "startLine": 2730,
+        "startChar": 2,
+        "endLine": 2732,
+        "endChar": 3
+      },
+      "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
