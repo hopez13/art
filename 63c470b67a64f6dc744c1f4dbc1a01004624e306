@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "880f9f53_6adde1a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-02T18:09:58Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be added to Conscrypt MTS instead? If so, is that tracked anywhere?",
+      "range": {
+        "startLine": 11,
+        "startChar": 39,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "63c470b67a64f6dc744c1f4dbc1a01004624e306",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b3b2c78_52926325",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-02T18:09:58Z",
+      "side": 1,
+      "message": "Why not \"(test_name, test_comment)\" directly here?",
+      "range": {
+        "startLine": 803,
+        "startChar": 12,
+        "endLine": 803,
+        "endChar": 13
+      },
+      "revId": "63c470b67a64f6dc744c1f4dbc1a01004624e306",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
