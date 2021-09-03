@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fec8baa3_cfd7b8a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-03T17:37:03Z",
+      "side": 1,
+      "message": "All right, good that there isn\u0027t a gap. I suppose the \"proper\" way to test it in ART is to mock out the algorithm implementations in Conscrypt so that the glue code in ART is tested in isolation. Is that the plan to bring the test back to ART, or is this in fact permanent rather than \"for now\"?",
+      "parentUuid": "26b22ec2_36f38176",
+      "range": {
+        "startLine": 11,
+        "startChar": 39,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "63c470b67a64f6dc744c1f4dbc1a01004624e306",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b3b2c78_52926325",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 1
