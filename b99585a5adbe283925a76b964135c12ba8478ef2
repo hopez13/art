@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbb47cc5_67dad23c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-03T15:44:39Z",
+      "side": 1,
+      "message": "IMO, the memory_order_relaxed is optional everywhere here. Just omitting the memory order is also OK, since I think none of this code is frequently executed. On 64-bit ARM, we generate the same number of instructions either way, I believe. The default seq_cst ones are just slower. As Lokesh said, we do prefer explicit load() and store() operations for atomics.",
+      "parentUuid": "ec6c3d65_6c65d1f6",
+      "range": {
+        "startLine": 1292,
+        "startChar": 2,
+        "endLine": 1292,
+        "endChar": 25
+      },
+      "revId": "b99585a5adbe283925a76b964135c12ba8478ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01ee81a2_f95d5114",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
