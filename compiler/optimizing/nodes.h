@@ -1339,14 +1339,17 @@ class HBasicBlock : public ArenaObject<kArenaAllocBasicBlock> {
   void AddPhi(HPhi* phi);
   void InsertPhiAfter(HPhi* instruction, HPhi* cursor);
   // RemoveInstruction and RemovePhi delete a given instruction from the respective
-  // instruction list. RemovalSafetyKind ensures we verify (or not) that the instruction has no uses, and removes it from the use lists of its inputs.
+  // instruction list. RemovalSafetyKind ensures we verify (or not) that the instruction has no
+  // uses, and removes it from the use lists of its inputs.
   enum class RemovalSafetyKind {
     kEnsureSafety,
     kDontEnsureSafety
   };
-  void RemoveInstruction(HInstruction* instruction, RemovalSafetyKind safety_kind = RemovalSafetyKind::kEnsureSafety);
+  void RemoveInstruction(HInstruction* instruction,
+                         RemovalSafetyKind safety_kind = RemovalSafetyKind::kEnsureSafety);
   void RemovePhi(HPhi* phi, RemovalSafetyKind safety_kind = RemovalSafetyKind::kEnsureSafety);
-  void RemoveInstructionOrPhi(HInstruction* instruction, RemovalSafetyKind safety_kind = RemovalSafetyKind::kEnsureSafety);
+  void RemoveInstructionOrPhi(HInstruction* instruction,
+                              RemovalSafetyKind safety_kind = RemovalSafetyKind::kEnsureSafety);
 
   bool IsLoopHeader() const {
     return IsInLoop() && (loop_information_->GetHeader() == this);
@@ -4840,10 +4843,11 @@ class HInvokeStaticOrDirect final : public HInvoke {
  public:
   // Requirements of this method call regarding the class
   // initialization (clinit) check of its declaring class.
-  enum class ClinitCheckRequirement {  // private marker to avoid generate-operator-out.py from processing.
-    kNone,      // Class already initialized.
-    kExplicit,  // Static call having explicit clinit check as last input.
-    kImplicit,  // Static call implicitly requiring a clinit check.
+  enum class ClinitCheckRequirement {  // private marker to avoid generate-operator-out.py from
+                                       // processing.
+    kNone,                             // Class already initialized.
+    kExplicit,                         // Static call having explicit clinit check as last input.
+    kImplicit,                         // Static call implicitly requiring a clinit check.
     kLast = kImplicit
   };
 
