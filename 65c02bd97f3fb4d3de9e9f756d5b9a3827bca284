@@ -141,6 +141,30 @@
       },
       "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e2754e2_7b1c3c6d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2732,
+      "author": {
+        "id": 1151059
+      },
+      "writtenOn": "2021-09-03T02:19:01Z",
+      "side": 1,
+      "message": "Atomic\u003cuint64_t\u003e pre_oome_gc_count_;\n\nChanged to the above.\nPlease review about that, and if you have more suggestion, please feel free to share to me.",
+      "parentUuid": "7cd27aca_c2e14d85",
+      "range": {
+        "startLine": 2730,
+        "startChar": 2,
+        "endLine": 2732,
+        "endChar": 3
+      },
+      "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
