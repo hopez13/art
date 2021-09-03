@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "mark_compact.h"
+#include "mark_compact-inl.h"
 
 namespace art {
 namespace gc {
@@ -27,11 +27,31 @@ static constexpr bool kVerifyRootsMarked = kIsDebugBuild;
 
 MarkCompact::MarkCompact(Heap* heap)
         : GarbageCollector(heap, "concurrent mark compact"),
-          gc_barrier_(new Barrier(0)),
+          gc_barrier_(0),
           mark_stack_lock_("mark compact mark stack lock", kMarkSweepMarkStackLock),
-          mark_stack_(nullptr),
-          bump_pointer_space_(heap->GetBumpPointerSpace()),
-          current_space_bitmap_(nullptr) {}
+          bump_pointer_space_(heap->GetBumpPointerSpace()) {
+  // TODO: Depending on how the bump-pointer space move is implemented. If we
+  // switch between two virtual memories each time, then we will have to
+  // initialize live_words_bitmap_ accordingly.
+  live_words_bitmap_.reset(LiveWordsBitmap<kAlignment>::Create(
+          reinterpret_cast<uintptr_t>(bump_pointer_space_->Begin()),
+          reinterpret_cast<uintptr_t>(bump_pointer_space_->Limit())));
+
+  const size_t vector_size =
+          (bump_pointer_space->Limit() - bump_pointer_space->Begin()) / kOffsetChunkSize;
+
+  std::string err_msg;
+  offset_vector_map_.reset(MemMap::MapAnonymous("Concurrent mark-compact offset-vector",
+                                                vector_size,
+                                                PROT_READ | PROT_WRITE,
+                                                /*low_4gb=*/ false,
+                                                &err_msg));
+  if (UNLIKELY(!offset_vector_map_->IsValid())) {
+    LOG(ERROR) << "Failed to allocate concurrent mark-compact offset-vector: " << err_msg;
+  } else {
+    offset_vector_ = reinterpret_cast<uint32_t*>(offset_vector_map_->Begin());
+  }
+}
 
 void MarkCompact::BindAndResetBitmaps() {
   // TODO: We need to hold heap_bitmap_lock_ only for populating immune_spaces.
@@ -90,6 +110,7 @@ void MarkCompact::InitializePhase() {
   mark_stack_ = heap_->GetMarkStack();
   DCHECK(mark_stack_.get() != nullptr);
   immune_space_.Reset();
+  vector_length_ = bump_pointer_space_->Size() / kOffsetChunkSize;
 }
 
 void MarkCompact::RunPhases() {
@@ -124,6 +145,28 @@ void MarkCompact::RunPhases() {
   }
   GetHeap()->PostGcVerification(this);
   FinishPhase();
+}
+
+void MarkCompact::PrepareForCompaction() {
+  // At this point every element in the offset_vector_ contains the live-bytes
+  // of the corresponding chunk. For old-to-new address computation we need
+  // every element to reflect all the live-bytes till the corresponding chunk.
+  uint32_t prev = 0;
+  for (size_t i = 0; i < vector_length_; i++) {
+    uint32_t temp = offset_vector_[i];
+    offset_vector_[i] = prev;
+    prev += temp;
+  }
+  // How do we handle compaction of heap portion used for allocations after the
+  // marking-pause?
+  // All allocations after the marking-pause are considered black (reachable)
+  // for this GC cycle. However, they need not be allocated contiguously as
+  // different mutators use TLABs. So we will compact the heap till the point
+  // where allocations took place before the marking-pause. And everything after
+  // that will be slid with TLAB holes, and then TLAB info in TLS will be
+  // appropriately updated in the pre-compaction pause.
+  // The offset-vector entries for the post marking-pause allocations will be
+  // also updated in the pre-compaction pause.
 }
 
 void MarkCompact::ReMarkRoots(Runtime* runtime) {
@@ -328,7 +371,7 @@ void MarkCompact::MarkRootsCheckpoint(Thread* self, Runtime* runtime) {
   TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
   CheckpointMarkThreadRoots check_point(this);
   ThreadList* thread_list = runtime->GetThreadList();
-  gc_barrier_->Init(self, 0);
+  gc_barrier_.Init(self, 0);
   // Request the check point is run on all threads returning a count of the threads that must
   // run through the barrier including self.
   size_t barrier_count = thread_list->RunCheckpoint(&check_point);
@@ -342,7 +385,7 @@ void MarkCompact::MarkRootsCheckpoint(Thread* self, Runtime* runtime) {
   Locks::mutator_lock_->SharedUnlock(self);
   {
     ScopedThreadStateChange tsc(self, kWaitingForCheckPointsToRun);
-    gc_barrier_->Increment(self, barrier_count);
+    gc_barrier_.Increment(self, barrier_count);
   }
   Locks::mutator_lock_->SharedLock(self);
   Locks::heap_bitmap_lock_->ExclusiveLock(self);
@@ -367,7 +410,7 @@ class MarkCompact::ScanObjectVisitor {
       ALWAYS_INLINE
       REQUIRES(Locks::heap_bitmap_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    mark_compact_->ScanObject(obj.Ptr());
+    mark_compact_->ScanObject</*kUpdateLiveWords*/ false>(obj.Ptr());
   }
 
  private:
@@ -586,9 +629,31 @@ class MarkCompact::RefFieldsVisitor {
   MarkCompact* const mark_compact_;
 };
 
+void MarkCompact::UpdateLivenessInfo(mirror::Object* obj) {
+  DCHECK(obj != nullptr);
+  uintptr_t obj_begin = reinterpret_cast<uintptr_t>(obj);
+  size_t size = RoundUp(obj->SizeOf<kDefaultVerifyFlags>(), kAlignment);
+  uintptr_t bit_index = live_words_bitmap_->SetLiveWords(obj_begin, size);
+  size_t vec_idx = (obj_begin - live_words_bitmap_->Begin()) / kOffsetChunkSize;
+  // Compute the bit-index within the offset-vector word.
+  bit_index %= kBitsPerVectorWord;
+  size_t first_chunk_portion = std::min(size, (kBitsPerVectorWord - bit_index) * kAlignment);
+
+  offset_vector_[vec_idx++] += first_chunk_portion;
+  DCHECK_LE(first_chunk_portion, size);
+  for (size -= first_chunk_portion; size > kOffsetChunkSize; size -= kOffsetChunkSize) {
+    offset_vector_[vec_idx++] = kOffsetChunkSize;
+  }
+  offset_vector_[vec_idx] += size;
+}
+
+template <bool kUpdateLiveWords>
 void MarkCompact::ScanObject(mirror::Object* obj) {
   RefFieldsVisitor visitor(this);
   DCHECK(IsMarked(obj)) << "Scanning marked object " << obj << "\n" << heap_->DumpSpaces();
+  if (kUpdateLiveWords && current_space_bitmap_->HasAddress(obj)) {
+    UpdateLivenessInfo(obj);
+  }
   obj->VisitReferences(visitor, visitor);
 }
 
@@ -599,7 +664,7 @@ void MarkCompact::ProcessMarkStack() {
   while (!mark_stack_->IsEmpty()) {
     mirror::Object* obj = mark_stack_->PopBack();
     DCHECK(obj != nullptr);
-    ScanObject(obj);
+    ScanObject</*kUpdateLiveWords*/ true>(obj);
   }
 }
 
@@ -739,6 +804,11 @@ bool MarkCompact::IsNullOrMarkedHeapReference(mirror::HeapReference<mirror::Obje
 void MarkCompact::DelayReferenceReferent(ObjPtr<mirror::Class> klass,
                                          ObjPtr<mirror::Reference> ref) {
   heap_->GetReferenceProcessor()->DelayReferenceReferent(klass, ref, this);
+}
+
+void MarkCompact::FinishPhase() {
+  offset_vector_map_->MadviseDontNeedAndZero();
+  live_words_bitmap_->ClearBitmap();
 }
 }  // namespace collector
 }  // namespace gc
