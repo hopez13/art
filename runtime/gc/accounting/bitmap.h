@@ -81,7 +81,7 @@ class Bitmap {
   void CopyFrom(Bitmap* source_bitmap);
 
   // Starting address of our internal storage.
-  uintptr_t* Begin() {
+  uintptr_t* Begin() const {
     return bitmap_begin_;
   }
 
