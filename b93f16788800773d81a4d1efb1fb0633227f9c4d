@@ -56,6 +56,30 @@
       },
       "revId": "b93f16788800773d81a4d1efb1fb0633227f9c4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dda57ef_e0eaa9f4",
+        "filename": "test/580-checker-fp16/src-art/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1880290
+      },
+      "writtenOn": "2021-09-03T14:49:28Z",
+      "side": 1,
+      "message": "I added a variable for it as it would be useful in future tests.\nI have also added the reverse check.",
+      "parentUuid": "9cd66b39_12b441c4",
+      "range": {
+        "startLine": 355,
+        "startChar": 8,
+        "endLine": 355,
+        "endChar": 64
+      },
+      "revId": "b93f16788800773d81a4d1efb1fb0633227f9c4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
