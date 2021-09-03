@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec6c3d65_6c65d1f6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-03T15:34:06Z",
+      "side": 1,
+      "message": "This should change to pre_oome_gc_count_.store(0, std::memory_order_relaxed);",
+      "range": {
+        "startLine": 1292,
+        "startChar": 2,
+        "endLine": 1292,
+        "endChar": 25
+      },
+      "revId": "b99585a5adbe283925a76b964135c12ba8478ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ee81a2_f95d5114",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-03T15:34:06Z",
+      "side": 1,
+      "message": "This would change to pre_oome_gc_count_.load(std::memory_order_relaxed);",
+      "range": {
+        "startLine": 1343,
+        "startChar": 9,
+        "endLine": 1343,
+        "endChar": 28
+      },
+      "revId": "b99585a5adbe283925a76b964135c12ba8478ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
