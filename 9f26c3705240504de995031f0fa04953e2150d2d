@@ -16,6 +16,24 @@
       "message": "This appears inconsistent with https://android-review.googlesource.com/c/platform/art/+/1776230.",
       "revId": "9f26c3705240504de995031f0fa04953e2150d2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f240c42_e7dda445",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-03T14:55:46Z",
+      "side": 1,
+      "message": "No, the check line 2178 ensures that at this point, both types are resolved.",
+      "parentUuid": "9c1481aa_69ff681f",
+      "revId": "9f26c3705240504de995031f0fa04953e2150d2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
