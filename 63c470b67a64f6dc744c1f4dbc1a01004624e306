@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f304174_115dbe49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-05T14:59:33Z",
+      "side": 1,
+      "message": "I think I should discuss this with Pete and Mainline EngProd (on the topic of installing additional Mainline modules (such as Conscrypt) during ART Mainline testing).\n\nI also wanted to see the impact of this change on line coverage before working on a follow-up plan.",
+      "parentUuid": "fec8baa3_cfd7b8a1",
+      "range": {
+        "startLine": 11,
+        "startChar": 39,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "63c470b67a64f6dc744c1f4dbc1a01004624e306",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b3b2c78_52926325",
@@ -85,6 +109,30 @@
       "writtenOn": "2021-09-02T18:09:58Z",
       "side": 1,
       "message": "Why not \"(test_name, test_comment)\" directly here?",
+      "range": {
+        "startLine": 803,
+        "startChar": 12,
+        "endLine": 803,
+        "endChar": 13
+      },
+      "revId": "63c470b67a64f6dc744c1f4dbc1a01004624e306",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6d3ceee_5bcb5771",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-05T14:59:33Z",
+      "side": 1,
+      "message": "Good idea; done in PS2.",
+      "parentUuid": "7b3b2c78_52926325",
       "range": {
         "startLine": 803,
         "startChar": 12,
