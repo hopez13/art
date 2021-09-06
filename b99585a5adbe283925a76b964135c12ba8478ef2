@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26a440c9_4c637f6c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1151059
+      },
+      "writtenOn": "2021-09-06T04:50:26Z",
+      "side": 1,
+      "message": "I totally agree with your opnion.\nTo this function, the atomic is more appropriate than the previous method.\nAlso, either way is fine to memory ordering.\nThanks.",
+      "parentUuid": "dbb47cc5_67dad23c",
+      "range": {
+        "startLine": 1292,
+        "startChar": 2,
+        "endLine": 1292,
+        "endChar": 25
+      },
+      "revId": "b99585a5adbe283925a76b964135c12ba8478ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01ee81a2_f95d5114",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
