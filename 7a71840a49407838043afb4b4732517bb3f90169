@@ -22,6 +22,30 @@
       },
       "revId": "7a71840a49407838043afb4b4732517bb3f90169",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eaad044_39f43163",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-07T11:05:47Z",
+      "side": 1,
+      "message": "I think it\u0027s clearer to have the test binary have a proper name, in particular if the test\u0027s location is shortened and its path is shortened or dropped (e.g. in logs).",
+      "parentUuid": "66ff891b_0e5b2582",
+      "range": {
+        "startLine": 19,
+        "startChar": 112,
+        "endLine": 19,
+        "endChar": 141
+      },
+      "revId": "7a71840a49407838043afb4b4732517bb3f90169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
