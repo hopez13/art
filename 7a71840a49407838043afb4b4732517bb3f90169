@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b730faba_b40e568c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-07T11:22:58Z",
+      "side": 1,
+      "message": "I looked through art/ for test XML files, and besides these found tools/ahat/ahat-tests.xml and artd/tests/AndroidTest.xml. Not that they also need this change, but maybe they should be renamed to xxx_tests.xml like the others to make it less likely they get missed?",
+      "revId": "7a71840a49407838043afb4b4732517bb3f90169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66ff891b_0e5b2582",
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "I think it\u0027s clearer to have the test binary have a proper name, in particular if the test\u0027s location is shortened and its path is shortened or dropped (e.g. in logs).",
       "parentUuid": "66ff891b_0e5b2582",
+      "range": {
+        "startLine": 19,
+        "startChar": 112,
+        "endLine": 19,
+        "endChar": 141
+      },
+      "revId": "7a71840a49407838043afb4b4732517bb3f90169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c86e5847_fd3a0015",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-07T11:22:58Z",
+      "side": 1,
+      "message": "Ok, that\u0027s a good point. (I got the impression it\u0027s a directory, but that\u0027s wrong of course.)",
+      "parentUuid": "8eaad044_39f43163",
       "range": {
         "startLine": 19,
         "startChar": 112,
