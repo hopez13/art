@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9bfec9f3_e227a1ea",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-09-07T06:55:13Z",
+      "side": 1,
+      "message": "Array class can be resolved even when the element type is unresolved, right? Isn\u0027t this the reason for the revert\n\n    https://android-review.googlesource.com/1819832 ?",
+      "parentUuid": "b52cc4f7_693eff6a",
+      "range": {
+        "startLine": 2213,
+        "startChar": 23,
+        "endLine": 2213,
+        "endChar": 50
+      },
+      "revId": "957ef4b02ed06ff1f88cb2b354db112ad9bc0c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a98a134a_5e2428fd",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 2
