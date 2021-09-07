@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66ff891b_0e5b2582",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-07T10:10:56Z",
+      "side": 1,
+      "message": "Does this have to be repeated now with the test-unique parent directory? Can\u0027t it be just \"tests\" instead? (Same throughout below.)",
+      "range": {
+        "startLine": 19,
+        "startChar": 112,
+        "endLine": 19,
+        "endChar": 141
+      },
+      "revId": "7a71840a49407838043afb4b4732517bb3f90169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
