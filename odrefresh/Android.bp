@@ -165,6 +165,7 @@ cc_library_static {
 art_cc_defaults {
     name: "art_odrefresh_tests_defaults",
     defaults: ["odrefresh-defaults"],
+    host_supported: false,
     header_libs: ["odrefresh_headers"],
     srcs: [
         "odr_artifacts_test.cc",
