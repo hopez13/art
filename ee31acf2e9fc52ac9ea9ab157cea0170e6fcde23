@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f154cc2_833727c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-08T00:26:33Z",
+      "side": 1,
+      "message": "It would be great if this worked. But this is very much a trial balloon. If we don\u0027t currently have a test that just allocates and drops very large Object arrays, we probably need one before submitting.",
+      "revId": "ee31acf2e9fc52ac9ea9ab157cea0170e6fcde23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed4a60a8_4545befa",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3437,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-08T00:26:33Z",
+      "side": 1,
+      "message": "Needs to be largely removed. But let\u0027s leave it for a bit of testing.",
+      "range": {
+        "startLine": 3437,
+        "startChar": 2,
+        "endLine": 3437,
+        "endChar": 162
+      },
+      "revId": "ee31acf2e9fc52ac9ea9ab157cea0170e6fcde23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
