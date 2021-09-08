@@ -25,6 +25,7 @@ package {
 
 cc_defaults {
     name: "odrefresh-defaults",
+    host_supported: false,
     srcs: [
         "odrefresh.cc",
         "odr_common.cc",
@@ -55,7 +56,6 @@ cc_defaults {
 
 cc_defaults {
     name: "odrefresh_binary_defaults",
-    host_supported: true,
     defaults: [
         "art_defaults",
         "odrefresh-defaults",
