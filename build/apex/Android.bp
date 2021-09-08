@@ -33,7 +33,6 @@ art_runtime_base_binaries_both_on_device_first_on_host = [
 //  (likely 64-bit) and on host).
 art_runtime_base_binaries_first_on_device_first_on_host = [
     "dexoptanalyzer",
-    "odrefresh",
     "profman",
 ]
 
@@ -145,6 +144,7 @@ art_tools_device_only_binaries = [
     // oatdump cannot link with host linux_bionic due to not using clang lld;
     // TODO: Make it work with clang lld.
     "oatdump",
+    "odrefresh",
 ]
 // Same, but for only for debug packages.
 art_tools_debug_device_only_binaries = [
