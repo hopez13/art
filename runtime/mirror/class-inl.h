@@ -501,10 +501,14 @@ inline bool Class::ResolvedMethodAccessTest(ObjPtr<Class> access_to,
     dex::TypeIndex class_idx = dex_cache->GetDexFile()->GetMethodId(method_idx).class_idx_;
     // The referenced class has already been resolved with the method, but may not be in the dex
     // cache.
-    ObjPtr<Class> dex_access_to = Runtime::Current()->GetClassLinker()->LookupResolvedType(
+    StackHandleScope<3> hs(Thread::Current());
+    Handle<Class> h_access_to = hs.NewHandle(access_to);
+    Handle<DexCache> h_dex_cache = hs.NewHandle(dex_cache);
+    Handle<ClassLoader> h_class_loader = hs.NewHandle(access_to->GetClassLoader());
+    ObjPtr<Class> dex_access_to = Runtime::Current()->GetClassLinker()->ResolveType(
         class_idx,
-        dex_cache,
-        access_to->GetClassLoader());
+        h_dex_cache,
+        h_class_loader);
     DCHECK(dex_access_to != nullptr)
         << " Could not resolve " << dex_cache->GetDexFile()->StringByTypeIdx(class_idx)
         << " when checking access to " << method->PrettyMethod() << " from " << PrettyDescriptor();
@@ -517,9 +521,13 @@ inline bool Class::ResolvedMethodAccessTest(ObjPtr<Class> access_to,
       }
       return false;
     }
-  }
-  if (LIKELY(this->CanAccessMember(access_to, method->GetAccessFlags()))) {
-    return true;
+    if (LIKELY(this->CanAccessMember(h_access_to.Get(), method->GetAccessFlags()))) {
+      return true;
+    }
+  } else {
+    if (LIKELY(this->CanAccessMember(access_to, method->GetAccessFlags()))) {
+      return true;
+    }
   }
   if (throw_on_failure) {
     ThrowIllegalAccessErrorMethod(this, method);
