@@ -39,6 +39,30 @@
       },
       "revId": "5d4a50da7105702f92a0b1454c27dd536bf5b010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f62668c0_43b2a90a",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-09T23:46:39Z",
+      "side": 1,
+      "message": "I agree, this looks suspicious. ObjPtr would not be updated by the GC. And if that was ok, then it\u0027s unclear why ResolveType requires a handle and ObjPtr wouldn\u0027t suffice.",
+      "parentUuid": "33dcf2b1_f7a72a57",
+      "range": {
+        "startLine": 505,
+        "startChar": 32,
+        "endLine": 505,
+        "endChar": 56
+      },
+      "revId": "5d4a50da7105702f92a0b1454c27dd536bf5b010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
