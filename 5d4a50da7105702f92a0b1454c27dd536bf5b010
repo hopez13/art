@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7cd07b4_2bff89e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-09T22:30:11Z",
+      "side": 1,
+      "message": "Lokesh, could you check my reasoning here, since my issue is actually GC-related? I\u0027m not confident of anything here, but it currently looks to me like this is dangerous to submit.",
+      "revId": "5d4a50da7105702f92a0b1454c27dd536bf5b010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33dcf2b1_f7a72a57",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-09T22:30:11Z",
+      "side": 1,
+      "message": "Does this make sense? We\u0027re computing a handle to access_to, so that it\u0027s GC visible. But if the GC moves it, we\u0027re invalidating the caller\u0027s ObjPtr? If the GC can\u0027t move it, why does ResolveType() take a handle? I suspect we can\u0027t just call ResolveType here.",
+      "range": {
+        "startLine": 505,
+        "startChar": 32,
+        "endLine": 505,
+        "endChar": 56
+      },
+      "revId": "5d4a50da7105702f92a0b1454c27dd536bf5b010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
