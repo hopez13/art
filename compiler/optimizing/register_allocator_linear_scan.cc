@@ -221,24 +221,22 @@ void RegisterAllocatorLinearScan::AllocateRegistersInternal() {
   LinearScan();
 }
 
-void RegisterAllocatorLinearScan::ProcessInstruction(HInstruction* instruction) {
+bool RegisterAllocatorLinearScan::TryRemoveSuspendCheckEntry(HInstruction* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  if (instruction->IsSuspendCheckEntry() && codegen_->CanSkipSuspendCheckEntry()) {
+    // TODO: We do this here because we do not want the suspend check to artificially
+    // create live registers. We should find another place, but this is currently the
+    // simplest.
+    DCHECK_EQ(locations->GetTempCount(), 0u);
+    instruction->GetBlock()->RemoveInstruction(instruction);
+    return true;
+  }
+  return false;
+}
+
+void RegisterAllocatorLinearScan::CheckForTempLiveIntervals(HInstruction* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   size_t position = instruction->GetLifetimePosition();
-
-  if (locations == nullptr) return;
-
-  if (locations->NeedsSafepoint()) {
-    if (instruction->IsSuspendCheckEntry() && codegen_->CanSkipSuspendCheckEntry()) {
-      // TODO: We do this here because we do not want the suspend check to artificially
-      // create live registers. We should find another place, but this is currently the
-      // simplest.
-      DCHECK_EQ(locations->GetTempCount(), 0u);
-      instruction->GetBlock()->RemoveInstruction(instruction);
-      return;
-    }
-    safepoints_.push_back(instruction);
-  }
-
   // Create synthesized intervals for temporaries.
   for (size_t i = 0; i < locations->GetTempCount(); ++i) {
     Location temp = locations->GetTemp(i);
@@ -279,14 +277,18 @@ void RegisterAllocatorLinearScan::ProcessInstruction(HInstruction* instruction) 
       }
     }
   }
+}
 
-  bool core_register = (instruction->GetType() != DataType::Type::kFloat64)
-      && (instruction->GetType() != DataType::Type::kFloat32);
-
-  if (locations->WillCall()) {
-    BlockRegisters(position, position + 1, /* caller_save_only= */ true);
+void RegisterAllocatorLinearScan::CheckForSafepoint(HInstruction* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  if (locations->NeedsSafepoint()) {
+    safepoints_.push_back(instruction);
   }
+}
 
+void RegisterAllocatorLinearScan::CheckForFixedInputs(HInstruction* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  size_t position = instruction->GetLifetimePosition();
   for (size_t i = 0; i < locations->GetInputCount(); ++i) {
     Location input = locations->InAt(i);
     if (input.IsRegister() || input.IsFpuRegister()) {
@@ -296,20 +298,10 @@ void RegisterAllocatorLinearScan::ProcessInstruction(HInstruction* instruction) 
       BlockRegister(input.ToHigh(), position, position + 1);
     }
   }
+}
 
+void RegisterAllocatorLinearScan::AddSafepointsFor(HInstruction* instruction) {
   LiveInterval* current = instruction->GetLiveInterval();
-  if (current == nullptr) return;
-
-  ScopedArenaVector<LiveInterval*>& unhandled = core_register
-      ? unhandled_core_intervals_
-      : unhandled_fp_intervals_;
-
-  DCHECK(unhandled.empty() || current->StartsBeforeOrAt(unhandled.back()));
-
-  if (codegen_->NeedsTwoRegisters(current->GetType())) {
-    current->AddHighInterval();
-  }
-
   for (size_t safepoint_index = safepoints_.size(); safepoint_index > 0; --safepoint_index) {
     HInstruction* safepoint = safepoints_[safepoint_index - 1u];
     size_t safepoint_position = SafepointPosition::ComputePosition(safepoint);
@@ -332,8 +324,12 @@ void RegisterAllocatorLinearScan::ProcessInstruction(HInstruction* instruction) 
     }
     current->AddSafepoint(safepoint);
   }
-  current->ResetSearchCache();
+}
 
+void RegisterAllocatorLinearScan::CheckForFixedOutput(HInstruction* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  size_t position = instruction->GetLifetimePosition();
+  LiveInterval* current = instruction->GetLiveInterval();
   // Some instructions define their output in fixed register/stack slot. We need
   // to ensure we know these locations before doing register allocation. For a
   // given register, we create an interval that covers these locations. The register
@@ -372,6 +368,43 @@ void RegisterAllocatorLinearScan::ProcessInstruction(HInstruction* instruction) 
   } else {
     DCHECK(output.IsUnallocated() || output.IsConstant());
   }
+}
+
+void RegisterAllocatorLinearScan::ProcessInstruction(HInstruction* instruction) {
+  LocationSummary* locations = instruction->GetLocations();
+  if (locations == nullptr) {
+    return;
+  }
+  if (TryRemoveSuspendCheckEntry(instruction)) {
+    return;
+  }
+
+  CheckForTempLiveIntervals(instruction);
+  CheckForSafepoint(instruction);
+  if (locations->WillCall()) {
+    // If a call will happen, create fixed intervals for caller-save registers.
+    const size_t position = instruction->GetLifetimePosition();
+    BlockRegisters(position, position + 1, /* caller_save_only= */ true);
+  }
+  CheckForFixedInputs(instruction);
+
+  LiveInterval* current = instruction->GetLiveInterval();
+  if (current == nullptr)
+    return;
+
+  const bool core_register = !DataType::IsFloatingPointType(instruction->GetType());
+  ScopedArenaVector<LiveInterval*>& unhandled =
+      core_register ? unhandled_core_intervals_ : unhandled_fp_intervals_;
+
+  DCHECK(unhandled.empty() || current->StartsBeforeOrAt(unhandled.back()));
+
+  if (codegen_->NeedsTwoRegisters(current->GetType())) {
+    current->AddHighInterval();
+  }
+
+  AddSafepointsFor(instruction);
+  current->ResetSearchCache();
+  CheckForFixedOutput(instruction);
 
   if (instruction->IsPhi() && instruction->AsPhi()->IsCatchPhi()) {
     AllocateSpillSlotForCatchPhi(instruction->AsPhi());
