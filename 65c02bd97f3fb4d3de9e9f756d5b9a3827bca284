@@ -213,6 +213,30 @@
       },
       "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c62e3de_b956d371",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2732,
+      "author": {
+        "id": 1151059
+      },
+      "writtenOn": "2021-09-09T01:40:25Z",
+      "side": 1,
+      "message": "I have changed to patchset5 as the below.\n  pre_oome_gc_count_.fetch_add(1, std::memory_order_relaxed);\n\nDo you prefer to change to the previous patch like the below?\n  ++pre_oome_gc_count_;\n\nI think both ways are okay.",
+      "parentUuid": "e120869c_2f1ef8ac",
+      "range": {
+        "startLine": 2730,
+        "startChar": 2,
+        "endLine": 2732,
+        "endChar": 3
+      },
+      "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
