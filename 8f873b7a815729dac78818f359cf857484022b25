@@ -43,6 +43,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9da3d278_efc0782c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2021-09-10T01:32:01Z",
+      "side": 1,
+      "message": "+1 to the question.\n\nI assume its because this is used in code paths were callers will not be able to tolerate failure and we are trying to preserve the behavior and report the error... whereas other callers of OatFile::Setup will still be more graceful.\n\nBut it is worth testing that assumption looking at the callers. I\u0027m just not familiar enough with the code anymore to say. It\u0027s clear in the bug stack the below caller was used in the particular bug as reported with GetDexOptNeeded crashing when reading an unexpected file.",
+      "parentUuid": "1ac64c9f_bff09c15",
+      "revId": "8f873b7a815729dac78818f359cf857484022b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bda75e30_b048d325",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
