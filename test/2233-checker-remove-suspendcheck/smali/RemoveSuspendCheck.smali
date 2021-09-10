@@ -15,6 +15,7 @@
 .class public LRemoveSuspendCheck;
 .super Ljava/lang/Object;
 .field public str:Ljava/lang/String;
+.field public arr:[Ljava/lang/String;
 
 .method public constructor <init>()V
 .registers 1
@@ -22,18 +23,36 @@
     return-void
 .end method
 
-## CHECK-START: java.lang.String RemoveSuspendCheck.leaf(RemoveSuspendCheck) register (after)
+# We should be able to eliminate the SuspendCheck when reading a field.
+## CHECK-START: java.lang.String RemoveSuspendCheck.fieldLeaf(RemoveSuspendCheck) register (after)
 ## CHECK-NOT: SuspendCheck
-.method public leaf(LRemoveSuspendCheck;)Ljava/lang/String;
+.method public fieldLeaf(LRemoveSuspendCheck;)Ljava/lang/String;
 .registers 2
     iget-object v0, p0, LRemoveSuspendCheck;->str:Ljava/lang/String;
     return-object v0
 .end method
 
+# We should be able to eliminate the SuspendCheck when reading an item from an array.
+## CHECK-START: java.lang.String RemoveSuspendCheck.arrayGetLeaf(RemoveSuspendCheck) register (after)
+## CHECK-NOT: SuspendCheck
+.method public arrayGetLeaf(LRemoveSuspendCheck;)Ljava/lang/String;
+.registers 2
+    iget-object v0, p0, LRemoveSuspendCheck;->arr:[Ljava/lang/String;
+    const v1, 0x0
+    aget-object v1, v0, v1
+    return-object v1
+.end method
+
 .method public static removeSuspendCheck()V
-    .registers 1
+    .registers 3
     new-instance v0, LRemoveSuspendCheck;
     invoke-direct {v0}, LRemoveSuspendCheck;-><init>()V
-    invoke-virtual {v0, v0}, LRemoveSuspendCheck;->leaf(LRemoveSuspendCheck;)Ljava/lang/String;
+    invoke-virtual {v0, v0}, LRemoveSuspendCheck;->fieldLeaf(LRemoveSuspendCheck;)Ljava/lang/String;
+
+    const-string v1, "test"
+    filled-new-array {v1, v1, v1}, [Ljava/lang/String;
+    move-result-object v1
+    iput-object v1, v0, LRemoveSuspendCheck;->arr:[Ljava/lang/String;
+    invoke-virtual {v0, v0}, LRemoveSuspendCheck;->arrayGetLeaf(LRemoveSuspendCheck;)Ljava/lang/String;
     return-void
 .end method
