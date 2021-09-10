@@ -29,6 +29,7 @@ cc_defaults {
         "odrefresh.cc",
         "odr_common.cc",
         "odr_compilation_log.cc",
+        "odr_dexopt.cc",
         "odr_fs_utils.cc",
         "odr_metrics.cc",
         "odr_metrics_record.cc",
@@ -41,8 +42,10 @@ cc_defaults {
         "art-odrefresh-operator-srcs",
     ],
     shared_libs: [
+        "artd-private-aidl-ndk",
         "libartpalette",
         "libbase",
+        "libdexopt",
         "liblog",
     ],
     static_libs: ["libtinyxml2"],
