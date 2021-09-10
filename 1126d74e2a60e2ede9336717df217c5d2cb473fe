@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7b6f7d0_896a1910",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-09-10T08:20:13Z",
+      "side": 0,
+      "message": "The actual bug is here. The correct class loader is `this-\u003eGetClassLoader()` or simply `GetClassLoader()`.\n\nJust follow the code from `ClassLinker::GetResolvedMethod()` where we `LookupResolvedType()` and then call through `Class::CanAccessResolvedMethod()` to `Class::ResolvedMethodAccessTest()` where we repeat the `LookupResolvedType()` with a class loader from the wrong source. Same for the two `ClassLinker::ResolveMethod() overloads that indirectly call `Class::ResolvedMethodAccessTest()`.",
+      "range": {
+        "startLine": 507,
+        "startChar": 8,
+        "endLine": 507,
+        "endChar": 35
+      },
+      "revId": "1126d74e2a60e2ede9336717df217c5d2cb473fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
