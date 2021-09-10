@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ac64c9f_bff09c15",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1083259
+      },
+      "writtenOn": "2021-09-10T00:14:29Z",
+      "side": 1,
+      "message": "Why don\u0027t you do fatal on only debugging mode?",
+      "revId": "8f873b7a815729dac78818f359cf857484022b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bda75e30_b048d325",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
