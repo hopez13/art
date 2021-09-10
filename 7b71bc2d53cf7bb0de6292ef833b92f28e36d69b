@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93236266_3f2596d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-10T19:51:32Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "7b71bc2d53cf7bb0de6292ef833b92f28e36d69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0e25417_f8a216bf",
+        "filename": "artd/include/libdexopt/libdexopt.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-10T19:51:32Z",
+      "side": 1,
+      "message": "This change itself is only an internal refactoring in ART.  I\u0027m still trying to create the proper C API, on top of this already large change.  So I\u0027m sending this out for review first.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 19
+      },
+      "revId": "7b71bc2d53cf7bb0de6292ef833b92f28e36d69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa902c58_294d3d31",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-10T19:51:32Z",
+      "side": 1,
+      "message": "The current implementation doesn\u0027t change how the compilation is delegated to CompOS.  Shortly, we should be able to replace this `pvm_exec` with another method without touching the other code.\n\nSimilarly, when artd is up, we can also modify OdrDexoptLocal above to send the request over binder.",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 21
+      },
+      "revId": "7b71bc2d53cf7bb0de6292ef833b92f28e36d69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
