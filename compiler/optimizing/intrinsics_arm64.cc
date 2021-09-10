@@ -2259,6 +2259,23 @@ static void CreateFPFPToFPCallLocations(ArenaAllocator* allocator, HInvoke* invo
   locations->SetOut(calling_convention.GetReturnLocation(invoke->GetType()));
 }
 
+static void CreateFPFPFPToFPCallLocations(ArenaAllocator* allocator, HInvoke* invoke) {
+  DCHECK_EQ(invoke->GetNumberOfArguments(), 3U);
+  DCHECK(DataType::IsFloatingPointType(invoke->InputAt(0)->GetType()));
+  DCHECK(DataType::IsFloatingPointType(invoke->InputAt(1)->GetType()));
+  DCHECK(DataType::IsFloatingPointType(invoke->InputAt(2)->GetType()));
+  DCHECK(DataType::IsFloatingPointType(invoke->GetType()));
+
+  LocationSummary* const locations =
+      new (allocator) LocationSummary(invoke, LocationSummary::kCallOnMainOnly, kIntrinsified);
+  InvokeRuntimeCallingConvention calling_convention;
+
+  locations->SetInAt(0, LocationFrom(calling_convention.GetFpuRegisterAt(0)));
+  locations->SetInAt(1, LocationFrom(calling_convention.GetFpuRegisterAt(1)));
+  locations->SetInAt(2, LocationFrom(calling_convention.GetFpuRegisterAt(2)));
+  locations->SetOut(calling_convention.GetReturnLocation(invoke->GetType()));
+}
+
 static void GenFPToFPCall(HInvoke* invoke,
                           CodeGeneratorARM64* codegen,
                           QuickEntrypointEnum entry) {
@@ -4177,6 +4194,37 @@ void IntrinsicCodeGeneratorARM64::VisitMathMultiplyHigh(HInvoke* invoke) {
   Register out = RegisterFrom(locations->Out(), type);
 
   __ Smulh(out, x, y);
+}
+
+static void GenerateMathFma(HInvoke* invoke, CodeGeneratorARM64* codegen) {
+  LocationSummary* locations = invoke->GetLocations();
+  MacroAssembler* masm = codegen->GetVIXLAssembler();
+  DataType::Type type = invoke->GetType();
+  DCHECK(type == DataType::Type::kFloat32 || type == DataType::Type::kFloat64);
+  bool is64bit = type == DataType::Type::kFloat64;
+
+  VRegister n = is64bit ? DRegisterFrom(locations->InAt(0)) : SRegisterFrom(locations->InAt(0));
+  VRegister m = is64bit ? DRegisterFrom(locations->InAt(1)) : SRegisterFrom(locations->InAt(1));
+  VRegister a = is64bit ? DRegisterFrom(locations->InAt(2)) : SRegisterFrom(locations->InAt(2));
+  VRegister out = is64bit ? DRegisterFrom(locations->Out()) : SRegisterFrom(locations->Out());
+
+  __ Fmadd(out, n, m, a);
+}
+
+void IntrinsicCodeGeneratorARM64::VisitMathFmaDouble(HInvoke* invoke) {
+  GenerateMathFma(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderARM64::VisitMathFmaDouble(HInvoke* invoke) {
+  CreateFPFPFPToFPCallLocations(allocator_, invoke);
+}
+
+void IntrinsicCodeGeneratorARM64::VisitMathFmaFloat(HInvoke* invoke) {
+  GenerateMathFma(invoke, codegen_);
+}
+
+void IntrinsicLocationsBuilderARM64::VisitMathFmaFloat(HInvoke* invoke) {
+  CreateFPFPFPToFPCallLocations(allocator_, invoke);
 }
 
 class VarHandleSlowPathARM64 : public IntrinsicSlowPathARM64 {
