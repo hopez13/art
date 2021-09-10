@@ -45,6 +45,31 @@ art_cc_binary {
     ],
 }
 
+art_cc_library {
+    name: "libdexopt",
+    defaults: ["art_defaults"],
+    srcs: [
+        "libdexopt.cc",
+    ],
+    shared_libs: [
+        "artd-private-aidl-ndk",
+        "libart",
+        "libartbase",
+        "libbase",
+        "liblog",
+    ],
+    export_include_dirs: [
+        "include/libdexopt",
+    ],
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+    visibility: [
+        "//art:__subpackages__",
+    ],
+}
+
 prebuilt_etc {
     name: "com.android.art.artd.init.rc",
     src: "artd.rc",
