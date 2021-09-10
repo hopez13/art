@@ -124,6 +124,8 @@
   V(MathAbsFloat, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Math;", "abs", "(F)F") \
   V(MathAbsLong, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Math;", "abs", "(J)J") \
   V(MathAbsInt, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Math;", "abs", "(I)I") \
+  V(MathFmaDoubleDoubleDouble, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Math;", "fma", "(DDD)D") \
+  V(MathFmaFloatFloatFloat, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Math;", "fma", "(FFF)F") \
   V(MathMinDoubleDouble, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Math;", "min", "(DD)D") \
   V(MathMinFloatFloat, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Math;", "min", "(FF)F") \
   V(MathMinLongLong, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Math;", "min", "(JJ)J") \
