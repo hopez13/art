@@ -469,6 +469,8 @@ class ReleaseChecker:
 
     # Check internal libraries for ART.
     self._checker.check_prefer64_library('artd-aidl-ndk')
+    self._checker.check_prefer64_library('artd-private-aidl-ndk')
+    self._checker.check_prefer64_library('libdexopt')
     self._checker.check_native_library('libadbconnection')
     self._checker.check_native_library('libart')
     self._checker.check_native_library('libart-compiler')
@@ -687,7 +689,8 @@ class TestingTargetChecker:
     self._checker.check_art_test_executable('art_libdexfile_tests')
     self._checker.check_art_test_executable('art_libprofile_tests')
     self._checker.check_art_test_executable('art_oatdump_tests')
-    self._checker.check_art_test_executable('art_odrefresh_tests')
+    # TODO: Check that the first arch exist
+    self._checker.check_optional_art_test_executable('art_odrefresh_tests')
     self._checker.check_art_test_executable('art_profman_tests')
     self._checker.check_art_test_executable('art_runtime_compiler_tests')
     self._checker.check_art_test_executable('art_runtime_tests')
