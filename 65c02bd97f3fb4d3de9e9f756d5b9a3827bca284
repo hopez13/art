@@ -261,6 +261,30 @@
       },
       "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e8e311b_284567e7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2732,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-10T01:42:18Z",
+      "side": 1,
+      "message": "Please also remove the condition of clear_soft_references and move the fetch_add to the location given by Hans in his comment above.",
+      "parentUuid": "7f90e8f6_7964488b",
+      "range": {
+        "startLine": 2730,
+        "startChar": 2,
+        "endLine": 2732,
+        "endChar": 3
+      },
+      "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
