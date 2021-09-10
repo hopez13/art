@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32798ed1_3a224b63",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-10T10:17:59Z",
+      "side": 1,
+      "message": "You\u0027re right, I\u0027ve added checks at both boundaries.",
+      "parentUuid": "7c669223_9876dd09",
+      "range": {
+        "startLine": 508,
+        "startChar": 15,
+        "endLine": 508,
+        "endChar": 57
+      },
+      "revId": "8f873b7a815729dac78818f359cf857484022b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ac64c9f_bff09c15",
@@ -59,6 +83,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d9bb3fd_aaa75edc",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-10T10:17:59Z",
+      "side": 1,
+      "message": "That code isn\u0027t for the path that is crashing. In his code, we have created a vdex file in memory, and we don\u0027t expect the setup to fail.\n\nThat said, better safe than sorry and I\u0027ve adjusted the code to handle the case we would fail.",
+      "parentUuid": "9da3d278_efc0782c",
+      "revId": "8f873b7a815729dac78818f359cf857484022b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bda75e30_b048d325",
@@ -72,6 +114,30 @@
       "writtenOn": "2021-09-10T00:09:17Z",
       "side": 1,
       "message": "Is there a reason not to check it against Begin() as well?",
+      "range": {
+        "startLine": 1682,
+        "startChar": 21,
+        "endLine": 1682,
+        "endChar": 55
+      },
+      "revId": "8f873b7a815729dac78818f359cf857484022b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "babea896_abf26a12",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1682,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-10T10:17:59Z",
+      "side": 1,
+      "message": "ditto.",
+      "parentUuid": "bda75e30_b048d325",
       "range": {
         "startLine": 1682,
         "startChar": 21,
