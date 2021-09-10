@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 public class Main {
   public static void main(String[] args) throws Exception {
     Class<?> c = Class.forName("RemoveSuspendCheck");
-    Method m = c.getMethod("removeSuspendCheck");
-    m.invoke(null);
+    c.getMethod("removeSuspendCheckFromGets").invoke(null);
+    c.getMethod("removeSuspendCheckFromLoadClass").invoke(null);
   }
 }

@@ -26,6 +26,7 @@
 # We should be able to eliminate the SuspendCheck when reading a field.
 ## CHECK-START: java.lang.String RemoveSuspendCheck.fieldLeaf(RemoveSuspendCheck) register (after)
 ## CHECK-NOT: SuspendCheck
+## CHECK: InstanceFieldGet
 .method public fieldLeaf(LRemoveSuspendCheck;)Ljava/lang/String;
 .registers 2
     iget-object v0, p0, LRemoveSuspendCheck;->str:Ljava/lang/String;
@@ -35,6 +36,7 @@
 # We should be able to eliminate the SuspendCheck when reading an item from an array.
 ## CHECK-START: java.lang.String RemoveSuspendCheck.arrayGetLeaf(RemoveSuspendCheck) register (after)
 ## CHECK-NOT: SuspendCheck
+## CHECK: ArrayGet
 .method public arrayGetLeaf(LRemoveSuspendCheck;)Ljava/lang/String;
 .registers 2
     iget-object v0, p0, LRemoveSuspendCheck;->arr:[Ljava/lang/String;
@@ -43,7 +45,7 @@
     return-object v1
 .end method
 
-.method public static removeSuspendCheck()V
+.method public static removeSuspendCheckFromGets()V
     .registers 2
     new-instance v0, LRemoveSuspendCheck;
     invoke-direct {v0}, LRemoveSuspendCheck;-><init>()V
@@ -55,4 +57,14 @@
     iput-object v1, v0, LRemoveSuspendCheck;->arr:[Ljava/lang/String;
     invoke-virtual {v0, v0}, LRemoveSuspendCheck;->arrayGetLeaf(LRemoveSuspendCheck;)Ljava/lang/String;
     return-void
+.end method
+
+# We should be able to eliminate the SuspendCheck when loading a class.
+## CHECK-START: java.lang.Class RemoveSuspendCheck.removeSuspendCheckFromLoadClass() register (after)
+## CHECK-NOT: SuspendCheck
+## CHECK: LoadClass
+.method public static removeSuspendCheckFromLoadClass()Ljava/lang/Class;
+    .registers 1
+    const-class v0, LRemoveSuspendCheck;
+    return-object v0
 .end method

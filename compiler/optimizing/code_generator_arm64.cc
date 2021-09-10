@@ -5233,9 +5233,9 @@ void LocationsBuilderARM64::VisitLoadClass(HLoadClass* cls) {
                 load_kind == HLoadClass::LoadKind::kBssEntryPackage);
 
   const bool requires_read_barrier = kEmitCompilerReadBarrier && !cls->IsInBootImage();
-  LocationSummary::CallKind call_kind = (cls->NeedsEnvironment() || requires_read_barrier)
-      ? LocationSummary::kCallOnSlowPath
-      : LocationSummary::kNoCall;
+  LocationSummary::CallKind call_kind = (cls->NeedsEnvironment() || requires_read_barrier) ?
+                                            LocationSummary::kCallOnSlowPathNoSuspendCheck :
+                                            LocationSummary::kNoCall;
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(cls, call_kind);
   if (kUseBakerReadBarrier && requires_read_barrier && !cls->NeedsEnvironment()) {
     locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
