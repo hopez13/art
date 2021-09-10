@@ -45,6 +45,8 @@ public class Main {
     test_Math_isInfinite_D();
     test_Math_isInfinite_F();
     test_Math_multiplyHigh();
+    test_Math_fma_D();
+    test_Math_fma_F();
     test_Short_reverseBytes();
     test_Integer_reverseBytes();
     test_Long_reverseBytes();
@@ -983,6 +985,16 @@ public class Main {
     Math.multiplyHigh(2L, 3L);
     Assert.assertEquals(Math.multiplyHigh(2L, 3L), 0L);
     Assert.assertEquals(Math.multiplyHigh(Long.MAX_VALUE, Long.MAX_VALUE), 4611686018427387903L);
+  }
+
+  public static void test_Math_fma_D() {
+    Math.fma(3.0, 4.0, 5.0);
+    Assert.assertEquals(Double.compare(Math.fma(3.0, 4.0, 5.0), 17.0), 0);
+  }
+
+  public static void test_Math_fma_F() {
+    Math.fma(3.0f, 4.0f, 5.0f);
+    Assert.assertEquals(Float.compare(Math.fma(3.0f, 4.0f, 5.0f), 17.0f), 0);
   }
 
   public static void test_StrictMath_abs_I() {
