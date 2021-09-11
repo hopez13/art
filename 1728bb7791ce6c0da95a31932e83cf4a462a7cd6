@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c17a97_f2d4189e",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3972,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-09-11T09:23:43Z",
+      "side": 1,
+      "message": "What about arrays of unresolved types? (Should not lead to hard failure.)",
+      "range": {
+        "startLine": 3972,
+        "startChar": 19,
+        "endLine": 3972,
+        "endChar": 46
+      },
+      "revId": "1728bb7791ce6c0da95a31932e83cf4a462a7cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
