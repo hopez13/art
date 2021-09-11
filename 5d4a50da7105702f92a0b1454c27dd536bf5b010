@@ -63,6 +63,30 @@
       },
       "revId": "5d4a50da7105702f92a0b1454c27dd536bf5b010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa151f45_1e5f2d66",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-09-11T08:12:54Z",
+      "side": 1,
+      "message": "This is technically correct but it\u0027s also unnecessary. I\u0027d recommend abandoning the CL after the actual bug was fixed by https://android-review.googlesource.com/1823219 .",
+      "parentUuid": "f62668c0_43b2a90a",
+      "range": {
+        "startLine": 505,
+        "startChar": 32,
+        "endLine": 505,
+        "endChar": 56
+      },
+      "revId": "5d4a50da7105702f92a0b1454c27dd536bf5b010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
