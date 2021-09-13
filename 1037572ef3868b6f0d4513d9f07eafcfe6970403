@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d4088ef_2ddf17b5",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1888731
+      },
+      "writtenOn": "2021-09-13T13:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0aaab6bb_80e47cfc",
+      "range": {
+        "startLine": 947,
+        "startChar": 0,
+        "endLine": 947,
+        "endChar": 85
+      },
+      "revId": "1037572ef3868b6f0d4513d9f07eafcfe6970403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "790e7a33_ad4d8598",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b7fd260_092f7a50",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1888731
+      },
+      "writtenOn": "2021-09-13T13:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "790e7a33_ad4d8598",
+      "range": {
+        "startLine": 679,
+        "startChar": 0,
+        "endLine": 679,
+        "endChar": 48
+      },
+      "revId": "1037572ef3868b6f0d4513d9f07eafcfe6970403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e5fb4fa_19eeaed5",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-09-13T13:13:57Z",
       "side": 1,
       "message": "Seems to be unused. If so, please remove it",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "1037572ef3868b6f0d4513d9f07eafcfe6970403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "583bf62d_3af99e2e",
+        "filename": "test/2233-checker-remove-loop-suspend-check/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1888731
+      },
+      "writtenOn": "2021-09-13T13:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e5fb4fa_19eeaed5",
       "range": {
         "startLine": 20,
         "startChar": 0,
