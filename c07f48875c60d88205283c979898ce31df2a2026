@@ -16,6 +16,24 @@
       "message": "So it\u0027s not possible to disable checker processing without deleting them altogether? We better remember to revert this (but not the regression test) when enabling partial LSE again.",
       "revId": "c07f48875c60d88205283c979898ce31df2a2026",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5f9bcba_eeb2d50b",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3967,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-13T13:45:01Z",
+      "side": 0,
+      "message": "Yeah, I have a follow-up CL to recover those removals.",
+      "parentUuid": "bbea414f_61380918",
+      "revId": "c07f48875c60d88205283c979898ce31df2a2026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
