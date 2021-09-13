@@ -103,6 +103,8 @@ class PACKED(4) OatQuickMethodHeader {
   }
 
   bool Contains(uintptr_t pc) const {
+    // We should not call Contains on a stub or trampoline.
+    DCHECK_NE(data_, 0xFFFFFFFF) << std::hex << reinterpret_cast<uintptr_t>(code_);
     // Remove hwasan tag to make comparison below valid. The PC from the stack does not have it.
     uintptr_t code_start = reinterpret_cast<uintptr_t>(HWASanUntag(code_));
     static_assert(kRuntimeISA != InstructionSet::kThumb2, "kThumb2 cannot be a runtime ISA");
