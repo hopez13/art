@@ -64,6 +64,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b453ed5_d4461536",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-13T15:52:03Z",
+      "side": 1,
+      "message": "I assume that for compilation, it just matters whether the signatures are correct and found?\n\nHow would one add dependency on the subs?",
+      "parentUuid": "7acbaefb_62f61dd7",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 6
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcaa7c17_5f15b32b",
@@ -87,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "612aec29_f8f5a000",
+        "filename": "test/Android.run-test.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-13T15:52:03Z",
+      "side": 1,
+      "message": "Mind that in the current approach, the compilation will happen on every test run, and many times duplicity in the run (once for each variant).\n\nThis compiles things just once during build, so it is a massive win.\n\nHowever, you are right that if you just iterate on single file, it *might* be slower (because the current approach still does many redundant recompilation).\n\nIt would be trivial to make the script parallel internally as well within the shard, so that iteration would be much faster as well then the current approach.\n\nI am not sure it is worth the effort, but it is easy to do.",
+      "parentUuid": "fcaa7c17_5f15b32b",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff4247fd_873c4c05",
@@ -100,6 +148,30 @@
       "writtenOn": "2021-09-13T15:05:13Z",
       "side": 1,
       "message": "I think there should also be a dependency expressed on the build script here:\n\n  tools: [\"run-test-build.py\"],\n\nIn addition, how are the dependencies on the tool chain itself (e.g. `javac` or `d8`) handled?",
+      "range": {
+        "startLine": 18,
+        "startChar": 21,
+        "endLine": 18,
+        "endChar": 38
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8400a107_956d76e9",
+        "filename": "test/Android.run-test.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-13T15:52:03Z",
+      "side": 1,
+      "message": "See test/Android.bp for the dependencies (in \"art-run-test-data-defaults\")",
+      "parentUuid": "ff4247fd_873c4c05",
       "range": {
         "startLine": 18,
         "startChar": 21,
@@ -156,6 +228,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51616d86_3d9fe43c",
+        "filename": "test/run-test",
+        "patchSetId": 6
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-13T15:52:03Z",
+      "side": 1,
+      "message": "See test/Android.run-test.mk\nThe zip is part of the standard set of test dependeices.",
+      "parentUuid": "7032306d_b04f51c2",
+      "range": {
+        "startLine": 863,
+        "startChar": 12,
+        "endLine": 863,
+        "endChar": 68
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11bce7cc_b3ce4f0f",
@@ -192,6 +288,30 @@
       "writtenOn": "2021-09-13T15:05:13Z",
       "side": 1,
       "message": "IIUC you are grouping tests sharing the same two lower digits which are part of their name. Could you explain the rationale behind this strategy (instead of e.g. creating a single ZIP file for all tests or creating one ZIP file per test)? I can see benefits and drawbacks for all these approaches, but I\u0027d like to get your position on this.",
+      "range": {
+        "startLine": 77,
+        "startChar": 39,
+        "endLine": 77,
+        "endChar": 83
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84ef0280_9f563af4",
+        "filename": "test/run-test-build.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-13T15:52:03Z",
+      "side": 1,
+      "message": "One big zip files would work, but it would need paralizim in the script itself, and it would imply slow iteration on single test.\n\nPer test would generate too many soong rules, which makes Colin uncomfortable.\n\nThe sharding (suggested by Colin) is happy compromise.",
+      "parentUuid": "571cb177_1833bae8",
       "range": {
         "startLine": 77,
         "startChar": 39,
