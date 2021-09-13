@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea83f87e_cc6b597e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-13T16:12:07Z",
+      "side": 1,
+      "message": "LGTM. I\u0027m fine with submitting as is, but then improving the comment in a later CL.",
+      "revId": "5641913f1f2e7b91af5e4dad4f00d84cf14f33af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b8ad66a_3762814c",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1691,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-13T16:12:07Z",
+      "side": 1,
+      "message": "That\u0027s not terribly accurate. But I can fix it after the fact.",
+      "range": {
+        "startLine": 1691,
+        "startChar": 2,
+        "endLine": 1691,
+        "endChar": 32
+      },
+      "revId": "5641913f1f2e7b91af5e4dad4f00d84cf14f33af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
