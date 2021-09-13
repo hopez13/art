@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d210565e_949b8c85",
+        "filename": "test/828-partial-lse/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-13T13:27:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d79cda88_c116fc72",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 41
+      },
+      "revId": "827b50af3aa648f2d4bf6b5aa227435ee1a7e467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40cbec3f_60ab0ec4",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-13T13:23:18Z",
       "side": 1,
       "message": "Nit: Long line.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 103
+      },
+      "revId": "827b50af3aa648f2d4bf6b5aa227435ee1a7e467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0021c0ed_5231ac3c",
+        "filename": "test/828-partial-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-13T13:27:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40cbec3f_60ab0ec4",
       "range": {
         "startLine": 37,
         "startChar": 0,
