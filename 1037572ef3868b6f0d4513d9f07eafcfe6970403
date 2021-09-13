@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75c4ea12_a8d13d4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-13T10:28:33Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "1037572ef3868b6f0d4513d9f07eafcfe6970403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aaab6bb_80e47cfc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-13T10:28:33Z",
+      "side": 1,
+      "message": "Add a comment why you\u0027re doing this before the others (I assume that\u0027s because you don\u0027t want to loop cloner to look at the instruction? Would it be bad if it did?)",
+      "range": {
+        "startLine": 947,
+        "startChar": 0,
+        "endLine": 947,
+        "endChar": 85
+      },
+      "revId": "1037572ef3868b6f0d4513d9f07eafcfe6970403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "790e7a33_ad4d8598",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-13T10:28:33Z",
+      "side": 1,
+      "message": "Add a comment for both checks on why we want to keep them for these cases.",
+      "range": {
+        "startLine": 679,
+        "startChar": 0,
+        "endLine": 679,
+        "endChar": 48
+      },
+      "revId": "1037572ef3868b6f0d4513d9f07eafcfe6970403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
