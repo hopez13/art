@@ -62,6 +62,29 @@
       },
       "revId": "1037572ef3868b6f0d4513d9f07eafcfe6970403",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e5fb4fa_19eeaed5",
+        "filename": "test/2233-checker-remove-loop-suspend-check/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-09-13T13:13:57Z",
+      "side": 1,
+      "message": "Seems to be unused. If so, please remove it",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "1037572ef3868b6f0d4513d9f07eafcfe6970403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
