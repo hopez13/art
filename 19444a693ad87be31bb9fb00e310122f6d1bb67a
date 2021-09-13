@@ -22,6 +22,30 @@
       },
       "revId": "19444a693ad87be31bb9fb00e310122f6d1bb67a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe84109d_57487026",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-13T11:08:18Z",
+      "side": 1,
+      "message": "Unresolved[] is treated as unresolved in the verifier, and so would return true to .IsUnresolvedTypes(). Therefore we wouldn\u0027t throw a HARD failure here, just UNRESOLVED_TYPE_CHECK.",
+      "parentUuid": "d4bbc9fb_ed93641c",
+      "range": {
+        "startLine": 2182,
+        "startChar": 14,
+        "endLine": 2182,
+        "endChar": 47
+      },
+      "revId": "19444a693ad87be31bb9fb00e310122f6d1bb67a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
