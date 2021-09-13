@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1157f9db_7292f230",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1888731
+      },
+      "writtenOn": "2021-09-13T13:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cf4cf2c_1a3c2d2b",
+      "range": {
+        "startLine": 947,
+        "startChar": 48,
+        "endLine": 947,
+        "endChar": 57
+      },
+      "revId": "faa8786246955d4f0e216f9746d3c00ecd2c54e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d700ef6_95828eab",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-09-13T13:24:14Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 679,
+        "startChar": 19,
+        "endLine": 679,
+        "endChar": 22
+      },
+      "revId": "faa8786246955d4f0e216f9746d3c00ecd2c54e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bdd67e6_3c2e4f33",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1888731
+      },
+      "writtenOn": "2021-09-13T13:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d700ef6_95828eab",
       "range": {
         "startLine": 679,
         "startChar": 19,
