@@ -16,6 +16,52 @@
       "message": "Addressed the comments. Thanks for reviewing this! ",
       "revId": "faa8786246955d4f0e216f9746d3c00ecd2c54e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cf4cf2c_1a3c2d2b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-13T13:24:14Z",
+      "side": 1,
+      "message": "clonable",
+      "range": {
+        "startLine": 947,
+        "startChar": 48,
+        "endLine": 947,
+        "endChar": 57
+      },
+      "revId": "faa8786246955d4f0e216f9746d3c00ecd2c54e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d700ef6_95828eab",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-13T13:24:14Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 679,
+        "startChar": 19,
+        "endLine": 679,
+        "endChar": 22
+      },
+      "revId": "faa8786246955d4f0e216f9746d3c00ecd2c54e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
