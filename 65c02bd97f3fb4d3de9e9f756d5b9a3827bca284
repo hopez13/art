@@ -309,6 +309,30 @@
       },
       "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d8500bb_b470bca9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2732,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-13T15:56:14Z",
+      "side": 1,
+      "message": "Hans, Can you please confirm if the location is right? If I understand correctly, you wanted it to be part of \u0027PERFORM_SUSPENDING_OPERATION\u0027, right?",
+      "parentUuid": "d20615de_ef640cf1",
+      "range": {
+        "startLine": 2730,
+        "startChar": 2,
+        "endLine": 2732,
+        "endChar": 3
+      },
+      "revId": "65c02bd97f3fb4d3de9e9f756d5b9a3827bca284",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
