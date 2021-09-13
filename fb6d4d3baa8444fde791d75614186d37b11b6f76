@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aea3d75_ab57db56",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-13T10:46:59Z",
+      "side": 1,
+      "message": "Nit: I have seen in many places bits of code, variables, function names, etc. enclosed in backticks, like `Contains`.",
+      "range": {
+        "startLine": 106,
+        "startChar": 26,
+        "endLine": 106,
+        "endChar": 34
+      },
+      "revId": "fb6d4d3baa8444fde791d75614186d37b11b6f76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24d80677_c8d02f23",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-13T10:46:59Z",
+      "side": 1,
+      "message": "What is the meaning of this constant? Maybe add a named constant or a comment?",
+      "range": {
+        "startLine": 107,
+        "startChar": 21,
+        "endLine": 107,
+        "endChar": 31
+      },
+      "revId": "fb6d4d3baa8444fde791d75614186d37b11b6f76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
