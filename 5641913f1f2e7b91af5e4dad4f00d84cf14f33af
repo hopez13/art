@@ -39,6 +39,30 @@
       },
       "revId": "5641913f1f2e7b91af5e4dad4f00d84cf14f33af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2239fd34_5c0e055a",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1691,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-13T18:17:15Z",
+      "side": 1,
+      "message": "I decided it was easier to just fix now.",
+      "parentUuid": "2b8ad66a_3762814c",
+      "range": {
+        "startLine": 1691,
+        "startChar": 2,
+        "endLine": 1691,
+        "endChar": 32
+      },
+      "revId": "5641913f1f2e7b91af5e4dad4f00d84cf14f33af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
