@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4c3d3e8_14800e39",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T12:18:46Z",
+      "side": 1,
+      "message": "Could you add a \"Test:\" stanza here (see go/commit-change#footers-and-machine-parsable-text), e.g.:\n\n  Test: ART run-tests",
+      "revId": "6055c275c49cbaeb167ab8599c5b424478a6583a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1880e722_69299e48",
@@ -31,6 +48,24 @@
       "writtenOn": "2021-09-13T12:09:09Z",
       "side": 1,
       "message": "Roland, friendly ping",
+      "revId": "6055c275c49cbaeb167ab8599c5b424478a6583a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "873059ff_0720ef3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T12:18:46Z",
+      "side": 1,
+      "message": "Sorry about the delay! LGTM, except for the missing \"Test:\" stanza in the commit message.",
+      "parentUuid": "a1b32f14_376bf4c1",
       "revId": "6055c275c49cbaeb167ab8599c5b424478a6583a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
