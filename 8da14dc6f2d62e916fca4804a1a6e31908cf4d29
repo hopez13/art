@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0645a2cc_42ee5446",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T15:05:13Z",
+      "side": 1,
+      "message": "Hey David, I have a few concerns about this change (artificially aggregating tests to work around generation issues, changing expectations w.r.t. dependencies, etc.). Can we discuss it (offline) before proceeding?\n\nAlso CC-ing Colin for comments on the integration with Soong.",
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bf16b3a_81f58755",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T15:05:13Z",
+      "side": 1,
+      "message": "than",
+      "range": {
+        "startLine": 174,
+        "startChar": 23,
+        "endLine": 174,
+        "endChar": 27
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7acbaefb_62f61dd7",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T15:05:13Z",
+      "side": 1,
+      "message": "Shouldn\u0027t they link against stubs instead? Otherwise you are not testing against the module on the device, right?",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 6
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcaa7c17_5f15b32b",
+        "filename": "test/Android.run-test.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T15:05:13Z",
+      "side": 1,
+      "message": "My understanding is that any change in any source file of the shard will trigger the recompilation of the whole shard; e.g. touching `001-HelloWorld/src/Main.java` will recompile all these tests:\n- `001-HelloWorld`\n- `001-Main`\n- `1001-app-image-regions`\n- `101-fibonacci`\n- `1901-get-bytecodes`\n- `2001-virtual-structural-multithread`\n- `201-built-in-except-detail-messages`\n- `301-abstract-protected`\n- `401-optimizing-compiler`\n- `501-null-constant-dce`\n- `501-regression-packed-switch`\n- `601-method-access`\n- `701-easy-div-rem`\n- `801-VoidCheckCast`\n- `901-hello-ti-agent`\n\n\nThis looks like a (partial) regression with respect to the current approach, where you compile (at most) the tests that you want to run.",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4247fd_873c4c05",
+        "filename": "test/Android.run-test.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T15:05:13Z",
+      "side": 1,
+      "message": "I think there should also be a dependency expressed on the build script here:\n\n  tools: [\"run-test-build.py\"],\n\nIn addition, how are the dependencies on the tool chain itself (e.g. `javac` or `d8`) handled?",
+      "range": {
+        "startLine": 18,
+        "startChar": 21,
+        "endLine": 18,
+        "endChar": 38
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0387fab0_75b09ee1",
+        "filename": "test/Android.run-test.bp.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T15:05:13Z",
+      "side": 1,
+      "message": "Could you add a comment explaining what a shard is here?",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7032306d_b04f51c2",
+        "filename": "test/run-test",
+        "patchSetId": 6
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T15:05:13Z",
+      "side": 1,
+      "message": "How is this file automatically generated prior to running `run-test`? I could not see a build dependency on this file (or the other Zip files containing ART run-test artifacts) from `run-test` in this CL.",
+      "range": {
+        "startLine": 863,
+        "startChar": 12,
+        "endLine": 863,
+        "endChar": 68
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11bce7cc_b3ce4f0f",
+        "filename": "test/run-test-build.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T15:05:13Z",
+      "side": 1,
+      "message": "Typo: `is_knownfailure`",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "571cb177_1833bae8",
+        "filename": "test/run-test-build.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-13T15:05:13Z",
+      "side": 1,
+      "message": "IIUC you are grouping tests sharing the same two lower digits which are part of their name. Could you explain the rationale behind this strategy (instead of e.g. creating a single ZIP file for all tests or creating one ZIP file per test)? I can see benefits and drawbacks for all these approaches, but I\u0027d like to get your position on this.",
+      "range": {
+        "startLine": 77,
+        "startChar": 39,
+        "endLine": 77,
+        "endChar": 83
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
