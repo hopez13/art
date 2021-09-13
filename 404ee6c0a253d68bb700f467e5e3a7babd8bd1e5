@@ -22,6 +22,30 @@
       },
       "revId": "404ee6c0a253d68bb700f467e5e3a7babd8bd1e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fb56ef8_9acf2e11",
+        "filename": "runtime/oat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-13T16:45:55Z",
+      "side": 1,
+      "message": "Added the bug reference.",
+      "parentUuid": "d8e2728b_c5f9cd62",
+      "range": {
+        "startLine": 35,
+        "startChar": 38,
+        "endLine": 35,
+        "endChar": 58
+      },
+      "revId": "404ee6c0a253d68bb700f467e5e3a7babd8bd1e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
