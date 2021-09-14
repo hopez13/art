@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c70721f_e24797c4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8870,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-09-14T08:10:27Z",
+      "side": 1,
+      "message": "Drop these unnecessary `.Ptr()` calls. There is an `operator\u003d\u003d(ObjPtr\u003cMirrorType1\u003e lhs, ObjPtr\u003cMirrorType2\u003e rhs)`. Also several times below and in class_linker-inl.h.",
+      "range": {
+        "startLine": 8870,
+        "startChar": 36,
+        "endLine": 8870,
+        "endChar": 42
+      },
+      "revId": "c07f48875c60d88205283c979898ce31df2a2026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75bb3f91_352448bf",
+        "filename": "test/827-resolve-method/src-ex/Caller.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-09-14T08:10:27Z",
+      "side": 1,
+      "message": "Unnecessary class. You should use `pkg1.SubClass`.",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 14
+      },
+      "revId": "c07f48875c60d88205283c979898ce31df2a2026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b51a1eec_a517a0fd",
+        "filename": "test/827-resolve-method/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-09-14T08:10:27Z",
+      "side": 1,
+      "message": "Unnecessary class, use `pkg1.SubClass`.",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "c07f48875c60d88205283c979898ce31df2a2026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
