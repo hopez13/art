@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "561d8347_115812bf",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-15T13:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bf16b3a_81f58755",
+      "range": {
+        "startLine": 174,
+        "startChar": 23,
+        "endLine": 174,
+        "endChar": 27
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7acbaefb_62f61dd7",
@@ -135,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c774b996_0240aa68",
+        "filename": "test/Android.run-test.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-15T13:21:08Z",
+      "side": 1,
+      "message": "I changed so that is does the \"in-shard compilation\" in parallel as well.\nSo both \"all tests\" and \"interating on single test\" scenarios should be significant improvement now.",
+      "parentUuid": "612aec29_f8f5a000",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff4247fd_873c4c05",
@@ -205,6 +253,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ce64ae0_3f39a2f3",
+        "filename": "test/Android.run-test.bp.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-15T13:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0387fab0_75b09ee1",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7032306d_b04f51c2",
@@ -265,6 +337,30 @@
       "writtenOn": "2021-09-13T15:05:13Z",
       "side": 1,
       "message": "Typo: `is_knownfailure`",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5691181_cb4a5067",
+        "filename": "test/run-test-build.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-15T13:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11bce7cc_b3ce4f0f",
       "range": {
         "startLine": 33,
         "startChar": 6,
