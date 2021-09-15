@@ -167,7 +167,7 @@
 ## CHECK-DAG:     <<Phi:i\d+>>       Phi [<<Const1>>,<<Const0>>]
 ## CHECK-DAG:                        Return [<<Phi>>]
 
-## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (before)
+## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (after)
 ## CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
 ## CHECK-DAG:     <<Const0:i\d+>>    IntConstant 0
 ## CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1

@@ -35,7 +35,7 @@ public class Main {
   /// CHECK-START: void Main.testInlinedForFalseInlined(java.lang.Iterable) inliner (before)
   /// CHECK:                          InvokeStaticOrDirect
 
-  /// CHECK-START: void Main.testInlinedForFalseInlined(java.lang.Iterable) inliner (after)
+  /// CHECK-START: void Main.testInlinedForFalseInlined(java.lang.Iterable) dead_code_elimination$after_inlining (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
   /// CHECK-NOT:                      InvokeInterface
 
@@ -56,7 +56,7 @@ public class Main {
   /// CHECK-START: void Main.testInlinedForNullInlined(java.lang.Iterable) inliner (before)
   /// CHECK:                          InvokeStaticOrDirect
 
-  /// CHECK-START: void Main.testInlinedForNullInlined(java.lang.Iterable) inliner (after)
+  /// CHECK-START: void Main.testInlinedForNullInlined(java.lang.Iterable) dead_code_elimination$after_inlining (after)
   /// CHECK-NOT:                      InvokeStaticOrDirect
   /// CHECK-NOT:                      InvokeInterface
 

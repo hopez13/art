@@ -215,15 +215,13 @@
 ## CHECK-DAG:     <<JToI:i\d+>>          TypeConversion [<<ZToJ>>]
 ## CHECK-DAG:                            Return [<<JToI>>]
 
-## CHECK-START: int SmaliTests.longToIntOfBoolean() inliner (after)
+## CHECK-START: int SmaliTests.longToIntOfBoolean() dead_code_elimination$after_inlining (after)
 ## CHECK-DAG:     <<Zero:i\d+>>          IntConstant 0
 ## CHECK-DAG:     <<One:i\d+>>           IntConstant 1
 ## CHECK-DAG:     <<Sget:z\d+>>          StaticFieldGet
 ## CHECK-DAG:                            If [<<Sget>>]
 ## CHECK-DAG:     <<Phi:i\d+>>           Phi [<<One>>,<<Zero>>]
-## CHECK-DAG:     <<IToJ:j\d+>>          TypeConversion [<<Phi>>]
-## CHECK-DAG:     <<JToI:i\d+>>          TypeConversion [<<IToJ>>]
-## CHECK-DAG:                            Return [<<JToI>>]
+## CHECK-DAG:                            Return [<<Phi>>]
 
 ## CHECK-START: int SmaliTests.longToIntOfBoolean() select_generator (after)
 ## CHECK-DAG:     <<Zero:i\d+>>          IntConstant 0

@@ -1974,7 +1974,7 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
 
   SubstituteArguments(callee_graph, invoke_instruction, receiver_type, dex_compilation_unit);
 
-  RunOptimizations(callee_graph, code_item, dex_compilation_unit);
+  RecursivelyInline(callee_graph, code_item, dex_compilation_unit);
 
   size_t number_of_instructions = 0;
   if (!CanInlineBody(callee_graph, invoke_instruction->GetBlock(), &number_of_instructions)) {
@@ -2010,26 +2010,9 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
   return true;
 }
 
-void HInliner::RunOptimizations(HGraph* callee_graph,
+void HInliner::RecursivelyInline(HGraph* callee_graph,
                                 const dex::CodeItem* code_item,
                                 const DexCompilationUnit& dex_compilation_unit) {
-  // Note: if the outermost_graph_ is being compiled OSR, we should not run any
-  // optimization that could lead to a HDeoptimize. The following optimizations do not.
-  HDeadCodeElimination dce(callee_graph, inline_stats_, "dead_code_elimination$inliner");
-  HConstantFolding fold(callee_graph, "constant_folding$inliner");
-  InstructionSimplifier simplify(callee_graph, codegen_, inline_stats_);
-
-  HOptimization* optimizations[] = {
-    &simplify,
-    &fold,
-    &dce,
-  };
-
-  for (size_t i = 0; i < arraysize(optimizations); ++i) {
-    HOptimization* optimization = optimizations[i];
-    optimization->Run();
-  }
-
   // Bail early for pathological cases on the environment (for example recursive calls,
   // or too large environment).
   if (total_number_of_dex_registers_ > kMaximumNumberOfCumulatedDexRegisters) {

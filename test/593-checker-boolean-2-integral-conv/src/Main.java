@@ -105,7 +105,7 @@ public class Main {
   /// CHECK-DAG:     <<JToI:i\d+>>          TypeConversion [<<ZToJ>>]
   /// CHECK-DAG:                            Return [<<JToI>>]
 
-  /// CHECK-START: int Main.longToIntOfBoolean() inliner (after)
+  /// CHECK-START: int Main.longToIntOfBoolean() dead_code_elimination$after_inlining (after)
   /// CHECK-DAG:     <<Zero:j\d+>>          LongConstant 0
   /// CHECK-DAG:     <<One:j\d+>>           LongConstant 1
   /// CHECK-DAG:     <<Sget:z\d+>>          StaticFieldGet

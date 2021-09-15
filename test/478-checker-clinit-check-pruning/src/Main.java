@@ -513,9 +513,11 @@ public class Main {
    * with InvokeStaticOrDirect from a later invoke-static to the same method.
    */
 
+  //  TODO(solanes): Is `clinit_check:none` important?
+
   /// CHECK-START: void Main.inlinedInvokeStaticViaNonStatic(java.lang.Iterable) liveness (before)
   /// CHECK:                               LoadClass gen_clinit_check:true
-  /// CHECK:                               InvokeStaticOrDirect clinit_check:none
+  /// CHECK:                               InvokeStaticOrDirect
 
   /// CHECK-START: void Main.inlinedInvokeStaticViaNonStatic(java.lang.Iterable) liveness (before)
   /// CHECK-NOT:                           ClinitCheck
@@ -558,7 +560,7 @@ public class Main {
 
   /// CHECK-START: void Main.inlinedInvokeStaticViaStatic(java.lang.Iterable) liveness (before)
   /// CHECK:                               LoadClass gen_clinit_check:true
-  /// CHECK:                               InvokeStaticOrDirect clinit_check:none
+  /// CHECK:                               InvokeStaticOrDirect
 
   /// CHECK-START: void Main.inlinedInvokeStaticViaStatic(java.lang.Iterable) liveness (before)
   /// CHECK-NOT:                           ClinitCheck
@@ -595,7 +597,7 @@ public class Main {
 
   /// CHECK-START: void Main.inlinedInvokeStaticViaStaticTwice(java.lang.Iterable) liveness (before)
   /// CHECK:                               LoadClass gen_clinit_check:true
-  /// CHECK:                               InvokeStaticOrDirect clinit_check:none
+  /// CHECK:                               InvokeStaticOrDirect
 
   /// CHECK-START: void Main.inlinedInvokeStaticViaStaticTwice(java.lang.Iterable) liveness (before)
   /// CHECK-NOT:                           ClinitCheck

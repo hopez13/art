@@ -98,7 +98,7 @@ public class Main {
   /// CHECK-DAG:     <<Result:i\d+>> InvokeStaticOrDirect
   /// CHECK-DAG:                     Return [<<Result>>]
 
-  /// CHECK-START: int Main.InlineAdd() inliner (after)
+  /// CHECK-START: int Main.InlineAdd() dead_code_elimination$after_inlining (after)
   /// CHECK-DAG:     <<Const8:i\d+>> IntConstant 8
   /// CHECK-DAG:                     Return [<<Const8>>]
 
@@ -133,7 +133,7 @@ public class Main {
   /// CHECK-DAG:     <<Phi:i\d+>>    Phi [<<Add>>,<<Sub>>]
   /// CHECK-DAG:                     Return [<<Phi>>]
 
-  /// CHECK-START: int Main.InlineWithControlFlow(boolean) inliner (after)
+  /// CHECK-START: int Main.InlineWithControlFlow(boolean) dead_code_elimination$after_inlining (after)
   /// CHECK-DAG:     <<Const4:i\d+>> IntConstant 4
   /// CHECK-DAG:     <<Const2:i\d+>> IntConstant 2
   /// CHECK-DAG:     <<Phi:i\d+>>    Phi [<<Const4>>,<<Const2>>]
@@ -168,7 +168,7 @@ public class Main {
   //
   // Intrinsic directly simplified into Abs and evaluated!
   //
-  /// CHECK-START: int Main.InlinedIntrinsicsAreStillIntrinsic() inliner (after)
+  /// CHECK-START: int Main.InlinedIntrinsicsAreStillIntrinsic() dead_code_elimination$after_inlining (after)
   /// CHECK-DAG:     <<Const1:i\d+>>      IntConstant 1
   /// CHECK-DAG:                          Return [<<Const1>>]
 

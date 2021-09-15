@@ -406,7 +406,8 @@
 
 ## CHECK-START: boolean SmaliTests.$noinline$NotNotBool(boolean) instruction_simplifier$after_inlining (before)
 ## CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-## CHECK-DAG:     <<NotArg:z\d+>>    BooleanNot [<<Arg>>]
+## CHECK-DAG:     <<Const1:i\d+>>    IntConstant 1
+## CHECK-DAG:     <<NotArg:i\d+>>    Xor [<<Arg>>,<<Const1>>]
 ## CHECK-DAG:     <<NotNotArg:z\d+>> BooleanNot [<<NotArg>>]
 ## CHECK-DAG:                        Return [<<NotNotArg>>]
 

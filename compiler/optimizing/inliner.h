@@ -100,8 +100,8 @@ class HInliner : public HOptimization {
                            const DexCompilationUnit& dex_compilation_unit)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Run simple optimizations on `callee_graph`.
-  void RunOptimizations(HGraph* callee_graph,
+  // Recursively call the inliner on `callee_graph`.
+  void RecursivelyInline(HGraph* callee_graph,
                         const dex::CodeItem* code_item,
                         const DexCompilationUnit& dex_compilation_unit)
     REQUIRES_SHARED(Locks::mutator_lock_);
