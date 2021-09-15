@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50c69c2a_2984823d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-15T02:10:49Z",
+      "side": 1,
+      "message": "Generally looks good to me, with one suggestion about the tests. Again, I was checking mostly that the generated code looked plausible, not that register allocation was done correctly. etc. Somebody else should look at that.",
+      "revId": "8242b03e2305cfff7f756779185064f7fc541f17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b347ccef_3e656e99",
+        "filename": "test/580-checker-fp16/src-art/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-15T02:10:49Z",
+      "side": 1,
+      "message": "Does it make sense to shorten these by introducing a minMaxSubtest(small, big) function that checks min and max of the two arguments in both orders (4 tests total)? It could actually also test the four possible calls with identical arguments as well? I think we could get a but more coverage, in a lot fewer lines.",
+      "range": {
+        "startLine": 427,
+        "startChar": 4,
+        "endLine": 430,
+        "endChar": 79
+      },
+      "revId": "8242b03e2305cfff7f756779185064f7fc541f17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
