@@ -39,6 +39,30 @@
       },
       "revId": "ee31acf2e9fc52ac9ea9ab157cea0170e6fcde23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2295c449_54cf70b6",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3437,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-15T01:23:58Z",
+      "side": 1,
+      "message": "Fixed that, except it should probably become a DCHECK in a later CL, after a bunch of testing.",
+      "parentUuid": "ed4a60a8_4545befa",
+      "range": {
+        "startLine": 3437,
+        "startChar": 2,
+        "endLine": 3437,
+        "endChar": 162
+      },
+      "revId": "ee31acf2e9fc52ac9ea9ab157cea0170e6fcde23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
