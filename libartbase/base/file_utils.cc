@@ -42,9 +42,9 @@
 #include <sstream>
 
 #include "android-base/file.h"
+#include "android-base/logging.h"
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
-
 #include "base/bit_utils.h"
 #include "base/globals.h"
 #include "base/os.h"
@@ -403,8 +403,10 @@ void GetDalvikCache(const char* subdir, const bool create_if_absent, std::string
 #endif
 }
 
-bool GetDalvikCacheFilename(const char* location, const char* cache_location,
-                            std::string* filename, std::string* error_msg) {
+static bool GetLocationEncodedFilename(const char* location,
+                                       const char* cache_location,
+                                       std::string* filename,
+                                       std::string* error_msg) {
   if (location[0] != '/') {
     *error_msg = StringPrintf("Expected path in location to be absolute: %s", location);
     return false;
@@ -419,6 +421,13 @@ bool GetDalvikCacheFilename(const char* location, const char* cache_location,
   std::replace(cache_file.begin(), cache_file.end(), '/', '@');
   *filename = StringPrintf("%s/%s", cache_location, cache_file.c_str());
   return true;
+}
+
+bool GetDalvikCacheFilename(const char* location,
+                            const char* cache_location,
+                            std::string* filename,
+                            std::string* error_msg) {
+  return GetLocationEncodedFilename(location, cache_location, filename, error_msg);
 }
 
 static std::string GetApexDataDalvikCacheDirectory(InstructionSet isa) {
@@ -487,6 +496,17 @@ std::string GetApexDataDalvikCacheFilename(std::string_view dex_location,
 
 std::string GetVdexFilename(const std::string& oat_location) {
   return ReplaceFileExtension(oat_location, "vdex");
+}
+
+std::string GetSystemOdexFilenameForApex(std::string_view location, InstructionSet isa) {
+  DCHECK(LocationIsOnApex(location));
+  std::string dir = GetAndroidRoot() + "/framework/oat/" + GetInstructionSetString(isa);
+  std::string result, unused_error_msg;
+  if (!GetLocationEncodedFilename(
+          std::string{location}.c_str(), dir.c_str(), &result, &unused_error_msg)) {
+    return {};
+  }
+  return ReplaceFileExtension(result, "odex");
 }
 
 static void InsertIsaDirectory(const InstructionSet isa, std::string* filename) {
