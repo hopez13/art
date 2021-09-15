@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2ab5021d_b45870b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-15T13:31:52Z",
+      "side": 1,
+      "message": "\u003e There are things I\u0027m not sure about, since odrefresh is now removed from:\n\u003e \n\u003e  1. \"Release (Host) Checker\"\n\nThe change in https://android-review.googlesource.com/c/platform/art/+/1821953/5/build/apex/art_apex_test.py is fine.\n\n\u003e  2. ART_CORE_DEBUGGABLE_EXECUTABLES\n\nI added a comment in https://android-review.googlesource.com/c/platform/art/+/1821953/5/build/Android.common_path.mk.\n\n\u003e  3. The \"art-runtime\" fake package\n\nIt seems the `art-runtime` module is only used to build target artifacts, so this should be fine. Martin (in CC) also thinks so.",
+      "parentUuid": "8354920b_a2dc9ea7",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 31
+      },
+      "revId": "ab6625399317ac478f96207eed822748e513170e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d86b5e4f_ecdc586e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4

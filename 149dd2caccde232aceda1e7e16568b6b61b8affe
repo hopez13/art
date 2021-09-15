@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "25a31a92_f7b64011",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-15T13:31:52Z",
+      "side": 1,
+      "message": "Could you add:\n\n  Test: art/build/apex/art_apex_test.py\n\nhere?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 8
+      },
+      "revId": "149dd2caccde232aceda1e7e16568b6b61b8affe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b026ada1_8c53f2a6",
@@ -14,6 +37,29 @@
       "writtenOn": "2021-09-14T23:04:57Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "149dd2caccde232aceda1e7e16568b6b61b8affe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faf09f33_da97bcc0",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-15T13:31:52Z",
+      "side": 1,
+      "message": "Could you introduce `ART_CORE_DEBUGGABLE_EXECUTABLES_COMMON`, `ART_CORE_DEBUGGABLE_EXECUTABLES_TARGET`, and `ART_CORE_DEBUGGABLE_EXECUTABLES_HOST`, as you did in https://android-review.googlesource.com/c/platform/art/+/1821953/5/build/Android.gtest.mk?",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 31
+      },
       "revId": "149dd2caccde232aceda1e7e16568b6b61b8affe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
