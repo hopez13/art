@@ -103,6 +103,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1e77efd_e20a8dd0",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-16T18:17:49Z",
+      "side": 1,
+      "message": "\u003e In the CompOS \u0026 odrefresh case, odrefresh needs to open the classpath jars outside the VM and provide FDs\n\nActually the JARs are NOT visible in Android in case of staged APEXes.  Per previous discussion, we\u0027ll mount the APEXes in CompOS, and let dex2oat open by path in the VM.  The path comes from *CLASSPATH, which needs to be constructed in the VM as well.  In other words, we need *CLASSPATH from the VM, which may not be usable in Android.\n\n\u003e in order to prevent potential problems caused by inconsistency\n\nRight, odrefresh relies on *CLASSPATH to build -Xbootclasspathimagefds: and others. We have to override *CLASSPATH when executing odrefresh (just CC\u0027ed you in a change of \"composd\").  composd can tell the VM to return *CLASSPATH, then use it on exec odrefresh.  +Alan FYI\n \nWe\u0027ll need to modify odrefresh to not open files in /apex and pass -1 in -Xbootclasspath*fds ...  In other words, we only pass /system/frameworks/*.jar by FD.\n\nBack to the original question, should we pass *CLASSPATH in the request?  I don\u0027t mind if we prefer to, but I suspect how it\u0027ll be used in libdexopt is a simple string comparison with the real environment variable, and bail if different.\n\nWDYT?",
+      "parentUuid": "d4a8db8f_bc6640c8",
+      "revId": "1e409e98d68a516e5e1249a513b154b597fc7d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "119b6d19_39765c57",
         "filename": "artd/libdexopt.cc",
         "patchSetId": 2
