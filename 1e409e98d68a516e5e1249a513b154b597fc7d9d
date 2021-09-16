@@ -121,6 +121,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7088f70a_4decbbaa",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-16T20:53:35Z",
+      "side": 1,
+      "message": "Another alternative is to change the Bcp*Args: replace the FD array(s), which may contains -1, with a Map\u003cString, int\u003e of \u003cJAR path -\u003e fd\u003e.  The path is used as a hint.  libdexopt will still use its own *CLASSPATH to generate -Xbootclasspath, but will use the map as a hint to build the FD array for -Xbootclasspath*fds.  There won\u0027t be the inconsistency in question.  How does this sound?",
+      "parentUuid": "d1e77efd_e20a8dd0",
+      "revId": "1e409e98d68a516e5e1249a513b154b597fc7d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "119b6d19_39765c57",
         "filename": "artd/libdexopt.cc",
         "patchSetId": 2
