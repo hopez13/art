@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4a8db8f_bc6640c8",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-09-16T03:12:35Z",
+      "side": 1,
+      "message": "I consider \"inputs\" as all dex2oat flags that are dynamic. For example, number of threads and CPU set are also inputs.\n\n`DEX2OATBOOTCLASSPATH` needs to match `bootClasspathFds` in Dexopt*Args, so it will be better if the client provides both, in order to prevent potential problems caused by inconsistency. In the CompOS \u0026 odrefresh case, odrefresh needs to open the classpath jars outside the VM and provide FDs, so it\u0027s inevitable that odrefresh has to know the right values of *CLASSPATH variables. Therefore, it makes more sense if odrefresh passes both the variable values and FDs, which match each other, in the same request. WDYT?",
+      "parentUuid": "510e7632_e996aab1",
+      "revId": "1e409e98d68a516e5e1249a513b154b597fc7d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "119b6d19_39765c57",
         "filename": "artd/libdexopt.cc",
         "patchSetId": 2
