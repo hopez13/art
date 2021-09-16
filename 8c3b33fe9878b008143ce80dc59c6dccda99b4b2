@@ -39,6 +39,24 @@
       "message": "Why are these getting removed? Are we doing less optimization so that these assumptions are no longer true?",
       "revId": "8c3b33fe9878b008143ce80dc59c6dccda99b4b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a513ff5_2686faee",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7505,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-16T11:18:54Z",
+      "side": 0,
+      "message": "That\u0027s right, the graph is now generated a bit differently, and all these tests don\u0027t make sense anymore.",
+      "parentUuid": "5b5cc45c_f8eda0a0",
+      "revId": "8c3b33fe9878b008143ce80dc59c6dccda99b4b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
