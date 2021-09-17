@@ -105,8 +105,8 @@ class OdRefreshTest : public CommonArtTest {
     art_apex_data_env_ = std::make_unique<ScopedUnsetEnvironmentVariable>("ART_APEX_DATA");
     setenv("ART_APEX_DATA", art_apex_data_path.c_str(), kReplace);
 
-    std::string dalvik_cache_dir = art_apex_data_path + "/dalvik-cache";
-    ASSERT_TRUE(EnsureDirectoryExists(dalvik_cache_dir));
+    dalvik_cache_dir_ = art_apex_data_path + "/dalvik-cache";
+    ASSERT_TRUE(EnsureDirectoryExists(dalvik_cache_dir_));
 
     std::string framework_dir = android_root_path + "/framework";
     framework_jar_ = framework_dir + "/framework.jar";
@@ -133,16 +133,16 @@ class OdRefreshTest : public CommonArtTest {
     config_.SetIsa(InstructionSet::kX86_64);
     config_.SetZygoteKind(ZygoteKind::kZygote64_32);
 
-    std::string staging_dir = dalvik_cache_dir + "/staging";
+    std::string staging_dir = dalvik_cache_dir_ + "/staging";
     ASSERT_TRUE(EnsureDirectoryExists(staging_dir));
     config_.SetStagingDir(staging_dir);
 
     auto mock_exec_utils = std::make_unique<MockExecUtils>();
     mock_exec_utils_ = mock_exec_utils.get();
 
-    metrics_ = std::make_unique<OdrMetrics>(dalvik_cache_dir);
+    metrics_ = std::make_unique<OdrMetrics>(dalvik_cache_dir_);
     odrefresh_ = std::make_unique<OnDeviceRefresh>(
-        config_, dalvik_cache_dir + "/cache-info.xml", std::move(mock_exec_utils));
+        config_, dalvik_cache_dir_ + "/cache-info.xml", std::move(mock_exec_utils));
   }
 
   void TearDown() override {
@@ -166,6 +166,7 @@ class OdRefreshTest : public CommonArtTest {
   std::string framework_jar_;
   std::string location_provider_jar_;
   std::string services_jar_;
+  std::string dalvik_cache_dir_;
 };
 
 TEST_F(OdRefreshTest, OdrefreshArtifactDirectory) {
@@ -234,6 +235,22 @@ TEST_F(OdRefreshTest, CompileSetsCompilerFilter) {
                                           Not(Contains(HasSubstr("--profile-file-fd="))),
                                           Contains("--compiler-filter=verify"))))
         .WillOnce(Return(0));
+    EXPECT_EQ(odrefresh_->Compile(
+                  *metrics_, /*compile_boot_extensions=*/{}, /*compile_system_server=*/true),
+              ExitCode::kCompilationSuccess);
+  }
+}
+
+TEST_F(OdRefreshTest, CompileChoosesBootImage) {
+  {
+    EXPECT_CALL(
+        *mock_exec_utils_,
+        DoExecAndReturnCode(Contains(Concatenate({"--boot-image=",
+                                                  GetArtRoot() + "/javalib/boot.art",
+                                                  ":",
+                                                  dalvik_cache_dir_ + "/boot-framework.art"}))))
+        .Times(2)
+        .WillRepeatedly(Return(0));
     EXPECT_EQ(odrefresh_->Compile(
                   *metrics_, /*compile_boot_extensions=*/{}, /*compile_system_server=*/true),
               ExitCode::kCompilationSuccess);
