@@ -45,6 +45,12 @@ class Iteration {
   uint64_t GetDurationNs() const {
     return duration_ns_;
   }
+  uint64_t GetGcCpuNs() const {
+    return cpu_ns_;
+  }
+  float GetRunningRatio() const {
+    return running_ratio_;
+  }
   int64_t GetFreedBytes() const {
     return freed_.bytes;
   }
@@ -91,6 +97,14 @@ class Iteration {
   bool clear_soft_references_;
   uint64_t duration_ns_;
   uint64_t bytes_scanned_;
+  uint64_t cpu_ns_;
+  float running_ratio_;
+  void SetGcCpuNs(uint64_t cpu) {
+    cpu_ns_ = cpu;
+  }
+  void SetRunningRatio(float running_ratio) {
+    running_ratio_ = running_ratio;
+  }
   TimingLogger timings_;
   ObjectBytePair freed_;
   ObjectBytePair freed_los_;
