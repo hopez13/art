@@ -1870,6 +1870,10 @@ void IntrinsicLocationsBuilderX86::VisitJdkUnsafePutVolatile(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kInt32, invoke, /*is_volatile=*/ true);
 }
+void IntrinsicLocationsBuilderX86::VisitJdkUnsafePutRelease(HInvoke* invoke) {
+  CreateIntIntIntIntToVoidPlusTempsLocations(
+      allocator_, DataType::Type::kInt32, invoke, /*is_volatile=*/ true);
+}
 void IntrinsicLocationsBuilderX86::VisitJdkUnsafePutObject(HInvoke* invoke) {
   CreateIntIntIntIntToVoidPlusTempsLocations(
       allocator_, DataType::Type::kReference, invoke, /*is_volatile=*/ false);
@@ -1980,6 +1984,9 @@ void IntrinsicCodeGeneratorX86::VisitJdkUnsafePutOrdered(HInvoke* invoke) {
 void IntrinsicCodeGeneratorX86::VisitJdkUnsafePutVolatile(HInvoke* invoke) {
   GenUnsafePut(invoke->GetLocations(), DataType::Type::kInt32, /*is_volatile=*/ true, codegen_);
 }
+void IntrinsicCodeGeneratorX86::VisitJdkUnsafePutRelease(HInvoke* invoke) {
+  GenUnsafePut(invoke->GetLocations(), DataType::Type::kInt32, /*is_volatile=*/ true, codegen_);
+}
 void IntrinsicCodeGeneratorX86::VisitJdkUnsafePutObject(HInvoke* invoke) {
   GenUnsafePut(
       invoke->GetLocations(), DataType::Type::kReference, /*is_volatile=*/ false, codegen_);
@@ -2069,6 +2076,10 @@ void IntrinsicLocationsBuilderX86::VisitJdkUnsafeCASObject(HInvoke* invoke) {
   }
 
   CreateIntIntIntIntIntToInt(allocator_, DataType::Type::kReference, invoke);
+}
+
+void IntrinsicLocationsBuilderX86::VisitJdkUnsafeCompareAndSetInt(HInvoke* invoke) {
+  CreateIntIntIntIntIntToInt(allocator_, DataType::Type::kInt32, invoke);
 }
 
 static void GenPrimitiveLockedCmpxchg(DataType::Type type,
@@ -2321,6 +2332,10 @@ void IntrinsicCodeGeneratorX86::VisitJdkUnsafeCASObject(HInvoke* invoke) {
   DCHECK(!kEmitCompilerReadBarrier || kUseBakerReadBarrier);
 
   GenCAS(DataType::Type::kReference, invoke, codegen_);
+}
+
+void IntrinsicCodeGeneratorX86::VisitJdkUnsafeCompareAndSetInt(HInvoke* invoke) {
+  GenCAS(DataType::Type::kInt32, invoke, codegen_);
 }
 
 

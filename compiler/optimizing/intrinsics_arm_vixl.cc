@@ -3201,6 +3201,19 @@ void IntrinsicCodeGeneratorARMVIXL::VisitJdkUnsafePutVolatile(HInvoke* invoke) {
                /*atomic=*/ true,
                codegen_);
 }
+
+void IntrinsicLocationsBuilderARMVIXL::VisitJdkUnsafePutRelease(HInvoke* invoke) {
+  CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kInt32, /*atomic=*/ true);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitJdkUnsafePutRelease(HInvoke* invoke) {
+  GenUnsafePut(invoke,
+               DataType::Type::kInt32,
+               std::memory_order_seq_cst,
+               /*atomic=*/ true,
+               codegen_);
+}
+
 void IntrinsicLocationsBuilderARMVIXL::VisitJdkUnsafePutObject(HInvoke* invoke) {
   CreateUnsafePutLocations(invoke, codegen_, DataType::Type::kReference, /*atomic=*/ false);
 }
@@ -3697,11 +3710,17 @@ void IntrinsicLocationsBuilderARMVIXL::VisitJdkUnsafeCASObject(HInvoke* invoke) 
 
   CreateUnsafeCASLocations(allocator_, invoke);
 }
+void IntrinsicLocationsBuilderARMVIXL::VisitJdkUnsafeCompareAndSetInt(HInvoke* invoke) {
+  CreateUnsafeCASLocations(allocator_, invoke);
+}
 void IntrinsicCodeGeneratorARMVIXL::VisitJdkUnsafeCASInt(HInvoke* invoke) {
   GenUnsafeCas(invoke, DataType::Type::kInt32, codegen_);
 }
 void IntrinsicCodeGeneratorARMVIXL::VisitJdkUnsafeCASObject(HInvoke* invoke) {
   GenUnsafeCas(invoke, DataType::Type::kReference, codegen_);
+}
+void IntrinsicCodeGeneratorARMVIXL::VisitJdkUnsafeCompareAndSetInt(HInvoke* invoke) {
+  GenUnsafeCas(invoke, DataType::Type::kInt32, codegen_);
 }
 
 enum class GetAndUpdateOp {
