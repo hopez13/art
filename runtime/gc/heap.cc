@@ -28,6 +28,7 @@
 #include <vector>
 
 #include "android-base/stringprintf.h"
+#include <android-base/properties.h>
 
 #include "allocation_listener.h"
 #include "art_field-inl.h"
@@ -1069,6 +1070,23 @@ void Heap::UpdateProcessState(ProcessState old_process_state, ProcessState new_p
       // special handling which does a homogenous space compaction once but then doesn't transition
       // the collector. Similarly, we invoke a full compaction for kCollectorTypeCC but don't
       // transition the collector.
+      // zengkaifa@oppo.com, 2021/08/27, decrease no needed CollectorTransition gc
+      const size_t current_heap_size = GetBytesAllocated();
+      state_changed_count_++;
+      if (state_changed_count_ > 1000) state_changed_count_ = 1;//reset
+      if (current_heap_size <= 3 * 1024 * 1024 /*3M*/) {
+        if (state_changed_count_ % 10 != 0) {
+          return;
+        }
+      } else if (current_heap_size <= 10 * 1024 * 1024 /*10M*/) {
+        if (state_changed_count_ % 5 != 0) {
+          return;
+        }
+      } else if (current_heap_size <= 50 * 1024 * 1024 /*50M*/) {
+        if (state_changed_count_ % 3 != 0) {
+          return;
+        }
+      }
       RequestCollectorTransition(background_collector_type_,
                                  kStressCollectorTransition
                                      ? 0
@@ -3586,6 +3604,24 @@ collector::GarbageCollector* Heap::FindCollectorByGcType(collector::GcType gc_ty
   return nullptr;
 }
 
+//zengkaifa@oppo, 2021/08/19, Add for GC loading opt
+double Heap::HeapGrowthMultiplierExt() const {
+  std::string screenState = android::base::GetProperty("debug.tracing.screen_state", "");
+  bool screenOn = screenState == "2"; //Display.STATE_ON
+  if (screenOn) {
+    float ratio = current_gc_iteration_.GetRunningRatio();
+    if (!CareAboutPauseTimes()) {
+      if (ratio < 0.3) return 6.0;
+      if (ratio < 0.5) return 4.0;
+      if (ratio < 0.7) return 2.0;
+    } else {
+      if (ratio < 0.3) return 7.0;
+      if (ratio < 0.6) return 5.0;
+    }
+  }
+  return HeapGrowthMultiplier();
+}
+
 double Heap::HeapGrowthMultiplier() const {
   // If we don't care about pause times we are background, so return 1.0.
   if (!CareAboutPauseTimes()) {
@@ -3610,7 +3646,8 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
   collector::GcType gc_type = collector_ran->GetGcType();
   MutexLock mu(Thread::Current(), process_state_update_lock_);
   // Use the multiplier to grow more for foreground.
-  const double multiplier = HeapGrowthMultiplier();
+  //zengkaifa@oppo, 2021/08/19, Add for GC loading opt
+  const double multiplier = HeapGrowthMultiplierExt();
   if (gc_type != collector::kGcTypeSticky) {
     // Grow the heap for non sticky GC.
     uint64_t delta = bytes_allocated * (1.0 / GetTargetHeapUtilization() - 1.0);

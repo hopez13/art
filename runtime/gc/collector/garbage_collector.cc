@@ -182,6 +182,11 @@ void GarbageCollector::Run(GcCause gc_cause, bool clear_soft_references) {
   total_thread_cpu_time_ns_ += thread_cpu_end_time - thread_cpu_start_time;
   uint64_t duration_ns = end_time - start_time;
   current_iteration->SetDurationNs(duration_ns);
+  //ZengKaiFa@ANDROID.PERFORMANCE, 2021/08/19, Add for GC loading opt
+  uint64_t gc_cpu_time = thread_cpu_end_time - thread_cpu_start_time;
+  float ratio = static_cast<float>(gc_cpu_time) / duration_ns;
+  current_iteration->SetGcCpuNs(gc_cpu_time);
+  current_iteration->SetRunningRatio(ratio);
   if (Locks::mutator_lock_->IsExclusiveHeld(self)) {
     // The entire GC was paused, clear the fake pauses which might be in the pause times and add
     // the whole GC duration.

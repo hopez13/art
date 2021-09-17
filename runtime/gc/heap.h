@@ -168,7 +168,8 @@ class Heap {
   // as object allocation time. time_to_call_mallinfo seems to be on the order of 1 usec
   // on Android.
 #ifdef __ANDROID__
-  static constexpr uint32_t kNotifyNativeInterval = 32;
+  // zengkaifa@oppo.com, 2021/08/27, decrease no needed Native gc
+  static constexpr uint32_t kNotifyNativeInterval = 64;
 #else
   // Some host mallinfo() implementations are slow. And memory is less scarce.
   static constexpr uint32_t kNotifyNativeInterval = 384;
@@ -524,6 +525,9 @@ class Heap {
   // Returns the heap growth multiplier, this affects how much we grow the heap after a GC.
   // Scales heap growth, min free, and max free.
   double HeapGrowthMultiplier() const;
+
+  //zengkaifa@oppo.com,2021/08/27,gc loading opt
+  double HeapGrowthMultiplierExt() const;
 
   // Freed bytes can be negative in cases where we copy objects from a compacted space to a
   // free-list backed space.
@@ -1713,6 +1717,8 @@ class Heap {
   friend class VerifyObjectVisitor;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(Heap);
+  // zengkaifa@oppo.com, 2021/08/27, decrease no needed CollectorTransition gc
+  size_t state_changed_count_ = 0;
 };
 
 }  // namespace gc
