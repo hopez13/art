@@ -46,6 +46,30 @@
       },
       "revId": "f3744aa6ad87208603ea52f85537c6563ba8e88f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a6a7e1e_2877bfe4",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-09-17T08:17:14Z",
+      "side": 1,
+      "message": "I looked at the log (https://screenshot.googleplex.com/AWu9VA2fPDdfesH) and I saw two errors:\n\n1. Dexopt (local) failed: Can\u0027t identify the first boot extension compatible jar.\n\nThis is thrown from artd/libdexopt.cc and I don\u0027t know why it happens. Anyway, odrefresh_tests.cc is intended to be a unit test for odrefresh and it should not hit code in artd/libdexopt.cc. I would suggest changing odrefresh_tests.cc to create a mock OdrDexopt and assert on Dexopt*Args fields that passed to OdrDexopt. Please also add separate unit test for artd/libdexopt.cc.\n\n2. Failed to create file: ...: No such file or directory\n\nI guess this is throw from this line (https://cs.android.com/android/_/android/platform/art/+/f513a7650e0bce9225e598b0fe4825b4ee1dc4cb:odrefresh/odrefresh.cc;l\u003d1457;drc\u003dd44add98a69ac112c44423bced92b37cc495da86) and I don\u0027t know why it happens either. The staging dir is created on this line (https://cs.android.com/android/_/android/platform/art/+/f513a7650e0bce9225e598b0fe4825b4ee1dc4cb:odrefresh/odrefresh_test.cc;l\u003d137;drc\u003dccbcfb17c9eabee791d674b794e696da10b1b28b) and it should be found.",
+      "parentUuid": "8d91fb17_c51cf7d0",
+      "range": {
+        "startLine": 692,
+        "startChar": 4,
+        "endLine": 693,
+        "endChar": 75
+      },
+      "revId": "f3744aa6ad87208603ea52f85537c6563ba8e88f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
