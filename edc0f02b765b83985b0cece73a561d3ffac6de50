@@ -16,6 +16,24 @@
       "message": "This looks fine to me, but I\u0027m curious why this is no longer needed.",
       "revId": "edc0f02b765b83985b0cece73a561d3ffac6de50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20f93c59_9a4a72f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-17T12:50:02Z",
+      "side": 1,
+      "message": "I don\u0027t know, but the tests still work (tried again, being extra careful with \"m clean\" first).\n\nNicolas, you added conscrypt in https://r.android.com/1278454 and core-icu4j in https://r.android.com/1344873 when you switched them to prebuilts. Do you remember how it went without those libs?",
+      "parentUuid": "fea01054_ab8270f7",
+      "revId": "edc0f02b765b83985b0cece73a561d3ffac6de50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
