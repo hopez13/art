@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9361094_d8ca20e9",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-17T18:11:55Z",
+      "side": 1,
+      "message": "I think this ratio will be close to 1.0 most of the time. The GC thread hardly gets suspended and hence ThreadCpuNanoTime() readings will be hardly any different from NanoTime().\n\nMore importantly, what you are trying to measure here (as per the commit message) is definitely not happening. ProcessCpuNanoTime() would make more sense than NanoTime() but it would still only be capturing the process\u0027 CPU usage only during the GC cycle. I don\u0027t think there is any easy way to measure the device-wide CPU usage, which is required for what you are trying to achieve as per the commit message.",
+      "range": {
+        "startLine": 187,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 62
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15745297_edf0c6c6",
+        "filename": "runtime/gc/collector/iteration.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-17T18:11:55Z",
+      "side": 1,
+      "message": "Comments should not include email address and/or dates. Please remove them everywhere in this patch.",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af1e628c_466e127f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-17T18:11:55Z",
+      "side": 1,
+      "message": "This code seems to assume that the byte-allocated will stay in a range across multiple transitions of an app.\n\nI agree in general that it makes sense to not GC on transition if the heap usage is lower. But I would rather just skip a transition GC if we are below a certain threshold, rather than making it based on how many times state has changed. This is because there is really no harm in not performing a GC here. We will eventually GC if the app continues to allocate even when it\u0027s in the background.",
+      "range": {
+        "startLine": 1075,
+        "startChar": 4,
+        "endLine": 1089,
+        "endChar": 7
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21b02204_c67c354c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3607,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-17T18:11:55Z",
+      "side": 1,
+      "message": "Please have a more detailed description of what the function is doing",
+      "range": {
+        "startLine": 3607,
+        "startChar": 30,
+        "endLine": 3607,
+        "endChar": 52
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81dfc4bf_32745119",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3608,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-17T18:11:55Z",
+      "side": 1,
+      "message": "Move the whole logic in HeapGrowthMultiplier() rather than a separate function.",
+      "range": {
+        "startLine": 3608,
+        "startChar": 14,
+        "endLine": 3608,
+        "endChar": 36
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07e9e890_24e6a24b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3609,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-17T18:11:55Z",
+      "side": 1,
+      "message": "The problem is that even though you are checking screen state here, but this change will be applicable to all the system processes (like system_server, systemui etc).\n\nIt seems reasonable to assume that the app in foreground can benefit out of larger multiplier when it\u0027s in foreground, but giving the same benefit to system processes seems wrong.",
+      "range": {
+        "startLine": 3609,
+        "startChar": 2,
+        "endLine": 3609,
+        "endChar": 89
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df92345_c5680808",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3619,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-17T18:11:55Z",
+      "side": 1,
+      "message": "It\u0027s unclear on what basis have you chosen these values. As I said in the comment in garbage_collector.cc, the calculation of the ratio isn\u0027t doing what you expect it to.",
+      "range": {
+        "startLine": 3614,
+        "startChar": 5,
+        "endLine": 3619,
+        "endChar": 34
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
