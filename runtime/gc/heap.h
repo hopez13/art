@@ -144,6 +144,7 @@ class Heap {
   static constexpr size_t kDefaultLongGCLogThreshold = MsToNs(100);
   static constexpr size_t kDefaultLongGCLogThresholdGcStress = MsToNs(1000);
   static constexpr size_t kDefaultTLABSize = 32 * KB;
+  static constexpr size_t kDefaultTransitionThreshold = 5 * MB;
   static constexpr double kDefaultTargetUtilization = 0.75;
   static constexpr double kDefaultHeapGrowthMultiplier = 2.0;
   // Primitive arrays larger than this size are put in the large object space.
@@ -168,7 +169,7 @@ class Heap {
   // as object allocation time. time_to_call_mallinfo seems to be on the order of 1 usec
   // on Android.
 #ifdef __ANDROID__
-  static constexpr uint32_t kNotifyNativeInterval = 32;
+  static constexpr uint32_t kNotifyNativeInterval = 64;
 #else
   // Some host mallinfo() implementations are slow. And memory is less scarce.
   static constexpr uint32_t kNotifyNativeInterval = 384;
@@ -1474,6 +1475,10 @@ class Heap {
   // here to be subtracted from num_bytes_allocated_ later at the next
   // GC.
   Atomic<size_t> num_bytes_freed_revoke_;
+
+  // Records the number of bytes left since the last GC, which is used to calculate how
+  // many bytes have been allocated since the last GC.
+  size_t num_bytes_alive_after_gc_;
 
   // Info related to the current or previous GC iteration.
   collector::Iteration current_gc_iteration_;
