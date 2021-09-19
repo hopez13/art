@@ -16,6 +16,24 @@
       "message": "shouldn\u0027t these be 31? art apex has min_sdk_version \"S\"",
       "revId": "6b2cfea3ed53e5cd172cf070ea219158e8348867",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23590384_eb64f7f3",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2021-09-19T23:57:31Z",
+      "side": 1,
+      "message": "Thanks for pointing this out. I have updated these values to \"S\"",
+      "parentUuid": "75b8a70d_7299d579",
+      "revId": "6b2cfea3ed53e5cd172cf070ea219158e8348867",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
