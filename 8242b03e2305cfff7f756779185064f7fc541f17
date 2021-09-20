@@ -39,6 +39,30 @@
       },
       "revId": "8242b03e2305cfff7f756779185064f7fc541f17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a2ef618_cb9b6507",
+        "filename": "test/580-checker-fp16/src-art/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1880290
+      },
+      "writtenOn": "2021-09-20T14:57:59Z",
+      "side": 1,
+      "message": "I have added helper functions for min and max separately as keeping the tests for min and max separate meant the NaN, lowest/highest value cases would not need a special case (as max(NaN, n)\u003dNaN and min(NaN, n)\u003dNaN.",
+      "parentUuid": "b347ccef_3e656e99",
+      "range": {
+        "startLine": 427,
+        "startChar": 4,
+        "endLine": 430,
+        "endChar": 79
+      },
+      "revId": "8242b03e2305cfff7f756779185064f7fc541f17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
