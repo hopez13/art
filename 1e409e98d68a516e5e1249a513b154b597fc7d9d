@@ -155,6 +155,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02459ca9_c8d57991",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-20T19:57:42Z",
+      "side": 1,
+      "message": "Unfortunately, Map is only supported in AIDL\u0027s Java backend... So I added String[] instead and added some checks in the \"backend\". In the future, odrefresh should only add jars in /system, not those in /apex.",
+      "parentUuid": "eff51863_d40c5002",
+      "revId": "1e409e98d68a516e5e1249a513b154b597fc7d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "119b6d19_39765c57",
