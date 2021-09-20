@@ -1433,7 +1433,8 @@
         "description": ["Out of memory"]
     },
     {
-        "tests": ["004-JdkUnsafeTest"],
+        "tests": ["004-JdkUnsafeTest",
+                  "555-JdkUnsafeGetLong-regression"],
         "variant": "jvm",
         "bug": "b/195387473",
         "description": ["Depends on using language level 11."]
