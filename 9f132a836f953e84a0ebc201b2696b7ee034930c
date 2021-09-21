@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ea2d58c_23fe6589",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-21T15:27:27Z",
+      "side": 1,
+      "message": "Thanks, I always forget to read the bug first.",
+      "parentUuid": "5fcde9ff_d518c08e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 35
+      },
+      "revId": "9f132a836f953e84a0ebc201b2696b7ee034930c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b220ce9b_761c641e",
@@ -132,6 +156,54 @@
       "side": 1,
       "message": "The boot image now needs to be relative to ANDROID_ROOT. CREATE_ANDROID_ROOT in this file is only for when we use the bionic configuration, which is kind of specially treated (with a zip apex that does not contain the boot image).",
       "parentUuid": "e1611835_47b96d43",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 78
+      },
+      "revId": "9f132a836f953e84a0ebc201b2696b7ee034930c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "768b47ea_9eb85dd2",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 4
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-21T15:27:27Z",
+      "side": 1,
+      "message": "Ok.",
+      "parentUuid": "bfdb4321_a5a31329",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 78
+      },
+      "revId": "9f132a836f953e84a0ebc201b2696b7ee034930c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a57dc4ab_bcd48c78",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 4
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-21T15:27:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bfdb4321_a5a31329",
       "range": {
         "startLine": 900,
         "startChar": 0,
