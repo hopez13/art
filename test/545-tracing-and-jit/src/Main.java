@@ -32,7 +32,10 @@ public class Main {
     private static final String TEMP_FILE_NAME_SUFFIX = ".trace";
     private static File file;
 
+    private static native void ensureJitCompiled(Class<?> cls, String methodName);
+
     public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
         String name = System.getProperty("java.vm.name");
         if (!"Dalvik".equals(name)) {
             System.out.println("This test is not supported on " + name);
@@ -40,8 +43,8 @@ public class Main {
         }
         file = createTempFile();
         try {
-            new Main().ensureCaller(true, 0);
-            new Main().ensureCaller(false, 0);
+            ensureJitCompiled(Main.class, "doLoadsOfStuff");
+            new Main().ensureCaller(0);
         } finally {
             if (file != null) {
               file.delete();
@@ -65,38 +68,27 @@ public class Main {
 
     // We make sure 'doLoadsOfStuff' has a caller, because it is this caller that will be
     // pushed in the side instrumentation frame.
-    public void ensureCaller(boolean warmup, int invocationCount) throws Exception {
-        doLoadsOfStuff(warmup, invocationCount);
+    public void ensureCaller(int invocationCount) throws Exception {
+        doLoadsOfStuff(invocationCount);
     }
 
-    // The number of recursive calls we are going to do in 'doLoadsOfStuff' to ensure
-    // the JIT sees it hot.
+    // The number of recursive calls we are going to do in 'doLoadsOfStuff'.
     static final int NUMBER_OF_INVOCATIONS = 5;
 
-    public void doLoadsOfStuff(boolean warmup, int invocationCount) throws Exception {
-        // Warmup is to make sure the JIT gets a chance to compile 'doLoadsOfStuff'.
-        if (warmup) {
-            if (invocationCount < NUMBER_OF_INVOCATIONS) {
-                doLoadsOfStuff(warmup, ++invocationCount);
-            } else {
-                // Give the JIT a chance to compiler.
-                Thread.sleep(1000);
-            }
-        } else {
-            if (invocationCount == 0) {
-                // When running the trace in trace mode, there is already a trace running.
-                if (VMDebug.getMethodTracingMode() != 0) {
-                    VMDebug.stopMethodTracing();
-                }
-                VMDebug.startMethodTracing(file.getPath(), 0, 0, false, 0);
-            }
-            fillJit();
-            if (invocationCount < NUMBER_OF_INVOCATIONS) {
-                doLoadsOfStuff(warmup, ++invocationCount);
-            } else {
-                VMDebug.stopMethodTracing();
-            }
+    public void doLoadsOfStuff(int invocationCount) throws Exception {
+      if (invocationCount == 0) {
+        // When running the trace in trace mode, there is already a trace running.
+        if (VMDebug.getMethodTracingMode() != 0) {
+          VMDebug.stopMethodTracing();
         }
+        VMDebug.startMethodTracing(file.getPath(), 0, 0, false, 0);
+      }
+      fillJit();
+      if (invocationCount < NUMBER_OF_INVOCATIONS) {
+        doLoadsOfStuff(++invocationCount);
+      } else {
+        VMDebug.stopMethodTracing();
+      }
     }
 
     // This method creates enough profiling data to fill the code cache and trigger
