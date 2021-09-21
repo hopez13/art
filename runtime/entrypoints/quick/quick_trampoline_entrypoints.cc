@@ -856,9 +856,7 @@ extern "C" uint64_t artQuickProxyInvokeHandler(
   instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
   if (instr->HasMethodEntryListeners()) {
     instr->MethodEnterEvent(soa.Self(),
-                            soa.Decode<mirror::Object>(rcvr_jobj),
-                            proxy_method,
-                            0);
+                            proxy_method);
     if (soa.Self()->IsExceptionPending()) {
       instr->MethodUnwindEvent(self,
                                soa.Decode<mirror::Object>(rcvr_jobj),
