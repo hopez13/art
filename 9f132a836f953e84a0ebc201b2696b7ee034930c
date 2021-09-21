@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e70a824d_4510ea16",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-21T14:25:31Z",
+      "side": 1,
+      "message": "Did you accidentally delete the headline?\n\n  Change only_use_system_oat_files_ logic.\n\nAlso, a more detailed explanation would help. E.g. some logic is added for in-memory images that I do not entirely understand. And why is this change needed on a high level? Is it user-facing (is somebody changing that variable from outside)?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 35
+      },
+      "revId": "9f132a836f953e84a0ebc201b2696b7ee034930c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b220ce9b_761c641e",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-21T14:25:31Z",
+      "side": 1,
+      "message": "How is profile in the image space related to in-memory? Can you expand the comment?",
+      "range": {
+        "startLine": 161,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 77
+      },
+      "revId": "9f132a836f953e84a0ebc201b2696b7ee034930c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1611835_47b96d43",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 4
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-21T14:25:31Z",
+      "side": 1,
+      "message": "How is the trusted/non-trusted location related to the path where the runtime expects to find boot image? I\u0027m confused because this patch doesn\u0027t seem to change boot image location, so why do you have to change it here?",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 78
+      },
+      "revId": "9f132a836f953e84a0ebc201b2696b7ee034930c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
