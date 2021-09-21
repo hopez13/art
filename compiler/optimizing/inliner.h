@@ -40,7 +40,7 @@ class HInliner : public HOptimization {
            const DexCompilationUnit& caller_compilation_unit,
            OptimizingCompilerStats* stats,
            size_t total_number_of_dex_registers,
-           size_t total_number_of_instructions,
+           size_t size_in_code_units,
            HInliner* parent,
            size_t depth = 0,
            const char* name = kInlinerPassName)
@@ -50,7 +50,7 @@ class HInliner : public HOptimization {
         caller_compilation_unit_(caller_compilation_unit),
         codegen_(codegen),
         total_number_of_dex_registers_(total_number_of_dex_registers),
-        total_number_of_instructions_(total_number_of_instructions),
+        size_in_code_units_(size_in_code_units),
         parent_(parent),
         depth_(depth),
         inlining_budget_(0),
@@ -101,10 +101,11 @@ class HInliner : public HOptimization {
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Run simple optimizations on `callee_graph`.
+  // TODO(solanes): Talk about out_new_size
   void RunOptimizations(HGraph* callee_graph,
                         const dex::CodeItem* code_item,
-                        const DexCompilationUnit& dex_compilation_unit)
-    REQUIRES_SHARED(Locks::mutator_lock_);
+                        const DexCompilationUnit& dex_compilation_unit,
+                        size_t* out_new_size) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Try to recognize known simple patterns and replace invoke call with appropriate instructions.
   bool TryPatternSubstitution(HInvoke* invoke_instruction,
@@ -139,10 +140,8 @@ class HInliner : public HOptimization {
   //
   // This checks for instructions and constructs that we do not support
   // inlining, such as inlining a throw instruction into a try block.
-  bool CanInlineBody(const HGraph* callee_graph,
-                     const HBasicBlock* target_block,
-                     size_t* out_number_of_instructions) const
-    REQUIRES_SHARED(Locks::mutator_lock_);
+  bool CanInlineBody(const HGraph* callee_graph, const HBasicBlock* target_block) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Create a new HInstanceFieldGet.
   HInstanceFieldGet* CreateInstanceFieldGet(uint32_t field_index,
@@ -294,7 +293,7 @@ class HInliner : public HOptimization {
                                                 HInstruction* return_replacement,
                                                 HInstruction* invoke_instruction);
 
-  // Update the inlining budget based on `total_number_of_instructions_`.
+  // Update the inlining budget based on `size_in_code_units_`.
   void UpdateInliningBudget();
 
   // Count the number of calls of `method` being inlined recursively.
@@ -308,7 +307,7 @@ class HInliner : public HOptimization {
   const DexCompilationUnit& caller_compilation_unit_;
   CodeGenerator* const codegen_;
   const size_t total_number_of_dex_registers_;
-  size_t total_number_of_instructions_;
+  size_t size_in_code_units_;
 
   // The 'parent' inliner, that means the inlinigng optimization that requested
   // `graph_` to be inlined.
