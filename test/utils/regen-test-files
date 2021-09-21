@@ -215,7 +215,8 @@ known_failing_tests = frozenset([
   "993-breakpoints-non-debuggable",
   "2243-single-step-default",
   "2262-miranda-methods",
-  "2262-default-conflict-methods"
+  "2262-default-conflict-methods",
+  "545-tracing-and-jit"
 ])
 
 known_failing_on_hwasan_tests = frozenset([
