@@ -15,6 +15,7 @@
  */
 
 import dalvik.system.VMRuntime;
+import sun.misc.Cleaner;
 import java.util.concurrent.CountDownLatch;
 import static java.util.concurrent.TimeUnit.MINUTES;
 
@@ -29,7 +30,7 @@ public class Main {
         CountDownLatch finalizerWait = new CountDownLatch(1);
 
         // A separate method to ensure no dex register keeps the object alive.
-        createBadFinalizer(finalizerWait);
+        createBadCleanable(finalizerWait);
 
         // Should have at least two iterations to trigger finalization, but just to make sure run
         // some more.
@@ -65,11 +66,28 @@ public class Main {
         System.exit(0);
     }
 
-    private static void createBadFinalizer(CountDownLatch finalizerWait) {
-        BadFinalizer bf = new BadFinalizer(finalizerWait);
+    private static void createBadCleanable(CountDownLatch finalizerWait) {
+        Object badCleanable = new Object();
+        Runnable badRunnable = new Runnable() {
+            public void run () {
+                finalizerWait.countDown();
+
+                System.out.println("Cleaner started and spinning...");
+
+                /* spin for a bit */
+                snooze(2000);
+                System.out.println("Cleaner done spinning.");
+
+                System.out.println("Cleaner sleeping forever now.");
+                while (true) {
+                    snooze(500000);
+                }
+            }
+        };
+        final Cleaner badCleaner = Cleaner.create(badCleanable, badRunnable);
 
         System.out.println("About to null reference.");
-        bf = null;  // Not that this would make a difference, could be eliminated earlier.
+        badCleanable = null;  // Not that this would make a difference, could be eliminated earlier.
     }
 
     public static void snooze(int ms) {
@@ -79,33 +97,4 @@ public class Main {
         }
     }
 
-    /**
-     * Class with a bad finalizer.
-     */
-    public static class BadFinalizer {
-        private CountDownLatch finalizerWait;
-        private volatile int j = 0;  // Volatile in an effort to curb loop optimization.
-
-        public BadFinalizer(CountDownLatch finalizerWait) {
-            this.finalizerWait = finalizerWait;
-        }
-
-        protected void finalize() {
-            finalizerWait.countDown();
-
-            System.out.println("Finalizer started and spinning...");
-
-            /* spin for a bit */
-            long start, end;
-            start = System.nanoTime();
-            snooze(2000);
-            end = System.nanoTime();
-            System.out.println("Finalizer done spinning.");
-
-            System.out.println("Finalizer sleeping forever now.");
-            while (true) {
-                snooze(10000);
-            }
-        }
-    }
 }
