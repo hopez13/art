@@ -16,6 +16,8 @@
 
 #include "inliner.h"
 
+#include <glob.h>
+
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "base/logging.h"
@@ -49,12 +51,12 @@
 namespace art {
 
 // Instruction limit to control memory.
-static constexpr size_t kMaximumNumberOfTotalInstructions = 1024;
+static constexpr size_t kMaximumCodeUnitsInTotal = 1600;
 
 // Maximum number of instructions for considering a method small,
 // which we will always try to inline if the other non-instruction limits
 // are not reached.
-static constexpr size_t kMaximumNumberOfInstructionsForSmallMethod = 3;
+static constexpr size_t kMaximumCodeUnitsForSmallMethod = 4;
 
 // Limit the number of dex registers that we accumulate while inlining
 // to avoid creating large amount of nested environments.
@@ -102,26 +104,13 @@ std::string HInliner::DepthString(int line) const {
   return value;
 }
 
-static size_t CountNumberOfInstructions(HGraph* graph) {
-  size_t number_of_instructions = 0;
-  for (HBasicBlock* block : graph->GetReversePostOrderSkipEntryBlock()) {
-    for (HInstructionIterator instr_it(block->GetInstructions());
-         !instr_it.Done();
-         instr_it.Advance()) {
-      ++number_of_instructions;
-    }
-  }
-  return number_of_instructions;
-}
-
 void HInliner::UpdateInliningBudget() {
-  if (total_number_of_instructions_ >= kMaximumNumberOfTotalInstructions) {
+  if (size_in_code_units_ >= kMaximumCodeUnitsInTotal) {
     // Always try to inline small methods.
-    inlining_budget_ = kMaximumNumberOfInstructionsForSmallMethod;
+    inlining_budget_ = kMaximumCodeUnitsForSmallMethod;
   } else {
-    inlining_budget_ = std::max(
-        kMaximumNumberOfInstructionsForSmallMethod,
-        kMaximumNumberOfTotalInstructions - total_number_of_instructions_);
+    inlining_budget_ =
+        std::max(kMaximumCodeUnitsForSmallMethod, kMaximumCodeUnitsInTotal - size_in_code_units_);
   }
 }
 
@@ -140,11 +129,13 @@ bool HInliner::Run() {
   // Initialize the number of instructions for the method being compiled. Recursive calls
   // to HInliner::Run have already updated the instruction count.
   if (outermost_graph_ == graph_) {
-    total_number_of_instructions_ = CountNumberOfInstructions(graph_);
+    CodeItemInstructionAccessor accessor(graph_->GetDexFile(),
+                                         outer_compilation_unit_.GetCodeItem());
+    size_in_code_units_ = accessor.InsnsSizeInCodeUnits();
   }
 
   UpdateInliningBudget();
-  DCHECK_NE(total_number_of_instructions_, 0u);
+  DCHECK_NE(size_in_code_units_, 0u);
   DCHECK_NE(inlining_budget_, 0u);
 
   // If we're compiling tests, honor inlining directives in method names:
@@ -406,9 +397,10 @@ static bool AlwaysThrows(ArtMethod* method)
   }
   // Skip native methods, methods with try blocks, and methods that are too large.
   CodeItemDataAccessor accessor(method->DexInstructionData());
-  if (!accessor.HasCodeItem() ||
-      accessor.TriesSize() != 0 ||
-      accessor.InsnsSizeInCodeUnits() > kMaximumNumberOfTotalInstructions) {
+  // TODO(solanes): Is this accessor.InsnsSizeInCodeUnits() comparison correct? We were comparing
+  // code units vs instructions
+  if (!accessor.HasCodeItem() || accessor.TriesSize() != 0 ||
+      accessor.InsnsSizeInCodeUnits() > kMaximumCodeUnitsInTotal) {
     return false;
   }
   // Scan for exits.
@@ -1407,6 +1399,15 @@ bool HInliner::IsInliningBudgetAvailable(ArtMethod* method,
     return false;
   }
 
+  // Bail early if we know we already are over the limit.
+  if (accessor.InsnsSizeInCodeUnits() > inlining_budget_) {
+    LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedInstructionBudget)
+        << "Method " << method->PrettyMethod()
+        << " is not inlined because there is no budget available: "
+        << accessor.InsnsSizeInCodeUnits() << " > " << inlining_budget_;
+    return false;
+  }
+
   return true;
 }
 
@@ -1758,12 +1759,7 @@ void HInliner::SubstituteArguments(HGraph* callee_graph,
 //
 // This performs a combination of semantics checks, compiler support checks, and
 // resource limit checks.
-//
-// If this function returns true, it will also set out_number_of_instructions to
-// the number of instructions in the inlined body.
-bool HInliner::CanInlineBody(const HGraph* callee_graph,
-                             const HBasicBlock* target_block,
-                             size_t* out_number_of_instructions) const {
+bool HInliner::CanInlineBody(const HGraph* callee_graph, const HBasicBlock* target_block) const {
   ArtMethod* const resolved_method = callee_graph->GetArtMethod();
 
   HBasicBlock* exit_block = callee_graph->GetExitBlock();
@@ -1811,7 +1807,6 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
     return false;
   }
 
-  size_t number_of_instructions = 0;
   // Skip the entry block, it does not contain instructions that prevent inlining.
   for (HBasicBlock* block : callee_graph->GetReversePostOrderSkipEntryBlock()) {
     if (block->IsLoopHeader()) {
@@ -1837,11 +1832,13 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
     for (HInstructionIterator instr_it(block->GetInstructions());
          !instr_it.Done();
          instr_it.Advance()) {
-      if (++number_of_instructions > inlining_budget_) {
-        LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedInstructionBudget)
+      HInstruction* current = instr_it.Current();
+      if (current->NeedsEnvironment() &&
+          (total_number_of_dex_registers_ > kMaximumNumberOfCumulatedDexRegisters)) {
+        LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedEnvironmentBudget)
             << "Method " << resolved_method->PrettyMethod()
-            << " is not inlined because the outer method has reached"
-            << " its instruction budget limit.";
+            << " is not inlined because its caller has reached"
+            << " its environment budget limit.";
         return false;
       }
       HInstruction* current = instr_it.Current();
@@ -1879,7 +1876,6 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
     }
   }
 
-  *out_number_of_instructions = number_of_instructions;
   return true;
 }
 
@@ -1974,10 +1970,10 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
 
   SubstituteArguments(callee_graph, invoke_instruction, receiver_type, dex_compilation_unit);
 
-  RunOptimizations(callee_graph, code_item, dex_compilation_unit);
+  size_t new_size;
+  RunOptimizations(callee_graph, code_item, dex_compilation_unit, &new_size);
 
-  size_t number_of_instructions = 0;
-  if (!CanInlineBody(callee_graph, invoke_instruction->GetBlock(), &number_of_instructions)) {
+  if (!CanInlineBody(callee_graph, invoke_instruction->GetBlock())) {
     return false;
   }
 
@@ -1989,7 +1985,7 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
   graph_->SetCurrentInstructionId(callee_instruction_counter);
   *return_replacement = callee_graph->InlineInto(graph_, invoke_instruction);
   // Update our budget for other inlining attempts in `caller_graph`.
-  total_number_of_instructions_ += number_of_instructions;
+  size_in_code_units_ = new_size;
   UpdateInliningBudget();
 
   DCHECK_EQ(callee_instruction_counter, callee_graph->GetCurrentInstructionId())
@@ -2012,39 +2008,14 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
 
 void HInliner::RunOptimizations(HGraph* callee_graph,
                                 const dex::CodeItem* code_item,
-                                const DexCompilationUnit& dex_compilation_unit) {
-  // Note: if the outermost_graph_ is being compiled OSR, we should not run any
-  // optimization that could lead to a HDeoptimize. The following optimizations do not.
-  HDeadCodeElimination dce(callee_graph, inline_stats_, "dead_code_elimination$inliner");
-  HConstantFolding fold(callee_graph, "constant_folding$inliner");
-  InstructionSimplifier simplify(callee_graph, codegen_, inline_stats_);
-
-  HOptimization* optimizations[] = {
-    &simplify,
-    &fold,
-    &dce,
-  };
-
-  for (size_t i = 0; i < arraysize(optimizations); ++i) {
-    HOptimization* optimization = optimizations[i];
-    optimization->Run();
-  }
-
+                                const DexCompilationUnit& dex_compilation_unit,
+                                size_t* out_new_size) {
   // Bail early for pathological cases on the environment (for example recursive calls,
   // or too large environment).
   if (total_number_of_dex_registers_ > kMaximumNumberOfCumulatedDexRegisters) {
     LOG_NOTE() << "Calls in " << callee_graph->GetArtMethod()->PrettyMethod()
              << " will not be inlined because the outer method has reached"
              << " its environment budget limit.";
-    return;
-  }
-
-  // Bail early if we know we already are over the limit.
-  size_t number_of_instructions = CountNumberOfInstructions(callee_graph);
-  if (number_of_instructions > inlining_budget_) {
-    LOG_NOTE() << "Calls in " << callee_graph->GetArtMethod()->PrettyMethod()
-             << " will not be inlined because the outer method has reached"
-             << " its instruction budget limit. " << number_of_instructions;
     return;
   }
 
@@ -2056,10 +2027,11 @@ void HInliner::RunOptimizations(HGraph* callee_graph,
                    dex_compilation_unit,
                    inline_stats_,
                    total_number_of_dex_registers_ + accessor.RegistersSize(),
-                   total_number_of_instructions_ + number_of_instructions,
+                   size_in_code_units_ + accessor.InsnsSizeInCodeUnits(),
                    this,
                    depth_ + 1);
   inliner.Run();
+  *out_new_size = inliner.size_in_code_units_;
 }
 
 static bool IsReferenceTypeRefinement(ObjPtr<mirror::Class> declared_class,
