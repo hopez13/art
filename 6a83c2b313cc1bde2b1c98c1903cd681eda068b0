@@ -70,6 +70,30 @@
       },
       "revId": "6a83c2b313cc1bde2b1c98c1903cd681eda068b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65a46565_5d933a34",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1863,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-21T15:50:37Z",
+      "side": 1,
+      "message": "Oh that\u0027s right, we can cache CanEncodeInlinedMethodInStackMap.",
+      "parentUuid": "131dfd7e_3e7c914d",
+      "range": {
+        "startLine": 1855,
+        "startChar": 0,
+        "endLine": 1863,
+        "endChar": 9
+      },
+      "revId": "6a83c2b313cc1bde2b1c98c1903cd681eda068b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
