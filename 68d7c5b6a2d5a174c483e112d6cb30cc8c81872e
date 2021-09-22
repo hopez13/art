@@ -96,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "299167b2_e1b869b9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-22T21:53:38Z",
+      "side": 1,
+      "message": "\u003e I\u0027m also very uncomfortable with this change. We\u0027re essentially randomly dropping the transition GC requests, in a way that seems to have been tuned to a particular workload. It may be that we\u0027re collecting too aggressively on transitions with CC. If so, is there a more systematic way we can fix that? Conditioning this (more deterministically) on the number of bytes allocated since the last GC would make a lot more sense to me. Lokesh?\n\u003e\nI agree. It\u0027s plausible that for some apps the transition happens frequently, and performing a GC each time is not always desirable. Also, I agree that something based on bytes-allocated since last GC makes more sense. Maybe we can also use the free-heap in the equation to make it relative. For instance, \"we will collect on transition if we have consumed more than 30% of free heap\".\n\nAnother approach we can take (maybe in conjunction with the above one) is to shrink the free-heap watermark after a certain time if no background GC has been triggered by then.\n\nSo something like: \"if we have consumed more than 30% of free heap then do a GC, otherwise, shrink the free-heap after a certain amount of time\".\n \n\u003e It\u0027s also unclear to me that any of these changes make sense to me for CMS. So shouldn\u0027t this be conditioned on CC?\n\nYes, avoiding these transitional GCs for CMS for a very long time could be really risky.",
+      "parentUuid": "0e30b96e_0699f8e0",
+      "range": {
+        "startLine": 1075,
+        "startChar": 4,
+        "endLine": 1089,
+        "endChar": 7
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21b02204_c67c354c",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
