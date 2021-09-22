@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0215c6a_d96ec9f8",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-09-22T09:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e0e9c7c_5ed5712e",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 85
+      },
+      "revId": "e556594b6f8b8684ab2a2ec6800acab097fde85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b54d669f_0dd10e97",
@@ -60,6 +84,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bbb39676_009af97c",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-09-22T09:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b54d669f_0dd10e97",
+      "revId": "e556594b6f8b8684ab2a2ec6800acab097fde85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ec18972a_fb5c3ecf",
         "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
         "patchSetId": 1
@@ -71,6 +113,30 @@
       "writtenOn": "2021-09-22T08:52:18Z",
       "side": 1,
       "message": "Possibly not for this CL, but it good to split these out into OdrefreshHostTest.java (or whatever) rather than have the testA and testB names. As a reader I was scratching my head over testA until this comment.",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 38
+      },
+      "revId": "e556594b6f8b8684ab2a2ec6800acab097fde85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b2e1e0e_636c5f65",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-09-22T09:49:10Z",
+      "side": 1,
+      "message": "Thank you for the suggestion. I\u0027ll try to split the test cases in a follow-up CL.",
+      "parentUuid": "ec18972a_fb5c3ecf",
       "range": {
         "startLine": 404,
         "startChar": 0,
