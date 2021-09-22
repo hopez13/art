@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bab9e43_5cfa7a17",
+        "filename": "artd/binder/private/com/android/art/DexoptSystemServerArgs.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-09-22T05:29:53Z",
+      "side": 1,
+      "message": "This is no longer needed (b/200241946). Sorry for the change.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "d70e51479fc0197a96503b6797133ccd65791589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1c94e4d_67c0ca90",
+        "filename": "artd/binder/private/com/android/art/DexoptSystemServerArgs.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-09-22T05:29:53Z",
+      "side": 1,
+      "message": "Please add a comment that this array is not used as -Xbootclasspath but as a container of the mapping keys for the arrays below.",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 28
+      },
+      "revId": "d70e51479fc0197a96503b6797133ccd65791589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4646ac9_2525c4ea",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-09-22T05:29:53Z",
+      "side": 1,
+      "message": "Did you forget to remove this comment?",
+      "range": {
+        "startLine": 24,
+        "startChar": 32,
+        "endLine": 24,
+        "endChar": 50
+      },
+      "revId": "d70e51479fc0197a96503b6797133ccd65791589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
