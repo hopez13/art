@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "958a6ec4_d811daab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-22T08:52:18Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "e556594b6f8b8684ab2a2ec6800acab097fde85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e0e9c7c_5ed5712e",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-22T08:52:18Z",
+      "side": 1,
+      "message": "Let\u0027s group with the constants above.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 85
+      },
+      "revId": "e556594b6f8b8684ab2a2ec6800acab097fde85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b54d669f_0dd10e97",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-22T08:52:18Z",
+      "side": 1,
+      "message": "Add a brief comment on testA meaning similar to testB below (or consider splitting tests, see comment below).",
+      "revId": "e556594b6f8b8684ab2a2ec6800acab097fde85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec18972a_fb5c3ecf",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-22T08:52:18Z",
+      "side": 1,
+      "message": "Possibly not for this CL, but it good to split these out into OdrefreshHostTest.java (or whatever) rather than have the testA and testB names. As a reader I was scratching my head over testA until this comment.",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 38
+      },
+      "revId": "e556594b6f8b8684ab2a2ec6800acab097fde85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
