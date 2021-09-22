@@ -72,6 +72,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e30b96e_0699f8e0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-22T16:48:20Z",
+      "side": 1,
+      "message": "I\u0027m also very uncomfortable with this change. We\u0027re essentially randomly dropping the transition GC requests, in a way that seems to have been tuned to a particular workload. It may be that we\u0027re collecting too aggressively on transitions with CC. If so, is there a more systematic way we can fix that? Conditioning this (more deterministically) on the number of bytes allocated since the last GC would make a lot more sense to me. Lokesh?\n\nIt\u0027s also unclear to me that any of these changes make sense to me for CMS. So shouldn\u0027t this be conditioned on CC?",
+      "parentUuid": "af1e628c_466e127f",
+      "range": {
+        "startLine": 1075,
+        "startChar": 4,
+        "endLine": 1089,
+        "endChar": 7
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "21b02204_c67c354c",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1

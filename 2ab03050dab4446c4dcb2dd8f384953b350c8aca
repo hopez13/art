@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b9bcc76_fa8c7c05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-22T16:48:20Z",
+      "side": 1,
+      "message": "Did you measure how this performs after aosp/1811718 ? That CL is not in S, but addresses similar issues, again by being more careful to avoid non-productive GCs. It may not really solve your problem, in that it\u0027s focused only on process startup.",
+      "revId": "2ab03050dab4446c4dcb2dd8f384953b350c8aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5194b55_79931cfb",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-22T16:48:20Z",
+      "side": 1,
+      "message": "Can you say a little more about why you increased this? Did you observe a significant difference with this change?\n\nThere\u0027s a bit of a trade-off against robustness here: The larger the number, the more likely it is that we will fail to notice a sequence of very large malloc allocations that should have triggered a GC. On the other hand, we do test regularly on host with 384, so I don\u0027t think we\u0027re very sensitive to this value on large memory devices. Perhaps we want a separate smaller constant for LowMemoryMode?",
+      "range": {
+        "startLine": 171,
+        "startChar": 52,
+        "endLine": 171,
+        "endChar": 54
+      },
+      "revId": "2ab03050dab4446c4dcb2dd8f384953b350c8aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
