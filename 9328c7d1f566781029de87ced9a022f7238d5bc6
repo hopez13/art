@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e51b8c07_f00045bd",
+        "filename": "test/2041-bad-cleaner/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-23T23:44:39Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 3,
+        "startChar": 66,
+        "endLine": 3,
+        "endChar": 70
+      },
+      "revId": "9328c7d1f566781029de87ced9a022f7238d5bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7065969b_e62f6cd7",
+        "filename": "test/2041-bad-cleaner/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-23T23:44:39Z",
+      "side": 1,
+      "message": "This isn\u0027t spin, right? Also, why is it important to spin first and then sleep?",
+      "range": {
+        "startLine": 78,
+        "startChar": 16,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "9328c7d1f566781029de87ced9a022f7238d5bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "260b4981_125a081a",
+        "filename": "test/2041-bad-cleaner/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-23T23:44:39Z",
+      "side": 1,
+      "message": "Not very familiar with Cleaners so asking: does this register the cleaner somewhere? Because otherwise it looks like badCleaner will go out of scope once we return from this function.",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 50
+      },
+      "revId": "9328c7d1f566781029de87ced9a022f7238d5bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
