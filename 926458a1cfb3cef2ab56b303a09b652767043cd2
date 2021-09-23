@@ -175,6 +175,30 @@
       },
       "revId": "926458a1cfb3cef2ab56b303a09b652767043cd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b766b50_44d3160b",
+        "filename": "test/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-23T16:23:45Z",
+      "side": 1,
+      "message": "In this case I\u0027d rather have the same number, as they are duplicates one test will soon go away (if I understand correctly). But fine as it is.",
+      "parentUuid": "eadd3ec2_2fe3d599",
+      "range": {
+        "startLine": 851,
+        "startChar": 9,
+        "endLine": 851,
+        "endChar": 12
+      },
+      "revId": "926458a1cfb3cef2ab56b303a09b652767043cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

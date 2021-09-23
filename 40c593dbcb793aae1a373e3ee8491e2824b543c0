@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e877b024_a2bf4480",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-23T16:23:45Z",
+      "side": 1,
+      "message": "Test (typo, here and on the line below).",
+      "range": {
+        "startLine": 21,
+        "startChar": 53,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "40c593dbcb793aae1a373e3ee8491e2824b543c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0419d765_e9829570",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-23T16:23:45Z",
+      "side": 1,
+      "message": "The most recent trend (judging by Vladimir\u0027s CLs) is to use \u0027\u003d\u0027 but no spaces:\n\n  /*is_volatile\u003d*/\n\nHere and below.",
+      "range": {
+        "startLine": 979,
+        "startChar": 15,
+        "endLine": 979,
+        "endChar": 33
+      },
+      "revId": "40c593dbcb793aae1a373e3ee8491e2824b543c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf39252b_640b828f",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1502,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-23T16:23:45Z",
+      "side": 1,
+      "message": "Accidental blank line?",
+      "revId": "40c593dbcb793aae1a373e3ee8491e2824b543c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1297c8_246449e5",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 2849,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-23T16:23:45Z",
+      "side": 1,
+      "message": "It might have been a bit less effort to rename the old methods, as they will be eventually going away, not the new ones:\n\n- Change 1: add copies of existing methods with names like `VisitDeprecatedUnsafeGet` (they should be easy to grep) and redirect to existing methods. Move the old runtime implementation to a new file, and keep the new implementation in the existing file. This way reviewers can see the diff.\n\n- Change 2 (in the future): remove all methods prefixed with `Deprecated`. This should be an all-red changes and easy to review.\n\nI understand this may be a massive rework, just thinking what could be an easier approach for the future. I\u0027m fine with the change as is.",
+      "range": {
+        "startLine": 2847,
+        "startChar": 0,
+        "endLine": 2849,
+        "endChar": 1
+      },
+      "revId": "40c593dbcb793aae1a373e3ee8491e2824b543c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b40ad62d_a62a3592",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 3276,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-23T16:23:45Z",
+      "side": 1,
+      "message": "Accidental blank line?",
+      "revId": "40c593dbcb793aae1a373e3ee8491e2824b543c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "605ceebb_333dd562",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5468,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-23T16:23:45Z",
+      "side": 1,
+      "message": "What does this mean, OpenJDK version? Why is the comment on line 5458 saying \"1.8\", was it so long ago?",
+      "range": {
+        "startLine": 5468,
+        "startChar": 0,
+        "endLine": 5468,
+        "endChar": 5
+      },
+      "revId": "40c593dbcb793aae1a373e3ee8491e2824b543c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "befa5f75_536d71f1",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1622,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-23T16:23:45Z",
+      "side": 1,
+      "message": "Accidental blank line?",
+      "revId": "40c593dbcb793aae1a373e3ee8491e2824b543c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9720a50_0a767bcf",
+        "filename": "runtime/native/jdk_internal_misc_Unsafe.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-23T16:23:45Z",
+      "side": 1,
+      "message": "Is there a need to review this file, or is this a copy? It\u0027s difficult to tell because I don\u0027t see a baseline (the old implementation), so I don\u0027t know which bits to pay attention to.",
+      "revId": "40c593dbcb793aae1a373e3ee8491e2824b543c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60954764_c34e2984",
+        "filename": "test/2235-JdkUnsafeTest/info.txt",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-23T16:23:45Z",
+      "side": 1,
+      "message": "It\u0027s a copy with renamed methods, right?",
+      "range": {
+        "startLine": 1,
+        "startChar": 43,
+        "endLine": 1,
+        "endChar": 70
+      },
+      "revId": "40c593dbcb793aae1a373e3ee8491e2824b543c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
