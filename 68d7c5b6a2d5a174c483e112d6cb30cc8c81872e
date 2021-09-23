@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e09f47d0_224c41b0",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-23T21:22:45Z",
+      "side": 1,
+      "message": "\u003e The purpose of this modification is to adjust the Multiplier to delay the arrival of the next BackgroundGC when the equipment load is high, so as to reduce the increased load of heaptaskdaemon for a period of time.\n\u003e 1.this ratio will be close to 1.0 most of the time?\n\u003e YES,but on some devices with low performance,when there are many applications in the background,it is often seen from anr\\skimFrame\\jank systrace that the ratio is less than 0.5 or even 0.2.\n\nThis is only possible if the GC-thread was made to wait while GC was running. But this could happen even when the device is not really under high load. For instance, when waiting for a checkpoint, if those waits are longer for any reason, they would not be counted towards the gc_cpu_time.\n\nI agree that it gives some indication of CPU load, but really far from perfect.\n\n\u003e To some extent, this ratio can represent the load state of the system during this GC.\n\u003e Of course, the ratio during this GC cannot reflect the future situation.Therefore, the Multiplier adjustment is conservative and appropriately delay the arrival of the next BackgroundGC.\n\u003e \n\u003e 2.ProcessCpuNanoTime() would make more sense than NanoTime()?\n\u003e NO,gc_cpu_time/process_cpu_time does not represent the device load during GC.\n\u003e \n\u003e 3. I don\u0027t think there is any easy way to measure the device-wide CPU usage.\n\u003e I deeply agree that.It may not be reasonable to use the ratio to represent the equipment load, but the effect is obvious from the power consumption test data(Use time increased by 18 minutes).\n\u003e \n\u003e It is hoped that google art developers can evaluate this patch and take some measures on the s version to appropriately reduce the occurrence of backgroundGC when the equipment is under high load.",
+      "parentUuid": "3bfbcfce_0d2e36c0",
+      "range": {
+        "startLine": 187,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 62
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15745297_edf0c6c6",
         "filename": "runtime/gc/collector/iteration.h",
         "patchSetId": 1
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "Yes, I agree with your conclusion.\n\nIn version Android S, it is necessary to limit this type of CollectorTransitionGC. From the GC data of real users, it is found that the total amount of this type of CollectorTransitionGC is very large.\n\nFor processes with small memory consumption, it is not necessary to perform GC every time.\n\nThe optimization point comes from a Launcher jank bug. Five processes under the same uid perform CollectorTransitionGC in the background at the same time, resulting in high system load. The heap size of four sub processes is less than 5MB. systrace file in issue 200116730.",
       "parentUuid": "af1e628c_466e127f",
+      "range": {
+        "startLine": 1075,
+        "startChar": 4,
+        "endLine": 1089,
+        "endChar": 7
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6363a9f9_03b9be75",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-23T21:22:45Z",
+      "side": 1,
+      "message": "Instead of basing this on the total heap consumption of the app, it would be better to base it on allocation since last GC cycle. This way, every app will get a chance to skip the transition-GC, irrespective of how big their heap usage is.\n\nAlso, instead of skipping some transition-GCs, make it simpler like: \"if allocations since last GC are less than 3MB then we will not GC on transition\".",
+      "parentUuid": "1cef3bee_d978bdac",
       "range": {
         "startLine": 1075,
         "startChar": 4,
@@ -368,6 +416,30 @@
       "side": 1,
       "message": "The purpose of  adjust the Multiplier is shown in comment in garbage_collector.cc.\n\nThe logic of selecting these values is based on the default multiplier and system load(Expressed as gc_cpu_time/duration_ns) . The greater the load, the greater the coefficient. These parameter values are conservative.\n\nWhen the application can be perceived by the user, the adjustment coefficient is adopted only when the load is relatively high.\n\nWhen the application cannot be perceived by the user, when the load is a little high, the Multiplier can also be adjusted to delay the arrival of GC for a while to avoid the continuous increase of system load.\n\nThe whole patch provides GC problems often encountered by partners and corresponding optimization ideas.If valuable, please consider developing a GC load optimization scheme in version s.\n\nIn addition, please evaluate whether it is feasible to change explicit GC to concurrent GC in the commit message No.4. Thank you",
       "parentUuid": "0df92345_c5680808",
+      "range": {
+        "startLine": 3614,
+        "startChar": 5,
+        "endLine": 3619,
+        "endChar": 34
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42643317_356e33bb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3619,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-23T21:22:45Z",
+      "side": 1,
+      "message": "\u003e The purpose of  adjust the Multiplier is shown in comment in garbage_collector.cc.\n\u003e \n\u003e The logic of selecting these values is based on the default multiplier and system load(Expressed as gc_cpu_time/duration_ns) . The greater the load, the greater the coefficient. These parameter values are conservative.\n\u003e \n\u003e When the application can be perceived by the user, the adjustment coefficient is adopted only when the load is relatively high.\n\u003e \n\u003e When the application cannot be perceived by the user, when the load is a little high, the Multiplier can also be adjusted to delay the arrival of GC for a while to avoid the continuous increase of system load.\n\u003e \n\u003e The whole patch provides GC problems often encountered by partners and corresponding optimization ideas.If valuable, please consider developing a GC load optimization scheme in version s.\n\nI understand the code that you added. I want to understand what made you choose these values only? For instance, why not 8.0 instead of 6.0?\n\n\u003e \n\u003e In addition, please evaluate whether it is feasible to change explicit GC to concurrent GC in the commit message No.4. Thank you\n\nI\u0027m not sure which one are you referring to. Can you please clarify?",
+      "parentUuid": "569ff120_8c9eecf5",
       "range": {
         "startLine": 3614,
         "startChar": 5,
