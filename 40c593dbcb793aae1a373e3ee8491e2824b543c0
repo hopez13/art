@@ -129,6 +129,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73ef801e_ea92207d",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5468,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-23T16:40:22Z",
+      "side": 1,
+      "message": "The convention was 1.x where x was openjdk version. It changed, likely for 10 to avoid repetition, so now it\u0027s just x.\n\nWe should prefix with OpenJDK to be clearer.",
+      "parentUuid": "605ceebb_333dd562",
+      "range": {
+        "startLine": 5468,
+        "startChar": 0,
+        "endLine": 5468,
+        "endChar": 5
+      },
+      "revId": "40c593dbcb793aae1a373e3ee8491e2824b543c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "befa5f75_536d71f1",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 16
