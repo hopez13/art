@@ -16,6 +16,47 @@
       "message": "Please fix the test failure.",
       "revId": "ddc0f55745cc0c7b9316e2fd3f0bb41908659a58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e52f89_58db439a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-23T20:57:02Z",
+      "side": 1,
+      "message": "Done.  The test was skipped and looked like passing locally.  I\u0027m not sure android_get_device_api_level checks the correct version.  It (ro.build.version.sdk) is 30 on my acloud instance, where ro.product.first_api_level is already 33.\n\nBut anyway, I\u0027ve fixed the test.  I need to re-create odrefresh and mock_odr_dexopt every time to avoid reusing the mock in CompileSetsCompilerFilterForSystemServer.  I also tried to split into 3 test cases, which has its own problem since they all set the same global system property and are scheduled to run in parallel...",
+      "parentUuid": "134c26bb_9cf7e101",
+      "revId": "ddc0f55745cc0c7b9316e2fd3f0bb41908659a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "745d684d_88276a5c",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-09-23T20:57:02Z",
+      "side": 1,
+      "message": "Removed since it\u0027s always true now.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 18
+      },
+      "revId": "ddc0f55745cc0c7b9316e2fd3f0bb41908659a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
