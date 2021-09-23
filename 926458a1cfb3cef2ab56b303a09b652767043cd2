@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "152ecef0_9887e122",
+        "filename": "runtime/native/jdk_internal_misc_Unsafe.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-23T11:15:34Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "926458a1cfb3cef2ab56b303a09b652767043cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c4ee178_205af8ec",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2193,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-23T11:15:34Z",
+      "side": 1,
+      "message": "keep sort order.",
+      "revId": "926458a1cfb3cef2ab56b303a09b652767043cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "486a12de_18cede18",
+        "filename": "test/004-JdkUnsafeTest/src/Main.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-23T11:15:34Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "926458a1cfb3cef2ab56b303a09b652767043cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcc1ae37_f9fecf36",
+        "filename": "test/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-23T11:15:34Z",
+      "side": 1,
+      "message": "Suggest allocating an unused numeric prefix. Easier to run test, can shorthand to just \u003ctest_number\u003e. Similarly the name portion might reflect that it\u0027s jdk.internal.misc that\u0027s being tested rather than jdk.",
+      "range": {
+        "startLine": 851,
+        "startChar": 9,
+        "endLine": 851,
+        "endChar": 12
+      },
+      "revId": "926458a1cfb3cef2ab56b303a09b652767043cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
