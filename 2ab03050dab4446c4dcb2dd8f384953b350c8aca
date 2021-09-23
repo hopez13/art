@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eeea7ee_4ceb9860",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-23T09:17:47Z",
+      "side": 1,
+      "message": "I read aosp/1811718 commit a few weeks ago, which can remove the ConcurrentGC 2 seconds after the start of cold start. It is a very good idea to gradually reduce the concurrent_start_bytes_.\n\nThat commit(aosp/1811718 ) has not been released into our company\u0027s R or S baseline. I will verify it in the next few days.New validation results will be updated in this Gerrit link.",
+      "parentUuid": "8b9bcc76_fa8c7c05",
+      "revId": "2ab03050dab4446c4dcb2dd8f384953b350c8aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5194b55_79931cfb",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-09-22T16:48:20Z",
       "side": 1,
       "message": "Can you say a little more about why you increased this? Did you observe a significant difference with this change?\n\nThere\u0027s a bit of a trade-off against robustness here: The larger the number, the more likely it is that we will fail to notice a sequence of very large malloc allocations that should have triggered a GC. On the other hand, we do test regularly on host with 384, so I don\u0027t think we\u0027re very sensitive to this value on large memory devices. Perhaps we want a separate smaller constant for LowMemoryMode?",
+      "range": {
+        "startLine": 171,
+        "startChar": 52,
+        "endLine": 171,
+        "endChar": 54
+      },
+      "revId": "2ab03050dab4446c4dcb2dd8f384953b350c8aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c96ba57c_1c686730",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-23T09:17:47Z",
+      "side": 1,
+      "message": "Sure.\nI found that NativeAllocGC is very frequent during the hot start of some applications such as camera, photo album, wechat, pinduoduo and tiktok, because such large applications have a lot of native small memory allocation(\u003c300kb) in hot start.On average, there are 2-3 times NativeAllocGC in hot start phase.\n\nI think this parameter value can be increased appropriately, ConcurrentGC usually occurs in a short time after hot start. and the effect of the two GCS is the same.Then NativeAllocGC is not necessary, but increases the CPU load.Maybe cause skip frame.\n\nAfter adding this parameter, the number of nativeallocgc can be reduced by 40-50% (24-hour cycle case test), and the native memory size of each process within 24 hours is monitored without obvious fluctuation.",
+      "parentUuid": "b5194b55_79931cfb",
       "range": {
         "startLine": 171,
         "startChar": 52,
