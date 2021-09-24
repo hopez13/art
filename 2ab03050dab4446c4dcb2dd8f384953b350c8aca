@@ -105,6 +105,30 @@
       },
       "revId": "2ab03050dab4446c4dcb2dd8f384953b350c8aca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ca0e6fb_fc4c7c32",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-24T17:59:59Z",
+      "side": 1,
+      "message": "This isn\u0027t quite working as intended.\nI think the right fix, especially post-aosp/1811718 might be to temporarily increase the value returned by NativeAllocationGcWaterMark() after process startup. But I think aosp/1811718 probably already has the desired effect, since native GC triggering takes the Java target size into consideration, and we increase that.\nHaving said that, I still think this change is relatively benign and low risk.",
+      "parentUuid": "dac9a163_08c6e588",
+      "range": {
+        "startLine": 171,
+        "startChar": 52,
+        "endLine": 171,
+        "endChar": 54
+      },
+      "revId": "2ab03050dab4446c4dcb2dd8f384953b350c8aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

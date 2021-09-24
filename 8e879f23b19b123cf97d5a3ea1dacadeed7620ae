@@ -16,6 +16,29 @@
       "message": "This change has been updated as suggested. Please review it again. Thank you.",
       "revId": "8e879f23b19b123cf97d5a3ea1dacadeed7620ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37312581_5c5eb717",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3883,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-24T17:59:59Z",
+      "side": 1,
+      "message": "I like this version much better, but I wonder whether a fixed constant, independent of heap size, is appropriate here. I would have suggested something like \"if you\u0027re less than 25% of the way toward target_footprint_ skip the GC here.\" With a fixed amount here, we risk inflating the size of otherwise small background processes. My intuition is that we should do this only when it costs us a small percentage of the process\u0027 memory.\n\nWe should also probably avoid returning here if IsLowMemoryMode()?",
+      "range": {
+        "startLine": 3881,
+        "startChar": 4,
+        "endLine": 3883,
+        "endChar": 5
+      },
+      "revId": "8e879f23b19b123cf97d5a3ea1dacadeed7620ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
