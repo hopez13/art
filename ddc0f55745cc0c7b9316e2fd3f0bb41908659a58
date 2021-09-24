@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7b50bbfe_6cf7eced",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-09-24T03:39:46Z",
+      "side": 1,
+      "message": "Good catch. I didn\u0027t realize that `ro.build.version.sdk` is only 30 in the AOSP version. The SDK version check was added for avoiding test failures on really old devices (like something runs Android O). I will send out a CL to loose the SDK version requirement.",
+      "parentUuid": "a0e52f89_58db439a",
+      "revId": "ddc0f55745cc0c7b9316e2fd3f0bb41908659a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "745d684d_88276a5c",
         "filename": "odrefresh/odrefresh_test.cc",
         "patchSetId": 14
