@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7eb790a_df386005",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2588,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-24T12:29:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff721e19_ce013831",
+      "range": {
+        "startLine": 2588,
+        "startChar": 8,
+        "endLine": 2588,
+        "endChar": 47
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06106b6b_1ca163a9",
@@ -497,6 +521,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aecc73c2_ef52dd5f",
+        "filename": "test/831-unverified-bcp/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-24T12:29:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e3a090f_47ad40fa",
+      "range": {
+        "startLine": 2,
+        "startChar": 31,
+        "endLine": 2,
+        "endChar": 37
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3e8b564_392c2d0d",
@@ -510,6 +558,30 @@
       "writtenOn": "2021-09-24T11:17:59Z",
       "side": 1,
       "message": "classpath",
+      "range": {
+        "startLine": 44,
+        "startChar": 32,
+        "endLine": 44,
+        "endChar": 40
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3316ab7c_5e4551c9",
+        "filename": "test/831-unverified-bcp/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-24T12:29:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3e8b564_392c2d0d",
       "range": {
         "startLine": 44,
         "startChar": 32,
