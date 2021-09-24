@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "090e721f_b6c42d77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-24T20:01:24Z",
+      "side": 1,
+      "message": "I\u0027ll cc Nicolas and Elliott, and see if one of then can review. But I don\u0027t think any of the past major contributors are still in the group.",
+      "parentUuid": "09fd0844_6f0db1cc",
+      "revId": "582b95a7ff12b9ac42218baf8449df06fc778818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7dae8cf1_624c9639",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-09-24T00:00:09Z",
       "side": 1,
       "message": "If it\u0027s just 3 bits, can\u0027t we use the least significant 3 bits available in the reference itself to store it? Why have it stored in a separate field?",
+      "range": {
+        "startLine": 153,
+        "startChar": 30,
+        "endLine": 153,
+        "endChar": 49
+      },
+      "revId": "582b95a7ff12b9ac42218baf8449df06fc778818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0af6727d_ed378c85",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-24T20:01:24Z",
+      "side": 1,
+      "message": "Possibly, but that seems messy, given all the abstractions around GcRoot. And it will make it harder to do real pointer compression, which I still expect we will need to do at some point. so that the heap isn\u0027t confined to the low 4GB. I still think that as a next step, it\u0027s better to move to 2 parallel arrays, with either 4 or 8 bits for the sequence number.\n\nIt was actually always either 2 (production) or 3 (debug build) bits.",
+      "parentUuid": "7dae8cf1_624c9639",
       "range": {
         "startLine": 153,
         "startChar": 30,
