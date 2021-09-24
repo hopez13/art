@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65961ad8_315650ed",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2588,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-24T11:13:43Z",
+      "side": 1,
+      "message": "It returns whether the lookup was \"recognized\", ie the class loader chain only has class loaders the runtime understands.\n\nIf we want RETURN in the name, it sounds to me like we\u0027d want to name it:\nRETURN_IF_UNRECOGNIZED_OR_FOUND_OR_EXCEPTION.\n\nWould you prefer that?",
+      "parentUuid": "e5fe43db_418815ac",
+      "range": {
+        "startLine": 2588,
+        "startChar": 8,
+        "endLine": 2588,
+        "endChar": 47
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06106b6b_1ca163a9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-24T10:30:28Z",
       "side": 1,
       "message": "Should this be true? The three IsExceptionPending checks you replace all return false.",
+      "range": {
+        "startLine": 2597,
+        "startChar": 11,
+        "endLine": 2597,
+        "endChar": 15
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1342ba3a_54bf412b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2597,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-24T11:13:43Z",
+      "side": 1,
+      "message": "Right good catch, it should be false. I think the \"false\" is a conservative return, so that we re-execute the lookup but in Java. Still, let\u0027s keep the behavior as it was, and I\u0027m now returning false here.",
+      "parentUuid": "06106b6b_1ca163a9",
       "range": {
         "startLine": 2597,
         "startChar": 11,
@@ -118,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5f0e47c_f992deb3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2599,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-24T11:13:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "706ca9d1_a8532950",
+      "range": {
+        "startLine": 2599,
+        "startChar": 0,
+        "endLine": 2599,
+        "endChar": 1
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "383feb0a_f7f7c032",
@@ -131,6 +203,30 @@
       "writtenOn": "2021-09-24T10:30:28Z",
       "side": 1,
       "message": "Should it return true if FindClassInBaseDexClassLoaderClassPath neither set *result nor created an exception? That seems odd, but otoh it is what the code did before. If it\u0027s correct I think it\u0027d warrant a comment.",
+      "range": {
+        "startLine": 2662,
+        "startChar": 11,
+        "endLine": 2662,
+        "endChar": 15
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf907430_95efc20a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2662,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-24T11:13:43Z",
+      "side": 1,
+      "message": "It should return true, as the class loader chain was recognized. I\u0027ve added a comment.",
+      "parentUuid": "383feb0a_f7f7c032",
       "range": {
         "startLine": 2662,
         "startChar": 11,
@@ -177,6 +273,54 @@
       "writtenOn": "2021-09-24T10:30:28Z",
       "side": 1,
       "message": "Same thing here.",
+      "range": {
+        "startLine": 2689,
+        "startChar": 11,
+        "endLine": 2689,
+        "endChar": 15
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3a655ba_39701e29",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-24T11:13:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bf97e40_7a82778a",
+      "range": {
+        "startLine": 2689,
+        "startChar": 11,
+        "endLine": 2689,
+        "endChar": 15
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5810e558_36f775ec",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-24T11:13:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8b6cd71_62172955",
       "range": {
         "startLine": 2689,
         "startChar": 11,
@@ -247,6 +391,30 @@
       "writtenOn": "2021-09-24T11:12:18Z",
       "side": 1,
       "message": "Oh, right. Thanks!",
+      "parentUuid": "e6d6cdf7_bc25d46b",
+      "range": {
+        "startLine": 1035,
+        "startChar": 10,
+        "endLine": 1035,
+        "endChar": 17
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d80b16a7_9ab4abbe",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-24T11:13:43Z",
+      "side": 1,
+      "message": "That\u0027s right, /*out*/ isn\u0027t the name of the parameter here. What we do is for parameters passed as literals, we like having /* name\u003d */ as they help understand the code.",
       "parentUuid": "e6d6cdf7_bc25d46b",
       "range": {
         "startLine": 1035,
