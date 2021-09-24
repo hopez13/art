@@ -43,7 +43,8 @@ BITNESS_AUTO = 'auto'
 BITNESS_ALL = [BITNESS_32, BITNESS_64, BITNESS_MULTILIB, BITNESS_AUTO]
 
 # Architectures supported by APEX packages.
-ARCHS = ["arm", "arm64", "x86", "x86_64"]
+ARCHS_32 = ["arm", "x86"]
+ARCHS_64 = ["arm64", "x86_64"]
 
 # Directory containing ART tests within an ART APEX (if the package includes
 # any). ART test executables are installed in `bin/art/<arch>`. Segregating
@@ -255,7 +256,7 @@ class Checker:
     # TODO(b/123602136): Pass build target information to this script and fix
     # all places where this function in used (or similar workarounds).
     dirs = []
-    for arch in ARCHS:
+    for arch in self.possible_archs():
       dir = '%s/%s' % (path, arch)
       found, _ = self.is_dir(dir)
       if found:
@@ -305,7 +306,7 @@ class Checker:
     self._expected_file_globs.add(path_glob)
 
   def check_optional_art_test_executable(self, filename):
-    for arch in ARCHS:
+    for arch in self.possible_archs():
       self.ignore_path('%s/%s/%s' % (ART_TEST_DIR, arch, filename))
 
   def check_no_superfluous_files(self, dir_path):
@@ -356,6 +357,9 @@ class Checker:
     """Check lib64/basename.so, or lib/basename.so on 32 bit only."""
     raise NotImplementedError
 
+  def possible_archs(self):
+    """Returns names of possible archs."""
+    raise NotImplementedError
 
 class Arch32Checker(Checker):
   def check_symlinked_multilib_executable(self, filename):
@@ -383,6 +387,8 @@ class Arch32Checker(Checker):
   def check_prefer64_library(self, basename):
     self.check_native_library(basename)
 
+  def possible_archs(self):
+    return ARCHS_32
 
 class Arch64Checker(Checker):
   def check_symlinked_multilib_executable(self, filename):
@@ -409,6 +415,9 @@ class Arch64Checker(Checker):
 
   def check_prefer64_library(self, basename):
     self.check_native_library(basename)
+
+  def possible_archs(self):
+    return ARCHS_64
 
 
 class MultilibChecker(Checker):
@@ -440,6 +449,9 @@ class MultilibChecker(Checker):
 
   def check_prefer64_library(self, basename):
     self.check_file('lib64/%s.so' % basename)
+
+  def possible_archs(self):
+    return ARCHS_32 + ARCHS_64
 
 
 class ReleaseChecker:
@@ -788,7 +800,7 @@ class NoSuperfluousArtTestsChecker:
     return 'No superfluous ART tests checker'
 
   def run(self):
-    for arch in ARCHS:
+    for arch in self._checker.possible_archs():
       self._checker.check_no_superfluous_files('%s/%s' % (ART_TEST_DIR, arch))
 
 
