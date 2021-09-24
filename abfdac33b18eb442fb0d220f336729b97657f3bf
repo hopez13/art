@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5fe43db_418815ac",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2588,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-24T10:30:28Z",
+      "side": 1,
+      "message": "Since this macro hides return statements I think it\u0027s worth pointing out that it can return. Maybe RETURN_CLASS_OR_ON_ERROR?",
+      "range": {
+        "startLine": 2588,
+        "startChar": 8,
+        "endLine": 2588,
+        "endChar": 47
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06106b6b_1ca163a9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2597,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-24T10:30:28Z",
+      "side": 1,
+      "message": "Should this be true? The three IsExceptionPending checks you replace all return false.",
+      "range": {
+        "startLine": 2597,
+        "startChar": 11,
+        "endLine": 2597,
+        "endChar": 15
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "706ca9d1_a8532950",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -19,6 +65,99 @@
         "startChar": 0,
         "endLine": 2599,
         "endChar": 1
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ceb1e3_5411128d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2599,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-24T10:30:28Z",
+      "side": 1,
+      "message": "1. +1\n2. Afaics they\u0027re only used once so it seems superfluous, but I was about to suggest parentheses around them to avoid operator precedence surprises.",
+      "parentUuid": "706ca9d1_a8532950",
+      "range": {
+        "startLine": 2599,
+        "startChar": 0,
+        "endLine": 2599,
+        "endChar": 1
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "383feb0a_f7f7c032",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2662,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-24T10:30:28Z",
+      "side": 1,
+      "message": "Should it return true if FindClassInBaseDexClassLoaderClassPath neither set *result nor created an exception? That seems odd, but otoh it is what the code did before. If it\u0027s correct I think it\u0027d warrant a comment.",
+      "range": {
+        "startLine": 2662,
+        "startChar": 11,
+        "endLine": 2662,
+        "endChar": 15
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8b6cd71_62172955",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-24T10:30:28Z",
+      "side": 1,
+      "message": "Same thing here.",
+      "range": {
+        "startLine": 2689,
+        "startChar": 11,
+        "endLine": 2689,
+        "endChar": 15
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bf97e40_7a82778a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-24T10:30:28Z",
+      "side": 1,
+      "message": "Same thing here.",
+      "range": {
+        "startLine": 2689,
+        "startChar": 11,
+        "endLine": 2689,
+        "endChar": 15
       },
       "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
