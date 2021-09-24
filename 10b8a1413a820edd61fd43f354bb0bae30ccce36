@@ -39,6 +39,46 @@
       },
       "revId": "10b8a1413a820edd61fd43f354bb0bae30ccce36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a572207c_779ff354",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2604,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-24T11:34:18Z",
+      "side": 1,
+      "message": "The point with the \"do ... while(0)\" pattern is to leave out the final semicolon to force it to be added where the macro is used.",
+      "range": {
+        "startLine": 2604,
+        "startChar": 11,
+        "endLine": 2604,
+        "endChar": 12
+      },
+      "revId": "10b8a1413a820edd61fd43f354bb0bae30ccce36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "674f729f_65d9f4da",
+        "filename": "test/831-unverified-bcp/smali-ex/NonVerifiedClass.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-24T11:34:18Z",
+      "side": 1,
+      "message": "NB: I don\u0027t know Smali or the classloader internals well enough to vouch for that this test is sound.",
+      "revId": "10b8a1413a820edd61fd43f354bb0bae30ccce36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

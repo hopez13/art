@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff721e19_ce013831",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2588,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-24T11:34:18Z",
+      "side": 1,
+      "message": "Yes, that looks fine too.",
+      "parentUuid": "65961ad8_315650ed",
+      "range": {
+        "startLine": 2588,
+        "startChar": 8,
+        "endLine": 2588,
+        "endChar": 47
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06106b6b_1ca163a9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -321,6 +345,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "c8b6cd71_62172955",
+      "range": {
+        "startLine": 2689,
+        "startChar": 11,
+        "endLine": 2689,
+        "endChar": 15
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5c93a9_45e3766c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-09-24T11:34:18Z",
+      "side": 1,
+      "message": "Sorry for the duplicate comment. I blame it on a Gerrit bug: http://b/201052135",
+      "parentUuid": "5810e558_36f775ec",
       "range": {
         "startLine": 2689,
         "startChar": 11,
