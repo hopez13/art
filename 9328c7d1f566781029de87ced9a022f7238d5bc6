@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24745fba_75497acf",
+        "filename": "test/2041-bad-cleaner/info.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-24T21:53:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e51b8c07_f00045bd",
+      "range": {
+        "startLine": 3,
+        "startChar": 66,
+        "endLine": 3,
+        "endChar": 70
+      },
+      "revId": "9328c7d1f566781029de87ced9a022f7238d5bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7065969b_e62f6cd7",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d9a8c4ba_a06dbe3b",
+        "filename": "test/2041-bad-cleaner/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-24T21:53:31Z",
+      "side": 1,
+      "message": "I think it\u0027s just making sure we\u0027re not timing it out immediately. The messages below are expected in the output.\n\nYes, it\u0027s not really \"spinning\" in the usual sense. I\u0027ll fix that in both tests.",
+      "parentUuid": "7065969b_e62f6cd7",
+      "range": {
+        "startLine": 78,
+        "startChar": 16,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "9328c7d1f566781029de87ced9a022f7238d5bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "260b4981_125a081a",
         "filename": "test/2041-bad-cleaner/src/Main.java",
         "patchSetId": 2
@@ -60,6 +108,30 @@
       "writtenOn": "2021-09-23T23:44:39Z",
       "side": 1,
       "message": "Not very familiar with Cleaners so asking: does this register the cleaner somewhere? Because otherwise it looks like badCleaner will go out of scope once we return from this function.",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 50
+      },
+      "revId": "9328c7d1f566781029de87ced9a022f7238d5bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2aeb6d2_62f042c5",
+        "filename": "test/2041-bad-cleaner/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-24T21:53:31Z",
+      "side": 1,
+      "message": "Yes. The Cleaner implementation adds a PhantomReference-derived object to a list.\n\nThese are Java 8 Cleaners, which are run directly from the ReferenceQueueDaemon. Java 9 Cleaners create their own threads.",
+      "parentUuid": "260b4981_125a081a",
       "range": {
         "startLine": 87,
         "startChar": 8,
