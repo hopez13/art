@@ -96,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2bb0c6b3_85b2d0f5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2599,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-24T10:34:00Z",
+      "side": 1,
+      "message": "2. I\u0027m guarding against my future self who can copy-paste a few lines without thinking of the macro context and the way it gets invoked.",
+      "parentUuid": "57ceb1e3_5411128d",
+      "range": {
+        "startLine": 2599,
+        "startChar": 0,
+        "endLine": 2599,
+        "endChar": 1
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "383feb0a_f7f7c032",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
