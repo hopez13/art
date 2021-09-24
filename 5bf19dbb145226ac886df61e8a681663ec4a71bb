@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8a9ae91_8a1804ee",
+        "filename": "test/2236-JdkUnsafeGetLong-regression/info.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-24T13:56:00Z",
+      "side": 1,
+      "message": "I could not find this test; is it already in AOSP? Or is it `555-UnsafeGetLong-regression` perhaps?",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 66
+      },
+      "revId": "5bf19dbb145226ac886df61e8a681663ec4a71bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0c3de09_6144e27e",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-24T13:56:00Z",
+      "side": 1,
+      "message": "Is this test failing when run with `atest`? If so, could you add a short description of the failure in a comment? Thanks!",
+      "range": {
+        "startLine": 222,
+        "startChar": 3,
+        "endLine": 222,
+        "endChar": 35
+      },
+      "revId": "5bf19dbb145226ac886df61e8a681663ec4a71bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
