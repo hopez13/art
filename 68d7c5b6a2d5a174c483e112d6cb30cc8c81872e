@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61729268_f564145c",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-24T08:51:16Z",
+      "side": 1,
+      "message": "OK, I understand your concerns and the risks brought by this change. I have removed the contents related to the redio in this modification.\n\nOn the modification of TransitionGC, I have revised it again according to your and Hans\u0027s suggestions. Please review again, thank you.",
+      "parentUuid": "e09f47d0_224c41b0",
+      "range": {
+        "startLine": 187,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 62
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15745297_edf0c6c6",
@@ -238,6 +262,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3cd74f8_6744b863",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-24T08:51:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6363a9f9_03b9be75",
+      "range": {
+        "startLine": 1075,
+        "startChar": 4,
+        "endLine": 1089,
+        "endChar": 7
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21b02204_c67c354c",
@@ -275,6 +323,30 @@
       "side": 1,
       "message": "Heapgrowthmultiplier() interface is called in many cases, resulting in inaccurate return value of getrunningratio() interface. Therefore, this HeapGrowthMultiplierExt() interface is added for only growforutilization() call.\n\nNew comments have been updated.",
       "parentUuid": "21b02204_c67c354c",
+      "range": {
+        "startLine": 3607,
+        "startChar": 30,
+        "endLine": 3607,
+        "endChar": 52
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c1db643_840ad217",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3607,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-24T08:51:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cb1c9a1_62fe2456",
       "range": {
         "startLine": 3607,
         "startChar": 30,
@@ -332,6 +404,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7f87b10_f04e0983",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3608,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-24T08:51:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "289c9cea_63c7f49c",
+      "range": {
+        "startLine": 3608,
+        "startChar": 14,
+        "endLine": 3608,
+        "endChar": 36
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07e9e890_24e6a24b",
@@ -369,6 +465,30 @@
       "side": 1,
       "message": "I agree with you, but I\u0027m not sure how to make a distinction is more appropriate.",
       "parentUuid": "07e9e890_24e6a24b",
+      "range": {
+        "startLine": 3609,
+        "startChar": 2,
+        "endLine": 3609,
+        "endChar": 89
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbeaf477_7969f808",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3609,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-24T08:51:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9a6642d_3462457d",
       "range": {
         "startLine": 3609,
         "startChar": 2,
@@ -440,6 +560,30 @@
       "side": 1,
       "message": "\u003e The purpose of  adjust the Multiplier is shown in comment in garbage_collector.cc.\n\u003e \n\u003e The logic of selecting these values is based on the default multiplier and system load(Expressed as gc_cpu_time/duration_ns) . The greater the load, the greater the coefficient. These parameter values are conservative.\n\u003e \n\u003e When the application can be perceived by the user, the adjustment coefficient is adopted only when the load is relatively high.\n\u003e \n\u003e When the application cannot be perceived by the user, when the load is a little high, the Multiplier can also be adjusted to delay the arrival of GC for a while to avoid the continuous increase of system load.\n\u003e \n\u003e The whole patch provides GC problems often encountered by partners and corresponding optimization ideas.If valuable, please consider developing a GC load optimization scheme in version s.\n\nI understand the code that you added. I want to understand what made you choose these values only? For instance, why not 8.0 instead of 6.0?\n\n\u003e \n\u003e In addition, please evaluate whether it is feasible to change explicit GC to concurrent GC in the commit message No.4. Thank you\n\nI\u0027m not sure which one are you referring to. Can you please clarify?",
       "parentUuid": "569ff120_8c9eecf5",
+      "range": {
+        "startLine": 3614,
+        "startChar": 5,
+        "endLine": 3619,
+        "endChar": 34
+      },
+      "revId": "68d7c5b6a2d5a174c483e112d6cb30cc8c81872e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b4d8413_8fc0f09b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3619,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-24T08:51:16Z",
+      "side": 1,
+      "message": "1.why not 8.0 instead of 6.0?\n  I was not sure whether this idea(radio thing) was appropriate, so I selected these values for performance and power consumption tests. These values do not represent the most appropriate.\n\nYou and Hans have confirmed that my idea is not feasible. In version s, please consider how to use other methods to reduce the occurrence of GC under high load.\n\n2.I\u0027m not sure which one are you referring to. Can you please clarify?\n  Explicit GC,Maybe google can consider changing Explicit GC to \nconcurrent GC,run in the heaptaskdaemon and won\u0027t block work thread anymore.\nFurther, consider limiting the number of system.gc() calls \nand the necessity of Explicit GC.\nthis CL is not incluede it.",
+      "parentUuid": "42643317_356e33bb",
       "range": {
         "startLine": 3614,
         "startChar": 5,
