@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5299e5ca_d1d19c3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-09-24T16:57:30Z",
+      "side": 1,
+      "message": "This patch causes the the chroot \u0027art/test/testrunner/testrunner.py --target\u0027 test setup (described in ./art/test/README.chroot.md) to fail; all the tests report:\n\n\u003e +Error in /data/ws/mimimal_aosp/out/target/common/obj/JAVA_LIBRARIES/core-icu4j_intermediates/classes.jar:\n\u003e +java.nio.file.NoSuchFileException: /data/ws/mimimal_aosp/out/target/common/obj/JAVA_LIBRARIES/core-icu4j_intermediates/classes.jar",
+      "revId": "3027c60ed7794c899044c2d855ab3af57a8ca8a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
