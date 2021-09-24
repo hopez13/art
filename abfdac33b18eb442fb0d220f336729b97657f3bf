@@ -208,6 +208,30 @@
       },
       "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6d6cdf7_bc25d46b",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-24T11:04:38Z",
+      "side": 1,
+      "message": "/*out*/ is not an argument name; it\u0027s an (uncheck, AFAIK) \"annotation\" telling that the argument is written to (and not read), and that is used to carry an additional \"return value\".\n\nWe do however add `\u003d` after the names of commented-out (actual) arguments, in function calls (see e.g. https://cs.android.com/android/_/android/platform/art/+/2f01e8ed55663b73787e079955d890e1ffd2983e:runtime/runtime_callbacks_test.cc;l\u003d523-526;drc\u003d27dc87782f68bebae95c4ab87fe21bb638008a96), as this is checked by Clang:\n\nhttps://clang.llvm.org/extra/clang-tidy/checks/bugprone-argument-comment.html",
+      "parentUuid": "9ae9767f_9a59aa68",
+      "range": {
+        "startLine": 1035,
+        "startChar": 10,
+        "endLine": 1035,
+        "endChar": 17
+      },
+      "revId": "abfdac33b18eb442fb0d220f336729b97657f3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
