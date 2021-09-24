@@ -64,6 +64,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc00ba7f_def5d101",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2604,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-24T11:59:13Z",
+      "side": 1,
+      "message": "Good catch, I missed that.\n\nGenerally `do {...} while(0)` is needed not only for consistent semicolon, but to avoid unexpected control flow when using the macro in if/else constructs without braces:\n\nCase 1:\n\n  #define MACRO() \\\n    if (y) \\\n      do_something();\n\n  if (x)\n    MACRO();\n  else\n    do_something_else();\n\nThis will become:\n\n  if (x)\n    if (y)\n      do_something();\n  else\n    do_something_else();\n\nCase 2:\n\n  #define MACRO() \\\n    do_x(); \\\n    do_y();\n\n  if (x)\n    MACRO();\n\nThis will become:\n\n  if (x)\n    do_x();\n    do_y();\n\nThe compiler would probably catch that and we use braces anyway, but `do {...} while(0)` costs nothing and it allows one to use semicolon consistently regardless of the if/else context, so I always use it with multiline macros to avoid thinking about all possible contexts.",
+      "parentUuid": "a572207c_779ff354",
+      "range": {
+        "startLine": 2604,
+        "startChar": 11,
+        "endLine": 2604,
+        "endChar": 12
+      },
+      "revId": "10b8a1413a820edd61fd43f354bb0bae30ccce36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "674f729f_65d9f4da",
