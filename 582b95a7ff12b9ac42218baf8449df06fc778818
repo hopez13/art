@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09fd0844_6f0db1cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-24T00:00:09Z",
+      "side": 1,
+      "message": "Overall looks fine to me. But maybe someone more familiar with IRT should also take a look. Since vmarko@ is OoO, Nicolas?",
+      "revId": "582b95a7ff12b9ac42218baf8449df06fc778818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dae8cf1_624c9639",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-24T00:00:09Z",
+      "side": 1,
+      "message": "If it\u0027s just 3 bits, can\u0027t we use the least significant 3 bits available in the reference itself to store it? Why have it stored in a separate field?",
+      "range": {
+        "startLine": 153,
+        "startChar": 30,
+        "endLine": 153,
+        "endChar": 49
+      },
+      "revId": "582b95a7ff12b9ac42218baf8449df06fc778818",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
