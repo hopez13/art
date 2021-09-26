@@ -129,6 +129,30 @@
       },
       "revId": "2ab03050dab4446c4dcb2dd8f384953b350c8aca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1029eea_3ae8b3f8",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-26T07:13:41Z",
+      "side": 1,
+      "message": "This (aosp/1811718) optimizes the cold startup scenario, which is different from the nativeGC issue I encountered.\n\nI mean the scenario where the application has alive in the background and started after clicking app icon from the launcher desktop.",
+      "parentUuid": "5ca0e6fb_fc4c7c32",
+      "range": {
+        "startLine": 171,
+        "startChar": 52,
+        "endLine": 171,
+        "endChar": 54
+      },
+      "revId": "2ab03050dab4446c4dcb2dd8f384953b350c8aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

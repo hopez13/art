@@ -39,6 +39,30 @@
       },
       "revId": "8e879f23b19b123cf97d5a3ea1dacadeed7620ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66140ed1_5e2bc524",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3883,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-26T07:13:41Z",
+      "side": 1,
+      "message": "\"if you\u0027re less than 25% of the way toward target_footprint_ skip the GC here.\n--I think this is more appropriate. One in 64 is 1.5%. such as 256/64 \u003d 4MB.\nnum_bytes_allocated_since_gc \u003c (growth_limit_ / 64)\n\nWe should also probably avoid returning here if IsLowMemoryMode()?\n--sure",
+      "parentUuid": "37312581_5c5eb717",
+      "range": {
+        "startLine": 3881,
+        "startChar": 4,
+        "endLine": 3883,
+        "endChar": 5
+      },
+      "revId": "8e879f23b19b123cf97d5a3ea1dacadeed7620ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
