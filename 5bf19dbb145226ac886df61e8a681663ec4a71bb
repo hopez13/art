@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72e97a5c_a6820e83",
+        "filename": "test/2236-JdkUnsafeGetLong-regression/info.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2021-09-27T16:15:38Z",
+      "side": 1,
+      "message": "Yes, I forgot to remove the `Jdk` part",
+      "parentUuid": "a8a9ae91_8a1804ee",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 66
+      },
+      "revId": "5bf19dbb145226ac886df61e8a681663ec4a71bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0c3de09_6144e27e",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-24T13:56:00Z",
       "side": 1,
       "message": "Is this test failing when run with `atest`? If so, could you add a short description of the failure in a comment? Thanks!",
+      "range": {
+        "startLine": 222,
+        "startChar": 3,
+        "endLine": 222,
+        "endChar": 35
+      },
+      "revId": "5bf19dbb145226ac886df61e8a681663ec4a71bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d38ef1a_111fea95",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2021-09-27T16:15:38Z",
+      "side": 1,
+      "message": "Actually, it now works with atest because I removed the library loading, so I removed the test from the failure list. Only 2235-JdkUnsafeTest is failing and the reason for that is the java.lang.ArrayIndexOutOfBoundsException documented for the tests above",
+      "parentUuid": "b0c3de09_6144e27e",
       "range": {
         "startLine": 222,
         "startChar": 3,
