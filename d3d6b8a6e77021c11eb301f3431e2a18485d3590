@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f8e722_cedcf20a",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4700,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-27T14:49:53Z",
+      "side": 1,
+      "message": "This should  breaks out of the loop early if it finds something, right? Optionally it can be an `std::find_if` with a lambda.",
+      "range": {
+        "startLine": 4695,
+        "startChar": 10,
+        "endLine": 4700,
+        "endChar": 11
+      },
+      "revId": "d3d6b8a6e77021c11eb301f3431e2a18485d3590",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28d0c3e4_ffb41ba4",
+        "filename": "test/831-unresolved-field/run",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-27T14:49:53Z",
+      "side": 1,
+      "message": "2021?",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "d3d6b8a6e77021c11eb301f3431e2a18485d3590",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
