@@ -36,15 +36,13 @@ namespace art {
 namespace mirror {
 
 void DexCache::Initialize(const DexFile* dex_file, ObjPtr<ClassLoader> class_loader) {
-  DCHECK(GetDexFile() == nullptr);
-  DCHECK(GetStrings() == nullptr);
-  DCHECK(GetResolvedTypes() == nullptr);
-  DCHECK(GetResolvedMethods() == nullptr);
-  DCHECK(GetResolvedFields() == nullptr);
-  DCHECK(GetResolvedMethodTypes() == nullptr);
-  DCHECK(GetResolvedCallSites() == nullptr);
-
-  ScopedAssertNoThreadSuspension sants(__FUNCTION__);
+  DCHECK_EQ(dex_file_, 0u);
+  DCHECK_EQ(resolved_call_sites_, 0u);
+  DCHECK_EQ(resolved_fields_, 0u);
+  DCHECK_EQ(resolved_method_types_, 0u);
+  DCHECK_EQ(resolved_methods_, 0u);
+  DCHECK_EQ(resolved_types_, 0u);
+  DCHECK_EQ(strings_, 0u);
 
   SetDexFile(dex_file);
   SetClassLoader(class_loader);
@@ -52,66 +50,55 @@ void DexCache::Initialize(const DexFile* dex_file, ObjPtr<ClassLoader> class_loa
 
 void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor) {
   bool wrote = false;
-  FieldDexCacheType* fields = GetResolvedFields();
-  size_t num_fields = NumResolvedFields();
-  // Check both the data pointer and count since the array might be initialized
-  // concurrently on other thread, and we might observe just one of the values.
-  for (size_t i = 0; fields != nullptr && i < num_fields; i++) {
-    auto pair(GetNativePair(fields, i));
-    if (pair.index == FieldDexCachePair::InvalidIndexForSlot(i)) {
-      continue;
+  ResolvedFields().ForEachEntry([&](uint32_t key, std::atomic<ArtField*>* value)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    ArtField* old_val = value->load(std::memory_order_relaxed);
+    if (old_val == nullptr) {
+      return;
     }
     ArtField* new_val = visitor->VisitField(
-        pair.object, DexCacheSourceInfo(kSourceDexCacheResolvedField, pair.index, this));
-    if (UNLIKELY(new_val != pair.object)) {
-      if (new_val == nullptr) {
-        pair = FieldDexCachePair(nullptr, FieldDexCachePair::InvalidIndexForSlot(i));
-      } else {
-        pair.object = new_val;
-      }
-      SetNativePair(fields, i, pair);
+        old_val, DexCacheSourceInfo(kSourceDexCacheResolvedField, key, this));
+    if (UNLIKELY(new_val != old_val)) {
+      value->store(new_val, std::memory_order_release);
       wrote = true;
     }
-  }
-  MethodDexCacheType* methods = GetResolvedMethods();
-  size_t num_methods = NumResolvedMethods();
-  // Check both the data pointer and count since the array might be initialized
-  // concurrently on other thread, and we might observe just one of the values.
-  for (size_t i = 0; methods != nullptr && i < num_methods; i++) {
-    auto pair(GetNativePair(methods, i));
-    if (pair.index == MethodDexCachePair::InvalidIndexForSlot(i)) {
-      continue;
+  });
+  ResolvedMethods().ForEachEntry([&](uint32_t key, std::atomic<ArtMethod*>* value)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    ArtMethod* old_val = value->load(std::memory_order_relaxed);
+    if (old_val == nullptr) {
+      return;
     }
     ArtMethod* new_val = visitor->VisitMethod(
-        pair.object, DexCacheSourceInfo(kSourceDexCacheResolvedMethod, pair.index, this));
-    if (UNLIKELY(new_val != pair.object)) {
-      if (new_val == nullptr) {
-        pair = MethodDexCachePair(nullptr, MethodDexCachePair::InvalidIndexForSlot(i));
-      } else {
-        pair.object = new_val;
-      }
-      SetNativePair(methods, i, pair);
+        old_val, DexCacheSourceInfo(kSourceDexCacheResolvedMethod, key, this));
+    if (UNLIKELY(new_val != old_val)) {
+      value->store(new_val, std::memory_order_release);
       wrote = true;
     }
-  }
+  });
   if (wrote) {
     WriteBarrier::ForEveryFieldWrite(this);
   }
 }
 
+void DexCache::Clear() {
+  DCHECK(GetDexFile() != nullptr);
+  ResolvedCallSites().Clear();
+  ResolvedFields().Clear();
+  ResolvedMethods().Clear();
+  ResolvedMethodTypes().Clear();
+  ResolvedTypes().Clear();
+  ResolvedStrings().Clear();
+}
+
 void DexCache::ResetNativeArrays() {
-  SetStrings(nullptr);
-  SetResolvedTypes(nullptr);
-  SetResolvedMethods(nullptr);
-  SetResolvedFields(nullptr);
-  SetResolvedMethodTypes(nullptr);
-  SetResolvedCallSites(nullptr);
-  SetField32<false>(NumStringsOffset(), 0);
-  SetField32<false>(NumResolvedTypesOffset(), 0);
-  SetField32<false>(NumResolvedMethodsOffset(), 0);
-  SetField32<false>(NumResolvedFieldsOffset(), 0);
-  SetField32<false>(NumResolvedMethodTypesOffset(), 0);
-  SetField32<false>(NumResolvedCallSitesOffset(), 0);
+  preresolved_strings_ = 0;
+  resolved_call_sites_ = 0;
+  resolved_fields_ = 0;
+  resolved_method_types_ = 0;
+  resolved_methods_ = 0;
+  resolved_types_ = 0;
+  strings_ = 0;
 }
 
 void DexCache::SetLocation(ObjPtr<mirror::String> location) {
@@ -125,24 +112,6 @@ void DexCache::SetClassLoader(ObjPtr<ClassLoader> class_loader) {
 ObjPtr<ClassLoader> DexCache::GetClassLoader() {
   return GetFieldObject<ClassLoader>(OFFSET_OF_OBJECT_MEMBER(DexCache, class_loader_));
 }
-
-#if !defined(__aarch64__) && !defined(__x86_64__)
-static pthread_mutex_t dex_cache_slow_atomic_mutex = PTHREAD_MUTEX_INITIALIZER;
-
-DexCache::ConversionPair64 DexCache::AtomicLoadRelaxed16B(std::atomic<ConversionPair64>* target) {
-  pthread_mutex_lock(&dex_cache_slow_atomic_mutex);
-  DexCache::ConversionPair64 value = *reinterpret_cast<ConversionPair64*>(target);
-  pthread_mutex_unlock(&dex_cache_slow_atomic_mutex);
-  return value;
-}
-
-void DexCache::AtomicStoreRelease16B(std::atomic<ConversionPair64>* target,
-                                     ConversionPair64 value) {
-  pthread_mutex_lock(&dex_cache_slow_atomic_mutex);
-  *reinterpret_cast<ConversionPair64*>(target) = value;
-  pthread_mutex_unlock(&dex_cache_slow_atomic_mutex);
-}
-#endif
 
 }  // namespace mirror
 }  // namespace art
