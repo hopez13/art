@@ -1147,7 +1147,7 @@ void ImageWriter::PruneNonImageClasses() {
   // Completely clear DexCaches.
   std::vector<ObjPtr<mirror::DexCache>> dex_caches = FindDexCaches(self);
   for (ObjPtr<mirror::DexCache> dex_cache : dex_caches) {
-    dex_cache->ResetNativeArrays();
+    dex_cache->Clear();
   }
 
   // Drop the array class cache in the ClassLinker, as these are roots holding those classes live.
