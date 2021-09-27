@@ -7614,10 +7614,10 @@ class ClassLinker::LinkInterfaceMethodsHelper {
     if (kIsDebugBuild) {
       PointerSize pointer_size = class_linker_->GetImagePointerSize();
       // Check that there are no stale methods are in the dex cache array.
-      auto* resolved_methods = klass_->GetDexCache()->GetResolvedMethods();
-      for (size_t i = 0, count = klass_->GetDexCache()->NumResolvedMethods(); i < count; ++i) {
-        auto pair = mirror::DexCache::GetNativePair(resolved_methods, i);
-        ArtMethod* m = pair.object;
+      ObjPtr<mirror::DexCache> dex_cache = klass_->GetDexCache();
+      size_t num_methods = klass_->GetDexCache()->GetDexFile()->NumMethodIds();
+      for (size_t i = 0; i < num_methods; ++i) {
+        ArtMethod* m = dex_cache->GetResolvedMethod(i);
         CHECK(move_table_.find(m) == move_table_.end() ||
               // The original versions of copied methods will still be present so allow those too.
               // Note that if the first check passes this might fail to GetDeclaringClass().
