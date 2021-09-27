@@ -36,74 +36,43 @@ namespace art {
 namespace mirror {
 
 void DexCache::Initialize(const DexFile* dex_file, ObjPtr<ClassLoader> class_loader) {
-  DCHECK(GetDexFile() == nullptr);
-  DCHECK(GetStrings() == nullptr);
-  DCHECK(GetResolvedTypes() == nullptr);
-  DCHECK(GetResolvedMethods() == nullptr);
-  DCHECK(GetResolvedFields() == nullptr);
-  DCHECK(GetResolvedMethodTypes() == nullptr);
-  DCHECK(GetResolvedCallSites() == nullptr);
-
-  ScopedAssertNoThreadSuspension sants(__FUNCTION__);
+  DCHECK_EQ(dex_file_, 0u);
+  DCHECK_EQ(resolved_call_sites_, 0u);
+  DCHECK_EQ(resolved_fields_, 0u);
+  DCHECK_EQ(resolved_method_types_, 0u);
+  DCHECK_EQ(resolved_methods_, 0u);
+  DCHECK_EQ(resolved_types_, 0u);
+  DCHECK_EQ(strings_, 0u);
 
   SetDexFile(dex_file);
   SetClassLoader(class_loader);
 }
 
-void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor) {
-  bool wrote = false;
-  for (size_t i = 0; i < NumResolvedFields(); i++) {
-    auto pair(GetNativePair(GetResolvedFields(), i));
-    if (pair.index == FieldDexCachePair::InvalidIndexForSlot(i)) {
-      continue;
-    }
-    ArtField* new_val = visitor->VisitField(
-        pair.object, DexCacheSourceInfo(kSourceDexCacheResolvedField, pair.index, this));
-    if (UNLIKELY(new_val != pair.object)) {
-      if (new_val == nullptr) {
-        pair = FieldDexCachePair(nullptr, FieldDexCachePair::InvalidIndexForSlot(i));
-      } else {
-        pair.object = new_val;
-      }
-      SetNativePair(GetResolvedFields(), i, pair);
-      wrote = true;
-    }
-  }
-  for (size_t i = 0; i < NumResolvedMethods(); i++) {
-    auto pair(GetNativePair(GetResolvedMethods(), i));
-    if (pair.index == MethodDexCachePair::InvalidIndexForSlot(i)) {
-      continue;
-    }
-    ArtMethod* new_val = visitor->VisitMethod(
-        pair.object, DexCacheSourceInfo(kSourceDexCacheResolvedMethod, pair.index, this));
-    if (UNLIKELY(new_val != pair.object)) {
-      if (new_val == nullptr) {
-        pair = MethodDexCachePair(nullptr, MethodDexCachePair::InvalidIndexForSlot(i));
-      } else {
-        pair.object = new_val;
-      }
-      SetNativePair(GetResolvedMethods(), i, pair);
-      wrote = true;
-    }
-  }
-  if (wrote) {
-    WriteBarrier::ForEveryFieldWrite(this);
-  }
+void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor ATTRIBUTE_UNUSED) {
+  // Used by JVMTI, it is easiest to just clear the arrays.
+  ResolvedFields().Clear();
+  ResolvedMethods().Clear();
 }
 
-void DexCache::ResetNativeArrays() {
-  SetStrings(nullptr);
-  SetResolvedTypes(nullptr);
-  SetResolvedMethods(nullptr);
-  SetResolvedFields(nullptr);
-  SetResolvedMethodTypes(nullptr);
-  SetResolvedCallSites(nullptr);
-  SetField32<false>(NumStringsOffset(), 0);
-  SetField32<false>(NumResolvedTypesOffset(), 0);
-  SetField32<false>(NumResolvedMethodsOffset(), 0);
-  SetField32<false>(NumResolvedFieldsOffset(), 0);
-  SetField32<false>(NumResolvedMethodTypesOffset(), 0);
-  SetField32<false>(NumResolvedCallSitesOffset(), 0);
+void DexCache::Clear() {
+  DCHECK(GetDexFile() != nullptr);
+  ResolvedCallSites().Clear();
+  ResolvedFields().Clear();
+  ResolvedMethods().Clear();
+  ResolvedMethodTypes().Clear();
+  ResolvedTypes().Clear();
+  ResolvedStrings().Clear();
+}
+
+void DexCache::ResetNativeFields() {
+  dex_file_ = 0;
+  preresolved_strings_ = 0;
+  resolved_call_sites_ = 0;
+  resolved_fields_ = 0;
+  resolved_method_types_ = 0;
+  resolved_methods_ = 0;
+  resolved_types_ = 0;
+  strings_ = 0;
 }
 
 void DexCache::SetLocation(ObjPtr<mirror::String> location) {
@@ -117,24 +86,6 @@ void DexCache::SetClassLoader(ObjPtr<ClassLoader> class_loader) {
 ObjPtr<ClassLoader> DexCache::GetClassLoader() {
   return GetFieldObject<ClassLoader>(OFFSET_OF_OBJECT_MEMBER(DexCache, class_loader_));
 }
-
-#if !defined(__aarch64__) && !defined(__x86_64__)
-static pthread_mutex_t dex_cache_slow_atomic_mutex = PTHREAD_MUTEX_INITIALIZER;
-
-DexCache::ConversionPair64 DexCache::AtomicLoadRelaxed16B(std::atomic<ConversionPair64>* target) {
-  pthread_mutex_lock(&dex_cache_slow_atomic_mutex);
-  DexCache::ConversionPair64 value = *reinterpret_cast<ConversionPair64*>(target);
-  pthread_mutex_unlock(&dex_cache_slow_atomic_mutex);
-  return value;
-}
-
-void DexCache::AtomicStoreRelease16B(std::atomic<ConversionPair64>* target,
-                                     ConversionPair64 value) {
-  pthread_mutex_lock(&dex_cache_slow_atomic_mutex);
-  *reinterpret_cast<ConversionPair64*>(target) = value;
-  pthread_mutex_unlock(&dex_cache_slow_atomic_mutex);
-}
-#endif
 
 }  // namespace mirror
 }  // namespace art
