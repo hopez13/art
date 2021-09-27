@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4dc0dc0_122728fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-27T17:21:54Z",
+      "side": 1,
+      "message": "I don\u0027t think we should make it part of S at such a late time. This change can potentially increase memory usage, thereby more low-memory kills.\n\nNicolas, Hans, what\u0027s your view?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 0
+      },
+      "revId": "ba73035786f9555ebbc77187740b5b3e07c35a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "419186c0_54cd48cd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2745,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-27T17:21:54Z",
+      "side": 1,
+      "message": "Since the GC is concurrent, there could be allocations taking place while GC\u0027ing, and they should be considered here. So, instead of GetBytesAllocated() use bytes_allocated_before_gc. Even that\u0027s not accurate, but closer than GetBytesAllocated().",
+      "range": {
+        "startLine": 2745,
+        "startChar": 2,
+        "endLine": 2745,
+        "endChar": 50
+      },
+      "revId": "ba73035786f9555ebbc77187740b5b3e07c35a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70aaf538_67f6edd3",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-27T17:21:54Z",
+      "side": 1,
+      "message": "Misleading comment. Can you please say something like:\n\n\"Records the number of bytes allocated at the time of GC, which is used later to calculate how many bytes have been allocated since the last GC\"",
+      "range": {
+        "startLine": 1478,
+        "startChar": 5,
+        "endLine": 1479,
+        "endChar": 54
+      },
+      "revId": "ba73035786f9555ebbc77187740b5b3e07c35a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
