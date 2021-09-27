@@ -393,16 +393,21 @@ LOCAL_LICENSE_CONDITIONS := notice restricted
 LOCAL_NOTICE_FILE := $(LOCAL_PATH)/NOTICE
 
 # Reference the libraries and binaries in the appropriate APEX module, because
-# they don't have platform variants. However if
-# SOONG_CONFIG_art_module_source_build isn't true then the APEX modules are
-# disabled, so Soong won't apply the APEX mutators to them, and then they are
-# available with their plain names.
+# they don't have platform variants.
+art_target_include_debug_build :=
+$(warning xx $(filter com.android.art.debug,$(PRODUCT_PACKAGES)))
 ifeq (true,$(SOONG_CONFIG_art_module_source_build))
-  art_module_lib = $(1).com.android.art
-  art_module_debug_lib = $(1).com.android.art.debug
+  ifeq (,$(filter com.android.art.debug,$(PRODUCT_PACKAGES)))
+    art_module_lib = $(1).com.android.art
+  else
+    art_module_lib = $(1).com.android.art.debug
+    art_target_include_debug_build := true
+  endif
 else
+  # However if SOONG_CONFIG_art_module_source_build isn't true then the APEX
+  # modules are disabled, so Soong won't apply the APEX mutators to them, and
+  # then they are available with their plain names.
   art_module_lib = $(1)
-  art_module_debug_lib = $(1)
 endif
 
 # Base requirements.
@@ -419,34 +424,24 @@ LOCAL_REQUIRED_MODULES := \
     $(call art_module_lib,libadbconnection) \
     $(call art_module_lib,libperfetto_hprof) \
 
-# Potentially add in debug variants:
-#
-# * We will never add them if PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD = false.
-# * We will always add them if PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD = true.
-# * Otherwise, we will add them by default to eng builds.
-art_target_include_debug_build := $(PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD)
-ifneq (false,$(art_target_include_debug_build))
-ifneq (,$(filter eng,$(TARGET_BUILD_VARIANT)))
-  art_target_include_debug_build := true
-endif
+# Add in debug variants if the debug APEX is used.
 ifeq (true,$(art_target_include_debug_build))
 LOCAL_REQUIRED_MODULES += \
-    $(call art_module_debug_lib,dex2oatd) \
-    $(call art_module_debug_lib,dexoptanalyzerd) \
-    $(call art_module_debug_lib,libartd) \
-    $(call art_module_debug_lib,libartd-compiler) \
-    $(call art_module_debug_lib,libopenjdkd) \
-    $(call art_module_debug_lib,libopenjdkjvmd) \
-    $(call art_module_debug_lib,libopenjdkjvmtid) \
-    $(call art_module_debug_lib,profmand) \
-    $(call art_module_debug_lib,libadbconnectiond) \
-    $(call art_module_debug_lib,libperfetto_hprofd) \
+    $(call art_module_lib,dex2oatd) \
+    $(call art_module_lib,dexoptanalyzerd) \
+    $(call art_module_lib,libartd) \
+    $(call art_module_lib,libartd-compiler) \
+    $(call art_module_lib,libopenjdkd) \
+    $(call art_module_lib,libopenjdkjvmd) \
+    $(call art_module_lib,libopenjdkjvmtid) \
+    $(call art_module_lib,profmand) \
+    $(call art_module_lib,libadbconnectiond) \
+    $(call art_module_lib,libperfetto_hprofd) \
 
-endif
 endif
 
 art_module_lib :=
-art_module_debug_lib :=
+art_target_include_debug_build :=
 
 include $(BUILD_PHONY_PACKAGE)
 
