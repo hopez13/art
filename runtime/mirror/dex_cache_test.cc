@@ -54,11 +54,11 @@ TEST_F(DexCacheTest, Open) {
   ASSERT_TRUE(dex_cache != nullptr);
 
   // The cache is initially empty.
-  EXPECT_EQ(0u, dex_cache->NumStrings());
-  EXPECT_EQ(0u, dex_cache->NumResolvedTypes());
-  EXPECT_EQ(0u, dex_cache->NumResolvedMethods());
-  EXPECT_EQ(0u, dex_cache->NumResolvedFields());
-  EXPECT_EQ(0u, dex_cache->NumResolvedMethodTypes());
+  EXPECT_EQ(0u, dex_cache->ResolvedStrings().Capacity());
+  EXPECT_EQ(0u, dex_cache->ResolvedTypes().Capacity());
+  EXPECT_EQ(0u, dex_cache->ResolvedMethods().Capacity());
+  EXPECT_EQ(0u, dex_cache->ResolvedFields().Capacity());
+  EXPECT_EQ(0u, dex_cache->ResolvedMethodTypes().Capacity());
 }
 
 TEST_F(DexCacheMethodHandlesTest, Open) {
@@ -69,7 +69,7 @@ TEST_F(DexCacheMethodHandlesTest, Open) {
       hs.NewHandle(class_linker_->AllocAndInitializeDexCache(
           soa.Self(), *java_lang_dex_file_, /*class_loader=*/nullptr)));
 
-  EXPECT_EQ(0u, dex_cache->NumResolvedMethodTypes());
+  EXPECT_EQ(0u, dex_cache->ResolvedMethodTypes().Capacity());
 }
 
 TEST_F(DexCacheTest, TestResolvedFieldAccess) {
@@ -146,19 +146,8 @@ TEST_F(DexCacheMethodHandlesTest, TestResolvedMethodTypes) {
   // The MethodTypes dex file contains a single interface with two abstract
   // methods. It must therefore contain precisely two method IDs.
   ASSERT_EQ(2u, dex_file.NumProtoIds());
-  ASSERT_EQ(dex_file.NumProtoIds(), dex_cache->NumResolvedMethodTypes());
-  MethodTypeDexCacheType* method_types_cache = dex_cache->GetResolvedMethodTypes();
-
-  for (size_t i = 0; i < dex_file.NumProtoIds(); ++i) {
-    const MethodTypeDexCachePair pair = method_types_cache[i].load(std::memory_order_relaxed);
-    if (dex::ProtoIndex(pair.index) == method1_id.proto_idx_) {
-      ASSERT_EQ(method1_type.Get(), pair.object.Read());
-    } else if (dex::ProtoIndex(pair.index) == method2_id.proto_idx_) {
-      ASSERT_EQ(method2_type.Get(), pair.object.Read());
-    } else {
-      ASSERT_TRUE(false);
-    }
-  }
+  ASSERT_EQ(dex_cache->GetResolvedMethodType(method1_id.proto_idx_), method1_type.Get());
+  ASSERT_EQ(dex_cache->GetResolvedMethodType(method2_id.proto_idx_), method2_type.Get());
 }
 
 }  // namespace mirror
