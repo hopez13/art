@@ -392,17 +392,34 @@ LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0 SPDX-license-identifie
 LOCAL_LICENSE_CONDITIONS := notice restricted
 LOCAL_NOTICE_FILE := $(LOCAL_PATH)/NOTICE
 
-# Reference the libraries and binaries in the appropriate APEX module, because
-# they don't have platform variants. However if
-# SOONG_CONFIG_art_module_source_build isn't true then the APEX modules are
-# disabled, so Soong won't apply the APEX mutators to them, and then they are
-# available with their plain names.
-ifeq (true,$(SOONG_CONFIG_art_module_source_build))
-  art_module_lib = $(1).com.android.art
-  art_module_debug_lib = $(1).com.android.art.debug
+# Find out the ART APEX that is chosen for installation.
+mainline_art_apex := $(filter com.google.android.art%,$(PRODUCT_PACKAGES))
+ifeq (,$(mainline_art_apex))
+  installed_art_apex := $(filter com.android.art%,$(PRODUCT_PACKAGES))
 else
+  # Assume that the Mainline module overrides the AOSP one.
+  installed_art_apex := $(mainline_art_apex)
+endif
+mainline_art_apex :=
+ifneq (,$(word 2,$(installed_art_apex)))
+  $(error Found more than one ART module in PRODUCT_PACKAGES: $(installed_art_apex))
+endif
+
+# Reference the libraries and binaries in the installed APEX module, because
+# they don't have platform variants.
+ifeq (true,$(SOONG_CONFIG_art_module_source_build))
+  ifneq (,$(installed_art_apex))
+    art_module_lib = $(1).$(installed_art_apex)
+  else
+    # If we didn't find the ART module to be installed then we cannot depend on
+    # modules in it.
+    art_module_lib =
+  endif
+else
+  # However if SOONG_CONFIG_art_module_source_build isn't true then the APEX
+  # modules are disabled, so Soong won't apply the APEX mutators to them, and
+  # then they are available with their plain names.
   art_module_lib = $(1)
-  art_module_debug_lib = $(1)
 endif
 
 # Base requirements.
@@ -419,34 +436,24 @@ LOCAL_REQUIRED_MODULES := \
     $(call art_module_lib,libadbconnection) \
     $(call art_module_lib,libperfetto_hprof) \
 
-# Potentially add in debug variants:
-#
-# * We will never add them if PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD = false.
-# * We will always add them if PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD = true.
-# * Otherwise, we will add them by default to eng builds.
-art_target_include_debug_build := $(PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD)
-ifneq (false,$(art_target_include_debug_build))
-ifneq (,$(filter eng,$(TARGET_BUILD_VARIANT)))
-  art_target_include_debug_build := true
-endif
-ifeq (true,$(art_target_include_debug_build))
+# Add in debug variants if the debug APEX is used.
+ifneq (,$(filter %.debug,$(installed_art_apex)))
 LOCAL_REQUIRED_MODULES += \
-    $(call art_module_debug_lib,dex2oatd) \
-    $(call art_module_debug_lib,dexoptanalyzerd) \
-    $(call art_module_debug_lib,libartd) \
-    $(call art_module_debug_lib,libartd-compiler) \
-    $(call art_module_debug_lib,libopenjdkd) \
-    $(call art_module_debug_lib,libopenjdkjvmd) \
-    $(call art_module_debug_lib,libopenjdkjvmtid) \
-    $(call art_module_debug_lib,profmand) \
-    $(call art_module_debug_lib,libadbconnectiond) \
-    $(call art_module_debug_lib,libperfetto_hprofd) \
+    $(call art_module_lib,dex2oatd) \
+    $(call art_module_lib,dexoptanalyzerd) \
+    $(call art_module_lib,libartd) \
+    $(call art_module_lib,libartd-compiler) \
+    $(call art_module_lib,libopenjdkd) \
+    $(call art_module_lib,libopenjdkjvmd) \
+    $(call art_module_lib,libopenjdkjvmtid) \
+    $(call art_module_lib,profmand) \
+    $(call art_module_lib,libadbconnectiond) \
+    $(call art_module_lib,libperfetto_hprofd) \
 
-endif
 endif
 
 art_module_lib :=
-art_module_debug_lib :=
+art_target_include_debug_build :=
 
 include $(BUILD_PHONY_PACKAGE)
 
