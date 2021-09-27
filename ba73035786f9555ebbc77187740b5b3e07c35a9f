@@ -49,6 +49,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9da640c7_4927e726",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3881,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-27T23:06:16Z",
+      "side": 1,
+      "message": "I would suggest something more like UnignedDifference(target_footprint_.load(std::memory_order_relaxed) -  num_bytes_alive_after_gc_)/4, i.e. we\u0027re less than quarter of the way to the next GC. so that it scales with process size, and respects the other GC parameters. Is there a reason to believe that\u0027s worse?",
+      "range": {
+        "startLine": 3881,
+        "startChar": 40,
+        "endLine": 3881,
+        "endChar": 58
+      },
+      "revId": "ba73035786f9555ebbc77187740b5b3e07c35a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70aaf538_67f6edd3",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 4
