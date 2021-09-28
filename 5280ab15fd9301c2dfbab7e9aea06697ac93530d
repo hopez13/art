@@ -52,6 +52,24 @@
       "parentUuid": "3d78040c_3f56a686",
       "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bbdc97f_02767e7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-28T15:32:41Z",
+      "side": 1,
+      "message": "I see. But then I don\u0027t understand what choice we have other than to merge this patch. Make it conditional depending on the platform version and turn on only for S and higher?",
+      "parentUuid": "aa0ca11f_a3640ed7",
+      "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
