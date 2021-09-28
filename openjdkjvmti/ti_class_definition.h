@@ -49,9 +49,6 @@ namespace openjdkjvmti {
 // redefinition/retransformation function that created it.
 class ArtClassDefinition {
  public:
-  // If we support doing a on-demand dex-dequickening using signal handlers.
-  static constexpr bool kEnableOnDemandDexDequicken = true;
-
   ArtClassDefinition()
       : klass_(nullptr),
         loader_(nullptr),
@@ -133,13 +130,6 @@ class ArtClassDefinition {
   const std::string& GetName() const {
     DCHECK(IsInitialized());
     return name_;
-  }
-
-  bool IsLazyDefinition() const {
-    DCHECK(IsInitialized());
-    return dex_data_mmap_.IsValid() &&
-        dex_data_.data() == dex_data_mmap_.Begin() &&
-        dex_data_mmap_.GetProtect() == PROT_NONE;
   }
 
   jobject GetProtectionDomain() const {
