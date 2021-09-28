@@ -70,6 +70,24 @@
       "parentUuid": "aa0ca11f_a3640ed7",
       "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40c0b486_c7fa4004",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-28T17:41:45Z",
+      "side": 1,
+      "message": "We can say we never want these hard failures to happen and module teams need to workaround it (they already will need to workaround it for R).\n\nConditional on the platform doesn\u0027t apply here as we cannot update ART on R.",
+      "parentUuid": "2bbdc97f_02767e7d",
+      "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
