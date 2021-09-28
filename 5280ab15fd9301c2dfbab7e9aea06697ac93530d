@@ -16,6 +16,24 @@
       "message": "We cannot fix R at this point, which will abort if a boot classpath class fails to verify. That could make a case for keeping the current behavior in order to find any issue quicker.\n\nOn the other hand, mainline should test the same level between master and R devices, so I\u0027m tempted to let this \"fix\" in. WDYT?",
       "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d78040c_3f56a686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-09-28T15:02:36Z",
+      "side": 1,
+      "message": "Looking at the bug b/155852343 that was the reason to add hard failure, it\u0027s complex and not related to Mainline, so I\u0027m in favor of keeping the current behavior if it helps finding such things.\n\nCan you explain in more detail why with Mainline BCP classes can hard fail verification, and before Mainline they couldn\u0027t? How likely is that? That info may also be useful in the commit message.",
+      "parentUuid": "1fce1230_1dfac2f1",
+      "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
