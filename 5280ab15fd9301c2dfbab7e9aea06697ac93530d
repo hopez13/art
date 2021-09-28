@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fce1230_1dfac2f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-28T14:31:27Z",
+      "side": 1,
+      "message": "We cannot fix R at this point, which will abort if a boot classpath class fails to verify. That could make a case for keeping the current behavior in order to find any issue quicker.\n\nOn the other hand, mainline should test the same level between master and R devices, so I\u0027m tempted to let this \"fix\" in. WDYT?",
+      "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
