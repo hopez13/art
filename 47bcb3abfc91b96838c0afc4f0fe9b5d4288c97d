@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14cac089_45a60ab6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-28T17:52:50Z",
+      "side": 1,
+      "message": "Stelios, the issue is that the CHA pass (and maybe others) are always expecting a suspend check in a loop, see CHAGuardVisitor::HoistGuard.\n\nMaybe an alternative could be to keep the node but not generate any code?",
+      "revId": "47bcb3abfc91b96838c0afc4f0fe9b5d4288c97d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
