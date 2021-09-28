@@ -34,6 +34,24 @@
       "parentUuid": "1fce1230_1dfac2f1",
       "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa0ca11f_a3640ed7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-28T15:12:15Z",
+      "side": 1,
+      "message": "Ah, I had to refresh my mind on b/155852343, totally forgot about that one. I think that just ends up being an accident. Down the line, the issue would have been found, and it has through other means in the bug (failing checking that there is no exception pending).\n\nMainline BCP classes can have code that works / verifies on a certain dessert X, but that doesn\u0027t on Y (see b/195608856 for an example). That\u0027s OK as long as on Y the code does not execute.\n\nThe problem with the code in jit.cc is that it will try to verify *all* classes, even the ones which are not supposed to run. So we should accept such failures.",
+      "parentUuid": "3d78040c_3f56a686",
+      "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
