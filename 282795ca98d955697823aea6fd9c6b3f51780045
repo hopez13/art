@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ea6026d_81e4adf1",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-29T13:42:48Z",
+      "side": 0,
+      "message": "This method seems suspicious as well.\nI am not sure if it a no-op now, or just needs a rename.",
+      "revId": "282795ca98d955697823aea6fd9c6b3f51780045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be910606_f914f38b",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-29T13:42:48Z",
+      "side": 0,
+      "message": "Ditto",
+      "revId": "282795ca98d955697823aea6fd9c6b3f51780045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83a058c9_d2b9b086",
+        "filename": "openjdkjvmti/ti_class_definition.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-29T13:42:48Z",
+      "side": 0,
+      "message": "Are those still needed?",
+      "revId": "282795ca98d955697823aea6fd9c6b3f51780045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
