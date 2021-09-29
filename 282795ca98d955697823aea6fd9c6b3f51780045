@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5fc523c_26e4eb99",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-29T14:57:00Z",
+      "side": 0,
+      "message": "Agree :) But I\u0027m not familiar enough with that code to see if it should be DecompactDex instead. So I only focused on getting rid of the fault handler.",
+      "parentUuid": "7ea6026d_81e4adf1",
+      "revId": "282795ca98d955697823aea6fd9c6b3f51780045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be910606_f914f38b",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb7cf91_c337e788",
+        "filename": "openjdkjvmti/ti_class_definition.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-29T14:57:00Z",
+      "side": 0,
+      "message": "ditto",
+      "parentUuid": "be910606_f914f38b",
+      "revId": "282795ca98d955697823aea6fd9c6b3f51780045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83a058c9_d2b9b086",
@@ -48,6 +84,24 @@
       "writtenOn": "2021-09-29T13:42:48Z",
       "side": 0,
       "message": "Are those still needed?",
+      "revId": "282795ca98d955697823aea6fd9c6b3f51780045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "052f7c1f_44178a0c",
+        "filename": "openjdkjvmti/ti_class_definition.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-09-29T14:57:00Z",
+      "side": 0,
+      "message": "Yes, for de-compact-dex\u0027d. I\u0027ve adjusted the comment.",
+      "parentUuid": "83a058c9_d2b9b086",
       "revId": "282795ca98d955697823aea6fd9c6b3f51780045",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
