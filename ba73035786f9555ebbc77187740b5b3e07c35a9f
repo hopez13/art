@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36773257_60af51b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-29T18:12:08Z",
+      "side": 1,
+      "message": "Agree with Hans.",
+      "parentUuid": "906fa2b6_81ef0331",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 0
+      },
+      "revId": "ba73035786f9555ebbc77187740b5b3e07c35a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "419186c0_54cd48cd",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Is it better to use bytes_allocated_before_gc - current_gc_iteration_.GetFreedBytes()?",
       "parentUuid": "419186c0_54cd48cd",
+      "range": {
+        "startLine": 2745,
+        "startChar": 2,
+        "endLine": 2745,
+        "endChar": 50
+      },
+      "revId": "ba73035786f9555ebbc77187740b5b3e07c35a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66c3fd12_856e991e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2745,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2021-09-29T18:12:08Z",
+      "side": 1,
+      "message": "Yeah, it should server the purpose.",
+      "parentUuid": "8f9dce0b_85f7fd6c",
       "range": {
         "startLine": 2745,
         "startChar": 2,
