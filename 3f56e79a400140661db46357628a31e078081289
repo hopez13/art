@@ -191,6 +191,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ff012ac_9d47e962",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-09-29T12:23:19Z",
+      "side": 1,
+      "message": "For now, I have resolved this by just keeping track of the registration order, and sorting using that.\n\nThis means that the images should be bit-for-bit identical as before.",
+      "parentUuid": "a0eaadd5_7614ddd2",
+      "range": {
+        "startLine": 1273,
+        "startChar": 0,
+        "endLine": 1274,
+        "endChar": 78
+      },
+      "revId": "3f56e79a400140661db46357628a31e078081289",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6b198a3_22e23d40",
