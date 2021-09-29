@@ -16,6 +16,23 @@
       "message": "I looked at the number of [anon:dalvik-indirect ref table] mappings with this CL, and there are a lot fewer, as expected.",
       "revId": "001618d52ff942e99571d48eaf91cccb0cbe0344",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88240061_6fb7f1ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-09-29T21:55:19Z",
+      "side": 1,
+      "message": "We seem to have a problem with the settings app blowing up in size with this. Investigating.",
+      "revId": "001618d52ff942e99571d48eaf91cccb0cbe0344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
