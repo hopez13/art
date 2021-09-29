@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e63a06e_f890c025",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-29T07:09:55Z",
+      "side": 1,
+      "message": "Maybe consider merging this CL into the master branch? If not, I will abandon it",
+      "parentUuid": "25fb593e_7f52f2bf",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 0
+      },
+      "revId": "ba73035786f9555ebbc77187740b5b3e07c35a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "419186c0_54cd48cd",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -61,6 +85,30 @@
       "writtenOn": "2021-09-27T17:21:54Z",
       "side": 1,
       "message": "Since the GC is concurrent, there could be allocations taking place while GC\u0027ing, and they should be considered here. So, instead of GetBytesAllocated() use bytes_allocated_before_gc. Even that\u0027s not accurate, but closer than GetBytesAllocated().",
+      "range": {
+        "startLine": 2745,
+        "startChar": 2,
+        "endLine": 2745,
+        "endChar": 50
+      },
+      "revId": "ba73035786f9555ebbc77187740b5b3e07c35a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f9dce0b_85f7fd6c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2745,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-29T07:09:55Z",
+      "side": 1,
+      "message": "Is it better to use bytes_allocated_before_gc - current_gc_iteration_.GetFreedBytes()?",
+      "parentUuid": "419186c0_54cd48cd",
       "range": {
         "startLine": 2745,
         "startChar": 2,
@@ -94,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e80ac67_4e6398cd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3881,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-29T07:09:55Z",
+      "side": 1,
+      "message": "Yes, this way is more appropriate.",
+      "parentUuid": "9da640c7_4927e726",
+      "range": {
+        "startLine": 3881,
+        "startChar": 40,
+        "endLine": 3881,
+        "endChar": 58
+      },
+      "revId": "ba73035786f9555ebbc77187740b5b3e07c35a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70aaf538_67f6edd3",
@@ -107,6 +179,30 @@
       "writtenOn": "2021-09-27T17:21:54Z",
       "side": 1,
       "message": "Misleading comment. Can you please say something like:\n\n\"Records the number of bytes allocated at the time of GC, which is used later to calculate how many bytes have been allocated since the last GC\"",
+      "range": {
+        "startLine": 1478,
+        "startChar": 5,
+        "endLine": 1479,
+        "endChar": 54
+      },
+      "revId": "ba73035786f9555ebbc77187740b5b3e07c35a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "867097a0_30ddc590",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1896531
+      },
+      "writtenOn": "2021-09-29T07:09:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70aaf538_67f6edd3",
       "range": {
         "startLine": 1478,
         "startChar": 5,
