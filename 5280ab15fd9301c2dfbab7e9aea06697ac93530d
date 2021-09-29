@@ -88,6 +88,47 @@
       "parentUuid": "2bbdc97f_02767e7d",
       "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76e0af68_6ee0ad60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-29T12:30:54Z",
+      "side": 1,
+      "message": "Since we don\u0027t know ahead of time about which classes that are supposed to run, it seems reasonable enough to accept the failures here.",
+      "parentUuid": "40c0b486_c7fa4004",
+      "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a2d870_b18aa39f",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-09-29T12:30:54Z",
+      "side": 1,
+      "message": "Only increment if there\u0027s no hard failure to keep L926 accurate.",
+      "range": {
+        "startLine": 916,
+        "startChar": 10,
+        "endLine": 916,
+        "endChar": 27
+      },
+      "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
