@@ -2589,6 +2589,8 @@ void ProfileCompilationInfo::DexFileData::WriteMethods(SafeBuffer& buffer) const
   // Write the bitmap data.
   size_t saved_bitmap_byte_size = BitsToBytesRoundUp(saved_bitmap_bit_size);
   DCHECK_LE(saved_bitmap_byte_size, buffer.GetAvailableBytes());
+
+  memset(buffer.GetCurrentPtr(), 0, saved_bitmap_byte_size);
   BitMemoryRegion saved_bitmap(buffer.GetCurrentPtr(), /*bit_start=*/ 0, saved_bitmap_bit_size);
   size_t saved_bitmap_index = 0u;
   ForMethodBitmapHotnessFlags([&](MethodHotness::Flag flag) {
