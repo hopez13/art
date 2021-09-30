@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0ec1f9d_3bdd4721",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-30T15:09:41Z",
+      "side": 1,
+      "message": "What was the setup/environment used to evaluate the build time before / after the CL? In particular, how many CPU cores / logical cores were used? Hosts on LUCI has much fewer (logical) cores than a developer\u0027s workstation, so I would expect a lower gain here.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 47
+      },
+      "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "735f82ae_f43175cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-30T15:09:41Z",
+      "side": 1,
+      "message": "The approach chosen in this CL is very different from the current strategy used to run tests with TradeFed/Atest. If you plan to work on this, I think we should chat first to make sure we agree on the changes before starting any sizable work.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 64
+      },
+      "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "151dcd57_560ebcaa",
@@ -14,6 +60,92 @@
       "writtenOn": "2021-09-21T09:55:55Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb7e8dbc_5e5c993a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-30T15:09:41Z",
+      "side": 1,
+      "message": "Adding Martin for his Python expertise.",
+      "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfcc1e77_8b571eec",
+        "filename": "test/Android.run-test.bp.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-30T15:09:41Z",
+      "side": 1,
+      "message": "Something that might be worth considering (maybe for as a follow-up change): grouping by most significant digits instead of least significant digits; the former means shards have more chances to contain related tests, given the way we have numbered them so far, and would provide incentives to improve the naming scheme.",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 84
+      },
+      "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2156b48e_a9ecdb27",
+        "filename": "test/Android.run-test.bp.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-30T15:09:41Z",
+      "side": 1,
+      "message": "This is not entirely exact, right? Iterating on a single test will actually recompile the whole shard (not just the test itself). I think this should be noted.",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 83
+      },
+      "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83102c1d_c51ee9d9",
+        "filename": "test/run-test-build.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-30T15:09:41Z",
+      "side": 1,
+      "message": "Style (see go/pystyle): Spaces around binary operator (here and below).",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 4
+      },
       "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

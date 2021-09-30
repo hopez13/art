@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca80f58c_b92f550a",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-30T15:09:41Z",
+      "side": 1,
+      "message": "I used `core-all-system-modules` (https://cs.android.com/android/_/android/platform/libcore/+/6999c8b899aaabcd4858f958b162c6b298c3b3dd:JavaLibrary.bp;l\u003d225-247;drc\u003d8e8562514c00044bb7434e0afd2e3506c6f29f83) in the definition of `art-run-test-defaults` (https://cs.android.com/android/_/android/platform/art/+/8be663808b0bdab63ebdea2f0175f6a49b331a2c:test/Android.bp;l\u003d460;drc\u003d75e50892c0702edcfcc0ddfc8fe4e01386b3ce65). IIRC think this is what (CTS) Libcore tests use.",
+      "parentUuid": "2b453ed5_d4461536",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 6
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fcaa7c17_5f15b32b",
         "filename": "test/Android.run-test.bp",
         "patchSetId": 6
@@ -183,6 +207,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22755ed7_c568baee",
+        "filename": "test/Android.run-test.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-30T15:09:41Z",
+      "side": 1,
+      "message": "\u003e Mind that in the current approach, the compilation will happen on every test run, and many times duplicity in the run (once for each variant).\n\nRight; I forgot that the `run-test` script only handled one test configuration at a time.\n\n\u003e This compiles things just once during build, so it is a massive win.\n\u003e \n\u003e However, you are right that if you just iterate on single file, it *might* be slower (because the current approach still does many redundant recompilation).\n\nI agree that the build speed-up is nice – however, its mostly applies to the use case where you want to run all tests, which is often a \"batch operation\" either run by the developer on their environment, but with no expectation of getting a result \"early\", or during continuous integration.\n\nMy concern is the case where a developer iterates in a single test case (which happens often when debugging a feature and/or a tests) – I find it annoying to regress here. It\u0027d be great if we could measure that cost (starting a Soong build can take some time).\n\n\u003e It would be trivial to make the script parallel internally as well within the shard, so that iteration would be much faster as well then the current approach.\n\u003e \n\u003e I am not sure it is worth the effort, but it is easy to do.\n\nLike many things we do in ART Build \u0026 Testing, I think it is even better not to do some work which is not actually needed (e.g. avoiding building 64-bit artifacts on a build/test target exercising only the 32-bit case and vice versa).\n\n\u003e I changed so that is does the \"in-shard compilation\" in parallel as well.\n\u003e So both \"all tests\" and \"interating on single test\" scenarios should be significant improvement now.\n\nThanks, this sounds like a good idea.",
+      "parentUuid": "612aec29_f8f5a000",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff4247fd_873c4c05",
@@ -220,6 +268,30 @@
       "side": 1,
       "message": "See test/Android.bp for the dependencies (in \"art-run-test-data-defaults\")",
       "parentUuid": "ff4247fd_873c4c05",
+      "range": {
+        "startLine": 18,
+        "startChar": 21,
+        "endLine": 18,
+        "endChar": 38
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a6a2e6_1740f525",
+        "filename": "test/Android.run-test.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-30T15:09:41Z",
+      "side": 1,
+      "message": "Ah, sorry, I missed that.\n\nOne more thing about dependencies: it seems the change does not handle build dependencies on `libarttest(d).so`. I don\u0027t think the original build logic in the `run-test` handled it, so it\u0027s not a regression, but I think it\u0027s worth considering (maybe as a follow-up change).",
+      "parentUuid": "8400a107_956d76e9",
       "range": {
         "startLine": 18,
         "startChar": 21,
@@ -408,6 +480,30 @@
       "side": 1,
       "message": "One big zip files would work, but it would need paralizim in the script itself, and it would imply slow iteration on single test.\n\nPer test would generate too many soong rules, which makes Colin uncomfortable.\n\nThe sharding (suggested by Colin) is happy compromise.",
       "parentUuid": "571cb177_1833bae8",
+      "range": {
+        "startLine": 77,
+        "startChar": 39,
+        "endLine": 77,
+        "endChar": 83
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc709b4c_ee3cfd53",
+        "filename": "test/run-test-build.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-09-30T15:09:41Z",
+      "side": 1,
+      "message": "Note that we have already been using using the one-rule-per-test strategy in `test/*/Android.bp files`, and it seems to be scaling so far. If there\u0027s any concern in that area, I\u0027d like to see numbers to understand the actual impact of having precise dependencies.",
+      "parentUuid": "84ef0280_9f563af4",
       "range": {
         "startLine": 77,
         "startChar": 39,
