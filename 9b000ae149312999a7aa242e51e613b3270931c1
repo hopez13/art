@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6732f0cd_b9b4bb81",
+        "filename": "test/099-vmdebug/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1893966
+      },
+      "writtenOn": "2021-09-30T13:06:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fceb93a_014b1ae8",
+      "range": {
+        "startLine": 270,
+        "startChar": 8,
+        "endLine": 271,
+        "endChar": 46
+      },
+      "revId": "9b000ae149312999a7aa242e51e613b3270931c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98a6fafd_261b8877",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-09-30T12:46:35Z",
       "side": 1,
       "message": "Maybe it\u0027s better to check that this is non-zero",
+      "revId": "9b000ae149312999a7aa242e51e613b3270931c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fe010a5_a284691a",
+        "filename": "test/099-vmdebug/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1893966
+      },
+      "writtenOn": "2021-09-30T13:06:06Z",
+      "side": 1,
+      "message": "That is what that function does. Changed the name to reflect it.",
+      "parentUuid": "98a6fafd_261b8877",
       "revId": "9b000ae149312999a7aa242e51e613b3270931c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4747abfa_b8a148ba",
+        "filename": "test/099-vmdebug/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1893966
+      },
+      "writtenOn": "2021-09-30T13:06:06Z",
+      "side": 1,
+      "message": "We want it to be non-empty.",
+      "parentUuid": "caabb4f8_31785632",
+      "revId": "9b000ae149312999a7aa242e51e613b3270931c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71fe6e00_fb7fd979",
@@ -71,6 +131,24 @@
       "writtenOn": "2021-09-30T12:46:35Z",
       "side": 1,
       "message": "Is there something you can check with these ones?",
+      "revId": "9b000ae149312999a7aa242e51e613b3270931c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d083275_97f6ae5e",
+        "filename": "test/099-vmdebug/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1893966
+      },
+      "writtenOn": "2021-09-30T13:06:06Z",
+      "side": 1,
+      "message": "As mentioned offline, I\u0027m looking into a better alternative, but as far as I can tell (and in tests such as DebugTest), the most we can seem to do is to just call them to ensure we\u0027re not causing any crash in that way.",
+      "parentUuid": "71fe6e00_fb7fd979",
       "revId": "9b000ae149312999a7aa242e51e613b3270931c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
