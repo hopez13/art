@@ -172,7 +172,7 @@ class StackMap : public BitTableAccessor<8> {
  * The row referenced from the StackMap holds information at depth 0.
  * Following rows hold information for further depths.
  */
-class InlineInfo : public BitTableAccessor<6> {
+class InlineInfo : public BitTableAccessor<8> {
  public:
   BIT_TABLE_HEADER(InlineInfo)
   BIT_TABLE_COLUMN(0, IsLast)  // Determines if there are further rows for further depths.
@@ -181,6 +181,8 @@ class InlineInfo : public BitTableAccessor<6> {
   BIT_TABLE_COLUMN(3, ArtMethodHi)  // High bits of ArtMethod*.
   BIT_TABLE_COLUMN(4, ArtMethodLo)  // Low bits of ArtMethod*.
   BIT_TABLE_COLUMN(5, NumberOfDexRegisters)  // Includes outer levels and the main method.
+  BIT_TABLE_COLUMN(6, IsInBootClassPath)
+  BIT_TABLE_COLUMN(7, BootClassPathIndex)
 
   static constexpr uint32_t kLast = -1;
   static constexpr uint32_t kMore = 0;
@@ -262,10 +264,12 @@ class RegisterMask : public BitTableAccessor<2> {
 
 // Method indices are not very dedup friendly.
 // Separating them greatly improves dedup efficiency of the other tables.
-class MethodInfo : public BitTableAccessor<1> {
+class MethodInfo : public BitTableAccessor<3> {
  public:
   BIT_TABLE_HEADER(MethodInfo)
   BIT_TABLE_COLUMN(0, MethodIndex)
+  BIT_TABLE_COLUMN(1, IsInBootClassPath)
+  BIT_TABLE_COLUMN(2, BootClassPathIndex)
 };
 
 /**
