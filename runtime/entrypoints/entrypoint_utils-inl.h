@@ -80,10 +80,19 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
   for (InlineInfo inline_info : inline_infos) {
     DCHECK(!inline_info.EncodesArtMethod());
     DCHECK_NE(inline_info.GetDexPc(), static_cast<uint32_t>(-1));
-    uint32_t method_index = code_info.GetMethodIndexOf(inline_info);
-    ArtMethod* inlined_method = class_linker->LookupResolvedMethod(method_index,
-                                                                   method->GetDexCache(),
-                                                                   method->GetClassLoader());
+    MethodInfo method_info = code_info.GetMethodInfoOf(inline_info);
+    uint32_t method_index = method_info.GetMethodIndex();
+    ArtMethod* inlined_method;
+    if (method_info.HasDexFileIndex()) {
+      const DexFile* dex_file = class_linker->GetBootClassPath()[method_info.GetDexFileIndex()];
+      ObjPtr<mirror::DexCache> dex_cache = class_linker->FindDexCache(Thread::Current(), *dex_file);
+      inlined_method =
+          class_linker->LookupResolvedMethod(method_index, dex_cache, dex_cache->GetClassLoader());
+    } else {
+      inlined_method = class_linker->LookupResolvedMethod(
+          method_index, method->GetDexCache(), method->GetClassLoader());
+    }
+
     if (UNLIKELY(inlined_method == nullptr)) {
       LOG(FATAL) << "Could not find an inlined method from an .oat file: "
                  << method->GetDexFile()->PrettyMethod(method_index) << " . "
@@ -91,7 +100,8 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
       UNREACHABLE();
     }
     DCHECK(!inlined_method->IsRuntimeMethod());
-    if (UNLIKELY(inlined_method->GetDexFile() != method->GetDexFile())) {
+    if (UNLIKELY(inlined_method->GetDexFile() != method->GetDexFile() &&
+                 !method_info.HasDexFileIndex())) {
       // TODO: We could permit inlining within a multi-dex oat file and the boot image,
       // even going back from boot image methods to the same oat file. However, this is
       // not currently implemented in the compiler. Therefore crossing dex file boundary
