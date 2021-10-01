@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3ef3128_7d115a24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-01T23:24:39Z",
+      "side": 1,
+      "message": "Jiakai, could you please see if these changes make sense to you?  It\u0027s not the same API I originally proposed, and I haven\u0027t came up with other APIs to deal with FDs.  But I think it\u0027s enough (too much maybe...) to start discussing the details.",
+      "revId": "0c466ed89eb381dae421eb47dfd02a7d9ba53e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cedaefe0_6967424f",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-01T23:24:39Z",
+      "side": 1,
+      "message": "FIXME ;(",
+      "range": {
+        "startLine": 368,
+        "startChar": 100,
+        "endLine": 368,
+        "endChar": 102
+      },
+      "revId": "0c466ed89eb381dae421eb47dfd02a7d9ba53e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
