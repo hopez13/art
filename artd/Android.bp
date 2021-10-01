@@ -65,7 +65,22 @@ cc_defaults {
     ],
     visibility: [
         "//art:__subpackages__",
+        "//packages/modules/Virtualization/compos",
     ],
+}
+
+cc_library_headers {
+    name: "libdexopt_external_headers",
+    visibility: ["//visibility:public"],
+    export_include_dirs: ["external/include"],
+    runtime_libs: ["libdexopt"],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.art",
+        "com.android.art.debug",
+        "com.android.compos",
+    ],
+    min_sdk_version: "S", // TODO(victorhsieh): uprev when possible
 }
 
 art_cc_library {
@@ -75,9 +90,13 @@ art_cc_library {
         "libart",
         "libartbase",
     ],
+    stubs: {
+        symbol_file: "libdexopt.map.txt",
+    },
     apex_available: [
         "com.android.art",
         "com.android.art.debug",
+        "com.android.compos",
     ],
 }
 
