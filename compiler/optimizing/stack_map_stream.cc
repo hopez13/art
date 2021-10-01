@@ -17,9 +17,12 @@
 #include "stack_map_stream.h"
 
 #include <memory>
+#include <vector>
 
 #include "art_method-inl.h"
 #include "base/stl_util.h"
+#include "class_linker.h"
+#include "dex/dex_file.h"
 #include "dex/dex_file_types.h"
 #include "optimizing/optimizing_compiler.h"
 #include "runtime.h"
@@ -211,12 +214,30 @@ void StackMapStream::BeginInlineInfoEntry(ArtMethod* method,
     entry[InlineInfo::kArtMethodHi] = High32Bits(reinterpret_cast<uintptr_t>(method));
     entry[InlineInfo::kArtMethodLo] = Low32Bits(reinterpret_cast<uintptr_t>(method));
   } else {
-    if (dex_pc != static_cast<uint32_t>(-1) && kIsDebugBuild) {
+    if (dex_pc != static_cast<uint32_t>(-1)) {
       ScopedObjectAccess soa(Thread::Current());
-      DCHECK(IsSameDexFile(*outer_dex_file, *method->GetDexFile()));
+      const DexFile* dex_file = method->GetDexFile();
+      if (method->GetDeclaringClass()->GetClassLoader() == nullptr) {
+        ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+        const std::vector<const DexFile*>& boot_class_path = class_linker->GetBootClassPath();
+        auto it = std::find_if(
+            boot_class_path.begin(), boot_class_path.end(), [dex_file](const DexFile* df) {
+              return IsSameDexFile(*df, *dex_file);
+            });
+        if (it == boot_class_path.end()) {
+          UNREACHABLE();
+        }
+        entry[InlineInfo::kIsInBootClassPath] = InlineInfo::kInBootClassPath;
+        entry[InlineInfo::kBootClassPathIndex] = it - boot_class_path.begin();
+      } else {
+        DCHECK(IsSameDexFile(*outer_dex_file, *dex_file));
+      }
     }
     uint32_t dex_method_index = method->GetDexMethodIndex();
-    entry[InlineInfo::kMethodInfoIndex] = method_infos_.Dedup({dex_method_index});
+    entry[InlineInfo::kMethodInfoIndex] =
+        method_infos_.Dedup({dex_method_index,
+                             entry[InlineInfo::kIsInBootClassPath],
+                             entry[InlineInfo::kBootClassPathIndex]});
   }
   current_inline_infos_.push_back(entry);
 
@@ -232,6 +253,12 @@ void StackMapStream::BeginInlineInfoEntry(ArtMethod* method,
       if (encode_art_method) {
         CHECK_EQ(inline_info.GetArtMethod(), method);
       } else {
+        if (inline_info.GetDexPc() != static_cast<uint32_t>(-1)) {
+          ScopedObjectAccess soa(Thread::Current());
+          if (method->GetDeclaringClass()->GetClassLoader() == nullptr) {
+            CHECK(inline_info.HasIsInBootClassPath());
+          }
+        }
         CHECK_EQ(code_info.GetMethodIndexOf(inline_info), method->GetDexMethodIndex());
       }
     });
