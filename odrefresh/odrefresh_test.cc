@@ -90,14 +90,12 @@ class MockOdrDexopt : public OdrDexopt {
   // A workaround to avoid MOCK_METHOD on a method with an `std::string*` parameter, which will lead
   // to a conflict between gmock and android-base/logging.h (b/132668253).
   int DexoptBcpExtension(const DexoptBcpExtArgs& args,
-                         time_t,
                          bool*,
                          std::string*) override {
     return DoDexoptBcpExtension(args);
   }
 
   int DexoptSystemServer(const DexoptSystemServerArgs& args,
-                         time_t,
                          bool*,
                          std::string*) override {
     return DoDexoptSystemServer(args);
