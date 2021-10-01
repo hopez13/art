@@ -2286,6 +2286,9 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   }
 
   virtual bool NeedsEnvironment() const { return false; }
+  virtual bool NeedsBss() const {
+    return false;
+  }
 
   uint32_t GetDexPc() const { return dex_pc_; }
 
@@ -4568,12 +4571,15 @@ enum IntrinsicExceptions {
 
 // Determines how to load an ArtMethod*.
 enum class MethodLoadKind {
+  // TODO(solanes): Remove this if we remove the ArtMethod* way?
   // Use a String init ArtMethod* loaded from Thread entrypoints.
   kStringInit,
 
+  // TODO(solanes): Remove this if we remove the ArtMethod* way?
   // Use the method's own ArtMethod* loaded by the register allocator.
   kRecursive,
 
+  // TODO(solanes): Remove this if we remove the ArtMethod* way?
   // Use PC-relative boot image ArtMethod* address that will be known at link time.
   // Used for boot image methods referenced by boot image code.
   kBootImageLinkTimePcRelative,
@@ -4586,6 +4592,7 @@ enum class MethodLoadKind {
   // Used for methods outside boot image referenced by AOT-compiled app and boot image code.
   kBssEntry,
 
+  // TODO(solanes): Remove this if we remove the ArtMethod* way?
   // Use ArtMethod* at a known address, embed the direct address in the code.
   // Used for for JIT-compiled calls.
   kJitDirectAddress,
@@ -4616,6 +4623,8 @@ static inline bool IsPcRelativeMethodLoadKind(MethodLoadKind load_kind) {
          load_kind == MethodLoadKind::kBootImageRelRo ||
          load_kind == MethodLoadKind::kBssEntry;
 }
+
+// bool InvokeNeedsBSS(const HInvoke* invoke);
 
 class HInvoke : public HVariableInputSizeInstruction {
  public:
@@ -4882,6 +4891,10 @@ class HInvokeStaticOrDirect final : public HInvoke {
   }
 
   bool IsClonable() const override { return true; }
+  // TODO(solanes): Can it be refined like this?
+  bool NeedsBss() const override {
+    return GetMethodLoadKind() == MethodLoadKind::kBssEntry;
+  }
 
   void SetDispatchInfo(DispatchInfo dispatch_info) {
     bool had_current_method_input = HasCurrentMethodInput();
@@ -5167,6 +5180,9 @@ class HInvokeInterface final : public HInvoke {
   }
 
   bool IsClonable() const override { return true; }
+  bool NeedsBss() const override {
+    return GetHiddenArgumentLoadKind() == MethodLoadKind::kBssEntry;
+  }
 
   bool CanDoImplicitNullCheckOn(HInstruction* obj) const override {
     // TODO: Add implicit null checks in intrinsics.
@@ -6813,6 +6829,16 @@ class HLoadClass final : public HInstruction {
   bool NeedsEnvironment() const override {
     return CanCallRuntime();
   }
+  bool NeedsBss() const override {
+    // Maybe refine to...
+    // This is what MustResolveTypeOnSlowPath() returns but it skips the DCHECKS. Can we remove
+    // them?
+    LoadKind load_kind = GetLoadKind();
+    return load_kind == LoadKind::kBssEntry || load_kind == LoadKind::kBssEntryPublic ||
+           load_kind == LoadKind::kBssEntryPackage;
+    // ?
+    // return true;
+  }
 
   void SetMustGenerateClinitCheck(bool generate_clinit_check) {
     SetPackedFlag<kFlagGenerateClInitCheck>(generate_clinit_check);
@@ -7010,6 +7036,9 @@ class HLoadString final : public HInstruction {
   }
 
   bool IsClonable() const override { return true; }
+  bool NeedsBss() const override {
+    return GetLoadKind() == LoadKind::kBssEntry;
+  }
 
   void SetLoadKind(LoadKind load_kind);
 
