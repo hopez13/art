@@ -43,11 +43,9 @@ class OdrDexopt {
   virtual ~OdrDexopt() {}
 
   virtual int DexoptBcpExtension(const DexoptBcpExtArgs& args,
-                                 time_t timeout_secs,
                                  /*out*/ bool* timed_out,
                                  /*out*/ std::string* error_msg) = 0;
   virtual int DexoptSystemServer(const DexoptSystemServerArgs& args,
-                                 time_t timeout_secs,
                                  /*out*/ bool* timed_out,
                                  /*out*/ std::string* error_msg) = 0;
 };

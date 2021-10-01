@@ -114,6 +114,7 @@ namespace dex2oat {
     kNoFailure = 0,          // No failure, execution completed successfully.
     kOther = 1,              // Some other not closer specified error occurred.
     kCreateRuntime = 2,      // Dex2oat failed creating a runtime.
+    kTimeout = 3,            // Dex2oat timed out. Reserved for caller's use (see odr_dexopt.cc).
   };
 }  // namespace dex2oat
 
