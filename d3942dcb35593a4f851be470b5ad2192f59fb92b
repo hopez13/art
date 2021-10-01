@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51113f4e_d5165746",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-10-01T23:32:53Z",
+      "side": 1,
+      "message": "Sorry about the confusion. I now fixed your whitespace issue, and one other minor issue, but nothing that would explain the failure. AT least one of these CLs needs more work.",
+      "parentUuid": "c45fdc34_565ca56c",
+      "revId": "d3942dcb35593a4f851be470b5ad2192f59fb92b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c367651_74cea0b3",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-10-01T15:23:25Z",
       "side": 1,
       "message": "spaces here and L1087",
+      "range": {
+        "startLine": 376,
+        "startChar": 0,
+        "endLine": 376,
+        "endChar": 2
+      },
+      "revId": "d3942dcb35593a4f851be470b5ad2192f59fb92b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fa560b1_d027c05d",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-10-01T23:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c367651_74cea0b3",
       "range": {
         "startLine": 376,
         "startChar": 0,
