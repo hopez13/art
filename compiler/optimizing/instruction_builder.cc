@@ -372,6 +372,10 @@ bool HInstructionBuilder::Build() {
     if (current_block_->IsEntryBlock()) {
       InitializeParameters();
       AppendInstruction(new (allocator_) HSuspendCheck(0u));
+      Runtime* runtime = Runtime::Current();
+      if (runtime && runtime->IsJavaDebuggable() && !runtime->IsAotCompiler()) {
+        AppendInstruction(new (allocator_) HMethodEntryExitHook(true, 0u));
+      }
       AppendInstruction(new (allocator_) HGoto(0u));
       continue;
     } else if (current_block_->IsExitBlock()) {
@@ -822,9 +826,17 @@ void HInstructionBuilder::BuildReturn(const Instruction& instruction,
           compilation_stats_,
           MethodCompilationStat::kConstructorFenceGeneratedFinal);
     }
+    Runtime* runtime = Runtime::Current();
+    if (runtime && runtime->IsJavaDebuggable() && !runtime->IsAotCompiler()) {
+      AppendInstruction(new (allocator_) HMethodEntryExitHook(false, 0u));
+    }
     AppendInstruction(new (allocator_) HReturnVoid(dex_pc));
   } else {
     DCHECK(!RequiresConstructorBarrier(dex_compilation_unit_));
+    Runtime* runtime = Runtime::Current();
+    if (runtime && runtime->IsJavaDebuggable() && !runtime->IsAotCompiler()) {
+      AppendInstruction(new (allocator_) HMethodEntryExitHook(false, 0u));
+    }
     HInstruction* value = LoadLocal(instruction.VRegA(), type);
     AppendInstruction(new (allocator_) HReturn(value, dex_pc));
   }
