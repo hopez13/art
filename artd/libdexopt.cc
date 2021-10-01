@@ -17,6 +17,7 @@
 #include "libdexopt.h"
 #define LOG_TAG "libdexopt"
 
+#include <sstream>
 #include <map>
 #include <string>
 #include <vector>
@@ -30,7 +31,9 @@
 #include "aidl/com/android/art/CompilerFilter.h"
 #include "aidl/com/android/art/DexoptBcpExtArgs.h"
 #include "aidl/com/android/art/DexoptSystemServerArgs.h"
+#include "aidl/com/android/art/ExtendableParcelable.h"
 #include "aidl/com/android/art/Isa.h"
+#include "aidl/com/android/art/TaskType.h"
 
 namespace art {
 
@@ -39,7 +42,9 @@ namespace {
 using aidl::com::android::art::CompilerFilter;
 using aidl::com::android::art::DexoptBcpExtArgs;
 using aidl::com::android::art::DexoptSystemServerArgs;
+using aidl::com::android::art::ExtendableParcelable;
 using aidl::com::android::art::Isa;
+using aidl::com::android::art::TaskType;
 using android::base::Error;
 using android::base::Result;
 
@@ -190,6 +195,15 @@ void AddDex2OatDebugInfo(/*inout*/ std::vector<std::string>& cmdline) {
   cmdline.emplace_back("--strip");
 }
 
+void CopyCStrsToVector(/*inout*/ std::vector<const char*>& destination,
+                       const std::vector<std::string>& source) {
+  destination.resize(source.size() + 1);
+  for (size_t i = 0; i < source.size(); ++i) {
+    destination[i] = source[i].c_str();
+  }
+  destination[destination.size() - 1] = nullptr;
+}
+
 }  // namespace
 
 Result<void> AddDex2oatArgsFromBcpExtensionArgs(const DexoptBcpExtArgs& args,
@@ -335,3 +349,101 @@ Result<void> AddDex2oatArgsFromSystemServerArgs(const DexoptSystemServerArgs& ar
 }
 
 }  // namespace art
+
+__BEGIN_DECLS
+
+struct ADexoptContext {
+  std::vector<std::string> cmdline_args;
+  std::vector<const char*> cmdline_args_c_str;
+};
+
+const ADexoptContext* ADexopt_CreateAndValidateDexoptContext(const uint8_t* marshaled,
+                                                             size_t size) {
+  if (marshaled == nullptr) {
+    LOG(ERROR) << "Invalid argument: marshaled is null";
+    return nullptr;
+  }
+
+  // Unmarshal the bytes to ExtendableParcelable.
+  auto parcel = std::unique_ptr<AParcel, decltype(&AParcel_delete)>(AParcel_create(),
+                                                                    AParcel_delete);
+  binder_status_t status = AParcel_unmarshal(parcel.get(), marshaled, size);
+  if (status != STATUS_OK) {
+    LOG(ERROR) << "Failed to unmarshal the parcel";
+    return nullptr;
+  }
+  if (AParcel_setDataPosition(parcel.get(), 0) != STATUS_OK) {
+    LOG(ERROR) << "Failed to reset the parcel's data position";
+    return nullptr;
+  }
+  art::ExtendableParcelable ep;
+  if (ep.readFromParcel(parcel.get()) != STATUS_OK) {
+    LOG(ERROR) << "Failed to read from parcel";
+    return nullptr;
+  }
+
+  // Handle the specific parcelable type separately.
+  switch (ep.taskType) {
+    case art::TaskType::DEXOPT_BCP_EXTENSION: {
+      std::optional<art::DexoptBcpExtArgs> maybe_args;
+      if (ep.ext.getParcelable(&maybe_args) != STATUS_OK) {
+        LOG(ERROR) << "Failed to retrieve DexoptBcpExtArgs from ParcelableHolder";
+        return nullptr;
+      }
+      if (!maybe_args.has_value()) {
+        LOG(ERROR) << "Received undefined DexoptBcpExtArgs";
+        return nullptr;
+      }
+      const art::DexoptBcpExtArgs& args = maybe_args.value();
+
+      // Now the args have been constructed, start to build the cmdline.
+      auto context = new ADexoptContext();
+      auto result = art::AddDex2oatArgsFromBcpExtensionArgs(args, context->cmdline_args);
+      if (!result.ok()) {
+        LOG(ERROR) << "Failed construct dex2oat command line: " << result.error().message();
+        return nullptr;
+      }
+      art::CopyCStrsToVector(context->cmdline_args_c_str, context->cmdline_args);
+
+      return context;
+    }
+
+    case art::TaskType::DEXOPT_SYSTEM_SERVER: {
+      std::optional<art::DexoptSystemServerArgs> maybe_args;
+      if (ep.ext.getParcelable(&maybe_args) != STATUS_OK) {
+        LOG(ERROR) << "Failed to retrieve DexoptSystemServerArgs from ParcelableHolder";
+        return nullptr;
+      }
+      if (!maybe_args.has_value()) {
+        LOG(ERROR) << "Received undefined DexoptSystemServerArgs";
+        return nullptr;
+      }
+      const art::DexoptSystemServerArgs& args = maybe_args.value();
+
+      // Now the args have been constructed, start to build the cmdline.
+      auto context = new ADexoptContext();
+      auto result = art::AddDex2oatArgsFromSystemServerArgs(args, context->cmdline_args);
+      if (!result.ok()) {
+        LOG(ERROR) << "Failed construct dex2oat command line: " << result.error().message();
+        return nullptr;
+      }
+      art::CopyCStrsToVector(context->cmdline_args_c_str, context->cmdline_args);
+
+      return context;
+    }
+
+    default:
+      LOG(ERROR) << "Unrecognized task type: " << static_cast<int>(ep.taskType);
+      return nullptr;
+  }
+}
+
+void ADexopt_DeleteDexoptContext(const ADexoptContext* context) {
+  delete context;
+}
+
+const char* const* ADexopt_GetCmdlineArguments(const ADexoptContext* context) {
+  return context->cmdline_args_c_str.data();
+}
+
+__END_DECLS
