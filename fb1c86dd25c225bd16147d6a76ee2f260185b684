@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af1be66a_35b184a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-01T18:23:11Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "fb1c86dd25c225bd16147d6a76ee2f260185b684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e390d7c_0ff0e6be",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-01T18:23:11Z",
+      "side": 1,
+      "message": "I\u0027m not sure why it\u0027s not derived by the build system automatically, since this is already a dependency to a library in com.android.art.apex.  Any suggestion is welcome!",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 32
+      },
+      "revId": "fb1c86dd25c225bd16147d6a76ee2f260185b684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
