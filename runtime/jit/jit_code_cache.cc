@@ -615,12 +615,7 @@ static void ClearMethodCounter(ArtMethod* method, bool was_warm)
   if (was_warm) {
     method->SetPreviouslyWarm();
   }
-  // We reset the counter to 1 so that the profile knows that the method was executed at least once.
-  // This is required for layout purposes.
-  // We also need to make sure we'll pass the warmup threshold again, so we set to 0 if
-  // the warmup threshold is 1.
-  uint16_t jit_warmup_threshold = Runtime::Current()->GetJITOptions()->GetWarmupThreshold();
-  method->SetCounter(std::min(jit_warmup_threshold - 1, 1));
+  method->ResetCounter();
 }
 
 void JitCodeCache::WaitForPotentialCollectionToCompleteRunnable(Thread* self) {
@@ -794,7 +789,7 @@ bool JitCodeCache::RemoveMethod(ArtMethod* method, bool release_memory) {
     return false;
   }
 
-  method->SetCounter(0);
+  ClearMethodCounter(method, /* was_warm= */ false);
   Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(
       method, GetQuickToInterpreterBridge());
   VLOG(jit)
@@ -1168,14 +1163,13 @@ void JitCodeCache::GarbageCollectCache(Thread* self) {
           if (!data.IsCompiled() || IsInZygoteExecSpace(data.GetCode())) {
             continue;
           }
-          // Make sure a single invocation of the GenericJNI trampoline tries to recompile.
-          uint16_t new_counter = Runtime::Current()->GetJit()->HotMethodThreshold() - 1u;
           const OatQuickMethodHeader* method_header =
               OatQuickMethodHeader::FromCodePointer(data.GetCode());
           for (ArtMethod* method : data.GetMethods()) {
             if (method->GetEntryPointFromQuickCompiledCode() == method_header->GetEntryPoint()) {
               // Don't call Instrumentation::UpdateMethodsCode(), same as for normal methods above.
-              method->SetCounter(new_counter);
+              // Make sure a single invocation of the GenericJNI trampoline tries to recompile.
+              method->SetHotCounter();
               method->SetEntryPointFromQuickCompiledCode(GetQuickGenericJniStub());
             }
           }
@@ -1300,6 +1294,7 @@ void JitCodeCache::DoCollection(Thread* self, bool collect_profiling_info) {
           OatQuickMethodHeader* method_header =
               OatQuickMethodHeader::FromEntryPoint(entry_point);
           if (CodeInfo::IsBaseline(method_header->GetOptimizedCodeInfoPtr())) {
+            info->GetMethod()->ResetCounter();
             info->GetMethod()->SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
           }
         }

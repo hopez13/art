@@ -89,18 +89,7 @@ inline void UpdateHotness(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock
   // The hotness we will add to a method when we perform a
   // field/method/class/string lookup.
   constexpr uint16_t kNterpHotnessLookup = 0xf;
-
-  // Convert to uint32_t to handle uint16_t overflow.
-  uint32_t counter = method->GetCounter();
-  uint32_t new_counter = counter + kNterpHotnessLookup;
-  if (new_counter > kNterpHotnessMask) {
-    // Let the nterp code actually call the compilation: we want to make sure
-    // there's at least a second execution of the method or a back-edge to avoid
-    // compiling straightline initialization methods.
-    method->SetCounter(kNterpHotnessMask);
-  } else {
-    method->SetCounter(new_counter);
-  }
+  method->UpdateCounter(kNterpHotnessLookup);
 }
 
 template<typename T>
@@ -737,6 +726,7 @@ extern "C" jit::OsrData* NterpHotMethod(ArtMethod* method, uint16_t* dex_pc_ptr,
   ScopedAssertNoThreadSuspension sants("In nterp");
   jit::Jit* jit = Runtime::Current()->GetJit();
   if (jit != nullptr && jit->UseJitCompilation()) {
+    method->ResetCounter();
     // Nterp passes null on entry where we don't want to OSR.
     if (dex_pc_ptr != nullptr) {
       // This could be a loop back edge, check if we can OSR.
@@ -748,7 +738,7 @@ extern "C" jit::OsrData* NterpHotMethod(ArtMethod* method, uint16_t* dex_pc_ptr,
         return osr_data;
       }
     }
-    jit->EnqueueCompilationFromNterp(method, Thread::Current());
+    jit->EnqueueCompilation(method, Thread::Current());
   }
   return nullptr;
 }

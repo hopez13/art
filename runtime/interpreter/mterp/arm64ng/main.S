@@ -301,11 +301,10 @@ END \name
 2:
     ldr x0, [sp]
     ldrh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
-    add x2, x2, #1
-    and w2, w2, #NTERP_HOTNESS_MASK
-    strh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
-    // If the counter overflows, handle this in the runtime.
+    // If the counter is at zero, handle this in the runtime.
     cbz w2, NterpHandleHotnessOverflow
+    sub x2, x2, #1
+    strh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
     // Otherwise, do a suspend check.
     ldr x0, [xSELF, #THREAD_FLAGS_OFFSET]
     ands x0, x0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
@@ -422,11 +421,10 @@ END \name
 .macro START_EXECUTING_INSTRUCTIONS
     ldr x0, [sp]
     ldrh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
-    add x2, x2, #1
-    and w2, w2, #NTERP_HOTNESS_MASK
-    strh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
-    // If the counter overflows, handle this in the runtime.
+    // If the counter is at zero, handle this in the runtime.
     cbz w2, 2f
+    sub x2, x2, #1
+    strh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
     ldr x0, [xSELF, #THREAD_FLAGS_OFFSET]
     tst x0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
     b.ne 3f
