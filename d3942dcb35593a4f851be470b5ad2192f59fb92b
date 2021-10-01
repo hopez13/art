@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c45fdc34_565ca56c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-10-01T15:23:25Z",
+      "side": 1,
+      "message": "Looks reasonable here, but I am unsure if PS1 is the plain revert or the change intended to land (oftentimes PS1 is the pure revert, PS2 is the fix is necessary to reland).",
+      "revId": "d3942dcb35593a4f851be470b5ad2192f59fb92b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c367651_74cea0b3",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-10-01T15:23:25Z",
+      "side": 1,
+      "message": "spaces here and L1087",
+      "range": {
+        "startLine": 376,
+        "startChar": 0,
+        "endLine": 376,
+        "endChar": 2
+      },
+      "revId": "d3942dcb35593a4f851be470b5ad2192f59fb92b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
