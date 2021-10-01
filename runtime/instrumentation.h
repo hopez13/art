@@ -17,12 +17,13 @@
 #ifndef ART_RUNTIME_INSTRUMENTATION_H_
 #define ART_RUNTIME_INSTRUMENTATION_H_
 
-#include <functional>
 #include <stdint.h>
+
+#include <functional>
 #include <list>
 #include <memory>
-#include <unordered_set>
 #include <optional>
+#include <unordered_set>
 
 #include "arch/instruction_set.h"
 #include "base/enums.h"
@@ -30,6 +31,7 @@
 #include "base/macros.h"
 #include "base/safe_map.h"
 #include "gc_root.h"
+#include "offsets.h"
 
 namespace art {
 namespace mirror {
@@ -206,6 +208,14 @@ class Instrumentation {
   };
 
   Instrumentation();
+
+  static constexpr MemberOffset HaveMethodEntryListenersOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(Instrumentation, have_method_entry_listeners_));
+  }
+
+  static constexpr MemberOffset HaveMethodExitListenersOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(Instrumentation, have_method_exit_listeners_));
+  }
 
   // Add a listener to be notified of the masked together sent of instrumentation events. This
   // suspend the runtime to install stubs. You are expected to hold the mutator lock as a proxy
@@ -556,6 +566,10 @@ class Instrumentation {
   // Returns true if moving to the given instrumentation level requires the installation of stubs.
   // False otherwise.
   bool RequiresInstrumentationInstallation(InstrumentationLevel new_level) const;
+
+  // Returns true if we need entry exit stub to call entry hooks. JITed code
+  // directly call entry / exit hooks and don't need the stub.
+  bool CodeNeedsEntryExitStub(const void* code);
 
   // Does the job of installing or removing instrumentation code within methods.
   // In order to support multiple clients using instrumentation at the same time,

@@ -2582,4 +2582,22 @@ extern "C" uint64_t artInvokeCustom(uint32_t call_site_idx, Thread* self, ArtMet
   return result.GetJ();
 }
 
+extern "C" void artTraceEntryHook(ArtMethod* method, Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  if (instr->HasMethodEntryListeners()) {
+    instr->MethodEnterEvent(self, method);
+  }
+}
+
+extern "C" void artTraceExitHook(ArtMethod* method, Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  if (instr->HasMethodExitListeners()) {
+    JValue return_value;
+    return_value.SetJ(0);
+    instr->MethodExitEvent(self, ObjPtr<mirror::Object>(), method, 0, {}, return_value);
+  }
+}
+
 }  // namespace art

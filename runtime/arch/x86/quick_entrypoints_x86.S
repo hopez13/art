@@ -2381,3 +2381,36 @@ DEFINE_FUNCTION art_quick_compile_optimized
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
 END_FUNCTION art_quick_compile_optimized
+
+// On entry, the method is at the bottom of the stack.
+DEFINE_FUNCTION art_quick_trace_entry_hook
+    SETUP_SAVE_EVERYTHING_FRAME ebx
+    mov FRAME_SIZE_SAVE_EVERYTHING(%esp), %eax // Fetch ArtMethod
+    sub LITERAL(8), %esp   		       // Alignment padding
+    CFI_ADJUST_CFA_OFFSET(8)
+    pushl %fs:THREAD_SELF_OFFSET               // pass Thread::Current()
+    CFI_ADJUST_CFA_OFFSET(4)
+    pushl %eax
+    CFI_ADJUST_CFA_OFFSET(4)
+    call SYMBOL(artTraceEntryHook)             // (ArtMethod*, Thread*)
+    addl LITERAL(16), %esp                     // Pop arguments.
+    CFI_ADJUST_CFA_OFFSET(-16)
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+END_FUNCTION art_quick_trace_entry_hook
+
+DEFINE_FUNCTION art_quick_trace_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME ebx
+    mov FRAME_SIZE_SAVE_EVERYTHING(%esp), %eax // Fetch ArtMethod
+    sub LITERAL(8), %esp   		       // Alignment padding
+    CFI_ADJUST_CFA_OFFSET(8)
+    pushl %fs:THREAD_SELF_OFFSET               // pass Thread::Current()
+    CFI_ADJUST_CFA_OFFSET(4)
+    pushl %eax
+    CFI_ADJUST_CFA_OFFSET(4)
+    call SYMBOL(artTraceExitHook)              // (ArtMethod*, Thread*)
+    addl LITERAL(16), %esp                     // Pop arguments.
+    CFI_ADJUST_CFA_OFFSET(-16)
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+END_FUNCTION art_quick_trace_entry_hook
