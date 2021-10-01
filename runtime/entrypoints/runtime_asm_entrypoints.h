@@ -96,6 +96,8 @@ static inline const void* GetQuickInstrumentationExitPc() {
 
 extern "C" void* art_quick_string_builder_append(uint32_t format);
 extern "C" void art_quick_compile_optimized(ArtMethod*, Thread*);
+extern "C" void art_quick_trace_entry_hook(ArtMethod*, Thread*);
+extern "C" void art_quick_trace_exit_hook(ArtMethod*, Thread*);
 
 }  // namespace art
 

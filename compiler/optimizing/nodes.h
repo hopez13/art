@@ -1475,97 +1475,98 @@ class HLoopInformationOutwardIterator : public ValueObject {
   DISALLOW_COPY_AND_ASSIGN(HLoopInformationOutwardIterator);
 };
 
-#define FOR_EACH_CONCRETE_INSTRUCTION_SCALAR_COMMON(M)                  \
-  M(Above, Condition)                                                   \
-  M(AboveOrEqual, Condition)                                            \
-  M(Abs, UnaryOperation)                                                \
-  M(Add, BinaryOperation)                                               \
-  M(And, BinaryOperation)                                               \
-  M(ArrayGet, Instruction)                                              \
-  M(ArrayLength, Instruction)                                           \
-  M(ArraySet, Instruction)                                              \
-  M(Below, Condition)                                                   \
-  M(BelowOrEqual, Condition)                                            \
-  M(BooleanNot, UnaryOperation)                                         \
-  M(BoundsCheck, Instruction)                                           \
-  M(BoundType, Instruction)                                             \
-  M(CheckCast, Instruction)                                             \
-  M(ClassTableGet, Instruction)                                         \
-  M(ClearException, Instruction)                                        \
-  M(ClinitCheck, Instruction)                                           \
-  M(Compare, BinaryOperation)                                           \
-  M(ConstructorFence, Instruction)                                      \
-  M(CurrentMethod, Instruction)                                         \
-  M(ShouldDeoptimizeFlag, Instruction)                                  \
-  M(Deoptimize, Instruction)                                            \
-  M(Div, BinaryOperation)                                               \
-  M(DivZeroCheck, Instruction)                                          \
-  M(DoubleConstant, Constant)                                           \
-  M(Equal, Condition)                                                   \
-  M(Exit, Instruction)                                                  \
-  M(FloatConstant, Constant)                                            \
-  M(Goto, Instruction)                                                  \
-  M(GreaterThan, Condition)                                             \
-  M(GreaterThanOrEqual, Condition)                                      \
-  M(If, Instruction)                                                    \
-  M(InstanceFieldGet, Instruction)                                      \
-  M(InstanceFieldSet, Instruction)                                      \
-  M(PredicatedInstanceFieldGet, Instruction)                            \
-  M(InstanceOf, Instruction)                                            \
-  M(IntConstant, Constant)                                              \
-  M(IntermediateAddress, Instruction)                                   \
-  M(InvokeUnresolved, Invoke)                                           \
-  M(InvokeInterface, Invoke)                                            \
-  M(InvokeStaticOrDirect, Invoke)                                       \
-  M(InvokeVirtual, Invoke)                                              \
-  M(InvokePolymorphic, Invoke)                                          \
-  M(InvokeCustom, Invoke)                                               \
-  M(LessThan, Condition)                                                \
-  M(LessThanOrEqual, Condition)                                         \
-  M(LoadClass, Instruction)                                             \
-  M(LoadException, Instruction)                                         \
-  M(LoadMethodHandle, Instruction)                                      \
-  M(LoadMethodType, Instruction)                                        \
-  M(LoadString, Instruction)                                            \
-  M(LongConstant, Constant)                                             \
-  M(Max, Instruction)                                                   \
-  M(MemoryBarrier, Instruction)                                         \
-  M(Min, BinaryOperation)                                               \
-  M(MonitorOperation, Instruction)                                      \
-  M(Mul, BinaryOperation)                                               \
-  M(NativeDebugInfo, Instruction)                                       \
-  M(Neg, UnaryOperation)                                                \
-  M(NewArray, Instruction)                                              \
-  M(NewInstance, Instruction)                                           \
-  M(Not, UnaryOperation)                                                \
-  M(NotEqual, Condition)                                                \
-  M(NullConstant, Instruction)                                          \
-  M(NullCheck, Instruction)                                             \
-  M(Or, BinaryOperation)                                                \
-  M(PackedSwitch, Instruction)                                          \
-  M(ParallelMove, Instruction)                                          \
-  M(ParameterValue, Instruction)                                        \
-  M(Phi, Instruction)                                                   \
-  M(Rem, BinaryOperation)                                               \
-  M(Return, Instruction)                                                \
-  M(ReturnVoid, Instruction)                                            \
-  M(Ror, BinaryOperation)                                               \
-  M(Shl, BinaryOperation)                                               \
-  M(Shr, BinaryOperation)                                               \
-  M(StaticFieldGet, Instruction)                                        \
-  M(StaticFieldSet, Instruction)                                        \
-  M(StringBuilderAppend, Instruction)                                   \
-  M(UnresolvedInstanceFieldGet, Instruction)                            \
-  M(UnresolvedInstanceFieldSet, Instruction)                            \
-  M(UnresolvedStaticFieldGet, Instruction)                              \
-  M(UnresolvedStaticFieldSet, Instruction)                              \
-  M(Select, Instruction)                                                \
-  M(Sub, BinaryOperation)                                               \
-  M(SuspendCheck, Instruction)                                          \
-  M(Throw, Instruction)                                                 \
-  M(TryBoundary, Instruction)                                           \
-  M(TypeConversion, Instruction)                                        \
-  M(UShr, BinaryOperation)                                              \
+#define FOR_EACH_CONCRETE_INSTRUCTION_SCALAR_COMMON(M) \
+  M(Above, Condition)                                  \
+  M(AboveOrEqual, Condition)                           \
+  M(Abs, UnaryOperation)                               \
+  M(Add, BinaryOperation)                              \
+  M(And, BinaryOperation)                              \
+  M(ArrayGet, Instruction)                             \
+  M(ArrayLength, Instruction)                          \
+  M(ArraySet, Instruction)                             \
+  M(Below, Condition)                                  \
+  M(BelowOrEqual, Condition)                           \
+  M(BooleanNot, UnaryOperation)                        \
+  M(BoundsCheck, Instruction)                          \
+  M(BoundType, Instruction)                            \
+  M(CheckCast, Instruction)                            \
+  M(ClassTableGet, Instruction)                        \
+  M(ClearException, Instruction)                       \
+  M(ClinitCheck, Instruction)                          \
+  M(Compare, BinaryOperation)                          \
+  M(ConstructorFence, Instruction)                     \
+  M(CurrentMethod, Instruction)                        \
+  M(ShouldDeoptimizeFlag, Instruction)                 \
+  M(Deoptimize, Instruction)                           \
+  M(Div, BinaryOperation)                              \
+  M(DivZeroCheck, Instruction)                         \
+  M(DoubleConstant, Constant)                          \
+  M(Equal, Condition)                                  \
+  M(Exit, Instruction)                                 \
+  M(FloatConstant, Constant)                           \
+  M(Goto, Instruction)                                 \
+  M(GreaterThan, Condition)                            \
+  M(GreaterThanOrEqual, Condition)                     \
+  M(If, Instruction)                                   \
+  M(InstanceFieldGet, Instruction)                     \
+  M(InstanceFieldSet, Instruction)                     \
+  M(PredicatedInstanceFieldGet, Instruction)           \
+  M(InstanceOf, Instruction)                           \
+  M(IntConstant, Constant)                             \
+  M(IntermediateAddress, Instruction)                  \
+  M(InvokeUnresolved, Invoke)                          \
+  M(InvokeInterface, Invoke)                           \
+  M(InvokeStaticOrDirect, Invoke)                      \
+  M(InvokeVirtual, Invoke)                             \
+  M(InvokePolymorphic, Invoke)                         \
+  M(InvokeCustom, Invoke)                              \
+  M(LessThan, Condition)                               \
+  M(LessThanOrEqual, Condition)                        \
+  M(LoadClass, Instruction)                            \
+  M(LoadException, Instruction)                        \
+  M(LoadMethodHandle, Instruction)                     \
+  M(LoadMethodType, Instruction)                       \
+  M(LoadString, Instruction)                           \
+  M(LongConstant, Constant)                            \
+  M(Max, Instruction)                                  \
+  M(MemoryBarrier, Instruction)                        \
+  M(MethodEntryExitHook, Instruction)                  \
+  M(Min, BinaryOperation)                              \
+  M(MonitorOperation, Instruction)                     \
+  M(Mul, BinaryOperation)                              \
+  M(NativeDebugInfo, Instruction)                      \
+  M(Neg, UnaryOperation)                               \
+  M(NewArray, Instruction)                             \
+  M(NewInstance, Instruction)                          \
+  M(Not, UnaryOperation)                               \
+  M(NotEqual, Condition)                               \
+  M(NullConstant, Instruction)                         \
+  M(NullCheck, Instruction)                            \
+  M(Or, BinaryOperation)                               \
+  M(PackedSwitch, Instruction)                         \
+  M(ParallelMove, Instruction)                         \
+  M(ParameterValue, Instruction)                       \
+  M(Phi, Instruction)                                  \
+  M(Rem, BinaryOperation)                              \
+  M(Return, Instruction)                               \
+  M(ReturnVoid, Instruction)                           \
+  M(Ror, BinaryOperation)                              \
+  M(Shl, BinaryOperation)                              \
+  M(Shr, BinaryOperation)                              \
+  M(StaticFieldGet, Instruction)                       \
+  M(StaticFieldSet, Instruction)                       \
+  M(StringBuilderAppend, Instruction)                  \
+  M(UnresolvedInstanceFieldGet, Instruction)           \
+  M(UnresolvedInstanceFieldSet, Instruction)           \
+  M(UnresolvedStaticFieldGet, Instruction)             \
+  M(UnresolvedStaticFieldSet, Instruction)             \
+  M(Select, Instruction)                               \
+  M(Sub, BinaryOperation)                              \
+  M(SuspendCheck, Instruction)                         \
+  M(Throw, Instruction)                                \
+  M(TryBoundary, Instruction)                          \
+  M(TypeConversion, Instruction)                       \
+  M(UShr, BinaryOperation)                             \
   M(Xor, BinaryOperation)
 
 #define FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(M)                  \
@@ -2989,6 +2990,31 @@ class HExpression<0> : public HInstruction {
 
  private:
   friend class SsaBuilder;
+};
+
+class HMethodEntryExitHook : public HExpression<0> {
+ public:
+  HMethodEntryExitHook(bool is_method_entry, uint32_t dex_pc)
+      : HExpression(kMethodEntryExitHook, SideEffects::All(), dex_pc),
+        is_method_entry_(is_method_entry) {}
+
+  bool NeedsEnvironment() const override {
+    return true;
+  }
+  bool IsMethodEntryHook() const {
+    return is_method_entry_;
+  }
+  bool IsMethodExitHook() const {
+    return !is_method_entry_;
+  }
+
+  DECLARE_INSTRUCTION(MethodEntryExitHook);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(MethodEntryExitHook);
+
+ private:
+  bool is_method_entry_;
 };
 
 // Represents dex's RETURN_VOID opcode. A HReturnVoid is a control flow
