@@ -2286,6 +2286,9 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   }
 
   virtual bool NeedsEnvironment() const { return false; }
+  virtual bool NeedsBss() const {
+    return false;
+  }
 
   uint32_t GetDexPc() const { return dex_pc_; }
 
@@ -4617,6 +4620,8 @@ static inline bool IsPcRelativeMethodLoadKind(MethodLoadKind load_kind) {
          load_kind == MethodLoadKind::kBssEntry;
 }
 
+// bool InvokeNeedsBSS(const HInvoke* invoke);
+
 class HInvoke : public HVariableInputSizeInstruction {
  public:
   bool NeedsEnvironment() const override;
@@ -4882,6 +4887,9 @@ class HInvokeStaticOrDirect final : public HInvoke {
   }
 
   bool IsClonable() const override { return true; }
+  bool NeedsBss() const override {
+    return GetMethodLoadKind() == MethodLoadKind::kBssEntry;
+  }
 
   void SetDispatchInfo(DispatchInfo dispatch_info) {
     bool had_current_method_input = HasCurrentMethodInput();
@@ -5167,6 +5175,9 @@ class HInvokeInterface final : public HInvoke {
   }
 
   bool IsClonable() const override { return true; }
+  bool NeedsBss() const override {
+    return GetHiddenArgumentLoadKind() == MethodLoadKind::kBssEntry;
+  }
 
   bool CanDoImplicitNullCheckOn(HInstruction* obj) const override {
     // TODO: Add implicit null checks in intrinsics.
@@ -6813,6 +6824,16 @@ class HLoadClass final : public HInstruction {
   bool NeedsEnvironment() const override {
     return CanCallRuntime();
   }
+  bool NeedsBss() const override {
+    // Maybe refine to...
+    // This is what MustResolveTypeOnSlowPath() returns but it skips the DCHECKS. Can we remove
+    // them?
+    LoadKind load_kind = GetLoadKind();
+    return load_kind == LoadKind::kBssEntry || load_kind == LoadKind::kBssEntryPublic ||
+           load_kind == LoadKind::kBssEntryPackage;
+    // ?
+    // return true;
+  }
 
   void SetMustGenerateClinitCheck(bool generate_clinit_check) {
     SetPackedFlag<kFlagGenerateClInitCheck>(generate_clinit_check);
@@ -7010,6 +7031,9 @@ class HLoadString final : public HInstruction {
   }
 
   bool IsClonable() const override { return true; }
+  bool NeedsBss() const override {
+    return GetLoadKind() == LoadKind::kBssEntry;
+  }
 
   void SetLoadKind(LoadKind load_kind);
 
