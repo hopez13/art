@@ -410,9 +410,40 @@ inline CodeItemDebugInfoAccessor ArtMethod::DexInstructionDebugInfo() {
   return CodeItemDebugInfoAccessor(*GetDexFile(), GetCodeItem(), GetDexMethodIndex());
 }
 
-inline void ArtMethod::SetCounter(uint16_t hotness_count) {
+inline bool ArtMethod::CounterHasChanged() {
   DCHECK(!IsAbstract());
-  hotness_count_ = hotness_count;
+  return hotness_count_ != interpreter::kNterpHotnessMask;
+}
+
+inline void ArtMethod::ResetCounter() {
+  DCHECK(!IsAbstract());
+  // Avoid dirtying the value if possible.
+  if (hotness_count_ != interpreter::kNterpHotnessMask) {
+    hotness_count_ = interpreter::kNterpHotnessMask;
+  }
+}
+
+inline void ArtMethod::SetHotCounter() {
+  DCHECK(!IsAbstract());
+  // Avoid dirtying the value if possible.
+  if (hotness_count_ != 0) {
+    hotness_count_ = 0;
+  }
+}
+
+inline void ArtMethod::UpdateCounter(uint16_t new_samples) {
+  DCHECK(!IsAbstract());
+  if (hotness_count_ <= new_samples) {
+    // Don't overflow the counter and mark the method hot.
+    SetHotCounter();
+  } else {
+    hotness_count_ = hotness_count_ - new_samples;
+  }
+}
+
+inline bool ArtMethod::CounterIsHot() {
+  DCHECK(!IsAbstract());
+  return hotness_count_ == 0;
 }
 
 inline uint16_t ArtMethod::GetCounter() {
