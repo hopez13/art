@@ -17,9 +17,14 @@
 #include "stack_map_stream.h"
 
 #include <memory>
+#include <vector>
 
+#include "android-base/macros.h"
 #include "art_method-inl.h"
+#include "base/macros.h"
 #include "base/stl_util.h"
+#include "class_linker.h"
+#include "dex/dex_file.h"
 #include "dex/dex_file_types.h"
 #include "optimizing/optimizing_compiler.h"
 #include "runtime.h"
@@ -28,7 +33,8 @@
 
 namespace art {
 
-constexpr static bool kVerifyStackMaps = kIsDebugBuild;
+// TODO(solanes): Revert this before submitting
+constexpr static bool kVerifyStackMaps = true;
 
 uint32_t StackMapStream::GetStackMapNativePcOffset(size_t i) {
   return StackMap::UnpackNativePc(stack_maps_[i][StackMap::kPackedNativePc], instruction_set_);
@@ -212,11 +218,39 @@ void StackMapStream::BeginInlineInfoEntry(ArtMethod* method,
     entry[InlineInfo::kArtMethodLo] = Low32Bits(reinterpret_cast<uintptr_t>(method));
   } else {
     if (dex_pc != static_cast<uint32_t>(-1) && kIsDebugBuild) {
+      ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+      const std::vector<const DexFile*>& boot_class_path = class_linker->GetBootClassPath();
       ScopedObjectAccess soa(Thread::Current());
-      DCHECK(IsSameDexFile(*outer_dex_file, *method->GetDexFile()));
+      const DexFile* dex_file = method->GetDexFile();
+      // if (!IsSameDexFile(*outer_dex_file, *dex_file)) {
+      // TODO(solanes): encapsulate this. Maybe create a local variable of DexFile* to index? Is the
+      // StackMapStream the same for every method? Try to find in the boot class path first
+
+      // This should be equivalent
+      // if (callee->GetDeclaringClass()->GetClassLoader() == nullptr) return true;
+      auto it = std::find_if(
+          boot_class_path.begin(), boot_class_path.end(), [dex_file](const DexFile* df) {
+            return IsSameDexFile(*df, *dex_file);
+          });
+      if (it != boot_class_path.end()) {
+        entry[InlineInfo::kIsInBootClassPath] = 0;
+        entry[InlineInfo::kBootClassPathIndex] = it - boot_class_path.begin();
+      } else {
+        // method->GetClassLoader()
+        // TODO(solanes): Now try the class loader context ?
+        // const std::vector<const DexFile*>& class_loader_dex_files =
+        // class_linker->...->FlattenOpenedDexFiles();
+        // UNREACHABLE();
+        DCHECK(IsSameDexFile(*outer_dex_file, *dex_file));
+      }
+      // }
     }
     uint32_t dex_method_index = method->GetDexMethodIndex();
-    entry[InlineInfo::kMethodInfoIndex] = method_infos_.Dedup({dex_method_index});
+    // TODO(solanes): Is this the correct way to deal with method infos?
+    entry[InlineInfo::kMethodInfoIndex] =
+        method_infos_.Dedup({dex_method_index,
+                             entry[InlineInfo::kIsInBootClassPath],
+                             entry[InlineInfo::kBootClassPathIndex]});
   }
   current_inline_infos_.push_back(entry);
 

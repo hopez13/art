@@ -2286,6 +2286,9 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   }
 
   virtual bool NeedsEnvironment() const { return false; }
+  virtual bool NeedsBss() const {
+    return false;
+  }
 
   uint32_t GetDexPc() const { return dex_pc_; }
 
@@ -4617,9 +4620,16 @@ static inline bool IsPcRelativeMethodLoadKind(MethodLoadKind load_kind) {
          load_kind == MethodLoadKind::kBssEntry;
 }
 
+// bool InvokeNeedsBSS(const HInvoke* invoke);
+
 class HInvoke : public HVariableInputSizeInstruction {
  public:
   bool NeedsEnvironment() const override;
+  // TODO(solanes): Needed? Only for invoke static or direct? Could it be refined?
+  // bool NeedsBss() const override {
+  //   // TODO(solanes): 580-checker-string-fact-intrinsic fails if we refine. Something about intrinsics? Sounds like it is failing in the good way.
+  //   return InvokeNeedsBSS(this);
+  // }
 
   void SetArgumentAt(size_t index, HInstruction* argument) {
     SetRawInputAt(index, argument);
@@ -4882,6 +4892,10 @@ class HInvokeStaticOrDirect final : public HInvoke {
   }
 
   bool IsClonable() const override { return true; }
+  // TODO(solanes): Can it be refined like this?
+  bool NeedsBss() const override {
+    return GetMethodLoadKind() == MethodLoadKind::kBssEntry;
+  }
 
   void SetDispatchInfo(DispatchInfo dispatch_info) {
     bool had_current_method_input = HasCurrentMethodInput();
@@ -5167,6 +5181,7 @@ class HInvokeInterface final : public HInvoke {
   }
 
   bool IsClonable() const override { return true; }
+  bool NeedsBss() const override { return GetHiddenArgumentLoadKind() == MethodLoadKind::kBssEntry; }
 
   bool CanDoImplicitNullCheckOn(HInstruction* obj) const override {
     // TODO: Add implicit null checks in intrinsics.
@@ -5196,6 +5211,16 @@ class HInvokeInterface final : public HInvoke {
   // How the hidden argument (the interface method) is being loaded.
   const MethodLoadKind hidden_argument_load_kind_;
 };
+
+// TODO(solanes): Move somewhere else?
+// inline bool InvokeNeedsBSS(const HInvoke* invoke) {
+//   if (invoke->IsInvokeStaticOrDirect()) {
+//     return invoke->AsInvokeStaticOrDirect()->GetMethodLoadKind() == MethodLoadKind::kBssEntry;
+//   } else if (invoke->IsInvokeInterface()) {
+//     return invoke->AsInvokeInterface()->GetHiddenArgumentLoadKind() == MethodLoadKind::kBssEntry;
+//   }
+//   return false;
+// }
 
 class HNeg final : public HUnaryOperation {
  public:
@@ -6812,6 +6837,16 @@ class HLoadClass final : public HInstruction {
 
   bool NeedsEnvironment() const override {
     return CanCallRuntime();
+  }
+  bool NeedsBss() const override {
+    // Maybe refine to...
+    // This is what MustResolveTypeOnSlowPath() returns but it skips the DCHECKS. Can we remove
+    // them?
+    LoadKind load_kind = GetLoadKind();
+    return load_kind == LoadKind::kBssEntry || load_kind == LoadKind::kBssEntryPublic ||
+           load_kind == LoadKind::kBssEntryPackage;
+    // ?
+    // return true;
   }
 
   void SetMustGenerateClinitCheck(bool generate_clinit_check) {

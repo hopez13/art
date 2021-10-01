@@ -334,6 +334,7 @@ void StackMap::Dump(VariableIndentationOutputStream* vios,
   }
 }
 
+// TODO(solanes): Modify this.
 void InlineInfo::Dump(VariableIndentationOutputStream* vios,
                       const CodeInfo& code_info,
                       const StackMap& stack_map) const {
