@@ -16,6 +16,23 @@
       "message": "Can I reland this?",
       "revId": "75ca7b02f405004d3fe857dee0f168198f6280db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "747c1081_87fbef95",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-01T16:18:08Z",
+      "side": 1,
+      "message": "AFAIK these updates in this method are required for correctness. Can you put a comment explaining that you\u0027re keeping that correctness?",
+      "revId": "75ca7b02f405004d3fe857dee0f168198f6280db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
