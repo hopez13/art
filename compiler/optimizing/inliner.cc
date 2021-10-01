@@ -1690,15 +1690,34 @@ static inline Handle<T> NewHandleIfDifferent(ObjPtr<T> object, Handle<T> hint, H
   return (object != hint.Get()) ? graph->GetHandleCache()->NewHandle(object) : hint;
 }
 
-static bool CanEncodeInlinedMethodInStackMap(const DexFile& caller_dex_file, ArtMethod* callee)
+static bool CanEncodeInlinedMethodInStackMap(const DexFile& caller_dex_file,
+                                             ArtMethod* callee,
+                                             bool* needs_bss_check)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   if (!Runtime::Current()->IsAotCompiler()) {
     // JIT can always encode methods in stack maps.
     return true;
   }
-  if (IsSameDexFile(caller_dex_file, *callee->GetDexFile())) {
+  const DexFile* dex_file = callee->GetDexFile();
+  if (IsSameDexFile(caller_dex_file, *dex_file)) {
     return true;
   }
+  // This and the null check should be equivalent
+  if (callee->GetDeclaringClass()->GetClassLoader() == nullptr) {
+    *needs_bss_check = true;
+    return true;
+  }
+  // const std::vector<const DexFile*>& boot_class_path =
+  //     Runtime::Current()->GetClassLinker()->GetBootClassPath();
+  // auto it = std::find_if(boot_class_path.begin(),
+  //                        boot_class_path.end(),
+  //                        [dex_file](const DexFile* df) { return IsSameDexFile(*df, *dex_file);
+  //                        });
+  // if (it != boot_class_path.end()) {
+  //   *needs_bss_check = true;
+  //   return true;
+  // }
+
   // TODO(ngeoffray): Support more AOT cases for inlining:
   // - methods in multidex
   // - methods in boot image for on-device non-PIC compilation.
@@ -1775,8 +1794,10 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
   }
 
   bool has_one_return = false;
+  bool inlined_method_throws = false;
   for (HBasicBlock* predecessor : exit_block->GetPredecessors()) {
     if (predecessor->GetLastInstruction()->IsThrow()) {
+      inlined_method_throws = true;
       if (target_block->IsTryBlock()) {
         // TODO(ngeoffray): Support adding HTryBoundary in Hgraph::InlineInto.
         LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedTryCatch)
@@ -1811,6 +1832,15 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
     return false;
   }
 
+  const bool too_many_registers =
+      total_number_of_dex_registers_ > kMaximumNumberOfCumulatedDexRegisters;
+  bool needs_bss_check = false;
+  const bool stack_map = CanEncodeInlinedMethodInStackMap(
+      *caller_compilation_unit_.GetDexFile(), resolved_method, &needs_bss_check);
+  // We currently support inlining of throwing instructions only when they originate in the
+  // same dex file as the outer method. All .bss references are used by throwing instructions.
+  bool at_least_one_needs_bss = inlined_method_throws;
+  bool at_least_one_needs_environment = false;
   size_t number_of_instructions = 0;
   // Skip the entry block, it does not contain instructions that prevent inlining.
   for (HBasicBlock* block : callee_graph->GetReversePostOrderSkipEntryBlock()) {
@@ -1845,24 +1875,23 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
         return false;
       }
       HInstruction* current = instr_it.Current();
-      if (current->NeedsEnvironment() &&
-          (total_number_of_dex_registers_ > kMaximumNumberOfCumulatedDexRegisters)) {
-        LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedEnvironmentBudget)
-            << "Method " << resolved_method->PrettyMethod()
-            << " is not inlined because its caller has reached"
-            << " its environment budget limit.";
-        return false;
-      }
+      if (current->NeedsEnvironment()) {
+        at_least_one_needs_environment = true;
+        if (too_many_registers) {
+          LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedEnvironmentBudget)
+              << "Method " << resolved_method->PrettyMethod()
+              << " is not inlined because its caller has reached"
+              << " its environment budget limit.";
+          return false;
+        }
 
-      if (current->NeedsEnvironment() &&
-          !CanEncodeInlinedMethodInStackMap(*caller_compilation_unit_.GetDexFile(),
-                                            resolved_method)) {
-        LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedStackMaps)
-            << "Method " << resolved_method->PrettyMethod()
-            << " could not be inlined because " << current->DebugName()
-            << " needs an environment, is in a different dex file"
-            << ", and cannot be encoded in the stack maps.";
-        return false;
+        if (!stack_map) {
+          LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedStackMaps)
+              << "Method " << resolved_method->PrettyMethod() << " could not be inlined because "
+              << current->DebugName() << " needs an environment, is in a different dex file"
+              << ", and cannot be encoded in the stack maps.";
+          return false;
+        }
       }
 
       if (current->IsUnresolvedStaticFieldGet() ||
@@ -1876,7 +1905,18 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
             << " entrypoint";
         return false;
       }
+
+      at_least_one_needs_bss |= current->NeedsBss();
     }
+  }
+
+  // We can't inline across dex files on AoT if an instruction requires to add bss info
+  if (at_least_one_needs_bss && needs_bss_check && at_least_one_needs_environment) {
+    // TODO(solanes): Wrong stat. Change.
+    LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedInfiniteLoop)
+        << "Method " << resolved_method->PrettyMethod()
+        << " could not be inlined because it needs a BSS check";
+    return false;
   }
 
   *out_number_of_instructions = number_of_instructions;
