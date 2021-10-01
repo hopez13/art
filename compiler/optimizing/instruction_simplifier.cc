@@ -24,6 +24,7 @@
 #include "intrinsics.h"
 #include "intrinsics_utils.h"
 #include "mirror/class-inl.h"
+#include "optimizing/data_type.h"
 #include "optimizing/nodes.h"
 #include "scoped_thread_state_change-inl.h"
 #include "sharpening.h"
@@ -2674,12 +2675,19 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
       format = (format << StringBuilderAppend::kBitsPerArg) | static_cast<uint32_t>(arg);
       args[num_args] = as_invoke_virtual->InputAt(1u);
       ++num_args;
-    } else if (user->IsInvokeStaticOrDirect() &&
-               user->AsInvokeStaticOrDirect()->GetResolvedMethod() != nullptr &&
-               user->AsInvokeStaticOrDirect()->GetResolvedMethod()->IsConstructor() &&
-               user->AsInvokeStaticOrDirect()->GetNumberOfArguments() == 1u) {
-      // After arguments, we should see the constructor.
-      // We accept only the constructor with no extra arguments.
+    } else if ((user->IsInvokeStaticOrDirect() &&
+                user->AsInvokeStaticOrDirect()->GetResolvedMethod() != nullptr &&
+                user->AsInvokeStaticOrDirect()->GetResolvedMethod()->IsConstructor() &&
+                user->AsInvokeStaticOrDirect()->GetNumberOfArguments() == 1u) ||
+               (user->IsInstanceFieldSet() &&
+                user->AsInstanceFieldSet()->GetFieldType() == DataType::Type::kReference &&
+                user->AsInstanceFieldSet()->InputAt(0)->IsNewInstance() &&
+                user->AsInstanceFieldSet()->GetValue()->IsNewArray())) {
+      // TODO(solanes): Do we want to check in the inlined case that
+      // "java.lang.AbstractStringBuilder.value" is the field name? After arguments, we should see
+      // the constructor. It could be an invoke, or it could be inlined in the method. We accept
+      // only the constructor with no extra arguments. This means that if we inline it, we have to
+      // check it is setting it's field to a new array.
       DCHECK(!seen_constructor);
       DCHECK(!seen_constructor_fence);
       seen_constructor = true;

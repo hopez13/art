@@ -271,6 +271,7 @@ class LoadClassSlowPathX86_64 : public SlowPathCode {
 
     // Custom calling convention: RAX serves as both input and output.
     if (must_resolve_type) {
+      // TODO(solanes): Check this.
       DCHECK(IsSameDexFile(cls_->GetDexFile(), x86_64_codegen->GetGraph()->GetDexFile()));
       dex::TypeIndex type_index = cls_->GetTypeIndex();
       __ movl(CpuRegister(RAX), Immediate(type_index.index_));
@@ -1201,6 +1202,7 @@ void CodeGeneratorX86_64::RecordBootImageMethodPatch(HInvoke* invoke) {
 }
 
 void CodeGeneratorX86_64::RecordMethodBssEntryPatch(HInvoke* invoke) {
+  // TODO(solanes): Check this.
   DCHECK(IsSameDexFile(GetGraph()->GetDexFile(), *invoke->GetMethodReference().dex_file));
   method_bss_entry_patches_.emplace_back(invoke->GetMethodReference().dex_file,
                                          invoke->GetMethodReference().index);
