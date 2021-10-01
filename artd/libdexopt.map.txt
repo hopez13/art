@@ -1,0 +1,8 @@
+LIBDEXOPT {
+    global:
+        ADexopt_CreateAndValidateDexoptContext; # apex
+        ADexopt_DeleteDexoptContext; # apex
+        ADexopt_GetCmdlineArguments; # apex
+    local:
+        *;
+};
