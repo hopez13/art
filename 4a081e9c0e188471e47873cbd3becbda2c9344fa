@@ -46,6 +46,30 @@
       },
       "revId": "4a081e9c0e188471e47873cbd3becbda2c9344fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2412f28_49fd4224",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2593,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-01T08:34:59Z",
+      "side": 1,
+      "message": "I\u0027d rather we initialize at zero at allocation point. I don\u0027t think this code is that performance critical to optimize when we initialize to zero.",
+      "parentUuid": "018c5f8b_2959311b",
+      "range": {
+        "startLine": 2593,
+        "startChar": 0,
+        "endLine": 2593,
+        "endChar": 60
+      },
+      "revId": "4a081e9c0e188471e47873cbd3becbda2c9344fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
