@@ -350,6 +350,9 @@ void InlineInfo::Dump(VariableIndentationOutputStream* vios,
     vios->Stream()
         << std::dec
         << ", method_index=" << code_info.GetMethodIndexOf(*this);
+    if (HasIsInBootClassPath()) {
+      vios->Stream() << std::dec << ", boot_class_path_dex_file_index=" << GetBootClassPathIndex();
+    }
   }
   vios->Stream() << ")\n";
   code_info.GetInlineDexRegisterMapOf(stack_map, *this).Dump(vios);
