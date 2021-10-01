@@ -231,6 +231,14 @@ bool Instrumentation::NeedDebugVersionFor(ArtMethod* method) const
          !method->IsProxyMethod();
 }
 
+bool Instrumentation::CodeNeedsEntryExitStub(const void* code) {
+  jit::Jit* jit = Runtime::Current()->GetJit();
+  if (kIsDebugBuild && jit != nullptr && jit->GetCodeCache()->ContainsPc(code)) {
+    return false;
+  }
+  return true;
+}
+
 void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
   if (!method->IsInvokable() || method->IsProxyMethod()) {
     // Do not change stubs for these methods.
@@ -274,7 +282,13 @@ void Instrumentation::InstallStubsForMethod(ArtMethod* method) {
         if (entry_exit_stubs_installed_) {
           // This needs to be checked first since the instrumentation entrypoint will be able to
           // find the actual JIT compiled code that corresponds to this method.
-          new_quick_code = GetQuickInstrumentationEntryPoint();
+          const void* code = method->GetEntryPointFromQuickCompiledCodePtrSize(kRuntimePointerSize);
+          DCHECK(code != nullptr);
+          if (CodeNeedsEntryExitStub(code)) {
+            new_quick_code = GetQuickInstrumentationEntryPoint();
+          } else {
+            new_quick_code = code;
+          }
         } else if (NeedDebugVersionFor(method)) {
           // It would be great to search the JIT for its implementation here but we cannot due to
           // the locks we hold. Instead just set to the interpreter bridge and that code will search
@@ -924,7 +938,8 @@ void Instrumentation::UpdateMethodsCodeImpl(ArtMethod* method, const void* quick
                  // implementation directly and this will confuse the instrumentation trampolines.
                  // TODO We should remove the need for this since it makes it impossible to profile
                  // Proxy.<init> correctly in all cases.
-                 method != jni::DecodeArtMethod(WellKnownClasses::java_lang_reflect_Proxy_init)) {
+                 method != jni::DecodeArtMethod(WellKnownClasses::java_lang_reflect_Proxy_init) &&
+                 CodeNeedsEntryExitStub(quick_code)) {
         new_quick_code = GetQuickInstrumentationEntryPoint();
       } else {
         new_quick_code = quick_code;

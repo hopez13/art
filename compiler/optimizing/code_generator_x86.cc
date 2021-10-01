@@ -1096,6 +1096,39 @@ static dwarf::Reg DWARFReg(Register reg) {
   return dwarf::Reg::X86Core(static_cast<int>(reg));
 }
 
+void LocationsBuilderX86::VisitMethodEntryExitHook(HMethodEntryExitHook* method_hook) {
+  LocationSummary* locations = new (GetGraph()->GetAllocator())
+      LocationSummary(method_hook, LocationSummary::kCallOnMainOnly);
+  locations->AddTemp(Location::RequiresRegister());
+}
+
+void InstructionCodeGeneratorX86::VisitMethodEntryExitHook(HMethodEntryExitHook* instruction) {
+  if (Runtime::Current() == nullptr)
+    return;
+  DCHECK(!Runtime::Current()->IsAotCompiler());
+  DCHECK(codegen_->RequiresCurrentMethod());
+
+  QuickEntrypointEnum entry_point;
+  int offset;
+  if (instruction->IsMethodEntryHook()) {
+    entry_point = kQuickTraceEntryHook;
+    offset = instrumentation::Instrumentation::HaveMethodEntryListenersOffset().Int32Value();
+  } else {
+    DCHECK(instruction->IsMethodExitHook());
+    entry_point = kQuickTraceExitHook;
+    offset = instrumentation::Instrumentation::HaveMethodExitListenersOffset().Int32Value();
+  }
+
+  NearLabel done;
+  uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
+  Register temp = instruction->GetLocations()->GetTemp(0).AsRegister<Register>();
+  __ movl(temp, Immediate(address));
+  __ cmpw(Address(temp, offset), Immediate(0));
+  __ j(kEqual, &done);
+  codegen_->InvokeRuntime(entry_point, instruction, instruction->GetDexPc());
+  __ Bind(&done);
+}
+
 void CodeGeneratorX86::MaybeIncrementHotness(bool is_frame_entry) {
   if (GetCompilerOptions().CountHotnessInCompiledCode()) {
     Register reg = EAX;

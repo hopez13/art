@@ -1112,6 +1112,41 @@ void ParallelMoveResolverARM64::EmitMove(size_t index) {
   codegen_->MoveLocation(move->GetDestination(), move->GetSource(), DataType::Type::kVoid);
 }
 
+void LocationsBuilderARM64::VisitMethodEntryExitHook(HMethodEntryExitHook* method_hook) {
+  new (GetGraph()->GetAllocator()) LocationSummary(method_hook, LocationSummary::kCallOnMainOnly);
+}
+
+void InstructionCodeGeneratorARM64::VisitMethodEntryExitHook(HMethodEntryExitHook* instruction) {
+  if (Runtime::Current() == nullptr)
+    return;
+  DCHECK(!Runtime::Current()->IsAotCompiler());
+
+  DCHECK(codegen_->RequiresCurrentMethod());
+
+  QuickEntrypointEnum entry_point;
+  int offset;
+  if (instruction->IsMethodEntryHook()) {
+    entry_point = kQuickTraceEntryHook;
+    offset = instrumentation::Instrumentation::HaveMethodEntryListenersOffset().Int32Value();
+  } else {
+    DCHECK(instruction->IsMethodExitHook());
+    entry_point = kQuickTraceExitHook;
+    offset = instrumentation::Instrumentation::HaveMethodExitListenersOffset().Int32Value();
+  }
+
+  MacroAssembler* masm = GetVIXLAssembler();
+  vixl::aarch64::Label done;
+  UseScratchRegisterScope temps(masm);
+  Register temp = temps.AcquireX();
+  Register value = temps.AcquireW();
+  uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
+  __ Mov(temp, address);
+  __ Ldrh(value, MemOperand(temp, offset));
+  __ Cbz(value, &done);
+  codegen_->InvokeRuntime(entry_point, instruction, instruction->GetDexPc());
+  __ Bind(&done);
+}
+
 void CodeGeneratorARM64::MaybeIncrementHotness(bool is_frame_entry) {
   MacroAssembler* masm = GetVIXLAssembler();
   if (GetCompilerOptions().CountHotnessInCompiledCode()) {
