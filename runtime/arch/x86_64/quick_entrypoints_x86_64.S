@@ -2208,3 +2208,23 @@ DEFINE_FUNCTION art_quick_compile_optimized
     RESTORE_SAVE_EVERYTHING_FRAME               // restore frame up to return address
     ret
 END_FUNCTION art_quick_compile_optimized
+
+// On entry, method is at the bottom of the stack.
+DEFINE_FUNCTION art_quick_trace_entry_hook
+    SETUP_SAVE_EVERYTHING_FRAME
+    movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rdi // pass ArtMethod
+    movq %gs:THREAD_SELF_OFFSET, %rsi           // pass Thread::Current()
+    call SYMBOL(artTraceEntryHook)              // (ArtMethod*, Thread*)
+    RESTORE_SAVE_EVERYTHING_FRAME               // restore frame up to return address
+    ret
+END_FUNCTION art_quick_trace_entry_hook
+
+// On entry, method is at the bottom of the stack.
+DEFINE_FUNCTION art_quick_trace_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME
+    movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rdi // pass ArtMethod
+    movq %gs:THREAD_SELF_OFFSET, %rsi           // pass Thread::Current()
+    call SYMBOL(artTraceExitHook)               // (ArtMethod*, Thread*)
+    RESTORE_SAVE_EVERYTHING_FRAME               // restore frame up to return address
+    ret
+END_FUNCTION art_quick_trace_entry_hook

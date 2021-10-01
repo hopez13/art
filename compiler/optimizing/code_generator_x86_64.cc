@@ -1480,6 +1480,38 @@ static dwarf::Reg DWARFReg(FloatRegister reg) {
   return dwarf::Reg::X86_64Fp(static_cast<int>(reg));
 }
 
+void LocationsBuilderX86_64::VisitMethodEntryExitHook(HMethodEntryExitHook* method_hook) {
+  new (GetGraph()->GetAllocator()) LocationSummary(method_hook, LocationSummary::kCallOnMainOnly);
+}
+
+void InstructionCodeGeneratorX86_64::VisitMethodEntryExitHook(HMethodEntryExitHook* instruction) {
+  if (Runtime::Current() == nullptr)
+    return;
+  if (Runtime::Current()->IsAotCompiler())
+    return;
+
+  DCHECK(codegen_->RequiresCurrentMethod());
+
+  QuickEntrypointEnum entry_point;
+  int offset;
+  if (instruction->IsMethodEntryHook()) {
+    entry_point = kQuickTraceEntryHook;
+    offset = instrumentation::Instrumentation::HaveMethodEntryListenersOffset().Int32Value();
+  } else {
+    DCHECK(instruction->IsMethodExitHook());
+    entry_point = kQuickTraceExitHook;
+    offset = instrumentation::Instrumentation::HaveMethodExitListenersOffset().Int32Value();
+  }
+
+  NearLabel done;
+  uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
+  __ movq(CpuRegister(TMP), Immediate(address));
+  __ cmpw(Address(CpuRegister(TMP), offset), Immediate(0));
+  __ j(kEqual, &done);
+  codegen_->InvokeRuntime(entry_point, instruction, instruction->GetDexPc());
+  __ Bind(&done);
+}
+
 void CodeGeneratorX86_64::MaybeIncrementHotness(bool is_frame_entry) {
   if (GetCompilerOptions().CountHotnessInCompiledCode()) {
     NearLabel overflow;
