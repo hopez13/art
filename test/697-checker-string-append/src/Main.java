@@ -243,7 +243,7 @@ public class Main {
     /// CHECK-NOT:              StringBuilderAppend
 
     /// CHECK-START: java.lang.String Main.$noinline$testInlineOuter(java.lang.String, int) instruction_simplifier$after_inlining (after)
-    /// CHECK:                  StringBuilderAppend
+    /// CHECK-NOT:                  StringBuilderAppend
     public static String $noinline$testInlineOuter(String s, int i) {
         StringBuilder sb = new StringBuilder();
         return $inline$testInlineInner(sb, s, i);
