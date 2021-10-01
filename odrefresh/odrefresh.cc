@@ -1344,6 +1344,7 @@ WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(const Instructio
   }
 
   const time_t timeout = GetSubprocessTimeout();
+  dexopt_args.timeoutSecs = timeout;
   LOG(INFO) << "Compiling boot extensions (" << isa << "): " << dexopt_args.toString()
             << " [timeout " << timeout << "s]";
   if (config_.GetDryRun()) {
@@ -1352,8 +1353,7 @@ WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(const Instructio
   }
 
   bool timed_out = false;
-  int dex2oat_exit_code = odr_dexopt_->DexoptBcpExtension(
-      dexopt_args, timeout, &timed_out, error_msg);
+  int dex2oat_exit_code = odr_dexopt_->DexoptBcpExtension(dexopt_args, &timed_out, error_msg);
 
   if (dex2oat_exit_code != 0) {
     if (timed_out) {
@@ -1483,6 +1483,7 @@ WARN_UNUSED bool OnDeviceRefresh::CompileSystemServerArtifacts(const std::string
     }
 
     const time_t timeout = GetSubprocessTimeout();
+    dexopt_args.timeoutSecs = timeout;
     LOG(INFO) << "Compiling " << jar << ": " << dexopt_args.toString() << " [timeout " << timeout
               << "s]";
     if (config_.GetDryRun()) {
@@ -1491,8 +1492,7 @@ WARN_UNUSED bool OnDeviceRefresh::CompileSystemServerArtifacts(const std::string
     }
 
     bool timed_out = false;
-    int dex2oat_exit_code = odr_dexopt_->DexoptSystemServer(
-        dexopt_args, timeout, &timed_out, error_msg);
+    int dex2oat_exit_code = odr_dexopt_->DexoptSystemServer(dexopt_args, &timed_out, error_msg);
 
     if (dex2oat_exit_code != 0) {
       if (timed_out) {
