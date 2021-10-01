@@ -16,27 +16,36 @@
 
 #include "odr_dexopt.h"
 
+#include <time.h>
 #include <vector>
 
 #include "android-base/logging.h"
 #include <android-base/result.h>
 #include "android-base/strings.h"
 #include "exec_utils.h"
+#include "libcompos_client.h"
+#include "libdexopt.h"
 #include "log/log.h"
 #include "odr_config.h"
-#include "libdexopt.h"
 
 #include "aidl/com/android/art/DexoptBcpExtArgs.h"
 #include "aidl/com/android/art/DexoptSystemServerArgs.h"
+#include "aidl/com/android/art/ExtendableParcelable.h"
+#include "aidl/com/android/art/TaskType.h"
 
 namespace art {
 namespace odrefresh {
 
 using aidl::com::android::art::DexoptBcpExtArgs;
 using aidl::com::android::art::DexoptSystemServerArgs;
+using aidl::com::android::art::ExtendableParcelable;
+using aidl::com::android::art::TaskType;
 using android::base::Result;
 
 namespace {
+
+// TODO(193668901): Once migrated to the new API, remove the old implementation.
+constexpr bool USE_NEW_COMPILIATION_OS_API = false;
 
 int ExecAndReturnCode(ExecUtils* exec_utils,
                       std::vector<std::string>& cmdline,
@@ -91,10 +100,10 @@ class OdrDexoptLocal final : public OdrDexopt {
   std::unique_ptr<ExecUtils> exec_utils_;
 };
 
-class OdrDexoptCompilationOS final : public OdrDexopt {
+class OdrDexoptCompilationOSCmdline final : public OdrDexopt {
  public:
-  static OdrDexoptCompilationOS* Create(int cid, std::unique_ptr<ExecUtils> exec_utils) {
-    return new OdrDexoptCompilationOS(cid, std::move(exec_utils));
+  static OdrDexoptCompilationOSCmdline* Create(int cid, std::unique_ptr<ExecUtils> exec_utils) {
+    return new OdrDexoptCompilationOSCmdline(cid, std::move(exec_utils));
   }
 
   int DexoptBcpExtension(const DexoptBcpExtArgs& args,
@@ -138,13 +147,11 @@ class OdrDexoptCompilationOS final : public OdrDexopt {
       return -1;
     }
 
-    LOG(DEBUG) << "DexoptSystemServer cmdline: " << android::base::Join(cmdline, ' ')
-               << " [timeout " << timeout_secs << "s]";
     return ExecAndReturnCode(exec_utils_.get(), cmdline, timeout_secs, timed_out, error_msg);
   }
 
  private:
-  OdrDexoptCompilationOS(int cid, std::unique_ptr<ExecUtils> exec_utils)
+  OdrDexoptCompilationOSCmdline(int cid, std::unique_ptr<ExecUtils> exec_utils)
       : cid_(cid), exec_utils_(std::move(exec_utils)) {}
 
   void AppendPvmExecArgs(/*inout*/ std::vector<std::string>& cmdline,
@@ -203,6 +210,147 @@ class OdrDexoptCompilationOS final : public OdrDexopt {
   std::unique_ptr<ExecUtils> exec_utils_;
 };
 
+class OdrDexoptCompilationOS final : public OdrDexopt {
+ public:
+  static OdrDexoptCompilationOS* Create(int cid, std::unique_ptr<ExecUtils> exec_utils) {
+    return new OdrDexoptCompilationOS(cid, std::move(exec_utils));
+  }
+
+  int DexoptBcpExtension(const DexoptBcpExtArgs& args,
+                         time_t timeout_secs,
+                         /*out*/ bool* timed_out,
+                         /*out*/ std::string* error_msg) override {
+    std::vector<int> input_fds, output_fds;
+    if (!insertFd(input_fds, args.profileFd) ||
+        !insertFd(input_fds, args.dirtyImageObjectsFd) ||
+        !insertFd(output_fds, args.imageFd) ||
+        !insertFd(output_fds, args.vdexFd) ||
+        !insertFd(output_fds, args.oatFd)) {
+      *error_msg = "Some required FDs for dexopting BCP extension are missing";
+      return -1;
+    }
+    insertOnlyNonNegative(input_fds, args.dexFds);
+    insertOnlyNonNegative(input_fds, args.bootClasspathFds);
+
+    return DexoptCommon(args, TaskType::DEXOPT_BCP_EXTENSION, input_fds, output_fds, timeout_secs,
+                        timed_out, error_msg);
+  }
+
+  int DexoptSystemServer(const DexoptSystemServerArgs& args,
+                         time_t timeout_secs,
+                         /*out*/ bool* timed_out,
+                         /*out*/ std::string* error_msg) override {
+    std::vector<int> input_fds, output_fds;
+    if (!insertFd(input_fds, args.dexFd) ||
+        !insertFd(output_fds, args.imageFd) ||
+        !insertFd(output_fds, args.vdexFd) ||
+        !insertFd(output_fds, args.oatFd)) {
+      *error_msg = "Some required FDs for dexopting system server jar are missing";
+      return -1;
+    }
+    insertOnlyIfNonGegative(input_fds, args.profileFd);
+    insertOnlyNonNegative(input_fds, args.bootClasspathFds);
+    insertOnlyNonNegative(input_fds, args.bootClasspathImageFds);
+    insertOnlyNonNegative(input_fds, args.bootClasspathVdexFds);
+    insertOnlyNonNegative(input_fds, args.bootClasspathOatFds);
+    insertOnlyNonNegative(input_fds, args.classloaderFds);
+
+    return DexoptCommon(args, TaskType::DEXOPT_SYSTEM_SERVER, input_fds, output_fds, timeout_secs,
+                        timed_out, error_msg);
+  }
+
+ private:
+  OdrDexoptCompilationOS(int cid, std::unique_ptr<ExecUtils> exec_utils)
+      : cid_(cid), exec_utils_(std::move(exec_utils)) {}
+
+  template<typename Args>
+  int DexoptCommon(const Args& args,
+                   TaskType task_type,
+                   const std::vector<int>& input_fds,
+                   const std::vector<int>& output_fds,
+                   time_t timeout_secs,
+                   /*out*/ bool* timed_out,
+                   /*out*/ std::string* error_msg) {
+    *timed_out = false;
+    *error_msg = "Unknown error";
+
+    // Serialize to byte array to send as an opaque object to CompOS (which will later call
+    // ADexopt_CreateAndValidateDexoptContext to reconstruct). The reason to use opaque object is
+    // to allow the ART APEX to continue to update independently by providing the flexibility for
+    // ART to evolve, e.g. add or remove compilation parameters. Thereforce, we choose not to
+    // stabilize the arguments to avoid the client/CompOS explicitly depending on them.
+    ExtendableParcelable ep;
+    ep.taskType = task_type;
+    ep.ext.setParcelable(args);
+    auto parcel = std::unique_ptr<AParcel, decltype(&AParcel_delete)>(AParcel_create(),
+                                                                      AParcel_delete);
+    if (ep.writeToParcel(parcel.get()) != STATUS_OK) {
+      *error_msg = "Failed to write args to the parcel";
+      return -1;
+    }
+    std::vector<uint8_t> buffer(AParcel_getDataSize(parcel.get()));
+    if (AParcel_marshal(parcel.get(), buffer.data(), 0, buffer.size()) != STATUS_OK) {
+      *error_msg = "Failed to marshal the parcel";
+      return -1;
+    }
+
+    // Send the request over RPC binder and wait for the response.
+    auto client = std::unique_ptr<AComposClient, decltype(&AComposClient_Disconnect)>(
+        AComposClient_Connect(cid_),
+        AComposClient_Disconnect);
+    time_t begin;
+    if (time(&begin) < 0) {
+      *error_msg = "time(2) failed";
+      return -1;
+    }
+    int exit_code = AComposClient_Request(client.get(),
+                                          buffer.data(),
+                                          buffer.size(),
+                                          input_fds.data(),
+                                          input_fds.size(),
+                                          output_fds.data(),
+                                          output_fds.size());
+
+    if (exit_code < 0) {
+      time_t end = {};
+      if (time(&end) < 0) {
+        *error_msg = "time(2) failed";
+        return -1;
+      }
+      // To keep the public C API simple, use a heuristic to guess if the execution has timed out.
+      // This could returns a wrong error message in the edge case.
+      if (difftime(end, begin) >= timeout_secs) {
+        *timed_out = true;
+        *error_msg = "dex2oat possibly timed out (see service log in the VM)";
+      } else {
+        *error_msg = "dex2oat failed (see service log in the VM)";
+      }
+    }
+    return exit_code;
+  }
+
+  bool insertFd(/*inout*/ std::vector<int>& vec, int n) {
+    if (n < 0) {
+      return false;
+    }
+    vec.emplace_back(n);
+    return true;
+  }
+
+  void insertOnlyIfNonGegative(/*inout*/ std::vector<int>& vec, int n) {
+    if (n >= 0) {
+      vec.emplace_back(n);
+    }
+  }
+
+  void insertOnlyNonNegative(/*inout*/ std::vector<int>& vec, const std::vector<int>& ns) {
+    std::copy_if(ns.begin(), ns.end(), std::back_inserter(vec), [](int n) { return n >= 0; });
+  }
+
+  int cid_;
+  std::unique_ptr<ExecUtils> exec_utils_;
+};
+
 }  // namespace
 
 // static
@@ -210,7 +358,12 @@ std::unique_ptr<OdrDexopt> OdrDexopt::Create(const OdrConfig& config,
                                              std::unique_ptr<ExecUtils> exec_utils) {
   if (config.UseCompilationOs()) {
     int cid = config.GetCompilationOsAddress();
-    return std::unique_ptr<OdrDexopt>(OdrDexoptCompilationOS::Create(cid, std::move(exec_utils)));
+    if (USE_NEW_COMPILIATION_OS_API) {
+      return std::unique_ptr<OdrDexopt>(OdrDexoptCompilationOS::Create(cid, std::move(exec_utils)));
+    } else {
+      return std::unique_ptr<OdrDexopt>(
+          OdrDexoptCompilationOSCmdline::Create(cid, std::move(exec_utils)));
+    }
   } else {
     return std::unique_ptr<OdrDexopt>(OdrDexoptLocal::Create(config.GetDex2Oat(),
                                                              std::move(exec_utils)));
