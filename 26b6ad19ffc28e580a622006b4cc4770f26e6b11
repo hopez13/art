@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000015898546",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1843319?revision\u003d4",
+      "fixSuggestions": [
+        {
+          "fixId": "27d7e17a_ae1bf447",
+          "description": "Change to \"compiler/optimizing/stack_map_stream.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/stack_map_stream.cc",
+              "range": {
+                "startLine": 257,
+                "startChar": 0,
+                "endLine": 257,
+                "endChar": 20
+              },
+              "replacement": "    // TODO(solanes)"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "049379cd_f48d991f",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-04T11:41:20Z",
+      "side": 1,
+      "message": "Common typo found: \"    // TOOD(solanes)\" -- should it be \"    // TODO(solanes)\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 20
+      },
+      "revId": "26b6ad19ffc28e580a622006b4cc4770f26e6b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
