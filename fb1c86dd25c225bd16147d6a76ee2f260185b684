@@ -63,6 +63,30 @@
       },
       "revId": "fb1c86dd25c225bd16147d6a76ee2f260185b684",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd490a6a_db4f74fb",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-04T15:10:10Z",
+      "side": 1,
+      "message": "I see.  I was mostly intrigued by why the build system doesn\u0027t build the dependency for ART to build.  But now I look at out/, it\u0027s probably just that the library is generated in a different directory (out/soong/.intermediates/prebuilts/runtime/mainline/platform/sdk/libbinder_ndk).",
+      "parentUuid": "43370c75_331b83e3",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 32
+      },
+      "revId": "fb1c86dd25c225bd16147d6a76ee2f260185b684",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
