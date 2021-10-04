@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "918b9f9a_5cf7e259",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T17:25:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9424bc89_b0d20b98",
+      "range": {
+        "startLine": 1165,
+        "startChar": 19,
+        "endLine": 1165,
+        "endChar": 21
+      },
+      "revId": "6cf32dae21b19c4fab67ed60e1e61963ffa5501f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "793bed54_617d04fd",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-10-04T08:32:20Z",
       "side": 1,
       "message": "entry",
+      "range": {
+        "startLine": 458,
+        "startChar": 32,
+        "endLine": 458,
+        "endChar": 34
+      },
+      "revId": "6cf32dae21b19c4fab67ed60e1e61963ffa5501f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "289746d2_cdb66a1b",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T17:25:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "793bed54_617d04fd",
       "range": {
         "startLine": 458,
         "startChar": 32,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8861e310_f30fc413",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4088,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T17:25:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49176751_1d8c70ee",
+      "range": {
+        "startLine": 4088,
+        "startChar": 19,
+        "endLine": 4088,
+        "endChar": 21
+      },
+      "revId": "6cf32dae21b19c4fab67ed60e1e61963ffa5501f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2bd8b3e_4b820f58",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-10-04T08:32:20Z",
       "side": 1,
       "message": "entry",
+      "range": {
+        "startLine": 9747,
+        "startChar": 23,
+        "endLine": 9747,
+        "endChar": 25
+      },
+      "revId": "6cf32dae21b19c4fab67ed60e1e61963ffa5501f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fca22e4_3bd21c18",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 9747,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T17:25:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2bd8b3e_4b820f58",
       "range": {
         "startLine": 9747,
         "startChar": 23,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68a01240_498fe999",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T17:25:40Z",
+      "side": 1,
+      "message": "The value just needs to be monotonically increasing.\nCreating the runtime twice is ok.",
+      "parentUuid": "fc5abbe9_32846c05",
+      "range": {
+        "startLine": 809,
+        "startChar": 22,
+        "endLine": 809,
+        "endChar": 42
+      },
+      "revId": "6cf32dae21b19c4fab67ed60e1e61963ffa5501f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65807cff_74913438",
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da85c90_3c1d53a9",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T17:25:40Z",
+      "side": 1,
+      "message": "What if I make it atomic.fetch_add ?\nI don\u0027t think that is needed, but also there is no harm.",
+      "parentUuid": "65807cff_74913438",
+      "range": {
+        "startLine": 810,
+        "startChar": 27,
+        "endLine": 810,
+        "endChar": 49
+      },
+      "revId": "6cf32dae21b19c4fab67ed60e1e61963ffa5501f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6069df14_af8d9069",
@@ -169,6 +313,30 @@
       "writtenOn": "2021-10-04T08:32:20Z",
       "side": 1,
       "message": "entry",
+      "range": {
+        "startLine": 1523,
+        "startChar": 21,
+        "endLine": 1523,
+        "endChar": 23
+      },
+      "revId": "6cf32dae21b19c4fab67ed60e1e61963ffa5501f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "758af96f_85179792",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1523,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T17:25:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6069df14_af8d9069",
       "range": {
         "startLine": 1523,
         "startChar": 21,
