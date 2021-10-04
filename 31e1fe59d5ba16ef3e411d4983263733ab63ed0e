@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000015912886",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1843657?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "f292525d_94919cd9",
+          "description": "Change to \"artd/libdexopt.cc\"",
+          "replacements": [
+            {
+              "path": "artd/libdexopt.cc",
+              "range": {
+                "startLine": 362,
+                "startChar": 27,
+                "endLine": 362,
+                "endChar": 35
+              },
+              "replacement": "argument"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "0be0a463_d4bfcad3",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-04T21:22:14Z",
+      "side": 1,
+      "message": "Common typo found: \"arugment\" -- should it be \"argument\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 362,
+        "startChar": 27,
+        "endLine": 362,
+        "endChar": 35
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
