@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b94e19_ce168f70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-10-04T13:04:33Z",
+      "side": 1,
+      "message": "My favorite kind of patch. :) \n\nWould it make sense to rename hard failures into just failures now?",
+      "revId": "110ed0040437179b7450c6e0315bb26cc0a01ab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "229125ef_042dfe66",
+        "filename": "runtime/verifier/verifier_enums.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-10-04T13:04:33Z",
+      "side": 1,
+      "message": "These constants are internal, right? Otherwise we would need to increase version somewhere.",
+      "range": {
+        "startLine": 73,
+        "startChar": 35,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "110ed0040437179b7450c6e0315bb26cc0a01ab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
