@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14fe9056_b07aeea0",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2596,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-04T08:11:10Z",
+      "side": 1,
+      "message": "Rename to include \"NotRedundant\".",
+      "range": {
+        "startLine": 2596,
+        "startChar": 31,
+        "endLine": 2596,
+        "endChar": 60
+      },
+      "revId": "bb539f6c45edb91774b6d5c9a9a73cf7268b9a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82bb62dd_236754f1",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2610,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-04T08:11:10Z",
+      "side": 1,
+      "message": "Rename to include \"NotRedundant\".",
+      "range": {
+        "startLine": 2610,
+        "startChar": 31,
+        "endLine": 2610,
+        "endChar": 61
+      },
+      "revId": "bb539f6c45edb91774b6d5c9a9a73cf7268b9a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e1fe6c7_478e5f3b",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2704,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-04T08:11:10Z",
+      "side": 1,
+      "message": "The sign-extension is also unnecessary here but that\u0027s a different optimization.",
+      "range": {
+        "startLine": 2704,
+        "startChar": 11,
+        "endLine": 2704,
+        "endChar": 17
+      },
+      "revId": "bb539f6c45edb91774b6d5c9a9a73cf7268b9a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
