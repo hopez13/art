@@ -1714,6 +1714,16 @@ ObjPtr<Method> Class::GetDeclaredMethodInternal(
     ThrowNullPointerException("name == null");
     return nullptr;
   }
+  auto name_equals = [h_method_name](ArtMethod* np_method) REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(!np_method->IsProxyMethod());
+    const DexFile* dex_file = np_method->GetDexFile();
+    const dex::MethodId& method_id = dex_file->GetMethodId(np_method->GetDexMethodIndex());
+    const dex::StringIndex name_idx = method_id.name_idx_;
+    uint32_t utf16_length;
+    const char* utf8_name = dex_file->StringDataAndUtf16LengthByIdx(name_idx, &utf16_length);
+    return dchecked_integral_cast<uint32_t>(h_method_name->GetLength()) == utf16_length &&
+           h_method_name->Equals(utf8_name);
+  };
   auto h_args = hs.NewHandle(args);
   Handle<Class> h_klass = hs.NewHandle(klass);
   constexpr hiddenapi::AccessMethod access_method = hiddenapi::AccessMethod::kNone;
@@ -1724,14 +1734,11 @@ ObjPtr<Method> Class::GetDeclaredMethodInternal(
       continue;
     }
     ArtMethod* np_method = m.GetInterfaceMethodIfProxy(kPointerSize);
-    // May cause thread suspension.
-    ObjPtr<String> np_name = np_method->ResolveNameString();
-    if (np_name == nullptr) {
-      // OOME
-      DCHECK(self->IsExceptionPending());
-      return nullptr;
+    if (!name_equals(np_method)) {
+      continue;
     }
-    if (!np_name->Equals(h_method_name.Get()) || !np_method->EqualParameters(h_args)) {
+    // `ArtMethod::EqualParameters()` may throw when resolving types.
+    if (!np_method->EqualParameters(h_args)) {
       if (UNLIKELY(self->IsExceptionPending())) {
         return nullptr;
       }
@@ -1760,14 +1767,12 @@ ObjPtr<Method> Class::GetDeclaredMethodInternal(
       if ((modifiers & kAccConstructor) != 0) {
         continue;
       }
-      auto* np_method = m.GetInterfaceMethodIfProxy(kPointerSize);
-      // May cause thread suspension.
-      ObjPtr<String> np_name = np_method->ResolveNameString();
-      if (np_name == nullptr) {
-        self->AssertPendingException();
-        return nullptr;
+      ArtMethod* np_method = m.GetInterfaceMethodIfProxy(kPointerSize);
+      if (!name_equals(np_method)) {
+        continue;
       }
-      if (!np_name->Equals(h_method_name.Get()) || !np_method->EqualParameters(h_args)) {
+      // `ArtMethod::EqualParameters()` may throw when resolving types.
+      if (!np_method->EqualParameters(h_args)) {
         if (UNLIKELY(self->IsExceptionPending())) {
           return nullptr;
         }
