@@ -22,6 +22,30 @@
       },
       "revId": "5bdd6c6f544ddaec1792ef9f9e9c075b9435f4ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "768c8928_d9764fcb",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1726,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-04T14:45:43Z",
+      "side": 1,
+      "message": "Done (makes this long function a bit shorter).",
+      "parentUuid": "8d32bd08_96951a38",
+      "range": {
+        "startLine": 1717,
+        "startChar": 0,
+        "endLine": 1726,
+        "endChar": 4
+      },
+      "revId": "5bdd6c6f544ddaec1792ef9f9e9c075b9435f4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
