@@ -18,6 +18,41 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6226fd5_445c0cc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-04T13:08:15Z",
+      "side": 1,
+      "message": "Yes, could make sense. However, there\u0027s still the notion of \"soft\" failure in the class linker. That is, a class on which we have run the verifier at AOT time, but we may need at runtime to perform fast verify (aka vdex checking) type checks. I\u0027d like to see how to restructure that code with a better name before getting rid of the notion of hard/soft failure.",
+      "parentUuid": "28b94e19_ce168f70",
+      "revId": "110ed0040437179b7450c6e0315bb26cc0a01ab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4df4b050_100e53d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-04T13:08:15Z",
+      "side": 1,
+      "message": "Thanks Ulya!",
+      "revId": "110ed0040437179b7450c6e0315bb26cc0a01ab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "229125ef_042dfe66",
@@ -31,6 +66,30 @@
       "writtenOn": "2021-10-04T13:04:33Z",
       "side": 1,
       "message": "These constants are internal, right? Otherwise we would need to increase version somewhere.",
+      "range": {
+        "startLine": 73,
+        "startChar": 35,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "110ed0040437179b7450c6e0315bb26cc0a01ab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f145521a_5f443103",
+        "filename": "runtime/verifier/verifier_enums.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-04T13:08:15Z",
+      "side": 1,
+      "message": "Yes, all internal.",
+      "parentUuid": "229125ef_042dfe66",
       "range": {
         "startLine": 73,
         "startChar": 35,
