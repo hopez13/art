@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "edc5372a_45955833",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T16:36:03Z",
+      "side": 1,
+      "message": "It was on my machine (72 hyper-threads).  However, I don\u0027t think the CPU count matters that much.  At the end of the day, we are spending 75% of cycles just building things.  So I would expect the speed up to be similar regardless of CPU count.\n\nI claim the \"or better\" for LUCI, since we essentially have single CPU there, which is the bottleneck.  This CL frees removes the CPU load, leaving only the multi CPU device load.\n\nAnyway, it is expected to be significant improvement.  We will find out the exact magnitude soon enough...",
+      "parentUuid": "e0ec1f9d_3bdd4721",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 47
+      },
+      "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "735f82ae_f43175cd",
         "filename": "/COMMIT_MSG",
         "patchSetId": 8
@@ -104,6 +128,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85f659cc_e8875e17",
+        "filename": "test/Android.run-test.bp.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T16:36:03Z",
+      "side": 1,
+      "message": "That was intentional to make the tests groups more \"balanced\".\nUsing the first two digits would mean we would some huge groups and some tiny ones.\n\nThere is not much benefit in having related tests together.\nThe CPU build cost is the same, and it all ends in one big zip file anyway.",
+      "parentUuid": "dfcc1e77_8b571eec",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 84
+      },
+      "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2156b48e_a9ecdb27",
@@ -127,6 +175,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c8bc07b_5574f4b7",
+        "filename": "test/Android.run-test.bp.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T16:36:03Z",
+      "side": 1,
+      "message": "\"without recompiling evertything\" \u003d Without recompiling all tests (which would be pretty slow).",
+      "parentUuid": "2156b48e_a9ecdb27",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 83
+      },
+      "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83102c1d_c51ee9d9",
@@ -140,6 +212,30 @@
       "writtenOn": "2021-09-30T15:09:41Z",
       "side": 1,
       "message": "Style (see go/pystyle): Spaces around binary operator (here and below).",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 4
+      },
+      "revId": "bf9b101c33808288b7db1a882bdf96789fe07b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea15cb17_ff226df0",
+        "filename": "test/run-test-build.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-04T16:36:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83102c1d_c51ee9d9",
       "range": {
         "startLine": 24,
         "startChar": 3,
