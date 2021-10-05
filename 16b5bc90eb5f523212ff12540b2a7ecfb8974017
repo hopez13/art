@@ -94,6 +94,30 @@
       },
       "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c700912e_3fe6a1bf",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-05T14:33:32Z",
+      "side": 1,
+      "message": "Oh so now I understand the comment :) That\u0027s pretty scary this code then, what happens in the situation we\u0027re changing the size of the cache? Should you insread do fields-\u003eSize() instead of calling NumResolvedFields, which can be changed randomly?",
+      "parentUuid": "cfc79c1e_17782cd0",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 79
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
