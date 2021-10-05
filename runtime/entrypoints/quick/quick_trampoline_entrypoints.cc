@@ -1096,7 +1096,7 @@ extern "C" TwoWordReturn artInstrumentationMethodExitFromCode(Thread* self,
       RuntimeCalleeSaveFrame::GetReturnPcOffset(CalleeSaveType::kSaveEverything);
   uintptr_t* return_pc_addr = reinterpret_cast<uintptr_t*>(reinterpret_cast<uint8_t*>(sp) +
                                                            return_pc_offset);
-  CHECK_EQ(*return_pc_addr, 0U);
+  // CHECK_EQ(*return_pc_addr, 0U);
 
   // Pop the frame filling in the return pc. The low half of the return value is 0 when
   // deoptimization shouldn't be performed with the high-half having the return address. When
@@ -2582,22 +2582,25 @@ extern "C" uint64_t artInvokeCustom(uint32_t call_site_idx, Thread* self, ArtMet
   return result.GetJ();
 }
 
-extern "C" void artTraceEntryHook(ArtMethod* method, Thread* self)
+extern "C" const void* artTraceEntryHook(ArtMethod* method, mirror::Object* this_object, Thread* self, ArtMethod** sp)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  return artInstrumentationMethodEntryFromCode(method, this_object, self, sp);
+  /*instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
   if (instr->HasMethodEntryListeners()) {
     instr->MethodEnterEvent(self, method);
-  }
+  }*/
 }
 
-extern "C" void artTraceExitHook(ArtMethod* method, Thread* self)
+extern "C" TwoWordReturn artTraceExitHook(Thread* self, ArtMethod** sp, uint64_t* gpr_result, uint64_t* fpr_result)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+   return artInstrumentationMethodExitFromCode(self, sp, gpr_result, fpr_result);
+
+  /*instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
   if (instr->HasMethodExitListeners()) {
     JValue return_value;
     return_value.SetJ(0);
     instr->MethodExitEvent(self, ObjPtr<mirror::Object>(), method, 0, {}, return_value);
-  }
+  }*/
 }
 
 }  // namespace art

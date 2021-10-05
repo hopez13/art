@@ -2212,19 +2212,40 @@ END_FUNCTION art_quick_compile_optimized
 // On entry, method is at the bottom of the stack.
 DEFINE_FUNCTION art_quick_trace_entry_hook
     SETUP_SAVE_EVERYTHING_FRAME
+    
     movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rdi // pass ArtMethod
-    movq %gs:THREAD_SELF_OFFSET, %rsi           // pass Thread::Current()
-    call SYMBOL(artTraceEntryHook)              // (ArtMethod*, Thread*)
-    RESTORE_SAVE_EVERYTHING_FRAME               // restore frame up to return address
+    movq %gs:THREAD_SELF_OFFSET, %rdx           // pass Thread::Current()
+    movq %rsp, %rcx                     // Pass SP.
+
+    call SYMBOL(artTraceEntryHook)              // (ArtMethod*, Object*, Thread*, SP)
+
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
     ret
 END_FUNCTION art_quick_trace_entry_hook
 
 // On entry, method is at the bottom of the stack.
 DEFINE_FUNCTION art_quick_trace_exit_hook
     SETUP_SAVE_EVERYTHING_FRAME
-    movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rdi // pass ArtMethod
-    movq %gs:THREAD_SELF_OFFSET, %rsi           // pass Thread::Current()
-    call SYMBOL(artTraceExitHook)               // (ArtMethod*, Thread*)
-    RESTORE_SAVE_EVERYTHING_FRAME               // restore frame up to return address
+
+    leaq 16(%rsp), %rcx       // Pass floating-point result pointer, in kSaveEverything frame.
+    leaq 144(%rsp), %rdx      // Pass integer result pointer, in kSaveEverything frame.
+    movq %rsp, %rsi           // Pass SP.
+    movq %gs:THREAD_SELF_OFFSET, %rdi  // Pass Thread.
+
+    call SYMBOL(artTraceExitHook)   // (Thread*, SP, gpr_res*, fpr_res*)
+
+    testq %rax, %rax          // Check if we have a return-pc to go to. If we don't then there was
+                              // an exception
+    jz .Ldo_deliver_instrumentation_exception_exit
+    testq %rdx, %rdx
+    jnz .Ldeoptimize_exit
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
     ret
+.Ldeoptimize_exit:
+    RESTORE_SAVE_EVERYTHING_FRAME
+    // Jump to art_quick_deoptimize.
+    jmp SYMBOL(art_quick_deoptimize)
+.Ldo_deliver_instrumentation_exception_exit:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
 END_FUNCTION art_quick_trace_entry_hook

@@ -2634,23 +2634,39 @@ END art_quick_compile_optimized
 // On entry, method is at the bottom of the stack.
 ENTRY art_quick_trace_entry_hook
     SETUP_SAVE_EVERYTHING_FRAME
+
     ldr x0, [sp, #FRAME_SIZE_SAVE_EVERYTHING] // pass ArtMethod
-    mov x1, xSELF                             // pass Thread::Current
-    bl     artTraceEntryHook                // (ArtMethod*, Thread*)
+    mov   x2, xSELF
+    mov   x3, sp  // Pass SP
+    bl    artTraceEntryHook  // (Method*, Object*, Thread*, SP)
+
     RESTORE_SAVE_EVERYTHING_FRAME
-    // We don't need to restore the marking register here, as
-    // artCompileOptimized doesn't allow thread suspension.
+    REFRESH_MARKING_REGISTER
     ret
 END art_quick_trace_entry_hook
 
 // On entry, method is at the bottom of the stack.
 ENTRY art_quick_trace_exit_hook
     SETUP_SAVE_EVERYTHING_FRAME
-    ldr x0, [sp, #FRAME_SIZE_SAVE_EVERYTHING] // pass ArtMethod
-    mov x1, xSELF                             // pass Thread::Current
-    bl     artTraceExitHook                // (ArtMethod*, Thread*)
+
+    add   x3, sp, #16         // Pass floating-point result pointer, in kSaveEverything frame.
+    add   x2, sp, #272        // Pass integer result pointer, in kSaveEverything frame.
+    mov   x1, sp              // Pass SP.
+    mov   x0, xSELF           // Pass Thread.
+    bl   artTraceExitHook    // (Thread*, SP, gpr_res*, fpr_res*)
+
+    cbz   x0, .Ldo_deliver_instrumentation_exception_trace_exit
+                              // Handle error
+    cbnz  x1, .Ldeoptimize_trace_exit
+
+    // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME
-    // We don't need to restore the marking register here, as
-    // artCompileOptimized doesn't allow thread suspension.
+    REFRESH_MARKING_REGISTER
     ret
+.Ldo_deliver_instrumentation_exception_trace_exit:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
+.Ldeoptimize_trace_exit:
+    RESTORE_SAVE_EVERYTHING_FRAME
+    // Jump to art_quick_deoptimize.
+    b     art_quick_deoptimize
 END art_quick_trace_exit_hook
