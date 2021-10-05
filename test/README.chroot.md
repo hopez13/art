@@ -52,6 +52,7 @@ Note that using this chroot-based approach requires root access to the device
     * With a minimal `aosp/master-art` tree:
         ```bash
         export SOONG_ALLOW_MISSING_DEPENDENCIES=true
+        export TARGET_BUILD_UNBUNDLED=true
         . ./build/envsetup.sh
         lunch armv8-eng  # or arm_krait-eng for 32-bit ARM
         export PATH="$(pwd)/prebuilts/runtime:$PATH"
