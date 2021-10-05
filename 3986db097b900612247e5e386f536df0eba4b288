@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "140a9c3b_3405fd18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-05T15:03:53Z",
+      "side": 1,
+      "message": "I don\u0027t think any of the steps in the README need this, because the scripts do it themselves. It doesn\u0027t hurt though, in case users invoke `m` directly. If that\u0027s the reason you\u0027re adding it then it could be described better here - I don\u0027t quite follow the motivation above, or the relevance of b/159109002.",
+      "revId": "3986db097b900612247e5e386f536df0eba4b288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
