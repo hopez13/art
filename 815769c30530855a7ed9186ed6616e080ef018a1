@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b15f087c_6c5ed0a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-05T15:25:07Z",
+      "side": 1,
+      "message": "FYI Jiakai, we\u0027re still waiting for the VM layer to support multiple vCPUs.",
+      "revId": "815769c30530855a7ed9186ed6616e080ef018a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a6ea63c_384a0143",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-05T15:25:07Z",
+      "side": 1,
+      "message": "I\u0027d prefer not to touch this in this change just to de-risk.  I\u0027ve seen the task succeeded because it\u0027s still allowed to finish within max_child_process_seconds_ (even if the remaining time is little).  It happened in the VM though, but I don\u0027t know how plenty of the budget is for low-end devices.",
+      "range": {
+        "startLine": 522,
+        "startChar": 14,
+        "endLine": 522,
+        "endChar": 17
+      },
+      "revId": "815769c30530855a7ed9186ed6616e080ef018a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
