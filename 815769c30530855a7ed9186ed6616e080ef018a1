@@ -39,6 +39,30 @@
       },
       "revId": "815769c30530855a7ed9186ed6616e080ef018a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd40ed45_026a8854",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-05T15:34:07Z",
+      "side": 1,
+      "message": "That\u0027s a reasonable worry. For VMs I have increased the time remaining by more than max_child_process_seconds, so I think there shouldn\u0027t be any cases where the new code will constrain a child where the old one wouldn\u0027t have?\n\nJiakai - WDYT? Should we increase kMaximumExecutionSeconds to be safe in the non-VM case, or just leave this code alone?",
+      "parentUuid": "5a6ea63c_384a0143",
+      "range": {
+        "startLine": 522,
+        "startChar": 14,
+        "endLine": 522,
+        "endChar": 17
+      },
+      "revId": "815769c30530855a7ed9186ed6616e080ef018a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
