@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22b393a1_9fea0687",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T13:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cc9ab7c_5ba837ca",
+      "range": {
+        "startLine": 3,
+        "startChar": 18,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afbe2038_428b9a72",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-08-27T14:26:06Z",
       "side": 1,
       "message": "if these are effectively constants, google style prefixes with _.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1003ad0e_332fa461",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T13:50:50Z",
+      "side": 1,
+      "message": "I would like to keep most symbols same as the bash file, and keep renames and more significant changes to followup CLs.",
+      "parentUuid": "afbe2038_428b9a72",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4598b3d3_66666432",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T13:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3412627_6b5ec44a",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d20df13a_eb6f9af5",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-08-27T14:26:06Z",
       "side": 1,
       "message": "Prefer to make these module level constants, _BUILD_MODE_HOST \u003d \"host, etc.",
+      "range": {
+        "startLine": 89,
+        "startChar": 77,
+        "endLine": 89,
+        "endChar": 83
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0db0ddb_2373d314",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T13:50:50Z",
+      "side": 1,
+      "message": "I would prefer to make those three mutually exclusive booleans,\nbut I would like to keep such semantic cleanup for later.",
+      "parentUuid": "d20df13a_eb6f9af5",
       "range": {
         "startLine": 89,
         "startChar": 77,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ddd115b_1a969830",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T13:50:50Z",
+      "side": 1,
+      "message": "Line 128",
+      "parentUuid": "2da54dc4_0ccee4f6",
+      "range": {
+        "startLine": 160,
+        "startChar": 12,
+        "endLine": 160,
+        "endChar": 17
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b437f37_6e92ef87",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-08-27T14:26:06Z",
       "side": 1,
       "message": "shellisms, line too long.",
+      "range": {
+        "startLine": 177,
+        "startChar": 29,
+        "endLine": 177,
+        "endChar": 43
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac8764b5_41628f3e",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T13:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b437f37_6e92ef87",
       "range": {
         "startLine": 177,
         "startChar": 29,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f595b95d_ca058cdc",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T13:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22a1de8c_e15595f6",
+      "range": {
+        "startLine": 213,
+        "startChar": 100,
+        "endLine": 213,
+        "endChar": 105
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af8589d4_aaaf4d4a",
@@ -175,6 +343,30 @@
       "writtenOn": "2021-08-27T14:26:06Z",
       "side": 1,
       "message": "nit: line length",
+      "range": {
+        "startLine": 219,
+        "startChar": 49,
+        "endLine": 219,
+        "endChar": 109
+      },
+      "revId": "bf8c5e91cb93de0f66b81ff1e78e3656d4e456f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b8eed96_64e36eff",
+        "filename": "test/etc/default-build",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T13:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af8589d4_aaaf4d4a",
       "range": {
         "startLine": 219,
         "startChar": 49,
