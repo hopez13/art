@@ -118,6 +118,30 @@
       },
       "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01de58be_cfb817c2",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T14:46:12Z",
+      "side": 1,
+      "message": "As of this CL the size is still constant.\n\nThe followup resizible CL does indeed have fields-\u003eSize() to avoid this.",
+      "parentUuid": "c700912e_3fe6a1bf",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 79
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
