@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fda18d6b_fdd8fe1d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7619,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-05T16:08:58Z",
+      "side": 1,
+      "message": "Pull this load out of the loop:\n\n  size_t end \u003d (resolved_methods !\u003d nullptr) ? dex_cache-\u003eNumResolvedMethods() : 0u;",
+      "range": {
+        "startLine": 7619,
+        "startChar": 60,
+        "endLine": 7619,
+        "endChar": 91
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29c8c46d_0735ac3e",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-05T16:08:58Z",
+      "side": 1,
+      "message": "We could use `ObjectLock` on the `DexCache` object. No other code should lock on these internal objects.",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 45
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff555a9b_7c69d94d",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-05T16:08:58Z",
+      "side": 1,
+      "message": "reinterpret_cast64",
+      "range": {
+        "startLine": 74,
+        "startChar": 47,
+        "endLine": 74,
+        "endChar": 63
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9eeb7597_933d8f6b",
         "filename": "runtime/mirror/dex_cache.cc",
         "patchSetId": 3
@@ -139,6 +208,75 @@
         "startChar": 0,
         "endLine": 57,
         "endChar": 79
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "555d4f65_ff48981c",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-05T16:08:58Z",
+      "side": 1,
+      "message": "Pull this load out of the loop.",
+      "range": {
+        "startLine": 58,
+        "startChar": 46,
+        "endLine": 58,
+        "endChar": 65
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6774492f_2f0bb9a2",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-05T16:08:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 78,
+        "startChar": 47,
+        "endLine": 78,
+        "endChar": 67
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a420510e_7c2d94d5",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-05T16:08:58Z",
+      "side": 1,
+      "message": "You have already removed pre-resolved strings from images with https://android-review.googlesource.com/1513860 . You should prepare a separate cleanup CL to completely remove preresolved strings from DexCache before proceeding with this CL.",
+      "range": {
+        "startLine": 518,
+        "startChar": 2,
+        "endLine": 518,
+        "endChar": 32
       },
       "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
