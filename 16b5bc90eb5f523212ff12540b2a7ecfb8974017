@@ -70,6 +70,30 @@
       },
       "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfc79c1e_17782cd0",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T14:23:25Z",
+      "side": 1,
+      "message": "Yes.  In fairness, I assume that most usecases of the visitors are going to be ensure there is no concurrent DexCache access in the caller.\n\nHowever, it is also possible to iterate over dex cache on one thread while other thread initializes it and adds entries.",
+      "parentUuid": "c4523150_1771815f",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 79
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
