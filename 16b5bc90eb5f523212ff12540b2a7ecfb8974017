@@ -46,6 +46,30 @@
       },
       "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4523150_1771815f",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-05T14:11:46Z",
+      "side": 1,
+      "message": "So we\u0027re either dealing with:\n1) Empty dex cache\n2) Dex cache created concurrently and hence we know there aren\u0027t any entries to update?",
+      "parentUuid": "8ecc98d2_1bf5529a",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 79
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
