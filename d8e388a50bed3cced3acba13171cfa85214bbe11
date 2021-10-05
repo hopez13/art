@@ -46,6 +46,30 @@
       },
       "revId": "d8e388a50bed3cced3acba13171cfa85214bbe11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c8bc370_06e7f5de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-05T14:14:37Z",
+      "side": 1,
+      "message": "My worry is relying on allocator behavior here to catch any issue (as shown by the bug).\n\nThe blunt tool does put us on the safe side that things will work the same regardless of allocator behavior.",
+      "parentUuid": "128d7662_d1e77793",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "d8e388a50bed3cced3acba13171cfa85214bbe11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
