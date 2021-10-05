@@ -22,6 +22,30 @@
       },
       "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ecc98d2_1bf5529a",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-05T11:47:55Z",
+      "side": 1,
+      "message": "The array is initialized just once (under a lock), but it might be on other thread.\n\nThe initializing thread sets the data pointer and the size count.\n\nWhich means that if the timing is right, this thread might try to loop over the array right in between the update of those two fields. (i.e. seeing non-zero count, but seeing zero data pointer).\n\nThe simplest fix is to check both fields are initialized.",
+      "parentUuid": "9eeb7597_933d8f6b",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 79
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
