@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e154157_4320c73d",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-05T08:37:01Z",
+      "side": 1,
+      "message": "Looks like unreachable code to me. We should simply\n\n  DCHECK(new_type1.CheckWidePair(new_type2));\n\nFeel free to verify all callers (two levels up for `Check.*Op.*Wide`, except `Check.*OpFromWide` which do not have a wide destination) to see that it\u0027s always called with a matching pair.\n\nClean up CL: https://android-review.googlesource.com/1844913 .",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 18
+      },
+      "revId": "f3c5bbb742c9cd1bf8a67aadd656a5c5f45a3f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
