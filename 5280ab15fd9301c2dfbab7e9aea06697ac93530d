@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a78e260_a67ccde3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-06T07:29:19Z",
+      "side": 1,
+      "message": "Historically, there has been strong desire to avoid hard failures in the BCP. It was originally enforced by dex2oat when building the boot image when it was monolithic and contained the entire BCP. I think there is still value in this requirement and I remember some discussions about having an on-device test for this before rebooting for ART Module update.",
+      "parentUuid": "790b16e4_b32ad899",
+      "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40a2d870_b18aa39f",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
