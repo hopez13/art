@@ -3199,7 +3199,7 @@ ObjPtr<mirror::Class> ClassLinker::DefineClass(Thread* self,
   }
   self->AssertNoPendingException();
   CHECK(h_new_class != nullptr) << descriptor;
-  CHECK(h_new_class->IsResolved() && !h_new_class->IsErroneousResolved()) << descriptor;
+  CHECK_EQ(h_new_class->GetStatus(), ClassStatus::kResolved) << descriptor;
 
   // Instrumentation may have updated entrypoints for all methods of all
   // classes. However it could not update methods of this class while we
