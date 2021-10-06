@@ -70,6 +70,30 @@
       },
       "revId": "d8e388a50bed3cced3acba13171cfa85214bbe11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7859b4dd_f5aaf984",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-06T10:25:13Z",
+      "side": 1,
+      "message": "I was not trying to rely on allocator behavior. I consider it a real bug not to clear the padding explicitly. And the allocator behavior was actually hiding the bug.\n\nMaybe we should have a build target with MALLOC_PATTERN_FILL_CONTENTS\u003dtrue configured for continuous testing. But that\u0027s out of scope here.",
+      "parentUuid": "3c8bc370_06e7f5de",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "d8e388a50bed3cced3acba13171cfa85214bbe11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
