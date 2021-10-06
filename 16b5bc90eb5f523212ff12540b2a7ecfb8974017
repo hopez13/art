@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22c50897_b6c14a63",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7619,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-06T15:11:50Z",
+      "side": 1,
+      "message": "Without the ternary operator you\u0027re relying on the compiler to optimize it properly. But it should be quite easy for clang++ to pull the `resolved_methods !\u003d nullptr \u0026\u0026` out of the loop, so it\u0027s OK to keep the PS4 version.",
+      "parentUuid": "7eed16aa_68360660",
+      "range": {
+        "startLine": 7619,
+        "startChar": 60,
+        "endLine": 7619,
+        "endChar": 91
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29c8c46d_0735ac3e",
@@ -440,6 +464,30 @@
       "side": 1,
       "message": "I have split some of the pre-resolved sting cleanup from this CL.\n\nI am aware I should also remove the DexCache field... However, I am planing to remove bunch of other fields (the counts) in follow up CLs.\n\nSo, I would rather do the field clean-up as followup.",
       "parentUuid": "a420510e_7c2d94d5",
+      "range": {
+        "startLine": 518,
+        "startChar": 2,
+        "endLine": 518,
+        "endChar": 32
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd91bf30_e583da24",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-06T15:11:50Z",
+      "side": 1,
+      "message": "Thank you, that\u0027s enough for now.",
+      "parentUuid": "fc541009_8ca3144c",
       "range": {
         "startLine": 518,
         "startChar": 2,
