@@ -24,6 +24,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "359c64f2_dcb25728",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7619,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-06T14:28:21Z",
+      "side": 1,
+      "message": "Done (pulled out of loop; the ternary operator seems like overkill)",
+      "parentUuid": "fda18d6b_fdd8fe1d",
+      "range": {
+        "startLine": 7619,
+        "startChar": 60,
+        "endLine": 7619,
+        "endChar": 91
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eed16aa_68360660",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7619,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-06T14:28:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fda18d6b_fdd8fe1d",
+      "range": {
+        "startLine": 7619,
+        "startChar": 60,
+        "endLine": 7619,
+        "endChar": 91
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29c8c46d_0735ac3e",
@@ -49,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfbf9e13_189865ba",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-06T14:28:21Z",
+      "side": 1,
+      "message": "The \"should\" makes me a little uncomfortable though.  I don\u0027t want to deadlock the run-time just because some app is doing something they should not... \n\nBut still... it does appropritate to lock the object to change it\u0027s fields and one less global lock would be nice.\n\nNicolas ... any preference?",
+      "parentUuid": "29c8c46d_0735ac3e",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 45
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff555a9b_7c69d94d",
         "filename": "runtime/mirror/dex_cache-inl.h",
         "patchSetId": 3
@@ -60,6 +132,30 @@
       "writtenOn": "2021-10-05T16:08:58Z",
       "side": 1,
       "message": "reinterpret_cast64",
+      "range": {
+        "startLine": 74,
+        "startChar": 47,
+        "endLine": 74,
+        "endChar": 63
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cb5b55b_04d2a863",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-06T14:28:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff555a9b_7c69d94d",
       "range": {
         "startLine": 74,
         "startChar": 47,
@@ -236,6 +332,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "263b96e8_9f06a43d",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-06T14:28:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "555d4f65_ff48981c",
+      "range": {
+        "startLine": 58,
+        "startChar": 46,
+        "endLine": 58,
+        "endChar": 65
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6774492f_2f0bb9a2",
@@ -259,6 +379,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ff9323f_bb2dab3f",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-06T14:28:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6774492f_2f0bb9a2",
+      "range": {
+        "startLine": 78,
+        "startChar": 47,
+        "endLine": 78,
+        "endChar": 67
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a420510e_7c2d94d5",
@@ -272,6 +416,30 @@
       "writtenOn": "2021-10-05T16:08:58Z",
       "side": 1,
       "message": "You have already removed pre-resolved strings from images with https://android-review.googlesource.com/1513860 . You should prepare a separate cleanup CL to completely remove preresolved strings from DexCache before proceeding with this CL.",
+      "range": {
+        "startLine": 518,
+        "startChar": 2,
+        "endLine": 518,
+        "endChar": 32
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc541009_8ca3144c",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-06T14:28:21Z",
+      "side": 1,
+      "message": "I have split some of the pre-resolved sting cleanup from this CL.\n\nI am aware I should also remove the DexCache field... However, I am planing to remove bunch of other fields (the counts) in follow up CLs.\n\nSo, I would rather do the field clean-up as followup.",
+      "parentUuid": "a420510e_7c2d94d5",
       "range": {
         "startLine": 518,
         "startChar": 2,
