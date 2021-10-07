@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6cca799f_e3efa59d",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-07T09:29:28Z",
+      "side": 1,
+      "message": "Yeah, I\u0027d also be hesitant given the DexCache is a Java object that can enter user code.\n\nUsing a global lock looks overkill though, it\u0027d be nice if the lock in the linear alloc was also protecting the store in a field, and we would CAS on it (and free the allocated memory if the CAS fails).",
+      "parentUuid": "dfbf9e13_189865ba",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 45
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff555a9b_7c69d94d",
         "filename": "runtime/mirror/dex_cache-inl.h",
         "patchSetId": 3
