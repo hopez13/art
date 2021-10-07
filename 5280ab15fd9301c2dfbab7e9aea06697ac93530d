@@ -216,6 +216,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b349baff_9a0c369e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-07T13:14:49Z",
+      "side": 1,
+      "message": "Indeed, and that \"failure\" is being ignored here line 912, which is sort of inconsistent if we hard fail in the verifier for other reasons.",
+      "parentUuid": "62bdf408_abd1a782",
+      "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40a2d870_b18aa39f",
