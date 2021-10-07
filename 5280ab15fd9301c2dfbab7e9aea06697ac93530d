@@ -146,6 +146,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b27ffc88_f178c305",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-07T12:38:59Z",
+      "side": 1,
+      "message": "Yes, but that was before realizing what can constitute a hard failure. Imagine this scenario, which happened in production:\n\nNew code in T, not executed in S (but still shipping on S through a mainline update), relies on the fact a class that was present in S moved from \u0027final\u0027 to \u0027non-final\u0027. When verifying on S, this could lead to hard failures. But given the class is not supposed to execute, that\u0027s OK.",
+      "parentUuid": "3a78e260_a67ccde3",
+      "revId": "5280ab15fd9301c2dfbab7e9aea06697ac93530d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40a2d870_b18aa39f",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
