@@ -167,6 +167,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5b19bbe_947780bf",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-07T09:42:12Z",
+      "side": 1,
+      "message": "I also get a feeling that \"java locks\" are for user code, and \"mutex locks\" are for the runtime.\n\nGlobal lock is a bit of overkill, but by definition the allocation of array happens just once (at least in this CL), so I don\u0027t feel too bad.\n\nI have one version of the followup CLs with alloc+CAS+free, but that is not applicable to linear alloc as it does not have free.  Also, for the growing version, that turned out suboptimal as all threads tend to hit the path at the same time so there was a lot of redundant alloc+free operations.\n\nOn second read, I think you might mean something more elaborate with making linear alloc more clever... Does linear alloc have it\u0027s own lock? I guess in that case we would replace one globabl lock with other, which makes no difference.",
+      "parentUuid": "6cca799f_e3efa59d",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 45
+      },
+      "revId": "16b5bc90eb5f523212ff12540b2a7ecfb8974017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff555a9b_7c69d94d",
