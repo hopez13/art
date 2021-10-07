@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76ba6de3_c7f930b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-07T23:44:30Z",
+      "side": 1,
+      "message": "Just some high-level comments. I\u0027ll review the CL again once they are addressed.",
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5509f02e_f7cf3b66",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-07T23:44:30Z",
+      "side": 1,
+      "message": "Is Android T API level 32?",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d520d21_58a6f6d0",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-07T23:44:30Z",
+      "side": 1,
+      "message": "ADexoptContext looks like implementation details. Does it have to be exposed as part of the APIs? Alternatively, instead of having these three APIs, can we simply have:\n\nconst char* const* ADexopt_GetCmdlineArguments(const uint8_t* marshaled, size_t size)?",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 20
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c9c2259_c40606e5",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-07T23:44:30Z",
+      "side": 1,
+      "message": "Can the binder API pass std::vector? If so, why does AComposClient_Request have to be defined in a C style?",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 46
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
