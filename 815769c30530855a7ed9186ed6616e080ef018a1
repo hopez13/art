@@ -63,6 +63,30 @@
       },
       "revId": "815769c30530855a7ed9186ed6616e080ef018a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "204534f9_d0a050f2",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-07T23:44:44Z",
+      "side": 1,
+      "message": "I believe `std::max` is a mistake. Thank you for spotting it and fixing it. I\u0027d suggest keeping this fix in this change, and kMaximumExecutionSeconds doesn\u0027t need to be increased. As I experimented in b/197275229#comment3, Flame takes 67s from start to end, so the 300s budget should be enough even for low-end devices. Taking more than 300s on boot sounds like a problem that the system health team would flag.",
+      "parentUuid": "cd40ed45_026a8854",
+      "range": {
+        "startLine": 522,
+        "startChar": 14,
+        "endLine": 522,
+        "endChar": 17
+      },
+      "revId": "815769c30530855a7ed9186ed6616e080ef018a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
