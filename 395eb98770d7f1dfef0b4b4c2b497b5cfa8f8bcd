@@ -127,6 +127,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7886215_9f7c79f7",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-08T17:36:18Z",
+      "side": 1,
+      "message": "Are you sure we should use `EX__MAX`? It doesn\u0027t seem to be guaranteed to never change.  If it\u0027s changed in U, then the ART APEX version U may break on CompOS version T.  How about let\u0027s just prever kTimeout in dex2oat\u0027s ReturnCode?  I\u0027ve tentatively implemented this, but let me know if you have different thought.",
+      "parentUuid": "a1303fa8_8af756fa",
+      "range": {
+        "startLine": 317,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 7
+      },
+      "revId": "395eb98770d7f1dfef0b4b4c2b497b5cfa8f8bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82a156c5_4530ac78",
         "filename": "odrefresh/odr_dexopt.cc",
         "patchSetId": 2
