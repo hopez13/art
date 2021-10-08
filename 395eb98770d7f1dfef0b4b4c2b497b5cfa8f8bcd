@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee479e43_7bced995",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-08T00:34:09Z",
+      "side": 1,
+      "message": "Right.  Originally, I had some check that could make Create return nullptr.  It\u0027s not longer needed now.  I\u0027ll send you a follow-up to fix them together.",
+      "parentUuid": "5bd803b4_4d92c32e",
+      "revId": "395eb98770d7f1dfef0b4b4c2b497b5cfa8f8bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7147ea3_5fc18b24",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-10-07T23:42:51Z",
       "side": 1,
       "message": "This looks hacky. Alternatively, CompOS can return different exit codes for different type of errors while still keeping the C API simple. It can even output the error message using a char** parameter.",
+      "range": {
+        "startLine": 317,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 7
+      },
+      "revId": "395eb98770d7f1dfef0b4b4c2b497b5cfa8f8bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9795013_eb6fdfb6",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-08T00:34:09Z",
+      "side": 1,
+      "message": "Yes, this is definitely hack.  I found dex2oat has an enum of ReturnCode.  Do you think it\u0027s ok to preserve kTimeout \u003d 3 there, even though dex2oat itself doesn\u0027t timeout?  That\u0027d be the cleanest since the caller expects exit code from dex2oat.",
+      "parentUuid": "c7147ea3_5fc18b24",
       "range": {
         "startLine": 317,
         "startChar": 6,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e624307f_30dcbd2e",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-08T00:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82a156c5_4530ac78",
+      "range": {
+        "startLine": 337,
+        "startChar": 22,
+        "endLine": 337,
+        "endChar": 30
+      },
+      "revId": "395eb98770d7f1dfef0b4b4c2b497b5cfa8f8bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1f73c06_c487aa6a",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-10-07T23:42:51Z",
       "side": 1,
       "message": "These functions are just helper functions and don\u0027t need to be class members. Consider moving them out.",
+      "range": {
+        "startLine": 329,
+        "startChar": 2,
+        "endLine": 345,
+        "endChar": 3
+      },
+      "revId": "395eb98770d7f1dfef0b4b4c2b497b5cfa8f8bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daeef4cb_b4914825",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-08T00:34:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1f73c06_c487aa6a",
       "range": {
         "startLine": 329,
         "startChar": 2,
