@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "213e59ae_511ad32b",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-08T17:37:00Z",
+      "side": 1,
+      "message": "\u003e Exposing `ADexoptContext` means that the platform (and other modules) will be able to inspect its contents and make use of them.\n\nNo, they don\u0027t have the visibility to ADexoptContext\u0027s implementation, just the name to compile and the pointer to use.  This it NOT exposing the internal `std::vector`, which can be changed, and should be accessed via the provided stable API in this file. I think this is a very common pattern in C API (for example, https://www.openssl.org/docs/man1.0.2/man3/SHA256.html), and I believe it\u0027s recommended way per my understanding from go/android-ndk-api-guidelines#abi-stability.\n\nI\u0027m also asking the API council for their review (you\u0027re CC\u0027ed).  We need their approval anyway.  I wanted to also ask their suggestion for the upcoming changes that\u0027s probably more controversial.\n\nHope it makes sense?",
+      "parentUuid": "5fe76ecf_0bd3c743",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 20
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c9c2259_c40606e5",
         "filename": "artd/libdexopt.cc",
         "patchSetId": 2
