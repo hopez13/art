@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7f1f6fb_018d4533",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-08T08:44:14Z",
+      "side": 1,
+      "message": "Interesting. 32 is skipped for some reason.",
+      "parentUuid": "0fd76e18_3e33ba2d",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d520d21_58a6f6d0",
@@ -114,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5fe76ecf_0bd3c743",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-08T08:44:14Z",
+      "side": 1,
+      "message": "Exposing `ADexoptContext` means that the platform (and other modules) will be able to inspect its contents and make use of them. I know that CompOS won\u0027t do so, but you can\u0027t prevent a partner from doing this. If we expose it, we may end up having to keep this struct unchanged for years just for maintaining the compatibility. In addition, there are `std::vector` and `std::string` involved in the struct, which are C++ things and are not guaranteed to be stable. I would suggest not to expose it as part of the APIs. Alternatives are:\n\n1. Unmarshaling the request on every call, which seems fine because the number of calls won\u0027t be too many, or\n2. Returning a serialized protobuf, which is extensible that you can add other information including the FD information into it, so that everything can be done within a single call.",
+      "parentUuid": "05fb1e86_7c6a99b7",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 20
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c9c2259_c40606e5",
         "filename": "artd/libdexopt.cc",
         "patchSetId": 2
@@ -149,6 +197,30 @@
       "side": 1,
       "message": "If you look at go/android-mainline-apis, our only option is C API, not Java (no Java runtime in the VM).  \"Stable Binder\" (since binder itself is unstable) is another option, but that requires us to stabilize the parameter, and I assume we\u0027re not ready for that.\n\nThe only other way I can think of to really use binder as (private) API is to create a binder service in ART to run in CompOS VM.  Which is almost equivalent to re-implement/move the better part of compsvc in ART code base.  But then there may still be concerns to maintain those complexity in ART, and also the new unstable API that the whole pKVM effort introduces.\n\nWe can provide a C++ static library on top of the C API, but I\u0027m not using it anyway since I\u0027m calling the C API from Rust.\n\nLet me know if you have other ideas. We can also chat if easier.",
       "parentUuid": "5c9c2259_c40606e5",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 46
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "029dd170_da5f9f01",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-08T08:44:14Z",
+      "side": 1,
+      "message": "Please see my comment in the other file.",
+      "parentUuid": "5e063aeb_23772304",
       "range": {
         "startLine": 356,
         "startChar": 0,
