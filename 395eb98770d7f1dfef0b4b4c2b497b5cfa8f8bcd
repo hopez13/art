@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a820e46_03a442a5",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-08T08:20:35Z",
+      "side": 1,
+      "message": "SG",
+      "parentUuid": "ee479e43_7bced995",
+      "revId": "395eb98770d7f1dfef0b4b4c2b497b5cfa8f8bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7147ea3_5fc18b24",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "Yes, this is definitely hack.  I found dex2oat has an enum of ReturnCode.  Do you think it\u0027s ok to preserve kTimeout \u003d 3 there, even though dex2oat itself doesn\u0027t timeout?  That\u0027d be the cleanest since the caller expects exit code from dex2oat.",
       "parentUuid": "c7147ea3_5fc18b24",
+      "range": {
+        "startLine": 317,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 7
+      },
+      "revId": "395eb98770d7f1dfef0b4b4c2b497b5cfa8f8bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1303fa8_8af756fa",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-08T08:20:35Z",
+      "side": 1,
+      "message": "You can use a range of exit codes that dex2oat won\u0027t use. For example, you can use numbers above `EX__MAX`, while dex2oat can use numbers below `EX__BASE`.",
+      "parentUuid": "d9795013_eb6fdfb6",
       "range": {
         "startLine": 317,
         "startChar": 6,
