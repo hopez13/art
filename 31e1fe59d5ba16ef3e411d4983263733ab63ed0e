@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fd76e18_3e33ba2d",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-08T00:34:21Z",
+      "side": 1,
+      "message": "T is 33.\n https://cs.android.com/android/platform/superproject/+/master:bionic/libc/include/android/api-level.h;l\u003d155?q\u003dbionic%2Flibc%2Finclude%2Fandroid%2Fapi-level.h",
+      "parentUuid": "5509f02e_f7cf3b66",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d520d21_58a6f6d0",
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05fb1e86_7c6a99b7",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-08T00:34:21Z",
+      "side": 1,
+      "message": "For now, yes.  But we need other functions to extract the FD information (I\u0027m still working on it).  Having ADexoptContext avoids re-creating from marshaled on every call.",
+      "parentUuid": "7d520d21_58a6f6d0",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 20
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c9c2259_c40606e5",
         "filename": "artd/libdexopt.cc",
         "patchSetId": 2
@@ -77,6 +125,30 @@
       "writtenOn": "2021-10-07T23:44:30Z",
       "side": 1,
       "message": "Can the binder API pass std::vector? If so, why does AComposClient_Request have to be defined in a C style?",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 46
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e063aeb_23772304",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-08T00:34:21Z",
+      "side": 1,
+      "message": "If you look at go/android-mainline-apis, our only option is C API, not Java (no Java runtime in the VM).  \"Stable Binder\" (since binder itself is unstable) is another option, but that requires us to stabilize the parameter, and I assume we\u0027re not ready for that.\n\nThe only other way I can think of to really use binder as (private) API is to create a binder service in ART to run in CompOS VM.  Which is almost equivalent to re-implement/move the better part of compsvc in ART code base.  But then there may still be concerns to maintain those complexity in ART, and also the new unstable API that the whole pKVM effort introduces.\n\nWe can provide a C++ static library on top of the C API, but I\u0027m not using it anyway since I\u0027m calling the C API from Rust.\n\nLet me know if you have other ideas. We can also chat if easier.",
+      "parentUuid": "5c9c2259_c40606e5",
       "range": {
         "startLine": 356,
         "startChar": 0,
