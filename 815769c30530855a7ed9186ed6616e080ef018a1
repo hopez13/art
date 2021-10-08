@@ -87,6 +87,30 @@
       },
       "revId": "815769c30530855a7ed9186ed6616e080ef018a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0f64a04_f93c192b",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-08T08:14:31Z",
+      "side": 1,
+      "message": "The increase to 500s is only needed when running under nested virtualization (running in a VM while running on Cuttlefish running in a VM on GCE), which is incredibly slow. I\u0027m currently enabling it whenever we\u0027re running in a VM, just because detecting nested virtualization is non-trivial.\nThis wouldn\u0027t be necessary on any real device.\n(And the point of CompOS is to avoid doing this at boot time anyway, of course.)",
+      "parentUuid": "204534f9_d0a050f2",
+      "range": {
+        "startLine": 522,
+        "startChar": 14,
+        "endLine": 522,
+        "endChar": 17
+      },
+      "revId": "815769c30530855a7ed9186ed6616e080ef018a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
