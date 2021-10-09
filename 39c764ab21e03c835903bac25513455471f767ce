@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fded08fb_4cfb28a5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-09T14:37:11Z",
+      "side": 1,
+      "message": "Right, I see the line too long was already there before. You can fix this for the code you change, no need to fix all the places.",
+      "parentUuid": "59d90b60_aa30c639",
+      "revId": "39c764ab21e03c835903bac25513455471f767ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "306845df_6d8aa541",
