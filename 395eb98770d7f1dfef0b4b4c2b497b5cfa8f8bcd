@@ -151,6 +151,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d08627d_9e36ff44",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-09T02:54:22Z",
+      "side": 1,
+      "message": "`EX__MAX` is just an example. What I meant is that you can use a range of exit codes that dex2oat won\u0027t use. The range can be arbitrary. [32, 64), [79, 128), [128, 256) or any other ranges are all fine with me. Reserving a number is unnatural to me because exit codes that other programs return shouldn\u0027t be something that dex2oat needs to be aware of.",
+      "parentUuid": "e7886215_9f7c79f7",
+      "range": {
+        "startLine": 317,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 7
+      },
+      "revId": "395eb98770d7f1dfef0b4b4c2b497b5cfa8f8bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82a156c5_4530ac78",
         "filename": "odrefresh/odr_dexopt.cc",
         "patchSetId": 2
