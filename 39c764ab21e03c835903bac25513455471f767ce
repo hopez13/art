@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59d90b60_aa30c639",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2021-10-09T10:36:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure what the correct way to fix the length here would be. There are other places in the file exceeding 100 characters in a line. I can correct all these separately.",
+      "parentUuid": "9117f225_a2355f6a",
+      "revId": "39c764ab21e03c835903bac25513455471f767ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "306845df_6d8aa541",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-10-09T10:21:11Z",
       "side": 1,
       "message": "Line too long",
+      "revId": "39c764ab21e03c835903bac25513455471f767ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2da86d3_928958e0",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2021-10-09T10:36:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure what the correct way to fix the length here would be. There are other places in the file exceeding 100 characters in a line. I can correct all these separately.",
+      "parentUuid": "306845df_6d8aa541",
       "revId": "39c764ab21e03c835903bac25513455471f767ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
