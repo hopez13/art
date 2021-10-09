@@ -186,6 +186,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87b338ed_978bdad9",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-09T04:11:00Z",
+      "side": 1,
+      "message": "Yes, it makes sense now. I didn\u0027t know that the implementation of ADexoptContext is invisible to others. Thank you for the explanation.",
+      "parentUuid": "213e59ae_511ad32b",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 20
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c9c2259_c40606e5",
         "filename": "artd/libdexopt.cc",
         "patchSetId": 2
@@ -245,6 +269,30 @@
       "side": 1,
       "message": "Please see my comment in the other file.",
       "parentUuid": "5e063aeb_23772304",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 46
+      },
+      "revId": "31e1fe59d5ba16ef3e411d4983263733ab63ed0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45136539_c3c49379",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-09T04:11:00Z",
+      "side": 1,
+      "message": "Mark as resolved.",
+      "parentUuid": "029dd170_da5f9f01",
       "range": {
         "startLine": 356,
         "startChar": 0,

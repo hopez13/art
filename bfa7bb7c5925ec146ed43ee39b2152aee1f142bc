@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79f10145_daca4f42",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-09T04:11:00Z",
+      "side": 1,
+      "message": "Please document that\n1. the return value is only available when ADexoptContext is alive, and\n2. a nullptr indicates the end of the list",
+      "range": {
+        "startLine": 49,
+        "startChar": 3,
+        "endLine": 49,
+        "endChar": 95
+      },
+      "revId": "bfa7bb7c5925ec146ed43ee39b2152aee1f142bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
