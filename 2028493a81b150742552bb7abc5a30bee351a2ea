@@ -1,0 +1,331 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8555d16b_110a9765",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2636,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "alignment",
+      "range": {
+        "startLine": 2632,
+        "startChar": 44,
+        "endLine": 2636,
+        "endChar": 85
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51c0c6f3_3f704422",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2638,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "Line too long",
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43c5dfaf_0cac7665",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "Refactor these two methods to have one helper taking the list of shared libraries.",
+      "range": {
+        "startLine": 2604,
+        "startChar": 0,
+        "endLine": 2658,
+        "endChar": 1
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1860a5c_d991fc93",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2682,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "Bad merge",
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ac60ad0_654c6932",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "nit: alignment",
+      "range": {
+        "startLine": 1023,
+        "startChar": 0,
+        "endLine": 1027,
+        "endChar": 72
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b8c33e5_b5ea11c0",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 306,
+        "startChar": 18,
+        "endLine": 306,
+        "endChar": 26
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02861b35_53599b99",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "Move to next line",
+      "range": {
+        "startLine": 1131,
+        "startChar": 29,
+        "endLine": 1131,
+        "endChar": 43
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be1e4b5c_3e5fbcc2",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "Move this check and lines 1175 in a if (is_shared_library) body.",
+      "range": {
+        "startLine": 1172,
+        "startChar": 35,
+        "endLine": 1172,
+        "endChar": 43
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5dc898c_bdef4611",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "fits in the line above? If not, move arguments to be one per line.",
+      "range": {
+        "startLine": 1234,
+        "startChar": 0,
+        "endLine": 1234,
+        "endChar": 33
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c8afa6_c21841a8",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "one argument per line",
+      "range": {
+        "startLine": 1256,
+        "startChar": 0,
+        "endLine": 1257,
+        "endChar": 29
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fdde1e0_a1fdd6b8",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "loaded",
+      "range": {
+        "startLine": 228,
+        "startChar": 37,
+        "endLine": 228,
+        "endChar": 42
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b62a5e62_63fd7a88",
+        "filename": "runtime/class_loader_context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "move to next line",
+      "range": {
+        "startLine": 302,
+        "startChar": 56,
+        "endLine": 302,
+        "endChar": 71
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c6fabc1_a0b7a69a",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "alignment",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 72
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "039c80c3_81e63b00",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "one argument per line.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 3
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5625089_6357f3a4",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T08:56:24Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
