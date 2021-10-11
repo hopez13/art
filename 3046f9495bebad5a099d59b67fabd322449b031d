@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b1788c2_d01cda1d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T07:32:00Z",
+      "side": 1,
+      "message": "This should be a Non fatal warning. The flag is still passed on S, and this code will run on S.",
+      "range": {
+        "startLine": 1168,
+        "startChar": 6,
+        "endLine": 1168,
+        "endChar": 11
+      },
+      "revId": "3046f9495bebad5a099d59b67fabd322449b031d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e8451a4_a92263f9",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T07:32:00Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1172,
+        "startChar": 6,
+        "endLine": 1172,
+        "endChar": 11
+      },
+      "revId": "3046f9495bebad5a099d59b67fabd322449b031d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
