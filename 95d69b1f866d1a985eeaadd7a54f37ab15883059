@@ -134,6 +134,30 @@
       },
       "revId": "95d69b1f866d1a985eeaadd7a54f37ab15883059",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fb5c724_e1faafe6",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-11T14:02:13Z",
+      "side": 1,
+      "message": "Well, this is currently in flux, and will go away eventually, but it\u0027s a good idea.\nI\u0027m about to do some other flag munging (b/200020887), I\u0027ll handle this in a follow-up then.",
+      "parentUuid": "dd76b504_d93f020f",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 34
+      },
+      "revId": "95d69b1f866d1a985eeaadd7a54f37ab15883059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
