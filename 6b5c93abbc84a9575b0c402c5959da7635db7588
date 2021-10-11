@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4683a2b5_a16e4f57",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T20:17:33Z",
+      "side": 1,
+      "message": "I\u0027ve removed the helper, thanks to your suggestion below.",
+      "parentUuid": "8b3f9f7b_53972429",
+      "range": {
+        "startLine": 1279,
+        "startChar": 0,
+        "endLine": 1279,
+        "endChar": 6
+      },
+      "revId": "6b5c93abbc84a9575b0c402c5959da7635db7588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9ef84ad_61ee1bc6",
@@ -60,6 +84,30 @@
       "writtenOn": "2021-10-11T14:36:55Z",
       "side": 1,
       "message": "I think you should be able to use the following construction here:\n\n  return std::string(bcp_apexes.size(), \u0027/\u0027;)",
+      "range": {
+        "startLine": 1280,
+        "startChar": 0,
+        "endLine": 1284,
+        "endChar": 16
+      },
+      "revId": "6b5c93abbc84a9575b0c402c5959da7635db7588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04cc7ecd_fb0be3d1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T20:17:33Z",
+      "side": 1,
+      "message": "Good point! Done.",
+      "parentUuid": "b9ef84ad_61ee1bc6",
       "range": {
         "startLine": 1280,
         "startChar": 0,
