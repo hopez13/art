@@ -175,6 +175,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4776c07a_2b449f33",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-11T08:45:22Z",
+      "side": 1,
+      "message": "I think we already have an issue if EX__MAX changes, because odrefresh exit codes are based on it. That\u0027s already potentially a problem since odsign (in the platform) and odrefresh (in the updatable ART APEX) need to agree on them. And this is tricky to change, unless we just replace EX__MAX in the definitions with its current numeric value.\n(e.g. http://cs/android/packages/modules/Virtualization/compos/composd/src/odrefresh.rs?l\u003d25.)",
+      "parentUuid": "7d08627d_9e36ff44",
+      "range": {
+        "startLine": 317,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 7
+      },
+      "revId": "395eb98770d7f1dfef0b4b4c2b497b5cfa8f8bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82a156c5_4530ac78",
         "filename": "odrefresh/odr_dexopt.cc",
         "patchSetId": 2
