@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3a7cac6_4c05a058",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2021-10-11T18:59:33Z",
+      "side": 1,
+      "message": "this \u0027const\u0027 seems problematic unless there\u0027s a reason this is immutable I\u0027m not seeing?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 5
+      },
+      "revId": "95bec06f1590db30508c1df720eca59b6294933f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "069c2b4d_b60dd893",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2021-10-11T18:59:33Z",
+      "side": 1,
+      "message": "document lifecycle of return pointer \u0026 also encoding (eg, UTF8?)",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 48
+      },
+      "revId": "95bec06f1590db30508c1df720eca59b6294933f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
