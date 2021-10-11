@@ -184,6 +184,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f634322_e83232c1",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-11T18:50:30Z",
+      "side": 1,
+      "message": "Can you rephrase ... I don\u0027t follow what the question is.\nThis CL affects compilation.  It should not affect how tests are run.",
+      "parentUuid": "b4d69f4f_3a01a81f",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 6
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcaa7c17_5f15b32b",
