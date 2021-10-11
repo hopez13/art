@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7687e4e9_96734038",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-11T19:52:12Z",
+      "side": 1,
+      "message": "It\u0027s const because the caller shouldn\u0027t and can\u0027t change it.  The context/data format is opaque to the caller, who should use ADexopt_GetCmdlineArguments (and a few more to come, see below) to retrieve what it needs.  The alternative is to stabilize the data format, then we can avoid L64 and more APIs.  But I think we want to avoid that, and it\u0027s also not encouraged?\n\nFWIW, we have some debate of whether we should instead have 1 single function that returns a protobuf to the client, and we may add additional data to the protobuf.  Instead of stabilizing the data / .proto, I\u0027m currently making the API stable instead.  Does the API Council has preference?",
+      "parentUuid": "f3a7cac6_4c05a058",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 5
+      },
+      "revId": "95bec06f1590db30508c1df720eca59b6294933f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "069c2b4d_b60dd893",
         "filename": "artd/external/include/libdexopt_context.h",
         "patchSetId": 6
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-11T18:59:33Z",
       "side": 1,
       "message": "document lifecycle of return pointer \u0026 also encoding (eg, UTF8?)",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 48
+      },
+      "revId": "95bec06f1590db30508c1df720eca59b6294933f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f704494_9b26e51b",
+        "filename": "artd/external/include/libdexopt_context.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-11T19:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "069c2b4d_b60dd893",
       "range": {
         "startLine": 60,
         "startChar": 4,
