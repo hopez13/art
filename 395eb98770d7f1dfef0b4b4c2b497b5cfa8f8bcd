@@ -197,6 +197,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d619475_fac3ca9a",
+        "filename": "odrefresh/odr_dexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-11T18:51:34Z",
+      "side": 1,
+      "message": "Sure, I could *assume* a range that dex2oat won\u0027t use, e.g. I\u0027m happy to use [128, 256), i.e. (-1,-127).  But if that range isn\u0027t defined by dex2oat, it can break the contract some day.  I\u0027ve updated the change with a comment in dex2oat to see if that\u0027s what you want.",
+      "parentUuid": "4776c07a_2b449f33",
+      "range": {
+        "startLine": 317,
+        "startChar": 6,
+        "endLine": 324,
+        "endChar": 7
+      },
+      "revId": "395eb98770d7f1dfef0b4b4c2b497b5cfa8f8bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82a156c5_4530ac78",
