@@ -22,6 +22,30 @@
       },
       "revId": "4d29efcc54c2d98e70e2221b66c04f309d64c398",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36257633_1d0ec0e8",
+        "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-11T09:03:13Z",
+      "side": 0,
+      "message": "Yes, it does, x86-64 should not need to use register pairs. I removed it as it is simply dead code, the `CHECK_EQ(0u, size)` should always fail if we ever passed a register pair.",
+      "parentUuid": "11c7558c_a18b9a23",
+      "range": {
+        "startLine": 232,
+        "startChar": 1,
+        "endLine": 235,
+        "endChar": 99
+      },
+      "revId": "4d29efcc54c2d98e70e2221b66c04f309d64c398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
