@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70e29bc9_2c163986",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3970,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T12:56:50Z",
+      "side": 1,
+      "message": "Good point, done here:\nhttps://android-review.googlesource.com/c/platform/art/+/1853022",
+      "parentUuid": "7df5e18d_1d9de1e4",
+      "range": {
+        "startLine": 3970,
+        "startChar": 48,
+        "endLine": 3970,
+        "endChar": 88
+      },
+      "revId": "1728bb7791ce6c0da95a31932e83cf4a462a7cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71c17a97_f2d4189e",
