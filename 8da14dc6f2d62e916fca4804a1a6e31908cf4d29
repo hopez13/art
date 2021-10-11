@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4d69f4f_3a01a81f",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-11T18:05:29Z",
+      "side": 1,
+      "message": "Isn\u0027t Rolands point still valid? If we\u0027re not testing against the device jars we\u0027re regressing here, aren\u0027t we?",
+      "parentUuid": "bc59d07b_ff1c40e8",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 6
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fcaa7c17_5f15b32b",
         "filename": "test/Android.run-test.bp",
         "patchSetId": 6
