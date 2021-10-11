@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c492226_f1639f40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2021-10-11T07:40:11Z",
+      "side": 1,
+      "message": "Yes, it was the test that was failing in post-submit when run with `--host --prebuild --compact-dex-level fast --optimizing --no-relocate --runtime-option -Xcheck:jni`\n\nOn other runs it passed, as I think the DCHECK would be a no-op.",
+      "parentUuid": "f0c2e980_b84dd058",
+      "revId": "39c764ab21e03c835903bac25513455471f767ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9117f225_a2355f6a",
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "One way to fix this is\n\n  if (kIsDebugBuild) {\n    Intrinsics intrinsic \u003d instruction_-\u003eAsInvoke()-\u003eGetIntrinsic();\n    CHECK(intrinsic \u003d\u003d Intrinsics::kUnsafeGetObject ||\n          intrinsic \u003d\u003d Intrinsics::kUnsafeGetObjectVolatile ||\n    [...]\n  }\n\nBut if we have an ongoing buildbot breakage, you should sumbit this without further delay.",
       "parentUuid": "fded08fb_4cfb28a5",
+      "revId": "39c764ab21e03c835903bac25513455471f767ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88efd669_84e8a7a6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2021-10-11T07:40:11Z",
+      "side": 1,
+      "message": "I thought I submitted it after the +2, did it now.",
+      "parentUuid": "382cf4f4_c961c48f",
       "revId": "39c764ab21e03c835903bac25513455471f767ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
