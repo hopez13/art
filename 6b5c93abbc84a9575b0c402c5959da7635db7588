@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5624083f_3d7d5c2c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-10-11T14:36:55Z",
+      "side": 1,
+      "message": "likely?",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "6b5c93abbc84a9575b0c402c5959da7635db7588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b3f9f7b_53972429",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-10-11T14:36:55Z",
+      "side": 1,
+      "message": "I think it\u0027d be better to insert this function in the existing anonymous namespace (lines 212–232) rather than declaring it as `static`.",
+      "range": {
+        "startLine": 1279,
+        "startChar": 0,
+        "endLine": 1279,
+        "endChar": 6
+      },
+      "revId": "6b5c93abbc84a9575b0c402c5959da7635db7588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9ef84ad_61ee1bc6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-10-11T14:36:55Z",
+      "side": 1,
+      "message": "I think you should be able to use the following construction here:\n\n  return std::string(bcp_apexes.size(), \u0027/\u0027;)",
+      "range": {
+        "startLine": 1280,
+        "startChar": 0,
+        "endLine": 1284,
+        "endChar": 16
+      },
+      "revId": "6b5c93abbc84a9575b0c402c5959da7635db7588",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
