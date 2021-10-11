@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95ef577b_bd09dc8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T10:28:04Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "d5c0e971224330db609eab8bad53e91417af00eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0496abd5_28a9f9fb",
+        "filename": "runtime/verifier/verifier_deps.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-11T10:28:04Z",
+      "side": 1,
+      "message": "Use DexFileDeps* my_deps \u003d GetDexFileDeps(dex_file) instead.",
+      "range": {
+        "startLine": 704,
+        "startChar": 3,
+        "endLine": 705,
+        "endChar": 36
+      },
+      "revId": "d5c0e971224330db609eab8bad53e91417af00eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
