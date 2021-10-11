@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ea55e002_055e6b2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-11T18:21:51Z",
+      "side": 1,
+      "message": "Sorry, this change actually needs to wait until we made all APEXes in *CLASSPATH available in the VM (b/201788989), as i18n only unblock compilation of BCP extension.\n\n(I probably messed up my local test, which is now failing.)",
+      "revId": "c15e28e6826020f317dab32f0db72bf57edc32d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d805c416_9e0e0633",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 1
@@ -14,6 +31,30 @@
       "writtenOn": "2021-10-11T08:04:59Z",
       "side": 1,
       "message": "Unrelated to this CL: Why is a classpath JAR an output file?",
+      "range": {
+        "startLine": 352,
+        "startChar": 6,
+        "endLine": 352,
+        "endChar": 18
+      },
+      "revId": "c15e28e6826020f317dab32f0db72bf57edc32d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92b9b9df_6ab86fa6",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-11T18:21:51Z",
+      "side": 1,
+      "message": "It\u0027s named for an output parameter of this function :)",
+      "parentUuid": "d805c416_9e0e0633",
       "range": {
         "startLine": 352,
         "startChar": 6,
