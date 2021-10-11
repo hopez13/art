@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "382cf4f4_c961c48f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-11T07:28:28Z",
+      "side": 1,
+      "message": "One way to fix this is\n\n  if (kIsDebugBuild) {\n    Intrinsics intrinsic \u003d instruction_-\u003eAsInvoke()-\u003eGetIntrinsic();\n    CHECK(intrinsic \u003d\u003d Intrinsics::kUnsafeGetObject ||\n          intrinsic \u003d\u003d Intrinsics::kUnsafeGetObjectVolatile ||\n    [...]\n  }\n\nBut if we have an ongoing buildbot breakage, you should sumbit this without further delay.",
+      "parentUuid": "fded08fb_4cfb28a5",
+      "revId": "39c764ab21e03c835903bac25513455471f767ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "306845df_6d8aa541",
