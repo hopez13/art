@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "996e5d0a_d38c242e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-11T07:18:52Z",
+      "side": 1,
+      "message": "The primary boot image references classes outside libcore, so there are unresolved classes that we need to deal with.",
+      "revId": "4edaf853fa6d34c719ebed38fc9b9795f8231f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
