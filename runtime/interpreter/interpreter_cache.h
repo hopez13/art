@@ -51,7 +51,7 @@ class ALIGNED(16) InterpreterCache {
 
   // 2x size increase/decrease corresponds to ~0.5% interpreter performance change.
   // Value of 256 has around 75% cache hit rate.
-  static constexpr size_t kSize = 256;
+  static constexpr size_t kSize = 4096;
 
   InterpreterCache() {
     // We can not use the Clear() method since the constructor will not
