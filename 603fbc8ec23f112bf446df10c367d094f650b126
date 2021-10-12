@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016168426",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1854143?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "978f34f0_683ac829",
+          "description": "Change to \"runtime/class_linker.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/class_linker.cc",
+              "range": {
+                "startLine": 4755,
+                "startChar": 43,
+                "endLine": 4755,
+                "endChar": 49
+              },
+              "replacement": "success"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "b3085258_3e6a5c81",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4755,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-12T13:14:43Z",
+      "side": 1,
+      "message": "Common typo found: \"succes\" -- should it be \"success\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 4755,
+        "startChar": 43,
+        "endLine": 4755,
+        "endChar": 49
+      },
+      "revId": "603fbc8ec23f112bf446df10c367d094f650b126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
