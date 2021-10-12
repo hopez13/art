@@ -24,7 +24,8 @@ namespace gc {
 namespace collector {
 
 template <size_t kAlignment>
-uintptr_t MarkCompact::LiveWordsBitmap<kAlignment>::SetLiveWords(uintptr_t begin, size_t size) {
+inline uintptr_t MarkCompact::LiveWordsBitmap<kAlignment>::SetLiveWords(uintptr_t begin,
+                                                                        size_t size) {
   const uintptr_t begin_bit_idx = BitIndexFromAddr(begin);
   DCHECK(!TestBit(begin_bit_idx));
   const uintptr_t end_bit_idx = BitIndexFromAddr(begin + size);
@@ -45,6 +46,188 @@ uintptr_t MarkCompact::LiveWordsBitmap<kAlignment>::SetLiveWords(uintptr_t begin
   const uintptr_t end_mask = BitIndexToMask(end_bit_idx);
   *address |= mask & (end_mask - 1);
   return begin_bit_idx;
+}
+
+template <size_t kAlignment> template <template Visitor>
+inline void MarkCompact::LiveWordsBitmap<kAlignment>::VisitLiveStrides(uintptr_t begin_bit_idx,
+                                                                       const size_t bytes,
+                                                                       Visitor& visitor) {
+  // TODO: we may require passing end addr/end_bit_offset to the function.
+  const uintptr_t end_bit_idx = BitIndexFromAddr(CoverEnd());
+  DCHECK_LT(begin_bit_idx, end_bit_idx);
+  uintptr_t begin_word_idx = BitIndexToWordIndex(begin_bit_idx);
+
+  size_t stride_size = 0;
+  size_t num_heap_words = bytes / kAlignment;
+  uintptr_t live_stride_start_idx = begin_bit_idx;
+  uintptr_t word = bitmap_begin_[begin_word_idx];
+
+  // Setup the firt word.
+  size_t idx_in_word = begin_bit_idx % kBitsPerBitmapWord;
+  begin_bit_idx -= idx_in_word;
+  word >>= idx_in_word;
+  if (UNLIKELY(begin_word_idx == BitIndexToWordIndex(end_bit_idx)) {
+    word &= BitIndexToMask(end_bit_idx) - 1;
+  }
+
+  // Loop over all the bitmap words.
+  do {
+    // All bits in the word are marked.
+    if (~word == 0) {
+      if (stride_size == 0) {
+        live_stride_start_idx = begin_bit_idx;
+      }
+      stride_size += kBitsPerBitmapWord;
+      if (num_heap_words <= stride_size) {
+        break;
+      }
+    } else {
+      while (word != 0) {
+        // discard 0s
+        size_t shift = CTZ(word);
+        idx_in_word += shift;
+        word >>= shift;
+        if (stride_size > 0) {
+          if (shift > 0) {
+            if (num_heap_words <= stride_size) {
+              break;
+            }
+            visitor(live_stride_start_idx, stride_size, /*is_last*/ false);
+            num_heap_words -= stride_size;
+            live_stride_start_idx = begin_bit_idx + idx_in_word;
+            stride_size = 0;
+          }
+        } else {
+          live_stride_start_idx = begin_bit_idx + idx_in_word;
+        }
+        // consume 1s
+        shift = CTZ(~word);
+        DCHECK_NE(shift, 0);
+        word >>= shift;
+        idx_in_word += shift;
+        stride_size += shift;
+      }
+      // If the whole word == 0 or the higher bits are 0s, then we exit out of
+      // the above loop without completely consuming the word, so call visitor,
+      // if needed.
+      if (idx_in_word < kBitsPerBitmapWord && stride_size > 0) {
+        if (num_heap_words <= stride_size) {
+          break;
+        }
+        visitor(live_stride_start_idx, stride_size, /*is_last*/ false);
+        num_heap_words -= stride_size;
+        stride_size = 0;
+      }
+      idx_in_word = 0;
+    }
+    begin_bit_idx += kBitsPerBitmapWord;
+    if (begin_bit_idx >= end_bit_idx) {
+      num_heap_words = std::min(stride_size, num_heap_words);
+      break;
+    }
+    begin_word_idx++;
+    word = bitmap_begin_[begin_word_idx];
+  } while (true);
+  if (stride_size > 0) {
+    visitor(live_stride_start_idx, num_heap_words, /*is_last*/ true);
+  }
+}
+
+template <size_t kAlignment>
+inline
+uint32_t MarkCompact::LiveWordsBitmap<kAlignment>::FindNthLiveWordOffset(size_t offset_vec_idx,
+                                                                         uint32_t n) {
+  DCHECK_LT(n, kBitsPerVectorWord);
+  const size_t index = offset_vec_idx * kBitmapWordsPerVectorWord;
+  for (uint32_t i = 0; i < kBitmapWordsPerVectorWord; i++) {
+    uintptr_t word = bitmap_begin_[index + i];
+    if (~word == 0) {
+      if (n <= kBitsPerBitmapWord) {
+        return i * kBitsPerBitmapWord + n;
+      }
+      n -= kBitsPerBitmapWord;
+      continue;
+    }
+    uint32_t j = 0;
+    while (word != 0) {
+      // count contiguous 0s
+      uint32_t shift = CTZ(word);
+      word >>= shift;
+      j += shift;
+      // count contiguous 1s
+      shift = CTZ(~word);
+      DCHECK_NE(shift, 0);
+      if (shift >= n) {
+        return i * kBitsPerBitmapWord + j + n;
+      }
+      n -= shift;
+      word >>= shift;
+      j += shift;
+    }
+  }
+  UNREACHABLE();
+  return kBitsPerVectorWord;
+}
+
+inline void MarkCompact::UpdateRef(mirror::Object* obj, MemberOffset offset) {
+  mirror::Object* old_ref = obj->GetFieldObject<
+      mirror::Object, kVerifyNone, kWithoutReadBarrier, /*kIsVolatile*/false>(offset);
+  mirror::Object* new_ref = PostCompactAddress(old_ref);
+  if (new_ref != old_ref) {
+    obj->SetFieldObjectWithoutWriteBarrier<
+        /*kTransactionActive*/false, /*kCheckTransaction*/false, kVerifyNone, /*kIsVolatile*/false>(
+            offset,
+            new_ref);
+  }
+}
+
+inline void MarkCompact::UpdateRoot(mirror::CompressedReference<mirror::Object>* root) {
+  DCHECK(!root->IsNull());
+  mirror::Object* old_ref = root->AsMirrotPtr();
+  mirror::Object* new_ref = PostCompactAddress(old_ref);
+  if (old_ref != new_ref) {
+    root->Assign(new_ref);
+  }
+}
+
+template <size_t kAlignment>
+inline size_t MarkCompact::LiveWordsBitmap<kAlignment>::CountLiveWordsUpto(size_t bit_idx) const {
+  const size_t word_offset = BitIndexToWordIndex(bit_idx);
+  uintptr_t word;
+  size_t ret = 0;
+  // This is needed only if we decide to make offset_vector chunks 128-bit but
+  // still choose to use 64-bit word for bitmap. Ideally we should use 128-bit
+  // SIMD instructions to compute popcount.
+  if (kBitmapWordsPerVectorWord > 1) {
+    size_t remainder = word_offset % kBitmapWordsPerVectorWord;
+    while (remainder > 0) {
+      word = bitmap_begin_[word_offset - remainder];
+      ret += POPCOUNT(word);
+      remainder--;
+    }
+  }
+  word = bitmap_begin_[word_offset];
+  const uintptr_t mask = BitIndexToMask(bit_idx);
+  DCHECK_NE(word & mask, 0);
+  ret += POPCOUNT(word & (mask - 1));
+  return ret;
+}
+
+inline mirror::Object* MarkCompact::PostCompactAddress(mirror::Object* old_ref) const {
+  // TODO: To further speedup the check, maybe we should consider caching heap
+  // start/end in this object.
+  if (LIKELY(live_words_bitmap_->HasAddress(old_ref))) {
+    const uintptr_t begin = live_words_bitmap_->Begin();
+    const uintptr_t addr_offset = reinterpret_cast<uintptr_t>(old_ref) - begin;
+    const size_t vec_idx = addr_offset / kOffsetChunkSize;
+    const size_t live_bytes_in_bitmap_word =
+        live_words_bitmap_->CountLiveWordsUpto(addr_offset / kAlignment) * kAlignment;
+    return reinterpret_cast<mirror::Object*>(begin
+                                             + offset_vector_[vec_dex]
+                                             + live_bytes_in_bitmap_word);
+  } else {
+    return old_ref;
+  }
 }
 
 }  // namespace collector
