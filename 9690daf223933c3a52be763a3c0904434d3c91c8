@@ -16,6 +16,23 @@
       "message": "Jiakai, is this ok to you?  We briefly discussed about this today.\n\nAlan, I took the liberty to tackle this since I was seeing the same problem today.",
       "revId": "9690daf223933c3a52be763a3c0904434d3c91c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9e03c5c_056d3b96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-12T04:11:31Z",
+      "side": 1,
+      "message": "We don\u0027t store the commandline when dexpreopting at build-time, so I believe it\u0027s not needed by ART runtime and it\u0027s fine to exclude it for odrefresh too.",
+      "revId": "9690daf223933c3a52be763a3c0904434d3c91c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
