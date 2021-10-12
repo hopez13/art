@@ -99,6 +99,7 @@ void MarkCompact::BindAndResetBitmaps() {
         bump_pointer_bitmap_->Clear();
       } else {
         CHECK(space == heap_->GetNonMovingSpace());
+        non_moving_space_ = space;
         non_moving_space_bitmap_ = space->GetMarkBitmap();
       }
     }
@@ -147,15 +148,170 @@ void MarkCompact::RunPhases() {
   FinishPhase();
 }
 
+void MarkCompact::InitMovingSpaceFirstObjects(const size_t vec_len) {
+  // Find the first live word first.
+  size_t offset_vec_idx = 0;
+  size_t to_space_page_idx = 0;
+  size_t offset_within_vector;
+  size_t offset;
+  mirror::Object* obj;
+
+  // Find the first live word in the space
+  while (offset_vector_[offset_vec_idx] == 0) {
+    offset_vec_idx++;
+    if (offset_vec_idx > vec_len) {
+      // We don't have any live data on the moving-space.
+      return;
+    }
+  }
+  // Use live-words bitmap to find the first word
+  offset_within_vector = FindNthLiveWordOffset(offset_vec_idx, /*n*/0);
+  offset = offset_vec_idx * kOffsetChunkSize + offset_within_vector * kAlignment;
+  // The first object doesn't require using FindEncapsulatingObject().
+  obj = reinterpret_cast<mirror::Object*>(live_words_bitmap_->Begin() + offset);
+  // TODO: add a check to validate the object.
+
+  pre_compact_offset_moving_space_[to_space_page_idx] = offset;
+  first_objs_moving_space_[to_space_page_idx] = obj;
+  to_space_page_idx++;
+
+  uint32_t page_live_bytes = 0;
+  uintptr_t heap_begin = current_space_bitmap_->HeapBegin();
+  while (true) {
+    for (; page_live_bytes <= kPageSize; offset_vec_idx++) {
+      if (offset_vec_idx > vec_len) {
+        return;
+      }
+      page_live_bytes += offset_vector_[offset_vec_idx];
+    }
+    page_live_bytes -= kPagesize;
+    offset_within_vector =
+            FindNthLiveWordOffset(offset_vec_idx,
+                                  (offset_vector_[offset_vec_idx] - page_live_bytes) / kAlignment);
+    offset = offset_vec_idx * kOffsetChunkSize + offset_within_vector * kAlignment;
+    // TODO: Can we optimize this for large objects? If we are continuing a
+    // large object that spans multiple pages, then we may be able to do without
+    // calling FindEncapsulatingObject.
+    //
+    // Find the object which encapsulates offset in it, which could be
+    // starting at offset itself.
+    obj = current_space_bitmap_->FindPrecedingObject(heap_begin + offset);
+    // TODO: add a check to validate the object.
+    pre_compact_offset_moving_space_[to_space_page_idx] = offset;
+    first_objs_moving_space_[to_space_page_idx] = obj;
+    to_space_page_idx++;
+    offset_vec_idx++;
+  }
+  moving_first_objs_count_ = to_space_page_idx;
+}
+
+void MarkCompact::InitNonMovingSpaceFirstObjects() {
+  accounting::ContinuousSpaceBitmap* bitmap = non_moving_space_->GetLiveBitmap();
+  uintptr_t begin = non_moving_space_->Begin();
+  const uintptr_t end = non_moving_space_->End();
+  mirror::Object* prev_obj = nullptr;
+  uintptr_t prev_obj_end;
+  // Find first live object
+  bitmap->VisitMarkedRange</kVisitOnce/ true>(begin,
+                                              end,
+                                              [&prev_obj] (mirror::Object* obj) {
+                                                prev_obj = obj;
+                                              });
+  // There are no live objects in the non-moving space
+  if (prev_obj == nullptr) {
+    return;
+  }
+  // TODO: check obj is valid
+  size_t page_idx = (reinterpret_cast<uintptr_t>(prev_obj) - begin) / kPageSize;
+  prev_obj_end = reinterpret_cast<uintptr_t>(prev_obj)
+                    + RoundUp(prev_obj->SizeOf<kDefaultVerifyFlags>(), kAlignment);
+  first_objs_non_moving_space_[page_idx++] = prev_obj;
+  // For every page find the object starting from which we need to call
+  // VisitReferences. It could either be an object that started on some
+  // preceding page, or some object starting within this page.
+  begin = RoundDown(reinterpret_cast<uintptr_t>(prev_obj) + kPageSize, kPageSize);
+  while (begin < end) {
+    // Utilize, if any, large object that started in some preceding page, but
+    // overlaps with this page as well.
+    if (prev_obj != nullptr && prev_obj_end > begin) {
+      first_objs_non_moving_space_[page_idx] = prev_obj;
+    } else {
+      prev_obj_end = 0;
+      // It's sufficient to only search for previous object in the preceding page.
+      // If no live object started in that page and some object had started in
+      // the page preceding to that page, which was big enough to overlap with
+      // the current page, then we wouldn't be in the else part.
+      prev_obj = bitmap->FindPrecedingObject(begin, begin - kPageSize);
+      if (prev_obj != nullptr) {
+        prev_obj_end = reinterpret_cast<uintptr_t>(prev_obj)
+                        + RoundUp(prev_obj->SizeOf<kDefaultVerifyFlags>(), kAlignment);
+      }
+      if (prev_obj_end > begin) {
+        first_objs_non_moving_space_[page_idx] = prev_obj;
+      } else {
+        // Find the first live object in this page
+        bitmap->VisitMarkedRange</*kVisitOnce*/ true>(begin,
+                                                      begin + kPageSize,
+                                                      [this, page_idx] (mirror::Object* obj) {
+                                                        first_objs_non_moving_space_[page_idx] = obj;
+                                                      });
+      }
+      // An empty entry indicates that the page has no live objects and hence
+      // can be skipped.
+    }
+    begin += kPageSize;
+    page_idx++;
+  }
+  non_moving_first_objs_count_ = page_idx;
+}
+
 void MarkCompact::PrepareForCompaction() {
+  const size_t vector_len =
+          (black_allocations_begin_ - bump_pointer_space->Begin()) / kOffsetChunkSize;
+  DCHECK_LE(vector_len, vector_length_);
+  // Populate first object vector as well as offsets.
+  // count in multiples of 4KB. Find the offset_vector that has the 4KB
+  // boundary. Then scan through the live-words bitmap to find the offset of the
+  // first word for that page. Then use FindEncapsulatingObject() to find the
+  // object. To find the offset, use CTZ on live-words bitmap repeatedly.
+  InitMovingSpaceFirstObjects(vector_len);
+  InitNonMovingSpaceFirstObjects();
+
+  // TODO: We can do a lot of neat tricks with this offset vector to tune the
+  // compaction as we wish. Originally, the compaction algorithm slides all
+  // lives objects towards the beginning of the heap. This is nice because it
+  // keeps the spatial locality of objects intact.
+  // However, some times it's not useful to try to compact objects in certain
+  // portions of the heap. For instance, it is expected that, over the time,
+  // objects towards the beginning of the heap are long lived and are always
+  // densely packed. In this case, it makes sense to only update references in
+  // there and move on.
+  // Furthermore, we might have some large objects and may not want to move such
+  // objects.
+  // We can adjust, without much effort, the values in the offset_vector_ such
+  // that the objects in the dense beginning area aren't moved. OTOH, large
+  // objects, which could be anywhere in the heap, could also be avoided from
+  // moving by using similar trick. The only issue is that by doing this we will
+  // leave an unused hole in the middle of the heap which can't be used for
+  // allocations until we do a *full* compaction.
+  //
   // At this point every element in the offset_vector_ contains the live-bytes
   // of the corresponding chunk. For old-to-new address computation we need
-  // every element to reflect all the live-bytes till the corresponding chunk.
-  uint32_t prev = 0;
-  for (size_t i = 0; i < vector_length_; i++) {
+  // every element to reflect total live-bytes till the corresponding chunk.
+  uint32_t total = 0;
+  for (size_t i = 0; i <= vector_len; i++) {
     uint32_t temp = offset_vector_[i];
-    offset_vector_[i] = prev;
-    prev += temp;
+    offset_vector_[i] = total;
+    total += temp;
+  }
+  if (kDebugBuild) {
+    for (size_t i = vector_len + 1; i < vector_length_; i++) {
+      CHECK_EQ(offset_vector_[i], 0);
+    }
+  }
+  // TODO: do we need this?
+  if (vector_len < vector_length_) {
+    offset_vector_[vector_len + 1] = total;
   }
   // How do we handle compaction of heap portion used for allocations after the
   // marking-pause?
@@ -225,6 +381,11 @@ void MarkCompact::PausePhase() {
   // Enable the reference processing slow path, needs to be done with mutators
   // paused since there is no lock in the GetReferent fast path.
   heap_->GetReferenceProcessor()->EnableSlowPath();
+
+  // Capture 'end' of moving-space at this point. Every allocation beyond this
+  // point will be considered as in to-space.
+  // TODO: We may need to align up/adjust end to page boundary
+  black_allocations_begin_ = bump_pointer_space_->End();
 }
 
 void MarkSweep::SweepSystemWeaks(Thread* self) {
@@ -297,6 +458,149 @@ void MarkCompact::ReclaimPhase() {
     SwapBitmaps();
     // Unbind the live and mark bitmaps.
     GetHeap()->UnBindBitmaps();
+  }
+}
+
+template <bool kCheckBegin, bool kCheckEnd>
+class MarkCompact::RefsUpdateVisitor {
+ public:
+  explicit RefsUpdateVisitor(MarkCompact* collector,
+                             mirror::Object* obj,
+                             uint8_t* begin,
+                             uint8_t* end)
+      : collector_(collector), obj_(obj), begin_(begin), end_(end) {}
+
+  void operator()(mirror::Object* old, MemberOffset offset, bool /* is_static */)
+      const ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES_SHARED(Locks::heap_bitmap_lock_) {
+    bool update = true;
+    if (kCheckBegin || kCheckEnd) {
+      uint8_t* ref = reinterpret_cast<uint8_t*>(obj_) + offset.SizeValue();
+      update = (!kCheckBegin || ref >= begin_) && (!kCheckEnd || ref < end_);
+    }
+    if (update) {
+      collector_->UpdateRef(obj_, offset);
+    }
+  }
+
+  void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root) const
+      ALWAYS_INLINE
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (!root->IsNull()) {
+      VisitRoot(root);
+    }
+  }
+
+  void VisitRoot(mirror::CompressedReference<mirror::Object>* root) const
+      ALWAYS_INLINE
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    collector_->UpdateRoot(root);
+  }
+
+ private:
+  MarkCompact* const collector_;
+  mirror::Object* obj_;
+  uint8_t* const begin_;
+  uint8_t* const end_;
+};
+
+void MarkCompact::CompactPage(mirror::Object* obj, uint32_t offset,
+                              uint8_t* start_addr, uint8_t* const page) {
+  DCHECK(IsAligned<kPageSize>(start_addr));
+  obj = GetFromSpaceAddr(obj);
+  // TODO: assert that offset is within obj and obj is a valid object
+  // TODO: assert that bit corresponding to firsto offset is set.
+  // Iterate over live-words bitmap, starting from offset. For every block of
+  // contiguous 1s, first 1 is starting of an object. Copy all the corresponding
+  // words. Then call VisitReferences on first 1 to update references in it.
+  // It'll return the size of object. Use that to continue calling
+  // VisitReferences in case there are multiple objects in that block. Keep a
+  // count of how many 1s encountered so far. Stop on reaching kPageSize
+  // live-bytes.
+  // Visitor should take to-space offset from where object starts, and
+  // MemberOffset range which is to be updated. Anything outside should be
+  // skipped.
+  //
+}
+
+void MarkCompact::CompactMovingSpace() {
+  // Loop over all the post-compact pages
+  // For every page we have a starting object, which may have started in some
+  // preceding page, and an offset within that object from where we must start
+  // copying.
+  // Consult the live-words bitmap to copy all contiguously live-words at a
+  // time. These words may constitute multiple objects. We need to call
+  // VisitReferences on each. To avoid the need for consulting mark-bitmap to
+  // find where does the next live object starts, we can make
+  // VisitReferences to return the object size.
+  // TODO: Should we do this in reverse? If the chance of accessing an object
+  // is inversely proportional to the object's age, then it may make sense.
+  uint8_t* const page = new uint8_t[kPageSize];
+  uint8_t* begin = bump_pointer_space_->Begin();
+  for (size_t i = 0; i < moving_first_objs_count_; i++) {
+    CompactPage(first_objs_moving_space_[i], pre_compact_offset_moving_space_[i], begin, page);
+    begin += kPageSize;
+  }
+}
+
+void MarkCompact::UpdateNonMovingPage(mirror::Object* holder, uint8_t* page) {
+  // We want to avoid checking for every reference if it's within the page or
+  // not. This can be done if we know where in the page the holder object lies.
+  // If it doesn't overlap either boundaries then we can skip the checks.
+  DCHECK_LT(reinterpret_cast<uint8_t*>(holder), page + kPageSize);
+  MemberOffset page_begin_offset(reinterpret_cast<uintptr_t>(page));
+  MemberOffset page_end_offset(reinterpret_cast<uintptr_t>(page + kPageSize));
+  // TODO: update non_moving_space_bitmap_ to live-bitmap of non-moving space
+  // before starting compaction.
+  //
+  // Call VisitRefsForCompaction with read-barrier as the klass object and
+  // super-class load may require it.
+  // TODO: Set kVisitNativeRoots to false once we implement a concurrent scheme
+  // to update native roots.
+  non_moving_space_bitmap_->VisitMarkedRange(
+          reinterpret_cast<uintptr_t>(holder) + kHeapReferenceSize,
+          reinterpret_cast<uintptr_t>(page + kPageSize),
+          [&](mirror::Object* next_obj) {
+            // TODO: Once non-moving space update becomes concurrent, we'll
+            // require fetching the from-space address of 'holder' and then call
+            // visitor on that.
+            if (reinterpret_cast<uint8_t*>(holder) < page) {
+              RefsUpdateVisitor</*kCheckBegin*/true, /*kCheckEnd*/false>
+                      visitor(this, holder, page, page + kPageSize);
+              holder->VisitRefsForCompaction(visitor, page_begin_offset, page_end_offset);
+            } else {
+              RefsUpdateVisitor</*kCheckBegin*/false, /*kCheckEnd*/false>
+                      visitor(this, holder, page, page + kPageSize);
+              holder->VisitRefsForCompaction(visitor, page_begin_offset, page_end_offset);
+            }
+            holder = next_obj;
+          });
+  if (reinterpret_cast<uint8_t*>(holder) < page) {
+    RefsUpdateVisitor</*kCheckBegin*/true, /*kCheckEnd*/true>
+            visitor(this, holder, page, page + kPageSize);
+    holder->VisitRefsForCompaction(visitor, page_begin_offset, page_end_offset);
+  } else {
+    RefsUpdateVisitor</*kCheckBegin*/false, /*kCheckEnd*/true>
+            visitor(this, holder, page, page + kPageSize);
+    holder->VisitRefsForCompaction(visitor, page_begin_offset, page_end_offset);
+  }
+}
+
+void MarkCompact::UpdateNonMovingSpace() {
+  // Loop over all the post-compact pages
+  // For every page we have a starting object. If it's nullptr then we can skip
+  // the page as it doesn't have any live object. If the address smaller than
+  // the page's starting addr, then compute the difference and VisitReferences.
+  // Thereafter, use VisitMarkedRange on the page's range to identify live
+  // objects. Be careful about the last object as it may not finish in this
+  // page. Finally, if the first-obj addr is greater than page-begin, then just
+  // start from it until the page-end via VisitMarkedRange.
+  for (size_t i = 0; i < non_moving_first_objs_count_; i++) {
+    mirror::Object* obj = first_objs_non_moving_space_[i];
+    if (obj != nullptr) {
+      uintptr_t page = RoundUp(reinterpret_cast<uintptr_t>(obj), kPageSize);
+      UpdateNonMovingPage(obj, page);
+    }
   }
 }
 
@@ -807,9 +1111,12 @@ void MarkCompact::DelayReferenceReferent(ObjPtr<mirror::Class> klass,
 }
 
 void MarkCompact::FinishPhase() {
+  // TODO: unmap/madv_dontneed from-space mappings.
   offset_vector_map_->MadviseDontNeedAndZero();
+  from_space_info_map_->MadviseDontNeedAndZero();
   live_words_bitmap_->ClearBitmap();
 }
+
 }  // namespace collector
 }  // namespace gc
 }  // namespace art
