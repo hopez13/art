@@ -98,6 +98,12 @@ inline MirrorType* ReadBarrier::Barrier(
       UNREACHABLE();
     }
   } else {
+    // TODO: probably should add another constexpr flag to distinguish
+    // concurrent compaction.
+    if (with_read_barrier) {
+      // TODO: invoke MarkCompact function which translates a pre-compact
+      // address to from-space address, if we are in the compaction phase.
+    }
     // No read barrier.
     return ref_addr->template AsMirrorPtr<kIsVolatile>();
   }
