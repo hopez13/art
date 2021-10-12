@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f8e3cab_b087ce96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-12T23:36:20Z",
+      "side": 1,
+      "message": "Roland, could you please review odrefresh/art_odrefresh_tests.xml? Not sure if there is a better way.\n\nChange summary from PS1/original:\n\nBesides the build error, I found two issues on TH (not sure why it didn\u0027t trigger before).\n\n1. odrefresh/art_odrefresh_tests.xml: odrefresh now starts to depend on a library in CompOS, so we need to manually add to LD_LIBRARY_PATH to make art_standalone_odrefresh_tests run.\n\n2. master-art branch is failing since CompOS isn\u0027t in the repo manifests.  ag/16041255 should fix it, but I need to see if we can avoid a dirty workaround in that change.",
+      "revId": "5f3310f1b598956de3106ff7cb01cc6834419dfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
