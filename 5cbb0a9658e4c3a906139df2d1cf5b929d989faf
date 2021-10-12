@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cd0e447_c1eec0fe",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3415,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-10-12T11:49:12Z",
+      "side": 1,
+      "message": "A note for reviewers: the only change is here, kGreaterEqual -\u003e kAboveEqual.",
+      "range": {
+        "startLine": 3415,
+        "startChar": 7,
+        "endLine": 3415,
+        "endChar": 18
+      },
+      "revId": "5cbb0a9658e4c3a906139df2d1cf5b929d989faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
