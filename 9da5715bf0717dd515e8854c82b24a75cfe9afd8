@@ -16,6 +16,29 @@
       "message": "Martin PTAL.\nWDYT about adding extra information regarding the linkerconfig error to the chroot README?",
       "revId": "9da5715bf0717dd515e8854c82b24a75cfe9afd8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cbdf07c_3e78f6a4",
+        "filename": "test/README.chroot.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-10-12T18:21:31Z",
+      "side": 1,
+      "message": "I\u0027d drop this, as this is not really Bash code.",
+      "range": {
+        "startLine": 71,
+        "startChar": 7,
+        "endLine": 71,
+        "endChar": 11
+      },
+      "revId": "9da5715bf0717dd515e8854c82b24a75cfe9afd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
