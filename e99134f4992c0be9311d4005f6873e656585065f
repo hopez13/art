@@ -16,6 +16,24 @@
       "message": "From my reading of the test it seems as though it needs to use the implementation classes jar for core-libart/core-oj so that it can access the CLASS_MODIFIERS private field. Running this against the stubs would probably produce a different result.\n\nSo, we may not be able to switch these tests to use the stubs for libcore classes. That is fine though as these tests should only be being run when building from source so they should always have access to the implementation classes.",
       "revId": "e99134f4992c0be9311d4005f6873e656585065f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a122dc9_9d6bf629",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-12T19:20:15Z",
+      "side": 1,
+      "message": "You mean dex2oat needs access to the implementation for the test to work as intended? That\u0027s probably right. I\u0027ve updated the description with that.\n\nA more self-contained test would include the base class with the getter in the test, but maybe it needs to be in the BCP. It could also be that something else changes here that makes the test moot - I don\u0027t pretend to understand the description in the comment.\n\n+vmarko, does this replacement look ok to you?",
+      "parentUuid": "20c2c292_ec934d0f",
+      "revId": "e99134f4992c0be9311d4005f6873e656585065f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
