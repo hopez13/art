@@ -106,13 +106,15 @@ class ModuleExclusionTest : public CommonCompilerTest {
         soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_PathClassLoader)));
     ScopedNullHandle<mirror::ClassLoader> parent_loader;
     ScopedNullHandle<mirror::ObjectArray<mirror::ClassLoader>> shared_libraries;
+    ScopedNullHandle<mirror::ObjectArray<mirror::ClassLoader>> shared_libraries_after;
 
     ObjPtr<mirror::ClassLoader> result = class_linker->CreateWellKnownClassLoader(
         soa.Self(),
         class_path,
         loader_class,
         parent_loader,
-        shared_libraries);
+        shared_libraries,
+        shared_libraries_after);
 
     // Verify that the result has the correct class.
     CHECK_EQ(loader_class.Get(), result->GetClass());
