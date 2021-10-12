@@ -16,6 +16,46 @@
       "message": "Thanks Orion.",
       "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd6556d3_03428b70",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1297,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-12T14:43:37Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this at least log something? Why not let it flow down to the warning below?",
+      "range": {
+        "startLine": 1297,
+        "startChar": 26,
+        "endLine": 1297,
+        "endChar": 58
+      },
+      "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d2c2805_8b61dbb6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-12T14:43:37Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be quite useful to log the open error here? Or has readApexInfoList logged it already?",
+      "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
