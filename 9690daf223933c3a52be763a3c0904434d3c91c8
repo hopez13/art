@@ -33,6 +33,29 @@
       "message": "We don\u0027t store the commandline when dexpreopting at build-time, so I believe it\u0027s not needed by ART runtime and it\u0027s fine to exclude it for odrefresh too.",
       "revId": "9690daf223933c3a52be763a3c0904434d3c91c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0957857_171d1b85",
+        "filename": "artd/libdexopt.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-12T08:43:07Z",
+      "side": 1,
+      "message": "Should we make this optional?\nDo we care about reproducibility other than in tests?",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 29
+      },
+      "revId": "9690daf223933c3a52be763a3c0904434d3c91c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
