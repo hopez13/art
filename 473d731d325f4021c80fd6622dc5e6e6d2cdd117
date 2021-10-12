@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c527e11_15af45ac",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-12T17:48:03Z",
+      "side": 1,
+      "message": "I don\u0027t think there\u0027s an easy way to know we\u0027re running on chroot.",
+      "parentUuid": "8c0b10b7_6eaf0abb",
+      "range": {
+        "startLine": 1297,
+        "startChar": 26,
+        "endLine": 1297,
+        "endChar": 58
+      },
+      "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d2c2805_8b61dbb6",
         "filename": "runtime/runtime.cc",
         "patchSetId": 5
@@ -138,6 +162,24 @@
       "side": 1,
       "message": "Well, readApexInfoList opens the file so it can fail. If it could take an fd or a string so we controlled the I/O here that\u0027d be better. As a workaround we could try opening the file first (so we get all failures, not just those access(2) checks). That\u0027d still leave races, but at least it\u0027s better.",
       "parentUuid": "1ac33151_570bd664",
+      "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "848fff69_72f07ffd",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-12T17:48:03Z",
+      "side": 1,
+      "message": "Is that a feature request you want from readApexInfoList ? I\u0027m not to keen in working around something that you\u0027d expect readApexInfoList to handle.",
+      "parentUuid": "86d29820_4270a8fb",
       "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
