@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d9650a66_53665c86",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1297,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-12T18:54:22Z",
+      "side": 1,
+      "message": "It used to check if the file doesn\u0027t exist. That condition isn\u0027t perfect, but it\u0027s something.\n\nIow, continue to keep silent on !kIsTargetBuild || !OS::FileExists(kApexFileName), but not on other errors.",
+      "parentUuid": "5c527e11_15af45ac",
+      "range": {
+        "startLine": 1297,
+        "startChar": 26,
+        "endLine": 1297,
+        "endChar": 58
+      },
+      "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d2c2805_8b61dbb6",
         "filename": "runtime/runtime.cc",
         "patchSetId": 5
@@ -180,6 +204,24 @@
       "side": 1,
       "message": "Is that a feature request you want from readApexInfoList ? I\u0027m not to keen in working around something that you\u0027d expect readApexInfoList to handle.",
       "parentUuid": "86d29820_4270a8fb",
+      "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0357dd80_05d22ede",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-12T18:54:22Z",
+      "side": 1,
+      "message": "It would be nice if AIDL had a better API here, but I can\u0027t find any (I\u0027ve no success finding any docs at all on the generated API, but from the implementation it doesn\u0027t look like there\u0027s a better option, short of duplicating https://cs.android.com/android/platform/superproject/+/master:out/soong/.intermediates/system/apex/apexd/apex-info-list-tinyxml/gen/cpp/com_android_apex.cpp;l\u003d15-30;drc\u003dmaster which I wouldn\u0027t be keen on either).\n\nThe access() call is already working around the failure modes of the open() call that\u0027s inside readApexInfoList, so I\u0027m only suggesting using open() here as well, instead of access(), to cover more of the failures that the other one may encounter.",
+      "parentUuid": "848fff69_72f07ffd",
       "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
