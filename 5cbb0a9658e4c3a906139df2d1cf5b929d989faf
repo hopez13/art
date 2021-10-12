@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c15f9324_6e6c3f04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-10-12T12:05:36Z",
+      "side": 1,
+      "message": "lgtm, but best if Vladimir looks too.",
+      "revId": "5cbb0a9658e4c3a906139df2d1cf5b929d989faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cd0e447_c1eec0fe",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-10-12T11:49:12Z",
       "side": 1,
       "message": "A note for reviewers: the only change is here, kGreaterEqual -\u003e kAboveEqual.",
+      "range": {
+        "startLine": 3415,
+        "startChar": 7,
+        "endLine": 3415,
+        "endChar": 18
+      },
+      "revId": "5cbb0a9658e4c3a906139df2d1cf5b929d989faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "310fbcaa_5a3d8f2e",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3415,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-10-12T12:05:36Z",
+      "side": 1,
+      "message": "Thanks, makes sense and I see we do that elsewhere.",
+      "parentUuid": "0cd0e447_c1eec0fe",
       "range": {
         "startLine": 3415,
         "startChar": 7,
