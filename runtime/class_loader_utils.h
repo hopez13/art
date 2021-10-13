@@ -22,6 +22,7 @@
 #include "handle_scope.h"
 #include "jni/jni_internal.h"
 #include "mirror/class_loader.h"
+#include "mirror/class_loader-inl.h"
 #include "mirror/object-inl.h"
 #include "mirror/object.h"
 #include "native/dalvik_system_DexFile.h"
@@ -66,6 +67,36 @@ inline bool IsDelegateLastClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
   ObjPtr<mirror::Class> class_loader_class = class_loader->GetClass();
   return class_loader_class ==
       soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_DelegateLastClassLoader);
+}
+
+// Returns true if we know the behavior of the class loader.
+inline bool IsKnownClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
+                               Handle<mirror::ClassLoader> class_loader)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return IsPathOrDexClassLoader(soa, class_loader) ||
+      IsInMemoryDexClassLoader(soa, class_loader) ||
+      IsDelegateLastClassLoader(soa, class_loader);
+}
+
+inline bool IsKnownClassLoaderHierarchy(ScopedObjectAccessAlreadyRunnable& soa,
+                                        Handle<mirror::ClassLoader> class_loader)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  StackHandleScope<1> hs(soa.Self());
+  MutableHandle<mirror::ClassLoader> current_loader(hs.NewHandle(class_loader.Get()));
+  // To protect the runtime from arbitrary long class loader hierarchy, limit
+  // the number of parents we look at.
+  static constexpr int kMaxParentCheck = 10;
+  int i = 0;
+  do {
+    if (!IsKnownClassLoader(soa, current_loader)) {
+      return false;
+    }
+    if (i++ == kMaxParentCheck) {
+      return false;
+    }
+    current_loader.Assign(current_loader->GetParent());
+  } while (current_loader != nullptr);
+  return true;
 }
 
 // Visit the DexPathList$Element instances in the given classloader with the given visitor.
