@@ -2381,3 +2381,60 @@ DEFINE_FUNCTION art_quick_compile_optimized
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
 END_FUNCTION art_quick_compile_optimized
+
+DEFINE_FUNCTION art_quick_method_entry_hook
+    SETUP_SAVE_EVERYTHING_FRAME edx
+    mov FRAME_SIZE_SAVE_EVERYTHING(%esp), %eax // Fetch ArtMethod
+    subl LITERAL(8), %esp
+    CFI_ADJUST_CFA_OFFSET(8)
+
+    pushl %fs:THREAD_SELF_OFFSET  // Pass Thread::Current().
+    CFI_ADJUST_CFA_OFFSET(4)
+    pushl %eax                     // Pass Method*.
+    CFI_ADJUST_CFA_OFFSET(4)
+
+    call SYMBOL(artMethodEntryHook) // (Method*, Thread*)
+
+    addl LITERAL(16), %esp        // Pop arguments.
+    CFI_ADJUST_CFA_OFFSET(-16)
+
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+END_FUNCTION art_quick_method_entry_hook
+
+DEFINE_FUNCTION art_quick_method_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME ebx
+
+    mov FRAME_SIZE_SAVE_EVERYTHING(%esp), %ebx               // Remember ArtMethod*
+    subl LITERAL(8), %esp         // Align stack.
+    CFI_ADJUST_CFA_OFFSET(8)
+    PUSH edx                      // Save gpr return value. edx and eax need to be together,
+                                  // which isn't the case in kSaveEverything frame.
+    PUSH eax
+    movl %esp, %edx               // Get pointer to gpr_result
+    leal 32(%esp), %eax           // Get pointer to fpr_result, in kSaveEverything frame
+    PUSH eax                      // Pass fpr_result
+    PUSH edx                      // Pass gpr_result
+    PUSH ebx                      // Pass ArtMethod*
+    pushl %fs:THREAD_SELF_OFFSET  // Pass Thread::Current.
+    CFI_ADJUST_CFA_OFFSET(4)
+    call SYMBOL(artMethodExitHook)  // (Thread*, ArtMethod*, gpr_result*, fpr_result*)
+
+    // Return result could have been changed if it's a reference.
+    movl 16(%esp), %ecx
+    movl %ecx, (80+32)(%esp)
+    addl LITERAL(32), %esp        // Pop arguments and grp_result.
+    CFI_ADJUST_CFA_OFFSET(-32)
+
+    cmpl LITERAL(1), %eax              // Check if we returned error.
+    je .Ldo_deliver_instrumentation_exception_exit
+
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+.Ldo_deliver_instrumentation_exception_exit:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
+END_FUNCTION art_quick_method_exit_hook
+
+
+
