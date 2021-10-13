@@ -2762,9 +2762,7 @@ bool ClassLinker::FindClassInBaseDexClassLoaderClassPath(
     size_t hash,
     Handle<mirror::ClassLoader> class_loader,
     /*out*/ ObjPtr<mirror::Class>* result) {
-  DCHECK(IsPathOrDexClassLoader(soa, class_loader) ||
-         IsInMemoryDexClassLoader(soa, class_loader) ||
-         IsDelegateLastClassLoader(soa, class_loader))
+  DCHECK(IsKnownClassLoader(soa, class_loader))
       << "Unexpected class loader for descriptor " << descriptor;
 
   const DexFile* dex_file = nullptr;
