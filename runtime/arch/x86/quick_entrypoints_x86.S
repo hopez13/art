@@ -2381,3 +2381,69 @@ DEFINE_FUNCTION art_quick_compile_optimized
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
 END_FUNCTION art_quick_compile_optimized
+
+DEFINE_FUNCTION art_quick_trace_entry_hook
+    SETUP_SAVE_EVERYTHING_FRAME edx
+    mov FRAME_SIZE_SAVE_EVERYTHING(%esp), %eax // Fetch ArtMethod
+    subl LITERAL(8), %esp
+    CFI_ADJUST_CFA_OFFSET(8)
+
+    pushl %fs:THREAD_SELF_OFFSET  // Pass Thread::Current().
+    CFI_ADJUST_CFA_OFFSET(4)
+    pushl %eax                     // Pass Method*.
+    CFI_ADJUST_CFA_OFFSET(4)
+
+    call SYMBOL(artTraceEntryHook) // (Method*, Thread*)
+
+    addl LITERAL(16), %esp        // Pop arguments.
+    CFI_ADJUST_CFA_OFFSET(-16)
+
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+END_FUNCTION art_quick_trace_entry_hook
+
+DEFINE_FUNCTION art_quick_trace_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME ecx
+
+    mov FRAME_SIZE_SAVE_EVERYTHING(%esp), %ecx               // Remember ArtMethod*
+    subl LITERAL(8), %esp         // Align stack.
+    CFI_ADJUST_CFA_OFFSET(8)
+    PUSH edx                      // Save gpr return value. edx and eax need to be together,
+                                  // which isn't the case in kSaveEverything frame.
+    PUSH eax
+    movl %esp, %edx               // Get pointer to gpr_result
+
+    leal (32+16)(%esp), %eax           // Get pointer to fpr_result, in kSaveEverything frame
+
+    PUSH ebx                      // Pass should_deoptimize flag
+    PUSH eax                      // Pass fpr_result
+    PUSH edx                      // Pass gpr_result
+    PUSH ecx
+    pushl %fs:THREAD_SELF_OFFSET  // Pass Thread::Current.
+    CFI_ADJUST_CFA_OFFSET(4)
+
+    call SYMBOL(artTraceExitHook)  // (Thread*, ArtMethod*, gpr_result*, fpr_result*, should_deopt)
+
+    // Return result could have been changed if it's a reference.
+    movl 16(%esp), %ecx
+    movl %ecx, (80+36)(%esp)
+    addl LITERAL(36), %esp        // Pop arguments and grp_result.
+    CFI_ADJUST_CFA_OFFSET(-36)
+
+    cmpl LITERAL(2), %eax              // Check if we returned error.
+    je .Ldo_deliver_exception_exit
+
+    cmpl LITERAL(1), %eax
+    je .Ldeoptimize_exit
+
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+.Ldeoptimize_exit:
+    RESTORE_SAVE_EVERYTHING_FRAME
+    jmp SYMBOL(art_quick_deoptimize)
+.Ldo_deliver_exception_exit:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
+END_FUNCTION art_quick_trace_exit_hook
+
+
