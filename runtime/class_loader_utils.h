@@ -68,6 +68,15 @@ inline bool IsDelegateLastClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
       soa.Decode<mirror::Class>(WellKnownClasses::dalvik_system_DelegateLastClassLoader);
 }
 
+// Returns true if we know the behavior of the class loader.
+inline bool IsKnownClassLoader(ScopedObjectAccessAlreadyRunnable& soa,
+                               Handle<mirror::ClassLoader> class_loader)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return IsPathOrDexClassLoader(soa, class_loader) ||
+      IsInMemoryDexClassLoader(soa, class_loader) ||
+      IsDelegateLastClassLoader(soa, class_loader);
+}
+
 // Visit the DexPathList$Element instances in the given classloader with the given visitor.
 // Constraints on the visitor:
 //   * The visitor should return true to continue visiting more Elements.
