@@ -208,6 +208,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb3c8fd2_5b6e5dcd",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-13T18:29:42Z",
+      "side": 1,
+      "message": "To close this off:\n\nThe static_libs dependency here is confusing - it looks like the tests are built with them statically, so I thought they wouldn\u0027t call the BCP libraries on the device. On further investigation I don\u0027t think that\u0027s the case though, because this is only passed to -bootclasspath through run-test-build.py. That could be more obvious.\n\nHowever, it also means the tests aren\u0027t restricted to the public APIs of the BCP libraries, and that\u0027s only ok for the libs that are in the ART module. So the use of core-icu4j-host here means we may bypass the public API of the i18n module. That\u0027s been resolved in http://b/202711962.",
+      "parentUuid": "3f634322_e83232c1",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 6
+      },
+      "revId": "8da14dc6f2d62e916fca4804a1a6e31908cf4d29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcaa7c17_5f15b32b",
