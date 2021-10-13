@@ -34,6 +34,29 @@
       "parentUuid": "e6522e7a_74ad07b4",
       "revId": "7cf6c58ed90d827dd9b85020219eced5d8c8ae78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8f9c527_6397fe8d",
+        "filename": "test/run-test",
+        "patchSetId": 11
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-10-13T13:16:29Z",
+      "side": 1,
+      "message": "Late comment, following an offline discussion with Nicolas: it seems that invoking the `run-test` script no longer triggers building the test(s) prior to running them, which means one has to manually build them beforehand. This seems like a regression to me. Could we consider reintroducing this behavior in the script?",
+      "range": {
+        "startLine": 869,
+        "startChar": 0,
+        "endLine": 869,
+        "endChar": 42
+      },
+      "revId": "7cf6c58ed90d827dd9b85020219eced5d8c8ae78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
