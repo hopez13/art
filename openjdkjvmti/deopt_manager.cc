@@ -492,7 +492,10 @@ void DeoptManager::DeoptimizeThread(art::Thread* target) {
                                          art::gc::GcCause::kGcCauseDebugger,
                                          art::gc::CollectorType::kCollectorTypeDebugger);
   art::ScopedSuspendAll ssa("Instrument thread stack");
-  art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target);
+  // TODO(mythria): I am not sure how this would work without updating the
+  // current_force_deopt_id_. Check it again to see if my understanding is
+  // correct.
+  art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target, true);
 }
 
 extern DeoptManager* gDeoptManager;

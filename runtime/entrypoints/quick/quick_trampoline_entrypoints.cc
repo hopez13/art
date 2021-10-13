@@ -2588,4 +2588,70 @@ extern "C" uint64_t artInvokeCustom(uint32_t call_site_idx, Thread* self, ArtMet
   return result.GetJ();
 }
 
+extern "C" void artTraceEntryHook(ArtMethod* method, Thread* self, ArtMethod** sp ATTRIBUTE_UNUSED)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  // TODO we should handle this here.
+  CHECK(!instr->IsDeoptimized(method));
+  instr->MethodEnterEvent(self, method);
+}
+
+extern "C" int artTraceExitHook(Thread* self,
+                                ArtMethod* method,
+                                uint64_t* gpr_result,
+                                uint64_t* fpr_result,
+                                bool frame_needs_deoptimization)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  DCHECK_EQ(reinterpret_cast<uintptr_t>(self), reinterpret_cast<uintptr_t>(Thread::Current()));
+  CHECK(gpr_result != nullptr);
+  CHECK(fpr_result != nullptr);
+  // Instrumentation exit stub must not be entered with a pending exception.
+  CHECK(!self->IsExceptionPending())
+      << "Enter instrumentation exit stub with pending exception " << self->GetException()->Dump();
+
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  bool is_ref;
+  JValue return_value = instr->GetReturnValue(self, method, &is_ref, gpr_result, fpr_result);
+  StackHandleScope<1> hs(self);
+  MutableHandle<mirror::Object> res(hs.NewHandle<mirror::Object>(nullptr));
+  if (is_ref) {
+    // Take a handle to the return value so we won't lose it if we suspend.
+    res.Assign(return_value.GetL());
+  }
+  uint32_t dex_pc = dex::kDexNoIndex;
+  if (!method->IsRuntimeMethod()) {
+    instr->MethodExitEvent(self, ObjPtr<mirror::Object>(), method, dex_pc, {}, return_value);
+  }
+
+  // Deoptimize if the caller needs to continue execution in the interpreter. Do nothing if we get
+  // back to an upcall.
+  NthCallerVisitor visitor(self, 1, true);
+  visitor.WalkStack(true);
+  bool deoptimize =
+      (visitor.caller != nullptr) &&
+      (instr->AreAllMethodsDeoptimized() || instr->IsDeoptimized(visitor.caller) ||
+       self->IsForceInterpreter() ||
+       // NB Since structurally obsolete compiled methods might have the offsets of
+       // methods/fields compiled in we need to go back to interpreter whenever we hit
+       // them.
+       visitor.caller->GetDeclaringClass()->IsObsoleteObject() || frame_needs_deoptimization ||
+       Dbg::IsForcedInterpreterNeededForUpcall(self, visitor.caller));
+  if (is_ref) {
+    // Restore the return value if it's a reference since it might have moved.
+    *reinterpret_cast<mirror::Object**>(gpr_result) = res.Get();
+  }
+
+  int result = 0;
+  if (deoptimize) {
+    DeoptimizationMethodType deopt_method_type = instr->GetDeoptimizationMethodType(method);
+    self->PushDeoptimizationContext(return_value, is_ref, nullptr, false, deopt_method_type);
+    result = 1;
+  }
+
+  if (self->IsExceptionPending() || self->ObserveAsyncException()) {
+    return 2;
+  }
+  return result;
+}
+
 }  // namespace art

@@ -2111,6 +2111,72 @@ void CodeGeneratorARMVIXL::ComputeSpillMask() {
   }
 }
 
+void LocationsBuilderARMVIXL::VisitMethodExitHookVoid(HMethodExitHookVoid* method_hook) {
+  LocationSummary* locations = new (GetGraph()->GetAllocator())
+      LocationSummary(method_hook, LocationSummary::kCallOnMainOnly);
+  locations->AddRegisterTemps(1);
+  locations->SetTempAt(0, LocationFrom(r4));
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitMethodExitHookVoid(HMethodExitHookVoid* instruction) {
+  GenerateExitHook(instruction);
+}
+
+void LocationsBuilderARMVIXL::VisitMethodExitHook(HMethodExitHook* method_hook) {
+  LocationSummary* locations = new (GetGraph()->GetAllocator())
+      LocationSummary(method_hook, LocationSummary::kCallOnMainOnly);
+  locations->SetInAt(0, parameter_visitor_.GetReturnLocation(method_hook->InputAt(0)->GetType()));
+  locations->AddRegisterTemps(1);
+  locations->SetTempAt(0, LocationFrom(r4));
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitMethodExitHook(HMethodExitHook* instruction) {
+  GenerateExitHook(instruction);
+}
+
+void InstructionCodeGeneratorARMVIXL::GenerateExitHook(HInstruction* instruction) {
+  vixl::aarch32::Label done, call;
+  UseScratchRegisterScope temps(GetVIXLAssembler());
+  vixl32::Register temp = temps.Acquire();
+
+  vixl32::Register should_deopt = RegisterFrom(instruction->GetLocations()->GetTemp(0));
+  GetAssembler()->LoadFromOffset(
+      kLoadWord, should_deopt, sp, codegen_->GetStackOffsetOfShouldDeoptimizeFlag());
+  __ cbnz(should_deopt, &call);
+
+  int offset = instrumentation::Instrumentation::HaveMethodExitListenersOffset().Int32Value();
+  uint32_t address = reinterpret_cast32<uint32_t>(Runtime::Current()->GetInstrumentation());
+  __ Mov(temp, address);
+  __ Ldrh(temp, MemOperand(temp, offset));
+  __ cbz(temp, &done);
+
+  __ Bind(&call);
+  codegen_->InvokeRuntime(kQuickTraceExitHook, instruction, instruction->GetDexPc());
+
+  __ Bind(&done);
+}
+
+void LocationsBuilderARMVIXL::VisitMethodEntryHook(HMethodEntryHook* method_hook) {
+  new (GetGraph()->GetAllocator()) LocationSummary(method_hook, LocationSummary::kCallOnMainOnly);
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitMethodEntryHook(HMethodEntryHook* instruction) {
+  DCHECK(Runtime::Current() && Runtime::Current()->IsJavaDebuggable() &&
+         !Runtime::Current()->IsAotCompiler());
+  DCHECK(codegen_->RequiresCurrentMethod());
+
+  vixl::aarch32::Label done;
+  UseScratchRegisterScope temps(GetVIXLAssembler());
+  vixl32::Register temp = temps.Acquire();
+  int offset = instrumentation::Instrumentation::HaveMethodEntryListenersOffset().Int32Value();
+  uint32_t address = reinterpret_cast32<uint32_t>(Runtime::Current()->GetInstrumentation());
+  __ Mov(temp, address);
+  __ Ldrh(temp, MemOperand(temp, offset));
+  __ cbz(temp, &done);
+  codegen_->InvokeRuntime(kQuickTraceEntryHook, instruction, instruction->GetDexPc());
+  __ Bind(&done);
+}
+
 void CodeGeneratorARMVIXL::MaybeIncrementHotness(bool is_frame_entry) {
   if (GetCompilerOptions().CountHotnessInCompiledCode()) {
     UseScratchRegisterScope temps(GetVIXLAssembler());

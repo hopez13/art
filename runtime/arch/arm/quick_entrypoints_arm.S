@@ -2525,3 +2525,41 @@ ENTRY art_quick_compile_optimized
     // artCompileOptimized doesn't allow thread suspension.
     blx lr
 END art_quick_compile_optimized
+
+// On entry, method is at the bottom of the stack.
+ENTRY art_quick_trace_entry_hook
+    SETUP_SAVE_REFS_AND_ARGS_FRAME r0
+    ldr r0, [sp, FRAME_SIZE_SAVE_REFS_AND_ARGS] @ pass ArtMethod
+    mov r1, rSELF                            @ pass Thread::Current
+    bl     artTraceEntryHook               @ (ArtMethod*, Thread*)
+    RESTORE_SAVE_REFS_AND_ARGS
+    REFRESH_MARKING_REGISTER
+    blx lr
+END art_quick_trace_entry_hook
+
+ENTRY art_quick_trace_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME r2
+
+    // add   r4, sp, #152   @ store should_deoptimize
+    add   r3, sp, #8     @ store fpr_res pointer, in kSaveEverything frame
+    add   r2, sp, #136   @ store gpr_res pointer, in kSaveEverything frame
+    ldr   r1, [sp, #FRAME_SIZE_SAVE_EVERYTHING]         @ pass ArtMethod*
+    mov   r0, rSELF      @ pass Thread::Current
+    blx   artTraceExitHook  @ (Thread*, ArtMethod*, gpr_res*, fpr_res*, should_deopt)
+
+    cmp r0, #2
+    beq   .Ldo_deliver_instrumentation_exception_exit
+                         @ Deliver exception
+    cmp r0, #1
+    cbnz  r1, .Ldeoptimize_exit
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    REFRESH_MARKING_REGISTER
+    bx lr
+.Ldo_deliver_instrumentation_exception_exit:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
+.Ldeoptimize_exit:
+    RESTORE_SAVE_EVERYTHING_FRAME
+    // Jump to art_quick_deoptimize.
+    b     art_quick_deoptimize
+END art_quick_trace_exit_hook
