@@ -57,6 +57,30 @@
       },
       "revId": "7cf6c58ed90d827dd9b85020219eced5d8c8ae78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c3aba8b_b159ee39",
+        "filename": "test/run-test",
+        "patchSetId": 11
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-13T16:07:46Z",
+      "side": 1,
+      "message": "\"test.py -b\" still should build them.\nThat is, I tested that the tests work even if you start in completely clean tree.\n\nHaving said that, I think that the build (including C++ code) should be done by default.\nIn general, I think the defaults arguments should be the ones that \"just work\".",
+      "parentUuid": "a8f9c527_6397fe8d",
+      "range": {
+        "startLine": 869,
+        "startChar": 0,
+        "endLine": 869,
+        "endChar": 42
+      },
+      "revId": "7cf6c58ed90d827dd9b85020219eced5d8c8ae78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
