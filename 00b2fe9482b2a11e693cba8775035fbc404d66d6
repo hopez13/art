@@ -34,6 +34,24 @@
       "parentUuid": "f6b7e993_a888c885",
       "revId": "00b2fe9482b2a11e693cba8775035fbc404d66d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e80fe32_2d6ffa83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-13T16:15:14Z",
+      "side": 1,
+      "message": "I\u0027d prefer to exclude the test in the nightly instead.  This doesn\u0027t break cuttlefish.  I\u0027ll update to the bug.",
+      "parentUuid": "f7e80937_0cc4940f",
+      "revId": "00b2fe9482b2a11e693cba8775035fbc404d66d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
