@@ -35,6 +35,7 @@
 #include "base/systrace.h"
 #include "class_linker.h"
 #include "class_loader_context.h"
+#include "class_loader_utils.h"
 #include "dex/art_dex_file_loader.h"
 #include "dex/dex_file-inl.h"
 #include "dex/dex_file_loader.h"
@@ -725,6 +726,20 @@ void OatFileManager::RunBackgroundVerification(const std::vector<const DexFile*>
     // classes when debuggable to match class-initialization semantics
     // expectations. Do not verify in the background.
     return;
+  }
+
+  {
+    // Temporarily create a class loader context to see if we recognize the
+    // chain.
+    std::unique_ptr<ClassLoaderContext> context(
+        ClassLoaderContext::CreateContextForClassLoader(class_loader, nullptr));
+    if (context == nullptr) {
+      // We only run backround verification for class loaders we know the lookup
+      // order. Because the background verification runs on runtime threads,
+      // which do not call Java, we won't be able to load classes when
+      // verifying, which is something the current verifier relies on.
+      return;
+    }
   }
 
   if (!IsSdkVersionSetAndAtLeast(runtime->GetTargetSdkVersion(), SdkVersion::kQ)) {
