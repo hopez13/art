@@ -271,6 +271,33 @@ TEST_F(FileUtilsTest, GetApexDataDalvikCacheFilename) {
   CHECK_EQ(vdex_filename, ReplaceFileExtension(art_filename, "vdex"));
 }
 
+TEST_F(FileUtilsTest, OverrideDalvikCacheSubDirectory) {
+  ScopedUnsetEnvironmentVariable android_root("ANDROID_ROOT");
+  ScopedUnsetEnvironmentVariable i18n_root("ANDROID_I18N_ROOT");
+  ScopedUnsetEnvironmentVariable art_apex_data("ART_APEX_DATA");
+
+  OverrideDalvikCacheSubDirectory("overridden-cache");
+
+  EXPECT_EQ(GetArtApexData() + "/overridden-cache/arm/boot-beep.oat",
+            GetApexDataOatFilename("/product/javalib/beep.jar", InstructionSet::kArm));
+
+  EXPECT_EQ(GetArtApexData() + "/overridden-cache/arm/data@some@code.odex",
+            GetApexDataOdexFilename("/data/some/code.dex", InstructionSet::kArm));
+
+  const std::string system_jar = "/system/framework/disk.jar";
+  const std::string boot_image = GetApexDataBootImage(system_jar.c_str());
+  EXPECT_EQ(GetArtApexData() + "/overridden-cache/boot-disk.art", boot_image);
+
+  EXPECT_EQ(
+      GetArtApexData() + "/overridden-cache/apex@com.android.wifi@lib@javalib@bar.jar@classes.art",
+      GetApexDataImage(std::string {kAndroidWifiApexDefaultPath} + "/lib/javalib/bar.jar"));
+
+  const std::string apex_jar = std::string {kAndroidWifiApexDefaultPath} + "/lib/javalib/bar.jar";
+  EXPECT_EQ(GetArtApexData() +
+                "/overridden-cache/x86_64/apex@com.android.wifi@lib@javalib@bar.jar@classes.art",
+            GetApexDataDalvikCacheFilename(apex_jar, InstructionSet::kX86_64, "art"));
+}
+
 TEST_F(FileUtilsTest, GetSystemOdexFilenameForApex) {
   ScopedUnsetEnvironmentVariable android_root("ANDROID_ROOT");
 
