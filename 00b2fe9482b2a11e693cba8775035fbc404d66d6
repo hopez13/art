@@ -16,6 +16,24 @@
       "message": "+2 but it looks like there is an underlying issue we need to resolve from the bug.",
       "revId": "00b2fe9482b2a11e693cba8775035fbc404d66d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7e80937_0cc4940f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-13T13:00:43Z",
+      "side": 1,
+      "message": "Agreed. This test is useful, and seems to be conistently passing (https://blackbox.googleplex.com/testmapping?branch\u003daosp-master\u0026target\u003daosp_cf_x86_64_phone-userdebug\u0026folder\u003dpackages%2Fmodules%2FVirtualization\u0026subfolders\u003dtrue)\n\nWhat\u0027s the plan for getting it reinstated?",
+      "parentUuid": "f6b7e993_a888c885",
+      "revId": "00b2fe9482b2a11e693cba8775035fbc404d66d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
