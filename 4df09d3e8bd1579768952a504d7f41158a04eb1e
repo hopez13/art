@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78b0ae06_171bcbf2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-13T14:17:23Z",
+      "side": 1,
+      "message": "Thank you for the quick fix!",
+      "revId": "4df09d3e8bd1579768952a504d7f41158a04eb1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f7b2bf4_4602d12b",
+        "filename": "test/146-bad-interface/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-13T14:17:23Z",
+      "side": 1,
+      "message": "Nit: \"context\"",
+      "range": {
+        "startLine": 17,
+        "startChar": 36,
+        "endLine": 17,
+        "endChar": 42
+      },
+      "revId": "4df09d3e8bd1579768952a504d7f41158a04eb1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca73d6a_59dab886",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-13T14:17:23Z",
+      "side": 1,
+      "message": "Just curious, what was the problem with \"-z\"?",
+      "range": {
+        "startLine": 1023,
+        "startChar": 9,
+        "endLine": 1023,
+        "endChar": 49
+      },
+      "revId": "4df09d3e8bd1579768952a504d7f41158a04eb1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
