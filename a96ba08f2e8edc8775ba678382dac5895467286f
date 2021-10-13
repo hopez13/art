@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "56f340a9_ccd93b7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T13:43:00Z",
+      "side": 1,
+      "message": "You\u0027re omitting essential changes here. How does the new scheme work? Can we still meaningfully set thresholds for warm and hot? (Seems like those are now hard-coded to 0xffff.)\n\nYou should also add a proper description to `ArtMethod::hotness_count_`.",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df1579bb_f08f86d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T13:43:00Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 11,
+        "startChar": 17,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d28bc234_1d172be0",
@@ -14,6 +54,167 @@
       "writtenOn": "2021-10-11T07:23:52Z",
       "side": 1,
       "message": "Vladimir, David, friendly TH ping.",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fb3ef95_7d71a09c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T13:43:00Z",
+      "side": 1,
+      "message": "Do this in a register, otherwise racing threads could cause underflow.",
+      "range": {
+        "startLine": 1110,
+        "startChar": 4,
+        "endLine": 1114,
+        "endChar": 60
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba452c5d_e306673a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T13:43:00Z",
+      "side": 1,
+      "message": "Do this in a register, otherwise racing threads could cause underflow.",
+      "range": {
+        "startLine": 1492,
+        "startChar": 4,
+        "endLine": 1496,
+        "endChar": 60
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5d7722d_710dd21c",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T13:43:00Z",
+      "side": 1,
+      "message": "\u003c\u003d",
+      "range": {
+        "startLine": 436,
+        "startChar": 21,
+        "endLine": 436,
+        "endChar": 22
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "229403b0_205e4590",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T13:43:00Z",
+      "side": 1,
+      "message": "Explicitly inline? (Related to the comment below.)",
+      "range": {
+        "startLine": 438,
+        "startChar": 4,
+        "endLine": 438,
+        "endChar": 20
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07397ee7_4e7a953c",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T13:43:00Z",
+      "side": 1,
+      "message": "You should load `hotness_count_` to a local variable to avoid thread races causing underflow. (Maybe that\u0027s not possible with clang++ optimizations but I don\u0027t want to rely on that.)",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 50
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a81db1ee_24c831b1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1961,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T13:43:00Z",
+      "side": 1,
+      "message": "This is odd. We should probably just reset the counter in `ImageWriter::CopyAndFixupMethod()` to avoid this work at runtime.",
+      "range": {
+        "startLine": 1959,
+        "startChar": 8,
+        "endLine": 1961,
+        "endChar": 30
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f2eb771_5ee518ce",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T13:43:00Z",
+      "side": 1,
+      "message": "Both Nterp and AddSamples() reset the counter when reaching \"hot\" state, so we do not really collect anything here.",
+      "range": {
+        "startLine": 1501,
+        "startChar": 8,
+        "endLine": 1501,
+        "endChar": 31
+      },
       "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
