@@ -39,6 +39,30 @@
       },
       "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9faee5a5_5d0c3ce6",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-13T16:16:47Z",
+      "side": 1,
+      "message": "\u003e   Is this the ONLY directory to store the output?  (I hope so)\nNo. Actually we write things initially to ../staging, and then move them from staging to dalvik-cache, for greater atomicity (I think). See e.g. http://cs/android/art/odrefresh/odrefresh.cc?l\u003d1384.\n\n\u003e pass the output directory as a FD (over authfs), and let odrefresh use openat(2) to create the output file\nDoes that work with authfs? Cool!\n\n\u003e  I might later replace this new flag with its --dalvik-cache-dir-fd or --output-dir-fd.\nFine by me. I\u0027m about to modify the tests (and composd) to use this flag, but it\u0027s all mutable.",
+      "parentUuid": "46d1fd17_c57cf579",
+      "range": {
+        "startLine": 375,
+        "startChar": 13,
+        "endLine": 375,
+        "endChar": 36
+      },
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
