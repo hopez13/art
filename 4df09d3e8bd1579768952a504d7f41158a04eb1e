@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00de3714_7c2ea4ec",
+        "filename": "test/146-bad-interface/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T14:40:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f7b2bf4_4602d12b",
+      "range": {
+        "startLine": 17,
+        "startChar": 36,
+        "endLine": 17,
+        "endChar": 42
+      },
+      "revId": "4df09d3e8bd1579768952a504d7f41158a04eb1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ca73d6a_59dab886",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-10-13T14:17:23Z",
       "side": 1,
       "message": "Just curious, what was the problem with \"-z\"?",
+      "range": {
+        "startLine": 1023,
+        "startChar": 9,
+        "endLine": 1023,
+        "endChar": 49
+      },
+      "revId": "4df09d3e8bd1579768952a504d7f41158a04eb1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c47b3b6_2364de4f",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-13T14:40:54Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with it. And most of the file is using the pattern `if [ \"x$var\" \u003d \"x\" ]; then`, so I used it here as well.",
+      "parentUuid": "7ca73d6a_59dab886",
       "range": {
         "startLine": 1023,
         "startChar": 9,
