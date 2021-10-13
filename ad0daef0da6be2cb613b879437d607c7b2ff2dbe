@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1af09ada_9e4646b6",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4762,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-13T14:26:57Z",
+      "side": 1,
+      "message": "Then, it looks like the code before also had the superfluous check?",
+      "parentUuid": "31a126b1_f35a3439",
+      "range": {
+        "startLine": 4762,
+        "startChar": 12,
+        "endLine": 4762,
+        "endChar": 76
+      },
+      "revId": "ad0daef0da6be2cb613b879437d607c7b2ff2dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ef626db_802ec822",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 3
