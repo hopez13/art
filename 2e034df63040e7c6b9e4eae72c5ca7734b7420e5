@@ -33,6 +33,24 @@
       "message": "Before this change, apex_versions_ would be set to \"\" if the xml file exists and ART_TARGET_ANDROID isn\u0027t defined. Now it\u0027ll be a run of slashes in that situation too.\n\nThat seems more sensible to me, but I don\u0027t know for sure if there was any thought behind the old behaviour.",
       "revId": "2e034df63040e7c6b9e4eae72c5ca7734b7420e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8739581c_bdd25db1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1296,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-13T14:50:20Z",
+      "side": 1,
+      "message": "That isn\u0027t a situation we should worry about. In practice, the situation you\u0027re describing never happen today.",
+      "parentUuid": "04f04e0d_e169284d",
+      "revId": "2e034df63040e7c6b9e4eae72c5ca7734b7420e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
