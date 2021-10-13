@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "055989a8_be0858bb",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-13T13:46:52Z",
+      "side": 1,
+      "message": "We could put this in the loop for an early break but I am not sure if it will make a lot of performance difference and it looks clearer here. WDYT?",
+      "revId": "099bff7083e6afe7ee31ba385fd57ccf105bbbab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
