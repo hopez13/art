@@ -302,6 +302,24 @@
       "parentUuid": "f613fbd1_cb9e071a",
       "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3603e5a0_074c9aa1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-13T15:33:41Z",
+      "side": 1,
+      "message": "\u003e there are various processes in place that checks and wants to make sure there are no denials.\n\nThat sounds like WAI to me - the other processes that have inadequate permissions should be fixed to get them, rather than running ART in a degraded slow mode, shouldn\u0027t they?\n\nBut ok, very well then.",
+      "parentUuid": "787d3113_a4d2f763",
+      "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
