@@ -206,6 +206,10 @@ int InitializeTargetConfig(int argc, char** argv, OdrConfig* config) {
         ArgumentError("Failed to parse CID: %s", value.c_str());
       }
       config->SetCompilationOsAddress(cid);
+    } else if (ArgumentMatches(arg, "--dalvik-cache=", &value)) {
+      art::OverrideDalvikCacheSubDirectory(value);
+      config->SetArtifactDirectory(Concatenate({
+          android::base::Dirname(art::odrefresh::kOdrefreshArtifactDirectory), "/", value}));
     } else if (!InitializeCommonConfig(arg, config)) {
       UsageError("Unrecognized argument: '%s'", arg);
     }
@@ -240,7 +244,7 @@ int main(int argc, char** argv) {
     UsageError("Expected 1 argument, but have %d.", argc);
   }
 
-  OdrMetrics metrics(art::odrefresh::kOdrefreshArtifactDirectory);
+  OdrMetrics metrics(config.GetArtifactDirectory());
   OnDeviceRefresh odr(config);
   for (int i = 0; i < argc; ++i) {
     std::string_view action(argv[i]);
