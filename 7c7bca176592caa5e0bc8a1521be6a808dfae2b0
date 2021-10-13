@@ -16,6 +16,29 @@
       "message": "This is my third attempt at figuring out how to implement this, and perhaps surprisingly it\u0027s the least ugly so far.\n",
       "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46d1fd17_c57cf579",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-10-13T16:08:47Z",
+      "side": 1,
+      "message": "Slightly off topic question.  Is this the ONLY directory to store the output?  (I hope so)\n\nI\u0027ll be trying to run odrefresh in the VM, and am thinking to pass the output directory as a FD (over authfs), and let odrefresh use openat(2) to create the output file.  If that\u0027s indeed doable, then I might later replace this new flag with its --dalvik-cache-dir-fd or --output-dir-fd.",
+      "range": {
+        "startLine": 375,
+        "startChar": 13,
+        "endLine": 375,
+        "endChar": 36
+      },
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
