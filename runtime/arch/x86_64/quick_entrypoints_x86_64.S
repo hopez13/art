@@ -2208,3 +2208,46 @@ DEFINE_FUNCTION art_quick_compile_optimized
     RESTORE_SAVE_EVERYTHING_FRAME               // restore frame up to return address
     ret
 END_FUNCTION art_quick_compile_optimized
+
+// On entry, method is at the bottom of the stack.
+DEFINE_FUNCTION art_quick_trace_entry_hook
+    SETUP_SAVE_REFS_AND_ARGS_FRAME
+
+    movq FRAME_SIZE_SAVE_REFS_AND_ARGS(%rsp), %rdi // pass ArtMethod
+    movq %gs:THREAD_SELF_OFFSET, %rsi           // pass Thread::Current()
+
+    call SYMBOL(artTraceEntryHook)              // (ArtMethod*, Thread*)
+
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME
+    ret
+END_FUNCTION art_quick_trace_entry_hook
+
+// On entry, method is at the bottom of the stack.
+// and r8 has should_deopt_frame value.
+DEFINE_FUNCTION art_quick_trace_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME
+
+    leaq 200(%rsp), %r8       // Pass should_deopt_frame value.
+    leaq 16(%rsp), %rcx       // Pass floating-point result pointer, in kSaveEverything frame.
+    leaq 144(%rsp), %rdx      // Pass integer result pointer, in kSaveEverything frame.
+    movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rsi
+    movq %gs:THREAD_SELF_OFFSET, %rdi  // Pass Thread.
+
+    call SYMBOL(artTraceExitHook)   // (Thread*, SP, gpr_res*, fpr_res*, should_deopt_frame)
+
+    cmpq LITERAL(2), %rax
+    je .Ldo_deliver_instrumentation_exception_exit
+
+    cmpq LITERAL(1),  %rax
+    je .Ldeoptimize_exit
+
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+ .Ldeoptimize_exit:
+    RESTORE_SAVE_EVERYTHING_FRAME
+    // Jump to art_quick_deoptimize.
+    jmp SYMBOL(art_quick_deoptimize)
+ .Ldo_deliver_instrumentation_exception_exit:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
+END_FUNCTION art_quick_trace_entry_hook

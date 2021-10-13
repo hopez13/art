@@ -1780,7 +1780,9 @@ static void ReplaceStrongRoots(art::Thread* self, const ObjectMap& map)
       // already have.
       // TODO We technically only need to do this if the frames are not already being interpreted.
       // The cost for doing an extra stack walk is unlikely to be worth it though.
-      instr->InstrumentThreadStack(t);
+      // TODO(mythria): Check if we need to force a deopt here. Conservative
+      // approach force one for now
+      instr->InstrumentThreadStack(t, true);
     }
   }
 }

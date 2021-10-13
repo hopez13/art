@@ -2630,3 +2630,46 @@ ENTRY art_quick_compile_optimized
     // artCompileOptimized doesn't allow thread suspension.
     ret
 END art_quick_compile_optimized
+
+    .extern artTraceEntryHook
+ENTRY art_quick_trace_entry_hook
+    SETUP_SAVE_REFS_AND_ARGS_FRAME
+
+    ldr x0, [sp, #FRAME_SIZE_SAVE_REFS_AND_ARGS] // pass ArtMethod
+    mov   x1, xSELF
+    bl    artTraceEntryHook  // (Method*, Thread*)
+
+    RESTORE_SAVE_REFS_AND_ARGS_FRAME  // Note: will restore xSELF
+    REFRESH_MARKING_REGISTER
+    ret
+END art_quick_trace_entry_hook
+
+    .extern artTraceExitHook
+ENTRY art_quick_trace_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME
+
+    // X4 already contains the expected value. No need to load it again.
+    // add   x4, xp, #304
+    add   x3, sp, #16         // Pass floating-point result pointer, in kSaveEverything frame.
+    add   x2, sp, #272        // Pass integer result pointer, in kSaveEverything frame.
+    ldr   x1, [sp, #FRAME_SIZE_SAVE_EVERYTHING]  // Pass ArtMethod.
+    mov   x0, xSELF           // Pass Thread.
+    bl   artTraceExitHook    // (Thread*, ArtMethod*, gpr_res*, fpr_res*, should_deoptimize)
+
+    cmp x0, #2
+    beq .Ldo_deliver_instrumentation_exception_exit
+                              // Handle error
+    cmp  x0, #1
+    beq .Ldeoptimize_exit
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    REFRESH_MARKING_REGISTER
+    ret
+.Ldo_deliver_instrumentation_exception_exit:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
+.Ldeoptimize_exit:
+    RESTORE_SAVE_EVERYTHING_FRAME
+    // Jump to art_quick_deoptimize.
+    b     art_quick_deoptimize
+END art_quick_trace_exit_hook
+
