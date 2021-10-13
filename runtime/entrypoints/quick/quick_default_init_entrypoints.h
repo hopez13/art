@@ -131,6 +131,10 @@ static void DefaultInitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qp
   qpoints->pUpdateInlineCache = art_quick_update_inline_cache;
   qpoints->pCompileOptimized = art_quick_compile_optimized;
 
+  // Tracing hooks
+  qpoints->pTraceEntryHook = art_quick_trace_entry_hook;
+  qpoints->pTraceExitHook = art_quick_trace_exit_hook;
+
   bool should_report = false;
   PaletteShouldReportJniInvocations(&should_report);
   if (should_report) {
