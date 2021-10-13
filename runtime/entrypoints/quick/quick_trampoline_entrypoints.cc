@@ -60,6 +60,8 @@
 
 namespace art {
 
+extern "C" NO_RETURN void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self);
+
 // Visits the arguments as saved to the stack by a CalleeSaveType::kRefAndArgs callee save frame.
 class QuickArgumentVisitor {
   // Number of bytes for each out register in the caller method's frame.
@@ -2586,6 +2588,69 @@ extern "C" uint64_t artInvokeCustom(uint32_t call_site_idx, Thread* self, ArtMet
   self->PopManagedStackFragment(fragment);
 
   return result.GetJ();
+}
+
+extern "C" void artTraceEntryHook(ArtMethod* method, Thread* self, ArtMethod** sp ATTRIBUTE_UNUSED)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  instr->MethodEnterEvent(self, method);
+  if (instr->IsDeoptimized(method)) {
+    // TODO(mythria): Use a different DeoptimizationKind to indicate that
+    // instrumentation required a deopt of a particular function. FullFrame
+    // deoptimizations are handled on method exits.
+    artDeoptimizeFromCompiledCode(DeoptimizationKind::kFullFrame, self);
+  }
+}
+
+extern "C" int artTraceExitHook(Thread* self,
+                                ArtMethod* method,
+                                uint64_t* gpr_result,
+                                uint64_t* fpr_result,
+                                bool frame_needs_deoptimization)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  DCHECK_EQ(reinterpret_cast<uintptr_t>(self), reinterpret_cast<uintptr_t>(Thread::Current()));
+  CHECK(gpr_result != nullptr);
+  CHECK(fpr_result != nullptr);
+  // Instrumentation exit stub must not be entered with a pending exception.
+  CHECK(!self->IsExceptionPending())
+      << "Enter instrumentation exit stub with pending exception " << self->GetException()->Dump();
+
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  bool is_ref;
+  JValue return_value = instr->GetReturnValue(self, method, &is_ref, gpr_result, fpr_result);
+  StackHandleScope<1> hs(self);
+  MutableHandle<mirror::Object> res(hs.NewHandle<mirror::Object>(nullptr));
+  if (is_ref) {
+    // Take a handle to the return value so we won't lose it if we suspend.
+    res.Assign(return_value.GetL());
+  }
+  uint32_t dex_pc = dex::kDexNoIndex;
+  if (!method->IsRuntimeMethod()) {
+    instr->MethodExitEvent(self, ObjPtr<mirror::Object>(), method, dex_pc, {}, return_value);
+  }
+
+  if (is_ref) {
+    // Restore the return value if it's a reference since it might have moved.
+    *reinterpret_cast<mirror::Object**>(gpr_result) = res.Get();
+  }
+
+  // Deoptimize if the caller needs to continue execution in the interpreter. Do nothing if we get
+  // back to an upcall.
+  NthCallerVisitor visitor(self, 1, true);
+  visitor.WalkStack(true);
+  bool deoptimize = instr->ShouldDeoptimizeMethod(self, visitor) || frame_needs_deoptimization;
+
+  int result = 0;
+  if (deoptimize) {
+    DeoptimizationMethodType deopt_method_type = instr->GetDeoptimizationMethodType(method);
+    self->PushDeoptimizationContext(return_value, is_ref, nullptr, false, deopt_method_type);
+    result = 1;
+  }
+
+  if (self->IsExceptionPending() || self->ObserveAsyncException()) {
+    return 2;
+  }
+  return result;
 }
 
 }  // namespace art
