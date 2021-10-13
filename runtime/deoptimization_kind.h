@@ -29,6 +29,7 @@ enum class DeoptimizationKind {
   kLoopNullBCE,
   kBlockBCE,
   kCHA,
+  kDebugging,
   kFullFrame,
   kLast = kFullFrame
 };
@@ -42,6 +43,8 @@ inline const char* GetDeoptimizationKindName(DeoptimizationKind kind) {
     case DeoptimizationKind::kLoopNullBCE: return "loop bounds check elimination on null";
     case DeoptimizationKind::kBlockBCE: return "block bounds check elimination";
     case DeoptimizationKind::kCHA: return "class hierarchy analysis";
+    case DeoptimizationKind::kDebugging:
+      return "Deopt requested for debug support";
     case DeoptimizationKind::kFullFrame: return "full frame";
   }
   LOG(FATAL) << "Unexpected kind " << static_cast<size_t>(kind);

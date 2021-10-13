@@ -1097,6 +1097,77 @@ static dwarf::Reg DWARFReg(Register reg) {
   return dwarf::Reg::X86Core(static_cast<int>(reg));
 }
 
+void SetInForReturnValue(HInstruction* ret, LocationSummary* locations) {
+  switch (ret->InputAt(0)->GetType()) {
+    case DataType::Type::kReference:
+    case DataType::Type::kBool:
+    case DataType::Type::kUint8:
+    case DataType::Type::kInt8:
+    case DataType::Type::kUint16:
+    case DataType::Type::kInt16:
+    case DataType::Type::kInt32:
+      locations->SetInAt(0, Location::RegisterLocation(EAX));
+      break;
+
+    case DataType::Type::kInt64:
+      locations->SetInAt(0, Location::RegisterPairLocation(EAX, EDX));
+      break;
+
+    case DataType::Type::kFloat32:
+    case DataType::Type::kFloat64:
+      locations->SetInAt(0, Location::FpuRegisterLocation(XMM0));
+      break;
+
+    default:
+      LOG(FATAL) << "Unknown return type " << ret->InputAt(0)->GetType();
+  }
+}
+
+void LocationsBuilderX86::VisitMethodExitHook(HMethodExitHook* method_hook) {
+  LocationSummary* locations = new (GetGraph()->GetAllocator())
+      LocationSummary(method_hook, LocationSummary::kCallOnMainOnly);
+  SetInForReturnValue(method_hook, locations);
+  // Temporary is needed to compute the NeedsEntryExitHooksOffset.
+  locations->AddRegisterTemps(1);
+}
+
+void InstructionCodeGeneratorX86::VisitMethodExitHook(HMethodExitHook* instruction) {
+  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && Runtime::Current()->IsJavaDebuggable());
+  DCHECK(codegen_->RequiresCurrentMethod());
+
+  NearLabel done;
+  uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
+  int offset = instrumentation::Instrumentation::NeedsEntryExitHooksOffset().Int32Value();
+  Register temp = instruction->GetLocations()->GetTemp(0).AsRegister<Register>();
+  __ movl(temp, Immediate(address));
+  __ cmpw(Address(temp, offset), Immediate(0));
+  __ j(kEqual, &done);
+  codegen_->InvokeRuntime(kQuickMethodExitHook, instruction, instruction->GetDexPc());
+  __ Bind(&done);
+}
+
+void LocationsBuilderX86::VisitMethodEntryHook(HMethodEntryHook* method_hook) {
+  LocationSummary* locations = new (GetGraph()->GetAllocator())
+      LocationSummary(method_hook, LocationSummary::kCallOnMainOnly);
+  // Temporary is needed to compute the NeedsEntryExitHooksOffset.
+  locations->AddTemp(Location::RequiresRegister());
+}
+
+void InstructionCodeGeneratorX86::VisitMethodEntryHook(HMethodEntryHook* instruction) {
+  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && Runtime::Current()->IsJavaDebuggable());
+  DCHECK(codegen_->RequiresCurrentMethod());
+
+  NearLabel done;
+  uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
+  int offset = instrumentation::Instrumentation::NeedsEntryExitHooksOffset().Int32Value();
+  Register temp = instruction->GetLocations()->GetTemp(0).AsRegister<Register>();
+  __ movl(temp, Immediate(address));
+  __ cmpw(Address(temp, offset), Immediate(0));
+  __ j(kEqual, &done);
+  codegen_->InvokeRuntime(kQuickMethodEntryHook, instruction, instruction->GetDexPc());
+  __ Bind(&done);
+}
+
 void CodeGeneratorX86::MaybeIncrementHotness(bool is_frame_entry) {
   if (GetCompilerOptions().CountHotnessInCompiledCode()) {
     Register reg = EAX;
@@ -2408,31 +2479,7 @@ void InstructionCodeGeneratorX86::VisitReturnVoid(HReturnVoid* ret ATTRIBUTE_UNU
 void LocationsBuilderX86::VisitReturn(HReturn* ret) {
   LocationSummary* locations =
       new (GetGraph()->GetAllocator()) LocationSummary(ret, LocationSummary::kNoCall);
-  switch (ret->InputAt(0)->GetType()) {
-    case DataType::Type::kReference:
-    case DataType::Type::kBool:
-    case DataType::Type::kUint8:
-    case DataType::Type::kInt8:
-    case DataType::Type::kUint16:
-    case DataType::Type::kInt16:
-    case DataType::Type::kInt32:
-      locations->SetInAt(0, Location::RegisterLocation(EAX));
-      break;
-
-    case DataType::Type::kInt64:
-      locations->SetInAt(
-          0, Location::RegisterPairLocation(EAX, EDX));
-      break;
-
-    case DataType::Type::kFloat32:
-    case DataType::Type::kFloat64:
-      locations->SetInAt(
-          0, Location::FpuRegisterLocation(XMM0));
-      break;
-
-    default:
-      LOG(FATAL) << "Unknown return type " << ret->InputAt(0)->GetType();
-  }
+  SetInForReturnValue(ret, locations);
 }
 
 void InstructionCodeGeneratorX86::VisitReturn(HReturn* ret) {

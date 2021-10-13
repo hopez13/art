@@ -492,7 +492,8 @@ void DeoptManager::DeoptimizeThread(art::Thread* target) {
                                          art::gc::GcCause::kGcCauseDebugger,
                                          art::gc::CollectorType::kCollectorTypeDebugger);
   art::ScopedSuspendAll ssa("Instrument thread stack");
-  art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target);
+  art::Runtime::Current()->GetInstrumentation()->InstrumentThreadStack(target,
+                                                                       /* should_deopt= */ false);
 }
 
 extern DeoptManager* gDeoptManager;

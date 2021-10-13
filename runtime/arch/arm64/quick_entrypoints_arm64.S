@@ -2630,3 +2630,38 @@ ENTRY art_quick_compile_optimized
     // artCompileOptimized doesn't allow thread suspension.
     ret
 END art_quick_compile_optimized
+
+    .extern artMethodEntryHook
+ENTRY art_quick_method_entry_hook
+    SETUP_SAVE_EVERYTHING_FRAME
+
+    ldr x0, [sp, #FRAME_SIZE_SAVE_EVERYTHING] // pass ArtMethod
+    mov   x1, xSELF
+    bl    artMethodEntryHook  // (Method*, Thread*)
+
+    RESTORE_SAVE_EVERYTHING_FRAME  // Note: will restore xSELF
+    REFRESH_MARKING_REGISTER
+    ret
+END art_quick_method_entry_hook
+
+    .extern artMethodExitHook
+ENTRY art_quick_method_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME
+
+    add   x3, sp, #16        // Pass floating-point result pointer, in kSaveEverything frame.
+    add   x2, sp, #272       // Pass integer result pointer, in kSaveEverything frame.
+    ldr   x1, [sp, #FRAME_SIZE_SAVE_EVERYTHING]  // Pass ArtMethod.
+    mov   x0, xSELF          // Pass Thread.
+    bl   artMethodExitHook    // (Thread*, ArtMethod*, gpr_res*, fpr_res*)
+
+    cmp x0, #1
+    beq .Ldo_deliver_instrumentation_exception_exit
+                              // Handle error
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    REFRESH_MARKING_REGISTER
+    ret
+.Ldo_deliver_instrumentation_exception_exit:
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
+END art_quick_method_exit_hook
+
