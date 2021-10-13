@@ -105,6 +105,30 @@
       },
       "revId": "7cf6c58ed90d827dd9b85020219eced5d8c8ae78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "643fd4cd_1950ff5e",
+        "filename": "test/run-test",
+        "patchSetId": 11
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-13T16:23:31Z",
+      "side": 1,
+      "message": "Fair enough.  It is a change of behavior.  Although I would argue the old status quo was odd.  That is, changing java file would get picked out, but changing cpp file would not get picked up.  Personally, my work-flow was always based on \"test.py -b\" as I never really want to run the tests without the code changes that I just made.\n\nMy proposal would be \n1) reduce the number of scripts that we use to run tests\n2) build all dependencies by default to reduce the suprises",
+      "parentUuid": "d347b64a_389a153a",
+      "range": {
+        "startLine": 869,
+        "startChar": 0,
+        "endLine": 869,
+        "endChar": 42
+      },
+      "revId": "7cf6c58ed90d827dd9b85020219eced5d8c8ae78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
