@@ -1669,6 +1669,7 @@ void CodeGeneratorX86_64::Move(Location destination, Location source) {
       __ movsd(dest, Address(CpuRegister(RSP), source.GetStackIndex()));
     }
   } else if (destination.IsStackSlot()) {
+    // Temporary comment
     if (source.IsRegister()) {
       __ movl(Address(CpuRegister(RSP), destination.GetStackIndex()),
               source.AsRegister<CpuRegister>());
