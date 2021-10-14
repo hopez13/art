@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b113a013_2cc5acaa",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-14T13:39:23Z",
+      "side": 1,
+      "message": "You\u0027re looking only at the parent chain. Library class loaders are part of the hierarchy.",
+      "revId": "60379515324138fedc6bb543b9a44c644562a1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
