@@ -320,6 +320,24 @@
       "parentUuid": "787d3113_a4d2f763",
       "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4a74157_271ce951",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T09:11:53Z",
+      "side": 1,
+      "message": "I\u0027m thinking maybe there are cases where it\u0027s WAI that the process doesn\u0027t have access to that file. The fact we have a selinux rule for it means we want to ensure it doesn\u0027t get read by random processes?",
+      "parentUuid": "3603e5a0_074c9aa1",
+      "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
