@@ -106,6 +106,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d32d58e_52f097d3",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-14T13:39:47Z",
+      "side": 1,
+      "message": "Would this one-liner do?\nhotness_count_ \u003d std::max(hotness_count_ - new_samples, 0);\n\nMaybe the method should be called DecrementCounter, or DecrementHotnessCountdown.\nI keep getting confused whether the arg is supposed to be -1 or +1. \nI guess we should DCHECK the sign of the arg anyway.",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5d7722d_710dd21c",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 4
@@ -175,6 +192,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c97e2493_96c89147",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-14T13:39:47Z",
+      "side": 1,
+      "message": "This should be initialized to the warm-threshold, right?\n\nAlso, when we get to zero, how do we track whether we reached the warm-threshold or hot-threshold?",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a81db1ee_24c831b1",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -192,6 +226,23 @@
         "endLine": 1961,
         "endChar": 30
       },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c2032e5_630596a7",
+        "filename": "runtime/interpreter/mterp/nterp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-14T13:39:47Z",
+      "side": 1,
+      "message": "The rest of the code is kind of difficult to read with the \"negative increment\".\nI think \"decrement\" would be more readable.\n\nAnother alternative would be initialized the counter to say -1000 (depending on threshold) and count upwards to zero.  Based on the naming, I thought that is what you were doing...",
       "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
