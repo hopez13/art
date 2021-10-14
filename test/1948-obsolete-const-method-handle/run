@@ -15,4 +15,4 @@
 # limitations under the License.
 
 # Squash the exit status and put it in expected
-./default-run --jvmti "$@"
+./default-run --jvmti --runtime-option -Xjitthreshold:0  "$@"

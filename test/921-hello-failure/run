@@ -15,4 +15,4 @@
 # limitations under the License.
 
 
-./default-run "$@" --jvmti
+./default-run "$@" --jvmti --runtime-option -Xjitthreshold:0 

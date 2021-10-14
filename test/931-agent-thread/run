@@ -17,5 +17,5 @@
 # This test checks whether dex files can be injected into parent classloaders. App images preload
 # classes, which will make the injection moot. Turn off app images to avoid the issue.
 
-./default-run "$@" --jvmti \
+./default-run "$@" --jvmti --runtime-option -Xjitthreshold:0  \
                    --no-app-image

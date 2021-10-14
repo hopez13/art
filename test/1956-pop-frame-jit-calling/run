@@ -23,4 +23,4 @@ fi
 
 # The jitthreshold prevents the jit from compiling anything except those which
 # we explicitly request.
-./default-run "$@" --android-runtime-option -Xjitthreshold:1000 --jvmti $ARGS
+./default-run "$@" --android-runtime-option -Xjitthreshold:1000 --jvmti --runtime-option -Xjitthreshold:0  $ARGS

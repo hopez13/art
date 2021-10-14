@@ -18,4 +18,4 @@
 # which will cause some instructions to be removed from smali/TestCases1966.smali. This test relies
 # on the instructions being exactly as written so pass --debuggable to 'dex2oat' only to prevent
 # this from happening.
-./default-run "$@" --jvmti --compiler-only-option --debuggable
+./default-run "$@" --jvmti --runtime-option -Xjitthreshold:0  --compiler-only-option --debuggable

@@ -15,4 +15,4 @@
 # limitations under the License.
 
 # Ask for stack traces to be dumped to a file rather than to stdout.
-./default-run "$@" --jvmti
+./default-run "$@" --jvmti --runtime-option -Xjitthreshold:0 
