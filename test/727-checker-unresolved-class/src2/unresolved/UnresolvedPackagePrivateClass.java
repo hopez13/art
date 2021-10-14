@@ -18,7 +18,7 @@ package unresolved;
 
 import getters.GetUnresolvedPackagePrivateClass;
 
-class UnresolvedPackagePrivateClass {
+class UnresolvedPackagePrivateClass implements UnresolvedInterface {
   public static void $noinline$main() {
     $noinline$testReferrersClass();
     $noinline$testInlinedReferrersClass();

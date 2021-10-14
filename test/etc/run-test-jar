@@ -124,6 +124,9 @@ CREATE_RUNNER="n"
 # build step (e.g. dex2oat) were finished writing.
 SYNC_BEFORE_RUN="n"
 
+ADDITIONAL_SECONDARY_SUFFIX=""
+ADDITIONAL_SECONDARY_DEX=""
+
 # When running a debug build, we want to run with all checks.
 ANDROID_FLAGS="${ANDROID_FLAGS} -XX:SlowDebug=true"
 # The same for dex2oatd, both prebuild and runtime-driven.
@@ -316,13 +319,13 @@ while true; do
     elif [ "x$1" = "x--no-image" ]; then
         HAVE_IMAGE="n"
         shift
+    elif [ "x$1" = "x--additional-secondary-suffix" ]; then
+        shift
+        ADDITIONAL_SECONDARY_SUFFIX="$1"
+        ADDITIONAL_SECONDARY_DEX=":$DEX_LOCATION/$TEST_NAME$1.jar"
+        shift
     elif [ "x$1" = "x--secondary" ]; then
         SECONDARY_DEX=":$DEX_LOCATION/$TEST_NAME-ex.jar"
-        # Enable cfg-append to make sure we get the dump for both dex files.
-        # (otherwise the runtime compilation of the secondary dex will overwrite
-        # the dump of the first one).
-        FLAGS="${FLAGS} -Xcompiler-option --dump-cfg-append"
-        COMPILE_FLAGS="${COMPILE_FLAGS} --dump-cfg-append"
         shift
     elif [ "x$1" = "x--with-agent" ]; then
         shift
@@ -507,6 +510,18 @@ while true; do
         break
     fi
 done
+
+if [ "x$ADDITIONAL_SECONDARY_DEX" != "x" ]; then
+  SECONDARY_DEX="$ADDITIONAL_SECONDARY_DEX$SECONDARY_DEX"
+fi
+
+if [ "x$SECONDARY_DEX" != "x" ]; then
+    # Enable cfg-append to make sure we get the dump for both dex files.
+    # (otherwise the runtime compilation of the secondary dex will overwrite
+    # the dump of the first one).
+    FLAGS="${FLAGS} -Xcompiler-option --dump-cfg-append"
+    COMPILE_FLAGS="${COMPILE_FLAGS} --dump-cfg-append"
+fi
 
 # HACK: Force the use of `signal_dumper` on host.
 if [[ "$HOST" = "y" ]]; then
@@ -951,6 +966,11 @@ if [ "$PROFILE" = "y" ] || [ "$RANDOM_PROFILE" = "y" ]; then
   profman_cmdline="$ANDROID_ART_BIN_DIR/profman  \
     --apk=$DEX_LOCATION/$TEST_NAME.jar \
     --dex-location=$DEX_LOCATION/$TEST_NAME.jar"
+  if [ "x$ADDITIONAL_SECONDARY_SUFFIX" != "x" ] ; then
+    profman_cmdline="${profman_cmdline} \
+      --apk=$DEX_LOCATION/$TEST_NAME$ADDITIONAL_SECONDARY_SUFFIX.jar \
+      --dex-location=$DEX_LOCATION/$TEST_NAME$ADDITIONAL_SECONDARY_SUFFIX.jar"
+  fi
   if [ -f "$TEST_NAME-ex.jar" ] && [ "$SECONDARY_COMPILATION" = "y" ] ; then
     profman_cmdline="${profman_cmdline} \
       --apk=$DEX_LOCATION/$TEST_NAME-ex.jar \
@@ -1017,10 +1037,24 @@ function write_dex2oat_cmdlines {
     enable_app_image=true
   fi
 
+  if [ "x$ADDITIONAL_SECONDARY_SUFFIX" != "x" ] && [ "${name:${#name}-${#ADDITIONAL_SECONDARY_SUFFIX}}" = "$ADDITIONAL_SECONDARY_SUFFIX" ]; then
+    class_loader_context="'--class-loader-context=PCL[$DEX_LOCATION/$TEST_NAME.jar]'"
+  fi
+
   # If the name ends in -ex then this is a secondary dex file
   if [ "${name:${#name}-3}" = "-ex" ]; then
     # Lazily realize the default value in case DEX_LOCATION/TEST_NAME change
-    [ -z "$SECONDARY_CLASS_LOADER_CONTEXT" ] && SECONDARY_CLASS_LOADER_CONTEXT="PCL[];PCL[$DEX_LOCATION/$TEST_NAME.jar]"
+    if [ "x$SECONDARY_CLASS_LOADER_CONTEXT" = "x" ]; then
+      if [ "x$SECONDARY_DEX" = "x" ]; then
+        # Tests without `--secondary` load the "-ex" jar in a separate PathClassLoader
+        # that is a child of the main PathClassLoader. If the class loader is constructed
+        # in any other way, the test needs to specify the secondary CLC explicitly.
+        SECONDARY_CLASS_LOADER_CONTEXT="PCL[];PCL[$DEX_LOCATION/$TEST_NAME.jar]"
+      else
+        # Tests with `--secondary` load the `-ex` jar a part of the main PathClassLoader.
+        SECONDARY_CLASS_LOADER_CONTEXT="PCL[$DEX_LOCATION/$TEST_NAME.jar]"
+      fi
+    fi
     class_loader_context="'--class-loader-context=$SECONDARY_CLASS_LOADER_CONTEXT'"
     $enable_app_image && [ "$SECONDARY_APP_IMAGE" = "y" ] || enable_app_image=false
   fi
@@ -1096,6 +1130,22 @@ if [ "$PREBUILD" = "y" ]; then
 
   # Enable mini-debug-info for JIT (if JIT is used).
   FLAGS="$FLAGS -Xcompiler-option --generate-mini-debug-info"
+
+  if [ "x$ADDITIONAL_SECONDARY_SUFFIX" != "x" ] ; then
+    base_dex2oat_cmdline="$dex2oat_cmdline"
+    base_dm_cmdline="$dm_cmdline"
+    base_vdex_cmdline="$vdex_cmdline"
+
+    write_dex2oat_cmdlines "$TEST_NAME$ADDITIONAL_SECONDARY_SUFFIX"
+    dex2oat_cmdline=$(echo $dex2oat_cmdline)
+    dm_cmdline=$(echo $dm_cmdline)
+    vdex_cmdline=$(echo $vdex_cmdline)
+
+    # Concatenate.
+    dex2oat_cmdline="$base_dex2oat_cmdline && $dex2oat_cmdline"
+    dm_cmdline="$base_dm_cmdline" # Only use primary dm.
+    vdex_cmdline="$base_vdex_cmdline && $vdex_cmdline"
+  fi
 
   if [ -f "$TEST_NAME-ex.jar" ] && [ "$SECONDARY_COMPILATION" = "y" ] ; then
     # "Secondary" for test coverage.
@@ -1209,6 +1259,9 @@ if [ "$HOST" = "n" ]; then
       adb shell mkdir -p $CHROOT_DEX_LOCATION
       adb push $TEST_NAME.jar $CHROOT_DEX_LOCATION
       adb push $TEST_NAME-ex.jar $CHROOT_DEX_LOCATION
+      if [ "x$ADDITIONAL_SECONDARY_SUFFIX" != "x" ] ; then
+        adb push $TEST_NAME$ADDITIONAL_SECONDARY_SUFFIX.jar $CHROOT_DEX_LOCATION
+      fi
       if [ "$PROFILE" = "y" ] || [ "$RANDOM_PROFILE" = "y" ]; then
         adb push profile $CHROOT_DEX_LOCATION
       fi
@@ -1221,6 +1274,9 @@ if [ "$HOST" = "n" ]; then
       adb shell mkdir -p $CHROOT_DEX_LOCATION >/dev/null 2>&1
       adb push $TEST_NAME.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
       adb push $TEST_NAME-ex.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
+      if [ "x$ADDITIONAL_SECONDARY_SUFFIX" != "x" ] ; then
+        adb push $TEST_NAME$ADDITIONAL_SECONDARY_SUFFIX.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
+      fi
       if [ "$PROFILE" = "y" ] || [ "$RANDOM_PROFILE" = "y" ]; then
         adb push profile $CHROOT_DEX_LOCATION >/dev/null 2>&1
       fi

@@ -131,6 +131,9 @@ DEV_MODE="no"
 
 DEFAULT_EXPERIMENT="no-experiment"
 
+ISOLATED_SRC_DEX2OAT_UNRESOLVED=false
+SRC_DEX2OAT_UNRESOLVED_SUFFIX="-ex"
+
 # The key for default arguments if no experimental things are enabled.
 EXPERIMENTAL=$DEFAULT_EXPERIMENT
 
@@ -199,6 +202,16 @@ while true; do
     shift
   elif [ "x$1" = "x--dev" ]; then
     DEV_MODE="yes"
+    shift
+  elif [ "x$1" = "x--isolated-src-dex2oat-unresolved" ]; then
+    # If --isolated-src-dex2oat-unresolved is set, sources in src-dex2oat-unresolved cannot depend
+    # on any other sources, but all other sources can depend on it.
+    ISOLATED_SRC_DEX2OAT_UNRESOLVED=true
+    shift
+  elif [ "x$1" = "x--src-dex2oat-unresolved-suffix" ]; then
+    # Set a custom suffix for the jar for src-dex2oat-unresolved.
+    shift
+    SRC_DEX2OAT_UNRESOLVED_SUFFIX="$1"
     shift
   elif expr "x$1" : "x--" >/dev/null 2>&1; then
     fail "unknown $0 option: $1"
@@ -371,25 +384,36 @@ function has_multidex() {
          -o ${HAS_SMALI_MULTIDEX} = "true" ]
 }
 
-if [ ${HAS_SRC_DEX2OAT_UNRESOLVED} = "true" ]; then
+if [ ${HAS_SRC_DEX2OAT_UNRESOLVED} = "true" -a ${ISOLATED_SRC_DEX2OAT_UNRESOLVED} = "false" ]; then
   mkdir -p classes
-  mkdir classes-ex
+  mkdir classes${SRC_DEX2OAT_UNRESOLVED_SUFFIX}
   javac_with_bootclasspath -implicit:none -sourcepath src-dex2oat-unresolved -d classes `find src -name '*.java'`
-  javac_with_bootclasspath -implicit:none -sourcepath src -d classes-ex `find src-dex2oat-unresolved -name '*.java'`
+  javac_with_bootclasspath -implicit:none -sourcepath src -d classes${SRC_DEX2OAT_UNRESOLVED_SUFFIX} `find src-dex2oat-unresolved -name '*.java'`
   if [ ${NEED_DEX} = "true" ]; then
-    make_dex classes-ex
-    mv classes-ex.dex classes.dex   # rename it so it shows up as "classes.dex" in the zip file.
-    zip ${TEST_NAME}-ex.jar classes.dex
+    make_dex classes${SRC_DEX2OAT_UNRESOLVED_SUFFIX}
+    mv classes${SRC_DEX2OAT_UNRESOLVED_SUFFIX}.dex classes.dex   # rename it so it shows up as "classes.dex" in the zip file.
+    zip ${TEST_NAME}${SRC_DEX2OAT_UNRESOLVED_SUFFIX}.jar classes.dex
     make_dex classes
   fi
 else
+  if [ ${HAS_SRC_DEX2OAT_UNRESOLVED} = "true" ]; then
+    mkdir classes${SRC_DEX2OAT_UNRESOLVED_SUFFIX}
+    javac_with_bootclasspath -implicit:none -d classes${SRC_DEX2OAT_UNRESOLVED_SUFFIX} `find src-dex2oat-unresolved -name '*.java'`
+    if [ ${NEED_DEX} = "true" ]; then
+      make_dex classes${SRC_DEX2OAT_UNRESOLVED_SUFFIX}
+      mv classes${SRC_DEX2OAT_UNRESOLVED_SUFFIX}.dex classes.dex   # rename it so it shows up as "classes.dex" in the zip file.
+      zip ${TEST_NAME}${SRC_DEX2OAT_UNRESOLVED_SUFFIX}.jar classes.dex
+      rm classes.dex
+    fi
+    src_for_isolated_unresolved="-sourcepath src-dex2oat-unresolved"
+  fi
   if [ "${HAS_SRC}" = "true" -a "${HAS_SRC_MULTIDEX}" = "true" ]; then
     # To allow circular references, compile src/ and src-multidex/ together
     # and pass the output as class path argument. Replacement sources
     # in src-art/ can replace symbols used by src-multidex but everything
     # needed to compile src-multidex should be present in src/.
     mkdir classes-tmp-all
-    javac_with_bootclasspath -implicit:none -d classes-tmp-all \
+    javac_with_bootclasspath -implicit:none $src_for_isolated_unresolved -d classes-tmp-all \
         `find src -name '*.java'` \
         `find src-multidex -name '*.java'`
     src_tmp_all="-cp classes-tmp-all"
@@ -397,17 +421,17 @@ else
 
   if [ "${HAS_SRC}" = "true" ]; then
     mkdir -p classes
-    javac_with_bootclasspath -implicit:none $src_tmp_all -d classes `find src -name '*.java'`
+    javac_with_bootclasspath -implicit:none $src_for_isolated_unresolved $src_tmp_all -d classes `find src -name '*.java'`
   fi
 
   if [ "${HAS_SRC_ART}" = "true" ]; then
     mkdir -p classes
-    javac_with_bootclasspath -implicit:none $src_tmp_all -d classes `find src-art -name '*.java'`
+    javac_with_bootclasspath -implicit:none $src_for_isolated_unresolved $src_tmp_all -d classes `find src-art -name '*.java'`
   fi
 
   if [ "${HAS_SRC_MULTIDEX}" = "true" ]; then
     mkdir classes2
-    javac_with_bootclasspath -implicit:none $src_tmp_all -d classes2 `find src-multidex -name '*.java'`
+    javac_with_bootclasspath -implicit:none $src_for_isolated_unresolved $src_tmp_all -d classes2 `find src-multidex -name '*.java'`
     if [ ${NEED_DEX} = "true" ]; then
       make_dex classes2
     fi
@@ -415,7 +439,7 @@ else
 
   if [ "${HAS_SRC2}" = "true" ]; then
     mkdir -p classes
-    javac_with_bootclasspath -classpath classes -d classes `find src2 -name '*.java'`
+    javac_with_bootclasspath $src_for_isolated_unresolved -classpath classes -d classes `find src2 -name '*.java'`
   fi
 
   # If the classes directory is not-empty, package classes in a DEX file. NB some
@@ -481,23 +505,23 @@ if [ ${HAS_SRC_EX} = "true" -o ${HAS_SRC_EX2} = "true" ]; then
     src_tmp_for_ex="-cp classes-tmp-for-ex"
   fi
   if [ "${HAS_SRC}" = "true" -a "${HAS_SRC_MULTIDEX}" = "true" ]; then
-    javac_with_bootclasspath -d classes-tmp-for-ex \
+    javac_with_bootclasspath $src_for_isolated_unresolved -d classes-tmp-for-ex \
         `find src -name '*.java'` \
         `find src-multidex -name '*.java'`
   elif [[ "${HAS_SRC}" == "true" ]]; then
-    javac_with_bootclasspath -d classes-tmp-for-ex `find src -name '*.java'`
+    javac_with_bootclasspath $src_for_isolated_unresolved -d classes-tmp-for-ex `find src -name '*.java'`
   elif [[ "${HAS_SRC_MULTIDEX}" == "true" ]]; then
-    javac_with_bootclasspath -d classes-tmp-for-ex `find src-multidex -name '*.java'`
+    javac_with_bootclasspath $src_for_isolated_unresolved -d classes-tmp-for-ex `find src-multidex -name '*.java'`
   fi
   if [[ "${HAS_SRC_ART}" == "true" ]]; then
-    javac_with_bootclasspath -d classes-tmp-for-ex `find src-art -name '*.java'`
+    javac_with_bootclasspath $src_for_isolated_unresolved -d classes-tmp-for-ex `find src-art -name '*.java'`
   fi
   if [[ "${HAS_JASMIN}" == "true" ]]; then
     make_jasmin classes-tmp-for-ex $(find 'jasmin' -name '*.j')
   fi
   mkdir -p classes-ex
   if [ ${HAS_SRC_EX} = "true" ]; then
-    javac_with_bootclasspath -d classes-ex $src_tmp_for_ex `find src-ex -name '*.java'`
+    javac_with_bootclasspath $src_for_isolated_unresolved -d classes-ex $src_tmp_for_ex `find src-ex -name '*.java'`
     if [[ "x$src_tmp_for_ex" = "x" ]]; then
       src_tmp_for_ex="-cp classes-ex"
     else
@@ -505,7 +529,7 @@ if [ ${HAS_SRC_EX} = "true" -o ${HAS_SRC_EX2} = "true" ]; then
     fi
   fi
   if [ ${HAS_SRC_EX2} = "true" ]; then
-    javac_with_bootclasspath -d classes-ex $src_tmp_for_ex `find src-ex2 -name '*.java'`
+    javac_with_bootclasspath $src_for_isolated_unresolved -d classes-ex $src_tmp_for_ex `find src-ex2 -name '*.java'`
   fi
 fi
 

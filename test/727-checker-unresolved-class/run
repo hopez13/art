@@ -24,7 +24,6 @@ else
   # Make some classes unresolved for AOT compilation with
   #     --updatable-bcp-packages-file.
   exec ${RUN} $@ \
-      --secondary-class-loader-context "PCL[];PCL[$DEX_LOCATION/$TEST_NAME.jar]" \
-      -Xcompiler-option --dump-cfg-append \
-      -Xcompiler-option --updatable-bcp-packages-file="$DEX_LOCATION/res/updateable.txt"
+      --secondary-class-loader-context "PCL[];PCL[$DEX_LOCATION/$TEST_NAME.jar:$DEX_LOCATION/$TEST_NAME-unresolved.jar]" \
+      --additional-secondary-suffix "-unresolved"
 fi

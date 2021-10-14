@@ -16,5 +16,5 @@
 
 package unresolved;
 
-public class UnresolvedPackagePrivateClassProxy extends UnresolvedPackagePrivateClass {
+public class UnresolvedPackagePrivateClassProxy extends UnresolvedPackagePrivateClass implements UnresolvedInterface {
 }
