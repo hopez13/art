@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb2d2852_15bd68be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-14T14:13:46Z",
+      "side": 1,
+      "message": "Nicolas, PTAL. There are still a couple more things I need to do and I added comments for them in the code. There are also some tests failing on x86 which I am looking into. Though I think majority of the logic is already in place.\n\nThanks!\nMythri",
+      "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69e78731_a9de893c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2597,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-14T14:13:46Z",
+      "side": 1,
+      "message": "None of the tests are hitting this one so I am not 100% sure of this code. I will try to test it with --jit-on-first-use or add a test for this. I think we need to handle it here if jvmti wants to do limited deoptimization [1]. \n\nEarlier, we used to check and call InterpreterBridge [2] but now I think we can\u0027t just do that since we already constructed a frame entry and so we have to deoptimize here. Let me know if I missed something here.\n\n[1] https://cs.android.com/android/platform/superproject/+/master:art/openjdkjvmti/deopt_manager.cc;l\u003d390;drc\u003dmaster;bpv\u003d1;bpt\u003d1\n[2] https://cs.android.com/android/platform/superproject/+/master:art/runtime/entrypoints/quick/quick_trampoline_entrypoints.cc;l\u003d1039",
+      "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d1c4a09_241753ff",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2641,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-14T14:13:46Z",
+      "side": 1,
+      "message": "Checking if the current frame needs a deoptimization feels a bit incorrect to me but that is what I think we are doing currently [1]. Actually I only realized this after uploading this patch. I will fix in the next patchset to check the caller frame\u0027s needs to be deoptimized (basically I need to check for the deoptimize stack slot if the caller is JITed code or try to find an instrumentation frame for the corresponding return pc and see if the frame needs deoptimization)  \n\n[1] https://cs.android.com/android/platform/superproject/+/master:art/runtime/instrumentation.cc;l\u003d1544;drc\u003dmaster;bpv\u003d1;bpt\u003d1",
+      "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853dc5de_a8a98350",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-14T14:13:46Z",
+      "side": 1,
+      "message": "I don\u0027t have good ideas to add this check. I think having a check would be useful here since we are writing to a stack slot and not all frames have it. Any suggestions?",
+      "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
