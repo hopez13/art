@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a056dbd6_76b3a2de",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-14T12:25:24Z",
+      "side": 1,
+      "message": "This is insufficient. The entire hierarchy needs to be known. A PathClassLoader with an unknown ClassLoader as a parent has the same issue.",
+      "range": {
+        "startLine": 736,
+        "startChar": 9,
+        "endLine": 736,
+        "endChar": 27
+      },
+      "revId": "29b91fb68326a6454b6d15917262e7c7b9145a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
