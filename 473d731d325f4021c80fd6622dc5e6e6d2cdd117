@@ -338,6 +338,24 @@
       "parentUuid": "3603e5a0_074c9aa1",
       "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55f35f8f_ccbc677f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-14T11:26:20Z",
+      "side": 1,
+      "message": "Maybe. I don\u0027t know why apex-info-list.xml needs to be restricted, so it\u0027s hard for me to say. If there is a good reason for it then maybe ART shouldn\u0027t access it directly either, and we\u0027d ought to come up with another way to get this info.\n\nIn any case, we do get an EACCES log message now, so at least there\u0027ll be some hint on what\u0027s going wrong.",
+      "parentUuid": "f4a74157_271ce951",
+      "revId": "473d731d325f4021c80fd6622dc5e6e6d2cdd117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
