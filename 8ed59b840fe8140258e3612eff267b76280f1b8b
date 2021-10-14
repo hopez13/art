@@ -16,6 +16,24 @@
       "message": "Why are these being moved? It makes the change harder to review.",
       "revId": "8ed59b840fe8140258e3612eff267b76280f1b8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdd5dc58_437e2fb2",
+        "filename": "build/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-14T14:02:07Z",
+      "side": 0,
+      "message": "Since we\u0027re getting more of this boilerplate I wanted to collect it in a block at the bottom where it\u0027s out of the way.",
+      "parentUuid": "b63eaf8e_f626032c",
+      "revId": "8ed59b840fe8140258e3612eff267b76280f1b8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
