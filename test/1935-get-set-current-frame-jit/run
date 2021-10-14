@@ -15,4 +15,4 @@
 # limitations under the License.
 
 # Ensure the test is not subject to code collection
-./default-run "$@" --jvmti --runtime-option -Xjitinitialsize:32M
+./default-run "$@" --jvmti --runtime-option -Xjitthreshold:0  --runtime-option -Xjitinitialsize:32M

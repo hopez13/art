@@ -21,4 +21,4 @@ if [[ "$TEST_RUNTIME" == "jvm" ]]; then
   ARGS="--args DISABLE_CLASS_LOAD_TESTS"
 fi
 
-./default-run "$@" --jvmti $ARGS
+./default-run "$@" --jvmti --runtime-option -Xjitthreshold:0  $ARGS
