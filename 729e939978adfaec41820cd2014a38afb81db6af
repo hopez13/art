@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2a46420_6550df7a",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4755,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-14T15:25:24Z",
+      "side": 1,
+      "message": "Maybe it would be more obvious if we added\n\n  DCHECK(insn_type.IsJavaLangObject());\n\nhere.",
+      "revId": "729e939978adfaec41820cd2014a38afb81db6af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "354e8d88_650fd9c6",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4757,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-14T15:25:24Z",
+      "side": 1,
+      "message": "DCHECK(!field_type-\u003eIsReferenceTypes() || field_type-\u003eIsUninitializedTypes());\n\nSee RegType::AssignableFrom(), keeping in mind that `lhs.IsJavaLangObject()`.",
+      "range": {
+        "startLine": 4757,
+        "startChar": 8,
+        "endLine": 4757,
+        "endChar": 48
+      },
+      "revId": "729e939978adfaec41820cd2014a38afb81db6af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
