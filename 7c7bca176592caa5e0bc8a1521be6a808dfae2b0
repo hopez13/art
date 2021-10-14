@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8ba505cd_ea3e9d67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-14T16:12:07Z",
+      "side": 1,
+      "message": "OK, I changed my mind, and this is I think reasonable.\n\nOnly the final copy from staging to \u003csomewhere\u003e matters, but where the \u003csomewhere\u003e comes from now depends on e.g. GetBootImageExtensionImagePath, with various consistency checks.\nI\u0027m happier making them all return consistent values (which this change does) rather than just hacking it in the final stage in e.g. CompileBootExtensionArtifacts.\n\nJiakai - WDYT?",
+      "parentUuid": "4f954b4e_ed80921b",
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "46d1fd17_c57cf579",
         "filename": "libartbase/base/file_utils.cc",
         "patchSetId": 2
