@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fabafc73_e9bc1067",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4755,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T17:11:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2a46420_6550df7a",
+      "revId": "729e939978adfaec41820cd2014a38afb81db6af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "354e8d88_650fd9c6",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-10-14T15:25:24Z",
       "side": 1,
       "message": "DCHECK(!field_type-\u003eIsReferenceTypes() || field_type-\u003eIsUninitializedTypes());\n\nSee RegType::AssignableFrom(), keeping in mind that `lhs.IsJavaLangObject()`.",
+      "range": {
+        "startLine": 4757,
+        "startChar": 8,
+        "endLine": 4757,
+        "endChar": 48
+      },
+      "revId": "729e939978adfaec41820cd2014a38afb81db6af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b949196_e2e5c7ce",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4757,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T17:11:37Z",
+      "side": 1,
+      "message": "How can field_type be UninitializedTypes? It\u0027s inferred from the dex file.",
+      "parentUuid": "354e8d88_650fd9c6",
       "range": {
         "startLine": 4757,
         "startChar": 8,
