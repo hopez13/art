@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "778a67ea_16a66a9e",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T09:35:31Z",
+      "side": 1,
+      "message": "FindClassInSharedLibrariesHelper ?",
+      "range": {
+        "startLine": 1022,
+        "startChar": 7,
+        "endLine": 1022,
+        "endChar": 33
+      },
+      "revId": "f0dd04ba74781d799f3c0576f2c97102a245e93e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c91c800a_5ac1b624",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T09:35:31Z",
+      "side": 1,
+      "message": "Nit: alignment",
+      "revId": "f0dd04ba74781d799f3c0576f2c97102a245e93e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29ad1c18_2c83f29b",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T09:35:31Z",
+      "side": 1,
+      "message": "nit: alignment and one parameter per line.",
+      "range": {
+        "startLine": 1211,
+        "startChar": 15,
+        "endLine": 1211,
+        "endChar": 16
+      },
+      "revId": "f0dd04ba74781d799f3c0576f2c97102a245e93e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

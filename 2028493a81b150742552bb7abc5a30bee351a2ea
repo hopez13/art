@@ -130,6 +130,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4355601c_635d3ca0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T09:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "486bda23_9e10db4f",
+      "range": {
+        "startLine": 2604,
+        "startChar": 0,
+        "endLine": 2658,
+        "endChar": 1
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1860a5c_d991fc93",
@@ -625,6 +649,30 @@
       "side": 1,
       "message": "This is consistent with the file ... let me know if you want the whole file updated, this line, or leave it as is?",
       "parentUuid": "039c80c3_81e63b00",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 3
+      },
+      "revId": "2028493a81b150742552bb7abc5a30bee351a2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09b3cdd1_dcc9c224",
+        "filename": "runtime/class_loader_context_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T09:35:31Z",
+      "side": 1,
+      "message": "Oh! Keeping it consistent is fine.",
+      "parentUuid": "c965375d_d633a16f",
       "range": {
         "startLine": 85,
         "startChar": 0,
