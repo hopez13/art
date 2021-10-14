@@ -16,6 +16,24 @@
       "message": "You\u0027re looking only at the parent chain. Library class loaders are part of the hierarchy.",
       "revId": "60379515324138fedc6bb543b9a44c644562a1aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cde901fa_2c4f76a8",
+        "filename": "runtime/class_loader_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T14:59:08Z",
+      "side": 1,
+      "message": "Sigh. Somehow I was sure we guaranteed shared library loaders were simple PathClassLoader chains.",
+      "parentUuid": "b113a013_2cc5acaa",
+      "revId": "60379515324138fedc6bb543b9a44c644562a1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
