@@ -1,0 +1,596 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cdf2723_2e915044",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "Add a comment why you want that.",
+      "range": {
+        "startLine": 2118,
+        "startChar": 0,
+        "endLine": 2118,
+        "endChar": 44
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34a6c9b7_dd72fec5",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2130,
+        "startChar": 0,
+        "endLine": 2130,
+        "endChar": 44
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbc3226f_5964e52b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "why not using temp ?",
+      "range": {
+        "startLine": 2144,
+        "startChar": 17,
+        "endLine": 2144,
+        "endChar": 29
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e91cca32_9b1f854e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "CompareAndBranchIfNonZero.",
+      "range": {
+        "startLine": 2145,
+        "startChar": 0,
+        "endLine": 2146,
+        "endChar": 18
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e628c31_96701d15",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "CompareAndBranchIfZero",
+      "range": {
+        "startLine": 2152,
+        "startChar": 0,
+        "endLine": 2153,
+        "endChar": 18
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ca9ed83_c88a6b32",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "Should MethodExit also have these checks?",
+      "range": {
+        "startLine": 2166,
+        "startChar": 0,
+        "endLine": 2169,
+        "endChar": 0
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8986532_91428fec",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "CompareAndBranchIfZero",
+      "range": {
+        "startLine": 2177,
+        "startChar": 0,
+        "endLine": 2178,
+        "endChar": 18
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9efc283_780b3dda",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "ditto about GetGraph()-\u003eGetDebuggable()",
+      "range": {
+        "startLine": 376,
+        "startChar": 10,
+        "endLine": 376,
+        "endChar": 77
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0feabbc8_d999f8cf",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2916,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "entry ?",
+      "range": {
+        "startLine": 2916,
+        "startChar": 35,
+        "endLine": 2916,
+        "endChar": 42
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ddcad47_3315bf2a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "!\u003d nullptr.\n\nAlso shouldn\u0027t this be debuggable_ (we have that field in HGraph) ?",
+      "range": {
+        "startLine": 685,
+        "startChar": 12,
+        "endLine": 685,
+        "endChar": 30
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9555bd6e_412d2e57",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3014,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "Would it be simpler to avoid this node and pass null to the methodexithook when the method is void (the hook can then check if the return type is void)?",
+      "range": {
+        "startLine": 3014,
+        "startChar": 6,
+        "endLine": 3014,
+        "endChar": 25
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "574a8d04_1201b73d",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78a8fb87_bfd8b8fd",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2530,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "method?",
+      "range": {
+        "startLine": 2530,
+        "startChar": 16,
+        "endLine": 2530,
+        "endChar": 21
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "540a4b9e_c78d124a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2540,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "method",
+      "range": {
+        "startLine": 2540,
+        "startChar": 16,
+        "endLine": 2540,
+        "endChar": 21
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acbb6674_47880182",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2543,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "Why do we care about r4 here?",
+      "range": {
+        "startLine": 2543,
+        "startChar": 0,
+        "endLine": 2543,
+        "endChar": 65
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f2f5758_6b7182c8",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "Could this be handled in the C++ helper instead?",
+      "range": {
+        "startLine": 2436,
+        "startChar": 0,
+        "endLine": 2437,
+        "endChar": 24
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ed0e556_fbdb58f4",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "I think this can be removed? We shouldn\u0027t be calling artTraceExitHook from a runtime method.",
+      "range": {
+        "startLine": 2628,
+        "startChar": 0,
+        "endLine": 2628,
+        "endChar": 35
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c03e8be_5f20134b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2647,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "return ?",
+      "range": {
+        "startLine": 2647,
+        "startChar": 4,
+        "endLine": 2647,
+        "endChar": 12
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d363c654_fb347675",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2652,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "Check this first?",
+      "range": {
+        "startLine": 2650,
+        "startChar": 0,
+        "endLine": 2652,
+        "endChar": 3
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81514ada_77c5a0de",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2653,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "0 ?",
+      "range": {
+        "startLine": 2653,
+        "startChar": 9,
+        "endLine": 2653,
+        "endChar": 15
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52a4aa46_003f9d2e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "nit: we always put braces.",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 16
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f49840_93b2c857",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "why do we need this new argument? Please add a comment.",
+      "range": {
+        "startLine": 316,
+        "startChar": 59,
+        "endLine": 316,
+        "endChar": 76
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "677707fa_bf8642ba",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "nit: For simple types, avoid auto.",
+      "range": {
+        "startLine": 391,
+        "startChar": 8,
+        "endLine": 391,
+        "endChar": 12
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc230701_b60c2dd5",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "nit: one test per line",
+      "range": {
+        "startLine": 394,
+        "startChar": 14,
+        "endLine": 395,
+        "endChar": 29
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2b920b6_74c8fac4",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "Could you change this with if (force_deopt_ \u0026\u0026 method_header-\u003eHasShouldDeoptimizeFlag()) ?",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 9
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4728c1af_3d5e0b68",
+        "filename": "test/2011-stack-walk-concurrent-instrument/stack_walk_concurrent.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "/* force_deopt\u003d */",
+      "range": {
+        "startLine": 88,
+        "startChar": 72,
+        "endLine": 88,
+        "endChar": 73
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

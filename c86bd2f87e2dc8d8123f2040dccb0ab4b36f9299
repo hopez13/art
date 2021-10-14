@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fbe81e9d_b0103c83",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2597,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "I think you\u0027re correct.",
+      "parentUuid": "69e78731_a9de893c",
+      "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d1c4a09_241753ff",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -65,6 +83,24 @@
       "writtenOn": "2021-10-14T14:13:46Z",
       "side": 1,
       "message": "I don\u0027t have good ideas to add this check. I think having a check would be useful here since we are writing to a stack slot and not all frames have it. Any suggestions?",
+      "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc7c4d98_48037347",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T20:08:07Z",
+      "side": 1,
+      "message": "Isn\u0027t that method_header-\u003eHasShouldDeoptimizeFlag() ?",
+      "parentUuid": "853dc5de_a8a98350",
       "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
