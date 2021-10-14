@@ -129,6 +129,30 @@
       },
       "revId": "7cf6c58ed90d827dd9b85020219eced5d8c8ae78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b20a682_e92f44e9",
+        "filename": "test/run-test",
+        "patchSetId": 11
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-14T07:45:52Z",
+      "side": 1,
+      "message": "Do you suggest deprecating running run-test directly?",
+      "parentUuid": "643fd4cd_1950ff5e",
+      "range": {
+        "startLine": 869,
+        "startChar": 0,
+        "endLine": 869,
+        "endChar": 42
+      },
+      "revId": "7cf6c58ed90d827dd9b85020219eced5d8c8ae78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
