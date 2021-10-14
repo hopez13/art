@@ -18,6 +18,6 @@
 # classes, which will make the injection moot. Turn off app images to avoid the issue.
 # Pass the correct `--secondary-class-loader-context` for the "-ex" jar.
 
-./default-run "$@" --jvmti \
+./default-run "$@" --jvmti --runtime-option -Xjitthreshold:0 \
                    --no-app-image \
                    --secondary-class-loader-context "PCL[$DEX_LOCATION/$TEST_NAME.jar]"
