@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c02bb669_988b73cd",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-15T11:48:42Z",
+      "side": 1,
+      "message": "This is fine. Just an FYI: simply a function that returns `android::base::ScopeGuard\u003cstd::function\u003cvoid()\u003e\u003e` should be able to do the same trick.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 2
+      },
+      "revId": "304d97e4308a8b209c6aa7aecdd6b446bd0744a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
