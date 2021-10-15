@@ -561,7 +561,7 @@ class HeapGraphDumper {
   // Instances of classes whose name is in `ignored_types` will be ignored.
   explicit HeapGraphDumper(const std::vector<std::string>& ignored_types)
       : ignored_types_(ignored_types),
-        reference_field_ids_(new protozero::PackedVarInt),
+        field_ids_(new protozero::PackedVarInt),
         reference_object_ids_(new protozero::PackedVarInt) {}
 
   // Dumps a heap graph from `*runtime` and writes it to `writer`.
@@ -667,14 +667,17 @@ class HeapGraphDumper {
       object_proto->set_self_size(obj->SizeOf());
 
     FillReferences(obj, klass, object_proto);
+
+    FillFieldValues(obj, klass, object_proto);
   }
 
   // Writes `*klass` into `writer`.
   void WriteClass(art::mirror::Class* klass, Writer& writer)
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
+    std::string pretty_type = PrettyType(klass);
     perfetto::protos::pbzero::HeapGraphType* type_proto = writer.GetHeapGraph()->add_types();
     type_proto->set_id(FindOrAppend(&interned_classes_, reinterpret_cast<uintptr_t>(klass)));
-    type_proto->set_class_name(PrettyType(klass));
+    type_proto->set_class_name(pretty_type);
     type_proto->set_location_id(FindOrAppend(&interned_locations_, klass->GetLocation()));
     type_proto->set_object_size(klass->GetObjectSize());
     type_proto->set_kind(ProtoClassKind(klass->GetClassFlags()));
@@ -686,11 +689,28 @@ class HeapGraphDumper {
     ForInstanceReferenceField(
         klass, [klass, this](art::MemberOffset offset) NO_THREAD_SAFETY_ANALYSIS {
           auto art_field = art::ArtField::FindInstanceFieldWithOffset(klass, offset.Uint32Value());
-          reference_field_ids_->Append(
-              FindOrAppend(&interned_fields_, art_field->PrettyField(true)));
+          field_ids_->Append(FindOrAppend(&interned_fields_, art_field->PrettyField(true)));
         });
-    type_proto->set_reference_field_id(*reference_field_ids_);
-    reference_field_ids_->Reset();
+    type_proto->set_reference_field_id(*field_ids_);
+    field_ids_->Reset();
+
+    if (klass->IsArrayClass())
+      return;
+    auto it = field_values_per_class_.find(pretty_type);
+    if (it == field_values_per_class_.end())
+      return;
+
+    const std::set<std::string>& field_names = it->second;
+
+    for (art::ArtField& af : klass->GetIFields()) {
+      if (field_names.count(af.GetName()) == 0)
+        continue;
+      std::string field_name = af.PrettyField(/*with_type=*/true);
+      field_ids_->Append(FindOrAppend(&interned_fields_, field_name));
+    }
+
+    type_proto->set_value_field_id(*field_ids_);
+    field_ids_->Reset();
   }
 
   // Creates a fake class that represents a type only used by `*obj` into `writer`.
@@ -727,7 +747,7 @@ class HeapGraphDumper {
       const std::string& field_name = p.first;
       art::mirror::Object* referred_obj = p.second;
       if (emit_field_ids) {
-        reference_field_ids_->Append(FindOrAppend(&interned_fields_, field_name));
+        field_ids_->Append(FindOrAppend(&interned_fields_, field_name));
       }
       uint64_t referred_obj_id = GetObjectId(referred_obj);
       if (referred_obj_id) {
@@ -736,8 +756,8 @@ class HeapGraphDumper {
       reference_object_ids_->Append(referred_obj_id);
     }
     if (emit_field_ids) {
-      object_proto->set_reference_field_id(*reference_field_ids_);
-      reference_field_ids_->Reset();
+      object_proto->set_reference_field_id(*field_ids_);
+      field_ids_->Reset();
     }
     if (base_obj_id) {
       // The field is called `reference_field_id_base`, but it has always been used as a base for
@@ -749,7 +769,7 @@ class HeapGraphDumper {
   }
 
   // Iterates all the `referred_objects` and sets all the objects that are supposed to be ignored
-  // to nullptr. Returns the object with the smallest address (except nullptr).
+  // to nullptr. Returns the object with the smallest address (ignoring nullptrs).
   art::mirror::Object* FilterIgnoredReferencesAndFindMin(
       std::vector<std::pair<std::string, art::mirror::Object*>>& referred_objects) const
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
@@ -769,6 +789,44 @@ class HeapGraphDumper {
     return min_nonnull_ptr;
   }
 
+  // Fills `*object_proto` with the value of a subset of potentially interesting fields of `*obj`
+  // (an object of type `*klass`).
+  void FillFieldValues(art::mirror::Object* obj,
+                       art::mirror::Class* klass,
+                       perfetto::protos::pbzero::HeapGraphObject* object_proto) const
+      REQUIRES_SHARED(art::Locks::mutator_lock_) {
+
+    if (obj->IsClass() || klass->IsClassClass())
+      return;
+
+    for (art::mirror::Class* cls = klass; cls != nullptr; cls = cls->GetSuperClass().Ptr()) {
+      if (cls->IsArrayClass())
+        continue;
+
+      auto it = field_values_per_class_.find(PrettyType(cls));
+      if (it == field_values_per_class_.end())
+        continue;
+      const std::set<std::string>& field_names = it->second;
+
+      for (art::ArtField& af : cls->GetIFields()) {
+        if (field_names.count(af.GetName()) == 0)
+          continue;
+        perfetto::protos::pbzero::HeapGraphValue* v = object_proto->add_values();
+        switch (af.GetTypeAsPrimitiveType()) {
+          case art::Primitive::kPrimLong:
+            v->set_integer(af.GetLong(obj));
+            break;
+          default:
+            // We don't support dumping this type yet or this is not a primitive type. It's still
+            // important to keep the empty HeapGraphValue message, in order to leave the
+            // HeapGraphObject.values in sync with HeapGraphType.value_field_id. Other than that,
+            // nothing to do.
+            break;
+        }
+      }
+    }
+  }
+
   // Returns true if `*obj` has a type that's supposed to be ignored.
   bool IsIgnored(art::mirror::Object* obj) const REQUIRES_SHARED(art::Locks::mutator_lock_) {
     if (obj->IsClass()) {
@@ -782,6 +840,13 @@ class HeapGraphDumper {
   // Name of classes whose instances should be ignored.
   const std::vector<std::string> ignored_types_;
 
+  // Objects of some classes have useful info in their fields that should be included in the dump.
+  // These are instance fields, not static fields.
+  // {"class_name": ["field_name"]}
+  const std::map<std::string, std::set<std::string>> field_values_per_class_{
+      {"libcore.util.NativeAllocationRegistry", {"size"}}
+  };
+
   // Make sure that intern ID 0 (default proto value for a uint64_t) always maps to ""
   // (default proto value for a string) or to 0 (default proto value for a uint64).
 
@@ -793,7 +858,7 @@ class HeapGraphDumper {
   std::map<uintptr_t, uint64_t> interned_classes_{{0, 0}};
 
   // Temporary buffers: used locally in some methods and then cleared.
-  std::unique_ptr<protozero::PackedVarInt> reference_field_ids_;
+  std::unique_ptr<protozero::PackedVarInt> field_ids_;
   std::unique_ptr<protozero::PackedVarInt> reference_object_ids_;
 
   // Id of the previous object that was dumped. Used for delta encoding.
