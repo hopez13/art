@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7b351cab_2293e05d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-15T07:10:04Z",
+      "side": 1,
+      "message": "Yes, that\u0027s exactly what I would do. In odrefresh, we run dex2oat multiple times, and an output of a previous run can be an input of the current run. For example, when we compile a system server jar, we use the boot image generated in a previous run (https://cs.android.com/android/platform/superproject/+/master:art/odrefresh/odrefresh.cc;l\u003d1477;drc\u003d8d12ed67ba98bd0dce58bcebddf89cdb10fe3106). Therefore, it\u0027s essential that all functions return consistent values for the paths to the artifacts. Your approach looks good to me.",
+      "parentUuid": "8ba505cd_ea3e9d67",
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "46d1fd17_c57cf579",
         "filename": "libartbase/base/file_utils.cc",
         "patchSetId": 2
@@ -119,6 +137,93 @@
         "startChar": 13,
         "endLine": 375,
         "endChar": 36
+      },
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ae8389_5a3cde81",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-15T07:10:04Z",
+      "side": 1,
+      "message": "\u003e Not yet, I need to make it cool :)\n\nThis sounds cool! Looking forward to it :)\n\nOne thing worth noting is that we may want to move cache-info.xml outside of dalvik-cache so that it can be generated outside the VM for simplicity, as I brought up in b/202845876.",
+      "parentUuid": "ac85fb43_7f1c739d",
+      "range": {
+        "startLine": 375,
+        "startChar": 13,
+        "endLine": 375,
+        "endChar": 36
+      },
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edb574c7_50b4b90c",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-15T07:10:04Z",
+      "side": 1,
+      "message": "Please restore the state using an RAII as test cases are not guaranteed to run in a fixed order.",
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc549a4f_715fe7ef",
+        "filename": "odrefresh/include/odrefresh/odrefresh.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-15T07:10:04Z",
+      "side": 1,
+      "message": "Maybe out of the scope of this CL: I\u0027m wondering why we need this as it\u0027s just a hardcoded version of GetApexDataDalvikCacheDirectory(). Maybe it\u0027s the time to get rid of it?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 55
+      },
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dbb0b78_9e2f7894",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-15T07:10:04Z",
+      "side": 1,
+      "message": "Please update this.",
+      "range": {
+        "startLine": 707,
+        "startChar": 25,
+        "endLine": 707,
+        "endChar": 52
       },
       "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
