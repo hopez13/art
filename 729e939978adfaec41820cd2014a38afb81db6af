@@ -81,6 +81,30 @@
       },
       "revId": "729e939978adfaec41820cd2014a38afb81db6af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc2fc9e6_176de4a9",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4757,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-15T07:11:23Z",
+      "side": 1,
+      "message": "You\u0027re right, it cannot. I was just looking at `RegType::AssignableFrom()` without checking where the `field_type` is coming from.",
+      "parentUuid": "5b949196_e2e5c7ce",
+      "range": {
+        "startLine": 4757,
+        "startChar": 8,
+        "endLine": 4757,
+        "endChar": 48
+      },
+      "revId": "729e939978adfaec41820cd2014a38afb81db6af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
