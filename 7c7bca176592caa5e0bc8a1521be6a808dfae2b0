@@ -183,6 +183,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1c427bc_75e3a9c6",
+        "filename": "libartbase/base/file_utils_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-15T11:19:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edb574c7_50b4b90c",
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc549a4f_715fe7ef",
@@ -206,6 +224,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae509c8f_176044f6",
+        "filename": "odrefresh/include/odrefresh/odrefresh.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-15T11:19:43Z",
+      "side": 1,
+      "message": "Yes, I agree.\nI suspect it was put here for the benefit of odsign, which doesn\u0027t have access to that function, but that clearly didn\u0027t work: http://cs/android/system/security/ondevice-signing/odsign_main.cpp?l\u003d52\n\nI\u0027ll see if I can do that as a follow-up.\nGetApexDataDalvikCacheDirectory() is static, so we can\u0027t just call it, but maybe we should just fix that.",
+      "parentUuid": "fc549a4f_715fe7ef",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 55
+      },
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dbb0b78_9e2f7894",
@@ -219,6 +261,30 @@
       "writtenOn": "2021-10-15T07:10:04Z",
       "side": 1,
       "message": "Please update this.",
+      "range": {
+        "startLine": 707,
+        "startChar": 25,
+        "endLine": 707,
+        "endChar": 52
+      },
+      "revId": "7c7bca176592caa5e0bc8a1521be6a808dfae2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45300b18_8f479b01",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-15T11:19:43Z",
+      "side": 1,
+      "message": "Done - thanks for the catch!",
+      "parentUuid": "6dbb0b78_9e2f7894",
       "range": {
         "startLine": 707,
         "startChar": 25,
