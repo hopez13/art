@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caa81615_d4f6c9c5",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-15T05:50:28Z",
+      "side": 1,
+      "message": "Done. I changed to using `LOG(WARNING)`. I wonder if this is fine, or we should make it more discoverable (e.g., printing to stderr).",
+      "parentUuid": "9b1788c2_d01cda1d",
+      "range": {
+        "startLine": 1168,
+        "startChar": 6,
+        "endLine": 1168,
+        "endChar": 11
+      },
+      "revId": "3046f9495bebad5a099d59b67fabd322449b031d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e8451a4_a92263f9",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-11T07:32:00Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1172,
+        "startChar": 6,
+        "endLine": 1172,
+        "endChar": 11
+      },
+      "revId": "3046f9495bebad5a099d59b67fabd322449b031d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5c2b12a_57ce0ccd",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-15T05:50:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e8451a4_a92263f9",
       "range": {
         "startLine": 1172,
         "startChar": 6,
