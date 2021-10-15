@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ec01f0a_77726de1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-15T12:09:59Z",
+      "side": 1,
+      "message": "Nice catch! I guess I only ran tests with heap poisoning and those pass even when taking the slow path. I should have ran benchmarks as well.",
+      "revId": "82ac98d155eefca73fb6a21ce1094564d20d192f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
