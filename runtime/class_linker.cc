@@ -9051,11 +9051,28 @@ ArtMethod* ClassLinker::ResolveMethod(uint32_t method_idx,
   Thread::PoisonObjectPointersIfDebug();
   DCHECK(resolved == nullptr || !resolved->IsRuntimeMethod());
   bool valid_dex_cache_method = resolved != nullptr;
-  if (kResolveMode == ResolveMode::kNoChecks && valid_dex_cache_method) {
+  if (kResolveMode == ResolveMode::kNoChecks && LIKELY(valid_dex_cache_method)) {
     // We have a valid method from the DexCache and no checks to perform.
     DCHECK(resolved->GetDeclaringClassUnchecked() != nullptr) << resolved->GetDexMethodIndex();
     return resolved;
   }
+  return ResolveMethodSlowPath<kResolveMode>(method_idx,
+                                             dex_cache,
+                                             class_loader,
+                                             referrer,
+                                             type,
+                                             resolved,
+                                             valid_dex_cache_method);
+}
+
+template <ClassLinker::ResolveMode kResolveMode>
+ArtMethod* ClassLinker::ResolveMethodSlowPath(uint32_t method_idx,
+                                              Handle<mirror::DexCache> dex_cache,
+                                              Handle<mirror::ClassLoader> class_loader,
+                                              ArtMethod* referrer,
+                                              InvokeType type,
+                                              ArtMethod* resolved,
+                                              bool valid_dex_cache_method) {
   const DexFile& dex_file = *dex_cache->GetDexFile();
   const dex::MethodId& method_id = dex_file.GetMethodId(method_idx);
   ObjPtr<mirror::Class> klass = nullptr;
@@ -9196,9 +9213,17 @@ ArtField* ClassLinker::ResolveField(uint32_t field_idx,
   DCHECK(!Thread::Current()->IsExceptionPending()) << Thread::Current()->GetException()->Dump();
   ArtField* resolved = dex_cache->GetResolvedField(field_idx);
   Thread::PoisonObjectPointersIfDebug();
-  if (resolved != nullptr) {
+  if (LIKELY(resolved != nullptr)) {
     return resolved;
   }
+  return ResolveFieldSlowPath(field_idx, dex_cache, class_loader, is_static, resolved);
+}
+
+ArtField* ClassLinker::ResolveFieldSlowPath(uint32_t field_idx,
+                                            Handle<mirror::DexCache> dex_cache,
+                                            Handle<mirror::ClassLoader> class_loader,
+                                            bool is_static,
+                                            ArtField* resolved) {
   const DexFile& dex_file = *dex_cache->GetDexFile();
   const dex::FieldId& field_id = dex_file.GetFieldId(field_idx);
   ObjPtr<mirror::Class> klass = ResolveType(field_id.class_idx_, dex_cache, class_loader);

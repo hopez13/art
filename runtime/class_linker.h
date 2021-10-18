@@ -357,6 +357,18 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
+  // Implementation detail of the method above.
+  template <ClassLinker::ResolveMode kResolveMode>
+  NO_INLINE ArtMethod* ResolveMethodSlowPath(uint32_t method_idx,
+                                             Handle<mirror::DexCache> dex_cache,
+                                             Handle<mirror::ClassLoader> class_loader,
+                                             ArtMethod* referrer,
+                                             InvokeType type,
+                                             ArtMethod* resolved,
+                                             bool valid_dex_cache_method)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
+
   template <InvokeType type, ResolveMode kResolveMode>
   ArtMethod* GetResolvedMethod(uint32_t method_idx, ArtMethod* referrer)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -376,6 +388,14 @@ class ClassLinker {
   ArtField* ResolveField(uint32_t field_idx, ArtMethod* referrer, bool is_static)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
+
+  // Implementation detail of the method above.
+  NO_INLINE ArtField* ResolveFieldSlowPath(uint32_t field_idx,
+                                           Handle<mirror::DexCache> dex_cache,
+                                           Handle<mirror::ClassLoader> class_loader,
+                                           bool is_static,
+                                           ArtField* resolved)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Resolve a field with a given ID from the DexFile associated with the given DexCache
   // and ClassLoader, storing the result in DexCache. The ClassLinker and ClassLoader
