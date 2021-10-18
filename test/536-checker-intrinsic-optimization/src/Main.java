@@ -106,22 +106,19 @@ public class Main {
       $opt$noinline$stringCharAt("abc", -1);
       throw new Error("Should throw SIOOB.");
     } catch (StringIndexOutOfBoundsException sioob) {
-      assertStringContains("java.lang.String.charAt", sioob.getStackTrace()[0].toString());
-      assertStringContains("Main.$opt$noinline$stringCharAt", sioob.getStackTrace()[1].toString());
+      assertStringContains("Main.$opt$noinline$stringCharAt", sioob.getStackTrace()[0].toString());
     }
     try {
       $opt$noinline$stringCharAt("abc", 3);
       throw new Error("Should throw SIOOB.");
     } catch (StringIndexOutOfBoundsException sioob) {
-      assertStringContains("java.lang.String.charAt", sioob.getStackTrace()[0].toString());
-      assertStringContains("Main.$opt$noinline$stringCharAt", sioob.getStackTrace()[1].toString());
+      assertStringContains("Main.$opt$noinline$stringCharAt", sioob.getStackTrace()[0].toString());
     }
     try {
       $opt$noinline$stringCharAt("abc", Integer.MAX_VALUE);
       throw new Error("Should throw SIOOB.");
     } catch (StringIndexOutOfBoundsException sioob) {
-      assertStringContains("java.lang.String.charAt", sioob.getStackTrace()[0].toString());
-      assertStringContains("Main.$opt$noinline$stringCharAt", sioob.getStackTrace()[1].toString());
+      assertStringContains("Main.$opt$noinline$stringCharAt", sioob.getStackTrace()[0].toString());
     }
 
     assertCharEquals('7', $opt$noinline$stringCharAtCatch("0123456789", 7));

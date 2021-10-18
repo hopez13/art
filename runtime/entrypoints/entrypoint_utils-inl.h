@@ -64,14 +64,6 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
     if (inline_info.EncodesArtMethod()) {
       return inline_info.GetArtMethod();
     }
-
-    uint32_t method_index = code_info.GetMethodIndexOf(inline_info);
-    if (inline_info.GetDexPc() == static_cast<uint32_t>(-1)) {
-      // "charAt" special case. It is the only non-leaf method we inline across dex files.
-      ArtMethod* inlined_method = jni::DecodeArtMethod(WellKnownClasses::java_lang_String_charAt);
-      DCHECK_EQ(inlined_method->GetDexMethodIndex(), method_index);
-      return inlined_method;
-    }
   }
 
   // Find which method did the call in the inlining hierarchy.
@@ -79,7 +71,6 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
   ArtMethod* method = outer_method;
   for (InlineInfo inline_info : inline_infos) {
     DCHECK(!inline_info.EncodesArtMethod());
-    DCHECK_NE(inline_info.GetDexPc(), static_cast<uint32_t>(-1));
     MethodInfo method_info = code_info.GetMethodInfoOf(inline_info);
     uint32_t method_index = method_info.GetMethodIndex();
     ArtMethod* inlined_method;

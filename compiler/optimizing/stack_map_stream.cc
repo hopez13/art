@@ -216,21 +216,19 @@ void StackMapStream::BeginInlineInfoEntry(ArtMethod* method,
     entry[InlineInfo::kArtMethodLo] = Low32Bits(reinterpret_cast<uintptr_t>(method));
   } else {
     uint32_t bootclasspath_index = MethodInfo::kNotInBootClassPath;
-    if (dex_pc != static_cast<uint32_t>(-1)) {
-      ScopedObjectAccess soa(Thread::Current());
-      const DexFile* dex_file = method->GetDexFile();
-      if (method->GetDeclaringClass()->GetClassLoader() == nullptr) {
-        ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-        const std::vector<const DexFile*>& boot_class_path = class_linker->GetBootClassPath();
-        auto it = std::find_if(
-            boot_class_path.begin(), boot_class_path.end(), [dex_file](const DexFile* df) {
-              return IsSameDexFile(*df, *dex_file);
-            });
-        DCHECK(it != boot_class_path.end());
-        bootclasspath_index = it - boot_class_path.begin();
-      } else {
-        DCHECK(IsSameDexFile(*outer_dex_file, *dex_file));
-      }
+    ScopedObjectAccess soa(Thread::Current());
+    const DexFile* dex_file = method->GetDexFile();
+    if (method->GetDeclaringClass()->GetClassLoader() == nullptr) {
+      ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+      const std::vector<const DexFile*>& boot_class_path = class_linker->GetBootClassPath();
+      auto it = std::find_if(
+          boot_class_path.begin(), boot_class_path.end(), [dex_file](const DexFile* df) {
+            return IsSameDexFile(*df, *dex_file);
+          });
+      DCHECK(it != boot_class_path.end());
+      bootclasspath_index = it - boot_class_path.begin();
+    } else {
+      DCHECK(IsSameDexFile(*outer_dex_file, *dex_file));
     }
     uint32_t dex_method_index = method->GetDexMethodIndex();
     entry[InlineInfo::kMethodInfoIndex] =
@@ -252,14 +250,12 @@ void StackMapStream::BeginInlineInfoEntry(ArtMethod* method,
       } else {
         MethodInfo method_info = code_info.GetMethodInfoOf(inline_info);
         CHECK_EQ(method_info.GetMethodIndex(), method->GetDexMethodIndex());
-        if (inline_info.GetDexPc() != static_cast<uint32_t>(-1)) {
-          ScopedObjectAccess soa(Thread::Current());
-          if (method->GetDeclaringClass()->GetClassLoader() == nullptr) {
-            ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-            const std::vector<const DexFile*>& boot_class_path = class_linker->GetBootClassPath();
-            CHECK(IsSameDexFile(*boot_class_path[method_info.GetBootClassPathIndex()],
-                                *method->GetDexFile()));
-          }
+        ScopedObjectAccess soa(Thread::Current());
+        if (method->GetDeclaringClass()->GetClassLoader() == nullptr) {
+          ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+          const std::vector<const DexFile*>& boot_class_path = class_linker->GetBootClassPath();
+          CHECK(IsSameDexFile(*boot_class_path[method_info.GetBootClassPathIndex()],
+                              *method->GetDexFile()));
         }
       }
     });
