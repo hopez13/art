@@ -20,6 +20,7 @@
 #include "nterp.h"
 
 #include "base/quasi_atomic.h"
+#include "class_linker-inl.h"
 #include "dex/dex_instruction_utils.h"
 #include "debugger.h"
 #include "entrypoints/entrypoint_utils-inl.h"

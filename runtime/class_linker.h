@@ -349,11 +349,11 @@ class ClassLinker {
   // used as in ResolveType. What is unique is the method type argument which is used to
   // determine if this method is a direct, static, or virtual method.
   template <ResolveMode kResolveMode>
-  ArtMethod* ResolveMethod(uint32_t method_idx,
-                           Handle<mirror::DexCache> dex_cache,
-                           Handle<mirror::ClassLoader> class_loader,
-                           ArtMethod* referrer,
-                           InvokeType type)
+  ALWAYS_INLINE ArtMethod* ResolveMethod(uint32_t method_idx,
+                                         Handle<mirror::DexCache> dex_cache,
+                                         Handle<mirror::ClassLoader> class_loader,
+                                         ArtMethod* referrer,
+                                         InvokeType type)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
@@ -381,10 +381,10 @@ class ClassLinker {
   // and ClassLoader, storing the result in DexCache. The ClassLinker and ClassLoader
   // are used as in ResolveType. What is unique is the is_static argument which is used
   // to determine if we are resolving a static or non-static field.
-  ArtField* ResolveField(uint32_t field_idx,
-                         Handle<mirror::DexCache> dex_cache,
-                         Handle<mirror::ClassLoader> class_loader,
-                         bool is_static)
+  ALWAYS_INLINE ArtField* ResolveField(uint32_t field_idx,
+                                       Handle<mirror::DexCache> dex_cache,
+                                       Handle<mirror::ClassLoader> class_loader,
+                                       bool is_static)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
