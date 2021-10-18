@@ -16,6 +16,74 @@
       "message": "Vladimir PTAL\nDavid PTAL for stack maps expertise (runtime/ and compiler/optimizing/stack_map_stream.cc)\n\nPresubmit shows a -1 but it seems like it is unrelated to my CL (https://atp.googleplex.com/test_runs/148822883). It was already failing before (https://android-build.googleplex.com/builds/tests/view?invocationId\u003dI61400009990663636\u0026testResultId\u003dTR96827771537511959)",
       "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1041617_4eefd27e",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-18T11:35:21Z",
+      "side": 1,
+      "message": "Should this just be a DCHECK or CHECK?",
+      "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b36731fb_cfe704af",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-18T11:35:21Z",
+      "side": 1,
+      "message": "Is it easy to also check the dex file encoded by the index is correct... ?",
+      "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a32220e_24f014ca",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-18T11:35:21Z",
+      "side": 1,
+      "message": "Those are redundant, right?\nThe MethodInfoIndex above points to MethodInfo which contains the exact same data.",
+      "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25c20ef1_f2d84eee",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-18T11:35:21Z",
+      "side": 1,
+      "message": "You don\u0027t need the IsInBootClassPath, right?\nJust set BootClassPathIndex to -1 if it is not in boot classpath.",
+      "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
