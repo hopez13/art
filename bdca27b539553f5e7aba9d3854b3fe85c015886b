@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "354de631_b7fce7b5",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2118,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "No longer needed. This was needed earlier loading shoud_deoptimize stack slot.",
+      "parentUuid": "1cdf2723_2e915044",
+      "range": {
+        "startLine": 2118,
+        "startChar": 0,
+        "endLine": 2118,
+        "endChar": 44
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34a6c9b7_dd72fec5",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2130,
+        "startChar": 0,
+        "endLine": 2130,
+        "endChar": 44
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a05aeb8a_5b76b901",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34a6c9b7_dd72fec5",
       "range": {
         "startLine": 2130,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02efb93c_513ed1cd",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2144,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "No longer needed. Removed this",
+      "parentUuid": "fbc3226f_5964e52b",
+      "range": {
+        "startLine": 2144,
+        "startChar": 17,
+        "endLine": 2144,
+        "endChar": 29
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e91cca32_9b1f854e",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "CompareAndBranchIfNonZero.",
+      "range": {
+        "startLine": 2145,
+        "startChar": 0,
+        "endLine": 2146,
+        "endChar": 18
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21924a65_cfac0266",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e91cca32_9b1f854e",
       "range": {
         "startLine": 2145,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19ca3a7e_07cec823",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2153,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e628c31_96701d15",
+      "range": {
+        "startLine": 2152,
+        "startChar": 0,
+        "endLine": 2153,
+        "endChar": 18
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ca9ed83_c88a6b32",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "Should MethodExit also have these checks?",
+      "range": {
+        "startLine": 2166,
+        "startChar": 0,
+        "endLine": 2169,
+        "endChar": 0
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc8ad4a6_576563cd",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Yes. Done",
+      "parentUuid": "0ca9ed83_c88a6b32",
       "range": {
         "startLine": 2166,
         "startChar": 0,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac995f9a_a16885f9",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2178,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8986532_91428fec",
+      "range": {
+        "startLine": 2177,
+        "startChar": 0,
+        "endLine": 2178,
+        "endChar": 18
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9efc283_780b3dda",
@@ -175,6 +343,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "ditto about GetGraph()-\u003eGetDebuggable()",
+      "range": {
+        "startLine": 376,
+        "startChar": 10,
+        "endLine": 376,
+        "endChar": 77
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e3109d2_2e501d80",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9efc283_780b3dda",
       "range": {
         "startLine": 376,
         "startChar": 10,
@@ -208,6 +400,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca2054ad_8d525681",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2916,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0feabbc8_d999f8cf",
+      "range": {
+        "startLine": 2916,
+        "startChar": 35,
+        "endLine": 2916,
+        "endChar": 42
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ddcad47_3315bf2a",
@@ -221,6 +437,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "!\u003d nullptr.\n\nAlso shouldn\u0027t this be debuggable_ (we have that field in HGraph) ?",
+      "range": {
+        "startLine": 685,
+        "startChar": 12,
+        "endLine": 685,
+        "endChar": 30
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "816a2aad_68341725",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ddcad47_3315bf2a",
       "range": {
         "startLine": 685,
         "startChar": 12,
@@ -256,6 +496,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f1fec26_e49d6b82",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3014,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "I tried this, but there are other places we need to check if the input is nullptr for ex: when updating the uses [1]. I could update these places to check for nullptr and return early too. Not sure we want to do that though. So I left this as is. Happy to change this if you think that\u0027s OK.\n\n[1] https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/nodes.h;l\u003d2350;drc\u003dmaster",
+      "parentUuid": "9555bd6e_412d2e57",
+      "range": {
+        "startLine": 3014,
+        "startChar": 6,
+        "endLine": 3014,
+        "endChar": 25
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "574a8d04_1201b73d",
         "filename": "openjdkjvmti/deopt_manager.cc",
         "patchSetId": 5
@@ -267,6 +531,24 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef5796a_c754e4c6",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "574a8d04_1201b73d",
       "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -284,6 +566,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "method?",
+      "range": {
+        "startLine": 2530,
+        "startChar": 16,
+        "endLine": 2530,
+        "endChar": 21
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7253faea_a98a3903",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2530,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78a8fb87_bfd8b8fd",
       "range": {
         "startLine": 2530,
         "startChar": 16,
@@ -317,6 +623,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b1d2905_0d6cf18c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2540,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "540a4b9e_c78d124a",
+      "range": {
+        "startLine": 2540,
+        "startChar": 16,
+        "endLine": 2540,
+        "endChar": 21
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acbb6674_47880182",
@@ -330,6 +660,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "Why do we care about r4 here?",
+      "range": {
+        "startLine": 2543,
+        "startChar": 0,
+        "endLine": 2543,
+        "endChar": 65
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f49f3edb_45268082",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2543,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "It\u0027s not needed anymore. Earlier we needed it for should_deopt. We should check the stack slot from the caller frame and not this frame. I missed that earlier. I fixed it now.",
+      "parentUuid": "acbb6674_47880182",
       "range": {
         "startLine": 2543,
         "startChar": 0,
@@ -363,6 +717,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d9d06cb_cdd257a0",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2437,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Yes, that makes this code better. Done.",
+      "parentUuid": "6f2f5758_6b7182c8",
+      "range": {
+        "startLine": 2436,
+        "startChar": 0,
+        "endLine": 2437,
+        "endChar": 24
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ed0e556_fbdb58f4",
@@ -376,6 +754,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "I think this can be removed? We shouldn\u0027t be calling artTraceExitHook from a runtime method.",
+      "range": {
+        "startLine": 2628,
+        "startChar": 0,
+        "endLine": 2628,
+        "endChar": 35
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eb9c6cf_b76865a1",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ed0e556_fbdb58f4",
       "range": {
         "startLine": 2628,
         "startChar": 0,
@@ -409,6 +811,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "351c15c9_627bb6d2",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2647,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c03e8be_5f20134b",
+      "range": {
+        "startLine": 2647,
+        "startChar": 4,
+        "endLine": 2647,
+        "endChar": 12
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d363c654_fb347675",
@@ -422,6 +848,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "Check this first?",
+      "range": {
+        "startLine": 2650,
+        "startChar": 0,
+        "endLine": 2652,
+        "endChar": 3
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c82f9e78_1b530fd8",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2652,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d363c654_fb347675",
       "range": {
         "startLine": 2650,
         "startChar": 0,
@@ -455,6 +905,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89fdc9d0_2085ec36",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2653,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81514ada_77c5a0de",
+      "range": {
+        "startLine": 2653,
+        "startChar": 9,
+        "endLine": 2653,
+        "endChar": 15
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52a4aa46_003f9d2e",
@@ -468,6 +942,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "nit: we always put braces.",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 16
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6997467d_2b35e0a1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52a4aa46_003f9d2e",
       "range": {
         "startLine": 235,
         "startChar": 0,
@@ -501,6 +999,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "213ee3e2_a6d5f630",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6f49840_93b2c857",
+      "range": {
+        "startLine": 316,
+        "startChar": 59,
+        "endLine": 316,
+        "endChar": 76
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "677707fa_bf8642ba",
@@ -514,6 +1036,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "nit: For simple types, avoid auto.",
+      "range": {
+        "startLine": 391,
+        "startChar": 8,
+        "endLine": 391,
+        "endChar": 12
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d67ef887_f94af406",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "677707fa_bf8642ba",
       "range": {
         "startLine": 391,
         "startChar": 8,
@@ -547,6 +1093,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9899aa32_60d73dc0",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc230701_b60c2dd5",
+      "range": {
+        "startLine": 394,
+        "startChar": 14,
+        "endLine": 395,
+        "endChar": 29
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2b920b6_74c8fac4",
@@ -570,6 +1140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31322444_56461a35",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2b920b6_74c8fac4",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 9
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4728c1af_3d5e0b68",
@@ -583,6 +1177,30 @@
       "writtenOn": "2021-10-14T20:08:07Z",
       "side": 1,
       "message": "/* force_deopt\u003d */",
+      "range": {
+        "startLine": 88,
+        "startChar": 72,
+        "endLine": 88,
+        "endChar": 73
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "971c626a_80f3df4f",
+        "filename": "test/2011-stack-walk-concurrent-instrument/stack_walk_concurrent.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4728c1af_3d5e0b68",
       "range": {
         "startLine": 88,
         "startChar": 72,

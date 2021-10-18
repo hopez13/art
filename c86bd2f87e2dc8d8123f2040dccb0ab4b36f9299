@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f017ebe_46a17f3e",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2597,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbe81e9d_b0103c83",
+      "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d1c4a09_241753ff",
@@ -66,6 +84,24 @@
       "writtenOn": "2021-10-14T14:13:46Z",
       "side": 1,
       "message": "Checking if the current frame needs a deoptimization feels a bit incorrect to me but that is what I think we are doing currently [1]. Actually I only realized this after uploading this patch. I will fix in the next patchset to check the caller frame\u0027s needs to be deoptimized (basically I need to check for the deoptimize stack slot if the caller is JITed code or try to find an instrumentation frame for the corresponding return pc and see if the frame needs deoptimization)  \n\n[1] https://cs.android.com/android/platform/superproject/+/master:art/runtime/instrumentation.cc;l\u003d1544;drc\u003dmaster;bpv\u003d1;bpt\u003d1",
+      "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42553b0c_4d117ad7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2641,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d1c4a09_241753ff",
       "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "Isn\u0027t that method_header-\u003eHasShouldDeoptimizeFlag() ?",
       "parentUuid": "853dc5de_a8a98350",
+      "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00653d23_122fb0ac",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-18T14:35:13Z",
+      "side": 1,
+      "message": "Thanks! I am sure I checked method_header. I somehow missed this :)",
+      "parentUuid": "dc7c4d98_48037347",
       "revId": "c86bd2f87e2dc8d8123f2040dccb0ab4b36f9299",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
