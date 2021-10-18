@@ -1113,14 +1113,9 @@ extern "C" TwoWordReturn artInstrumentationMethodExitFromCode(Thread* self,
 
 static std::string DumpInstruction(ArtMethod* method, uint32_t dex_pc)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (dex_pc == static_cast<uint32_t>(-1)) {
-    CHECK(method == jni::DecodeArtMethod(WellKnownClasses::java_lang_String_charAt));
-    return "<native>";
-  } else {
-    CodeItemInstructionAccessor accessor = method->DexInstructions();
-    CHECK_LT(dex_pc, accessor.InsnsSizeInCodeUnits());
-    return accessor.InstructionAt(dex_pc).DumpString(method->GetDexFile());
-  }
+  CodeItemInstructionAccessor accessor = method->DexInstructions();
+  CHECK_LT(dex_pc, accessor.InsnsSizeInCodeUnits());
+  return accessor.InstructionAt(dex_pc).DumpString(method->GetDexFile());
 }
 
 static void DumpB74410240ClassData(ObjPtr<mirror::Class> klass)
@@ -1189,17 +1184,10 @@ static void DumpB74410240DebugData(ArtMethod** sp) REQUIRES_SHARED(Locks::mutato
       caller = inline_info.GetArtMethod();
     } else {
       uint32_t method_index = code_info.GetMethodIndexOf(inline_info);
-      if (dex_pc == static_cast<uint32_t>(-1)) {
-        tag = "special ";
-        CHECK(inline_info.Equals(inline_infos.back()));
-        caller = jni::DecodeArtMethod(WellKnownClasses::java_lang_String_charAt);
-        CHECK_EQ(caller->GetDexMethodIndex(), method_index);
-      } else {
-        ObjPtr<mirror::DexCache> dex_cache = caller->GetDexCache();
-        ObjPtr<mirror::ClassLoader> class_loader = caller->GetClassLoader();
-        caller = class_linker->LookupResolvedMethod(method_index, dex_cache, class_loader);
-        CHECK(caller != nullptr);
-      }
+      ObjPtr<mirror::DexCache> dex_cache = caller->GetDexCache();
+      ObjPtr<mirror::ClassLoader> class_loader = caller->GetClassLoader();
+      caller = class_linker->LookupResolvedMethod(method_index, dex_cache, class_loader);
+      CHECK(caller != nullptr);
     }
     LOG(FATAL_WITHOUT_ABORT) << "InlineInfo #" << inline_info.Row()
         << ": " << tag << caller->PrettyMethod()
