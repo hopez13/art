@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4974a5d5_6d1a0489",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-18T12:10:09Z",
+      "side": 1,
+      "message": "I think we can relax to DCHECK.",
+      "parentUuid": "f1041617_4eefd27e",
+      "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b36731fb_cfe704af",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-10-18T11:35:21Z",
       "side": 1,
       "message": "Is it easy to also check the dex file encoded by the index is correct... ?",
+      "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "794a47b1_b41904e3",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-18T12:10:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b36731fb_cfe704af",
       "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -69,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d46af30e_6f834cd5",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-18T12:10:09Z",
+      "side": 1,
+      "message": "Ack, kept only the ones in method info.",
+      "parentUuid": "7a32220e_24f014ca",
+      "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25c20ef1_f2d84eee",
@@ -82,6 +136,24 @@
       "writtenOn": "2021-10-18T11:35:21Z",
       "side": 1,
       "message": "You don\u0027t need the IsInBootClassPath, right?\nJust set BootClassPathIndex to -1 if it is not in boot classpath.",
+      "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cb06ecd_6afaf45d",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-18T12:10:09Z",
+      "side": 1,
+      "message": "In a follow-up CL we will distinguish among dexfiles in bootclasspath and not in the bootclasspath. I can remove it for this CL and then re-add it when needed. WDYT?",
+      "parentUuid": "25c20ef1_f2d84eee",
       "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
