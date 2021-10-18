@@ -156,6 +156,24 @@
       "parentUuid": "25c20ef1_f2d84eee",
       "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2292102_8735913c",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-18T12:21:50Z",
+      "side": 1,
+      "message": "I figured, but even then it would not be called IsInBootClassPath and it would need to be refactored and renamed to something else.\nI would go with minimal version for now, and then do what is needed in the future CLs.",
+      "parentUuid": "8cb06ecd_6afaf45d",
+      "revId": "c20e8a1b090a718af2d8b23cedcb7106aba9accd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
