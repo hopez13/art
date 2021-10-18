@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01276601_733c391c",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2021-10-18T17:04:25Z",
+      "side": 1,
+      "message": "In an ideal world we would align the right margin for all of these at the same place, as done in UsageHelp below.\nBut perhaps that\u0027s just too painful?\n\n(Changing \u003cSECONDS\u003e to \u003cS\u003e or \u003cN\u003e would make it a little easier - given the unit is part of the option name that doesn\u0027t seem particularly ambiguous.)",
+      "range": {
+        "startLine": 233,
+        "startChar": 53,
+        "endLine": 233,
+        "endChar": 60
+      },
+      "revId": "77176ec60cad888d3b2751adb4ee4bbf05ecb17b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
