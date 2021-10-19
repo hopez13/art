@@ -68,6 +68,24 @@
       "parentUuid": "9b230254_b25dc964",
       "revId": "8ba76a46951b61797d4cb12c08009a7b8102aba9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e026752_27baaed3",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 6
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T12:39:04Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s for picking up the .dm file at runtime.\n\nBut now I realize I\u0027m losing test coverage by doing this, as we still want to test invoking dex2oat with --dm-file. I\u0027ve extended the test to now cover both cases: dex2oat with --dm-file, and runtime loading the dm-file.",
+      "parentUuid": "9b230254_b25dc964",
+      "revId": "8ba76a46951b61797d4cb12c08009a7b8102aba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
