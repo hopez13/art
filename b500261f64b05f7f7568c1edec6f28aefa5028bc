@@ -22,6 +22,30 @@
       },
       "revId": "b500261f64b05f7f7568c1edec6f28aefa5028bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed0db5ac_0dd81c0b",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T13:25:51Z",
+      "side": 1,
+      "message": "Yes, this is copied.\n\nIf we were able to record a \"reference map\" (Optimizing: stack map with reference locations) at the call site, I would not need to do the special code ordering for `is_fast_native \u0026\u0026 reference_return` suspend check in JNI compiler as we could just record the decoded reference for the suspend check slow path call.",
+      "parentUuid": "5b06cfea_3e42e248",
+      "range": {
+        "startLine": 975,
+        "startChar": 0,
+        "endLine": 975,
+        "endChar": 38
+      },
+      "revId": "b500261f64b05f7f7568c1edec6f28aefa5028bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
