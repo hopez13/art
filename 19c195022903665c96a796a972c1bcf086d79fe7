@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "132de701_26d9a4ad",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2133,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-19T19:30:44Z",
+      "side": 1,
+      "message": "Done. With updated checks it all fits in a line so kept the checks in a single line.",
+      "parentUuid": "d6ac0aba_f032d9ac",
+      "range": {
+        "startLine": 2133,
+        "startChar": 9,
+        "endLine": 2133,
+        "endChar": 27
+      },
+      "revId": "19c195022903665c96a796a972c1bcf086d79fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f227c7f7_8794f25f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-19T13:38:02Z",
       "side": 1,
       "message": "!\u003d nullptr and one condition per line",
+      "range": {
+        "startLine": 2155,
+        "startChar": 9,
+        "endLine": 2155,
+        "endChar": 27
+      },
+      "revId": "19c195022903665c96a796a972c1bcf086d79fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77264a97_73660b2b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2155,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-19T19:30:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f227c7f7_8794f25f",
       "range": {
         "startLine": 2155,
         "startChar": 9,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03211453_2a187d1a",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-19T19:30:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02495c1f_be7709cf",
+      "revId": "19c195022903665c96a796a972c1bcf086d79fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dddf8702_eded0c1d",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-10-19T13:38:02Z",
       "side": 1,
       "message": "kDebugging?",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "19c195022903665c96a796a972c1bcf086d79fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3daa93ad_32229abb",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-19T19:30:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dddf8702_eded0c1d",
       "range": {
         "startLine": 32,
         "startChar": 3,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38145544_008be987",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-19T19:30:44Z",
+      "side": 1,
+      "message": "I think I was just being defensive there. I couldn\u0027t think of any cases where code can be nullptr. I added a check for this.",
+      "parentUuid": "0c19a1c8_bed276bf",
+      "range": {
+        "startLine": 235,
+        "startChar": 46,
+        "endLine": 235,
+        "endChar": 64
+      },
+      "revId": "19c195022903665c96a796a972c1bcf086d79fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d89dd0fd_b98e5a7e",
@@ -123,6 +237,30 @@
       "writtenOn": "2021-10-19T13:38:02Z",
       "side": 1,
       "message": "I find the comment confusing, as you mention we use this method for deoptimization of the thread stack, but then mention force_deopt as whether we deoptimize or not?",
+      "range": {
+        "startLine": 550,
+        "startChar": 51,
+        "endLine": 550,
+        "endChar": 63
+      },
+      "revId": "19c195022903665c96a796a972c1bcf086d79fe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1b6a2b1_fc7b2a58",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-19T19:30:44Z",
+      "side": 1,
+      "message": "Sorry it wasn\u0027t clear earlier. I updated the comment. I also renamed force_deopt to should_deopt to make it less confusing.",
+      "parentUuid": "d89dd0fd_b98e5a7e",
       "range": {
         "startLine": 550,
         "startChar": 51,
