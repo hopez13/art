@@ -16,6 +16,24 @@
       "message": "Also see https://ci.chromium.org/p/art/builders/ci/host-x86-debug/12135?, which could be related.",
       "revId": "2ca0900e98d826644960eefeb8a21c84850c9e04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd1fa21c_82ddd771",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T16:29:01Z",
+      "side": 1,
+      "message": "Looks like the same issue:\n\n    Check failed: ::art::IsAligned\u003ckObjectAlignment\u003e(ref) 0x89\n\nThis is a `jobject` interpreted as `Object*`.",
+      "parentUuid": "a8f30158_4d74af29",
+      "revId": "2ca0900e98d826644960eefeb8a21c84850c9e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
