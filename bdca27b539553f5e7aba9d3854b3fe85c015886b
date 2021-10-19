@@ -520,6 +520,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "110859de_f1cd67ea",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3014,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:38:02Z",
+      "side": 1,
+      "message": "I\u0027m not following. GetNullConstant will give you the null value and you can pass that in the instruction builder.",
+      "parentUuid": "0f1fec26_e49d6b82",
+      "range": {
+        "startLine": 3014,
+        "startChar": 6,
+        "endLine": 3014,
+        "endChar": 25
+      },
+      "revId": "bdca27b539553f5e7aba9d3854b3fe85c015886b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "574a8d04_1201b73d",
         "filename": "openjdkjvmti/deopt_manager.cc",
         "patchSetId": 5
