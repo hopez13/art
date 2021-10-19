@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b989e518_52a57397",
+        "filename": "build/art.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-19T11:26:10Z",
+      "side": 1,
+      "message": "Yes it was exactly that one. Should we split it?",
+      "parentUuid": "61e9a141_f837c8cc",
+      "range": {
+        "startLine": 125,
+        "startChar": 25,
+        "endLine": 125,
+        "endChar": 29
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a0a8a53_21e77f31",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 22
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-19T10:22:29Z",
       "side": 1,
       "message": "We may need to use the `outer_compilation_unit_` here. For two-level inlining from the same dex file in BCP, the current check can report `needs_bss_check \u003d false` even though we do need a .bss entry for .bcp dex file.\n\nHowever, that would allow inlining a BCP method and inside that method inline a call back to a final method in the outer dex file. And that\u0027s not supported by `GetResolvedMethod()` in entrypoint_utils.\n\nWe\u0027ll need to think about this a bit more.",
+      "range": {
+        "startLine": 1826,
+        "startChar": 7,
+        "endLine": 1826,
+        "endChar": 31
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "358abd85_e5146619",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-19T11:26:10Z",
+      "side": 1,
+      "message": "I might be missing something but I think that since we are only allowing to inline bootclasspath methods like this we should be okay. Can you provide a more concrete example?",
+      "parentUuid": "3a0a8a53_21e77f31",
       "range": {
         "startLine": 1826,
         "startChar": 7,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15848753_cdf8de1b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1903,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-19T11:26:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4d49620_b9f9c2ff",
+      "range": {
+        "startLine": 1903,
+        "startChar": 42,
+        "endLine": 1903,
+        "endChar": 62
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "357ed24c_03b3e637",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38185ad8_e3747d67",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2598,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-19T11:26:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "357ed24c_03b3e637",
+      "range": {
+        "startLine": 2598,
+        "startChar": 20,
+        "endLine": 2598,
+        "endChar": 37
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7b33c7e_d40927a4",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-10-19T10:22:29Z",
       "side": 1,
       "message": "environment use",
+      "range": {
+        "startLine": 2724,
+        "startChar": 65,
+        "endLine": 2724,
+        "endChar": 68
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "617eb2e5_4d798030",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2724,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-19T11:26:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7b33c7e_d40927a4",
       "range": {
         "startLine": 2724,
         "startChar": 65,
@@ -141,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29669f94_77ee2cd4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2762,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-19T11:26:10Z",
+      "side": 1,
+      "message": "Reworked comment.\nAlso, did you mean that maybe we can\u0027t remove the new array because there might be another use? Or did I misread?",
+      "parentUuid": "78b6699d_340b3d28",
+      "range": {
+        "startLine": 2762,
+        "startChar": 22,
+        "endLine": 2762,
+        "endChar": 33
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3c416ae_a748f9fd",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 22
@@ -152,6 +296,30 @@
       "writtenOn": "2021-10-19T10:22:29Z",
       "side": 1,
       "message": "std::distance(boot_class_path.begin(), it)",
+      "range": {
+        "startLine": 230,
+        "startChar": 30,
+        "endLine": 230,
+        "endChar": 58
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "637d429e_60177bda",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-19T11:26:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3c416ae_a748f9fd",
       "range": {
         "startLine": 230,
         "startChar": 30,
@@ -185,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4b8aaee_e8af0a25",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-19T11:26:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59780e31_973d8438",
+      "range": {
+        "startLine": 260,
+        "startChar": 33,
+        "endLine": 260,
+        "endChar": 84
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5159e39c_ca599827",
@@ -198,6 +390,30 @@
       "writtenOn": "2021-10-19T10:22:29Z",
       "side": 1,
       "message": "Allways `nullptr` for boot class path dex files.",
+      "range": {
+        "startLine": 91,
+        "startChar": 70,
+        "endLine": 91,
+        "endChar": 97
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc6f310_2b09ab4b",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-19T11:26:10Z",
+      "side": 1,
+      "message": "What do you mean by this? Shouldn\u0027t we find the method?\nIf we were getting nullptrs we should be hitting the unreachable below right?",
+      "parentUuid": "5159e39c_ca599827",
       "range": {
         "startLine": 91,
         "startChar": 70,
@@ -244,6 +460,30 @@
       "writtenOn": "2021-10-19T10:22:29Z",
       "side": 1,
       "message": "Thinking about inlining across dex files within APK, I\u0027d prefer `DexFileIndex` and `kSameDexFile \u003d -1`. We can define that dex files are indexed by compile-time index where BCP dex files come first and then the dex files we\u0027re compiling. (The next question is whether to allow other dex files, provided by parent class loaders and libraries for an arbitrary class loader context.)",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 271,
+        "endChar": 53
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d54237fe_d6eeebbd",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-19T11:26:10Z",
+      "side": 1,
+      "message": "Updated the name.\nAs a whole cross-dex inlining can happen in three ways: bootclass path, class loader context (in non-boot images or extensions), and multidex (https://cs.android.com/android/platform/superproject/+/master:art/dex2oat/dex2oat.cc;l\u003d1858;drc\u003debf496f245dec69af6abfa115aa0e5872aee93d1). The advantage of having a separate vector for bootclasspath is that we only get what we need, and that the order of the vectors is not really important.\nIn any case, we could have only one index for all cases too and this is more relevant to follow-up CLs and overall design.",
+      "parentUuid": "d69a6e04_945ec9af",
       "range": {
         "startLine": 269,
         "startChar": 2,
