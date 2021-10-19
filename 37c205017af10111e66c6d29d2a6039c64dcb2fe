@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbd5e420_4d0954ff",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T12:40:10Z",
+      "side": 1,
+      "message": "Assert assumptions checked in the caller `String.repeat()`:\n\n  DCHECK_GT(count, 1);\n  DCHECK_LE(length_this, std::numeric_limits\u003cint32_t\u003e::max() / count);",
+      "revId": "37c205017af10111e66c6d29d2a6039c64dcb2fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
