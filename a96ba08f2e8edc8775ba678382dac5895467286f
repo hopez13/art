@@ -255,6 +255,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70f851b4_774b0592",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-19T13:57:01Z",
+      "side": 1,
+      "message": "Right, I realize how the arg is used and that it can have samples other than 1.  My point is that from the callsites it is not obvious if the arg should be positive int, or negative int.  \"Update\" kind of implies the arg is added.  Can we rename the method, and DCHECK that people don\u0027t pass the wrong sign?\n\nThe other question was if this method can be reduced to the one-liner (which is another way to address Vladimirs concern below).",
+      "parentUuid": "d6660bcc_7dfa0ea0",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5d7722d_710dd21c",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 4
@@ -420,6 +438,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62dfaa79_1a96480f",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-19T13:57:01Z",
+      "side": 1,
+      "message": "The be clear, this issue here isn\u0027t atomicity - I think we are fine with one thread racing with other thread, and thus one of the updates being ignored.  That is fine by me. We are not suggesting adding the cost of atomicity.\n\nI think Vladimirs point is that as written, this can write negative values into the hotness_counts_ (i.e. the check above passes, but then other thread decrements it, and then this thread decrements it further into negative numbers - to make it worse, this skips the hot value of 0 so potentially might not trigger compilation).  Both Vladimir\u0027s or my suggestion avoid that.",
+      "parentUuid": "dc46cc57_d318b074",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 50
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c97e2493_96c89147",
         "filename": "runtime/art_method.h",
         "patchSetId": 4
@@ -449,6 +491,24 @@
       "side": 1,
       "message": "Warm threshold is now getting obsolete, there are really two thresholds:\n- from nterp to baseline: kNterpHotnessMask \n- from baseline to optimizing: kTieredHotnessMask",
       "parentUuid": "c97e2493_96c89147",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea065b43_4a2cac94",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-19T13:57:01Z",
+      "side": 1,
+      "message": "Ah, fair enough.  I am fine with pushing the dynamic setting to further CLs.\n\nWould you consider renaming it from \"Mask\" to threshold?",
+      "parentUuid": "78e84608_90027109",
       "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -531,6 +591,24 @@
       "side": 1,
       "message": "If it\u0027s confusing, I can drop the constant and just put 1 / -1 in the places where it is being used. Do you think that would be better?",
       "parentUuid": "4c2032e5_630596a7",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0859a304_43e0bf7d",
+        "filename": "runtime/interpreter/mterp/nterp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-19T13:57:01Z",
+      "side": 1,
+      "message": "That sounds better than the current solution, yes.\n\nTo just bikeshed a bit, my preference would be something like:\n\nArtMethod::DecrementHotnessCounter(int32_t num_samples \u003d 1) {\n  DCHECK_GE(num_samples, 0);\n  hotness_counter_ \u003d std::max(0, hotness_counter_ - num_samples);\n}\n\nThe default means we don\u0027t need the constant at all in most callsites.",
+      "parentUuid": "a0a95fd6_37b2444c",
       "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
