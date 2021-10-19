@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67ecbda3_4a57f170",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T15:27:12Z",
+      "side": 1,
+      "message": "If the hotness counter can be 60K, why are we not allowed to add 50K new samples?",
+      "range": {
+        "startLine": 434,
+        "startChar": 37,
+        "endLine": 434,
+        "endChar": 44
+      },
+      "revId": "8c83995002a5c910122f1365b4a08c376f7033e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
