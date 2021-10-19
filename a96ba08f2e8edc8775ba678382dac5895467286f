@@ -273,6 +273,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4dc4601a_89b20dc7",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T14:29:15Z",
+      "side": 1,
+      "message": "How do you DCHECK? The type is unsigned so a \u003c0 check doesn\u0027t make sense 😊\n\nHappy to rename the method, do you have any preference?",
+      "parentUuid": "70f851b4_774b0592",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5d7722d_710dd21c",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 4
@@ -462,6 +480,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "96b865d4_793555ca",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T14:29:15Z",
+      "side": 1,
+      "message": "The check is really to avoid dirtying the method if it already has a value of 0. Overflowing here is indeed something that can be tolerated.\n\nBut I\u0027m not sure what you\u0027re saying Vladimir about GVN - given hotness_threshold_ isnt\u0027 marked atomic, whether you put in a local or not doesn\u0027t make a difference. The compiler is free to make as much optimizations and load/store eliminations it wants on that field.",
+      "parentUuid": "62dfaa79_1a96480f",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 50
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c97e2493_96c89147",
         "filename": "runtime/art_method.h",
         "patchSetId": 4
@@ -509,6 +551,24 @@
       "side": 1,
       "message": "Ah, fair enough.  I am fine with pushing the dynamic setting to further CLs.\n\nWould you consider renaming it from \"Mask\" to threshold?",
       "parentUuid": "78e84608_90027109",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eae6ec7_f856049f",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T14:29:15Z",
+      "side": 1,
+      "message": "Yes, it should be renamed, and I was planning on doing that as part of making the treshold adjustable through command line.",
+      "parentUuid": "ea065b43_4a2cac94",
       "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -609,6 +669,24 @@
       "side": 1,
       "message": "That sounds better than the current solution, yes.\n\nTo just bikeshed a bit, my preference would be something like:\n\nArtMethod::DecrementHotnessCounter(int32_t num_samples \u003d 1) {\n  DCHECK_GE(num_samples, 0);\n  hotness_counter_ \u003d std::max(0, hotness_counter_ - num_samples);\n}\n\nThe default means we don\u0027t need the constant at all in most callsites.",
       "parentUuid": "a0a95fd6_37b2444c",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c922d521_d3182818",
+        "filename": "runtime/interpreter/mterp/nterp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T14:29:15Z",
+      "side": 1,
+      "message": "Done, but note that most call sites are assembly code, where we put the constant :)",
+      "parentUuid": "0859a304_43e0bf7d",
       "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
