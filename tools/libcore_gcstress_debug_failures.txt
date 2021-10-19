@@ -50,7 +50,10 @@
           "org.apache.harmony.tests.java.lang.ProcessManagerTest#testSleep",
           "org.apache.harmony.tests.java.math.BigIntegerConstructorsTest#testConstructorPrime",
           "org.apache.harmony.tests.java.util.TimerTest#testOverdueTaskExecutesImmediately",
-          "org.apache.harmony.tests.java.util.WeakHashMapTest#test_keySet_hasNext"
+          "org.apache.harmony.tests.java.util.WeakHashMapTest#test_keySet_hasNext",
+          "libcore.java.lang.OldThreadTest#test_getState",
+          "jsr166.ScheduledExecutorSubclassTest#testTimedInvokeAll4",
+          "org.apache.harmony.tests.java.lang.ref.ReferenceQueueTest#test_removeJ"
   ]
 },
 {
