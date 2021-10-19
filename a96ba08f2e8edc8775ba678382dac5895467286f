@@ -594,6 +594,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "983507ce_baace497",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T15:20:43Z",
+      "side": 1,
+      "message": "And contains only one read of `hotness_count_`, so it cannot underflow by racing with another thread.",
+      "parentUuid": "e7a0b961_2503fc2f",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 50
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c97e2493_96c89147",
         "filename": "runtime/art_method.h",
         "patchSetId": 4
