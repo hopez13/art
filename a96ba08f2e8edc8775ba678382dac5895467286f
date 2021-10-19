@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "484f5391_74560b0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "As discussed, the old state had the threshold hard-coded in the assembly code. This CL is removing this, but doesn\u0027t address setting the threshold dynamically. I will follow-up with another CL for this.",
+      "parentUuid": "56f340a9_ccd93b7a",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df1579bb_f08f86d5",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-10-13T13:43:00Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 11,
+        "startChar": 17,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f363dedd_c7175bce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df1579bb_f08f86d5",
       "range": {
         "startLine": 11,
         "startChar": 17,
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b95efa83_1f526cd6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6fb3ef95_7d71a09c",
+      "range": {
+        "startLine": 1110,
+        "startChar": 4,
+        "endLine": 1114,
+        "endChar": 60
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba452c5d_e306673a",
@@ -94,6 +160,30 @@
       "writtenOn": "2021-10-13T13:43:00Z",
       "side": 1,
       "message": "Do this in a register, otherwise racing threads could cause underflow.",
+      "range": {
+        "startLine": 1492,
+        "startChar": 4,
+        "endLine": 1496,
+        "endChar": 60
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fda22b12_460ff557",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "As I\u0027m not changing the previous overflow logic (which are tolerated), ok to keep this as-is?",
+      "parentUuid": "ba452c5d_e306673a",
       "range": {
         "startLine": 1492,
         "startChar": 4,
@@ -121,6 +211,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6660bcc_7dfa0ea0",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "The arg is unsigned, and it can be any value.",
+      "parentUuid": "6d32d58e_52f097d3",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5d7722d_710dd21c",
@@ -134,6 +242,30 @@
       "writtenOn": "2021-10-13T13:43:00Z",
       "side": 1,
       "message": "\u003c\u003d",
+      "range": {
+        "startLine": 436,
+        "startChar": 21,
+        "endLine": 436,
+        "endChar": 22
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ddcf4af_6ec8b50f",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5d7722d_710dd21c",
       "range": {
         "startLine": 436,
         "startChar": 21,
@@ -167,6 +299,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec047522_60e760da",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "229403b0_205e4590",
+      "range": {
+        "startLine": 438,
+        "startChar": 4,
+        "endLine": 438,
+        "endChar": 20
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07397ee7_4e7a953c",
@@ -180,6 +336,30 @@
       "writtenOn": "2021-10-13T13:43:00Z",
       "side": 1,
       "message": "You should load `hotness_count_` to a local variable to avoid thread races causing underflow. (Maybe that\u0027s not possible with clang++ optimizations but I don\u0027t want to rely on that.)",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 50
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc46cc57_d318b074",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "We don\u0027t mark hotness_count_ as atomic for performance reasons, so clang can do anything it wants here. Moving it to a local variable shouldn\u0027t change how clang optimizes.",
+      "parentUuid": "07397ee7_4e7a953c",
       "range": {
         "startLine": 440,
         "startChar": 4,
@@ -207,6 +387,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78e84608_90027109",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "Warm threshold is now getting obsolete, there are really two thresholds:\n- from nterp to baseline: kNterpHotnessMask \n- from baseline to optimizing: kTieredHotnessMask",
+      "parentUuid": "c97e2493_96c89147",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a81db1ee_24c831b1",
@@ -220,6 +418,30 @@
       "writtenOn": "2021-10-13T13:43:00Z",
       "side": 1,
       "message": "This is odd. We should probably just reset the counter in `ImageWriter::CopyAndFixupMethod()` to avoid this work at runtime.",
+      "range": {
+        "startLine": 1959,
+        "startChar": 8,
+        "endLine": 1961,
+        "endChar": 30
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31a74302_d20c877a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1961,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "The idea behind this is that the counter can be changed through the command line (not implemented in this CL). So doing this at the image writer wouldn\u0027t work.",
+      "parentUuid": "a81db1ee_24c831b1",
       "range": {
         "startLine": 1959,
         "startChar": 8,
@@ -249,6 +471,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0a95fd6_37b2444c",
+        "filename": "runtime/interpreter/mterp/nterp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "If it\u0027s confusing, I can drop the constant and just put 1 / -1 in the places where it is being used. Do you think that would be better?",
+      "parentUuid": "4c2032e5_630596a7",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f2eb771_5ee518ce",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 4
@@ -260,6 +500,30 @@
       "writtenOn": "2021-10-13T13:43:00Z",
       "side": 1,
       "message": "Both Nterp and AddSamples() reset the counter when reaching \"hot\" state, so we do not really collect anything here.",
+      "range": {
+        "startLine": 1501,
+        "startChar": 8,
+        "endLine": 1501,
+        "endChar": 31
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6721e92_6c4db153",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-19T13:20:18Z",
+      "side": 1,
+      "message": "Thanks for spotting. I think this is now stale. I\u0027ve changed it to check if the method is still only baseline compiled.",
+      "parentUuid": "2f2eb771_5ee518ce",
       "range": {
         "startLine": 1501,
         "startChar": 8,
