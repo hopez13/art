@@ -289,6 +289,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66e55b7e_8129869d",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-19T15:05:51Z",
+      "side": 1,
+      "message": "(see below)",
+      "parentUuid": "4dc4601a_89b20dc7",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5d7722d_710dd21c",
@@ -504,6 +522,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3371a751_24367fca",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-19T15:05:51Z",
+      "side": 1,
+      "message": "Vladimir suggestion is to non-atomically load the counter just once rather than twice, which ensures we don\u0027t run past zero.  GVN might do that as optimization anyway... but let\u0027s not rely on that.\n\nSure, not writing unnecessarily is reasonable... what about:\n\n```\nDecrementHotnessCounter(int32_t num_samples \u003d 1) {\n  DCHECK_GE(num_samples, 0);\n  if (hotness_counter_ \u003e 0) {\n    hotness_counter_ \u003d std::max\u003cint32_t\u003e(0, hotness_counter_ - num_samples);\n  }\n}\n```\n\nNote that the arg is signed, so we can DCHECK.\nNote that this also addresses Vladimir\u0027s concern since the code can not write \"negative\" value into the hotness counter.",
+      "parentUuid": "96b865d4_793555ca",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 50
+      },
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c97e2493_96c89147",
         "filename": "runtime/art_method.h",
         "patchSetId": 4
@@ -687,6 +729,24 @@
       "side": 1,
       "message": "Done, but note that most call sites are assembly code, where we put the constant :)",
       "parentUuid": "0859a304_43e0bf7d",
+      "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c54ce824_10796f8e",
+        "filename": "runtime/interpreter/mterp/nterp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-19T15:05:51Z",
+      "side": 1,
+      "message": "Ah, right.  Thanks.",
+      "parentUuid": "c922d521_d3182818",
       "revId": "a96ba08f2e8edc8775ba678382dac5895467286f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
