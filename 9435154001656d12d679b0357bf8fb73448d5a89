@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61e9a141_f837c8cc",
+        "filename": "build/art.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "What function is hitting the limit? Maybe we could split that particular function instead.\n\nWas it _ZNK3art6Thread24CreateInternalStackTraceERKNS_33ScopedObjectAccessAlreadyRunnableE ?",
+      "range": {
+        "startLine": 125,
+        "startChar": 25,
+        "endLine": 125,
+        "endChar": 29
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a0a8a53_21e77f31",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "We may need to use the `outer_compilation_unit_` here. For two-level inlining from the same dex file in BCP, the current check can report `needs_bss_check \u003d false` even though we do need a .bss entry for .bcp dex file.\n\nHowever, that would allow inlining a BCP method and inside that method inline a call back to a final method in the outer dex file. And that\u0027s not supported by `GetResolvedMethod()` in entrypoint_utils.\n\nWe\u0027ll need to think about this a bit more.",
+      "range": {
+        "startLine": 1826,
+        "startChar": 7,
+        "endLine": 1826,
+        "endChar": 31
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d49620_b9f9c2ff",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1903,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "\"it needs a bss entry for a boot class path component\"\n\n// TODO: Add support for BCP dex file .bss entries.",
+      "range": {
+        "startLine": 1903,
+        "startChar": 42,
+        "endLine": 1903,
+        "endChar": 62
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "357ed24c_03b3e637",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2598,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "Use back-ticks: `maybe_new_array`",
+      "range": {
+        "startLine": 2598,
+        "startChar": 20,
+        "endLine": 2598,
+        "endChar": 37
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7b33c7e_d40927a4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2724,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "environment use",
+      "range": {
+        "startLine": 2724,
+        "startChar": 65,
+        "endLine": 2724,
+        "endChar": 68
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78b6699d_340b3d28",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2762,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "Bytecode can use move-object to copy uninitialized references, so there can be multiple environment uses - different dex registers recorded for the same NewArray.",
+      "range": {
+        "startLine": 2762,
+        "startChar": 22,
+        "endLine": 2762,
+        "endChar": 33
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3c416ae_a748f9fd",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "std::distance(boot_class_path.begin(), it)",
+      "range": {
+        "startLine": 230,
+        "startChar": 30,
+        "endLine": 230,
+        "endChar": 58
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59780e31_973d8438",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "First do a\n\n  DCHECK_LT(method_info.GetBootClassPathIndex(), boot_class_path.size());",
+      "range": {
+        "startLine": 260,
+        "startChar": 33,
+        "endLine": 260,
+        "endChar": 84
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5159e39c_ca599827",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "Allways `nullptr` for boot class path dex files.",
+      "range": {
+        "startLine": 91,
+        "startChar": 70,
+        "endLine": 91,
+        "endChar": 97
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f420a6f7_c796bb4d",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "Should we perform the lookup from the `outer_method`?\n\nThis is related to my comment in `inliner.cc` about inlining a BCP method and there inlining a final method from the outer dex file.",
+      "range": {
+        "startLine": 94,
+        "startChar": 24,
+        "endLine": 94,
+        "endChar": 71
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d69a6e04_945ec9af",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "Thinking about inlining across dex files within APK, I\u0027d prefer `DexFileIndex` and `kSameDexFile \u003d -1`. We can define that dex files are indexed by compile-time index where BCP dex files come first and then the dex files we\u0027re compiling. (The next question is whether to allow other dex files, provided by parent class loaders and libraries for an arbitrary class loader context.)",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 271,
+        "endChar": 53
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

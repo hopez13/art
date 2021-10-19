@@ -16,6 +16,24 @@
       "message": "We could put this in the loop for an early break but I am not sure if it will make a lot of performance difference and it looks clearer here. WDYT?",
       "revId": "099bff7083e6afe7ee31ba385fd57ccf105bbbab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4297a17_dc0bb978",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-19T10:22:29Z",
+      "side": 1,
+      "message": "This is inconsistent with the rest of the code which reports the first failure it encounters.\n\nThe real question is, do you want to report kNotInlinedBss only if all other checks pass?",
+      "parentUuid": "055989a8_be0858bb",
+      "revId": "099bff7083e6afe7ee31ba385fd57ccf105bbbab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
