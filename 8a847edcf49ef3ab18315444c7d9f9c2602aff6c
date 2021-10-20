@@ -16,6 +16,322 @@
       "message": "Thanks! I addressed your comments. PTAL.",
       "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b19eb27d_c264117f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "This is looking good! Adding Vladimir as well for compiler, and David for debugger.",
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84def98d_63012448",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "Why not GetGraph()-\u003eIsDebuggable() ?",
+      "range": {
+        "startLine": 2121,
+        "startChar": 59,
+        "endLine": 2121,
+        "endChar": 97
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3057e0ab_fc47567a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "Is that necessary? The fact we\u0027re saying kCallOnMainOnly will clobber the registers anyway.\n\nMaybe we can consider the kQuickMethodExitHook/kQuickMethodEntryHook calls to be on slow paths to avoid clobbering the registers?",
+      "range": {
+        "startLine": 1129,
+        "startChar": 0,
+        "endLine": 1129,
+        "endChar": 46
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94e214b3_c7a222ba",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 3028,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 3028,
+        "startChar": 0,
+        "endLine": 3028,
+        "endChar": 9
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb32a4e8_6a5c1661",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "As the method is called DeoptimizeThread, it reads odd to have should_deopt at false. Can you add a comment?",
+      "range": {
+        "startLine": 496,
+        "startChar": 71,
+        "endLine": 496,
+        "endChar": 96
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84758588_ac1f0f1a",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "Fits on one line?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 49
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0caa8676_8bc00319",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2609,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "nit: alignment",
+      "range": {
+        "startLine": 2607,
+        "startChar": 0,
+        "endLine": 2609,
+        "endChar": 53
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d531343f_b5ce533d",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2630,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "Add a /* parameter_name\u003d */",
+      "range": {
+        "startLine": 2630,
+        "startChar": 74,
+        "endLine": 2630,
+        "endChar": 75
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71b96476_c5c0815a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2635,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "Should this be done line 2654? What if code lines 2640 to 2642 also have suspend checks?",
+      "range": {
+        "startLine": 2632,
+        "startChar": 3,
+        "endLine": 2635,
+        "endChar": 5
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c19acd_c3093ec8",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "Curious in knowing how that conflicts with CHA?",
+      "range": {
+        "startLine": 400,
+        "startChar": 57,
+        "endLine": 400,
+        "endChar": 97
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3663338e_d44dd353",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1557,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "nit: one condition per line",
+      "range": {
+        "startLine": 1557,
+        "startChar": 73,
+        "endLine": 1557,
+        "endChar": 98
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04c71a59_8c9722f2",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "nit: I find this easier to read if it\u0027s aligned with \u0027the\u0027 above.",
+      "range": {
+        "startLine": 550,
+        "startChar": 5,
+        "endLine": 550,
+        "endChar": 45
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aec3e0a_b82ea4f6",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 552,
+        "endChar": 80
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eec588e8_2a9ff55c",
+        "filename": "test/2011-stack-walk-concurrent-instrument/stack_walk_concurrent.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T10:26:58Z",
+      "side": 1,
+      "message": "ditto: odd when the method is called waitAndDeopt.",
+      "range": {
+        "startLine": 88,
+        "startChar": 73,
+        "endLine": 88,
+        "endChar": 98
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
