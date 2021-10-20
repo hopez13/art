@@ -39,6 +39,23 @@
       "message": "Thank you for uploading this patch!",
       "revId": "f87abfaf58526825e10b50126f520a60e255164f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3620aa61_6d88e8dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1328424
+      },
+      "writtenOn": "2021-10-20T16:56:08Z",
+      "side": 1,
+      "message": "from failures\n```\nart/runtime/oat_quick_method_header.h:113:32: error: use of undeclared identifier \u0027code_size_\u0027; did you mean \u0027code_start\u0027?\n    return code_start \u003c\u003d pc \u0026\u0026 code_size_ !\u003d 0xFFFFFFFF \u0026\u0026 pc \u003c\u003d (code_start + GetCodeSize());\n                               ^~~~~~~~~~\n                               code_start\n```\nThis change looks came from different codebase.",
+      "revId": "f87abfaf58526825e10b50126f520a60e255164f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
