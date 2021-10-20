@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19d0980b_273d62cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T14:52:00Z",
+      "side": 1,
+      "message": "Thank you both. David, good to go as well?",
+      "revId": "c3585070efdbcbf4ebb55ade73688afbb6ff855f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28846da1_3105c6d9",
@@ -61,6 +78,24 @@
       "writtenOn": "2021-10-20T14:21:04Z",
       "side": 1,
       "message": "You have removed the transition weight, which is fairly large factor.\n\nI am not a fan of the random additional fudge hotness bumps, but I assume they were added for a reason once upon a time.\n\nI am ok with trying to remove them (furthermore I guess literally removing this code might make more sense then trying to reduce large fudge to 1).\n\nHowever, we should probably leave that to separate CL and carefully measure performance changes there. (given the code change to keep it alive is trivial)",
+      "revId": "c3585070efdbcbf4ebb55ade73688afbb6ff855f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29f160ae_9bbc9800",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-20T14:52:00Z",
+      "side": 1,
+      "message": "The transition weight ended up being relevant only for the switch interpreter. nterp was not affected as for nterp we do direct calls from compiled code to nterp. So the value of the transitions weight do not have an impact at this point.",
+      "parentUuid": "31af9c28_699886fa",
       "revId": "c3585070efdbcbf4ebb55ade73688afbb6ff855f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
