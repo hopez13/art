@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "580ca92d_2c9575a2",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-20T14:21:04Z",
+      "side": 0,
+      "message": "...(on the other hand, I see why this weight is a pain to keep around). I am kind of conflicted whether it is ok just remove as well... \n\nIf it is important for performance, maybe we can do something different but similar.  For example, add trivial priorities to JIT tasks (https://android-review.googlesource.com/c/platform/art/+/1623785), and use that to compile UI-thread methods first. But that is topic for followup CLs.",
+      "revId": "e153a62e8e8a2c42f86d2db87c8188cd0d7bef6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "123075a4_04ba434e",
