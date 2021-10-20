@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28846da1_3105c6d9",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-20T14:36:02Z",
+      "side": 1,
+      "message": "I\u0027d prefer sticking with `uint16_t` but `int32_t` is acceptable. Feel free to ACK and submit as is.",
+      "range": {
+        "startLine": 434,
+        "startChar": 37,
+        "endLine": 434,
+        "endChar": 44
+      },
+      "revId": "c3585070efdbcbf4ebb55ade73688afbb6ff855f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "31af9c28_699886fa",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 8
