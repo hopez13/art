@@ -465,6 +465,7 @@ class OatFile {
   // elements. std::list<> and std::deque<> satisfy this requirement, std::vector<> doesn't.
   mutable std::list<std::string> string_cache_ GUARDED_BY(secondary_lookup_lock_);
 
+ public:
   // Dex files opened directly from a file referenced from the oat file or specifed
   // by the `dex_filenames` parameter, in case the OatFile does not embed the dex code.
   std::vector<std::unique_ptr<const DexFile>> external_dex_files_;
