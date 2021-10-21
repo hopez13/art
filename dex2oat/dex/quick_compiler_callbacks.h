@@ -18,6 +18,7 @@
 #define ART_DEX2OAT_DEX_QUICK_COMPILER_CALLBACKS_H_
 
 #include "compiler_callbacks.h"
+#include "driver/compiler_driver.h"
 #include "verifier/verifier_deps.h"
 
 namespace art {

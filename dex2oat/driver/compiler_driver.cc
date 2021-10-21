@@ -754,7 +754,8 @@ static void EnsureVerifiedOrVerifyAtRuntime(jobject jclass_loader,
 }
 
 void CompilerDriver::PrepareDexFilesForOatFile(TimingLogger* timings ATTRIBUTE_UNUSED) {
-  compiled_classes_.AddDexFiles(GetCompilerOptions().GetDexFilesForOatFile());
+  auto compiled_classes_dex_files = GetCompilerOptions().GetDexFilesForOatFile();
+  compiled_classes_.AddDexFiles(compiled_classes_dex_files);
 }
 
 class CreateConflictTablesVisitor : public ClassVisitor {
