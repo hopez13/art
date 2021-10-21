@@ -22,6 +22,46 @@
       },
       "revId": "5388b72868c8f64ee4e1e5809dc5cc41d6b2f0cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6520d5d2_0bc206fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2021-10-21T19:02:54Z",
+      "side": 1,
+      "message": "We should definitely make Vogar a bit smarter, but this works in the short term",
+      "revId": "5388b72868c8f64ee4e1e5809dc5cc41d6b2f0cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce7af3cd_b5fbba44",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2021-10-21T19:02:54Z",
+      "side": 1,
+      "message": "nit: Won\u0027t be true after you submit https://r.android.com/1866875",
+      "range": {
+        "startLine": 123,
+        "startChar": 41,
+        "endLine": 123,
+        "endChar": 76
+      },
+      "revId": "5388b72868c8f64ee4e1e5809dc5cc41d6b2f0cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
