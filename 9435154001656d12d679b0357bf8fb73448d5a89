@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2784eb9e_43dfbfdc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-21T09:16:39Z",
+      "side": 1,
+      "message": "I am giving this a second thought. I think this is what you meant:\nA { ...; B(); ...}\nB { ...; C(); ...}\nBoth method A and C are in dexfile `df`. Method B is in bootclasspath. We inline method C inside B, and then B inside A. The B inside A is the new bit. I am not adding support for C inside B in this CL.\nMy reasoning is that the only way we are able to do this is when we do not need an environment since B and C do not share a dex file and C is not in the BCP. Therefore, we do not generate stack maps and `GetResolvedMethod` doesn\u0027t get called for C.\n\nHaving said that, it may pop up later on when doing the more general case (i.e. when taking a look at non-BCP) so we can take a look at it now too.",
+      "parentUuid": "358abd85_e5146619",
+      "range": {
+        "startLine": 1826,
+        "startChar": 7,
+        "endLine": 1826,
+        "endChar": 31
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4d49620_b9f9c2ff",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 22
