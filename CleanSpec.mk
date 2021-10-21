@@ -117,6 +117,8 @@ $(call add-clean-step, rm -rf $(HOST_OUT))
 
 # Remove all dex2oat artifacts (workaround for broken dependencies).
 $(call add-clean-step, find $(OUT_DIR) -name "*.oat" -o -name "*.odex" -o -name "*.art" -o -name '*.vdex' | xargs rm -f)
+# Updated oat header in https://android-review.googlesource.com/c/platform/art/+/1866456
+$(call add-clean-step, find $(OUT_DIR) -name "*.oat" -o -name "*.odex" -o -name "*.art" -o -name '*.vdex' | xargs rm -f)
 
 # ************************************************
 # NEWER CLEAN STEPS MUST BE AT THE END OF THE LIST
