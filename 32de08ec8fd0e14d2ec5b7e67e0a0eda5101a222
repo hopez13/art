@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86e1cca2_614ea4d6",
+        "filename": "runtime/oat.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-21T13:33:20Z",
+      "side": 1,
+      "message": "Please skip 204, it\u0027s been used by the reverted https://android-review.googlesource.com/1860934 .",
+      "range": {
+        "startLine": 36,
+        "startChar": 54,
+        "endLine": 36,
+        "endChar": 68
+      },
+      "revId": "32de08ec8fd0e14d2ec5b7e67e0a0eda5101a222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

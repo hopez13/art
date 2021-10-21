@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e3b355b_2710f6cf",
+        "filename": "build/art.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-21T13:33:20Z",
+      "side": 1,
+      "message": "I\u0027ll work on this in a separate CL. This is also failing TH for https://android-review.googlesource.com/1861875 .",
+      "parentUuid": "b989e518_52a57397",
+      "range": {
+        "startLine": 125,
+        "startChar": 25,
+        "endLine": 125,
+        "endChar": 29
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a0a8a53_21e77f31",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 22
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "I am giving this a second thought. I think this is what you meant:\nA { ...; B(); ...}\nB { ...; C(); ...}\nBoth method A and C are in dexfile `df`. Method B is in bootclasspath. We inline method C inside B, and then B inside A. The B inside A is the new bit. I am not adding support for C inside B in this CL.\nMy reasoning is that the only way we are able to do this is when we do not need an environment since B and C do not share a dex file and C is not in the BCP. Therefore, we do not generate stack maps and `GetResolvedMethod` doesn\u0027t get called for C.\n\nHaving said that, it may pop up later on when doing the more general case (i.e. when taking a look at non-BCP) so we can take a look at it now too.",
       "parentUuid": "358abd85_e5146619",
+      "range": {
+        "startLine": 1826,
+        "startChar": 7,
+        "endLine": 1826,
+        "endChar": 31
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09836e5c_39e609b7",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-21T13:33:20Z",
+      "side": 1,
+      "message": "I meant two cases here. You wrote about one and here is the other one:\n\n  class BootImageClass {\n    static Class\u003c?\u003e needsBss() { return ClassNotInBootImage.class; }\n    static Class\u003c?\u003e indirectlyNeedsBss() { return needsBss(); }\n  }\n  class AppClass {\n    static Class\u003c?\u003e test() { return BootImageClass.indirectlyNeedsBss(); }\n  }\n\nDuring second level inlining, the `IsSameDexFile()` test returns true.",
+      "parentUuid": "2784eb9e_43dfbfdc",
       "range": {
         "startLine": 1826,
         "startChar": 7,
@@ -309,6 +357,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1dfdc88c_4c14b8e6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2762,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-21T13:33:20Z",
+      "side": 1,
+      "message": "I meant that the single instruction `NewArray` can have multiple use entries for the `NewInstance` instruction.\n\nBut we could simply change the comment to say that we want to remove the inlined constructor instructions. That also removes all remaining environment uses.",
+      "parentUuid": "29669f94_77ee2cd4",
+      "range": {
+        "startLine": 2762,
+        "startChar": 22,
+        "endLine": 2762,
+        "endChar": 33
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3c416ae_a748f9fd",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 22
@@ -450,6 +522,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2c25491_95704005",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-21T13:33:20Z",
+      "side": 1,
+      "message": "The comment is on `dex_cache-\u003eGetClassLoader()` which shall be `nullptr`.",
+      "parentUuid": "ebc6f310_2b09ab4b",
+      "range": {
+        "startLine": 91,
+        "startChar": 70,
+        "endLine": 91,
+        "endChar": 97
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f420a6f7_c796bb4d",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 22
@@ -508,6 +604,30 @@
       "side": 1,
       "message": "Updated the name.\nAs a whole cross-dex inlining can happen in three ways: bootclass path, class loader context (in non-boot images or extensions), and multidex (https://cs.android.com/android/platform/superproject/+/master:art/dex2oat/dex2oat.cc;l\u003d1858;drc\u003debf496f245dec69af6abfa115aa0e5872aee93d1). The advantage of having a separate vector for bootclasspath is that we only get what we need, and that the order of the vectors is not really important.\nIn any case, we could have only one index for all cases too and this is more relevant to follow-up CLs and overall design.",
       "parentUuid": "d69a6e04_945ec9af",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 271,
+        "endChar": 53
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a5204a8_58fe1f21",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-21T13:33:20Z",
+      "side": 1,
+      "message": "Thanks! I think there should be only one index and the new name is OK for the overall design.",
+      "parentUuid": "d54237fe_d6eeebbd",
       "range": {
         "startLine": 269,
         "startChar": 2,
