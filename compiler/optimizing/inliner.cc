@@ -16,15 +16,18 @@
 
 #include "inliner.h"
 
+#include "android-base/logging.h"
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "base/logging.h"
 #include "builder.h"
 #include "class_linker.h"
 #include "class_root-inl.h"
+#include "compiler_callbacks.h"
 #include "constant_folding.h"
 #include "data_type-inl.h"
 #include "dead_code_elimination.h"
+#include "dex/dex_file.h"
 #include "dex/inline_method_analyser.h"
 #include "driver/compiler_options.h"
 #include "driver/dex_compilation_unit.h"
@@ -1704,12 +1707,28 @@ static bool CanEncodeInlinedMethodInStackMap(const DexFile& outer_dex_file,
     // JIT can always encode methods in stack maps.
     return true;
   }
+  const DexFile* dex_file = callee->GetDexFile();
   if (IsSameDexFile(outer_dex_file, *callee->GetDexFile())) {
     return true;
   }
 
   // Inline across dexfiles if the callee's DexFile is in the bootclasspath.
   if (callee->GetDeclaringClass()->GetClassLoader() == nullptr) {
+    *out_needs_bss_check = true;
+    return true;
+  }
+
+  // TODO(solanes): Remove the DCHECK before submission.
+  // TODO(solanes): Keep this as a debug check that we have the dex?
+  auto callbacks = Runtime::Current()->GetCompilerCallbacks();
+  DCHECK(callbacks != nullptr);
+  const std::vector<const DexFile*>& dex_files = callbacks->GetDexFiles();
+  auto it = std::find_if(dex_files.begin(), dex_files.end(), [dex_file](const DexFile* df) {
+    return IsSameDexFile(*df, *dex_file);
+  });
+  // LOG(INFO) << dex_files.size();
+  // CHECK(it != dex_files.end());
+  if (it != dex_files.end()) {
     *out_needs_bss_check = true;
     return true;
   }

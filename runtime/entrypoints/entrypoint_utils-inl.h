@@ -17,16 +17,19 @@
 #ifndef ART_RUNTIME_ENTRYPOINTS_ENTRYPOINT_UTILS_INL_H_
 #define ART_RUNTIME_ENTRYPOINTS_ENTRYPOINT_UTILS_INL_H_
 
-#include "entrypoint_utils.h"
-
+#include "android-base/logging.h"
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/enums.h"
+#include "base/macros.h"
 #include "base/sdk_version.h"
 #include "class_linker-inl.h"
+#include "class_loader_context.h"
 #include "common_throws.h"
+#include "compiler_callbacks.h"
 #include "dex/dex_file.h"
 #include "dex/invoke_type.h"
+#include "entrypoint_utils.h"
 #include "entrypoints/quick/callee_save_frame.h"
 #include "handle_scope-inl.h"
 #include "imt_conflict_table.h"
@@ -39,6 +42,7 @@
 #include "mirror/object-inl.h"
 #include "mirror/throwable.h"
 #include "nth_caller_visitor.h"
+#include "oat_file.h"
 #include "reflective_handle_scope-inl.h"
 #include "runtime.h"
 #include "stack_map.h"
@@ -83,12 +87,63 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
     MethodInfo method_info = code_info.GetMethodInfoOf(inline_info);
     uint32_t method_index = method_info.GetMethodIndex();
     ArtMethod* inlined_method;
+    LOG(INFO) << "Resolution " << method_index << " " << method_info.GetDexFileIndex() << " " << method_info.GetIsInBootClassPath();
     if (method_info.HasDexFileIndex()) {
-      const DexFile* dex_file = class_linker->GetBootClassPath()[method_info.GetDexFileIndex()];
-      ObjPtr<mirror::DexCache> dex_cache = class_linker->FindDexCache(Thread::Current(), *dex_file);
-      // The class loader is always nullptr for this case so we can simplify the call.
-      DCHECK_EQ(dex_cache->GetClassLoader(), nullptr);
-      inlined_method = class_linker->LookupResolvedMethod(method_index, dex_cache, nullptr);
+      // DCHECK(method_info.HasIsInBootClassPath());
+      if (method_info.GetIsInBootClassPath() == MethodInfo::KInBCP) {
+        LOG(INFO) << "kInBootClassPath";
+        const DexFile* dex_file = class_linker->GetBootClassPath()[method_info.GetDexFileIndex()];
+        ObjPtr<mirror::DexCache> dex_cache =
+            class_linker->FindDexCache(Thread::Current(), *dex_file);
+        // The class loader is always nullptr for this case so we can simplify the call.
+        DCHECK_EQ(dex_cache->GetClassLoader(), nullptr);
+        inlined_method = class_linker->LookupResolvedMethod(method_index, dex_cache, nullptr);
+      } else {
+        LOG(INFO) << "kNotInBootClassPath";
+        LOG(FATAL) << "Fail to see if tests are hitting this";
+        // LOG(INFO) << MethodInfo::kNotInBootClassPath;
+        // LOG(INFO) << MethodInfo::kInBootClassPath;
+        // LOG(INFO) << method_info.GetIsInBootClassPath();
+        // DCHECK_EQ(method_info.GetIsInBootClassPath(), MethodInfo::kNotInBCP);
+        // auto oat_dex_files =
+        // method->GetDexFile()->GetOatDexFile()->GetOatFile()->GetOatDexFiles(); std::string
+        // error_msg; const DexFile* dex_file =
+        //     oat_dex_files[method_info.GetDexFileIndex()]->OpenDexFile(&error_msg).release();
+        // if (dex_file == nullptr) {
+        //   LOG(FATAL) << "Non-existent dexfile";
+        // }
+        // // for (const auto& odf : oat_dex_files) {
+        // //   const std::string& location = odf->GetDexFileLocation();
+
+        // // }
+        // CompilerCallbacks* compiler_callbacks = Runtime::Current()->GetCompilerCallbacks();
+        // // compiler_callbacks is null. Double check if we can access them. Otherwise, check if I
+        // can
+        // // get the dex files from the oat file.
+        // DCHECK(compiler_callbacks != nullptr);
+        // std::vector<const DexFile*> dex_files = compiler_callbacks->GetDexFiles();
+        // const DexFile* dex_file = dex_files[method_info.GetDexFileIndex()];
+        // Same as above. Merge?
+
+        std::string clc_string =
+            method->GetDexFile()->GetOatDexFile()->GetOatFile()->GetClassLoaderContext();
+        std::unique_ptr<ClassLoaderContext> clc = ClassLoaderContext::Create(clc_string);
+        DCHECK_LT(method_info.GetDexFileIndex(), clc->FlattenOpenedDexFiles().size());
+        const DexFile* dex_file = clc->FlattenOpenedDexFiles()[method_info.GetDexFileIndex()];
+
+        ObjPtr<mirror::DexCache> dex_cache =
+            class_linker->FindDexCache(Thread::Current(), *dex_file);
+        inlined_method = class_linker->LookupResolvedMethod(
+            method_index, dex_cache, dex_cache->GetClassLoader());
+        // TODO(solanes): Remove before merging.
+        // LOG(INFO) << "Success! Inlined method resolution crossed dex file boundary: from "
+        //           << method->PrettyMethod() << " in " << method->GetDexFile()->GetLocation() <<
+        //           "/"
+        //           << static_cast<const void*>(method->GetDexFile()) << " to "
+        //           << inlined_method->PrettyMethod() << " in "
+        //           << inlined_method->GetDexFile()->GetLocation() << "/"
+        //           << static_cast<const void*>(inlined_method->GetDexFile()) << ". ";
+      }
     } else {
       inlined_method = class_linker->LookupResolvedMethod(
           method_index, outer_method->GetDexCache(), outer_method->GetClassLoader());
