@@ -41,6 +41,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ee0b805_a847f057",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-21T20:04:58Z",
+      "side": 1,
+      "message": "I actually think Vogar is doing the right thing looking for those jars in out/target/common rather than somewhere in out/soong/.intermediates. It\u0027s not within its duties to build them itself either.\n\nThe problem here is rather the gap in \"m installclean\" that covered up the missing dependencies (and also my apparent mishap in testing the previous CL).",
+      "parentUuid": "6520d5d2_0bc206fd",
+      "revId": "5388b72868c8f64ee4e1e5809dc5cc41d6b2f0cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce7af3cd_b5fbba44",
