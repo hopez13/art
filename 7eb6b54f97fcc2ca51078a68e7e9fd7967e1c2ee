@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "663f0c19_9b94cc8d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1903,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-21T16:54:52Z",
+      "side": 1,
+      "message": "nit: grammar",
+      "range": {
+        "startLine": 1902,
+        "startChar": 0,
+        "endLine": 1903,
+        "endChar": 34
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc078e31_b1961d63",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 6828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-21T16:54:52Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 6827,
+        "startChar": 11,
+        "endLine": 6828,
+        "endChar": 51
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a88ba386_c9ff1908",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-21T16:54:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 94,
+        "startChar": 53,
+        "endLine": 94,
+        "endChar": 65
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fa83b0f_a3c11a14",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-21T16:54:52Z",
+      "side": 1,
+      "message": "I think this needs to stay being \u0027method\u0027.",
+      "range": {
+        "startLine": 94,
+        "startChar": 24,
+        "endLine": 94,
+        "endChar": 36
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3423c33_820da40c",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-10-21T16:54:52Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 366,
+        "startChar": 2,
+        "endLine": 366,
+        "endChar": 7
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
