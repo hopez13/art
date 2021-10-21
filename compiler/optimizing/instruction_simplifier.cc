@@ -2712,19 +2712,11 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
     return false;
   }
 
-  // Check environment uses.
+  // Environment uses unrelated to this particular optimization are fine to have. In such cases, the
+  // `NewInstance` instruction will not be removed at the end of this optimization.
   for (const HUseListNode<HEnvironment*>& use : sb->GetEnvUses()) {
     HInstruction* holder = use.GetUser()->GetHolder();
     if (holder->GetBlock() != block) {
-      return false;
-    }
-    // Accept only calls on the StringBuilder (which shall all be removed).
-    // TODO: Carve-out for const-string? Or rely on environment pruning (to be implemented)?
-    if (holder->InputCount() == 0 || holder->InputAt(0) != sb) {
-      // When inlining the constructor, we have a NewArray as an environment use.
-      if (constructor_inlined && holder == maybe_new_array) {
-        continue;
-      }
       return false;
     }
   }
@@ -2759,8 +2751,7 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
     block->RemoveInstruction(sb->GetUses().front().GetUser());
   }
   if (constructor_inlined) {
-    // We need to remove the inlined constructor instructions. That also removes all remaining
-    // environment uses.
+    // Remove the inlined constructor instructions.
     DCHECK(sb->HasEnvironmentUses());
     DCHECK(maybe_new_array != nullptr);
     DCHECK(maybe_new_array->IsNewArray());
@@ -2770,8 +2761,18 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
     block->RemoveInstruction(fence);
     block->RemoveInstruction(maybe_new_array);
   }
-  DCHECK(!sb->HasEnvironmentUses());
-  block->RemoveInstruction(sb);
+
+  // The `NewInstance` instruction might have other environment uses that are unrelated to this
+  // optimization. In such case, we can clean up the block but the `NewInstance` instruction must
+  // remain.
+  // TODO(solanes): There is a case in which we have a NullCheck as an environment use, and said
+  // null check is eliminated afterwards due to the current optimization of string builder. In such
+  // case, we will not eliminate the `NewInstance` neither here nor in dead code elimination since
+  // `NewInstance` can throw (and therefore not eligible for dead code elimination). Figure out a
+  // way to eliminate `NewInstance` in such cases too.
+  if (!sb->HasEnvironmentUses()) {
+    block->RemoveInstruction(sb);
+  }
   return true;
 }
 

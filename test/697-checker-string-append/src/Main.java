@@ -22,6 +22,7 @@ public class Main {
         testMiscelaneous();
         testNoArgs();
         testInline();
+        testInlineWithSubstring();
         testEquals();
         System.out.println("passed");
     }
@@ -251,6 +252,20 @@ public class Main {
 
     public static void testInline() {
         assertEquals("x42", $noinline$testInlineOuter("x", 42));
+    }
+
+    /// CHECK-START: java.lang.String Main.$noinline$testInlineOuterWithSubstring(java.lang.String, int) instruction_simplifier$after_inlining (before)
+    /// CHECK-NOT:              StringBuilderAppend
+
+    /// CHECK-START: java.lang.String Main.$noinline$testInlineOuterWithSubstring(java.lang.String, int) instruction_simplifier$after_inlining (after)
+    /// CHECK:                  StringBuilderAppend
+    public static String $noinline$testInlineOuterWithSubstring(String s, int i) {
+        StringBuilder sb = new StringBuilder();
+        return $inline$testInlineInner(sb, s, i).substring(0,2);
+    }
+
+    public static void testInlineWithSubstring() {
+        assertEquals("x4", $noinline$testInlineOuterWithSubstring("x", 42));
     }
 
     /// CHECK-START: java.lang.String Main.$noinline$appendNothing() instruction_simplifier (before)
