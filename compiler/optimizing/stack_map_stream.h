@@ -26,6 +26,7 @@
 #include "base/value_object.h"
 #include "dex_register_location.h"
 #include "nodes.h"
+#include "optimizing/code_generator.h"
 #include "stack_map.h"
 
 namespace art {
@@ -80,7 +81,8 @@ class StackMapStream : public DeletableArenaObject<kArenaAllocStackMapStream> {
   void BeginInlineInfoEntry(ArtMethod* method,
                             uint32_t dex_pc,
                             uint32_t num_dex_registers,
-                            const DexFile* outer_dex_file = nullptr);
+                            const DexFile* outer_dex_file = nullptr,
+                            const CodeGenerator* codegen = nullptr);
   void EndInlineInfoEntry();
 
   size_t GetNumberOfStackMaps() const {
