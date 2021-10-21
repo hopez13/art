@@ -1696,27 +1696,10 @@ static inline Handle<T> NewHandleIfDifferent(ObjPtr<T> object, Handle<T> hint, H
   return (object != hint.Get()) ? graph->GetHandleCache()->NewHandle(object) : hint;
 }
 
-static bool CanEncodeInlinedMethodInStackMap(const DexFile& outer_dex_file,
-                                             ArtMethod* callee,
-                                             bool* out_needs_bss_check)
+static bool NeedsBssCheck(const DexFile& outer_dex_file, ArtMethod* callee)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  if (!Runtime::Current()->IsAotCompiler()) {
-    // JIT can always encode methods in stack maps.
-    return true;
-  }
-  if (IsSameDexFile(outer_dex_file, *callee->GetDexFile())) {
-    return true;
-  }
-
-  // Inline across dexfiles if the callee's DexFile is in the bootclasspath.
-  if (callee->GetDeclaringClass()->GetClassLoader() == nullptr) {
-    *out_needs_bss_check = true;
-    return true;
-  }
-
-  // TODO(ngeoffray): Support more AOT cases for inlining:
-  // - methods in multidex
-  return false;
+  return Runtime::Current()->IsAotCompiler() &&
+         !IsSameDexFile(outer_dex_file, *callee->GetDexFile());
 }
 
   // Substitutes parameters in the callee graph with their values from the caller.
@@ -1827,9 +1810,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
 
   const bool too_many_registers =
       total_number_of_dex_registers_ > kMaximumNumberOfCumulatedDexRegisters;
-  bool needs_bss_check = false;
-  const bool can_encode_in_stack_map = CanEncodeInlinedMethodInStackMap(
-      *outer_compilation_unit_.GetDexFile(), resolved_method, &needs_bss_check);
+  bool needs_bss_check = NeedsBssCheck(*outer_compilation_unit_.GetDexFile(), resolved_method);
   size_t number_of_instructions = 0;
   // Skip the entry block, it does not contain instructions that prevent inlining.
   for (HBasicBlock* block : callee_graph->GetReversePostOrderSkipEntryBlock()) {
@@ -1870,14 +1851,6 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
               << "Method " << resolved_method->PrettyMethod()
               << " is not inlined because its caller has reached"
               << " its environment budget limit.";
-          return false;
-        }
-
-        if (!can_encode_in_stack_map) {
-          LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedStackMaps)
-              << "Method " << resolved_method->PrettyMethod() << " could not be inlined because "
-              << current->DebugName() << " needs an environment, is in a different dex file"
-              << ", and cannot be encoded in the stack maps.";
           return false;
         }
       }
