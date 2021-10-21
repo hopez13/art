@@ -1901,14 +1901,12 @@ class Dex2Oat final {
     }
 
     const bool compile_individually = ShouldCompileDexFilesIndividually();
-    if (compile_individually) {
-      // Set the compiler driver in the callbacks so that we can avoid re-verification. This not
-      // only helps performance but also prevents reverifying quickened bytecodes. Attempting
-      // verify quickened bytecode causes verification failures.
-      // Only set the compiler filter if we are doing separate compilation since there is a bit
-      // of overhead when checking if a class was previously verified.
-      callbacks_->SetDoesClassUnloading(true, driver_.get());
-    }
+    // Set the compiler driver in the callbacks so that we can avoid re-verification. This not
+    // only helps performance but also prevents reverifying quickened bytecodes. Attempting
+    // verify quickened bytecode causes verification failures.
+    // Only set the compiler filter if we are doing separate compilation since there is a bit
+    // of overhead when checking if a class was previously verified.
+    callbacks_->SetDoesClassUnloading(compile_individually, driver_.get());
 
     // Setup vdex for compilation.
     const std::vector<const DexFile*>& dex_files = compiler_options_->dex_files_for_oat_file_;

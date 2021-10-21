@@ -16,15 +16,18 @@
 
 #include "inliner.h"
 
+#include "android-base/logging.h"
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "base/logging.h"
 #include "builder.h"
 #include "class_linker.h"
 #include "class_root-inl.h"
+#include "compiler_callbacks.h"
 #include "constant_folding.h"
 #include "data_type-inl.h"
 #include "dead_code_elimination.h"
+#include "dex/dex_file.h"
 #include "dex/inline_method_analyser.h"
 #include "driver/compiler_options.h"
 #include "driver/dex_compilation_unit.h"
@@ -1704,7 +1707,8 @@ static bool CanEncodeInlinedMethodInStackMap(const DexFile& caller_dex_file,
     // JIT can always encode methods in stack maps.
     return true;
   }
-  if (IsSameDexFile(caller_dex_file, *callee->GetDexFile())) {
+  const DexFile* dex_file = callee->GetDexFile();
+  if (IsSameDexFile(caller_dex_file, *dex_file)) {
     return true;
   }
 
@@ -1713,6 +1717,18 @@ static bool CanEncodeInlinedMethodInStackMap(const DexFile& caller_dex_file,
     *out_needs_bss_check = true;
     return true;
   }
+
+  // TODO(solanes): Remove the DCHECK before submission.
+  // TODO(solanes): Keep this as a debug check that we have the dex?
+  auto callbacks = Runtime::Current()->GetCompilerCallbacks();
+  DCHECK(callbacks != nullptr);
+  const std::vector<const DexFile*>& dex_files = callbacks->GetDexFiles();
+  auto it = std::find_if(dex_files.begin(), dex_files.end(), [dex_file](const DexFile* df) {
+    return IsSameDexFile(*df, *dex_file);
+  });
+  CHECK(it != dex_files.end());
+  // *out_needs_bss_check = true;
+  // return true;
 
   // TODO(ngeoffray): Support more AOT cases for inlining:
   // - methods in multidex
@@ -1829,7 +1845,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
       total_number_of_dex_registers_ > kMaximumNumberOfCumulatedDexRegisters;
   bool needs_bss_check = false;
   const bool can_encode_in_stack_map = CanEncodeInlinedMethodInStackMap(
-      *caller_compilation_unit_.GetDexFile(), resolved_method, &needs_bss_check);
+      *outer_compilation_unit_.GetDexFile(), resolved_method, &needs_bss_check);
   bool at_least_one_needs_bss = false;
   bool at_least_one_needs_environment = false;
   size_t number_of_instructions = 0;

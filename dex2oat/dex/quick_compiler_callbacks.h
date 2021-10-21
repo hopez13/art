@@ -18,6 +18,7 @@
 #define ART_DEX2OAT_DEX_QUICK_COMPILER_CALLBACKS_H_
 
 #include "compiler_callbacks.h"
+#include "driver/compiler_driver.h"
 #include "verifier/verifier_deps.h"
 
 namespace art {
@@ -56,6 +57,11 @@ class QuickCompilerCallbacks final : public CompilerCallbacks {
     does_class_unloading_ = does_class_unloading;
     compiler_driver_ = compiler_driver;
     DCHECK(!does_class_unloading || compiler_driver_ != nullptr);
+  }
+
+  std::vector<const DexFile*> GetDexFiles() const override {
+    DCHECK(compiler_driver_ != nullptr);
+    return compiler_driver_->GetDexFiles();
   }
 
   void UpdateClassState(ClassReference ref, ClassStatus state) override;

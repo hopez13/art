@@ -33,7 +33,7 @@ class PACKED(4) OatHeader {
  public:
   static constexpr std::array<uint8_t, 4> kOatMagic { { 'o', 'a', 't', '\n' } };
   // Last oat version changed reason: Inlining across dex files for bootclasspath methods.
-  static constexpr std::array<uint8_t, 4> kOatVersion { { '2', '0', '5', '\0' } };
+  static constexpr std::array<uint8_t, 4> kOatVersion{{'2', '0', '5', '\0'}};
 
   static constexpr const char* kDex2OatCmdLineKey = "dex2oat-cmdline";
   static constexpr const char* kDebuggableKey = "debuggable";
@@ -117,6 +117,7 @@ class PACKED(4) OatHeader {
             uint32_t dex_file_count,
             const SafeMap<std::string, std::string>* variable_data);
 
+ public:
   // Returns true if the value of the given key is "true", false otherwise.
   bool IsKeyEnabled(const char* key) const;
 

@@ -754,7 +754,12 @@ static void EnsureVerifiedOrVerifyAtRuntime(jobject jclass_loader,
 }
 
 void CompilerDriver::PrepareDexFilesForOatFile(TimingLogger* timings ATTRIBUTE_UNUSED) {
-  compiled_classes_.AddDexFiles(GetCompilerOptions().GetDexFilesForOatFile());
+  auto compiled_classes_dex_files = GetCompilerOptions().GetDexFilesForOatFile();
+  compiled_classes_.AddDexFiles(compiled_classes_dex_files);
+  DCHECK(dex_files_.empty());
+  dex_files_.reserve(compiled_classes_dex_files.size());
+  dex_files_.insert(
+      dex_files_.end(), compiled_classes_dex_files.begin(), compiled_classes_dex_files.end());
 }
 
 class CreateConflictTablesVisitor : public ClassVisitor {
@@ -2720,6 +2725,14 @@ void CompilerDriver::FreeThreadPools() {
 
 void CompilerDriver::SetClasspathDexFiles(const std::vector<const DexFile*>& dex_files) {
   classpath_classes_.AddDexFiles(dex_files);
+  DCHECK(!dex_files_.empty());
+  dex_files_.reserve(dex_files_.size() + dex_files.size());
+  dex_files_.insert(dex_files_.end(), dex_files.begin(), dex_files.end());
+}
+
+std::vector<const DexFile*> CompilerDriver::GetDexFiles() const {
+  // TODO(solanes): Lazily initialize it? Or pre-cache it?
+  return dex_files_;
 }
 
 }  // namespace art

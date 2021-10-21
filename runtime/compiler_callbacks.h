@@ -18,9 +18,10 @@
 #define ART_RUNTIME_COMPILER_CALLBACKS_H_
 
 #include "base/locks.h"
+#include "class_status.h"
 #include "dex/class_reference.h"
 #include "dex/method_reference.h"
-#include "class_status.h"
+#include "fault_handler.h"
 
 namespace art {
 
@@ -61,6 +62,10 @@ class CompilerCallbacks {
 
   virtual void SetDoesClassUnloading(bool does_class_unloading ATTRIBUTE_UNUSED,
                                      CompilerDriver* compiler_driver ATTRIBUTE_UNUSED) {}
+
+  virtual std::vector<const DexFile*> GetDexFiles() const {
+    return {};
+  }
 
   bool IsBootImage() {
     return mode_ == CallbackMode::kCompileBootImage;

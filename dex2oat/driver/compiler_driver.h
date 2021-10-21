@@ -96,6 +96,9 @@ class CompilerDriver {
   // Set dex files classpath.
   void SetClasspathDexFiles(const std::vector<const DexFile*>& dex_files);
 
+  // Return a vector of all classpath dex files (i.e. non-bootclasspath dexfiles).
+  std::vector<const DexFile*> GetDexFiles() const;
+
   // Initialize and destroy thread pools. This is exposed because we do not want
   // to do this twice, for PreCompile() and CompileAll().
   void InitializeThreadPools();
@@ -300,6 +303,9 @@ class CompilerDriver {
   ClassStateTable compiled_classes_;
   // All class references that are in the classpath. Indexed by class defs.
   ClassStateTable classpath_classes_;
+  // Cached dex files for faster access. Contains compiled_classes_ + classpath_classes_'s dexfiles,
+  // concatenated.
+  std::vector<const DexFile*> dex_files_;
 
   using MethodTable = AtomicDexRefMap<MethodReference, CompiledMethod*>;
 

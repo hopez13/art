@@ -350,8 +350,12 @@ void InlineInfo::Dump(VariableIndentationOutputStream* vios,
     MethodInfo method_info = code_info.GetMethodInfoOf(*this);
     vios->Stream() << std::dec << ", method_index=" << method_info.GetMethodIndex();
     if (method_info.HasDexFileIndex()) {
-      vios->Stream() << std::dec
-                     << ", boot_class_path_dex_file_index=" << method_info.GetDexFileIndex();
+      DCHECK(method_info.HasIsInBootClassPath());
+      vios->Stream() << std::dec << ", is_in_bootclasspath="
+                     << ((method_info.GetIsInBootClassPath() == MethodInfo::kInBootClassPath) ?
+                             "true" :
+                             "false");
+      vios->Stream() << std::dec << ", dex_file_index=" << method_info.GetDexFileIndex();
     }
   }
   vios->Stream() << ")\n";

@@ -898,6 +898,7 @@ class OatWriter::InitBssLayoutMethodVisitor : public DexMethodVisitor {
         MethodReference(dex_file_, method.GetIndex()));
     if (HasCompiledCode(compiled_method)) {
       for (const LinkerPatch& patch : compiled_method->GetPatches()) {
+        LOG(INFO) << patch.GetType();
         if (patch.GetType() == LinkerPatch::Type::kDataBimgRelRo) {
           writer_->data_bimg_rel_ro_entries_.Overwrite(patch.BootImageOffset(),
                                                        /* placeholder */ 0u);

@@ -262,11 +262,15 @@ class RegisterMask : public BitTableAccessor<2> {
 
 // Method indices are not very dedup friendly.
 // Separating them greatly improves dedup efficiency of the other tables.
-class MethodInfo : public BitTableAccessor<2> {
+class MethodInfo : public BitTableAccessor<3> {
  public:
   BIT_TABLE_HEADER(MethodInfo)
   BIT_TABLE_COLUMN(0, MethodIndex)
-  BIT_TABLE_COLUMN(1, DexFileIndex)
+  BIT_TABLE_COLUMN(1, IsInBootClassPath)
+  BIT_TABLE_COLUMN(2, DexFileIndex)
+
+  static constexpr uint32_t kNotInBootClassPath = -1;
+  static constexpr uint32_t kInBootClassPath = 0;
 
   static constexpr uint32_t kSameDexFile = -1;
 };
