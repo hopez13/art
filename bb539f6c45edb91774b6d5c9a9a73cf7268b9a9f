@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5eb3163_f26d6a22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-10-21T10:12:00Z",
+      "side": 1,
+      "message": "As Aditya has left the team and the gerrit doesn\u0027t allow me to push new PS to the old CL, I have created a new one (https://android-review.googlesource.com/c/platform/art/+/1866455), the comments are address there.",
+      "revId": "bb539f6c45edb91774b6d5c9a9a73cf7268b9a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14fe9056_b07aeea0",
@@ -24,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "694014bf_587d2268",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2596,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-10-21T10:12:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14fe9056_b07aeea0",
+      "range": {
+        "startLine": 2596,
+        "startChar": 31,
+        "endLine": 2596,
+        "endChar": 60
+      },
+      "revId": "bb539f6c45edb91774b6d5c9a9a73cf7268b9a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82bb62dd_236754f1",
@@ -37,6 +78,30 @@
       "writtenOn": "2021-10-04T08:11:10Z",
       "side": 1,
       "message": "Rename to include \"NotRedundant\".",
+      "range": {
+        "startLine": 2610,
+        "startChar": 31,
+        "endLine": 2610,
+        "endChar": 61
+      },
+      "revId": "bb539f6c45edb91774b6d5c9a9a73cf7268b9a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44dcd2c2_f8404441",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 2610,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-10-21T10:12:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82bb62dd_236754f1",
       "range": {
         "startLine": 2610,
         "startChar": 31,
