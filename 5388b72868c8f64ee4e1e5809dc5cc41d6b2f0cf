@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d62b33f_29abfccc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-21T17:54:42Z",
+      "side": 1,
+      "message": "According to the commit message on https://r.android.com/1854516 I did try this then too without issue, but this is indeed where vogar looks for the jars, and now it failed consistently without the revert below.",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 30
+      },
+      "revId": "5388b72868c8f64ee4e1e5809dc5cc41d6b2f0cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
