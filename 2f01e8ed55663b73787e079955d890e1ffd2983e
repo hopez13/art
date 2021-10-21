@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6da9a9e_131fc178",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-10-21T12:42:05Z",
+      "side": 1,
+      "message": "Late drive by comment.",
+      "revId": "2f01e8ed55663b73787e079955d890e1ffd2983e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b088011_ee363427",
+        "filename": "runtime/native/jdk_internal_misc_Unsafe.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-10-21T12:42:05Z",
+      "side": 1,
+      "message": "Just a thought, but this is may not what be quite what we want in either implementation. This bounds checks for every element and can throw on any iteration and will crash hard if two exceptions are thrown back-to-back (`Thread::ThrowNewException` -\u003e `AssertNoPendingExceptionForNewException`).\n\nWe could move the bounds check outside of the loop and then within the loop use `Array::SetWithoutCheck(int, T)` rather than `Array:Set(int, T)`.\n\nSimilarly for `copyFromArray` using Array:Get() instead of `Array::GetWithoutChecks()`.",
+      "range": {
+        "startLine": 332,
+        "startChar": 4,
+        "endLine": 332,
+        "endChar": 35
+      },
+      "revId": "2f01e8ed55663b73787e079955d890e1ffd2983e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
