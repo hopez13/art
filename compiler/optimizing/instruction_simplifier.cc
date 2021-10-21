@@ -17,6 +17,7 @@
 #include "instruction_simplifier.h"
 
 #include "art_method-inl.h"
+#include "base/stl_util.h"
 #include "class_linker-inl.h"
 #include "class_root-inl.h"
 #include "data_type-inl.h"
@@ -2654,10 +2655,16 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
   HInstruction* args[StringBuilderAppend::kMaxArgs];  // Added in reverse order.
   // When inlining, `maybe_new_array` tracks an environment use that we want to allow.
   HInstruction* maybe_new_array = nullptr;
+  // At the end of the following for loop, it will contain the instructions in between the
+  // `NewInstance` and `StringBuilder.toString()` which are not related to the StringBuilderAppend.
+  std::set<HInstruction*> other_instructions_in_the_middle;
   for (HBackwardInstructionIterator iter(block->GetInstructions()); !iter.Done(); iter.Advance()) {
     HInstruction* user = iter.Current();
     // Instructions of interest apply to `sb`, skip those that do not involve `sb`.
     if (user->InputCount() == 0u || user->InputAt(0u) != sb) {
+      if (seen_to_string && !seen_constructor_fence) {
+        other_instructions_in_the_middle.insert(user);
+      }
       continue;
     }
     // We visit the uses in reverse order, so the StringBuilder.toString() must come first.
@@ -2769,19 +2776,17 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
     return false;
   }
 
-  // Check environment uses.
+  // Environment uses unrelated to this particular optimization are fine to have as long as they
+  // don't happen between string creation and finalization.
   for (const HUseListNode<HEnvironment*>& use : sb->GetEnvUses()) {
     HInstruction* holder = use.GetUser()->GetHolder();
     if (holder->GetBlock() != block) {
-      return false;
+      // If the holder is in another block, it is definitely not in between string creation and
+      // finalization since we only support single-block recognition.
+      continue;
     }
-    // Accept only calls on the StringBuilder (which shall all be removed).
-    // TODO: Carve-out for const-string? Or rely on environment pruning (to be implemented)?
-    if (holder->InputCount() == 0 || holder->InputAt(0) != sb) {
-      // When inlining the constructor, we have a NewArray as an environment use.
-      if (constructor_inlined && holder == maybe_new_array) {
-        continue;
-      }
+
+    if (ContainsElement(other_instructions_in_the_middle, holder)) {
       return false;
     }
   }
@@ -2816,8 +2821,7 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
     block->RemoveInstruction(sb->GetUses().front().GetUser());
   }
   if (constructor_inlined) {
-    // We need to remove the inlined constructor instructions. That also removes all remaining
-    // environment uses.
+    // Remove the inlined constructor instructions.
     DCHECK(sb->HasEnvironmentUses());
     DCHECK(maybe_new_array != nullptr);
     DCHECK(maybe_new_array->IsNewArray());
@@ -2827,8 +2831,18 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
     block->RemoveInstruction(fence);
     block->RemoveInstruction(maybe_new_array);
   }
-  DCHECK(!sb->HasEnvironmentUses());
-  block->RemoveInstruction(sb);
+
+  // The `NewInstance` instruction might have other environment uses that are unrelated to this
+  // optimization. In such cases, we can clean up the block but the `NewInstance` instruction must
+  // remain.
+  // TODO(solanes): There is a case in which we have a NullCheck as an environment use, and said
+  // null check is eliminated afterwards due to the current optimization of string builder. In such
+  // cases, we will not eliminate the `NewInstance` neither here nor in dead code elimination since
+  // `NewInstance` can throw (and therefore not eligible for dead code elimination). Figure out a
+  // way to eliminate `NewInstance` in such cases too.
+  if (!sb->HasEnvironmentUses()) {
+    block->RemoveInstruction(sb);
+  }
   return true;
 }
 
