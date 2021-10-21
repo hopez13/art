@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d158c8cc_b2d96e9a",
+        "filename": "build/art.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-21T14:20:51Z",
+      "side": 1,
+      "message": "Ack. Leaving this comment as \"unresolved\" so we remember to assess this before merging.",
+      "parentUuid": "5e3b355b_2710f6cf",
+      "range": {
+        "startLine": 125,
+        "startChar": 25,
+        "endLine": 125,
+        "endChar": 29
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a0a8a53_21e77f31",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 22
@@ -157,6 +181,30 @@
       "side": 1,
       "message": "I meant two cases here. You wrote about one and here is the other one:\n\n  class BootImageClass {\n    static Class\u003c?\u003e needsBss() { return ClassNotInBootImage.class; }\n    static Class\u003c?\u003e indirectlyNeedsBss() { return needsBss(); }\n  }\n  class AppClass {\n    static Class\u003c?\u003e test() { return BootImageClass.indirectlyNeedsBss(); }\n  }\n\nDuring second level inlining, the `IsSameDexFile()` test returns true.",
       "parentUuid": "2784eb9e_43dfbfdc",
+      "range": {
+        "startLine": 1826,
+        "startChar": 7,
+        "endLine": 1826,
+        "endChar": 31
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff114d24_ceb5ba87",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-21T14:20:51Z",
+      "side": 1,
+      "message": "But that would be fine right? needsBss can be inlined in indirectlyNeedsBss, but then the both of them together would fail to be inlined in test().\nI think that the current version is correct but I see your point of using the outermost one since we, ultimately, want to inline everything in test().\n\nChanged to use the outermost one in the code.",
+      "parentUuid": "09836e5c_39e609b7",
       "range": {
         "startLine": 1826,
         "startChar": 7,
@@ -379,6 +427,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8492875_2ff631b2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2762,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-21T14:20:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dfdc88c_4c14b8e6",
+      "range": {
+        "startLine": 2762,
+        "startChar": 22,
+        "endLine": 2762,
+        "endChar": 33
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3c416ae_a748f9fd",
@@ -544,6 +616,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abd9844c_365a5e19",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-21T14:20:51Z",
+      "side": 1,
+      "message": "Ah, of course. Updated to nullptr for this case.",
+      "parentUuid": "b2c25491_95704005",
+      "range": {
+        "startLine": 91,
+        "startChar": 70,
+        "endLine": 91,
+        "endChar": 97
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f420a6f7_c796bb4d",
@@ -557,6 +653,30 @@
       "writtenOn": "2021-10-19T10:22:29Z",
       "side": 1,
       "message": "Should we perform the lookup from the `outer_method`?\n\nThis is related to my comment in `inliner.cc` about inlining a BCP method and there inlining a final method from the outer dex file.",
+      "range": {
+        "startLine": 94,
+        "startChar": 24,
+        "endLine": 94,
+        "endChar": 71
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7340280_32608109",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-21T14:20:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f420a6f7_c796bb4d",
       "range": {
         "startLine": 94,
         "startChar": 24,
