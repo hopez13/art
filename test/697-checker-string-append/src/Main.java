@@ -22,6 +22,8 @@ public class Main {
         testMiscelaneous();
         testNoArgs();
         testInline();
+        testInlineWithSubstring();
+        testDontCreateBuilderDueToDeopt();
         testEquals();
         System.out.println("passed");
     }
@@ -251,6 +253,51 @@ public class Main {
 
     public static void testInline() {
         assertEquals("x42", $noinline$testInlineOuter("x", 42));
+    }
+
+    /// CHECK-START: java.lang.String Main.$noinline$testInlineOuterWithSubstring(java.lang.String, int) instruction_simplifier$after_inlining (before)
+    /// CHECK-NOT:              StringBuilderAppend
+
+    /// CHECK-START: java.lang.String Main.$noinline$testInlineOuterWithSubstring(java.lang.String, int) instruction_simplifier$after_inlining (after)
+    /// CHECK:                  StringBuilderAppend
+    public static String $noinline$testInlineOuterWithSubstring(String s, int i) {
+        StringBuilder sb = new StringBuilder();
+        return $inline$testInlineInner(sb, s, i).substring(0, 2);
+    }
+
+    public static void testInlineWithSubstring() {
+        assertEquals("x4", $noinline$testInlineOuterWithSubstring("x", 42));
+    }
+
+    // We use register (after) to make sure we don't StringBuilderAppend in any
+    // instruction_simplifier phase.
+    /// CHECK-START: java.lang.String Main.$noinline$testDeoptSameBlock(int[], int) register (after)
+    /// CHECK-NOT:                  StringBuilderAppend
+    public static String $noinline$testDeoptSameBlock(int[] a, int o) {
+        StringBuilder sb = new StringBuilder();
+        return sb.append("a[o]=").append(a[o]).toString();
+    }
+
+    // We use register (after) to make sure we don't StringBuilderAppend in any
+    // instruction_simplifier phase.
+    /// CHECK-START: java.lang.String Main.$noinline$testDeoptDifferentBlock(int[], java.lang.String, boolean) register (after)
+    /// CHECK-NOT:                  StringBuilderAppend
+    public static String $noinline$testDeoptDifferentBlock(int[] a, String s, boolean cond) {
+        StringBuilder sb = new StringBuilder().append(s).append(42);
+        String str = sb.toString();
+        if (cond) {
+          // Bounds checks replaced by Deoptimize.
+          Integer sum = a[0] + a[1] + a[2];
+          sb.toString();  // Result is unused, so this shall be eliminated.
+          return sum.toString();
+        }
+        return str;
+    }
+
+    public static void testDontCreateBuilderDueToDeopt() {
+        int[] arr = {1, 2, 3};
+        assertEquals("a[o]=1", $noinline$testDeoptSameBlock(arr, 0));
+        assertEquals("boot image string42", $noinline$testDeoptDifferentBlock(arr, "boot image string", false));
     }
 
     /// CHECK-START: java.lang.String Main.$noinline$appendNothing() instruction_simplifier (before)
