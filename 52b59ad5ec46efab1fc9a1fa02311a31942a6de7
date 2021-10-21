@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6df7fd1c_3a369148",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2270,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-10-21T09:39:32Z",
+      "side": 1,
+      "message": "the implementation of the intrinsics is a flat single instruction, no calls; I\u0027d suggest that LocationSummary::kNoCall should be used instead.",
+      "range": {
+        "startLine": 2270,
+        "startChar": 63,
+        "endLine": 2270,
+        "endChar": 78
+      },
+      "revId": "52b59ad5ec46efab1fc9a1fa02311a31942a6de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c904e354_3b4cc4b3",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2273,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-10-21T09:39:32Z",
+      "side": 1,
+      "message": "- RequiresFpuRegister() should be used instead of a fixed register from the calling convention: as there is no call we wouldn\u0027t want to restrict the register allocator from choosing an arbitrary free register.\n- Location::kNoOutputOverlap should be added for the output register as the live intervals for the input and output value don\u0027t overlap in the implementation; the same register could be in theory used for the output and one of the inputs.\n\nI\u0027d suggest to take a look at CreateFPToFPLocations as an example.",
+      "range": {
+        "startLine": 2273,
+        "startChar": 23,
+        "endLine": 2273,
+        "endChar": 36
+      },
+      "revId": "52b59ad5ec46efab1fc9a1fa02311a31942a6de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d435a2de_d190feae",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4206,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-10-21T09:39:32Z",
+      "side": 1,
+      "message": "I think InputFPRegisterAt and FPRegisterFrom (see common_arm64.h) might be helpful here.",
+      "range": {
+        "startLine": 4206,
+        "startChar": 16,
+        "endLine": 4206,
+        "endChar": 25
+      },
+      "revId": "52b59ad5ec46efab1fc9a1fa02311a31942a6de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56d9e2f7_57553460",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-10-21T09:39:32Z",
+      "side": 1,
+      "message": "I\u0027d suggest to add some corner tests to check the behavior complies with:\n - \u0027fused\u0027 type of the operation - that only one rounding is happening.\n - rounding to nearest mode.",
+      "revId": "52b59ad5ec46efab1fc9a1fa02311a31942a6de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
