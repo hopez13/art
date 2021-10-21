@@ -33,6 +33,41 @@
       "message": "Just to check, we wouldn\u0027t want to make the same changes to the sun_misc_Unsafe.cc file as it will be deprecated, right?",
       "revId": "6d9013c0c6395562e8bba06107c93f81ebbd7b8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2588e466_ebb8f882",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-10-21T12:20:48Z",
+      "side": 1,
+      "message": "Yes, though that\u0027s existing behaviour that we might want to review, e.g. what the RI comments are like on the last applicable version of s/u/Unsafe.java. We don\u0027t expect that code ever hits these exceptions, but should check the potential exceptions match the javadoc (if any).",
+      "parentUuid": "d7f30bf6_9f506179",
+      "revId": "6d9013c0c6395562e8bba06107c93f81ebbd7b8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b13ae60_3aff5146",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-10-21T12:20:48Z",
+      "side": 1,
+      "message": "Thanks Sorin.",
+      "revId": "6d9013c0c6395562e8bba06107c93f81ebbd7b8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
