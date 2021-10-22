@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54d12a3c_bc96ca61",
+        "filename": "test/etc/default-build",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-10-22T11:15:46Z",
+      "side": 0,
+      "message": "We were using this tool as a standalone one for compiling our internal benchmark; do you think it could be worth extracting part of the the new python functionality to have a similar standalone tool?",
+      "range": {
+        "startLine": 274,
+        "startChar": 22,
+        "endLine": 274,
+        "endChar": 47
+      },
+      "revId": "c86869ab894c05e3181e7d15eb1893fa8a3fcd47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
