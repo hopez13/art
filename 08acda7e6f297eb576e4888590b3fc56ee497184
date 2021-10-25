@@ -16,6 +16,516 @@
       "message": "Thanks Nicolas, I addressed your comments.\n\nVladimir, David, PTAL. Thanks!",
       "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7afe78f_5b66941a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 1150,
+        "startChar": 2,
+        "endLine": 1150,
+        "endChar": 34
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf04668c_384b79b0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 2146,
+        "startChar": 2,
+        "endLine": 2146,
+        "endChar": 28
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbfcd179_8e0bd337",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2157,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "You can add the offset to the address and use 0 here (same on other architectures).",
+      "range": {
+        "startLine": 2157,
+        "startChar": 33,
+        "endLine": 2157,
+        "endChar": 39
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84cef78b_a8e1c669",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "I think you also need to handle `kVoid`. For arm/arm64, we use `Location::NoLocation()`.",
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76daac47_49c0fbe1",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "On x86, you can use the absolute address and avoid the temporary.",
+      "range": {
+        "startLine": 1166,
+        "startChar": 2,
+        "endLine": 1166,
+        "endChar": 36
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf69ac9a_0b1dc426",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1550,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Handle `kVoid`.",
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22e3b478_a28a488a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "I don\u0027t see anything that requires this #include.",
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d0a049b_7181b665",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 2550,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "CBNZ",
+      "range": {
+        "startLine": 2549,
+        "startChar": 4,
+        "endLine": 2550,
+        "endChar": 7
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47e263f5_948cd2c9",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 2556,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Wrong CFI data here. Use .cfi_remember_state/.cfi_restore_state/.cfi_def_cfa.",
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05a2d569_f178e3f7",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 2638,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Align register with the next line.",
+      "range": {
+        "startLine": 2638,
+        "startChar": 8,
+        "endLine": 2638,
+        "endChar": 10
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85b01bc4_4309c8a3",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 2655,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Align function name with register on previous line. Also align comments.",
+      "range": {
+        "startLine": 2655,
+        "startChar": 9,
+        "endLine": 2655,
+        "endChar": 10
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7942bd86_ebd23fae",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "CBNZ",
+      "range": {
+        "startLine": 2657,
+        "startChar": 4,
+        "endLine": 2658,
+        "endChar": 7
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "904e5f68_9651ae35",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 2664,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Wrong CFI data here.",
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "041a0525_ac839275",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 2411,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "PUSH_ARG. (Do not record CFI data for saved register as it\u0027s already done in `SETUP_SAVE_EVERYTHING_FRAME`.)\n\nSame 4x below.",
+      "range": {
+        "startLine": 2411,
+        "startChar": 4,
+        "endLine": 2411,
+        "endChar": 8
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20b913fc_e595047f",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 2435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Wrong CFI data here.",
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0810d615_a719461f",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 2242,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Wrong CFI data here.",
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "906a12fa_199ed75a",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "int32_t",
+      "range": {
+        "startLine": 212,
+        "startChar": 20,
+        "endLine": 212,
+        "endChar": 23
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "474e502e_ffe27c28",
+        "filename": "runtime/entrypoints/runtime_asm_entrypoints.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "int32_t",
+      "range": {
+        "startLine": 100,
+        "startChar": 11,
+        "endLine": 100,
+        "endChar": 14
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35edf097_8a599cfc",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Based on the comment this should be `\u003d\u003d`.",
+      "range": {
+        "startLine": 237,
+        "startChar": 11,
+        "endLine": 237,
+        "endChar": 13
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e051ded4_1c15f3b9",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Insert \"in\"?",
+      "range": {
+        "startLine": 1068,
+        "startChar": 71,
+        "endLine": 1068,
+        "endChar": 72
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ccb760c_431fe02d",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1538,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Btw., this is a useless comparison, shorty uses \u0027L\u0027 for all references, including arrays.",
+      "range": {
+        "startLine": 1538,
+        "startChar": 29,
+        "endLine": 1538,
+        "endChar": 32
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77bc214d_d34c11f8",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Implicit conversion to bool - make it explicit: `(A \u0026 B) !\u003d 0u`",
+      "range": {
+        "startLine": 1567,
+        "startChar": 10,
+        "endLine": 1567,
+        "endChar": 85
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "449a5bf1_a32c7c4b",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Maybe just `StackVisitor`?",
+      "range": {
+        "startLine": 500,
+        "startChar": 50,
+        "endLine": 500,
+        "endChar": 66
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e9e153_457030f4",
+        "filename": "runtime/stack.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T13:09:35Z",
+      "side": 1,
+      "message": "Why do we need this? The forward declaration should be enough.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "08acda7e6f297eb576e4888590b3fc56ee497184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
