@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce17a7d6_47e4ad4e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2121,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84def98d_63012448",
+      "range": {
+        "startLine": 2121,
+        "startChar": 59,
+        "endLine": 2121,
+        "endChar": 97
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3057e0ab_fc47567a",
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56526adc_5c00c699",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "I moved the call to the slow path.\n\nSetInForReturnValue specifies we need the input to this node (the return value) to be in the expected register. This is used by the art_quick_method_exit_hook  to pass the return value. So I think we still need this. Let me know if this isn\u0027t the usual way we do it.",
+      "parentUuid": "3057e0ab_fc47567a",
+      "range": {
+        "startLine": 1129,
+        "startChar": 0,
+        "endLine": 1129,
+        "endChar": 46
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94e214b3_c7a222ba",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 11
@@ -94,6 +142,30 @@
       "writtenOn": "2021-10-20T10:26:58Z",
       "side": 1,
       "message": "Remove",
+      "range": {
+        "startLine": 3028,
+        "startChar": 0,
+        "endLine": 3028,
+        "endChar": 9
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba8b9fef_d199afb4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 3028,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94e214b3_c7a222ba",
       "range": {
         "startLine": 3028,
         "startChar": 0,
@@ -129,6 +201,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55f5e3e8_97c1da44",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "I guess we should actually rename the method from DeoptimizeThread to PrepareThreadForDeoptimization / InstrumentThreadStack to make it clear. As far as I understand, we don\u0027t deoptimize anything here. We just prepare the stack so that we could deoptimize any method on stack on demand. I looked at the uses, and I think we are just using it as a way to InstrumentThreadStack. For now, I didn\u0027t rename the function but added a comment but happy to rename the function if my understanding is correct.\n\nDavid, WDYT about renaming the function to InstrumentThreadStack or something similar?",
+      "parentUuid": "fb32a4e8_6a5c1661",
+      "range": {
+        "startLine": 496,
+        "startChar": 71,
+        "endLine": 496,
+        "endChar": 96
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84758588_ac1f0f1a",
         "filename": "runtime/deoptimization_kind.h",
         "patchSetId": 11
@@ -140,6 +236,30 @@
       "writtenOn": "2021-10-20T10:26:58Z",
       "side": 1,
       "message": "Fits on one line?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 49
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d568f6a_f4f0c3d5",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84758588_ac1f0f1a",
       "range": {
         "startLine": 46,
         "startChar": 0,
@@ -173,6 +293,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8f634ae_92f3759b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2609,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0caa8676_8bc00319",
+      "range": {
+        "startLine": 2607,
+        "startChar": 0,
+        "endLine": 2609,
+        "endChar": 53
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d531343f_b5ce533d",
@@ -196,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "464e2fd5_2bbe7d19",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2630,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d531343f_b5ce533d",
+      "range": {
+        "startLine": 2630,
+        "startChar": 74,
+        "endLine": 2630,
+        "endChar": 75
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71b96476_c5c0815a",
@@ -209,6 +377,30 @@
       "writtenOn": "2021-10-20T10:26:58Z",
       "side": 1,
       "message": "Should this be done line 2654? What if code lines 2640 to 2642 also have suspend checks?",
+      "range": {
+        "startLine": 2632,
+        "startChar": 3,
+        "endLine": 2635,
+        "endChar": 5
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bed3998_f79ab168",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2635,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71b96476_c5c0815a",
       "range": {
         "startLine": 2632,
         "startChar": 3,
@@ -244,6 +436,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ba7440d_0bd76ce6",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "If instrumentation isn\u0027t enabled CHA works as is. If it is enabled, we might deopt more often than necessary when we mark the stack for CHA deoptimization but we would think we marked it for debugging and deopt earlier. I don\u0027t think that is a big problem, but since we have entire stack slot it is easy to encode why we marked the frame for deoptimization and deopt only when required. I updated this to specify if we need a deopt because of CHA or Debug. So now, they won\u0027t conflict anymore.",
+      "parentUuid": "71c19acd_c3093ec8",
+      "range": {
+        "startLine": 400,
+        "startChar": 57,
+        "endLine": 400,
+        "endChar": 97
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3663338e_d44dd353",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 11
@@ -255,6 +471,30 @@
       "writtenOn": "2021-10-20T10:26:58Z",
       "side": 1,
       "message": "nit: one condition per line",
+      "range": {
+        "startLine": 1557,
+        "startChar": 73,
+        "endLine": 1557,
+        "endChar": 98
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "582be9b1_18b93fe8",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1557,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3663338e_d44dd353",
       "range": {
         "startLine": 1557,
         "startChar": 73,
@@ -288,6 +528,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0950f321_a84778e1",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04c71a59_8c9722f2",
+      "range": {
+        "startLine": 550,
+        "startChar": 5,
+        "endLine": 550,
+        "endChar": 45
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8aec3e0a_b82ea4f6",
@@ -311,6 +575,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49139433_f07b641a",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aec3e0a_b82ea4f6",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 552,
+        "endChar": 80
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eec588e8_2a9ff55c",
@@ -324,6 +612,30 @@
       "writtenOn": "2021-10-20T10:26:58Z",
       "side": 1,
       "message": "ditto: odd when the method is called waitAndDeopt.",
+      "range": {
+        "startLine": 88,
+        "startChar": 73,
+        "endLine": 88,
+        "endChar": 98
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d27f190a_3f697796",
+        "filename": "test/2011-stack-walk-concurrent-instrument/stack_walk_concurrent.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-25T10:50:02Z",
+      "side": 1,
+      "message": "We actually don\u0027t deopt here. The test isn\u0027t testing deopt either. It is just testing if we can instrument in parallel. So I updated the function name here.",
+      "parentUuid": "eec588e8_2a9ff55c",
       "range": {
         "startLine": 88,
         "startChar": 73,
