@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ed047e_0e913c20",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1903,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-25T09:07:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "663f0c19_9b94cc8d",
+      "range": {
+        "startLine": 1902,
+        "startChar": 0,
+        "endLine": 1903,
+        "endChar": 34
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc078e31_b1961d63",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-10-21T16:54:52Z",
       "side": 1,
       "message": "nit: one per line",
+      "range": {
+        "startLine": 6827,
+        "startChar": 11,
+        "endLine": 6828,
+        "endChar": 51
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c81f11fb_d7fefa0b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 6828,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-25T09:07:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc078e31_b1961d63",
       "range": {
         "startLine": 6827,
         "startChar": 11,
@@ -95,6 +143,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44521320_f28b3027",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-25T09:07:28Z",
+      "side": 1,
+      "message": "I think either one is fine since we are supposed to have the same dex file in the whole chain when we need an environment, except for the newly added case of BCP. In a regex, we are now allowing df(-\u003edf)*(-\u003ebcp)* where df is the dex file, assuming that bcp is the innermost inline.\n\nUsing outer_method is in line with the changes in the inliner, in which we use the outer_compilation_unit to check if we have the same dex file (https://android-review.googlesource.com/c/platform/art/+/1843319/27/compiler/optimizing/inliner.cc#1832).",
+      "parentUuid": "3fa83b0f_a3c11a14",
+      "range": {
+        "startLine": 94,
+        "startChar": 24,
+        "endLine": 94,
+        "endChar": 36
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b546ffa_88e76e8e",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-25T09:07:28Z",
+      "side": 1,
+      "message": "Resolving to keep only one thread open on this issue.",
+      "parentUuid": "a88ba386_c9ff1908",
+      "range": {
+        "startLine": 94,
+        "startChar": 53,
+        "endLine": 94,
+        "endChar": 65
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3423c33_820da40c",
         "filename": "runtime/stack_map.h",
         "patchSetId": 27
@@ -106,6 +202,30 @@
       "writtenOn": "2021-10-21T16:54:52Z",
       "side": 1,
       "message": "remove?",
+      "range": {
+        "startLine": 366,
+        "startChar": 2,
+        "endLine": 366,
+        "endChar": 7
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5f44bc1_65dd7b33",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-25T09:07:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3423c33_820da40c",
       "range": {
         "startLine": 366,
         "startChar": 2,
