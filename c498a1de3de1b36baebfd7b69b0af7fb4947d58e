@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a18248d9_01ddc5de",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-25T10:37:07Z",
+      "side": 1,
+      "message": "Missing check: `and_right !\u003d nullptr`. Crashes observed below for `and_left-\u003eGetType()` with `and_left` being null which should happen only if `and_right` is null.",
+      "revId": "c498a1de3de1b36baebfd7b69b0af7fb4947d58e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
