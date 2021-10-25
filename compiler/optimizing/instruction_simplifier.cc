@@ -24,6 +24,7 @@
 #include "intrinsics.h"
 #include "intrinsics_utils.h"
 #include "mirror/class-inl.h"
+#include "nodes.h"
 #include "optimizing/nodes.h"
 #include "scoped_thread_state_change-inl.h"
 #include "sharpening.h"
@@ -79,6 +80,7 @@ class InstructionSimplifierVisitor : public HGraphDelegateVisitor {
   void VisitStaticFieldSet(HStaticFieldSet* equal) override;
   void VisitArraySet(HArraySet* equal) override;
   void VisitTypeConversion(HTypeConversion* instruction) override;
+  void VisitNewInstance(HNewInstance* instruction) override;
   void VisitNullCheck(HNullCheck* instruction) override;
   void VisitArrayLength(HArrayLength* instruction) override;
   void VisitCheckCast(HCheckCast* instruction) override;
@@ -569,6 +571,12 @@ bool InstructionSimplifierVisitor::TryReplaceWithRotateRegisterSubPattern(HBinar
     return ReplaceRotateWithRor(op, ushr, shl);
   }
   return false;
+}
+
+void InstructionSimplifierVisitor::VisitNewInstance(HNewInstance* new_instance) {
+  if (!new_instance->HasUses()) {
+    new_instance->GetBlock()->RemoveInstruction(new_instance);
+  }
 }
 
 void InstructionSimplifierVisitor::VisitNullCheck(HNullCheck* null_check) {
