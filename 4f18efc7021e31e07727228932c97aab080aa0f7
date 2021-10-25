@@ -16,6 +16,23 @@
       "message": "Brad, do you see other situations where this is useful? There\u0027s some concerns on the team with similar changes in the past. Could we add a runtime flag to enable that is only set by the zygote in your branch?",
       "revId": "4f18efc7021e31e07727228932c97aab080aa0f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a81b24a0_de6fe0ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-10-25T16:52:08Z",
+      "side": 1,
+      "message": "We\u0027ve discussed this in person: this is only available through RRO configuration. I\u0027ll file a bug to see whether we want any additional gating (e.g. runtime flag).",
+      "revId": "4f18efc7021e31e07727228932c97aab080aa0f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
