@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2714348_bd72c683",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-25T10:27:31Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "a0d1e6ad92fca976dab3e7bd3b8a6b3aff022da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3e01630_611879e3",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-10-25T10:27:31Z",
+      "side": 1,
+      "message": "For consistency, should we do this one too while we are at it? From the template it is an uint32_t so it should be fine to update",
+      "revId": "a0d1e6ad92fca976dab3e7bd3b8a6b3aff022da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
