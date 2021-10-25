@@ -16,6 +16,24 @@
       "message": "Missing check: `and_right !\u003d nullptr`. Crashes observed below for `and_left-\u003eGetType()` with `and_left` being null which should happen only if `and_right` is null.",
       "revId": "c498a1de3de1b36baebfd7b69b0af7fb4947d58e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a439902_7f1b1704",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-10-25T16:22:30Z",
+      "side": 1,
+      "message": "Addressed in https://android-review.googlesource.com/c/platform/art/+/1869005/",
+      "parentUuid": "a18248d9_01ddc5de",
+      "revId": "c498a1de3de1b36baebfd7b69b0af7fb4947d58e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
