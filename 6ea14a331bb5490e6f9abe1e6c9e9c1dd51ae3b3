@@ -16,6 +16,29 @@
       "message": "Thanks!",
       "revId": "6ea14a331bb5490e6f9abe1e6c9e9c1dd51ae3b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffc15ebb_0eb0a927",
+        "filename": "dex2oat/linker/oat_writer_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-26T13:59:26Z",
+      "side": 1,
+      "message": "Adding entrypoints required bumping the oat version.",
+      "range": {
+        "startLine": 508,
+        "startChar": 12,
+        "endLine": 508,
+        "endChar": 15
+      },
+      "revId": "6ea14a331bb5490e6f9abe1e6c9e9c1dd51ae3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
