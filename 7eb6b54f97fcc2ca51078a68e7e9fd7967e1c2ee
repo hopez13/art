@@ -189,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07cd57a2_5e6407e9",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-26T10:59:31Z",
+      "side": 1,
+      "message": "This is now in sync with the code in inliner.\n\nWhile this works for the current setup (either the outer dex file or BCP dex file), it may need further changes when we allow inlining across app dex files.",
+      "parentUuid": "44521320_f28b3027",
+      "range": {
+        "startLine": 94,
+        "startChar": 24,
+        "endLine": 94,
+        "endChar": 36
+      },
+      "revId": "7eb6b54f97fcc2ca51078a68e7e9fd7967e1c2ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3423c33_820da40c",

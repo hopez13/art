@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e936e9d_fbdc3b95",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-26T10:59:31Z",
+      "side": 1,
+      "message": "Rename to `outer_dex_file`.",
+      "range": {
+        "startLine": 1699,
+        "startChar": 60,
+        "endLine": 1699,
+        "endChar": 75
+      },
+      "revId": "c0760da3135eda6417ee25bfb415337baf36c4bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2192ac66_d4bcdb19",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 1908,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-26T10:59:31Z",
+      "side": 1,
+      "message": "All instructions that need a .bss entry also need en environment.",
+      "range": {
+        "startLine": 1906,
+        "startChar": 6,
+        "endLine": 1908,
+        "endChar": 82
+      },
+      "revId": "c0760da3135eda6417ee25bfb415337baf36c4bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

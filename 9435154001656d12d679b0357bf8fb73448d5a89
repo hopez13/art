@@ -263,6 +263,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55b5b9ab_6588c496",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-26T10:59:31Z",
+      "side": 1,
+      "message": "I think this is OK now and matches the changes in `entrypoint_utils`.",
+      "parentUuid": "ff114d24_ceb5ba87",
+      "range": {
+        "startLine": 1826,
+        "startChar": 7,
+        "endLine": 1826,
+        "endChar": 31
+      },
+      "revId": "9435154001656d12d679b0357bf8fb73448d5a89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4d49620_b9f9c2ff",
