@@ -129,6 +129,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6019967_cba4657f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-26T11:55:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56526adc_5c00c699",
+      "range": {
+        "startLine": 1129,
+        "startChar": 0,
+        "endLine": 1129,
+        "endChar": 46
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94e214b3_c7a222ba",
@@ -448,6 +472,30 @@
       "side": 1,
       "message": "If instrumentation isn\u0027t enabled CHA works as is. If it is enabled, we might deopt more often than necessary when we mark the stack for CHA deoptimization but we would think we marked it for debugging and deopt earlier. I don\u0027t think that is a big problem, but since we have entire stack slot it is easy to encode why we marked the frame for deoptimization and deopt only when required. I updated this to specify if we need a deopt because of CHA or Debug. So now, they won\u0027t conflict anymore.",
       "parentUuid": "71c19acd_c3093ec8",
+      "range": {
+        "startLine": 400,
+        "startChar": 57,
+        "endLine": 400,
+        "endChar": 97
+      },
+      "revId": "8a847edcf49ef3ab18315444c7d9f9c2602aff6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9e7bb00_2c44e081",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-26T11:55:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ba7440d_0bd76ce6",
       "range": {
         "startLine": 400,
         "startChar": 57,
