@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "310eadb7_b66804f3",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-26T13:44:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a174fda5_3196910a",
+      "range": {
+        "startLine": 1521,
+        "startChar": 36,
+        "endLine": 1521,
+        "endChar": 42
+      },
+      "revId": "7281e3f047d5b57a760330ea631ae9218eaf95e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9560b7c_96a0797a",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79382917_84fa1c80",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2558,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-26T13:44:10Z",
+      "side": 1,
+      "message": "Surprisingly it did compile. Not sure why. When I changed rsp to sp but kept the constant incorrect the compilation failed.",
+      "parentUuid": "b9560b7c_96a0797a",
+      "range": {
+        "startLine": 2558,
+        "startChar": 17,
+        "endLine": 2558,
+        "endChar": 49
+      },
+      "revId": "7281e3f047d5b57a760330ea631ae9218eaf95e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ae2251c_54a12e1f",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-10-26T12:09:58Z",
       "side": 1,
       "message": "sp, FRAME_SIZE_SAVE_EVERYTHING",
+      "range": {
+        "startLine": 2666,
+        "startChar": 17,
+        "endLine": 2666,
+        "endChar": 49
+      },
+      "revId": "7281e3f047d5b57a760330ea631ae9218eaf95e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d669b6e5_7100d46f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2666,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-26T13:44:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ae2251c_54a12e1f",
       "range": {
         "startLine": 2666,
         "startChar": 17,
