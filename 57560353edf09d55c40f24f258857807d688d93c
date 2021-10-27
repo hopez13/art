@@ -34,6 +34,24 @@
       "parentUuid": "b4fb752d_0bfa8843",
       "revId": "57560353edf09d55c40f24f258857807d688d93c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e34d2007_f86e5c6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-10-27T09:07:35Z",
+      "side": 1,
+      "message": "Or we can run the checker if there CHECKER anywhere in the source.\nOr assert those two match when running the test.",
+      "parentUuid": "37540b95_3f7be4dd",
+      "revId": "57560353edf09d55c40f24f258857807d688d93c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
