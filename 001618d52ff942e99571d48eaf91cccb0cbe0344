@@ -50,6 +50,23 @@
       "message": "Actually, I\u0027m currently seeing inconsistent benchmark results. Locally the settings app looks fine with this change.\n\nResults:\nhttp://go/art-benchmark?fb\u003dBootImageProfileId:eq:4374 (bad)\nhttp://go/art-benchmark?fb\u003dBootImageProfileId:eq:4394 (good)\n",
       "revId": "001618d52ff942e99571d48eaf91cccb0cbe0344",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d68d846_11eb9668",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-10-27T00:23:25Z",
+      "side": 1,
+      "message": "Other test runs are showing similar variations in the settings app. See e.g. https://dashboards.corp.google.com/_f31ff276_6cb2_4ed6_973b_9640c4fb0df4?fb\u003dBootImageProfileId:eq:4893 where the control is among the high memory runs. We\u0027re still discussing whether that variation is a normal consequence of GC timing, or whether there is something to be done there. But I don\u0027t think it makes any sense to hold this up for the settings memory issue.",
+      "revId": "001618d52ff942e99571d48eaf91cccb0cbe0344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
