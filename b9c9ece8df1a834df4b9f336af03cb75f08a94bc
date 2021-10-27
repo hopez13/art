@@ -16,6 +16,24 @@
       "message": "What\u0027s the context for this change? Is there a ticket?",
       "revId": "b9c9ece8df1a834df4b9f336af03cb75f08a94bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75142079_cc6594a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1498356
+      },
+      "writtenOn": "2021-10-27T19:49:52Z",
+      "side": 1,
+      "message": "https://b.corp.google.com/issues/203466102\n\nWe need the tags to include the files in the automated packaging/ release of MTS\ngo/mts-generation-unbundled-branches",
+      "parentUuid": "99cb04b8_c9360f6e",
+      "revId": "b9c9ece8df1a834df4b9f336af03cb75f08a94bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
