@@ -68,6 +68,24 @@
       "parentUuid": "b2fd31d8_41850054",
       "revId": "501d90ffc973757a4f2f6f7616f0ec2f8001cf3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93b91868_0fb1d146",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-28T10:12:26Z",
+      "side": 1,
+      "message": "(This is not about deoptimizing the caller of a native method. It is about trying to deoptimize the native method\u0027s JNI stub.)",
+      "parentUuid": "c825dced_8b049d1e",
+      "revId": "501d90ffc973757a4f2f6f7616f0ec2f8001cf3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
