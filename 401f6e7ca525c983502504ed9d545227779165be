@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02acd44a_ade0e653",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-10-28T16:57:57Z",
+      "side": 1,
+      "message": "It is infinitely better than adding checks to 3287 small java files!",
+      "parentUuid": "9f7f7adf_8bf8a324",
+      "revId": "401f6e7ca525c983502504ed9d545227779165be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5597a6d8_46d8b94d",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7be62541_88c576b9",
+        "filename": "test/712-varhandle-invocations/util-src/generate_java.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-10-28T16:57:57Z",
+      "side": 1,
+      "message": "That\u0027s an elegant approach. It results in slightly more code as four lines have to be added to each pattern with an `${indexable_only}` prefix, but the code is easier to follow. Done.",
+      "parentUuid": "5597a6d8_46d8b94d",
+      "range": {
+        "startLine": 592,
+        "startChar": 17,
+        "endLine": 592,
+        "endChar": 93
+      },
+      "revId": "401f6e7ca525c983502504ed9d545227779165be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ea0ef75_13302583",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-10-28T15:57:50Z",
       "side": 1,
       "message": "\u0027Array\u0027 in var_handle_kind.name\n\nCan we also extend to buffer which has an index too?\n\nFrom comment above, this is where we\u0027d set the `expansions[\u0027indexable_only\u0027]`.",
+      "range": {
+        "startLine": 674,
+        "startChar": 7,
+        "endLine": 674,
+        "endChar": 47
+      },
+      "revId": "401f6e7ca525c983502504ed9d545227779165be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58fa8a4b_88351a22",
+        "filename": "test/712-varhandle-invocations/util-src/generate_java.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-10-28T16:57:57Z",
+      "side": 1,
+      "message": "Done. The comment migrated to line 580.",
+      "parentUuid": "0ea0ef75_13302583",
       "range": {
         "startLine": 674,
         "startChar": 7,
