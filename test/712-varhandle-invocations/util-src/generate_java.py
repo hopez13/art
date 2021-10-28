@@ -576,6 +576,7 @@ def build_template_dictionary(test_class, var_handle_kind, accessor, var_type):
     dictionary['lookup'] = var_handle_kind.get_lookup(dictionary)
     dictionary['field_declarations'] = ";\n".join(var_handle_kind.get_field_declarations(dictionary))
     dictionary['read_value'] = var_handle_kind.get_value(dictionary)
+    dictionary['coordinates_negative_index'] = coordinates.replace('index', '-16') # for arrays types
     return dictionary
 
 def emit_accessor_test(var_handle_kind, accessor, var_type, output_path):
@@ -588,10 +589,12 @@ def emit_accessor_test(var_handle_kind, accessor, var_type, output_path):
         test_template = Template("""
         ${var_type} value = (${var_type}) vh.${accessor_method}(${coordinates});
         assertEquals(${initial_value}, value);""")
+        method = "value = (${var_type}) vh.${accessor_method}(${coordinates_negative_index});"
     elif accessor.access_mode_form == AccessModeForm.SET:
         test_template = Template("""
         vh.${accessor_method}(${coordinates}${updated_value});
         assertEquals(${updated_value}, ${read_value});""")
+        method = "vh.${accessor_method}(${coordinates_negative_index}${updated_value});"
     elif accessor.access_mode_form == AccessModeForm.STRONG_COMPARE_AND_SET:
         test_template = Template("""
         assertEquals(${initial_value}, ${read_value});
@@ -603,6 +606,7 @@ def emit_accessor_test(var_handle_kind, accessor, var_type, output_path):
         applied = (boolean) vh.${accessor_method}(${coordinates}${initial_value}, ${initial_value});
         assertFalse(applied);
         assertEquals(${updated_value}, ${read_value});""")
+        method = "applied = (boolean) vh.${accessor_method}(${coordinates_negative_index}${updated_value}, ${updated_value});"
     elif accessor.access_mode_form == AccessModeForm.WEAK_COMPARE_AND_SET:
         test_template = Template("""
         assertEquals(${initial_value}, ${read_value});
@@ -618,6 +622,7 @@ def emit_accessor_test(var_handle_kind, accessor, var_type, output_path):
         applied = (boolean) vh.${accessor_method}(${coordinates}${initial_value}, ${initial_value});
         assertFalse(applied);
         assertEquals(${updated_value}, ${read_value});""")
+        method = "applied = (boolean) vh.${accessor_method}(${coordinates_negative_index}${updated_value}, ${updated_value});"
     elif accessor.access_mode_form == AccessModeForm.COMPARE_AND_EXCHANGE:
         test_template = Template("""
         // This update should succeed.
@@ -628,11 +633,13 @@ def emit_accessor_test(var_handle_kind, accessor, var_type, output_path):
         witness_value = (${var_type}) vh.${accessor_method}(${coordinates}${initial_value}, ${initial_value});
         assertEquals(${updated_value}, witness_value);
         assertEquals(${updated_value}, ${read_value});""")
+        method = "witness_value = (${var_type}) vh.${accessor_method}(${coordinates_negative_index}${updated_value}, ${updated_value});"
     elif accessor.access_mode_form == AccessModeForm.GET_AND_SET:
         test_template = Template("""
         ${var_type} old_value = (${var_type}) vh.${accessor_method}(${coordinates}${updated_value});
         assertEquals(${initial_value}, old_value);
         assertEquals(${updated_value}, ${read_value});""")
+        method = "old_value = (${var_type}) vh.${accessor_method}(${coordinates_negative_index}${updated_value});"
     elif accessor.access_mode_form == AccessModeForm.GET_AND_UPDATE_BITWISE:
         if var_type.supports_bitwise == True:
             expansions['binop'] = accessor.get_java_bitwise_operator()
@@ -640,10 +647,12 @@ def emit_accessor_test(var_handle_kind, accessor, var_type, output_path):
             ${var_type} old_value = (${var_type}) vh.${accessor_method}(${coordinates}${updated_value});
             assertEquals(${initial_value}, old_value);
             assertEquals(${initial_value} ${binop} ${updated_value}, ${read_value});""")
+            method = "old_value = (${var_type}) vh.${accessor_method}(${coordinates_negative_index}${updated_value});"
         else:
             test_template = Template("""
             vh.${accessor_method}(${coordinates}${initial_value}, ${updated_value});
             failUnreachable();""")
+            method = "vh.${accessor_method}(${coordinates_negative_index}${updated_value}, ${updated_value});"
     elif accessor.access_mode_form == AccessModeForm.GET_AND_UPDATE_NUMERIC:
         if var_type.supports_numeric == True:
             expansions['binop'] = accessor.get_java_numeric_operator()
@@ -652,12 +661,22 @@ def emit_accessor_test(var_handle_kind, accessor, var_type, output_path):
             assertEquals(${initial_value}, old_value);
             ${var_type} expected_value = (${var_type}) (${initial_value} ${binop} ${updated_value});
             assertEquals(expected_value, ${read_value});""")
+            method = "old_value = (${var_type}) vh.${accessor_method}(${coordinates_negative_index}${updated_value});"
         else:
             test_template = Template("""
             vh.${accessor_method}(${coordinates}${initial_value}, ${updated_value});
             failUnreachable();""")
+            method = "vh.${accessor_method}(${coordinates_negative_index}${updated_value}, ${updated_value});"
     else:
         raise ValueError(accessor.access_mode_form)
+
+    # For array types append a check for out of bounds access (at negative index).
+    if var_handle_kind.name.find('Array') != -1:
+        test_template.template += """
+        try {
+          %s
+          failUnreachable();
+        } catch (IndexOutOfBoundsException ex) {}""" % method
 
     if var_handle_kind.may_throw_read_only and not accessor.is_read_only():
         # ByteBufferViews can be read-only and dynamically raise ReadOnlyBufferException.
