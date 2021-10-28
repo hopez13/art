@@ -50,6 +50,24 @@
       "message": "Just for my understanding, if we don\u0027t install the instrumentation exit here, then we wouldn\u0027t check if the caller of this method requires a deoptimization [1] for ex: because of a class redefinition. If we are sure we don\u0027t need to check if the caller of a native runtime functions needs a deoptimization this should still be fine. I don\u0027t understand that part too well.\n\nI don\u0027t understand the bug fully, but in my understanding it\u0027s because the return value is interpreted incorrectly right? Actually for runtime methods we don\u0027t call MethodExitEvents [2] so we shouldn\u0027t need to look at return values. I guess in the current code we do look at them and later not use them, but we can fix that. I prefer the existing fix, if it is safe to do so.\n \n[1] https://cs.android.com/android/platform/superproject/+/master:art/runtime/instrumentation.cc;l\u003d1535\n[2] https://cs.android.com/android/platform/superproject/+/master:art/runtime/instrumentation.cc;l\u003d1524",
       "revId": "501d90ffc973757a4f2f6f7616f0ec2f8001cf3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c825dced_8b049d1e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-28T10:10:02Z",
+      "side": 1,
+      "message": "The added test shows a case where the runtime method is `art_quick_test_suspend` and the caller is a compiled JNI stub for a @FastNative method after the actual native function has returned.\n\n(Though I think we could theoretically hit this path also for the runtime method being `art_quick_deliver_exception` and the caller being any JNI stub. In that case, delivering the exception should skip this frame, so we do not see any problems.)\n\nThe original reason for the revert was a very specific situation. The JNI stub was deoptimized (which really makes no sense) and we somehow didn\u0027t crash but returned to its caller which was being interpreted by the switch interpreter. There we tried to construct an `ObjPtr\u003c\u003e` from the misinterpreted returned value and crashed because of the alignment check in `ObjPtr\u003c\u003e` constructor. The new alignment check happens much earlier, so it catches the problem even for cases where we would have silently ignored it.\n\nWhen we\u0027re actually executing a native method, the JNI stub is the first \"current quick frame\" that we see here, so we do not install the instrumentation exit hook on the return to the JNI stub. So, I don\u0027t think we should install it for the special case where we see a runtime frame before the JNI stub.",
+      "parentUuid": "b2fd31d8_41850054",
+      "revId": "501d90ffc973757a4f2f6f7616f0ec2f8001cf3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
