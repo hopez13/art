@@ -385,10 +385,12 @@ java_library {
     },
 }
 
+// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 // Defaults for different module types to enable them only when building ART
 // from sources. TODO(b/172480617): Clean up when sources are gone from the
 // platform tree and we no longer need to support sources present when prebuilts
 // are used.
+
 art_module_cc_defaults {
     name: "art_module_source_build_defaults",
     defaults_visibility: [
@@ -429,6 +431,7 @@ art_module_java_defaults {
         },
     },
 }
+
 art_module_genrule_defaults {
     name: "art_module_source_build_genrule_defaults",
     defaults_visibility: [
@@ -448,6 +451,7 @@ art_module_genrule_defaults {
         },
     },
 }
+
 art_module_prebuilt_defaults {
     name: "art_module_source_build_prebuilt_defaults",
     defaults_visibility: [
@@ -467,3 +471,5 @@ art_module_prebuilt_defaults {
         },
     },
 }
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
