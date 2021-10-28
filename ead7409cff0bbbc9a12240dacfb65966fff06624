@@ -52,6 +52,24 @@
       "parentUuid": "e7990c0f_dfff91b6",
       "revId": "ead7409cff0bbbc9a12240dacfb65966fff06624",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e24071d5_dfb25492",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-10-28T11:34:37Z",
+      "side": 1,
+      "message": "Yes, we do run Checker tests in the TradeFed harness. However, these specific tests are not (yet) run as presubmits (https://cs.android.com/android/platform/superproject/+/master:art/test/utils/regen-test-files;l\u003d117,406); I\u0027ll take another look and see if they can be re-enabled soon.",
+      "parentUuid": "1c8ff2ac_a2d1b55a",
+      "revId": "ead7409cff0bbbc9a12240dacfb65966fff06624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
