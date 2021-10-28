@@ -16,6 +16,40 @@
       "message": "Please review diff PS1 PS3.",
       "revId": "501d90ffc973757a4f2f6f7616f0ec2f8001cf3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6f157b3_1ebb3cb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-28T09:41:23Z",
+      "side": 1,
+      "message": "Thanks Valdimir! I just added a comment more to understand it better.",
+      "revId": "501d90ffc973757a4f2f6f7616f0ec2f8001cf3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2fd31d8_41850054",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-10-28T09:41:23Z",
+      "side": 1,
+      "message": "Just for my understanding, if we don\u0027t install the instrumentation exit here, then we wouldn\u0027t check if the caller of this method requires a deoptimization [1] for ex: because of a class redefinition. If we are sure we don\u0027t need to check if the caller of a native runtime functions needs a deoptimization this should still be fine. I don\u0027t understand that part too well.\n\nI don\u0027t understand the bug fully, but in my understanding it\u0027s because the return value is interpreted incorrectly right? Actually for runtime methods we don\u0027t call MethodExitEvents [2] so we shouldn\u0027t need to look at return values. I guess in the current code we do look at them and later not use them, but we can fix that. I prefer the existing fix, if it is safe to do so.\n \n[1] https://cs.android.com/android/platform/superproject/+/master:art/runtime/instrumentation.cc;l\u003d1535\n[2] https://cs.android.com/android/platform/superproject/+/master:art/runtime/instrumentation.cc;l\u003d1524",
+      "revId": "501d90ffc973757a4f2f6f7616f0ec2f8001cf3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
