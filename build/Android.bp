@@ -410,6 +410,7 @@ art_module_cc_defaults {
         },
     },
 }
+
 art_module_java_defaults {
     name: "art_module_source_build_java_defaults",
     defaults_visibility: [
@@ -429,6 +430,7 @@ art_module_java_defaults {
         },
     },
 }
+
 art_module_genrule_defaults {
     name: "art_module_source_build_genrule_defaults",
     defaults_visibility: [
@@ -448,6 +450,7 @@ art_module_genrule_defaults {
         },
     },
 }
+
 art_module_prebuilt_defaults {
     name: "art_module_source_build_prebuilt_defaults",
     defaults_visibility: [
