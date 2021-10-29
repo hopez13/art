@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89f313d1_04e0c102",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 10048,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-29T13:49:48Z",
+      "side": 1,
+      "message": "This is unnecessary if the template function is inline.",
+      "range": {
+        "startLine": 10048,
+        "startChar": 0,
+        "endLine": 10048,
+        "endChar": 42
+      },
+      "revId": "cc20c77f404f1b92183bf53cf0d1d6ee4bc35f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
