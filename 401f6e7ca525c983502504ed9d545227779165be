@@ -83,6 +83,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "463bfc69_e299780b",
+        "filename": "test/712-varhandle-invocations/util-src/generate_java.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-10-29T08:25:40Z",
+      "side": 1,
+      "message": "If you want to go back that\u0027s fine here, but go with a more indicative name than \u0027method\u0027. Since we\u0027re generating a lot of code here, all those the extra comments might not be so grand.",
+      "parentUuid": "7be62541_88c576b9",
+      "range": {
+        "startLine": 592,
+        "startChar": 17,
+        "endLine": 592,
+        "endChar": 93
+      },
+      "revId": "401f6e7ca525c983502504ed9d545227779165be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ea0ef75_13302583",
