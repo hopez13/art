@@ -107,6 +107,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78d0c017_270083b7",
+        "filename": "test/712-varhandle-invocations/util-src/generate_java.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-10-29T10:36:03Z",
+      "side": 1,
+      "message": "I think it\u0027s fine. I may rework it later (e.g. it would be good to check for out of bounds when index is greater than array length).",
+      "parentUuid": "463bfc69_e299780b",
+      "range": {
+        "startLine": 592,
+        "startChar": 17,
+        "endLine": 592,
+        "endChar": 93
+      },
+      "revId": "401f6e7ca525c983502504ed9d545227779165be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ea0ef75_13302583",
