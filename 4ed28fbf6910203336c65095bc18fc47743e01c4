@@ -106,6 +106,24 @@
       "parentUuid": "4d66d2fd_026c83a9",
       "revId": "4ed28fbf6910203336c65095bc18fc47743e01c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f36337ad_38779503",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-10-29T16:46:38Z",
+      "side": 0,
+      "message": "\u003e \u003e in practice, this tests is never used directly\n\u003e \n\u003e Is that accomplished through the testing APEX and art_gtests_first_only at https://cs.android.com/android/platform/superproject/+/master:art/build/apex/Android.bp;l\u003d378;drc\u003d41e56c2282bad545608d6d9711f9e4a3683354b8?\n\nYes.\n\n\u003e Is it different from the other gtests included in it?\n\nNo, this test is similar to other ART gtests – with the exception that there is one version of it at most (32-bit on 32-bit-only targets, 64-bit otherwise), whereas other ART gtests have 32-bit and 64-bit (if they are both supported by the target).\n\n\u003e At least some of them work fine to run directly with `atest`.\n\nI\u0027m surprised – I\u0027ll take a look. You\u0027re talking about non-standalone ART gtests on device, right?\n\n\u003e This isn\u0027t obvious so could do with some commentary.\n\nThere\u0027s some information in the commit message, but this CL is really about rectifying something that should not have been there initially – do you think we need more?",
+      "parentUuid": "e916848a_d258d91a",
+      "revId": "4ed28fbf6910203336c65095bc18fc47743e01c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
