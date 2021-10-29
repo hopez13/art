@@ -52,6 +52,24 @@
       "parentUuid": "bd90f40a_f36d9af8",
       "revId": "4ed28fbf6910203336c65095bc18fc47743e01c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7662f5f_3b3a43a8",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-10-29T14:12:35Z",
+      "side": 0,
+      "message": "Will do. But not that this CL is orthogonal to ensuring root access for `art_odrefresh_tests`: enabling the root preparer in an explicit test configuration here does not affect `ArtGtestsTargetChroot` nor `ArtGtestsTargetInstallApex`.\n\nAlso, my explanation was incorrect: `ArtGtestsTargetInstallApex` does not run tests in a chroot environment.",
+      "parentUuid": "add223ef_5b731fe0",
+      "revId": "4ed28fbf6910203336c65095bc18fc47743e01c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
