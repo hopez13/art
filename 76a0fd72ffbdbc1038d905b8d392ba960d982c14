@@ -16,6 +16,24 @@
       "message": "How did you notice that this was incorrect?",
       "revId": "76a0fd72ffbdbc1038d905b8d392ba960d982c14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0137923_b4818604",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-10-29T14:35:46Z",
+      "side": 1,
+      "message": "I looked at the oatdump disassembly of the test, investigating the failure that led to the revert https://android-review.googlesource.com/1871493 .",
+      "parentUuid": "08ba78a0_545b3e26",
+      "revId": "76a0fd72ffbdbc1038d905b8d392ba960d982c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
