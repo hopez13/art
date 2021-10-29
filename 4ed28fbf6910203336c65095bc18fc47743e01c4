@@ -34,6 +34,24 @@
       "parentUuid": "ef35d541_35a77893",
       "revId": "4ed28fbf6910203336c65095bc18fc47743e01c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "add223ef_5b731fe0",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-10-29T14:03:07Z",
+      "side": 0,
+      "message": "In the second case, I think this test still needs root access because it modifies a system property that only root can write to. Please check.",
+      "parentUuid": "bd90f40a_f36d9af8",
+      "revId": "4ed28fbf6910203336c65095bc18fc47743e01c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
