@@ -1,0 +1,99 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016680780",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1873572?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "9acdfb7a_fae6d24d",
+          "description": "Change to \"perfetto_hprof/abtest/perfetto_trace.proto\"",
+          "replacements": [
+            {
+              "path": "perfetto_hprof/abtest/perfetto_trace.proto",
+              "range": {
+                "startLine": 1070,
+                "startChar": 10,
+                "endLine": 1070,
+                "endChar": 18
+              },
+              "replacement": "COMMITTED"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "ef38832c_99e3bec1",
+        "filename": "perfetto_hprof/abtest/perfetto_trace.proto",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-29T14:30:47Z",
+      "side": 1,
+      "message": "Common typo found: \"COMMITED\" -- should it be \"COMMITTED\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 1070,
+        "startChar": 10,
+        "endLine": 1070,
+        "endChar": 18
+      },
+      "revId": "f3dc2fbfe4b3e59c097dcb26fdbd9af363e388de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016680793",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1873572?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "7d660741_6f2cfdcd",
+        "filename": "perfetto_hprof/abtest/perfetto_trace.proto",
+        "patchSetId": 1
+      },
+      "lineNbr": 5912,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-29T14:30:47Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 5912,
+        "startChar": 68,
+        "endLine": 5912,
+        "endChar": 71
+      },
+      "revId": "f3dc2fbfe4b3e59c097dcb26fdbd9af363e388de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000016680793",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1873572?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "8ba22416_ac3e022a",
+        "filename": "perfetto_hprof/abtest/perfetto_trace.proto",
+        "patchSetId": 1
+      },
+      "lineNbr": 8258,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-10-29T14:30:47Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.",
+      "range": {
+        "startLine": 8258,
+        "startChar": 34,
+        "endLine": 8258,
+        "endChar": 37
+      },
+      "revId": "f3dc2fbfe4b3e59c097dcb26fdbd9af363e388de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
