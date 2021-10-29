@@ -802,6 +802,126 @@ class HeapGraphDumper {
   uint64_t prev_object_id_ = 0;
 };
 
+// XXX old code
+class XXXOldWriter {
+ public:
+  XXXOldWriter(pid_t parent_pid, JavaHprofDataSource::TraceContext* ctx, uint64_t timestamp)
+      : parent_pid_(parent_pid), ctx_(ctx), timestamp_(timestamp),
+        last_written_(ctx_->written()) {}
+
+  // Return whether the next call to GetHeapGraph will create a new TracePacket.
+  bool will_create_new_packet() {
+    return !heap_graph_ || ctx_->written() - last_written_ > kPacketSizeThreshold;
+  }
+
+  perfetto::protos::pbzero::HeapGraph* GetHeapGraph() {
+    if (will_create_new_packet()) {
+      CreateNewHeapGraph();
+    }
+    return heap_graph_;
+  }
+
+  void CreateNewHeapGraph() {
+    if (heap_graph_) {
+      heap_graph_->set_continued(true);
+    }
+    Finalize();
+
+    uint64_t written = ctx_->written();
+
+    trace_packet_ = ctx_->NewTracePacket();
+    trace_packet_->set_timestamp(timestamp_);
+    heap_graph_ = trace_packet_->set_heap_graph();
+    heap_graph_->set_pid(parent_pid_);
+    heap_graph_->set_index(index_++);
+
+    last_written_ = written;
+  }
+
+  void Finalize() {
+    if (trace_packet_) {
+      trace_packet_->Finalize();
+    }
+    heap_graph_ = nullptr;
+  }
+
+  ~XXXOldWriter() { Finalize(); }
+
+ private:
+  const pid_t parent_pid_;
+  JavaHprofDataSource::TraceContext* const ctx_;
+  const uint64_t timestamp_;
+
+  uint64_t last_written_ = 0;
+
+  perfetto::DataSource<JavaHprofDataSource>::TraceContext::TracePacketHandle
+      trace_packet_;
+  perfetto::protos::pbzero::HeapGraph* heap_graph_ = nullptr;
+
+  uint64_t index_ = 0;
+};
+
+class XXXOldReferredObjectsFinder {
+ public:
+  explicit XXXOldReferredObjectsFinder(
+      std::vector<std::pair<std::string, art::mirror::Object*>>* referred_objects,
+      art::mirror::Object** min_nonnull_ptr)
+      : referred_objects_(referred_objects), min_nonnull_ptr_(min_nonnull_ptr) {}
+
+  // For art::mirror::Object::VisitReferences.
+  void operator()(art::ObjPtr<art::mirror::Object> obj, art::MemberOffset offset,
+                  bool is_static) const
+      REQUIRES_SHARED(art::Locks::mutator_lock_) {
+    if (offset.Uint32Value() == art::mirror::Object::ClassOffset().Uint32Value()) {
+      // Skip shadow$klass pointer.
+      return;
+    }
+    art::mirror::Object* ref = obj->GetFieldObject<art::mirror::Object>(offset);
+    art::ArtField* field;
+    if (is_static) {
+      field = art::ArtField::FindStaticFieldWithOffset(obj->AsClass(), offset.Uint32Value());
+    } else {
+      field = art::ArtField::FindInstanceFieldWithOffset(obj->GetClass(), offset.Uint32Value());
+    }
+    std::string field_name = "";
+    if (field != nullptr) {
+      field_name = field->PrettyField(/*with_type=*/true);
+    }
+    referred_objects_->emplace_back(std::move(field_name), ref);
+    if (!*min_nonnull_ptr_ || (ref && *min_nonnull_ptr_ > ref)) {
+      *min_nonnull_ptr_ = ref;
+    }
+  }
+
+  void VisitRootIfNonNull(art::mirror::CompressedReference<art::mirror::Object>* root
+                              ATTRIBUTE_UNUSED) const {}
+  void VisitRoot(art::mirror::CompressedReference<art::mirror::Object>* root
+                     ATTRIBUTE_UNUSED) const {}
+
+ private:
+  // We can use a raw Object* pointer here, because there are no concurrent GC threads after the
+  // fork.
+  std::vector<std::pair<std::string, art::mirror::Object*>>* referred_objects_;
+  art::mirror::Object** min_nonnull_ptr_;
+};
+
+bool XXXOldIsIgnored(const std::vector<std::string>& ignored_types,
+               art::mirror::Object* obj) NO_THREAD_SAFETY_ANALYSIS {
+  if (obj->IsClass()) {
+    return false;
+  }
+  art::mirror::Class* klass = obj->GetClass();
+  return std::find(ignored_types.begin(), ignored_types.end(), PrettyType(klass)) !=
+         ignored_types.end();
+}
+
+size_t XXXOldEncodedSize(uint64_t n) {
+  if (n == 0) return 1;
+  return 1 + static_cast<size_t>(art::MostSignificantBit(n)) / 7;
+}
+
+// XXX end old code
+
 void DumpPerfetto(art::Thread* self) {
   pid_t parent_pid = getpid();
   LOG(INFO) << "preparing to dump heap for " << parent_pid;
@@ -911,12 +1031,220 @@ void DumpPerfetto(art::Thread* self) {
             if (dump_smaps) {
               DumpSmaps(&ctx);
             }
-            Writer writer(parent_pid, &ctx, timestamp);
+            // XXX new code
+            Writer xxxnewwriter(313131, &ctx, timestamp);
             HeapGraphDumper dumper(ignored_types);
 
-            dumper.Dump(art::Runtime::Current(), writer);
+            dumper.Dump(art::Runtime::Current(), xxxnewwriter);
+
+            xxxnewwriter.Finalize();
+            // XXX end new code
+            // XXX old code
+            XXXOldWriter writer(424242, &ctx, timestamp);
+            // Make sure that intern ID 0 (default proto value for a uint64_t) always maps to ""
+            // (default proto value for a string).
+            std::map<std::string, uint64_t> interned_fields{{"", 0}};
+            std::map<std::string, uint64_t> interned_locations{{"", 0}};
+            std::map<uintptr_t, uint64_t> interned_classes{{0, 0}};
+
+            std::map<art::RootType, std::vector<art::mirror::Object*>> root_objects;
+            RootFinder rcf(&root_objects);
+            art::Runtime::Current()->VisitRoots(&rcf);
+            std::unique_ptr<protozero::PackedVarInt> object_ids(
+                new protozero::PackedVarInt);
+            for (const auto& p : root_objects) {
+              const art::RootType root_type = p.first;
+              const std::vector<art::mirror::Object*>& children = p.second;
+              perfetto::protos::pbzero::HeapGraphRoot* root_proto =
+                writer.GetHeapGraph()->add_roots();
+              root_proto->set_root_type(ToProtoType(root_type));
+              for (art::mirror::Object* obj : children) {
+                if (writer.will_create_new_packet()) {
+                  root_proto->set_object_ids(*object_ids);
+                  object_ids->Reset();
+                  root_proto = writer.GetHeapGraph()->add_roots();
+                  root_proto->set_root_type(ToProtoType(root_type));
+                }
+                object_ids->Append(GetObjectId(obj));
+              }
+              root_proto->set_object_ids(*object_ids);
+              object_ids->Reset();
+            }
+
+            std::unique_ptr<protozero::PackedVarInt> reference_field_ids(
+                new protozero::PackedVarInt);
+            std::unique_ptr<protozero::PackedVarInt> reference_object_ids(
+                new protozero::PackedVarInt);
+
+            uint64_t prev_object_id = 0;
+
+            art::Runtime::Current()->GetHeap()->VisitObjectsPaused(
+                [&writer, &interned_fields, &interned_locations, &reference_field_ids,
+                 &reference_object_ids, &interned_classes, &ignored_types, &prev_object_id](
+                    art::mirror::Object* obj) REQUIRES_SHARED(art::Locks::mutator_lock_) {
+                  if (obj->IsClass()) {
+                    art::mirror::Class* klass = obj->AsClass().Ptr();
+                    perfetto::protos::pbzero::HeapGraphType* type_proto =
+                      writer.GetHeapGraph()->add_types();
+                    type_proto->set_id(FindOrAppend(&interned_classes,
+                          reinterpret_cast<uintptr_t>(klass)));
+                    type_proto->set_class_name(PrettyType(klass));
+                    type_proto->set_location_id(FindOrAppend(&interned_locations,
+                          klass->GetLocation()));
+                    type_proto->set_object_size(klass->GetObjectSize());
+                    type_proto->set_kind(ProtoClassKind(klass->GetClassFlags()));
+                    type_proto->set_classloader_id(GetObjectId(klass->GetClassLoader().Ptr()));
+                    if (klass->GetSuperClass().Ptr()) {
+                      type_proto->set_superclass_id(
+                        FindOrAppend(&interned_classes,
+                                     reinterpret_cast<uintptr_t>(klass->GetSuperClass().Ptr())));
+                    }
+                    ForInstanceReferenceField(
+                        klass, [klass, &reference_field_ids, &interned_fields](
+                                   art::MemberOffset offset) NO_THREAD_SAFETY_ANALYSIS {
+                          auto art_field = art::ArtField::FindInstanceFieldWithOffset(
+                              klass, offset.Uint32Value());
+                          reference_field_ids->Append(
+                              FindOrAppend(&interned_fields, art_field->PrettyField(true)));
+                        });
+                    type_proto->set_reference_field_id(*reference_field_ids);
+                    reference_field_ids->Reset();
+                  }
+
+                  art::mirror::Class* klass = obj->GetClass();
+                  uintptr_t class_ptr = reinterpret_cast<uintptr_t>(klass);
+                  // We need to synethesize a new type for Class<Foo>, which does not exist
+                  // in the runtime. Otherwise, all the static members of all classes would be
+                  // attributed to java.lang.Class.
+                  if (klass->IsClassClass()) {
+                    CHECK(obj->IsClass());
+                    perfetto::protos::pbzero::HeapGraphType* type_proto =
+                      writer.GetHeapGraph()->add_types();
+                    // All pointers are at least multiples of two, so this way we can make sure
+                    // we are not colliding with a real class.
+                    class_ptr = reinterpret_cast<uintptr_t>(obj) | 1;
+                    auto class_id = FindOrAppend(&interned_classes, class_ptr);
+                    type_proto->set_id(class_id);
+                    type_proto->set_class_name(obj->PrettyTypeOf());
+                    type_proto->set_location_id(FindOrAppend(&interned_locations,
+                          obj->AsClass()->GetLocation()));
+                  }
+
+                  if (XXXOldIsIgnored(ignored_types, obj)) {
+                    return;
+                  }
+
+                  auto class_id = FindOrAppend(&interned_classes, class_ptr);
+
+                  uint64_t object_id = GetObjectId(obj);
+                  perfetto::protos::pbzero::HeapGraphObject* object_proto =
+                    writer.GetHeapGraph()->add_objects();
+                  if (prev_object_id && prev_object_id < object_id) {
+                    object_proto->set_id_delta(object_id - prev_object_id);
+                  } else {
+                    object_proto->set_id(object_id);
+                  }
+                  prev_object_id = object_id;
+                  object_proto->set_type_id(class_id);
+
+                  // Arrays / strings are magic and have an instance dependent size.
+                  if (obj->SizeOf() != klass->GetObjectSize())
+                    object_proto->set_self_size(obj->SizeOf());
+
+                  std::vector<std::pair<std::string, art::mirror::Object*>>
+                      referred_objects;
+                  art::mirror::Object* min_nonnull_ptr = nullptr;
+                  XXXOldReferredObjectsFinder objf(&referred_objects, &min_nonnull_ptr);
+
+                  const bool emit_field_ids =
+                      klass->GetClassFlags() != art::mirror::kClassFlagObjectArray &&
+                      klass->GetClassFlags() != art::mirror::kClassFlagNormal;
+                  if (klass->GetClassFlags() != art::mirror::kClassFlagNormal) {
+                    obj->VisitReferences(objf, art::VoidFunctor());
+                  } else {
+                    for (art::mirror::Class* cls = klass; cls != nullptr;
+                         cls = cls->GetSuperClass().Ptr()) {
+                      ForInstanceReferenceField(
+                          cls, [obj, objf](art::MemberOffset offset) NO_THREAD_SAFETY_ANALYSIS {
+                            objf(art::ObjPtr<art::mirror::Object>(obj), offset,
+                                 /*is_static=*/false);
+                          });
+                    }
+                  }
+
+                  uint64_t bytes_saved = 0;
+                  uint64_t base_obj_id = GetObjectId(min_nonnull_ptr);
+                  if (base_obj_id) {
+                    // We need to decrement the base for object ids so that we can tell apart
+                    // null references.
+                    base_obj_id--;
+                  }
+                  if (base_obj_id) {
+                    for (auto& p : referred_objects) {
+                      art::mirror::Object*& referred_obj = p.second;
+                      if (!referred_obj || XXXOldIsIgnored(ignored_types, referred_obj)) {
+                        referred_obj = nullptr;
+                        continue;
+                      }
+                      uint64_t referred_obj_id = GetObjectId(referred_obj);
+                      bytes_saved +=
+                          XXXOldEncodedSize(referred_obj_id) - XXXOldEncodedSize(referred_obj_id - base_obj_id);
+                    }
+                  }
+
+                  // +1 for storing the field id.
+                  if (bytes_saved <= XXXOldEncodedSize(base_obj_id) + 1) {
+                    // Subtracting the base ptr gains fewer bytes than it takes to store it.
+                    base_obj_id = 0;
+                  }
+
+                  for (auto& p : referred_objects) {
+                    const std::string& field_name = p.first;
+                    art::mirror::Object* referred_obj = p.second;
+                    if (emit_field_ids) {
+                      reference_field_ids->Append(FindOrAppend(&interned_fields, field_name));
+                    }
+                    uint64_t referred_obj_id = GetObjectId(referred_obj);
+                    if (referred_obj_id) {
+                      referred_obj_id -= base_obj_id;
+                    }
+                    reference_object_ids->Append(referred_obj_id);
+                  }
+                  if (emit_field_ids) {
+                    object_proto->set_reference_field_id(*reference_field_ids);
+                    reference_field_ids->Reset();
+                  }
+                  if (base_obj_id) {
+                    object_proto->set_reference_field_id_base(base_obj_id);
+                  }
+                  object_proto->set_reference_object_id(*reference_object_ids);
+                  reference_object_ids->Reset();
+                });
+
+            for (const auto& p : interned_locations) {
+              const std::string& str = p.first;
+              uint64_t id = p.second;
+
+              perfetto::protos::pbzero::InternedString* location_proto =
+                writer.GetHeapGraph()->add_location_names();
+              location_proto->set_iid(id);
+              location_proto->set_str(reinterpret_cast<const uint8_t*>(str.c_str()),
+                                  str.size());
+            }
+            for (const auto& p : interned_fields) {
+              const std::string& str = p.first;
+              uint64_t id = p.second;
+
+              perfetto::protos::pbzero::InternedString* field_proto =
+                writer.GetHeapGraph()->add_field_names();
+              field_proto->set_iid(id);
+              field_proto->set_str(
+                  reinterpret_cast<const uint8_t*>(str.c_str()), str.size());
+            }
 
             writer.Finalize();
+
+            // XXX end old code
             ctx.Flush([] {
               art::MutexLock lk(JavaHprofDataSource::art_thread(), GetStateMutex());
               g_state = State::kEnd;
