@@ -16,6 +16,24 @@
       "message": "Does the test get root access without this explicit config?",
       "revId": "4ed28fbf6910203336c65095bc18fc47743e01c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd90f40a_f36d9af8",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-10-29T13:54:54Z",
+      "side": 0,
+      "message": "Yes – in practice, this tests is never used directly (i.e. by running `atest art_odrefresh_tests`), but is run (on device) either via:\n* the `ArtGtestsTargetChroot` module, which uses the `test/art-gtests-target-chroot.xml` test configuration (which runs the test as root, see https://cs.android.com/android/platform/superproject/+/master:art/test/art-gtests-target-chroot.xml;l\u003d20;drc\u003d01545e8f6e7e4ecdcbec8482f46d520619025dab); or\n* the `ArtGtestsTargetInstallApex` module, which uses the `test/art-gtests-target-install-apex.xml` test configuration (which runs in a chroot environment, and thus usually does not require root access – I\u0027ll check whether that\u0027s the case for this tests module).",
+      "parentUuid": "ef35d541_35a77893",
+      "revId": "4ed28fbf6910203336c65095bc18fc47743e01c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
