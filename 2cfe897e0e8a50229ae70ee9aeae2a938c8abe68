@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d042ab_62ea53ff",
+        "filename": "build/build-art-module.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-29T12:31:39Z",
+      "side": 1,
+      "message": "Does this still apply? This script uses $(OUT_DIR)/aml below, and the other scripts do more or less blunt pruning of the out tree to work around this. It would be nice to be able to clean that up.",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 26
+      },
+      "revId": "2cfe897e0e8a50229ae70ee9aeae2a938c8abe68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
