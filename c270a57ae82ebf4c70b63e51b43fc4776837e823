@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "769b9a20_b159a08d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2021-10-29T14:40:25Z",
+      "side": 1,
+      "message": "I did put both the old and the new code side by side, let them dump as two separate pids and hacked some scripts to observe the diff here: aosp/1873572.\n\nThe dumped heap graphs protos are identical.",
+      "parentUuid": "b5fdde45_502171d2",
+      "revId": "c270a57ae82ebf4c70b63e51b43fc4776837e823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64fc9070_85a119da",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-10-29T10:58:18Z",
       "side": 1,
       "message": "\u003c\u003d 1?",
+      "range": {
+        "startLine": 533,
+        "startChar": 20,
+        "endLine": 533,
+        "endChar": 40
+      },
+      "revId": "c270a57ae82ebf4c70b63e51b43fc4776837e823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90395832_799e3739",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2021-10-29T14:40:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64fc9070_85a119da",
       "range": {
         "startLine": 533,
         "startChar": 20,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef7085cd_6ab8f358",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2021-10-29T14:40:25Z",
+      "side": 1,
+      "message": "Good point.\n\nThe rest of the code has braces for if + single line statements except for statements that are on the same line as the if.\n\nI\u0027ve change the line above.",
+      "parentUuid": "3ef804a1_135d7f38",
+      "range": {
+        "startLine": 542,
+        "startChar": 22,
+        "endLine": 542,
+        "endChar": 24
+      },
+      "revId": "c270a57ae82ebf4c70b63e51b43fc4776837e823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42d84817_9991b9a4",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-10-29T10:58:18Z",
       "side": 1,
       "message": "just a minor nit for the future, I tend to always put () after the new (i.e. new PackedVarInt()). Omitting them makes me (as reader of the code) think \"hmm is there a bug here?\" and forces me to read the declaration of PackedVarInt.\n\nIn this case is fine even without, because PackedVarInt has a defined constructor. BUt if it was not a struct, omitting () would cause the struct to not be zero-initialized. It\u0027s even worse because lack of zero.initialization is often masqueraded by Scudo, which forces zero-initialization on malloc, so bugs like this might fail only when running on some other phones that don\u0027t use scudo.\n\nIn any case, no bug here, but for the future () avoids any ambiguity.\n\nIf I really want to non-zero-initialize, I do something like:\n(...new char[32])  // Deliberately not 0-inizialized).",
+      "range": {
+        "startLine": 564,
+        "startChar": 55,
+        "endLine": 564,
+        "endChar": 57
+      },
+      "revId": "c270a57ae82ebf4c70b63e51b43fc4776837e823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f43bf2a_dd1ff821",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2021-10-29T14:40:25Z",
+      "side": 1,
+      "message": "Since this is C++17, let me use make_unique, even less confusing\n\nhttps://abseil.io/tips/126",
+      "parentUuid": "42d84817_9991b9a4",
       "range": {
         "startLine": 564,
         "startChar": 55,
