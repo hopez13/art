@@ -124,6 +124,24 @@
       "parentUuid": "e916848a_d258d91a",
       "revId": "4ed28fbf6910203336c65095bc18fc47743e01c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "265c2f9a_90049611",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-10-29T17:51:21Z",
+      "side": 0,
+      "message": "\u003e You\u0027re talking about non-standalone ART gtests on device, right?\n\nI\u0027m talking about tests run directly with `atest`. I guess that means they\u0027re standalone (\u003d not run from inside the testing APEX?), at least in that invocation. And yes, it\u0027s on device - I just tried a few at random (art_cmdline_tests and art_libdexfile_tests).\n\nI expect all of them to work that way, actually. If there are exceptions, don\u0027t they deserve some explanation? (If none worked I\u0027d agree that a note on each wouldn\u0027t be the best way to highlight it, but now it seems that\u0027s not the case.)\n\nBtw, this particular test indeed isn\u0027t found by atest. Why is that? Wouldn\u0027t it be even better to fix that and retain this?",
+      "parentUuid": "f36337ad_38779503",
+      "revId": "4ed28fbf6910203336c65095bc18fc47743e01c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
