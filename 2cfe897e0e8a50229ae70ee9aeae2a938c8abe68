@@ -22,6 +22,30 @@
       },
       "revId": "2cfe897e0e8a50229ae70ee9aeae2a938c8abe68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd4a61fd_854fcd33",
+        "filename": "build/build-art-module.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2021-10-29T15:43:10Z",
+      "side": 1,
+      "message": "It won\u0027t trip over the .soong.kati_enabled file any more, but it may still clobber artifacts so a separate out directory is probably best for now without more experimentation.",
+      "parentUuid": "18d042ab_62ea53ff",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 26
+      },
+      "revId": "2cfe897e0e8a50229ae70ee9aeae2a938c8abe68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
