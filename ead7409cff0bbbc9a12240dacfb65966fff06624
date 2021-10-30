@@ -87,6 +87,24 @@
       "message": "FYI I have seen the bluetooth error that you encountered on another CL. Looks really flaky",
       "revId": "ead7409cff0bbbc9a12240dacfb65966fff06624",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ddac80b_02dea31d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-10-30T18:09:13Z",
+      "side": 1,
+      "message": "\u003e I\u0027ll take another look and see if they can be re-enabled soon.\n\nI\u0027m in the process of re-enabling a bunch of Checker tests in TradeFed, including `450-checker-types` and `530-checker-lse` (aosp/1876697).",
+      "parentUuid": "e24071d5_dfb25492",
+      "revId": "ead7409cff0bbbc9a12240dacfb65966fff06624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
