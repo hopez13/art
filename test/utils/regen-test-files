@@ -286,6 +286,12 @@ known_failing_tests = [
   # usually `arttestd` or `arttest)`, but the ART run-test TradeFed test runner
   # (`com.android.tradefed.testtype.ArtRunTest`) does not implement this yet.
   "826-infinite-loop",
+  # 832-cha-recursive: Fails with:
+  #
+  #   Test command execution failed with status FAILED: CommandResult: exit code=1, out=, err=Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: length=0; index=0
+  #           at Main.main(Main.java:21)
+  #
+  "832-cha-recursive",
   "900-hello-plugin",
   "901-hello-ti-agent",
   "902-hello-transformation",
