@@ -68,6 +68,7 @@ class OdrConfig final {
   std::string artifact_dir_;
   time_t max_execution_seconds_ = kMaximumExecutionSeconds;
   time_t max_child_process_seconds_ = kMaxChildProcessSeconds;
+  std::string standalone_system_server_jars_;
 
   // Staging directory for artifacts. The directory must exist and will be automatically removed
   // after compilation. If empty, use the default directory.
@@ -75,13 +76,14 @@ class OdrConfig final {
 
  public:
   explicit OdrConfig(const char* program_name)
-    : dry_run_(false),
-      isa_(InstructionSet::kNone),
-      program_name_(android::base::Basename(program_name)),
-      artifact_dir_(kOdrefreshArtifactDirectory) {
-  }
+      : dry_run_(false),
+        isa_(InstructionSet::kNone),
+        program_name_(android::base::Basename(program_name)),
+        artifact_dir_(kOdrefreshArtifactDirectory) {}
 
-  const std::string& GetApexInfoListFile() const { return apex_info_list_file_; }
+  const std::string& GetApexInfoListFile() const {
+    return apex_info_list_file_;
+  }
 
   std::vector<InstructionSet> GetBootExtensionIsas() const {
     const auto [isa32, isa64] = GetPotentialInstructionSets();
@@ -108,9 +110,13 @@ class OdrConfig final {
     }
   }
 
-  const std::string& GetDex2oatBootClasspath() const { return dex2oat_boot_classpath_; }
+  const std::string& GetDex2oatBootClasspath() const {
+    return dex2oat_boot_classpath_;
+  }
 
-  const std::string& GetArtifactDirectory() const { return artifact_dir_; }
+  const std::string& GetArtifactDirectory() const {
+    return artifact_dir_;
+  }
 
   std::string GetDex2Oat() const {
     const char* prefix = UseDebugBinaries() ? "dex2oatd" : "dex2oat";
@@ -130,7 +136,9 @@ class OdrConfig final {
     return art_bin_dir_ + '/' + prefix + suffix;
   }
 
-  bool GetDryRun() const { return dry_run_; }
+  bool GetDryRun() const {
+    return dry_run_;
+  }
   bool GetPartialCompilation() const {
     return partial_compilation_.value_or(true);
   }
@@ -140,16 +148,28 @@ class OdrConfig final {
   const std::string& GetSystemServerClasspath() const {
     return system_server_classpath_;
   }
-  bool UseCompilationOs() const { return compilation_os_address_ != 0; }
-  int GetCompilationOsAddress() const { return compilation_os_address_; }
+  bool UseCompilationOs() const {
+    return compilation_os_address_ != 0;
+  }
+  int GetCompilationOsAddress() const {
+    return compilation_os_address_;
+  }
   const std::string& GetStagingDir() const {
     return staging_dir_;
   }
-  time_t GetMaxExecutionSeconds() const { return max_execution_seconds_; }
-  time_t GetMaxChildProcessSeconds() const { return max_child_process_seconds_; }
+  time_t GetMaxExecutionSeconds() const {
+    return max_execution_seconds_;
+  }
+  time_t GetMaxChildProcessSeconds() const {
+    return max_child_process_seconds_;
+  }
 
-  void SetApexInfoListFile(const std::string& file_path) { apex_info_list_file_ = file_path; }
-  void SetArtBinDir(const std::string& art_bin_dir) { art_bin_dir_ = art_bin_dir; }
+  void SetApexInfoListFile(const std::string& file_path) {
+    apex_info_list_file_ = file_path;
+  }
+  void SetArtBinDir(const std::string& art_bin_dir) {
+    art_bin_dir_ = art_bin_dir;
+  }
 
   void SetDex2oatBootclasspath(const std::string& classpath) {
     dex2oat_boot_classpath_ = classpath;
@@ -159,30 +179,54 @@ class OdrConfig final {
     artifact_dir_ = artifact_dir;
   }
 
-  void SetDryRun() { dry_run_ = true; }
+  void SetDryRun() {
+    dry_run_ = true;
+  }
   void SetPartialCompilation(bool value) {
     partial_compilation_ = value;
   }
   void SetRefresh(bool value) {
     refresh_ = value;
   }
-  void SetIsa(const InstructionSet isa) { isa_ = isa; }
-  void SetCompilationOsAddress(int address) { compilation_os_address_ = address; }
-  void SetMaxExecutionSeconds(int seconds) { max_execution_seconds_ = seconds; }
-  void SetMaxChildProcessSeconds(int seconds) { max_child_process_seconds_ = seconds; }
+  void SetIsa(const InstructionSet isa) {
+    isa_ = isa;
+  }
+  void SetCompilationOsAddress(int address) {
+    compilation_os_address_ = address;
+  }
+  void SetMaxExecutionSeconds(int seconds) {
+    max_execution_seconds_ = seconds;
+  }
+  void SetMaxChildProcessSeconds(int seconds) {
+    max_child_process_seconds_ = seconds;
+  }
 
   void SetSystemServerClasspath(const std::string& classpath) {
     system_server_classpath_ = classpath;
   }
 
-  void SetZygoteKind(ZygoteKind zygote_kind) { zygote_kind_ = zygote_kind; }
+  void SetZygoteKind(ZygoteKind zygote_kind) {
+    zygote_kind_ = zygote_kind;
+  }
 
-  const std::string& GetBootClasspath() const { return boot_classpath_; }
+  const std::string& GetBootClasspath() const {
+    return boot_classpath_;
+  }
 
-  void SetBootClasspath(const std::string& classpath) { boot_classpath_ = classpath; }
+  void SetBootClasspath(const std::string& classpath) {
+    boot_classpath_ = classpath;
+  }
 
   void SetStagingDir(const std::string& staging_dir) {
     staging_dir_ = staging_dir;
+  }
+
+  const std::string& GetStandaloneSystemServerJars() const {
+    return standalone_system_server_jars_;
+  }
+
+  void SetStandaloneSystemServerJars(const std::string& jars) {
+    standalone_system_server_jars_ = jars;
   }
 
  private:
@@ -206,7 +250,9 @@ class OdrConfig final {
     }
   }
 
-  bool UseDebugBinaries() const { return program_name_ == "odrefreshd"; }
+  bool UseDebugBinaries() const {
+    return program_name_ == "odrefreshd";
+  }
 
   OdrConfig() = delete;
   OdrConfig(const OdrConfig&) = delete;
