@@ -2207,7 +2207,7 @@ bool ProfileCompilationInfo::GenerateTestProfile(
     return vec;
   };
   for (std::unique_ptr<const DexFile>& dex_file : dex_files) {
-    const std::string& profile_key = dex_file->GetLocation();
+    const std::string profile_key = GetProfileDexFileBaseKey(dex_file->GetLocation());
     uint32_t checksum = dex_file->GetLocationChecksum();
 
     uint32_t number_of_classes = dex_file->NumClassDefs();
