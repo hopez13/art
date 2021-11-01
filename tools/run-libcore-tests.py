@@ -153,6 +153,11 @@ def get_test_names():
 
 def get_vogar_command(test_name):
   cmd = ["vogar"]
+
+  # By default Vogar starts one task per host cpu, so limit that since we
+  # parallelize vogar processes here.
+  cmd.extend(["--jobs", "2"])
+
   if args.mode == "device":
     cmd.append("--mode=device --vm-arg -Ximage:/apex/com.android.art/javalib/boot.art")
     cmd.append("--vm-arg -Xbootclasspath:" + ":".join(BOOT_CLASSPATH))
