@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "67c318d6_1d5ca88e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-01T09:47:15Z",
+      "side": 1,
+      "message": "Yes, but I think the spirit behind `Test:` stanzas is to explain how a CL has been tested; in particular this is useful when trying to reproduce an issue (for us, but also for third parties, who don\u0027t have access to our test infra and results). Also, as ART has different ways of running tests, I think this matters even more.",
+      "parentUuid": "fcba0008_c1850816",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 56
+      },
+      "revId": "f608719e0c3707212ec0d0867b6137af9b3288a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1103ff08_059d2101",
