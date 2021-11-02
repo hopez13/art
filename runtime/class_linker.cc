@@ -3834,12 +3834,13 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
   }
 
   // Set optimization flags related to the shorty.
-  const char* shorty = dst->GetShorty();
+  uint32_t shorty_len;
+  const char* shorty = dst->GetShorty(&shorty_len);
   bool all_parameters_are_reference = true;
   bool all_parameters_are_reference_or_int = true;
   bool return_type_is_fp = (shorty[0] == 'F' || shorty[0] == 'D');
 
-  for (size_t i = 1, e = strlen(shorty); i < e; ++i) {
+  for (size_t i = 1; i < shorty_len; ++i) {
     if (shorty[i] != 'L') {
       all_parameters_are_reference = false;
       if (shorty[i] == 'F' || shorty[i] == 'D' || shorty[i] == 'J') {
@@ -9490,9 +9491,9 @@ ObjPtr<mirror::MethodHandle> ClassLinker::ResolveMethodHandleForMethod(
 
   // Calculate the number of parameters from the method shorty. We add the
   // receiver count (0 or 1) and deduct one for the return value.
-  uint32_t shorty_length;
-  target_method->GetShorty(&shorty_length);
-  int32_t num_params = static_cast<int32_t>(shorty_length + receiver_count - 1);
+  uint32_t shorty_len;
+  target_method->GetShorty(&shorty_len);
+  int32_t num_params = static_cast<int32_t>(shorty_len + receiver_count - 1);
 
   StackHandleScope<5> hs(self);
   ObjPtr<mirror::Class> array_of_class = GetClassRoot<mirror::ObjectArray<mirror::Class>>(this);

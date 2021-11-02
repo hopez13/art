@@ -2555,8 +2555,9 @@ class JniTransitionReferenceVisitor : public StackVisitor {
         }
         current_vreg += 1u;
       }
-      const char* shorty = m->GetShorty();
-      for (size_t i = 1, len = strlen(shorty); i != len; ++i) {
+      uint32_t shorty_len;
+      const char* shorty = m->GetShorty(&shorty_len);
+      for (size_t i = 1; i != shorty_len; ++i) {
         switch (shorty[i]) {
           case 'D':
           case 'J':
