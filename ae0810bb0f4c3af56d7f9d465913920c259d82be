@@ -16,6 +16,24 @@
       "message": "This CL also enabled the SET operations for arrays. Can you check VarHandleSetArrayElementInt and VarHandleSetArrayElementString?",
       "revId": "ae0810bb0f4c3af56d7f9d465913920c259d82be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0dc087b_2dd94462",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-02T15:46:34Z",
+      "side": 1,
+      "message": "Sure, thanks. I forgot that arrays were not handled previosuly. Will add that to the follow-up CL.",
+      "parentUuid": "b8d89aa0_88be1dff",
+      "revId": "ae0810bb0f4c3af56d7f9d465913920c259d82be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
