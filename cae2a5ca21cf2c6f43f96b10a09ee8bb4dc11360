@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb19fb23_d98d6373",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-02T14:24:41Z",
+      "side": 1,
+      "message": "We could have a setter for these values instead. Is this going to be used also for the remaining intrinsics?",
+      "range": {
+        "startLine": 3225,
+        "startChar": 43,
+        "endLine": 3225,
+        "endChar": 75
+      },
+      "revId": "cae2a5ca21cf2c6f43f96b10a09ee8bb4dc11360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7649b380_f30c62f2",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3748,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-02T14:24:41Z",
+      "side": 1,
+      "message": "For a constant, we could simply calculate the value with reversed bytes.",
+      "range": {
+        "startLine": 3747,
+        "startChar": 4,
+        "endLine": 3748,
+        "endChar": 39
+      },
+      "revId": "cae2a5ca21cf2c6f43f96b10a09ee8bb4dc11360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
