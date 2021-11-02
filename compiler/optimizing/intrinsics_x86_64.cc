@@ -3222,10 +3222,16 @@ void IntrinsicCodeGeneratorX86_64::VisitMathMultiplyHigh(HInvoke* invoke) {
 
 class VarHandleSlowPathX86_64 : public IntrinsicSlowPathX86_64 {
  public:
-  VarHandleSlowPathX86_64(HInvoke* invoke, bool is_atomic, bool is_volatile)
-      : IntrinsicSlowPathX86_64(invoke),
-        is_volatile_(is_volatile),
-        is_atomic_(is_atomic) {
+  explicit VarHandleSlowPathX86_64(HInvoke* invoke)
+      : IntrinsicSlowPathX86_64(invoke) {
+  }
+
+  void set_volatile(bool is_volatile) {
+    is_volatile_ = is_volatile;
+  }
+
+  void set_atomic(bool is_atomic) {
+    is_atomic_ = is_atomic;
   }
 
   Label* GetByteArrayViewCheckLabel() {
@@ -3506,11 +3512,9 @@ static void GenerateVarHandleCoordinateChecks(HInvoke* invoke,
 
 static VarHandleSlowPathX86_64* GenerateVarHandleChecks(HInvoke* invoke,
                                                         CodeGeneratorX86_64* codegen,
-                                                        DataType::Type type,
-                                                        bool is_volatile = false,
-                                                        bool is_atomic = false) {
+                                                        DataType::Type type) {
   VarHandleSlowPathX86_64* slow_path =
-      new (codegen->GetScopedAllocator()) VarHandleSlowPathX86_64(invoke, is_volatile, is_atomic);
+      new (codegen->GetScopedAllocator()) VarHandleSlowPathX86_64(invoke);
   codegen->AddSlowPath(slow_path);
 
   GenerateVarHandleAccessModeAndVarTypeChecks(invoke, codegen, slow_path, type);
@@ -3774,7 +3778,9 @@ static void GenerateVarHandleSet(HInvoke* invoke,
   VarHandleTarget target = GetVarHandleTarget(invoke);
   VarHandleSlowPathX86_64* slow_path = nullptr;
   if (!byte_swap) {
-    slow_path = GenerateVarHandleChecks(invoke, codegen, value_type, is_volatile, is_atomic);
+    slow_path = GenerateVarHandleChecks(invoke, codegen, value_type);
+    slow_path->set_volatile(is_volatile);
+    slow_path->set_atomic(is_atomic);
     GenerateVarHandleTarget(invoke, target, codegen);
     __ Bind(slow_path->GetNativeByteOrderLabel());
   } else {
