@@ -93,6 +93,30 @@
       },
       "revId": "cae2a5ca21cf2c6f43f96b10a09ee8bb4dc11360",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca7cea67_739de6ec",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3748,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-02T15:25:28Z",
+      "side": 1,
+      "message": "x86-64 has instructions that can store an arbitrary value into memory without the use of any registers. On arm64, the only value we can store without materializing in a register is 0 by using the zero register. On arm, all values need to be materialized.",
+      "parentUuid": "e92ca452_9765d9c1",
+      "range": {
+        "startLine": 3747,
+        "startChar": 4,
+        "endLine": 3748,
+        "endChar": 39
+      },
+      "revId": "cae2a5ca21cf2c6f43f96b10a09ee8bb4dc11360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
