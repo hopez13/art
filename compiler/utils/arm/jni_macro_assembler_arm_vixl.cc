@@ -464,28 +464,11 @@ static inline uint32_t GetSRegisterNumber(ArmManagedRegister reg) {
 // Get the number of locations to spill together.
 static inline size_t GetSpillChunkSize(ArrayRef<ArgumentLocation> dests,
                                        ArrayRef<ArgumentLocation> srcs,
-                                       size_t start,
-                                       bool have_extra_temp) {
+                                       size_t start) {
   DCHECK_LT(start, dests.size());
   DCHECK_ALIGNED(dests[start].GetFrameOffset().Uint32Value(), 4u);
   const ArgumentLocation& first_src = srcs[start];
-  if (!first_src.IsRegister()) {
-    DCHECK_ALIGNED(first_src.GetFrameOffset().Uint32Value(), 4u);
-    // If we have an extra temporary, look for opportunities to move 2 words
-    // at a time with LDRD/STRD when the source types are word-sized.
-    if (have_extra_temp &&
-        start + 1u != dests.size() &&
-        !srcs[start + 1u].IsRegister() &&
-        first_src.GetSize() == 4u &&
-        srcs[start + 1u].GetSize() == 4u &&
-        NoSpillGap(first_src, srcs[start + 1u]) &&
-        NoSpillGap(dests[start], dests[start + 1u]) &&
-        dests[start].GetFrameOffset().Uint32Value() < kStrdOffsetCutoff) {
-      // Note: The source and destination may not be 8B aligned (but they are 4B aligned).
-      return 2u;
-    }
-    return 1u;
-  }
+  DCHECK(first_src.IsRegister());
   ArmManagedRegister first_src_reg = first_src.GetRegister().AsArm();
   size_t end = start + 1u;
   if (IsCoreRegisterOrPair(first_src_reg)) {
@@ -555,8 +538,40 @@ static inline bool UseVstrForChunk(ArrayRef<ArgumentLocation> srcs, size_t start
 }
 
 void ArmVIXLJNIMacroAssembler::MoveArguments(ArrayRef<ArgumentLocation> dests,
-                                             ArrayRef<ArgumentLocation> srcs) {
-  DCHECK_EQ(dests.size(), srcs.size());
+                                             ArrayRef<ArgumentLocation> srcs,
+                                             ArrayRef<FrameOffset> refs) {
+  size_t arg_count = dests.size();
+  DCHECK_EQ(arg_count, srcs.size());
+  DCHECK_EQ(arg_count, refs.size());
+
+  // Spill reference registers. Spill two references together with STRD where possible.
+  for (size_t i = 0; i != arg_count; ++i) {
+    if (refs[i] != kInvalidReferenceOffset && srcs[i].IsRegister()) {
+      DCHECK_EQ(srcs[i].GetSize(), kObjectReferenceSize);
+      // Use STRD if we're storing 2 consecutive references within the available STRD range.
+      if (i + 1u != arg_count &&
+          refs[i + 1u].SizeValue() == refs[i].SizeValue() + kObjectReferenceSize &&
+          srcs[i + 1u].IsRegister() &&
+          refs[i].SizeValue() < kStrdOffsetCutoff) {
+        DCHECK_EQ(srcs[i + 1u].GetSize(), kObjectReferenceSize);
+        ___ Strd(AsVIXLRegister(srcs[i].GetRegister().AsArm()),
+                 AsVIXLRegister(srcs[i + 1u].GetRegister().AsArm()),
+                 MemOperand(sp, refs[i].SizeValue()));
+        ++i;
+      } else {
+        Store(refs[i], srcs[i].GetRegister(), kObjectReferenceSize);
+      }
+    }
+  }
+
+  // Convert reference registers to `jobject` values.
+  for (size_t i = 0; i != arg_count; ++i) {
+    if (refs[i] != kInvalidReferenceOffset && srcs[i].IsRegister()) {
+      // Note: We can clobber `srcs[i]` here as the register cannot hold more than one argument.
+      CreateJObject(
+          srcs[i].GetRegister(), refs[i], srcs[i].GetRegister(), /*null_allowed=*/ i != 0u);
+    }
+  }
 
   // Native ABI is soft-float, so all destinations should be core registers or stack offsets.
   // And register locations should be first, followed by stack locations with increasing offset.
@@ -574,12 +589,14 @@ void ArmVIXLJNIMacroAssembler::MoveArguments(ArrayRef<ArgumentLocation> dests,
   // Collect registers to move. No need to record FP regs as destinations are only core regs.
   uint32_t src_regs = 0u;
   uint32_t dest_regs = 0u;
+  uint32_t same_regs = 0u;
   for (size_t i = 0; i != num_reg_dests; ++i) {
     const ArgumentLocation& src = srcs[i];
     const ArgumentLocation& dest = dests[i];
     DCHECK(dest.IsRegister() && IsCoreRegisterOrPair(dest.GetRegister().AsArm()));
     if (src.IsRegister() && IsCoreRegisterOrPair(src.GetRegister().AsArm())) {
       if (src.GetRegister().Equals(dest.GetRegister())) {
+        same_regs |= GetCoreRegisterMask(src.GetRegister().AsArm());
         continue;
       }
       src_regs |= GetCoreRegisterMask(src.GetRegister().AsArm());
@@ -587,85 +604,120 @@ void ArmVIXLJNIMacroAssembler::MoveArguments(ArrayRef<ArgumentLocation> dests,
     dest_regs |= GetCoreRegisterMask(dest.GetRegister().AsArm());
   }
 
-  // Spill args first. Look for opportunities to spill multiple arguments at once.
-  {
-    UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
-    vixl32::Register xtemp;  // Extra temp register;
-    if ((dest_regs & ~src_regs) != 0u) {
-      xtemp = vixl32::Register(CTZ(dest_regs & ~src_regs));
-      DCHECK(!temps.IsAvailable(xtemp));
+  // Spill register arguments to stack slots.
+  for (size_t i = num_reg_dests; i != arg_count; ) {
+    const ArgumentLocation& src = srcs[i];
+    if (!src.IsRegister()) {
+      ++i;
+      continue;
     }
-    auto move_two_words = [&](FrameOffset dest_offset, FrameOffset src_offset) {
-      DCHECK(xtemp.IsValid());
-      DCHECK_LT(dest_offset.Uint32Value(), kStrdOffsetCutoff);
-      // VIXL macro assembler can use destination registers for loads from large offsets.
+    const ArgumentLocation& dest = dests[i];
+    DCHECK_EQ(src.GetSize(), dest.GetSize());  // Even for references.
+    DCHECK(!dest.IsRegister());
+    uint32_t frame_offset = dest.GetFrameOffset().Uint32Value();
+    size_t chunk_size = GetSpillChunkSize(dests, srcs, i);
+    DCHECK_NE(chunk_size, 0u);
+    if (chunk_size == 1u) {
+      Store(dest.GetFrameOffset(), src.GetRegister(), dest.GetSize());
+    } else if (UseStrdForChunk(srcs, i, chunk_size)) {
+      ___ Strd(AsVIXLRegister(srcs[i].GetRegister().AsArm()),
+               AsVIXLRegister(srcs[i + 1u].GetRegister().AsArm()),
+               MemOperand(sp, frame_offset));
+    } else if (UseVstrForChunk(srcs, i, chunk_size)) {
+      size_t sreg = GetSRegisterNumber(src.GetRegister().AsArm());
+      DCHECK_ALIGNED(sreg, 2u);
+      ___ Vstr(vixl32::DRegister(sreg / 2u), MemOperand(sp, frame_offset));
+    } else {
       UseScratchRegisterScope temps2(asm_.GetVIXLAssembler());
-      vixl32::Register temp2 = temps2.Acquire();
-      ___ Ldrd(xtemp, temp2, MemOperand(sp, src_offset.Uint32Value()));
-      ___ Strd(xtemp, temp2, MemOperand(sp, dest_offset.Uint32Value()));
-    };
-    for (size_t i = num_reg_dests, arg_count = dests.size(); i != arg_count; ) {
-      const ArgumentLocation& src = srcs[i];
-      const ArgumentLocation& dest = dests[i];
-      DCHECK_EQ(src.GetSize(), dest.GetSize());
-      DCHECK(!dest.IsRegister());
-      uint32_t frame_offset = dest.GetFrameOffset().Uint32Value();
-      size_t chunk_size = GetSpillChunkSize(dests, srcs, i, xtemp.IsValid());
-      DCHECK_NE(chunk_size, 0u);
-      if (chunk_size == 1u) {
-        if (src.IsRegister()) {
-          Store(dest.GetFrameOffset(), src.GetRegister(), dest.GetSize());
-        } else if (dest.GetSize() == 8u && xtemp.IsValid() && frame_offset < kStrdOffsetCutoff) {
-          move_two_words(dest.GetFrameOffset(), src.GetFrameOffset());
-        } else {
-          Copy(dest.GetFrameOffset(), src.GetFrameOffset(), dest.GetSize());
-        }
-      } else if (!src.IsRegister()) {
-        DCHECK_EQ(chunk_size, 2u);
-        DCHECK_EQ(dest.GetSize(), 4u);
-        DCHECK_EQ(dests[i + 1u].GetSize(), 4u);
-        move_two_words(dest.GetFrameOffset(), src.GetFrameOffset());
-      } else if (UseStrdForChunk(srcs, i, chunk_size)) {
-        ___ Strd(AsVIXLRegister(srcs[i].GetRegister().AsArm()),
-                 AsVIXLRegister(srcs[i + 1u].GetRegister().AsArm()),
-                 MemOperand(sp, frame_offset));
-      } else if (UseVstrForChunk(srcs, i, chunk_size)) {
-        size_t sreg = GetSRegisterNumber(src.GetRegister().AsArm());
-        DCHECK_ALIGNED(sreg, 2u);
-        ___ Vstr(vixl32::DRegister(sreg / 2u), MemOperand(sp, frame_offset));
+      vixl32::Register base_reg;
+      if (frame_offset == 0u) {
+        base_reg = sp;
       } else {
-        UseScratchRegisterScope temps2(asm_.GetVIXLAssembler());
-        vixl32::Register base_reg;
-        if (frame_offset == 0u) {
-          base_reg = sp;
-        } else {
-          base_reg = temps2.Acquire();
-          ___ Add(base_reg, sp, frame_offset);
-        }
+        base_reg = temps2.Acquire();
+        ___ Add(base_reg, sp, frame_offset);
+      }
 
-        ArmManagedRegister src_reg = src.GetRegister().AsArm();
-        if (IsCoreRegisterOrPair(src_reg)) {
-          uint32_t core_reg_mask = GetCoreRegisterMask(srcs.SubArray(i, chunk_size));
-          ___ Stm(base_reg, NO_WRITE_BACK, RegisterList(core_reg_mask));
+      ArmManagedRegister src_reg = src.GetRegister().AsArm();
+      if (IsCoreRegisterOrPair(src_reg)) {
+        uint32_t core_reg_mask = GetCoreRegisterMask(srcs.SubArray(i, chunk_size));
+        ___ Stm(base_reg, NO_WRITE_BACK, RegisterList(core_reg_mask));
+      } else {
+        uint32_t start_sreg = GetSRegisterNumber(src_reg);
+        const ArgumentLocation& last_dest = dests[i + chunk_size - 1u];
+        uint32_t total_size =
+            last_dest.GetFrameOffset().Uint32Value() + last_dest.GetSize() - frame_offset;
+        if (IsAligned<2u>(start_sreg) &&
+            IsAligned<kDRegSizeInBytes>(frame_offset) &&
+            IsAligned<kDRegSizeInBytes>(total_size)) {
+          uint32_t dreg_count = total_size / kDRegSizeInBytes;
+          DRegisterList dreg_list(vixl32::DRegister(start_sreg / 2u), dreg_count);
+          ___ Vstm(F64, base_reg, NO_WRITE_BACK, dreg_list);
         } else {
-          uint32_t start_sreg = GetSRegisterNumber(src_reg);
-          const ArgumentLocation& last_dest = dests[i + chunk_size - 1u];
-          uint32_t total_size =
-              last_dest.GetFrameOffset().Uint32Value() + last_dest.GetSize() - frame_offset;
-          if (IsAligned<2u>(start_sreg) &&
-              IsAligned<kDRegSizeInBytes>(frame_offset) &&
-              IsAligned<kDRegSizeInBytes>(total_size)) {
-            uint32_t dreg_count = total_size / kDRegSizeInBytes;
-            DRegisterList dreg_list(vixl32::DRegister(start_sreg / 2u), dreg_count);
-            ___ Vstm(F64, base_reg, NO_WRITE_BACK, dreg_list);
-          } else {
-            uint32_t sreg_count = total_size / kSRegSizeInBytes;
-            SRegisterList sreg_list(vixl32::SRegister(start_sreg), sreg_count);
-            ___ Vstm(F32, base_reg, NO_WRITE_BACK, sreg_list);
-          }
+          uint32_t sreg_count = total_size / kSRegSizeInBytes;
+          SRegisterList sreg_list(vixl32::SRegister(start_sreg), sreg_count);
+          ___ Vstm(F32, base_reg, NO_WRITE_BACK, sreg_list);
         }
       }
-      i += chunk_size;
+    }
+    i += chunk_size;
+  }
+
+  // Copy incoming stack arguments to outgoing stack arguments.
+  // We can always use R4 as a temporary because it is a callee-save register in managed ABI.
+  // We prefer to use another low register as a second temporary
+  // but we shall use IP if no incoming argument register is available.
+  DCHECK_EQ(src_regs & (1u << R4), 0u);
+  vixl32::Register copy_temp1 = r4;
+  vixl32::Register copy_xtemp;
+  uint32_t available_arg_regs = ((1u << R4) - 1u) & ~(src_regs | same_regs);
+  if (available_arg_regs != 0u) {
+    copy_xtemp = vixl32::Register(MostSignificantBit(available_arg_regs));
+  }
+  for (size_t i = num_reg_dests; i != arg_count; ++i) {
+    if (srcs[i].IsRegister()) {
+      continue;
+    }
+    FrameOffset src_offset = srcs[i].GetFrameOffset();
+    DCHECK_ALIGNED(src_offset.Uint32Value(), 4u);
+    FrameOffset dest_offset = dests[i].GetFrameOffset();
+    DCHECK_ALIGNED(dest_offset.Uint32Value(), 4u);
+    // Look for opportunities to move 2 words at a time with LDRD/STRD
+    // when the source types are word-sized.
+    if (srcs[i].GetSize() == 4u &&
+        i + 1u != arg_count &&
+        !srcs[i + 1u].IsRegister() &&
+        srcs[i + 1u].GetSize() == 4u &&
+        NoSpillGap(srcs[i], srcs[i + 1u]) &&
+        NoSpillGap(dests[i], dests[i + 1u]) &&
+        dest_offset.Uint32Value() < kStrdOffsetCutoff &&
+        // We need an available scratch register for `CreateJObject()`.
+        (copy_xtemp.IsValid() ||
+            (refs[i] == kInvalidReferenceOffset && refs[i + 1u] == kInvalidReferenceOffset))) {
+      UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
+      vixl32::Register copy_temp2 = copy_xtemp.IsValid() ? copy_xtemp : temps.Acquire();
+      ___ Ldrd(copy_temp1, copy_temp2, MemOperand(sp, src_offset.Uint32Value()));
+      if (refs[i] != kInvalidReferenceOffset) {
+        ArmManagedRegister m_temp1 = ArmManagedRegister::FromCoreRegister(
+            enum_cast<Register>(copy_temp1.GetCode()));
+        CreateJObject(m_temp1, refs[i], m_temp1, /*null_allowed=*/ i != 0u);
+      }
+      if (refs[i + 1u] != kInvalidReferenceOffset) {
+        ArmManagedRegister m_temp2 = ArmManagedRegister::FromCoreRegister(
+            enum_cast<Register>(copy_temp2.GetCode()));
+        CreateJObject(m_temp2, refs[i + 1u], m_temp2, /*null_allowed=*/ true);
+      }
+      ___ Strd(copy_temp1, copy_temp2, MemOperand(sp, dest_offset.Uint32Value()));
+      ++i;
+    } else if (dests[i].GetSize() == 8u && dest_offset.Uint32Value() < kStrdOffsetCutoff) {
+      UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
+      vixl32::Register copy_temp2 = copy_xtemp.IsValid() ? copy_xtemp : temps.Acquire();
+      ___ Ldrd(copy_temp1, copy_temp2, MemOperand(sp, src_offset.Uint32Value()));
+      ___ Strd(copy_temp1, copy_temp2, MemOperand(sp, dest_offset.Uint32Value()));
+    } else if (refs[i] != kInvalidReferenceOffset) {
+      DCHECK_EQ(refs[i], src_offset);
+      CreateJObject(dest_offset, refs[i], /*null_allowed=*/ i != 0u);
+    } else {
+      Copy(dest_offset, src_offset, dests[i].GetSize());
     }
   }
 
@@ -719,6 +771,16 @@ void ArmVIXLJNIMacroAssembler::MoveArguments(ArrayRef<ArgumentLocation> dests,
           ___ Ldrd(AsVIXLRegister(dests[i].GetRegister().AsArm()),
                    AsVIXLRegister(dests[j].GetRegister().AsArm()),
                    MemOperand(sp, srcs[i].GetFrameOffset().Uint32Value()));
+          if (refs[i] != kInvalidReferenceOffset) {
+            DCHECK_EQ(refs[i], srcs[i].GetFrameOffset());
+            ManagedRegister dest_i_reg = dests[i].GetRegister();
+            CreateJObject(dest_i_reg, refs[i], dest_i_reg, /*null_allowed=*/ i != 0u);
+          }
+          if (refs[j] != kInvalidReferenceOffset) {
+            DCHECK_EQ(refs[j], srcs[j].GetFrameOffset());
+            ManagedRegister dest_j_reg = dests[j].GetRegister();
+            CreateJObject(dest_j_reg, refs[j], dest_j_reg, /*null_allowed=*/ true);
+          }
           ++j;
           continue;
         }
@@ -737,6 +799,9 @@ void ArmVIXLJNIMacroAssembler::MoveArguments(ArrayRef<ArgumentLocation> dests,
     }
     if (srcs[i].IsRegister()) {
       Move(dests[i].GetRegister(), srcs[i].GetRegister(), dests[i].GetSize());
+    } else if (refs[i] != kInvalidReferenceOffset) {
+      ManagedRegister dest_i_reg = dests[i].GetRegister();
+      CreateJObject(dest_i_reg, refs[i], dest_i_reg, /*null_allowed=*/ i != 0u);
     } else {
       Load(dests[i].GetRegister(), srcs[i].GetFrameOffset(), dests[i].GetSize());
     }
@@ -881,27 +946,27 @@ void ArmVIXLJNIMacroAssembler::CreateJObject(ManagedRegister mout_reg,
       in_reg = out_reg;
     }
 
-    temps.Exclude(in_reg);
-    ___ Cmp(in_reg, 0);
-
-    if (asm_.ShifterOperandCanHold(ADD, spilled_reference_offset.Int32Value())) {
-      if (!out_reg.Is(in_reg)) {
-        ExactAssemblyScope guard(asm_.GetVIXLAssembler(),
-                                 3 * vixl32::kMaxInstructionSizeInBytes,
-                                 CodeBufferCheckScope::kMaximumSize);
-        ___ it(eq, 0xc);
-        ___ mov(eq, out_reg, 0);
-        asm_.AddConstantInIt(out_reg, sp, spilled_reference_offset.Int32Value(), ne);
+    if (out_reg.IsLow() && spilled_reference_offset.Int32Value() < 1024) {
+      // There is a 16-bit "ADD Rd, SP, <imm>" instruction we can use in IT-block.
+      if (out_reg.Is(in_reg)) {
+        ___ Cmp(in_reg, 0);
       } else {
-        ExactAssemblyScope guard(asm_.GetVIXLAssembler(),
-                                 2 * vixl32::kMaxInstructionSizeInBytes,
-                                 CodeBufferCheckScope::kMaximumSize);
-        ___ it(ne, 0x8);
-        asm_.AddConstantInIt(out_reg, sp, spilled_reference_offset.Int32Value(), ne);
+        ___ Movs(out_reg, in_reg);
       }
+      ExactAssemblyScope guard(asm_.GetVIXLAssembler(),
+                               2 * vixl32::k16BitT32InstructionSizeInBytes);
+      ___ it(ne);
+      ___ add(ne, Narrow, out_reg, sp, spilled_reference_offset.Int32Value());
     } else {
-      // TODO: Implement this (old arm assembler would have crashed here).
-      UNIMPLEMENTED(FATAL);
+      vixl32::Register addr_reg = out_reg.Is(in_reg) ? temps.Acquire() : out_reg;
+      vixl32::Register cond_mov_src_reg = out_reg.Is(in_reg) ? addr_reg : in_reg;
+      vixl32::Condition cond = out_reg.Is(in_reg) ? ne : eq;
+      ___ Add(addr_reg, sp, spilled_reference_offset.Int32Value());
+      ___ Cmp(in_reg, 0);
+      ExactAssemblyScope guard(asm_.GetVIXLAssembler(),
+                               2 * vixl32::k16BitT32InstructionSizeInBytes);
+      ___ it(cond);
+      ___ mov(cond, Narrow, out_reg, cond_mov_src_reg);
     }
   } else {
     asm_.AddConstant(out_reg, sp, spilled_reference_offset.Int32Value());
