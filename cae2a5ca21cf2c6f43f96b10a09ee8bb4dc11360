@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38c1d0c3_c072b031",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3225,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-02T15:17:29Z",
+      "side": 1,
+      "message": "No, on quick look only set() needs them. I\u0027ll use setters in a follow-up CL to avoid rerunning TH on this one.",
+      "parentUuid": "cb19fb23_d98d6373",
+      "range": {
+        "startLine": 3225,
+        "startChar": 43,
+        "endLine": 3225,
+        "endChar": 75
+      },
+      "revId": "cae2a5ca21cf2c6f43f96b10a09ee8bb4dc11360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7649b380_f30c62f2",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-02T14:24:41Z",
       "side": 1,
       "message": "For a constant, we could simply calculate the value with reversed bytes.",
+      "range": {
+        "startLine": 3747,
+        "startChar": 4,
+        "endLine": 3748,
+        "endChar": 39
+      },
+      "revId": "cae2a5ca21cf2c6f43f96b10a09ee8bb4dc11360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e92ca452_9765d9c1",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3748,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-02T15:17:29Z",
+      "side": 1,
+      "message": "Is there any reason not to do this for arm/arm64 as well? I can probably reuse the same code for all arches. (In a follow-up CL.)",
+      "parentUuid": "7649b380_f30c62f2",
       "range": {
         "startLine": 3747,
         "startChar": 4,
