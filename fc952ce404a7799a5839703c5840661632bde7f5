@@ -138,6 +138,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fdd06570_105563e7",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-11-03T13:05:19Z",
+      "side": 1,
+      "message": "Nit: That sounds reasonable, although does that mean the IsInBCP is \"wrong\" if it is in the SameDexFile?  Maybe we could rename it to something like DexFileIndexKind, which could be KindBCP or KindNonBCP.  No semantic change, but it makes it more obvious that if Index is -1, then IndexKind is irrelevant.",
+      "parentUuid": "c6d14eaf_81378556",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 57
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b66c3b4a_4a6abe51",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
