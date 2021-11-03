@@ -41,6 +41,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae078560_802317e2",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-03T11:05:49Z",
+      "side": 1,
+      "message": "Will this be encoded as 1 bit in the stack map?",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 57
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b66c3b4a_4a6abe51",
@@ -54,6 +77,30 @@
       "writtenOn": "2021-11-03T09:33:24Z",
       "side": 1,
       "message": "Linear scan. Might be improved if needed at the cost of space.\n\nPS: re-posting comment since it was in an older patchset and wasn\u0027t showing up.",
+      "range": {
+        "startLine": 4152,
+        "startChar": 46,
+        "endLine": 4152,
+        "endChar": 68
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ba26469_b12a5677",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-03T11:05:49Z",
+      "side": 1,
+      "message": "Would it make sense to add a DexCache field to an OatDexFile?",
+      "parentUuid": "b66c3b4a_4a6abe51",
       "range": {
         "startLine": 4152,
         "startChar": 46,
