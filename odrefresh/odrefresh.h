@@ -18,8 +18,10 @@
 #define ART_ODREFRESH_ODREFRESH_H_
 
 #include <ctime>
+#include <functional>
 #include <memory>
 #include <optional>
+#include <set>
 #include <string>
 #include <vector>
 
@@ -35,6 +37,14 @@
 namespace art {
 namespace odrefresh {
 
+struct CompilationOptions {
+  // If not empty, compile the bootclasspath extensions for ISAs in the list.
+  std::vector<InstructionSet> compile_boot_extensions_for_isas;
+
+  // If not empty, compile the system server jars in the list.
+  std::set<std::string> system_server_jars_to_compile;
+};
+
 class OnDeviceRefresh final {
  public:
   explicit OnDeviceRefresh(const OdrConfig& config);
@@ -49,14 +59,17 @@ class OnDeviceRefresh final {
   // boolean indicating whether the system server should be compiled.
   WARN_UNUSED ExitCode
   CheckArtifactsAreUpToDate(OdrMetrics& metrics,
-                            /*out*/ std::vector<InstructionSet>* compile_boot_extensions,
-                            /*out*/ bool* compile_system_server) const;
+                            /*out*/ CompilationOptions* compilation_options) const;
 
   WARN_UNUSED ExitCode Compile(OdrMetrics& metrics,
-                               const std::vector<InstructionSet>& compile_boot_extensions,
-                               bool compile_system_server) const;
+                               const CompilationOptions& compilation_options) const;
 
   WARN_UNUSED bool RemoveArtifactsDirectory() const;
+
+  // Returns a set of all system server jars.
+  std::set<std::string> AllSystemServerJars() const {
+    return {systemserver_compilable_jars_.begin(), systemserver_compilable_jars_.end()};
+  }
 
  private:
   time_t GetExecutionTimeUsed() const;
@@ -73,8 +86,6 @@ class OnDeviceRefresh final {
 
   // Write ART APEX cache information to `kOnDeviceRefreshOdrefreshArtifactDirectory`.
   void WriteCacheInfo() const;
-
-  void ReportNextBootAnimationProgress(uint32_t current_compilation) const;
 
   std::vector<com::android::art::Component> GenerateBootClasspathComponents() const;
 
@@ -103,8 +114,11 @@ class OnDeviceRefresh final {
 
   // Checks whether all system_server artifacts are present. The artifacts are checked in their
   // order of compilation. Returns true if all are present, false otherwise.
-  WARN_UNUSED bool SystemServerArtifactsExist(bool on_system,
-                                              /*out*/ std::string* error_msg) const;
+  // Stores the paths to the jars that are missing artifacts in `jars_with_missing_artifacts`.
+  WARN_UNUSED bool SystemServerArtifactsExist(
+      bool on_system,
+      /*out*/ std::string* error_msg,
+      /*out*/ std::set<std::string>* jars_missing_artifacts) const;
 
   WARN_UNUSED bool CheckBootExtensionArtifactsAreUpToDate(
       OdrMetrics& metrics,
@@ -113,22 +127,28 @@ class OnDeviceRefresh final {
       const std::optional<com::android::art::CacheInfo>& cache_info,
       /*out*/ bool* cleanup_required) const;
 
-  WARN_UNUSED bool CheckSystemServerArtifactsAreUpToDate(
+  // Returns true if any system server jar needs to be compiled. Sets `cleanup_required` to true if
+  // system server artifacts needs to be cleaned up. Stores the paths to the jars that needs to be
+  // compiled in `jars_to_compile`.
+  bool CheckSystemServerArtifactsAreUpToDate(
       OdrMetrics& metrics,
       const std::vector<com::android::apex::ApexInfo>& apex_info_list,
       const std::optional<com::android::art::CacheInfo>& cache_info,
-      /*out*/ bool* cleanup_required) const;
+      /*out*/ bool* cleanup_required,
+      /*out*/ std::set<std::string>* jars_to_compile) const;
 
   WARN_UNUSED bool CompileBootExtensionArtifacts(const InstructionSet isa,
                                                  const std::string& staging_dir,
                                                  OdrMetrics& metrics,
-                                                 uint32_t* dex2oat_invocation_count,
+                                                 const std::function<void()>& on_dex2oat_success,
                                                  std::string* error_msg) const;
 
-  WARN_UNUSED bool CompileSystemServerArtifacts(const std::string& staging_dir,
-                                                OdrMetrics& metrics,
-                                                uint32_t* dex2oat_invocation_count,
-                                                std::string* error_msg) const;
+  WARN_UNUSED bool CompileSystemServerArtifacts(
+      const std::string& staging_dir,
+      OdrMetrics& metrics,
+      const std::set<std::string>& system_server_jars_to_compile,
+      const std::function<void()>& on_dex2oat_success,
+      std::string* error_msg) const;
 
   // Configuration to use.
   const OdrConfig& config_;
