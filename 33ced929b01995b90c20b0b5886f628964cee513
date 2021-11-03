@@ -111,6 +111,30 @@
       },
       "revId": "33ced929b01995b90c20b0b5886f628964cee513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "575f4253_f41150d7",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2773,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-03T17:34:11Z",
+      "side": 1,
+      "message": "There can be an arbitrary `HDeoptimize` anywhere between the `NewInstance` and `HInvoke/StringBuilder.toString()`.\n\n(If the `HDeoptimize is after the `HInvoke/StringBuilder.toString()`, you could argue that the contents of the `StringBuilder` are irrelevant.)",
+      "parentUuid": "0c53e194_b6d10f84",
+      "range": {
+        "startLine": 2772,
+        "startChar": 5,
+        "endLine": 2773,
+        "endChar": 83
+      },
+      "revId": "33ced929b01995b90c20b0b5886f628964cee513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
