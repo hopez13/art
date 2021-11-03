@@ -69,6 +69,24 @@
       "parentUuid": "1374a7fd_dbdbd198",
       "revId": "efd39e09089b502464698d4450ea4ed20daf3652",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b96b3fb_63bf07b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-11-03T18:17:21Z",
+      "side": 1,
+      "message": "That workflow is good... it let\u0027s people to diff from PS1.\n\nIn general I would either:\n - When creating the revert, prefix the first line with WIP: \n - Or mare the CL as WIP in the gerrit UI\n - Self review it as -1 which signal to others it is not ready yet.",
+      "parentUuid": "b2cea5fb_e9f6e7d3",
+      "revId": "efd39e09089b502464698d4450ea4ed20daf3652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
