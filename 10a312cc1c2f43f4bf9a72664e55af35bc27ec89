@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ce45571_1d3d0a3e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1875,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-03T09:31:23Z",
+      "side": 0,
+      "message": "I removed the if in order to set the compiler driver unconditionally in the callbacks.",
+      "range": {
+        "startLine": 1875,
+        "startChar": 0,
+        "endLine": 1875,
+        "endChar": 31
+      },
+      "revId": "10a312cc1c2f43f4bf9a72664e55af35bc27ec89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96fd08c8_491e861b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-03T09:31:23Z",
+      "side": 1,
+      "message": "Vladimir PTAL\nDavid PTAL at stack map related changes (runtime/ and stack_map_stream.cc)",
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a992c44b_cda26e0d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-03T09:31:23Z",
+      "side": 1,
+      "message": "This can be const. I will deal with it with the first round of comments.",
+      "range": {
+        "startLine": 1813,
+        "startChar": 2,
+        "endLine": 1813,
+        "endChar": 6
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6273f908_da1510a9",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-03T09:31:23Z",
+      "side": 1,
+      "message": "`dex_cache-\u003eGetClassLoader()` will always be nullptr for the BCP case, but I think we can sacrifice that tiny performance benefit for the sake of clarity in the method.",
+      "range": {
+        "startLine": 102,
+        "startChar": 68,
+        "endLine": 102,
+        "endChar": 95
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
