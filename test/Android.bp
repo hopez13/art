@@ -780,7 +780,7 @@ cc_library_static {
         // many problems with how we export headers that are making doing this the 'right' way
         // difficult.
         // TODO: move those headers to art/ rather than under runtime.
-        "libart_runtime_headers_ndk",
+        "libart_headers",
     ],
     export_include_dirs: ["ti-agent"],
 }
