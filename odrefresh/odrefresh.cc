@@ -32,6 +32,7 @@
 #include <cstdint>
 #include <cstdlib>
 #include <fstream>
+#include <functional>
 #include <initializer_list>
 #include <iosfwd>
 #include <iostream>
@@ -39,6 +40,7 @@
 #include <memory>
 #include <optional>
 #include <ostream>
+#include <set>
 #include <sstream>
 #include <string>
 #include <string_view>
@@ -47,12 +49,17 @@
 #include <utility>
 #include <vector>
 
+#include "aidl/com/android/art/CompilerFilter.h"
+#include "aidl/com/android/art/DexoptBcpExtArgs.h"
+#include "aidl/com/android/art/DexoptSystemServerArgs.h"
+#include "aidl/com/android/art/Isa.h"
 #include "android-base/file.h"
 #include "android-base/logging.h"
 #include "android-base/macros.h"
 #include "android-base/parseint.h"
 #include "android-base/properties.h"
 #include "android-base/result.h"
+#include "android-base/scopeguard.h"
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
 #include "android/log.h"
@@ -61,6 +68,7 @@
 #include "base/globals.h"
 #include "base/macros.h"
 #include "base/os.h"
+#include "base/stl_util.h"
 #include "base/string_view_cpp20.h"
 #include "base/unix_file/fd_file.h"
 #include "com_android_apex.h"
@@ -80,11 +88,6 @@
 #include "odrefresh/odrefresh.h"
 #include "palette/palette.h"
 #include "palette/palette_types.h"
-
-#include "aidl/com/android/art/CompilerFilter.h"
-#include "aidl/com/android/art/DexoptBcpExtArgs.h"
-#include "aidl/com/android/art/DexoptSystemServerArgs.h"
-#include "aidl/com/android/art/Isa.h"
 
 namespace art {
 namespace odrefresh {
@@ -409,10 +412,10 @@ WARN_UNUSED bool CheckCompilationSpace() {
   // the users data partition.
   //
   // We do not have a good way of pre-computing the required space for a compilation step, but
-  // typically observe 16MB as the largest size of an AOT artifact. Since there are three
-  // AOT artifacts per compilation step - an image file, executable file, and a verification
-  // data file - the threshold is three times 16MB.
-  static constexpr uint64_t kMinimumSpaceForCompilation = 3 * 16 * 1024 * 1024;
+  // typically observe no more than 48MiB as the largest total size of AOT artifacts for a single
+  // dex2oat invocation, which includes an image file, an executable file, and a verification data
+  // file.
+  static constexpr uint64_t kMinimumSpaceForCompilation = 48 * 1024 * 1024;
 
   uint64_t bytes_available;
   const std::string& art_apex_data_path = GetArtApexData();
@@ -464,7 +467,7 @@ OnDeviceRefresh::OnDeviceRefresh(const OdrConfig& config)
     : OnDeviceRefresh(config,
                       Concatenate({config.GetArtifactDirectory(), "/", kCacheInfoFile}),
                       std::make_unique<ExecUtils>(),
-                      std::move(OdrDexopt::Create(config, std::make_unique<ExecUtils>()))) {}
+                      OdrDexopt::Create(config, std::make_unique<ExecUtils>())) {}
 
 OnDeviceRefresh::OnDeviceRefresh(const OdrConfig& config,
                                  const std::string& cache_info_filename,
@@ -579,11 +582,10 @@ void OnDeviceRefresh::WriteCacheInfo() const {
   art_apex::write(out, info);
 }
 
-void OnDeviceRefresh::ReportNextBootAnimationProgress(uint32_t current_compilation) const {
-  uint32_t number_of_compilations =
-      config_.GetBootExtensionIsas().size() + systemserver_compilable_jars_.size();
-  // We arbitrarily show progress until 90%, expecting that our compilations
-  // take a large chunk of boot time.
+static void ReportNextBootAnimationProgress(uint32_t current_compilation,
+                                            uint32_t number_of_compilations) {
+  // We arbitrarily show progress until 90%, expecting that our compilations take a large chunk of
+  // boot time.
   uint32_t value = (90 * current_compilation) / number_of_compilations;
   android::base::SetProperty("service.bootanim.progress", std::to_string(value));
 }
@@ -695,18 +697,22 @@ WARN_UNUSED bool OnDeviceRefresh::BootExtensionArtifactsExist(
   return ArtifactsExist(artifacts, /*check_art_file=*/true, error_msg);
 }
 
-WARN_UNUSED bool OnDeviceRefresh::SystemServerArtifactsExist(bool on_system,
-                                                             /*out*/ std::string* error_msg) const {
+WARN_UNUSED bool OnDeviceRefresh::SystemServerArtifactsExist(
+    bool on_system,
+    /*out*/ std::string* error_msg,
+    /*out*/ std::set<std::string>* jars_missing_artifacts) const {
   for (const std::string& jar_path : systemserver_compilable_jars_) {
     const std::string image_location = GetSystemServerImagePath(on_system, jar_path);
     const OdrArtifacts artifacts = OdrArtifacts::ForSystemServer(image_location);
     // .art files are optional and are not generated for all jars by the build system.
     const bool check_art_file = !on_system;
-    if (!ArtifactsExist(artifacts, check_art_file, error_msg)) {
-      return false;
+    std::string error_msg_tmp;
+    if (!ArtifactsExist(artifacts, check_art_file, &error_msg_tmp)) {
+      jars_missing_artifacts->insert(jar_path);
+      *error_msg = error_msg->empty() ? error_msg_tmp : *error_msg + "\n" + error_msg_tmp;
     }
   }
-  return true;
+  return jars_missing_artifacts->empty();
 }
 
 WARN_UNUSED bool OnDeviceRefresh::CheckBootExtensionArtifactsAreUpToDate(
@@ -819,12 +825,21 @@ WARN_UNUSED bool OnDeviceRefresh::CheckBootExtensionArtifactsAreUpToDate(
   return true;
 }
 
-WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
+bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
     OdrMetrics& metrics,
     const std::vector<apex::ApexInfo>& apex_info_list,
     const std::optional<art_apex::CacheInfo>& cache_info,
-    /*out*/ bool* cleanup_required) const {
+    /*out*/ bool* cleanup_required,
+    /*out*/ std::set<std::string>* jars_to_compile) const {
+  auto cleanup_and_compile_all = [&, this]() {
+    *cleanup_required = true;
+    *jars_to_compile = AllSystemServerJars();
+    return false;
+  };
+
   std::string error_msg;
+  std::set<std::string> jars_missing_artifacts_on_system;
+  bool artifacts_on_system_up_to_date = false;
 
   if (std::all_of(apex_info_list.begin(),
                   apex_info_list.end(),
@@ -832,7 +847,8 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
     LOG(INFO) << "Factory APEXes mounted.";
 
     // APEXes are not updated, so we can use the artifacts on /system. Check if they exist.
-    if (SystemServerArtifactsExist(/*on_system=*/true, &error_msg)) {
+    if (SystemServerArtifactsExist(
+            /*on_system=*/true, &error_msg, &jars_missing_artifacts_on_system)) {
       // We don't need the artifacts on /data since we can use those on /system.
       *cleanup_required = true;
       return true;
@@ -840,6 +856,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
 
     LOG(INFO) << "Incomplete system server artifacts on /system. " << error_msg;
     LOG(INFO) << "Checking cache.";
+    artifacts_on_system_up_to_date = true;
   }
 
   if (!cache_info.has_value()) {
@@ -847,8 +864,12 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
     // before.
     PLOG(INFO) << "No prior cache-info file: " << QuotePath(cache_info_filename_);
     metrics.SetTrigger(OdrMetrics::Trigger::kMissingArtifacts);
-    *cleanup_required = true;
-    return false;
+    if (artifacts_on_system_up_to_date) {
+      *cleanup_required = true;
+      *jars_to_compile = jars_missing_artifacts_on_system;
+      return false;
+    }
+    return cleanup_and_compile_all();
   }
 
   // Check whether the current cached module info differs from the current module info.
@@ -857,8 +878,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
   if (cached_module_info_list == nullptr) {
     LOG(INFO) << "Missing APEX info list from cache-info.";
     metrics.SetTrigger(OdrMetrics::Trigger::kApexVersionMismatch);
-    *cleanup_required = true;
-    return false;
+    return cleanup_and_compile_all();
   }
 
   std::unordered_map<std::string, const art_apex::ModuleInfo*> cached_module_info_map;
@@ -866,8 +886,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
     if (!module_info.hasName()) {
       LOG(INFO) << "Unexpected module info from cache-info. Missing module name.";
       metrics.SetTrigger(OdrMetrics::Trigger::kUnknown);
-      *cleanup_required = true;
-      return false;
+      return cleanup_and_compile_all();
     }
     cached_module_info_map[module_info.getName()] = &module_info;
   }
@@ -878,8 +897,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
       LOG(INFO) << "Missing APEX info from cache-info (" << current_apex_info.getModuleName()
                 << ").";
       metrics.SetTrigger(OdrMetrics::Trigger::kApexVersionMismatch);
-      *cleanup_required = true;
-      return false;
+      return cleanup_and_compile_all();
     }
 
     const art_apex::ModuleInfo* cached_module_info = it->second;
@@ -889,8 +907,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
                 << cached_module_info->getVersionCode()
                 << " != " << current_apex_info.getVersionCode() << ").";
       metrics.SetTrigger(OdrMetrics::Trigger::kApexVersionMismatch);
-      *cleanup_required = true;
-      return false;
+      return cleanup_and_compile_all();
     }
 
     if (cached_module_info->getVersionName() != current_apex_info.getVersionName()) {
@@ -898,8 +915,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
                 << cached_module_info->getVersionName()
                 << " != " << current_apex_info.getVersionName() << ").";
       metrics.SetTrigger(OdrMetrics::Trigger::kApexVersionMismatch);
-      *cleanup_required = true;
-      return false;
+      return cleanup_and_compile_all();
     }
 
     if (!cached_module_info->hasLastUpdateMillis() ||
@@ -908,8 +924,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
                 << cached_module_info->getLastUpdateMillis()
                 << " != " << current_apex_info.getLastUpdateMillis() << ").";
       metrics.SetTrigger(OdrMetrics::Trigger::kApexVersionMismatch);
-      *cleanup_required = true;
-      return false;
+      return cleanup_and_compile_all();
     }
   }
 
@@ -929,8 +944,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
        !cache_info->getFirstSystemServerClasspath()->hasComponent())) {
     LOG(INFO) << "Missing SystemServerClasspath components.";
     metrics.SetTrigger(OdrMetrics::Trigger::kDexFilesChanged);
-    *cleanup_required = true;
-    return false;
+    return cleanup_and_compile_all();
   }
 
   const std::vector<art_apex::Component>& system_server_components =
@@ -938,8 +952,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
   if (!CheckComponents(expected_system_server_components, system_server_components, &error_msg)) {
     LOG(INFO) << "SystemServerClasspath components mismatch: " << error_msg;
     metrics.SetTrigger(OdrMetrics::Trigger::kDexFilesChanged);
-    *cleanup_required = true;
-    return false;
+    return cleanup_and_compile_all();
   }
 
   const std::vector<art_apex::Component> expected_bcp_components =
@@ -959,18 +972,36 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
     metrics.SetTrigger(OdrMetrics::Trigger::kDexFilesChanged);
     // Boot classpath components can be dependencies of system_server components, so system_server
     // components need to be recompiled if boot classpath components are changed.
-    *cleanup_required = true;
-    return false;
+    return cleanup_and_compile_all();
   }
 
-  if (!SystemServerArtifactsExist(/*on_system=*/false, &error_msg)) {
-    LOG(INFO) << "Incomplete system_server artifacts. " << error_msg;
-    // No clean-up is required here: we have boot extension artifacts. The method
-    // `SystemServerArtifactsExistOnData()` checks in compilation order so it is possible some of
-    // the artifacts are here. We likely ran out of space compiling the system_server artifacts.
-    // Any artifacts present are usable.
-    metrics.SetTrigger(OdrMetrics::Trigger::kMissingArtifacts);
+  std::set<std::string> jars_missing_artifacts_on_data;
+  if (!SystemServerArtifactsExist(
+          /*on_system=*/false, &error_msg, &jars_missing_artifacts_on_data)) {
+    // No clean-up is required here: We likely ran out of space compiling the system_server
+    // artifacts. Any artifacts present are usable.
     *cleanup_required = false;
+
+    if (artifacts_on_system_up_to_date) {
+      // Check if the remaining system_server artifacts are on /data.
+      std::set_intersection(jars_missing_artifacts_on_system.begin(),
+                            jars_missing_artifacts_on_system.end(),
+                            jars_missing_artifacts_on_data.begin(),
+                            jars_missing_artifacts_on_data.end(),
+                            std::inserter(*jars_to_compile, jars_to_compile->end()));
+      if (!jars_to_compile->empty()) {
+        LOG(INFO) << "Incomplete system_server artifacts on /data. " << error_msg;
+        metrics.SetTrigger(OdrMetrics::Trigger::kMissingArtifacts);
+        return false;
+      }
+
+      LOG(INFO) << "Found the remaining system_server artifacts on /data.";
+      return true;
+    }
+
+    LOG(INFO) << "Incomplete system_server artifacts. " << error_msg;
+    metrics.SetTrigger(OdrMetrics::Trigger::kMissingArtifacts);
+    *jars_to_compile = jars_missing_artifacts_on_data;
     return false;
   }
 
@@ -978,16 +1009,15 @@ WARN_UNUSED bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
   return true;
 }
 
-WARN_UNUSED ExitCode OnDeviceRefresh::CheckArtifactsAreUpToDate(
-    OdrMetrics& metrics,
-    /*out*/ std::vector<InstructionSet>* compile_boot_extensions,
-    /*out*/ bool* compile_system_server) const {
+WARN_UNUSED ExitCode
+OnDeviceRefresh::CheckArtifactsAreUpToDate(OdrMetrics& metrics,
+                                           /*out*/ CompilationOptions* compilation_options) const {
   metrics.SetStage(OdrMetrics::Stage::kCheck);
 
   // Clean-up helper used to simplify clean-ups and handling failures there.
   auto cleanup_and_compile_all = [&, this]() {
-    *compile_boot_extensions = config_.GetBootExtensionIsas();
-    *compile_system_server = true;
+    compilation_options->compile_boot_extensions_for_isas = config_.GetBootExtensionIsas();
+    compilation_options->system_server_jars_to_compile = AllSystemServerJars();
     return RemoveArtifactsDirectory() ? ExitCode::kCompilationRequired : ExitCode::kCleanupFailed;
   };
 
@@ -1033,10 +1063,10 @@ WARN_UNUSED ExitCode OnDeviceRefresh::CheckArtifactsAreUpToDate(
     cleanup_required = false;
     if (!CheckBootExtensionArtifactsAreUpToDate(
             metrics, isa, art_apex_info.value(), cache_info, &cleanup_required)) {
-      compile_boot_extensions->push_back(isa);
+      compilation_options->compile_boot_extensions_for_isas.push_back(isa);
       // system_server artifacts are invalid without valid boot extension artifacts.
       if (isa == system_server_isa) {
-        *compile_system_server = true;
+        compilation_options->system_server_jars_to_compile = AllSystemServerJars();
         if (!RemoveSystemServerArtifactsFromData()) {
           return ExitCode::kCleanupFailed;
         }
@@ -1049,28 +1079,32 @@ WARN_UNUSED ExitCode OnDeviceRefresh::CheckArtifactsAreUpToDate(
     }
   }
 
-  cleanup_required = false;
-  if (!*compile_system_server &&
-      !CheckSystemServerArtifactsAreUpToDate(
-          metrics, apex_info_list.value(), cache_info, &cleanup_required)) {
-    *compile_system_server = true;
-  }
-  if (cleanup_required) {
-    if (!RemoveSystemServerArtifactsFromData()) {
-      return ExitCode::kCleanupFailed;
+  if (compilation_options->system_server_jars_to_compile.empty()) {
+    cleanup_required = false;
+    CheckSystemServerArtifactsAreUpToDate(metrics,
+                                          apex_info_list.value(),
+                                          cache_info,
+                                          &cleanup_required,
+                                          &compilation_options->system_server_jars_to_compile);
+    if (cleanup_required) {
+      if (!RemoveSystemServerArtifactsFromData()) {
+        return ExitCode::kCleanupFailed;
+      }
     }
   }
 
-  return (!compile_boot_extensions->empty() || *compile_system_server) ?
+  return (!compilation_options->compile_boot_extensions_for_isas.empty() ||
+          !compilation_options->system_server_jars_to_compile.empty()) ?
              ExitCode::kCompilationRequired :
              ExitCode::kOkay;
 }
 
-WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(const InstructionSet isa,
-                                                                const std::string& staging_dir,
-                                                                OdrMetrics& metrics,
-                                                                uint32_t* dex2oat_invocation_count,
-                                                                std::string* error_msg) const {
+WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(
+    const InstructionSet isa,
+    const std::string& staging_dir,
+    OdrMetrics& metrics,
+    const std::function<void()>& on_dex2oat_success,
+    std::string* error_msg) const {
   ScopedOdrCompilationTimer compilation_timer(metrics);
 
   DexoptBcpExtArgs dexopt_args;
@@ -1179,22 +1213,29 @@ WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(const Instructio
     return false;
   }
 
-  *dex2oat_invocation_count = *dex2oat_invocation_count + 1;
-  ReportNextBootAnimationProgress(*dex2oat_invocation_count);
-
+  on_dex2oat_success();
   return true;
 }
 
-WARN_UNUSED bool OnDeviceRefresh::CompileSystemServerArtifacts(const std::string& staging_dir,
-                                                               OdrMetrics& metrics,
-                                                               uint32_t* dex2oat_invocation_count,
-                                                               std::string* error_msg) const {
+WARN_UNUSED bool OnDeviceRefresh::CompileSystemServerArtifacts(
+    const std::string& staging_dir,
+    OdrMetrics& metrics,
+    const std::set<std::string>& system_server_jars_to_compile,
+    const std::function<void()>& on_dex2oat_success,
+    std::string* error_msg) const {
   ScopedOdrCompilationTimer compilation_timer(metrics);
   std::vector<std::string> classloader_context;
 
   const std::string dex2oat = config_.GetDex2Oat();
   const InstructionSet isa = config_.GetSystemServerIsa();
   for (const std::string& jar : systemserver_compilable_jars_) {
+    auto scope_guard =
+        android::base::make_scope_guard([&]() { classloader_context.emplace_back(jar); });
+
+    if (!ContainsElement(system_server_jars_to_compile, jar)) {
+      continue;
+    }
+
     std::vector<std::unique_ptr<File>> readonly_files_raii;
     DexoptSystemServerArgs dexopt_args;
     dexopt_args.isa = InstructionSetToAidlIsa(isa);
@@ -1223,12 +1264,9 @@ WARN_UNUSED bool OnDeviceRefresh::CompileSystemServerArtifacts(const std::string
 
     const std::string image_location = GetSystemServerImagePath(/*on_system=*/false, jar);
     const std::string install_location = android::base::Dirname(image_location);
-    if (classloader_context.empty()) {
-      // All images are in the same directory, we only need to check on the first iteration.
-      if (!EnsureDirectoryExists(install_location)) {
-        metrics.SetStatus(OdrMetrics::Status::kIoError);
-        return false;
-      }
+    if (!EnsureDirectoryExists(install_location)) {
+      metrics.SetStatus(OdrMetrics::Status::kIoError);
+      return false;
     }
 
     OdrArtifacts artifacts = OdrArtifacts::ForSystemServer(image_location);
@@ -1318,18 +1356,14 @@ WARN_UNUSED bool OnDeviceRefresh::CompileSystemServerArtifacts(const std::string
       return false;
     }
 
-    *dex2oat_invocation_count = *dex2oat_invocation_count + 1;
-    ReportNextBootAnimationProgress(*dex2oat_invocation_count);
-    classloader_context.emplace_back(jar);
+    on_dex2oat_success();
   }
 
   return true;
 }
 
-WARN_UNUSED ExitCode
-OnDeviceRefresh::Compile(OdrMetrics& metrics,
-                         const std::vector<InstructionSet>& compile_boot_extensions,
-                         bool compile_system_server) const {
+WARN_UNUSED ExitCode OnDeviceRefresh::Compile(OdrMetrics& metrics,
+                                              const CompilationOptions& compilation_options) const {
   const char* staging_dir = nullptr;
   metrics.SetStage(OdrMetrics::Stage::kPreparation);
 
@@ -1349,22 +1383,29 @@ OnDeviceRefresh::Compile(OdrMetrics& metrics,
   std::string error_msg;
 
   uint32_t dex2oat_invocation_count = 0;
-  ReportNextBootAnimationProgress(dex2oat_invocation_count);
+  uint32_t total_dex2oat_invocation_count =
+      compilation_options.compile_boot_extensions_for_isas.size() +
+      compilation_options.system_server_jars_to_compile.size();
+  ReportNextBootAnimationProgress(dex2oat_invocation_count, total_dex2oat_invocation_count);
+  auto advance_animation_progress = [&]() {
+    ReportNextBootAnimationProgress(++dex2oat_invocation_count, total_dex2oat_invocation_count);
+  };
 
   const auto& bcp_instruction_sets = config_.GetBootExtensionIsas();
   DCHECK(!bcp_instruction_sets.empty() && bcp_instruction_sets.size() <= 2);
-  for (const InstructionSet isa : compile_boot_extensions) {
+  for (const InstructionSet isa : compilation_options.compile_boot_extensions_for_isas) {
     auto stage = (isa == bcp_instruction_sets.front()) ? OdrMetrics::Stage::kPrimaryBootClasspath :
                                                          OdrMetrics::Stage::kSecondaryBootClasspath;
     metrics.SetStage(stage);
     if (!CheckCompilationSpace()) {
       metrics.SetStatus(OdrMetrics::Status::kNoSpace);
-      // Return kOkay so odsign will keep and sign whatever we have been able to compile.
-      return ExitCode::kOkay;
+      // Return kCompilationFailed so odsign will keep and sign whatever we have been able to
+      // compile.
+      return ExitCode::kCompilationFailed;
     }
 
     if (!CompileBootExtensionArtifacts(
-            isa, staging_dir, metrics, &dex2oat_invocation_count, &error_msg)) {
+            isa, staging_dir, metrics, advance_animation_progress, &error_msg)) {
       LOG(ERROR) << "Compilation of BCP failed: " << error_msg;
       if (!config_.GetDryRun() && !RemoveDirectory(staging_dir)) {
         return ExitCode::kCleanupFailed;
@@ -1373,17 +1414,21 @@ OnDeviceRefresh::Compile(OdrMetrics& metrics,
     }
   }
 
-  if (compile_system_server) {
+  if (!compilation_options.system_server_jars_to_compile.empty()) {
     metrics.SetStage(OdrMetrics::Stage::kSystemServerClasspath);
 
     if (!CheckCompilationSpace()) {
       metrics.SetStatus(OdrMetrics::Status::kNoSpace);
-      // Return kOkay so odsign will keep and sign whatever we have been able to compile.
-      return ExitCode::kOkay;
+      // Return kCompilationFailed so odsign will keep and sign whatever we have been able to
+      // compile.
+      return ExitCode::kCompilationFailed;
     }
 
-    if (!CompileSystemServerArtifacts(
-            staging_dir, metrics, &dex2oat_invocation_count, &error_msg)) {
+    if (!CompileSystemServerArtifacts(staging_dir,
+                                      metrics,
+                                      compilation_options.system_server_jars_to_compile,
+                                      advance_animation_progress,
+                                      &error_msg)) {
       LOG(ERROR) << "Compilation of system_server failed: " << error_msg;
       if (!config_.GetDryRun() && !RemoveDirectory(staging_dir)) {
         return ExitCode::kCleanupFailed;

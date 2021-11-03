@@ -111,6 +111,22 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
     }
 
     @Test
+    public void verifyMissingArtifactTriggersCompilation() throws Exception {
+        String missingArtifact = sSystemServerArtifacts.iterator().next();
+        getDevice().deleteFile(missingArtifact);
+        Set<String> remainingArtifacts = Set.copyOf(sSystemServerArtifacts);
+        remainingArtifacts.remove(missingArtifact);
+
+        sTestUtils.removeCompilationLogToAvoidBackoff();
+        long timeMs = getCurrentTimeMs();
+        getDevice().executeShellV2Command("odrefresh --compile");
+
+        assertArtifactsNotModifiedAfter(sZygoteArtifacts, timeMs);
+        assertArtifactsNotModifiedAfter(remainingArtifacts, timeMs);
+        assertArtifactsModifiedAfter(Set.of(missingArtifact), timeMs);
+    }
+
+    @Test
     public void verifyNoCompilationWhenCacheIsGood() throws Exception {
         sTestUtils.removeCompilationLogToAvoidBackoff();
         long timeMs = getCurrentTimeMs();
