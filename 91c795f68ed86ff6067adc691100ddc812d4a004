@@ -151,6 +151,53 @@
       },
       "revId": "91c795f68ed86ff6067adc691100ddc812d4a004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0047c838_a7f2261e",
+        "filename": "test/2235-JdkUnsafeTest/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-11-03T15:26:40Z",
+      "side": 1,
+      "message": "This could be Integer.SIZE / 8, but the sizes are determined by the language spec so okay for the purposes of this test. If any tweaking were done, the size variables could be final.",
+      "parentUuid": "149252c0_49fdc121",
+      "range": {
+        "startLine": 391,
+        "startChar": 18,
+        "endLine": 391,
+        "endChar": 19
+      },
+      "revId": "91c795f68ed86ff6067adc691100ddc812d4a004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a3bfbd6_bb6d054f",
+        "filename": "test/2235-JdkUnsafeTest/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-11-03T15:26:40Z",
+      "side": 1,
+      "message": "This is a test, but could be written to avoid potential resource leak here that is in the discussion in https://openjdk.java.net/jeps/421 recently. Given it\u0027s an ART test and will use it\u0027s own runtime, there is no strong incentive here.",
+      "range": {
+        "startLine": 460,
+        "startChar": 0,
+        "endLine": 460,
+        "endChar": 33
+      },
+      "revId": "91c795f68ed86ff6067adc691100ddc812d4a004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
