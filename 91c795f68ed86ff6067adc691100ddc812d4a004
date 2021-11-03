@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "905d63ee_a82db611",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2021-11-03T13:31:04Z",
+      "side": 1,
+      "message": "+oth for native code knowledge\n\nAlso, it feels",
+      "revId": "91c795f68ed86ff6067adc691100ddc812d4a004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95de5b65_2341214e",
+        "filename": "runtime/native/jdk_internal_misc_Unsafe.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2021-11-03T13:31:04Z",
+      "side": 1,
+      "message": "Unhelpfully, the javadoc doesn\u0027t say anything about whether this should handle overlapping regions.  However I guess as we\u0027ve been using memcpy() up until now, it\u0027s probably fine.",
+      "range": {
+        "startLine": 367,
+        "startChar": 2,
+        "endLine": 367,
+        "endChar": 8
+      },
+      "revId": "91c795f68ed86ff6067adc691100ddc812d4a004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceb73811_79a15484",
+        "filename": "runtime/native/jdk_internal_misc_Unsafe.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2021-11-03T13:31:04Z",
+      "side": 1,
+      "message": "Presumably this can\u0027t impact anything using sun.misc.Unsafe, because that has its own copy of the native code?",
+      "range": {
+        "startLine": 526,
+        "startChar": 29,
+        "endLine": 526,
+        "endChar": 40
+      },
+      "revId": "91c795f68ed86ff6067adc691100ddc812d4a004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6778d483_392aafe8",
+        "filename": "test/2235-JdkUnsafeTest/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2021-11-03T13:31:04Z",
+      "side": 1,
+      "message": "nit: \u003d sizeof(int)\nsame for your other primitive type sizes below.",
+      "range": {
+        "startLine": 391,
+        "startChar": 18,
+        "endLine": 391,
+        "endChar": 19
+      },
+      "revId": "91c795f68ed86ff6067adc691100ddc812d4a004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
