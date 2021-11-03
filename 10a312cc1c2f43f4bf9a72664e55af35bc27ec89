@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a40a78bd_12ff459d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 9493,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-11-03T10:57:37Z",
+      "side": 0,
+      "message": "Super nit: we have both `len` and `length` in the code base: the ART C++ style guide would favor `length`:\n\nhttps://docs.google.com/document/d/1kbDXlGaxI7DJI76N7ouD_DtJBKRfwLo91JgBPVkQsQo/edit?usp\u003dsharing\n\nruntime$ grep -E \u0027length\\b\u0027 class_linker.cc  | wc -l\n50\nruntime$ grep -E \u0027len\\b\u0027 class_linker.cc | grep -v strlen | wc -l\n14\n\nruntime$ git grep -E \u0027length\\b\u0027 | wc -l\n923\nruntime$ git grep -E \u0027len\\b\u0027 | grep -v strlen | wc -l\n275",
+      "range": {
+        "startLine": 9493,
+        "startChar": 11,
+        "endLine": 9493,
+        "endChar": 24
+      },
+      "revId": "10a312cc1c2f43f4bf9a72664e55af35bc27ec89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
