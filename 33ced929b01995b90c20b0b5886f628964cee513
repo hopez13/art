@@ -39,6 +39,30 @@
       },
       "revId": "33ced929b01995b90c20b0b5886f628964cee513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b54ca91b_a8bacb06",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2773,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-03T16:37:57Z",
+      "side": 1,
+      "message": "I am failing to see why the `HDeoptimize` would block the optimization. The contents of the string builder would be the same, right?\nIf we have an environment use of `HDeoptimize` (or any other instruction), then the NewInstance won\u0027t be removed and the Deoptimize should continue to work as expected.",
+      "parentUuid": "cc846d75_9fb15206",
+      "range": {
+        "startLine": 2772,
+        "startChar": 5,
+        "endLine": 2773,
+        "endChar": 83
+      },
+      "revId": "33ced929b01995b90c20b0b5886f628964cee513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
