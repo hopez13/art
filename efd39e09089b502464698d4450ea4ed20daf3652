@@ -51,6 +51,24 @@
       "message": "\u003e Patch Set 1: Code-Review+2\n\nPS1 does not list the known failures. This needs to be added in PS2.",
       "revId": "efd39e09089b502464698d4450ea4ed20daf3652",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2cea5fb_e9f6e7d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-03T17:49:52Z",
+      "side": 1,
+      "message": "Right. Is there a way to reland but without notifying reviewers till the fix has been uploaded as well? My workflow has been:\n1. Create revert (of the revert)\n2. Download the patch\n3. Upload the fix.\n\nStep1 already adds reviewers and marks the CL ready for review. Is there a way I could do this without actually marking it ready for review?",
+      "parentUuid": "1374a7fd_dbdbd198",
+      "revId": "efd39e09089b502464698d4450ea4ed20daf3652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
