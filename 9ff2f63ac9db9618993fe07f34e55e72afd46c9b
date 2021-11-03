@@ -46,6 +46,30 @@
       },
       "revId": "9ff2f63ac9db9618993fe07f34e55e72afd46c9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5395902_dfc999b1",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-03T20:23:21Z",
+      "side": 0,
+      "message": "No worries, presubmits pointed it out to me - it\u0027s the dependency from libctstiagent. I suspect it\u0027s actually unnecessary: https://r.android.com/1879847",
+      "parentUuid": "78cc399e_3f9cae11",
+      "range": {
+        "startLine": 873,
+        "startChar": 4,
+        "endLine": 873,
+        "endChar": 27
+      },
+      "revId": "9ff2f63ac9db9618993fe07f34e55e72afd46c9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
