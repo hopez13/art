@@ -88,6 +88,24 @@
       "parentUuid": "08314b77_bddee8e0",
       "revId": "14d41c80c00d9980597e830a177ba38af07e2c58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eabf1fda_fc270e34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-11-03T12:59:28Z",
+      "side": 1,
+      "message": "Basic question - does the thread name need to be in native memory, or can we allocate it on managed heap and thus bypass the whole freeing issue?",
+      "parentUuid": "a31de8fb_adc92ca6",
+      "revId": "14d41c80c00d9980597e830a177ba38af07e2c58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
