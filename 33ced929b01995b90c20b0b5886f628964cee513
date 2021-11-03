@@ -63,6 +63,30 @@
       },
       "revId": "33ced929b01995b90c20b0b5886f628964cee513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd30e4b2_65565cbc",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2773,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-03T17:03:02Z",
+      "side": 1,
+      "message": "Deoptimize can cause the `StringBuilder.toString()` to be executed by the interpreter, so the full contents of the `StringBuilder` need to be correctly preserved at the `HDeoptimize` instruction.",
+      "parentUuid": "b54ca91b_a8bacb06",
+      "range": {
+        "startLine": 2772,
+        "startChar": 5,
+        "endLine": 2773,
+        "endChar": 83
+      },
+      "revId": "33ced929b01995b90c20b0b5886f628964cee513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
