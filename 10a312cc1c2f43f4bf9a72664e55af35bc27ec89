@@ -22,6 +22,29 @@
       },
       "revId": "10a312cc1c2f43f4bf9a72664e55af35bc27ec89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c750db42_30869ae2",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-03T09:33:24Z",
+      "side": 0,
+      "message": "Removed, not needed.\n\nPS: re-posting comment since it was in an older patchset and wasn\u0027t showing up.",
+      "range": {
+        "startLine": 1123,
+        "startChar": 0,
+        "endLine": 1123,
+        "endChar": 44
+      },
+      "revId": "10a312cc1c2f43f4bf9a72664e55af35bc27ec89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
