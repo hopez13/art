@@ -82,6 +82,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d38a549d_bcaa3ecd",
+        "filename": "runtime/native/jdk_internal_misc_Unsafe.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2021-11-03T15:02:31Z",
+      "side": 1,
+      "message": "Yes, that\u0027s right, the jdk.internal.misc version is maintained in parallel and independently with the sun.misc one.",
+      "parentUuid": "ceb73811_79a15484",
+      "range": {
+        "startLine": 526,
+        "startChar": 29,
+        "endLine": 526,
+        "endChar": 40
+      },
+      "revId": "91c795f68ed86ff6067adc691100ddc812d4a004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6778d483_392aafe8",
@@ -95,6 +119,30 @@
       "writtenOn": "2021-11-03T13:31:04Z",
       "side": 1,
       "message": "nit: \u003d sizeof(int)\nsame for your other primitive type sizes below.",
+      "range": {
+        "startLine": 391,
+        "startChar": 18,
+        "endLine": 391,
+        "endChar": 19
+      },
+      "revId": "91c795f68ed86ff6067adc691100ddc812d4a004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "149252c0_49fdc121",
+        "filename": "test/2235-JdkUnsafeTest/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2021-11-03T15:02:31Z",
+      "side": 1,
+      "message": "In Java the sizes are fixed and there is no sizeof operand. I was doing this based on the test that was used for copyMemory{To,From}PrimitiveArray.",
+      "parentUuid": "6778d483_392aafe8",
       "range": {
         "startLine": 391,
         "startChar": 18,
