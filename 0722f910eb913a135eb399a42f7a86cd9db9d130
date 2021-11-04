@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b393a4e5_f4d5ab4d",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-04T19:25:12Z",
+      "side": 1,
+      "message": "Please use braces for the if block. (ART style is more strict than go/cstyle on this: http://doc/1kbDXlGaxI7DJI76N7ouD_DtJBKRfwLo91JgBPVkQsQo#heading\u003dh.9vfpuuq9140c)",
+      "range": {
+        "startLine": 783,
+        "startChar": 6,
+        "endLine": 783,
+        "endChar": 12
+      },
+      "revId": "0722f910eb913a135eb399a42f7a86cd9db9d130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc68fbc8_cfd375f9",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-04T19:25:12Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 787,
+        "startChar": 8,
+        "endLine": 787,
+        "endChar": 16
+      },
+      "revId": "0722f910eb913a135eb399a42f7a86cd9db9d130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
