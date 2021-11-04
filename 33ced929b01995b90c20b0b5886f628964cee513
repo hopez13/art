@@ -207,6 +207,30 @@
       },
       "revId": "33ced929b01995b90c20b0b5886f628964cee513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cd225f8_60c26819",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2773,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-04T14:09:31Z",
+      "side": 1,
+      "message": "For 3), think about this test:\n\n  static void $noinline$deoptTestOuter() {\n    try {\n      $noinline$deoptTestInner(new int[]{ 1, 2, 3 }, 0);\n      throw new Error(\"Unreachable!\");\n    } catch (ArrayIndexOutOfBoundsException expected) {\n      if (!\"a[o]\u003d1\".equals(stringField)) {\n        throw new Error(\"Unexpected stringField: \" + stringField);\n      }\n      if (0 !\u003d intField) {\n        throw new Error(\"Unexpected intField: \" + intField);\n      }\n    }\n  }\n\n  static void $noinline$deoptTestInner(int[] a, int o) {\n    stringField \u003d \"a[o]\u003d\" + a[o];\n    intField \u003d a[o+1] + a[o+2] + a[o+3];\n  }\n\n  static String stringField;\n  static int intField;\n\nand look at the configuration \"BCE (after)\" for the `$noinline$deoptTestInner` - it\u0027s all in one block. We take the deopt path and complete the append in interpreter, then store the string in `stringField`. Then we throw AIOOBE when evaluating `a[o+3]`.",
+      "parentUuid": "71c832c2_09ba71a4",
+      "range": {
+        "startLine": 2772,
+        "startChar": 5,
+        "endLine": 2773,
+        "endChar": 83
+      },
+      "revId": "33ced929b01995b90c20b0b5886f628964cee513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
