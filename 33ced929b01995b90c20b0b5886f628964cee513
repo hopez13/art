@@ -183,6 +183,30 @@
       },
       "revId": "33ced929b01995b90c20b0b5886f628964cee513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c832c2_09ba71a4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2773,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-04T11:18:47Z",
+      "side": 1,
+      "message": "Hm, I see. Also, the Deoptimize may appear as such in other phases like during BCE.\n\nWhat I am thinking is: The deoptimize can happen 1) before, 2) after, or 3)  between `HNewInstance` and `StringBuilder.toString()`.\n\n1) The `HNewInstance` will not be in the deoptimize environment list and we are fine.\n2) The string has already been built and we are fine.\n3) is the problematic one. However, if that\u0027s the case we should have the `HNewInstance` and the `StringBuilder.toString()` in different blocks and the optimization would not happen (line 2777).\n\nIf we are okay with moving forward I can make test cases for 1), 2), and 3) and add them to this CL.",
+      "parentUuid": "5fadd93d_5b8e48d0",
+      "range": {
+        "startLine": 2772,
+        "startChar": 5,
+        "endLine": 2773,
+        "endChar": 83
+      },
+      "revId": "33ced929b01995b90c20b0b5886f628964cee513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
