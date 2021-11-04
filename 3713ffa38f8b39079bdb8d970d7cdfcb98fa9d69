@@ -16,6 +16,52 @@
       "message": "Thanks! I updated knownfailures.json in PS2. It is ready for review now :)",
       "revId": "3713ffa38f8b39079bdb8d970d7cdfcb98fa9d69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "765d5762_db0f3f7b",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1465,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-04T08:50:36Z",
+      "side": 1,
+      "message": "Should that have \"\u0026 jvmti-stress\" ?",
+      "range": {
+        "startLine": 1465,
+        "startChar": 35,
+        "endLine": 1465,
+        "endChar": 36
+      },
+      "revId": "3713ffa38f8b39079bdb8d970d7cdfcb98fa9d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf705273_70ee1aeb",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-04T08:50:36Z",
+      "side": 1,
+      "message": "\"\u0026\" ?",
+      "range": {
+        "startLine": 1470,
+        "startChar": 36,
+        "endLine": 1470,
+        "endChar": 37
+      },
+      "revId": "3713ffa38f8b39079bdb8d970d7cdfcb98fa9d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
