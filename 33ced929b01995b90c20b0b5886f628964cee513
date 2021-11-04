@@ -159,6 +159,30 @@
       },
       "revId": "33ced929b01995b90c20b0b5886f628964cee513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fadd93d_5b8e48d0",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2773,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-04T09:25:40Z",
+      "side": 1,
+      "message": "If the `HNewInstance` is not used by the `HDeoptimize` environment, it shall not be visible after deoptimizing. But I really doubt that such situation could come up as every `HDeoptimize` we construct has the full environment and being between the `HNewInstance` and the `HInvoke/StringBuilder.toString()` means that the `HNewInstance` is in some vreg.",
+      "parentUuid": "7bc5849b_a8364ccf",
+      "range": {
+        "startLine": 2772,
+        "startChar": 5,
+        "endLine": 2773,
+        "endChar": 83
+      },
+      "revId": "33ced929b01995b90c20b0b5886f628964cee513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
