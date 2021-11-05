@@ -16,6 +16,47 @@
       "message": "This was added by aosp/1843654. Victor, is it just for avoiding extra tests or did the second architecture cause any test to fail?",
       "revId": "fd717193b5bb7a3db77289de871b229699bcfbde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3ed835e_85fd5262",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-11-05T21:39:01Z",
+      "side": 1,
+      "message": "It\u0027s to match that odrefresh is only built for 64 bits.  (Another reason that probably won\u0027t matter soon is that, I was trying to add a new dependency of CompOS to odrefresh, but CompOS is 64-bit only.)",
+      "parentUuid": "cf3c366a_c8b1f5e4",
+      "revId": "fd717193b5bb7a3db77289de871b229699bcfbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8657e86_007e7a7e",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-11-05T21:39:01Z",
+      "side": 1,
+      "message": "(here)",
+      "range": {
+        "startLine": 70,
+        "startChar": 12,
+        "endLine": 70,
+        "endChar": 38
+      },
+      "revId": "fd717193b5bb7a3db77289de871b229699bcfbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
