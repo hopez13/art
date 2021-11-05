@@ -231,6 +231,30 @@
       },
       "revId": "33ced929b01995b90c20b0b5886f628964cee513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2274fec9_969ca0b1",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2773,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-05T10:26:56Z",
+      "side": 1,
+      "message": "Okay, this is trickier than I thought...\nOne last idea: in line 2661 we can collect that instructions that are in the middle of the string building operation. Then, we bail out if there\u0027s an instruction in that set that it is also in the sb-\u003eGetEnvUses() list.\n\nThis could be having an extra if in line 2778:\n// pseudocode, `instructions_in_the_middle` contains the instructions between `HNewInstance` and `StringBuilder.toString()`.\nif (find(holder, instructions_in_the_middle) \u003d\u003d instructions_in_the_middle.end()) { continue; }\n\nUploaded a patchset to show what I mean.\n\nPS: I think that if we do that we might be able to remove the \n  if (holder-\u003eGetBlock() !\u003d block) {\n    return false;\n  }\n\ncheck (lines 2776-2778), since other environment use blocks are not important to us anymore.\nOr even better, it might be changed to \n  if (holder-\u003eGetBlock() !\u003d block) {\n    continue;\n  }\n  \nsince, as we said, later block\u0027s environment uses are not important to us.\nThis is also included in the new patchset.",
+      "parentUuid": "1cd225f8_60c26819",
+      "range": {
+        "startLine": 2772,
+        "startChar": 5,
+        "endLine": 2773,
+        "endChar": 83
+      },
+      "revId": "33ced929b01995b90c20b0b5886f628964cee513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
