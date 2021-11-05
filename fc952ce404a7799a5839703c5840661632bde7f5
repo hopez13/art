@@ -233,6 +233,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b887b01_4bc7ad06",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-11-05T14:53:13Z",
+      "side": 1,
+      "message": "I prefer the current approach. I don\u0027t see a reason to try to pack both into single field. It is just less explicit, less debuggable in oatdump, and you need to get the offset right to unpack it properly. It feels more complex / error-prone.",
+      "parentUuid": "a6c85008_e21e5fae",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 57
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f1c80ab_6af2fcdb",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 7
