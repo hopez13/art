@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "855e2c2e_fd158c7a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1831,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 0,
+      "message": "I think we still need this check. For non-trivial class loader contexts there are dex files that shall not have an `OatDexFile` in this oat file.",
+      "range": {
+        "startLine": 1831,
+        "startChar": 13,
+        "endLine": 1831,
+        "endChar": 72
+      },
+      "revId": "10a312cc1c2f43f4bf9a72664e55af35bc27ec89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9ce45571_1d3d0a3e",

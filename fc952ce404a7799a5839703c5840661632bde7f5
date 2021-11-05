@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06608b09_760dc402",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 1,
+      "message": "Too strict. We can use .bss for any dex file that\u0027s compiled into the oat file.\n\nBut this may need some changes in `quick_dexcache_enrypoints.cc` and possibly in code generators and `sharpening.cc`, so a TODO would be appropriate.",
+      "range": {
+        "startLine": 1702,
+        "startChar": 9,
+        "endLine": 1702,
+        "endChar": 62
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a992c44b_cda26e0d",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 7
@@ -184,6 +207,93 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6c85008_e21e5fae",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 1,
+      "message": "I would prefer a single index. The easiest would be to map indexes [0..num_oat_dex_files) to the dex files compiled into the oat file and then [num_oat_dex_files, num_oat_dex_files+num_bcp_dex_files) to the BCP dex files. Keep -1 as \"same dex file\".\n\n(The ranges could be reversed, but then we would want to add the number of BCP files to the oat header to avoid calculation from image \"bootclasspath-checksums\" string and loaded boot images.)",
+      "parentUuid": "7c6e0e21_8e8d628b",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 57
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f1c80ab_6af2fcdb",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 1,
+      "message": "DCHECK(it !\u003d boot_class_path.end());",
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "625a9fdc_88126e96",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 1,
+      "message": "I think you can reference only `codegen_-\u003eGetCompilerOptions().GetDexFilesForOatFile()`.",
+      "range": {
+        "startLine": 236,
+        "startChar": 14,
+        "endLine": 236,
+        "endChar": 72
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdf0a72f_d6324383",
+        "filename": "dex2oat/dex/quick_compiler_callbacks.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 1,
+      "message": "The `CompilerCallbacks` class is for communicating between the runtime and compiler when necessary. It should not be used as internal communication channel within compiler.",
+      "range": {
+        "startLine": 30,
+        "startChar": 44,
+        "endLine": 30,
+        "endChar": 61
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b66c3b4a_4a6abe51",
@@ -322,6 +432,109 @@
         "endLine": 102,
         "endChar": 95
       },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc87d89a_f2a0ec06",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 1,
+      "message": "This is really obsolete now.",
+      "range": {
+        "startLine": 121,
+        "startChar": 14,
+        "endLine": 122,
+        "endChar": 46
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dbdf16d_40ee9a9d",
+        "filename": "test/2237-checker-inline-multidex/info.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 1,
+      "message": "Add a newline at the end.",
+      "range": {
+        "startLine": 1,
+        "startChar": 72,
+        "endLine": 1,
+        "endChar": 73
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17419c45_f12142f6",
+        "filename": "test/2237-checker-inline-multidex/src-multidex/Multi.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 1,
+      "message": "Mark as `$inline$`.",
+      "range": {
+        "startLine": 18,
+        "startChar": 23,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85fecb32_156dd11f",
+        "filename": "test/2237-checker-inline-multidex/src-multidex/Multi.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 1,
+      "message": "Add a newline at the end.",
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5408b273_1ef98a73",
+        "filename": "test/2237-checker-inline-multidex/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-05T14:44:37Z",
+      "side": 1,
+      "message": "Fix indentation: Both InvokeStaticOrDirect shoud start at the same position.\n\nCheck inlined instruction:\n\n  /// CHECK-START: void Main.main(java.lang.String[]) inliner (after)\n  /// CHECK:       StringBuilderAppend",
       "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
