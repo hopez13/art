@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ac544f8_597e4adc",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1465,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-05T10:01:27Z",
+      "side": 1,
+      "message": "This works with jvmti-stress. Only redefining the class (disassembling \u0026 assembling the dex file) seems to be causing the problem. \n\nThis only fails with redefine-stress + jit so we don\u0027t need to disable it on other variants. I updated it to redefine-stress \u0026 jit.",
+      "parentUuid": "765d5762_db0f3f7b",
+      "range": {
+        "startLine": 1465,
+        "startChar": 35,
+        "endLine": 1465,
+        "endChar": 36
+      },
+      "revId": "3713ffa38f8b39079bdb8d970d7cdfcb98fa9d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf705273_70ee1aeb",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-11-04T08:50:36Z",
       "side": 1,
       "message": "\"\u0026\" ?",
+      "range": {
+        "startLine": 1470,
+        "startChar": 36,
+        "endLine": 1470,
+        "endChar": 37
+      },
+      "revId": "3713ffa38f8b39079bdb8d970d7cdfcb98fa9d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54031a01_ef791292",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-05T10:01:27Z",
+      "side": 1,
+      "message": "As discussed offline this should be redefine-stress \u0026 jit | jvmti-stress \u0026 jit.",
+      "parentUuid": "bf705273_70ee1aeb",
       "range": {
         "startLine": 1470,
         "startChar": 36,
