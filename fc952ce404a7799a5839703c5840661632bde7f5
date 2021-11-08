@@ -499,6 +499,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "253fd1f5_fb3bea5f",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-08T11:31:54Z",
+      "side": 1,
+      "message": "Ack. Updated code and commit message.",
+      "parentUuid": "e7a13dd2_3d2cdbcf",
+      "range": {
+        "startLine": 236,
+        "startChar": 14,
+        "endLine": 236,
+        "endChar": 72
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdf0a72f_d6324383",
@@ -536,6 +560,30 @@
       "side": 1,
       "message": "Ack, keeping the comment open while we deal with the other comments and will come back to this.",
       "parentUuid": "fdf0a72f_d6324383",
+      "range": {
+        "startLine": 30,
+        "startChar": 44,
+        "endLine": 30,
+        "endChar": 61
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6994963c_72aa90ac",
+        "filename": "dex2oat/dex/quick_compiler_callbacks.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-08T11:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "833e7ed6_906a4d4f",
       "range": {
         "startLine": 30,
         "startChar": 44,

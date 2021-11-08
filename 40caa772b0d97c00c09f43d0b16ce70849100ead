@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35ebd7ad_50aee052",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-08T11:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4be72a1b_19744c4d",
+      "range": {
+        "startLine": 354,
+        "startChar": 82,
+        "endLine": 355,
+        "endChar": 92
+      },
+      "revId": "40caa772b0d97c00c09f43d0b16ce70849100ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7972af60_7a9c106b",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-08T09:54:38Z",
       "side": 1,
       "message": "Please start a new section with CHECK-START. You\u0027re currently checking that there is a `StringBuilderAppend` and that the is no `InvokeStaticOrDirect` _before_ the `StringBuilderAppend`. We want to check that there is no `InvokeStaticOrDirect` anywhere.",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 38
+      },
+      "revId": "40caa772b0d97c00c09f43d0b16ce70849100ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93eb8c6a_e7de9866",
+        "filename": "test/2237-checker-inline-multidex/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-08T11:31:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7972af60_7a9c106b",
       "range": {
         "startLine": 23,
         "startChar": 2,
