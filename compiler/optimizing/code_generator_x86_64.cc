@@ -36,6 +36,7 @@
 #include "mirror/class-inl.h"
 #include "mirror/object_reference.h"
 #include "mirror/var_handle.h"
+#include "optimizing/nodes.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 #include "utils/assembler.h"
@@ -272,7 +273,8 @@ class LoadClassSlowPathX86_64 : public SlowPathCode {
 
     // Custom calling convention: RAX serves as both input and output.
     if (must_resolve_type) {
-      DCHECK(IsSameDexFile(cls_->GetDexFile(), x86_64_codegen->GetGraph()->GetDexFile()));
+      DCHECK(IsSameDexFile(cls_->GetDexFile(), x86_64_codegen->GetGraph()->GetDexFile()) ||
+             HasSameOatFile(cls_->GetDexFile(), x86_64_codegen->GetGraph()->GetDexFile()));
       dex::TypeIndex type_index = cls_->GetTypeIndex();
       __ movl(CpuRegister(RAX), Immediate(type_index.index_));
       if (cls_->NeedsAccessCheck()) {
@@ -1203,7 +1205,8 @@ void CodeGeneratorX86_64::RecordBootImageMethodPatch(HInvoke* invoke) {
 }
 
 void CodeGeneratorX86_64::RecordMethodBssEntryPatch(HInvoke* invoke) {
-  DCHECK(IsSameDexFile(GetGraph()->GetDexFile(), *invoke->GetMethodReference().dex_file));
+  DCHECK(IsSameDexFile(GetGraph()->GetDexFile(), *invoke->GetMethodReference().dex_file) ||
+         HasSameOatFile(GetGraph()->GetDexFile(), *invoke->GetMethodReference().dex_file));
   method_bss_entry_patches_.emplace_back(invoke->GetMethodReference().dex_file,
                                          invoke->GetMethodReference().index);
   __ Bind(&method_bss_entry_patches_.back().label);
