@@ -16,6 +16,75 @@
       "message": "Thanks Nicolas. I did a couple of aesthetic changes in PS2; PTAL.",
       "revId": "3ac1df7c9cb4114510c192cacf02cf739746bda1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7680dc66_5183f8fb",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-08T20:03:07Z",
+      "side": 1,
+      "message": "Missing \"?",
+      "range": {
+        "startLine": 81,
+        "startChar": 10,
+        "endLine": 81,
+        "endChar": 11
+      },
+      "revId": "3ac1df7c9cb4114510c192cacf02cf739746bda1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b48d70bb_60b7bd03",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-08T20:03:07Z",
+      "side": 1,
+      "message": "Nit: Isn\u0027t this clear enough from searching for the variable name? There\u0027s always the risk that duplicated info like this gets stale.",
+      "range": {
+        "startLine": 81,
+        "startChar": 70,
+        "endLine": 82,
+        "endChar": 33
+      },
+      "revId": "3ac1df7c9cb4114510c192cacf02cf739746bda1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "938a055b_5459061c",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-08T20:03:07Z",
+      "side": 1,
+      "message": "I\u0027ll need to clean this up too in https://r.android.com/1875690, but that\u0027s easier than trying to do it here.",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 360,
+        "endChar": 25
+      },
+      "revId": "3ac1df7c9cb4114510c192cacf02cf739746bda1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
