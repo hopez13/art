@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36be2aeb_773072dd",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-08T19:10:12Z",
+      "side": 1,
+      "message": "I know that this script uses a mix of single- and double-bracket test expressions, but I think we should try to favor the latter for new code (and refactor old uses separately).",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 4
+      },
+      "revId": "0642e5482bdb1ffa534f911d5c8bdb7b53836dde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72295094_dd7f34bd",
+        "filename": "build/apex/runtests.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-08T19:10:12Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 187,
+        "startChar": 7,
+        "endLine": 187,
+        "endChar": 8
+      },
+      "revId": "0642e5482bdb1ffa534f911d5c8bdb7b53836dde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
