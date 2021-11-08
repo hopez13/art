@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "092e5fe1_a3d86efa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-08T15:52:24Z",
+      "side": 1,
+      "message": "(Late review.)",
+      "revId": "7f7f6442ccd272a04c4d21f573ae40f1887b41e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb5bb2fe_cdd3d501",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-08T15:52:24Z",
+      "side": 1,
+      "message": "Could you document the new option here (maybe under the GDB-related options)?",
+      "range": {
+        "startLine": 726,
+        "startChar": 8,
+        "endLine": 726,
+        "endChar": 33
+      },
+      "revId": "7f7f6442ccd272a04c4d21f573ae40f1887b41e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
