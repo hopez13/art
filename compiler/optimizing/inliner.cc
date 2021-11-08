@@ -1712,16 +1712,12 @@ static bool CanEncodeInlinedMethodInStackMap(const DexFile& outer_dex_file,
 
   // Inline across dexfiles if the callee's DexFile is:
   // 1) in the bootclasspath, or
-  if (callee->GetDeclaringClass()->GetClassLoader() == nullptr) {
-    *out_needs_bss_check = true;
-    return true;
-  }
-
   // 2) is a non-BCP dexfile with an OatDexFile.
   const std::vector<const DexFile*>& dex_files =
       codegen->GetCompilerOptions().GetDexFilesForOatFile();
-  if (std::find(dex_files.begin(), dex_files.end(), dex_file) != dex_files.end()) {
-    *out_needs_bss_check = true;
+  if (callee->GetDeclaringClass()->GetClassLoader() == nullptr ||
+      std::find(dex_files.begin(), dex_files.end(), dex_file) != dex_files.end()) {
+    *out_needs_bss_check = !HasSameOatFile(outer_dex_file, *dex_file);
     return true;
   }
 
