@@ -1710,23 +1710,22 @@ static bool CanEncodeInlinedMethodInStackMap(const DexFile& outer_dex_file,
     // JIT can always encode methods in stack maps.
     return true;
   }
+
   const DexFile* dex_file = callee->GetDexFile();
   if (IsSameDexFile(outer_dex_file, *dex_file)) {
     return true;
   }
 
   // Inline across dexfiles if the callee's DexFile is:
-  // 1) in the bootclasspath, or
-  if (callee->GetDeclaringClass()->GetClassLoader() == nullptr) {
-    *out_needs_bss_check = true;
+  // 1) is a dexfile with the OatFile we are compiling, or
+  if (codegen->GetCompilerOptions().WithinOatFile(dex_file)) {
     return true;
   }
 
-  // 2) is a non-BCP dexfile with an OatDexFile.
-  const std::vector<const DexFile*>& dex_files =
-      codegen->GetCompilerOptions().GetDexFilesForOatFile();
-  if (std::find(dex_files.begin(), dex_files.end(), dex_file) != dex_files.end()) {
-    *out_needs_bss_check = true;
+  // 2) is a dexfile in the bootclasspath and not within the OatFile.
+  if (callee->GetDeclaringClass()->GetClassLoader() == nullptr) {
+    // TODO(solanes): Add .bss support across OatFiles for BCP.
+    *out_needs_bss_check = false;
     return true;
   }
 

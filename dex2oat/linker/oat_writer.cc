@@ -944,8 +944,8 @@ class OatWriter::InitBssLayoutMethodVisitor : public DexMethodVisitor {
                        size_t number_of_indexes,
                        /*inout*/ SafeMap<const DexFile*, BitVector>* references) {
     // We currently support inlining of throwing instructions only when they originate in the
-    // same dex file as the outer method. All .bss references are used by throwing instructions.
-    DCHECK_EQ(dex_file_, ref.dex_file);
+    // same oat file as the outer method. All .bss references are used by throwing instructions.
+    DCHECK(writer_->compiler_options_.WithinOatFile(ref.dex_file));
     DCHECK_LT(ref.index, number_of_indexes);
 
     auto refs_it = references->find(ref.dex_file);
