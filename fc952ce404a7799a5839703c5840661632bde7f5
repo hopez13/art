@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e1b6c23_51187c3c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-08T09:54:38Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "13bde245_1ec37e95",
+      "range": {
+        "startLine": 1702,
+        "startChar": 9,
+        "endLine": 1702,
+        "endChar": 62
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a992c44b_cda26e0d",
@@ -327,6 +351,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db3c80ee_8322f396",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-08T09:54:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6285b8c3_c92508bf",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 57
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f1c80ab_6af2fcdb",
@@ -358,6 +406,24 @@
       "side": 1,
       "message": "I removed it since we are verifying the maps below, and I wanted to leave this space only for the main purpose of BeginInlineInfoEntry. WDYT?",
       "parentUuid": "2f1c80ab_6af2fcdb",
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae966ee4_447994d3",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-08T09:54:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "99373e66_09927836",
       "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -399,6 +465,30 @@
       "side": 1,
       "message": "Wouldn\u0027t we be missing the dex files in the Class Loader Context?",
       "parentUuid": "625a9fdc_88126e96",
+      "range": {
+        "startLine": 236,
+        "startChar": 14,
+        "endLine": 236,
+        "endChar": 72
+      },
+      "revId": "fc952ce404a7799a5839703c5840661632bde7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7a13dd2_3d2cdbcf",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-08T09:54:38Z",
+      "side": 1,
+      "message": "Yes but there are no `OatDexFile`s for them.",
+      "parentUuid": "23675677_990a0e9b",
       "range": {
         "startLine": 236,
         "startChar": 14,
