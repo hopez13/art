@@ -22,6 +22,30 @@
       },
       "revId": "de2fcedb5d074f71350f1d724ca144edd783b6e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ea328af_f21cfc78",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-08T13:41:02Z",
+      "side": 1,
+      "message": "I don\u0027t think this CL makes any difference in whether it should be marked as hot. I\u0027m preserving the attribute for now.",
+      "parentUuid": "2c27c3ba_1521042d",
+      "range": {
+        "startLine": 95,
+        "startChar": 42,
+        "endLine": 95,
+        "endChar": 50
+      },
+      "revId": "de2fcedb5d074f71350f1d724ca144edd783b6e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
