@@ -712,6 +712,8 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   static QuickEntrypointEnum GetArrayAllocationEntrypoint(HNewArray* new_array);
   static ScaleFactor ScaleFactorForType(DataType::Type type);
 
+  bool WithinOatFile(const DexFile* dex_file) const;
+
  protected:
   // Patch info used for recording locations of required linker patches and their targets,
   // i.e. target method, string, type or code identified by their dex file and index,
