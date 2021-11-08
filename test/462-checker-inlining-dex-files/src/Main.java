@@ -86,15 +86,15 @@ public class Main {
     return OtherDex.recursiveCall();
   }
 
-  /// CHECK-START: java.lang.String Main.dontInlineReturnString() inliner (before)
+  /// CHECK-START: java.lang.String Main.inlineReturnString() inliner (before)
   /// CHECK-DAG:     <<Invoke:l\d+>>  InvokeStaticOrDirect
   /// CHECK-DAG:                      Return [<<Invoke>>]
 
-  /// CHECK-START: java.lang.String Main.dontInlineReturnString() inliner (after)
-  /// CHECK-DAG:     <<Invoke:l\d+>>  InvokeStaticOrDirect
-  /// CHECK-DAG:                      Return [<<Invoke>>]
+  /// CHECK-START: java.lang.String Main.inlineReturnString() inliner (after)
+  /// CHECK-DAG:    <<Load:l\d+>>     LoadString
+  /// CHECK-DAG:                      Return [<<Load>>]
 
-  public static String dontInlineReturnString() {
+  public static String inlineReturnString() {
     return OtherDex.returnString();
   }
 
@@ -174,7 +174,7 @@ public class Main {
       throw new Error("Expected 42");
     }
 
-    if (dontInlineReturnString() != "OtherDex") {
+    if (inlineReturnString() != "OtherDex") {
       throw new Error("Expected OtherDex");
     }
 

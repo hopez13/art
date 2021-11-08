@@ -63,6 +63,7 @@
 #include "mirror/object-inl.h"
 #include "oat.h"
 #include "oat_quick_method_header.h"
+#include "optimizing/nodes.h"
 #include "profile/profile_compilation_info.h"
 #include "quicken_info.h"
 #include "scoped_thread_state_change-inl.h"
@@ -746,6 +747,10 @@ void OatWriter::Initialize(const CompilerDriver* compiler_driver,
   compiler_driver_ = compiler_driver;
   image_writer_ = image_writer;
   dex_files_ = &dex_files;
+  // for (const auto& entry : *dex_files_) {
+  //   LOG(INFO) << "OatWriter " << entry->GetLocation();
+  // }
+  // LOG(INFO) << "----";
   write_state_ = WriteState::kPrepareLayout;
 }
 
@@ -944,8 +949,9 @@ class OatWriter::InitBssLayoutMethodVisitor : public DexMethodVisitor {
                        size_t number_of_indexes,
                        /*inout*/ SafeMap<const DexFile*, BitVector>* references) {
     // We currently support inlining of throwing instructions only when they originate in the
-    // same dex file as the outer method. All .bss references are used by throwing instructions.
-    DCHECK_EQ(dex_file_, ref.dex_file);
+    // same oat file as the outer method. All .bss references are used by throwing instructions.
+    DCHECK(std::find(writer_->dex_files_->begin(), writer_->dex_files_->end(), ref.dex_file) !=
+           writer_->dex_files_->end());
     DCHECK_LT(ref.index, number_of_indexes);
 
     auto refs_it = references->find(ref.dex_file);
@@ -2196,12 +2202,19 @@ size_t OatWriter::InitIndexBssMappings(size_t offset) {
   size_t number_of_package_type_dex_files = 0u;
   size_t number_of_string_dex_files = 0u;
   PointerSize pointer_size = GetInstructionSetPointerSize(oat_header_->GetInstructionSet());
+  // for (size_t i = 0, size = dex_files_->size(); i != size; ++i) {
+  //   const DexFile* dex_file = (*dex_files_)[i];
+  //   LOG(INFO) << "Initial dex_files_ " << dex_file->GetLocation();
+  // }
+
   for (size_t i = 0, size = dex_files_->size(); i != size; ++i) {
     const DexFile* dex_file = (*dex_files_)[i];
+    // LOG(INFO) << "dex_files_ " << dex_file->GetLocation();
     auto method_it = bss_method_entry_references_.find(dex_file);
     if (method_it != bss_method_entry_references_.end()) {
       const BitVector& method_indexes = method_it->second;
       ++number_of_method_dex_files;
+      // LOG(INFO) << "Found Method Reference " << dex_file->GetLocation();
       oat_dex_files_[i].method_bss_mapping_offset_ = offset;
       offset += CalculateIndexBssMappingSize(
           dex_file->NumMethodIds(),
@@ -2236,8 +2249,10 @@ size_t OatWriter::InitIndexBssMappings(size_t offset) {
       offset += CalculateIndexBssMappingSize(dex_file, type_indexes, bss_package_type_entries_);
     }
 
+    // LOG(INFO) << "dex_files_ " << dex_file->GetLocation();
     auto string_it = bss_string_entry_references_.find(dex_file);
     if (string_it != bss_string_entry_references_.end()) {
+      // LOG(INFO) << "Found string " << dex_file->GetLocation();
       const BitVector& string_indexes = string_it->second;
       ++number_of_string_dex_files;
       oat_dex_files_[i].string_bss_mapping_offset_ = offset;
@@ -2251,10 +2266,16 @@ size_t OatWriter::InitIndexBssMappings(size_t offset) {
     }
   }
   // Check that all dex files targeted by bss entries are in `*dex_files_`.
+  // for (const auto& entry : bss_method_entry_references_) {
+  //   LOG(INFO) << "bss_method_entry_references_ " << entry.first->GetLocation();
+  // }
   CHECK_EQ(number_of_method_dex_files, bss_method_entry_references_.size());
   CHECK_EQ(number_of_type_dex_files, bss_type_entry_references_.size());
   CHECK_EQ(number_of_public_type_dex_files, bss_public_type_entry_references_.size());
   CHECK_EQ(number_of_package_type_dex_files, bss_package_type_entry_references_.size());
+  // for (const auto& entry : bss_string_entry_references_) {
+  //   LOG(INFO) << "bss_string_entry_references_ " << entry.first->GetLocation();
+  // }
   CHECK_EQ(number_of_string_dex_files, bss_string_entry_references_.size());
   return offset;
 }

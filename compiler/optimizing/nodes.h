@@ -49,6 +49,7 @@
 #include "locations.h"
 #include "mirror/class.h"
 #include "mirror/method_type.h"
+#include "oat_file.h"
 #include "offsets.h"
 
 namespace art {
@@ -109,6 +110,11 @@ inline bool IsSameDexFile(const DexFile& lhs, const DexFile& rhs) {
   // use the same DexFile object - doing so is an unsupported hack that can lead to
   // all sorts of weird failures.
   return &lhs == &rhs;
+}
+
+inline bool HasSameOatFile(const DexFile& lhs, const DexFile& rhs) {
+  return lhs.GetOatDexFile()->GetOatFile() != nullptr &&
+         lhs.GetOatDexFile()->GetOatFile() == rhs.GetOatDexFile()->GetOatFile();
 }
 
 enum IfCondition {
@@ -7025,9 +7031,9 @@ class HLoadString final : public HInstruction {
   }
 
   bool IsClonable() const override { return true; }
-  bool NeedsBss() const override {
-    return GetLoadKind() == LoadKind::kBssEntry;
-  }
+  // bool NeedsBss() const override {
+  //   return GetLoadKind() == LoadKind::kBssEntry;
+  // }
 
   void SetLoadKind(LoadKind load_kind);
 
