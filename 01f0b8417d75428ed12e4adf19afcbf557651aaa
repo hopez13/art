@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "aa77f695_a8991620",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-11-08T16:31:50Z",
+      "side": 1,
+      "message": "Thank you for the fix!",
+      "revId": "01f0b8417d75428ed12e4adf19afcbf557651aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "28739f9d_101b2db2",
         "filename": "CleanSpec.mk",
         "patchSetId": 2
@@ -19,6 +36,29 @@
         "startChar": 0,
         "endLine": 101,
         "endChar": 120
+      },
+      "revId": "01f0b8417d75428ed12e4adf19afcbf557651aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41c36345_d5085155",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-11-08T16:31:50Z",
+      "side": 1,
+      "message": "It will be preferable to file a bug for the broken dependency issue to track it.",
+      "range": {
+        "startLine": 118,
+        "startChar": 32,
+        "endLine": 118,
+        "endChar": 66
       },
       "revId": "01f0b8417d75428ed12e4adf19afcbf557651aaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
