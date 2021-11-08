@@ -49,6 +49,7 @@
 #include "locations.h"
 #include "mirror/class.h"
 #include "mirror/method_type.h"
+#include "oat_file.h"
 #include "offsets.h"
 
 namespace art {
@@ -109,6 +110,16 @@ inline bool IsSameDexFile(const DexFile& lhs, const DexFile& rhs) {
   // use the same DexFile object - doing so is an unsupported hack that can lead to
   // all sorts of weird failures.
   return &lhs == &rhs;
+}
+
+inline bool HasSameOatFile(const DexFile& lhs, const DexFile& rhs) {
+  // If the DexFiles don't have a valid OatDexFile or OatFile, we cannot guarantee they will have
+  // the same OatFile.
+  if (lhs.GetOatDexFile() == nullptr || lhs.GetOatDexFile()->GetOatFile() == nullptr ||
+      rhs.GetOatDexFile() == nullptr) {
+    return false;
+  }
+  return lhs.GetOatDexFile()->GetOatFile() == rhs.GetOatDexFile()->GetOatFile();
 }
 
 enum IfCondition {
