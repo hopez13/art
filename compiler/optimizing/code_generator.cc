@@ -258,6 +258,11 @@ ScopedArenaAllocator* CodeGenerator::GetScopedAllocator() {
   return code_generation_data_->GetScopedAllocator();
 }
 
+bool CodeGenerator::WithinOatFile(const DexFile* inlined_dex_file) const {
+  const std::vector<const DexFile*>& dex_files = compiler_options_.GetDexFilesForOatFile();
+  return std::find(dex_files.begin(), dex_files.end(), inlined_dex_file) != dex_files.end();
+}
+
 StackMapStream* CodeGenerator::GetStackMapStream() {
   DCHECK(code_generation_data_ != nullptr);
   return code_generation_data_->GetStackMapStream();

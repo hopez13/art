@@ -38,6 +38,7 @@
 #include "mirror/array-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/var_handle.h"
+#include "optimizing/nodes.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 #include "utils/arm/assembler_arm_vixl.h"
@@ -529,7 +530,8 @@ class LoadClassSlowPathARMVIXL : public SlowPathCodeARMVIXL {
 
     InvokeRuntimeCallingConventionARMVIXL calling_convention;
     if (must_resolve_type) {
-      DCHECK(IsSameDexFile(cls_->GetDexFile(), arm_codegen->GetGraph()->GetDexFile()));
+      DCHECK(IsSameDexFile(cls_->GetDexFile(), arm_codegen->GetGraph()->GetDexFile()) ||
+             arm_codegen->WithinOatFile(&arm_codegen->GetGraph()->GetDexFile()));
       dex::TypeIndex type_index = cls_->GetTypeIndex();
       __ Mov(calling_convention.GetRegisterAt(0), type_index.index_);
       if (cls_->NeedsAccessCheck()) {

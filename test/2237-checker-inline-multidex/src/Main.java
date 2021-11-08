@@ -15,15 +15,42 @@
  */
 
 public class Main {
-  /// CHECK-START: void Main.main(java.lang.String[]) inliner (before)
-  /// CHECK:       InvokeStaticOrDirect method_name:Multi.$inline$doThings
-
-  /// CHECK-START: void Main.main(java.lang.String[]) inliner (after)
-  /// CHECK-NOT:   InvokeStaticOrDirect method_name:Multi.$inline$doThings
-
-  /// CHECK-START: void Main.main(java.lang.String[]) inliner (after)
-  /// CHECK:       StringBuilderAppend
   public static void main(String[] args) {
-    Multi.$inline$doThings("abc");
+    testNeedsEnvironment();
+    testNeedsBssEntryString();
+    testNeedsBssEntryInvoke();
+  }
+  
+  /// CHECK-START: void Main.testNeedsEnvironment() inliner (before)
+  /// CHECK:       InvokeStaticOrDirect method_name:Multi.$inline$NeedsEnvironmentMultiDex
+
+  /// CHECK-START: void Main.testNeedsEnvironment() inliner (after)
+  /// CHECK-NOT:   InvokeStaticOrDirect method_name:Multi.$inline$NeedsEnvironmentMultiDex
+
+  /// CHECK-START: void Main.testNeedsEnvironment() inliner (after)
+  /// CHECK:       StringBuilderAppend
+  public static void testNeedsEnvironment() {
+    Multi.$inline$NeedsEnvironmentMultiDex("abc");
+  }
+
+  /// CHECK-START: void Main.testNeedsBssEntryString() inliner (before)
+  /// CHECK:       InvokeStaticOrDirect method_name:Multi.$inline$NeedsBssEntryStringMultiDex
+
+  /// CHECK-START: void Main.testNeedsBssEntryString() inliner (after)
+  /// CHECK-NOT:   InvokeStaticOrDirect method_name:Multi.$inline$NeedsBssEntryStringMultiDex
+  public static void testNeedsBssEntryString() {
+    Multi.$inline$NeedsBssEntryStringMultiDex();
+  }
+
+  /// CHECK-START: void Main.testNeedsBssEntryInvoke() inliner (before)
+  /// CHECK:       InvokeStaticOrDirect method_name:Multi.$inline$NeedsBssEntryInvokeMultiDex
+
+  /// CHECK-START: void Main.testNeedsBssEntryInvoke() inliner (after)
+  /// CHECK-NOT:   InvokeStaticOrDirect method_name:Multi.$inline$NeedsBssEntryInvokeMultiDex
+
+  /// CHECK-START: void Main.testNeedsBssEntryInvoke() inliner (after)
+  /// CHECK:       InvokeStaticOrDirect method_name:Multi.$noinline$InnerInvokeMultiDex
+  public static void testNeedsBssEntryInvoke() {
+    Multi.$inline$NeedsBssEntryInvokeMultiDex();
   }
 }

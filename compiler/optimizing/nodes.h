@@ -49,6 +49,7 @@
 #include "locations.h"
 #include "mirror/class.h"
 #include "mirror/method_type.h"
+#include "oat_file.h"
 #include "offsets.h"
 
 namespace art {
