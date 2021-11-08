@@ -47,7 +47,8 @@ $(info Disabling ART_BUILD_HOST_DEBUG)
 endif
 
 # Enable the read barrier by default.
-ART_USE_READ_BARRIER ?= true
+# TODO(Simulator): Support read barriers.
+ART_USE_READ_BARRIER ?= false
 
 # Default compact dex level to none.
 ifeq ($(ART_DEFAULT_COMPACT_DEX_LEVEL),)

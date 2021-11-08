@@ -776,6 +776,12 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
     return nullptr;
   }
 
+  // TODO(Simulator): support and compile all methods.
+  std::string method_name = dex_file.PrettyMethod(method_idx);
+  if (!ShouldMethodBeCompiled(method_name)) {
+    return nullptr;
+  }
+
   CodeItemDebugInfoAccessor code_item_accessor(dex_file, code_item, method_idx);
 
   bool dead_reference_safe;
@@ -1049,19 +1055,7 @@ CompiledMethod* OptimizingCompiler::Compile(const dex::CodeItem* code_item,
     // Go to native so that we don't block GC during compilation.
     ScopedThreadSuspension sts(soa.Self(), ThreadState::kNative);
     // Try to compile a fully intrinsified implementation.
-    if (method != nullptr && UNLIKELY(method->IsIntrinsic())) {
-      DCHECK(compiler_options.IsBootImage());
-      codegen.reset(
-          TryCompileIntrinsic(&allocator,
-                              &arena_stack,
-                              &code_allocator,
-                              dex_compilation_unit,
-                              method,
-                              &handles));
-      if (codegen != nullptr) {
-        compiled_intrinsic = true;
-      }
-    }
+    // TODO(Simulator): Reenable compilation of intrinsics.
     if (codegen == nullptr) {
       codegen.reset(
           TryCompile(&allocator,
@@ -1098,17 +1092,7 @@ CompiledMethod* OptimizingCompiler::Compile(const dex::CodeItem* code_item,
     }
   }
 
-  if (kIsDebugBuild &&
-      compiler_options.CompileArtTest() &&
-      IsInstructionSetSupported(compiler_options.GetInstructionSet())) {
-    // For testing purposes, we put a special marker on method names
-    // that should be compiled with this compiler (when the
-    // instruction set is supported). This makes sure we're not
-    // regressing.
-    std::string method_name = dex_file.PrettyMethod(method_idx);
-    bool shouldCompile = method_name.find("$opt$") != std::string::npos;
-    DCHECK((compiled_method != nullptr) || !shouldCompile) << "Didn't compile " << method_name;
-  }
+  // TODO(Simulator): Check for $opt in method name and that such method is compiled.
 
   return compiled_method;
 }
