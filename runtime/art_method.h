@@ -907,6 +907,14 @@ class MethodCallback {
       REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 };
 
+// Returns whether an ArtMethod, specified by a name, should be compiled.
+//
+// In simulator mode, the simulator will execute only those methods which are compiled; thus
+// this is going to be an effective filter for methods to be simulated.
+//
+// TODO(simulator): compile and simulate all the methods as in regular host mode.
+bool ShouldMethodBeCompiled(const std::string& method_name);
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_ART_METHOD_H_

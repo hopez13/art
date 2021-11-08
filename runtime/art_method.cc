@@ -858,4 +858,51 @@ ALWAYS_INLINE static inline void DoGetAccessFlagsHelper(ArtMethod* method)
         method->GetDeclaringClass<kReadBarrierOption>()->IsErroneous());
 }
 
+static constexpr bool kUseMethodAllowListForCompilation = true;
+
+bool ShouldMethodBeCompiled(const std::string& method_name) {
+  if (kUseMethodAllowListForCompilation) {
+    if (method_name.find("$compile$") != std::string::npos) {
+      return true;
+    }
+
+    static const std::vector<std::string> method_allow_list {
+      // Add any run test methods you want to compile here, for example:
+      // test/684-checker-simd-dotprod
+      // "other.TestByte.testDotProdComplex",
+      // "other.TestByte.testDotProdComplexSignedCastedToUnsigned",
+      // "other.TestByte.testDotProdComplexUnsigned",
+      // "other.TestByte.testDotProdComplexUnsignedCastedToSigned",
+    };
+
+    for (auto& s : method_allow_list) {
+      if (method_name.find(s) != std::string::npos) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  static const std::vector<std::string> method_block_list = {
+    // For now, we can focus on compiling run test methods called by main().
+    "main",
+    "<clinit>",
+    // Currently, we don't compile Java library methods.
+    "java.",
+    "sun.",
+    "dalvik.",
+    "android.",
+    "libcore.",
+  };
+
+  // Avoid compiling following methods.
+  for (auto& s : method_block_list) {
+    if (method_name.find(s) != std::string::npos) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 }  // namespace art

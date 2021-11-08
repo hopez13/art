@@ -40,7 +40,8 @@ func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 
 	tlab := false
 
-	gcType := ctx.Config().GetenvWithDefault("ART_DEFAULT_GC_TYPE", "CMS")
+	// TODO(simulator): support other GC types.
+	gcType := ctx.Config().GetenvWithDefault("ART_DEFAULT_GC_TYPE", "MS")
 
 	if ctx.Config().IsEnvTrue("ART_TEST_DEBUG_GC") {
 		gcType = "SS"
@@ -58,22 +59,6 @@ func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 	}
 	if ctx.Config().IsEnvTrue("ART_USE_CXX_INTERPRETER") {
 		cflags = append(cflags, "-DART_USE_CXX_INTERPRETER=1")
-	}
-
-	if !ctx.Config().IsEnvFalse("ART_USE_READ_BARRIER") && ctx.Config().ArtUseReadBarrier() {
-		// Used to change the read barrier type. Valid values are BAKER, TABLELOOKUP.
-		// The default is BAKER.
-		barrierType := ctx.Config().GetenvWithDefault("ART_READ_BARRIER_TYPE", "BAKER")
-		cflags = append(cflags,
-			"-DART_USE_READ_BARRIER=1",
-			"-DART_READ_BARRIER_TYPE_IS_"+barrierType+"=1")
-		asflags = append(asflags,
-			"-DART_USE_READ_BARRIER=1",
-			"-DART_READ_BARRIER_TYPE_IS_"+barrierType+"=1")
-	}
-
-	if !ctx.Config().IsEnvFalse("ART_USE_GENERATIONAL_CC") {
-		cflags = append(cflags, "-DART_USE_GENERATIONAL_CC=1")
 	}
 
 	cdexLevel := ctx.Config().GetenvWithDefault("ART_DEFAULT_COMPACT_DEX_LEVEL", "fast")

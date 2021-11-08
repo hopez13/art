@@ -98,7 +98,10 @@ class CompilerOptions final {
   }
 
   bool IsJniCompilationEnabled() const {
-    return CompilerFilter::IsJniCompilationEnabled(compiler_filter_);
+    // TODO(Simulator): Support JNICompiler.
+    // Without the JNI compiler, GenericJNITrampoline will be used for JNI calls; this will make
+    // it easier to start off the simulator mode.
+    return false;
   }
 
   bool IsVerificationEnabled() const {
