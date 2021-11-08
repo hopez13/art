@@ -34,7 +34,10 @@ namespace art {
 namespace interpreter {
 
 bool IsNterpSupported() {
-  return !kPoisonHeapReferences && kUseReadBarrier;
+  // TODO(Simulator): Support Nterp.
+  // Nterp uses the native stack and quick stack frame layout; this will be a complication
+  // for the simulator mode. We should use switch interpreter only for now.
+  return false;
 }
 
 bool CanRuntimeUseNterp() REQUIRES_SHARED(Locks::mutator_lock_) {

@@ -67,6 +67,8 @@ static constexpr CollectorType kCollectorTypeDefault =
     kCollectorTypeCMS
 #elif ART_DEFAULT_GC_TYPE_IS_SS
     kCollectorTypeSS
+#elif ART_DEFAULT_GC_TYPE_IS_MS
+    kCollectorTypeMS
 #else
     kCollectorTypeCMS
 #error "ART default GC type must be set"
