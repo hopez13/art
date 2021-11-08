@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "64dd472c_31de2a89",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1831,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-08T09:04:48Z",
+      "side": 0,
+      "message": "From what I could see in dex2oat, we gather the non-BCP dexfiles from either the class loader context, or the compiler options (dex_files_for_oat_file_). Are you saying that the ones in the class loader context will not have an oat dex file?\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/dex2oat/dex2oat.cc;l\u003d1829?q\u003ddex2oat.cc\u0026ss\u003dandroid%2Fplatform%2Fsuperproject",
+      "parentUuid": "855e2c2e_fd158c7a",
+      "range": {
+        "startLine": 1831,
+        "startChar": 13,
+        "endLine": 1831,
+        "endChar": 72
+      },
+      "revId": "10a312cc1c2f43f4bf9a72664e55af35bc27ec89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9ce45571_1d3d0a3e",
