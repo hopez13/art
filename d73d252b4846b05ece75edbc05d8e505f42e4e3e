@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9234aff4_95900ac7",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-08T11:47:30Z",
+      "side": 1,
+      "message": "Forward declaration should be enough here. Move the #include to the .cc file.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 38
+      },
+      "revId": "d73d252b4846b05ece75edbc05d8e505f42e4e3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ea43c6_4d517e29",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-08T11:47:30Z",
+      "side": 1,
+      "message": "Remove (merge statements).",
+      "range": {
+        "startLine": 354,
+        "startChar": 83,
+        "endLine": 355,
+        "endChar": 20
+      },
+      "revId": "d73d252b4846b05ece75edbc05d8e505f42e4e3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "960d978f_0639bd2f",
+        "filename": "test/2237-checker-inline-multidex/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-08T11:47:30Z",
+      "side": 1,
+      "message": "Unnecesary.",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 66
+      },
+      "revId": "d73d252b4846b05ece75edbc05d8e505f42e4e3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
