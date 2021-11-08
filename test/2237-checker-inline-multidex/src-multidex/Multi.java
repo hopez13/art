@@ -15,9 +15,13 @@
  */
 
 public class Multi {
-  public static String $inline$doThings(String str) {
+  public static String $inline$NeedsEnvironmentMultiDex(String str) {
     // StringBuilderAppend needs an environment but it doesn't need a .bss entry.
     StringBuilder sb = new StringBuilder();
     return sb.append(str).toString();
+  }
+
+  public static String NeedsBssEntryMultiDex() {
+    return "def";
   }
 }

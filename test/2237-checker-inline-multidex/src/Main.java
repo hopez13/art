@@ -15,15 +15,29 @@
  */
 
 public class Main {
-  /// CHECK-START: void Main.main(java.lang.String[]) inliner (before)
-  /// CHECK:       InvokeStaticOrDirect method_name:Multi.$inline$doThings
-
-  /// CHECK-START: void Main.main(java.lang.String[]) inliner (after)
-  /// CHECK-NOT:   InvokeStaticOrDirect method_name:Multi.$inline$doThings
-
-  /// CHECK-START: void Main.main(java.lang.String[]) inliner (after)
-  /// CHECK:       StringBuilderAppend
   public static void main(String[] args) {
-    Multi.$inline$doThings("abc");
+    // testNeedsEnvironment();
+    testNeedsBssEntry();
+  }
+  
+  /// CHECK-START: void Main.testNeedsEnvironment() inliner (before)
+  /// CHECK:       InvokeStaticOrDirect method_name:Multi.$inline$NeedsEnvironmentMultiDex
+
+  /// CHECK-START: void Main.testNeedsEnvironment() inliner (after)
+  /// CHECK-NOT:   InvokeStaticOrDirect method_name:Multi.$inline$NeedsEnvironmentMultiDex
+
+  /// CHECK-START: void Main.testNeedsEnvironment() inliner (after)
+  /// CHECK:       StringBuilderAppend
+  public static void testNeedsEnvironment() {
+    Multi.$inline$NeedsEnvironmentMultiDex("abc");
+  }
+
+  /// CHECK-START: void Main.testNeedsBssEntry() inliner (before)
+  /// CHECK:       InvokeStaticOrDirect method_name:Multi.NeedsBssEntryMultiDex
+
+  /// CHECK-START: void Main.testNeedsBssEntry() inliner (after)
+  /// CHECK-NOT:   InvokeStaticOrDirect method_name:Multi.NeedsBssEntryMultiDex
+  public static void testNeedsBssEntry() {
+    Multi.NeedsBssEntryMultiDex();
   }
 }
