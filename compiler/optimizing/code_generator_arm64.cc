@@ -1164,7 +1164,8 @@ void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* in
 }
 
 void InstructionCodeGeneratorARM64::VisitMethodExitHook(HMethodExitHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
+  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() &&
+         (GetGraph()->IsDebuggable() || GetGraph()->NeedsInstrumentationSupport()));
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }
@@ -1174,7 +1175,8 @@ void LocationsBuilderARM64::VisitMethodEntryHook(HMethodEntryHook* method_hook) 
 }
 
 void InstructionCodeGeneratorARM64::VisitMethodEntryHook(HMethodEntryHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
+  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() &&
+         (GetGraph()->IsDebuggable() || GetGraph()->NeedsInstrumentationSupport()));
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }

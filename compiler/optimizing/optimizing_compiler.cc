@@ -800,6 +800,8 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
     dead_reference_safe = false;
   }
 
+  bool needs_instrumentation_support =
+      Runtime::Current()->GetInstrumentation()->NeedInstrumentationSupportForJIT();
   HGraph* graph = new (allocator) HGraph(
       allocator,
       arena_stack,
@@ -807,6 +809,7 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
       dex_file,
       method_idx,
       compiler_options.GetInstructionSet(),
+      needs_instrumentation_support,
       kInvalidInvokeType,
       dead_reference_safe,
       compiler_options.GetDebuggable(),
@@ -932,6 +935,7 @@ CodeGenerator* OptimizingCompiler::TryCompileIntrinsic(
       dex_file,
       method_idx,
       compiler_options.GetInstructionSet(),
+      /* needs_instrumentation_support= */ false,  // Aot compilation doesn't need this.
       kInvalidInvokeType,
       /* dead_reference_safe= */ true,  // Intrinsics don't affect dead reference safety.
       compiler_options.GetDebuggable(),
@@ -1296,7 +1300,8 @@ bool OptimizingCompiler::JitCompile(Thread* self,
                             /* is_full_debug_info= */ compiler_options.GetGenerateDebugInfo(),
                             compilation_kind,
                             /* has_should_deoptimize_flag= */ false,
-                            cha_single_implementation_list)) {
+                            cha_single_implementation_list,
+                            /* has_instrumentation_support= */ false)) {
       code_cache->Free(self, region, reserved_code.data(), reserved_data.data());
       return false;
     }
@@ -1404,7 +1409,8 @@ bool OptimizingCompiler::JitCompile(Thread* self,
                           /* is_full_debug_info= */ compiler_options.GetGenerateDebugInfo(),
                           compilation_kind,
                           codegen->GetGraph()->HasShouldDeoptimizeFlag(),
-                          codegen->GetGraph()->GetCHASingleImplementationList())) {
+                          codegen->GetGraph()->GetCHASingleImplementationList(),
+                          codegen->GetGraph()->NeedsInstrumentationSupport())) {
     code_cache->Free(self, region, reserved_code.data(), reserved_data.data());
     return false;
   }

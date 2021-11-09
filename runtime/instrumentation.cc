@@ -234,13 +234,6 @@ bool Instrumentation::CodeNeedsEntryExitStub(const void* code, ArtMethod* method
     return true;
   }
 
-  // When jiting code for debuggable apps we generate the code to call method
-  // entry / exit hooks when required. Hence it is not required to update
-  // to instrumentation entry point for JITed code in debuggable mode.
-  if (!Runtime::Current()->IsJavaDebuggable()) {
-    return true;
-  }
-
   // Native functions can have JITed entry points but we don't include support
   // for calling entry / exit hooks directly from the JITed code for native
   // functions. So we still have to install entry exit stubs for such cases.
@@ -790,6 +783,35 @@ void Instrumentation::EnableSingleThreadDeopt() {
 }
 
 void Instrumentation::UpdateInstrumentationLevel(InstrumentationLevel requested_level) {
+  if (requested_level == instrumentation_level_) {
+    return;
+  }
+
+  if (requested_level == InstrumentationLevel::kInstrumentWithInstrumentationStubs) {
+    // In non-debuggable apps JITed code doesn't include code to call method
+    // entry / exit hooks by default. So discard all the JITed code here so we
+    // can re-jit with the support when the methods become hot again.
+    // For debuggable apps JITed code calls method entry / exit hooks when
+    // required so nothing needs to be done there.
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    if (jit != nullptr) {
+      jit->GetCodeCache()->InvalidateAllCompiledCodeForInstrumentation(
+          /* needs_instrumentation_support= */ true);
+    }
+  }
+
+  // We are moving away from instrument with stubs. It is OK to keep the JITed
+  // code here but they do contain instrumentation support. To be consistent
+  // just discard the code here so it will recompile without instrumentation
+  // support.
+  if (instrumentation_level_ == InstrumentationLevel::kInstrumentWithInstrumentationStubs) {
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    if (jit != nullptr) {
+      jit->GetCodeCache()->InvalidateAllCompiledCodeForInstrumentation(
+          /* needs_instrumentation_support= */ false);
+    }
+  }
+
   instrumentation_level_ = requested_level;
 }
 

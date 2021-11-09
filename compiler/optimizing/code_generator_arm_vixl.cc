@@ -2159,7 +2159,8 @@ void InstructionCodeGeneratorARMVIXL::GenerateMethodEntryExitHook(HInstruction* 
 }
 
 void InstructionCodeGeneratorARMVIXL::VisitMethodExitHook(HMethodExitHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
+  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() &&
+         (GetGraph()->IsDebuggable() || GetGraph()->NeedsInstrumentationSupport()));
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }
@@ -2169,7 +2170,8 @@ void LocationsBuilderARMVIXL::VisitMethodEntryHook(HMethodEntryHook* method_hook
 }
 
 void InstructionCodeGeneratorARMVIXL::VisitMethodEntryHook(HMethodEntryHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
+  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() &&
+         (GetGraph()->IsDebuggable() || GetGraph()->NeedsInstrumentationSupport()));
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }
