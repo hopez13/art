@@ -295,6 +295,9 @@ class HInstructionBuilder : public ValueObject {
 
   ObjPtr<mirror::Class> LookupReferrerClass() const REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Returns if we need to generate code to call method entry / exit hooks.
+  bool NeedsInstrumentationSupport();
+
   ArenaAllocator* const allocator_;
   HGraph* const graph_;
 
