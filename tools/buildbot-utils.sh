@@ -35,3 +35,25 @@ if [ -t 1 ]; then
 
   nc='\033[0m'
 fi
+
+function msginfo() {
+  heading="$1"
+  shift
+  message="$*"
+  echo -e "${green}${heading}${nc} ${message}"
+}
+
+function msgwarning() {
+  message="$*"
+  echo -e "${boldmagenta}Warning: ${nc}${message}"
+}
+
+function msgerror() {
+  message="$*"
+  echo -e "${boldred}Error: ${nc}${message}"
+}
+
+function msgnote() {
+  message="$*"
+  echo -e "${boldcyan}Note: ${nc}${message}"
+}
