@@ -80,6 +80,30 @@
       },
       "revId": "b4a46c4e7db52d549f9bbc580e43e8257da96c46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e20dc2b_26d9dfe3",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-09T18:23:01Z",
+      "side": 1,
+      "message": "If I were to review that CL I\u0027d still consider lowercase initial letters grammar errors, and at odds with error messages in our scripts in general. But sure, it\u0027s just a nit after all, and probably better to address in that CL in any case.",
+      "parentUuid": "62b6097e_342f82b3",
+      "range": {
+        "startLine": 392,
+        "startChar": 22,
+        "endLine": 392,
+        "endChar": 23
+      },
+      "revId": "b4a46c4e7db52d549f9bbc580e43e8257da96c46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
