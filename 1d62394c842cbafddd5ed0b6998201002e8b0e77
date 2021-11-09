@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dc2a02a_35062cee",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-09T21:32:01Z",
+      "side": 1,
+      "message": "Nit: Uppercase please.",
+      "range": {
+        "startLine": 392,
+        "startChar": 11,
+        "endLine": 392,
+        "endChar": 12
+      },
+      "revId": "1d62394c842cbafddd5ed0b6998201002e8b0e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a00a133_24d30b3a",
+        "filename": "tools/buildbot-teardown-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-09T21:32:01Z",
+      "side": 1,
+      "message": "Nit: Clean up trailing space.",
+      "range": {
+        "startLine": 143,
+        "startChar": 43,
+        "endLine": 143,
+        "endChar": 44
+      },
+      "revId": "1d62394c842cbafddd5ed0b6998201002e8b0e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f37660_bbb1b014",
+        "filename": "tools/buildbot-utils.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-09T21:32:01Z",
+      "side": 1,
+      "message": "Is this first argument special case useful? I can only see it having effect in a single call, and that looks like a bug:\n\n    msginfo \"Kill processes still running from binaries under\" \\\n      \"chroot dir $ART_TEST_CHROOT (if any) \"",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 7
+      },
+      "revId": "1d62394c842cbafddd5ed0b6998201002e8b0e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5646e64e_d1e13499",
+        "filename": "tools/buildbot-utils.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-09T21:32:01Z",
+      "side": 1,
+      "message": "I think this works, but \"$*\" is a bit less confusing here since you do want to combine the arguments to a single string.",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 42,
+        "endChar": 13
+      },
+      "revId": "1d62394c842cbafddd5ed0b6998201002e8b0e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b81a92_5f9de596",
+        "filename": "tools/buildbot-utils.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-09T21:32:01Z",
+      "side": 1,
+      "message": "Please uppercase on these prefixes.",
+      "range": {
+        "startLine": 48,
+        "startChar": 25,
+        "endLine": 48,
+        "endChar": 26
+      },
+      "revId": "1d62394c842cbafddd5ed0b6998201002e8b0e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
