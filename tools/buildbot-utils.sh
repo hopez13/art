@@ -40,7 +40,7 @@ function msginfo() {
   heading="$1"
   shift
   message="$@"
-  echo -e "${green}${heading}${nc}${message}"
+  echo -e "${green}${heading}${nc} ${message}"
 }
 
 function msgwarning() {
