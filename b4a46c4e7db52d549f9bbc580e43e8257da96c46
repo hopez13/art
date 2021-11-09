@@ -104,6 +104,30 @@
       },
       "revId": "b4a46c4e7db52d549f9bbc580e43e8257da96c46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95801f6d_37896d4a",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-09T18:26:28Z",
+      "side": 1,
+      "message": "I just followed the format emitted by C++ compiler which I\u0027m used to. But it will be really easy to change when https://r.android.com/c/1885615/1 lands. I can change it there if you prefer other format. I added you to review.",
+      "parentUuid": "0e20dc2b_26d9dfe3",
+      "range": {
+        "startLine": 392,
+        "startChar": 22,
+        "endLine": 392,
+        "endChar": 23
+      },
+      "revId": "b4a46c4e7db52d549f9bbc580e43e8257da96c46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
