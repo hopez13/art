@@ -790,6 +790,35 @@ void Instrumentation::EnableSingleThreadDeopt() {
 }
 
 void Instrumentation::UpdateInstrumentationLevel(InstrumentationLevel requested_level) {
+  if (requested_level == instrumentation_level_) {
+    return;
+  }
+
+  if (requested_level == InstrumentationLevel::kInstrumentWithInstrumentationStubs) {
+    // In non-debuggable apps JITed code doesn't include code to call method
+    // entry / exit hooks by default. So discard all the JITed code here so we
+    // can re-jit with the support when the methods become hot again.
+    // For debuggable apps JITed code calls method entry / exit hooks when
+    // required so nothing needs to be done there.
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    if (jit != nullptr) {
+      jit->GetCodeCache()->InvalidateAllCompiledCodeAndUpdateInstrumentation(
+          /* needs_instrumentation_support= */ true);
+    }
+  }
+
+  // We are moving away from instrument with stubs. It is OK to keep the JITed
+  // code here but they do contain instrumentation support. To be consistent
+  // just discard the code here so it will recompile without instrumentation
+  // support.
+  if (instrumentation_level_ == InstrumentationLevel::kInstrumentWithInstrumentationStubs) {
+    jit::Jit* jit = Runtime::Current()->GetJit();
+    if (jit != nullptr) {
+      jit->GetCodeCache()->InvalidateAllCompiledCodeAndUpdateInstrumentation(
+          /* needs_instrumentation_support= */ false);
+    }
+  }
+
   instrumentation_level_ = requested_level;
 }
 

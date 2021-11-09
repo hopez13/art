@@ -254,7 +254,8 @@ class OptimizingUnitTestHelper {
         handles,
         *dex_files_.back(),
         /*method_idx*/-1,
-        kRuntimeISA);
+        kRuntimeISA,
+        /*needs_instrumentation_support*/false);
     return graph_;
   }
 
