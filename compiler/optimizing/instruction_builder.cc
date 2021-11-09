@@ -347,6 +347,17 @@ static bool IsBlockPopulated(HBasicBlock* block) {
   }
 }
 
+bool HInstructionBuilder::NeedsInstrumentationSupport() {
+  if (code_generator_ == nullptr || !code_generator_->GetCompilerOptions().IsJitCompiler()) {
+    // We don't need instrumentation support AOT code.
+    return false;
+  }
+  // For debuggable apps we always compile with instrumentation support. For
+  // non-debuggable apps we include instrumentation code only when
+  // instrumentation is enabled.
+  return graph_->IsInstrumentationEnabled() || graph_->IsDebuggable();
+}
+
 bool HInstructionBuilder::Build() {
   DCHECK(code_item_accessor_.HasCodeItem());
   locals_for_.resize(
@@ -372,7 +383,7 @@ bool HInstructionBuilder::Build() {
     if (current_block_->IsEntryBlock()) {
       InitializeParameters();
       AppendInstruction(new (allocator_) HSuspendCheck(0u));
-      if (graph_->IsDebuggable() && code_generator_->GetCompilerOptions().IsJitCompiler()) {
+      if (NeedsInstrumentationSupport()) {
         AppendInstruction(new (allocator_) HMethodEntryHook(0u));
       }
       AppendInstruction(new (allocator_) HGoto(0u));
@@ -825,7 +836,7 @@ void HInstructionBuilder::BuildReturn(const Instruction& instruction,
           compilation_stats_,
           MethodCompilationStat::kConstructorFenceGeneratedFinal);
     }
-    if (graph_->IsDebuggable() && code_generator_->GetCompilerOptions().IsJitCompiler()) {
+    if (NeedsInstrumentationSupport()) {
       // Return value is not used for void functions. We pass NullConstant to
       // avoid special cases when generating code.
       AppendInstruction(new (allocator_) HMethodExitHook(graph_->GetNullConstant(), dex_pc));
@@ -834,7 +845,7 @@ void HInstructionBuilder::BuildReturn(const Instruction& instruction,
   } else {
     DCHECK(!RequiresConstructorBarrier(dex_compilation_unit_));
     HInstruction* value = LoadLocal(instruction.VRegA(), type);
-    if (graph_->IsDebuggable() && code_generator_->GetCompilerOptions().IsJitCompiler()) {
+    if (NeedsInstrumentationSupport()) {
       AppendInstruction(new (allocator_) HMethodExitHook(value, dex_pc));
     }
     AppendInstruction(new (allocator_) HReturn(value, dex_pc));

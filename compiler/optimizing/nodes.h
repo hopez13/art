@@ -379,6 +379,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
          const DexFile& dex_file,
          uint32_t method_idx,
          InstructionSet instruction_set,
+         bool is_instrumentation_enabled,
          InvokeType invoke_type = kInvalidInvokeType,
          bool dead_reference_safe = false,
          bool debuggable = false,
@@ -406,6 +407,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         has_direct_critical_native_call_(false),
         dead_reference_safe_(dead_reference_safe),
         debuggable_(debuggable),
+        is_instrumentation_enabled_(is_instrumentation_enabled),
         current_instruction_id_(start_instruction_id),
         dex_file_(dex_file),
         method_idx_(method_idx),
@@ -617,6 +619,10 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   void MarkDeadReferenceUnsafe() { dead_reference_safe_ = false; }
 
   bool IsDebuggable() const { return debuggable_; }
+
+  // Returns if instrumentation is enabled. For non-debuggable we use this to
+  // determine if it is required to generate code for method entry / exit hooks.
+  bool IsInstrumentationEnabled() const { return is_instrumentation_enabled_; }
 
   // Returns a constant of the given type and value. If it does not exist
   // already, it is created and inserted into the graph. This method is only for
@@ -832,6 +838,11 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // ensures full debuggability. If false, we can apply more
   // aggressive optimizations that may limit the level of debugging.
   const bool debuggable_;
+
+  // Indicates if instrumentation is enabled. For non-debuggable, it is required
+  // to generate code for method entry / exit hooks if instrumentation is
+  // enabled. For debuggable jited code always has instrumentation support.
+  const bool is_instrumentation_enabled_;
 
   // The current id to assign to a newly added instruction. See HInstruction.id_.
   int32_t current_instruction_id_;
