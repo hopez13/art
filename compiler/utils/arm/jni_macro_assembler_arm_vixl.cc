@@ -451,7 +451,6 @@ static inline bool NoSpillGap(const ArgumentLocation& loc1, const ArgumentLocati
   DCHECK(!loc2.IsRegister());
   uint32_t loc1_offset = loc1.GetFrameOffset().Uint32Value();
   uint32_t loc2_offset = loc2.GetFrameOffset().Uint32Value();
-  DCHECK_LT(loc1_offset, loc2_offset);
   return loc1_offset + loc1.GetSize() == loc2_offset;
 }
 
@@ -583,17 +582,11 @@ void ArmVIXLJNIMacroAssembler::MoveArguments(ArrayRef<ArgumentLocation> dests,
   }
 
   // Native ABI is soft-float, so all destinations should be core registers or stack offsets.
-  // And register locations should be first, followed by stack locations with increasing offset.
+  // And register locations should be first, followed by stack locations.
   auto is_register = [](const ArgumentLocation& loc) { return loc.IsRegister(); };
   DCHECK(std::is_partitioned(dests.begin(), dests.end(), is_register));
   size_t num_reg_dests =
       std::distance(dests.begin(), std::partition_point(dests.begin(), dests.end(), is_register));
-  DCHECK(std::is_sorted(
-      dests.begin() + num_reg_dests,
-      dests.end(),
-      [](const ArgumentLocation& lhs, const ArgumentLocation& rhs) {
-        return lhs.GetFrameOffset().Uint32Value() < rhs.GetFrameOffset().Uint32Value();
-      }));
 
   // Collect registers to move. No need to record FP regs as destinations are only core regs.
   uint32_t src_regs = 0u;
