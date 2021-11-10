@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38fab35_ff70391e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2021-11-10T18:44:52Z",
+      "side": 1,
+      "message": "Just a heads up: had some other things to do but this CL is not abandoned, will address all comments and upload new patch set as soon as x86 version of this intrinsic (https://r.android.com/1878090) is merged to avoid merge conflicts (they share some code).",
+      "revId": "52b59ad5ec46efab1fc9a1fa02311a31942a6de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6df7fd1c_3a369148",
