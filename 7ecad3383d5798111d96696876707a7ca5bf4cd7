@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9d966a5_e23382e2",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-10T15:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c693e0d_40837c3e",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 101
+      },
+      "revId": "7ecad3383d5798111d96696876707a7ca5bf4cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aff8235c_9ef9e990",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-10T14:35:01Z",
       "side": 1,
       "message": "Add `local` before local variables (here and below).",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 9
+      },
+      "revId": "7ecad3383d5798111d96696876707a7ca5bf4cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eac3686_125d17ae",
+        "filename": "tools/buildbot-utils.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-10T15:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aff8235c_9ef9e990",
       "range": {
         "startLine": 40,
         "startChar": 2,
