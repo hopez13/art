@@ -33,6 +33,24 @@
       "message": "Side note: Maybe we should consider moving those scripts to Python to make their maintenance easier.",
       "revId": "66ae79e35fda3028c82f858004851df944f66f7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b72a4169_ca943cc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-10T15:30:20Z",
+      "side": 1,
+      "message": "IMO as long as they don\u0027t do any complex logic (sorting, filtering, tree traversals etc.) and invoke a lot of commands, it may be easier to keep them in Bash. This way one can just cut one command and copy-paste it in the shell.\n\nshellcheck is a helpful tool for such scripts.",
+      "parentUuid": "a564bb25_edcdee3d",
+      "revId": "66ae79e35fda3028c82f858004851df944f66f7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
