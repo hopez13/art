@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7767eefa_5005e639",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-10T15:39:47Z",
+      "side": 1,
+      "message": "My worry is the testing coverage. We do best effort, and I think for simplicity we should reuse the same behavior as debuggable.",
+      "parentUuid": "ed9820e7_a49f3f94",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 804,
+        "endChar": 83
+      },
+      "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "845a86e8_801f5282",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 5
