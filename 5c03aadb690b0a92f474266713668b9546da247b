@@ -39,6 +39,86 @@
       },
       "revId": "5c03aadb690b0a92f474266713668b9546da247b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc0c6035_209e13b9",
+        "filename": "test/2237-checker-inline-multidex/src-multidex/Multi.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-10T16:50:58Z",
+      "side": 1,
+      "message": "We could add a test for `const-class`:\n\n  public static Class\u003c?\u003e $inline$NeedsBssEntryClassMultiDex() {\n    return Multi2.class;\n  }\n\nThe `Multi2` can be a package-private class defined in this file. Do not use `Main` as the outer method\u0027s declaring class would not need a .bss entry.",
+      "revId": "5c03aadb690b0a92f474266713668b9546da247b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c2feead_30e74367",
+        "filename": "test/2237-checker-inline-multidex/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-10T16:50:58Z",
+      "side": 1,
+      "message": "Add a section with `CHECK: LoadString load_kind:BssEntry`.",
+      "revId": "5c03aadb690b0a92f474266713668b9546da247b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e3961d8_b494f2d8",
+        "filename": "test/2237-checker-inline-multidex/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-10T16:50:58Z",
+      "side": 1,
+      "message": "Maybe add `method_load_kind:BssEntry`?",
+      "range": {
+        "startLine": 52,
+        "startChar": 86,
+        "endLine": 52,
+        "endChar": 87
+      },
+      "revId": "5c03aadb690b0a92f474266713668b9546da247b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69640d78_01e710cf",
+        "filename": "test/462-checker-inlining-dex-files/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-10T16:50:58Z",
+      "side": 1,
+      "message": "Make this more specific to show what has changed.",
+      "range": {
+        "startLine": 81,
+        "startChar": 38,
+        "endLine": 81,
+        "endChar": 58
+      },
+      "revId": "5c03aadb690b0a92f474266713668b9546da247b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
