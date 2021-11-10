@@ -42,7 +42,8 @@ aidl_interface {
                 "com.android.art.debug",
                 "com.android.compos",
             ],
-            min_sdk_version: "31",
+            // TODO(b/177273468): Increment to next version when possible
+            min_sdk_version: "S",
         },
     },
     unstable: true,
@@ -66,7 +67,8 @@ aidl_interface {
                 "com.android.art",
                 "com.android.art.debug",
             ],
-            min_sdk_version: "31",
+            // TODO(b/177273468): Increment to next version when possible
+            min_sdk_version: "S",
         },
     },
     unstable: true,
