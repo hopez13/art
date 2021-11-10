@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e46d340_fb381e51",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-10T16:30:00Z",
+      "side": 1,
+      "message": "Right. I updated the implementation to mark the graph as debuggable when instrumentation is enabled for non-debuggable.",
+      "parentUuid": "7767eefa_5005e639",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 804,
+        "endChar": 83
+      },
+      "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "845a86e8_801f5282",
