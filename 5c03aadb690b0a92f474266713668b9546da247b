@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "316bfb33_f3d27c13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-10T15:51:47Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "5c03aadb690b0a92f474266713668b9546da247b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79e2ca6e_b15cae00",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-10T15:51:47Z",
+      "side": 1,
+      "message": "The OatWriter does have a compilation options and we could call `WithinOatFile` here. However, related to the comment in inliner.cc regarding the BCP dexfiles, when we build we create one OatWriter per .jar instead of bundling them all together in a single OatWriter. If that happens, the writer will try to find the dexfile in the writer_-\u003edex_files_ but not find them.\nThis DCHECK guards us against that.",
+      "range": {
+        "startLine": 946,
+        "startChar": 0,
+        "endLine": 949,
+        "endChar": 39
+      },
+      "revId": "5c03aadb690b0a92f474266713668b9546da247b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
