@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d649e80_27e2a5b2",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-10T13:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dc2a02a_35062cee",
+      "range": {
+        "startLine": 392,
+        "startChar": 11,
+        "endLine": 392,
+        "endChar": 12
+      },
+      "revId": "1d62394c842cbafddd5ed0b6998201002e8b0e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a00a133_24d30b3a",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-09T21:32:01Z",
       "side": 1,
       "message": "Nit: Clean up trailing space.",
+      "range": {
+        "startLine": 143,
+        "startChar": 43,
+        "endLine": 143,
+        "endChar": 44
+      },
+      "revId": "1d62394c842cbafddd5ed0b6998201002e8b0e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59ee137f_8f0ab387",
+        "filename": "tools/buildbot-teardown-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-10T13:19:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a00a133_24d30b3a",
       "range": {
         "startLine": 143,
         "startChar": 43,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f75ff9e9_6ebb1261",
+        "filename": "tools/buildbot-utils.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-10T13:19:24Z",
+      "side": 1,
+      "message": "In that one case it is unintentional, but in the next CL in chain aosp/1885616 it is used a lot and improves readability, because it prints a green caption followed by white main text of the message, which is much easier to parse than a wall of mono-color text (green or white).\n\nMy idea was that even if the person using `msginfo` wouldn\u0027t realize about heading/message, they would pass one string and get it all-green, which is ok. And if they pass many arguments nothing tragic will happen as well (they will get some green).\n\nAt the same time I tries do preserve existing colors to avoid useless distraction.\n\nI fixed the one case you cited above to use \"Kill processes\" as heading.",
+      "parentUuid": "52f37660_bbb1b014",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 7
+      },
+      "revId": "1d62394c842cbafddd5ed0b6998201002e8b0e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5646e64e_d1e13499",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2401c071_e7478f17",
+        "filename": "tools/buildbot-utils.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-10T13:19:24Z",
+      "side": 1,
+      "message": "Makes sense (although I also cannot find an example that wouldn\u0027t work with quoted $@).",
+      "parentUuid": "5646e64e_d1e13499",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 42,
+        "endChar": 13
+      },
+      "revId": "1d62394c842cbafddd5ed0b6998201002e8b0e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0b81a92_5f9de596",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-11-09T21:32:01Z",
       "side": 1,
       "message": "Please uppercase on these prefixes.",
+      "range": {
+        "startLine": 48,
+        "startChar": 25,
+        "endLine": 48,
+        "endChar": 26
+      },
+      "revId": "1d62394c842cbafddd5ed0b6998201002e8b0e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b140640_62388b9a",
+        "filename": "tools/buildbot-utils.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-10T13:19:24Z",
+      "side": 1,
+      "message": "Done (uppercased the first letter --- let me know if you meant the whole word).",
+      "parentUuid": "e0b81a92_5f9de596",
       "range": {
         "startLine": 48,
         "startChar": 25,
