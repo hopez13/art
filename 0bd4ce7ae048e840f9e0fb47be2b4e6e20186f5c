@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed9820e7_a49f3f94",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-10T15:34:33Z",
+      "side": 1,
+      "message": "If we mark it debuggable, we also loose some optimizations like inlining, SharpenMethods. I wasn\u0027t sure we want to disable those for method hooks. Turning off inlining will make it method tracing more precise but not sure we want to turn off inlining for that. We could support precise method tracing with inlining too if required.",
+      "parentUuid": "af3c5d16_1107401f",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 804,
+        "endChar": 83
+      },
+      "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "845a86e8_801f5282",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 5
@@ -54,6 +78,24 @@
       "writtenOn": "2021-11-10T13:15:02Z",
       "side": 1,
       "message": "Should you check whether the app is debuggable before invalidating?",
+      "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6859e5b6_6a08724f",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-10T15:34:33Z",
+      "side": 1,
+      "message": "Yes, we should. I missed it. I updated the conditions.",
+      "parentUuid": "845a86e8_801f5282",
       "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -93,6 +135,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1da97bd_1bb4849d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1756,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-10T15:34:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "36df1f4c_be224afb",
+      "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1d253b2_1760532d",
@@ -106,6 +166,30 @@
       "writtenOn": "2021-11-10T13:15:02Z",
       "side": 1,
       "message": "if the method is obsolete, shouldn\u0027t the entrypoint alreayd be the obsolete entrypoint?",
+      "range": {
+        "startLine": 1757,
+        "startChar": 4,
+        "endLine": 1758,
+        "endChar": 52
+      },
+      "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aefc35d7_9cefa47c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-10T15:34:33Z",
+      "side": 1,
+      "message": "Yes. I think so. I added a DCHECK.",
+      "parentUuid": "b1d253b2_1760532d",
       "range": {
         "startLine": 1757,
         "startChar": 4,
