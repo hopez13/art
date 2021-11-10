@@ -58,6 +58,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63cc1077_913634c2",
+        "filename": "test/2237-checker-inline-multidex/src-multidex/Multi.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-10T17:27:59Z",
+      "side": 1,
+      "message": "Sounds good, done!",
+      "parentUuid": "cc0c6035_209e13b9",
+      "revId": "5c03aadb690b0a92f474266713668b9546da247b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c2feead_30e74367",
@@ -71,6 +89,24 @@
       "writtenOn": "2021-11-10T16:50:58Z",
       "side": 1,
       "message": "Add a section with `CHECK: LoadString load_kind:BssEntry`.",
+      "revId": "5c03aadb690b0a92f474266713668b9546da247b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8af87b3_56ced01e",
+        "filename": "test/2237-checker-inline-multidex/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-10T17:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c2feead_30e74367",
       "revId": "5c03aadb690b0a92f474266713668b9546da247b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -98,6 +134,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e7b2feb_b82a70ea",
+        "filename": "test/2237-checker-inline-multidex/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-10T17:27:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e3961d8_b494f2d8",
+      "range": {
+        "startLine": 52,
+        "startChar": 86,
+        "endLine": 52,
+        "endChar": 87
+      },
+      "revId": "5c03aadb690b0a92f474266713668b9546da247b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69640d78_01e710cf",
@@ -111,6 +171,30 @@
       "writtenOn": "2021-11-10T16:50:58Z",
       "side": 1,
       "message": "Make this more specific to show what has changed.",
+      "range": {
+        "startLine": 81,
+        "startChar": 38,
+        "endLine": 81,
+        "endChar": 58
+      },
+      "revId": "5c03aadb690b0a92f474266713668b9546da247b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37927da4_a1dd0618",
+        "filename": "test/462-checker-inlining-dex-files/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-10T17:27:59Z",
+      "side": 1,
+      "message": "This was a name replace mishap, sorry about the noise. I took the opportunity and made the Invoke more specific, regardless.",
+      "parentUuid": "69640d78_01e710cf",
       "range": {
         "startLine": 81,
         "startChar": 38,
