@@ -20,6 +20,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af3c5d16_1107401f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-10T13:15:02Z",
+      "side": 1,
+      "message": "Can we just mark the graph as debuggable instead?",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 804,
+        "endChar": 83
+      },
+      "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "845a86e8_801f5282",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-10T13:15:02Z",
+      "side": 1,
+      "message": "Should you check whether the app is debuggable before invalidating?",
+      "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3388f912_6e924f06",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 5
@@ -31,6 +71,47 @@
       "writtenOn": "2021-11-10T12:52:45Z",
       "side": 1,
       "message": "I am not quite sure about was_warm here. Since these are from zygote_map_, possibly these aren\u0027t warm here. Though kAccPreviouslyWarm and kAccPreCompiled used the same bits and we only use this in profiler [1]. So I think it should be OK to send true here. \n\nLet me know if this isn\u0027t OK.\n\n[1]https://cs.android.com/android/platform/superproject/+/master:art/runtime/jit/profile_saver.cc;l\u003d641;drc\u003dmaster;bpv\u003d1;bpt\u003d1",
+      "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36df1f4c_be224afb",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1756,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-10T13:15:02Z",
+      "side": 1,
+      "message": "Yeah, that should be OK. I\u0027m planning to revamp this \"was_warm\" logic anyway.",
+      "parentUuid": "3388f912_6e924f06",
+      "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1d253b2_1760532d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-10T13:15:02Z",
+      "side": 1,
+      "message": "if the method is obsolete, shouldn\u0027t the entrypoint alreayd be the obsolete entrypoint?",
+      "range": {
+        "startLine": 1757,
+        "startChar": 4,
+        "endLine": 1758,
+        "endChar": 52
+      },
       "revId": "0bd4ce7ae048e840f9e0fb47be2b4e6e20186f5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
