@@ -56,6 +56,7 @@ class OdrConfig final {
   std::string dex2oat_;
   std::string dex2oat_boot_classpath_;
   bool dry_run_;
+  bool no_refresh_;
   InstructionSet isa_;
   std::string program_name_;
   std::string system_server_classpath_;
@@ -128,6 +129,7 @@ class OdrConfig final {
   }
 
   bool GetDryRun() const { return dry_run_; }
+  bool GetNoRefresh() const { return no_refresh_; }
   const std::string& GetSystemServerClasspath() const {
     return system_server_classpath_;
   }
@@ -151,6 +153,7 @@ class OdrConfig final {
   }
 
   void SetDryRun() { dry_run_ = true; }
+  void SetNoRefresh() { no_refresh_ = true; }
   void SetIsa(const InstructionSet isa) { isa_ = isa; }
   void SetCompilationOsAddress(int address) { compilation_os_address_ = address; }
   void SetMaxExecutionSeconds(int seconds) { max_execution_seconds_ = seconds; }
