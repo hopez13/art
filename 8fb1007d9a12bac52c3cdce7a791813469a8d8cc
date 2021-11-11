@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bee8fc38_35e557b3",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-11T09:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e13d3a5b_6fc0d8ca",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 1
+      },
+      "revId": "8fb1007d9a12bac52c3cdce7a791813469a8d8cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "434d85f2_b6a40650",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-11-10T16:43:31Z",
       "side": 1,
       "message": "Move these checks like 789 and merge with the ones above?",
+      "range": {
+        "startLine": 810,
+        "startChar": 0,
+        "endLine": 812,
+        "endChar": 25
+      },
+      "revId": "8fb1007d9a12bac52c3cdce7a791813469a8d8cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "986459ea_c5d1b07a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-11T09:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "434d85f2_b6a40650",
       "range": {
         "startLine": 810,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a53951c_0442fd55",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-11T09:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c06719e_fd0a8871",
+      "range": {
+        "startLine": 266,
+        "startChar": 37,
+        "endLine": 266,
+        "endChar": 42
+      },
+      "revId": "8fb1007d9a12bac52c3cdce7a791813469a8d8cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6cb03a9_4fcfd561",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-11-10T16:43:31Z",
       "side": 1,
       "message": "Drop this? Also maybe negate the condition, drop the else and add the comment before the if check?",
+      "range": {
+        "startLine": 335,
+        "startChar": 0,
+        "endLine": 335,
+        "endChar": 27
+      },
+      "revId": "8fb1007d9a12bac52c3cdce7a791813469a8d8cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50df2de4_b32e9f82",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-11T09:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6cb03a9_4fcfd561",
       "range": {
         "startLine": 335,
         "startChar": 0,
@@ -146,6 +242,54 @@
       "writtenOn": "2021-11-10T16:43:31Z",
       "side": 1,
       "message": "Don\u0027t we want to fallback to generic JNI when instrumentation is enabled?",
+      "range": {
+        "startLine": 678,
+        "startChar": 6,
+        "endLine": 678,
+        "endChar": 25
+      },
+      "revId": "8fb1007d9a12bac52c3cdce7a791813469a8d8cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00aebb5d_9af85f54",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-11T09:34:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec794d07_2f0e782d",
+      "range": {
+        "startLine": 678,
+        "startChar": 26,
+        "endLine": 678,
+        "endChar": 68
+      },
+      "revId": "8fb1007d9a12bac52c3cdce7a791813469a8d8cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a9b8820_492accba",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-11T09:34:26Z",
+      "side": 1,
+      "message": "I haven\u0027t migrated JNI yet. We don\u0027t generate code to call method entry / exit hooks for JNI yet. They still use entry / exit stubs. I added a TODO for that.",
+      "parentUuid": "f9e5b1aa_917267bd",
       "range": {
         "startLine": 678,
         "startChar": 6,
