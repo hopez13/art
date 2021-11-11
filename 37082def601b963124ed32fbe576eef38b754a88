@@ -16,6 +16,75 @@
       "message": "Thanks!",
       "revId": "37082def601b963124ed32fbe576eef38b754a88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0ee5c1a_ad5c7558",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-11T10:01:14Z",
+      "side": 1,
+      "message": ", since",
+      "range": {
+        "startLine": 797,
+        "startChar": 50,
+        "endLine": 797,
+        "endChar": 53
+      },
+      "revId": "37082def601b963124ed32fbe576eef38b754a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c97a3cb5_29ba9e50",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1765,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-11T10:01:14Z",
+      "side": 1,
+      "message": "I think this should just be added to InvalidateAllCompiledCode. It looks like an oversight that it wasn\u0027t there before.\n\nAlso, write a helper for the logic in the loop. (feel free to keep the old logic of setting the entrypoint for obsolete method).",
+      "range": {
+        "startLine": 1755,
+        "startChar": 0,
+        "endLine": 1765,
+        "endChar": 3
+      },
+      "revId": "37082def601b963124ed32fbe576eef38b754a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad6b9451_37c8aa23",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-11T10:01:14Z",
+      "side": 1,
+      "message": "/* needs_interpreter\u003d */",
+      "range": {
+        "startLine": 433,
+        "startChar": 86,
+        "endLine": 433,
+        "endChar": 91
+      },
+      "revId": "37082def601b963124ed32fbe576eef38b754a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
