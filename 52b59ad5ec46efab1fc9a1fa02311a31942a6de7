@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "829ea350_4629b6ae",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2270,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2021-11-11T18:39:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6df7fd1c_3a369148",
+      "range": {
+        "startLine": 2270,
+        "startChar": 63,
+        "endLine": 2270,
+        "endChar": 78
+      },
+      "revId": "52b59ad5ec46efab1fc9a1fa02311a31942a6de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c904e354_3b4cc4b3",
@@ -81,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c738569d_52323f91",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2273,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2021-11-11T18:39:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c904e354_3b4cc4b3",
+      "range": {
+        "startLine": 2273,
+        "startChar": 23,
+        "endLine": 2273,
+        "endChar": 36
+      },
+      "revId": "52b59ad5ec46efab1fc9a1fa02311a31942a6de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d435a2de_d190feae",
@@ -94,6 +142,30 @@
       "writtenOn": "2021-10-21T09:39:32Z",
       "side": 1,
       "message": "I think InputFPRegisterAt and FPRegisterFrom (see common_arm64.h) might be helpful here.",
+      "range": {
+        "startLine": 4206,
+        "startChar": 16,
+        "endLine": 4206,
+        "endChar": 25
+      },
+      "revId": "52b59ad5ec46efab1fc9a1fa02311a31942a6de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dc2a457_aefc83e3",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4206,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2021-11-11T18:39:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d435a2de_d190feae",
       "range": {
         "startLine": 4206,
         "startChar": 16,
