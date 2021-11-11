@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017156518",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1884857?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "41c06151_aab4c684",
+          "description": "Change to \"runtime/class_linker.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/class_linker.cc",
+              "range": {
+                "startLine": 7995,
+                "startChar": 80,
+                "endLine": 7995,
+                "endChar": 85
+              },
+              "replacement": "cannot"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "e2322526_468fd1a3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 7995,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-11T09:58:28Z",
+      "side": 1,
+      "message": "Common typo found: \"canot\" -- should it be \"cannot\"?\nor, alternatively can\u0027t\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 7995,
+        "startChar": 80,
+        "endLine": 7995,
+        "endChar": 85
+      },
+      "revId": "a597869c92696668f01fb26e9ed08799c6c51c00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
