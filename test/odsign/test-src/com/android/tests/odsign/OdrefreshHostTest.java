@@ -70,7 +70,7 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
     public void verifyArtSamegradeUpdateTriggersCompilation() throws Exception {
         simulateArtApexUpgrade();
         long timeMs = getCurrentTimeMs();
-        getDevice().executeShellV2Command("odrefresh --compile");
+        getDevice().executeShellV2Command("odrefresh --no-refresh --compile");
 
         assertArtifactsModifiedAfter(sZygoteArtifacts, timeMs);
         assertArtifactsModifiedAfter(sSystemServerArtifacts, timeMs);
@@ -80,7 +80,7 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
     public void verifyOtherApexSamegradeUpdateTriggersCompilation() throws Exception {
         simulateApexUpgrade();
         long timeMs = getCurrentTimeMs();
-        getDevice().executeShellV2Command("odrefresh --compile");
+        getDevice().executeShellV2Command("odrefresh --no-refresh --compile");
 
         assertArtifactsNotModifiedAfter(sZygoteArtifacts, timeMs);
         assertArtifactsModifiedAfter(sSystemServerArtifacts, timeMs);
@@ -90,7 +90,7 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
     public void verifyBootClasspathOtaTriggersCompilation() throws Exception {
         simulateBootClasspathOta();
         long timeMs = getCurrentTimeMs();
-        getDevice().executeShellV2Command("odrefresh --compile");
+        getDevice().executeShellV2Command("odrefresh --no-refresh --compile");
 
         assertArtifactsModifiedAfter(sZygoteArtifacts, timeMs);
         assertArtifactsModifiedAfter(sSystemServerArtifacts, timeMs);
@@ -100,7 +100,7 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
     public void verifySystemServerOtaTriggersCompilation() throws Exception {
         simulateSystemServerOta();
         long timeMs = getCurrentTimeMs();
-        getDevice().executeShellV2Command("odrefresh --compile");
+        getDevice().executeShellV2Command("odrefresh --no-refresh --compile");
 
         assertArtifactsNotModifiedAfter(sZygoteArtifacts, timeMs);
         assertArtifactsModifiedAfter(sSystemServerArtifacts, timeMs);
@@ -110,7 +110,7 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
     public void verifyNoCompilationWhenCacheIsGood() throws Exception {
         sTestUtils.removeCompilationLogToAvoidBackoff();
         long timeMs = getCurrentTimeMs();
-        getDevice().executeShellV2Command("odrefresh --compile");
+        getDevice().executeShellV2Command("odrefresh --no-refresh --compile");
 
         assertArtifactsNotModifiedAfter(sZygoteArtifacts, timeMs);
         assertArtifactsNotModifiedAfter(sSystemServerArtifacts, timeMs);
