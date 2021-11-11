@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cb7a638_396ced3c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-11T13:40:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0ee5c1a_ad5c7558",
+      "range": {
+        "startLine": 797,
+        "startChar": 50,
+        "endLine": 797,
+        "endChar": 53
+      },
+      "revId": "37082def601b963124ed32fbe576eef38b754a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c97a3cb5_29ba9e50",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65adfb3a_cc8d17d3",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1765,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-11T13:40:02Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c97a3cb5_29ba9e50",
+      "range": {
+        "startLine": 1755,
+        "startChar": 0,
+        "endLine": 1765,
+        "endChar": 3
+      },
+      "revId": "37082def601b963124ed32fbe576eef38b754a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad6b9451_37c8aa23",
@@ -77,6 +125,30 @@
       "writtenOn": "2021-11-11T10:01:14Z",
       "side": 1,
       "message": "/* needs_interpreter\u003d */",
+      "range": {
+        "startLine": 433,
+        "startChar": 86,
+        "endLine": 433,
+        "endChar": 91
+      },
+      "revId": "37082def601b963124ed32fbe576eef38b754a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e238d2a_caa8a681",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-11T13:40:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad6b9451_37c8aa23",
       "range": {
         "startLine": 433,
         "startChar": 86,
