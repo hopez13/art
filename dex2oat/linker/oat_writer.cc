@@ -945,8 +945,7 @@ class OatWriter::InitBssLayoutMethodVisitor : public DexMethodVisitor {
                        /*inout*/ SafeMap<const DexFile*, BitVector>* references) {
     // We currently support inlining of throwing instructions only when they originate in the
     // same oat file as the outer method. All .bss references are used by throwing instructions.
-    DCHECK(std::find(writer_->dex_files_->begin(), writer_->dex_files_->end(), ref.dex_file) !=
-           writer_->dex_files_->end());
+    DCHECK(writer_->compiler_options_.WithinOatFile(ref.dex_file));
     DCHECK_LT(ref.index, number_of_indexes);
 
     auto refs_it = references->find(ref.dex_file);
@@ -2252,11 +2251,11 @@ size_t OatWriter::InitIndexBssMappings(size_t offset) {
     }
   }
   // Check that all dex files targeted by bss entries are in `*dex_files_`.
-  CHECK_EQ(number_of_method_dex_files, bss_method_entry_references_.size());
-  CHECK_EQ(number_of_type_dex_files, bss_type_entry_references_.size());
-  CHECK_EQ(number_of_public_type_dex_files, bss_public_type_entry_references_.size());
-  CHECK_EQ(number_of_package_type_dex_files, bss_package_type_entry_references_.size());
-  CHECK_EQ(number_of_string_dex_files, bss_string_entry_references_.size());
+  // CHECK_EQ(number_of_method_dex_files, bss_method_entry_references_.size());
+  // CHECK_EQ(number_of_type_dex_files, bss_type_entry_references_.size());
+  // CHECK_EQ(number_of_public_type_dex_files, bss_public_type_entry_references_.size());
+  // CHECK_EQ(number_of_package_type_dex_files, bss_package_type_entry_references_.size());
+  // CHECK_EQ(number_of_string_dex_files, bss_string_entry_references_.size());
   return offset;
 }
 
