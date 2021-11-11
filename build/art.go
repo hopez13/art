@@ -56,6 +56,9 @@ func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 		cflags = append(cflags, "-DART_HEAP_POISONING=1")
 		asflags = append(asflags, "-DART_HEAP_POISONING=1")
 	}
+	if ctx.Config().IsEnvTrue("ART_CHECKJNI_AS_DEFAULT") {
+		cflags = append(cflags, "-DART_CHECKJNI_AS_DEFAULT=1")
+	}
 	if ctx.Config().IsEnvTrue("ART_USE_CXX_INTERPRETER") {
 		cflags = append(cflags, "-DART_USE_CXX_INTERPRETER=1")
 	}

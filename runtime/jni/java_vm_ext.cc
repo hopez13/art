@@ -56,6 +56,14 @@
 
 namespace art {
 
+// Option to build ART with CheckJni enabled by default to facilitate running
+// wider range of apps and tests with CheckJni enabled.
+#ifdef ART_CHECKJNI_AS_DEFAULT
+static constexpr bool kCheckJniDefault = true;
+#else
+static constexpr bool kCheckJniDefault = false;
+#endif
+
 using android::base::StringAppendF;
 using android::base::StringAppendV;
 
@@ -515,7 +523,8 @@ JavaVMExt::JavaVMExt(Runtime* runtime,
       allocation_tracking_enabled_(false),
       old_allocation_tracking_state_(false) {
   functions = unchecked_functions_;
-  SetCheckJniEnabled(runtime_options.Exists(RuntimeArgumentMap::CheckJni));
+  const bool check_jni = kCheckJniDefault || runtime_options.Exists(RuntimeArgumentMap::CheckJni);
+  SetCheckJniEnabled(check_jni);
 }
 
 JavaVMExt::~JavaVMExt() {
