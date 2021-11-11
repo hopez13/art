@@ -1718,6 +1718,9 @@ static bool CanEncodeInlinedMethodInStackMap(const DexFile& outer_dex_file,
 
   // Inline across dexfiles if the callee's DexFile is:
   // 1) in the bootclasspath, or
+  if (codegen->GetCompilerOptions().WithinOatFile(dex_file)) {
+    return true;
+  }
   if (callee->GetDeclaringClass()->GetClassLoader() == nullptr) {
     // There are cases in which the BCP DexFiles are within the OatFile as far as the compiler
     // options are concerned, but they have their own OatWriter (and therefore not in the same
@@ -1726,11 +1729,9 @@ static bool CanEncodeInlinedMethodInStackMap(const DexFile& outer_dex_file,
     *out_needs_bss_check = true;
     return true;
   }
+  // UNUSED(out_needs_bss_check);
 
   // 2) is a non-BCP dexfile with the OatFile we are compiling.
-  if (codegen->GetCompilerOptions().WithinOatFile(dex_file)) {
-    return true;
-  }
 
   // TODO(solanes): Support more AOT cases for inlining:
   // - methods in class loader context's DexFiles
