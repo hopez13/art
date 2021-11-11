@@ -16,6 +16,29 @@
       "message": "There are still a few branches to receive manifest updates so this can\u0027t land quite yet...",
       "revId": "db0b1fd0401c9e62d77151f93630617abffc3c0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcd6eb85_93fac26d",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-11T14:51:12Z",
+      "side": 1,
+      "message": "If you suspect further reverts then maybe separate this into its own CL?",
+      "range": {
+        "startLine": 23,
+        "startChar": 15,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "db0b1fd0401c9e62d77151f93630617abffc3c0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
