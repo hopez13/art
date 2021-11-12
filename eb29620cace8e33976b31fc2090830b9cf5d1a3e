@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cc4b57a_522860c8",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-12T11:36:19Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 2271,
+        "startChar": 2,
+        "endLine": 2271,
+        "endChar": 52
+      },
+      "revId": "eb29620cace8e33976b31fc2090830b9cf5d1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc833380_c635d8cb",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4216,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-12T11:36:19Z",
+      "side": 1,
+      "message": "Reorder: LocationsBuilder first, generator second. Same below.",
+      "range": {
+        "startLine": 4210,
+        "startChar": 0,
+        "endLine": 4216,
+        "endChar": 1
+      },
+      "revId": "eb29620cace8e33976b31fc2090830b9cf5d1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
