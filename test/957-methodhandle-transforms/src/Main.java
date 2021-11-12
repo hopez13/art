@@ -16,7 +16,6 @@
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
-import java.lang.invoke.MethodHandles.Lookup;
 import java.lang.invoke.MethodType;
 import java.lang.invoke.WrongMethodTypeException;
 
@@ -42,6 +41,7 @@ public class Main {
     testCollectArguments();
     testInsertArguments();
     testFoldArguments();
+    testTryFinally();
   }
 
   public static void testThrowException() throws Throwable {
@@ -1641,6 +1641,87 @@ public class Main {
     }
   }
 
+  public static void testTryFinally() throws Throwable {
+    MethodHandle target = MethodHandles.lookup().findStatic(
+        Main.class, "testTryFinally_target",
+        MethodType.methodType(String.class, String.class, long.class));
+    MethodHandle targetThrowing = MethodHandles.lookup().findStatic(
+        Main.class, "testTryFinally_targetThrowing",
+        MethodType.methodType(String.class, String.class, long.class));
+
+    MethodHandle cleanup = MethodHandles.lookup().findStatic(
+        Main.class, "testTryFinally_cleanup",
+        MethodType.methodType(String.class, Throwable.class, String.class, String.class, long.class)
+    );
+    MethodHandle cleanupNonMatchingTrailingArgs = MethodHandles.lookup().findStatic(
+        Main.class, "testTryFinally_cleanup_nonMatchingTrailingArgs",
+        MethodType.methodType(
+            String.class, Throwable.class, String.class, String.class, double.class));
+    MethodHandle cleanupLessArgsThanTarget = MethodHandles.lookup().findStatic(
+        Main.class, "testTryFinally_cleanup_lessArgsThanTarget",
+        MethodType.methodType(String.class, Throwable.class, String.class, String.class));
+
+    String returnVal = null;
+    // Case when one of args is null.
+    // Should throw NullPointerException
+    expectThrows(NullPointerException.class, () -> MethodHandles.tryFinally(target, null));
+    expectThrows(NullPointerException.class, () -> MethodHandles.tryFinally(null, cleanup));
+    expectThrows(NullPointerException.class, () -> MethodHandles.tryFinally(null, null));
+
+    // Case when target and cleanup return types do not match.
+    expectThrows(IllegalArgumentException.class, () ->
+        MethodHandles.tryFinally(target, MethodHandles.identity(char.class)));
+
+    // Case when cleanup trailing args do not match.
+    // In this case (mismatch in last arg: long != double):
+    // target:  String (String, String, long)
+    // cleanup: String (String, String, double)
+    expectThrows(IllegalArgumentException.class, () ->
+        MethodHandles.tryFinally(target, cleanupNonMatchingTrailingArgs));
+
+    MethodHandle adapter = MethodHandles.tryFinally(target, cleanup);
+    MethodHandle adapterThrowing = MethodHandles.tryFinally(targetThrowing, cleanup);
+
+    // Case when target does not throw.
+    // Should call cleanup(null /* throwable */, result /* targetArg */, args...);
+    returnVal = (String) adapter.invoke("string", 12);
+    assertEquals("cleanup t:null result:<target arg1:string arg2:12> arg1:string arg2:12", returnVal);
+    returnVal = (String) adapter.invokeExact("string", 12L);
+    assertEquals("cleanup t:null result:<target arg1:string arg2:12> arg1:string arg2:12", returnVal);
+
+    // Case when target throws.
+    // Should call cleanup(throwable, null /* result */, args...);
+    returnVal = (String) adapterThrowing.invoke("string", 12);
+    assertEquals("cleanup t:msg result:null arg1:string arg2:12", returnVal);
+    returnVal = (String) adapterThrowing.invokeExact(12L, "msg");
+    assertEquals("cleanup t:msg result:null arg1:string arg2:12", returnVal);
+  }
+
+  public static String testTryFinally_target(String arg1, long arg2) {
+    System.out.println("Target: Arg1: " + arg1 + ", Arg2: " + arg2);
+    return String.format("<target arg1:%s arg2:%d>", arg1, arg2);
+  }
+
+  public static String testTryFinally_targetThrowing(String arg1, long arg2) throws Throwable {
+      throw new IllegalArgumentException("msg");
+  }
+
+  public static String testTryFinally_cleanup(Throwable t, String result, String arg1, long arg2) {
+    System.out.println("cleanup: " + t + ", " + result + ", " + arg1 + ", " + arg2);
+    return String.format("cleanup t:%s result:%s arg1:%s arg2:%d", t, result, arg1, arg2);
+  }
+
+  public static String testTryFinally_cleanup_nonMatchingTrailingArgs(Throwable t, String result, String arg1, double arg2) {
+    System.out.println("cleanup: " + t + ", " + result + ", " + arg1 + ", " + arg2);
+    return String.format("cleanup t:%s result:%s arg1:%s arg2:%.2f", t, result, arg1, arg2);
+  }
+
+  // One trailing argument less than target
+  public static String testTryFinally_cleanup_lessArgsThanTarget(Throwable t, String result, String arg1) {
+    System.out.println("cleanup: " + t + ", " + result + ", " + arg1);
+    return String.format("cleanup t:%s result:%s arg1:%s", t, result, arg1);
+  }
+
   public static void fail() {
     System.out.println("FAIL");
     Thread.dumpStack();
@@ -1665,5 +1746,26 @@ public class Main {
     }
 
     throw new AssertionError("assertEquals s1: " + s1 + ", s2: " + s2);
+  }
+
+  public static <T extends Throwable> T expectThrows(Class<T> throwableClass, ThrowingRunnable runnable) {
+    try {
+      runnable.run();
+    } catch (Throwable t) {
+      if (throwableClass.isInstance(t)) {
+        return throwableClass.cast(t);
+      } else {
+        String message = String.format("Expected %s to be thrown, but %s was thrown",
+            throwableClass.getSimpleName(), t.getClass().getSimpleName());
+        throw new AssertionError(message, t);
+      }
+    }
+    String message = String.format("Expected %s to be thrown, but nothing was thrown",
+        throwableClass.getSimpleName());
+    throw new AssertionError(message);
+  }
+
+  public interface ThrowingRunnable {
+    void run() throws Throwable;
   }
 }
