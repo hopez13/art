@@ -86,6 +86,29 @@
       },
       "revId": "01f0b8417d75428ed12e4adf19afcbf557651aaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b235db07_7ef13b37",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-12T12:36:29Z",
+      "side": 1,
+      "message": "A late note that may help next time: this should be:\n\n   find out -type f -a \\( -name \"*.oat\" -o -name \"*.odex\" -o -name \"*.art\" -o -name \u0027*.vdex\u0027 \\)\n\nIn order to avoid warnings like:\n\n  rm: out/soong/.intermediates/art/build/apex/test_com.android.art: Is a directory",
+      "range": {
+        "startLine": 119,
+        "startChar": 39,
+        "endLine": 119,
+        "endChar": 105
+      },
+      "revId": "01f0b8417d75428ed12e4adf19afcbf557651aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
