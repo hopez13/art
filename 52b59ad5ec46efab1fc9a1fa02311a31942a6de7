@@ -191,6 +191,24 @@
       "message": "I\u0027d suggest to add some corner tests to check the behavior complies with:\n - \u0027fused\u0027 type of the operation - that only one rounding is happening.\n - rounding to nearest mode.",
       "revId": "52b59ad5ec46efab1fc9a1fa02311a31942a6de7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24f92517_c61b62f2",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-11-12T14:54:46Z",
+      "side": 1,
+      "message": "This is an optional comment.\n\nSorry that I haven\u0027t suggested it in the first place, but maybe it is worth to add those corner cases, described in https://docs.oracle.com/javase/9/docs/api/java/lang/Math.html#fma-double-double-double-:\n\n - If any argument is NaN, the result is NaN.\n - If one of the first two arguments is infinite and the other is zero, the result is NaN.\n - If the exact product of the first two arguments is infinite (in other words, at least one of the arguments is infinite and the other is neither zero nor NaN) and the third argument is an infinity of the opposite sign, the result is NaN.\n - mentioned cases with +0.0 and -0.0.",
+      "parentUuid": "56d9e2f7_57553460",
+      "revId": "52b59ad5ec46efab1fc9a1fa02311a31942a6de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
