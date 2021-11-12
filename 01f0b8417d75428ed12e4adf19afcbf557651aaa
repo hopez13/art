@@ -109,6 +109,30 @@
       },
       "revId": "01f0b8417d75428ed12e4adf19afcbf557651aaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cd6cc10_8f1a2735",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-11-12T12:42:24Z",
+      "side": 1,
+      "message": "also find has -delete argument which removes the error-prone xargs",
+      "parentUuid": "b235db07_7ef13b37",
+      "range": {
+        "startLine": 119,
+        "startChar": 39,
+        "endLine": 119,
+        "endChar": 105
+      },
+      "revId": "01f0b8417d75428ed12e4adf19afcbf557651aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
