@@ -76,3 +76,11 @@ a: foo, b:45, c:46, d:bar
 a: c+d ,b:c ,c:d ,d:e
 c+d
 a: a ,b:c ,c:d ,d:e
+target :: arg1:string arg2:12
+cleanup :: t:'null' result:<target :: arg1:string arg2:12> arg1:string arg2:12
+target :: arg1:string arg2:12
+cleanup :: t:'null' result:<target :: arg1:string arg2:12> arg1:string arg2:12
+targetThrowing :: arg1:string arg2:12
+cleanup :: t:'java.io.IOException: IOE msg' result:null arg1:string arg2:12
+targetThrowing :: arg1:string arg2:12
+cleanup :: t:'java.io.IOException: IOE msg' result:null arg1:string arg2:12
