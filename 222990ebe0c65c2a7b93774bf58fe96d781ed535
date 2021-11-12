@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "163c6af0_f4477028",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-12T15:45:04Z",
+      "side": 1,
+      "message": "This is without https://android-review.googlesource.com/1875684 ?",
+      "range": {
+        "startLine": 28,
+        "startChar": 43,
+        "endLine": 28,
+        "endChar": 47
+      },
+      "revId": "222990ebe0c65c2a7b93774bf58fe96d781ed535",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37e3c467_f5f7bfca",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3199,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-12T15:45:04Z",
+      "side": 1,
+      "message": "SetVolatile",
+      "range": {
+        "startLine": 3199,
+        "startChar": 7,
+        "endLine": 3199,
+        "endChar": 19
+      },
+      "revId": "222990ebe0c65c2a7b93774bf58fe96d781ed535",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca53b20d_7dc9eabf",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3203,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-12T15:45:04Z",
+      "side": 1,
+      "message": "SetAtomic",
+      "range": {
+        "startLine": 3203,
+        "startChar": 7,
+        "endLine": 3203,
+        "endChar": 17
+      },
+      "revId": "222990ebe0c65c2a7b93774bf58fe96d781ed535",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7270c18_f83ee237",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3767,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-12T15:45:04Z",
+      "side": 1,
+      "message": "We can remove this, the location from `CreateVarHandleCommonLocations()` is the same.",
+      "range": {
+        "startLine": 3757,
+        "startChar": 2,
+        "endLine": 3767,
+        "endChar": 3
+      },
+      "revId": "222990ebe0c65c2a7b93774bf58fe96d781ed535",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
