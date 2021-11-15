@@ -22,6 +22,47 @@
       },
       "revId": "3fe8b832588030ce361631423c5bdccf08936c22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "097297e6_3e821254",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-11-15T10:20:50Z",
+      "side": 1,
+      "message": "As-is, this is `operator bool()` and is the idiomatic check here.",
+      "parentUuid": "ae2e82e8_a752cb13",
+      "range": {
+        "startLine": 948,
+        "startChar": 6,
+        "endLine": 948,
+        "endChar": 8
+      },
+      "revId": "3fe8b832588030ce361631423c5bdccf08936c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc278cf_4bb57281",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-11-15T10:20:50Z",
+      "side": 1,
+      "message": "Just android::base::ReadFully(), android::base::WriteFully(). Passing through a string is non-obviously correct for binary files.",
+      "revId": "3fe8b832588030ce361631423c5bdccf08936c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
