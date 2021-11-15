@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "975a4936_2aaead2f",
+        "filename": "odrefresh/CacheInfo.xsd",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-15T09:59:00Z",
+      "side": 1,
+      "message": "Would it be better to avoid a breaking change and just add a new element for the other jars?\n\nI also find it easier if we keep the notion of systemserverclasspath here.",
+      "revId": "65484a15f8054ef3e29bd580917b104b63cdb32a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
