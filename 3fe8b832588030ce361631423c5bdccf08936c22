@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8c21677_f799737c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-11-15T12:23:09Z",
+      "side": 1,
+      "message": "Ack. Thank you for confirming this, Orion.",
+      "parentUuid": "097297e6_3e821254",
+      "range": {
+        "startLine": 948,
+        "startChar": 6,
+        "endLine": 948,
+        "endChar": 8
+      },
+      "revId": "3fe8b832588030ce361631423c5bdccf08936c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebc278cf_4bb57281",
@@ -61,6 +85,24 @@
       "writtenOn": "2021-11-15T10:20:50Z",
       "side": 1,
       "message": "Just android::base::ReadFully(), android::base::WriteFully(). Passing through a string is non-obviously correct for binary files.",
+      "revId": "3fe8b832588030ce361631423c5bdccf08936c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0c17532_b4b794bd",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-11-15T12:23:09Z",
+      "side": 1,
+      "message": "`android::base::ReadFully` requires a size to be provided, so it\u0027s not as convenient as `android::base::ReadFileToString`. Passing through a string is correct (though not obviously). There is a similar function `file::GetContents` in google3, which is widely used for reading any contents from a file.",
+      "parentUuid": "ebc278cf_4bb57281",
       "revId": "3fe8b832588030ce361631423c5bdccf08936c22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
