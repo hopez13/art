@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa6fbdea_aceaa4ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-15T12:02:52Z",
+      "side": 1,
+      "message": "The comment there does not seem to make sense if interpreted only in relation to the `QuickCompilerCallbacks`. If considered in the larger context, it is still valid but I\u0027m not sure it adds any value. I\u0027m OK with removing the comment but the provided reasoning is odd.\n\n(And I\u0027d prefer shorter URLs for references; the \"c/platform/art/+/\" is unnecessary and should always be removed.)",
+      "range": {
+        "startLine": 9,
+        "startChar": 93,
+        "endLine": 9,
+        "endChar": 156
+      },
+      "revId": "224b6c41087a57117b8d88324bf1fadd10952abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "510d1ffe_1599cb2c",
