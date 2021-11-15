@@ -105,6 +105,70 @@
       "parentUuid": "ebc278cf_4bb57281",
       "revId": "3fe8b832588030ce361631423c5bdccf08936c22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "769b22bf_63850707",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-11-15T22:04:35Z",
+      "side": 1,
+      "message": "The size is on hand `std::filesystem::directory_entry::file_size(ec)`. Up to you. There\u0027s also std::filesystem::remove vs unlink.",
+      "parentUuid": "d0c17532_b4b794bd",
+      "revId": "3fe8b832588030ce361631423c5bdccf08936c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e846ae9b_065c1f68",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-11-15T22:04:35Z",
+      "side": 1,
+      "message": "File level constant if this is this is now repeated in this file?",
+      "range": {
+        "startLine": 970,
+        "startChar": 44,
+        "endLine": 970,
+        "endChar": 81
+      },
+      "revId": "3fe8b832588030ce361631423c5bdccf08936c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cd01b0c_e317c015",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-11-15T22:04:35Z",
+      "side": 1,
+      "message": "There are quite a few unrelated style changes here. By all means change the style, but group those changes into a separate CL off of the topic here.",
+      "range": {
+        "startLine": 1112,
+        "startChar": 2,
+        "endLine": 1112,
+        "endChar": 94
+      },
+      "revId": "3fe8b832588030ce361631423c5bdccf08936c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
