@@ -22,6 +22,30 @@
       },
       "revId": "7e706709a3e5b2a12d4e4e65423632e5a123a096",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9172b34_32ca942f",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-15T13:05:52Z",
+      "side": 1,
+      "message": "Yeah, I agree, the next step is to make this oat range checking more robust.",
+      "parentUuid": "0525922b_0507d5b4",
+      "range": {
+        "startLine": 288,
+        "startChar": 11,
+        "endLine": 288,
+        "endChar": 94
+      },
+      "revId": "7e706709a3e5b2a12d4e4e65423632e5a123a096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
