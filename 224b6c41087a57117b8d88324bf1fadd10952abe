@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "92647a54_7c7e92fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-15T12:11:49Z",
+      "side": 1,
+      "message": "As far as I could see, the comment used to be there since there was a `verification_results` parameter. We set it below and provide a reasoning for doing so https://cs.android.com/android/platform/superproject/+/master:art/dex2oat/dex2oat.cc;l\u003d1490;drc\u003d60abdd9c89525a277d75df19ff2792614651e1ff\n\nPS: Updated commit message.",
+      "parentUuid": "fa6fbdea_aceaa4ee",
+      "range": {
+        "startLine": 9,
+        "startChar": 93,
+        "endLine": 9,
+        "endChar": 156
+      },
+      "revId": "224b6c41087a57117b8d88324bf1fadd10952abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "510d1ffe_1599cb2c",
