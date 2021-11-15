@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a04ed90_5d8a68ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-15T12:26:56Z",
+      "side": 1,
+      "message": "The comment was introduced in the very same CL that removed the parameter, so providing the parameter removal as a reason to remove the comment is misinterpreting the historical record. The author must have thought that it provides some value even though the parameter is not there anymore. (Though we can disagree with that assessment and remove the comment anyway.)",
+      "parentUuid": "92647a54_7c7e92fb",
+      "range": {
+        "startLine": 9,
+        "startChar": 93,
+        "endLine": 9,
+        "endChar": 156
+      },
+      "revId": "224b6c41087a57117b8d88324bf1fadd10952abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "510d1ffe_1599cb2c",
