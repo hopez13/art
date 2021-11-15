@@ -81,7 +81,6 @@ void CheckNterpAsmConstants() {
       LOG(FATAL) << "ERROR: unexpected asm interp size " << interp_size
                  << "(did an instruction handler exceed " << width << " bytes?)";
   }
-  static_assert(IsPowerOfTwo(kNterpHotnessMask + 1), "Hotness mask must be a (power of 2) - 1");
   static_assert(IsPowerOfTwo(kTieredHotnessMask + 1),
                 "Tiered hotness mask must be a (power of 2) - 1");
 }
