@@ -16,7 +16,7 @@
 
 #include "stack_map.h"
 
-#include "art_method.h"
+#include "art_method-inl.h"
 #include "base/arena_bit_vector.h"
 #include "base/malloc_arena_pool.h"
 #include "stack_map_stream.h"

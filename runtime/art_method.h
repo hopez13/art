@@ -75,8 +75,7 @@ class ArtMethod final {
   // constexpr, and ensure that the value is correct in art_method.cc.
   static constexpr uint32_t kRuntimeMethodDexMethodIndex = 0xFFFFFFFF;
 
-  ArtMethod() : access_flags_(0), dex_method_index_(0),
-      method_index_(0), hotness_count_(interpreter::kNterpHotnessMask) { }
+  ArtMethod();
 
   ArtMethod(ArtMethod* src, PointerSize image_pointer_size) {
     CopyFrom(src, image_pointer_size);

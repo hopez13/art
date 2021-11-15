@@ -33,6 +33,7 @@
 #include "gc_root-inl.h"
 #include "imtable-inl.h"
 #include "intrinsics_enum.h"
+#include "jit/jit.h"
 #include "jit/profiling_info.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache-inl.h"
@@ -46,6 +47,15 @@
 #include "thread-current-inl.h"
 
 namespace art {
+
+inline ArtMethod::ArtMethod()
+    : access_flags_(0),
+      dex_method_index_(0),
+      method_index_(0),
+      hotness_count_(Runtime::Current() != nullptr
+                        ? Runtime::Current()->GetJITOptions()->GetWarmupThreshold()
+                        : 0u)
+      { }
 
 template <ReadBarrierOption kReadBarrierOption>
 inline ObjPtr<mirror::Class> ArtMethod::GetDeclaringClassUnchecked() {
@@ -425,14 +435,16 @@ inline CodeItemDebugInfoAccessor ArtMethod::DexInstructionDebugInfo() {
 
 inline bool ArtMethod::CounterHasChanged() {
   DCHECK(!IsAbstract());
-  return hotness_count_ != interpreter::kNterpHotnessMask;
+  uint16_t threshold = Runtime::Current()->GetJITOptions()->GetWarmupThreshold();
+  return hotness_count_ != threshold;
 }
 
 inline void ArtMethod::ResetCounter() {
   DCHECK(!IsAbstract());
+  uint16_t threshold = Runtime::Current()->GetJITOptions()->GetWarmupThreshold();
   // Avoid dirtying the value if possible.
-  if (hotness_count_ != interpreter::kNterpHotnessMask) {
-    hotness_count_ = interpreter::kNterpHotnessMask;
+  if (hotness_count_ != threshold) {
+    hotness_count_ = threshold;
   }
 }
 
@@ -463,8 +475,9 @@ inline bool ArtMethod::CounterIsHot() {
 
 inline bool ArtMethod::CounterHasReached(uint16_t samples) {
   DCHECK(!IsAbstract());
-  DCHECK_LE(samples, interpreter::kNterpHotnessMask);
-  return hotness_count_ <= (interpreter::kNterpHotnessMask - samples);
+  uint16_t threshold = Runtime::Current()->GetJITOptions()->GetWarmupThreshold();
+  DCHECK_LE(samples, threshold);
+  return hotness_count_ <= (threshold - samples);
 }
 
 inline uint16_t ArtMethod::GetCounter() {
