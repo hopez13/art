@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0525922b_0507d5b4",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-15T12:35:00Z",
+      "side": 1,
+      "message": "This assumption could be wrong and we could instead keep a list of executable ranges from all oat files. However, it\u0027s a bit difficult to share such list across threads when it\u0027s also accessed from a signal handler.",
+      "range": {
+        "startLine": 288,
+        "startChar": 11,
+        "endLine": 288,
+        "endChar": 94
+      },
+      "revId": "7e706709a3e5b2a12d4e4e65423632e5a123a096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
