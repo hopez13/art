@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c53e1ec2_59fe9287",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2338,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-16T12:10:34Z",
+      "side": 1,
+      "message": "I see, makes sense.",
+      "parentUuid": "f43f01a9_da6fc7cb",
+      "range": {
+        "startLine": 2338,
+        "startChar": 47,
+        "endLine": 2338,
+        "endChar": 56
+      },
+      "revId": "5d346d071d0e20a0e00cb22d621f3418601b6a4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "149fb251_13d47dcf",

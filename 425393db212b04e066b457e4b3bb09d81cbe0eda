@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7efb8814_5101f69c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2258,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-16T12:10:34Z",
+      "side": 1,
+      "message": "Removed the comment.",
+      "parentUuid": "20e39a44_65d2d9bb",
+      "range": {
+        "startLine": 2258,
+        "startChar": 9,
+        "endLine": 2258,
+        "endChar": 16
+      },
+      "revId": "425393db212b04e066b457e4b3bb09d81cbe0eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "947f08b7_d497cb6b",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-16T12:04:18Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2322,
+        "startChar": 9,
+        "endLine": 2322,
+        "endChar": 16
+      },
+      "revId": "425393db212b04e066b457e4b3bb09d81cbe0eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "747b696b_28738b2f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2322,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-16T12:10:34Z",
+      "side": 1,
+      "message": "Removed the comment.",
+      "parentUuid": "947f08b7_d497cb6b",
       "range": {
         "startLine": 2322,
         "startChar": 9,
