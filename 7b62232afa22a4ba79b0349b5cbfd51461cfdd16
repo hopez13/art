@@ -69,6 +69,24 @@
       "parentUuid": "570615df_ff1552fd",
       "revId": "7b62232afa22a4ba79b0349b5cbfd51461cfdd16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d91b437_e94d97dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-11-16T23:16:07Z",
+      "side": 1,
+      "message": "I\u0027m not sure how --override-system-prop\u003d... can help.  If odrefresh needs a new property, CompOS still need to construct the flag (just different flag).\n\nFor the specific case of cpu-set, we actually need to configure the VM accordingly anyway (b/197358423), so we can avoid passing those properties.",
+      "parentUuid": "56040faa_964b4541",
+      "revId": "7b62232afa22a4ba79b0349b5cbfd51461cfdd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
