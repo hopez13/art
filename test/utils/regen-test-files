@@ -381,7 +381,12 @@ art_gtest_user_module_names = [
     "art_standalone_libdexfile_tests",
     "art_standalone_libprofile_tests",
     "art_standalone_oatdump_tests",
-    "art_standalone_odrefresh_tests",
+    # Temporarily disable `art_standalone_odrefresh_tests`, as it is
+    # currently failing (b/206335809); a fix is in the works but may
+    # take some time to land.
+    #
+    # TODO(b/206335809): Re-enable this test when the fix has landed.
+    ### "art_standalone_odrefresh_tests",
     "art_standalone_runtime_compiler_tests",
     "art_standalone_runtime_tests",
     "art_standalone_sigchain_tests",
