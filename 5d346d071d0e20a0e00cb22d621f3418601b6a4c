@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b058a3b_d203b554",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-16T10:15:21Z",
+      "side": 1,
+      "message": "Only `if (is_cmpxchg)`, otherwise it is useless.",
+      "range": {
+        "startLine": 2316,
+        "startChar": 2,
+        "endLine": 2319,
+        "endChar": 3
+      },
+      "revId": "5d346d071d0e20a0e00cb22d621f3418601b6a4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "924639d9_29320fd6",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2338,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-16T10:15:21Z",
+      "side": 1,
+      "message": "References should never be byte-swapped.",
+      "range": {
+        "startLine": 2338,
+        "startChar": 47,
+        "endLine": 2338,
+        "endChar": 56
+      },
+      "revId": "5d346d071d0e20a0e00cb22d621f3418601b6a4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "149fb251_13d47dcf",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2478,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-16T10:15:21Z",
+      "side": 1,
+      "message": "DCHECK(!byte_swap);",
+      "range": {
+        "startLine": 2478,
+        "startChar": 89,
+        "endLine": 2478,
+        "endChar": 98
+      },
+      "revId": "5d346d071d0e20a0e00cb22d621f3418601b6a4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
