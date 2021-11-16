@@ -50,34 +50,44 @@ if [[ "x${BCPL}" == "x" ]]; then
   exit 1
 fi
 
-MANIFEST=/apex_manifest.pb
-ART_APEX=/apex/com.android.art
-ART_APEX_SELECTED=
-for m in `ls -1 -d ${ANDROID_PRODUCT_OUT}{,/system}${ART_APEX}*${MANIFEST} 2>/dev/null`; do
-  d=${m:0:-${#MANIFEST}}
-  if [[ "x${ART_APEX_SELECTED}" != "x" ]]; then
-    if [[ $USE_FIRST_DIR == true ]]; then
-      break
+APEX_DIR=
+function find_apex_dir {
+  local name="$1"
+  local manifest=/apex_manifest.pb
+  APEX_DIR=
+  # Check if there is an exact match, otherwise look for any ".*" suffix.
+  if [[ -f ${ANDROID_PRODUCT_OUT}/system/apex/${name}${manifest} ]]; then
+    APEX_DIR=${ANDROID_PRODUCT_OUT}/system/apex/${name}
+  else
+    for m in `ls -1 -d ${ANDROID_PRODUCT_OUT}/system/apex/${name}.*${manifest} 2>/dev/null`; do
+      local d=${m:0:-${#manifest}}
+      if [[ "x${APEX_DIR}" != "x" ]]; then
+        if [[ $USE_FIRST_DIR == true ]]; then
+          break
+        fi
+        echo "Multiple APEX dirs: ${APEX_DIR}, ${d}."
+        exit 1
+      fi
+      APEX_DIR=${d}
+    done
+    if [[ "x${APEX_DIR}" == "x" ]]; then
+      echo "No APEX dir for $name."
+      exit 1
     fi
-    echo "Multiple ART APEX dirs: ${ART_APEX_SELECTED}, ${d}."
-    exit 1
   fi
-  ART_APEX_SELECTED=${d}
-done
-if [[ "x${ART_APEX_SELECTED}" == "x" ]]; then
-  echo "No ART APEX dir."
-  exit 1
-fi
+}
 
+APEX_PREFIX="/apex/"
 BCP=
-OLD_IFS=${IFS}
-IFS=:
-for COMPONENT in ${BCPL}; do
+for COMPONENT in ${BCPL//:/ }; do
   HEAD=${ANDROID_PRODUCT_OUT}
   TAIL=${COMPONENT}
-  if [[ ${COMPONENT:0:${#ART_APEX}} = ${ART_APEX} ]]; then
-    HEAD=${ART_APEX_SELECTED}
-    TAIL=${COMPONENT:${#ART_APEX}}
+  if [[ ${COMPONENT:0:${#APEX_PREFIX}} = ${APEX_PREFIX} ]]; then
+    TAIL=${COMPONENT:${#APEX_PREFIX}}
+    APEX_NAME=${TAIL/\/*/}
+    find_apex_dir $APEX_NAME
+    HEAD=$APEX_DIR
+    TAIL=${TAIL:${#APEX_NAME}}
   fi
   if [[ ! -e $HEAD$TAIL ]]; then
     echo "File does not exist: $HEAD$TAIL"
@@ -85,7 +95,6 @@ for COMPONENT in ${BCPL}; do
   fi
   BCP="${BCP}:${HEAD}${TAIL}"
 done
-IFS=${OLD_IFS}
 BCP=${BCP:1}  # Strip leading ':'.
 
 echo --runtime-arg -Xbootclasspath:${BCP} \
