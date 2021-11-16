@@ -16,6 +16,24 @@
       "message": "Hi Neeraj,\n\nI am not sure what the status of this CL is, it has 7 unresolved review comments; we would probably want to have those addressed before we proceed.\n\nThanks,\nArtem.",
       "revId": "fadc7ae4799db402421a0551653221a1be4f64db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4369078_f3989711",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2021-11-16T04:16:54Z",
+      "side": 1,
+      "message": "Hi Artem, All the unresolved comments were for old patches (2019). The patch has changed a lot after that. Hence, I have resolved the comments which are not matching (or relevant) with the current patch-set.",
+      "parentUuid": "59813f13_2c97a046",
+      "revId": "fadc7ae4799db402421a0551653221a1be4f64db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

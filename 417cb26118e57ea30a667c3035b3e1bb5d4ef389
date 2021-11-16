@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "1f6ba2cc_99b0684b",
         "filename": "/COMMIT_MSG",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "Could you include performance numbers and compile time impact in the commit message?",
       "revId": "417cb26118e57ea30a667c3035b3e1bb5d4ef389",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21eb76f4_c070255d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2021-11-16T04:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f6ba2cc_99b0684b",
+      "revId": "417cb26118e57ea30a667c3035b3e1bb5d4ef389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "37423d0c_afffe69a",
         "filename": "compiler/optimizing/superblock_cloner.h",
@@ -37,8 +56,31 @@
         "endChar": 59
       },
       "revId": "417cb26118e57ea30a667c3035b3e1bb5d4ef389",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "748cf6c4_c59ef129",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2021-11-16T04:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37423d0c_afffe69a",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 59
+      },
+      "revId": "417cb26118e57ea30a667c3035b3e1bb5d4ef389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

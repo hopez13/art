@@ -422,6 +422,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1e8706_264cdf5f",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2021-11-16T04:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4daa18de_5c7f2c83",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 42
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "849e4b62_2273a466",
@@ -445,6 +469,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab513c57_abc169bd",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2021-11-16T04:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "849e4b62_2273a466",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 44
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4eb1062_5d865d97",
@@ -458,6 +506,30 @@
       "writtenOn": "2020-07-03T14:52:09Z",
       "side": 1,
       "message": "In theory those instructions could be introduced by other optimizations (e.g. dynamic BCE); I would suggest to check that there is only one loop instead (by looking at \"loop:{{B\\d+}} and Phis) for the negative tests.\n\nHere and below.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 45
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08b85084_a808beaa",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2021-11-16T04:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4eb1062_5d865d97",
       "range": {
         "startLine": 202,
         "startChar": 0,

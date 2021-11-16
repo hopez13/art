@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "5d5a9e01_d8b7da6f",
         "filename": "compiler/optimizing/superblock_cloner.h",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "I think the SuperBlockCloner interface isn\u0027t a clean one as it keeps changing with every problem we want to solve with it. I guess it is flawed since the very beginning as it had a coupling with the peeling (the first problem it tried to solve). This interface should be decoupled with peeling and it should only provide basic cloning primitives. The edge remapping logic could vary with the specific problem and so we should have overridable interfaces in it that can be defined in problem specific derivations of this basic cloning class.",
       "revId": "8ed6d643a441af78c1be3669a353614f4ed9e599",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ad8b525_e3b24a8f",
+        "filename": "compiler/optimizing/superblock_cloner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1367653
+      },
+      "writtenOn": "2021-11-16T04:16:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d5a9e01_d8b7da6f",
+      "revId": "8ed6d643a441af78c1be3669a353614f4ed9e599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
