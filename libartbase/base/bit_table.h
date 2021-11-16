@@ -65,6 +65,11 @@ class BitTableBase {
     DCHECK(table_data_.IsValid()) << "Table has not been loaded";
     DCHECK_LT(row, num_rows_);
     DCHECK_LT(column, kNumColumns);
+    if (row == kNoValue) {
+      // In some seldom cases, row is -1 that will cause a SIGSEGV, and we return 0 to prevent a process crash.
+      LOG(kIsDebugBuild ? FATAL : ERROR) << "row is an unexpected value -1.";
+      return 0;
+    }
     size_t offset = row * NumRowBits() + column_offset_[column];
     return table_data_.LoadBits(offset, NumColumnBits(column)) + kValueBias;
   }
