@@ -51,6 +51,24 @@
       "parentUuid": "0d069e1c_f4b59e08",
       "revId": "7b62232afa22a4ba79b0349b5cbfd51461cfdd16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56040faa_964b4541",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-11-16T22:51:53Z",
+      "side": 1,
+      "message": "Honestly, I don\u0027t know how the host variant of odrefresh was designed or how it was supposed to be used. Adding a commandline flag for the target variant should be careful because commandline flags are APIs that the ART module exposes, and they need to be stable. I agree that we can pass system properties via flags, but the question is how. I assume you will need more flags like this later for `dalvik.vm.boot-dex2oat-cpu-set` and others, so I think something like \"--override-system-prop\u003d...\" would be better. WDYT?",
+      "parentUuid": "570615df_ff1552fd",
+      "revId": "7b62232afa22a4ba79b0349b5cbfd51461cfdd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
