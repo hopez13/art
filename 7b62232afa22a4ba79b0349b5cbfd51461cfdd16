@@ -33,6 +33,24 @@
       "message": "Does this mean that CompOS won\u0027t be able to provide odrefresh with any system property? If so, we probably need a more generalized way for overriding system properties.",
       "revId": "7b62232afa22a4ba79b0349b5cbfd51461cfdd16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "570615df_ff1552fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-11-16T20:32:49Z",
+      "side": 1,
+      "message": "I prefer avoiding system property, adding get_prop sepolicy for odrefresh and set_prop for compsvc, just to pass the some strings to the executable.\n\nIf the host variant of odrefresh was used, changes like this (i.e. already exists in the host variant) would be trivial, but since it\u0027s not, I hope the cost to maintain the command line API is acceptable.  WDYT?",
+      "parentUuid": "0d069e1c_f4b59e08",
+      "revId": "7b62232afa22a4ba79b0349b5cbfd51461cfdd16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
