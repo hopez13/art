@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d1d222f_994d77ef",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-17T09:54:17Z",
+      "side": 1,
+      "message": "Can you expand the comment with eg \"same for all threads, but we cache it here for faster thread state transitions\"?",
+      "revId": "78d5f509a1f67393c3c0a197131e5677b5ac167c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
