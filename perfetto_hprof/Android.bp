@@ -69,6 +69,11 @@ cc_defaults {
     header_libs: [
         "libnativehelper_header_only",
     ],
+    // FIXME: libperfetto_client_experimental is built as thumbv7, while the
+    // platform is thumbv8. ThinLTO disallows mixing and matching targets.
+    lto: {
+        never: true,
+    },
 }
 
 art_cc_library {
