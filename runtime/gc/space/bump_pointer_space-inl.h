@@ -44,6 +44,11 @@ inline mirror::Object* BumpPointerSpace::AllocThreadUnsafe(Thread* self, size_t 
                                                            size_t* bytes_allocated,
                                                            size_t* usable_size,
                                                            size_t* bytes_tl_bulk_allocated) {
+  // We don't create blocks for these allocations. So confirm that we are still
+  // operating the main-block.
+  // TODO: If the assertion fails, then start associating
+  // each allocation here to a block.
+  CHECK_EQ(block_sizes_.empty());
   Locks::mutator_lock_->AssertExclusiveHeld(self);
   num_bytes = RoundUp(num_bytes, kAlignment);
   uint8_t* end = end_.load(std::memory_order_relaxed);
@@ -87,6 +92,11 @@ inline mirror::Object* BumpPointerSpace::AllocNonvirtual(size_t num_bytes) {
     bytes_allocated_.fetch_add(num_bytes, std::memory_order_relaxed);
   }
   return ret;
+}
+
+inline mirror::Object* BumpPointerSpace::GetNextObject(mirror::Object* obj) {
+  const uintptr_t position = reinterpret_cast<uintptr_t>(obj) + obj->SizeOf();
+  return reinterpret_cast<mirror::Object*>(RoundUp(position, kAlignment));
 }
 
 }  // namespace space

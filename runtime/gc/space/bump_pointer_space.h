@@ -17,9 +17,10 @@
 #ifndef ART_RUNTIME_GC_SPACE_BUMP_POINTER_SPACE_H_
 #define ART_RUNTIME_GC_SPACE_BUMP_POINTER_SPACE_H_
 
+#include "base/mutex.h"
 #include "space.h"
 
-#include "base/mutex.h"
+#include <deque>
 
 namespace art {
 
@@ -136,10 +137,6 @@ class BumpPointerSpace final : public ContinuousMemMapAllocSpace {
   // TODO: Change this? Mainly used for compacting to a particular region of memory.
   BumpPointerSpace(const std::string& name, uint8_t* begin, uint8_t* limit);
 
-  // Return the object which comes after obj, while ensuring alignment.
-  static mirror::Object* GetNextObject(mirror::Object* obj)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
   // Allocate a new TLAB, returns false if the allocation failed.
   bool AllocNewTlab(Thread* self, size_t bytes) REQUIRES(!block_lock_);
 
@@ -186,20 +183,34 @@ class BumpPointerSpace final : public ContinuousMemMapAllocSpace {
   // The objects at the start of the space are stored in the main block. The main block doesn't
   // have a header, this lets us walk empty spaces which are mprotected.
   size_t main_block_size_ GUARDED_BY(block_lock_);
-  // The number of blocks in the space, if it is 0 then the space has one long continuous block
-  // which doesn't have an updated header.
-  size_t num_blocks_ GUARDED_BY(block_lock_);
+  // List of block sizes (in bytes) after the main-block. Needed for Walk().
+  // If empty then the space has one long continuous block.
+  std::deque<size_t> block_sizes_ GUARDED_BY(block_lock_);
 
  private:
-  struct BlockHeader {
-    size_t size_;  // Size of the block in bytes, does not include the header.
-    size_t unused_;  // Ensures alignment of kAlignment.
-  };
+  // Return the object which comes after obj, while ensuring alignment.
+  static mirror::Object* GetNextObject(mirror::Object* obj)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
-  static_assert(sizeof(BlockHeader) % kAlignment == 0,
-                "continuous block must be kAlignment aligned");
+  // Return a vector of block sizes on the space. Required by MarkCompact GC for
+  // walking black objects allocated after marking phase.
+  std::vector<size_t>* GetBlockSizes(Thread* self, size_t* main_block_size) REQUIRES(!block_lock_);
+
+  // Once the MarkCompact decides the post-compact layout of the space in the
+  // pre-compaction pause, call this function to update the block sizes. It is
+  // done by passing the new main-block size, which consumes a bunch of blocks
+  // into itself. Also, pass the index of first unconsumed block. This works as
+  // all the block sizes are ordered.
+  void SetBlockSizes(Thread* self, const size_t main_block_size, const size_t first_valid_idx)
+      REQUIRES(!block_lock_, Locks::mutator_lock_);
+
+  // Align end to the given alignment. This is done in MarkCompact GC when
+  // mutators are suspended so that upcoming TLAB allocations start with a new
+  // page. Returns the pre-alignment end.
+  uint8_t* AlignEnd(Thread* self, size_t alignment) REQUIRES(Locks::mutator_lock_);
 
   friend class collector::MarkSweep;
+  friend class collector::MarkCompact;
   DISALLOW_COPY_AND_ASSIGN(BumpPointerSpace);
 };
 

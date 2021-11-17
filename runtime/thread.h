@@ -1135,6 +1135,10 @@ class Thread {
     DCHECK_LE(tlsPtr_.thread_local_end, tlsPtr_.thread_local_limit);
   }
 
+  // Called from Concurrent mark-compact GC to slide the TLAB pointers backwards
+  // to adjust to post-compact addresses.
+  void AdjustTlab(size_t slide_bytes);
+
   // Doesn't check that there is room.
   mirror::Object* AllocTlab(size_t bytes);
   void SetTlab(uint8_t* start, uint8_t* end, uint8_t* limit);
