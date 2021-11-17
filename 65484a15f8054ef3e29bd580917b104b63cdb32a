@@ -34,6 +34,24 @@
       "parentUuid": "975a4936_2aaead2f",
       "revId": "65484a15f8054ef3e29bd580917b104b63cdb32a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcfb7fbf_02dede2d",
+        "filename": "odrefresh/CacheInfo.xsd",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-17T09:46:00Z",
+      "side": 1,
+      "message": "I guess that\u0027s OK if it makes the C++ code simpler. In my mind, I\u0027m still thinking about three lists: 1) bcp 2) systemserverclasspath 3) random jars :)",
+      "parentUuid": "adecc31f_0b73be81",
+      "revId": "65484a15f8054ef3e29bd580917b104b63cdb32a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
