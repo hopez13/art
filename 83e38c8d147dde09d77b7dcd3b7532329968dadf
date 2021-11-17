@@ -22,6 +22,30 @@
       },
       "revId": "83e38c8d147dde09d77b7dcd3b7532329968dadf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c88b3b3a_11983030",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-17T14:09:57Z",
+      "side": 1,
+      "message": "This is not a method lookup, it just looks at the data in the dex file.",
+      "parentUuid": "2a029274_710efdc8",
+      "range": {
+        "startLine": 105,
+        "startChar": 34,
+        "endLine": 105,
+        "endChar": 85
+      },
+      "revId": "83e38c8d147dde09d77b7dcd3b7532329968dadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
