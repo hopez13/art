@@ -94,6 +94,30 @@
       },
       "revId": "92785da1fc83234062261c95c2b4dde1aeb483c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7188af0_9b3b8115",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-17T16:37:19Z",
+      "side": 1,
+      "message": "Well, it was already inlined during AOT compilation and we now failed to find it. I don\u0027t think any extra description is needed here. The format should be \"\u003cpretty-method\u003e (\u003cdex-file-location\u003e/\u003cdex-file-pointer\u003e)\" just like the entries for `method` and outer_method`.",
+      "parentUuid": "1b21db38_e5fe3861",
+      "range": {
+        "startLine": 105,
+        "startChar": 75,
+        "endLine": 105,
+        "endChar": 96
+      },
+      "revId": "92785da1fc83234062261c95c2b4dde1aeb483c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
