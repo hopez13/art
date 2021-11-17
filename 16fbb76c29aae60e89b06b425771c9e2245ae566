@@ -1,0 +1,133 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017385427",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1894913?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "0ef0a964_db9e9c4e",
+          "description": "Change to \"runtime/gc/collector/mark_compact.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/gc/collector/mark_compact.cc",
+              "range": {
+                "startLine": 331,
+                "startChar": 21,
+                "endLine": 331,
+                "endChar": 31
+              },
+              "replacement": "accommodate"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "d0c28d17_6f0fdbc6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-17T17:29:50Z",
+      "side": 1,
+      "message": "Common typo found: \"accomodate\" -- should it be \"accommodate\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 331,
+        "startChar": 21,
+        "endLine": 331,
+        "endChar": 31
+      },
+      "revId": "16fbb76c29aae60e89b06b425771c9e2245ae566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017385427",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1894913?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "9e2f97da_f5bfe1e7",
+          "description": "Change to \"runtime/gc/collector/mark_compact.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/gc/collector/mark_compact.cc",
+              "range": {
+                "startLine": 771,
+                "startChar": 19,
+                "endLine": 771,
+                "endChar": 26
+              },
+              "replacement": "Remember"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "1061a26f_22259703",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-17T17:29:50Z",
+      "side": 1,
+      "message": "Common typo found: \"Remeber\" -- should it be \"Remember\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 771,
+        "startChar": 19,
+        "endLine": 771,
+        "endChar": 26
+      },
+      "revId": "16fbb76c29aae60e89b06b425771c9e2245ae566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017385427",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1894913?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "62791bd1_a197df35",
+          "description": "Change to \"runtime/gc/space/bump_pointer_space-walk-inl.h\"",
+          "replacements": [
+            {
+              "path": "runtime/gc/space/bump_pointer_space-walk-inl.h",
+              "range": {
+                "startLine": 89,
+                "startChar": 16,
+                "endLine": 89,
+                "endChar": 24
+              },
+              "replacement": "it\u0027s the "
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "1c11359c_0d2a0fc2",
+        "filename": "runtime/gc/space/bump_pointer_space-walk-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-17T17:29:50Z",
+      "side": 1,
+      "message": "Common typo found: \"its the \" -- should it be \"it\u0027s the \"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 89,
+        "startChar": 16,
+        "endLine": 89,
+        "endChar": 24
+      },
+      "revId": "16fbb76c29aae60e89b06b425771c9e2245ae566",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
