@@ -26,9 +26,11 @@ namespace art {
 namespace x86 {
 
 static Register GetScratchRegister() {
-  // ECX is an argument register on entry and gets spilled in BuildFrame().
+  // EDX is an argument register on entry and gets spilled in `MoveArguments()`.
   // After that, we can use it as a scratch register.
-  return ECX;
+  // Note: The `this` argument ECX needs to be preserved across `MoveArguments()`
+  // for synchronized methods to be passed to `JniLockObject()`.
+  return EDX;
 }
 
 static dwarf::Reg DWARFReg(Register reg) {
@@ -344,13 +346,13 @@ void X86JNIMacroAssembler::MoveArguments(ArrayRef<ArgumentLocation> dests,
           Store(ref, srcs[i].GetRegister(), kObjectReferenceSize);
           // Note: We can clobber `src` here as the register cannot hold more than one argument.
           //       This overload of `CreateJObject()` currently does not use the scratch
-          //       register ECX, so this shall not clobber another argument.
+          //       register EDX, so this shall not clobber another argument.
           CreateJObject(src.GetRegister(), ref, src.GetRegister(), /*null_allowed=*/ i != 0u);
         }
         Store(dest.GetFrameOffset(), src.GetRegister(), dest.GetSize());
       }
     } else {
-      // Delay copying until we have spilled all registers, including the scratch register ECX.
+      // Delay copying until we have spilled all registers, including the scratch register EDX.
     }
   }
 

@@ -299,6 +299,11 @@ FrameOffset X86_64JniCallingConvention::CurrentParamStackOffset() {
   return FrameOffset(offset);
 }
 
+ManagedRegister X86_64JniCallingConvention::LockingArgumentRegister() const {
+  // The locking argument is passed in RSI. Using `this` register avoids a MOV for instance methods.
+  return X86_64ManagedRegister::FromCpuRegister(RSI);
+}
+
 ManagedRegister X86_64JniCallingConvention::HiddenArgumentRegister() const {
   CHECK(IsCriticalNative());
   // RAX is neither managed callee-save, nor argument register, nor scratch register.

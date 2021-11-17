@@ -294,6 +294,11 @@ FrameOffset X86JniCallingConvention::CurrentParamStackOffset() {
       FrameOffset(displacement_.Int32Value() - OutFrameSize() + (itr_slots_ * kFramePointerSize));
 }
 
+ManagedRegister X86JniCallingConvention::LockingArgumentRegister() const {
+  // The locking argument is passed in ECX. Using `this` register avoids a MOV for instance methods.
+  return X86ManagedRegister::FromCpuRegister(ECX);
+}
+
 ManagedRegister X86JniCallingConvention::HiddenArgumentRegister() const {
   CHECK(IsCriticalNative());
   // EAX is neither managed callee-save, nor argument register, nor scratch register.
