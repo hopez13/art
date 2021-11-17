@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d440ad4_47ee4720",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-17T14:03:31Z",
+      "side": 1,
+      "message": "rather",
+      "range": {
+        "startLine": 9,
+        "startChar": 62,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "d2a514c27d3903452f0e4f27d143ccd24e8f1429",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c52bfc72_87acc29b",
@@ -14,6 +37,29 @@
       "writtenOn": "2021-11-17T13:56:06Z",
       "side": 1,
       "message": "Vladimir PTAL",
+      "revId": "d2a514c27d3903452f0e4f27d143ccd24e8f1429",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5504a837_28534ef0",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-17T14:03:31Z",
+      "side": 1,
+      "message": "At this point, I think we can remove this message. It should not be the case anymore that duplicate classes / class loader magic will lead to such crashes.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 99
+      },
       "revId": "d2a514c27d3903452f0e4f27d143ccd24e8f1429",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
