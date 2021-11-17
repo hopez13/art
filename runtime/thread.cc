@@ -4302,6 +4302,15 @@ bool Thread::HasTlab() const {
   return has_tlab;
 }
 
+void Thread::AdjustTlab(size_t slide_bytes) {
+  if (HasTlab()) {
+    tlsPtr_.thread_local_start -= slide_bytes;
+    tlsPtr_.thread_local_pos -= slide_bytes;
+    tlsPtr_.thread_local_end -= slide_bytes;
+    tlsPtr_.thread_local_limit -= slide_bytes;
+  }
+}
+
 std::ostream& operator<<(std::ostream& os, const Thread& thread) {
   thread.ShortDump(os);
   return os;

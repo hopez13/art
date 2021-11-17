@@ -4411,8 +4411,13 @@ mirror::Object* Heap::AllocWithNewTLAB(Thread* self,
     DCHECK_LE(alloc_size, self->TlabSize());
   } else if (allocator_type == kAllocatorTypeTLAB) {
     DCHECK(bump_pointer_space_ != nullptr);
+    // Try to allocate a page-aligned TLAB (not necessary though).
+    // TODO: for large allocations, which are rare, maybe we should allocate
+    // that object and return. There is no need to revoke the current TLAB,
+    // particularly if it's mostly unutilized.
+    size_t def_pr_tlab_size = RoundDown(alloc_size + kDefaultTLABSize, kPageSize) - alloc_size;
     size_t next_tlab_size = JHPCalculateNextTlabSize(self,
-                                                     kDefaultTLABSize,
+                                                     def_pr_tlab_size,
                                                      alloc_size,
                                                      &take_sample,
                                                      &bytes_until_sample);
