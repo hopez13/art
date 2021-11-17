@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a029274_710efdc8",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-17T14:02:49Z",
+      "side": 1,
+      "message": "Is this okay? Or would it fail to lookup since it failed before?",
+      "range": {
+        "startLine": 105,
+        "startChar": 34,
+        "endLine": 105,
+        "endChar": 85
+      },
+      "revId": "83e38c8d147dde09d77b7dcd3b7532329968dadf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
