@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e15bfab1_4a8dabb5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-17T14:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d440ad4_47ee4720",
+      "range": {
+        "startLine": 9,
+        "startChar": 62,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "d2a514c27d3903452f0e4f27d143ccd24e8f1429",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c52bfc72_87acc29b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2021-11-17T14:03:31Z",
       "side": 1,
       "message": "At this point, I think we can remove this message. It should not be the case anymore that duplicate classes / class loader magic will lead to such crashes.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 99
+      },
+      "revId": "d2a514c27d3903452f0e4f27d143ccd24e8f1429",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca543719_eb25793d",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-17T14:05:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5504a837_28534ef0",
       "range": {
         "startLine": 120,
         "startChar": 0,
