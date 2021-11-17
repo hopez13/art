@@ -22,6 +22,30 @@
       },
       "revId": "b519da86ed1a59b0b7bead81598758a20a425695",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18a0515e_9c9699c5",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-17T14:54:09Z",
+      "side": 1,
+      "message": "Hm, if that\u0027s the case I can re-structure so we get all of the info in one line. Some of the information is not needed for every case e.g. method_info.GetDexFileIndex but we can know it is extra because it will be a -1.",
+      "parentUuid": "76cbd848_45de14a6",
+      "range": {
+        "startLine": 122,
+        "startChar": 21,
+        "endLine": 122,
+        "endChar": 22
+      },
+      "revId": "b519da86ed1a59b0b7bead81598758a20a425695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
