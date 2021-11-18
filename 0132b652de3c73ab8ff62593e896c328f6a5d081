@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5519b2b7_c4d7a782",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-18T13:48:15Z",
+      "side": 1,
+      "message": "Why the copying here? I can\u0027t find that either art_gtest_user_module_names or art_gtest_module_names get mutated anywhere.\n\nIf you only want separate variables for different purposes then I suggest converting the lists to tuples, which are immutable. I think they work pretty much the same for iteration etc.",
+      "revId": "0132b652de3c73ab8ff62593e896c328f6a5d081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95a519ad_f4010f5d",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-18T13:48:15Z",
+      "side": 1,
+      "message": "Here\u0027s another hardcoded figure. Iiuc the problem is that this script doesn\u0027t know how many gtests there actually are - it assumes art_gtest_module_names lists them all and hence it\u0027ll always be 100%.\n\nThat means this message may be misleading, doesn\u0027t it? When I read \"19 ART gtests (100%)\" I assume it\u0027s out of all gtests in ART. However I don\u0027t think we should device a way to plumb in the real total number of gtests here, but I think it\u0027d be better if the message didn\u0027t show percentages at all in this case. This applies to the other percentage you\u0027re changing above too.",
+      "range": {
+        "startLine": 871,
+        "startChar": 52,
+        "endLine": 871,
+        "endChar": 55
+      },
+      "revId": "0132b652de3c73ab8ff62593e896c328f6a5d081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
