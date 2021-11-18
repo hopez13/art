@@ -52,6 +52,24 @@
       "parentUuid": "adecc31f_0b73be81",
       "revId": "65484a15f8054ef3e29bd580917b104b63cdb32a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dde9588_b9652f55",
+        "filename": "odrefresh/CacheInfo.xsd",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-11-18T10:39:20Z",
+      "side": 1,
+      "message": "Yes, it\u0027s true that systemserverclasspath jars and standalone jars come from two different lists. However, odrefresh treats them in almost the same way, except for how the class loader context is constructed, so keeping them in the same xml element still makes sense to me. I would prefer to keep it as is for now. We can always make adjustments in the future when the other way is more preferable because we don\u0027t have to worry about backward compatibility.",
+      "parentUuid": "fcfb7fbf_02dede2d",
+      "revId": "65484a15f8054ef3e29bd580917b104b63cdb32a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
