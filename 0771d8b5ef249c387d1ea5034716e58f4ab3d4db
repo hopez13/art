@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e69a928_4c7a7ba4",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-18T20:59:13Z",
+      "side": 1,
+      "message": "I\u0027d prefer avoid duplicating this here. Or really, isn\u0027t it overall more apt to inherit com.android.art-device-defaults for this APEX? It\u0027s for device after all, isn\u0027t it?\n\nTo do that I think you\u0027d have to add either \"libart\" or \"libart-broken\" in inheriting modules then (there are only two where it should be \"libart\", so I wouldn\u0027t bother with a new intermediate defaults module). Overall that looks overall like a cleaner structure to me.",
+      "range": {
+        "startLine": 359,
+        "startChar": 4,
+        "endLine": 359,
+        "endChar": 26
+      },
+      "revId": "0771d8b5ef249c387d1ea5034716e58f4ab3d4db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
