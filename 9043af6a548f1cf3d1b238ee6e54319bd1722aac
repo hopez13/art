@@ -39,6 +39,30 @@
       },
       "revId": "9043af6a548f1cf3d1b238ee6e54319bd1722aac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f86c7ec7_a033952e",
+        "filename": "test/update-rollback/src/com/android/tests/apex/art/BrokenArtApexUpdateRollbackHostTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-18T20:35:58Z",
+      "side": 1,
+      "message": "When running with `atest`, this statement shows one line (per run), only when invoked with option `-v`. This should also show up in TradeFed host logs in continuous testing (which I think is useful to understand and debug automated test runs).\n\nI also fixed the output message, to display the actual logcat message instead of showing the event type twice.",
+      "parentUuid": "2d0e4443_fad6431e",
+      "range": {
+        "startLine": 65,
+        "startChar": 12,
+        "endLine": 66,
+        "endChar": 45
+      },
+      "revId": "9043af6a548f1cf3d1b238ee6e54319bd1722aac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
