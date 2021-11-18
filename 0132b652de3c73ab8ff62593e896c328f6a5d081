@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77903136_a37e2e32",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-18T15:04:30Z",
+      "side": 1,
+      "message": "Then tuples and a somewhat unsightly list comprehension is the way to go:\n\n  art_gtests_mainline_presubmit_module_names \u003d (\n    test for test in art_gtest_module_names if test not in (\n      ... list of exclusions ...\n    ))",
+      "parentUuid": "4dd52118_e6d65926",
+      "revId": "0132b652de3c73ab8ff62593e896c328f6a5d081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95a519ad_f4010f5d",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 1
