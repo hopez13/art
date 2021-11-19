@@ -3224,6 +3224,14 @@ void IntrinsicCodeGeneratorX86_64::VisitMathMultiplyHigh(HInvoke* invoke) {
   __ imulq(y);
 }
 
+enum class GetAndUpdateOp {
+  kSet,
+  kAdd,
+  kBitwiseAnd,
+  kBitwiseOr,
+  kBitwiseXor
+};
+
 class VarHandleSlowPathX86_64 : public IntrinsicSlowPathX86_64 {
  public:
   explicit VarHandleSlowPathX86_64(HInvoke* invoke)
@@ -3236,6 +3244,18 @@ class VarHandleSlowPathX86_64 : public IntrinsicSlowPathX86_64 {
 
   void SetAtomic(bool is_atomic) {
     is_atomic_ = is_atomic;
+  }
+
+  void SetNeedAnyStoreBarrier(bool need_any_store_barrier) {
+    need_any_store_barrier_ = need_any_store_barrier;
+  }
+
+  void SetNeedAnyAnyBarrier(bool need_any_any_barrier) {
+    need_any_any_barrier_ = need_any_any_barrier;
+  }
+
+  void SetGetAndUpdateOp(GetAndUpdateOp get_and_update_op) {
+    get_and_update_op_ = get_and_update_op;
   }
 
   Label* GetByteArrayViewCheckLabel() {
@@ -3270,6 +3290,9 @@ class VarHandleSlowPathX86_64 : public IntrinsicSlowPathX86_64 {
   // Arguments forwarded to specific methods.
   bool is_volatile_;
   bool is_atomic_;
+  bool need_any_store_barrier_;
+  bool need_any_any_barrier_;
+  GetAndUpdateOp get_and_update_op_;
 };
 
 static void GenerateMathFma(HInvoke* invoke, CodeGeneratorX86_64* codegen) {
@@ -3641,19 +3664,6 @@ static bool HasVarHandleIntrinsicImplementation(HInvoke* invoke) {
 
   size_t expected_coordinates_count = GetExpectedVarHandleCoordinatesCount(invoke);
   DCHECK_LE(expected_coordinates_count, 2u);  // Filtered by the `DoNotIntrinsify` flag above.
-  if (expected_coordinates_count > 1u) {
-    switch (mirror::VarHandle::GetAccessModeTemplateByIntrinsic(invoke->GetIntrinsic())) {
-      case mirror::VarHandle::AccessModeTemplate::kGet:
-      case mirror::VarHandle::AccessModeTemplate::kSet:
-      case mirror::VarHandle::AccessModeTemplate::kCompareAndSet:
-      case mirror::VarHandle::AccessModeTemplate::kCompareAndExchange:
-        break;
-      default:
-        // TODO: Add support for all intrinsics.
-        return false;
-    }
-  }
-
   return true;
 }
 
@@ -4037,14 +4047,6 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleCompareAndExchangeRelease(HInvo
   GenerateVarHandleCompareAndSetOrExchange(invoke, codegen_, /*is_cmpxchg=*/ true);
 }
 
-enum class GetAndUpdateOp {
-  kSet,
-  kAdd,
-  kBitwiseAnd,
-  kBitwiseOr,
-  kBitwiseXor
-};
-
 static void CreateVarHandleGetAndSetLocations(HInvoke* invoke) {
   if (!HasVarHandleIntrinsicImplementation(invoke)) {
     return;
@@ -4085,7 +4087,8 @@ static void GenerateVarHandleGetAndSet(CodeGeneratorX86_64* codegen,
                                        uint32_t value_index,
                                        DataType::Type type,
                                        Address field_addr,
-                                       CpuRegister ref) {
+                                       CpuRegister ref,
+                                       bool byte_swap) {
   X86_64Assembler* assembler = codegen->GetAssembler();
 
   Location value = locations->InAt(value_index);
@@ -4098,15 +4101,24 @@ static void GenerateVarHandleGetAndSet(CodeGeneratorX86_64* codegen,
     Location temp = locations->GetTemp(temp_count - 1);
     codegen->Move(temp, value);
     bool is64bit = (type == DataType::Type::kFloat64);
+    DataType::Type bswap_type = is64bit ? DataType::Type::kUint64 : DataType::Type::kUint32;
+    if (byte_swap) {
+      codegen->GetInstructionCodegen()->Bswap(temp, bswap_type);
+    }
     if (is64bit) {
       __ xchgq(temp.AsRegister<CpuRegister>(), field_addr);
     } else {
       __ xchgl(temp.AsRegister<CpuRegister>(), field_addr);
     }
+    if (byte_swap) {
+      codegen->GetInstructionCodegen()->Bswap(temp, bswap_type);
+    }
     __ movd(out.AsFpuRegister<XmmRegister>(), temp.AsRegister<CpuRegister>(), is64bit);
   } else if (type == DataType::Type::kReference) {
     // `getAndSet` for references: load reference and atomically exchange it with the field.
     // Output register is the same as the one holding new value, so no need to move the result.
+    DCHECK(!byte_swap);
+
     CpuRegister temp1 = locations->GetTemp(temp_count - 1).AsRegister<CpuRegister>();
     CpuRegister temp2 = locations->GetTemp(temp_count - 2).AsRegister<CpuRegister>();
     CpuRegister valreg = value.AsRegister<CpuRegister>();
@@ -4139,6 +4151,9 @@ static void GenerateVarHandleGetAndSet(CodeGeneratorX86_64* codegen,
   } else {
     // `getAndSet` for integral types: atomically exchange the new value with the field. Output
     // register is the same as the one holding new value. Do sign extend / zero extend as needed.
+    if (byte_swap) {
+      codegen->GetInstructionCodegen()->Bswap(value, type);
+    }
     CpuRegister valreg = value.AsRegister<CpuRegister>();
     DCHECK_EQ(valreg, out.AsRegister<CpuRegister>());
     switch (type) {
@@ -4171,10 +4186,22 @@ static void GenerateVarHandleGetAndSet(CodeGeneratorX86_64* codegen,
         DCHECK(false) << "unexpected type in getAndSet intrinsic";
         UNREACHABLE();
     }
+    if (byte_swap) {
+      codegen->GetInstructionCodegen()->Bswap(value, type);
+    }
   }
 }
 
-static void CreateVarHandleGetAndBitwiseOpLocations(HInvoke* invoke) {
+// `getAndAdd` operation can be implemented via XADD unless it operates on a byte array view that
+// requires byte swap to change endianness. We do not have a precise compile-time test to cover this
+// case (we cannot distinguish arrays from byte array views at compile time, nor do we know if a
+// byte swap is needed). Therefore we approximate with a test that the number of coordinates is < 2.
+// This cuts off some cases where XADD could be used.
+static inline bool CanUseXaddForVarHandleGetAndOp(HInvoke* invoke) {
+  return IsVarHandleGetAndAdd(invoke) && GetExpectedVarHandleCoordinatesCount(invoke) < 2;
+}
+
+static void CreateVarHandleGetAndOpLocations(HInvoke* invoke) {
   if (!HasVarHandleIntrinsicImplementation(invoke)) {
     return;
   }
@@ -4183,166 +4210,77 @@ static void CreateVarHandleGetAndBitwiseOpLocations(HInvoke* invoke) {
   uint32_t new_value_index = number_of_arguments - 1;
   DataType::Type type = invoke->GetType();
   DCHECK_EQ(type, GetDataTypeFromShorty(invoke, new_value_index));
-
-  LocationSummary* locations = CreateVarHandleCommonLocations(invoke);
-
-  DCHECK_NE(DataType::Type::kReference, type);
-  DCHECK(!DataType::IsFloatingPointType(type));
-
-  // A temporary to compute the bitwise operation on the old and the new values.
-  locations->AddTemp(Location::RequiresRegister());
-  // Output is in RAX to accommodate CMPXCHG. It is also used as a temporary.
-  locations->SetOut(Location::RegisterLocation(RAX));
-}
-
-static void GenerateVarHandleGetAndBitwiseOp(CodeGeneratorX86_64* codegen,
-                                             LocationSummary* locations,
-                                             uint32_t value_index,
-                                             DataType::Type type,
-                                             Address field_addr,
-                                             GetAndUpdateOp get_and_update_op) {
-  X86_64Assembler* assembler = codegen->GetAssembler();
-
-  Location value = locations->InAt(value_index);
-  Location temp_loc = locations->GetTemp(locations->GetTempCount() - 1);
-  CpuRegister temp = temp_loc.AsRegister<CpuRegister>();
-  CpuRegister rax = locations->Out().AsRegister<CpuRegister>();
-  DCHECK_EQ(rax.AsRegister(), RAX);
-
-  NearLabel retry;
-  __ Bind(&retry);
-
-  // Load field value into register.
-  codegen->LoadFromMemoryNoReference(type, Location::RegisterLocation(RAX), field_addr);
-
-  // Move the new value into a temporary register.
-  codegen->Move(temp_loc, value);
-
-  // Use temporary register as first operand and destination of the bitwise operations, as the
-  // operation is symmetric and we need the old value in RAX for CMPXCHG. Use 32-bit registers for
-  // 8/16/32-bit types to save on the REX prefix that might be needed for 64 bits.
-  bool is64Bit = DataType::Is64BitType(type);
-  switch (get_and_update_op) {
-    case GetAndUpdateOp::kBitwiseAnd:
-      if (is64Bit) {
-        __ andq(temp, rax);
-      } else {
-        __ andl(temp, rax);
-      }
-      break;
-    case GetAndUpdateOp::kBitwiseOr:
-      if (is64Bit) {
-        __ orq(temp, rax);
-      } else {
-        __ orl(temp, rax);
-      }
-      break;
-    case GetAndUpdateOp::kBitwiseXor:
-      if (is64Bit) {
-        __ xorq(temp, rax);
-      } else {
-        __ xorl(temp, rax);
-      }
-      break;
-    default:
-      DCHECK(false) <<  "expected bitwise operation";
-      UNREACHABLE();
-  }
-
-  switch (type) {
-    case DataType::Type::kBool:
-    case DataType::Type::kUint8:
-    case DataType::Type::kInt8:
-      __ LockCmpxchgb(field_addr, temp);
-      break;
-    case DataType::Type::kUint16:
-    case DataType::Type::kInt16:
-      __ LockCmpxchgw(field_addr, temp);
-      break;
-    case DataType::Type::kInt32:
-    case DataType::Type::kUint32:
-      __ LockCmpxchgl(field_addr, temp);
-      break;
-    case DataType::Type::kInt64:
-    case DataType::Type::kUint64:
-      __ LockCmpxchgq(field_addr, temp);
-      break;
-    default:
-      DCHECK(false) << "unexpected type in getAndBitwiseOp intrinsic";
-      UNREACHABLE();
-  }
-
-  __ j(kNotZero, &retry);
-
-  // Sign-extend or zero-extend the result if necessary. Output is in RAX after CMPXCHG.
-  switch (type) {
-    case DataType::Type::kBool:
-    case DataType::Type::kUint8:
-      __ movzxb(rax, rax);
-      break;
-    case DataType::Type::kInt8:
-      __ movsxb(rax, rax);
-      break;
-    case DataType::Type::kUint16:
-      __ movzxw(rax, rax);
-      break;
-    case DataType::Type::kInt16:
-      __ movsxw(rax, rax);
-      break;
-    default:
-      break;
-  }
-}
-
-static void CreateVarHandleGetAndAddLocations(HInvoke* invoke) {
-  if (!HasVarHandleIntrinsicImplementation(invoke)) {
-    return;
-  }
-
-  uint32_t number_of_arguments = invoke->GetNumberOfArguments();
-  uint32_t new_value_index = number_of_arguments - 1;
-  DataType::Type type = invoke->GetType();
-  DCHECK_EQ(type, GetDataTypeFromShorty(invoke, new_value_index));
-
   LocationSummary* locations = CreateVarHandleCommonLocations(invoke);
 
   if (DataType::IsFloatingPointType(type)) {
+    DCHECK(IsVarHandleGetAndAdd(invoke));  // bitwise operations do not support FP types
     locations->SetOut(Location::RequiresFpuRegister());
     // Require that the new FP value is in a register (and not a constant) for ADDSS/ADDSD.
     locations->SetInAt(new_value_index, Location::RequiresFpuRegister());
     // CMPXCHG clobbers RAX.
     locations->AddTemp(Location::RegisterLocation(RAX));
-    // A temporary to hold the new value for CMPXCHG.
-    locations->AddTemp(Location::RequiresRegister());
     // An FP temporary to load the old value from the field and perform FP addition.
     locations->AddTemp(Location::RequiresFpuRegister());
+    // A temporary to hold the new value for CMPXCHG.
+    locations->AddTemp(Location::RequiresRegister());
   } else {
-    DCHECK_NE(type, DataType::Type::kReference);
-    // Use the same register for both the new value and output to take advantage of XADD.
-    // It doesn't have to be RAX, but we need to choose some to make sure it's the same.
-    locations->SetOut(Location::RegisterLocation(RAX));
-    locations->SetInAt(new_value_index, Location::RegisterLocation(RAX));
+    DCHECK_NE(DataType::Type::kReference, type);
+    if (CanUseXaddForVarHandleGetAndOp(invoke)) {
+      // Use the same register for both the new value and output to take advantage of XADD.
+      // It doesn't have to be RAX but we need to choose some register to make it the same.
+      locations->SetOut(Location::RegisterLocation(RAX));
+      locations->SetInAt(new_value_index, Location::RegisterLocation(RAX));
+    } else {
+      // A temporary to compute the bitwise operation on the old and the new values.
+      locations->AddTemp(Location::RequiresRegister());
+      // Output is in RAX to accommodate CMPXCHG. It is also used as a temporary.
+      locations->SetOut(Location::RegisterLocation(RAX));
+    }
   }
 }
 
-static void GenerateVarHandleGetAndAdd(CodeGeneratorX86_64* codegen,
-                                       LocationSummary* locations,
-                                       uint32_t value_index,
-                                       DataType::Type type,
-                                       Address field_addr) {
+static void GenerateVarHandleGetAndOp(HInvoke *invoke,
+                                      CodeGeneratorX86_64* codegen,
+                                      LocationSummary* locations,
+                                      uint32_t value_index,
+                                      DataType::Type type,
+                                      Address field_addr,
+                                      GetAndUpdateOp get_and_update_op,
+                                      bool byte_swap) {
   X86_64Assembler* assembler = codegen->GetAssembler();
-
   Location value = locations->InAt(value_index);
   Location out = locations->Out();
-  uint32_t temp_count = locations->GetTempCount();
+  size_t temp_count = locations->GetTempCount();
 
   if (DataType::IsFloatingPointType(type)) {
+    DCHECK(get_and_update_op == GetAndUpdateOp::kAdd);
     // `getAndAdd` for floating-point types: load the old FP value into a temporary FP register and
     // in RAX for CMPXCHG, add the new FP value to the old one, move it to a non-FP temporary for
     // CMPXCHG and loop until CMPXCHG succeeds. Move the result from RAX to the output FP register.
     bool is64bit = (type == DataType::Type::kFloat64);
-    XmmRegister fptemp = locations->GetTemp(temp_count - 1).AsFpuRegister<XmmRegister>();
-    CpuRegister temp = locations->GetTemp(temp_count - 2).AsRegister<CpuRegister>();
+    Location temp_loc = locations->GetTemp(temp_count - 1);
+    XmmRegister fptemp = locations->GetTemp(temp_count - 2).AsFpuRegister<XmmRegister>();
+    CpuRegister temp = temp_loc.AsRegister<CpuRegister>();
+    DataType::Type bswap_type = is64bit ? DataType::Type::kUint64 : DataType::Type::kUint32;
+
+    if (byte_swap) {
+      // This code should never be executed: it is the case of a byte array view (since it requires
+      // a byte swap), and varhandles for byte array views support numeric atomic update access mode
+      // only for int and long, but not for floating-point types (see javadoc comments for
+      // java.lang.invoke.MethodHandles.byteArrayViewVarHandle()).
+      //
+      // As the javadoc notes, this may be supported in the future, so ART varhandle implementation
+      // for byte array views treats floating-point types as numeric types in
+      // ByteArrayViewVarHandle::Access(). Consequently we do generate intrinsic code, but it always
+      // fails access mode check at runtime prior to reaching this point.
+      //
+      // Illegal instruction UD2 ensures that if control flow gets here by mistake, we will notice.
+      // This cannot be a compile-time check because we don't distinguish byte array view varhandles
+      // from array element varhandles at compile time.
+      //
+      // TODO: remove UD2 and add tests/benchmarks when we start supporting this case.
+      __ ud2();
+    }
 
     NearLabel retry;
     __ Bind(&retry);
@@ -4351,19 +4289,29 @@ static void GenerateVarHandleGetAndAdd(CodeGeneratorX86_64* codegen,
       __ movd(CpuRegister(RAX), fptemp, is64bit);
       __ addsd(fptemp, value.AsFpuRegister<XmmRegister>());
       __ movd(temp, fptemp, is64bit);
+      if (byte_swap) {
+        codegen->GetInstructionCodegen()->Bswap(temp_loc, bswap_type);
+      }
       __ LockCmpxchgq(field_addr, temp);
     } else {
       __ movss(fptemp, field_addr);
       __ movd(CpuRegister(RAX), fptemp, is64bit);
       __ addss(fptemp, value.AsFpuRegister<XmmRegister>());
       __ movd(temp, fptemp, is64bit);
+      if (byte_swap) {
+        codegen->GetInstructionCodegen()->Bswap(temp_loc, bswap_type);
+      }
       __ LockCmpxchgl(field_addr, temp);
     }
     __ j(kNotZero, &retry);
 
     // The old value is in RAX.
+    if (byte_swap) {
+      codegen->GetInstructionCodegen()->Bswap(Location::RegisterLocation(RAX), bswap_type);
+    }
     __ movd(out.AsFpuRegister<XmmRegister>(), CpuRegister(RAX), is64bit);
-  } else {
+  } else if (CanUseXaddForVarHandleGetAndOp(invoke)) {
+    DCHECK(!byte_swap);
     // `getAndAdd` for integral types: atomically exchange the new value with the field and add the
     // old value to the field. Output register is the same as the one holding new value. Do sign
     // extend / zero extend as needed.
@@ -4399,6 +4347,115 @@ static void GenerateVarHandleGetAndAdd(CodeGeneratorX86_64* codegen,
         DCHECK(false) << "unexpected type in getAndAdd intrinsic";
         UNREACHABLE();
     }
+  } else {
+    Location temp_loc = locations->GetTemp(temp_count - 1);
+    CpuRegister temp = temp_loc.AsRegister<CpuRegister>();
+    CpuRegister rax = out.AsRegister<CpuRegister>();
+    DCHECK_EQ(rax.AsRegister(), RAX);
+
+    NearLabel retry;
+    __ Bind(&retry);
+
+    // Load field value into register.
+    codegen->LoadFromMemoryNoReference(type, Location::RegisterLocation(RAX), field_addr);
+    if (byte_swap) {
+      codegen->GetInstructionCodegen()->Bswap(Location::RegisterLocation(RAX), type);
+    }
+
+    // Move the new value into a temporary register.
+    codegen->Move(temp_loc, value);
+    DCHECK_NE(temp.AsRegister(), RAX);
+
+    // Use temporary register as first operand and destination of the bitwise operations, as the
+    // operation is symmetric and we need the old value in RAX for CMPXCHG. Use 32-bit registers for
+    // 8/16/32-bit types to save on the REX prefix that might be needed for 64 bits.
+    bool is64Bit = DataType::Is64BitType(type);
+    switch (get_and_update_op) {
+      case GetAndUpdateOp::kAdd:
+        if (is64Bit) {
+          __ addq(temp, rax);
+        } else {
+          __ addl(temp, rax);
+        }
+        break;
+      case GetAndUpdateOp::kBitwiseAnd:
+        if (is64Bit) {
+          __ andq(temp, rax);
+        } else {
+          __ andl(temp, rax);
+        }
+        break;
+      case GetAndUpdateOp::kBitwiseOr:
+        if (is64Bit) {
+          __ orq(temp, rax);
+        } else {
+          __ orl(temp, rax);
+        }
+        break;
+      case GetAndUpdateOp::kBitwiseXor:
+        if (is64Bit) {
+          __ xorq(temp, rax);
+        } else {
+          __ xorl(temp, rax);
+        }
+        break;
+      default:
+        DCHECK(false) <<  "unexpected operation";
+        UNREACHABLE();
+    }
+
+    if (byte_swap) {
+      codegen->GetInstructionCodegen()->Bswap(temp_loc, type);
+      codegen->GetInstructionCodegen()->Bswap(Location::RegisterLocation(RAX), type);
+    }
+
+    switch (type) {
+      case DataType::Type::kBool:
+      case DataType::Type::kUint8:
+      case DataType::Type::kInt8:
+        __ LockCmpxchgb(field_addr, temp);
+        break;
+      case DataType::Type::kUint16:
+      case DataType::Type::kInt16:
+        __ LockCmpxchgw(field_addr, temp);
+        break;
+      case DataType::Type::kInt32:
+      case DataType::Type::kUint32:
+        __ LockCmpxchgl(field_addr, temp);
+        break;
+      case DataType::Type::kInt64:
+      case DataType::Type::kUint64:
+        __ LockCmpxchgq(field_addr, temp);
+        break;
+      default:
+        DCHECK(false) << "unexpected type in getAndBitwiseOp intrinsic";
+        UNREACHABLE();
+    }
+
+    __ j(kNotZero, &retry);
+
+    if (byte_swap) {
+      codegen->GetInstructionCodegen()->Bswap(Location::RegisterLocation(RAX), type);
+    }
+
+    // Sign-extend or zero-extend the result if necessary. Output is in RAX after CMPXCHG.
+    switch (type) {
+      case DataType::Type::kBool:
+      case DataType::Type::kUint8:
+        __ movzxb(rax, rax);
+        break;
+      case DataType::Type::kInt8:
+        __ movsxb(rax, rax);
+        break;
+      case DataType::Type::kUint16:
+        __ movzxw(rax, rax);
+        break;
+      case DataType::Type::kInt16:
+        __ movsxw(rax, rax);
+        break;
+      default:
+        break;
+    }
   }
 }
 
@@ -4406,7 +4463,8 @@ static void GenerateVarHandleGetAndUpdate(HInvoke* invoke,
                                           CodeGeneratorX86_64* codegen,
                                           GetAndUpdateOp get_and_update_op,
                                           bool need_any_store_barrier,
-                                          bool need_any_any_barrier) {
+                                          bool need_any_any_barrier,
+                                          bool byte_swap = false) {
   DCHECK(!kEmitCompilerReadBarrier || kUseBakerReadBarrier);
 
   X86_64Assembler* assembler = codegen->GetAssembler();
@@ -4416,9 +4474,16 @@ static void GenerateVarHandleGetAndUpdate(HInvoke* invoke,
   uint32_t value_index = number_of_arguments - 1;
   DataType::Type type = invoke->GetType();
 
-  VarHandleSlowPathX86_64* slow_path = GenerateVarHandleChecks(invoke, codegen, type);
+  VarHandleSlowPathX86_64* slow_path = nullptr;
   VarHandleTarget target = GetVarHandleTarget(invoke);
-  GenerateVarHandleTarget(invoke, target, codegen);
+  if (!byte_swap) {
+    slow_path = GenerateVarHandleChecks(invoke, codegen, type);
+    slow_path->SetGetAndUpdateOp(get_and_update_op);
+    slow_path->SetNeedAnyStoreBarrier(need_any_store_barrier);
+    slow_path->SetNeedAnyAnyBarrier(need_any_any_barrier);
+    GenerateVarHandleTarget(invoke, target, codegen);
+    __ Bind(slow_path->GetNativeByteOrderLabel());
+  }
 
   CpuRegister ref(target.object);
   Address field_addr(ref, CpuRegister(target.offset), TIMES_1, 0);
@@ -4429,16 +4494,15 @@ static void GenerateVarHandleGetAndUpdate(HInvoke* invoke,
 
   switch (get_and_update_op) {
     case GetAndUpdateOp::kSet:
-      GenerateVarHandleGetAndSet(codegen, invoke, locations, value_index, type, field_addr, ref);
+      GenerateVarHandleGetAndSet(
+          codegen, invoke, locations, value_index, type, field_addr, ref, byte_swap);
       break;
     case GetAndUpdateOp::kAdd:
-      GenerateVarHandleGetAndAdd(codegen, locations, value_index, type, field_addr);
-      break;
     case GetAndUpdateOp::kBitwiseAnd:
     case GetAndUpdateOp::kBitwiseOr:
     case GetAndUpdateOp::kBitwiseXor:
-      GenerateVarHandleGetAndBitwiseOp(
-          codegen, locations, value_index, type, field_addr, get_and_update_op);
+      GenerateVarHandleGetAndOp(
+          invoke, codegen, locations, value_index, type, field_addr, get_and_update_op, byte_swap);
       break;
   }
 
@@ -4446,7 +4510,9 @@ static void GenerateVarHandleGetAndUpdate(HInvoke* invoke,
     codegen->GenerateMemoryBarrier(MemBarrierKind::kAnyAny);
   }
 
-  __ Bind(slow_path->GetExitLabel());
+  if (!byte_swap) {
+    __ Bind(slow_path->GetExitLabel());
+  }
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndSet(HInvoke* invoke) {
@@ -4489,7 +4555,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndSetRelease(HInvoke* invok
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndAdd(HInvoke* invoke) {
-  CreateVarHandleGetAndAddLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndAdd(HInvoke* invoke) {
@@ -4502,7 +4568,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndAdd(HInvoke* invoke) {
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndAddAcquire(HInvoke* invoke) {
-  CreateVarHandleGetAndAddLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndAddAcquire(HInvoke* invoke) {
@@ -4515,7 +4581,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndAddAcquire(HInvoke* invok
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndAddRelease(HInvoke* invoke) {
-  CreateVarHandleGetAndAddLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndAddRelease(HInvoke* invoke) {
@@ -4528,7 +4594,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndAddRelease(HInvoke* invok
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndBitwiseAnd(HInvoke* invoke) {
-  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseAnd(HInvoke* invoke) {
@@ -4541,7 +4607,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseAnd(HInvoke* invok
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndBitwiseAndAcquire(HInvoke* invoke) {
-  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseAndAcquire(HInvoke* invoke) {
@@ -4554,7 +4620,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseAndAcquire(HInvoke
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndBitwiseAndRelease(HInvoke* invoke) {
-  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseAndRelease(HInvoke* invoke) {
@@ -4567,7 +4633,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseAndRelease(HInvoke
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndBitwiseOr(HInvoke* invoke) {
-  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseOr(HInvoke* invoke) {
@@ -4580,7 +4646,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseOr(HInvoke* invoke
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndBitwiseOrAcquire(HInvoke* invoke) {
-  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseOrAcquire(HInvoke* invoke) {
@@ -4593,7 +4659,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseOrAcquire(HInvoke*
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndBitwiseOrRelease(HInvoke* invoke) {
-  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseOrRelease(HInvoke* invoke) {
@@ -4606,7 +4672,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseOrRelease(HInvoke*
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndBitwiseXor(HInvoke* invoke) {
-  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseXor(HInvoke* invoke) {
@@ -4619,7 +4685,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseXor(HInvoke* invok
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndBitwiseXorAcquire(HInvoke* invoke) {
-  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseXorAcquire(HInvoke* invoke) {
@@ -4632,7 +4698,7 @@ void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseXorAcquire(HInvoke
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGetAndBitwiseXorRelease(HInvoke* invoke) {
-  CreateVarHandleGetAndBitwiseOpLocations(invoke);
+  CreateVarHandleGetAndOpLocations(invoke);
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitVarHandleGetAndBitwiseXorRelease(HInvoke* invoke) {
@@ -4722,9 +4788,14 @@ void VarHandleSlowPathX86_64::EmitByteArrayViewCode(CodeGeneratorX86_64* codegen
       GenerateVarHandleCompareAndSetOrExchange(
           invoke, codegen, /*is_cmpxchg=*/ true, /*byte_swap=*/ true);
       break;
-    default:
-      DCHECK(false);
-      UNREACHABLE();
+    case mirror::VarHandle::AccessModeTemplate::kGetAndUpdate:
+      GenerateVarHandleGetAndUpdate(invoke,
+                                    codegen,
+                                    get_and_update_op_,
+                                    need_any_store_barrier_,
+                                    need_any_any_barrier_,
+                                    /*byte_swap=*/ true);
+      break;
   }
 
   __ jmp(GetExitLabel());
