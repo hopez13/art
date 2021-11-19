@@ -673,6 +673,7 @@ void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     bool skip_access_checks = SkipAccessChecks();
     bool is_fast_native = IsFastNative();
     bool is_critical_native = IsCriticalNative();
+    bool is_never_compile = IsNeverCompile();
     bool is_copied = IsCopied();
     bool is_miranda = IsMiranda();
     bool is_default = IsDefault();
@@ -689,6 +690,7 @@ void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     DCHECK_EQ(skip_access_checks, SkipAccessChecks());
     DCHECK_EQ(is_fast_native, IsFastNative());
     DCHECK_EQ(is_critical_native, IsCriticalNative());
+    DCHECK_EQ(is_never_compile, IsNeverCompile());
     DCHECK_EQ(is_copied, IsCopied());
     DCHECK_EQ(is_miranda, IsMiranda());
     DCHECK_EQ(is_default, IsDefault());

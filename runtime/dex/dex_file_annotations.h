@@ -80,9 +80,11 @@ bool IsMethodAnnotationPresent(ArtMethod* method,
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 // Check whether a method from the `dex_file` with the given `method_index`
-// is annotated with @dalvik.annotation.optimization.FastNative or
-// @dalvik.annotation.optimization.CriticalNative with build visibility.
-// If yes, return the associated access flags, i.e. kAccFastNative or kAccCriticalNative.
+// is annotated with @dalvik.annotation.optimization.FastNative,
+// @dalvik.annotation.optimization.CriticalNative, or
+// @dalvik.annotation.optimization.NeverCompile with build visibility.
+// If yes, return the associated access flags, i.e. kAccFastNative, kAccCriticalNative,
+// or kAccNeverCompile.
 uint32_t GetNativeMethodAnnotationAccessFlags(const DexFile& dex_file,
                                               const dex::ClassDef& class_def,
                                               uint32_t method_index);

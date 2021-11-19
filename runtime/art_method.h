@@ -306,6 +306,11 @@ class ArtMethod final {
     return (GetAccessFlags() & mask) == mask;
   }
 
+  // Checks to see if the method was annotated with @dalvik.annotation.optimization.NeverCompile.
+  bool IsNeverCompile() const {
+    return (GetAccessFlags() & kAccNeverCompile) != 0;
+  }
+
   bool IsAbstract() const {
     // Default confliciting methods have `kAccAbstract` set but they are not actually abstract.
     return (GetAccessFlags() & kAccAbstract) != 0 && !IsDefaultConflicting();
