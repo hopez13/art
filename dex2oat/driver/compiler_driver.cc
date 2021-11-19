@@ -499,6 +499,10 @@ static void CompileMethodQuick(
       compile = compile && !results->IsUncompilableMethod(method_ref);
       // Check if we should compile based on the profile.
       compile = compile && ShouldCompileBasedOnProfile(compiler_options, profile_index, method_ref);
+      // Check if we should compile based on access flags.
+      compile = compile && !annotations::MethodIsNeverCompile(dex_file,
+                                                              dex_file.GetClassDef(class_def_idx),
+                                                              method_idx);
 
       if (compile) {
         // NOTE: if compiler declines to compile this method, it will return null.
