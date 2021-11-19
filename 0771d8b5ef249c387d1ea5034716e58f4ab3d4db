@@ -18,6 +18,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43354bc6_82d349f9",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-19T18:17:03Z",
+      "side": 1,
+      "message": "I suspect this would be more trouble than it\u0027s worth.",
+      "range": {
+        "startLine": 349,
+        "startChar": 34,
+        "endLine": 350,
+        "endChar": 50
+      },
+      "revId": "0771d8b5ef249c387d1ea5034716e58f4ab3d4db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e69a928_4c7a7ba4",
@@ -55,6 +78,30 @@
       "side": 1,
       "message": "I can\u0027t inherit from `com.android.art-device-defaults`, as it includes binaries which are pulling `libart` into this APEX, which we don\u0027t want (see comment lines 346–350).\n\nI\u0027ll try to introduce a new defaults module to refactor this bit (and others) in a follow-up CL.",
       "parentUuid": "4e69a928_4c7a7ba4",
+      "range": {
+        "startLine": 359,
+        "startChar": 4,
+        "endLine": 359,
+        "endChar": 26
+      },
+      "revId": "0771d8b5ef249c387d1ea5034716e58f4ab3d4db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11796592_a538876b",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-19T18:17:03Z",
+      "side": 1,
+      "message": "Ah right. I still think inheriting com.android.art-device-defaults is the right structure, but then an intermediate defaults module may be motivated.\n\nFollow-up is fine.",
+      "parentUuid": "846c3cbc_f51c749e",
       "range": {
         "startLine": 359,
         "startChar": 4,
