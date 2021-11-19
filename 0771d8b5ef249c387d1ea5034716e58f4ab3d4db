@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61157ea1_9c9bad86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-19T12:17:55Z",
+      "side": 1,
+      "message": "Thanks Martin.",
+      "revId": "0771d8b5ef249c387d1ea5034716e58f4ab3d4db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e69a928_4c7a7ba4",
@@ -14,6 +31,30 @@
       "writtenOn": "2021-11-18T20:59:13Z",
       "side": 1,
       "message": "I\u0027d prefer avoid duplicating this here. Or really, isn\u0027t it overall more apt to inherit com.android.art-device-defaults for this APEX? It\u0027s for device after all, isn\u0027t it?\n\nTo do that I think you\u0027d have to add either \"libart\" or \"libart-broken\" in inheriting modules then (there are only two where it should be \"libart\", so I wouldn\u0027t bother with a new intermediate defaults module). Overall that looks overall like a cleaner structure to me.",
+      "range": {
+        "startLine": 359,
+        "startChar": 4,
+        "endLine": 359,
+        "endChar": 26
+      },
+      "revId": "0771d8b5ef249c387d1ea5034716e58f4ab3d4db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "846c3cbc_f51c749e",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-19T12:17:55Z",
+      "side": 1,
+      "message": "I can\u0027t inherit from `com.android.art-device-defaults`, as it includes binaries which are pulling `libart` into this APEX, which we don\u0027t want (see comment lines 346–350).\n\nI\u0027ll try to introduce a new defaults module to refactor this bit (and others) in a follow-up CL.",
+      "parentUuid": "4e69a928_4c7a7ba4",
       "range": {
         "startLine": 359,
         "startChar": 4,
