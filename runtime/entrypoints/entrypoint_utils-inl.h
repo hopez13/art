@@ -19,6 +19,8 @@
 
 #include "entrypoint_utils.h"
 
+#include <sstream>
+
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/enums.h"
@@ -92,7 +94,32 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
       } else {
         auto oat_dex_files = method->GetDexFile()->GetOatDexFile()->GetOatFile()->GetOatDexFiles();
         const OatDexFile* odf = oat_dex_files[method_info.GetDexFileIndex()];
-        dex_cache = class_linker->FindDexCache(Thread::Current(), odf);
+        // TODO(solanes, 206992606): Remove check when bug is solved.
+        if (odf == nullptr) {
+          std::stringstream error_ss;
+
+          error_ss << "Wanted to retrieve index " << method_info.GetDexFileIndex()
+                   << " from the oat_dex_files vector {";
+          for (const OatDexFile* odf_value : oat_dex_files) {
+            error_ss << odf_value << ",";
+          }
+          error_ss << "} but it was null. We were trying to inline method index"
+                   << dex_cache->GetDexFile()->PrettyMethod(method_index) << " ("
+                   << dex_cache->GetDexFile()->GetLocation() << "/"
+                   << static_cast<const void*>(dex_cache->GetDexFile()) << ") in "
+                   << method->PrettyMethod() << " (" << method->GetDexFile()->GetLocation() << "/"
+                   << static_cast<const void*>(method->GetDexFile())
+                   << "). The outermost method in the chain is: " << outer_method->PrettyMethod()
+                   << " (" << outer_method->GetDexFile()->GetLocation() << "/"
+                   << static_cast<const void*>(outer_method->GetDexFile())
+                   << "). MethodInfo: method_index=" << std::dec << method_index
+                   << ", is_in_bootclasspath=" << std::boolalpha
+                   << (method_info.GetDexFileIndexKind() == MethodInfo::kKindBCP)
+                   << ", dex_file_index=" << std::dec << method_info.GetDexFileIndex() << ".";
+          LOG(FATAL) << error_ss.str();
+          UNREACHABLE();
+        }
+        dex_cache = class_linker->FindDexCache(Thread::Current(), *odf);
       }
     } else {
       dex_cache = outer_method->GetDexCache();
