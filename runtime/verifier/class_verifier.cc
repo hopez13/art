@@ -52,8 +52,10 @@ using android::base::StringPrintf;
 static bool gPrintedDxMonitorText = false;
 
 static void UpdateMethodFlags(uint32_t method_index,
+                              const DexFile& dex_file,
                               Handle<mirror::Class> klass,
                               Handle<mirror::DexCache> dex_cache,
+                              const dex::ClassDef& class_def,
                               CompilerCallbacks* callbacks,
                               int error_types)
     REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -74,6 +76,9 @@ static void UpdateMethodFlags(uint32_t method_index,
   DCHECK(method != nullptr);
   DCHECK(method->GetDeclaringClass() == klass.Get());
   if (!CanCompilerHandleVerificationFailure(error_types)) {
+    method->SetDontCompile();
+  }
+  if (annotations::MethodIsNeverCompile(dex_file, class_def, method_index)) {
     method->SetDontCompile();
   }
   if ((error_types & VerifyError::VERIFY_ERROR_LOCKING) != 0) {
@@ -151,7 +156,8 @@ FailureKind ClassVerifier::VerifyClass(Thread* self,
       *error += " ";
       *error += hard_failure_msg;
     } else if (result.kind != FailureKind::kNoFailure) {
-      UpdateMethodFlags(method.GetIndex(), klass, dex_cache, callbacks, result.types);
+      UpdateMethodFlags(method.GetIndex(), *dex_file, klass, dex_cache,
+                        class_def, callbacks, result.types);
       if ((result.types & VerifyError::VERIFY_ERROR_LOCKING) != 0) {
         // Print a warning about expected slow-down.
         // Use a string temporary to print one contiguous warning.
