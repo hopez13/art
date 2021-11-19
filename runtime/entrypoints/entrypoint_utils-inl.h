@@ -92,7 +92,7 @@ inline ArtMethod* GetResolvedMethod(ArtMethod* outer_method,
       } else {
         auto oat_dex_files = method->GetDexFile()->GetOatDexFile()->GetOatFile()->GetOatDexFiles();
         const OatDexFile* odf = oat_dex_files[method_info.GetDexFileIndex()];
-        dex_cache = class_linker->FindDexCache(Thread::Current(), odf);
+        dex_cache = class_linker->FindDexCache(Thread::Current(), *odf);
       }
     } else {
       dex_cache = outer_method->GetDexCache();
