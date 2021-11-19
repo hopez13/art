@@ -1291,7 +1291,14 @@ uint32_t GetNativeMethodAnnotationAccessFlags(const DexFile& dex_file,
           WellKnownClasses::dalvik_annotation_optimization_CriticalNative)) {
     access_flags |= kAccCriticalNative;
   }
-  CHECK_NE(access_flags, kAccFastNative | kAccCriticalNative);
+  if (IsMethodBuildAnnotationPresent(
+          dex_file,
+          *annotation_set,
+          "Ldalvik/annotation/optimization/NeverCompile;",
+          WellKnownClasses::dalvik_annotation_optimization_NeverCompile)) {
+    access_flags |= kAccNeverCompile;
+  }
+  CHECK_NE(access_flags, kAccFastNative | kAccCriticalNative | kAccNeverCompile);
   return access_flags;
 }
 
