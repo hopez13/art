@@ -470,6 +470,10 @@ static void CompileMethodQuick(
     DCHECK(driver != nullptr);
     CompiledMethod* compiled_method = nullptr;
 
+    if (annotations::MethodIsNeverCompile(
+        dex_file, dex_file.GetClassDef(class_def_idx), method_idx)) {
+      access_flags |= kAccCompileDontBother;
+    }
     if ((access_flags & kAccNative) != 0) {
       // Are we extracting only and have support for generic JNI down calls?
       const CompilerOptions& compiler_options = driver->GetCompilerOptions();
@@ -499,6 +503,8 @@ static void CompileMethodQuick(
       compile = compile && !results->IsUncompilableMethod(method_ref);
       // Check if we should compile based on the profile.
       compile = compile && ShouldCompileBasedOnProfile(compiler_options, profile_index, method_ref);
+      // Check if we should compile based on access flags.
+      compile = compile && ((access_flags & kAccCompileDontBother) == 0);
 
       if (compile) {
         // NOTE: if compiler declines to compile this method, it will return null.
