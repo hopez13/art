@@ -1291,9 +1291,32 @@ uint32_t GetNativeMethodAnnotationAccessFlags(const DexFile& dex_file,
           WellKnownClasses::dalvik_annotation_optimization_CriticalNative)) {
     access_flags |= kAccCriticalNative;
   }
-  CHECK_NE(access_flags, kAccFastNative | kAccCriticalNative);
+  if (IsMethodBuildAnnotationPresent(
+      dex_file,
+      *annotation_set,
+      "Ldalvik/annotation/optimization/NeverCompile;",
+      WellKnownClasses::dalvik_annotation_optimization_NeverCompile)) {
+    access_flags |= kAccCompileDontBother;
+  }
+  CHECK_NE(access_flags, kAccFastNative | kAccCriticalNative | kAccCompileDontBother);
   return access_flags;
 }
+
+bool MethodIsNeverCompile(const DexFile& dex_file,
+                          const dex::ClassDef& class_def,
+                          uint32_t method_index) {
+  const dex::AnnotationSetItem* annotation_set =
+      FindAnnotationSetForMethod(dex_file, class_def, method_index);
+  if (annotation_set == nullptr) {
+    return false;
+  }
+  return (IsMethodBuildAnnotationPresent(
+      dex_file,
+      *annotation_set,
+      "Ldalvik/annotation/optimization/NeverCompile;",
+      WellKnownClasses::dalvik_annotation_optimization_NeverCompile));
+}
+
 
 bool FieldIsReachabilitySensitive(const DexFile& dex_file,
                                   const dex::ClassDef& class_def,
