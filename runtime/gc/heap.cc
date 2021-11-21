@@ -57,6 +57,7 @@
 #include "gc/accounting/remembered_set.h"
 #include "gc/accounting/space_bitmap-inl.h"
 #include "gc/collector/concurrent_copying.h"
+#include "gc/collector/mark_compact.h"
 #include "gc/collector/mark_sweep.h"
 #include "gc/collector/partial_mark_sweep.h"
 #include "gc/collector/semi_space.h"
@@ -443,7 +444,8 @@ Heap::Heap(size_t initial_size,
   mark_bitmap_.reset(new accounting::HeapBitmap(this));
 
   // We don't have hspace compaction enabled with CC.
-  if (foreground_collector_type_ == kCollectorTypeCC) {
+  if (foreground_collector_type_ == kCollectorTypeCC
+      || foreground_collector_type_ == kCollectorTypeCMC) {
     use_homogeneous_space_compaction_for_oom_ = false;
   }
   bool support_homogeneous_space_compaction =
@@ -624,10 +626,14 @@ Heap::Heap(size_t initial_size,
                                                                     std::move(main_mem_map_1));
     CHECK(bump_pointer_space_ != nullptr) << "Failed to create bump pointer space";
     AddSpace(bump_pointer_space_);
-    temp_space_ = space::BumpPointerSpace::CreateFromMemMap("Bump pointer space 2",
-                                                            std::move(main_mem_map_2));
-    CHECK(temp_space_ != nullptr) << "Failed to create bump pointer space";
-    AddSpace(temp_space_);
+    // For Concurrent Mark-compact GC we don't need the temp space to be in
+    // lower 4GB. So its temp space will be created by the GC itself.
+    if (foreground_collector_type_ != kCollectorTypeCMC) {
+      temp_space_ = space::BumpPointerSpace::CreateFromMemMap("Bump pointer space 2",
+                                                              std::move(main_mem_map_2));
+      CHECK(temp_space_ != nullptr) << "Failed to create bump pointer space";
+      AddSpace(temp_space_);
+    }
     CHECK(separate_non_moving_space);
   } else {
     CreateMainMallocSpace(std::move(main_mem_map_1), initial_size, growth_limit_, capacity_);
@@ -752,6 +758,10 @@ Heap::Heap(size_t initial_size,
         use_homogeneous_space_compaction_for_oom_) {
       semi_space_collector_ = new collector::SemiSpace(this);
       garbage_collectors_.push_back(semi_space_collector_);
+    }
+    if (MayUseCollector(kCollectorTypeCMC)) {
+      mark_compact_ = new collector::MarkCompact(this);
+      garbage_collectors_.push_back(mark_compact_);
     }
     if (MayUseCollector(kCollectorTypeCC)) {
       concurrent_copying_collector_ = new collector::ConcurrentCopying(this,
@@ -2191,6 +2201,15 @@ void Heap::ChangeCollector(CollectorType collector_type) {
           ChangeAllocator(kAllocatorTypeRegionTLAB);
         } else {
           ChangeAllocator(kAllocatorTypeRegion);
+        }
+        break;
+      }
+      case kCollectorTypeCMC: {
+        gc_plan_.push_back(collector::kGcTypeFull);
+        if (use_tlab_) {
+          ChangeAllocator(kAllocatorTypeTLAB);
+        } else {
+          ChangeAllocator(kAllocatorTypeBumpPointer);
         }
         break;
       }
@@ -4414,8 +4433,13 @@ mirror::Object* Heap::AllocWithNewTLAB(Thread* self,
     DCHECK_LE(alloc_size, self->TlabSize());
   } else if (allocator_type == kAllocatorTypeTLAB) {
     DCHECK(bump_pointer_space_ != nullptr);
+    // Try to allocate a page-aligned TLAB (not necessary though).
+    // TODO: for large allocations, which are rare, maybe we should allocate
+    // that object and return. There is no need to revoke the current TLAB,
+    // particularly if it's mostly unutilized.
+    size_t def_pr_tlab_size = RoundDown(alloc_size + kDefaultTLABSize, kPageSize) - alloc_size;
     size_t next_tlab_size = JHPCalculateNextTlabSize(self,
-                                                     kDefaultTLABSize,
+                                                     def_pr_tlab_size,
                                                      alloc_size,
                                                      &take_sample,
                                                      &bytes_until_sample);

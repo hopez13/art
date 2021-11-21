@@ -89,6 +89,7 @@ class ConcurrentCopying;
 class GarbageCollector;
 class MarkCompact;
 class MarkSweep;
+class MarkCompact;
 class SemiSpace;
 }  // namespace collector
 
@@ -665,6 +666,10 @@ class Heap {
     return live_stack_.get();
   }
 
+  accounting::ObjectStack* GetAllocationStack() REQUIRES_SHARED(Locks::heap_bitmap_lock_) {
+    return allocation_stack_.get();
+  }
+
   void PreZygoteFork() NO_THREAD_SAFETY_ANALYSIS;
 
   // Mark and empty stack.
@@ -814,6 +819,10 @@ class Heap {
       DCHECK_EQ(active_collector, concurrent_copying_collector_);
     }
     return active_collector;
+  }
+
+  collector::MarkCompact* MarkCompactCollector() {
+    return mark_compact_;
   }
 
   CollectorType CurrentCollectorType() {
@@ -1033,6 +1042,7 @@ class Heap {
     return
         collector_type == kCollectorTypeCC ||
         collector_type == kCollectorTypeSS ||
+        collector_type == kCollectorTypeCMC ||
         collector_type == kCollectorTypeCCBackground ||
         collector_type == kCollectorTypeHomogeneousSpaceCompact;
   }
@@ -1224,6 +1234,7 @@ class Heap {
   // sweep GC, false for other GC types.
   bool IsGcConcurrent() const ALWAYS_INLINE {
     return collector_type_ == kCollectorTypeCC ||
+        collector_type_ == kCollectorTypeCMC ||
         collector_type_ == kCollectorTypeCMS ||
         collector_type_ == kCollectorTypeCCBackground;
   }
@@ -1589,6 +1600,7 @@ class Heap {
 
   std::vector<collector::GarbageCollector*> garbage_collectors_;
   collector::SemiSpace* semi_space_collector_;
+  collector::MarkCompact* mark_compact_;
   Atomic<collector::ConcurrentCopying*> active_concurrent_copying_collector_;
   collector::ConcurrentCopying* young_concurrent_copying_collector_;
   collector::ConcurrentCopying* concurrent_copying_collector_;
