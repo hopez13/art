@@ -37,6 +37,8 @@ inline uintptr_t MarkCompact::LiveWordsBitmap<kAlignment>::SetLiveWords(uintptr_
   // Bits that needs to be set in the first word, if it's not also the last word
   mask = ~(mask - 1);
   // loop over all the words, except the last one.
+  // TODO: optimize by using memset. Sometimes this function may get called with
+  // large ranges.
   while (address < end_address) {
     *address |= mask;
     address++;
@@ -52,10 +54,11 @@ inline uintptr_t MarkCompact::LiveWordsBitmap<kAlignment>::SetLiveWords(uintptr_
 
 template <size_t kAlignment> template <typename Visitor>
 inline void MarkCompact::LiveWordsBitmap<kAlignment>::VisitLiveStrides(uintptr_t begin_bit_idx,
+                                                                       uint8_t* end,
                                                                        const size_t bytes,
                                                                        Visitor&& visitor) const {
-  // TODO: we may require passing end addr/end_bit_offset to the function.
-  const uintptr_t end_bit_idx = MemRangeBitmap::BitIndexFromAddr(CoverEnd());
+  DCHECK(IsAligned<kAlignment>(end));
+  const uintptr_t end_bit_idx = MemRangeBitmap::BitIndexFromAddr(reinterpret_cast<uintptr_t>(end));
   DCHECK_LT(begin_bit_idx, end_bit_idx);
   uintptr_t begin_word_idx = Bitmap::BitIndexToWordIndex(begin_bit_idx);
 
@@ -195,6 +198,15 @@ inline void MarkCompact::UpdateRoot(mirror::CompressedReference<mirror::Object>*
   }
 }
 
+inline void MarkCompact::UpdateRoot(mirror::Object** root) {
+  mirror::Object* old_ref = *root;
+  DCHECK(old_ref != nullptr);
+  mirror::Object* new_ref = PostCompactAddress(old_ref);
+  if (old_ref != new_ref) {
+    *root = new_ref;
+  }
+}
+
 template <size_t kAlignment>
 inline size_t MarkCompact::LiveWordsBitmap<kAlignment>::CountLiveWordsUpto(size_t bit_idx) const {
   const size_t word_offset = Bitmap::BitIndexToWordIndex(bit_idx);
@@ -213,26 +225,43 @@ inline size_t MarkCompact::LiveWordsBitmap<kAlignment>::CountLiveWordsUpto(size_
   }
   word = Bitmap::Begin()[word_offset];
   const uintptr_t mask = Bitmap::BitIndexToMask(bit_idx);
-  DCHECK_NE(word & mask, 0u);
+  DCHECK_NE(word & mask, 0u)
+        << " word_offset:" << word_offset
+        << " bit_idx:" << bit_idx
+        << " bit_idx_in_word:" << (bit_idx % Bitmap::kBitsPerBitmapWord)
+        << std::hex << " word: 0x" << word
+        << " mask: 0x" << mask << std::dec;
   ret += POPCOUNT(word & (mask - 1));
   return ret;
+}
+
+inline mirror::Object* MarkCompact::PostCompactAddressUnchecked(mirror::Object* old_ref) const {
+  if (reinterpret_cast<uint8_t*>(old_ref) >= black_allocations_begin_) {
+    return reinterpret_cast<mirror::Object*>(post_compact_end_
+                                             + (reinterpret_cast<uint8_t*>(old_ref)
+                                                - black_allocations_begin_));
+  }
+  DCHECK(current_space_bitmap_->Test(old_ref))
+       << "ref=" << old_ref;
+  DCHECK(live_words_bitmap_->Test(old_ref))
+       << "ref=" << old_ref;
+  const uintptr_t begin = live_words_bitmap_->Begin();
+  const uintptr_t addr_offset = reinterpret_cast<uintptr_t>(old_ref) - begin;
+  const size_t vec_idx = addr_offset / kOffsetChunkSize;
+  const size_t live_bytes_in_bitmap_word =
+      live_words_bitmap_->CountLiveWordsUpto(addr_offset / kAlignment) * kAlignment;
+  return reinterpret_cast<mirror::Object*>(begin
+                                           + offset_vector_[vec_idx]
+                                           + live_bytes_in_bitmap_word);
 }
 
 inline mirror::Object* MarkCompact::PostCompactAddress(mirror::Object* old_ref) const {
   // TODO: To further speedup the check, maybe we should consider caching heap
   // start/end in this object.
   if (LIKELY(live_words_bitmap_->HasAddress(old_ref))) {
-    const uintptr_t begin = live_words_bitmap_->Begin();
-    const uintptr_t addr_offset = reinterpret_cast<uintptr_t>(old_ref) - begin;
-    const size_t vec_idx = addr_offset / kOffsetChunkSize;
-    const size_t live_bytes_in_bitmap_word =
-        live_words_bitmap_->CountLiveWordsUpto(addr_offset / kAlignment) * kAlignment;
-    return reinterpret_cast<mirror::Object*>(begin
-                                             + offset_vector_[vec_idx]
-                                             + live_bytes_in_bitmap_word);
-  } else {
-    return old_ref;
+    return PostCompactAddressUnchecked(old_ref);
   }
+  return old_ref;
 }
 
 }  // namespace collector

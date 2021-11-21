@@ -652,7 +652,7 @@ class MANAGED LOCKABLE Object {
   // can be accessed without causing cascading faults.
   template <bool kVisitNativeRoots = true,
             VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-            ReadBarrierOption kReadBarrierOption = kWithReadBarrier,
+            ReadBarrierOption kReadBarrierOption = kWithFromSpaceBarrier,
             typename Visitor>
   size_t VisitRefsForCompaction(const Visitor& visitor,
                                 MemberOffset begin,
