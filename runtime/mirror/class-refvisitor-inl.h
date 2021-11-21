@@ -55,7 +55,9 @@ template<ReadBarrierOption kReadBarrierOption, class Visitor>
 void Class::VisitNativeRoots(Visitor& visitor, PointerSize pointer_size) {
   VisitFields<kReadBarrierOption>([&](ArtField* field) REQUIRES_SHARED(art::Locks::mutator_lock_) {
     field->VisitRoots(visitor);
-    if (kIsDebugBuild && IsResolved()) {
+    // TODO: Once concurrent mark-compact GC is made concurrent and stops using
+    // kVisitNativeRoots, remove the following condition
+    if (kIsDebugBuild && !kUseUserfaultfd && IsResolved()) {
       CHECK_EQ(field->GetDeclaringClass<kReadBarrierOption>(), this)
           << GetStatus() << field->GetDeclaringClass()->PrettyClass() << " != " << PrettyClass();
     }
