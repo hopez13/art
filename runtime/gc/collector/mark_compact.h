@@ -18,6 +18,7 @@
 #define ART_RUNTIME_GC_COLLECTOR_MARK_COMPACT_H_
 
 #include <memory>
+#include <unordered_set>
 
 #include "base/atomic.h"
 #include "barrier.h"
@@ -50,6 +51,10 @@ class MarkCompact : public GarbageCollector {
   ~MarkCompact() {}
 
   void RunPhases() override REQUIRES(!Locks::mutator_lock_);
+
+  bool IsCompacting() const {
+    return compacting_;
+  }
 
   GcType GetGcType() const override {
     return kGcTypeFull;
@@ -97,6 +102,19 @@ class MarkCompact : public GarbageCollector {
   mirror::Object* IsMarked(mirror::Object* obj) override
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::heap_bitmap_lock_);
 
+  // Perform GC-root updation and heap protection so that during the concurrent
+  // compaction phase we can receive faults and compact the corresponding pages
+  // on the fly. This is performed in a STW pause.
+  void CompactionPause() REQUIRES(Locks::mutator_lock_, !Locks::heap_bitmap_lock_);
+
+  mirror::Object* ReadBarrier(mirror::Object* old_ref) {
+      CHECK(compacting_);
+      if (live_words_bitmap_->HasAddress(old_ref)) {
+        return GetFromSpaceAddr(old_ref);
+      }
+      return old_ref;
+  }
+
  private:
   using ObjReference = mirror::ObjectReference</*kPoisonReferences*/ false, mirror::Object>;
   // Number of bits (live-words) covered by a single offset-vector (below)
@@ -138,21 +156,33 @@ class MarkCompact : public GarbageCollector {
     // or not.
     template <typename Visitor>
     ALWAYS_INLINE void VisitLiveStrides(uintptr_t begin_bit_idx,
+                                        uint8_t* end,
                                         const size_t bytes,
                                         Visitor&& visitor) const;
+    // Count the number of live bytes in the given vector idx.
+    size_t LiveBytesInBitmapWord(size_t vec_idx) const;
     void ClearBitmap() { Bitmap::Clear(); }
     ALWAYS_INLINE uintptr_t Begin() const { return MemRangeBitmap::CoverBegin(); }
     ALWAYS_INLINE bool HasAddress(mirror::Object* obj) const {
       return MemRangeBitmap::HasAddress(reinterpret_cast<uintptr_t>(obj));
     }
-    bool Test(uintptr_t bit_index) {
+    ALWAYS_INLINE bool Test(uintptr_t bit_index) const {
       return Bitmap::TestBit(bit_index);
+    }
+    ALWAYS_INLINE bool Test(mirror::Object* obj) const {
+      return MemRangeBitmap::Test(reinterpret_cast<size_t>(obj));
+    }
+    ALWAYS_INLINE uintptr_t GetWord(size_t index) const {
+      static_assert(kBitmapWordsPerVectorWord == 1);
+      return Bitmap::Begin()[index * kBitmapWordsPerVectorWord];
     }
   };
 
-  // For a given pre-compact object, return its from-space address.
+  // For a given object address in pre-compact space, return the corresponding
+  // address in the from-space, where heap pages are relocated in the compaction
+  // pause.
   mirror::Object* GetFromSpaceAddr(mirror::Object* obj) const {
-    DCHECK(live_words_bitmap_->HasAddress(obj) && live_words_bitmap_->Test(obj));
+    DCHECK(live_words_bitmap_->HasAddress(obj)) << " obj=" << obj;
     uintptr_t offset = reinterpret_cast<uintptr_t>(obj) - live_words_bitmap_->Begin();
     return reinterpret_cast<mirror::Object*>(from_space_begin_ + offset);
   }
@@ -162,19 +192,42 @@ class MarkCompact : public GarbageCollector {
   void MarkingPhase() REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Locks::heap_bitmap_lock_);
   void CompactionPhase() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void SweepSystemWeaks(Thread* self, const bool paused)
+  void SweepSystemWeaks(Thread* self, Runtime* runtime, const bool paused)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::heap_bitmap_lock_);
   // Update the reference at given offset in the given object with post-compact
   // address.
   ALWAYS_INLINE void UpdateRef(mirror::Object* obj, MemberOffset offset)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Verify that the gc-root is updated only once. Returns false if the update
+  // shouldn't be done.
+  ALWAYS_INLINE bool VerifyRootDoubleUpdation(void* root,
+                                              mirror::Object* old_ref,
+                                              const RootInfo& info)
+      REQUIRES_SHARED(Locks::mutator_lock_);
   // Update the given root with post-compact address.
-  ALWAYS_INLINE void UpdateRoot(mirror::CompressedReference<mirror::Object>* root)
+  ALWAYS_INLINE void UpdateRoot(mirror::CompressedReference<mirror::Object>* root,
+                                const RootInfo& info = RootInfo(RootType::kRootUnknown))
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  ALWAYS_INLINE void UpdateRoot(mirror::Object** root,
+                                const RootInfo& info = RootInfo(RootType::kRootUnknown))
       REQUIRES_SHARED(Locks::mutator_lock_);
   // Given the pre-compact address, the function returns the post-compact
   // address of the given object.
   ALWAYS_INLINE mirror::Object* PostCompactAddress(mirror::Object* old_ref) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  // Compute post-compact address of an object in moving space. This function
+  // assumes that old_ref is in moving space.
+  ALWAYS_INLINE mirror::Object* PostCompactAddressUnchecked(mirror::Object* old_ref) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  // Compute the new address for an object which was black allocated during this
+  // GC cycle.
+  ALWAYS_INLINE mirror::Object* PostCompactOldObjAddr(mirror::Object* old_ref) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  // Compute the new address for an object which was allocated prior to starting
+  // this GC cycle.
+  ALWAYS_INLINE mirror::Object* PostCompactBlackObjAddr(mirror::Object* old_ref) const
       REQUIRES_SHARED(Locks::mutator_lock_);
   // Identify immune spaces and reset card-table, mod-union-table, and mark
   // bitmaps.
@@ -182,14 +235,12 @@ class MarkCompact : public GarbageCollector {
       REQUIRES(Locks::heap_bitmap_lock_);
 
   // Perform one last round of marking, identifying roots from dirty cards
-  // during a stop-the-world (STW) pause
-  void PausePhase() REQUIRES(Locks::mutator_lock_, !Locks::heap_bitmap_lock_);
-  // Perform GC-root updation and heap protection so that during the concurrent
-  // compaction phase we can receive faults and compact the corresponding pages
-  // on the fly. This is performed in a STW pause.
-  void PreCompactionPhase() REQUIRES(Locks::mutator_lock_);
+  // during a stop-the-world (STW) pause.
+  void MarkingPause() REQUIRES(Locks::mutator_lock_, !Locks::heap_bitmap_lock_);
+  // Perform stop-the-world pause prior to concurrent compaction.
+  void PreCompactionPhase() REQUIRES(!Locks::mutator_lock_);
   // Compute offset-vector and other data structures required during concurrent
-  // compaction
+  // compaction.
   void PrepareForCompaction() REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Copy kPageSize live bytes starting from 'offset', which must be within 'obj',
@@ -222,6 +273,20 @@ class MarkCompact : public GarbageCollector {
   // boundary.
   void InitMovingSpaceFirstObjects(const size_t vec_len) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Gather the info related to black allocations from bump-pointer space to
+  // enable concurrent sliding of these pages.
+  void UpdateMovingSpaceFirstObjects() REQUIRES(Locks::mutator_lock_, Locks::heap_bitmap_lock_);
+  // Update first-object info from allocation-stack for non-moving space black
+  // allocations.
+  void UpdateNonMovingSpaceFirstObjects() REQUIRES(Locks::mutator_lock_, Locks::heap_bitmap_lock_);
+
+  // Slide black page in moving space.
+  void SlideBlackPage(mirror::Object* first_obj,
+                      const uint32_t first_chunk_size,
+                      mirror::Object* next_page_first_obj,
+                      uint8_t* const pre_compact_page,
+                      uint8_t* dest)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Perform reference-processing and the likes before sweeping the non-movable
   // spaces.
@@ -322,19 +387,30 @@ class MarkCompact : public GarbageCollector {
   // which we will clear in the end. This would help in limiting the number of
   // VMAs that get created in the kernel.
   std::unique_ptr<LiveWordsBitmap<kAlignment>> live_words_bitmap_;
+  // Track GC-roots updated so far in a GC-cycle. This is to confirm that no
+  // GC-root is updated twice.
+  // TODO: Must be replaced with an efficient mechanism eventually. Or ensure
+  // that double updation doesn't happen in the first place.
+  std::unordered_set<void*> updated_roots_;
+  MemMap from_space_map_;
   // Any array of live-bytes in logical chunks of kOffsetChunkSize size
   // in the 'to-be-compacted' space.
-  std::unique_ptr<MemMap> info_map_;
-  uint32_t* offset_vector_;
+  MemMap info_map_;
   // The main space bitmap
   accounting::ContinuousSpaceBitmap* current_space_bitmap_;
   accounting::ContinuousSpaceBitmap* non_moving_space_bitmap_;
+  space::ContinuousSpace* non_moving_space_;
+  space::BumpPointerSpace* const bump_pointer_space_;
+  Thread* thread_running_gc_;
+  size_t vector_length_;
+  size_t live_stack_freeze_size_;
 
   // For every page in the to-space (post-compact heap) we need to know the
   // first object from which we must compact and/or update references. This is
   // for both non-moving and moving space. Additionally, for the moving-space,
   // we also need the offset within the object from where we need to start
   // copying.
+  uint32_t* offset_vector_;
   uint32_t* pre_compact_offset_moving_space_;
   // first_objs_moving_space_[i] is the address of the first object for the ith page
   ObjReference* first_objs_moving_space_;
@@ -342,14 +418,22 @@ class MarkCompact : public GarbageCollector {
   size_t non_moving_first_objs_count_;
   // Number of first-objects in the moving space.
   size_t moving_first_objs_count_;
+  // Number of pages consumed by black objects.
+  size_t black_page_count_;
 
   uint8_t* from_space_begin_;
+  // moving-space's end pointer at the marking pause. All allocations beyond
+  // this will be considered black in the current GC cycle. Aligned up to page
+  // size.
   uint8_t* black_allocations_begin_;
-  size_t vector_length_;
-  size_t live_stack_freeze_size_;
-  space::ContinuousSpace* non_moving_space_;
-  const space::BumpPointerSpace* bump_pointer_space_;
-  Thread* thread_running_gc_;
+  // End of compacted space. Use for computing post-compact addr of black
+  // allocated objects. Aligned up to page size.
+  uint8_t* post_compact_end_;
+
+  // TODO: Remove once an efficient mechanism to deal with double root updation
+  // is incorporated.
+  void* stack_addr_;
+  void* stack_end_;
   // Set to true when compacting starts.
   bool compacting_;
 
@@ -360,6 +444,9 @@ class MarkCompact : public GarbageCollector {
   class CardModifiedVisitor;
   class RefFieldsVisitor;
   template <bool kCheckBegin, bool kCheckEnd> class RefsUpdateVisitor;
+  class StackRefsUpdateVisitor;
+  class CompactionPauseCallback;
+  class ImmuneSpaceUpdateObjVisitor;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(MarkCompact);
 };
