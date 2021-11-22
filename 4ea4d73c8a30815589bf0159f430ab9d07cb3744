@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5f35eba5_8e177234",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-22T14:44:40Z",
+      "side": 1,
+      "message": "Reworked commit message.",
+      "parentUuid": "527e55a5_2d9310e2",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "4ea4d73c8a30815589bf0159f430ab9d07cb3744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a28cb507_6fde477e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -87,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70468010_abb1a404",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4158,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-22T14:44:40Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "99bd1ee0_a6c63423",
+      "range": {
+        "startLine": 4158,
+        "startChar": 11,
+        "endLine": 4158,
+        "endChar": 13
+      },
+      "revId": "4ea4d73c8a30815589bf0159f430ab9d07cb3744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3412e7e6_40334572",
@@ -110,6 +158,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bb0c5ec_7bf3e6a6",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-22T14:44:40Z",
+      "side": 1,
+      "message": "Used the ArrayRef suggestion. Also added the same in line 92 for the BootClassPath.",
+      "parentUuid": "3412e7e6_40334572",
+      "range": {
+        "startLine": 95,
+        "startChar": 8,
+        "endLine": 95,
+        "endChar": 12
+      },
+      "revId": "4ea4d73c8a30815589bf0159f430ab9d07cb3744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a527dd16_833abd2d",
@@ -123,6 +195,30 @@
       "writtenOn": "2021-11-22T13:37:13Z",
       "side": 1,
       "message": "Null `odf` probably means out-of-bounds access to `oat_dex_files`.",
+      "range": {
+        "startLine": 98,
+        "startChar": 8,
+        "endLine": 98,
+        "endChar": 29
+      },
+      "revId": "4ea4d73c8a30815589bf0159f430ab9d07cb3744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d9bf87e_1898b03c",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-22T14:44:40Z",
+      "side": 1,
+      "message": "Moved the LOG(FATAL) upwards based on this suggestion.",
+      "parentUuid": "a527dd16_833abd2d",
       "range": {
         "startLine": 98,
         "startChar": 8,
