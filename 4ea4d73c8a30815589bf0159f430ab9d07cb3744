@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "527e55a5_2d9310e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T13:37:13Z",
+      "side": 1,
+      "message": "We\u0027re still using pointer comparison with this CL.",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "4ea4d73c8a30815589bf0159f430ab9d07cb3744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a28cb507_6fde477e",
@@ -36,6 +59,75 @@
         "startChar": 23,
         "endLine": 4135,
         "endChar": 24
+      },
+      "revId": "4ea4d73c8a30815589bf0159f430ab9d07cb3744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99bd1ee0_a6c63423",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T13:37:13Z",
+      "side": 1,
+      "message": "Unnecessary.",
+      "range": {
+        "startLine": 4158,
+        "startChar": 11,
+        "endLine": 4158,
+        "endChar": 13
+      },
+      "revId": "4ea4d73c8a30815589bf0159f430ab9d07cb3744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3412e7e6_40334572",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T13:37:13Z",
+      "side": 1,
+      "message": "This copies an `std::vector\u003c\u003e`. Please replace with explicit `const std::vector\u003c\u003e\u0026` or construct an `ArrayRef\u003c\u003e`. The `ArrayRef\u003c\u003e` performs range check in debug build, otherwise you should add an explicit `(D)?CHECK_LT()` before the access below. Maybe we want the check in release mode for now?",
+      "range": {
+        "startLine": 95,
+        "startChar": 8,
+        "endLine": 95,
+        "endChar": 12
+      },
+      "revId": "4ea4d73c8a30815589bf0159f430ab9d07cb3744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a527dd16_833abd2d",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T13:37:13Z",
+      "side": 1,
+      "message": "Null `odf` probably means out-of-bounds access to `oat_dex_files`.",
+      "range": {
+        "startLine": 98,
+        "startChar": 8,
+        "endLine": 98,
+        "endChar": 29
       },
       "revId": "4ea4d73c8a30815589bf0159f430ab9d07cb3744",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
