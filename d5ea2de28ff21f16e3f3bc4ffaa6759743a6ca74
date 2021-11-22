@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36d8cc04_bcd38a4e",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T15:04:50Z",
+      "side": 1,
+      "message": "UNLIKELY()",
+      "range": {
+        "startLine": 100,
+        "startChar": 12,
+        "endLine": 100,
+        "endChar": 41
+      },
+      "revId": "d5ea2de28ff21f16e3f3bc4ffaa6759743a6ca74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53b0567f_30c40a2a",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T15:04:50Z",
+      "side": 1,
+      "message": "\"find inlined method \" (don\u0027t forget the space to print before the pretty method)",
+      "range": {
+        "startLine": 108,
+        "startChar": 77,
+        "endLine": 108,
+        "endChar": 96
+      },
+      "revId": "d5ea2de28ff21f16e3f3bc4ffaa6759743a6ca74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56325dfa_71858cee",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T15:04:50Z",
+      "side": 1,
+      "message": "DCHECK(odf !\u003d nullptr)",
+      "revId": "d5ea2de28ff21f16e3f3bc4ffaa6759743a6ca74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
