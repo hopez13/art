@@ -16,6 +16,29 @@
       "message": "Ping.",
       "revId": "f6313861e31d305c5f4a2b03344a3537aa45458a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1967da91_aff5bbd2",
+        "filename": "tools/host_bcp.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-22T15:40:52Z",
+      "side": 1,
+      "message": "It\u0027s usually better to use `find` rather than `ls` to search for files in scripts; maybe use something like this:\n\n  find \"${ANDROID_PRODUCT_OUT}/system/apex\" \\\n    -path \"${ANDROID_PRODUCT_OUT}/system/apex/${name}.*${manifest}\"\n\nhere?",
+      "range": {
+        "startLine": 62,
+        "startChar": 14,
+        "endLine": 62,
+        "endChar": 90
+      },
+      "revId": "f6313861e31d305c5f4a2b03344a3537aa45458a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
