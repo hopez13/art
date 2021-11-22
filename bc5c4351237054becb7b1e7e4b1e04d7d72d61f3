@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a4f2349_bc5c11e9",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T14:27:38Z",
+      "side": 1,
+      "message": "I missed that these are not supported when implementing this for arm/arm64. However, there is also the additional comment\n\n    (Future major platform releases of the JDK may support additional\n    types for certain currently unsupported access modes.)\n\nSo, the code we emit for arm/arm64 is essentially future-proof against additional access modes.",
+      "range": {
+        "startLine": 1306,
+        "startChar": 11,
+        "endLine": 1307,
+        "endChar": 67
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5522991d_4d993875",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T14:27:38Z",
+      "side": 1,
+      "message": "Maybe the sign-/zero-extension should be done later and only if `!byte_swap`. The `Bswap()` already performs the sign-/zero-extension, right?",
+      "range": {
+        "startLine": 4167,
+        "startChar": 8,
+        "endLine": 4167,
+        "endChar": 34
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2d510bb_530ffe28",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4236,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T14:27:38Z",
+      "side": 1,
+      "message": "If we need to retry, RAX shall be clobbered. We may need another temp.",
+      "range": {
+        "startLine": 4234,
+        "startChar": 2,
+        "endLine": 4236,
+        "endChar": 55
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bffea085_484e7767",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4397,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T14:27:38Z",
+      "side": 1,
+      "message": "I think it would be better to avoid emitting the byte array view checks in this case and just `DCHECK(!DataType::IsFloatingPointType(type))` here.\n\n(Unless we want to future-proof this and support the case as on arm/arm64.)",
+      "range": {
+        "startLine": 4397,
+        "startChar": 6,
+        "endLine": 4397,
+        "endChar": 15
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f99d1670_74892f17",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-22T14:27:38Z",
+      "side": 1,
+      "message": "The new temp is conditional on `GetExpectedVarHandleCoordinatesCount(invoke) \u003d\u003d 2` but you\u0027re unconditionally changing the index here.",
+      "range": {
+        "startLine": 4410,
+        "startChar": 44,
+        "endLine": 4410,
+        "endChar": 58
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
