@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017576853",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1897910?revision\u003d4",
+      "fixSuggestions": [
+        {
+          "fixId": "8dad447e_455fc064",
+          "description": "Change to \"runtime/dex/dex_file_annotations.h\"",
+          "replacements": [
+            {
+              "path": "runtime/dex/dex_file_annotations.h",
+              "range": {
+                "startLine": 90,
+                "startChar": 26,
+                "endLine": 90,
+                "endChar": 36
+              },
+              "replacement": "annotation"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "b790c7ac_3ecf42f2",
+        "filename": "runtime/dex/dex_file_annotations.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-22T21:53:30Z",
+      "side": 1,
+      "message": "Common typo found: \"annotaiton\" -- should it be \"annotation\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 90,
+        "startChar": 26,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "86d5865eb1aae272d1c4a87d65ce674ea6012e2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
