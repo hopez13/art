@@ -261,6 +261,14 @@ apex_defaults {
     name: "com.android.art-device-defaults",
     defaults: ["com.android.art-defaults"],
     compile_multilib: "both",
+    key: "com.android.art.key",
+    min_sdk_version: "31",
+}
+
+// Default values shared by genuine (i.e. non-test) device ART APEXes.
+apex_defaults {
+    name: "com.android.art-device-genuine-defaults",
+    defaults: ["com.android.art-device-defaults"],
     manifest: "manifest-art.json",
     bootclasspath_fragments: ["art-bootclasspath-fragment"],
     systemserverclasspath_fragments: ["art-systemserverclasspath-fragment"],
@@ -284,7 +292,6 @@ apex_defaults {
                 art_tools_device_only_binaries,
         },
     },
-    key: "com.android.art.key",
     required: [
         "com.android.i18n",
     ],
@@ -301,7 +308,6 @@ apex_defaults {
             enabled: false,
         },
     },
-    min_sdk_version: "31",
     // Indicates that pre-installed version of this apex can be compressed.
     // Whether it actually will be compressed is controlled on per-device basis.
     compressible: true,
@@ -310,7 +316,7 @@ apex_defaults {
 // Default values shared by (device) Debug and Testing ART APEXes.
 apex_defaults {
     name: "com.android.art-devel-defaults",
-    defaults: ["com.android.art-device-defaults"],
+    defaults: ["com.android.art-device-genuine-defaults"],
     native_shared_libs: art_runtime_base_native_device_only_debug_shared_libs +
         art_runtime_run_test_libs +
         art_runtime_debug_native_shared_libs +
@@ -341,7 +347,7 @@ apex_test {
 // `libart-broken` instead of `libart`.
 apex_test {
     name: "test_broken_com.android.art",
-    defaults: ["com.android.art-defaults"],
+    defaults: ["com.android.art-device-defaults"],
 
     // Only include native libraries in this test APEX. Don't include
     // binaries (and maybe other artifacts) for now, as they pull
@@ -349,14 +355,11 @@ apex_test {
     // overwrite `libart-broken`. Maybe consider creating "broken"
     // variants of binaries (and other artifacts)?
     native_shared_libs: art_runtime_base_broken_native_shared_libs,
-    compile_multilib: "both",
 
-    key: "com.android.art.key",
     manifest: "test_apex_manifest.json",
     file_contexts: ":com.android.art-file_contexts",
     certificate: ":com.android.art.certificate",
     installable: false,
-    min_sdk_version: "31",
 }
 
 // Release version of the ART APEX module (not containing debug
@@ -364,7 +367,7 @@ apex_test {
 // storage-constrained devices in userdebug and eng builds.
 art_apex {
     name: "com.android.art",
-    defaults: ["com.android.art-device-defaults"],
+    defaults: ["com.android.art-device-genuine-defaults"],
     certificate: ":com.android.art.certificate",
 }
 
