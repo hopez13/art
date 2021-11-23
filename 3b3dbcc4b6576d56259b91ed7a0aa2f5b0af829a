@@ -16,6 +16,29 @@
       "message": "Vladimir, David, friendly ping.",
       "revId": "3b3dbcc4b6576d56259b91ed7a0aa2f5b0af829a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0dcbd4a_2028e70f",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-23T16:07:02Z",
+      "side": 1,
+      "message": "Can this be provided as an explicit argument? It would be unfortunate if the compiler failed to optimize this for the initialization of a large method array.\n\nSimilar for `CounterHasChanged()`, `ResetCounter()` and `CounterHasReached()` below if they are called in a loop.",
+      "range": {
+        "startLine": 55,
+        "startChar": 21,
+        "endLine": 57,
+        "endChar": 28
+      },
+      "revId": "3b3dbcc4b6576d56259b91ed7a0aa2f5b0af829a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
