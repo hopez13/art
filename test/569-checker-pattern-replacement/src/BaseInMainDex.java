@@ -22,5 +22,5 @@ public class BaseInMainDex {
     intField = intValue;
   }
 
-  public int intField;
+  public volatile int intField;
 }
