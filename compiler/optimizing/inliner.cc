@@ -1702,9 +1702,7 @@ static inline Handle<T> NewHandleIfDifferent(ObjPtr<T> object, Handle<T> hint, H
 }
 
 static bool CanEncodeInlinedMethodInStackMap(const DexFile& outer_dex_file,
-                                             ArtMethod* callee,
-                                             const CodeGenerator* codegen,
-                                             bool* out_needs_bss_check)
+                                             ArtMethod* callee)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   if (!Runtime::Current()->IsAotCompiler()) {
     // JIT can always encode methods in stack maps.
@@ -1713,22 +1711,6 @@ static bool CanEncodeInlinedMethodInStackMap(const DexFile& outer_dex_file,
 
   const DexFile* dex_file = callee->GetDexFile();
   if (IsSameDexFile(outer_dex_file, *dex_file)) {
-    return true;
-  }
-
-  // Inline across dexfiles if the callee's DexFile is:
-  // 1) in the bootclasspath, or
-  if (callee->GetDeclaringClass()->GetClassLoader() == nullptr) {
-    // There are cases in which the BCP DexFiles are within the OatFile as far as the compiler
-    // options are concerned, but they have their own OatWriter (and therefore not in the same
-    // OatFile). Then, we request the BSS check for all BCP DexFiles.
-    // TODO(solanes): Add .bss support for BCP.
-    *out_needs_bss_check = true;
-    return true;
-  }
-
-  // 2) is a non-BCP dexfile with the OatFile we are compiling.
-  if (codegen->GetCompilerOptions().WithinOatFile(dex_file)) {
     return true;
   }
 
@@ -1845,9 +1827,8 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
 
   const bool too_many_registers =
       total_number_of_dex_registers_ > kMaximumNumberOfCumulatedDexRegisters;
-  bool needs_bss_check = false;
   const bool can_encode_in_stack_map = CanEncodeInlinedMethodInStackMap(
-      *outer_compilation_unit_.GetDexFile(), resolved_method, codegen_, &needs_bss_check);
+      *outer_compilation_unit_.GetDexFile(), resolved_method);
   size_t number_of_instructions = 0;
   // Skip the entry block, it does not contain instructions that prevent inlining.
   for (HBasicBlock* block : callee_graph->GetReversePostOrderSkipEntryBlock()) {
@@ -1909,21 +1890,6 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
             << "Method " << resolved_method->PrettyMethod()
             << " could not be inlined because it is using an unresolved"
             << " entrypoint";
-        return false;
-      }
-
-      // We currently don't have support for inlining across dex files if the inlined method needs a
-      // .bss entry. This only happens when we are:
-      // 1) In AoT,
-      // 2) cross-dex inlining, and
-      // 3) have an instruction that needs a bss entry, which will always be
-      // 3)b) an instruction that needs an environment.
-      // TODO(solanes, 154012332): Add this support.
-      if (needs_bss_check && current->NeedsBss()) {
-        DCHECK(current->NeedsEnvironment());
-        LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedBss)
-            << "Method " << resolved_method->PrettyMethod()
-            << " could not be inlined because it needs a BSS check";
         return false;
       }
     }
