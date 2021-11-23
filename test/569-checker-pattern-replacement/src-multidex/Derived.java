@@ -59,5 +59,5 @@ public final class Derived extends Base {
     floatField = floatValue;
   }
 
-  public float floatField;
+  public volatile float floatField;
 }
