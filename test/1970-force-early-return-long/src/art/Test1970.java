@@ -286,7 +286,7 @@ public class Test1970 {
   }
 
   public static class StandardTestObject extends AbstractTestObject implements Runnable {
-    public int cnt;
+    public volatile int cnt;
 
     public StandardTestObject() {
       super();
@@ -308,7 +308,7 @@ public class Test1970 {
 
   public static class SynchronizedFunctionTestObject extends AbstractTestObject
       implements Runnable {
-    public int cnt;
+    public volatile int cnt;
 
     public SynchronizedFunctionTestObject() {
       super();
@@ -330,7 +330,7 @@ public class Test1970 {
 
   public static class SynchronizedTestObject extends AbstractTestObject implements Runnable {
     public final Object lock;
-    public int cnt;
+    public volatile int cnt;
 
     public SynchronizedTestObject() {
       super();
@@ -356,7 +356,7 @@ public class Test1970 {
   public static class ExceptionCatchTestObject extends AbstractTestObject implements Runnable {
     public static class TestError extends Error {}
 
-    public int cnt;
+    public volatile int cnt;
 
     public ExceptionCatchTestObject() {
       super();
@@ -388,7 +388,7 @@ public class Test1970 {
   public static class ExceptionThrowFarTestObject implements TestRunnable {
     public static class TestError extends Error {}
 
-    public int cnt;
+    public volatile int cnt;
     public int baseCallCnt;
     public final boolean catchInCalled;
     public long result;
@@ -445,7 +445,7 @@ public class Test1970 {
   public static class ExceptionOnceObject extends AbstractTestObject {
     public static final class TestError extends Error {}
 
-    public int cnt;
+    public volatile int cnt;
     public final boolean throwInSub;
 
     public ExceptionOnceObject(boolean throwInSub) {
@@ -482,7 +482,7 @@ public class Test1970 {
       return result;
     }
 
-    public int cnt;
+    public volatile int cnt;
     public int baseCallCnt;
     public final boolean catchInCalled;
     public long result;
@@ -528,7 +528,7 @@ public class Test1970 {
   }
 
   public static class NativeCalledObject extends AbstractTestObject {
-    public int cnt = 0;
+    public volatile int cnt = 0;
 
     public native long calledFunction();
 
@@ -539,7 +539,7 @@ public class Test1970 {
 
   public static class NativeCallerObject implements TestRunnable {
     public long returnValue = -1;
-    public int cnt = 0;
+    public volatile int cnt = 0;
 
     public long getReturnValue() {
       return returnValue;
@@ -603,7 +603,7 @@ public class Test1970 {
   }
 
   public static class BadForceVoidObject implements TestRunnable {
-    public int cnt = 0;
+    public volatile int cnt = 0;
     public long getReturnValue() {
       return -1;
     }
@@ -622,7 +622,7 @@ public class Test1970 {
   }
 
   public static class BadForceObjectObject implements TestRunnable {
-    public int cnt = 0;
+    public volatile int cnt = 0;
     public Long result = null;
     public long getReturnValue() {
       return result.longValue();
@@ -642,7 +642,7 @@ public class Test1970 {
     }
   }
   public static class BadForceIntObject implements TestRunnable {
-    public int cnt = 0;
+    public volatile int cnt = 0;
     public int result = 0;
     public long getReturnValue() {
       return result;

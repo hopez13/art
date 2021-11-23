@@ -63,8 +63,8 @@ public class Base {
     this(intValue, 0.0, null);
   }
 
-  public int intField;
-  public double doubleField;
-  public Object objectField;
-  public String stringField;
+  public volatile int intField;
+  public volatile double doubleField;
+  public volatile Object objectField;
+  public volatile String stringField;
 }

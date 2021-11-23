@@ -639,7 +639,7 @@ public class Test1968 {
   }
 
   public static class BadForceVoidObject implements TestRunnable {
-    public int cnt = 0;
+    public volatile int cnt = 0;
     public Object getReturnValue() {
       return null;
     }
