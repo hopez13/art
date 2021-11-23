@@ -119,6 +119,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "068e26e7_6001e842",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-11-23T21:05:55Z",
+      "side": 1,
+      "message": "This was not addressed but was marked \"Done\".",
+      "parentUuid": "3c3bd1cb_013137b1",
+      "range": {
+        "startLine": 954,
+        "startChar": 8,
+        "endLine": 954,
+        "endChar": 47
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7b95f6f_3073542c",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 32
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f7b95f6f_3073542c",
+      "range": {
+        "startLine": 955,
+        "startChar": 6,
+        "endLine": 955,
+        "endChar": 19
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89569ea9_4b148cc1",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-11-23T21:05:55Z",
+      "side": 1,
+      "message": "This was not addressed but was marked \"Done\".\n\nTo elaborate on this: in my opinion, in the section under (generate_code) there shouldn\u0027t be \u0027return false\u0027 terminations: if we enter the section, we shall fully do the optimisation atomically (we either apply optimization or leave the graph fully unchanged); otherwise we might get an inconsistent graph.\n\nThis and the comment above could be addressed by introducing a function without graph-visible side effect (no changes to the IR) IsLoopSupportedForDynamicUnrolling(), which will check all the required parameters of the loop to determine, whether the optimisation should be applied.",
+      "parentUuid": "cfcf7304_80bb0bc5",
       "range": {
         "startLine": 955,
         "startChar": 6,
@@ -307,6 +355,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6635b467_f5bf6136",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 32
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-11-23T21:05:55Z",
+      "side": 1,
+      "message": "Could you specifically include a definition of \u0027main induction variable\u0027 (\u0027main\u0027)? I might be missing something, but I am not sure whether it is a universal term (https://en.wikipedia.org/wiki/Induction_variable).",
+      "parentUuid": "38039a29_7a2f2c5f",
+      "range": {
+        "startLine": 1061,
+        "startChar": 12,
+        "endLine": 1061,
+        "endChar": 30
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b527c564_1a7bbe46",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 32
@@ -448,6 +520,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a02c5ca8_429e3e4e",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-11-23T21:05:55Z",
+      "side": 1,
+      "message": "This was not addressed but was marked as Done.\n\nA check is needed to make sure that the optimization doesn\u0027t introduce new redundant PHIS and induction variables increments.",
+      "parentUuid": "3e1e8706_264cdf5f",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 42
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "849e4b62_2273a466",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 32
@@ -495,6 +591,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1ed68cb_32311273",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-11-23T21:05:55Z",
+      "side": 1,
+      "message": "This was not addressed but was marked as Done.",
+      "parentUuid": "ab513c57_abc169bd",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 44
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4eb1062_5d865d97",
         "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
         "patchSetId": 32
@@ -530,6 +650,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "a4eb1062_5d865d97",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 45
+      },
+      "revId": "c200424e41ab4d438ccae2c7f26ed32ffefbd62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87e8a161_cab647ee",
+        "filename": "test/530-checker-unroll-unknown-iter/src/Main.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-11-23T21:05:55Z",
+      "side": 1,
+      "message": "This was not addressed but was marked as Done.",
+      "parentUuid": "08b85084_a808beaa",
       "range": {
         "startLine": 202,
         "startChar": 0,
