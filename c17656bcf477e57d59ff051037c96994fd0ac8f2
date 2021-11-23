@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8429349_fd51dd18",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-23T11:54:45Z",
+      "side": 1,
+      "message": "Bug: This should be `\\slow_unlock`.",
+      "range": {
+        "startLine": 971,
+        "startChar": 11,
+        "endLine": 971,
+        "endChar": 44
+      },
+      "revId": "c17656bcf477e57d59ff051037c96994fd0ac8f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
