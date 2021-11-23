@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017614664",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1900553?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "843d4ee7_31ede1b8",
+          "description": "Change to \"runtime/thread.h\"",
+          "replacements": [
+            {
+              "path": "runtime/thread.h",
+              "range": {
+                "startLine": 1347,
+                "startChar": 54,
+                "endLine": 1347,
+                "endChar": 63
+              },
+              "replacement": "collection"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "bd8848e2_0f756af7",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-23T16:33:33Z",
+      "side": 1,
+      "message": "Common typo found: \"colection\" -- should it be \"collection\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 1347,
+        "startChar": 54,
+        "endLine": 1347,
+        "endChar": 63
+      },
+      "revId": "31346e374bfbb4602ecdd6f3fd5b6d9536202f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
