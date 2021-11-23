@@ -16,6 +16,23 @@
       "message": "Vladimir PTAL",
       "revId": "4d1e06b434c75b8eccf19f7d552af10c2f9d90cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d89c4159_009c8f73",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-23T15:40:28Z",
+      "side": 1,
+      "message": "You should just create a constant `kEnableAotCrossDexInlining \u003d false` and add a short `if (!kEnableAotCrossDexInlining) { return false; }` instead of rewriting this function.\n\nTests need to be change though unless you want to disable them in `knownfailures.json`.",
+      "revId": "4d1e06b434c75b8eccf19f7d552af10c2f9d90cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
