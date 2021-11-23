@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32e1a4d9_eec92918",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-23T15:55:03Z",
+      "side": 1,
+      "message": "I think it\u0027s easier to reason about things if there are as few differences as possible between the different APEXes, so I suggest moving as many of the properties below as possible up into the more generic defaults module.\n\nThe only properties to keep here would then be those that cannot be overridden in test_broken_com.android.art, i.e. list elements that must not exist in the \"broken\" APEX. That means only \"libart\" in native_shared_libs and some binaries need to be added here.",
+      "revId": "36e2a8bb9d5b3efc5ac3950eda43378e216f5978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
