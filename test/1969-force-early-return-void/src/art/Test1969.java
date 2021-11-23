@@ -238,7 +238,7 @@ public class Test1969 {
 
   public static class FieldBasedTestObject extends AbstractTestObject implements Runnable {
     public int TARGET_FIELD;
-    public int cnt = 0;
+    public volatile int cnt = 0;
 
     public FieldBasedTestObject() {
       super();
@@ -258,7 +258,7 @@ public class Test1969 {
   }
 
   public static class StandardTestObject extends AbstractTestObject implements Runnable {
-    public int cnt;
+    public volatile int cnt;
 
     public StandardTestObject() {
       super();
@@ -280,7 +280,7 @@ public class Test1969 {
 
   public static class SynchronizedFunctionTestObject extends AbstractTestObject
       implements Runnable {
-    public int cnt;
+    public volatile int cnt;
 
     public SynchronizedFunctionTestObject() {
       super();
@@ -302,7 +302,7 @@ public class Test1969 {
 
   public static class SynchronizedTestObject extends AbstractTestObject implements Runnable {
     public final Object lock;
-    public int cnt;
+    public volatile int cnt;
 
     public SynchronizedTestObject() {
       super();
@@ -328,7 +328,7 @@ public class Test1969 {
   public static class ExceptionCatchTestObject extends AbstractTestObject implements Runnable {
     public static class TestError extends Error {}
 
-    public int cnt;
+    public volatile int cnt;
 
     public ExceptionCatchTestObject() {
       super();
@@ -359,7 +359,7 @@ public class Test1969 {
   public static class ExceptionThrowFarTestObject implements Runnable {
     public static class TestError extends Error {}
 
-    public int cnt;
+    public volatile int cnt;
     public int baseCallCnt;
     public final boolean catchInCalled;
 
@@ -410,7 +410,7 @@ public class Test1969 {
   public static class ExceptionOnceObject extends AbstractTestObject {
     public static final class TestError extends Error {}
 
-    public int cnt;
+    public volatile int cnt;
     public final boolean throwInSub;
 
     public ExceptionOnceObject(boolean throwInSub) {
@@ -443,7 +443,7 @@ public class Test1969 {
   public static class ExceptionThrowTestObject implements Runnable {
     public static class TestError extends Error {}
 
-    public int cnt;
+    public volatile int cnt;
     public int baseCallCnt;
     public final boolean catchInCalled;
 
@@ -488,7 +488,7 @@ public class Test1969 {
   }
 
   public static class NativeCalledObject extends AbstractTestObject {
-    public int cnt = 0;
+    public volatile int cnt = 0;
 
     public native void calledFunction();
 
@@ -499,7 +499,7 @@ public class Test1969 {
 
   public static class NativeCallerObject implements Runnable {
     public Object returnValue = null;
-    public int cnt = 0;
+    public volatile int cnt = 0;
 
     public Object getReturnValue() {
       return returnValue;
@@ -669,7 +669,7 @@ public class Test1969 {
   public static class SuspendSuddenlyObject extends AbstractTestObject {
     public volatile boolean should_spin = true;
     public volatile boolean is_spinning = false;
-    public int cnt = 0;
+    public volatile int cnt = 0;
 
     public void calledFunction() {
       cnt++;
