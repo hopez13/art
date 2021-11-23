@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef1fb1e_8c5007e4",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-23T11:57:22Z",
+      "side": 1,
+      "message": "I reckoned you just implemented it for the future. But this code can\u0027t be tested, so I\u0027d prefer to add a guard. Perhaps it is better to generate valid code for x86_64 as well, but still emit UD2 with a TODO that it shall be removed when we start supporting this case in the future. I did this in PS3.",
+      "parentUuid": "5a4f2349_bc5c11e9",
+      "range": {
+        "startLine": 1306,
+        "startChar": 11,
+        "endLine": 1307,
+        "endChar": 67
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5522991d_4d993875",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-11-22T14:27:38Z",
       "side": 1,
       "message": "Maybe the sign-/zero-extension should be done later and only if `!byte_swap`. The `Bswap()` already performs the sign-/zero-extension, right?",
+      "range": {
+        "startLine": 4167,
+        "startChar": 8,
+        "endLine": 4167,
+        "endChar": 34
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13b3cd54_c187e44e",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4167,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-23T11:57:22Z",
+      "side": 1,
+      "message": "BSWAP instruction does zero extension for 32 bits. There is no BSWAP for 16/8 bits.\n\nFor 8 bits it is a no-op, so we need zero extend (in reality `byte_swap` is never true for 8-bit types).\n\nFor 16 bits the Intel manual recommends using XCHG which doesn\u0027t zero extend, but we currently do 32-bit BSWAP followed by SAR or SHR in `Bswap()` which does zero extend. So we could save one MOVSXW or MOVZXW in this case. But I\u0027d rather not do that, because if we change `Bswap()` for 16 bits to use XCHG in the future, this special case will be invalidated.\n\nSo I\u0027d rather leave this code as is. Reopen if you think otherwise.\n\n---\nI used this small program to ensure that BSWAP and XCHG behave as I said:\n\n  section .data\n  x db \"12345678\", 10\n\n  section .text\n  global _start\n  _start:\n    mov rbx, [x]\n\n    ; current code (BSWAP zero-extends already)\n    ;bswap ebx\n    ;shr ebx, 16\n\n    ; possible future code with XCHG (zero-extend needed)\n    xchg bh, bl\n    ;movzx rbx, bx\n\n    mov [x], rbx\n\n    mov rax, 1\n    mov rdi, 1\n    mov rsi, x\n    mov rdx, 9\n    syscall\n\n    mov rax, 60\n    mov rdi, 0\n    syscall\n\nRun as:\n  $ nasm -felf64 -o1.o 1.asm \u0026\u0026 ld 1.o -o 1 \u0026\u0026 ./1 | hexdump -C\n  00000000  32 31 33 34 35 36 37 38  0a                       |21345678.|\n  00000009",
+      "parentUuid": "5522991d_4d993875",
       "range": {
         "startLine": 4167,
         "startChar": 8,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6669f6c8_388b7192",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4236,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-23T11:57:22Z",
+      "side": 1,
+      "message": "I restructured the code in PS3, as the control flow is getting too complex to reason about. Now there is one function to handle both addition and bitwise operations, and I use a rather crude compile-time test `CanUseXaddForVarHandleGetAndOp` (it checks coordinates \u003c 2) to see if XADD can be used. This makes a few more cases a bit slower (use the non-XADD path for addition), but the code is simpler.\n\nThe problem with RAX is obsolete in PS3.",
+      "parentUuid": "a2d510bb_530ffe28",
+      "range": {
+        "startLine": 4234,
+        "startChar": 2,
+        "endLine": 4236,
+        "endChar": 55
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bffea085_484e7767",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "540403cb_cc091673",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4397,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-23T11:57:22Z",
+      "side": 1,
+      "message": "I can\u0027t add a compile-time assertion here because this code path gets executed in the case of arrays as well. We do not know at compile-time if a given varhandle is for an array or a byte array view: the check happens at runtime (it is generated in VarHandleSlowPathX86_64::EmitByteArrayViewCode).",
+      "parentUuid": "bffea085_484e7767",
+      "range": {
+        "startLine": 4397,
+        "startChar": 6,
+        "endLine": 4397,
+        "endChar": 15
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f99d1670_74892f17",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-11-22T14:27:38Z",
       "side": 1,
       "message": "The new temp is conditional on `GetExpectedVarHandleCoordinatesCount(invoke) \u003d\u003d 2` but you\u0027re unconditionally changing the index here.",
+      "range": {
+        "startLine": 4410,
+        "startChar": 44,
+        "endLine": 4410,
+        "endChar": 58
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a3fda20_ed8c1606",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4410,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-11-23T11:57:22Z",
+      "side": 1,
+      "message": "This is also no longer relevant for PS3 after code restructiring described in the other comment.",
+      "parentUuid": "f99d1670_74892f17",
       "range": {
         "startLine": 4410,
         "startChar": 44,
