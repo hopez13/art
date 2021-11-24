@@ -70,6 +70,41 @@
       "parentUuid": "b6a1acfe_17c7176b",
       "revId": "62312db059a7875624533e936c474db551f3add3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a82d0ea_85598070",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-24T11:00:47Z",
+      "side": 1,
+      "message": "Thanks! lgtm. If there is a test case that was failing maybe you can add the test name and the config in which it was failing to the Test: in CL description.",
+      "revId": "62312db059a7875624533e936c474db551f3add3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31e97f36_7c789144",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-11-24T11:00:47Z",
+      "side": 1,
+      "message": "I don\u0027t understand this fully too but UpdateClass is called in art::ScopedSuspendAll scope. So I guess we don\u0027t need to worry about multiple redefinitions in parallel there? Though I guess we also don\u0027t want to have multiple CheckClass concurrently too for ex: a redefinition of the class might invalidate earlier checks which is why we need some kind of lock. Though I agree it\u0027s better to use internal locks for these cases.",
+      "parentUuid": "a8c92451_67e85daa",
+      "revId": "62312db059a7875624533e936c474db551f3add3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
