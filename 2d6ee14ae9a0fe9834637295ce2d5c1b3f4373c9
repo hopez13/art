@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05cc7e67_ba576685",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-24T12:41:29Z",
+      "side": 1,
+      "message": "I don\u0027t think there\u0027s any formal documentation for this. The reference for the ART run-tests build logic is the implementation (https://source.corp.google.com/android/art/test/etc/default-build). My approach is to try and follow this logic step by step and ignore cases not yet supported by `test/utils/regen-test-files`.",
+      "parentUuid": "8e3eadba_a622b9b4",
+      "range": {
+        "startLine": 7,
+        "startChar": 58,
+        "endLine": 7,
+        "endChar": 65
+      },
+      "revId": "2d6ee14ae9a0fe9834637295ce2d5c1b3f4373c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0cf6069_7a0ba053",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-11-24T11:52:06Z",
       "side": 1,
       "message": "Is this because having both an `src` directory and an `src-art` directory is unexpected? If so, does the user get an error message in this case?",
+      "revId": "2d6ee14ae9a0fe9834637295ce2d5c1b3f4373c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22ef0fb6_bcb3105e",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-24T12:41:29Z",
+      "side": 1,
+      "message": "No, this is because the script does not support this case yet (but it will, eventually).",
+      "parentUuid": "b0cf6069_7a0ba053",
       "revId": "2d6ee14ae9a0fe9834637295ce2d5c1b3f4373c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
