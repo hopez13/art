@@ -286,6 +286,7 @@ class Redefiner {
     bool added_fields_ = false;
     bool added_methods_ = false;
     bool has_virtuals_ = false;
+    bool lock_acquired_ = false;
   };
 
   ArtJvmTiEnv* env_;
