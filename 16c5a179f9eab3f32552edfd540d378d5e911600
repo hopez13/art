@@ -16,6 +16,23 @@
       "message": "Thanks Martin and Jiakai.",
       "revId": "16c5a179f9eab3f32552edfd540d378d5e911600",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05fa5cf1_a5e2d0e0",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-24T13:48:52Z",
+      "side": 1,
+      "message": "Nit: Putting the \"src\" fallback in an `else` branch is a bit cleaner.",
+      "revId": "16c5a179f9eab3f32552edfd540d378d5e911600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
