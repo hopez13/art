@@ -16,6 +16,24 @@
       "message": "Thanks for the patch! I think the fact we\u0027re acquiring a Java monitor here is dubious in the first place. Do you know why we\u0027re doing it?",
       "revId": "62312db059a7875624533e936c474db551f3add3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91179eec_65cc4465",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1090013
+      },
+      "writtenOn": "2021-11-24T09:54:02Z",
+      "side": 1,
+      "message": "I got your point, I don\u0027t know whether I make it correctly, but since UpdateClass() is going to acess \u0026 modify class object, acquiring class object as the monitor could protect against multiple redefinition requests(targeting the same class) in different threads?",
+      "parentUuid": "d176682b_8c7a8189",
+      "revId": "62312db059a7875624533e936c474db551f3add3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
