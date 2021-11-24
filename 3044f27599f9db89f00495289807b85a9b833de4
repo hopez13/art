@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d43f8c1_06516e08",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-24T12:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "665d17d8_c0831614",
+      "range": {
+        "startLine": 19,
+        "startChar": 20,
+        "endLine": 19,
+        "endChar": 24
+      },
+      "revId": "3044f27599f9db89f00495289807b85a9b833de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "254d845f_c5c5bb00",
@@ -54,6 +78,24 @@
       "writtenOn": "2021-11-24T12:25:12Z",
       "side": 1,
       "message": "We have 3 different thresholds here but the code seems to use only the \"warmup\" threshold everywhere in this CL.",
+      "revId": "3044f27599f9db89f00495289807b85a9b833de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc84a317_7701204f",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-24T12:32:19Z",
+      "side": 1,
+      "message": "Yes, the osr threshold I\u0027ll deprecate in another CL, and the optimize treshold I\u0027ll use for the baseline compiler in another CL.",
+      "parentUuid": "254d845f_c5c5bb00",
       "revId": "3044f27599f9db89f00495289807b85a9b833de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b671f9cb_0bfef2c4",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-24T12:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "516860ff_157515b9",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 65
+      },
+      "revId": "3044f27599f9db89f00495289807b85a9b833de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0253c16_6f6f3426",
@@ -94,6 +160,24 @@
       "writtenOn": "2021-11-24T12:25:12Z",
       "side": 1,
       "message": "Line too long. You should retrieve the threshold just once before the loop.",
+      "revId": "3044f27599f9db89f00495289807b85a9b833de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef28002_aa4fb8f9",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-24T12:32:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0253c16_6f6f3426",
       "revId": "3044f27599f9db89f00495289807b85a9b833de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
