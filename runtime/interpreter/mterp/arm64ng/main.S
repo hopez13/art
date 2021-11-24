@@ -310,8 +310,10 @@ END \name
     strh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
     // Otherwise, do a suspend check.
     ldr w0, [xSELF, #THREAD_FLAGS_OFFSET]
-    tst w0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
-    b.eq 1b
+    // Note: We check for any flags here with CBZ and the `art_quick_suspend_check`
+    // entrypoint checks if any of `Thread::SuspendOrCheckpointRequestFlags()` is set.
+    // (Note that kRunnable = 0, otherwise we would always go to the slow path.)
+    cbz w0, 1b
     EXPORT_PC
     bl    art_quick_test_suspend
     b 1b
@@ -436,8 +438,10 @@ END \name
     add x2, x2, #-1
     strh w2, [x0, #ART_METHOD_HOTNESS_COUNT_OFFSET]
     ldr w0, [xSELF, #THREAD_FLAGS_OFFSET]
-    tst w0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
-    b.ne 3f
+    // Note: We check for any flags here with CBNZ and the `art_quick_suspend_check`
+    // entrypoint checks if any of `Thread::SuspendOrCheckpointRequestFlags()` is set.
+    // (Note that kRunnable = 0, otherwise we would always go to the slow path.)
+    cbnz w0, 3f
 1:
     FETCH_INST
     GET_INST_OPCODE ip
