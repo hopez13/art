@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d176682b_8c7a8189",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-24T09:08:45Z",
+      "side": 1,
+      "message": "Thanks for the patch! I think the fact we\u0027re acquiring a Java monitor here is dubious in the first place. Do you know why we\u0027re doing it?",
+      "revId": "62312db059a7875624533e936c474db551f3add3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
