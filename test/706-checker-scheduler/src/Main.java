@@ -606,7 +606,7 @@ public class Main {
   /// CHECK:     add
   /// CHECK:     adds
   /// CHECK:     ldr
-  /// CHECK:     cmp
+  /// CHECK:     tst
   /// CHECK:     beq
 
   /// CHECK-START-ARM64: void Main.testCrossItersDependencies() disassembly (after)

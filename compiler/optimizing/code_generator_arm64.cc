@@ -1995,6 +1995,8 @@ void InstructionCodeGeneratorARM64::GenerateSuspendCheck(HSuspendCheck* instruct
   Register temp = temps.AcquireW();
 
   __ Ldr(temp, MemOperand(tr, Thread::ThreadFlagsOffset<kArm64PointerSize>().SizeValue()));
+  // Note: We check for any flags here with CBNZ/CBZ and the `art_quick_suspend_check`
+  // entrypoint checks if any of `Thread::SuspendOrCheckpointRequestFlags()` is set.
   static_assert(static_cast<std::underlying_type_t<ThreadState>>(ThreadState::kRunnable) == 0u);
   if (successor == nullptr) {
     __ Cbnz(temp, slow_path->GetEntryLabel());
