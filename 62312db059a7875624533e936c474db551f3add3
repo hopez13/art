@@ -52,6 +52,24 @@
       "parentUuid": "91179eec_65cc4465",
       "revId": "62312db059a7875624533e936c474db551f3add3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8c92451_67e85daa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1090013
+      },
+      "writtenOn": "2021-11-24T10:02:08Z",
+      "side": 1,
+      "message": "Yeah, it sounds like a trade-off here, since an internal \u0026 global one may block all the redefinitions (no matter whether the target class is the same or not), it does make sense at the first place to use the class object as the lock just because it has the proper granularity?",
+      "parentUuid": "b6a1acfe_17c7176b",
+      "revId": "62312db059a7875624533e936c474db551f3add3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
