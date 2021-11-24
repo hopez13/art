@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2124633b_e84bd349",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-24T11:17:01Z",
+      "side": 1,
+      "message": "What about\n\n  const char* separator \u003d \"\";\n  for (const DexFile* df : bcp_dex_files) {\n    error_ss \u003c\u003c separator \u003c\u003c df \u003c\u003c \"(\" \u003c\u003c df-\u003eGetLocation() \u003c\u003c \")\";\n    separator \u003d \", \";\n  }\n\nAnd similar for `oat_dex_files_vector`.",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 3
+      },
+      "revId": "d6ba9f2a0ffb502362c2d2df07ca73a4f980e6e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2852d56_bdcab037",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-24T11:17:01Z",
+      "side": 1,
+      "message": "Insert space; previous character is \u0027)\u0027.",
+      "range": {
+        "startLine": 87,
+        "startChar": 15,
+        "endLine": 87,
+        "endChar": 16
+      },
+      "revId": "d6ba9f2a0ffb502362c2d2df07ca73a4f980e6e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3a3c359_d7abe048",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-24T11:17:01Z",
+      "side": 1,
+      "message": "Retain the old check in debug mode:\n\n  DCHECK_LT(method_info.GetDexFileIndex(), oat_dex_files.size()) \u003c\u003c ...\n\nWhile the `ArrayRef\u003c\u003e` performs the same `DCHECK_LT()`, you can add more context to the output here, such as `\u003c\u003c GetResolvedMethodErrorString(...)`.",
+      "revId": "d6ba9f2a0ffb502362c2d2df07ca73a4f980e6e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
