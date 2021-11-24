@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b959f68_e6a6baaf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-24T04:40:39Z",
+      "side": 1,
+      "message": "Please also include b/143299880 . I don\u0027t think this is a complete fix for that; I still suspect potential memory ordering issues. But this makes those issues much more easily addressable.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 14
+      },
+      "revId": "54cec5d50fc984c04e21850369d9879573de6ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "613797e0_778e179a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-24T04:40:39Z",
+      "side": 1,
+      "message": "Not quite done reviewing yet. So far it LGTM. It doesn\u0027t completely resolve my complaints in this area, but it\u0027s a big improvement.",
+      "revId": "54cec5d50fc984c04e21850369d9879573de6ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7f4d8a5_0d70b11b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-24T04:40:39Z",
+      "side": 1,
+      "message": "I suspect that at least some of the readers here rely on being able to see changes from before this was set. But this is clearly better than what was there before, so I have no issue with this CL.",
+      "range": {
+        "startLine": 250,
+        "startChar": 62,
+        "endLine": 250,
+        "endChar": 87
+      },
+      "revId": "54cec5d50fc984c04e21850369d9879573de6ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e06c1a96_b02a90a0",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-24T04:40:39Z",
+      "side": 1,
+      "message": "Helper",
+      "range": {
+        "startLine": 1472,
+        "startChar": 5,
+        "endLine": 1472,
+        "endChar": 11
+      },
+      "revId": "54cec5d50fc984c04e21850369d9879573de6ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
