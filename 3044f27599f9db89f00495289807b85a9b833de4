@@ -16,6 +16,86 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "3044f27599f9db89f00495289807b85a9b833de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "665d17d8_c0831614",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-24T12:25:12Z",
+      "side": 1,
+      "message": "Undo?",
+      "range": {
+        "startLine": 19,
+        "startChar": 20,
+        "endLine": 19,
+        "endChar": 24
+      },
+      "revId": "3044f27599f9db89f00495289807b85a9b833de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "254d845f_c5c5bb00",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-24T12:25:12Z",
+      "side": 1,
+      "message": "We have 3 different thresholds here but the code seems to use only the \"warmup\" threshold everywhere in this CL.",
+      "revId": "3044f27599f9db89f00495289807b85a9b833de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "516860ff_157515b9",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-24T12:25:12Z",
+      "side": 1,
+      "message": "Inconsistent naming: \"baseline\" vs. \"Warmup\".\n\nAnd you could also print OSR threshold.",
+      "range": {
+        "startLine": 221,
+        "startChar": 12,
+        "endLine": 221,
+        "endChar": 65
+      },
+      "revId": "3044f27599f9db89f00495289807b85a9b833de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0253c16_6f6f3426",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1300,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-24T12:25:12Z",
+      "side": 1,
+      "message": "Line too long. You should retrieve the threshold just once before the loop.",
+      "revId": "3044f27599f9db89f00495289807b85a9b833de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
