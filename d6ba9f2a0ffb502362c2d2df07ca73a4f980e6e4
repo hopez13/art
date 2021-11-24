@@ -128,6 +128,24 @@
       "parentUuid": "d3a3c359_d7abe048",
       "revId": "d6ba9f2a0ffb502362c2d2df07ca73a4f980e6e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dab9ffd3_23ef5226",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-24T15:04:39Z",
+      "side": 1,
+      "message": "In release mode, the construction and use of a local `ArrayRef\u003c\u003e` should not add any new instructions here. (Note: you should not resize the underlying `vector\u003c\u003e` while holding an `ArrayRef\u003c\u003e`.)",
+      "parentUuid": "20f4d96e_14aef768",
+      "revId": "d6ba9f2a0ffb502362c2d2df07ca73a4f980e6e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
