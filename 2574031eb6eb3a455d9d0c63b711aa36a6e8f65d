@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "01553f07_263c1500",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-24T12:40:49Z",
+      "side": 1,
+      "message": "There is small difference: Test `710-varhandle-creation` contains an `src-ex` directory, which we don\u0027t handle yet.",
+      "parentUuid": "03c45c62_4d47d38f",
+      "range": {
+        "startLine": 22,
+        "startChar": 21,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "2574031eb6eb3a455d9d0c63b711aa36a6e8f65d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bad3f64d_59235c53",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -37,6 +61,23 @@
       "writtenOn": "2021-11-23T14:58:13Z",
       "side": 1,
       "message": "Thanks Roland",
+      "revId": "2574031eb6eb3a455d9d0c63b711aa36a6e8f65d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83db82f6_f3bb7c96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-24T12:40:49Z",
+      "side": 1,
+      "message": "Thanks Orion and Martin.",
       "revId": "2574031eb6eb3a455d9d0c63b711aa36a6e8f65d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +95,30 @@
       "writtenOn": "2021-11-24T00:58:34Z",
       "side": 1,
       "message": "I think calling \"set -e\" a debugging statement is a misnomer, and at first I misinterpreted the purpose of this. What about calling it \"is_shell_control\"?",
+      "range": {
+        "startLine": 460,
+        "startChar": 8,
+        "endLine": 460,
+        "endChar": 16
+      },
+      "revId": "2574031eb6eb3a455d9d0c63b711aa36a6e8f65d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9becef34_02c7e0a6",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-24T12:40:49Z",
+      "side": 1,
+      "message": "Right; I initially envisioned that this function would be used to identify more control/debugging statements. I decide to go for something very specific for now (`is_set_e`), with the possibility of generalizing this routine later, if needed.",
+      "parentUuid": "67230461_e3990d26",
       "range": {
         "startLine": 460,
         "startChar": 8,
@@ -87,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea45c264_f8065527",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-24T12:40:49Z",
+      "side": 1,
+      "message": "Thanks for the suggestion; I added something along those lines in PS3.",
+      "parentUuid": "375f9af5_279796c1",
+      "range": {
+        "startLine": 476,
+        "startChar": 33,
+        "endLine": 476,
+        "endChar": 57
+      },
+      "revId": "2574031eb6eb3a455d9d0c63b711aa36a6e8f65d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce56ee30_1bb5f869",
@@ -100,6 +189,30 @@
       "writtenOn": "2021-11-23T14:58:13Z",
       "side": 1,
       "message": "for clarity \"the build rules\"",
+      "range": {
+        "startLine": 487,
+        "startChar": 54,
+        "endLine": 487,
+        "endChar": 58
+      },
+      "revId": "2574031eb6eb3a455d9d0c63b711aa36a6e8f65d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "938425f7_dec2c806",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-11-24T12:40:49Z",
+      "side": 1,
+      "message": "Good point; done in PS3.",
+      "parentUuid": "ce56ee30_1bb5f869",
       "range": {
         "startLine": 487,
         "startChar": 54,
