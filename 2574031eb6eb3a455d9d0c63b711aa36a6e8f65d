@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67230461_e3990d26",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-24T00:58:34Z",
+      "side": 1,
+      "message": "I think calling \"set -e\" a debugging statement is a misnomer, and at first I misinterpreted the purpose of this. What about calling it \"is_shell_control\"?",
+      "range": {
+        "startLine": 460,
+        "startChar": 8,
+        "endLine": 460,
+        "endChar": 16
+      },
+      "revId": "2574031eb6eb3a455d9d0c63b711aa36a6e8f65d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "375f9af5_279796c1",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 2
