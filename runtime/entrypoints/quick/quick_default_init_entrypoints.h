@@ -73,7 +73,7 @@ static void DefaultInitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qp
   qpoints->pAputObject = art_quick_aput_obj;
 
   // JNI
-  qpoints->pJniMethodStart = JniMethodStart;
+  qpoints->pJniMethodStart = art_jni_method_start;
   qpoints->pJniMethodEnd = JniMethodEnd;
   qpoints->pJniMethodEndWithReference = JniMethodEndWithReference;
   qpoints->pQuickGenericJniTrampoline = art_quick_generic_jni_trampoline;
@@ -138,7 +138,7 @@ static void DefaultInitEntryPoints(JniEntryPoints* jpoints, QuickEntryPoints* qp
   bool should_report = false;
   PaletteShouldReportJniInvocations(&should_report);
   if (should_report) {
-    qpoints->pJniMethodStart = JniMonitoredMethodStart;
+    qpoints->pJniMethodStart = art_jni_monitored_method_start;
     qpoints->pJniMethodEnd = JniMonitoredMethodEnd;
     qpoints->pJniMethodEndWithReference = JniMonitoredMethodEndWithReference;
   }
