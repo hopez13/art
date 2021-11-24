@@ -1606,11 +1606,18 @@ GENERATE_ALLOC_ARRAY_TLAB art_quick_alloc_array_resolved64_tlab, artAllocArrayFr
      */
     .extern artTestSuspendFromCode
 ENTRY art_quick_test_suspend
+    // Managed code, nterp and JNI stubs for @FastNative use CBNZ/CBZ for the suspend
+    // check but that may trigger for wrong flags (for example, when we monitor native
+    // method entry/exit events). Check for the suspend and checkpoint requests here.
+    ldr    wIP0, [xSELF, #THREAD_FLAGS_OFFSET]
+    tst    wIP0, #THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
+    b.eq   .Ltest_suspend_return  // UNLIKELY()
     SETUP_SAVE_EVERYTHING_FRAME RUNTIME_SAVE_EVERYTHING_FOR_SUSPEND_CHECK_METHOD_OFFSET  // save callee saves for stack crawl
     mov    x0, xSELF
     bl     artTestSuspendFromCode             // (Thread*)
     RESTORE_SAVE_EVERYTHING_FRAME
     REFRESH_MARKING_REGISTER
+.Ltest_suspend_return:
     ret
 END art_quick_test_suspend
 
