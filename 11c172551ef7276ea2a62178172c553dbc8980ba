@@ -16,6 +16,24 @@
       "message": "LGTM. Is there any reason why this is still marked as WIP?",
       "revId": "11c172551ef7276ea2a62178172c553dbc8980ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcbea41f_8f949dae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-24T16:17:58Z",
+      "side": 1,
+      "message": "I was trying to come up with a test but it is hard to do so without making a brittle test.\nWe need to inline A inside of B inside of C, in which:\n1) B would need to have a different oat_dex_files vector from C. This would be a cross-oat inline that we don\u0027t normally do except for BCP DexFiles.\n2) B would need to be part of a BCP DexFile but part of the multidex part of the BCP DexFile (e.g. framework.jar!classes2.dex). That would mean that when walking up the stack we would fetch the oat_dex_files from the parent method (rather than the outermost) and that would trigger the crash.\n\nSo, we would need a DexFile that it is in the BCP for method C but not in the BCP for method B. Also, that method would need to abide to the other rules of inlining e.g. the BSS ones, try catch and so on.\n\nI think we can land the fix without the test.",
+      "parentUuid": "fc893c18_0b357b78",
+      "revId": "11c172551ef7276ea2a62178172c553dbc8980ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
