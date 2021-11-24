@@ -22,6 +22,30 @@
       },
       "revId": "f50a4140daebe65f9b64c4104c3b1ac6d1baa9d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fbc3ce2_6c9890ea",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-24T14:53:34Z",
+      "side": 1,
+      "message": "Done. Added the same check on BCP with dex_file.",
+      "parentUuid": "854952cb_1633a8b3",
+      "range": {
+        "startLine": 122,
+        "startChar": 8,
+        "endLine": 122,
+        "endChar": 31
+      },
+      "revId": "f50a4140daebe65f9b64c4104c3b1ac6d1baa9d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

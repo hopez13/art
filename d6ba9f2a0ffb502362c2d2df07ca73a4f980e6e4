@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9b5b2c9_3fb9039c",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-24T14:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2124633b_e84bd349",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 3
+      },
+      "revId": "d6ba9f2a0ffb502362c2d2df07ca73a4f980e6e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2852d56_bdcab037",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c321d6b0_07e07a51",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-24T14:53:34Z",
+      "side": 1,
+      "message": "Done, added it in the if/else.",
+      "parentUuid": "c2852d56_bdcab037",
+      "range": {
+        "startLine": 87,
+        "startChar": 15,
+        "endLine": 87,
+        "endChar": 16
+      },
+      "revId": "d6ba9f2a0ffb502362c2d2df07ca73a4f980e6e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3a3c359_d7abe048",
@@ -60,6 +108,24 @@
       "writtenOn": "2021-11-24T11:17:01Z",
       "side": 1,
       "message": "Retain the old check in debug mode:\n\n  DCHECK_LT(method_info.GetDexFileIndex(), oat_dex_files.size()) \u003c\u003c ...\n\nWhile the `ArrayRef\u003c\u003e` performs the same `DCHECK_LT()`, you can add more context to the output here, such as `\u003c\u003c GetResolvedMethodErrorString(...)`.",
+      "revId": "d6ba9f2a0ffb502362c2d2df07ca73a4f980e6e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20f4d96e_14aef768",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-24T14:53:34Z",
+      "side": 1,
+      "message": "Done. In terms of performance, are `ArrayRef` and `const vector \u0026` similar?",
+      "parentUuid": "d3a3c359_d7abe048",
       "revId": "d6ba9f2a0ffb502362c2d2df07ca73a4f980e6e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
