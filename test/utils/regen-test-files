@@ -436,10 +436,6 @@ art_gtests_mainline_presubmit_module_names.remove("art_standalone_odrefresh_test
 def is_checker_test(run_test):
   return re.match("^[0-9]+-checker-", run_test)
 
-# Is `run_test` expected to succeed?
-def is_expected_succeeding(run_test):
-  return run_test not in known_failing_tests
-
 
 class Generator:
   def __init__(self, top_dir):
@@ -532,6 +528,19 @@ class Generator:
     # All other tests are considered buildable.
     return True
 
+  # Is (successfully) running `run_test` supported?
+  # TODO(b/147812905): Add run-time support for more tests.
+  def is_runnable(self, run_test):
+    run_test_path = os.path.join(self.art_test_dir, run_test)
+    # Skip tests with a custom `run` script.
+    if os.path.isfile(os.path.join(run_test_path, "run")):
+      return False
+    # Skip tests known to fail.
+    if run_test in known_failing_tests:
+      return False
+    # All other tests are considered runnable.
+    return True
+
   def regen_bp_files(self, run_tests, buildable_tests):
     for run_test in run_tests:
       # Remove any previously generated file.
@@ -551,7 +560,7 @@ class Generator:
 
     run_test_module_name = ART_RUN_TEST_MODULE_NAME_PREFIX + run_test
 
-    if is_expected_succeeding(run_test):
+    if self.is_runnable(run_test):
       test_config_template = "art-run-test-target-template"
     else:
       test_config_template = "art-run-test-target-no-test-suite-tag-template"
@@ -880,12 +889,12 @@ class Generator:
     # which a Blueprint file is to be generated.
     buildable_tests = list(filter(self.is_buildable, run_tests))
 
-    # Create a list of the tests that can be built and are expected to
-    # succeed. These tests are to be added to ART's `TEST_MAPPING`
-    # file and also tagged as part of TradeFed's `art-target-run-test`
-    # test suite via the `test-suite-tag` option in their
-    # configuration file.
-    expected_succeeding_tests = list(filter(is_expected_succeeding, buildable_tests))
+    # Create a list of the tests that can be built and run
+    # (successfully). These tests are to be added to ART's
+    # `TEST_MAPPING` file and also tagged as part of TradeFed's
+    # `art-target-run-test` test suite via the `test-suite-tag` option
+    # in their configuration file.
+    expected_succeeding_tests = list(filter(self.is_runnable, buildable_tests))
 
     # Regenerate Blueprint files.
     # ---------------------------
