@@ -46,6 +46,30 @@
       },
       "revId": "c5644593e6d2bfd2c0003613d22323a4a5acfef4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "491d65f9_a64bdee7",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-11-25T11:38:46Z",
+      "side": 1,
+      "message": "Is it complicated? I thought it\u0027d just be a twoliner like https://cs.android.com/android/platform/superproject/+/master:art/test/utils/regen-test-files;l\u003d518-519;drc\u003d1c466246067af38404bf7201b1e4a159957a9670, and then we\u0027d avoid most of the exceptions in this CL.",
+      "parentUuid": "cf23c23e_369dce26",
+      "range": {
+        "startLine": 220,
+        "startChar": 50,
+        "endLine": 220,
+        "endChar": 70
+      },
+      "revId": "c5644593e6d2bfd2c0003613d22323a4a5acfef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
