@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9848cf91_a97a02d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-25T00:45:04Z",
+      "side": 1,
+      "message": "LGTM, one stylistic cleanup below.",
+      "revId": "2221bd6a3378a799d31d9bfa55510a240cafc131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29c088fb_052b12b0",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-25T00:45:04Z",
+      "side": 1,
+      "message": "Seems questionable, but can wait.",
+      "range": {
+        "startLine": 55,
+        "startChar": 62,
+        "endLine": 55,
+        "endChar": 87
+      },
+      "revId": "2221bd6a3378a799d31d9bfa55510a240cafc131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a50e5c1_0be3812a",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-25T00:45:04Z",
+      "side": 1,
+      "message": "Should really be\n\nif (...kActiveSuspendBarrier) {\n...\n} else if (other 2 cases) { ... \n} else {",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 12
+      },
+      "revId": "2221bd6a3378a799d31d9bfa55510a240cafc131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6c0deb1_033773af",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1587,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-25T00:45:04Z",
+      "side": 1,
+      "message": "In theory, atomic\u003cstruct{...}\u003e should work fine. But there are enough ABI issues around that to make this safer.",
+      "range": {
+        "startLine": 1587,
+        "startChar": 11,
+        "endLine": 1587,
+        "endChar": 19
+      },
+      "revId": "2221bd6a3378a799d31d9bfa55510a240cafc131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
