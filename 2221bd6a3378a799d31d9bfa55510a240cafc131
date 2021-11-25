@@ -66,6 +66,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e6e721eb_bd7f2d89",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-25T09:26:30Z",
+      "side": 1,
+      "message": "The current version is optimized for the fast path. The inlined code in `JniMethodStart()` is\n\n  6d652c: 68 02 40 b9   ldr     w8, [x19]\n  6d6530: 1f 09 1f 72   tst     w8, #0xe\n  6d6534: 61 01 00 54   b.ne    0x6d6560 \u003cart::JniMethodStart(art::Thread*)+0xa4\u003e\n\nReordering as suggested would add an additional test and branch in the fast path, so I\u0027ll keep this as is.",
+      "parentUuid": "1a50e5c1_0be3812a",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 12
+      },
+      "revId": "2221bd6a3378a799d31d9bfa55510a240cafc131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c6c0deb1_033773af",
         "filename": "runtime/thread.h",
         "patchSetId": 5
