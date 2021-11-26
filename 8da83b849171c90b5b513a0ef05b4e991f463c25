@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "735c2668_1693c798",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-26T17:07:20Z",
+      "side": 1,
+      "message": "Copy to arm codegen.",
+      "range": {
+        "startLine": 860,
+        "startChar": 4,
+        "endLine": 861,
+        "endChar": 57
+      },
+      "revId": "8da83b849171c90b5b513a0ef05b4e991f463c25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcb17b63_6367cbc7",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2231,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-26T17:07:20Z",
+      "side": 1,
+      "message": "I prefer using `tmp \u003d temps.Acquire()` instead of explicit `ip`.",
+      "range": {
+        "startLine": 2231,
+        "startChar": 4,
+        "endLine": 2231,
+        "endChar": 22
+      },
+      "revId": "8da83b849171c90b5b513a0ef05b4e991f463c25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5ef102d_598e6e33",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2235,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-26T17:07:20Z",
+      "side": 1,
+      "message": "This is CMP+BEQ+ADD (cannot use CBZ with IP). Make it ADDS+BCC.",
+      "range": {
+        "startLine": 2234,
+        "startChar": 4,
+        "endLine": 2235,
+        "endChar": 23
+      },
+      "revId": "8da83b849171c90b5b513a0ef05b4e991f463c25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "517151cf_6ffa5df2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-26T17:07:20Z",
+      "side": 1,
+      "message": "Does this emit a stack map?",
+      "range": {
+        "startLine": 977,
+        "startChar": 17,
+        "endLine": 977,
+        "endChar": 38
+      },
+      "revId": "8da83b849171c90b5b513a0ef05b4e991f463c25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59721015_0adaecb2",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-26T17:07:20Z",
+      "side": 1,
+      "message": "Does this emit a stack map?",
+      "range": {
+        "startLine": 1001,
+        "startChar": 20,
+        "endLine": 1001,
+        "endChar": 41
+      },
+      "revId": "8da83b849171c90b5b513a0ef05b4e991f463c25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
