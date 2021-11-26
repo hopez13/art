@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f29eb42_3d7a9118",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-26T10:32:05Z",
+      "side": 1,
+      "message": "Refined CL a little bit: Improved comments, using std::set instead of vector for the instructions in the middle, and used the ContainsElement stl utils method.",
+      "revId": "4dfc54ecaae3c8ef945cdf4e45d6d06b15990eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
