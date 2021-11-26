@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017699101",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1903378?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "0bb98234_18eeb97b",
+          "description": "Change to \"runtime/arch/x86/jni_entrypoints_x86.S\"",
+          "replacements": [
+            {
+              "path": "runtime/arch/x86/jni_entrypoints_x86.S",
+              "range": {
+                "startLine": 24,
+                "startChar": 27,
+                "endLine": 24,
+                "endChar": 36
+              },
+              "replacement": "explicitly"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "6f9a341f_54c27d3f",
+        "filename": "runtime/arch/x86/jni_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-11-26T09:20:47Z",
+      "side": 1,
+      "message": "Common typo found: \"explictly\" -- should it be \"explicitly\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 24,
+        "startChar": 27,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "48d4af48ba7995930157d0d92649dcfe90453dc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
