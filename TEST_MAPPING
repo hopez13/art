@@ -134,13 +134,7 @@
       "name": "art-run-test-053-wait-some[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-055-enum-performance[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-058-enum-order[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-059-finalizer-throw[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-061-out-of-memory[com.google.android.art.apex]"
@@ -177,9 +171,6 @@
     },
     {
       "name": "art-run-test-080-oom-fragmentation[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-080-oom-throw[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-080-oom-throw-with-finalizer[com.google.android.art.apex]"
@@ -222,9 +213,6 @@
     },
     {
       "name": "art-run-test-1000-non-moving-space-stress[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-1004-checker-volatile-ref-load[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-101-fibonacci[com.google.android.art.apex]"
@@ -290,12 +278,6 @@
       "name": "art-run-test-132-daemon-locks-shutdown[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-133-static-invoke-super[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-1338-gc-no-los[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-140-dce-regression[com.google.android.art.apex]"
     },
     {
@@ -311,9 +293,6 @@
       "name": "art-run-test-145-alloc-tracking-stress[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-151-OpenFileLimit[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-152-dead-large-object[com.google.android.art.apex]"
     },
     {
@@ -323,21 +302,6 @@
       "name": "art-run-test-156-register-dex-file-multi-loader[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-159-app-image-fields[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-160-read-barrier-stress[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-163-app-image-methods[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-165-lock-owner-proxy[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-168-vmstack-annotated[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-170-interface-init[com.google.android.art.apex]"
     },
     {
@@ -345,9 +309,6 @@
     },
     {
       "name": "art-run-test-175-alloc-big-bignums[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-176-app-image-string[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-1960-checker-bounds-codegen[com.google.android.art.apex]"
@@ -401,9 +362,6 @@
       "name": "art-run-test-2231-checker-heap-poisoning[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-2232-write-metrics-to-log[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-2234-checker-remove-entry-suspendcheck[com.google.android.art.apex]"
     },
     {
@@ -417,9 +375,6 @@
     },
     {
       "name": "art-run-test-302-float-conversion[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-304-method-tracing[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-401-optimizing-compiler[com.google.android.art.apex]"
@@ -1013,9 +968,6 @@
       "name": "art-run-test-627-checker-unroll[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-628-vdex[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-631-checker-get-class[com.google.android.art.apex]"
     },
     {
@@ -1047,9 +999,6 @@
     },
     {
       "name": "art-run-test-641-iterations[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-643-checker-bogus-ic[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-645-checker-abs-simd[com.google.android.art.apex]"
@@ -1119,15 +1068,6 @@
     },
     {
       "name": "art-run-test-673-checker-throw-vmethod[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-676-proxy-jit-at-first-use[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-677-fsi2[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-678-quickening[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-680-sink-regression[com.google.android.art.apex]"
@@ -1200,12 +1140,6 @@
     },
     {
       "name": "art-run-test-815-invokeinterface-default[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-818-clinit-nterp[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-821-madvise-willneed[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-828-partial-lse[com.google.android.art.apex]"
@@ -1414,13 +1348,7 @@
       "name": "art-run-test-053-wait-some"
     },
     {
-      "name": "art-run-test-055-enum-performance"
-    },
-    {
       "name": "art-run-test-058-enum-order"
-    },
-    {
-      "name": "art-run-test-059-finalizer-throw"
     },
     {
       "name": "art-run-test-061-out-of-memory"
@@ -1457,9 +1385,6 @@
     },
     {
       "name": "art-run-test-080-oom-fragmentation"
-    },
-    {
-      "name": "art-run-test-080-oom-throw"
     },
     {
       "name": "art-run-test-080-oom-throw-with-finalizer"
@@ -1502,9 +1427,6 @@
     },
     {
       "name": "art-run-test-1000-non-moving-space-stress"
-    },
-    {
-      "name": "art-run-test-1004-checker-volatile-ref-load"
     },
     {
       "name": "art-run-test-101-fibonacci"
@@ -1570,12 +1492,6 @@
       "name": "art-run-test-132-daemon-locks-shutdown"
     },
     {
-      "name": "art-run-test-133-static-invoke-super"
-    },
-    {
-      "name": "art-run-test-1338-gc-no-los"
-    },
-    {
       "name": "art-run-test-140-dce-regression"
     },
     {
@@ -1591,9 +1507,6 @@
       "name": "art-run-test-145-alloc-tracking-stress"
     },
     {
-      "name": "art-run-test-151-OpenFileLimit"
-    },
-    {
       "name": "art-run-test-152-dead-large-object"
     },
     {
@@ -1603,21 +1516,6 @@
       "name": "art-run-test-156-register-dex-file-multi-loader"
     },
     {
-      "name": "art-run-test-159-app-image-fields"
-    },
-    {
-      "name": "art-run-test-160-read-barrier-stress"
-    },
-    {
-      "name": "art-run-test-163-app-image-methods"
-    },
-    {
-      "name": "art-run-test-165-lock-owner-proxy"
-    },
-    {
-      "name": "art-run-test-168-vmstack-annotated"
-    },
-    {
       "name": "art-run-test-170-interface-init"
     },
     {
@@ -1625,9 +1523,6 @@
     },
     {
       "name": "art-run-test-175-alloc-big-bignums"
-    },
-    {
-      "name": "art-run-test-176-app-image-string"
     },
     {
       "name": "art-run-test-1960-checker-bounds-codegen"
@@ -1681,9 +1576,6 @@
       "name": "art-run-test-2231-checker-heap-poisoning"
     },
     {
-      "name": "art-run-test-2232-write-metrics-to-log"
-    },
-    {
       "name": "art-run-test-2234-checker-remove-entry-suspendcheck"
     },
     {
@@ -1697,9 +1589,6 @@
     },
     {
       "name": "art-run-test-302-float-conversion"
-    },
-    {
-      "name": "art-run-test-304-method-tracing"
     },
     {
       "name": "art-run-test-401-optimizing-compiler"
@@ -2293,9 +2182,6 @@
       "name": "art-run-test-627-checker-unroll"
     },
     {
-      "name": "art-run-test-628-vdex"
-    },
-    {
       "name": "art-run-test-631-checker-get-class"
     },
     {
@@ -2327,9 +2213,6 @@
     },
     {
       "name": "art-run-test-641-iterations"
-    },
-    {
-      "name": "art-run-test-643-checker-bogus-ic"
     },
     {
       "name": "art-run-test-645-checker-abs-simd"
@@ -2399,15 +2282,6 @@
     },
     {
       "name": "art-run-test-673-checker-throw-vmethod"
-    },
-    {
-      "name": "art-run-test-676-proxy-jit-at-first-use"
-    },
-    {
-      "name": "art-run-test-677-fsi2"
-    },
-    {
-      "name": "art-run-test-678-quickening"
     },
     {
       "name": "art-run-test-680-sink-regression"
@@ -2480,12 +2354,6 @@
     },
     {
       "name": "art-run-test-815-invokeinterface-default"
-    },
-    {
-      "name": "art-run-test-818-clinit-nterp"
-    },
-    {
-      "name": "art-run-test-821-madvise-willneed"
     },
     {
       "name": "art-run-test-828-partial-lse"
