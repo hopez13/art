@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca9a027d_55493876",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-26T15:29:42Z",
+      "side": 1,
+      "message": "This makes the test unsafe for parallel execution with other tests that may need the property.",
+      "range": {
+        "startLine": 314,
+        "startChar": 17,
+        "endLine": 314,
+        "endChar": 81
+      },
+      "revId": "548b1defae9159f67738a7078f2931ba776a2855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
