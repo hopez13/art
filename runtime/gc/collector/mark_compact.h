@@ -163,7 +163,8 @@ class MarkCompact : public GarbageCollector {
     ALWAYS_INLINE void VisitLiveStrides(uintptr_t begin_bit_idx,
                                         uint8_t* end,
                                         const size_t bytes,
-                                        Visitor&& visitor) const;
+                                        Visitor&& visitor) const
+        REQUIRES_SHARED(Locks::mutator_lock_);
     // Count the number of live bytes in the given vector entry.
     size_t LiveBytesInBitmapWord(size_t chunk_idx) const;
     void ClearBitmap() { Bitmap::Clear(); }
@@ -192,6 +193,9 @@ class MarkCompact : public GarbageCollector {
                                              + from_space_slide_diff_);
   }
 
+  // Check if the obj is within heap and has a klass which is likely to be valid
+  // mirror::Class.
+  bool IsValidObject(mirror::Object* obj) const REQUIRES_SHARED(Locks::mutator_lock_);
   void InitializePhase();
   void FinishPhase() REQUIRES(!Locks::mutator_lock_, !Locks::heap_bitmap_lock_);
   void MarkingPhase() REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Locks::heap_bitmap_lock_);
