@@ -90,6 +90,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6972058e_0722b4a3",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-11-26T21:11:13Z",
+      "side": 1,
+      "message": "Makes sense. LLVM is doing a better job than I was expecting.",
+      "parentUuid": "e6e721eb_bd7f2d89",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 12
+      },
+      "revId": "2221bd6a3378a799d31d9bfa55510a240cafc131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c6c0deb1_033773af",
         "filename": "runtime/thread.h",
         "patchSetId": 5
