@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64741270_0076147f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-29T11:50:08Z",
+      "side": 1,
+      "message": "For devices that do monitor JNI invocations, this is going to have undesirable performance side effects.",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 85
+      },
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd42dd3c_f625d6d0",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-29T11:50:08Z",
+      "side": 1,
+      "message": "why only changing this on arm64? Also, why doing this change at all?",
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7aad11d_79c4b912",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-29T11:50:08Z",
+      "side": 1,
+      "message": "Not really fund of putting such minor debugging feature into first-class thread state knowledge.\n\nCould we for now just make the JNI code have an extra check (for example checking a dedicated tls value) before going slow path? We could make this a memory neutral change by saving an entrypoint.\n\nWe can discuss about how best to handle this in a follow-up.",
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
