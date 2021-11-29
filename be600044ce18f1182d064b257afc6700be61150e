@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "354ecfbc_d23fcc7c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-29T12:14:05Z",
+      "side": 1,
+      "message": "If we decide to go with TST+BEQ/BNE, the only cost we shall incur is managed code size increase which could be mitigated by implementing implicit suspend checks.",
+      "parentUuid": "97b751cb_f0966700",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 85
+      },
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd42dd3c_f625d6d0",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 4
