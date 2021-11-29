@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a4796b4_e9787103",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2786,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-29T14:24:22Z",
+      "side": 1,
+      "message": "I\u0027m very concerned about interaction with other optimizations.\n\n  StringBuilder sb \u003d new StringBuilder().append(\"boot image string\").append(42);\n  String s \u003d sb.toString();\n  if (cond) {\n    // Bounds checks replaced by Deoptimize.\n    int sum \u003d a[i] + a[i+1] + a[i+2] + a[i+3];\n    sb.toString();  // Result is unused, so this shall be eliminated.\n    [...]\n  }\n\nIf we take the Deoptimize path, the unused `sb.toString()` shall be executed in interpreter (it is only eliminated in compiled code) and it shall need a valid `StringBuilder`.\n\nAny expansion of the StringBuilder append pattern substitution needs to be very, very careful. That\u0027s why I have not done that myself yet.",
+      "range": {
+        "startLine": 2784,
+        "startChar": 6,
+        "endLine": 2786,
+        "endChar": 15
+      },
+      "revId": "7c85b67b64b7fd0f1a505740b9b1ad4f5d5cc61e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
