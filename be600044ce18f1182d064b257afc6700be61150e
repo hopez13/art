@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35e38e48_7c6fb3d0",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-29T13:56:06Z",
+      "side": 1,
+      "message": "Re: tradeoff: true, with your new CL, it will affect all JNI code. But given you\u0027re changing the goal post on JNI code (in the right direction!), I think the tradeoff should remain on the JNI side, instead of spilling the monitoring issue to more places in the code base.\n\nI think we could go with something just affect JNI, and then reach out to the OEM which requested the monitoring feature to let them know about the tradeoff and whether it\u0027s still something they\u0027re willing to take. Given all the improvements you\u0027ve made, we could consider making the monitoring a static option, eg system property (the request was for monitoring apps JNI code).",
+      "parentUuid": "354ecfbc_d23fcc7c",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 85
+      },
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd42dd3c_f625d6d0",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 4
