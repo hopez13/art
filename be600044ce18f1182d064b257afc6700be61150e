@@ -65,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "320c3af0_5ad1fac7",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-29T12:03:27Z",
+      "side": 1,
+      "message": "For consistency with the other callers of `art_quick_test_suspend`.",
+      "parentUuid": "fd42dd3c_f625d6d0",
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7aad11d_79c4b912",
