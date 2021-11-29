@@ -22,6 +22,30 @@
       },
       "revId": "8881800c21569680faceb0ecd1453434269c37c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2e65a84_55e75385",
+        "filename": "runtime/mirror/var_handle.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1712,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2021-11-29T14:46:48Z",
+      "side": 1,
+      "message": "CompareAndExchange and CompareAndSet compare against the expected value in the memory location before attempting to store new element value. The expected value is sometimes referred to as the comperand (comparison-operand). It comes up in various docs (https://docs.microsoft.com/en-us/windows/win32/api/winnt/nf-winnt-interlockedcompareexchange).",
+      "parentUuid": "d77b2074_581a6cc1",
+      "range": {
+        "startLine": 1712,
+        "startChar": 42,
+        "endLine": 1712,
+        "endChar": 51
+      },
+      "revId": "8881800c21569680faceb0ecd1453434269c37c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
