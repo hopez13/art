@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0341effc_e1a21c77",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-29T12:01:10Z",
+      "side": 1,
+      "message": "The other option is to increase the managed code size for arm64 by doing TST+BEQ/BNE.\n\nNote that monitoring JNI invocations already has undesirable performance side effects for JNI invocations. We\u0027re just adding a bit more for managed code, nterp and @FastNative. (For @FastNative, this is insignificant compared to the performance improvements since the last release.)",
+      "parentUuid": "64741270_0076147f",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 85
+      },
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd42dd3c_f625d6d0",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 4
