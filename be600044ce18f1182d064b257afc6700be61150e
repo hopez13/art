@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97b751cb_f0966700",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-29T12:10:43Z",
+      "side": 1,
+      "message": "Well, the trade-off you\u0027re advocating is an implementation that does not affect non-JNI code but affects _all_ JNI code even if the monitoring is disabled (because we would always have to check the extra flag from somewhere else).",
+      "parentUuid": "310bd667_a29f8c40",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 85
+      },
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd42dd3c_f625d6d0",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 4
