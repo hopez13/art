@@ -33,6 +33,24 @@
       "message": "This happens, for example, if we have a string builder that we call `.isEmpty()` on, or `.length()` so I\u0027d say it could be fairly common. I came up with three different solutions.\n\n1) It can be solved with a NewInstance visitor in instruction simplifier:\n  void InstructionSimplifierVisitor::VisitNewInstance(HNewInstance* new_instance) {\n    if (!new_instance-\u003eHasUses()) {\n      new_instance-\u003eGetBlock()-\u003eRemoveInstruction(new_instance);\n    }\n  }\nhttps://android-review.googlesource.com/c/platform/art/+/1868685.\n\n2) Alternatively, have a set of allowed NewInstance to visit so we only eliminate in that way the ones we touched with StringBuilderAppend for an extra safety check.\n\n3) However, it looks more like a DeadCodeElimination responsibility so we can change this line in IsRemovable (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/nodes.h;l\u003d2401;drc\u003dmaster) to:\n  (!CanThrow() || IsNewInstance) \u0026\u0026\n  \nI\u0027d say 3) is the best way, but it may have unintended side-effects due to changing IsRemovable. From its uses I think it is fine since it is only used in dead code elimination and loop optimization. WDYT?",
       "revId": "57bf02239b14824dc04108116bcba057cc5ce0ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32abd895_ca8adb98",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2825,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-29T16:06:09Z",
+      "side": 1,
+      "message": "Resolving to abandon.",
+      "parentUuid": "421414ab_520a17ba",
+      "revId": "57bf02239b14824dc04108116bcba057cc5ce0ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

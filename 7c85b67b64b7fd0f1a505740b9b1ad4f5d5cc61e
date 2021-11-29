@@ -22,6 +22,30 @@
       },
       "revId": "7c85b67b64b7fd0f1a505740b9b1ad4f5d5cc61e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "019ef460_c978fd7c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2786,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-29T16:06:09Z",
+      "side": 1,
+      "message": "Ack. Added the test case in your comment to this CL to make sure we have a safety net for that kind of StringBuilderAppend optimization.\n\nThe CL turned out to be more difficult than I anticipated. I think we can abandon it for now and take a second look at it at some point in the future.",
+      "parentUuid": "8a4796b4_e9787103",
+      "range": {
+        "startLine": 2784,
+        "startChar": 6,
+        "endLine": 2786,
+        "endChar": 15
+      },
+      "revId": "7c85b67b64b7fd0f1a505740b9b1ad4f5d5cc61e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
