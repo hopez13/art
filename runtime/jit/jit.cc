@@ -390,24 +390,6 @@ void Jit::DeleteThreadPool() {
   }
 }
 
-void Jit::StartProfileSaver(const std::string& profile_filename,
-                            const std::vector<std::string>& code_paths,
-                            const std::string& ref_profile_filename) {
-  if (options_->GetSaveProfilingInfo()) {
-    ProfileSaver::Start(options_->GetProfileSaverOptions(),
-                        profile_filename,
-                        code_cache_,
-                        code_paths,
-                        ref_profile_filename);
-  }
-}
-
-void Jit::StopProfileSaver() {
-  if (options_->GetSaveProfilingInfo() && ProfileSaver::IsStarted()) {
-    ProfileSaver::Stop(options_->DumpJitInfoOnShutdown());
-  }
-}
-
 bool Jit::JitAtFirstUse() {
   return HotMethodThreshold() == 0;
 }
@@ -974,9 +956,10 @@ class ZygoteTask final : public Task {
   DISALLOW_COPY_AND_ASSIGN(ZygoteTask);
 };
 
-class JitProfileTask final : public Task {
+class JitProfileTask : public Task {
  public:
   JitProfileTask(const std::vector<std::unique_ptr<const DexFile>>& dex_files,
+                 const std::string& profile,
                  jobject class_loader) {
     ScopedObjectAccess soa(Thread::Current());
     StackHandleScope<1> hs(soa.Self());
@@ -991,7 +974,33 @@ class JitProfileTask final : public Task {
     }
     // We also create our own global ref to use this class loader later.
     class_loader_ = soa.Vm()->AddGlobalRef(soa.Self(), h_loader.Get());
+    profile_ = profile;
   }
+
+  void Finalize() override {
+    delete this;
+  }
+
+  ~JitProfileTask() {
+    ScopedObjectAccess soa(Thread::Current());
+    soa.Vm()->DeleteGlobalRef(soa.Self(), class_loader_);
+  }
+
+ protected:
+  std::vector<const DexFile*> dex_files_;
+  std::string profile_;
+  jobject class_loader_;
+
+  DISALLOW_COPY_AND_ASSIGN(JitProfileTask);
+};
+
+class JitSystemServerProfileTask final : public JitProfileTask {
+ public:
+  JitSystemServerProfileTask(const std::vector<std::unique_ptr<const DexFile>>& dex_files,
+                             jobject class_loader)
+      : JitProfileTask(dex_files,
+                       GetProfileFile(dex_files[0]->GetLocation()),
+                       class_loader) {}
 
   void Run(Thread* self) override {
     ScopedObjectAccess soa(self);
@@ -999,8 +1008,7 @@ class JitProfileTask final : public Task {
     Handle<mirror::ClassLoader> loader = hs.NewHandle<mirror::ClassLoader>(
         soa.Decode<mirror::ClassLoader>(class_loader_));
 
-    std::string profile = GetProfileFile(dex_files_[0]->GetLocation());
-    std::string boot_profile = GetBootProfileFile(profile);
+    std::string boot_profile = GetBootProfileFile(profile_);
 
     Jit* jit = Runtime::Current()->GetJit();
 
@@ -1014,26 +1022,177 @@ class JitProfileTask final : public Task {
     jit->CompileMethodsFromProfile(
         self,
         dex_files_,
-        profile,
+        profile_,
         loader,
         /* add_to_queue= */ true);
   }
 
-  void Finalize() override {
-    delete this;
+  DISALLOW_COPY_AND_ASSIGN(JitSystemServerProfileTask);
+};
+
+
+uint32_t Jit::CompileMethodsFromProfileForAppStartup(
+    Thread* self,
+    const std::vector<const DexFile*>& dex_files,
+    const std::string& profile_file,
+    Handle<mirror::ClassLoader> class_loader) {
+
+  if (profile_file.empty()) {
+    return 0u;
   }
 
-  ~JitProfileTask() {
-    ScopedObjectAccess soa(Thread::Current());
-    soa.Vm()->DeleteGlobalRef(soa.Self(), class_loader_);
+  // Lock the file, it could be concurrently updated by the system. Don't block
+  // as this is app startup sensitive.
+  std::string error;
+  ScopedFlock profile =
+      LockedFile::Open(profile_file.c_str(), O_RDONLY, /*block=*/false, &error);
+
+  if (profile == nullptr) {
+    LOG(INFO) << "Couldn't lock the profile file " << profile_file << ": " << error;
+    return 0u;
+  }
+
+  ProfileCompilationInfo profile_info(/* for_boot_image= */ false);
+  if (!profile_info.Load(profile->Fd())) {
+    LOG(ERROR) << "Could not load profile file";
+    return 0u;
+  }
+
+  uint32_t number_of_compiled_methods = 0u;
+  ScopedObjectAccess soa(self);
+  StackHandleScope<1> hs(self);
+  MutableHandle<mirror::DexCache> dex_cache = hs.NewHandle<mirror::DexCache>(nullptr);
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  std::vector<std::set<uint16_t>> other_methods(dex_files.size());
+  uint32_t dex_file_index = 0;
+  for (const DexFile* dex_file : dex_files) {
+    dex_file_index++;
+    std::set<dex::TypeIndex> class_types;
+    std::set<uint16_t> startup_methods;
+    if (!profile_info.GetClassesAndMethods(*dex_file,
+                                           &class_types,
+                                           &other_methods[dex_file_index - 1],
+                                           &startup_methods,
+                                           &other_methods[dex_file_index - 1])) {
+      // This means the profile file did not reference the dex file, which is the case
+      // if there's no classes and methods of that dex file in the profile.
+      continue;
+    }
+    for (dex::TypeIndex idx : class_types) {
+      const char* descriptor = profile_info.GetTypeDescriptor(dex_file, idx);
+      ObjPtr<mirror::Class> klass = class_linker->FindClass(self, descriptor, class_loader);
+      if (klass == nullptr) {
+        self->ClearException();
+        LOG(WARNING) << "Failed to preload " << std::string(descriptor);
+        continue;
+      }
+      LOG(INFO) << "NGEO WOOT LOADED " << klass->PrettyClass();
+    }
+
+    dex_cache.Assign(class_linker->FindDexCache(self, *dex_file));
+    CHECK(dex_cache != nullptr) << "Could not find dex cache for " << dex_file->GetLocation();
+    for (uint16_t method_idx : startup_methods) {
+      if (CompileMethodFromProfile(self,
+                                   class_linker,
+                                   method_idx,
+                                   dex_cache,
+                                   class_loader,
+                                   CompilationKind::kBaseline,
+                                   /*add_to_queue=*/false,
+                                   /*compile_after_boot=*/false)) {
+        number_of_compiled_methods++;
+        LOG(INFO) << "NGEO WOOT COMPILED " << dex_file->PrettyMethod(method_idx);
+      } else {
+        LOG(WARNING) << "Failed to precompile " << dex_file->PrettyMethod(method_idx);
+      }
+    }
+  }
+
+  dex_file_index = 0;
+  for (const DexFile* dex_file : dex_files) {
+    dex_cache.Assign(class_linker->FindDexCache(self, *dex_file));
+    for (uint16_t method_idx : other_methods[dex_file_index]) {
+      if (CompileMethodFromProfile(self,
+                                   class_linker,
+                                   method_idx,
+                                   dex_cache,
+                                   class_loader,
+                                   CompilationKind::kBaseline,
+                                   /*add_to_queue=*/false,
+                                   /*compile_after_boot=*/false)) {
+        number_of_compiled_methods++;
+      } else {
+        LOG(WARNING) << "Failed to precompile " << dex_file->PrettyMethod(method_idx);
+      }
+    }
+    dex_file_index++;
+  }
+  return number_of_compiled_methods;
+}
+
+class JitAppProfileTask final : public Task {
+ public:
+  JitAppProfileTask(const std::string& profile, const std::string& code_path)
+      : profile_(profile), code_path_(code_path) {}
+
+  void Run(Thread* self) override {
+    LOG(ERROR) << "NGEO RUN WITH " << profile_ << " AND " << code_path_;
+    ScopedObjectAccess soa(self);
+    StackHandleScope<1> hs(self);
+    std::vector<ObjPtr<mirror::DexCache>> dex_caches = Runtime::Current()->GetClassLinker()->FindDexCaches(self, code_path_);
+    if (dex_caches.empty()) {
+      return;
+    }
+    Handle<mirror::ClassLoader> loader = hs.NewHandle<mirror::ClassLoader>(dex_caches[0]->GetClassLoader());
+    std::vector<const DexFile*> dex_files;
+    for (ObjPtr<mirror::DexCache> dex_cache : dex_caches) {
+      if (dex_cache->GetClassLoader() == loader.Get()) {
+        dex_files.push_back(dex_cache->GetDexFile());
+        LOG(ERROR) << "NGEO WOOT " << dex_cache->GetDexFile()->GetLocation();
+      }
+    }
+
+    Jit* jit = Runtime::Current()->GetJit();
+
+    jit->CompileMethodsFromProfileForAppStartup(
+        self,
+        dex_files,
+        profile_,
+        loader);
   }
 
  private:
-  std::vector<const DexFile*> dex_files_;
-  jobject class_loader_;
+  std::string profile_;
+  std::string code_path_;
 
-  DISALLOW_COPY_AND_ASSIGN(JitProfileTask);
+  DISALLOW_COPY_AND_ASSIGN(JitAppProfileTask);
 };
+
+void Jit::StartProfileSaver(const std::string& profile_filename,
+                            const std::vector<std::string>& code_paths,
+                            const std::string& ref_profile_filename) {
+  if (options_->GetSaveProfilingInfo()) {
+    ProfileSaver::Start(options_->GetProfileSaverOptions(),
+                        profile_filename,
+                        code_cache_,
+                        code_paths,
+                        ref_profile_filename);
+  }
+  Runtime* runtime = Runtime::Current();
+  if (!runtime->IsSystemServer() &&
+      !runtime->IsZygote() &&
+      !runtime->GetStartupCompleted() &&
+      !runtime->IsJavaDebuggable()) {
+    thread_pool_->AddTask(Thread::Current(),
+                          new JitAppProfileTask(ref_profile_filename, code_paths[0]));
+  }
+}
+
+void Jit::StopProfileSaver() {
+  if (options_->GetSaveProfilingInfo() && ProfileSaver::IsStarted()) {
+    ProfileSaver::Stop(options_->DumpJitInfoOnShutdown());
+  }
+}
 
 static void CopyIfDifferent(void* s1, const void* s2, size_t n) {
   if (memcmp(s1, s2, n) != 0) {
@@ -1301,7 +1460,20 @@ void Jit::RegisterDexFiles(const std::vector<std::unique_ptr<const DexFile>>& de
       options_->UseProfiledJitCompilation() &&
       HasImageWithProfile() &&
       !runtime->IsJavaDebuggable()) {
-    thread_pool_->AddTask(Thread::Current(), new JitProfileTask(dex_files, class_loader));
+    thread_pool_->AddTask(Thread::Current(),
+                          new JitSystemServerProfileTask(dex_files, class_loader));
+  }
+  if (!runtime->GetStartupCompleted()) {
+    ScopedObjectAccess soa(Thread::Current());
+    StackHandleScope<1> hs(soa.Self());
+    Handle<mirror::ClassLoader> loader = hs.NewHandle<mirror::ClassLoader>(
+        soa.Decode<mirror::ClassLoader>(class_loader));
+    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+    for (const auto& dex_file : dex_files) {
+      // Register the dex file so that when the profile is registered, we can
+      // preload classes and methods.
+      class_linker->RegisterDexFile(*dex_file.get(), loader.Get());
+    }
   }
 }
 
@@ -1310,6 +1482,7 @@ bool Jit::CompileMethodFromProfile(Thread* self,
                                    uint32_t method_idx,
                                    Handle<mirror::DexCache> dex_cache,
                                    Handle<mirror::ClassLoader> class_loader,
+                                   CompilationKind compilation_kind,
                                    bool add_to_queue,
                                    bool compile_after_boot) {
   ArtMethod* method = class_linker->ResolveMethodWithoutInvokeType(
@@ -1334,10 +1507,10 @@ bool Jit::CompileMethodFromProfile(Thread* self,
       (entry_point == GetQuickResolutionStub())) {
     method->SetPreCompiled();
     if (!add_to_queue) {
-      CompileMethod(method, self, CompilationKind::kOptimized, /* prejit= */ true);
+      CompileMethod(method, self, compilation_kind, /* prejit= */ true);
     } else {
       Task* task = new JitCompileTask(
-          method, JitCompileTask::TaskKind::kPreCompile, CompilationKind::kOptimized);
+          method, JitCompileTask::TaskKind::kPreCompile, compilation_kind);
       if (compile_after_boot) {
         MutexLock mu(Thread::Current(), boot_completed_lock_);
         if (!boot_completed_) {
@@ -1387,6 +1560,7 @@ uint32_t Jit::CompileMethodsFromBootProfile(
                                  pair.second,
                                  dex_caches[pair.first],
                                  class_loader,
+                                 CompilationKind::kOptimized,
                                  add_to_queue,
                                  /*compile_after_boot=*/false)) {
       ++added_to_queue;
@@ -1452,6 +1626,7 @@ uint32_t Jit::CompileMethodsFromProfile(
                                    method_idx,
                                    dex_cache,
                                    class_loader,
+                                   CompilationKind::kOptimized,
                                    add_to_queue,
                                    /*compile_after_boot=*/true)) {
         ++added_to_queue;

@@ -4130,6 +4130,17 @@ ClassTable* ClassLinker::FindClassTable(Thread* self, ObjPtr<mirror::DexCache> d
   return nullptr;
 }
 
+std::vector<ObjPtr<mirror::DexCache>> ClassLinker::FindDexCaches(Thread* self, const std::string& code_path) {
+  std::vector<ObjPtr<mirror::DexCache>> results;
+  ReaderMutexLock mu(self, *Locks::dex_lock_);
+  for (auto& it : dex_caches_) {
+    if (StartsWith(it.first->GetLocation(), code_path)) {
+      results.push_back(ObjPtr<mirror::DexCache>::DownCast(self->DecodeJObject(it.second.weak_root)));
+    }
+  }
+  return results;
+}
+
 const ClassLinker::DexCacheData* ClassLinker::FindDexCacheDataLocked(const DexFile& dex_file) {
   auto it = dex_caches_.find(&dex_file);
   return it != dex_caches_.end() ? &it->second : nullptr;

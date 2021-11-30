@@ -428,6 +428,13 @@ class Jit {
                                          Handle<mirror::ClassLoader> class_loader,
                                          bool add_to_queue);
 
+  // Compile methods in the given profile in the order optimized for app
+  // startup.
+  uint32_t CompileMethodsFromProfileForAppStartup(Thread* self,
+                                                  const std::vector<const DexFile*>& dex_files,
+                                                  const std::string& profile_path,
+                                                  Handle<mirror::ClassLoader> class_loader);
+
   // Register the dex files to the JIT. This is to perform any compilation/optimization
   // at the point of loading the dex files.
   void RegisterDexFiles(const std::vector<std::unique_ptr<const DexFile>>& dex_files,
@@ -470,6 +477,7 @@ class Jit {
                                 uint32_t method_idx,
                                 Handle<mirror::DexCache> dex_cache,
                                 Handle<mirror::ClassLoader> class_loader,
+                                CompilationKind compilation_kind,
                                 bool add_to_queue,
                                 bool compile_after_boot)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -497,6 +505,7 @@ class Jit {
 
   std::unique_ptr<ThreadPool> thread_pool_;
   std::vector<std::unique_ptr<OatDexFile>> type_lookup_tables_;
+  std::vector<jobject> class_loaders_;
 
   Mutex boot_completed_lock_;
   bool boot_completed_ GUARDED_BY(boot_completed_lock_) = false;

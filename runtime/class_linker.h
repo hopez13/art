@@ -504,6 +504,9 @@ class ClassLinker {
   ClassTable* FindClassTable(Thread* self, ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  std::vector<ObjPtr<mirror::DexCache>> FindDexCaches(Thread* self, const std::string& code_path)
+      REQUIRES(!Locks::dex_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   LengthPrefixedArray<ArtField>* AllocArtFieldArray(Thread* self,
                                                     LinearAlloc* allocator,
