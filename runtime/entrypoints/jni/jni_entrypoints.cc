@@ -166,8 +166,16 @@ extern "C" size_t artCriticalNativeFrameSize(ArtMethod* method, uintptr_t caller
         inline_infos.empty() ? method : GetResolvedMethod(method, code_info, inline_infos);
     uint32_t dex_pc = inline_infos.empty() ? stack_map.GetDexPc() : inline_infos.back().GetDexPc();
 
+    // Get the callee DexFile.
+    StackMap callee_stack_map = code_info.GetStackMapForDexPc(dex_pc);
+    DCHECK(callee_stack_map.IsValid());
+    BitTableRange<InlineInfo> callee_inline_infos = code_info.GetInlineInfosOf(callee_stack_map);
+    ArtMethod* callee = callee_inline_infos.empty() ?
+                            caller :
+                            GetResolvedMethod(caller, code_info, callee_inline_infos);
+    const DexFile* dex_file = callee->GetDexFile();
+
     // Get the callee shorty.
-    const DexFile* dex_file = method->GetDexFile();
     uint32_t method_idx = GetInvokeStaticMethodIndex(caller, dex_pc);
     uint32_t shorty_len;
     const char* shorty = dex_file->GetMethodShorty(dex_file->GetMethodId(method_idx), &shorty_len);
