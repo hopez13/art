@@ -125,21 +125,33 @@ static inline void StoreStringInBss(ArtMethod* outer_method,
 
 static ALWAYS_INLINE bool CanReferenceBss(ArtMethod* outer_method, ArtMethod* caller)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  // .bss references are used only for AOT-compiled code and only when the instruction
-  // originates from the outer method's dex file and the type or string index is tied to
-  // that dex file. As we do not want to check if the call is coming from AOT-compiled
-  // code (that could be expensive), simply check if the caller has the same dex file.
+  // .bss references are used only for AOT-compiled code. As we do not want to check if the call is
+  // coming from AOT-compiled code (that could be expensive), we can simply check if the caller has
+  // the same dex file.
   //
-  // If we've accepted running AOT-compiled code despite the runtime class loader
-  // resolving the caller to a different dex file, this check shall prevent us from
-  // filling the .bss slot and we shall keep going through the slow path. This is slow
-  // but correct; we do not really care that much about performance in this odd case.
+  // When we are JIT compiling, if the caller and outer method have the same dex file we may or may
+  // not find a .bss slot to update; if we do, this can still benefit AOT-compiled code executed
+  // later.
+  const DexFile* outer_dex_file = outer_method->GetDexFile();
+  const DexFile* caller_dex_file = caller->GetDexFile();
+  if (outer_dex_file == caller_dex_file) {
+    return true;
+  }
+
+  // We allow AoT to reference bss sections of other DexFiles as long as the inner DexFile is within
+  // the OatFile's DexFiles.
   //
-  // JIT can inline throwing instructions across dex files and this check prevents
-  // looking up the index in the wrong dex file in that case. If the caller and outer
-  // method have the same dex file, we may or may not find a .bss slot to update;
-  // if we do, this can still benefit AOT-compiled code executed later.
-  return outer_method->GetDexFile() == caller->GetDexFile();
+  // If we've accepted running AOT-compiled code despite the runtime class loader resolving the
+  // caller to a non-supported dex file, this check shall prevent us from filling the .bss slot and
+  // we shall keep going through the slow path. This is slow but correct; we do not really care that
+  // much about performance in this odd case.
+  ArrayRef<const OatDexFile* const> oat_dex_files(
+      outer_dex_file->GetOatDexFile()->GetOatFile()->GetOatDexFiles());
+  auto it =
+      std::find_if(oat_dex_files.begin(), oat_dex_files.end(), [&](const OatDexFile* const odf) {
+        return caller_dex_file->GetOatDexFile() == odf;
+      });
+  return it != oat_dex_files.end();
 }
 
 extern "C" mirror::Class* artInitializeStaticStorageFromCode(mirror::Class* klass, Thread* self)
@@ -173,7 +185,7 @@ extern "C" mirror::Class* artResolveTypeFromCode(uint32_t type_idx, Thread* self
                                                         /* can_run_clinit= */ false,
                                                         /* verify_access= */ false);
   if (LIKELY(result != nullptr) && CanReferenceBss(caller_and_outer.outer_method, caller)) {
-    StoreTypeInBss(caller_and_outer.outer_method, dex::TypeIndex(type_idx), result);
+    StoreTypeInBss(caller_and_outer.caller, dex::TypeIndex(type_idx), result);
   }
   return result.Ptr();
 }
@@ -191,7 +203,7 @@ extern "C" mirror::Class* artResolveTypeAndVerifyAccessFromCode(uint32_t type_id
                                                         /* can_run_clinit= */ false,
                                                         /* verify_access= */ true);
   if (LIKELY(result != nullptr) && CanReferenceBss(caller_and_outer.outer_method, caller)) {
-    StoreTypeInBss(caller_and_outer.outer_method, dex::TypeIndex(type_idx), result);
+    StoreTypeInBss(caller_and_outer.caller, dex::TypeIndex(type_idx), result);
   }
   return result.Ptr();
 }
@@ -226,7 +238,7 @@ extern "C" mirror::String* artResolveStringFromCode(int32_t string_idx, Thread* 
   ObjPtr<mirror::String> result =
       Runtime::Current()->GetClassLinker()->ResolveString(dex::StringIndex(string_idx), caller);
   if (LIKELY(result != nullptr) && CanReferenceBss(caller_and_outer.outer_method, caller)) {
-    StoreStringInBss(caller_and_outer.outer_method, dex::StringIndex(string_idx), result);
+    StoreStringInBss(caller_and_outer.caller, dex::StringIndex(string_idx), result);
   }
   return result.Ptr();
 }
