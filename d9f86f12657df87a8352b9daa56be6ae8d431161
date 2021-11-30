@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f6ed57_fc0224e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-30T16:20:40Z",
+      "side": 1,
+      "message": "Yes, you get dex2oat invocations asking to compile the boot image extensions in memory.",
+      "parentUuid": "80fe3576_a000cc11",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 25
+      },
+      "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e21baf83_6893cd69",
@@ -77,6 +101,48 @@
       "writtenOn": "2021-11-30T16:16:16Z",
       "side": 1,
       "message": "`odrefresh --check` is only expected to return `kOkay` or `kCompilationRequired`. Otherwise, we will get strange behavior.",
+      "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02858434_7bab7b69",
+        "filename": "odrefresh/odrefresh_jitzygote.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-30T16:20:40Z",
+      "side": 1,
+      "message": "Is there a generic error I can return?",
+      "parentUuid": "f3a530ac_e791ae73",
+      "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb5a1089_8a76859c",
+        "filename": "odrefresh/odrefresh_jitzygote.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-11-30T16:20:40Z",
+      "side": 1,
+      "message": "I worry about adding too much logic in this code which can be obsolete very quickly.",
+      "parentUuid": "f9a953a6_028def13",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 54
+      },
       "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
