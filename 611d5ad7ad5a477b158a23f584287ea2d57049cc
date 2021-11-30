@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45c736c6_f6e41990",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-30T17:31:15Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "092e1d0c_e08821a6",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-30T17:31:15Z",
+      "side": 1,
+      "message": "This code comment should be reworked or not depending on the CL comment below.",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 28
+      },
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cef0999_9c773f56",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-11-30T17:31:15Z",
+      "side": 1,
+      "message": "Should we restrict this to AOT only? A comment said \"JIT can inline throwing instructions across dex files and this check prevents looking up the index in the wrong dex file in that case.\" but that seems to be solved via using `caller_and_outer.caller` rather than `caller_and_outer.outer_method` at the callsites.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 35
+      },
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
