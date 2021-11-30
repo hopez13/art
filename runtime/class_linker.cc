@@ -217,13 +217,11 @@ static void ChangeInterpreterBridgeToNterp(ArtMethod* method, ClassLinker* class
   }
 }
 
-static void UpdateClassAfterVerification(Handle<mirror::Class> klass,
-                                         PointerSize pointer_size,
-                                         verifier::FailureKind failure_kind)
+static void UpdateClassAfterVerification(Handle<mirror::Class> klass, PointerSize pointer_size)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   Runtime* runtime = Runtime::Current();
   ClassLinker* class_linker = runtime->GetClassLinker();
-  if (failure_kind == verifier::FailureKind::kNoFailure) {
+  if (klass->IsVerified()) {
     klass->SetSkipAccessChecksFlagOnAllMethods(pointer_size);
   }
 
@@ -4580,7 +4578,7 @@ verifier::FailureKind ClassLinker::VerifyClass(Thread* self,
     // Skip verification if disabled.
     if (!Runtime::Current()->IsVerificationEnabled()) {
       mirror::Class::SetStatus(klass, ClassStatus::kVerified, self);
-      UpdateClassAfterVerification(klass, image_pointer_size_, verifier::FailureKind::kNoFailure);
+      UpdateClassAfterVerification(klass, image_pointer_size_);
       return verifier::FailureKind::kNoFailure;
     }
   }
@@ -4686,7 +4684,6 @@ verifier::FailureKind ClassLinker::VerifyClass(Thread* self,
       // Regardless of our own verification result, we need to verify the class
       // at runtime if the super class is not verified. This is required in case
       // we generate an app/boot image.
-      verifier_failure = verifier::FailureKind::kSoftFailure;
       mirror::Class::SetStatus(klass, ClassStatus::kRetryVerificationAtRuntime, self);
     } else if (verifier_failure == verifier::FailureKind::kNoFailure) {
       mirror::Class::SetStatus(klass, ClassStatus::kVerified, self);
@@ -4706,7 +4703,7 @@ verifier::FailureKind ClassLinker::VerifyClass(Thread* self,
     mirror::Class::SetStatus(klass, ClassStatus::kVerified, self);
   }
 
-  UpdateClassAfterVerification(klass, image_pointer_size_, verifier_failure);
+  UpdateClassAfterVerification(klass, image_pointer_size_);
   return verifier_failure;
 }
 
