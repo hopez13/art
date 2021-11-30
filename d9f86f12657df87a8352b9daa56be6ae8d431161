@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "766e7338_fb8c5529",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-11-30T17:04:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "29f6ed57_fc0224e5",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 25
+      },
+      "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e21baf83_6893cd69",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -143,6 +167,48 @@
         "endLine": 23,
         "endChar": 54
       },
+      "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9dd1a0b_4eeef4a0",
+        "filename": "odrefresh/odrefresh_jitzygote.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-11-30T17:04:31Z",
+      "side": 1,
+      "message": "Without any logic, I don\u0027t see how we can prevent the existing artifacts being used. We very likely want to build a system image from sources and install this testing module built from the same sources, in which case the runtime will use the artifacts on /system because they are up-to-date. Or, that\u0027s not true for some reason?\n\nIf we just want to ensure that nothing existing is used, we won\u0027t have to have complex logic. I think four lines of code should do, though I haven\u0027t tested it:\n\nRemoveDirectory(kOdrefreshArtifactDirectory);\nstd::string image \u003d GetSystemImageFilename(kOdrefreshArtifactDirectory + \"/boot-framework.art\", kRuntimeISA);\nEnsureDirectoryExists(android::base::Dirname(image));\nOS::CreateEmptyFile(image);\n\nSince it\u0027s just four lines of code, it\u0027s not hard to keep it up-to-date.",
+      "parentUuid": "cb5a1089_8a76859c",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 54
+      },
+      "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40618706_f1f6ef37",
+        "filename": "odrefresh/odrefresh_jitzygote.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-11-30T17:04:31Z",
+      "side": 1,
+      "message": "The answer is no if we want this program to generate broken artifacts and have odsign sign them. `--check` is guaranteed to be the last argument (argv[argc - 1]), so checking it doesn\u0027t introduce complex logic.",
+      "parentUuid": "02858434_7bab7b69",
       "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
