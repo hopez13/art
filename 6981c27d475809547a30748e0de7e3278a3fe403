@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55f636c6_d3088aca",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-11-30T12:32:02Z",
+      "side": 1,
+      "message": "The `code_info` is for the outer method but the `dex_pc` is for the inlined method.\n\nWe have already done the `GetResolvedMethod()` above, so all this extra work is unnecesary. Just replace `method-\u003eGetDexFile()` with `callee-\u003eGetDexFile()`.",
+      "range": {
+        "startLine": 170,
+        "startChar": 32,
+        "endLine": 170,
+        "endChar": 70
+      },
+      "revId": "6981c27d475809547a30748e0de7e3278a3fe403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
