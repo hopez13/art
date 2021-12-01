@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fac5774_96550625",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:00:33Z",
+      "side": 1,
+      "message": "\"type/string .bss sections\"\n\nWe need to deal with methods as well but that can be done in a separate CL.",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "45c736c6_f6e41990",
@@ -43,6 +66,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98db058d_0f63d8a8",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:00:33Z",
+      "side": 1,
+      "message": "\"We allow AOT-compiled code to reference .bss slots for all dex files compiled together to an oat file.\"",
+      "parentUuid": "092e1d0c_e08821a6",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 28
+      },
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6537bc60_5b733935",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:00:33Z",
+      "side": 1,
+      "message": "This comment may be obsolete now that we strictly enforce the class loader context.",
+      "range": {
+        "startLine": 144,
+        "startChar": 5,
+        "endLine": 147,
+        "endChar": 45
+      },
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3cef0999_9c773f56",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 1
@@ -54,6 +124,30 @@
       "writtenOn": "2021-11-30T17:31:15Z",
       "side": 1,
       "message": "Should we restrict this to AOT only? A comment said \"JIT can inline throwing instructions across dex files and this check prevents looking up the index in the wrong dex file in that case.\" but that seems to be solved via using `caller_and_outer.caller` rather than `caller_and_outer.outer_method` at the callsites.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 35
+      },
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75ffcf78_ad53b9cd",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:00:33Z",
+      "side": 1,
+      "message": "No, do not restrict this to AOT calls. But we can simplify this as\n\n  return (caller_dex_file-\u003eGetOatDexFile() !\u003d nullptr) \u0026\u0026\n         (outer_dex_file-\u003eGetOatDexFile() !\u003d nullptr) \u0026\u0026\n         (caller_dex_file-\u003eGetOatDexFile()-\u003eGetOatFile() \u003d\u003d\n              outer_dex_file-\u003eGetOatDexFile()-\u003eGetOatFile());\n\nThe last comparison may need to be extended if we allow .bss references for multi-image cross-oat-file inlining.",
+      "parentUuid": "3cef0999_9c773f56",
       "range": {
         "startLine": 148,
         "startChar": 0,
