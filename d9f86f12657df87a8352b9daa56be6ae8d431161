@@ -211,6 +211,48 @@
       "parentUuid": "02858434_7bab7b69",
       "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08c193f8_4fcecb79",
+        "filename": "odrefresh/odrefresh_jitzygote.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-01T09:52:48Z",
+      "side": 1,
+      "message": "OK, so how about I crash the process, forcing a SIGSEGV for example? What I want to do is handle such exceptional cases.",
+      "parentUuid": "40618706_f1f6ef37",
+      "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "532cbe5a_0883a2f2",
+        "filename": "odrefresh/odrefresh_jitzygote.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-01T09:52:48Z",
+      "side": 1,
+      "message": "Would a crash like I mentioned above works? I think we should also design around a potential crash. What is odisgn behavior in this case?",
+      "parentUuid": "e9dd1a0b_4eeef4a0",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 54
+      },
+      "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
