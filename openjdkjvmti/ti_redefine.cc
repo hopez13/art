@@ -2920,7 +2920,8 @@ void Redefiner::ClassRedefinition::UpdateClassStructurally(const RedefinitionDat
     // interpreter cache it's probably not worth the effort.
     art::MutexLock mu(driver_->self_, *art::Locks::thread_list_lock_);
     driver_->runtime_->GetThreadList()->ForEach(
-        [](art::Thread* t) { t->GetInterpreterCache()->Clear(t); });
+        [](art::Thread* t) { t->GetInterpreterCache()->ClearThreadLocal(); });
+    art::InterpreterCache::ClearShared();
   }
 
   if (art::kIsDebugBuild) {

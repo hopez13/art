@@ -27,10 +27,55 @@ namespace art {
 
 class Thread;
 
+template<typename T>
+ALWAYS_INLINE static T AtomicStructLoad(std::atomic<T>* target) {
+#if defined(__x86_64__)
+  if (sizeof(T) == 16) {
+    const void* first;
+    uint64_t second;
+    __asm__ __volatile__(
+        "lock cmpxchg16b (%2)"
+        : "=&a"(first), "=&d"(second)
+        : "r"(target), "a"(0), "d"(0), "b"(0), "c"(0)
+        : "cc");
+    return T{first, second};
+  }
+#else
+  static_assert(std::atomic<T>::is_always_lock_free);
+#endif
+  return target->load(std::memory_order_relaxed);
+}
+
+template<typename T>
+ALWAYS_INLINE static void AtomicStructStore(std::atomic<T>* target, T value) {
+#if defined(__x86_64__)
+  if (sizeof(T) == 16) {
+    const void* first;
+    uint64_t second;
+    __asm__ __volatile__ (
+        "movq (%2), %%rax\n\t"
+        "movq 8(%2), %%rdx\n\t"
+        "1:\n\t"
+        "lock cmpxchg16b (%2)\n\t"
+        "jnz 1b"
+        : "=&a"(first), "=&d"(second)
+        : "r"(target), "b"(value.dex_pc_ptr), "c"(value.value)
+        : "cc");
+    return;
+  }
+#else
+  static_assert(std::atomic<T>::is_always_lock_free);
+#endif
+  target->store(value, std::memory_order_release);
+}
+
 // Small fast thread-local cache for the interpreter.
-// It can hold arbitrary pointer-sized key-value pair.
-// The interpretation of the value depends on the key.
+//
+// The key is absolute pointer to a dex instruction.
+//
+// The value depends on the opcode of the dex instruction.
 // Presence of entry might imply some pre-conditions.
+//
 // All operations must be done from the owning thread,
 // or at a point when the owning thread is suspended.
 //
@@ -47,51 +92,97 @@ class Thread;
 class ALIGNED(16) InterpreterCache {
  public:
   // Aligned since we load the whole entry in single assembly instruction.
-  typedef std::pair<const void*, size_t> Entry ALIGNED(2 * sizeof(size_t));
+  struct Entry {
+    const void* dex_pc_ptr;
+    size_t value;
+  } ALIGNED(2 * sizeof(size_t));
 
-  // 2x size increase/decrease corresponds to ~0.5% interpreter performance change.
-  // Value of 256 has around 75% cache hit rate.
-  static constexpr size_t kSize = 256;
+  static constexpr size_t kThreadLocalSize = 256;   // Value of 256 has around 75% cache hit rate.
+  static constexpr size_t kSharedSize = 16 * 1024;  // Value of 16k has around 90% cache hit rate.
 
-  InterpreterCache() {
+  InterpreterCache(Thread* owning_thread) : owning_thread_(owning_thread) {
     // We can not use the Clear() method since the constructor will not
     // be called from the owning thread.
-    data_.fill(Entry{});
+    thread_local_array_.fill(Entry{});
   }
 
-  // Clear the whole cache. It requires the owning thread for DCHECKs.
-  void Clear(Thread* owning_thread);
-
-  ALWAYS_INLINE bool Get(const void* key, /* out */ size_t* value) {
+  void ClearThreadLocal() {
     DCHECK(IsCalledFromOwningThread());
-    Entry& entry = data_[IndexOf(key)];
-    if (LIKELY(entry.first == key)) {
-      *value = entry.second;
+    thread_local_array_.fill(Entry{});
+  }
+
+  static void ClearShared() {
+    for (std::atomic<Entry>& entry : shared_array_) {
+      AtomicStructStore(&entry, Entry{});
+    }
+  }
+
+  template<bool kSkipThreadLocal = false>
+  ALWAYS_INLINE bool Get(const void* dex_pc_ptr, /* out */ size_t* value) {
+    DCHECK(IsCalledFromOwningThread());
+    Entry& small_entry = thread_local_array_[IndexOf<kThreadLocalSize>(dex_pc_ptr)];
+    if (kSkipThreadLocal) {
+      DCHECK_NE(small_entry.dex_pc_ptr, dex_pc_ptr);
+    } else {
+      if (LIKELY(small_entry.dex_pc_ptr == dex_pc_ptr)) {
+        *value = small_entry.value;
+        return true;
+      }
+    }
+    Entry large_entry = AtomicStructLoad(&shared_array_[IndexOf<kSharedSize>(dex_pc_ptr)]);
+    if (LIKELY(large_entry.dex_pc_ptr == dex_pc_ptr)) {
+      small_entry = large_entry;  // Copy to smaller array as well.
+      *value = large_entry.value;
       return true;
     }
     return false;
   }
 
-  ALWAYS_INLINE void Set(const void* key, size_t value) {
+  ALWAYS_INLINE void Set(const void* dex_pc_ptr, size_t value) {
     DCHECK(IsCalledFromOwningThread());
-    data_[IndexOf(key)] = Entry{key, value};
+    thread_local_array_[IndexOf<kThreadLocalSize>(dex_pc_ptr)] = Entry{dex_pc_ptr, value};
+    AtomicStructStore(&shared_array_[IndexOf<kSharedSize>(dex_pc_ptr)], Entry{dex_pc_ptr, value});
   }
 
-  std::array<Entry, kSize>& GetArray() {
-    return data_;
+  template<typename Callback>
+  void ForEachTheadLocalEntry(Callback&& callback) {
+    // DCHECK(IsCalledFromOwningThread()); TODO
+    for (Entry& entry : thread_local_array_) {
+      callback(entry.dex_pc_ptr, entry.value);
+    }
+  }
+
+  template<typename Callback>
+  static void ForEachSharedEntry(Callback&& callback) {
+    for (std::atomic<Entry>& atomic_entry : shared_array_) {
+      Entry entry = AtomicStructLoad(&atomic_entry);
+      callback(entry.dex_pc_ptr, entry.value);
+      AtomicStructStore(&atomic_entry, entry);
+    }
   }
 
  private:
   bool IsCalledFromOwningThread();
 
-  static ALWAYS_INLINE size_t IndexOf(const void* key) {
+  template<size_t kSize>
+  static ALWAYS_INLINE size_t IndexOf(const void* dex_pc_ptr) {
     static_assert(IsPowerOfTwo(kSize), "Size must be power of two");
-    size_t index = (reinterpret_cast<uintptr_t>(key) >> 2) & (kSize - 1);
+    size_t index = (reinterpret_cast<uintptr_t>(dex_pc_ptr) >> 2) & (kSize - 1);
     DCHECK_LT(index, kSize);
     return index;
   }
 
-  std::array<Entry, kSize> data_;
+  // Small cache of fixed size which is always present for every thread.
+  // It is stored directly (without indrection) inside the Thread object.
+  // This makes is as fast as possible to access from assembly fast-path.
+  std::array<Entry, kThreadLocalSize> thread_local_array_;
+
+  // Larger cache which is allocated only for the main thread.
+  // It is used as next cache level if lookup in the small array fails.
+  // This boosts main thread without paying the memory cost on all threads.
+  static std::array<std::atomic<Entry>, kSharedSize> shared_array_;
+
+  Thread* owning_thread_;
 };
 
 }  // namespace art
