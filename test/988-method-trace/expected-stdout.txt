@@ -102,6 +102,8 @@ fibonacci(5)=5
 ....=> java.lang.AbstractStringBuilder(int)
 .....=> public java.lang.Object()
 .....<= public java.lang.Object() -> <null: null>
+.....=> public static char[] java.lang.StringUTF16.newBytesFor(int)
+.....<= public static char[] java.lang.StringUTF16.newBytesFor(int) -> <class [C: [B, a, d,  , a, r, g, u, m, e, n, t, :,  , <control-0000>, <control-0000>]>
 ....<= java.lang.AbstractStringBuilder(int) -> <null: null>
 ...<= public java.lang.StringBuilder() -> <null: null>
 ...=> public java.lang.StringBuilder java.lang.StringBuilder.append(java.lang.String)
@@ -209,6 +211,8 @@ fibonacci(-19) -> java.lang.Error: Bad argument: -19 < 0
 ....=> java.lang.AbstractStringBuilder(int)
 .....=> public java.lang.Object()
 .....<= public java.lang.Object() -> <null: null>
+.....=> public static char[] java.lang.StringUTF16.newBytesFor(int)
+.....<= public static char[] java.lang.StringUTF16.newBytesFor(int) -> <class [C: [B, a, d,  , a, r, g, u, m, e, n, t, :,  , <control-0000>, <control-0000>]>
 ....<= java.lang.AbstractStringBuilder(int) -> <null: null>
 ...<= public java.lang.StringBuilder() -> <null: null>
 ...=> public java.lang.StringBuilder java.lang.StringBuilder.append(java.lang.String)
