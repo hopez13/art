@@ -239,7 +239,7 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
   InterpreterCache* tls_cache = self->GetInterpreterCache();
   size_t tls_value;
   ArtMethod* resolved_method;
-  if (!IsNterpSupported() && LIKELY(tls_cache->Get(inst, &tls_value))) {
+  if (!IsNterpSupported() && LIKELY(tls_cache->Get(self, inst, &tls_value))) {
     resolved_method = reinterpret_cast<ArtMethod*>(tls_value);
   } else {
     ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();

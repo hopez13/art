@@ -1361,10 +1361,6 @@ class Thread {
     return ThreadOffset<pointer_size>(OFFSETOF_MEMBER(Thread, interpreter_cache_));
   }
 
-  static constexpr int InterpreterCacheSizeLog2() {
-    return WhichPowerOf2(InterpreterCache::kSize);
-  }
-
   static constexpr uint32_t AllThreadFlags() {
     return enum_cast<uint32_t>(ThreadFlag::kLastFlag) |
            (enum_cast<uint32_t>(ThreadFlag::kLastFlag) - 1u);
@@ -1505,6 +1501,7 @@ class Thread {
   static void SetJitSensitiveThread() {
     if (jit_sensitive_thread_ == nullptr) {
       jit_sensitive_thread_ = Thread::Current();
+      jit_sensitive_thread_->GetInterpreterCache()->Grow();
     } else {
       LOG(WARNING) << "Attempt to set the sensitive thread twice. Tid:"
           << Thread::Current()->GetTid();

@@ -19,14 +19,8 @@
 
 namespace art {
 
-void InterpreterCache::Clear(Thread* owning_thread) {
-  DCHECK(owning_thread->GetInterpreterCache() == this);
-  DCHECK(owning_thread == Thread::Current() || owning_thread->IsSuspended());
-  data_.fill(Entry{});
-}
-
 bool InterpreterCache::IsCalledFromOwningThread() {
-  return Thread::Current()->GetInterpreterCache() == this;
+  return Thread::Current() == owning_thread_ || owning_thread_->IsSuspended();
 }
 
 }  // namespace art
