@@ -50,6 +50,167 @@
       "message": "PTAL",
       "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef538320_4cf16170",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4202,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:52:23Z",
+      "side": 1,
+      "message": "I\u0027d like to use xadd for arrays and little-endian byte array views.\n\nOn the `LocationSummary` side, adding 2 temps and keeping `value` in RAX shall use just as many registers as putting `value` in a separate register and adding one temp.\n\nOn the codegen side, the `byte_swap` path just needs to move the original value to the extra temp and then override `value \u003d extra_temp_loc`.",
+      "range": {
+        "startLine": 4195,
+        "startChar": 0,
+        "endLine": 4202,
+        "endChar": 1
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "268dfcb0_0edf34d9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:52:23Z",
+      "side": 1,
+      "message": "This is now shared with \"add\" but I\u0027d like to unshare this, see comment above.",
+      "range": {
+        "startLine": 4234,
+        "startChar": 36,
+        "endLine": 4234,
+        "endChar": 43
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12064dfa_2c21f696",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:52:23Z",
+      "side": 1,
+      "message": "In case of byte swap, we need to load into RAX, then BSWAP and then copy to fptemp, then BSWAP RAX again for the CMPXCHG.",
+      "range": {
+        "startLine": 4288,
+        "startChar": 0,
+        "endLine": 4289,
+        "endChar": 49
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2d2dfa1_7fa0d220",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4298,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:52:23Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 4297,
+        "startChar": 6,
+        "endLine": 4298,
+        "endChar": 49
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f5c7add_c6857ce0",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4369,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:52:23Z",
+      "side": 1,
+      "message": "This code is now used also for \"add\".",
+      "range": {
+        "startLine": 4369,
+        "startChar": 70,
+        "endLine": 4369,
+        "endChar": 77
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6072b9f7_5bedb62f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4409,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:52:23Z",
+      "side": 1,
+      "message": "This can be dropped if we do the operation the other way around (`old_value op\u003d value` instead of `value op\u003d old_value`):\n\n  mov rax, (field_addr)\n  mov temp, rax\n  bswap temp\n  op temp, value\n  bswap temp\n  lock cmpxchg temp, (field_addr)",
+      "range": {
+        "startLine": 4409,
+        "startChar": 6,
+        "endLine": 4409,
+        "endChar": 85
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49fa0719_5bb1f8c3",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:52:23Z",
+      "side": 1,
+      "message": "Isn\u0027t the result already sign/zero-extended since the `LoadFromMemoryNoReference()`? Does 8-bit or 16-bit CMPXCHG affect the high bits?",
+      "range": {
+        "startLine": 4441,
+        "startChar": 4,
+        "endLine": 4441,
+        "endChar": 90
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad6fbeb3_74840df9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-01T10:52:23Z",
+      "side": 1,
+      "message": "If we request `Bswap(Uint16)`, a simple XCHG would be appropriate as it would assume that the high bits are 0 on input and should remain 0. However, `Bswap(Int16)` should always ensure correct sign-extension, even in the unlikely case that we actually implement it with XCHG.\n\nIf we want to avoid the sign-extenion, we should request `Bswap(Uint16)`. We could do that for `value` above (line 4155).\n\nAnd, `if (byte_swap)`, we really do not need the sign-extension here. (But if `Bswap(Uint16)` is implemented with XCHG, we would need the zero-extension for the `Uint16` case, line 4171.)\n\nThis seems a bit complicated, so I\u0027m OK with leaving it as is.",
+      "parentUuid": "13b3cd54_c187e44e",
+      "range": {
+        "startLine": 4167,
+        "startChar": 8,
+        "endLine": 4167,
+        "endChar": 34
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2d510bb_530ffe28",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 2
