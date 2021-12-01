@@ -19,14 +19,17 @@
 
 namespace art {
 
-void InterpreterCache::Clear(Thread* owning_thread) {
-  DCHECK(owning_thread->GetInterpreterCache() == this);
-  DCHECK(owning_thread == Thread::Current() || owning_thread->IsSuspended());
-  data_.fill(Entry{});
+std::array<std::atomic<InterpreterCache::Entry>,
+           InterpreterCache::kSharedSize> InterpreterCache::shared_array_;
+
+InterpreterCache::InterpreterCache(Thread* owning_thread) : owning_thread_(owning_thread) {
+  // We can not use the ClearThreadLocal() method since the constructor will not
+  // be called from the owning thread.
+  thread_local_array_.fill(Entry{});
 }
 
-bool InterpreterCache::IsCalledFromOwningThread() {
-  return Thread::Current()->GetInterpreterCache() == this;
+bool InterpreterCache::IsAccessibleFromCurrentThread() {
+  return Thread::Current() == owning_thread_ || owning_thread_->IsSuspended();
 }
 
 }  // namespace art
