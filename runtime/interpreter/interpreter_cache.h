@@ -28,9 +28,12 @@ namespace art {
 class Thread;
 
 // Small fast thread-local cache for the interpreter.
-// It can hold arbitrary pointer-sized key-value pair.
-// The interpretation of the value depends on the key.
+//
+// The key is absolute pointer to a dex instruction.
+//
+// The value depends on the opcode of the dex instruction.
 // Presence of entry might imply some pre-conditions.
+//
 // All operations must be done from the owning thread,
 // or at a point when the owning thread is suspended.
 //
@@ -49,49 +52,94 @@ class ALIGNED(16) InterpreterCache {
   // Aligned since we load the whole entry in single assembly instruction.
   typedef std::pair<const void*, size_t> Entry ALIGNED(2 * sizeof(size_t));
 
-  // 2x size increase/decrease corresponds to ~0.5% interpreter performance change.
-  // Value of 256 has around 75% cache hit rate.
-  static constexpr size_t kSize = 256;
+  static constexpr size_t kSmallSize = 256;   // Value of 256 has around 75% cache hit rate.
+  static constexpr size_t kLargeSize = 4096;
 
-  InterpreterCache() {
+  InterpreterCache(Thread* owning_thread) : owning_thread_(owning_thread) {
     // We can not use the Clear() method since the constructor will not
     // be called from the owning thread.
-    data_.fill(Entry{});
+    small_array_.fill(Entry{});
+    large_array_ = nullptr;
   }
 
-  // Clear the whole cache. It requires the owning thread for DCHECKs.
-  void Clear(Thread* owning_thread);
-
-  ALWAYS_INLINE bool Get(const void* key, /* out */ size_t* value) {
+  void Grow() {
     DCHECK(IsCalledFromOwningThread());
-    Entry& entry = data_[IndexOf(key)];
-    if (LIKELY(entry.first == key)) {
-      *value = entry.second;
+    if (large_array_ == nullptr) {
+      std::unique_ptr<std::array<Entry, kLargeSize>> array(new std::array<Entry, kLargeSize>());
+      array->fill(Entry{});
+      large_array_ = std::move(array);
+    }
+  }
+
+  void Clear() {
+    DCHECK(IsCalledFromOwningThread());
+    small_array_.fill(Entry{});
+    if (large_array_ != nullptr) {
+      large_array_->fill(Entry{});
+    }
+  }
+
+  ALWAYS_INLINE bool Get(const void* dex_pc_ptr, /* out */ size_t* value) {
+    DCHECK(IsCalledFromOwningThread());
+    Entry& small_entry = small_array_[IndexOf<kSmallSize>(dex_pc_ptr)];
+    if (LIKELY(small_entry.first == dex_pc_ptr)) {
+      *value = small_entry.second;
       return true;
+    }
+    if (large_array_ != nullptr) {
+      Entry& large_entry = (*large_array_)[IndexOf<kLargeSize>(dex_pc_ptr)];
+      if (LIKELY(large_entry.first == dex_pc_ptr)) {
+        small_entry = large_entry;  // Copy to smaller array as well.
+        *value = large_entry.second;
+        return true;
+      }
     }
     return false;
   }
 
-  ALWAYS_INLINE void Set(const void* key, size_t value) {
+  ALWAYS_INLINE void Set(const void* dex_pc_ptr, size_t value) {
     DCHECK(IsCalledFromOwningThread());
-    data_[IndexOf(key)] = Entry{key, value};
+    small_array_[IndexOf<kSmallSize>(dex_pc_ptr)] = Entry{dex_pc_ptr, value};
+    if (large_array_ != nullptr) {
+      (*large_array_)[IndexOf<kLargeSize>(dex_pc_ptr)] = Entry{dex_pc_ptr, value};
+    }
   }
 
-  std::array<Entry, kSize>& GetArray() {
-    return data_;
+  template<typename Callback>
+  void ForEachEntry(Callback&& callback) {
+    // DCHECK(IsCalledFromOwningThread()); TODO
+    for (Entry& entry : small_array_) {
+      callback(entry);
+    }
+    if (large_array_ != nullptr) {
+      for (Entry& entry : *large_array_) {
+        callback(entry);
+      }
+    }
   }
 
  private:
   bool IsCalledFromOwningThread();
 
-  static ALWAYS_INLINE size_t IndexOf(const void* key) {
+  template<size_t kSize>
+  static ALWAYS_INLINE size_t IndexOf(const void* dex_pc_ptr) {
     static_assert(IsPowerOfTwo(kSize), "Size must be power of two");
-    size_t index = (reinterpret_cast<uintptr_t>(key) >> 2) & (kSize - 1);
+    size_t index = (reinterpret_cast<uintptr_t>(dex_pc_ptr) >> 2) & (kSize - 1);
     DCHECK_LT(index, kSize);
     return index;
   }
 
-  std::array<Entry, kSize> data_;
+  // Small cache of fixed size which is always present for every thread.
+  // It is stored directly (without indrection) inside the Thread object.
+  // This makes is as fast as possible to access from assembly fast-path.
+  std::array<Entry, kSmallSize> small_array_;
+
+  // Larger cache which is allocated only for the main thread.
+  // It is used as next cache level if lookup in the small array fails.
+  // This boosts main thread without paying the memory cost on all threads.
+  std::unique_ptr<std::array<Entry, kLargeSize>> large_array_;
+
+  Thread* owning_thread_;
 };
 
 }  // namespace art

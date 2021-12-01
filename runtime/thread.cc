@@ -2296,6 +2296,7 @@ void Thread::NotifyThreadGroup(ScopedObjectAccessAlreadyRunnable& soa, jobject t
 
 Thread::Thread(bool daemon)
     : tls32_(daemon),
+      interpreter_cache_(this),
       wait_monitor_(nullptr),
       is_runtime_thread_(false) {
   wait_mutex_ = new Mutex("a thread wait mutex", LockLevel::kThreadWaitLock);
@@ -4187,7 +4188,8 @@ void Thread::VisitRoots(RootVisitor* visitor) {
 #pragma GCC diagnostic pop
 
 void Thread::SweepInterpreterCache(IsMarkedVisitor* visitor) {
-  for (InterpreterCache::Entry& entry : GetInterpreterCache()->GetArray()) {
+  GetInterpreterCache()->ForEachEntry([visitor](InterpreterCache::Entry& entry) {
+    Locks::mutator_lock_->AssertSharedHeld(Thread::Current());
     const Instruction* inst = reinterpret_cast<const Instruction*>(entry.first);
     if (inst != nullptr) {
       if (inst->Opcode() == Instruction::NEW_INSTANCE ||
@@ -4198,7 +4200,7 @@ void Thread::SweepInterpreterCache(IsMarkedVisitor* visitor) {
         mirror::Class* cls = reinterpret_cast<mirror::Class*>(entry.second);
         if (cls == nullptr || cls == Runtime::GetWeakClassSentinel()) {
           // Entry got deleted in a previous sweep.
-          continue;
+          return;
         }
         Runtime::ProcessWeakClass(
             reinterpret_cast<GcRoot<mirror::Class>*>(&entry.second),
@@ -4218,7 +4220,7 @@ void Thread::SweepInterpreterCache(IsMarkedVisitor* visitor) {
         }
       }
     }
-  }
+  });
 }
 
 // FIXME: clang-r433403 reports the below function exceeds frame size limit.
@@ -4433,7 +4435,7 @@ void Thread::SetReadBarrierEntrypoints() {
 void Thread::ClearAllInterpreterCaches() {
   static struct ClearInterpreterCacheClosure : Closure {
     void Run(Thread* thread) override {
-      thread->GetInterpreterCache()->Clear(thread);
+      thread->GetInterpreterCache()->Clear();
     }
   } closure;
   Runtime::Current()->GetThreadList()->RunCheckpoint(&closure);

@@ -256,6 +256,11 @@ extern "C" const char* NterpGetShortyFromInvokeCustom(ArtMethod* caller, uint16_
 FLATTEN
 extern "C" size_t NterpGetMethod(Thread* self, ArtMethod* caller, uint16_t* dex_pc_ptr)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  size_t cached_value;
+  if (LIKELY(self->GetInterpreterCache()->Get(dex_pc_ptr, &cached_value))) {
+    return cached_value;
+  }
+
   UpdateHotness(caller);
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   InvokeType invoke_type = kStatic;
@@ -466,6 +471,11 @@ extern "C" size_t NterpGetStaticField(Thread* self,
                                       uint16_t* dex_pc_ptr,
                                       size_t resolve_field_type)  // Resolve if not zero
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  size_t cached_value;
+  if (LIKELY(self->GetInterpreterCache()->Get(dex_pc_ptr, &cached_value))) {
+    return cached_value;
+  }
+
   UpdateHotness(caller);
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   uint16_t field_index = inst->VRegB_21c();
@@ -509,6 +519,11 @@ extern "C" uint32_t NterpGetInstanceFieldOffset(Thread* self,
                                                 uint16_t* dex_pc_ptr,
                                                 size_t resolve_field_type)  // Resolve if not zero
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  size_t cached_value;
+  if (LIKELY(self->GetInterpreterCache()->Get(dex_pc_ptr, &cached_value))) {
+    return cached_value;
+  }
+
   UpdateHotness(caller);
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   uint16_t field_index = inst->VRegC_22c();
