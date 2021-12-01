@@ -16,6 +16,69 @@
       "message": "LGTM for the odrefresh part. Roland, Please take a look at the bp file.",
       "revId": "1387133c3e1d953a3c40d101c2b8f567156f5c96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "429a04d1_f1f8dbc4",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-01T12:22:51Z",
+      "side": 1,
+      "message": "This is getting messy and I think it can be done better, but let\u0027s go with it for now (there\u0027s also https://r.android.com/1898919 in flight).",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 1
+      },
+      "revId": "1387133c3e1d953a3c40d101c2b8f567156f5c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "682a006b_0cffee12",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-01T12:22:51Z",
+      "side": 1,
+      "message": "This reflects the (current) reason for this binary, rather than what it does. At this level I think the latter is more apt. So maybe \"odrefresh_broken\"?",
+      "range": {
+        "startLine": 123,
+        "startChar": 21,
+        "endLine": 123,
+        "endChar": 30
+      },
+      "revId": "1387133c3e1d953a3c40d101c2b8f567156f5c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df41dfd7_07522ac3",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-01T12:22:51Z",
+      "side": 1,
+      "message": "Please inherit art_defaults.",
+      "revId": "1387133c3e1d953a3c40d101c2b8f567156f5c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
