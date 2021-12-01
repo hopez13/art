@@ -253,6 +253,24 @@
       },
       "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe912e5a_e7bcf470",
+        "filename": "odrefresh/odrefresh_jitzygote.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-01T10:35:12Z",
+      "side": 1,
+      "message": "Crashing the process or returning kCleanupFailed will cause odsign to remove all the artifacts on /data. But still, the artifacts on /system will still be used in this case because the runtime doesn\u0027t care about whether odrefresh worked properly or not. The runtime only cares about that the artifacts on /system is up-to-date and not replaced by anything on /data.\n\nI think what you really want to do is not just handling cases where odrefresh crashed, but actually handling cases where odrefresh crashed **and** the ART APEX has been updated so that the artifacts on /system are outdated, right? Then an alternative I would suggest is to somehow mutate the apex version to fail the check here: https://cs.android.com/android/platform/superproject/+/master:art/runtime/oat_file_assistant.cc;l\u003d459;drc\u003d327cfcf2dfe281de4ac8178da69e1e562881870d. If you can fail that check to cause the artifacts on /system to be rejected, then this odrefresh can simply return kCleanupFailed.",
+      "parentUuid": "08c193f8_4fcecb79",
+      "revId": "d9f86f12657df87a8352b9daa56be6ae8d431161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
