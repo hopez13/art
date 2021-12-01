@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "94433a8a_c3f5cce9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-12-01T11:10:48Z",
+      "side": 1,
+      "message": "Done. Do you mean updating MaybeUpdateBssMethodEntry? I think that\u0027s fine for the current version since it already uses the callee\u0027s DexFile https://cs.android.com/android/platform/superproject/+/master:art/runtime/entrypoints/entrypoint_utils.cc;l\u003d291;drc\u003dec06809b9fb7d4a0d2c3e46066bd37034130e53b",
+      "parentUuid": "5fac5774_96550625",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "45c736c6_f6e41990",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -88,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16a01405_203f68e6",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-12-01T11:10:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98db058d_0f63d8a8",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 28
+      },
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6537bc60_5b733935",
@@ -101,6 +149,30 @@
       "writtenOn": "2021-12-01T10:00:33Z",
       "side": 1,
       "message": "This comment may be obsolete now that we strictly enforce the class loader context.",
+      "range": {
+        "startLine": 144,
+        "startChar": 5,
+        "endLine": 147,
+        "endChar": 45
+      },
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbbcd7a3_f396e111",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-12-01T11:10:48Z",
+      "side": 1,
+      "message": "Ack, removed.",
+      "parentUuid": "6537bc60_5b733935",
       "range": {
         "startLine": 144,
         "startChar": 5,
@@ -148,6 +220,30 @@
       "side": 1,
       "message": "No, do not restrict this to AOT calls. But we can simplify this as\n\n  return (caller_dex_file-\u003eGetOatDexFile() !\u003d nullptr) \u0026\u0026\n         (outer_dex_file-\u003eGetOatDexFile() !\u003d nullptr) \u0026\u0026\n         (caller_dex_file-\u003eGetOatDexFile()-\u003eGetOatFile() \u003d\u003d\n              outer_dex_file-\u003eGetOatDexFile()-\u003eGetOatFile());\n\nThe last comparison may need to be extended if we allow .bss references for multi-image cross-oat-file inlining.",
       "parentUuid": "3cef0999_9c773f56",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 35
+      },
+      "revId": "611d5ad7ad5a477b158a23f584287ea2d57049cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dffecd6a_e77eaf94",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-12-01T11:10:48Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "75ffcf78_ad53b9cd",
       "range": {
         "startLine": 148,
         "startChar": 0,
