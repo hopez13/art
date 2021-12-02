@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000017913631",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1897066?revision\u003d8",
+      "fixSuggestions": [
+        {
+          "fixId": "35fd5cd6_57b874f8",
+          "description": "Change to \"compiler/optimizing/intrinsics_x86_64.cc\"",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/intrinsics_x86_64.cc",
+              "range": {
+                "startLine": 4314,
+                "startChar": 15,
+                "endLine": 4314,
+                "endChar": 21
+              },
+              "replacement": "already"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "973f66e9_284c994a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 4314,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-12-02T17:42:02Z",
+      "side": 1,
+      "message": "Common typo found: \"alredy\" -- should it be \"already\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 4314,
+        "startChar": 15,
+        "endLine": 4314,
+        "endChar": 21
+      },
+      "revId": "f1f40c9e80cf9d2920a9ff5dcca36d2104021d4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
