@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b94c557f_686c803e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-02T13:47:51Z",
+      "side": 1,
+      "message": "Oh, now I finally get it.  Neat.\n\nRandom thoughts (just sharing, not necessarily being a change request):\n\n1) I guess that instead of always reserving the register, we could just load the value on demand into arbitrary spare register in methods that do require suspend. This way would technically would not reserve global register. In practice I guess it makes little difference.  My intuition is your approach is easier to implement and maintain.\n\n2) If x21 were to point to whole page dedicated just for this propose for each thread, you could get fail on first load, but I guess that is something you tried and the mprotect cost was too much, right?\n\n3) I wonder if we could merge this with the global thread register. (e.g. \"ldr x19, [x19, #xxx]\" where the value at the offest in thread just points to the Theard, so the load is normally a no-op).  But then between the first load and second load x19 would be null, so if anything tries to use the thread, we would need to handle that... hmm...\n\n4) I wonder if we could merge this with the marking register - i.e. one of the bits in x21 would be the marking bit for GC.  We would need to reserve two \"identity\" memory locations to avoid masking and keep the suspend at just single load, but that seems ok.  I guess having x21 being zero with just the marking bit set would also work (still causing SEGV)",
+      "revId": "16e5fbddfd948a84231aeb3a51a650c46f644ef3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3492516_5582782d",
