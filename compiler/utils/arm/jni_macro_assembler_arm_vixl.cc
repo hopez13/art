@@ -1050,7 +1050,7 @@ void ArmVIXLJNIMacroAssembler::GetCurrentThread(FrameOffset dest_offset) {
   asm_.StoreToOffset(kStoreWord, tr, sp, dest_offset.Int32Value());
 }
 
-void ArmVIXLJNIMacroAssembler::SuspendCheck(JNIMacroLabel* label) {
+bool ArmVIXLJNIMacroAssembler::SuspendCheck(JNIMacroLabel* label, bool implicit ATTRIBUTE_UNUSED) {
   UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
   vixl32::Register scratch = temps.Acquire();
   asm_.LoadFromOffset(kLoadWord,
@@ -1061,6 +1061,7 @@ void ArmVIXLJNIMacroAssembler::SuspendCheck(JNIMacroLabel* label) {
   ___ Tst(scratch, Thread::SuspendOrCheckpointRequestFlags());
   ___ BPreferNear(ne, ArmVIXLJNIMacroLabel::Cast(label)->AsArm());
   // TODO: think about using CBNZ here.
+  return false;  // Never implicit.
 }
 
 void ArmVIXLJNIMacroAssembler::ExceptionPoll(JNIMacroLabel* label) {

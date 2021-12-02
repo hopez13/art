@@ -577,9 +577,20 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
       UNLIKELY(is_fast_native) ? __ CreateLabel() : nullptr;
   std::unique_ptr<JNIMacroLabel> suspend_check_resume =
       UNLIKELY(is_fast_native) ? __ CreateLabel() : nullptr;
+  bool implicit_suspend_check = false;
   if (UNLIKELY(is_fast_native) && reference_return) {
-    __ SuspendCheck(suspend_check_slow_path.get());
-    __ Bind(suspend_check_resume.get());
+    // TODO: Pop stack arg area before this suspend check, so that the
+    // `StoreStackPointerToThread()` below can store the correct SP.
+    bool implicit = compiler_options.GetImplicitSuspendChecks() && current_out_arg_size == 0u;
+    implicit_suspend_check = __ SuspendCheck(suspend_check_slow_path.get(), implicit);
+    DCHECK(implicit || !implicit_suspend_check);
+    if (implicit_suspend_check) {
+      // Suspend check entry point overwrites top of managed stack and leaves it clobbered.
+      // We need to restore the top for subsequent runtime call to `JniDecodeReferenceResult()`.
+      __ StoreStackPointerToThread(Thread::TopOfManagedStackOffset<kPointerSize>());
+    } else {
+      __ Bind(suspend_check_resume.get());
+    }
   }
 
   if (LIKELY(!is_critical_native)) {
@@ -638,8 +649,11 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
   //      Perform a suspend check if there is a flag raised, unless we have done that above
   //      for reference return.
   if (UNLIKELY(is_fast_native) && !reference_return) {
-    __ SuspendCheck(suspend_check_slow_path.get());
-    __ Bind(suspend_check_resume.get());
+    implicit_suspend_check =
+        __ SuspendCheck(suspend_check_slow_path.get(), compiler_options.GetImplicitSuspendChecks());
+    if (!implicit_suspend_check) {
+      __ Bind(suspend_check_resume.get());
+    }
   }
 
   // 7.4 Unlock the synchronization object for synchronized methods.
@@ -710,7 +724,7 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
   }
 
   // 8.2. Suspend check slow path.
-  if (UNLIKELY(is_fast_native)) {
+  if (UNLIKELY(is_fast_native) && !implicit_suspend_check) {
     __ Bind(suspend_check_slow_path.get());
     if (reference_return && main_out_arg_size != 0) {
       jni_asm->cfi().AdjustCFAOffset(main_out_arg_size);

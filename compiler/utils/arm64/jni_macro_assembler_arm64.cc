@@ -889,12 +889,18 @@ void Arm64JNIMacroAssembler::CreateJObject(FrameOffset out_off,
   ___ Str(scratch, MEM_OP(reg_x(SP), out_off.Int32Value()));
 }
 
-void Arm64JNIMacroAssembler::SuspendCheck(JNIMacroLabel* label) {
+bool Arm64JNIMacroAssembler::SuspendCheck(JNIMacroLabel* label, bool implicit) {
+  if (implicit) {
+    // The thread suspend check register is x21.
+    ___ Ldr(x21, MEM_OP(x21));
+    return true;
+  }
   UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
   Register scratch = temps.AcquireW();
   ___ Ldr(scratch, MEM_OP(reg_x(TR), Thread::ThreadFlagsOffset<kArm64PointerSize>().Int32Value()));
   ___ Tst(scratch, Thread::SuspendOrCheckpointRequestFlags());
   ___ B(ne, Arm64JNIMacroLabel::Cast(label)->AsArm64());
+  return false;  // Not implicit.
 }
 
 void Arm64JNIMacroAssembler::ExceptionPoll(JNIMacroLabel* label) {

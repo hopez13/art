@@ -252,7 +252,8 @@ class JNIMacroAssembler : public DeletableArenaObject<kArenaAllocAssembler> {
   virtual void CallFromThread(ThreadOffset<kPointerSize> offset) = 0;
 
   // Generate suspend check and branch to `label` if there is a pending suspend request.
-  virtual void SuspendCheck(JNIMacroLabel* label) = 0;
+  // Returns true if `implicit` suspend check was requested and emitted, otherwise false.
+  virtual bool SuspendCheck(JNIMacroLabel* label, bool implicit) = 0;
 
   // Generate code to check if Thread::Current()->exception_ is non-null
   // and branch to the `label` if it is.
