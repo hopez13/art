@@ -1162,12 +1162,14 @@ class Thread {
     tlsPtr_.suspend_trigger = reinterpret_cast<uintptr_t*>(&tlsPtr_.suspend_trigger);
   }
 
-  // Trigger a suspend check by making the suspend_trigger_ TLS value an invalid pointer.
-  // The next time a suspend check is done, it will load from the value at this address
-  // and trigger a SIGSEGV.
-  // Only needed if Runtime::implicit_suspend_checks_ is true and fully implemented.  It currently
-  // is always false. Client code currently just looks at the thread flags directly to determine
-  // whether we should suspend, so this call is currently unnecessary.
+  // Trigger a suspend check by making the suspend_trigger_ TLS value a null pointer.
+  // Once the null becomes visible to the thread we're trying to suspend, first implicit
+  // suspend check shall load the null and second shall load from the null, triggering
+  // SIGSEGV which shall be redirected to the `art_quick_implicit_suspend` entrypoint.
+  // Only needed if Runtime::implicit_suspend_checks_ is true and fully implemented.
+  //
+  // It is currently implemented for compiled code on arm64. Other architectures and
+  // Runtime code look at the thread flags to determine whether we should suspend.
   void TriggerSuspend() {
     tlsPtr_.suspend_trigger = nullptr;
   }

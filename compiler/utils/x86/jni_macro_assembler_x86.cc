@@ -589,10 +589,11 @@ void X86JNIMacroAssembler::GetCurrentThread(FrameOffset offset) {
   __ movl(Address(ESP, offset), scratch);
 }
 
-void X86JNIMacroAssembler::SuspendCheck(JNIMacroLabel* label) {
+bool X86JNIMacroAssembler::SuspendCheck(JNIMacroLabel* label, bool implicit ATTRIBUTE_UNUSED) {
   __ fs()->testl(Address::Absolute(Thread::ThreadFlagsOffset<kX86PointerSize>()),
                  Immediate(Thread::SuspendOrCheckpointRequestFlags()));
   __ j(kNotZero, X86JNIMacroLabel::Cast(label)->AsX86());
+  return false;  // Never implicit.
 }
 
 void X86JNIMacroAssembler::ExceptionPoll(JNIMacroLabel* label) {

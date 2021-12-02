@@ -25,8 +25,10 @@ to respond to external requests.
 Whenever a thread is runnable, i.e. whenever a thread logically holds the
 mutator lock in shared mode, it is expected to regularly execute such a suspend
 point, and check for pending requests. They are currently implemented by
-setting a flag in the thread structure[^1], which is then explicitly tested by the
-compiler-generated code.
+setting a flag in the thread structure[^1], which is then tested by the Runtime
+code and compiler-generated code. This test is usually explicit but some
+architectures (only arm64 at the time of writing) may implement other means of
+triggering which then redirect to the explicit check.
 
 A thread responds to suspend requests only when it is "runnable", i.e. logically
 running Java code. When it runs native code, or is blocked in a kernel call, it

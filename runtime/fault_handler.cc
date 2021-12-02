@@ -281,13 +281,18 @@ static bool IsKnownPc(uintptr_t pc, ArtMethod* method) REQUIRES_SHARED(Locks::mu
   }
 
   if (method->IsObsolete()) {
-    // Obsolete methods never happen on AOT code.
-    return false;
+    // Obsolete methods never happen on managed AOT code because it is deoptimized. However,
+    // we do not deoptimize JNI stubs and @FastNative methods can do implicit suspend checks.
+    if (!method->IsFastNative()) {
+      return false;
+    }
+    // Note: The `method->GetDexFile()` below shall go through the
+    // `ArtMethod::GetObsoleteDexCache()` which is not very safe.
   }
 
   // Note: at this point, we trust it's truly an ArtMethod we found at the bottom of the stack,
   // and we can find its oat file through it.
-  const OatDexFile* oat_dex_file = method->GetDeclaringClass()->GetDexFile().GetOatDexFile();
+  const OatDexFile* oat_dex_file = method->GetDexFile()->GetOatDexFile();
   if (oat_dex_file != nullptr &&
       oat_dex_file->GetOatFile()->Contains(reinterpret_cast<const void*>(pc))) {
     return true;
@@ -387,7 +392,12 @@ bool FaultManager::IsInGeneratedCode(siginfo_t* siginfo, void* context, bool che
     dexpc = 0;
   } else {
     CHECK_EQ(*reinterpret_cast<ArtMethod**>(sp), method_obj);
-    dexpc = method_header->ToDexPc(reinterpret_cast<ArtMethod**>(sp), return_pc, false);
+    if (method_obj->IsFastNative()) {
+      // Implicit suspend check in a @FastNative method does not have a stack map entry.
+      dexpc = 0;
+    } else {
+      dexpc = method_header->ToDexPc(reinterpret_cast<ArtMethod**>(sp), return_pc, false);
+    }
   }
   VLOG(signals) << "dexpc: " << dexpc;
   return !check_dex_pc || dexpc != dex::kDexNoIndex;
