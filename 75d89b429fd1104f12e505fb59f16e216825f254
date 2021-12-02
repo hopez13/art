@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3f7ebb3_d4abd6d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-02T18:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4b47c97_cc8107aa",
+      "revId": "75d89b429fd1104f12e505fb59f16e216825f254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d08f64f8_69e013d6",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-12-02T12:54:58Z",
       "side": 1,
       "message": "GetApexDataDalvikCacheDirectory(InstructionSet::kNone)",
+      "range": {
+        "startLine": 84,
+        "startChar": 33,
+        "endLine": 84,
+        "endChar": 66
+      },
+      "revId": "75d89b429fd1104f12e505fb59f16e216825f254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfca44a4_ce49d982",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2021-12-02T18:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d08f64f8_69e013d6",
       "range": {
         "startLine": 84,
         "startChar": 33,
