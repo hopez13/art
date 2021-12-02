@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3492516_5582782d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1980,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-02T13:45:07Z",
+      "side": 1,
+      "message": "why? Please add a comment. Also given the condition is performed in three different locations, add a helper?",
+      "range": {
+        "startLine": 1980,
+        "startChar": 67,
+        "endLine": 1980,
+        "endChar": 90
+      },
+      "revId": "16e5fbddfd948a84231aeb3a51a650c46f644ef3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
