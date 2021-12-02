@@ -75,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75f2e3b7_9d611acf",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4202,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-02T17:42:41Z",
+      "side": 1,
+      "message": "Done. I also changed the other functions to accept `Location value` instead of `uint32_t value_index` and `HIinvoke` instead of `LocationSummary`.",
+      "parentUuid": "ef538320_4cf16170",
+      "range": {
+        "startLine": 4195,
+        "startChar": 0,
+        "endLine": 4202,
+        "endChar": 1
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "268dfcb0_0edf34d9",
@@ -88,6 +112,30 @@
       "writtenOn": "2021-12-01T10:52:23Z",
       "side": 1,
       "message": "This is now shared with \"add\" but I\u0027d like to unshare this, see comment above.",
+      "range": {
+        "startLine": 4234,
+        "startChar": 36,
+        "endLine": 4234,
+        "endChar": 43
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c25ac330_e04ee55d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4234,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-02T17:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "268dfcb0_0edf34d9",
       "range": {
         "startLine": 4234,
         "startChar": 36,
@@ -121,6 +169,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19d862b8_dbd31e67",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4289,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-02T17:42:41Z",
+      "side": 1,
+      "message": "Done, thanks. As this code path is currently dead, I do not test it.\n\nThe now-frequent `if (is64Bit)` are adding too much noise, maybe I should add assembly primitives that would accept `is64Bit` flag as `movd` does (as a follow-up).",
+      "parentUuid": "12064dfa_2c21f696",
+      "range": {
+        "startLine": 4288,
+        "startChar": 0,
+        "endLine": 4289,
+        "endChar": 49
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2d2dfa1_7fa0d220",
@@ -134,6 +206,30 @@
       "writtenOn": "2021-12-01T10:52:23Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 4297,
+        "startChar": 6,
+        "endLine": 4298,
+        "endChar": 49
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "398bfba4_1f9f7a6b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4298,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-02T17:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2d2dfa1_7fa0d220",
       "range": {
         "startLine": 4297,
         "startChar": 6,
@@ -167,6 +263,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e28c8f_4efb41d1",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4369,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-02T17:42:41Z",
+      "side": 1,
+      "message": "Removed the comment after applying your suggestion on line 4409.",
+      "parentUuid": "0f5c7add_c6857ce0",
+      "range": {
+        "startLine": 4369,
+        "startChar": 70,
+        "endLine": 4369,
+        "endChar": 77
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6072b9f7_5bedb62f",
@@ -190,6 +310,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "811e7c63_56a7f701",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4409,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-02T17:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6072b9f7_5bedb62f",
+      "range": {
+        "startLine": 4409,
+        "startChar": 6,
+        "endLine": 4409,
+        "endChar": 85
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49fa0719_5bb1f8c3",
@@ -203,6 +347,30 @@
       "writtenOn": "2021-12-01T10:52:23Z",
       "side": 1,
       "message": "Isn\u0027t the result already sign/zero-extended since the `LoadFromMemoryNoReference()`? Does 8-bit or 16-bit CMPXCHG affect the high bits?",
+      "range": {
+        "startLine": 4441,
+        "startChar": 4,
+        "endLine": 4441,
+        "endChar": 90
+      },
+      "revId": "a128dfb1636a846186bd6c9fa0bbe6afed3859c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa75f89a_ec8d278d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4441,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-02T17:42:41Z",
+      "side": 1,
+      "message": "Indeed, LoadFromMemoryNoReference does sign extend and CMPXCHG does not change that, so I removed the whole sign/zero extend block and added a comment.\n\nConfirmed with this program:\n\n  section .data\n  x db \"1234\", 10\n\n  section .text\n  global _start\n  _start:\n    mov rax, [x]\n    movzx rax, al   ; zero-extend so RAX is now 00 00 00 31\n    mov bl, \u00275\u0027\n    cmpxchg [x], bl ; x is now 35 32 33 34\n    mov [x], rax    ; x is now 31 00 00 00\n\n    mov rax, 1      ; write x on stdin\n    mov rdi, 1\n    mov rsi, x\n    mov rdx, 5\n    syscall\n\n    mov rax, 60     ; exit\n    mov rdi, 0\n    syscall\n\n  $ nasm 1.asm -o1.o -felf64 \u0026\u0026 ld 1.o -o1 \u0026\u0026 ./1 | hexdump -C\n  00000000  31 00 00 00 00                                    |1....|\n  00000005",
+      "parentUuid": "49fa0719_5bb1f8c3",
       "range": {
         "startLine": 4441,
         "startChar": 4,

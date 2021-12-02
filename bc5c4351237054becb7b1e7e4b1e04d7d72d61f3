@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5f8c409_2d9ad20d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4167,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-02T17:42:41Z",
+      "side": 1,
+      "message": "Right, I didn\u0027t think about signed 16-bit integer. I added a comment in `Bswap()` that it should sign-extend for `kInt16`.\n\nMarking resolved as do not intend to change this function..",
+      "parentUuid": "ad6fbeb3_74840df9",
+      "range": {
+        "startLine": 4167,
+        "startChar": 8,
+        "endLine": 4167,
+        "endChar": 34
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2d510bb_530ffe28",
@@ -250,6 +274,30 @@
       "side": 1,
       "message": "This is also no longer relevant for PS3 after code restructiring described in the other comment.",
       "parentUuid": "f99d1670_74892f17",
+      "range": {
+        "startLine": 4410,
+        "startChar": 44,
+        "endLine": 4410,
+        "endChar": 58
+      },
+      "revId": "bc5c4351237054becb7b1e7e4b1e04d7d72d61f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a99af69_8903a4a4",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4410,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-02T17:42:41Z",
+      "side": 1,
+      "message": "Reworked based on PS2: this temp is not conditional for floating-point types (line 4360 in CreateVarHandleGetAndAddLocations).",
+      "parentUuid": "7a3fda20_ed8c1606",
       "range": {
         "startLine": 4410,
         "startChar": 44,
