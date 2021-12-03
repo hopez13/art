@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f615ec2f_c8c6134a",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-03T09:15:35Z",
+      "side": 1,
+      "message": "Maybe keep the old check as it is, and add a new check with a custom \"not a primitive array\" ?",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 163,
+        "endChar": 3
+      },
+      "revId": "50760534d79796559c5b3d4305f86b7adc99c3bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
