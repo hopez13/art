@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c6804a5_6d954507",
+        "filename": "compiler/utils/x86/jni_macro_assembler_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-03T13:36:14Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "4a3319bf29271491548f6f92b53afb0bb7a36029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eea17cf6_1e054897",
+        "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-03T13:36:14Z",
+      "side": 1,
+      "message": "Also add \"  // If any flags are set, go to the slow path. \"",
+      "revId": "4a3319bf29271491548f6f92b53afb0bb7a36029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
