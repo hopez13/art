@@ -22,6 +22,30 @@
       },
       "revId": "c17656bcf477e57d59ff051037c96994fd0ac8f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa4255ff_688bde95",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-03T17:09:42Z",
+      "side": 1,
+      "message": "Fixed in https://android-review.googlesource.com/1898923 .\nTests added in https://android-review.googlesource.com/1910110 .",
+      "parentUuid": "e8429349_fd51dd18",
+      "range": {
+        "startLine": 971,
+        "startChar": 11,
+        "endLine": 971,
+        "endChar": 44
+      },
+      "revId": "c17656bcf477e57d59ff051037c96994fd0ac8f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
