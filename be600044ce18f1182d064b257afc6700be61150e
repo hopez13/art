@@ -168,6 +168,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bdb1ad9_d0107c90",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-03T12:37:10Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/1905055 has been submitted and this CL has been rebased and this particular change reverted.",
+      "parentUuid": "0642382b_43dc0098",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1611,
+        "endChar": 85
+      },
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd42dd3c_f625d6d0",
@@ -234,6 +258,24 @@
       "side": 1,
       "message": "There are 20 unused bits and I want to use two of them. First, the `kMonitorJniEntryExit` which can be reused also for instrumentation. Second, I want to mark the \"flip function\" with another flag unless I determine that I can reuse the `kCheckpointRequest` for that; this shall be needed for inlining the `JniMethodEnd()`.",
       "parentUuid": "b7aad11d_79c4b912",
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5e150d3_15f4feeb",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-03T12:37:10Z",
+      "side": 1,
+      "message": "Are you OK with this after https://android-review.googlesource.com/1905055 has been submitted?",
+      "parentUuid": "621e7bb1_316dba48",
       "revId": "be600044ce18f1182d064b257afc6700be61150e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
