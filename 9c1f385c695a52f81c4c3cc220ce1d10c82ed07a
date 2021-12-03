@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd02452c_c2095bec",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 4433,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-03T16:08:28Z",
+      "side": 1,
+      "message": "You have changed the order here compared to PS9 but we need to do the `movd(temp, ...)` before we do the `Bswap(temp_loc, .)`.",
+      "range": {
+        "startLine": 4429,
+        "startChar": 0,
+        "endLine": 4433,
+        "endChar": 35
+      },
+      "revId": "9c1f385c695a52f81c4c3cc220ce1d10c82ed07a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
