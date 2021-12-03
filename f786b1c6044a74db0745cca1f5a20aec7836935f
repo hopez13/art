@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88bfd9f6_29b670e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-12-03T00:22:23Z",
+      "side": 1,
+      "message": "LGTM, except that it introduces some documentation inconsistencies, which should be fixed here or in a follow-up CL:\n\n- It invalidates some of the last paragraph in mutator_gc_coord.md .\n\n- We also need to fix the comment starting at\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/runtime/thread.h;l\u003d1168\n\nDavid\u0027s comments, especially point 4, should clearly also be considered, though perhaps as possible future investigations. I don\u0027t immediately know how to make that work.\n\n(I fixed a tiny commit message typo.)\n",
+      "revId": "f786b1c6044a74db0745cca1f5a20aec7836935f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
