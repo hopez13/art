@@ -22,6 +22,30 @@
       },
       "revId": "9c1f385c695a52f81c4c3cc220ce1d10c82ed07a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "357a7a1d_23f14b1a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 4433,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-03T16:21:15Z",
+      "side": 1,
+      "message": "Oops, thanks for catching this. Fixed.\n\nI changed it because I erroneously thought that MOVD copies `temp` into `fptemp`.",
+      "parentUuid": "dd02452c_c2095bec",
+      "range": {
+        "startLine": 4429,
+        "startChar": 0,
+        "endLine": 4433,
+        "endChar": 35
+      },
+      "revId": "9c1f385c695a52f81c4c3cc220ce1d10c82ed07a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
