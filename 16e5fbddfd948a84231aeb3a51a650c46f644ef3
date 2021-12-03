@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad397dc_1c9eb447",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-03T10:34:10Z",
+      "side": 1,
+      "message": "1) That\u0027s an option but it would be more complicated to implement.\n\n2) I did measure time to suspend for STR prototype (https://android-review.googlesource.com/657601), see b/38383823#comment11, and it was worse than this LDR approach.\n\n3) That sounds rather difficult to get right. I would not go that way.\n\n4) That\u0027s a possibility and we can investigate that approach in the future. (That would reduce the maximum branch offset for introspection marking but a few more thunks in the oat file should not be a concern.)",
+      "parentUuid": "b94c557f_686c803e",
+      "revId": "16e5fbddfd948a84231aeb3a51a650c46f644ef3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3492516_5582782d",
