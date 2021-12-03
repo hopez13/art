@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afc4aabf_b0a69c82",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4211,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-03T15:51:16Z",
+      "side": 1,
+      "message": "Done, thanks for the tip. It doesn\u0027t add much complexity.",
+      "parentUuid": "fe6f853d_c35a1d0e",
+      "range": {
+        "startLine": 4210,
+        "startChar": 2,
+        "endLine": 4211,
+        "endChar": 68
+      },
+      "revId": "52b6309717e78552f8b225279fd66c43e19d08ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6977c2a_48806229",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-03T13:45:53Z",
       "side": 1,
       "message": "Can be shortened to `codegen-\u003eMove(temp_loc, locations-\u003eOut());` and maybe we should have `rax_loc \u003d locations-\u003eOut()`.",
+      "range": {
+        "startLine": 4237,
+        "startChar": 2,
+        "endLine": 4241,
+        "endChar": 3
+      },
+      "revId": "52b6309717e78552f8b225279fd66c43e19d08ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20da733e_a0bac72c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4241,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-03T15:51:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6977c2a_48806229",
       "range": {
         "startLine": 4237,
         "startChar": 2,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c8922f7_fc2e834f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4417,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-03T15:51:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e8d6e8_e16dad8a",
+      "revId": "52b6309717e78552f8b225279fd66c43e19d08ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "951c2b55_9b03c8e9",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-12-03T13:45:53Z",
       "side": 1,
       "message": "`codegen-\u003eMove()` to use `movl` if not 64-bit.",
+      "range": {
+        "startLine": 4440,
+        "startChar": 9,
+        "endLine": 4440,
+        "endChar": 13
+      },
+      "revId": "52b6309717e78552f8b225279fd66c43e19d08ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfae4a57_d3c0a839",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4440,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2021-12-03T15:51:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "951c2b55_9b03c8e9",
       "range": {
         "startLine": 4440,
         "startChar": 9,
