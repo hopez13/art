@@ -157,8 +157,8 @@ static jlong VMRuntime_addressOf(JNIEnv* env, jobject, jobject javaArray) {
   }
   ScopedFastNativeObjectAccess soa(env);
   ObjPtr<mirror::Array> array = soa.Decode<mirror::Array>(javaArray);
-  if (!array->IsArrayInstance()) {
-    ThrowIllegalArgumentException("not an array");
+  if (!array->IsArrayInstance() || array->IsObjectArray()) {
+    ThrowIllegalArgumentException("not a primitive array");
     return 0;
   }
   if (Runtime::Current()->GetHeap()->IsMovableObject(array)) {
