@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe6f853d_c35a1d0e",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-03T13:45:53Z",
+      "side": 1,
+      "message": "I think the code could be updated to work with constant locations except for 64-bit (missing instructions with \"imm64\") but that\u0027s additional work, splitting up each operation with and additional else-if. Do we want to do that?\n\n    DCHECK(!value_loc.IsConstant() || !is64Bit);\n    int32_t const_value \u003d value_loc.IsConstant()\n        ? CodeGenerator::GetInt32ValueOf(value_loc.GetConstant())\n        : 0;\n    [...]\n\n      if (is64Bit) {\n        __ addq(temp, value_loc.AsRegister\u003cCpuRegister\u003e());\n      } else if (value_loc.IsConstant()) {\n        __ addl(temp, Immediate(const_value));\n      } else {\n        __ addl(temp, value_loc.AsRegister\u003cCpuRegister\u003e());\n      }",
+      "range": {
+        "startLine": 4210,
+        "startChar": 2,
+        "endLine": 4211,
+        "endChar": 68
+      },
+      "revId": "52b6309717e78552f8b225279fd66c43e19d08ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6977c2a_48806229",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4241,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-03T13:45:53Z",
+      "side": 1,
+      "message": "Can be shortened to `codegen-\u003eMove(temp_loc, locations-\u003eOut());` and maybe we should have `rax_loc \u003d locations-\u003eOut()`.",
+      "range": {
+        "startLine": 4237,
+        "startChar": 2,
+        "endLine": 4241,
+        "endChar": 3
+      },
+      "revId": "52b6309717e78552f8b225279fd66c43e19d08ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35e8d6e8_e16dad8a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-03T13:45:53Z",
+      "side": 1,
+      "message": "Also byte-swap `temp`.",
+      "revId": "52b6309717e78552f8b225279fd66c43e19d08ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "951c2b55_9b03c8e9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 4440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-03T13:45:53Z",
+      "side": 1,
+      "message": "`codegen-\u003eMove()` to use `movl` if not 64-bit.",
+      "range": {
+        "startLine": 4440,
+        "startChar": 9,
+        "endLine": 4440,
+        "endChar": 13
+      },
+      "revId": "52b6309717e78552f8b225279fd66c43e19d08ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
