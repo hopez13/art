@@ -178,9 +178,7 @@ class ImageSpace : public MemMapSpace {
     return image_location_;
   }
 
-  const std::string GetProfileFile() const {
-    return profile_file_;
-  }
+  const std::vector<std::string>& GetProfileFiles() const { return profile_files_; }
 
   accounting::ContinuousSpaceBitmap* GetLiveBitmap() override {
     return &live_bitmap_;
@@ -303,7 +301,7 @@ class ImageSpace : public MemMapSpace {
 
   ImageSpace(const std::string& name,
              const char* image_location,
-             const char* profile_file,
+             const std::vector<std::string>& profile_files,
              MemMap&& mem_map,
              accounting::ContinuousSpaceBitmap&& live_bitmap,
              uint8_t* end);
@@ -318,7 +316,7 @@ class ImageSpace : public MemMapSpace {
   const OatFile* oat_file_non_owned_;
 
   const std::string image_location_;
-  const std::string profile_file_;
+  const std::vector<std::string> profile_files_;
 
   friend class Space;
 
