@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120be51f_37007136",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-06T11:44:40Z",
+      "side": 0,
+      "message": "Do we want to keep this as the fast path for performance reasons? I suppose it isn\u0027t called often so may be OK but wanted to check.",
+      "revId": "80f93a801329abce10971b0db2da1103023abbaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

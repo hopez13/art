@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9cea46c_e945f48a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-06T11:44:40Z",
+      "side": 1,
+      "message": "Thanks lgtm with few suggestions.",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de7a0c8e_594542d4",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-06T11:44:40Z",
+      "side": 1,
+      "message": "Not from this CL, but don\u0027t we have to also check for JIT code cache for the optimized code. GetQuickOatCodeFor is only checking for PreCompiledMethods (it only calls GetSavedEntryPointOfPreCompiledMethod).",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "651777eb_3a1c6f72",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-06T11:44:40Z",
+      "side": 1,
+      "message": "Maybe a DCHECK here that the entrypoint is already the interpreter bridge?",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ccdb863_7d4ff787",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-06T11:44:40Z",
+      "side": 1,
+      "message": "Maybe a DCHECK here that entry point is instrumentation entry point.",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c9792a3_c7d0de3b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-06T11:44:40Z",
+      "side": 1,
+      "message": "Don\u0027t we need to check if we need a resolution trampoline here? I thought we should check if we need a resolution stub even if we are InterpretOnly.",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
