@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54130234_99256b37",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2021-12-06T14:17:31Z",
+      "side": 1,
+      "message": "There are places where both fixed registers are updated and some, where only marking register is. Would it be possible to somehow provide an in-code comment/ clarification/guide, how to choose/distinguish those two? Maybe creating a macro REFRESH_ALL_FIXED_REGISTERS with some comments?",
+      "range": {
+        "startLine": 404,
+        "startChar": 4,
+        "endLine": 405,
+        "endChar": 34
+      },
+      "revId": "e6c901a28701023143bdfc82253bbe99e36ffd0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
