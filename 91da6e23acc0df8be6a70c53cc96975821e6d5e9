@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c86657d1_02fd701f",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-06T21:44:44Z",
+      "side": 1,
+      "message": "JIT code could have been garbage collected (we use entrypoints to know if we still need to keep the JIT code), that\u0027s why we haven\u0027t really tried to find a JIT compiled code.",
+      "parentUuid": "de7a0c8e_594542d4",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "651777eb_3a1c6f72",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-12-06T11:44:40Z",
       "side": 1,
       "message": "Maybe a DCHECK here that the entrypoint is already the interpreter bridge?",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "917caedb_6ac4397a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-06T21:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "651777eb_3a1c6f72",
       "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -69,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f637f2a8_aa56cccc",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-06T21:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ccdb863_7d4ff787",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c9792a3_c7d0de3b",
@@ -82,6 +136,24 @@
       "writtenOn": "2021-12-06T11:44:40Z",
       "side": 1,
       "message": "Don\u0027t we need to check if we need a resolution trampoline here? I thought we should check if we need a resolution stub even if we are InterpretOnly.",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37719bd0_02839d42",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-06T21:44:44Z",
+      "side": 1,
+      "message": "No need, interpret only can use the interpreter bridge, as it does the clinit check too.",
+      "parentUuid": "8c9792a3_c7d0de3b",
       "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
