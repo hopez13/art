@@ -1,8 +1,50 @@
 %def op_check_cast():
-  jmp NterpCheckCast
+   // Fast-path which gets the class from thread-local cache.
+   FETCH_FROM_THREAD_CACHE %ecx, 3f
+1:
+   GET_VREG %eax, rINST
+   testl %eax, %eax
+   je .L${opcode}_resume
+   // Fast path without read barriers.
+   cmpl MIRROR_OBJECT_CLASS_OFFSET(%eax), %ecx
+   jne NterpCheckCast
+.L${opcode}_resume:
+   ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+3:
+   EXPORT_PC
+   movl rSELF:THREAD_SELF_OFFSET, ARG0
+   movl 0(%esp), ARG1
+   movl rPC, ARG2
+   call nterp_get_class_or_allocate_object
+   movl %eax, %ecx
+   jmp 1b
 
 %def op_instance_of():
-   jmp NterpInstanceOf
+   /* instance-of vA, vB, class@CCCC */
+   // Fast-path which gets the class from thread-local cache.
+   FETCH_FROM_THREAD_CACHE %ecx, 2f
+1:
+   movzbl  rINSTbl, %eax
+   sarl    $$4,%eax                          # eax<- B
+   GET_VREG %eax %eax                        # eax<- vB (object)
+   testl %eax, %eax
+   je .L${opcode}_resume
+   // Fast path without read barriers.
+   cmpl MIRROR_OBJECT_CLASS_OFFSET(%eax), %ecx
+   jne NterpInstanceOf
+   movl $$1, %eax
+.L${opcode}_resume:
+   andb    $$0xf,rINSTbl                     # rINST<- A
+   SET_VREG %eax, rINST                      # fp[A] <- value
+   ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+2:
+   EXPORT_PC
+   movl rSELF:THREAD_SELF_OFFSET, ARG0
+   movl 0(%esp), ARG1
+   movl rPC, ARG2
+   call nterp_get_class_or_allocate_object
+   movl %eax, %ecx
+   jmp 1b
 
 %def op_iget_boolean():
    jmp NterpGetBooleanInstanceField

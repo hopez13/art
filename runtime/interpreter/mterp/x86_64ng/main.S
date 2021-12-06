@@ -2170,63 +2170,104 @@ NterpGetWideInstanceField:
 NterpGetInstanceField:
   OP_IGET load="movl", wide=0
 
-NterpInstanceOf:
-    /* instance-of vA, vB, class@CCCC */
-   // Fast-path which gets the class from thread-local cache.
+NterpInstanceOfInit:
    EXPORT_PC
-   FETCH_FROM_THREAD_CACHE %rsi, 2f
+   movq rSELF:THREAD_SELF_OFFSET, %rdi
+   movq 0(%rsp), %rsi
+   movq rPC, %rdx
+   call nterp_get_class_or_allocate_object
+   movq %rax, %rsi
+   jmp .Lop_instance_of_start
+
+NterpInstanceOf:
+   // Go slow path if we are marking. Checking now allows
+   // not going to slow path if the super class hierarchy check fails.
    cmpq $$0, rSELF:THREAD_READ_BARRIER_MARK_REG00_OFFSET
+   jne 3f
+   testl $$MIRROR_CLASS_IS_INTERFACE_FLAG, MIRROR_CLASS_ACCESS_FLAGS_OFFSET(%rsi)
+   jne 2f
+   movl MIRROR_OBJECT_CLASS_OFFSET(%edi), %eax
+   cmpl $$0, MIRROR_CLASS_COMPONENT_TYPE_OFFSET(%rsi)
    jne 5f
 1:
-   movzbl  rINSTbl,%edi
-   sarl    $$4,%edi                          # edi<- B
-   GET_VREG %edi %rdi                        # edi<- vB (object)
-   andb    $$0xf,rINSTbl                     # rINST<- A
-   testl %edi, %edi
-   je 3f
-   call art_quick_instance_of
-   SET_VREG %eax, rINSTq            # fp[A] <- value
-4:
-   ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
-3:
-   SET_VREG %edi, rINSTq            # fp[A] <-0
-   jmp 4b
+   movl MIRROR_CLASS_SUPER_CLASS_OFFSET(%eax), %eax
+   cmpl %eax, %esi
+   je 4f
+   testl %eax, %eax
+   jne 1b
+   SET_VREG $$0, rINSTq            # fp[A] <- value
+   jmp       .Lop_instance_of_resume
 2:
-   movq rSELF:THREAD_SELF_OFFSET, %rdi
-   movq 0(%rsp), %rsi
-   movq rPC, %rdx
-   call nterp_get_class_or_allocate_object
-   movq %rax, %rsi
-   jmp 1b
-5:
+   EXPORT_PC
+   call artInstanceOfFromCode
+   SET_VREG %eax, rINSTq            # fp[A] <- value
+   jmp .Lop_instance_of_resume
+3:
    // 06 is %rsi
    call art_quick_read_barrier_mark_reg06
-   jmp 1b
+   jmp 2b
+4:
+   SET_VREG $$1, rINSTq            # fp[A] <- value
+   jmp .Lop_instance_of_resume
+5:
+   movl MIRROR_CLASS_COMPONENT_TYPE_OFFSET(%eax), %eax
+   // Check if object is an array.
+   testl %eax, %eax
+   jne 6f
+   SET_VREG $$0, rINSTq            # fp[A] <- value
+   jmp .Lop_instance_of_resume
+6:
+   movl MIRROR_CLASS_COMPONENT_TYPE_OFFSET(%esi), %ecx
+   cmpl $$0, MIRROR_CLASS_SUPER_CLASS_OFFSET(%ecx)
+   jne 2b
+   cmpl $$0, MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET(%ecx)
+   jne 2b
+   // %ecx is Object[]
+   // Check if the object is a primitive array.
+   cmpl $$0, MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET(%eax)
+   je 4b
+   SET_VREG $$0, rINSTq            # fp[A] <- value
+   jmp .Lop_instance_of_resume
 
 NterpCheckCast:
-   // Fast-path which gets the class from thread-local cache.
-   EXPORT_PC
-   FETCH_FROM_THREAD_CACHE %rsi, 3f
-   cmpq $$0, rSELF:THREAD_READ_BARRIER_MARK_REG00_OFFSET
-   jne 4f
+   testl $$MIRROR_CLASS_IS_INTERFACE_FLAG, MIRROR_CLASS_ACCESS_FLAGS_OFFSET(%rsi)
+   jne 2f
+   movl MIRROR_OBJECT_CLASS_OFFSET(%edi), %eax
+   cmpl $$0, MIRROR_CLASS_COMPONENT_TYPE_OFFSET(%rsi)
+   jne 5f
 1:
-   GET_VREG %edi, rINSTq
-   testl %edi, %edi
-   je 2f
-   call art_quick_check_instance_of
+   movl MIRROR_CLASS_SUPER_CLASS_OFFSET(%eax), %eax
+   cmpl %eax, %esi
+   je .Lop_check_cast_resume
+   testl %eax, %eax
+   jne 1b
 2:
-   ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+   cmpq $$0, rSELF:THREAD_READ_BARRIER_MARK_REG00_OFFSET
+   jne 3f
 3:
-   movq rSELF:THREAD_SELF_OFFSET, %rdi
-   movq 0(%rsp), %rsi
-   movq rPC, %rdx
-   call nterp_get_class_or_allocate_object
-   movq %rax, %rsi
-   jmp 1b
+   EXPORT_PC
+   call art_quick_check_instance_of
+   jmp .Lop_check_cast_resume
 4:
    // 06 is %rsi
    call art_quick_read_barrier_mark_reg06
-   jmp 1b
+   jmp 3b
+5:
+   movl MIRROR_CLASS_COMPONENT_TYPE_OFFSET(%eax), %eax
+   // Check if object is an array.
+   testl %eax, %eax
+   je 2b
+6:
+   movl MIRROR_CLASS_COMPONENT_TYPE_OFFSET(%esi), %ecx
+   cmpl $$0, MIRROR_CLASS_SUPER_CLASS_OFFSET(%ecx)
+   jne 2b
+   cmpl $$0, MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET(%ecx)
+   jne 2b
+   // %ecx is Object[]
+   // Check if the object is a primitive array.
+   cmpl $$0, MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET(%eax)
+   je .Lop_check_cast_resume
+   jmp 2b
 
 NterpHandleHotnessOverflow:
     leaq (rPC, rINSTq, 2), %rsi
