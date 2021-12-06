@@ -22,6 +22,30 @@
       },
       "revId": "e6c901a28701023143bdfc82253bbe99e36ffd0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbdaa32b_551052fa",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-06T15:04:28Z",
+      "side": 1,
+      "message": "Unlike MR, this register does not need to be refreshed after every call to the Runtime.\n\nI\u0027ve put the REFRESH_SUSPEND_CHECK_REGISTER only where I believe they are necessary, namely where we\u0027re coming from native code where x21 can be anything, and in the suspend check entrypoints.\n\nThere is a comment at the macro definition.",
+      "parentUuid": "54130234_99256b37",
+      "range": {
+        "startLine": 404,
+        "startChar": 4,
+        "endLine": 405,
+        "endChar": 34
+      },
+      "revId": "e6c901a28701023143bdfc82253bbe99e36ffd0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
