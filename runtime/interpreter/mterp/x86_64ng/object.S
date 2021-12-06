@@ -1,5 +1,23 @@
 %def op_check_cast():
-  jmp NterpCheckCast
+   // Fast-path which gets the class from thread-local cache.
+   FETCH_FROM_THREAD_CACHE %rsi, 2f
+1:
+   GET_VREG %edi, rINSTq
+   testl %edi, %edi
+   je .L${opcode}_resume
+   // Fast path without read barriers.
+   cmpl MIRROR_OBJECT_CLASS_OFFSET(%edi), %esi
+   jne NterpCheckCast
+.L${opcode}_resume:
+   ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
+2:
+   EXPORT_PC
+   movq rSELF:THREAD_SELF_OFFSET, %rdi
+   movq 0(%rsp), %rsi
+   movq rPC, %rdx
+   call nterp_get_class_or_allocate_object
+   movq %rax, %rsi
+   jmp 1b
 
 %def op_iget_boolean():
    jmp NterpGetBooleanInstanceField
@@ -20,7 +38,24 @@
    jmp NterpGetWideInstanceField
 
 %def op_instance_of():
-   jmp NterpInstanceOf
+    /* instance-of vA, vB, class@CCCC */
+   // Fast-path which gets the class from thread-local cache.
+   FETCH_FROM_THREAD_CACHE %rsi, NterpInstanceOfInit
+.L${opcode}_start:
+   movzbl  rINSTbl,%edi
+   sarl    $$4,%edi                          # edi<- B
+   GET_VREG %edi %rdi                        # edi<- vB (object)
+   andb    $$0xf,rINSTbl                     # rINST<- A
+   testl %edi, %edi
+   je 1f
+   // Fast path without read barriers.
+   cmpl MIRROR_OBJECT_CLASS_OFFSET(%edi), %esi
+   jne NterpInstanceOf
+   movl $$1, %edi
+1:
+   SET_VREG %edi, rINSTq
+.L${opcode}_resume:
+   ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
 
 %def op_iget():
    jmp NterpGetInstanceField

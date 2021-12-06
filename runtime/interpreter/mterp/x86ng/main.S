@@ -2234,60 +2234,43 @@ NterpGetInstanceField:
   OP_IGET load="movl", wide=0
 
 NterpInstanceOf:
-   /* instance-of vA, vB, class@CCCC */
-   // Fast-path which gets the class from thread-local cache.
-   EXPORT_PC
-   FETCH_FROM_THREAD_CACHE %ecx, 2f
    cmpl $$0, rSELF:THREAD_READ_BARRIER_MARK_REG00_OFFSET
-   jne 5f
+   jne 2f
+   testl $$MIRROR_CLASS_IS_INTERFACE_FLAG, MIRROR_CLASS_ACCESS_FLAGS_OFFSET(%ecx)
+   jne 2f
+   cmpl $$0, MIRROR_CLASS_COMPONENT_TYPE_OFFSET(%ecx)
+   jne 2f
+   movl MIRROR_OBJECT_CLASS_OFFSET(%eax), %eax
 1:
-   movzbl  rINSTbl, %eax
-   sarl    $$4,%eax                          # eax<- B
-   GET_VREG %eax %eax                        # eax<- vB (object)
+   movl MIRROR_CLASS_SUPER_CLASS_OFFSET(%eax), %eax
+   cmpl %eax, %ecx
+   je 4f
    testl %eax, %eax
-   je 3f
+   jne 1b
+   jmp .Lop_instance_of_resume
+2:
+   EXPORT_PC
    call art_quick_instance_of
    RESTORE_IBASE
    FETCH_INST_CLEAR_OPCODE
+   jmp .Lop_instance_of_resume
 3:
-   andb    $$0xf,rINSTbl                     # rINST<- A
-   SET_VREG %eax, rINST                      # fp[A] <- value
-4:
-   ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
-2:
-   movl rSELF:THREAD_SELF_OFFSET, ARG0
-   movl 0(%esp), ARG1
-   movl rPC, ARG2
-   call nterp_get_class_or_allocate_object
-   movl %eax, %ecx
-   jmp 1b
-5:
    // 01 is %ecx
    call art_quick_read_barrier_mark_reg01
-   jmp 1b
+   jmp 2b
+4:
+   movl $$1, %eax
+   jmp .Lop_instance_of_resume
 
 NterpCheckCast:
-   // Fast-path which gets the class from thread-local cache.
-   EXPORT_PC
-   FETCH_FROM_THREAD_CACHE %ecx, 3f
    cmpl $$0, rSELF:THREAD_READ_BARRIER_MARK_REG00_OFFSET
-   jne 4f
+   jne 2f
 1:
-   GET_VREG %eax, rINST
-   testl %eax, %eax
-   je 2f
+   EXPORT_PC
    call art_quick_check_instance_of
    RESTORE_IBASE
+   jmp .Lop_check_cast_resume
 2:
-   ADVANCE_PC_FETCH_AND_GOTO_NEXT 2
-3:
-   movl rSELF:THREAD_SELF_OFFSET, ARG0
-   movl 0(%esp), ARG1
-   movl rPC, ARG2
-   call nterp_get_class_or_allocate_object
-   movl %eax, %ecx
-   jmp 1b
-4:
    // 01 is %ecx
    call art_quick_read_barrier_mark_reg01
    jmp 1b
