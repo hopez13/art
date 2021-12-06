@@ -22,6 +22,30 @@
       },
       "revId": "d7f46507b2f15a9f4035940a0a6e9243a16cc03c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e4913e1_18c5a5bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-12-06T18:23:01Z",
+      "side": 1,
+      "message": "\u003e Is this because of the is_runnable change in the preceding CL?\n\nYes.\n\n\u003e Are these tests de-facto failing before this change?\n\nNo – it\u0027s just that they had a custom `run` script\n\nAs they previously \"ran fine\" when ignoring that `run` script, I added an exception mechanism in https://android-review.googlesource.com/c/platform/art/+/1903400/2..3 which allows these tests to stay alive. Continuing to run these tests continuously makes sense, at least from a code coverage perspective.",
+      "parentUuid": "ac5a4abe_040b3538",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "d7f46507b2f15a9f4035940a0a6e9243a16cc03c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
