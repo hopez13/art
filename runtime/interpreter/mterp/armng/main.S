@@ -1797,6 +1797,98 @@ NterpNewArray:
    bl art_quick_read_barrier_mark_reg00
    b 1b
 
+NterpCheckCast:
+   ldr     r3, [r1, #MIRROR_CLASS_ACCESS_FLAGS_OFFSET]
+   tst     r3, #MIRROR_CLASS_IS_INTERFACE_FLAG
+   bne     2f
+   ldr     r3, [r1, #MIRROR_CLASS_COMPONENT_TYPE_OFFSET]
+   cmp     r3, #0
+   bne     5f
+1:
+   ldr     r2, [r2, #MIRROR_CLASS_SUPER_CLASS_OFFSET]
+   cmp     r1, r2
+   beq     .Lop_check_cast_resume
+   cmp     r2, #0
+   bne     1b
+2:
+   TEST_IF_MARKING 4f
+3:
+   EXPORT_PC
+   bl      art_quick_check_instance_of
+   b       .Lop_check_cast_resume
+4:
+   bl      art_quick_read_barrier_mark_reg01
+   b       3b
+5:
+   // Class in r1 is an array, r3 is the component type.
+   ldr     r2, [r2, #MIRROR_CLASS_COMPONENT_TYPE_OFFSET]
+   // Check if object is an array.
+   cmp     r2, #0
+   beq     2b
+   ldr     r4, [r3, #MIRROR_CLASS_SUPER_CLASS_OFFSET]
+   cmp     r4, #0
+   // If the super class of the component type is not null, go slow path.
+   bne     2b
+   ldr     r3, [r3, #MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET]
+   cmp     r3, #0
+   // If the component type is primitive, go slow path.
+   bne     2b
+   // Check if the object is a primitive array.
+   ldr     r2, [r2, #MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET]
+   cmp     r2, #0
+   beq     .Lop_check_cast_resume
+   // Go slow path for throwing the exception.
+   b 2b
+
+NterpInstanceOf:
+   // Go slow path if we are marking. Checking now allows
+   // not going to slow path if the super class hierarchy check fails.
+   TEST_IF_MARKING 3f
+   ldr     r3, [r1, #MIRROR_CLASS_ACCESS_FLAGS_OFFSET]
+   tst     r3, #MIRROR_CLASS_IS_INTERFACE_FLAG
+   bne     2f
+   ldr     r3, [r1, #MIRROR_CLASS_COMPONENT_TYPE_OFFSET]
+   cmp     r3, #0
+   bne     5f
+1:
+   ldr     r2, [r2, #MIRROR_CLASS_SUPER_CLASS_OFFSET]
+   cmp     r1, r2
+   beq     4f
+   cmp     r2, #0
+   bne     1b
+   mov     r0, #0
+   b       .Lop_instance_of_resume
+2:
+   EXPORT_PC
+   bl      artInstanceOfFromCode
+   b       .Lop_instance_of_resume
+3:
+   bl      art_quick_read_barrier_mark_reg01
+   b       2b
+4:
+   mov     r0, #1
+   b       .Lop_instance_of_resume
+5:
+   // Class in r1 is an array, r3 is the component type.
+   ldr     r2, [r2, #MIRROR_CLASS_COMPONENT_TYPE_OFFSET]
+   // Check if object is an array.
+   cmp     r2, #0
+   bne     6f
+   mov     r0, #0
+   b       .Lop_instance_of_resume
+6:
+   ldr     r4, [r3, #MIRROR_CLASS_SUPER_CLASS_OFFSET]
+   cmp     r4, #0
+   bne     2b
+   ldr     r3, [r3, #MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET]
+   cmp     r3, #0
+   bne     2b
+   // Check if the object is a primitive array.
+   ldr     r2, [r2, #MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET]
+   cmp     r2, #0
+   beq     4b
+   mov     r0, #0
+   b       .Lop_instance_of_resume
 
 NterpHandleHotnessOverflow:
     add r1, rPC, rINST, lsl #1

@@ -1,56 +1,56 @@
 %def op_check_cast():
    // Fast-path which gets the class from thread-local cache.
-   EXPORT_PC
-   FETCH_FROM_THREAD_CACHE r1, 3f
-   TEST_IF_MARKING 4f
+   FETCH_FROM_THREAD_CACHE r1, 2f
 1:
    lsr     r2, rINST, #8               // r2<- A
    GET_VREG r0, r2                     // r0<- vA (object)
    cmp     r0, #0
-   beq     2f
-   bl      art_quick_check_instance_of
-2:
+   beq     .L${opcode}_resume
+   ldr     r2, [r0, #MIRROR_OBJECT_CLASS_OFFSET]
+   // Fast path: do a comparison without read barrier.
+   cmp     r1, r2
+   bne     NterpCheckCast
+.L${opcode}_resume:
    FETCH_ADVANCE_INST 2
    GET_INST_OPCODE ip
    GOTO_OPCODE ip
-3:
+2:
+   EXPORT_PC
    mov     r0, rSELF
    ldr     r1, [sp]
    mov     r2, rPC
    bl      nterp_get_class_or_allocate_object
    mov     r1, r0
    b       1b
-4:
-   bl      art_quick_read_barrier_mark_reg01
-   b       1b
+
 
 %def op_instance_of():
    /* instance-of vA, vB, class@CCCC */
    // Fast-path which gets the class from thread-local cache.
-   EXPORT_PC
-   FETCH_FROM_THREAD_CACHE r1, 3f
-   TEST_IF_MARKING 4f
+   FETCH_FROM_THREAD_CACHE r1, 2f
 1:
    lsr     r2, rINST, #12              // r2<- B
    GET_VREG r0, r2                     // r0<- vB (object)
    cmp     r0, #0
-   beq     2f
-   bl      artInstanceOfFromCode
-2:
+   beq     .L${opcode}_resume
+   ldr     r2, [r0, #MIRROR_OBJECT_CLASS_OFFSET]
+   // Fast path: do a comparison without read barrier.
+   cmp     r1, r2
+   bne     NterpInstanceOf
+   mov     r0, #1
+.L${opcode}_resume:
    ubfx    r1, rINST, #8, #4           // r1<- A
    SET_VREG r0, r1
    FETCH_ADVANCE_INST 2
    GET_INST_OPCODE ip
    GOTO_OPCODE ip
-3:
+2:
+   EXPORT_PC
    mov     r0, rSELF
    ldr     r1, [sp]
    mov     r2, rPC
    bl      nterp_get_class_or_allocate_object
    mov     r1, r0
-   b       1b
-4:
-   bl      art_quick_read_barrier_mark_reg01
    b       1b
 
 %def op_iget_boolean():
