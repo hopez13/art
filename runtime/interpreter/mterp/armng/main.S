@@ -1797,7 +1797,6 @@ NterpNewArray:
    bl art_quick_read_barrier_mark_reg00
    b 1b
 
-
 NterpHandleHotnessOverflow:
     add r1, rPC, rINST, lsl #1
     mov r2, rFP
