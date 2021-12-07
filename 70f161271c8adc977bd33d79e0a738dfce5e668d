@@ -16,6 +16,23 @@
       "message": "yuexima@ PTAL at the added config\nrpl@ for folder structure\n\nFYI there\u0027s some redness in the bots, but that\u0027s on master-art. We updated the manifest in aosp/1913285 but it wasn\u0027t picked up by the bots yet.",
       "revId": "70f161271c8adc977bd33d79e0a738dfce5e668d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72ac20b1_909ea942",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2021-12-07T17:54:16Z",
+      "side": 1,
+      "message": "The configuration LGTM, but I\u0027m not sure why the build failed for not recognizing csuite_test. Do you know why?",
+      "revId": "70f161271c8adc977bd33d79e0a738dfce5e668d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
