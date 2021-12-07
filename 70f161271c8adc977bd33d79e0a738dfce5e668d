@@ -33,6 +33,24 @@
       "message": "The configuration LGTM, but I\u0027m not sure why the build failed for not recognizing csuite_test. Do you know why?",
       "revId": "70f161271c8adc977bd33d79e0a738dfce5e668d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a44f119_7c7910fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-12-07T18:00:40Z",
+      "side": 1,
+      "message": "Yes, we have a special repo called aosp/master-art, which is smaller than aosp/master. That smaller repo didn\u0027t have the csuite in its manifest. I updated that but the bots haven\u0027t picked up the change yet.",
+      "parentUuid": "72ac20b1_909ea942",
+      "revId": "70f161271c8adc977bd33d79e0a738dfce5e668d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
