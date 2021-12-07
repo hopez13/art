@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d62868cd_9a770e7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-12-07T01:01:34Z",
+      "side": 1,
+      "message": "Aside: I tend to refer to \"memory barriers\" as fences instead of barriers, to distinguish them from the other two kinds of barriers we have floating around. That\u0027s at odds with ARM and kernel terminology, but consistent with Intel and C++.",
+      "revId": "524a5f8ae0887990dfd6bc73e6a1f8d15a948b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

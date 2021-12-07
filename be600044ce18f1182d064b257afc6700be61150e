@@ -296,6 +296,24 @@
       "parentUuid": "c5e150d3_15f4feeb",
       "revId": "be600044ce18f1182d064b257afc6700be61150e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b1d0457_6a4bff3a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-12-07T01:01:34Z",
+      "side": 1,
+      "message": "I\u0027m OK with it. It bothers me a little that this last flag behaves quite differently from all the others, in that it\u0027s not a one-time request to the thread. But I think it\u0027s a worthwhile trade-off.",
+      "parentUuid": "52b50107_b0e2cf70",
+      "revId": "be600044ce18f1182d064b257afc6700be61150e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
