@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e92557d_e533b4a6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-07T15:24:31Z",
+      "side": 1,
+      "message": "Nit: add a comment: \"On target we support generate a single image for the primary image\".",
+      "revId": "57db9d53fa8c9354a23dd25e550af993fa428e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7666354_e6e0f997",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1523,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-07T15:24:31Z",
+      "side": 1,
+      "message": "Why the rename? Having multiple profiles for one image shouldn\u0027t affect the logic in this code?",
+      "range": {
+        "startLine": 1523,
+        "startChar": 7,
+        "endLine": 1523,
+        "endChar": 27
+      },
+      "revId": "57db9d53fa8c9354a23dd25e550af993fa428e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be46cdd6_76527ff7",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-07T15:24:31Z",
+      "side": 1,
+      "message": "This should be outside of the profile loop.",
+      "range": {
+        "startLine": 931,
+        "startChar": 0,
+        "endLine": 937,
+        "endChar": 9
+      },
+      "revId": "57db9d53fa8c9354a23dd25e550af993fa428e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
