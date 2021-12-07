@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c10eb71e_7b86a753",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-07T10:36:05Z",
+      "side": 1,
+      "message": "Yes - there were some discussions about keeping the code in some other map and preventing GC, but for simplicity we just discard it and let the method be hot again for being jitted.",
+      "parentUuid": "d8b889df_99df47ba",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "651777eb_3a1c6f72",
