@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8b889df_99df47ba",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-07T09:51:27Z",
+      "side": 1,
+      "message": "So once we update the entry point of a method (with JITed code) to instrumentation trampoline then is there no way to find the JITed code again. Do we have to just re-jit the code once the instrumentation trampoline is uninstalled?",
+      "parentUuid": "c86657d1_02fd701f",
+      "revId": "91da6e23acc0df8be6a70c53cc96975821e6d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "651777eb_3a1c6f72",
