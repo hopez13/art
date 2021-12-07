@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a76a231a_20c06f51",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-07T15:29:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba9fdb46_d12450f4",
+      "range": {
+        "startLine": 2364,
+        "startChar": 33,
+        "endLine": 2364,
+        "endChar": 37
+      },
+      "revId": "cfd398c8e3fb0a6fd0b7229119b55937b07d7a81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a28d7f0_bef9b676",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-07T15:24:24Z",
       "side": 1,
       "message": "A shorter and more readable version:\n\n  for (const std::string\u0026 profile_location : profile_locations) {\n    copy.push_back(\"--profile-file\u003d\" + profile_location);\n  }",
+      "range": {
+        "startLine": 652,
+        "startChar": 4,
+        "endLine": 655,
+        "endChar": 93
+      },
+      "revId": "cfd398c8e3fb0a6fd0b7229119b55937b07d7a81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68ec5d47_6758c018",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-07T15:29:18Z",
+      "side": 1,
+      "message": "Done. It\u0027s ironic that such function is longer than a for loop in C++ :)",
+      "parentUuid": "3a28d7f0_bef9b676",
       "range": {
         "startLine": 652,
         "startChar": 4,
