@@ -110,6 +110,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d90a4be4_f9551d15",
+        "filename": "test/csuite-app-compile-launch.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-12-08T13:50:51Z",
+      "side": 1,
+      "message": "The command waits for the compilation, with a timeout of 2 minutes. Tested that locally. On my compiles the most I saw was 70-80 seconds so 120s should be enough I think.",
+      "parentUuid": "409fab09_4381013a",
+      "range": {
+        "startLine": 26,
+        "startChar": 42,
+        "endLine": 26,
+        "endChar": 80
+      },
+      "revId": "70f161271c8adc977bd33d79e0a738dfce5e668d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64d1d854_722dcee3",
@@ -123,6 +147,24 @@
       "writtenOn": "2021-12-08T13:44:29Z",
       "side": 1,
       "message": "Nit: Add a newline at the end of this file.",
+      "revId": "70f161271c8adc977bd33d79e0a738dfce5e668d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9849abfc_1c504941",
+        "filename": "test/csuite-app-compile-launch.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2021-12-08T13:50:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d1d854_722dcee3",
       "revId": "70f161271c8adc977bd33d79e0a738dfce5e668d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
