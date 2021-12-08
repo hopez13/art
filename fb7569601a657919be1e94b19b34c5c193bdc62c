@@ -16,6 +16,29 @@
       "message": "PS5 adds some tests in image_space_test.cc.",
       "revId": "fb7569601a657919be1e94b19b34c5c193bdc62c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38ede939_d0381049",
+        "filename": "runtime/gc/space/image_space_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-08T20:34:10Z",
+      "side": 1,
+      "message": "Question for reviewers: How does ANDROID_DATA have things to do with image space? Do we still need this test today?",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 511,
+        "endChar": 1
+      },
+      "revId": "fb7569601a657919be1e94b19b34c5c193bdc62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
