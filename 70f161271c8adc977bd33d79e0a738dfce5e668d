@@ -85,6 +85,46 @@
       "message": "Some of the master-art bots got the new manifest and some didn\u0027t yet. I will retry presubmit tomorrow.",
       "revId": "70f161271c8adc977bd33d79e0a738dfce5e668d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "409fab09_4381013a",
+        "filename": "test/csuite-app-compile-launch.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-12-08T13:44:29Z",
+      "side": 1,
+      "message": "I don\u0027t remember whether `cmd package compile` waits for the compilation to be over or returns immediately; if that\u0027s the latter, we may want to think about a synchronization mechanism or at least wait a little before running the test itself.",
+      "range": {
+        "startLine": 26,
+        "startChar": 42,
+        "endLine": 26,
+        "endChar": 80
+      },
+      "revId": "70f161271c8adc977bd33d79e0a738dfce5e668d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d1d854_722dcee3",
+        "filename": "test/csuite-app-compile-launch.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-12-08T13:44:29Z",
+      "side": 1,
+      "message": "Nit: Add a newline at the end of this file.",
+      "revId": "70f161271c8adc977bd33d79e0a738dfce5e668d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
