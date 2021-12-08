@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d98f8b7a_86525263",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-08T20:24:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e92557d_e533b4a6",
+      "revId": "57db9d53fa8c9354a23dd25e550af993fa428e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7666354_e6e0f997",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aea2d0f4_7728f07a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1523,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-08T20:24:40Z",
+      "side": 1,
+      "message": "This function no longer only compiles extensions. After this change, it can  compile the entire bootclasspath.",
+      "parentUuid": "f7666354_e6e0f997",
+      "range": {
+        "startLine": 1523,
+        "startChar": 7,
+        "endLine": 1523,
+        "endChar": 27
+      },
+      "revId": "57db9d53fa8c9354a23dd25e550af993fa428e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be46cdd6_76527ff7",
@@ -54,6 +96,30 @@
       "writtenOn": "2021-12-07T15:24:31Z",
       "side": 1,
       "message": "This should be outside of the profile loop.",
+      "range": {
+        "startLine": 931,
+        "startChar": 0,
+        "endLine": 937,
+        "endChar": 9
+      },
+      "revId": "57db9d53fa8c9354a23dd25e550af993fa428e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b7680eb_f7d77fc5",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-08T20:24:40Z",
+      "side": 1,
+      "message": "I still need a loop to do this because we need to find out which profile has a corresponding boot profile. However, I can move it to a separate loop so that it can be prioritized in the queue.",
+      "parentUuid": "be46cdd6_76527ff7",
       "range": {
         "startLine": 931,
         "startChar": 0,
