@@ -618,6 +618,46 @@ void X86JNIMacroAssembler::TryToTransitionFromRunnableToNative(
                 Immediate(0));
 }
 
+void X86JNIMacroAssembler::TryToTransitionFromNativeToRunnable(
+    JNIMacroLabel* label,
+    ArrayRef<const ManagedRegister> scratch_regs,
+    ManagedRegister return_reg) {
+  constexpr uint32_t kNativeStateValue = Thread::StoredThreadStateValue(ThreadState::kNative);
+  constexpr uint32_t kRunnableStateValue = Thread::StoredThreadStateValue(ThreadState::kRunnable);
+  constexpr ThreadOffset32 thread_flags_offset = Thread::ThreadFlagsOffset<kX86PointerSize>();
+  constexpr ThreadOffset32 thread_held_mutex_mutator_lock_offset =
+      Thread::HeldMutexOffset<kX86PointerSize>(kMutatorLock);
+  constexpr ThreadOffset32 thread_mutator_lock_offset =
+      Thread::MutatorLockOffset<kX86PointerSize>();
+
+  DCHECK_GE(scratch_regs.size(), 2u);
+  DCHECK(!scratch_regs[0].AsX86().Overlaps(return_reg.AsX86()));
+  Register scratch = scratch_regs[0].AsX86().AsCpuRegister();
+  DCHECK(!scratch_regs[1].AsX86().Overlaps(return_reg.AsX86()));
+  Register saved_eax = scratch_regs[1].AsX86().AsCpuRegister();
+  bool preserve_eax = return_reg.AsX86().Overlaps(X86ManagedRegister::FromCpuRegister(EAX));
+
+  // CAS acquire, old_value = kNativeStateValue, new_value = kRunnableStateValue, no flags.
+  if (preserve_eax) {
+    __ movl(saved_eax, EAX);  // Save EAX.
+  }
+  __ movl(EAX, Immediate(kNativeStateValue));
+  static_assert(kRunnableStateValue == 0u);
+  __ xorl(scratch, scratch);
+  __ fs()->LockCmpxchgl(Address::Absolute(thread_flags_offset.Uint32Value()), scratch);
+  // LOCK CMPXCHG has full barrier semantics, so we don't need barriers here.
+  if (preserve_eax) {
+    __ movl(EAX, saved_eax);  // Restore EAX; MOV does not change flags.
+  }
+  // If any flags are set, go to the slow path.
+  __ j(kNotZero, X86JNIMacroLabel::Cast(label)->AsX86());
+
+  // Set `self->tlsPtr_.held_mutexes[kMutatorLock]` to the mutator lock.
+  __ fs()->movl(scratch, Address::Absolute(thread_mutator_lock_offset.Uint32Value()));
+  __ fs()->movl(Address::Absolute(thread_held_mutex_mutator_lock_offset.Uint32Value()),
+                scratch);
+}
+
 void X86JNIMacroAssembler::SuspendCheck(JNIMacroLabel* label) {
   __ fs()->testl(Address::Absolute(Thread::ThreadFlagsOffset<kX86PointerSize>()),
                  Immediate(Thread::SuspendOrCheckpointRequestFlags()));

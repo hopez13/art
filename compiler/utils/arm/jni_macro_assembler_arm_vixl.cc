@@ -1079,6 +1079,43 @@ void ArmVIXLJNIMacroAssembler::TryToTransitionFromRunnableToNative(
   ___ Str(scratch, MemOperand(tr, thread_held_mutex_mutator_lock_offset.Int32Value()));
 }
 
+void ArmVIXLJNIMacroAssembler::TryToTransitionFromNativeToRunnable(
+    JNIMacroLabel* label,
+    ArrayRef<const ManagedRegister> scratch_regs,
+    ManagedRegister return_reg) {
+  constexpr uint32_t kNativeStateValue = Thread::StoredThreadStateValue(ThreadState::kNative);
+  constexpr uint32_t kRunnableStateValue = Thread::StoredThreadStateValue(ThreadState::kRunnable);
+  constexpr ThreadOffset32 thread_flags_offset = Thread::ThreadFlagsOffset<kArmPointerSize>();
+  constexpr ThreadOffset32 thread_held_mutex_mutator_lock_offset =
+      Thread::HeldMutexOffset<kArmPointerSize>(kMutatorLock);
+  constexpr ThreadOffset32 thread_mutator_lock_offset =
+      Thread::MutatorLockOffset<kArmPointerSize>();
+
+  // There must be at least two scratch registers.
+  DCHECK_GE(scratch_regs.size(), 2u);
+  DCHECK(!scratch_regs[0].AsArm().Overlaps(return_reg.AsArm()));
+  vixl32::Register scratch = AsVIXLRegister(scratch_regs[0].AsArm());
+  DCHECK(!scratch_regs[1].AsArm().Overlaps(return_reg.AsArm()));
+  vixl32::Register scratch2 = AsVIXLRegister(scratch_regs[1].AsArm());
+
+  // CAS acquire, old_value = kNativeStateValue, new_value = kRunnableStateValue, no flags.
+  vixl32::Label retry;
+  ___ Bind(&retry);
+  ___ Ldrex(scratch, MemOperand(tr, thread_flags_offset.Int32Value()));
+  ___ Mov(scratch2, kRunnableStateValue);
+  // If any flags are set, or the state is not Native, go to the slow path.
+  ___ Cmp(scratch, kNativeStateValue);
+  ___ B(ne, ArmVIXLJNIMacroLabel::Cast(label)->AsArm());
+  ___ Strex(scratch, scratch2, MemOperand(tr, thread_flags_offset.Int32Value()));
+  ___ Cmp(scratch, 0);
+  ___ B(ne, &retry);
+  ___ Dmb(DmbOptions::ISH);  // Memory barrier "load-any" for the "acquire" operation.
+
+  // Set `self->tlsPtr_.held_mutexes[kMutatorLock]` to the mutator lock.
+  ___ Ldr(scratch, MemOperand(tr, thread_mutator_lock_offset.Int32Value()));
+  ___ Str(scratch, MemOperand(tr, thread_held_mutex_mutator_lock_offset.Int32Value()));
+}
+
 void ArmVIXLJNIMacroAssembler::SuspendCheck(JNIMacroLabel* label) {
   UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
   vixl32::Register scratch = temps.Acquire();
