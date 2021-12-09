@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3140af46_adf0d804",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-12-09T01:20:33Z",
+      "side": 1,
+      "message": "LGTM, modulo some nits. Lokesh should probably be aware of this as well.",
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ffae9bb_634db63b",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-12-09T01:20:33Z",
+      "side": 1,
+      "message": "I think it\u0027s easier to read and more consistent with \u003c\u003c below to use this to start the next line.",
+      "range": {
+        "startLine": 262,
+        "startChar": 42,
+        "endLine": 262,
+        "endChar": 43
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c10065e_29bed3af",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-12-09T01:20:33Z",
+      "side": 1,
+      "message": "Seems like an odd name, since it ensures the flip function is run, and I think it always succeeds at that.",
+      "range": {
+        "startLine": 1787,
+        "startChar": 13,
+        "endLine": 1787,
+        "endChar": 33
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36fba44c_72498ea0",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-12-09T01:20:33Z",
+      "side": 1,
+      "message": "The comment seems redundant.\n\nMight be a little clearer if this went into the critical section. But I think it\u0027s OK either way.",
+      "range": {
+        "startLine": 1821,
+        "startChar": 4,
+        "endLine": 1821,
+        "endChar": 81
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
