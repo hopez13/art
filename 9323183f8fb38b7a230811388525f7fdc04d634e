@@ -136,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "578f3ec8_5850abdf",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T16:34:32Z",
+      "side": 1,
+      "message": "This is documented at `ThreadList::RunCheckpoint()`.",
+      "parentUuid": "4ce843f7_f3555321",
+      "range": {
+        "startLine": 1562,
+        "startChar": 0,
+        "endLine": 1562,
+        "endChar": 25
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c10065e_29bed3af",
@@ -291,6 +315,30 @@
       "side": 1,
       "message": "Oh, so TryToFlip may return without having executed the flip, but also without having the flip function finished running?",
       "parentUuid": "f7e05950_b30132aa",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 82
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a226617_fdcafc53",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T16:34:32Z",
+      "side": 1,
+      "message": "Yes, and it was renamed as `EnsureFlipFunctionStarted()` in PS3/PS4 based on Hans\u0027s comment. I hope the new name better reflects the semantics.",
+      "parentUuid": "d65a2242_4810599c",
       "range": {
         "startLine": 345,
         "startChar": 0,
