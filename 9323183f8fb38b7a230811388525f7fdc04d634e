@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de7875da_caaa4399",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-09T18:45:35Z",
+      "side": 1,
+      "message": "Hmm, OK, maybe point to that method for the comment? Or add a quick \"DCHECK(... ) \u003c\u003c RunCheckpoint should be called on a different thread\" ?",
+      "parentUuid": "578f3ec8_5850abdf",
+      "range": {
+        "startLine": 1562,
+        "startChar": 0,
+        "endLine": 1562,
+        "endChar": 25
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c10065e_29bed3af",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -339,6 +363,30 @@
       "side": 1,
       "message": "Yes, and it was renamed as `EnsureFlipFunctionStarted()` in PS3/PS4 based on Hans\u0027s comment. I hope the new name better reflects the semantics.",
       "parentUuid": "d65a2242_4810599c",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 82
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45cccd7b_fbfb1875",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-09T18:45:35Z",
+      "side": 1,
+      "message": "Yes, thanks!",
+      "parentUuid": "8a226617_fdcafc53",
       "range": {
         "startLine": 345,
         "startChar": 0,
