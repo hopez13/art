@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2b15598_a0d7698d",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T14:31:20Z",
+      "side": 1,
+      "message": "You should have started this change by updating the image location specification.",
+      "revId": "fb7569601a657919be1e94b19b34c5c193bdc62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "38ede939_d0381049",
         "filename": "runtime/gc/space/image_space_test.cc",
         "patchSetId": 6
