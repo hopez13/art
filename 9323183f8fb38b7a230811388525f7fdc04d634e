@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e55f7c6e_1ebd6cc8",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T15:20:52Z",
+      "side": 1,
+      "message": "I think breaking the line after the operator is the prevalent style for everything other than \"\u003c\u003c\". (Breaking before the operator is used in very few places in ART.)",
+      "parentUuid": "3ffae9bb_634db63b",
+      "range": {
+        "startLine": 262,
+        "startChar": 42,
+        "endLine": 262,
+        "endChar": 43
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9fb4715e_551f0342",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2021-12-09T09:27:17Z",
       "side": 1,
       "message": "This confused me: are we running the flip function of another thread?",
+      "range": {
+        "startLine": 1562,
+        "startChar": 0,
+        "endLine": 1562,
+        "endChar": 25
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cfbf0e3_a89975e9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T15:20:52Z",
+      "side": 1,
+      "message": "A thread can run a checkpoints on itself while Runnable; in that case we should not see \"flip function flags\" here. When the thread is not Runnable, the requesting thread makes sure it\u0027s suspended (see DCHECK above) and runs the checkpoint on its behalf; this is the only case where we need to protect against \"flip function\" races.",
+      "parentUuid": "9fb4715e_551f0342",
       "range": {
         "startLine": 1562,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f5ebdb2_c70a3043",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T15:20:52Z",
+      "side": 1,
+      "message": "Renamed to `EnsureFlipFunctionStarted()` and changed comment at declaration.",
+      "parentUuid": "3c10065e_29bed3af",
+      "range": {
+        "startLine": 1787,
+        "startChar": 13,
+        "endLine": 1787,
+        "endChar": 33
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36fba44c_72498ea0",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-12-09T01:20:33Z",
       "side": 1,
       "message": "The comment seems redundant.\n\nMight be a little clearer if this went into the critical section. But I think it\u0027s OK either way.",
+      "range": {
+        "startLine": 1821,
+        "startChar": 4,
+        "endLine": 1821,
+        "endChar": 81
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f684ff4d_b5ad5012",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T15:20:52Z",
+      "side": 1,
+      "message": "Obsolete. It was rewritten in PS3 with an additional flag, so please check the new comments there.",
+      "parentUuid": "36fba44c_72498ea0",
       "range": {
         "startLine": 1821,
         "startChar": 4,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7e05950_b30132aa",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T15:20:52Z",
+      "side": 1,
+      "message": "No, but one thread may need to wait while another thread is running it. See description of the new flags.",
+      "parentUuid": "1730b2cf_7572fecb",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 82
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "767af187_0aa8fef6",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-12-09T09:27:17Z",
       "side": 1,
       "message": "nit: add a comment on why",
+      "range": {
+        "startLine": 1392,
+        "startChar": 52,
+        "endLine": 1392,
+        "endChar": 77
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f3f6b85_e958825a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T15:20:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "767af187_0aa8fef6",
       "range": {
         "startLine": 1392,
         "startChar": 52,
