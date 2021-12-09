@@ -76,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eacb566_d9b118b4",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1784,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-09T21:31:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72869098_4bfb0fb6",
+      "range": {
+        "startLine": 1784,
+        "startChar": 0,
+        "endLine": 1784,
+        "endChar": 14
+      },
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be1f0240_ebbc697c",
@@ -99,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eb0a36c_4fadfddc",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1785,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-09T21:31:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be1f0240_ebbc697c",
+      "range": {
+        "startLine": 1785,
+        "startChar": 16,
+        "endLine": 1785,
+        "endChar": 18
+      },
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bd98696_1483124f",
@@ -112,6 +160,30 @@
       "writtenOn": "2021-12-09T14:17:10Z",
       "side": 1,
       "message": "This may have false negatives and needs a comment.",
+      "range": {
+        "startLine": 1791,
+        "startChar": 11,
+        "endLine": 1791,
+        "endChar": 13
+      },
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d8a4c97_8a789d48",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-09T21:31:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bd98696_1483124f",
       "range": {
         "startLine": 1791,
         "startChar": 11,
@@ -147,6 +219,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64a18205_4163e917",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1795,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-09T21:31:06Z",
+      "side": 1,
+      "message": "What do you mean repeatedly? At this point, we\u0027re only going to the slow path (ie calling art_quick_check_instance_of).",
+      "parentUuid": "34bb2939_4128be1c",
+      "range": {
+        "startLine": 1795,
+        "startChar": 3,
+        "endLine": 1795,
+        "endChar": 21
+      },
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af69e35a_e47cefaf",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 4
@@ -158,6 +254,30 @@
       "writtenOn": "2021-12-09T14:17:10Z",
       "side": 1,
       "message": "I think it would be better to compare the primitive types, so that we do not go to slow path for primitive arrays.",
+      "range": {
+        "startLine": 1811,
+        "startChar": 3,
+        "endLine": 1816,
+        "endChar": 37
+      },
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96452ab5_f7dfce57",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1816,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-09T21:31:06Z",
+      "side": 1,
+      "message": "For primitive arrays, the exact check in the fast-fast-path will cover it. I\u0027ve removed some of the code there.",
+      "parentUuid": "af69e35a_e47cefaf",
       "range": {
         "startLine": 1811,
         "startChar": 3,
