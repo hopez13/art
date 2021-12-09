@@ -33,6 +33,139 @@
       "message": "Actually I noticed some issues in the assembly which leads to dead code. Let me upload a new PS and I\u0027ll let you know. Sorry!",
       "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2929406_807329da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T14:17:10Z",
+      "side": 1,
+      "message": "In that case, let me send you my initial comments. (I reviewed just a tiny portion of the CL so far.)",
+      "parentUuid": "4ef9e35c_79f1453a",
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72869098_4bfb0fb6",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1784,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T14:17:10Z",
+      "side": 1,
+      "message": "You should keep this in `object.S` and use the `add_helper()` facility to create an out-of-handler slow path.",
+      "range": {
+        "startLine": 1784,
+        "startChar": 0,
+        "endLine": 1784,
+        "endChar": 14
+      },
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be1f0240_ebbc697c",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1785,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T14:17:10Z",
+      "side": 1,
+      "message": "x1 can be a from-space reference because you did not add a read barrier in the handler. It is OK to do an interface check and array class check with a from-space reference but it needs a comment.",
+      "range": {
+        "startLine": 1785,
+        "startChar": 16,
+        "endLine": 1785,
+        "endChar": 18
+      },
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bd98696_1483124f",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T14:17:10Z",
+      "side": 1,
+      "message": "This may have false negatives and needs a comment.",
+      "range": {
+        "startLine": 1791,
+        "startChar": 11,
+        "endLine": 1791,
+        "endChar": 13
+      },
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34bb2939_4128be1c",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1795,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T14:17:10Z",
+      "side": 1,
+      "message": "This tests the marking register repeatedly. It would be better to do\n\n    TEST_IF_MARKING .Lcheck_cast_gc_marking\n    [code path without read barriers]\n  .Lcheck_cast_gc_marking:\n    [code path with read barriers, no more checking of MR]",
+      "range": {
+        "startLine": 1795,
+        "startChar": 3,
+        "endLine": 1795,
+        "endChar": 21
+      },
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af69e35a_e47cefaf",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1816,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-09T14:17:10Z",
+      "side": 1,
+      "message": "I think it would be better to compare the primitive types, so that we do not go to slow path for primitive arrays.",
+      "range": {
+        "startLine": 1811,
+        "startChar": 3,
+        "endLine": 1816,
+        "endChar": 37
+      },
+      "revId": "dd73ce7c28fbba1bbc58a04a584272569465a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
