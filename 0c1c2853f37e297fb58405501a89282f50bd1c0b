@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e148db2_a945af88",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "I\u0027ve seen this in Jetpack-Compose startup profiles and I was planning to do this when I find the time. You were faster.",
+      "range": {
+        "startLine": 9,
+        "startChar": 14,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "502f497d_fd56f730",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "Bug: 112676029",
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46b456f0_5f3df971",
+        "filename": "runtime/interpreter/mterp/arm64ng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "We could walk over the interface table instead of going straight to the slow path.",
+      "range": {
+        "startLine": 33,
+        "startChar": 52,
+        "endLine": 33,
+        "endChar": 54
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7ef5997_bd337e3f",
+        "filename": "runtime/interpreter/mterp/arm64ng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "If you move this between the LDR and TBNZ above (where it should essentially cost nothing), you can redirect all the `b.\u003ccond\u003e 2b` branches below directly to `.L${opcode}_resume`.\n\n(And maybe use `#0` instead of `wzr`.)",
+      "range": {
+        "startLine": 111,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 18
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07304f04_ab345c6a",
+        "filename": "runtime/interpreter/mterp/arm64ng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "You can reorder this before \"4:\" and remove the branch.",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 13
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf96aa60_4b2f46a6",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "LDRH+LDRH+ORRS+BEQ .L${opcode}_resume",
+      "range": {
+        "startLine": 59,
+        "startChar": 3,
+        "endLine": 66,
+        "endChar": 29
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ffb6ca0_83f89027",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "If you move this between the LDR and TST above (lines 105-106 where it should essentially cost nothing), you can redirect all the `b\u003ccond\u003e 2b` branches below directly to `.L${opcode}_resume`.",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 17
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87fafc68_534df40f",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "LDRH+LDRH+ORR+\u003cpost-processing\u003e\n\nThe best sequence for `x \u003d\u003d 0` seems to be CLZ + LSR #5 as seen in ARM codegen for Optimizing.",
+      "range": {
+        "startLine": 129,
+        "startChar": 3,
+        "endLine": 135,
+        "endChar": 17
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "227b0238_d1acbe33",
+        "filename": "runtime/interpreter/mterp/armng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "Reorder before \"4:\" and drop the branch.",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 13
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58d880ff_aec083e9",
+        "filename": "runtime/interpreter/mterp/x86_64ng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "Reorder before \"4:\", drop the JMP.",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 9
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20ea445c_8e33b995",
+        "filename": "runtime/interpreter/mterp/x86ng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "3f?",
+      "range": {
+        "startLine": 67,
+        "startChar": 7,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a0da804_76f460f4",
+        "filename": "runtime/interpreter/mterp/x86ng/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "Move before \"2:\", drop the JMP.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 9
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5e5e010_9c21a36e",
+        "filename": "tools/cpp-define-generator/mirror_class.def",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T17:07:43Z",
+      "side": 1,
+      "message": "WhichPowerOf2",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 34
+      },
+      "revId": "0c1c2853f37e297fb58405501a89282f50bd1c0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
