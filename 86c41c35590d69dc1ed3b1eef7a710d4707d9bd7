@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c5587b8_683db5aa",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1525,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-10T14:11:16Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "426b4aa8_25638c0e",
+      "range": {
+        "startLine": 1525,
+        "startChar": 7,
+        "endLine": 1525,
+        "endChar": 27
+      },
+      "revId": "86c41c35590d69dc1ed3b1eef7a710d4707d9bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a7928fe_57b35b09",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-10T13:58:56Z",
       "side": 1,
       "message": "why this change?",
+      "range": {
+        "startLine": 118,
+        "startChar": 45,
+        "endLine": 118,
+        "endChar": 48
+      },
+      "revId": "86c41c35590d69dc1ed3b1eef7a710d4707d9bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "004fbd2d_09b55bee",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-10T14:11:16Z",
+      "side": 1,
+      "message": "I\u0027m updating the comments, so I updated this line by the way to make the path align with the real path of the profile.",
+      "parentUuid": "7a7928fe_57b35b09",
       "range": {
         "startLine": 118,
         "startChar": 45,
