@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a827750_647e39bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2021-12-10T07:29:33Z",
+      "side": 1,
+      "message": "Context for original CL owner:\n\nExample breakage:\nhttps://android-build.googleplex.com/builds/submitted/7983509/aosp_cloudripper-userdebug/latest/view/logs/build_error.log\n\nTo avoid this breakage, the test/app_compat/csuite repository that defines the csuite_test Soong module needs to be added to the PDK (ag/16430824) or the new test must be defined in a project that is not part of the PDK.",
+      "revId": "3062075164e66db8001b5512dbf91b9b28ee4fc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
