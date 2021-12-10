@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "426b4aa8_25638c0e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1525,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-10T13:58:56Z",
+      "side": 1,
+      "message": "How about CompileBootclasspathElements ?",
+      "range": {
+        "startLine": 1525,
+        "startChar": 7,
+        "endLine": 1525,
+        "endChar": 27
+      },
+      "revId": "86c41c35590d69dc1ed3b1eef7a710d4707d9bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a7928fe_57b35b09",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-10T13:58:56Z",
+      "side": 1,
+      "message": "why this change?",
+      "range": {
+        "startLine": 118,
+        "startChar": 45,
+        "endLine": 118,
+        "endChar": 48
+      },
+      "revId": "86c41c35590d69dc1ed3b1eef7a710d4707d9bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
