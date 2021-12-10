@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20b3158f_7dccd84c",
+        "filename": "runtime/gc/space/image_space_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T11:41:49Z",
+      "side": 1,
+      "message": "I would remove this. (And the last reference to \"dalvik-cache\" in the `image_space.cc`, namely `std::string dalvik_cache_unused;`.)\n\nThis could be done in a separate cleanup CL.",
+      "parentUuid": "38ede939_d0381049",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 511,
+        "endChar": 1
+      },
+      "revId": "fb7569601a657919be1e94b19b34c5c193bdc62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9d3cae7_0c1fe0ef",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 6
