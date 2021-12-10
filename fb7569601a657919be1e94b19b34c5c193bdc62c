@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ded445b4_f2393236",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-10T12:14:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2b15598_a0d7698d",
+      "revId": "fb7569601a657919be1e94b19b34c5c193bdc62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38ede939_d0381049",
@@ -82,6 +100,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7d08afe_1e150886",
+        "filename": "runtime/gc/space/image_space_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-10T12:14:12Z",
+      "side": 1,
+      "message": "Got it. Thank you for confirming. I\u0027ll do a cleanup in a separate CL.",
+      "parentUuid": "20b3158f_7dccd84c",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 511,
+        "endChar": 1
+      },
+      "revId": "fb7569601a657919be1e94b19b34c5c193bdc62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9d3cae7_0c1fe0ef",
@@ -95,6 +137,30 @@
       "writtenOn": "2021-12-09T09:16:05Z",
       "side": 1,
       "message": "I\u0027d drop this, as it\u0027s not how it was handled before.",
+      "range": {
+        "startLine": 936,
+        "startChar": 0,
+        "endLine": 940,
+        "endChar": 11
+      },
+      "revId": "fb7569601a657919be1e94b19b34c5c193bdc62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd24b113_36e4914b",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-10T12:14:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9d3cae7_0c1fe0ef",
       "range": {
         "startLine": 936,
         "startChar": 0,

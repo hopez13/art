@@ -107,6 +107,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5beab445_ea541b8d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1523,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-10T12:14:12Z",
+      "side": 1,
+      "message": "\u003e So it can compile the entire boot classpath or a subset of it?\n\nYes.\n\n\u003e Which parameter/field helps knowing which jars to compile?\n\nThis is tricky. I added a comment to explain this.\n\n\u003e I find CompileBootclasspath confusing if it\u0027s not always compiling the entire boot classpath.\n\nI hope the comment mitigates the confusion.",
+      "parentUuid": "1cae27c8_656e612d",
+      "range": {
+        "startLine": 1523,
+        "startChar": 7,
+        "endLine": 1523,
+        "endChar": 27
+      },
+      "revId": "57db9d53fa8c9354a23dd25e550af993fa428e5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be46cdd6_76527ff7",
