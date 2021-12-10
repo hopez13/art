@@ -44,13 +44,9 @@ File OpenAndReadMagic(const char* filename, uint32_t* magic, std::string* error_
 }
 
 bool ReadMagicAndReset(int fd, uint32_t* magic, std::string* error_msg) {
-  int n = TEMP_FAILURE_RETRY(read(fd, magic, sizeof(*magic)));
+  int n = TEMP_FAILURE_RETRY(pread(fd, magic, sizeof(*magic), /*offset=*/0));
   if (n != sizeof(*magic)) {
     *error_msg = StringPrintf("Failed to find magic");
-    return false;
-  }
-  if (lseek(fd, 0, SEEK_SET) != 0) {
-    *error_msg = StringPrintf("Failed to seek to beginning of file : %s", strerror(errno));
     return false;
   }
   return true;
