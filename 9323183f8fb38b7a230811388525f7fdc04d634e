@@ -184,6 +184,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4892ee66_fc265867",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-10T10:28:29Z",
+      "side": 1,
+      "message": "Your proposed wording is very misleading, checkpoints often run on the thread itself (but they should not reach this particular path).\n\nI expanded the comment above a little bit.",
+      "parentUuid": "de7875da_caaa4399",
+      "range": {
+        "startLine": 1562,
+        "startChar": 0,
+        "endLine": 1562,
+        "endChar": 25
+      },
+      "revId": "9323183f8fb38b7a230811388525f7fdc04d634e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c10065e_29bed3af",
