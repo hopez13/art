@@ -1515,6 +1515,12 @@ class ImageSpace::BootImageLayout {
                       const char* file_description,
                       /*out*/std::string* error_msg);
 
+  bool ValidateOatFile(const std::string& base_location,
+                       const std::string& base_filename,
+                       size_t bcp_index,
+                       size_t component_count,
+                       /*out*/ std::string* error_msg);
+
   bool ReadHeader(const std::string& base_location,
                   const std::string& base_filename,
                   size_t bcp_index,
@@ -1820,6 +1826,62 @@ bool ImageSpace::BootImageLayout::ValidateHeader(const ImageHeader& header,
   return true;
 }
 
+bool ImageSpace::BootImageLayout::ValidateOatFile(const std::string& base_location,
+                                                  const std::string& base_filename,
+                                                  size_t bcp_index,
+                                                  size_t dex_count,
+                                                  /*out*/ std::string* error_msg) {
+  std::string art_filename = ExpandLocation(base_filename, bcp_index);
+  std::string art_location = ExpandLocation(base_location, bcp_index);
+  std::string oat_filename = ImageHeader::GetOatLocationFromImageLocation(art_filename);
+  std::string oat_location = ImageHeader::GetOatLocationFromImageLocation(art_location);
+  int oat_fd =
+      bcp_index < boot_class_path_oat_fds_.size() ? boot_class_path_oat_fds_[bcp_index] : -1;
+  int vdex_fd =
+      bcp_index < boot_class_path_vdex_fds_.size() ? boot_class_path_vdex_fds_[bcp_index] : -1;
+  auto dex_filenames = ArrayRef<const std::string>(boot_class_path_).SubArray(bcp_index, dex_count);
+  auto dex_fds = bcp_index + dex_count < boot_class_path_fds_.size() ?
+                     ArrayRef<const int>(boot_class_path_fds_).SubArray(bcp_index, dex_count) :
+                     ArrayRef<const int>();
+  std::unique_ptr<OatFile> oat_file;
+  DCHECK_EQ(oat_fd >= 0, vdex_fd >= 0);
+  if (oat_fd >= 0) {
+    oat_file.reset(OatFile::Open(
+        /*zip_fd=*/-1,
+        vdex_fd,
+        oat_fd,
+        oat_location,
+        /*executable=*/false,
+        /*low_4gb=*/false,
+        dex_filenames,
+        dex_fds,
+        /*reservation=*/nullptr,
+        error_msg));
+  } else {
+    oat_file.reset(OatFile::Open(
+        /*zip_fd=*/-1,
+        oat_filename,
+        oat_location,
+        /*executable=*/false,
+        /*low_4gb=*/false,
+        dex_filenames,
+        dex_fds,
+        /*reservation=*/nullptr,
+        error_msg));
+  }
+  if (oat_file == nullptr) {
+    *error_msg = StringPrintf("Failed to open oat file '%s' when validating it for image '%s': %s",
+                              oat_filename.c_str(),
+                              art_location.c_str(),
+                              error_msg->c_str());
+    return false;
+  }
+  if (!ImageSpace::ValidateOatFile(*oat_file, error_msg)) {
+    return false;
+  }
+  return true;
+}
+
 bool ImageSpace::BootImageLayout::ReadHeader(const std::string& base_location,
                                              const std::string& base_filename,
                                              size_t bcp_index,
@@ -1845,6 +1907,12 @@ bool ImageSpace::BootImageLayout::ReadHeader(const std::string& base_location,
   }
   const char* file_description = actual_filename.c_str();
   if (!ValidateHeader(header, bcp_index, file_description, error_msg)) {
+    return false;
+  }
+
+  // For better performance, we only validate the first oat file for each boot image.
+  size_t dex_count = (header.GetImageSpaceCount() == 1u) ? header.GetComponentCount() : 1u;
+  if (!ValidateOatFile(base_location, base_filename, bcp_index, dex_count, error_msg)) {
     return false;
   }
 
@@ -3186,30 +3254,34 @@ bool ImageSpace::BootImageLoader::LoadFromSystem(
     /*out*/std::vector<std::unique_ptr<ImageSpace>>* boot_image_spaces,
     /*out*/MemMap* extra_reservation,
     /*out*/std::string* error_msg) {
-  TimingLogger logger(__PRETTY_FUNCTION__, /*precise=*/ true, VLOG_IS_ON(image));
+  TimingLogger logger(__PRETTY_FUNCTION__, /*precise=*/true, true);
 
-  BootImageLayout layout(image_locations_,
-                         boot_class_path_,
-                         boot_class_path_locations_,
-                         boot_class_path_fds_,
-                         boot_class_path_image_fds_,
-                         boot_class_path_vdex_fds_,
-                         boot_class_path_oat_fds_);
-  if (!layout.LoadFromSystem(image_isa_, error_msg)) {
-    return false;
+  {
+    TimingLogger::ScopedTiming timing("LoadFromSystem", &logger);
+
+    BootImageLayout layout(image_locations_,
+                           boot_class_path_,
+                           boot_class_path_locations_,
+                           boot_class_path_fds_,
+                           boot_class_path_image_fds_,
+                           boot_class_path_vdex_fds_,
+                           boot_class_path_oat_fds_);
+    if (!layout.LoadFromSystem(image_isa_, error_msg)) {
+      return false;
+    }
+
+    if (!LoadImage(layout,
+                   /*validate_oat_file=*/false,
+                   extra_reservation_size,
+                   &logger,
+                   boot_image_spaces,
+                   extra_reservation,
+                   error_msg)) {
+      return false;
+    }
   }
 
-  if (!LoadImage(layout,
-                 /*validate_oat_file=*/ false,
-                 extra_reservation_size,
-                 &logger,
-                 boot_image_spaces,
-                 extra_reservation,
-                 error_msg)) {
-    return false;
-  }
-
-  if (VLOG_IS_ON(image)) {
+  if (true) {
     LOG(INFO) << "ImageSpace::BootImageLoader::LoadFromSystem exiting "
         << *boot_image_spaces->front();
     logger.Dump(LOG_STREAM(INFO));
