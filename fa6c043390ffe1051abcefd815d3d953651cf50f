@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89bb5643_8e2bf2c5",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-13T14:00:05Z",
+      "side": 1,
+      "message": "DCHECK(!is_critical_native) ?",
+      "revId": "fa6c043390ffe1051abcefd815d3d953651cf50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c3e704c_f03b0ea7",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-13T14:00:05Z",
+      "side": 1,
+      "message": "this is unexpected right? But other flags being set could happen? Could you expand the comment and say that we expect the state to be native otherwise there\u0027s some corruption (?)",
+      "range": {
+        "startLine": 1105,
+        "startChar": 27,
+        "endLine": 1105,
+        "endChar": 53
+      },
+      "revId": "fa6c043390ffe1051abcefd815d3d953651cf50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc9e928f_a310418c",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-13T14:00:05Z",
+      "side": 1,
+      "message": "Also !CriticalNative?",
+      "revId": "fa6c043390ffe1051abcefd815d3d953651cf50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c45f7a57_9d96338f",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-13T14:00:05Z",
+      "side": 1,
+      "message": "Is that still a TODO?",
+      "range": {
+        "startLine": 145,
+        "startChar": 7,
+        "endLine": 145,
+        "endChar": 11
+      },
+      "revId": "fa6c043390ffe1051abcefd815d3d953651cf50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cbf027f_28c8d884",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-13T14:00:05Z",
+      "side": 1,
+      "message": "artJniMonitoredMethodEnd ?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 26
+      },
+      "revId": "fa6c043390ffe1051abcefd815d3d953651cf50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
