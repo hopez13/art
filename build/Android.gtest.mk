@@ -39,11 +39,13 @@ my_files += \
 icu_data_file := $(firstword $(wildcard external/icu/icu4c/source/stubdata/icu*.dat))
 my_files += $(foreach infix,_ _VDEX_,$(foreach suffix,$(HOST_ARCH) $(HOST_2ND_ARCH), \
   $(DEXPREOPT_IMAGE$(infix)BUILT_INSTALLED_art_host_$(suffix))))
+# `dexpreopt_bootjars` uses a single source of input regardless of variants, so we should use the
+# same source to match the behavior.
 my_files += \
   $(foreach jar,$(CORE_IMG_JARS),\
-    $(HOST_OUT_JAVA_LIBRARIES)/$(jar)-hostdex.jar:apex/com.android.art/javalib/$(jar).jar) \
+    out/soong/$(PRODUCT_DEVICE)/dex_artjars_input/$(jar).jar:apex/com.android.art/javalib/$(jar).jar) \
   $(HOST_OUT_JAVA_LIBRARIES)/conscrypt-hostdex.jar:apex/com.android.conscrypt/javalib/conscrypt.jar\
-  $(HOST_OUT_JAVA_LIBRARIES)/core-icu4j-hostdex.jar:apex/com.android.i18n/javalib/core-icu4j.jar \
+  out/soong/$(PRODUCT_DEVICE)/dex_bootjars_input/$(jar).jar:apex/com.android.i18n/javalib/core-icu4j.jar \
   $(icu_data_file):com.android.i18n/etc/icu/$(notdir $(icu_data_file))
 
 # Create phony module that will copy all the data files into testcases directory.

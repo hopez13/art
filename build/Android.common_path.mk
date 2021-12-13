@@ -64,21 +64,25 @@ HOST_CORE_IMG_DEX_FILES   := $(foreach jar,$(HOST_CORE_IMG_JARS),  $(call interm
 TARGET_CORE_IMG_DEX_FILES := $(foreach jar,$(TARGET_CORE_IMG_JARS),$(call intermediates-dir-for,JAVA_LIBRARIES,$(jar).com.android.art.testing, ,COMMON)/javalib.jar)
 
 # Also copy the jar files next to host boot.art image.
+# `dexpreopt_bootjars` uses a single source of input regardless of variants, so we should use the
+# same source to match the behavior.
 HOST_BOOT_IMAGE_JARS := $(foreach jar,$(CORE_IMG_JARS),$(HOST_OUT)/apex/com.android.art/javalib/$(jar).jar)
-$(HOST_BOOT_IMAGE_JARS): $(HOST_OUT)/apex/com.android.art/javalib/%.jar : $(HOST_OUT_JAVA_LIBRARIES)/%-hostdex.jar
+CORE_IMG_JAR_DIR := out/soong/$(PRODUCT_DEVICE)/dex_artjars_input
+$(HOST_BOOT_IMAGE_JARS): $(HOST_OUT)/apex/com.android.art/javalib/%.jar : $(CORE_IMG_JAR_DIR)/%.jar
 	$(copy-file-to-target)
 
 HOST_BOOT_IMAGE_JARS += $(HOST_OUT)/apex/com.android.conscrypt/javalib/conscrypt.jar
 $(HOST_OUT)/apex/com.android.conscrypt/javalib/conscrypt.jar : $(HOST_OUT_JAVA_LIBRARIES)/conscrypt-hostdex.jar
 	$(copy-file-to-target)
 HOST_BOOT_IMAGE_JARS += $(HOST_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar
-$(HOST_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar : $(HOST_OUT_JAVA_LIBRARIES)/core-icu4j-hostdex.jar
+FRAMEWORK_IMG_JAR_DIR := out/soong/$(PRODUCT_DEVICE)/dex_bootjars_input
+$(HOST_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar : $(FRAMEWORK_IMG_JAR_DIR)/core-icu4j.jar
 	$(copy-file-to-target)
 
 HOST_CORE_IMG_OUTS += $(HOST_BOOT_IMAGE_JARS) $(HOST_BOOT_IMAGE) $(2ND_HOST_BOOT_IMAGE)
 
-HOST_TEST_CORE_JARS   := $(addsuffix -hostdex,$(CORE_IMG_JARS) core-icu4j conscrypt)
-ART_HOST_DEX_DEPENDENCIES := $(foreach jar,$(HOST_TEST_CORE_JARS),$(HOST_OUT_JAVA_LIBRARIES)/$(jar).jar)
+HOST_TEST_CORE_JARS   := $(CORE_IMG_JARS) core-icu4j conscrypt-hostdex
+ART_HOST_DEX_DEPENDENCIES := $(foreach jar,$(CORE_IMG_JARS),$(CORE_IMG_JAR_DIR)/$(jar).jar) $(FRAMEWORK_IMG_JAR_DIR)/core-icu4j.jar $(HOST_OUT_JAVA_LIBRARIES)/conscrypt-hostdex.jar
 ART_TARGET_DEX_DEPENDENCIES := com.android.art.testing com.android.conscrypt com.android.i18n
 
 ART_CORE_SHARED_LIBRARIES := libjavacore libopenjdk libopenjdkjvm libopenjdkjvmti
