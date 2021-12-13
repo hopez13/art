@@ -16,6 +16,29 @@
       "message": "Hi, so anyone has any suggestion on this topic？",
       "revId": "a7b281521237028432bd44f96868c2df53b5ba86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd159eca_1955adc4",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-13T13:47:14Z",
+      "side": 1,
+      "message": "This isn\u0027t an error that can be returned by class redefinition, so I worry this could confuse tools to see it. Maybe JVMTI_ERROR_INTERNAL ?",
+      "range": {
+        "startLine": 1085,
+        "startChar": 24,
+        "endLine": 1085,
+        "endChar": 41
+      },
+      "revId": "a7b281521237028432bd44f96868c2df53b5ba86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
