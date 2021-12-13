@@ -39,6 +39,30 @@
       },
       "revId": "a7b281521237028432bd44f96868c2df53b5ba86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f69c2ca5_d2917cea",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1090013
+      },
+      "writtenOn": "2021-12-13T14:08:37Z",
+      "side": 1,
+      "message": "Done. I agree as there are a few checks using ERR(INTERNAL) in redefinition already, so the error message looks more reasonable this way.",
+      "parentUuid": "bd159eca_1955adc4",
+      "range": {
+        "startLine": 1085,
+        "startChar": 24,
+        "endLine": 1085,
+        "endChar": 41
+      },
+      "revId": "a7b281521237028432bd44f96868c2df53b5ba86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
