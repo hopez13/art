@@ -1190,15 +1190,14 @@ OnDeviceRefresh::CheckArtifactsAreUpToDate(OdrMetrics& metrics,
   bool compilation_required = (!compilation_options->compile_boot_extensions_for_isas.empty() ||
                                !compilation_options->system_server_jars_to_compile.empty());
 
-  if (compilation_required) {
-    if (!config_.GetPartialCompilation()) {
-      return cleanup_and_compile_all();
-    }
-    Result<void> result = CleanupArtifactDirectory(checked_artifacts);
-    if (!result.ok()) {
-      LOG(ERROR) << result.error();
-      return ExitCode::kCleanupFailed;
-    }
+  if (compilation_required && !config_.GetPartialCompilation()) {
+    return cleanup_and_compile_all();
+  }
+
+  Result<void> result = CleanupArtifactDirectory(checked_artifacts);
+  if (!result.ok()) {
+    LOG(ERROR) << result.error();
+    return ExitCode::kCleanupFailed;
   }
 
   return compilation_required ? ExitCode::kCompilationRequired : ExitCode::kOkay;
