@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6051c9ca_93d9ccc4",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-13T14:56:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89bb5643_8e2bf2c5",
+      "revId": "fa6c043390ffe1051abcefd815d3d953651cf50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c3e704c_f03b0ea7",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-12-13T14:00:05Z",
       "side": 1,
       "message": "this is unexpected right? But other flags being set could happen? Could you expand the comment and say that we expect the state to be native otherwise there\u0027s some corruption (?)",
+      "range": {
+        "startLine": 1105,
+        "startChar": 27,
+        "endLine": 1105,
+        "endChar": 53
+      },
+      "revId": "fa6c043390ffe1051abcefd815d3d953651cf50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58ab3bcc_735f04ea",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-13T14:56:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c3e704c_f03b0ea7",
       "range": {
         "startLine": 1105,
         "startChar": 27,
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f3e1f6b_b8fd432f",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-13T14:56:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc9e928f_a310418c",
+      "revId": "fa6c043390ffe1051abcefd815d3d953651cf50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c45f7a57_9d96338f",
@@ -81,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7b9aee0_7d50e512",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-13T14:56:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c45f7a57_9d96338f",
+      "range": {
+        "startLine": 145,
+        "startChar": 7,
+        "endLine": 145,
+        "endChar": 11
+      },
+      "revId": "fa6c043390ffe1051abcefd815d3d953651cf50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cbf027f_28c8d884",
@@ -94,6 +178,30 @@
       "writtenOn": "2021-12-13T14:00:05Z",
       "side": 1,
       "message": "artJniMonitoredMethodEnd ?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 26
+      },
+      "revId": "fa6c043390ffe1051abcefd815d3d953651cf50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4847ba3_29844e5a",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-13T14:56:52Z",
+      "side": 1,
+      "message": "Done but with a `ThreadFlag::kMonitorJniEntryExit` check.",
+      "parentUuid": "6cbf027f_28c8d884",
       "range": {
         "startLine": 154,
         "startChar": 0,
