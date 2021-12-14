@@ -798,7 +798,7 @@ TEST_F(CodegenTest, ARM64ParallelMoveResolverSIMD) {
 
   codegen.Initialize();
 
-  graph->SetHasSIMD(true);
+  graph->SetHasTraditionalSIMD(true);
   for (int i = 0; i < 2; i++) {
     HParallelMove* move = new (graph->GetAllocator()) HParallelMove(graph->GetAllocator());
     move->AddMove(Location::SIMDStackSlot(0),
@@ -818,7 +818,7 @@ TEST_F(CodegenTest, ARM64ParallelMoveResolverSIMD) {
                   DataType::Type::kFloat64,
                   nullptr);
     codegen.GetMoveResolver()->EmitNativeCode(move);
-    graph->SetHasSIMD(false);
+    graph->SetHasTraditionalSIMD(false);
   }
 
   InternalCodeAllocator code_allocator;
@@ -867,7 +867,7 @@ TEST_F(CodegenTest, ARM64FrameSizeSIMD) {
   arm64::CodeGeneratorARM64 codegen(graph, *compiler_options);
 
   codegen.Initialize();
-  graph->SetHasSIMD(true);
+  graph->SetHasTraditionalSIMD(true);
 
   DCHECK_EQ(arm64::callee_saved_fp_registers.GetCount(), 8);
   vixl::aarch64::CPURegList reg_list = arm64::callee_saved_fp_registers;
@@ -887,7 +887,8 @@ TEST_F(CodegenTest, ARM64FrameSizeNoSIMD) {
   arm64::CodeGeneratorARM64 codegen(graph, *compiler_options);
 
   codegen.Initialize();
-  graph->SetHasSIMD(false);
+  graph->SetHasTraditionalSIMD(false);
+  graph->SetHasPredicatedSIMD(false);
 
   DCHECK_EQ(arm64::callee_saved_fp_registers.GetCount(), 8);
   vixl::aarch64::CPURegList reg_list = arm64::callee_saved_fp_registers;
