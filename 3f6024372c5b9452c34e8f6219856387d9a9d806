@@ -46,6 +46,30 @@
       },
       "revId": "3f6024372c5b9452c34e8f6219856387d9a9d806",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4365f737_1b06d144",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-14T13:31:55Z",
+      "side": 1,
+      "message": "Thanks, can you still add a comment about why we\u0027re checking partial compilation?",
+      "parentUuid": "dc6eead0_59faf8fb",
+      "range": {
+        "startLine": 1192,
+        "startChar": 0,
+        "endLine": 1194,
+        "endChar": 3
+      },
+      "revId": "3f6024372c5b9452c34e8f6219856387d9a9d806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
