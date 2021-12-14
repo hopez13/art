@@ -46,6 +46,52 @@
       },
       "revId": "26ead765b71c3c0eba1ca38e779a3f8fb30df076",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3a4a233_bfd93baf",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-12-14T18:21:32Z",
+      "side": 1,
+      "message": "I think this was the only use of `check_first_executable`; I suggest removing all the definitions of this method.",
+      "range": {
+        "startLine": 481,
+        "startChar": 18,
+        "endLine": 481,
+        "endChar": 40
+      },
+      "revId": "26ead765b71c3c0eba1ca38e779a3f8fb30df076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "809b4443_26bb3f0f",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2021-12-14T18:21:32Z",
+      "side": 1,
+      "message": "Ditto with `check_multilib_executable`.",
+      "range": {
+        "startLine": 576,
+        "startChar": 18,
+        "endLine": 576,
+        "endChar": 43
+      },
+      "revId": "26ead765b71c3c0eba1ca38e779a3f8fb30df076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
