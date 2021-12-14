@@ -16,6 +16,57 @@
       "message": "Mythri, PTAL.",
       "revId": "80a4f1c79dadf4c501880f256f2846a4f756497e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7280a04e_842a813a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-14T10:16:31Z",
+      "side": 1,
+      "message": "Thanks! lgtm.",
+      "revId": "80a4f1c79dadf4c501880f256f2846a4f756497e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed9dfd17_2b57c0e3",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-14T10:16:31Z",
+      "side": 1,
+      "message": "minor nit: maybe EntryExitStubsInstalled() \u0026\u0026 CodeNeedsEntryExitStub(method-\u003eGetEntryPointFromQuickCompiledCode(), method) instead if two ifs.",
+      "revId": "80a4f1c79dadf4c501880f256f2846a4f756497e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bbd012f_1c18fd7d",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-14T10:16:31Z",
+      "side": 1,
+      "message": "just for my understanding, do we need to look for OptimizedCode even if the code was resolution stub? I mean would we have any optimized code if it still has resolution stub?",
+      "revId": "80a4f1c79dadf4c501880f256f2846a4f756497e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
