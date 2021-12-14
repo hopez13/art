@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3e699e2_67c05717",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-14T11:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3668cf7_a7f2047e",
+      "range": {
+        "startLine": 67,
+        "startChar": 3,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abb6eed5_3b327b22",
@@ -60,6 +84,30 @@
       "writtenOn": "2021-12-14T01:59:26Z",
       "side": 1,
       "message": "Worth clarifying that these get added through HOST_TEST_CORE_JARS instead.",
+      "range": {
+        "startLine": 68,
+        "startChar": 57,
+        "endLine": 70,
+        "endChar": 14
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "260753e2_dc759953",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-14T11:25:05Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you mean by \"get added\". Aren\u0027t they added by line 76-81? I moved this sentence there.",
+      "parentUuid": "abb6eed5_3b327b22",
       "range": {
         "startLine": 68,
         "startChar": 57,
@@ -116,6 +164,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc5c3d4b_82f5d157",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-14T11:25:05Z",
+      "side": 1,
+      "message": "Jars are copied to this directory when the boot image is being generated:\nhttps://cs.android.com/android/platform/superproject/+/master:build/soong/java/bootclasspath_fragment.go;l\u003d551;drc\u003dmaster\n\nThe path is decided here: https://cs.android.com/android/platform/superproject/+/master:build/soong/java/dexpreopt_config.go;l\u003d99;drc\u003d49b1eb6b045156c6481df584fdd21348a9df3383\n\nSince host gtests use the primary boot image, the copying is always done, so the jars can always be found in that directory.",
+      "parentUuid": "155831b6_28e152df",
+      "range": {
+        "startLine": 72,
+        "startChar": 20,
+        "endLine": 72,
+        "endChar": 65
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a181c1ab_b13c4c54",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-14T11:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beb92e5a_309d366a",
+      "range": {
+        "startLine": 72,
+        "startChar": 20,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2e0c041_0d7be9fd",
@@ -129,6 +225,30 @@
       "writtenOn": "2021-12-14T01:59:26Z",
       "side": 1,
       "message": "This looks inconsistent: It no longer adds the -hostdex suffix to $(CORE_IMG_JARS), but keeps them for $(HOST_TEST_ADDITIONAL_JARS).\n\nDoes your test exercise `bootjars.sh --mode\u003dhost`?",
+      "range": {
+        "startLine": 86,
+        "startChar": 23,
+        "endLine": 86,
+        "endChar": 90
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce65af8a_800aa879",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-14T11:25:05Z",
+      "side": 1,
+      "message": "Looks like bootjars.sh is not using anything in this file. `HOST_TEST_CORE_JARS` is not needed anywhere. Deleted.",
+      "parentUuid": "c2e0c041_0d7be9fd",
       "range": {
         "startLine": 86,
         "startChar": 23,
