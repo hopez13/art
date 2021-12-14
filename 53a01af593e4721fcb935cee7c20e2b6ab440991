@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbdbb718_ad1492c8",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-14T17:28:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b9e0e3f_8b6b71d9",
+      "revId": "53a01af593e4721fcb935cee7c20e2b6ab440991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a5e0d13_55fcf2b5",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-12-14T16:44:32Z",
       "side": 1,
       "message": "Nit: The context here may not be clear, several lines below the other jar list above. I suggest adding something like:\n\n\"... and hence can\u0027t lead to checksum mismatches, unlike HOST_BOOT_IMAGE_JARS.\"",
+      "revId": "53a01af593e4721fcb935cee7c20e2b6ab440991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd77a86d_178f0081",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-14T17:28:49Z",
+      "side": 1,
+      "message": "Done. Thank you for the suggestion.",
+      "parentUuid": "6a5e0d13_55fcf2b5",
       "revId": "53a01af593e4721fcb935cee7c20e2b6ab440991",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
