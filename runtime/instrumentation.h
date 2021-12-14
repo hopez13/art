@@ -305,6 +305,13 @@ class Instrumentation {
                !Locks::runtime_shutdown_lock_);
   void ResetQuickAllocEntryPoints() REQUIRES(Locks::runtime_shutdown_lock_);
 
+  // Returns a string representation of the given entry point.
+  static std::string EntryPointString(const void* code);
+
+  // Initialize the entrypoint of the method .`quick_code` is the AOT code.
+  void InitializeMethodsCode(ArtMethod* method, const void* quick_code)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Update the code of a method respecting any installed stubs.
   void UpdateMethodsCode(ArtMethod* method, const void* quick_code)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!GetDeoptimizedMethodsLock());
