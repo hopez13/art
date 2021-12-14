@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd5b583a_c6384a31",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-14T10:27:23Z",
+      "side": 1,
+      "message": "I need a place to return so that line 350 can assume we\u0027re not instrumenting. I kept it as-is.",
+      "parentUuid": "ed9dfd17_2b57c0e3",
+      "revId": "80a4f1c79dadf4c501880f256f2846a4f756497e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bbd012f_1c18fd7d",
@@ -65,6 +83,24 @@
       "writtenOn": "2021-12-14T10:16:31Z",
       "side": 1,
       "message": "just for my understanding, do we need to look for OptimizedCode even if the code was resolution stub? I mean would we have any optimized code if it still has resolution stub?",
+      "revId": "80a4f1c79dadf4c501880f256f2846a4f756497e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d50ba2a_447af77e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-14T10:27:23Z",
+      "side": 1,
+      "message": "Yes, this method is to know the actual target. It is called by the resolution stub itself, in order to know the target.",
+      "parentUuid": "7bbd012f_1c18fd7d",
       "revId": "80a4f1c79dadf4c501880f256f2846a4f756497e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
