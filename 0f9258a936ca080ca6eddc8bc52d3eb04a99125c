@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b9deb99_1f139d0d",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-14T18:02:12Z",
+      "side": 0,
+      "message": "Pushed down into Release(Host|Target)Checker, since host only has 64 bit binaries.",
+      "revId": "0f9258a936ca080ca6eddc8bc52d3eb04a99125c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11cec8bb_582575fd",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-14T18:02:12Z",
+      "side": 0,
+      "message": "Cleaned up - I think this was superfluous even before this change.",
+      "range": {
+        "startLine": 667,
+        "startChar": 4,
+        "endLine": 667,
+        "endChar": 54
+      },
+      "revId": "0f9258a936ca080ca6eddc8bc52d3eb04a99125c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
