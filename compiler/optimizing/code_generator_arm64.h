@@ -558,6 +558,33 @@ class InstructionCodeGeneratorARM64Sve : public InstructionCodeGeneratorARM64 {
   static vixl::aarch64::PRegister LoopPReg() {
     return vixl::aarch64::p0;
   }
+
+  vixl::aarch64::PRegister GetVecGoverningPReg(HVecOperation* instr) {
+    return GetVecPredSetFixedOutPReg(instr->GetGoverningPredicate());
+  }
+
+  // Returns a fixed p-reg for predicate setting instruction.
+  //
+  // Currently we only support diamond CF loops for predicated vectorization; also we don't have
+  // register allocator support for vector predicates. Thus we use fixed P-regs for loop main,
+  // True and False predicates as a temporary solution.
+  //
+  // TODO: Support SIMD types and registers in ART.
+  static vixl::aarch64::PRegister GetVecPredSetFixedOutPReg(HVecPredSetOperation* instr) {
+    if (instr->IsVecPredWhile() || instr->IsVecPredSetAll()) {
+      // VecPredWhile and VecPredSetAll live ranges never overlap due to the current vectorization
+      // scheme: the former only is live inside a vectorized loop and the later is never in a
+      // loop and never spans across loops.
+      return vixl::aarch64::p0;
+    } else if (instr->IsVecPredNot()) {
+      // This relies on the fact that we only use PredNot manually in the autovectorizer,
+      // so there is only one of them in each loop.
+      return vixl::aarch64::p1;
+    } else {
+      DCHECK(instr->IsVecCondition());
+      return vixl::aarch64::p2;
+    }
+  }
 };
 
 class LocationsBuilderARM64Sve : public LocationsBuilderARM64 {
