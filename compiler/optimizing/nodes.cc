@@ -2773,8 +2773,11 @@ HInstruction* HGraph::InlineInto(HGraph* outer_graph, HInvoke* invoke) {
   if (HasTryCatch()) {
     outer_graph->SetHasTryCatch(true);
   }
-  if (HasSIMD()) {
-    outer_graph->SetHasSIMD(true);
+  if (HasTraditionalSIMD()) {
+    outer_graph->SetHasTraditionalSIMD(true);
+  }
+  if (HasPredicatedSIMD()) {
+    outer_graph->SetHasPredicatedSIMD(true);
   }
   if (HasAlwaysThrowingInvokes()) {
     outer_graph->SetHasAlwaysThrowingInvokes(true);
@@ -3048,6 +3051,8 @@ void HGraph::TransformLoopHeaderForBCE(HBasicBlock* header) {
       new_pre_header, old_pre_header, /* replace_if_back_edge= */ false);
 }
 
+// Creates a new two-basic-block loop and inserts it between original loop header and
+// original loop exit; also adjust dominators, post order and new LoopInformation.
 HBasicBlock* HGraph::TransformLoopForVectorization(HBasicBlock* header,
                                                    HBasicBlock* body,
                                                    HBasicBlock* exit) {
