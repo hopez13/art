@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e53652_4024af9c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1913,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-14T13:46:47Z",
+      "side": 1,
+      "message": "As discussed, let\u0027s check them all for simplicity and see the impact.",
+      "revId": "ded872f92cd7a02279a60698cb68f1552fc51b86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c3c341a_b6a6b7b3",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-14T13:46:47Z",
+      "side": 1,
+      "message": "Should this be true? Or we should remove the parameter?",
+      "range": {
+        "startLine": 3271,
+        "startChar": 0,
+        "endLine": 3271,
+        "endChar": 46
+      },
+      "revId": "ded872f92cd7a02279a60698cb68f1552fc51b86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4111421e_c0171fd8",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-14T13:46:47Z",
+      "side": 1,
+      "message": "Expand the comment explaining why we want to skip the dex file information in the oat file.",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 59
+      },
+      "revId": "ded872f92cd7a02279a60698cb68f1552fc51b86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
