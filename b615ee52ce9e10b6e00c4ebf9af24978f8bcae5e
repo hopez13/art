@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eca9ad3_ed43a544",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-14T01:59:26Z",
+      "side": 1,
+      "message": "Or equivalently `m -j test-art-host-gtest`, for those of us who skip this thin wrapper.",
+      "range": {
+        "startLine": 19,
+        "startChar": 34,
+        "endLine": 19,
+        "endChar": 55
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3668cf7_a7f2047e",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-14T01:59:26Z",
+      "side": 1,
+      "message": "dexpreopt_bootjars.go?",
+      "range": {
+        "startLine": 67,
+        "startChar": 3,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abb6eed5_3b327b22",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-14T01:59:26Z",
+      "side": 1,
+      "message": "Worth clarifying that these get added through HOST_TEST_CORE_JARS instead.",
+      "range": {
+        "startLine": 68,
+        "startChar": 57,
+        "endLine": 70,
+        "endChar": 14
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "155831b6_28e152df",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-14T01:59:26Z",
+      "side": 1,
+      "message": "Where are these files created?",
+      "range": {
+        "startLine": 72,
+        "startChar": 20,
+        "endLine": 72,
+        "endChar": 65
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beb92e5a_309d366a",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-14T01:59:26Z",
+      "side": 1,
+      "message": "$(OUT_DIR)",
+      "range": {
+        "startLine": 72,
+        "startChar": 20,
+        "endLine": 72,
+        "endChar": 23
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e0c041_0d7be9fd",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-14T01:59:26Z",
+      "side": 1,
+      "message": "This looks inconsistent: It no longer adds the -hostdex suffix to $(CORE_IMG_JARS), but keeps them for $(HOST_TEST_ADDITIONAL_JARS).\n\nDoes your test exercise `bootjars.sh --mode\u003dhost`?",
+      "range": {
+        "startLine": 86,
+        "startChar": 23,
+        "endLine": 86,
+        "endChar": 90
+      },
+      "revId": "b615ee52ce9e10b6e00c4ebf9af24978f8bcae5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
