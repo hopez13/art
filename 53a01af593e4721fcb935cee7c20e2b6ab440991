@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b9e0e3f_8b6b71d9",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-14T16:44:32Z",
+      "side": 1,
+      "message": "It\u0027s in the commit message, but it may be worth pointing out here too that this is to avoid checksum mismatches on the oat files.",
+      "revId": "53a01af593e4721fcb935cee7c20e2b6ab440991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a5e0d13_55fcf2b5",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2021-12-14T16:44:32Z",
+      "side": 1,
+      "message": "Nit: The context here may not be clear, several lines below the other jar list above. I suggest adding something like:\n\n\"... and hence can\u0027t lead to checksum mismatches, unlike HOST_BOOT_IMAGE_JARS.\"",
+      "revId": "53a01af593e4721fcb935cee7c20e2b6ab440991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
