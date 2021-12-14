@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "656c5754_5c9dc80b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1913,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-14T17:29:07Z",
+      "side": 1,
+      "message": "Done. Updated the commit message with the boot time impact.",
+      "parentUuid": "14e53652_4024af9c",
+      "revId": "ded872f92cd7a02279a60698cb68f1552fc51b86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c3c341a_b6a6b7b3",
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67aa1f84_0ac951e7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3271,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-14T17:29:07Z",
+      "side": 1,
+      "message": "This should still be false because we are now performing the oat file check at an early stage (in `LoadFromSystem` above). We can keep this parameter so that it gives us the flexibility to do the check at the later stage in the future. WDYT?",
+      "parentUuid": "4c3c341a_b6a6b7b3",
+      "range": {
+        "startLine": 3271,
+        "startChar": 0,
+        "endLine": 3271,
+        "endChar": 46
+      },
+      "revId": "ded872f92cd7a02279a60698cb68f1552fc51b86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4111421e_c0171fd8",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 5
@@ -54,6 +96,30 @@
       "writtenOn": "2021-12-14T13:46:47Z",
       "side": 1,
       "message": "Expand the comment explaining why we want to skip the dex file information in the oat file.",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 59
+      },
+      "revId": "ded872f92cd7a02279a60698cb68f1552fc51b86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b2d43b5_1dd69ffd",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-14T17:29:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4111421e_c0171fd8",
       "range": {
         "startLine": 275,
         "startChar": 0,
