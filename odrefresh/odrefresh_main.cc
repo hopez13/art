@@ -354,9 +354,10 @@ int main(int argc, char** argv) {
         metrics.SetStatus(OdrMetrics::Status::kIoError);
         return ExitCode::kCleanupFailed;
       }
+      // Compile system server jars only.
+      // TODO: don't check this in!
       return odr.Compile(metrics,
                          CompilationOptions{
-                             .compile_boot_extensions_for_isas = config.GetBootExtensionIsas(),
                              .system_server_jars_to_compile = odr.AllSystemServerJars(),
                          });
     } else if (action == "--help") {

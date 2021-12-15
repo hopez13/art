@@ -2894,6 +2894,8 @@ class ImageSpace::BootImageLoader {
 
       DCHECK_EQ(vdex_fd.get() != -1, oat_fd.get() != -1);
       if (vdex_fd.get() == -1) {
+        LOG(INFO) << StringPrintf(
+            "Opening '%s' from filename '%s'", oat_location.c_str(), oat_filename.c_str());
         oat_file.reset(OatFile::Open(/*zip_fd=*/ -1,
                                      oat_filename,
                                      oat_location,
@@ -2904,6 +2906,7 @@ class ImageSpace::BootImageLoader {
                                      image_reservation,
                                      error_msg));
       } else {
+        LOG(INFO) << StringPrintf("Opening '%s' from FD '%d'", oat_location.c_str(), oat_fd.get());
         oat_file.reset(OatFile::Open(/*zip_fd=*/ -1,
                                      vdex_fd.get(),
                                      oat_fd.get(),
