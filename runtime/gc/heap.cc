@@ -2735,7 +2735,7 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
   CHECK(collector != nullptr)
       << "Could not find garbage collector with collector_type="
       << static_cast<size_t>(collector_type_) << " and gc_type=" << gc_type;
-  collector->Run(gc_cause, clear_soft_references || runtime->IsZygote());
+  collector->Run(gc_cause, clear_soft_references);
   IncrementFreedEver();
   RequestTrim(self);
   // Collect cleared references.
