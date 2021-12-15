@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "beffe792_42fef8d4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1846,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-15T15:38:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df15a720_efa9625d",
+      "revId": "58a8051f0ef5327c1bd8a3167acb3d4cce7cf9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56006ab6_bad43074",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-12-15T09:45:32Z",
       "side": 1,
       "message": "Nit: add a comment why we\u0027re checking the oat file here, and for what benefits.",
+      "revId": "58a8051f0ef5327c1bd8a3167acb3d4cce7cf9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a3c5021_e9e1f18f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1912,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-15T15:38:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56006ab6_bad43074",
       "revId": "58a8051f0ef5327c1bd8a3167acb3d4cce7cf9d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2a4b745_161bb425",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-15T15:38:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b055a40b_e5d9c20a",
+      "range": {
+        "startLine": 276,
+        "startChar": 45,
+        "endLine": 276,
+        "endChar": 48
+      },
+      "revId": "58a8051f0ef5327c1bd8a3167acb3d4cce7cf9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfa7515e_6cd648cf",
@@ -71,6 +131,30 @@
       "writtenOn": "2021-12-15T09:45:32Z",
       "side": 1,
       "message": "That\u0027s also only for dex2oat, but on target, right?",
+      "range": {
+        "startLine": 277,
+        "startChar": 8,
+        "endLine": 277,
+        "endChar": 59
+      },
+      "revId": "58a8051f0ef5327c1bd8a3167acb3d4cce7cf9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad284ed7_ad9446e2",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-15T15:38:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfa7515e_6cd648cf",
       "range": {
         "startLine": 277,
         "startChar": 8,

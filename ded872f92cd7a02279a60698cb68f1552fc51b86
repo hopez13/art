@@ -107,6 +107,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19a2b4e2_84814bdd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3271,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-15T15:38:49Z",
+      "side": 1,
+      "message": "\u003e OK, but then can you add a comment that this is done at an early stage? \n\nDone.\n\n\u003e any way we can actually CHECK that it\u0027s already been done?\n\nAdded `validated_oat_files` to ImageChunk and added a CHECK on line 3207.",
+      "parentUuid": "189d335e_8139e587",
+      "range": {
+        "startLine": 3271,
+        "startChar": 0,
+        "endLine": 3271,
+        "endChar": 46
+      },
+      "revId": "ded872f92cd7a02279a60698cb68f1552fc51b86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4111421e_c0171fd8",
