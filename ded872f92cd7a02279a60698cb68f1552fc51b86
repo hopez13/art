@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "189d335e_8139e587",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-15T09:45:32Z",
+      "side": 1,
+      "message": "OK, but then can you add a comment that this is done at an early stage? (any way we can actually CHECK that it\u0027s already been done?)",
+      "parentUuid": "67aa1f84_0ac951e7",
+      "range": {
+        "startLine": 3271,
+        "startChar": 0,
+        "endLine": 3271,
+        "endChar": 46
+      },
+      "revId": "ded872f92cd7a02279a60698cb68f1552fc51b86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4111421e_c0171fd8",
         "filename": "runtime/gc/space/image_space.h",
         "patchSetId": 5

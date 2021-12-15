@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df15a720_efa9625d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1846,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-15T09:45:32Z",
+      "side": 1,
+      "message": "Comment about the liftetime of this oat file: ie that we won\u0027t register it to oat file manager, and we\u0027re only using it for validating it\u0027s up to date.",
+      "revId": "58a8051f0ef5327c1bd8a3167acb3d4cce7cf9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56006ab6_bad43074",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1912,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-15T09:45:32Z",
+      "side": 1,
+      "message": "Nit: add a comment why we\u0027re checking the oat file here, and for what benefits.",
+      "revId": "58a8051f0ef5327c1bd8a3167acb3d4cce7cf9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b055a40b_e5d9c20a",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-15T09:45:32Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 276,
+        "startChar": 45,
+        "endLine": 276,
+        "endChar": 48
+      },
+      "revId": "58a8051f0ef5327c1bd8a3167acb3d4cce7cf9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfa7515e_6cd648cf",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-15T09:45:32Z",
+      "side": 1,
+      "message": "That\u0027s also only for dex2oat, but on target, right?",
+      "range": {
+        "startLine": 277,
+        "startChar": 8,
+        "endLine": 277,
+        "endChar": 59
+      },
+      "revId": "58a8051f0ef5327c1bd8a3167acb3d4cce7cf9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
