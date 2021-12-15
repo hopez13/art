@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc41e3fb_d1cb402b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "Update message to say this is not allowed on host.",
+      "range": {
+        "startLine": 782,
+        "startChar": 15,
+        "endLine": 782,
+        "endChar": 62
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "906b5da3_3d17c228",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "Style: We\u0027re using both `/*name\u003d*/arg` and `/*name\u003d*/ arg` in ART but this file uses mostly the version with extra space.",
+      "range": {
+        "startLine": 611,
+        "startChar": 16,
+        "endLine": 612,
+        "endChar": 45
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da5f7daa_ee8748c6",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "Style: We\u0027re using both `/*out*/type param` and `/*out*/ type param` for argument type annotations but this file uses exclusively the form without the extra space.",
+      "range": {
+        "startLine": 624,
+        "startChar": 42,
+        "endLine": 625,
+        "endChar": 72
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5edf8902_372a3d7c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1603,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "Remove this variable, pass the `{kProfileSeparator}` directly to `Split()`. (I\u0027m not even sure which constructor the compiler picks for `std::string{kProfileSeparator}` but using simply `{kProfileSeparator}` should pick the one with `std::initializer_list\u003c\u003e`.)\n\nThe `static` keyword here is especially harmful as it requires the compiler to emit thread synchronization code for the initialization.\n\n(Though I\u0027d certainly prefer not to `Split()` the string here, it is not performance critical and these unnecessary memory allocations should not cause any measurable difference.)",
+      "range": {
+        "startLine": 1603,
+        "startChar": 4,
+        "endLine": 1603,
+        "endChar": 32
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab4f3a21_c1ba1c5a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1670,
+        "startChar": 4,
+        "endLine": 1670,
+        "endChar": 32
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58f89462_fa1e354e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1920,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "This supports multiple dependencies, contrary to the updated image location description that supports only the primary boot image as a dependency.",
+      "range": {
+        "startLine": 1911,
+        "startChar": 2,
+        "endLine": 1920,
+        "endChar": 3
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e554e013_1dac5232",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "plural",
+      "range": {
+        "startLine": 2024,
+        "startChar": 10,
+        "endLine": 2024,
+        "endChar": 21
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e934e56b_570d607c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2064,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "This can be stronger:\n\n    DCHECK_EQ(chunks_.empty(), dependencies.empty());\n\n(But this is moot if we do not pass `dependencies`, see comment below.)",
+      "range": {
+        "startLine": 2064,
+        "startChar": 2,
+        "endLine": 2064,
+        "endChar": 51
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61511c9f_66c97fb1",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "Why are we even passing this to the `CompileBootclasspathElements()`? If `bcp_index \u003d\u003d 0`, it is empty; otherwise it can be reconstructed from `chunks_[0]`.",
+      "range": {
+        "startLine": 2182,
+        "startChar": 69,
+        "endLine": 2182,
+        "endChar": 91
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19525d6e_bdbe0df8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "Return false if we failed to load/compile primary boot image. (You removed the `i  \u003d\u003d 0 ||` above, so we need to check here. Otherwise we\u0027re going to exercise unexpected paths which may accidentally return false but I\u0027d rather not rely on that.)",
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f2415e4_3087d43b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2839,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "Style: Do not add spaces.",
+      "range": {
+        "startLine": 2838,
+        "startChar": 35,
+        "endLine": 2839,
+        "endChar": 65
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdea123f_4c305452",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "Style: Do not remove space.",
+      "range": {
+        "startLine": 2852,
+        "startChar": 56,
+        "endLine": 2852,
+        "endChar": 86
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a8a854b_b36c0f6c",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "Please update to `\u003cprofile-path\u003e/\u003cprofile-name\u003e` here and below. (Stop propagating old copy-paste errors.)",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 65,
+        "endChar": 20
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc2a028f_158a7a71",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 1,
+      "message": "Note: This is a change from the original intent but we were not using this for multiple extensions anyway.",
+      "range": {
+        "startLine": 83,
+        "startChar": 24,
+        "endLine": 84,
+        "endChar": 56
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

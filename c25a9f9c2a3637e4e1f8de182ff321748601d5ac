@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "145076e4_fb480e2f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2776,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-15T17:11:58Z",
+      "side": 0,
+      "message": "Relax this but do not remove it. The `primary_image_count` should be either 1 (if compiled with `--single-image` on device, whether in-memory or with odrefresh) or `primary_header.GetComponentCount()`.",
+      "range": {
+        "startLine": 2776,
+        "startChar": 4,
+        "endLine": 2776,
+        "endChar": 71
+      },
+      "revId": "c25a9f9c2a3637e4e1f8de182ff321748601d5ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
