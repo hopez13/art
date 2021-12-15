@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c86bbd07_aaf8f711",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-15T15:49:12Z",
+      "side": 1,
+      "message": "Is this part of a temporary data structure? Or is this set live for the lifetime of the boot image?",
+      "revId": "4318b20cc6e534164130f99052d1db864838a5a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "343eeb69_7f38c8ad",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1849,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-15T15:49:12Z",
+      "side": 1,
+      "message": "open",
+      "range": {
+        "startLine": 1849,
+        "startChar": 82,
+        "endLine": 1849,
+        "endChar": 88
+      },
+      "revId": "4318b20cc6e534164130f99052d1db864838a5a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c00f691c_1b7687cd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-15T15:49:12Z",
+      "side": 1,
+      "message": "A DCHECK can do here I think",
+      "range": {
+        "startLine": 3207,
+        "startChar": 6,
+        "endLine": 3207,
+        "endChar": 11
+      },
+      "revId": "4318b20cc6e534164130f99052d1db864838a5a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "129b6554_6e5d1622",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-15T15:49:12Z",
+      "side": 1,
+      "message": "as this is the common case, I think \"restricted environment\" is confusing. Maybe \"when we run dex2oat on target through installd\" ?",
+      "range": {
+        "startLine": 277,
+        "startChar": 93,
+        "endLine": 278,
+        "endChar": 27
+      },
+      "revId": "4318b20cc6e534164130f99052d1db864838a5a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
