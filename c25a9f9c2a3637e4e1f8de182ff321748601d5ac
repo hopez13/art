@@ -22,6 +22,30 @@
       },
       "revId": "c25a9f9c2a3637e4e1f8de182ff321748601d5ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6215a3eb_f0b7c013",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2776,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-16T17:50:14Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "145076e4_fb480e2f",
+      "range": {
+        "startLine": 2776,
+        "startChar": 4,
+        "endLine": 2776,
+        "endChar": 71
+      },
+      "revId": "c25a9f9c2a3637e4e1f8de182ff321748601d5ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
