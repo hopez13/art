@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff7cf9f_561f07ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-16T10:52:33Z",
+      "side": 1,
+      "message": "Thanks! lgtm with a couple of questions (mostly for me to understand better).",
+      "revId": "b5b7063798555c336184d8f653ef288da8c74d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28f51eaf_f77133e6",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-16T10:52:33Z",
+      "side": 1,
+      "message": "I didn\u0027t understand this check. I am sure I am missing something here. If the method has a JITed code and we want to install QuickToInterpreterBridge won\u0027t this check fail?",
+      "revId": "b5b7063798555c336184d8f653ef288da8c74d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2afa539c_8c883eef",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-16T10:52:33Z",
+      "side": 1,
+      "message": "Does Quick code only refer to Oat code? I somehow thought we also call JITed code as quick code. If that\u0027s the case can we name this CanUseOatCode? Ignore my comment if my understanding is incorrect.",
+      "revId": "b5b7063798555c336184d8f653ef288da8c74d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d2c573_de2ee9b5",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-16T10:52:33Z",
+      "side": 1,
+      "message": "Should we add UNLIKELY here? and in the following IsForcedInterpretOnly.",
+      "revId": "b5b7063798555c336184d8f653ef288da8c74d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
