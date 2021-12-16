@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cff4306_7a55d6dd",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-16T18:48:38Z",
+      "side": 0,
+      "message": "I\u0027m also surprised that there was a for loop despite that `argc` is always 1 due to the check above :)",
+      "range": {
+        "startLine": 329,
+        "startChar": 2,
+        "endLine": 329,
+        "endChar": 34
+      },
+      "revId": "e19b2848ce8b0bb793232b36ac8953f82e892c5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
