@@ -1362,8 +1362,7 @@ WARN_UNUSED bool OnDeviceRefresh::CompileSystemServerArtifacts(
     dexopt_args.isa = InstructionSetToAidlIsa(isa);
     const std::string jar_name(android::base::Basename(jar));
     const std::string profile = Concatenate({GetAndroidRoot(), "/framework/", jar_name, ".prof"});
-    std::string compiler_filter =
-        android::base::GetProperty("dalvik.vm.systemservercompilerfilter", "speed");
+    std::string compiler_filter = config_.GetSystemServerCompilerFilter();
     if (compiler_filter == "speed-profile") {
       // Use speed-profile only if profile is provided, otherwise fallback to speed.
       if (PrepareDex2OatProfileIfExists(&dexopt_args.profileFd, &readonly_files_raii, profile)) {

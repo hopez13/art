@@ -239,6 +239,8 @@ int InitializeTargetConfig(int argc, char** argv, OdrConfig* config) {
       config->SetMaxChildProcessSeconds(seconds);
     } else if (ArgumentMatches(arg, "--zygote-arch=", &value)) {
       zygote = value;
+    } else if (ArgumentMatches(arg, "--system-server-filter=", &value)) {
+      config->SetSystemServerCompilerFilter(value);
     } else if (ArgumentMatches(arg, "--staging-dir=", &value)) {
       config->SetStagingDir(value);
     } else if (!InitializeCommonConfig(arg, config)) {
@@ -256,6 +258,12 @@ int InitializeTargetConfig(int argc, char** argv, OdrConfig* config) {
   }
   config->SetZygoteKind(zygote_kind);
 
+  if (config->GetSystemServerCompilerFilter().empty()) {
+    std::string filter =
+        android::base::GetProperty("dalvik.vm.systemservercompilerfilter", "speed");
+    config->SetSystemServerCompilerFilter(filter);
+  }
+
   return n;
 }
 
@@ -269,6 +277,8 @@ void TargetOptionsHelp() {
   UsageError("--staging-dir=<DIR>              Write temporary artifacts to <DIR> rather than");
   UsageError("                                 .../staging");
   UsageError("--zygote-arch=<STRING>           Zygote kind that overrides ro.zygote");
+  UsageError("--system-server-filter=<STRING>  Compiler filter that overrides");
+  UsageError("                                 dalvik.vm.systemservercompilerfilter");
 }
 
 int InitializeConfig(int argc, char** argv, OdrConfig* config) {
