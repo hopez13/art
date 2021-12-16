@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07755ae1_7931c92d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-16T16:28:55Z",
+      "side": 1,
+      "message": "This is part of BootImageLayout, which is a temporary data structure. It is dropped once the boot images are loaded into ImageSpace. That\u0027s exactly why I chose to put this information here.",
+      "parentUuid": "c86bbd07_aaf8f711",
+      "revId": "4318b20cc6e534164130f99052d1db864838a5a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "343eeb69_7f38c8ad",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-12-15T15:49:12Z",
       "side": 1,
       "message": "open",
+      "range": {
+        "startLine": 1849,
+        "startChar": 82,
+        "endLine": 1849,
+        "endChar": 88
+      },
+      "revId": "4318b20cc6e534164130f99052d1db864838a5a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1576621_ca9cb655",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1849,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-16T16:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "343eeb69_7f38c8ad",
       "range": {
         "startLine": 1849,
         "startChar": 82,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05cab092_b45886fd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3207,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-16T16:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c00f691c_1b7687cd",
+      "range": {
+        "startLine": 3207,
+        "startChar": 6,
+        "endLine": 3207,
+        "endChar": 11
+      },
+      "revId": "4318b20cc6e534164130f99052d1db864838a5a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "129b6554_6e5d1622",
@@ -77,6 +143,30 @@
       "writtenOn": "2021-12-15T15:49:12Z",
       "side": 1,
       "message": "as this is the common case, I think \"restricted environment\" is confusing. Maybe \"when we run dex2oat on target through installd\" ?",
+      "range": {
+        "startLine": 277,
+        "startChar": 93,
+        "endLine": 278,
+        "endChar": 27
+      },
+      "revId": "4318b20cc6e534164130f99052d1db864838a5a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a321c42d_bb5fecc7",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-16T16:28:55Z",
+      "side": 1,
+      "message": "I don\u0027t know too much about installd, but running dex2oat through odrefresh (and artd in the future) also fall into this case, so I don\u0027t want to be too specific here, or this comment may get outdated soon. I rephrased this comment a little bit. I hope it helps clarify things.",
+      "parentUuid": "129b6554_6e5d1622",
       "range": {
         "startLine": 277,
         "startChar": 93,
