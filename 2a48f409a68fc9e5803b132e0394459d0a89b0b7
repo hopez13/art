@@ -283,6 +283,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51a58955_118cb77d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1920,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-20T10:58:22Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "5a3c7271_e182a937",
+      "range": {
+        "startLine": 1911,
+        "startChar": 2,
+        "endLine": 1920,
+        "endChar": 3
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e554e013_1dac5232",
@@ -424,6 +448,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5d27543_529bf742",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-20T10:58:22Z",
+      "side": 1,
+      "message": "I\u0027d say this is not done as I was actually asking for complete removal of the `dependencies` argument. But I accept your reasoning from the other comment, so let\u0027s keep it for now.",
+      "parentUuid": "dfd6c5a7_1aadcf60",
+      "range": {
+        "startLine": 2182,
+        "startChar": 69,
+        "endLine": 2182,
+        "endChar": 91
+      },
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19525d6e_bdbe0df8",
@@ -455,6 +503,24 @@
       "side": 1,
       "message": "We won\u0027t exercise unexpected paths because I added a check on line 2326.",
       "parentUuid": "19525d6e_bdbe0df8",
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "279957b7_f979ad71",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-20T10:58:22Z",
+      "side": 1,
+      "message": "Trying to execute another iteration of the loop at line 2149 in PS11 (line 2146 in PS12) means going through unexpected paths. We may unnecessarily try to read and validate another image header. I would not want to trigger some `DCHECK()`s along the way.",
+      "parentUuid": "73939efd_bd0cb935",
       "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
