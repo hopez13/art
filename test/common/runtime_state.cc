@@ -34,6 +34,7 @@
 #include "nativehelper/ScopedUtfChars.h"
 #include "oat.h"
 #include "oat_file.h"
+#include "oat_file_manager.h"
 #include "oat_quick_method_header.h"
 #include "profile/profile_compilation_info.h"
 #include "runtime.h"
@@ -173,10 +174,8 @@ extern "C" JNIEXPORT jboolean JNICALL Java_Main_isAotCompiled(JNIEnv* env,
   if (oat_code == nullptr) {
     return false;
   }
-  const void* actual_code = method->GetEntryPointFromQuickCompiledCodePtrSize(kRuntimePointerSize);
-  bool interpreter = (actual_code == interpreter::GetNterpEntryPoint()) ||
-      Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(actual_code);
-  return !interpreter;
+  const void* actual_code = Runtime::Current()->GetInstrumentation()->GetCodeForInvoke(method);
+  return actual_code == oat_code;
 }
 
 static ArtMethod* GetMethod(ScopedObjectAccess& soa, jclass cls, const ScopedUtfChars& chars)
