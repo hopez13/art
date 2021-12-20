@@ -525,6 +525,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f9e7055_d94a4046",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-20T11:19:43Z",
+      "side": 1,
+      "message": "Ah, right. Other boot images use it as a dependency. Changed here and reverted line 2333 to a DCHECK.",
+      "parentUuid": "279957b7_f979ad71",
+      "revId": "2a48f409a68fc9e5803b132e0394459d0a89b0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f2415e4_3087d43b",
