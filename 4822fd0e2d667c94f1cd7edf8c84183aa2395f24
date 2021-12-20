@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36f1676b_87a4478e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1757736
+      },
+      "writtenOn": "2021-12-20T19:55:41Z",
+      "side": 1,
+      "message": "Hi Nicolas, this change adds the NeverCompile annotation. Could you take a look when you get a chance?\n\nAs a quick note, I call MethodIsNeverCompile in the same places where GetNativeMethodAnnotationAccessFlags is called (except the verifier, since you had mentioned that that might be too late for checking annotations). Please let me know if I should add it in the verifier as well. Thank you!",
+      "revId": "4822fd0e2d667c94f1cd7edf8c84183aa2395f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
