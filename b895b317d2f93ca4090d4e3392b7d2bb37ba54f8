@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "36013533_96ead5d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-21T14:31:19Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 20,
+        "startChar": 32,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "644c79eb_aaab2cef",
@@ -14,6 +37,75 @@
       "writtenOn": "2021-12-20T13:07:22Z",
       "side": 1,
       "message": "Vladimir, PTAL, thanks.",
+      "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66bd1da1_5262fa13",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-21T14:31:19Z",
+      "side": 1,
+      "message": "Name mismatch: `component_count` here but `dex_count` at definition.",
+      "range": {
+        "startLine": 1521,
+        "startChar": 30,
+        "endLine": 1521,
+        "endChar": 45
+      },
+      "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89339e81_6d4ea83d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-21T14:31:19Z",
+      "side": 1,
+      "message": "Style: add space (same below in both calls to `OatFile::Open()`).",
+      "range": {
+        "startLine": 1856,
+        "startChar": 8,
+        "endLine": 1856,
+        "endChar": 21
+      },
+      "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aef2d31_bdf4cb8d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-21T14:31:19Z",
+      "side": 1,
+      "message": "If this DCHECK() is the only reason why you\u0027re collecting `validated_oat_files`, I would just drop it as unnecessary waste of resources.",
+      "range": {
+        "startLine": 3211,
+        "startChar": 6,
+        "endLine": 3212,
+        "endChar": 93
+      },
       "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
