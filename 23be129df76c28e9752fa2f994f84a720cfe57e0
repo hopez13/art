@@ -39,6 +39,30 @@
       },
       "revId": "23be129df76c28e9752fa2f994f84a720cfe57e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb3fa441_06882971",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1844,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-21T16:39:55Z",
+      "side": 1,
+      "message": "Yes, this is also part of clang-format. The style guide does not enforce wrapping operators at the beginning or the end of the lines, but it says wrapping operators at the end of the lines is more common in Google code (go/cstyle#Boolean_Expressions)",
+      "parentUuid": "c4329ed0_6dff51dc",
+      "range": {
+        "startLine": 1844,
+        "startChar": 64,
+        "endLine": 1844,
+        "endChar": 65
+      },
+      "revId": "23be129df76c28e9752fa2f994f84a720cfe57e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
