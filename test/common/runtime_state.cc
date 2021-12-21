@@ -307,6 +307,13 @@ extern "C" JNIEXPORT void JNICALL Java_Main_ensureJitCompiled(JNIEnv* env,
     ScopedUtfChars chars(env, method_name);
     method = GetMethod(soa, cls, chars);
   }
+
+  // TODO(mythria): Update this check once we support method entry / exit hooks directly from
+  // JIT code instead of installing EntryExit stubs.
+  if (Runtime::Current()->GetInstrumentation()->EntryExitStubsInstalled() &&
+      (method->IsNative() || !Runtime::Current()->IsJavaDebuggable())) {
+    return;
+  }
   ForceJitCompiled(self, method, CompilationKind::kOptimized);
 }
 
