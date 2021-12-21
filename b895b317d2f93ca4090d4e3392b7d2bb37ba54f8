@@ -156,6 +156,30 @@
       },
       "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5110a947_f2a9b53b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-21T14:54:07Z",
+      "side": 1,
+      "message": "Ack for dropping.",
+      "parentUuid": "acaeff40_2fdf4d3d",
+      "range": {
+        "startLine": 3211,
+        "startChar": 6,
+        "endLine": 3212,
+        "endChar": 93
+      },
+      "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
