@@ -7328,6 +7328,11 @@ class ClassLinker::LinkMethodsHelper {
         move_table_(allocator_.Adapter()) {
   }
 
+  // Assign vtable indexes to declared virtual methods for a non-interface class other
+  // than `java.lang.Object`. Returns the number of vtable entries on success, 0 on failure.
+  size_t AssignVtableIndexes(Handle<mirror::Class> klass, size_t num_virtual_methods)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Links the virtual methods for the given class and records any default methods
   // that will need to be updated later.
   //
@@ -7440,6 +7445,85 @@ class ClassLinker::LinkMethodsHelper {
                        << " overriding_default_conflict_methods="
                        << overriding_default_conflict_methods_.size();
   }
+
+  class SignatureEmptyFn {
+   public:
+    void MakeEmpty(uint32_t& item) const {
+      item = dex::kDexNoIndex;
+    }
+    bool IsEmpty(const uint32_t& item) const {
+      return item == dex::kDexNoIndex;
+    }
+  };
+
+  class SignatureHashEqualBase {
+   protected:
+    SignatureHashEqualBase(Handle<mirror::Class> klass, size_t super_vtable_size)
+        : klass_(klass),
+          super_vtable_size_(super_vtable_size) {}
+
+    ArtMethod* GetMethod(uint32_t index) const REQUIRES_SHARED(Locks::mutator_lock_) {
+      return (index < super_vtable_size_)
+          ? klass_->GetSuperClass()->GetVTableEntry(index, kPointerSize)
+          : klass_->GetVirtualMethodDuringLinking(index - super_vtable_size_, kPointerSize);
+    }
+
+   private:
+    Handle<mirror::Class> klass_;
+    size_t super_vtable_size_;
+  };
+
+  class SignatureHashFn : private SignatureHashEqualBase {
+   public:
+    SignatureHashFn(Handle<mirror::Class> klass, size_t super_vtable_length)
+        : SignatureHashEqualBase(klass, super_vtable_length) {}
+
+    // NO_THREAD_SAFETY_ANALYSIS: This is called from unannotated `HashSet<>` functions.
+    size_t operator()(ArtMethod* method) const NO_THREAD_SAFETY_ANALYSIS {
+      method = method->GetInterfaceMethodIfProxy(kPointerSize);
+      const DexFile* dex_file = method->GetDexFile();
+      std::string_view name = dex_file->GetMethodNameView(method->GetDexMethodIndex());
+      return ComputeModifiedUtf8Hash(name);
+    }
+
+    // NO_THREAD_SAFETY_ANALYSIS: This is called from unannotated `HashSet<>` functions.
+    size_t operator()(uint32_t index) const NO_THREAD_SAFETY_ANALYSIS {
+      return (*this)(this->GetMethod(index));
+    }
+  };
+
+  class SignatureEqualFn : private SignatureHashEqualBase {
+   public:
+    SignatureEqualFn(Handle<mirror::Class> klass, size_t super_vtable_length)
+        : SignatureHashEqualBase(klass, super_vtable_length) {}
+
+    // NO_THREAD_SAFETY_ANALYSIS: This is called from unannotated `HashSet<>` functions.
+    bool operator()(uint32_t lhs_index, ArtMethod* rhs) const NO_THREAD_SAFETY_ANALYSIS {
+      ArtMethod* lhs = this->GetMethod(lhs_index);
+      lhs = lhs->GetInterfaceMethodIfProxy(kPointerSize);
+      rhs = rhs->GetInterfaceMethodIfProxy(kPointerSize);
+      const DexFile* lhs_dex_file = lhs->GetDexFile();
+      const DexFile* rhs_dex_file = rhs->GetDexFile();
+      const dex::MethodId& lhs_mid = lhs_dex_file->GetMethodId(lhs->GetDexMethodIndex());
+      const dex::MethodId& rhs_mid = rhs_dex_file->GetMethodId(rhs->GetDexMethodIndex());
+      if (lhs_dex_file == rhs_dex_file) {
+        return lhs_mid.name_idx_ == rhs_mid.name_idx_ &&
+               lhs_mid.proto_idx_ == rhs_mid.proto_idx_;
+      } else {
+        return
+            lhs_dex_file->GetMethodNameView(lhs_mid) == rhs_dex_file->GetMethodNameView(rhs_mid) &&
+            lhs_dex_file->GetMethodSignature(lhs_mid) == rhs_dex_file->GetMethodSignature(rhs_mid);
+      }
+    }
+
+    // NO_THREAD_SAFETY_ANALYSIS: This is called from unannotated `HashSet<>` functions.
+    bool operator()(uint32_t lhs_index, uint32_t rhs_index) const NO_THREAD_SAFETY_ANALYSIS {
+      return (*this)(lhs_index, this->GetMethod(rhs_index));
+    }
+  };
+
+  using VirtualMethodSet =
+      ScopedArenaHashSet<uint32_t, SignatureEmptyFn, SignatureHashFn, SignatureEqualFn>;
 
   static constexpr size_t kMethodAlignment = ArtMethod::Alignment(kPointerSize);
   static constexpr size_t kMethodSize = ArtMethod::Size(kPointerSize);
@@ -7844,6 +7928,109 @@ void ClassLinker::LinkMethodsHelper<kPointerSize>::UpdateIMT(ArtMethod** out_imt
 }
 
 template <PointerSize kPointerSize>
+size_t ClassLinker::LinkMethodsHelper<kPointerSize>::AssignVtableIndexes(
+    Handle<mirror::Class> klass, size_t num_virtual_methods) {
+  DCHECK(!klass->IsInterface());
+  DCHECK(klass->HasSuperClass());
+
+  // Prepare a hash table with virtual methods from the superclass.
+  // For the unlikely cases that there are multiple methods with the same signature
+  // but different vtable indexes, keep an array with indexes of the previous
+  // methods with the same signature (walked as singly-linked lists).
+  ObjPtr<mirror::Class> super_class = klass->GetSuperClass();
+  const size_t super_vtable_length = klass->GetSuperClass()->GetVTableLength();
+  SignatureHashFn hash_fn(klass, super_vtable_length);
+  VirtualMethodSet virtual_method_set_(hash_fn,
+                                       SignatureEqualFn(klass, super_vtable_length),
+                                       allocator_.Adapter());
+  ScopedArenaVector<uint32_t> same_signature_virtual_methods_lists_(allocator_.Adapter());
+  DCHECK_GE(super_vtable_length, mirror::Object::kVTableLength);
+  for (uint32_t i = 0; i != mirror::Object::kVTableLength; ++i) {
+    size_t hash = class_linker_->object_virtual_method_hashes_[i];
+    DCHECK_EQ(hash, hash_fn(super_class->GetVTableEntry(i, kPointerSize)));
+    bool inserted = virtual_method_set_.InsertWithHash(i, hash).second;
+    DCHECK(inserted);
+  }
+  if (super_vtable_length > mirror::Object::kVTableLength) {
+    auto insert_super_method = [&](size_t i, ArtMethod* m)
+        REQUIRES_SHARED(Locks::mutator_lock_) {
+      size_t hash = hash_fn(m);
+      auto [it, inserted] = virtual_method_set_.InsertWithHash(i, hash);
+      if (UNLIKELY(!inserted)) {
+        if (same_signature_virtual_methods_lists_.empty()) {
+          same_signature_virtual_methods_lists_.resize(super_vtable_length, dex::kDexNoIndex);
+        }
+        DCHECK_LT(*it, i);
+        same_signature_virtual_methods_lists_[i] = *it;
+        *it = i;
+      }
+    };
+    if (super_class->ShouldHaveEmbeddedVTable()) {
+      for (size_t i = mirror::Object::kVTableLength; i < super_vtable_length; i++) {
+        insert_super_method(i, super_class->GetEmbeddedVTableEntry(i, kPointerSize));
+      }
+    } else {
+      ObjPtr<mirror::PointerArray> super_vtable = super_class->GetVTable();
+      for (size_t i = mirror::Object::kVTableLength; i < super_vtable_length; i++) {
+        insert_super_method(i, super_vtable->GetElementPtrSize<ArtMethod*>(i, kPointerSize));
+      }
+    }
+  }
+
+  // For each declared virtual method, look for a superclass virtual method
+  // to override and assign a new vtable index if no method was overridden.
+  size_t vtable_length = super_vtable_length;
+  for (size_t i = 0; i < num_virtual_methods; ++i) {
+    ArtMethod* virtual_method = klass->GetVirtualMethodDuringLinking(i, kPointerSize);
+    size_t hash = hash_fn(virtual_method);
+    auto it = virtual_method_set_.FindWithHash(virtual_method, hash);
+    if (it != virtual_method_set_.end()) {
+      size_t super_index = *it;
+      DCHECK_LT(super_index, super_vtable_length);
+      ArtMethod* super_method = super_class->GetVTableEntry(super_index, kPointerSize);
+      // Historical note: Before Android 4.1, an inaccessible package-private
+      // superclass method would have been incorrectly overridden.
+      bool overrides = klass->CanAccessMember(super_method->GetDeclaringClass(),
+                                              super_method->GetAccessFlags());
+      if (UNLIKELY(!same_signature_virtual_methods_lists_.empty())) {
+        // We override only the first accessible virtual method from superclass.
+        // TODO: Override all methods that need to be overridden according to JLS. b/211854716
+        size_t current_index = super_index;
+        while (same_signature_virtual_methods_lists_[current_index] != dex::kDexNoIndex) {
+          DCHECK_LT(same_signature_virtual_methods_lists_[current_index], current_index);
+          current_index = same_signature_virtual_methods_lists_[current_index];
+          ArtMethod* current_method = super_class->GetVTableEntry(current_index, kPointerSize);
+          if (klass->CanAccessMember(current_method->GetDeclaringClass(),
+                                     current_method->GetAccessFlags())) {
+            overrides = true;
+            super_index = current_index;
+            super_method = current_method;
+          }
+        }
+      }
+      if (overrides) {
+        if (super_method->IsFinal()) {
+          ThrowLinkageError(klass.Get(), "Method %s overrides final method in class %s",
+                            virtual_method->PrettyMethod().c_str(),
+                            super_method->GetDeclaringClassDescriptor());
+          return 0u;
+        }
+        virtual_method->SetMethodIndex(super_index);
+        continue;
+      }
+    }
+    // The method does not override any method from superclass, so it needs a new vtable index.
+    virtual_method->SetMethodIndex(vtable_length);
+    ++vtable_length;
+  }
+  if (UNLIKELY(!IsUint<16>(vtable_length))) {
+    ThrowClassFormatError(klass.Get(), "Too many methods defined on class: %zd", vtable_length);
+    return 0u;
+  }
+  return vtable_length;
+}
+
+template <PointerSize kPointerSize>
 bool ClassLinker::LinkMethodsHelper<kPointerSize>::LinkVirtualMethods(
     Thread* self,
     Handle<mirror::Class> klass) {
@@ -7926,6 +8113,13 @@ bool ClassLinker::LinkMethodsHelper<kPointerSize>::LinkVirtualMethods(
         return false;
       }
     }
+
+    size_t final_vtable_size = AssignVtableIndexes(klass, num_virtual_methods);
+    if (final_vtable_size == 0u) {
+      self->AssertPendingException();
+      return false;
+    }
+
     // How the algorithm works:
     // 1. Populate hash table by adding num_virtual_methods from klass. The values in the hash
     // table are: invalid_index for unused slots, index super_vtable_length + i for a virtual
@@ -7977,14 +8171,10 @@ bool ClassLinker::LinkMethodsHelper<kPointerSize>::LinkVirtualMethods(
       uint32_t hash_index = hash_table.FindAndRemove(&super_method_name_comparator, hash);
       if (hash_index != hash_table.GetNotFoundIndex()) {
         ArtMethod* virtual_method = klass->GetVirtualMethodDuringLinking(hash_index, kPointerSize);
-        if (super_method->IsFinal()) {
-          ThrowLinkageError(klass.Get(), "Method %s overrides final method in class %s",
-                            virtual_method->PrettyMethod().c_str(),
-                            super_method->GetDeclaringClassDescriptor());
-          return false;
-        }
+        CHECK(!super_method->IsFinal());
         vtable->SetElementPtrSize(j, virtual_method, kPointerSize);
-        virtual_method->SetMethodIndex(j);
+        CHECK_EQ(virtual_method->GetMethodIndexDuringLinking(), j)
+            << virtual_method->PrettyMethod() << " " << klass->PrettyDescriptor();
       } else if (super_method->IsOverridableByDefaultMethod()) {
         // We didn't directly override this method but we might through default methods...
         // Check for default method update.
@@ -8048,13 +8238,11 @@ bool ClassLinker::LinkMethodsHelper<kPointerSize>::LinkVirtualMethods(
         continue;
       }
       vtable->SetElementPtrSize(actual_count, local_method, kPointerSize);
-      local_method->SetMethodIndex(actual_count);
+      CHECK_EQ(actual_count, local_method->GetMethodIndexDuringLinking());
       ++actual_count;
     }
-    if (!IsUint<16>(actual_count)) {
-      ThrowClassFormatError(klass.Get(), "Too many methods defined on class: %zd", actual_count);
-      return false;
-    }
+    CHECK(IsUint<16>(actual_count));
+    CHECK_EQ(final_vtable_size, actual_count);
     // Shrink vtable if possible
     CHECK_LE(actual_count, max_count);
     if (actual_count < max_count) {
