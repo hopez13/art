@@ -272,7 +272,8 @@ static void ForceJitCompiled(Thread* self,
     // this before checking if we will execute JIT code in case the request
     // is for an 'optimized' compilation.
     jit->CompileMethod(method, self, kind, /*prejit=*/ false);
-  } while (!code_cache->ContainsPc(method->GetEntryPointFromQuickCompiledCode()));
+  } while (!code_cache->ContainsPc(method->GetEntryPointFromQuickCompiledCode()) &&
+           !(method->IsNative() && code_cache->GetJniStubCode(method) != nullptr));
 }
 
 extern "C" JNIEXPORT void JNICALL Java_Main_ensureMethodJitCompiled(JNIEnv*, jclass, jobject meth) {
