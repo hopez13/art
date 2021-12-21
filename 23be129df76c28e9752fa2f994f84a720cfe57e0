@@ -16,6 +16,29 @@
       "message": "Thanks, Nicolas, Vladimir!",
       "revId": "23be129df76c28e9752fa2f994f84a720cfe57e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4329ed0_6dff51dc",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1844,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-21T16:33:43Z",
+      "side": 1,
+      "message": "I usually break before the `?` and `:`. Is this also part of clang-format?",
+      "range": {
+        "startLine": 1844,
+        "startChar": 64,
+        "endLine": 1844,
+        "endChar": 65
+      },
+      "revId": "23be129df76c28e9752fa2f994f84a720cfe57e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

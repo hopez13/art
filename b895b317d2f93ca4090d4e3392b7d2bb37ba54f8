@@ -159,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2421733d_d3c935fb",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-21T16:33:43Z",
+      "side": 1,
+      "message": "I\u0027m not too fond of clang-format.",
+      "parentUuid": "b7415182_5bf43972",
+      "range": {
+        "startLine": 1856,
+        "startChar": 8,
+        "endLine": 1856,
+        "endChar": 21
+      },
+      "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6aef2d31_bdf4cb8d",
