@@ -16,6 +16,98 @@
       "message": "Hi Nicolas, this change adds the NeverCompile annotation. Could you take a look when you get a chance?\n\nAs a quick note, I call MethodIsNeverCompile in the same places where GetNativeMethodAnnotationAccessFlags is called (except the verifier, since you had mentioned that that might be too late for checking annotations). Please let me know if I should add it in the verifier as well. Thank you!",
       "revId": "4822fd0e2d667c94f1cd7edf8c84183aa2395f24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcf45012_399a7e08",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-21T09:30:25Z",
+      "side": 1,
+      "message": "4 more spaces",
+      "range": {
+        "startLine": 474,
+        "startChar": 8,
+        "endLine": 474,
+        "endChar": 16
+      },
+      "revId": "4822fd0e2d667c94f1cd7edf8c84183aa2395f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "512d6f00_42b6d6a7",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-21T09:30:25Z",
+      "side": 1,
+      "message": "nit: Don\u0027t update access_flags, and make this a else in the list of if/else below.",
+      "range": {
+        "startLine": 473,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 5
+      },
+      "revId": "4822fd0e2d667c94f1cd7edf8c84183aa2395f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79bbc51b_0d45fe20",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3796,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-21T09:30:25Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 3795,
+        "startChar": 0,
+        "endLine": 3796,
+        "endChar": 54
+      },
+      "revId": "4822fd0e2d667c94f1cd7edf8c84183aa2395f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62a91510_887fe5e0",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-21T09:30:25Z",
+      "side": 1,
+      "message": "Remove paren",
+      "range": {
+        "startLine": 1306,
+        "startChar": 9,
+        "endLine": 1306,
+        "endChar": 10
+      },
+      "revId": "4822fd0e2d667c94f1cd7edf8c84183aa2395f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
