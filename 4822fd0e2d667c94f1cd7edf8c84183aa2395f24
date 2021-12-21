@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5c20e00_4888b78c",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1757736
+      },
+      "writtenOn": "2021-12-21T18:05:35Z",
+      "side": 1,
+      "message": "Since I moved this to the list of `compile \u0026\u0026 ` in the else block below, I didn\u0027t add the 4 spaces.",
+      "parentUuid": "bcf45012_399a7e08",
+      "range": {
+        "startLine": 474,
+        "startChar": 8,
+        "endLine": 474,
+        "endChar": 16
+      },
+      "revId": "4822fd0e2d667c94f1cd7edf8c84183aa2395f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "512d6f00_42b6d6a7",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-12-21T09:30:25Z",
       "side": 1,
       "message": "nit: Don\u0027t update access_flags, and make this a else in the list of if/else below.",
+      "range": {
+        "startLine": 473,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 5
+      },
+      "revId": "4822fd0e2d667c94f1cd7edf8c84183aa2395f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "037ca710_d803cfcd",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1757736
+      },
+      "writtenOn": "2021-12-21T18:05:35Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "512d6f00_42b6d6a7",
       "range": {
         "startLine": 473,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b54647a_63fd77f8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3796,
+      "author": {
+        "id": 1757736
+      },
+      "writtenOn": "2021-12-21T18:05:35Z",
+      "side": 1,
+      "message": "Done! (I\u0027m not sure why I originally thought this didn\u0027t fit in one line)",
+      "parentUuid": "79bbc51b_0d45fe20",
+      "range": {
+        "startLine": 3795,
+        "startChar": 0,
+        "endLine": 3796,
+        "endChar": 54
+      },
+      "revId": "4822fd0e2d667c94f1cd7edf8c84183aa2395f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62a91510_887fe5e0",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-12-21T09:30:25Z",
       "side": 1,
       "message": "Remove paren",
+      "range": {
+        "startLine": 1306,
+        "startChar": 9,
+        "endLine": 1306,
+        "endChar": 10
+      },
+      "revId": "4822fd0e2d667c94f1cd7edf8c84183aa2395f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ae282be_73b1d119",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1757736
+      },
+      "writtenOn": "2021-12-21T18:05:35Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "62a91510_887fe5e0",
       "range": {
         "startLine": 1306,
         "startChar": 9,
