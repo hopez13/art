@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e7ff92a_de9ae9f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-21T17:19:59Z",
+      "side": 1,
+      "message": "PTAL.Thanks!",
+      "revId": "e7c4b0b76585c0bfe3f44815fd40c00cf506d918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fda36e01_74568f66",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-21T17:19:59Z",
+      "side": 1,
+      "message": "IIUC, when we JIT native methods we generate JITed stubs based on the function short and they are stored in the jni_stubs and ContainsPc doesn\u0027t check for them. So if we call this with native methods this goes into an infinite loop. My Change just exposed this. Since earlier we used to return early because we installed interpreter stubs and that disables any JITing.",
+      "revId": "e7c4b0b76585c0bfe3f44815fd40c00cf506d918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
