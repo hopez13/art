@@ -183,6 +183,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50ebcd56_719d1331",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-21T16:41:53Z",
+      "side": 1,
+      "message": "clang-format is very convenient when I want to break a long expression into multiple lines.",
+      "parentUuid": "2421733d_d3c935fb",
+      "range": {
+        "startLine": 1856,
+        "startChar": 8,
+        "endLine": 1856,
+        "endChar": 21
+      },
+      "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6aef2d31_bdf4cb8d",
