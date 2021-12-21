@@ -132,6 +132,30 @@
       },
       "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acaeff40_2fdf4d3d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-21T14:50:55Z",
+      "side": 1,
+      "message": "If we were crossing to another compilation unit this could be useful. But it is fully contained in the `ImageWriter::BootImageLayout` class in this file which ensures that the check does not fail. I don\u0027t see much value being added by this `DCHECK()`.\n\nIf you see value in this, at least change it from `DCHECK()` to `CHECK()` so that the time spent filling the `std::unordered_set\u003c\u003e` is not totally wasted in release builds.",
+      "parentUuid": "0e3a0f9e_88aaa9a5",
+      "range": {
+        "startLine": 3211,
+        "startChar": 6,
+        "endLine": 3212,
+        "endChar": 93
+      },
+      "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
