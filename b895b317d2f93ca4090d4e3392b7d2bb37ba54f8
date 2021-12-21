@@ -108,6 +108,30 @@
       },
       "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e3a0f9e_88aaa9a5",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-21T14:41:04Z",
+      "side": 1,
+      "message": "Note: I\u0027ve added a comment on how we can ensure the files have been validated, and that lead to the validated_oat_files set. It\u0027s a temporary waste as IIUC the chunk objects are only there when loading the boot image.\n\nBut no strong preference, I was also a bit bothered on needing this bookkeeping, so was on the fence on keeping the correctness check.",
+      "parentUuid": "6aef2d31_bdf4cb8d",
+      "range": {
+        "startLine": 3211,
+        "startChar": 6,
+        "endLine": 3212,
+        "endChar": 93
+      },
+      "revId": "b895b317d2f93ca4090d4e3392b7d2bb37ba54f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
