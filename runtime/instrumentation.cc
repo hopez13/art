@@ -809,7 +809,7 @@ void Instrumentation::ConfigureStubs(const char* key, InstrumentationLevel desir
 
 void Instrumentation::EnableSingleThreadDeopt(const char* key) {
   // Single-thread deopt only uses interpreter.
-  ConfigureStubs(key, InstrumentationLevel::kInstrumentWithInterpreter);
+  ConfigureStubs(key, InstrumentationLevel::kInstrumentWithInstrumentationStubs);
 }
 
 void Instrumentation::UpdateInstrumentationLevel(InstrumentationLevel requested_level) {
