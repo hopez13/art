@@ -299,7 +299,7 @@ class HostTestEnv(ITestEnv):
       os.mkdir(arch_cache_path)
     lib = 'lib64' if x64 else 'lib'
     android_root = GetEnvVariableOrError('ANDROID_HOST_OUT')
-    android_i18n_root = android_root + '/com.android.i18n'
+    android_i18n_root = android_root
     android_art_root = android_root + '/com.android.art'
     android_tzdata_root = android_root + '/com.android.tzdata'
     library_path = android_root + '/' + lib

@@ -246,9 +246,8 @@ void CommonArtTestImpl::SetUpAndroidRootEnvVars() {
     // like libcore / icu4j / icu4c can find their data files.
     const char* android_i18n_root_from_env = getenv("ANDROID_I18N_ROOT");
     if (android_i18n_root_from_env == nullptr) {
-      // Use ${ANDROID_I18N_OUT}/com.android.i18n for ANDROID_I18N_ROOT.
+      // Use ${ANDROID_I18N_OUT} for ANDROID_I18N_ROOT.
       std::string android_i18n_root = android_host_out.c_str();
-      android_i18n_root += "/com.android.i18n";
       setenv("ANDROID_I18N_ROOT", android_i18n_root.c_str(), 1);
     }
 
