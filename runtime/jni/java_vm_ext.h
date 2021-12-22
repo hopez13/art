@@ -200,9 +200,11 @@ class JavaVMExt : public JavaVM {
   void TrimGlobals() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::jni_globals_lock_);
 
-  jint HandleGetEnv(/*out*/void** env, jint version);
+  jint HandleGetEnv(/*out*/void** env, jint version)
+      REQUIRES(!env_hooks_lock_);
 
-  void AddEnvironmentHook(GetEnvHook hook);
+  void AddEnvironmentHook(GetEnvHook hook)
+      REQUIRES(!env_hooks_lock_);
 
   static bool IsBadJniVersion(int version);
 
@@ -266,6 +268,8 @@ class JavaVMExt : public JavaVM {
 
   // TODO Maybe move this to Runtime.
   std::vector<GetEnvHook> env_hooks_;
+  // The reader-writer lock to avoid race conditions between AddEnvironmentHook() and HandleGetEnv().
+  ReaderWriterMutex env_hooks_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
 
   size_t enable_allocation_tracking_delta_;
   std::atomic<bool> allocation_tracking_enabled_;
