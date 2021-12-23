@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e39f19e_f67938e3",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-23T15:27:02Z",
+      "side": 1,
+      "message": "This isn\u0027t really an input mapping. Move this to CreateDex2oatArgumentParser ?",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 38
+      },
+      "revId": "e0c39c5d93e5f2df679c632e325513c893b58c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
