@@ -18,15 +18,14 @@
 
 #include <vector>
 
+#include "aidl/com/android/art/DexoptBcpExtArgs.h"
+#include "aidl/com/android/art/DexoptSystemServerArgs.h"
 #include "android-base/logging.h"
 #include "android-base/strings.h"
 #include "exec_utils.h"
+#include "libdexopt.h"
 #include "log/log.h"
 #include "odr_config.h"
-#include "libdexopt.h"
-
-#include "aidl/com/android/art/DexoptBcpExtArgs.h"
-#include "aidl/com/android/art/DexoptSystemServerArgs.h"
 
 namespace art {
 namespace odrefresh {
@@ -49,17 +48,17 @@ int ExecAndReturnCode(ExecUtils* exec_utils,
 }  // namespace
 
 OdrDexopt::OdrDexopt(const OdrConfig& config, std::unique_ptr<ExecUtils> exec_utils)
-  : dex2oat_path_(config.GetDex2Oat()), exec_utils_(std::move(exec_utils)) {}
+    : dex2oat_path_(config.GetDex2Oat()), exec_utils_(std::move(exec_utils)) {}
 
 int OdrDexopt::DexoptBcpExtension(const DexoptBcpExtArgs& args,
                                   time_t timeout_secs,
                                   /*out*/ bool* timed_out,
                                   /*out*/ std::string* error_msg) {
-  std::vector<std::string> cmdline = { dex2oat_path_ };
+  std::vector<std::string> cmdline = {dex2oat_path_};
   auto result = art::AddDex2oatArgsFromBcpExtensionArgs(args, cmdline);
   if (!result.ok()) {
-    LOG(ERROR) << "Dexopt (local) failed: " << result.error().message() << ", cmdline: "
-               << android::base::Join(cmdline, ' ');
+    LOG(ERROR) << "Dexopt (local) failed: " << result.error().message()
+               << ", cmdline: " << android::base::Join(cmdline, ' ');
     return -1;
   }
   return ExecAndReturnCode(exec_utils_.get(), cmdline, timeout_secs, timed_out, error_msg);
@@ -69,11 +68,11 @@ int OdrDexopt::DexoptSystemServer(const DexoptSystemServerArgs& args,
                                   time_t timeout_secs,
                                   /*out*/ bool* timed_out,
                                   /*out*/ std::string* error_msg) {
-  std::vector<std::string> cmdline = { dex2oat_path_ };
+  std::vector<std::string> cmdline = {dex2oat_path_};
   auto result = art::AddDex2oatArgsFromSystemServerArgs(args, cmdline);
   if (!result.ok()) {
-    LOG(ERROR) << "Dexopt (local) failed: " << result.error().message() << ", cmdline: "
-               << android::base::Join(cmdline, ' ');
+    LOG(ERROR) << "Dexopt (local) failed: " << result.error().message()
+               << ", cmdline: " << android::base::Join(cmdline, ' ');
     return -1;
   }
   return ExecAndReturnCode(exec_utils_.get(), cmdline, timeout_secs, timed_out, error_msg);
