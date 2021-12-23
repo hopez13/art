@@ -222,6 +222,30 @@
       },
       "revId": "4cee53a4010c2b17dcadfa465781feea2530ae05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98252657_ae138ecb",
+        "filename": "runtime/jni/java_vm_ext.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-23T14:44:55Z",
+      "side": 1,
+      "message": "I don\u0027t think it matters as we\u0027re locking the mutex for a very short time. If you prefer to keep the reader/writer mutex, that\u0027s fine with me.",
+      "parentUuid": "2a4af5ee_0175ab26",
+      "range": {
+        "startLine": 272,
+        "startChar": 2,
+        "endLine": 272,
+        "endChar": 19
+      },
+      "revId": "4cee53a4010c2b17dcadfa465781feea2530ae05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
