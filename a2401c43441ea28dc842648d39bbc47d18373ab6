@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07070617_a36158c8",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-23T16:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e15c5b15_6a108cb5",
+      "range": {
+        "startLine": 735,
+        "startChar": 11,
+        "endLine": 735,
+        "endChar": 13
+      },
+      "revId": "a2401c43441ea28dc842648d39bbc47d18373ab6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4074ac5c_5e39da5d",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-12-23T16:10:04Z",
       "side": 1,
       "message": "Did we make a final decision that we always want to recompile the entire boot image on device?",
+      "revId": "a2401c43441ea28dc842648d39bbc47d18373ab6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "502124a4_754e74cf",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-23T16:13:04Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "4074ac5c_5e39da5d",
       "revId": "a2401c43441ea28dc842648d39bbc47d18373ab6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
