@@ -22,6 +22,30 @@
       },
       "revId": "39711863c3c864c9a2eea49aa4619b5dd035ad30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2da21ba_731bcb41",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1757736
+      },
+      "writtenOn": "2021-12-23T18:13:21Z",
+      "side": 1,
+      "message": "Ahh, I misunderstood at first. Thank you for the clarification! Done.",
+      "parentUuid": "8daeedfa_a0f52e7c",
+      "range": {
+        "startLine": 503,
+        "startChar": 27,
+        "endLine": 505,
+        "endChar": 74
+      },
+      "revId": "39711863c3c864c9a2eea49aa4619b5dd035ad30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
