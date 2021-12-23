@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8c5bb5c_e09e97e4",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-23T15:58:29Z",
+      "side": 1,
+      "message": "I actually don\u0027t know. Given that deoptimizing a method installs these stubs anyway I think this is not required. Though I don\u0027t understand single thread deoptimization too well. As far as my understanding goes, single thread deopt is no different from a normal deopt. When we request a deopt of a method, we instrument stacks of all threads and I don\u0027t see where we actually only do one thread at a time. \n\nThe only difference I see is there is global deoptimization which deoptimizes all methods and limited deoptimization which deoptimizes one method. Both global and limited doesn\u0027t need instrumentation stubs to be set up before we want to deoptimize.\n\nDo you think we should simply drop this and try?",
+      "parentUuid": "d6182bd4_293d935a",
+      "range": {
+        "startLine": 811,
+        "startChar": 0,
+        "endLine": 811,
+        "endChar": 47
+      },
+      "revId": "e7c4b0b76585c0bfe3f44815fd40c00cf506d918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fda36e01_74568f66",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 2
@@ -72,6 +96,24 @@
       "side": 1,
       "message": "Odd, ContainsPc should check for them as it covers the entire JIT space.",
       "parentUuid": "fda36e01_74568f66",
+      "revId": "e7c4b0b76585c0bfe3f44815fd40c00cf506d918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce802900_b80fac41",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2021-12-23T15:58:29Z",
+      "side": 1,
+      "message": "You are right. It was my mistake. I just looked at the JNIStubData but didn\u0027t look further. The code actually exists in the JIT space. The problem was that there are instrumentation stubs installed so we don\u0027t update entry point even though we have compiled code. This wasn\u0027t a problem earlier because for all jvmti tests, we were running interpreter only and GetJitIfEnabled returned nullptr and hence we returned early. I fixed it by checking for entry exit stubs too now.",
+      "parentUuid": "2e62aed7_901a94b4",
       "revId": "e7c4b0b76585c0bfe3f44815fd40c00cf506d918",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
