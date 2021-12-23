@@ -117,6 +117,24 @@
       "parentUuid": "8f18333f_e9f79717",
       "revId": "a2401c43441ea28dc842648d39bbc47d18373ab6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70c9023f_f8153ea3",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-23T17:42:56Z",
+      "side": 1,
+      "message": "That\u0027s right, but the timing of when userfaultfd / primary boot image compilation lands might not be best, so it\u0027s probably best to make changes such as this one no-ops, so that if we need to revert primary boot image compilation on device we have a limited set of changes to revert.",
+      "parentUuid": "cc250c32_0f9bea29",
+      "revId": "a2401c43441ea28dc842648d39bbc47d18373ab6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
