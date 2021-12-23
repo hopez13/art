@@ -2496,6 +2496,22 @@ void HBasicBlock::DisconnectAndDelete() {
              last_instruction->IsPackedSwitch() ||
              (last_instruction->IsTryBoundary() && IsCatchBlock()));
       predecessor->RemoveInstruction(last_instruction);
+      if (last_instruction->IsIf() && !last_instruction->InputAt(0)->IsIntConstant()) {
+        HInstruction* input = last_instruction->InputAt(0);
+        HIf* if_instruction = last_instruction->AsIf();
+        if (if_instruction->GetTrueCount() == 0) {
+          DCHECK(!graph_->IsCompilingBaseline());
+          DCHECK(!graph_->IsCompilingOsr());
+          predecessor->AddInstruction(new (graph_->GetAllocator()) HDeoptimize(graph_->GetAllocator(), input, DeoptimizationKind::kBranch, last_instruction->GetDexPc()));
+          predecessor->GetLastInstruction()->CopyEnvironmentFrom(if_instruction->GetEnvironment());
+        } else if (if_instruction->GetFalseCount() == 0) {
+          DCHECK(!graph_->IsCompilingBaseline());
+          DCHECK(!graph_->IsCompilingOsr());
+          predecessor->AddInstruction(new (graph_->GetAllocator()) HBooleanNot(input, last_instruction->GetDexPc()));
+          predecessor->AddInstruction(new (graph_->GetAllocator()) HDeoptimize(graph_->GetAllocator(), predecessor->GetLastInstruction(), DeoptimizationKind::kBranch, last_instruction->GetDexPc()));
+          predecessor->GetLastInstruction()->CopyEnvironmentFrom(if_instruction->GetEnvironment());
+        }
+      }
       predecessor->AddInstruction(new (graph_->GetAllocator()) HGoto(last_instruction->GetDexPc()));
     } else if (num_pred_successors == 0u) {
       // The predecessor has no remaining successors and therefore must be dead.

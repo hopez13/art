@@ -60,6 +60,34 @@ class InlineCache {
   DISALLOW_COPY_AND_ASSIGN(InlineCache);
 };
 
+class BranchCache {
+ public:
+  static constexpr MemberOffset ExecutedOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(BranchCache, executed_));
+  }
+
+  static constexpr MemberOffset TrueOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(BranchCache, true_));
+  }
+
+  uint16_t GetExecuted() const {
+    return executed_;
+  }
+
+  uint16_t GetTrue() const {
+    return true_;
+  }
+
+ private:
+  uint32_t dex_pc_;
+  uint16_t executed_;
+  uint16_t true_;
+
+  friend class ProfilingInfo;
+
+  DISALLOW_COPY_AND_ASSIGN(BranchCache);
+};
+
 /**
  * Profiling info for a method, created and filled by the interpreter once the
  * method is warm, and used by the compiler to drive optimizations.
@@ -82,6 +110,35 @@ class ProfilingInfo {
   }
 
   InlineCache* GetInlineCache(uint32_t dex_pc);
+  BranchCache* GetBranchCache(uint32_t dex_pc);
+
+  InlineCache* GetInlineCaches() {
+    return reinterpret_cast<InlineCache*>(
+        reinterpret_cast<uintptr_t>(this) + sizeof(ProfilingInfo));
+  }
+  BranchCache* GetBranchCaches() {
+    return reinterpret_cast<BranchCache*>(
+        reinterpret_cast<uintptr_t>(this) + sizeof(ProfilingInfo) +
+        number_of_inline_caches_ * sizeof(InlineCache));
+  }
+
+  static size_t ComputeSize(uint32_t number_of_inline_caches, uint32_t number_of_branch_caches) {
+    return sizeof(ProfilingInfo) +
+        number_of_inline_caches * sizeof(InlineCache) +
+        number_of_branch_caches * sizeof(BranchCache);
+  }
+
+  void ResetBranchCounter(uint32_t dex_pc) {
+    BranchCache* cache = GetBranchCache(dex_pc);
+    DCHECK(cache != nullptr);
+    cache->true_ = 1;
+    cache->executed_ = 2;
+    BranchCache* branch_caches = GetBranchCaches();
+    for (size_t i = 0; i < number_of_branch_caches_; ++i) {
+      branch_caches[i].true_ = 1;
+      branch_caches[i].executed_ = 2;
+    }
+  }
 
   // Increments the number of times this method is currently being inlined.
   // Returns whether it was successful, that is it could increment without
@@ -120,7 +177,9 @@ class ProfilingInfo {
   }
 
  private:
-  ProfilingInfo(ArtMethod* method, const std::vector<uint32_t>& entries);
+  ProfilingInfo(ArtMethod* method,
+                const std::vector<uint32_t>& inline_cache_entries,
+                const std::vector<uint32_t>& branch_cache_entries);
 
   static uint16_t GetOptimizeThreshold();
 
@@ -134,16 +193,19 @@ class ProfilingInfo {
   // See JitCodeCache::MoveObsoleteMethod.
   ArtMethod* method_;
 
-  // Number of instructions we are profiling in the ArtMethod.
+  // Number of invokes we are profiling in the ArtMethod.
   const uint32_t number_of_inline_caches_;
+
+  // Number of branches we are profiling in the ArtMethod.
+  const uint32_t number_of_branch_caches_;
 
   // When the compiler inlines the method associated to this ProfilingInfo,
   // it updates this counter so that the GC does not try to clear the inline caches.
   uint16_t current_inline_uses_;
 
-  // Dynamically allocated array of size `number_of_inline_caches_`.
-  InlineCache cache_[0];
-
+  // Memory following the object:
+  // - Dynamically allocated array of `InlineCache` of size `number_of_inline_caches_`.
+  // - Dynamically allocated array of `BranchCache of size `number_of_branch_caches_`.
   friend class jit::JitCodeCache;
 
   DISALLOW_COPY_AND_ASSIGN(ProfilingInfo);

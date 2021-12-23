@@ -877,6 +877,9 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   // CodeGenerator::Compile() and remains alive until the CodeGenerator is destroyed.
   std::unique_ptr<CodeGenerationData> code_generation_data_;
 
+  // A block order optimized for code generation when we have profiling data.
+  ArenaVector<HBasicBlock*> optimized_block_order_;
+
   friend class OptimizingCFITest;
   ART_FRIEND_TEST(CodegenTest, ARM64FrameSizeSIMD);
   ART_FRIEND_TEST(CodegenTest, ARM64FrameSizeNoSIMD);

@@ -462,13 +462,76 @@ void CodeGenerator::EmitThunkCode(const linker::LinkerPatch& patch ATTRIBUTE_UNU
   LOG(FATAL) << "Unexpected call to EmitThunkCode().";
 }
 
+static bool BlockWeight(const std::pair<HBasicBlock*, uint16_t>& lhs,
+                        const std::pair<HBasicBlock*, uint16_t>& rhs) {
+  return lhs.second < rhs.second;
+}
+
+static void ComputeCodeGenerationOrder(ArenaVector<HBasicBlock*>* block_order, HGraph* graph) {
+  ScopedArenaAllocator allocator(graph->GetArenaStack());;
+  ScopedArenaVector<HBasicBlock*> worklist(allocator.Adapter(kArenaAllocCodeGenerator));
+  ScopedArenaHashSet<size_t> seen_blocks(allocator.Adapter(kArenaAllocCodeGenerator));
+  ScopedArenaPriorityQueue<std::pair<HBasicBlock*, uint16_t>, decltype(&BlockWeight)>
+      weight_worklist(BlockWeight, allocator.Adapter(kArenaAllocCodeGenerator));
+
+  auto addToWorklist = [&worklist, &seen_blocks](HBasicBlock* block) {
+    if (seen_blocks.find(block->GetBlockId()) == seen_blocks.end()) {
+      seen_blocks.insert(block->GetBlockId());
+      worklist.push_back(block);
+    }
+  };
+
+  auto addToWeightWorklist = [&weight_worklist, &seen_blocks](HBasicBlock* block, uint16_t weight) {
+    if (seen_blocks.find(block->GetBlockId()) == seen_blocks.end()) {
+      weight_worklist.push(std::make_pair(block, weight));
+    }
+  };
+  addToWorklist(graph->GetEntryBlock());
+  while (true) {
+    while (!worklist.empty()) {
+      HBasicBlock* current = worklist.back();
+      worklist.pop_back();
+      block_order->push_back(current);
+
+      HInstruction* last = current->GetLastInstruction();
+      if (last->IsIf()) {
+        uint16_t if_true = last->AsIf()->GetTrueCount();
+        uint16_t if_false = last->AsIf()->GetFalseCount();
+        if (if_true > if_false) {
+          addToWorklist(last->AsIf()->IfTrueSuccessor());
+          addToWeightWorklist(last->AsIf()->IfFalseSuccessor(), if_false);
+        } else {
+          addToWorklist(last->AsIf()->IfFalseSuccessor());
+          addToWeightWorklist(last->AsIf()->IfTrueSuccessor(), if_true);
+        }
+      } else {
+        for (HBasicBlock* successor : current->GetSuccessors()) {
+          addToWorklist(successor);
+        }
+      }
+    }
+    if (weight_worklist.empty()) {
+      break;
+    }
+    addToWorklist(weight_worklist.top().first);
+    weight_worklist.pop();
+  }
+}
+
 void CodeGenerator::InitializeCodeGeneration(size_t number_of_spill_slots,
                                              size_t maximum_safepoint_spill_size,
                                              size_t number_of_out_slots,
                                              const ArenaVector<HBasicBlock*>& block_order) {
-  block_order_ = &block_order;
-  DCHECK(!block_order.empty());
-  DCHECK(block_order[0] == GetGraph()->GetEntryBlock());
+  if (!graph_->HasIrreducibleLoops() &&
+      !graph_->IsCompilingBaseline() &&
+      graph_->GetProfilingInfo() != nullptr) {
+    ComputeCodeGenerationOrder(&optimized_block_order_, graph_);
+    block_order_ = &optimized_block_order_;
+  } else {
+    block_order_ = &block_order;
+  }
+  DCHECK(!block_order_->empty());
+  DCHECK((*block_order_)[0] == GetGraph()->GetEntryBlock());
   ComputeSpillMask();
   first_register_slot_in_slow_path_ = RoundUp(
       (number_of_out_slots + number_of_spill_slots) * kVRegSize, GetPreferredSlotsAlignment());
@@ -1066,7 +1129,8 @@ CodeGenerator::CodeGenerator(HGraph* graph,
       is_leaf_(true),
       needs_suspend_check_entry_(false),
       requires_current_method_(false),
-      code_generation_data_() {
+      code_generation_data_(),
+      optimized_block_order_(graph_->GetAllocator()->Adapter(kArenaAllocCodeGenerator)) {
   if (GetGraph()->IsCompilingOsr()) {
     // Make OSR methods have all registers spilled, this simplifies the logic of
     // jumping to the compiled code directly.
