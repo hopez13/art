@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d52f0c2_7cd6fe2f",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-23T17:57:15Z",
+      "side": 1,
+      "message": "Let\u0027s land your change for now, and we can follow-up with removing this entirely, but I think enableSingleThreadDeopt can indeed be a no-op, and it\u0027s at runtime where we would check in the switch interpreter whether we need to continue in the interpreter.",
+      "parentUuid": "a8c5bb5c_e09e97e4",
+      "range": {
+        "startLine": 811,
+        "startChar": 0,
+        "endLine": 811,
+        "endChar": 47
+      },
+      "revId": "e7c4b0b76585c0bfe3f44815fd40c00cf506d918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fda36e01_74568f66",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 2
