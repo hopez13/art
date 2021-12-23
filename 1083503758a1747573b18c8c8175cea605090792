@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f49b27d6_1adb1518",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Ups, thanks.",
+      "parentUuid": "895384df_9aabcca1",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49cb9b16_68679e6f",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-12-23T09:42:52Z",
       "side": 1,
       "message": "Make this `constexpr`.\n\nCheck that the compiler emits no special constructor for `InterpreterCache::shared_array_` in `interpreter_cache.o`. (The zero-initialized array should simply be part of the zero-initialized .bss section.)",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f788443_ad6e1d85",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49cb9b16_68679e6f",
       "range": {
         "startLine": 30,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2755d6f0_b47be8b6",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "649cb088_123df3f9",
+      "range": {
+        "startLine": 40,
+        "startChar": 64,
+        "endLine": 40,
+        "endChar": 71
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "183552d8_d4e1eca4",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc1eff3f_dd9d2ca1",
+        "filename": "runtime/interpreter/interpreter_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "183552d8_d4e1eca4",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 50
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6f26410_39a8076b",
@@ -106,6 +202,30 @@
       "writtenOn": "2021-12-23T09:42:52Z",
       "side": 1,
       "message": "This has just become a very bad name.\n\nThe pattern `thread \u003d\u003d self || thread-\u003eIsSuspended()` is used in so many placess that I was recently thinking about introducing a helper function\n\n  bool Thread::IsCurrentThreadOrSuspended(Thread* self) {\n    DCHECK(self \u003d\u003d Thread::Current());\n    return this \u003d\u003d self || IsSuspended();\n  }",
+      "range": {
+        "startLine": 36,
+        "startChar": 23,
+        "endLine": 36,
+        "endChar": 47
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a2fa75e_c2da2a36",
+        "filename": "runtime/interpreter/interpreter_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "I have renamed it.\n\nThe helper function also seems reasonable.",
+      "parentUuid": "b6f26410_39a8076b",
       "range": {
         "startLine": 36,
         "startChar": 23,
@@ -162,6 +282,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec9966d9_0788a28a",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "415c2869_9157d942",
+      "range": {
+        "startLine": 73,
+        "startChar": 37,
+        "endLine": 73,
+        "endChar": 47
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fcaaac8_673e644e",
@@ -175,6 +319,30 @@
       "writtenOn": "2021-12-23T09:42:52Z",
       "side": 1,
       "message": "`key`? (This is definitely not a \"dex_pc\".)",
+      "range": {
+        "startLine": 75,
+        "startChar": 11,
+        "endLine": 75,
+        "endChar": 17
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "169edd68_9c5756f0",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fcaaac8_673e644e",
       "range": {
         "startLine": 75,
         "startChar": 11,
@@ -208,6 +376,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68946b9a_3a5863b7",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "758bcd05_9e0301c6",
+      "range": {
+        "startLine": 94,
+        "startChar": 37,
+        "endLine": 94,
+        "endChar": 47
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "444175bc_7c466e11",
@@ -221,6 +413,30 @@
       "writtenOn": "2021-12-23T09:42:52Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 96,
+        "startChar": 11,
+        "endLine": 96,
+        "endChar": 17
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1977ea9c_5ba304b2",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "444175bc_7c466e11",
       "range": {
         "startLine": 96,
         "startChar": 11,
@@ -254,6 +470,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "751a4084_cc1376bf",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ed30c0_86d0542a",
+      "range": {
+        "startLine": 125,
+        "startChar": 45,
+        "endLine": 125,
+        "endChar": 51
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8af5f16d_dbb17a1a",
@@ -267,6 +507,30 @@
       "writtenOn": "2021-12-23T09:42:52Z",
       "side": 1,
       "message": "Do we need this? Or maybe just\n\n  Thread* GetOwningThread() {\n    return reinterpret_cast\u003cThread*\u003e(\n        interpret_cast\u003cuintptr_t\u003e(this) - Thread::InterpreterCacheOffset());\n  }\n\nShould we fix `Thread::InterpreterCacheOffset\u003ckPointerSize\u003e()` to provide the correct offset even if `kPointerSize !\u003d kRuntimePointerSize`?",
+      "range": {
+        "startLine": 143,
+        "startChar": 10,
+        "endLine": 143,
+        "endChar": 24
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1bf1dc4_6a3dd505",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Technically we don\u0027t need it, but I think it is more obvious / explicit this way.",
+      "parentUuid": "8af5f16d_dbb17a1a",
       "range": {
         "startLine": 143,
         "startChar": 10,
@@ -300,6 +564,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "654d52f9_673c408e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4241,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fabbc802_e0a3ce53",
+      "range": {
+        "startLine": 4241,
+        "startChar": 43,
+        "endLine": 4241,
+        "endChar": 60
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4afffd48_378aeb4e",
@@ -313,6 +601,24 @@
       "writtenOn": "2021-12-23T09:42:52Z",
       "side": 1,
       "message": "Could one thread copy entries from shared cache to local cache after we have cleared the local cache and before we have cleared the global cache?\n\n(There\u0027s a `// DCHECK(IsCalledFromOwningThread()); TODO` in `ForEachTheadLocalEntry()`.)",
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7f52638_8cca21ab",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4276,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Good point!  I think it should be sufficient to process the shared one first, right?",
+      "parentUuid": "4afffd48_378aeb4e",
       "revId": "1083503758a1747573b18c8c8175cea605090792",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -334,6 +640,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73aaf1bc_2da87187",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4495,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "Ditto, thanks.",
+      "parentUuid": "78e43895_12c70ed2",
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a51768d3_e325b944",
@@ -347,6 +671,30 @@
       "writtenOn": "2021-12-23T09:42:52Z",
       "side": 1,
       "message": "The `Interpreter::IndexOf\u003c\u003e()` still shifts by 2.",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 71
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d9af1a2_a4886f29",
+        "filename": "tools/cpp-define-generator/thread.def",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2021-12-23T15:01:55Z",
+      "side": 1,
+      "message": "It is correct.  I made the \u00272\u0027 into named constant to make it cleared.\n\nAssembly needs to shifts\n\u003e\u003e 2 for the hash\n\u003c\u003c log2(sizeof(Entry)) to multiple by Entry size to get address of Entry\n\nThis shift combines both.",
+      "parentUuid": "a51768d3_e325b944",
       "range": {
         "startLine": 37,
         "startChar": 11,
