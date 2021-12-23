@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6182bd4_293d935a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-23T11:24:35Z",
+      "side": 1,
+      "message": "Update comment.\n\nAlso, do you know why it\u0027s being setup so eagerly instead of when the developer actually needs it?",
+      "range": {
+        "startLine": 811,
+        "startChar": 0,
+        "endLine": 811,
+        "endChar": 47
+      },
+      "revId": "e7c4b0b76585c0bfe3f44815fd40c00cf506d918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fda36e01_74568f66",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 2
@@ -31,6 +54,24 @@
       "writtenOn": "2021-12-21T17:19:59Z",
       "side": 1,
       "message": "IIUC, when we JIT native methods we generate JITed stubs based on the function short and they are stored in the jni_stubs and ContainsPc doesn\u0027t check for them. So if we call this with native methods this goes into an infinite loop. My Change just exposed this. Since earlier we used to return early because we installed interpreter stubs and that disables any JITing.",
+      "revId": "e7c4b0b76585c0bfe3f44815fd40c00cf506d918",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e62aed7_901a94b4",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2021-12-23T11:24:35Z",
+      "side": 1,
+      "message": "Odd, ContainsPc should check for them as it covers the entire JIT space.",
+      "parentUuid": "fda36e01_74568f66",
       "revId": "e7c4b0b76585c0bfe3f44815fd40c00cf506d918",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
