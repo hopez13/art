@@ -101,7 +101,10 @@ static void AddInputMappings(Builder& builder) {
                     "         file and search for extensions in /framework/system and boot\n"
                     "         class path components' paths)\n"
                     "Default: $ANDROID_ROOT/system/framework/boot.art")
-          .IntoKey(M::BootImage);
+          .IntoKey(M::BootImage)
+      .Define("--force-jit-zygote")
+          .WithHelp("Optimizes the app to be executed in an environment that uses JIT Zygote.")
+          .IntoKey(M::ForceJitZygote);
 }
 
 static void AddGeneratedArtifactMappings(Builder& builder) {
