@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4100ec4_a0c8c7e8",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-23T12:17:28Z",
+      "side": 1,
+      "message": "There\u0027s only one use of this local variable, so it\u0027s not really needed and the `Thread:Current()` can be passed directly to the lock constructor.",
+      "range": {
+        "startLine": 542,
+        "startChar": 12,
+        "endLine": 542,
+        "endChar": 16
+      },
+      "revId": "4cee53a4010c2b17dcadfa465781feea2530ae05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "474265ee_3e125637",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-23T12:17:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 562,
+        "startChar": 10,
+        "endLine": 562,
+        "endChar": 14
+      },
+      "revId": "4cee53a4010c2b17dcadfa465781feea2530ae05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d88c402_3dc21d9c",
+        "filename": "runtime/jni/java_vm_ext.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-23T12:17:28Z",
+      "side": 1,
+      "message": "GUARDED_BY(env_hooks_lock_);\n\nAnd reorder the mutex before the guarded member.",
+      "range": {
+        "startLine": 270,
+        "startChar": 36,
+        "endLine": 270,
+        "endChar": 37
+      },
+      "revId": "4cee53a4010c2b17dcadfa465781feea2530ae05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6af5c9aa_223b8126",
+        "filename": "runtime/jni/java_vm_ext.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-23T12:17:28Z",
+      "side": 1,
+      "message": "Line too long. I\u0027m not sure the comment is necessary, a GUARDED_BY() declaration should be sufficient documentation.",
+      "revId": "4cee53a4010c2b17dcadfa465781feea2530ae05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26203a50_d1df01dd",
+        "filename": "runtime/jni/java_vm_ext.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-23T12:17:28Z",
+      "side": 1,
+      "message": "A simple `Mutex` would be enough in my opinion.",
+      "range": {
+        "startLine": 272,
+        "startChar": 2,
+        "endLine": 272,
+        "endChar": 19
+      },
+      "revId": "4cee53a4010c2b17dcadfa465781feea2530ae05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
