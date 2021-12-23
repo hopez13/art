@@ -112,6 +112,8 @@ constexpr const char* kCacheInfoFile = "cache-info.xml";
 
 constexpr mode_t kFileMode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
 
+constexpr const char* kFirstBootImageBasename = "boot.art";
+
 void EraseFiles(const std::vector<std::unique_ptr<File>>& files) {
   for (auto& file : files) {
     file->Erase(/*unlink=*/true);
@@ -412,20 +414,30 @@ bool PrepareBootClasspathFds(/*inout*/ std::vector<int>& boot_classpath_fds,
   return true;
 }
 
+std::string GetBootImageComponentBasename(const std::string& jar_path, bool is_first_jar) {
+  if (is_first_jar) {
+    return kFirstBootImageBasename;
+  }
+  const std::string jar_name = android::base::Basename(jar_path);
+  return "boot-" + ReplaceFileExtension(jar_name, "art");
+}
+
 void PrepareCompiledBootClasspathFdsIfAny(
     /*inout*/ DexoptSystemServerArgs& dexopt_args,
     /*inout*/ std::vector<std::unique_ptr<File>>& output_files,
     const std::vector<std::string>& bcp_jars,
     const InstructionSet isa,
-    bool on_system) {
+    const std::string& artifact_dir) {
   std::vector<int> bcp_image_fds;
   std::vector<int> bcp_oat_fds;
   std::vector<int> bcp_vdex_fds;
   std::vector<std::unique_ptr<File>> opened_files;
   bool added_any = false;
-  for (const std::string& jar : bcp_jars) {
-    std::string image_path = GetBootImagePath(on_system, jar);
-    image_path = image_path.empty() ? "" : GetSystemImageFilename(image_path.c_str(), isa);
+  for (size_t i = 0; i < bcp_jars.size(); i++) {
+    const std::string& jar = bcp_jars[i];
+    std::string image_path =
+        artifact_dir + "/" + GetBootImageComponentBasename(jar, /*is_first_jar=*/i == 0);
+    image_path = GetSystemImageFilename(image_path.c_str(), isa);
     std::unique_ptr<File> image_file(OS::OpenFileForReading(image_path.c_str()));
     if (image_file && image_file->IsValid()) {
       bcp_image_fds.push_back(image_file->Fd());
@@ -524,6 +536,10 @@ CompilerFilter CompilerFilterStringToAidl(const std::string& compiler_filter) {
   }
 }
 
+std::string GetArtBootImageDir() { return GetArtRoot() + "/javalib"; }
+
+std::string GetSystemBootImageDir() { return GetAndroidRoot() + "/framework"; }
+
 }  // namespace
 
 OnDeviceRefresh::OnDeviceRefresh(const OdrConfig& config)
@@ -542,12 +558,9 @@ OnDeviceRefresh::OnDeviceRefresh(const OdrConfig& config,
       exec_utils_{std::move(exec_utils)},
       odr_dexopt_{std::move(odr_dexopt)} {
   for (const std::string& jar : android::base::Split(config_.GetDex2oatBootClasspath(), ":")) {
-    // Boot class path extensions are those not in the ART APEX. Updatable APEXes should not
-    // have DEX files in the DEX2OATBOOTCLASSPATH. At the time of writing i18n is a non-updatable
-    // APEX and so does appear in the DEX2OATBOOTCLASSPATH.
-    if (!LocationIsOnArtModule(jar)) {
-      boot_extension_compilable_jars_.emplace_back(jar);
-    }
+    // Updatable APEXes should not have DEX files in the DEX2OATBOOTCLASSPATH. At the time of
+    // writing i18n is a non-updatable APEX and so does appear in the DEX2OATBOOTCLASSPATH.
+    boot_classpath_compilable_jars_.emplace_back(jar);
   }
 
   all_systemserver_jars_ = android::base::Split(config_.GetSystemServerClasspath(), ":");
@@ -632,16 +645,16 @@ void OnDeviceRefresh::WriteCacheInfo() const {
   }
 
   std::optional<std::vector<art_apex::Component>> bcp_compilable_components =
-      GenerateBootExtensionCompilableComponents();
+      GenerateBootClasspathCompilableComponents();
   if (!bcp_compilable_components.has_value()) {
-    LOG(ERROR) << "No boot classpath extension compilable components.";
+    LOG(ERROR) << "No boot classpath compilable components.";
     return;
   }
 
   std::optional<std::vector<art_apex::SystemServerComponent>> system_server_components =
       GenerateSystemServerComponents();
   if (!system_server_components.has_value()) {
-    LOG(ERROR) << "No system_server extension components.";
+    LOG(ERROR) << "No system_server components.";
     return;
   }
 
@@ -667,9 +680,9 @@ std::vector<art_apex::Component> OnDeviceRefresh::GenerateBootClasspathComponent
   return GenerateComponents(boot_classpath_jars_);
 }
 
-std::vector<art_apex::Component> OnDeviceRefresh::GenerateBootExtensionCompilableComponents()
+std::vector<art_apex::Component> OnDeviceRefresh::GenerateBootClasspathCompilableComponents()
     const {
-  return GenerateComponents(boot_extension_compilable_jars_);
+  return GenerateComponents(boot_classpath_compilable_jars_);
 }
 
 std::vector<art_apex::SystemServerComponent> OnDeviceRefresh::GenerateSystemServerComponents()
@@ -682,16 +695,35 @@ std::vector<art_apex::SystemServerComponent> OnDeviceRefresh::GenerateSystemServ
       });
 }
 
-std::string OnDeviceRefresh::GetBootImageExtensionImage(bool on_system) const {
-  CHECK(!boot_extension_compilable_jars_.empty());
-  const std::string leading_jar = boot_extension_compilable_jars_[0];
-  return GetBootImagePath(on_system, leading_jar);
+std::string OnDeviceRefresh::GetBootImage(bool on_system) const {
+  if (on_system) {
+    // Typically "/apex/com.android.art/javalib/boot.art".
+    // TODO(b/211973309): Update this one the primary boot image is moved.
+    return GetArtBootImageDir() + "/" + kFirstBootImageBasename;
+  } else {
+    // Typically "/data/misc/apexdata/com.android.art/dalvik-cache/boot.art".
+    return config_.GetArtifactDirectory() + "/" + kFirstBootImageBasename;
+  }
 }
 
-std::string OnDeviceRefresh::GetBootImageExtensionImagePath(bool on_system,
-                                                            const InstructionSet isa) const {
-  // Typically "/data/misc/apexdata/com.android.art/dalvik-cache/<isa>/boot-framework.art".
-  return GetSystemImageFilename(GetBootImageExtensionImage(on_system).c_str(), isa);
+std::string OnDeviceRefresh::GetBootImagePath(bool on_system, const InstructionSet isa) const {
+  // Typically "/data/misc/apexdata/com.android.art/dalvik-cache/<isa>/boot.art".
+  return GetSystemImageFilename(GetBootImage(on_system).c_str(), isa);
+}
+
+std::string OnDeviceRefresh::GetSystemBootImageExtension() const {
+  // Find the first boot extension jar.
+  auto it = std::find_if_not(boot_classpath_compilable_jars_.begin(),
+                             boot_classpath_compilable_jars_.end(),
+                             &LocationIsOnApex);
+  CHECK(it != boot_classpath_compilable_jars_.end());
+  // Typically "/system/framework/boot-framework.art".
+  return GetSystemBootImageDir() + "/" + GetBootImageComponentBasename(*it, /*is_first_jar=*/false);
+}
+
+std::string OnDeviceRefresh::GetSystemBootImageExtensionPath(const InstructionSet isa) const {
+  // Typically "/system/framework/<isa>/boot-framework.art".
+  return GetSystemImageFilename(GetSystemBootImageExtension().c_str(), isa);
 }
 
 std::string OnDeviceRefresh::GetSystemServerImagePath(bool on_system,
@@ -722,14 +754,27 @@ WARN_UNUSED bool OnDeviceRefresh::RemoveArtifactsDirectory() const {
   return RemoveDirectory(config_.GetArtifactDirectory());
 }
 
-WARN_UNUSED bool OnDeviceRefresh::BootExtensionArtifactsExist(
+WARN_UNUSED bool OnDeviceRefresh::BootClasspathArtifactsExist(
     bool on_system,
     const InstructionSet isa,
     /*out*/ std::string* error_msg,
     /*out*/ std::vector<std::string>* checked_artifacts) const {
-  const std::string apexdata_image_location = GetBootImageExtensionImagePath(on_system, isa);
-  const OdrArtifacts artifacts = OdrArtifacts::ForBootImageExtension(apexdata_image_location);
-  return ArtifactsExist(artifacts, /*check_art_file=*/true, error_msg, checked_artifacts);
+  std::string path = GetBootImagePath(on_system, isa);
+  OdrArtifacts artifacts = OdrArtifacts::ForBootImage(path);
+  if (!ArtifactsExist(artifacts, /*check_art_file=*/true, error_msg, checked_artifacts)) {
+    return false;
+  }
+  // There is a split between the primary boot image and the extension on /system, so they need to
+  // be checked separately. This does not apply to the boot image on /data.
+  if (on_system) {
+    std::string extension_path = GetSystemBootImageExtensionPath(isa);
+    OdrArtifacts extension_artifacts = OdrArtifacts::ForBootImage(extension_path);
+    if (!ArtifactsExist(
+            extension_artifacts, /*check_art_file=*/true, error_msg, checked_artifacts)) {
+      return false;
+    }
+  }
+  return true;
 }
 
 WARN_UNUSED bool OnDeviceRefresh::SystemServerArtifactsExist(
@@ -751,7 +796,7 @@ WARN_UNUSED bool OnDeviceRefresh::SystemServerArtifactsExist(
   return jars_missing_artifacts->empty();
 }
 
-WARN_UNUSED bool OnDeviceRefresh::CheckBootExtensionArtifactsAreUpToDate(
+WARN_UNUSED bool OnDeviceRefresh::CheckBootClasspathArtifactsAreUpToDate(
     OdrMetrics& metrics,
     const InstructionSet isa,
     const apex::ApexInfo& art_apex_info,
@@ -762,11 +807,11 @@ WARN_UNUSED bool OnDeviceRefresh::CheckBootExtensionArtifactsAreUpToDate(
 
     // ART is not updated, so we can use the artifacts on /system. Check if they exist.
     std::string error_msg;
-    if (BootExtensionArtifactsExist(/*on_system=*/true, isa, &error_msg)) {
+    if (BootClasspathArtifactsExist(/*on_system=*/true, isa, &error_msg)) {
       return true;
     }
 
-    LOG(INFO) << "Incomplete boot extension artifacts on /system. " << error_msg;
+    LOG(INFO) << "Incomplete boot classpath artifacts on /system. " << error_msg;
     LOG(INFO) << "Checking cache.";
   }
 
@@ -822,7 +867,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckBootExtensionArtifactsAreUpToDate(
   // The boot class components may change unexpectedly, for example an OTA could update
   // framework.jar.
   const std::vector<art_apex::Component> expected_bcp_compilable_components =
-      GenerateBootExtensionCompilableComponents();
+      GenerateBootClasspathCompilableComponents();
   if (expected_bcp_compilable_components.size() != 0 &&
       (!cache_info->hasDex2oatBootClasspath() ||
        !cache_info->getFirstDex2oatBootClasspath()->hasComponent())) {
@@ -843,8 +888,8 @@ WARN_UNUSED bool OnDeviceRefresh::CheckBootExtensionArtifactsAreUpToDate(
 
   // Cache info looks good, check all compilation artifacts exist.
   std::string error_msg;
-  if (!BootExtensionArtifactsExist(/*on_system=*/false, isa, &error_msg, checked_artifacts)) {
-    LOG(INFO) << "Incomplete boot extension artifacts. " << error_msg;
+  if (!BootClasspathArtifactsExist(/*on_system=*/false, isa, &error_msg, checked_artifacts)) {
+    LOG(INFO) << "Incomplete boot classpath artifacts. " << error_msg;
     metrics.SetTrigger(OdrMetrics::Trigger::kMissingArtifacts);
     return false;
   }
@@ -1124,7 +1169,7 @@ OnDeviceRefresh::CheckArtifactsAreUpToDate(OdrMetrics& metrics,
 
   // Clean-up helper used to simplify clean-ups and handling failures there.
   auto cleanup_and_compile_all = [&, this]() {
-    compilation_options->compile_boot_extensions_for_isas = config_.GetBootExtensionIsas();
+    compilation_options->compile_boot_classpath_for_isas = config_.GetBootClasspathIsas();
     compilation_options->system_server_jars_to_compile = AllSystemServerJars();
     return RemoveArtifactsDirectory() ? ExitCode::kCompilationRequired : ExitCode::kCleanupFailed;
   };
@@ -1167,11 +1212,11 @@ OnDeviceRefresh::CheckArtifactsAreUpToDate(OdrMetrics& metrics,
   InstructionSet system_server_isa = config_.GetSystemServerIsa();
   std::vector<std::string> checked_artifacts;
 
-  for (const InstructionSet isa : config_.GetBootExtensionIsas()) {
-    if (!CheckBootExtensionArtifactsAreUpToDate(
+  for (const InstructionSet isa : config_.GetBootClasspathIsas()) {
+    if (!CheckBootClasspathArtifactsAreUpToDate(
             metrics, isa, art_apex_info.value(), cache_info, &checked_artifacts)) {
-      compilation_options->compile_boot_extensions_for_isas.push_back(isa);
-      // system_server artifacts are invalid without valid boot extension artifacts.
+      compilation_options->compile_boot_classpath_for_isas.push_back(isa);
+      // system_server artifacts are invalid without valid boot classpath artifacts.
       if (isa == system_server_isa) {
         compilation_options->system_server_jars_to_compile = AllSystemServerJars();
       }
@@ -1186,7 +1231,7 @@ OnDeviceRefresh::CheckArtifactsAreUpToDate(OdrMetrics& metrics,
                                           &checked_artifacts);
   }
 
-  bool compilation_required = (!compilation_options->compile_boot_extensions_for_isas.empty() ||
+  bool compilation_required = (!compilation_options->compile_boot_classpath_for_isas.empty() ||
                                !compilation_options->system_server_jars_to_compile.empty());
 
   // If partial compilation is disabled, we should compile everything regardless of what's in
@@ -1209,7 +1254,7 @@ OnDeviceRefresh::CheckArtifactsAreUpToDate(OdrMetrics& metrics,
   return compilation_required ? ExitCode::kCompilationRequired : ExitCode::kOkay;
 }
 
-WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(
+WARN_UNUSED bool OnDeviceRefresh::CompileBootClasspathArtifacts(
     const InstructionSet isa,
     const std::string& staging_dir,
     OdrMetrics& metrics,
@@ -1221,10 +1266,17 @@ WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(
   dexopt_args.isa = InstructionSetToAidlIsa(isa);
 
   std::vector<std::unique_ptr<File>> readonly_files_raii;
-  const std::string boot_profile_file(GetAndroidRoot() + "/etc/boot-image.prof");
+  dexopt_args.profileFds.resize(2);
+  const std::string art_boot_profile_file = GetArtRoot() + "/etc/boot-image.prof";
   if (!PrepareDex2OatProfileIfExists(
-          &dexopt_args.profileFd, &readonly_files_raii, boot_profile_file)) {
-    LOG(ERROR) << "Missing expected profile for boot extension: " << boot_profile_file;
+          &dexopt_args.profileFds[0], &readonly_files_raii, art_boot_profile_file)) {
+    LOG(ERROR) << "Missing expected ART boot profile: " << art_boot_profile_file;
+    return false;
+  }
+  const std::string framework_boot_profile_file = GetAndroidRoot() + "/etc/boot-image.prof";
+  if (!PrepareDex2OatProfileIfExists(
+          &dexopt_args.profileFds[1], &readonly_files_raii, framework_boot_profile_file)) {
+    LOG(ERROR) << "Missing expected framework boot profile: " << framework_boot_profile_file;
     return false;
   }
 
@@ -1237,8 +1289,8 @@ WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(
     LOG(WARNING) << "Missing dirty objects file : " << QuotePath(dirty_image_objects_file);
   }
 
-  // Add boot extensions to compile.
-  for (const std::string& component : boot_extension_compilable_jars_) {
+  // Add boot classpath jars to compile.
+  for (const std::string& component : boot_classpath_compilable_jars_) {
     std::string actual_path = AndroidRootRewrite(component);
     std::unique_ptr<File> file(OS::OpenFileForReading(actual_path.c_str()));
     dexopt_args.dexPaths.emplace_back(component);
@@ -1252,10 +1304,8 @@ WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(
     return false;
   }
 
-  const std::string image_location = GetBootImageExtensionImagePath(/*on_system=*/false, isa);
-  const OdrArtifacts artifacts = OdrArtifacts::ForBootImageExtension(image_location);
-  CHECK_EQ(GetApexDataOatFilename(boot_extension_compilable_jars_.front().c_str(), isa),
-           artifacts.OatPath());
+  const std::string image_location = GetBootImagePath(/*on_system=*/false, isa);
+  const OdrArtifacts artifacts = OdrArtifacts::ForBootImage(image_location);
 
   dexopt_args.oatLocation = artifacts.OatPath();
   const std::pair<const std::string, int*> location_kind_pairs[] = {
@@ -1296,7 +1346,7 @@ WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(
   }
 
   const time_t timeout = GetSubprocessTimeout();
-  LOG(INFO) << "Compiling boot extensions (" << isa << "): " << dexopt_args.toString()
+  LOG(INFO) << "Compiling boot classpath (" << isa << "): " << dexopt_args.toString()
             << " [timeout " << timeout << "s]";
   if (config_.GetDryRun()) {
     LOG(INFO) << "Compilation skipped (dry-run).";
@@ -1304,6 +1354,9 @@ WARN_UNUSED bool OnDeviceRefresh::CompileBootExtensionArtifacts(
   }
 
   bool timed_out = false;
+  // NOTE: The method `DexoptBcpExtension` actually compiles the entire boot classpath. We don't
+  // rename this method because it will eventually go away.
+  // TODO(b/211977683): Call dex2oat directly.
   int dex2oat_exit_code =
       odr_dexopt_->DexoptBcpExtension(dexopt_args, timeout, &timed_out, error_msg);
 
@@ -1412,13 +1465,19 @@ WARN_UNUSED bool OnDeviceRefresh::CompileSystemServerArtifacts(
       return false;
     }
     std::string unused_error_msg;
-    // If the boot extension artifacts are not on /data, then boot extensions are not re-compiled
-    // and the artifacts must exist on /system.
+    // If the boot classpath artifacts are not on /data, then they are not re-compiled and the
+    // artifacts must exist on /system.
     bool boot_image_on_system =
-        !BootExtensionArtifactsExist(/*on_system=*/false, isa, &unused_error_msg);
+        !BootClasspathArtifactsExist(/*on_system=*/false, isa, &unused_error_msg);
     PrepareCompiledBootClasspathFdsIfAny(
-        dexopt_args, readonly_files_raii, bcp_jars, isa, boot_image_on_system);
-    dexopt_args.isBootImageOnSystem = boot_image_on_system;
+        dexopt_args,
+        readonly_files_raii,
+        bcp_jars,
+        isa,
+        boot_image_on_system ? GetSystemBootImageDir() : config_.GetArtifactDirectory());
+    dexopt_args.bootImage = boot_image_on_system ? GetBootImage(/*on_system=*/true) + ":" +
+                                                       GetSystemBootImageExtension() :
+                                                   GetBootImage(/*on_system=*/false);
 
     dexopt_args.classloaderContext = classloader_context;
     if (!classloader_context.empty()) {
@@ -1507,16 +1566,16 @@ WARN_UNUSED ExitCode OnDeviceRefresh::Compile(OdrMetrics& metrics,
 
   uint32_t dex2oat_invocation_count = 0;
   uint32_t total_dex2oat_invocation_count =
-      compilation_options.compile_boot_extensions_for_isas.size() +
+      compilation_options.compile_boot_classpath_for_isas.size() +
       compilation_options.system_server_jars_to_compile.size();
   ReportNextBootAnimationProgress(dex2oat_invocation_count, total_dex2oat_invocation_count);
   auto advance_animation_progress = [&]() {
     ReportNextBootAnimationProgress(++dex2oat_invocation_count, total_dex2oat_invocation_count);
   };
 
-  const auto& bcp_instruction_sets = config_.GetBootExtensionIsas();
+  const auto& bcp_instruction_sets = config_.GetBootClasspathIsas();
   DCHECK(!bcp_instruction_sets.empty() && bcp_instruction_sets.size() <= 2);
-  for (const InstructionSet isa : compilation_options.compile_boot_extensions_for_isas) {
+  for (const InstructionSet isa : compilation_options.compile_boot_classpath_for_isas) {
     auto stage = (isa == bcp_instruction_sets.front()) ? OdrMetrics::Stage::kPrimaryBootClasspath :
                                                          OdrMetrics::Stage::kSecondaryBootClasspath;
     metrics.SetStage(stage);
@@ -1527,7 +1586,7 @@ WARN_UNUSED ExitCode OnDeviceRefresh::Compile(OdrMetrics& metrics,
       return ExitCode::kCompilationFailed;
     }
 
-    if (!CompileBootExtensionArtifacts(
+    if (!CompileBootClasspathArtifacts(
             isa, staging_dir, metrics, advance_animation_progress, &error_msg)) {
       LOG(ERROR) << "Compilation of BCP failed: " << error_msg;
       if (!config_.GetDryRun() && !RemoveDirectory(staging_dir)) {

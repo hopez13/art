@@ -435,7 +435,7 @@ TEST_F(OdRefreshTest, OutputFilesAndIsa) {
   EXPECT_EQ(
       odrefresh->Compile(*metrics_,
                          CompilationOptions{
-                             .compile_boot_extensions_for_isas = {InstructionSet::kX86_64},
+                             .compile_boot_classpath_for_isas = {InstructionSet::kX86_64},
                              .system_server_jars_to_compile = odrefresh->AllSystemServerJars(),
                          }),
       ExitCode::kCompilationSuccess);
@@ -447,7 +447,7 @@ TEST_F(OdRefreshTest, CompileChoosesBootImage) {
 
     // Boot image is on /data.
     OdrArtifacts artifacts =
-        OdrArtifacts::ForBootImageExtension(dalvik_cache_dir_ + "/x86_64/boot-framework.art");
+        OdrArtifacts::ForBootImage(dalvik_cache_dir_ + "/x86_64/boot-framework.art");
     auto file1 = ScopedCreateEmptyFile(artifacts.ImagePath());
     auto file2 = ScopedCreateEmptyFile(artifacts.VdexPath());
     auto file3 = ScopedCreateEmptyFile(artifacts.OatPath());
@@ -476,7 +476,7 @@ TEST_F(OdRefreshTest, CompileChoosesBootImage) {
 
     // Boot image is on /system.
     OdrArtifacts artifacts =
-        OdrArtifacts::ForBootImageExtension(framework_dir_ + "/x86_64/boot-framework.art");
+        OdrArtifacts::ForBootImage(framework_dir_ + "/x86_64/boot-framework.art");
     auto file1 = ScopedCreateEmptyFile(artifacts.ImagePath());
     auto file2 = ScopedCreateEmptyFile(artifacts.VdexPath());
     auto file3 = ScopedCreateEmptyFile(artifacts.OatPath());

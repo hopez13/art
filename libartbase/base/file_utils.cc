@@ -358,18 +358,6 @@ std::string GetDefaultBootImageLocation(std::string* error_msg) {
   return GetDefaultBootImageLocation(android_root, /*deny_art_apex_data_files=*/false);
 }
 
-std::string GetBootImagePath(bool on_system, const std::string& jar_path) {
-  if (on_system) {
-    const std::string jar_name = android::base::Basename(jar_path);
-    const std::string image_name = ReplaceFileExtension(jar_name, "art");
-    // Typically "/system/framework/boot-framework.art".
-    return StringPrintf("%s/framework/boot-%s", GetAndroidRoot().c_str(), image_name.c_str());
-  } else {
-    // Typically "/data/misc/apexdata/com.android.art/dalvik-cache/boot-framework.art".
-    return GetApexDataBootImage(jar_path);
-  }
-}
-
 static /*constinit*/ std::string_view dalvik_cache_sub_dir = "dalvik-cache";
 
 void OverrideDalvikCacheSubDirectory(std::string sub_dir) {
