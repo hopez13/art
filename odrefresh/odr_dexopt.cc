@@ -162,7 +162,7 @@ class OdrDexoptCompilationOS final : public OdrDexopt {
                                             const DexoptBcpExtArgs& args) {
     // input
     insertOnlyNonNegative(input_fds, args.dexFds);
-    insertIfNonNegative(input_fds, args.profileFd);
+    insertOnlyNonNegative(input_fds, args.profileFds);
     insertIfNonNegative(input_fds, args.dirtyImageObjectsFd);
     insertOnlyNonNegative(input_fds, args.bootClasspathFds);
     // output
