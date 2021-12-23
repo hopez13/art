@@ -99,6 +99,24 @@
       "parentUuid": "502124a4_754e74cf",
       "revId": "a2401c43441ea28dc842648d39bbc47d18373ab6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc250c32_0f9bea29",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2021-12-23T16:30:43Z",
+      "side": 1,
+      "message": "This flag is only for dogfooders who has dalvik.vm.profilebootclasspath turned on, so it\u0027s not affecting any existing users. We will soon move the primary boot image out of the ART APEX.",
+      "parentUuid": "8f18333f_e9f79717",
+      "revId": "a2401c43441ea28dc842648d39bbc47d18373ab6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
