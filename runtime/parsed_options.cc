@@ -181,6 +181,9 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       .Define("-Ximage:_")
           .WithType<ParseStringList<':'>>()
           .IntoKey(M::Image)
+      .Define("-Xusejitzygoteimage:_")
+          .WithType<bool>()
+          .IntoKey(M::UseJitZygoteImage)
       .Define("-Xprimaryzygote")
           .IntoKey(M::PrimaryZygote)
       .Define("-Xbootclasspath-locations:_")
@@ -722,6 +725,17 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
           boot_class_path_locations->Join().c_str());
       return false;
     }
+  }
+
+  if (args.Exists(M::Image) && *args.Get(M::UseJitZygoteImage)) {
+    Usage("-Ximage and -Xusejitzygoteimage:true cannot be specified together\n");
+    Exit(0);
+  }
+
+  if (*args.Get(M::UseJitZygoteImage)) {
+    args.Set(M::Image,
+             ParseStringList<':'>{{"/nonx/boot.art!/apex/com.android.art/etc/boot-image.prof!/"
+                                   "system/etc/boot-image.prof"}});
   }
 
   if (!args.Exists(M::CompilerCallbacksPtr) && !args.Exists(M::Image)) {
