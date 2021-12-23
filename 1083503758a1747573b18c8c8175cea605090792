@@ -261,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44e4f199_89c3f0c5",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-12-23T20:05:41Z",
+      "side": 1,
+      "message": "It sounds like this measurably improves startup for all processes? There\u0027s no way to avoid touching (much of?) this for \"smaller\" processes, whatever that means? E.g. might it be worth writing to this only after the first N post-zygote-fork misses?\n\nAt a minimum, can we condition this on !Heap::IsLowMemoryMode() or something similar?",
+      "parentUuid": "63b67a03_f50aaa11",
+      "range": {
+        "startLine": 57,
+        "startChar": 40,
+        "endLine": 57,
+        "endChar": 49
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "415c2869_9157d942",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 5
