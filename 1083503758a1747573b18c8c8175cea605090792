@@ -625,6 +625,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa09906c_1cceef2f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4276,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-23T15:37:56Z",
+      "side": 1,
+      "message": "Actually, are mutator threads suspended at this point? If yes, this is OK. If not, this is broken with or without this CL as the non-atomic update in the visitor could race with a mutator.",
+      "parentUuid": "d7f52638_8cca21ab",
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78e43895_12c70ed2",
         "filename": "runtime/thread.cc",
         "patchSetId": 5
@@ -695,6 +713,30 @@
       "side": 1,
       "message": "It is correct.  I made the \u00272\u0027 into named constant to make it cleared.\n\nAssembly needs to shifts\n\u003e\u003e 2 for the hash\n\u003c\u003c log2(sizeof(Entry)) to multiple by Entry size to get address of Entry\n\nThis shift combines both.",
       "parentUuid": "a51768d3_e325b944",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 71
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a10c2f0_d2593f0b",
+        "filename": "tools/cpp-define-generator/thread.def",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-23T15:37:56Z",
+      "side": 1,
+      "message": "So the old `2` was wrong for x86? (Not used for 32-bit arm.)",
+      "parentUuid": "6d9af1a2_a4886f29",
       "range": {
         "startLine": 37,
         "startChar": 11,

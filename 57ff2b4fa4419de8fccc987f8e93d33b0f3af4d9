@@ -16,6 +16,47 @@
       "message": "It used to be relaxed?",
       "revId": "57ff2b4fa4419de8fccc987f8e93d33b0f3af4d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52c72556_f10ed59c",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-23T15:37:56Z",
+      "side": 1,
+      "message": "This was always somewhat questionable and David changed that in response to my comment in `atomic_pair.h` in PS5.\n\nMaybe Hans could weigh in?",
+      "parentUuid": "e48bed4f_7dc97209",
+      "revId": "57ff2b4fa4419de8fccc987f8e93d33b0f3af4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94c312b3_7dded131",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4495,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2021-12-23T15:37:56Z",
+      "side": 1,
+      "message": "It would be cleaner to call this in a `callback` from `ThreadList::RunCheckpoint()` while it holds `*Locks::thread_suspend_count_lock_` and therefore no thread can actually run the checkpoint yet (see also `Thread::RunCheckpointFunction()`). But maybe this would block threads for too long given how big is the shared cache.",
+      "range": {
+        "startLine": 4495,
+        "startChar": 2,
+        "endLine": 4495,
+        "endChar": 34
+      },
+      "revId": "57ff2b4fa4419de8fccc987f8e93d33b0f3af4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
