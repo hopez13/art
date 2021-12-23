@@ -389,12 +389,22 @@ class DeoptimizeStackVisitor final : public StackVisitor {
         single_frame_deopt_(single_frame),
         single_frame_done_(false),
         single_frame_deopt_method_(nullptr),
+        bottom_method_(nullptr),
+        bottom_dex_pc_(-1),
         single_frame_deopt_quick_method_header_(nullptr),
         callee_method_(nullptr),
         skip_method_exit_callbacks_(skip_method_exit_callbacks) {}
 
   ArtMethod* GetSingleFrameDeoptMethod() const {
     return single_frame_deopt_method_;
+  }
+
+  ArtMethod* GetBottomMethod() const {
+    return bottom_method_;
+  }
+
+  uint32_t GetBottomDexPc() const {
+    return bottom_dex_pc_;
   }
 
   const OatQuickMethodHeader* GetSingleFrameDeoptQuickMethodHeader() const {
@@ -466,6 +476,10 @@ class DeoptimizeStackVisitor final : public StackVisitor {
       } else {
         updated_vregs = GetThread()->GetUpdatedVRegFlags(frame_id);
         DCHECK(updated_vregs != nullptr);
+      }
+      if (bottom_method_ == nullptr) {
+        bottom_method_ = method;
+        bottom_dex_pc_ = GetDexPc();
       }
       if (GetCurrentOatQuickMethodHeader()->IsNterpMethodHeader()) {
         HandleNterpDeoptimization(method, new_frame, updated_vregs);
@@ -645,6 +659,8 @@ class DeoptimizeStackVisitor final : public StackVisitor {
   const bool single_frame_deopt_;
   bool single_frame_done_;
   ArtMethod* single_frame_deopt_method_;
+  ArtMethod* bottom_method_;
+  uint32_t bottom_dex_pc_;
   const OatQuickMethodHeader* single_frame_deopt_quick_method_header_;
   ArtMethod* callee_method_;
   // This specifies if method exit callbacks should be skipped for the top frame. We may request
@@ -710,6 +726,10 @@ void QuickExceptionHandler::DeoptimizeSingleFrame(DeoptimizationKind kind) {
   if (Runtime::Current()->UseJitCompilation() && (kind != DeoptimizationKind::kDebugging)) {
     Runtime::Current()->GetJit()->GetCodeCache()->InvalidateCompiledCodeFor(
         deopt_method, visitor.GetSingleFrameDeoptQuickMethodHeader());
+    if (kind == DeoptimizationKind::kBranch) {
+      Runtime::Current()->GetJit()->GetCodeCache()->ResetBranchCounter(visitor.GetBottomMethod(), visitor.GetBottomDexPc(), self_);
+      Runtime::Current()->GetJit()->EnqueueOptimizedCompilation(deopt_method, self_);
+    }
   } else {
     Runtime::Current()->GetInstrumentation()->InitializeMethodsCode(
         deopt_method, /*aot_code=*/ nullptr);

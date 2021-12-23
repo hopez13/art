@@ -59,6 +59,14 @@ static void MarkReachableBlocks(HGraph* graph, ArenaBitVector* visited) {
           live_successors = live_successors.SubArray(1u, 1u);
           DCHECK_EQ(live_successors[0], if_instruction->IfFalseSuccessor());
         }
+      } else if (!graph->IsCompilingOsr()) {
+        if (if_instruction->GetTrueCount() == 0) {
+          live_successors = live_successors.SubArray(1u, 1u);
+          DCHECK_EQ(live_successors[0], if_instruction->IfFalseSuccessor());
+        } else if (if_instruction->GetFalseCount() == 0) {
+          live_successors = live_successors.SubArray(0u, 1u);
+          DCHECK_EQ(live_successors[0], if_instruction->IfTrueSuccessor());
+        }
       }
     } else if (last_instruction->IsPackedSwitch()) {
       HPackedSwitch* switch_instruction = last_instruction->AsPackedSwitch();

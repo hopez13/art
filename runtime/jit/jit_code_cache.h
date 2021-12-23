@@ -316,7 +316,8 @@ class JitCodeCache {
   // Create a 'ProfileInfo' for 'method'.
   ProfilingInfo* AddProfilingInfo(Thread* self,
                                   ArtMethod* method,
-                                  const std::vector<uint32_t>& entries)
+                                  const std::vector<uint32_t>& inline_cache_entries,
+                                  const std::vector<uint32_t>& branch_cache_entries)
       REQUIRES(!Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -403,6 +404,7 @@ class JitCodeCache {
 
   ProfilingInfo* GetProfilingInfo(ArtMethod* method, Thread* self);
   void ResetHotnessCounter(ArtMethod* method, Thread* self);
+  void ResetBranchCounter(ArtMethod* method, uint32_t dex_pc, Thread* self);
 
   void VisitRoots(RootVisitor* visitor);
 
@@ -423,7 +425,8 @@ class JitCodeCache {
 
   ProfilingInfo* AddProfilingInfoInternal(Thread* self,
                                           ArtMethod* method,
-                                          const std::vector<uint32_t>& entries)
+                                          const std::vector<uint32_t>& inline_cache_entries,
+                                          const std::vector<uint32_t>& branch_cache_entries)
       REQUIRES(Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 

@@ -3867,6 +3867,33 @@ void InstructionCodeGeneratorARM64::VisitIf(HIf* if_instr) {
   if (codegen_->GoesToNextBlock(if_instr->GetBlock(), false_successor)) {
     false_target = nullptr;
   }
+  if (IsBooleanValueOrMaterializedCondition(if_instr->InputAt(0))) {
+    if (GetGraph()->IsCompilingBaseline() && !Runtime::Current()->IsAotCompiler()) {
+      ProfilingInfo* info = GetGraph()->GetProfilingInfo();
+      DCHECK(info != nullptr);
+      BranchCache* cache = info->GetBranchCache(if_instr->GetDexPc());
+      // Currently, not all If branches are profiled.
+      if (cache != nullptr) {
+        uint64_t address = reinterpret_cast64<uint64_t>(cache);
+        vixl::aarch64::Label done;
+        UseScratchRegisterScope temps(GetVIXLAssembler());
+        Register temp = temps.AcquireX();
+        Register counter = temps.AcquireW();
+        __ Mov(temp, address);
+        __ Ldrh(counter, MemOperand(temp, BranchCache::ExecutedOffset().Int32Value()));
+        __ Add(counter, counter, 1);
+        __ Tbnz(counter, 16, &done);
+        __ Strh(counter, MemOperand(temp, BranchCache::ExecutedOffset().Int32Value()));
+        Register condition = InputRegisterAt(if_instr, 0);
+        __ Ldrh(counter, MemOperand(temp, BranchCache::TrueOffset().Int32Value()));
+        __ Add(counter, counter, condition);
+        __ Strh(counter, MemOperand(temp, BranchCache::TrueOffset().Int32Value()));
+        __ Bind(&done);
+      }
+    }
+  } else {
+    DCHECK(!GetGraph()->IsCompilingBaseline()) << if_instr->InputAt(0)->DebugName();
+  }
   GenerateTestAndBranch(if_instr, /* condition_input_index= */ 0, true_target, false_target);
 }
 
