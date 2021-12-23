@@ -212,16 +212,14 @@ void OptionsHelp() {
 NO_RETURN void UsageHelp(const char* argv0) {
   std::string name(android::base::Basename(argv0));
   UsageError("Usage: %s [OPTION...] ACTION", name.c_str());
-  UsageError("On-device refresh tool for boot class path extensions and system server");
+  UsageError("On-device refresh tool for boot classpath and system server");
   UsageError("following an update of the ART APEX.");
   UsageError("");
   UsageError("Valid ACTION choices are:");
   UsageError("");
   UsageError("--check          Check compilation artifacts are up-to-date based on metadata.");
-  UsageError("--compile        Compile boot class path extensions and system_server jars");
-  UsageError("                 when necessary.");
-  UsageError("--force-compile  Unconditionally compile the boot class path extensions and");
-  UsageError("                 system_server jars.");
+  UsageError("--compile        Compile boot classpath and system_server jars when necessary.");
+  UsageError("--force-compile  Unconditionally compile the bootclass path and system_server jars.");
   UsageError("--help           Display this help information.");
   UsageError("");
   UsageError("Available OPTIONs are:");
@@ -283,8 +281,8 @@ int main(int argc, char** argv) {
     }
     return odr.Compile(metrics,
                        CompilationOptions{
-                         .compile_boot_extensions_for_isas = config.GetBootExtensionIsas(),
-                         .system_server_jars_to_compile = odr.AllSystemServerJars(),
+                           .compile_boot_classpath_for_isas = config.GetBootClasspathIsas(),
+                           .system_server_jars_to_compile = odr.AllSystemServerJars(),
                        });
   } else if (action == "--help") {
     UsageHelp(argv[0]);
