@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000018681667",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1933038?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "909d4a1c_efe97747",
+          "description": "Change to \"runtime/gc/reference_processor.h\"",
+          "replacements": [
+            {
+              "path": "runtime/gc/reference_processor.h",
+              "range": {
+                "startLine": 108,
+                "startChar": 15,
+                "endLine": 108,
+                "endChar": 23
+              },
+              "replacement": "processor"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "baaa3ae6_00f9ce6e",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2021-12-24T02:20:35Z",
+      "side": 1,
+      "message": "Common typo found: \"procesor\" -- should it be \"processor\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 108,
+        "startChar": 15,
+        "endLine": 108,
+        "endChar": 23
+      },
+      "revId": "1bf8151760dcfaf8751e144f8cae2a5cdd21e6eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
