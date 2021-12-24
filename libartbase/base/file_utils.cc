@@ -289,7 +289,7 @@ std::string GetDefaultBootImageLocation(const std::string& android_root,
   constexpr static const char* kEtcBootImageProf = "etc/boot-image.prof";
 
   // If an update for the ART module has been been installed, a single boot image for the entire
-  // bootclasspath is  in the ART APEX data directory.
+  // bootclasspath is in the ART APEX data directory.
   if (kIsTargetBuild && !deny_art_apex_data_files) {
     const std::string boot_image =
         GetApexDataDalvikCacheDirectory(InstructionSet::kNone) + "/boot.art";
