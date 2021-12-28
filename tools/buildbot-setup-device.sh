@@ -133,9 +133,9 @@ if [[ -n "$ART_TEST_CHROOT" ]]; then
   # bionic/libc/system_properties/contexts_split.cpp for more information.)
   property_context_files="/property_contexts \
     /system/etc/selinux/plat_property_contexts \
-    /vendor/etc/selinux/nonplat_property_context \
+    /vendor/etc/selinux/vendor_property_context \
     /plat_property_contexts \
-    /nonplat_property_contexts"
+    /vendor_property_contexts"
   for f in $property_context_files; do
     adb shell test -f "$f" \
       "&&" mkdir -p "$ART_TEST_CHROOT$(dirname $f)" \
