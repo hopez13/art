@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45e4edba_bdcdec52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2021-12-29T01:42:41Z",
+      "side": 1,
+      "message": "PS3 adds the memory ordering fix for weak reference access for the CC collector. I\u0027d like to submit this in roughly this form, after adding a more specific reference processing test (in a separate CL).\n\nAny WeakGlobalRef improvements will be in a separate CL.",
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
