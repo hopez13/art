@@ -66,7 +66,7 @@ struct AdbConnectionDdmCallback : public art::DdmCallback {
 
   void DdmPublishChunk(uint32_t type,
                        const art::ArrayRef<const uint8_t>& data)
-      REQUIRES_SHARED(art::Locks::mutator_lock_);
+      REQUIRES_SHARED(art::Locks::mutator_UNlock_);
 
  private:
   AdbConnectionState* connection_;
