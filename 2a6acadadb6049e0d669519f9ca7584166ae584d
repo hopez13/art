@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "288845c9_e57cdb23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-04T18:50:20Z",
+      "side": 1,
+      "message": "Yes, the plan is to move the primary boot image soon.",
+      "parentUuid": "5333b068_cefedca4",
+      "revId": "2a6acadadb6049e0d669519f9ca7584166ae584d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "820fd95d_87adbf87",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-01-04T15:08:04Z",
       "side": 1,
       "message": "extra space",
+      "range": {
+        "startLine": 292,
+        "startChar": 21,
+        "endLine": 292,
+        "endChar": 23
+      },
+      "revId": "2a6acadadb6049e0d669519f9ca7584166ae584d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8be1d85_e13c2b1c",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-04T18:50:20Z",
+      "side": 1,
+      "message": "Good catch :)",
+      "parentUuid": "820fd95d_87adbf87",
       "range": {
         "startLine": 292,
         "startChar": 21,
