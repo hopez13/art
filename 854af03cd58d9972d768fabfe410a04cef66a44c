@@ -46,6 +46,30 @@
       },
       "revId": "854af03cd58d9972d768fabfe410a04cef66a44c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c439546_80665a17",
+        "filename": "runtime/interpreter/interpreter_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-04T16:38:29Z",
+      "side": 0,
+      "message": "Personally, I find not having to store the owner_thread cleaner/simpler.",
+      "parentUuid": "4bf0ac26_2835b3a8",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 58
+      },
+      "revId": "854af03cd58d9972d768fabfe410a04cef66a44c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
