@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a1c6018_909c72f7",
+        "filename": "tools/buildbot-setup-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-04T08:52:56Z",
+      "side": 1,
+      "message": "I\u0027m not sure we want to apply this change (as-is): this script is meant to set up a device for \"standalone\" ART testing, where ART is usually built from (AOSP) master, but the platform (device build) can be much older. As you can see in the comment above, we are using this setup to run on platform builds as old as Android N (see e.g. https://ci.chromium.org/p/art/builders/ci/fugu-debug and https://ci.chromium.org/p/art/builders/ci/fugu-ndebug).",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 30
+      },
+      "revId": "77e4f97c890ea1259ccc9a1dd73e9ec2c1ed828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
