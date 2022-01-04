@@ -22,6 +22,30 @@
       },
       "revId": "854af03cd58d9972d768fabfe410a04cef66a44c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bf0ac26_2835b3a8",
+        "filename": "runtime/interpreter/interpreter_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-01-04T16:29:12Z",
+      "side": 0,
+      "message": "This check is only used from the local methods.\nThe shared cache is atomic and thus considered thread safe.\n\nFor the record, the old code (without owner_thread_) is still valid (and I am happy to revert to it),\nit am iterating on what might the most clear way to express it...",
+      "parentUuid": "3238b201_846731e3",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 58
+      },
+      "revId": "854af03cd58d9972d768fabfe410a04cef66a44c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

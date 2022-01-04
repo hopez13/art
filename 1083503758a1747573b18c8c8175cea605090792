@@ -285,6 +285,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87b454bd_08d0ad36",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-01-04T16:29:12Z",
+      "side": 1,
+      "message": "I am not sure how the small/bit low/hi-memory separation would go.  I would be reluctant to try to do per-process tweaking.\n\nSkipping first N misses might be worse of both worlds (not benefiting startup, but allocating memory eventually).\n\nThe opposite might be interesting (clearing the cache after startap or on GC).\n\nI am tempted by the simple \"reduce DexCache field\" size to compensate for now.",
+      "parentUuid": "44e4f199_89c3f0c5",
+      "range": {
+        "startLine": 57,
+        "startChar": 40,
+        "endLine": 57,
+        "endChar": 49
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "415c2869_9157d942",
         "filename": "runtime/interpreter/interpreter_cache.h",
         "patchSetId": 5
@@ -761,6 +785,30 @@
       "side": 1,
       "message": "So the old `2` was wrong for x86? (Not used for 32-bit arm.)",
       "parentUuid": "6d9af1a2_a4886f29",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 71
+      },
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f40f03a_635704b7",
+        "filename": "tools/cpp-define-generator/thread.def",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-01-04T16:29:12Z",
+      "side": 1,
+      "message": "Yes, the old `2` was wrong for x86.",
+      "parentUuid": "3a10c2f0_d2593f0b",
       "range": {
         "startLine": 37,
         "startChar": 11,
