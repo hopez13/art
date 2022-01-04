@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "193f1205_6566715f",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-04T23:14:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d399b3bc_d89c5481",
+      "range": {
+        "startLine": 148,
+        "startChar": 11,
+        "endLine": 148,
+        "endChar": 41
+      },
+      "revId": "e8a8bf0e939118fa3f45920483239a7f91718abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7dc5a664_e3bb6981",
@@ -64,6 +88,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dff749f4_71d9b997",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-04T23:14:55Z",
+      "side": 1,
+      "message": "Done. See above.",
+      "parentUuid": "eb9f2076_f9a085a0",
+      "range": {
+        "startLine": 523,
+        "startChar": 4,
+        "endLine": 523,
+        "endChar": 18
+      },
+      "revId": "e8a8bf0e939118fa3f45920483239a7f91718abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e7ee94_861da096",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-04T23:14:55Z",
+      "side": 1,
+      "message": "Right, it\u0027s an abuse. The idea was to fail early, so changed to LOG(FATAL) instead.\n\nFWIW, I need to remove this AIDL as part of the cleanup for the \"odrefresh split\" implementation.  (Unless Jaikai thinks the abstraction still has any value vs directly constructing cmdline flags.)",
+      "parentUuid": "7dc5a664_e3bb6981",
+      "revId": "e8a8bf0e939118fa3f45920483239a7f91718abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72f246e4_693295fd",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15c5fe7d_7a5992e0",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-04T23:14:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72f246e4_693295fd",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "e8a8bf0e939118fa3f45920483239a7f91718abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96b9ad25_bd93bb89",
@@ -100,6 +190,24 @@
       "writtenOn": "2021-12-20T11:07:41Z",
       "side": 1,
       "message": "Thank you for updating the test. After this change, the test no longer need root access. Could you please remove this line:\nhttps://cs.android.com/android/platform/superproject/+/master:art/odrefresh/Android.bp;l\u003d227;drc\u003d4b762130d8c9d7d1697a3a71b7ba90ed311c306f and a similar line above?",
+      "revId": "e8a8bf0e939118fa3f45920483239a7f91718abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16435e48_eca4d67e",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-04T23:14:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96b9ad25_bd93bb89",
       "revId": "e8a8bf0e939118fa3f45920483239a7f91718abf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
