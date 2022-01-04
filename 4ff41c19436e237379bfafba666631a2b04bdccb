@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9c4a64_3fc2274f",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-04T16:45:04Z",
+      "side": 1,
+      "message": "Note: We no longer store dex cache contents in .art files, so we do not need to bump the image version for this.",
+      "range": {
+        "startLine": 152,
+        "startChar": 52,
+        "endLine": 152,
+        "endChar": 55
+      },
+      "revId": "4ff41c19436e237379bfafba666631a2b04bdccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
