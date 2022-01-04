@@ -16,6 +16,121 @@
       "message": "PS3 adds the memory ordering fix for weak reference access for the CC collector. I\u0027d like to submit this in roughly this form, after adding a more specific reference processing test (in a separate CL).\n\nAny WeakGlobalRef improvements will be in a separate CL.",
       "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d6bb70f_14531039",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-04T15:27:27Z",
+      "side": 1,
+      "message": "from?",
+      "range": {
+        "startLine": 285,
+        "startChar": 45,
+        "endLine": 285,
+        "endChar": 46
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf8f4d6a_3bd9fe38",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-04T15:27:27Z",
+      "side": 1,
+      "message": "unqueuing",
+      "range": {
+        "startLine": 293,
+        "startChar": 48,
+        "endLine": 293,
+        "endChar": 57
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "976fd622_b003b2a5",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-04T15:27:27Z",
+      "side": 1,
+      "message": "Why is this a once in a process lifetime thing? Is that an abnormal situation? Should you change the log to a warning/ error ? Why can\u0027t we make it a fatal?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 34
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78830ae0_78535088",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-04T15:27:27Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 377,
+        "endChar": 8
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4717fdf_75a24e5f",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-04T15:27:27Z",
+      "side": 1,
+      "message": "Why is that not initialized to VISIBLY_ENABLED?",
+      "range": {
+        "startLine": 1687,
+        "startChar": 54,
+        "endLine": 1687,
+        "endChar": 61
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
