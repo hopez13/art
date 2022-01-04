@@ -172,7 +172,7 @@ class AdbConnectionState {
   bool started_debugger_threads_;
 
   friend struct AdbConnectionDebuggerController;
-};
+};856465
 
 }  // namespace adbconnection
 
