@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5333b068_cefedca4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-04T15:08:04Z",
+      "side": 1,
+      "message": "IIUC this makes odrefresh always generate a single image, even if there\u0027s a primary boot image in the apex?",
+      "revId": "2a6acadadb6049e0d669519f9ca7584166ae584d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "820fd95d_87adbf87",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-04T15:08:04Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 292,
+        "startChar": 21,
+        "endLine": 292,
+        "endChar": 23
+      },
+      "revId": "2a6acadadb6049e0d669519f9ca7584166ae584d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
