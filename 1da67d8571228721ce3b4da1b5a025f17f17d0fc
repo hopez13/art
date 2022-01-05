@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cfa9f35f_d424ec77",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-05T10:40:47Z",
+      "side": 1,
+      "message": "Oh, I asked Victor to add a default value because `OdrConfig` would be in an invalid state without it. I just realized that `OdrConfig` can be in an invalid state anyway because there are other properties such as `isa_` that don\u0027t have a default value, so it\u0027s users\u0027 responsibility to set these properties correctly. It\u0027s okay to remove the default value for the compiler filter.",
+      "parentUuid": "9977c951_8a19e4f7",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 55
+      },
+      "revId": "1da67d8571228721ce3b4da1b5a025f17f17d0fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffe59022_5e3b3556",
         "filename": "odrefresh/odrefresh_main.cc",
         "patchSetId": 3
