@@ -251,62 +251,59 @@ def has_multidex():
   return HAS_SRC_MULTIDEX or HAS_JASMIN_MULTIDEX or HAS_SMALI_MULTIDEX
 
 
+src_tmp_all = []
+if HAS_SRC and (HAS_SRC_MULTIDEX or HAS_SRC_DEX2OAT_UNRESOLVED):
+  # To allow circular references, compile src/, src-multidex/ and
+  # src-dex2oat-unresolved together and pass the output as class path argument.
+  # Replacement sources in src-art/ and src2 can replace symbols used by the
+  # other src-* soruces we compile here but everything needed to compile the
+  # other src-* sources should be present in src/.
+  os.makedirs("classes-tmp-all")
+  javac_with_bootclasspath(["-implicit:none", "-d", "classes-tmp-all"] +
+                           find("src", "*.java") +
+                           find("src-multidex", "*.java") +
+                           find("src-dex2oat-unresolved", "*.java"))
+  src_tmp_all = ["-cp", "classes-tmp-all"]
+
 if HAS_SRC_DEX2OAT_UNRESOLVED:
-  os.makedirs("classes", exist_ok=True)
-  os.makedirs("classes-ex")
-  javac_with_bootclasspath([
-      "-implicit:none", "-sourcepath", "src-dex2oat-unresolved", "-d", "classes"
-  ] + find("src", "*.java"))
-  javac_with_bootclasspath(
-      ["-implicit:none", "-sourcepath", "src", "-d", "classes-ex"] +
-      find("src-dex2oat-unresolved", "*.java"))
+  os.makedirs("classes-aotex")
+  javac_with_bootclasspath(["-implicit:none"] + src_tmp_all +
+                           ["-d", "classes-aotex"] +
+                           find("src-dex2oat-unresolved", "*.java"))
   if NEED_DEX:
-    make_dex("classes-ex")
+    make_dex("classes-aotex")
     # rename it so it shows up as "classes.dex" in the zip file.
-    os.rename("classes-ex.dex", "classes.dex")
-    zip(TEST_NAME + "-ex.jar", "classes.dex")
+    os.rename("classes-aotex.dex", "classes.dex")
+    zip(TEST_NAME + "-aotex.jar", "classes.dex")
+
+if HAS_SRC:
+  os.makedirs("classes", exist_ok=True)
+  javac_with_bootclasspath(["-implicit:none"] + src_tmp_all +
+                           ["-d", "classes"] + find("src", "*.java"))
+
+if HAS_SRC_ART:
+  os.makedirs("classes", exist_ok=True)
+  javac_with_bootclasspath(["-implicit:none"] + src_tmp_all +
+                           ["-d", "classes"] + find("src-art", "*.java"))
+
+if HAS_SRC_MULTIDEX:
+  os.makedirs("classes2")
+  javac_with_bootclasspath(["-implicit:none"] + src_tmp_all +
+                           ["-d", "classes2"] +
+                           find("src-multidex", "*.java"))
+  if NEED_DEX:
+    make_dex("classes2")
+
+if HAS_SRC2:
+  os.makedirs("classes", exist_ok=True)
+  javac_with_bootclasspath(["-classpath", "classes", "-d", "classes"] +
+                           find("src2", "*.java"))
+
+# If the classes directory is not-empty, package classes in a DEX file.
+# NB: some tests provide classes rather than java files.
+if find("classes", "*"):
+  if NEED_DEX:
     make_dex("classes")
-else:
-  src_tmp_all = []
-  if HAS_SRC and HAS_SRC_MULTIDEX:
-    # To allow circular references, compile src/ and src-multidex/ together
-    # and pass the output as class path argument. Replacement sources
-    # in src-art/ can replace symbols used by src-multidex but everything
-    # needed to compile src-multidex should be present in src/.
-    os.makedirs("classes-tmp-all")
-    javac_with_bootclasspath(["-implicit:none", "-d", "classes-tmp-all"] +
-                             find("src", "*.java") +
-                             find("src-multidex", "*.java"))
-    src_tmp_all = ["-cp", "classes-tmp-all"]
-
-  if HAS_SRC:
-    os.makedirs("classes", exist_ok=True)
-    javac_with_bootclasspath(["-implicit:none"] + src_tmp_all +
-                             ["-d", "classes"] + find("src", "*.java"))
-
-  if HAS_SRC_ART:
-    os.makedirs("classes", exist_ok=True)
-    javac_with_bootclasspath(["-implicit:none"] + src_tmp_all +
-                             ["-d", "classes"] + find("src-art", "*.java"))
-
-  if HAS_SRC_MULTIDEX:
-    os.makedirs("classes2")
-    javac_with_bootclasspath(["-implicit:none"] + src_tmp_all +
-                             ["-d", "classes2"] +
-                             find("src-multidex", "*.java"))
-    if NEED_DEX:
-      make_dex("classes2")
-
-  if HAS_SRC2:
-    os.makedirs("classes", exist_ok=True)
-    javac_with_bootclasspath(["-classpath", "classes", "-d", "classes"] +
-                             find("src2", "*.java"))
-
-  # If the classes directory is not-empty, package classes in a DEX file.
-  # NB: some tests provide classes rather than java files.
-  if find("classes", "*"):
-    if NEED_DEX:
-      make_dex("classes")
 
 if HAS_JASMIN:
   # Compile Jasmin classes as if they were part of the classes.dex file.
