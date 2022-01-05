@@ -121,17 +121,8 @@ size_t MethodType::NumberOfVRegs() {
 }
 
 bool MethodType::IsExactMatch(ObjPtr<MethodType> target) {
-  const ObjPtr<ObjectArray<Class>> p_types = GetPTypes();
-  const int32_t params_length = p_types->GetLength();
-
-  const ObjPtr<ObjectArray<Class>> target_p_types = target->GetPTypes();
-  if (params_length != target_p_types->GetLength()) {
+  if (!IsParameterMatch(target)) {
     return false;
-  }
-  for (int32_t i = 0; i < params_length; ++i) {
-    if (p_types->GetWithoutChecks(i) != target_p_types->GetWithoutChecks(i)) {
-      return false;
-    }
   }
   return GetRType() == target->GetRType();
 }
