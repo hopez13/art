@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9977c951_8a19e4f7",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-05T09:50:46Z",
+      "side": 1,
+      "message": "Can you avoid giving a default value (and therefore spreading the term \"speed\") ?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 55
+      },
+      "revId": "1da67d8571228721ce3b4da1b5a025f17f17d0fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffe59022_5e3b3556",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-05T09:50:46Z",
+      "side": 1,
+      "message": "Could this be system-server-compiler-filter, to match the property?",
+      "range": {
+        "startLine": 280,
+        "startChar": 16,
+        "endLine": 280,
+        "endChar": 36
+      },
+      "revId": "1da67d8571228721ce3b4da1b5a025f17f17d0fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
