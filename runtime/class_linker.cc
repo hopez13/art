@@ -6584,7 +6584,6 @@ bool ClassLinker::AllocateIfTableMethodArrays(Thread* self,
                                               Handle<mirror::IfTable> iftable) {
   DCHECK(!klass->IsInterface());
   const bool has_superclass = klass->HasSuperClass();
-  const bool extend_super_iftable = has_superclass;
   const size_t ifcount = klass->GetIfTableCount();
   const size_t super_ifcount = has_superclass ? klass->GetSuperClass()->GetIfTableCount() : 0U;
   for (size_t i = 0; i < ifcount; ++i) {
@@ -6593,7 +6592,7 @@ bool ClassLinker::AllocateIfTableMethodArrays(Thread* self,
       const bool is_super = i < super_ifcount;
       // This is an interface implemented by a super-class. Therefore we can just copy the method
       // array from the superclass.
-      const bool super_interface = is_super && extend_super_iftable;
+      const bool super_interface = is_super;
       ObjPtr<mirror::PointerArray> method_array;
       if (super_interface) {
         ObjPtr<mirror::IfTable> if_table = klass->GetSuperClass()->GetIfTable();
@@ -8114,7 +8113,6 @@ bool ClassLinker::LinkMethodsHelper::LinkInterfaceMethods(
   ArtMethod* const unimplemented_method = runtime->GetImtUnimplementedMethod();
   ArtMethod* const imt_conflict_method = runtime->GetImtConflictMethod();
   // Copy the IMT from the super class if possible.
-  const bool extend_super_iftable = has_superclass;
   if (has_superclass && fill_tables) {
     class_linker_->FillImtFromSuperClass(klass,
                                          unimplemented_method,
@@ -8144,7 +8142,7 @@ bool ClassLinker::LinkMethodsHelper::LinkInterfaceMethods(
     if (num_methods > 0) {
       StackHandleScope<2> hs2(self);
       const bool is_super = i < super_ifcount;
-      const bool super_interface = is_super && extend_super_iftable;
+      const bool super_interface = is_super;
       // We don't actually create or fill these tables for interfaces, we just copy some methods for
       // conflict methods. Just set this as nullptr in those cases.
       Handle<mirror::PointerArray> method_array(fill_tables
@@ -8180,8 +8178,7 @@ bool ClassLinker::LinkMethodsHelper::LinkInterfaceMethods(
       // For each method in interface
       for (size_t j = 0; j < num_methods; ++j) {
         auto* interface_method = iftable->GetInterface(i)->GetVirtualMethod(j, image_pointer_size);
-        MethodNameAndSignatureComparator interface_name_comparator(
-            interface_method->GetInterfaceMethodIfProxy(image_pointer_size));
+        MethodNameAndSignatureComparator interface_name_comparator(interface_method);
         uint32_t imt_index = interface_method->GetImtIndex();
         ArtMethod** imt_ptr = &out_imt[imt_index];
         // For each method listed in the interface's method list, find the
@@ -8246,7 +8243,7 @@ bool ClassLinker::LinkMethodsHelper::LinkInterfaceMethods(
           //
           // See if we can use the superclasses method and skip searching everything else.
           // Note: !found_impl && super_interface
-          CHECK(extend_super_iftable);
+          //
           // If this is a super_interface method it is possible we shouldn't override it because a
           // superclass could have implemented it directly.  We get the method the superclass used
           // to implement this to know if we can override it with a default method. Doing this is
