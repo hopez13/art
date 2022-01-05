@@ -120,7 +120,7 @@ size_t MethodType::NumberOfVRegs() {
   return num_vregs;
 }
 
-bool MethodType::IsExactMatch(ObjPtr<MethodType> target) {
+bool MethodType::IsParameterMatch(ObjPtr<MethodType> target)  {
   const ObjPtr<ObjectArray<Class>> p_types = GetPTypes();
   const int32_t params_length = p_types->GetLength();
 
@@ -133,7 +133,11 @@ bool MethodType::IsExactMatch(ObjPtr<MethodType> target) {
       return false;
     }
   }
-  return GetRType() == target->GetRType();
+  return true;
+}
+
+bool MethodType::IsExactMatch(ObjPtr<MethodType> target) {
+  return IsParameterMatch(target) && GetRType() == target->GetRType();
 }
 
 bool MethodType::IsConvertible(ObjPtr<MethodType> target) {
@@ -159,6 +163,55 @@ bool MethodType::IsConvertible(ObjPtr<MethodType> target) {
     }
   }
   return true;
+}
+
+static bool IsInPlaceConvertibleX(ObjPtr<Class> from, ObjPtr<Class> to)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (from == to) {
+    return true;
+  }
+
+  if (from->IsPrimitive() != to->IsPrimitive()) {
+    return false;  // No in-place conversion from place conversion for box/unboxing.
+  }
+
+  if (from->IsPrimitive()) {
+    // `from` and `to` are both primitives. The supported in-place conversions use a 32-bit
+    // interpreter representation and are a subset of permitted conversions for MethodHandles.
+    // Conversions are documented in JLS 11 S5.1.2 "Widening Primitive Conversion".
+    Primitive::Type src = from->GetPrimitiveType();
+    Primitive::Type dst = to->GetPrimitiveType();
+    switch (src) {
+      case Primitive::Type::kPrimByte:
+        return dst == Primitive::Type::kPrimShort || dst == Primitive::Type::kPrimInt;
+      case Primitive::Type::kPrimChar:
+        FALLTHROUGH_INTENDED;
+      case Primitive::Type::kPrimShort:
+        return dst == Primitive::Type::kPrimInt;
+      default:
+        return false;
+    }
+  }
+
+  // `from` and `to` are both references, apply an assignability check.
+  return to->IsAssignableFrom(from);
+}
+
+bool MethodType::IsInPlaceConvertible(ObjPtr<MethodType> target) {
+  const ObjPtr<ObjectArray<Class>> ptypes = GetPTypes();
+  const ObjPtr<ObjectArray<Class>> target_ptypes = target->GetPTypes();
+  const int32_t ptypes_length = ptypes->GetLength();
+  if (ptypes_length != target_ptypes->GetLength()) {
+    return false;
+  }
+
+  for (int32_t i = 0; i < ptypes_length; ++i) {
+    if (!IsInPlaceConvertibleX(ptypes->GetWithoutChecks(i), target_ptypes->GetWithoutChecks(i))) {
+      return false;
+    }
+  }
+
+  return GetRType()->IsPrimitiveVoid() || IsInPlaceConvertibleX(target->GetRType(), GetRType());
 }
 
 std::string MethodType::PrettyDescriptor() {
