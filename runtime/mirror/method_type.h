@@ -63,6 +63,10 @@ class MANAGED MethodType : public Object {
   // iff. they have the same return types and parameter types.
   bool IsExactMatch(ObjPtr<MethodType> target) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Returns true iff the parameters of |this| match the parameters of |target| without
+  // and conversions.
+  bool IsParameterMatch(ObjPtr<MethodType> target) REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Returns true iff. |this| can be converted to match |target| method type, i.e
   // iff. they have convertible return types and parameter types.
   bool IsConvertible(ObjPtr<MethodType> target) REQUIRES_SHARED(Locks::mutator_lock_);

@@ -120,7 +120,7 @@ size_t MethodType::NumberOfVRegs() {
   return num_vregs;
 }
 
-bool MethodType::IsExactMatch(ObjPtr<MethodType> target) {
+bool MethodType::IsParameterMatch(ObjPtr<MethodType> target)  {
   const ObjPtr<ObjectArray<Class>> p_types = GetPTypes();
   const int32_t params_length = p_types->GetLength();
 
@@ -133,7 +133,11 @@ bool MethodType::IsExactMatch(ObjPtr<MethodType> target) {
       return false;
     }
   }
-  return GetRType() == target->GetRType();
+  return true;
+}
+
+bool MethodType::IsExactMatch(ObjPtr<MethodType> target) {
+  return IsParameterMatch(target) && GetRType() == target->GetRType();
 }
 
 bool MethodType::IsConvertible(ObjPtr<MethodType> target) {
