@@ -36,6 +36,26 @@ inline ObjPtr<Class> MethodType::GetRType() {
   return GetFieldObject<Class>(OFFSET_OF_OBJECT_MEMBER(MethodType, r_type_));
 }
 
+inline bool MethodType::IsParameterMatch(ObjPtr<MethodType> target) {
+    const ObjPtr<ObjectArray<Class>> p_types = GetPTypes();
+  const int32_t params_length = p_types->GetLength();
+
+  const ObjPtr<ObjectArray<Class>> target_p_types = target->GetPTypes();
+  if (params_length != target_p_types->GetLength()) {
+    return false;
+  }
+  for (int32_t i = 0; i < params_length; ++i) {
+    if (p_types->GetWithoutChecks(i) != target_p_types->GetWithoutChecks(i)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+inline bool MethodType::IsRTypeVoid() {
+  return GetRType()->IsPrimitiveVoid();
+}
+
 }  // namespace mirror
 }  // namespace art
 

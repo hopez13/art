@@ -59,9 +59,14 @@ class MANAGED MethodType : public Object {
 
   ObjPtr<Class> GetRType() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  bool IsRTypeVoid() REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Returns true iff. |this| is an exact match for method type |target|, i.e
   // iff. they have the same return types and parameter types.
   bool IsExactMatch(ObjPtr<MethodType> target) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Returns true iff the parameters of |this| match those of method type |target|.
+  bool IsParameterMatch(ObjPtr<MethodType> target) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns true iff. |this| can be converted to match |target| method type, i.e
   // iff. they have convertible return types and parameter types.
