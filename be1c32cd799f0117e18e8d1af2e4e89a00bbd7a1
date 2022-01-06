@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41a7e31c_0ca4abf7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-06T18:25:29Z",
+      "side": 1,
+      "message": "I\u0027m not sure what\u0027s the best way to test this. Maybe add a test case in OdrefreshHostTest.java to verify that `cache-info.xml` doesn\u0027t contain certain string (such as \"com.android.runtime\", which is basically bionic and shouldn\u0027t contribute to any classpath)?\n\nodsign_e2e_tests is currently failing. You probably need to patch aosp/1938587 before you run the test.",
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc894bc3_09965eac",
+        "filename": "libartbase/base/file_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-06T18:25:29Z",
+      "side": 1,
+      "message": "Just for consistency: \u003capexname\u003e",
+      "range": {
+        "startLine": 171,
+        "startChar": 57,
+        "endLine": 171,
+        "endChar": 65
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2afd056d_b82bad6b",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-06T18:25:29Z",
+      "side": 1,
+      "message": "This is probably not the best place to filter out irrelevant apexes. Could you please do this in `OnDeviceRefresh::GetApexInfoList` so that irrelevant APEXes are not only ignored here but also pruned from cache-info.xml?",
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62642765_21113bf1",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-06T18:25:29Z",
+      "side": 1,
+      "message": "\"this\"",
+      "range": {
+        "startLine": 918,
+        "startChar": 65,
+        "endLine": 918,
+        "endChar": 68
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c62d920b_c704a7de",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-06T18:25:29Z",
+      "side": 1,
+      "message": "I\u0027m not a fan of the \"auto\" keyword because it makes it less straightforward for readers to understand the type. Especially, the type of `jar_list` is not explicit because the elements in the curly braces are declared elsewhere. I would spell out the type here. go/cstyle#Type_deduction",
+      "range": {
+        "startLine": 922,
+        "startChar": 7,
+        "endLine": 922,
+        "endChar": 11
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4fde6a5_34f6c4bf",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-06T18:25:29Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 924,
+        "startChar": 9,
+        "endLine": 924,
+        "endChar": 13
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a43326ef_4ebf3022",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-06T18:25:29Z",
+      "side": 1,
+      "message": "`ContainsElement` from art/libartbase/base/stl_util.h",
+      "range": {
+        "startLine": 934,
+        "startChar": 8,
+        "endLine": 934,
+        "endChar": 45
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00b4558d_f3b8196b",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-06T18:25:29Z",
+      "side": 1,
+      "message": "Nit: This statement can fit in a single line.",
+      "range": {
+        "startLine": 938,
+        "startChar": 6,
+        "endLine": 939,
+        "endChar": 24
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
