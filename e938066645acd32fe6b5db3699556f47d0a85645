@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000018949841",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1931010?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "1914781f_548976c2",
+          "description": "Change to \"runtime/class_linker.cc\"",
+          "replacements": [
+            {
+              "path": "runtime/class_linker.cc",
+              "range": {
+                "startLine": 7992,
+                "startChar": 15,
+                "endLine": 7992,
+                "endChar": 24
+              },
+              "replacement": "overridden"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "59844ef7_d5036fd2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7992,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-01-06T17:42:55Z",
+      "side": 1,
+      "message": "Common typo found: \"overriden\" -- should it be \"overridden\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 7992,
+        "startChar": 15,
+        "endLine": 7992,
+        "endChar": 24
+      },
+      "revId": "e938066645acd32fe6b5db3699556f47d0a85645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
