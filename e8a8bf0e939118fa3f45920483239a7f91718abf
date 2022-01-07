@@ -210,6 +210,24 @@
       "parentUuid": "96b9ad25_bd93bb89",
       "revId": "e8a8bf0e939118fa3f45920483239a7f91718abf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a97500fd_439a55c5",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-07T22:18:57Z",
+      "side": 1,
+      "message": "I figured that it\u0027s wrong to simply delete those lines. We still need to use the non-root version of the template.\n\nI\u0027m having a hard time to test art_odrefresh_tests locally.  atest doesn\u0027t seem to work, so let\u0027s see how it works on TH...",
+      "parentUuid": "16435e48_eca4d67e",
+      "revId": "e8a8bf0e939118fa3f45920483239a7f91718abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
