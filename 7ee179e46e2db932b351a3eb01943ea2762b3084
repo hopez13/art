@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf4e285f_b84789ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T17:17:30Z",
+      "side": 1,
+      "message": "nit: typo",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 14
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "293a5766_9f6aa920",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T17:17:30Z",
+      "side": 1,
+      "message": "Do you need an out.flush() here, to make sure everything has at least been written to the file, or does art_apex::write do that for you?",
+      "range": {
+        "startLine": 684,
+        "startChar": 2,
+        "endLine": 684,
+        "endChar": 18
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "240a7b83_5ef795f9",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T17:17:30Z",
+      "side": 1,
+      "message": "nit: you don\u0027t need the hasX check here, or above; getX returns false (or the default, in general) if hasX is false.",
+      "range": {
+        "startLine": 987,
+        "startChar": 10,
+        "endLine": 987,
+        "endChar": 48
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4db1706_dd91c4cc",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T17:17:30Z",
+      "side": 1,
+      "message": "I have a slight worry about this: we\u0027d like to be able to collect metrics on whether CompOs-generated artifacts were or were not successfully picked up by odsign on boot.\n\nBut I expect we can figure out a mechanism for that. Adding another return code seems like the wrong way to do it.",
+      "range": {
+        "startLine": 1266,
+        "startChar": 4,
+        "endLine": 1266,
+        "endChar": 32
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "263dc52c_574a29ca",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1559,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T17:17:30Z",
+      "side": 1,
+      "message": "Send something to metrics here?",
+      "range": {
+        "startLine": 1559,
+        "startChar": 4,
+        "endLine": 1559,
+        "endChar": 41
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ef8396e_bad00a73",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T17:17:30Z",
+      "side": 1,
+      "message": "Switch to Truth and use assertThat(...).contains?\n\nIt gives much more useful information on failure.",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 18
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
