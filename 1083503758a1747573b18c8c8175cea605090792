@@ -707,6 +707,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c43c1795_f9f0bfb9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4276,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-07T14:19:27Z",
+      "side": 1,
+      "message": "I missed the external weak-ref-access check in the old code. Thanks for moving it inside the `InterpreterCache::{Get,Set}()` in PS8.",
+      "parentUuid": "e7d7c6f0_a359fe2e",
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78e43895_12c70ed2",
