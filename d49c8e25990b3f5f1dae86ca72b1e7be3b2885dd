@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad080850_6404c3da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T18:31:39Z",
+      "side": 1,
+      "message": "Roland, FYI, the build script for run-tests is being changed.",
+      "revId": "d49c8e25990b3f5f1dae86ca72b1e7be3b2885dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4e0ef17_0d1067de",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T18:31:39Z",
+      "side": 1,
+      "message": "I\u0027m probably not the best reviewer to review this CL. I\u0027m not familiar with this script or the java compiler. I don\u0027t know how the classes can become \"unresolved\" since they are included in `src_tmp_all`. I hope other reviewers can understand this CL.",
+      "range": {
+        "startLine": 281,
+        "startChar": 48,
+        "endLine": 281,
+        "endChar": 59
+      },
+      "revId": "d49c8e25990b3f5f1dae86ca72b1e7be3b2885dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
