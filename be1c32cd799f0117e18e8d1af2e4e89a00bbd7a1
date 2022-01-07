@@ -259,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fbd693a_4887e8eb",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T12:12:13Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "f25cc1dc_5c1a0736",
+      "range": {
+        "startLine": 924,
+        "startChar": 9,
+        "endLine": 924,
+        "endChar": 13
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a43326ef_4ebf3022",
@@ -296,6 +320,30 @@
       "side": 1,
       "message": "Oddly that handles std::set but not std::unordered_set.",
       "parentUuid": "a43326ef_4ebf3022",
+      "range": {
+        "startLine": 934,
+        "startChar": 8,
+        "endLine": 934,
+        "endChar": 45
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52f1da80_5d4dbcdd",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T12:12:13Z",
+      "side": 1,
+      "message": "Hmm... Sad :( I always miss Abseil, which we are free to use in google3.",
+      "parentUuid": "2443f0d5_d15c411e",
       "range": {
         "startLine": 934,
         "startChar": 8,
