@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9df94fa3_ed137af5",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-01-07T12:53:59Z",
+      "side": 1,
+      "message": "It does not seem to implement them at all (not even the compare and swap).\n\nThat is, it always defers to library calls so the could would work.\n\n(but we don\u0027t link the needed atomic library, which has the nice side effect that either these methods compile into efficient assembly, or the linker fails... but the static_assert should also guard against it)",
+      "parentUuid": "ec124523_ac5a9b81",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 63
+      },
+      "revId": "57ff2b4fa4419de8fccc987f8e93d33b0f3af4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e48bed4f_7dc97209",
@@ -90,6 +114,30 @@
       "writtenOn": "2021-12-23T15:37:56Z",
       "side": 1,
       "message": "It would be cleaner to call this in a `callback` from `ThreadList::RunCheckpoint()` while it holds `*Locks::thread_suspend_count_lock_` and therefore no thread can actually run the checkpoint yet (see also `Thread::RunCheckpointFunction()`). But maybe this would block threads for too long given how big is the shared cache.",
+      "range": {
+        "startLine": 4495,
+        "startChar": 2,
+        "endLine": 4495,
+        "endChar": 34
+      },
+      "revId": "57ff2b4fa4419de8fccc987f8e93d33b0f3af4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09458994_4ed5d88e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4495,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-01-07T12:53:59Z",
+      "side": 1,
+      "message": "Either way sounds fine to me.",
+      "parentUuid": "94c312b3_7dded131",
       "range": {
         "startLine": 4495,
         "startChar": 2,

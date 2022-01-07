@@ -689,6 +689,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7d7c6f0_a359fe2e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4276,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-01-07T12:53:59Z",
+      "side": 1,
+      "message": "I think the mutator threads are not guaranteed to be suspeneded when we sweep weaks, but it is probably not borken without this CL as the cache updates are disabled during that period.\n\nI wonder if we can do better (i.e. guarantee suspention).",
+      "parentUuid": "fa09906c_1cceef2f",
+      "revId": "1083503758a1747573b18c8c8175cea605090792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78e43895_12c70ed2",
