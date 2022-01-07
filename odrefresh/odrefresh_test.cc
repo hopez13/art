@@ -163,7 +163,7 @@ class OdRefreshTest : public CommonArtTest {
     ASSERT_TRUE(EnsureDirectoryExists(javalib_dir));
     CreateEmptyFile(boot_art);
 
-    config_.SetApexInfoListFile(Concatenate({temp_dir_path, "/apex-info-list.xml"}));
+    config_.SetApexInfoListFile("/apex/apex-info-list.xml");
     config_.SetArtBinDir(Concatenate({temp_dir_path, "/bin"}));
     config_.SetBootClasspath(framework_jar_);
     config_.SetDex2oatBootclasspath(framework_jar_);
@@ -172,6 +172,7 @@ class OdRefreshTest : public CommonArtTest {
     config_.SetIsa(InstructionSet::kX86_64);
     config_.SetZygoteKind(ZygoteKind::kZygote64_32);
     config_.SetSystemServerCompilerFilter("speed");  // specify a default
+    config_.SetArtifactDirectory(dalvik_cache_dir_);
 
     std::string staging_dir = dalvik_cache_dir_ + "/staging";
     ASSERT_TRUE(EnsureDirectoryExists(staging_dir));
