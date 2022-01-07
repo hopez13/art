@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35045d90_ab089632",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T12:02:53Z",
+      "side": 1,
+      "message": "Working on this.",
+      "parentUuid": "41a7e31c_0ca4abf7",
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc894bc3_09965eac",
         "filename": "libartbase/base/file_utils.h",
         "patchSetId": 3
@@ -31,6 +49,30 @@
       "writtenOn": "2022-01-06T18:25:29Z",
       "side": 1,
       "message": "Just for consistency: \u003capexname\u003e",
+      "range": {
+        "startLine": 171,
+        "startChar": 57,
+        "endLine": 171,
+        "endChar": 65
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7e831da_ee9239e9",
+        "filename": "libartbase/base/file_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T12:02:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc894bc3_09965eac",
       "range": {
         "startLine": 171,
         "startChar": 57,
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d42659cf_9931ee41",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T12:02:53Z",
+      "side": 1,
+      "message": "Done.\nThat\u0027s a more wide-ranging change, but it seems safe (and appears to work). It makes things more consistent with \u0026 without CompOS which seems like a good thing.",
+      "parentUuid": "2afd056d_b82bad6b",
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62642765_21113bf1",
@@ -71,6 +131,30 @@
       "writtenOn": "2022-01-06T18:25:29Z",
       "side": 1,
       "message": "\"this\"",
+      "range": {
+        "startLine": 918,
+        "startChar": 65,
+        "endLine": 918,
+        "endChar": 68
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b53c3c_224b64a0",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T12:02:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62642765_21113bf1",
       "range": {
         "startLine": 918,
         "startChar": 65,
@@ -104,6 +188,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51c20400_5797d8a8",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T12:02:53Z",
+      "side": 1,
+      "message": "My thought was that the precise type is fairly irrelevant - what matters is it\u0027s a pointer to something we can iterate over.\nBut the reader\u0027s views trump the writer\u0027s in matters of readability.",
+      "parentUuid": "c62d920b_c704a7de",
+      "range": {
+        "startLine": 922,
+        "startChar": 7,
+        "endLine": 922,
+        "endChar": 11
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4fde6a5_34f6c4bf",
@@ -117,6 +225,30 @@
       "writtenOn": "2022-01-06T18:25:29Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 924,
+        "startChar": 9,
+        "endLine": 924,
+        "endChar": 13
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f25cc1dc_5c1a0736",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T12:02:53Z",
+      "side": 1,
+      "message": "This one becomes obvious if the previous one is specified?",
+      "parentUuid": "b4fde6a5_34f6c4bf",
       "range": {
         "startLine": 924,
         "startChar": 9,
@@ -150,6 +282,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2443f0d5_d15c411e",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T12:02:53Z",
+      "side": 1,
+      "message": "Oddly that handles std::set but not std::unordered_set.",
+      "parentUuid": "a43326ef_4ebf3022",
+      "range": {
+        "startLine": 934,
+        "startChar": 8,
+        "endLine": 934,
+        "endChar": 45
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00b4558d_f3b8196b",
@@ -163,6 +319,30 @@
       "writtenOn": "2022-01-06T18:25:29Z",
       "side": 1,
       "message": "Nit: This statement can fit in a single line.",
+      "range": {
+        "startLine": 938,
+        "startChar": 6,
+        "endLine": 939,
+        "endChar": 24
+      },
+      "revId": "be1c32cd799f0117e18e8d1af2e4e89a00bbd7a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9397a2a4_f7341f81",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-07T12:02:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00b4558d_f3b8196b",
       "range": {
         "startLine": 938,
         "startChar": 6,
