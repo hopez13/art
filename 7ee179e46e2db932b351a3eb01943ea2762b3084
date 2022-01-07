@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d481a50c_23c1e246",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T18:10:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf4e285f_b84789ee",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 14
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "293a5766_9f6aa920",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-07T17:17:30Z",
       "side": 1,
       "message": "Do you need an out.flush() here, to make sure everything has at least been written to the file, or does art_apex::write do that for you?",
+      "range": {
+        "startLine": 684,
+        "startChar": 2,
+        "endLine": 684,
+        "endChar": 18
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cc91b17_1c0795d3",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T18:10:00Z",
+      "side": 1,
+      "message": "art_apex::write doesn\u0027t flush the output. Added `out.close()` before this check.",
+      "parentUuid": "293a5766_9f6aa920",
       "range": {
         "startLine": 684,
         "startChar": 2,
@@ -72,6 +120,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "38255685_0092313d",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T18:10:00Z",
+      "side": 1,
+      "message": "I don\u0027t think so. I looked at the generated code:\n\nconst bool\u0026 CacheInfo::getCompilationOsMode() const {\n    return compilationOsMode_.value();\n}\n\nwhere the type of `compilationOsMode_` is `const std::optional\u003cbool\u003e`.\n\nLooks like `getCompilationOsMode` will crash if the field is not set.\n\nThe Tinyxml API is not ideal :(",
+      "parentUuid": "240a7b83_5ef795f9",
+      "range": {
+        "startLine": 987,
+        "startChar": 10,
+        "endLine": 987,
+        "endChar": 48
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a4db1706_dd91c4cc",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 1
@@ -83,6 +155,30 @@
       "writtenOn": "2022-01-07T17:17:30Z",
       "side": 1,
       "message": "I have a slight worry about this: we\u0027d like to be able to collect metrics on whether CompOs-generated artifacts were or were not successfully picked up by odsign on boot.\n\nBut I expect we can figure out a mechanism for that. Adding another return code seems like the wrong way to do it.",
+      "range": {
+        "startLine": 1266,
+        "startChar": 4,
+        "endLine": 1266,
+        "endChar": 32
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62577cff_b1685337",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T18:10:00Z",
+      "side": 1,
+      "message": "Yes, we can figure out a mechanism for that later. For example, we can add a new value of OdrMetrics::Trigger for CompOS. The return code is to tell odsign to call `odrefresh --compile`. Let\u0027s do it in a separate CL.",
+      "parentUuid": "a4db1706_dd91c4cc",
       "range": {
         "startLine": 1266,
         "startChar": 4,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9bc91fc_c7f7409a",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1559,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T18:10:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "263dc52c_574a29ca",
+      "range": {
+        "startLine": 1559,
+        "startChar": 4,
+        "endLine": 1559,
+        "endChar": 41
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ef8396e_bad00a73",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-01-07T17:17:30Z",
       "side": 1,
       "message": "Switch to Truth and use assertThat(...).contains?\n\nIt gives much more useful information on failure.",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 18
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc20f7f9_008c434d",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T18:10:00Z",
+      "side": 1,
+      "message": "Done. Thank you for the tip.",
+      "parentUuid": "5ef8396e_bad00a73",
       "range": {
         "startLine": 159,
         "startChar": 8,
