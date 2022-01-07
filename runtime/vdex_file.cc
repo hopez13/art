@@ -121,9 +121,8 @@ std::unique_ptr<VdexFile> VdexFile::OpenAtAddress(uint8_t* mmap_addr,
                                                   bool unquicken,
                                                   std::string* error_msg) {
   if (mmap_addr != nullptr && mmap_size < vdex_length) {
-    LOG(WARNING) << "Insufficient pre-allocated space to mmap vdex.";
-    mmap_addr = nullptr;
-    mmap_reuse = false;
+    *error_msg = "Insufficient pre-allocated space to mmap vdex.";
+    return nullptr;
   }
   CHECK(!mmap_reuse || mmap_addr != nullptr);
   CHECK(!(writable && unquicken)) << "We don't want to be writing unquickened files out to disk!";
