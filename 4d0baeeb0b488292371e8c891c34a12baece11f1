@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "750d1a02_274ce9af",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-07T16:23:54Z",
+      "side": 1,
+      "message": "The `ScopedAssertNoThreadSuspension` is wrapped in `std::optional\u003c\u003e` because we need to destroy it before throwing an exception. There is even a comment on the previous line.",
+      "parentUuid": "1d44bc16_a008f03d",
+      "range": {
+        "startLine": 7791,
+        "startChar": 2,
+        "endLine": 7791,
+        "endChar": 16
+      },
+      "revId": "4d0baeeb0b488292371e8c891c34a12baece11f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca2203d4_2ea876b9",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-01-07T16:16:15Z",
       "side": 1,
       "message": "Should there be a break here (following comment line 7862 about taking the first entry) ?",
+      "revId": "4d0baeeb0b488292371e8c891c34a12baece11f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32bddf2b_5812483b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7873,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-07T16:23:54Z",
+      "side": 1,
+      "message": "No, the \"first entry\" references the lowest vtable index and here we\u0027re walking backwards with a decreasing `current_index`.",
+      "parentUuid": "ca2203d4_2ea876b9",
       "revId": "4d0baeeb0b488292371e8c891c34a12baece11f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
