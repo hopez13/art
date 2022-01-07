@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bc1db43_4f666a08",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-07T16:39:49Z",
+      "side": 1,
+      "message": "if needed\n\n(If an app does not call an intrinsic at all, or calls it only through code previously compiled by JITzygote, there is no need to compile the intrinsic.)",
+      "range": {
+        "startLine": 246,
+        "startChar": 26,
+        "endLine": 246,
+        "endChar": 36
+      },
+      "revId": "6402bef489f7e52252868d790e668fadbfef072e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
