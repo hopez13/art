@@ -16,6 +16,46 @@
       "message": "This could be made a lot more sophisticated, e.g. by parsing the XML properly, but I\u0027m not sure it\u0027s worth the effort.",
       "revId": "ce8bb796cd5d0b04b0770d494a7b8ddf41ab6137",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "878ba19e_97a7d9d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T16:34:12Z",
+      "side": 1,
+      "message": "Thanks, Alan!",
+      "revId": "ce8bb796cd5d0b04b0770d494a7b8ddf41ab6137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc27f860_aab16128",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-07T16:34:12Z",
+      "side": 1,
+      "message": "Nit: Period at the end. Here and below.",
+      "range": {
+        "startLine": 156,
+        "startChar": 80,
+        "endLine": 156,
+        "endChar": 81
+      },
+      "revId": "ce8bb796cd5d0b04b0770d494a7b8ddf41ab6137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
