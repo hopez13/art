@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c06b1d9b_c70d5390",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7791,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-07T16:26:28Z",
+      "side": 1,
+      "message": "The question was more for my education on what std::optional does here: how is it destroyed before throwing the exception?",
+      "parentUuid": "750d1a02_274ce9af",
+      "range": {
+        "startLine": 7791,
+        "startChar": 2,
+        "endLine": 7791,
+        "endChar": 16
+      },
+      "revId": "4d0baeeb0b488292371e8c891c34a12baece11f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca2203d4_2ea876b9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 6
