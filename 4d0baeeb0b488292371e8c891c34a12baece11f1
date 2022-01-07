@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aa1f7f7_0cad32ca",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 7791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-07T16:29:52Z",
+      "side": 1,
+      "message": "With `sants.reset()` on lines 7879 and 7894. The same can be achieved with `sants \u003d std::nullopt`.",
+      "parentUuid": "c06b1d9b_c70d5390",
+      "range": {
+        "startLine": 7791,
+        "startChar": 2,
+        "endLine": 7791,
+        "endChar": 16
+      },
+      "revId": "4d0baeeb0b488292371e8c891c34a12baece11f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca2203d4_2ea876b9",
