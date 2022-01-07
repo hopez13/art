@@ -24,6 +24,7 @@ import static org.junit.Assume.assumeTrue;
 
 import android.cts.install.lib.host.InstallUtilsHost;
 
+import com.android.tradefed.device.ITestDevice;
 import com.android.tradefed.device.ITestDevice.ApexInfo;
 import com.android.tradefed.invoker.TestInformation;
 import com.android.tradefed.util.CommandResult;
@@ -63,10 +64,9 @@ public class OdsignTestUtils {
         assumeTrue("Updating APEX is not supported", mInstallUtils.isApexUpdateSupported());
         mInstallUtils.installApexes(APEX_FILENAME);
         removeCompilationLogToAvoidBackoff();
-        reboot();
     }
 
-    public void uninstallTestApex() throws Exception {
+    public void uninstallTestApexAndReboot() throws Exception {
         ApexInfo apex = mInstallUtils.getApexInfo(mInstallUtils.getTestFile(APEX_FILENAME));
         mTestInfo.getDevice().uninstallPackage(apex.name);
         removeCompilationLogToAvoidBackoff();
@@ -143,4 +143,18 @@ public class OdsignTestUtils {
                 mTestInfo.getDevice().waitForBootComplete(BOOT_COMPLETE_TIMEOUT.toMillis());
         assertWithMessage("Device didn't boot in %s", BOOT_COMPLETE_TIMEOUT).that(success).isTrue();
     }
+
+    public boolean isCompOsPresent() throws Exception {
+        ITestDevice device = mTestInfo.getDevice();
+
+        // We have to have kernel support for a VM.
+        if (!device.doesFileExist("/dev/kvm")) {
+            return false;
+        }
+
+        // And the CompOS APEX must be present.
+        return device.getActiveApexes().stream().anyMatch(
+                apex -> apex.name.equals("com.android.compos"));
+    }
+
 }

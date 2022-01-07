@@ -16,6 +16,8 @@
 
 package com.android.tests.odsign;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import static org.junit.Assert.assertTrue;
 
 import com.android.tradefed.invoker.TestInformation;
@@ -29,11 +31,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Stream;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Test to check if odrefresh, odsign, fs-verity, and ART runtime work together properly.
@@ -48,12 +49,13 @@ public class OnDeviceSigningHostTest extends BaseHostJUnit4Test {
     @BeforeClassWithInfo
     public static void beforeClassWithDevice(TestInformation testInfo) throws Exception {
         sTestUtils = new OdsignTestUtils(testInfo);
-        sTestUtils.installTestApex();;
+        sTestUtils.installTestApex();
+        sTestUtils.reboot();
     }
 
     @AfterClassWithInfo
     public static void afterClassWithDevice(TestInformation testInfo) throws Exception {
-        sTestUtils.uninstallTestApex();
+        sTestUtils.uninstallTestApexAndReboot();
     }
 
     @Test
@@ -144,7 +146,7 @@ public class OnDeviceSigningHostTest extends BaseHostJUnit4Test {
           for (String extension : OdsignTestUtils.APP_ARTIFACT_EXTENSIONS) {
             final String fullArtifactPath =
                     String.format("%s/%s@classes%s", isaCacheDirectory, escapedPath, extension);
-            assertTrue("Missing " + fullArtifactPath, mappedArtifacts.contains(fullArtifactPath));
+            assertThat(mappedArtifacts).contains(fullArtifactPath);
           }
         }
 
