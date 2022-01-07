@@ -48,6 +48,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f90e06bd_180679bc",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-07T18:33:41Z",
+      "side": 1,
+      "message": "optional: Could be Result\u003cvoid\u003e",
+      "range": {
+        "startLine": 614,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 4
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "293a5766_9f6aa920",
@@ -178,6 +201,30 @@
       "writtenOn": "2022-01-07T18:10:00Z",
       "side": 1,
       "message": "Yes, we can figure out a mechanism for that later. For example, we can add a new value of OdrMetrics::Trigger for CompOS. The return code is to tell odsign to call `odrefresh --compile`. Let\u0027s do it in a separate CL.",
+      "parentUuid": "a4db1706_dd91c4cc",
+      "range": {
+        "startLine": 1266,
+        "startChar": 4,
+        "endLine": 1266,
+        "endChar": 32
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbb8b6b7_921a60e3",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1266,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-07T18:33:41Z",
+      "side": 1,
+      "message": "The name also confuses me. We\u0027re not actually requiring a compilation. If we do prefer to reuse kCompilationRequired, some comment here would be helpful.",
       "parentUuid": "a4db1706_dd91c4cc",
       "range": {
         "startLine": 1266,
