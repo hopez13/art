@@ -7869,6 +7869,11 @@ size_t ClassLinker::LinkMethodsHelper<kPointerSize>::AssignVtableIndexes(
           ArtMethod* current_method = super_vtable_accessor.GetVTableEntry(current_index);
           if (klass->CanAccessMember(current_method->GetDeclaringClass(),
                                      current_method->GetAccessFlags())) {
+            if (overrides) {
+              LOG(FATAL) << "The method " << virtual_method->PrettyMethod()
+                  << " would override two or more methods!";
+              UNREACHABLE();
+            }
             overrides = true;
             super_index = current_index;
             super_method = current_method;
