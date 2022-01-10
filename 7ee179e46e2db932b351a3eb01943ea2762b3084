@@ -167,6 +167,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9284cee2_5c45dbbf",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-10T09:47:27Z",
+      "side": 1,
+      "message": "Oh sorry, I realized after sending that this is the XML API not the Proto API (which is much more sensible).",
+      "parentUuid": "38255685_0092313d",
+      "range": {
+        "startLine": 987,
+        "startChar": 10,
+        "endLine": 987,
+        "endChar": 48
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a4db1706_dd91c4cc",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 1
