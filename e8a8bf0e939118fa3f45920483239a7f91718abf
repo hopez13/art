@@ -228,6 +228,24 @@
       "parentUuid": "16435e48_eca4d67e",
       "revId": "e8a8bf0e939118fa3f45920483239a7f91718abf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d18cd43_f4655618",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-10T12:14:01Z",
+      "side": 1,
+      "message": "That\u0027s weird. Normally, you shouldn\u0027t need to spell out the non-root version of the template.\n\nHistorically, the tests didn\u0027t have an explicit template before we needed root access: \nhttps://cs.android.com/android/_/android/platform/art/+/163ebe2d352fa30033025c1993f3834923a5cdf5:odrefresh/Android.bp;l\u003d177;drc\u003d0e8585342b1b26a0ec33421f9d4ab16cb9851ce4\n\nThe standalone test has the template in the default: https://cs.android.com/android/platform/superproject/+/master:art/test/Android.bp;l\u003d165;drc\u003d3062075164e66db8001b5512dbf91b9b28ee4fc1\n\nThe non-standalone test is part of a large test suite, so any template shouldn\u0027t take effect.\n\nWhat error did you get when you didn\u0027t spell out the template?",
+      "parentUuid": "a97500fd_439a55c5",
+      "revId": "e8a8bf0e939118fa3f45920483239a7f91718abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
