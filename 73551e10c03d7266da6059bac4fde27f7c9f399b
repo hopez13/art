@@ -39,6 +39,30 @@
       },
       "revId": "73551e10c03d7266da6059bac4fde27f7c9f399b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25b51867_8092370e",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-10T09:06:18Z",
+      "side": 1,
+      "message": "Agree - and I suggest replacing this with \"bool is_compact_dex_code_item\", and add a comment in the SetCodeItem about why this isn\u0027t always equal to GetDexFile-\u003eIsCompactDexFile().",
+      "parentUuid": "a69509a6_8c22a72d",
+      "range": {
+        "startLine": 585,
+        "startChar": 51,
+        "endLine": 585,
+        "endChar": 89
+      },
+      "revId": "73551e10c03d7266da6059bac4fde27f7c9f399b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
