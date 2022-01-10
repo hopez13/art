@@ -16,6 +16,46 @@
       "message": "See my comment on aosp/1943215",
       "revId": "e45f0cf65d52545895e4c44d6baff6206a87bf08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66ea5a2d_f541d3f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-10T19:42:06Z",
+      "side": 1,
+      "message": "Thanks, Alan!",
+      "revId": "e45f0cf65d52545895e4c44d6baff6206a87bf08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "178ec2f2_f2e6da5a",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-10T19:42:06Z",
+      "side": 1,
+      "message": "Maybe it\u0027s time to get rid of this return value since it will always to `argc - 1`.",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 11
+      },
+      "revId": "e45f0cf65d52545895e4c44d6baff6206a87bf08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
