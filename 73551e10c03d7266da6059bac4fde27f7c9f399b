@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "279df054_d702237e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1933440
+      },
+      "writtenOn": "2022-01-10T06:57:09Z",
+      "side": 1,
+      "message": "Specify dex file in SetCodeItem()\n\nArtMethod class will set the code item according to whether the dex file of the class is compact dex, assuming the primary dex has been compiled the dex file it belongs to became compacted, since jvmti only supports use standard dex to update, and the method is updated before the class, this will lead to unpredictable crashes when running the updated method using nterp.\n\nTest: art/test.py -b --host",
+      "revId": "73551e10c03d7266da6059bac4fde27f7c9f399b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a69509a6_8c22a72d",
