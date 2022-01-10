@@ -582,7 +582,7 @@ class ArtMethod final {
     return !IsRuntimeMethod() && !IsNative() && !IsProxyMethod() && !IsAbstract();
   }
 
-  void SetCodeItem(const dex::CodeItem* code_item) REQUIRES_SHARED(Locks::mutator_lock_);
+  void SetCodeItem(const dex::CodeItem* code_item, const art::DexFile* dex_file = nullptr) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Is this a hand crafted method used for something like describing callee saves?
   bool IsCalleeSaveMethod() REQUIRES_SHARED(Locks::mutator_lock_);

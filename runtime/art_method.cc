@@ -843,12 +843,15 @@ const char* ArtMethod::GetRuntimeMethodName() {
   }
 }
 
-void ArtMethod::SetCodeItem(const dex::CodeItem* code_item) {
+void ArtMethod::SetCodeItem(const dex::CodeItem* code_item, const art::DexFile* dex_file) {
   DCHECK(HasCodeItem());
   // We mark the lowest bit for the interpreter to know whether it's executing a
   // method in a compact or standard dex file.
+  if (dex_file == nullptr) {
+    dex_file = GetDexFile();
+  }
   uintptr_t data =
-      reinterpret_cast<uintptr_t>(code_item) | (GetDexFile()->IsCompactDexFile() ? 1 : 0);
+      reinterpret_cast<uintptr_t>(code_item) | (dex_file->IsCompactDexFile() ? 1 : 0);
   SetDataPtrSize(reinterpret_cast<void*>(data), kRuntimePointerSize);
 }
 
