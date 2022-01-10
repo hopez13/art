@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a69509a6_8c22a72d",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1090013
+      },
+      "writtenOn": "2022-01-10T06:28:53Z",
+      "side": 1,
+      "message": "Try not use default value since the behavior becomes some kind of ambiguous this way",
+      "range": {
+        "startLine": 585,
+        "startChar": 51,
+        "endLine": 585,
+        "endChar": 89
+      },
+      "revId": "73551e10c03d7266da6059bac4fde27f7c9f399b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
