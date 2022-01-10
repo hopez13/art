@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b9cd27_13623507",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Misplaced hyphen? Should this be \"the per-thread\"?",
+      "range": {
+        "startLine": 35,
+        "startChar": 39,
+        "endLine": 35,
+        "endChar": 53
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d319165_44fd768b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Missing start of the sentence?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 55
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "45e4edba_bdcdec52",
@@ -14,6 +60,253 @@
       "writtenOn": "2021-12-29T01:42:41Z",
       "side": 1,
       "message": "PS3 adds the memory ordering fix for weak reference access for the CC collector. I\u0027d like to submit this in roughly this form, after adding a more specific reference processing test (in a separate CL).\n\nAny WeakGlobalRef improvements will be in a separate CL.",
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eebe493_63ad7255",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3461,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "static_assert(enum_cast\u003cint32_t\u003e(WeakRefAccessState::kVisiblyEnabled) \u003d\u003d 0);\n\nand then the comment becomes unnecessary.",
+      "range": {
+        "startLine": 3461,
+        "startChar": 48,
+        "endLine": 3461,
+        "endChar": 78
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c2cf594_feecaf20",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2520,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "enum_cast\u003cint32_t\u003e(WeakRefAccessState::kVisiblyEnabled)\n\nand then the comment below becomes unnecessary.",
+      "range": {
+        "startLine": 2520,
+        "startChar": 17,
+        "endLine": 2520,
+        "endChar": 18
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e79e5ce5_cf6893ae",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3337,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "enum_cast\u003cint32_t\u003e(WeakRefAccessState::kVisiblyEnabled)\n\nand then the comment below becomes unnecessary.",
+      "range": {
+        "startLine": 3337,
+        "startChar": 55,
+        "endLine": 3337,
+        "endChar": 56
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f89afe1f_cc85f502",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3027,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "enum_cast\u003cint32_t\u003e(WeakRefAccessState::kVisiblyEnabled)\n\nand then the comment below becomes unnecessary.",
+      "range": {
+        "startLine": 3027,
+        "startChar": 75,
+        "endLine": 3027,
+        "endChar": 76
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9027c31_1379685d",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Style: I\u0027d prefer a blank line here.",
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cf20fc1_df34111c",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Always false. You check for null on both paths here (lines 102 and 142).",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 27
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e654395_f89088b3",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Does the GC run another checkpoint before removing the old object (removing from-space by CC or clearing memory by non-CC)? Otherwise this could access invalid memory.",
+      "range": {
+        "startLine": 161,
+        "startChar": 64,
+        "endLine": 161,
+        "endChar": 78
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d55a012_4b618cee",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "This check seems to be done just for the sake of comments as the code just calls `finish_trace()` if needed and returns the `forwarded_ref` value in both cases.",
+      "range": {
+        "startLine": 162,
+        "startChar": 4,
+        "endLine": 162,
+        "endChar": 33
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e03e35_d0454844",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Style: Break the line so that the ternary expression is on one line.",
+      "range": {
+        "startLine": 186,
+        "startChar": 35,
+        "endLine": 186,
+        "endChar": 36
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "957893fa_77ba85be",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 218,
+        "startChar": 42,
+        "endLine": 218,
+        "endChar": 53
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec52e7f2_5beee09d",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Style: fits on one line.",
+      "range": {
+        "startLine": 219,
+        "startChar": 43,
+        "endLine": 220,
+        "endChar": 64
+      },
       "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -66,6 +359,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5bf7aa2e_7f52dc2d",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Style: Remove the blank line.",
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5ee673d_d30f6758",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Style: fits on one line.",
+      "range": {
+        "startLine": 60,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 46
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b2da9dd_7782f7cf",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "uint8_t (Do not use `char` as an `enum` underlying type as its signedness is architecture-dependent which can sometimes create unexpected problems.)",
+      "range": {
+        "startLine": 110,
+        "startChar": 23,
+        "endLine": 110,
+        "endChar": 27
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36fd9bff_3d45d8a1",
+        "filename": "runtime/gc/reference_processor.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Naming: kStarting, kInitMarkingDone, kInitClearingDone.",
+      "range": {
+        "startLine": 110,
+        "startChar": 30,
+        "endLine": 110,
+        "endChar": 77
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "976fd622_b003b2a5",
         "filename": "runtime/gc/reference_queue.cc",
         "patchSetId": 3
@@ -89,6 +468,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e176bdbb_0859207f",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "I don\u0027t think this should be FATAL. But it should definitely be at least a WARNING and preferably ERROR.",
+      "parentUuid": "976fd622_b003b2a5",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 34
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c55036f2_de85b5d3",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "I don\u0027t know what this shortcut means.",
+      "range": {
+        "startLine": 861,
+        "startChar": 11,
+        "endLine": 861,
+        "endChar": 15
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78830ae0_78535088",
         "filename": "runtime/thread-inl.h",
         "patchSetId": 3
@@ -105,6 +531,76 @@
         "startChar": 2,
         "endLine": 377,
         "endChar": 8
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ed2a882_dedd809e",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "DCHECK_EQ() requires `operator\u003c\u003c`. Do we want to add that? Alternatively, we could just `\u003c\u003c static_cast\u003cstd::underlying_type_t\u003cWeakRefAccessState\u003e\u003e(s)`",
+      "parentUuid": "78830ae0_78535088",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 377,
+        "endChar": 8
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b21bbd3_58f26936",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Is this function called only by the thread itself?\n\n  DCHECK(this \u003d\u003d Thread::Current());",
+      "range": {
+        "startLine": 378,
+        "startChar": 69,
+        "endLine": 379,
+        "endChar": 40
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46b8f2b8_116d020e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-10T11:49:58Z",
+      "side": 1,
+      "message": "Naming convention: kVisiblyEnabled, kEnabled, kDisabled.",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 17
       },
       "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
