@@ -64,6 +64,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b906ead_1c7bf776",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-10T17:19:24Z",
+      "side": 1,
+      "message": "Thanks for the comments. I\u0027m still working on a test, which has pointed out that I still don\u0027t understand the behavior of the old code as well as I thought it did. Most of the comments look uncontroversial; I\u0027ll update asap.",
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3eebe493_63ad7255",
@@ -480,6 +497,30 @@
       "side": 1,
       "message": "I don\u0027t think this should be FATAL. But it should definitely be at least a WARNING and preferably ERROR.",
       "parentUuid": "976fd622_b003b2a5",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 34
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3716c649_eeb8a4db",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-10T17:19:24Z",
+      "side": 1,
+      "message": "I think this is pretty clearly allowed by the language spec. It\u0027s not clear what it means, but it\u0027s probably usually benign. I do not have a good intuition for how frequently it occurs. I\u0027m afraid that there will be apps for which reporting it every time will spam the log.\n\nI\u0027m fine with changing it to a warning, if it doesn\u0027t occur in most apps. I\u0027m very hesitant to report this every time without more experience.",
+      "parentUuid": "e176bdbb_0859207f",
       "range": {
         "startLine": 154,
         "startChar": 0,
