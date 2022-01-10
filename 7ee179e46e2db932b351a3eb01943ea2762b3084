@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51378f34_69bbe117",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-10T14:44:25Z",
+      "side": 1,
+      "message": "Done. Thanks for the suggestion.",
+      "parentUuid": "f90e06bd_180679bc",
+      "range": {
+        "startLine": 614,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 4
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "293a5766_9f6aa920",
@@ -345,6 +369,30 @@
       "side": 1,
       "message": "We need some signal to know the success rate for CompOS.  Is this the right place?  It doesn\u0027t have to be done in this change though.  WDYT?",
       "parentUuid": "b9bc91fc_c7f7409a",
+      "range": {
+        "startLine": 1559,
+        "startChar": 4,
+        "endLine": 1559,
+        "endChar": 41
+      },
+      "revId": "7ee179e46e2db932b351a3eb01943ea2762b3084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a3ef7ca_595d75c2",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1559,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-10T14:44:25Z",
+      "side": 1,
+      "message": "OK, I\u0027ll add some fields to track the success rate for CompOS in a separate CL. However, odrefresh in the VM does not write metrics to the host, so you need to do something on the CompOS side to collect the metrics.",
+      "parentUuid": "c9935a27_c08cbab0",
       "range": {
         "startLine": 1559,
         "startChar": 4,
