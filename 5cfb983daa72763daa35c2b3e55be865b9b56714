@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85e9dad8_70af5c0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-10T09:55:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "222b81fa_64a0949a",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "5cfb983daa72763daa35c2b3e55be865b9b56714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0fd0e46_6f5ff739",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-10T09:49:43Z",
       "side": 1,
       "message": "Why not reference?",
+      "range": {
+        "startLine": 150,
+        "startChar": 15,
+        "endLine": 150,
+        "endChar": 16
+      },
+      "revId": "5cfb983daa72763daa35c2b3e55be865b9b56714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e243c706_14352aa1",
+        "filename": "libdexfile/dex/type_lookup_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-10T09:55:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0fd0e46_6f5ff739",
       "range": {
         "startLine": 150,
         "startChar": 15,
