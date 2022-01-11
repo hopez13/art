@@ -1,0 +1,30 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000019110234",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1944566?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "deca5755_8031b6b7",
+        "filename": "test/odsign/odsign-e2e-tests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-01-11T15:05:36Z",
+      "side": 1,
+      "message": "Whenever feasible, CTS modules should be able to run in secondary_user. For help determining whether a module should be marked secondary_user vs. not_secondary_user, please see go/cts-tagging-secondary_user. If not_secondary_user is truly required, please comment why and also add MODULE_NOT_SECONDARY_USER_REASON\u003dmy_reason_here in the commit message.",
+      "range": {
+        "startLine": 23,
+        "startChar": 12,
+        "endLine": 23,
+        "endChar": 88
+      },
+      "revId": "7b114a1d302820dc14339a80fa9f5ed0868b52ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
