@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88322816_a886b03c",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2933,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-01-11T16:18:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b785d948_c1f33cd7",
+      "range": {
+        "startLine": 2930,
+        "startChar": 0,
+        "endLine": 2933,
+        "endChar": 79
+      },
+      "revId": "2dc9a332b1881661f2c1037bd29b6d99b6100b4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bae30a36_fc174efe",
@@ -88,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d10cb7a_dc1260a8",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-01-11T16:18:44Z",
+      "side": 1,
+      "message": "Yes, it shouldn\u0027t take any space, and it saves one level of indirection though the runtime.\n\nAlso, if this CL sticks, the next step will be to move some of the fast path code from C++ to nterp assembly.",
+      "parentUuid": "a5f2821e_9ab50b1d",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 67
+      },
+      "revId": "2dc9a332b1881661f2c1037bd29b6d99b6100b4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f761daa1_00556f61",
@@ -101,6 +149,24 @@
       "writtenOn": "2022-01-11T12:02:43Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "2dc9a332b1881661f2c1037bd29b6d99b6100b4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "118b7d41_a67c9e57",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-01-11T16:18:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f761daa1_00556f61",
       "revId": "2dc9a332b1881661f2c1037bd29b6d99b6100b4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
