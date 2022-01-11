@@ -22,6 +22,30 @@
       },
       "revId": "5204e9b26e7fbab58512878499e5c563e2b1a250",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85bd3e1e_01afee37",
+        "filename": "test/dexpreopt/dexpreopt_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-11T12:54:05Z",
+      "side": 1,
+      "message": "Yes, system server jars are compiled with the \"speed\" filter, so the odex files always contain executable code.",
+      "parentUuid": "3738715a_581e9018",
+      "range": {
+        "startLine": 196,
+        "startChar": 38,
+        "endLine": 196,
+        "endChar": 73
+      },
+      "revId": "5204e9b26e7fbab58512878499e5c563e2b1a250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
