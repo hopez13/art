@@ -16,6 +16,69 @@
       "message": "Nicolas, PTAL",
       "revId": "2dc9a332b1881661f2c1037bd29b6d99b6100b4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b785d948_c1f33cd7",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2933,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-11T12:02:43Z",
+      "side": 1,
+      "message": "It would be nice to re-use Thread::ClearAllInterpreterCaches here.",
+      "range": {
+        "startLine": 2930,
+        "startChar": 0,
+        "endLine": 2933,
+        "endChar": 79
+      },
+      "revId": "2dc9a332b1881661f2c1037bd29b6d99b6100b4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae30a36_fc174efe",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-11T12:02:43Z",
+      "side": 1,
+      "message": "That\u0027s a bit static to put in our binary. Can we have that in the Runtime object and allocate at startup?",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 67
+      },
+      "revId": "2dc9a332b1881661f2c1037bd29b6d99b6100b4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f761daa1_00556f61",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-11T12:02:43Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "2dc9a332b1881661f2c1037bd29b6d99b6100b4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
