@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "933d5543_20e653a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-11T19:02:23Z",
+      "side": 1,
+      "message": "Thank you for spotting these! You are right. I checked the c++ specification. In short, a class member is zero-initialized only if the class doesn\u0027t have a default constructor and the initializer of the object is an empty set of parentheses. None of the fields you pointed out falls into these cases, so they will be used uninitialized without your fixes.",
+      "parentUuid": "76f56721_f77b6845",
+      "revId": "34dcce581ec2ab17914b568c31f0cba426d55a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5661fc8c_7c8fe31c",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12a9eac0_1e3473f0",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-11T19:02:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5661fc8c_7c8fe31c",
+      "revId": "34dcce581ec2ab17914b568c31f0cba426d55a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae35a055_01b43936",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-01-11T18:44:15Z",
       "side": 1,
       "message": "From a naive reading of this code, it looks like there\u0027s only one place where this value gets set (and it\u0027s only to \u0027true\u0027), but it seems like this likely gets read outside of that.\n\nAssuming I\u0027m reading this correctly, I\u0027ve put up a fix: https://android-review.googlesource.com/c/platform/art/+/1944229",
+      "revId": "34dcce581ec2ab17914b568c31f0cba426d55a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74c7895e_9febae75",
+        "filename": "odrefresh/odrefresh.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-11T19:02:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ae35a055_01b43936",
       "revId": "34dcce581ec2ab17914b568c31f0cba426d55a2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
