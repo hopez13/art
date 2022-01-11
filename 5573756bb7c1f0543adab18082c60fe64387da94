@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fee64e99_e6f930ae",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-11T09:27:02Z",
+      "side": 1,
+      "message": "Style: One argument per line.",
+      "range": {
+        "startLine": 490,
+        "startChar": 49,
+        "endLine": 490,
+        "endChar": 95
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a066d29_8692faec",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-11T09:27:02Z",
+      "side": 1,
+      "message": "It should be documented in `NeverCompile.java` that this does not apply to native methods (JNI stubs shall be compiled) or overriding methods (and it is therefore useless on abstract methods).",
+      "range": {
+        "startLine": 492,
+        "startChar": 34,
+        "endLine": 492,
+        "endChar": 47
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62dedc79_69dc8f73",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 3676,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-11T09:27:02Z",
+      "side": 1,
+      "message": "Should this be\n\n  } else if ((access_flags \u0026 kAccAbstract) \u003d\u003d 0u \u0026\u0026\n\nto align with the compiler driver?",
+      "range": {
+        "startLine": 3675,
+        "startChar": 2,
+        "endLine": 3676,
+        "endChar": 4
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9de5b031_46da79d4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 3677,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-11T09:27:02Z",
+      "side": 1,
+      "message": "Is it deliberate that JIT does not respect this annotation?",
+      "range": {
+        "startLine": 3677,
+        "startChar": 4,
+        "endLine": 3677,
+        "endChar": 42
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
