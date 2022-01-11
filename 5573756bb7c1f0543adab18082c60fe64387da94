@@ -91,6 +91,30 @@
       },
       "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "670ea944_8b35b36f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 3677,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-01-11T21:22:27Z",
+      "side": 1,
+      "message": "That\u0027s a good question, what are your thoughts? I think we get a lot of the initial benefit from suppressing AOT for methods that are unlikely to be bottlenecks/hot (particularly for system_server which is AOT\u0027ed on many devices). I could see an argument for suppressing JIT as well, but I wonder if it\u0027s better to let the JIT logic decide whether or not to compile? In either case, we should probably be clear about the semantics in the documentation.\n\n@ngeoffray any thoughts?",
+      "parentUuid": "9de5b031_46da79d4",
+      "range": {
+        "startLine": 3677,
+        "startChar": 4,
+        "endLine": 3677,
+        "endChar": 42
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
