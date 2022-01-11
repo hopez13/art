@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a53b7556_34b56ea9",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2022-01-11T11:46:20Z",
+      "side": 1,
+      "message": "it looks like this path is not part of master-art tree manifest (https://android.googlesource.com/platform/manifest/+/master-art/default.xml)\n\nDoes this mean we don\u0027t support running cpplint on master-art tree any more?",
+      "range": {
+        "startLine": 23,
+        "startChar": 15,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "a1d4c56b0d92817939dcf18aa44ea516e4829863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
