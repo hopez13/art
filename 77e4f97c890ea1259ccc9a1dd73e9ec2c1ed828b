@@ -22,6 +22,30 @@
       },
       "revId": "77e4f97c890ea1259ccc9a1dd73e9ec2c1ed828b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0247a55_9337608f",
+        "filename": "tools/buildbot-setup-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1291338
+      },
+      "writtenOn": "2022-01-11T01:28:39Z",
+      "side": 1,
+      "message": "Thanks for the context. Honestly I\u0027m surprised that ToT ART is still compatible with Android N.\n\nThen, I have another question. nonplat_property_contexts doesn\u0027t exist nowadays. How can this test work well without the vendor property contexts? Why do we need the property contexts files at the first place?\n\nLet me investigate it and come back with update.",
+      "parentUuid": "6a1c6018_909c72f7",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 30
+      },
+      "revId": "77e4f97c890ea1259ccc9a1dd73e9ec2c1ed828b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
