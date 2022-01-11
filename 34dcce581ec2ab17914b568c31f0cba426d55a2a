@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76f56721_f77b6845",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-01-11T18:44:15Z",
+      "side": 1,
+      "message": "I\u0027m not certain I\u0027m reading this code correctly, so I\u0027ve separated out my \"fix\"es into separate CLs in case I\u0027m wrong on one of them.",
+      "revId": "34dcce581ec2ab17914b568c31f0cba426d55a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5661fc8c_7c8fe31c",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-01-11T18:44:15Z",
+      "side": 1,
+      "message": "This field doesn\u0027t get set in the constructor, and from my naive reading of the code, it looks like SetCompilationOsMode() is only called if \"--compilation-os-mode\" is used.  So without that option, it looks like this bool is used uninitialized.\n\nAssuming I\u0027m reading this right, I\u0027ve put up a fix to initialize this: https://android-review.googlesource.com/c/platform/art/+/1944228",
+      "revId": "34dcce581ec2ab17914b568c31f0cba426d55a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae35a055_01b43936",
+        "filename": "odrefresh/odrefresh.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-01-11T18:44:15Z",
+      "side": 1,
+      "message": "From a naive reading of this code, it looks like there\u0027s only one place where this value gets set (and it\u0027s only to \u0027true\u0027), but it seems like this likely gets read outside of that.\n\nAssuming I\u0027m reading this correctly, I\u0027ve put up a fix: https://android-review.googlesource.com/c/platform/art/+/1944229",
+      "revId": "34dcce581ec2ab17914b568c31f0cba426d55a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
