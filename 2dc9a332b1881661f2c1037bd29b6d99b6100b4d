@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5f2821e_9ab50b1d",
+        "filename": "runtime/interpreter/interpreter_cache.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-11T14:36:26Z",
+      "side": 1,
+      "message": "This should be in .bss and therefore take no space in the file.",
+      "parentUuid": "bae30a36_fc174efe",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 67
+      },
+      "revId": "2dc9a332b1881661f2c1037bd29b6d99b6100b4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f761daa1_00556f61",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 8
