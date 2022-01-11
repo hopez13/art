@@ -27,6 +27,12 @@ extern "C" void artTestSuspendFromCode(Thread* self) REQUIRES_SHARED(Locks::muta
   self->CheckSuspend();
 }
 
+extern "C" void artImplicitSuspendFromCode(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
+  // Called when suspend count check value is 0 and thread->suspend_count_ != 0
+  ScopedQuickEntrypointChecks sqec(self);
+  self->CheckSuspend(/*implicit=*/ true);
+}
+
 extern "C" void artCompileOptimized(ArtMethod* method, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ScopedQuickEntrypointChecks sqec(self);
