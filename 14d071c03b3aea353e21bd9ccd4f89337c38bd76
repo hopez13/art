@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af4d96dd_9059ca5c",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-11T18:57:13Z",
+      "side": 0,
+      "message": "Huh, I wonder how this hasn\u0027t triggered the check at https://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/globals_unix.cc;l\u003d40;drc\u003da28438ab47e8e41599fa6b2343f8a6a21efa0116. When libartbase.so gets loaded with libperfetto_hprof.so, doesn\u0027t it run that constructor?",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 19
+      },
+      "revId": "14d071c03b3aea353e21bd9ccd4f89337c38bd76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
