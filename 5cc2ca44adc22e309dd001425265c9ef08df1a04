@@ -52,6 +52,24 @@
       "parentUuid": "4833761c_089b7be3",
       "revId": "5cc2ca44adc22e309dd001425265c9ef08df1a04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9db1c6d0_abd0fdea",
+        "filename": "test/odsign/odsign-e2e-tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-11T15:11:44Z",
+      "side": 1,
+      "message": "Yeah, I understand that \"secondary_user\" is preferred, but I don\u0027t think multi-user applies to odsign because it runs on early boot.",
+      "parentUuid": "3758ce20_725195a1",
+      "revId": "5cc2ca44adc22e309dd001425265c9ef08df1a04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
