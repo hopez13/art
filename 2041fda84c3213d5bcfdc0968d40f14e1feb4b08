@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "927fe844_8fccd882",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-12T14:39:25Z",
+      "side": 0,
+      "message": "Looks like we always had this bug?",
+      "range": {
+        "startLine": 2642,
+        "startChar": 0,
+        "endLine": 2642,
+        "endChar": 44
+      },
+      "revId": "2041fda84c3213d5bcfdc0968d40f14e1feb4b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
