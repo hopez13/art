@@ -1931,6 +1931,8 @@ artNterpAsmInstructionStart = .L_op_nop
 
 %def opcode_start():
     NAME_START nterp_${opcode}
+    # Explitely retore CFA, just in case the previous opcode clobbered it (by .cfi_def_*).
+    CFI_DEF_CFA_BREG_PLUS_UCONST CFI_REFS, -8, CALLEE_SAVES_SIZE
 %def opcode_end():
     NAME_END nterp_${opcode}
 %def helper_start(name):
