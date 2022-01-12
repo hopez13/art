@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ace72fa6_9e7fe82b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-12T18:08:55Z",
+      "side": 1,
+      "message": "The interpreter-cache-inl.h comment is the only thing here that may be important to address now.",
+      "revId": "e219fb29eba87ae5f59698c47df6585da72cb3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b626bf1_c937c50c",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-12T18:08:55Z",
+      "side": 1,
+      "message": "I thought the conclusions was that it does, but we don\u0027t link the library it needs?",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 63
+      },
+      "revId": "e219fb29eba87ae5f59698c47df6585da72cb3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0b0702b_de358762",
+        "filename": "runtime/interpreter/interpreter_cache-inl.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-12T18:08:55Z",
+      "side": 1,
+      "message": "This only works for the CC collector. The right general incantation to check this is at https://cs.android.com/android/platform/superproject/+/master:art/runtime/gc/reference_processor.cc, which should clearly be abstracted out somewhere.\n\n(The underlying problem is that CC uses a per-thread flag and everything else uses a global Java field to signal this. I think it\u0027s a Java field to allow convenient access from the intrinsic?)",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 39
+      },
+      "revId": "e219fb29eba87ae5f59698c47df6585da72cb3a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

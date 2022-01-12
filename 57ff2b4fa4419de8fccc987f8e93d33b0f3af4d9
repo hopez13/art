@@ -103,6 +103,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7557d46f_79d6832b",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-12T18:08:55Z",
+      "side": 1,
+      "message": "My general preference is to document behavior in the interface in some way. But I agree with Vladimir that acquire is far safer here. Using relaxed would, according to the standard, not ensure that the caller can see data referenced from the result. I think it would be very hard to ensure that it always can in practice. The hardware enforces ordering based on address dependencies, but not control dependencies. The compiler can trade one for the other or occasionally remove them entirely.\n\nIf this has major performance impact, we could revisit. But it may require assembly code to do safely.",
+      "parentUuid": "ad5cea30_bb0b5a6c",
+      "revId": "57ff2b4fa4419de8fccc987f8e93d33b0f3af4d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94c312b3_7dded131",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
