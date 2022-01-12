@@ -252,10 +252,11 @@ END_FUNCTION \name
 
 .macro BRANCH
     // Update method counter and do a suspend check if the branch is negative or zero.
+    // Update PC early to have a consistent suspend point at loop header
+    leaq    (rPC, rINSTq, 2), rPC
     testq rINSTq, rINSTq
     jle 3f
 2:
-    leaq    (rPC, rINSTq, 2), rPC
     FETCH_INST
     GOTO_NEXT
 3:
@@ -2171,12 +2172,11 @@ NterpGetInstanceField:
   OP_IGET load="movl", wide=0
 
 NterpHandleHotnessOverflow:
-    leaq (rPC, rINSTq, 2), %rsi
+    movq rPC, %rsi
     movq rFP, %rdx
     call nterp_hot_method
     testq %rax, %rax
     jne 1f
-    leaq    (rPC, rINSTq, 2), rPC
     FETCH_INST
     GOTO_NEXT
 1:
