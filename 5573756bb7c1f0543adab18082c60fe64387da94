@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d9f1b39_5736a798",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-12T09:46:23Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/1944547 .",
+      "parentUuid": "fee64e99_e6f930ae",
+      "range": {
+        "startLine": 490,
+        "startChar": 49,
+        "endLine": 490,
+        "endChar": 95
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a066d29_8692faec",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0df46e05_38ae8267",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-12T09:46:23Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/1945493 .",
+      "parentUuid": "0a066d29_8692faec",
+      "range": {
+        "startLine": 492,
+        "startChar": 34,
+        "endLine": 492,
+        "endChar": 47
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62dedc79_69dc8f73",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-01-11T09:27:02Z",
       "side": 1,
       "message": "Should this be\n\n  } else if ((access_flags \u0026 kAccAbstract) \u003d\u003d 0u \u0026\u0026\n\nto align with the compiler driver?",
+      "range": {
+        "startLine": 3675,
+        "startChar": 2,
+        "endLine": 3676,
+        "endChar": 4
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b48d728f_1f9d45e4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 3676,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-12T09:46:23Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/1944547 .",
+      "parentUuid": "62dedc79_69dc8f73",
       "range": {
         "startLine": 3675,
         "startChar": 2,
@@ -107,6 +179,30 @@
       "side": 1,
       "message": "That\u0027s a good question, what are your thoughts? I think we get a lot of the initial benefit from suppressing AOT for methods that are unlikely to be bottlenecks/hot (particularly for system_server which is AOT\u0027ed on many devices). I could see an argument for suppressing JIT as well, but I wonder if it\u0027s better to let the JIT logic decide whether or not to compile? In either case, we should probably be clear about the semantics in the documentation.\n\n@ngeoffray any thoughts?",
       "parentUuid": "9de5b031_46da79d4",
+      "range": {
+        "startLine": 3677,
+        "startChar": 4,
+        "endLine": 3677,
+        "endChar": 42
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d79de28f_963a3d12",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 3677,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-12T09:46:23Z",
+      "side": 1,
+      "message": "Actually, JIT tests whether the method `IsCompilable()`, so it does respect that flag in both `Jit::CompileMethodFromProfile()` and `Jit::IgnoreSamplesForMethod()` as well as `Jit::MethodEntered()` for jit-on-first-use.\n\nAnyway, this should be a deliberate decision. Are we OK with not JITting @NeverCompile methods?\n\nIMO, the most straightforward interpretation of @NeverCompile is that neither AOT nor JIT should compile it, so I\u0027m in favor of keeping the current behavior.",
+      "parentUuid": "670ea944_8b35b36f",
       "range": {
         "startLine": 3677,
         "startChar": 4,
