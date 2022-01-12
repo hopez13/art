@@ -169,6 +169,11 @@
     RESTORE_ALL_CALLEE_SAVES lr_to_pc=1
     .cfi_restore_state
 
+    # UNREACHABLE due to the return above.
+    # The check_cfi.py script is confused by this opcode since it has unbalanced pop/push count.
+    # Add unreachable spills to balance the stack operations.
+    SPILL_ALL_CALLEE_SAVES
+
 %def op_return_object():
 %  op_return(is_object="1", is_void="0", is_wide="0")
 

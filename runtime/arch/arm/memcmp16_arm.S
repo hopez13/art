@@ -151,10 +151,13 @@ ARM_ENTRY __memcmp16
         /* restore registers and return */
         mov         r0, #0
         pop         {r4, lr}
+        .cfi_remember_state
         .cfi_restore r4
         .cfi_restore lr
         .cfi_adjust_cfa_offset -8
         bx          lr
+        .cfi_restore_state
+        .cfi_def_cfa_offset 8
 
 2:      /* the last 2 words are different, restart them */
         ldrh        r0, [r3, #-4]
@@ -165,10 +168,13 @@ ARM_ENTRY __memcmp16
         subseq      r0, r0, ip
         /* restore registers and return */
         pop         {r4, lr}
+        .cfi_remember_state
         .cfi_restore r4
         .cfi_restore lr
         .cfi_adjust_cfa_offset -8
         bx          lr
+        .cfi_restore_state
+        .cfi_def_cfa_offset 8
 
         /* process the last few words */
 8:      ldrh        r0, [r3], #2
@@ -179,11 +185,14 @@ ARM_ENTRY __memcmp16
         bne         8b
 
 9:      /* restore registers and return */
+        .cfi_remember_state
         pop         {r4, lr}
         .cfi_restore r4
         .cfi_restore lr
         .cfi_adjust_cfa_offset -8
         bx          lr
+        .cfi_restore_state
+        .cfi_def_cfa_offset 8
 
 
 5:      /*************** non-congruent case ***************/

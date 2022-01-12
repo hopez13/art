@@ -687,6 +687,7 @@ ENTRY art_quick_aput_obj
     mov r0, r3
     bl artIsAssignableFromCode
     cbz r0, .Lthrow_array_store_exception
+    .cfi_remember_state
     pop {r0-r2, lr}
     .cfi_restore r0
     .cfi_restore r1
@@ -701,7 +702,10 @@ ENTRY art_quick_aput_obj
     strb r3, [r3, r0]
     blx lr
 .Lthrow_array_store_exception:
+    .cfi_restore_state
+    .cfi_def_cfa_offset 16
     pop {r0-r2, lr}
+    .cfi_adjust_cfa_offset -16
     /* No need to repeat restore cfi directives, the ones above apply here. */
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME r3
     mov r1, r2
@@ -782,6 +786,7 @@ ENTRY \name
     REFRESH_MARKING_REGISTER
     bx     lr
     .cfi_restore_state
+    .cfi_def_cfa_offset FRAME_SIZE_SAVE_EVERYTHING
 1:
     DELIVER_PENDING_EXCEPTION_FRAME_READY
 END \name
@@ -1356,12 +1361,15 @@ ENTRY art_quick_resolution_trampoline
     mov     r3, sp                 @ pass SP
     blx     artQuickResolutionTrampoline  @ (Method* called, receiver, Thread*, SP)
     cbz     r0, 1f                 @ is code pointer null? goto exception
+    .cfi_remember_state
     mov     r12, r0
     ldr     r0, [sp, #0]           @ load resolved method in r0
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
     REFRESH_MARKING_REGISTER
     bx      r12                    @ tail-call into actual code
 1:
+    .cfi_restore_state
+    .cfi_def_cfa_offset FRAME_SIZE_SAVE_REFS_AND_ARGS
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
     DELIVER_PENDING_EXCEPTION
 END art_quick_resolution_trampoline
@@ -1503,6 +1511,7 @@ ENTRY art_quick_instrumentation_entry
     mov   r3, sp         @ pass SP
     blx   artInstrumentationMethodEntryFromCode  @ (Method*, Object*, Thread*, SP)
     cbz   r0, .Ldeliver_instrumentation_entry_exception
+    .cfi_remember_state
                          @ Deliver exception if we got nullptr as function.
     mov   r12, r0        @ r12 holds reference to code
     ldr   r0, [sp, #4]   @ restore r0
@@ -1512,6 +1521,8 @@ ENTRY art_quick_instrumentation_entry
     REFRESH_MARKING_REGISTER
     bx    r12            @ call method with lr set to art_quick_instrumentation_exit
 .Ldeliver_instrumentation_entry_exception:
+    .cfi_restore_state
+    .cfi_def_cfa_offset FRAME_SIZE_SAVE_REFS_AND_ARGS
     @ Deliver exception for art_quick_instrumentation_entry placed after
     @ art_quick_instrumentation_exit so that the fallthrough works.
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
@@ -1530,7 +1541,9 @@ ENTRY art_quick_instrumentation_exit
 
     cbz   r0, .Ldo_deliver_instrumentation_exception
                          @ Deliver exception if we got nullptr as function.
+    .cfi_remember_state
     cbnz  r1, .Ldeoptimize
+    .cfi_remember_state
     // Normal return.
     str   r0, [sp, #FRAME_SIZE_SAVE_EVERYTHING - 4]
                          @ Set return pc.
@@ -1538,8 +1551,12 @@ ENTRY art_quick_instrumentation_exit
     REFRESH_MARKING_REGISTER
     bx lr
 .Ldo_deliver_instrumentation_exception:
+    .cfi_restore_state
+    .cfi_def_cfa_offset FRAME_SIZE_SAVE_EVERYTHING
     DELIVER_PENDING_EXCEPTION_FRAME_READY
 .Ldeoptimize:
+    .cfi_restore_state
+    .cfi_def_cfa_offset FRAME_SIZE_SAVE_EVERYTHING
     str   r1, [sp, #FRAME_SIZE_SAVE_EVERYTHING - 4]
                          @ Set return pc.
     RESTORE_SAVE_EVERYTHING_FRAME

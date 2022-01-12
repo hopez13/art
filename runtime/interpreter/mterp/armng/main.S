@@ -496,6 +496,7 @@ END \name
     .cfi_adjust_cfa_offset -4
     .if \lr_to_pc
     pop {r9-r11, pc}  @ 9 words of callee saves and args.
+    .cfi_adjust_cfa_offset -16
     .else
     pop {r9-r11, lr}  @ 9 words of callee saves and args.
     .cfi_adjust_cfa_offset -16
@@ -1917,7 +1918,7 @@ EndExecuteNterpImpl:
  * expected common case is a "reasonable" value that converts directly
  * to modest integer.  The EABI convert function isn't doing this for us.
  */
-nterp_d2l_doconv:
+ENTRY nterp_d2l_doconv
     ubfx    r2, r1, #20, #11            @ grab the exponent
     movw    r3, #0x43e
     cmp     r2, r3                      @ MINLONG < x > MAXLONG?
@@ -1940,6 +1941,7 @@ d2l_maybeNaN:
     mov     r0, #0
     mov     r1, #0
     bx      lr                          @ return 0 for NaN
+END nterp_d2l_doconv
 
 /*
  * Convert the float in r0 to a long in r0/r1.
@@ -1948,7 +1950,7 @@ d2l_maybeNaN:
  * expected common case is a "reasonable" value that converts directly
  * to modest integer.  The EABI convert function isn't doing this for us.
  */
-nterp_f2l_doconv:
+ENTRY nterp_f2l_doconv
     ubfx    r2, r0, #23, #8             @ grab the exponent
     cmp     r2, #0xbe                   @ MININT < x > MAXINT?
     bhs     f2l_special_cases
@@ -1969,6 +1971,7 @@ f2l_maybeNaN:
     mov     r0, #0
     mov     r1, #0
     bx      lr                          @ return 0 for NaN
+END nterp_f2l_doconv
 
 // Entrypoints into runtime.
 NTERP_TRAMPOLINE nterp_get_static_field, NterpGetStaticField
@@ -1984,7 +1987,7 @@ NTERP_TRAMPOLINE nterp_load_object, NterpLoadObject
 // within [ExecuteNterpImpl, EndExecuteNterpImpl).
 %def instruction_end():
 
-    .type artNterpAsmInstructionEnd, #object
+    .type artNterpAsmInstructionEnd, #function
     .hidden artNterpAsmInstructionEnd
     .global artNterpAsmInstructionEnd
 artNterpAsmInstructionEnd:
@@ -1995,7 +1998,7 @@ artNterpAsmInstructionEnd:
 
 %def instruction_start():
 
-    .type artNterpAsmInstructionStart, #object
+    .type artNterpAsmInstructionStart, #function
     .hidden artNterpAsmInstructionStart
     .global artNterpAsmInstructionStart
 artNterpAsmInstructionStart = .L_op_nop
@@ -2006,6 +2009,8 @@ artNterpAsmInstructionStart = .L_op_nop
 
 %def opcode_start():
     NAME_START nterp_${opcode}
+    # Explitely retore CFA, just in case the previous opcode clobbered it (by .cfi_def_*).
+    CFI_DEF_CFA_BREG_PLUS_UCONST CFI_REFS, -4, CALLEE_SAVES_SIZE
 %def opcode_end():
     NAME_END nterp_${opcode}
 %def helper_start(name):
