@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4a63f4e_614c8fee",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2933,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-01-12T14:02:24Z",
+      "side": 1,
+      "message": "Ah, I guess it was intentional.\nThreadList::RunCheckpoint has Locks::mutator_lock_-\u003eAssertNotExclusiveHeld\nwhich does not hold here.",
+      "parentUuid": "88322816_a886b03c",
+      "range": {
+        "startLine": 2930,
+        "startChar": 0,
+        "endLine": 2933,
+        "endChar": 79
+      },
+      "revId": "2dc9a332b1881661f2c1037bd29b6d99b6100b4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bae30a36_fc174efe",
