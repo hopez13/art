@@ -22,6 +22,30 @@
       },
       "revId": "2041fda84c3213d5bcfdc0968d40f14e1feb4b08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d79160a3_6471361a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-12T14:40:57Z",
+      "side": 0,
+      "message": "Ah nevermind, just noticed this is in the new method exit hook.",
+      "parentUuid": "927fe844_8fccd882",
+      "range": {
+        "startLine": 2642,
+        "startChar": 0,
+        "endLine": 2642,
+        "endChar": 44
+      },
+      "revId": "2041fda84c3213d5bcfdc0968d40f14e1feb4b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
