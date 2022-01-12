@@ -733,7 +733,7 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
     }
     args.Set(
         M::Image,
-        ParseStringList<':'>{{"boot.art", "/nonx/boot-framework.art!/system/etc/boot-image.prof"}});
+        ParseStringList<':'>{{"/nonx/boot.art!/apex/com.android.art/etc/boot-image.prof!/system/etc/boot-image.prof"}});
   }
 
   if (!args.Exists(M::CompilerCallbacksPtr) && !args.Exists(M::Image)) {
