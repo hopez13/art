@@ -22,6 +22,30 @@
       },
       "revId": "14d071c03b3aea353e21bd9ccd4f89337c38bd76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2861182f_82d10791",
+        "filename": "perfetto_hprof/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-12T08:26:20Z",
+      "side": 0,
+      "message": "I assume because libperfetto_hprof only gets used on a full system (not run tests), and the debug apex isn\u0027t currently used anywhere.",
+      "parentUuid": "af4d96dd_9059ca5c",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 19
+      },
+      "revId": "14d071c03b3aea353e21bd9ccd4f89337c38bd76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
