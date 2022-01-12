@@ -1973,10 +1973,11 @@ bool ClassLinker::AddImageSpace(
         // reset it with the runtime value.
         method.ResetCounter(hotness_threshold);
       }
-      // Set image methods' entry point that point to the interpreter bridge to the
-      // nterp entry point.
       if (method.GetEntryPointFromQuickCompiledCode() == nterp_trampoline_) {
         if (can_use_nterp) {
+          // Set image methods' entry point that point to the nterp trampoline to the
+          // nterp entry point. This allows taking the fast path when doing a
+          // nterp->nterp call.
           DCHECK(!NeedsClinitCheckBeforeCall(&method) ||
                  method.GetDeclaringClass()->IsVisiblyInitialized());
           method.SetEntryPointFromQuickCompiledCode(interpreter::GetNterpEntryPoint());
@@ -9651,14 +9652,6 @@ bool ClassLinker::IsJniDlsymLookupCriticalStub(const void* entry_point) const {
 
 const void* ClassLinker::GetRuntimeQuickGenericJniStub() const {
   return GetQuickGenericJniStub();
-}
-
-void ClassLinker::SetEntryPointsToInterpreter(ArtMethod* method) const {
-  if (!method->IsNative()) {
-    method->SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
-  } else {
-    method->SetEntryPointFromQuickCompiledCode(GetQuickGenericJniStub());
-  }
 }
 
 void ClassLinker::SetEntryPointsForObsoleteMethod(ArtMethod* method) const {
