@@ -211,6 +211,30 @@
       },
       "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f7d93a_70a23871",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 3677,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-12T13:30:12Z",
+      "side": 1,
+      "message": "No strong opinion here, I like having the JIT logic also kick in, but then we should have named the annotation @NeverAotCompile.",
+      "parentUuid": "d79de28f_963a3d12",
+      "range": {
+        "startLine": 3677,
+        "startChar": 4,
+        "endLine": 3677,
+        "endChar": 42
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
