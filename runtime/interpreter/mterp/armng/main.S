@@ -301,12 +301,14 @@ END \name
 .endm
 
 .macro BRANCH
+    // Update rPC early to have a consistent suspend point at loop header
+    add rPC, rPC, rINST, lsl #1
     // Update method counter and do a suspend check if the branch is negative or zero.
     cmp rINST, #0
     ble 2f
 1:
     add r2, rINST, rINST                // r2<- byte offset
-    FETCH_ADVANCE_INST_RB r2            // update xPC, load rINST
+    FETCH_INST r2                       // load rINST
     GET_INST_OPCODE ip                  // extract opcode from rINST
     GOTO_OPCODE ip                      // jump to next instruction
 2:
