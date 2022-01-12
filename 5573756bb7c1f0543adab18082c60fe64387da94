@@ -235,6 +235,30 @@
       },
       "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9bc824c_982b2bb0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 3677,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-01-12T16:41:02Z",
+      "side": 1,
+      "message": "Yeah, we could add another annotation (or maybe annotation argument?) down the road if we find the need to specialize. Sounds good for now.",
+      "parentUuid": "f5f7d93a_70a23871",
+      "range": {
+        "startLine": 3677,
+        "startChar": 4,
+        "endLine": 3677,
+        "endChar": 42
+      },
+      "revId": "5573756bb7c1f0543adab18082c60fe64387da94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
