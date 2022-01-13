@@ -34,6 +34,46 @@
       "parentUuid": "451ae231_db3e67fd",
       "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79fa3915_700b4dd1",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-13T10:26:04Z",
+      "side": 1,
+      "message": "One line.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 45
+      },
+      "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fc08cb0_7c617794",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-13T10:26:04Z",
+      "side": 1,
+      "message": "Unrelated (here and other archs) ?",
+      "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
