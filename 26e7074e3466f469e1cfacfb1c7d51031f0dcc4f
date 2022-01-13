@@ -16,6 +16,24 @@
       "message": "This is something that could quite easily break the userdebug debug-anything behavior which (due to it\u0027s userdebug dependency) isn\u0027t tested very well. I\u0027d make sure that you can still JDWP to random processes and everything still seems to work before merging this.",
       "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "942aef81_8751187c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-01-13T10:16:20Z",
+      "side": 1,
+      "message": "Thanks Alex! I will tried it with jdb + debuggable youtube app. I haven\u0027t tested by setting breakpoints. I will try that too. I will try to test it on non-debuggable apps too. Apart from breakpoints are there any other features that I should test? \n\nDo you think running jvmti tests in art would catch if anything is broken? If those aren\u0027t sufficient do you think we can somehow add more tests (even if it is outside of art) so that we can catch any regressions. I am planning to do few more changes around this area and want to make sure I don\u0027t break anything.\n\nThis CL by itself shouldn\u0027t break things much because we force interpreter when we enable any feature that needs interpreter. The one thing that breaks though is setting breakpoints (and possibly other features) in non-debuggable apps due to inlining. I will update the CL to fix that.",
+      "parentUuid": "451ae231_db3e67fd",
+      "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
