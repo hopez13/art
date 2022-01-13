@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8706186e_851a5eea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-13T22:25:26Z",
+      "side": 1,
+      "message": "It doesn\u0027t look like a noop - it sets p.makePath so that String() shaves off the \"soong\" directory level, doesn\u0027t it? We probably don\u0027t care about that though.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "74fcd68e3876fe20594a04d0fe8f23e9b5e62669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
