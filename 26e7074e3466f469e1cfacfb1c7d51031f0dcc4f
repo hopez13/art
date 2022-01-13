@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e82eb13_69223a7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2022-01-13T17:33:20Z",
+      "side": 1,
+      "message": "Trying with a non-debuggable app running on a userdebug phone is something you should definitely do. Also try attaching to system_server on a userdebug device. \n\nBreakpoints, stepping, and locals are the main things I\u0027d test.\n\nI tried to make the JVMTI tests cover as much as I could but I\u0027m not 100% confident it would catch this sort of thing. Since the interaction between userdebug and the zygote isn\u0027t really something we have a good way to test without setting it up directly in the test case (there\u0027s no mode switch like jit-on-first-use for it). The fact that userdebug+non-debuggable is purely best-effort and is not expected to always implement JVMTI correctly (eg inlined+in-progress methods might skip breakpoints, locals aren\u0027t always accessible, etc) makes it even more challenging (note that all of these things do usually work). IIRC I did that with a few tests so there is at least a minimal sanity check but it\u0027s far from perfect.\n\nHonestly I think this is mostly fine but be sure to keep an eye on the bug tracker. When I was doing the debugger JVMTI rewrite it took several attempts to get it to stick as system-server people kept hitting weird edge-cases which is how there ended up being 3 very similar checks all right next to one another.",
+      "parentUuid": "942aef81_8751187c",
+      "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "79fa3915_700b4dd1",
         "filename": "openjdkjvmti/deopt_manager.cc",
         "patchSetId": 3
