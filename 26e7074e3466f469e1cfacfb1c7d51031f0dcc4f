@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "451ae231_db3e67fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2022-01-13T02:05:01Z",
+      "side": 1,
+      "message": "This is something that could quite easily break the userdebug debug-anything behavior which (due to it\u0027s userdebug dependency) isn\u0027t tested very well. I\u0027d make sure that you can still JDWP to random processes and everything still seems to work before merging this.",
+      "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
