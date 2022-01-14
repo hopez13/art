@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba940de2_823e28b3",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-14T09:40:13Z",
+      "side": 1,
+      "message": "This looks like a partial revert of one of your recent changes. Can you reference that CL in the commit message?",
+      "range": {
+        "startLine": 3244,
+        "startChar": 6,
+        "endLine": 3244,
+        "endChar": 31
+      },
+      "revId": "0b7e172f74da0cc8ca08428decc56f86cb29090b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
