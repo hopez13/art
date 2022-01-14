@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f3423e2_38ee0786",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-01-14T12:39:56Z",
+      "side": 1,
+      "message": "Thanks a lot Alex! I tested with youtube debuggable, maps non-debuggable and system_server. I tried with a breakpoint on java.lang.Thread.start. All seem to be working fine. I will do look for any bug reports. \n\nJust to follow up on inlining + non-debuggable apps, we do set Runtime::IsJavaDebuggable when starting an app with debugger attached [1]. This will turn off inlining. Though, it doesn\u0027t work when we are attaching a process and maybe we could fix it and turnoff inlining whenever debugger is attached. I will look into it later.\n\n[1]https://cs.android.com/android/platform/superproject/+/master:art/openjdkjvmti/deopt_manager.cc;l\u003d180;",
+      "parentUuid": "2e82eb13_69223a7c",
+      "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "79fa3915_700b4dd1",
         "filename": "openjdkjvmti/deopt_manager.cc",
         "patchSetId": 3
@@ -67,6 +85,30 @@
       "writtenOn": "2022-01-13T10:26:04Z",
       "side": 1,
       "message": "One line.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 45
+      },
+      "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07075bc8_965656ae",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-01-14T12:39:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79fa3915_700b4dd1",
       "range": {
         "startLine": 73,
         "startChar": 0,
@@ -90,6 +132,24 @@
       "writtenOn": "2022-01-13T10:26:04Z",
       "side": 1,
       "message": "Unrelated (here and other archs) ?",
+      "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "410b87d3_6b24e7c5",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-01-14T12:39:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fc08cb0_7c617794",
       "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
