@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32b9a926_07694c7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2022-01-14T21:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "012b87e6_ae924ecd",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "36eee6fc912f7491574240eb497065283df8e24a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b725033b_ea775398",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-14T17:30:43Z",
       "side": 1,
       "message": "I believe that this checks all calls to RegisterNativeAllocation(), independent of size. Known malloc allocations from NativeAllocationRegistry (the preferred interface for platform code) instead go through NotifyNativeAllocation(), and won\u0027t be included here.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "36eee6fc912f7491574240eb497065283df8e24a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9b82bb8_be4e13d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2022-01-14T21:47:47Z",
+      "side": 1,
+      "message": "Done. I originally wrote \"Large\" because that\u0027s what the comment at the top of the RegisterNativeAllocation function mentioned. I have removed \"Large\" to make it independent of size and added a clarification to clarify the malloc case.",
+      "parentUuid": "b725033b_ea775398",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -77,6 +125,24 @@
       "writtenOn": "2022-01-14T17:30:43Z",
       "side": 1,
       "message": "I\u0027m concerned about creating confusion about what\u0027s actually reported here. This is a nice small code change, but it\u0027s not that easy easy to explain what it actually does. It systematically excludes malloc-based platform allocations that follow recommended practice. It includes malloc-based app allocations that use registerNativeAllocation via reflection. which I think is the only thing they can use.\n\nIs a non-null Java object desirable here? In the NativeAllocationRegistry case, we could get it. If it matters, we probably should pass it down to here.",
+      "revId": "36eee6fc912f7491574240eb497065283df8e24a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5fdcb32_1cc0881a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2022-01-14T21:47:47Z",
+      "side": 1,
+      "message": "To avoid confusion, I have added a clarification to the JHP documentation as well as to the title of this cl. \n\nNon-null Java object isn\u0027t desirable here because Perfetto doesn\u0027t use that ptr so that\u0027s why we are sending a nullptr.",
+      "parentUuid": "19dbdc6a_d95a7fbb",
       "revId": "36eee6fc912f7491574240eb497065283df8e24a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
