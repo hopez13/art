@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d1726d1_c2c51a5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2022-01-14T17:04:53Z",
+      "side": 1,
+      "message": "Yeah the main place where issues can come up is if you put a breakpoint in a running function on a non-debuggable process. That\u0027s an existing shortcoming though so as long as this doesn\u0027t regress anything it should be fine.",
+      "parentUuid": "6f3423e2_38ee0786",
+      "revId": "26e7074e3466f469e1cfacfb1c7d51031f0dcc4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79fa3915_700b4dd1",
