@@ -22,17 +22,14 @@
 namespace art {
 
 // Replacement functions for std::string_view::starts_with(), ends_with()
-// which shall be available in C++20.
-#if __cplusplus >= 202000L
-#error "When upgrading to C++20, remove this error and file a bug to remove this workaround."
-#endif
+// which are in C++20.
 
 inline bool StartsWith(std::string_view sv, std::string_view prefix) {
-  return sv.substr(0u, prefix.size()) == prefix;
+  return sv.starts_with(prefix);
 }
 
 inline bool EndsWith(std::string_view sv, std::string_view suffix) {
-  return sv.size() >= suffix.size() && sv.substr(sv.size() - suffix.size()) == suffix;
+  return sv.ends_with(suffix);
 }
 
 }  // namespace art
