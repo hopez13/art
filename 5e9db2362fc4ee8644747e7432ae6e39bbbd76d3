@@ -16,6 +16,23 @@
       "message": "PTAL. Thanks!",
       "revId": "5e9db2362fc4ee8644747e7432ae6e39bbbd76d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d4181a1_e084bd56",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-14T16:39:31Z",
+      "side": 1,
+      "message": "Could you submit the nterp changes independently of this CL? They may have side effects on eg OSR, and so it\u0027d be nice to pinpoint the nterp change as a reason.",
+      "revId": "5e9db2362fc4ee8644747e7432ae6e39bbbd76d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
