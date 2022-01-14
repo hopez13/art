@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1564e7d7_a7e384d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-14T11:02:15Z",
+      "side": 1,
+      "message": "Thank you.",
+      "revId": "6fe40c0d9a1df4c1cb0f0c3b1adb1d13a2d9eae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf5ccd34_2f975815",
+        "filename": "build/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-14T11:02:15Z",
+      "side": 1,
+      "message": "Since you\u0027re introducing empty lines below (through bpfmt, presumably), please add one here too, so that it doesn\u0027t look like this comment applies to the first block only.",
+      "revId": "6fe40c0d9a1df4c1cb0f0c3b1adb1d13a2d9eae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
