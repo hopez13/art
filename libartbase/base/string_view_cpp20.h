@@ -21,23 +21,36 @@
 
 namespace art {
 
+<<<<<<< PATCH SET (2fdd69 std::string_view::starts_with and ends_with are available.)
+// Replacement functions for std::string_view::starts_with(), ends_with()
+// which are in C++20.
+=======
 // When this code is only compiled on C++20+, these wrappers can be removed and
 // calling code changed to call the string_view methods directly.
+>>>>>>> BASE      (01db7e Disable test on jit-at-first-use.)
 
 inline bool StartsWith(std::string_view sv, std::string_view prefix) {
+<<<<<<< PATCH SET (2fdd69 std::string_view::starts_with and ends_with are available.)
+  return sv.starts_with(prefix);
+=======
 #if !defined(__cpp_lib_starts_ends_with) || __cpp_lib_starts_ends_with < 201711L
   return sv.substr(0u, prefix.size()) == prefix;
 #else
   return sv.starts_with(prefix);
 #endif
+>>>>>>> BASE      (01db7e Disable test on jit-at-first-use.)
 }
 
 inline bool EndsWith(std::string_view sv, std::string_view suffix) {
+<<<<<<< PATCH SET (2fdd69 std::string_view::starts_with and ends_with are available.)
+  return sv.ends_with(suffix);
+=======
 #if !defined(__cpp_lib_starts_ends_with) || __cpp_lib_starts_ends_with < 201711L
   return sv.size() >= suffix.size() && sv.substr(sv.size() - suffix.size()) == suffix;
 #else
   return sv.ends_with(suffix);
 #endif
+>>>>>>> BASE      (01db7e Disable test on jit-at-first-use.)
 }
 
 }  // namespace art
