@@ -2579,9 +2579,9 @@ void IntrinsicCodeGeneratorARM64::VisitStringGetCharsNoCheck(HInvoke* invoke) {
   __ Bind(&done);
 }
 
-// Mirrors ARRAYCOPY_SHORT_CHAR_ARRAY_THRESHOLD in libcore, so we can choose to use the native
-// implementation there for longer copy lengths.
-static constexpr int32_t kSystemArrayCopyCharThreshold = 32;
+// This value is greater than ARRAYCOPY_SHORT_CHAR_ARRAY_THRESHOLD in libcore,
+// so if we choose to jump to the slow path we will end up in the native implementation.
+static constexpr int32_t kSystemArrayCopyCharThreshold = 192;
 
 static void SetSystemArrayCopyLocationRequires(LocationSummary* locations,
                                                uint32_t at,
@@ -2593,6 +2593,8 @@ static void SetSystemArrayCopyLocationRequires(LocationSummary* locations,
     locations->SetInAt(at, Location::RegisterOrConstant(input));
   }
 }
+
+static constexpr int kArrayCopyCharBlockSize = 1 << 3;
 
 void IntrinsicLocationsBuilderARM64::VisitSystemArrayCopyChar(HInvoke* invoke) {
   // Check to see if we have known failures that will cause us to have to bail out
@@ -2748,13 +2750,14 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopyChar(HInvoke* invoke) {
   if (!length.IsConstant()) {
     // Merge the following two comparisons into one:
     //   If the length is negative, bail out (delegate to libcore's native implementation).
-    //   If the length > 32 then (currently) prefer libcore's native implementation.
+    //   If the length > kSystemArrayCopyCharThreshold then (currently) prefer libcore's
+    //   native implementation.
     __ Cmp(WRegisterFrom(length), kSystemArrayCopyCharThreshold);
     __ B(slow_path->GetEntryLabel(), hi);
   } else {
     // We have already checked in the LocationsBuilder for the constant case.
     DCHECK_GE(length.GetConstant()->AsIntConstant()->GetValue(), 0);
-    DCHECK_LE(length.GetConstant()->AsIntConstant()->GetValue(), 32);
+    DCHECK_LE(length.GetConstant()->AsIntConstant()->GetValue(), kSystemArrayCopyCharThreshold);
   }
 
   Register src_curr_addr = WRegisterFrom(locations->GetTemp(0));
@@ -2795,14 +2798,38 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopyChar(HInvoke* invoke) {
   // Iterate over the arrays and do a raw copy of the chars.
   const int32_t char_size = DataType::Size(DataType::Type::kUint16);
   UseScratchRegisterScope temps(masm);
-  Register tmp = temps.AcquireW();
-  vixl::aarch64::Label loop, done;
-  __ Bind(&loop);
+
+  vixl::aarch64::Label loop1, loop2, pre_loop2,  done;
+
+  Register src_loop1_stop_addr = temps.AcquireX();
+  // Compute stop address for the loop with larger step.
+  // First loop processes kArrayCopyCharBlockSize bytes, so
+  // we want it to make as many iterations as possible and
+  // let remaining part be processed with the second loop
+  // that handles one char per iteration.
+  __ Sub(src_loop1_stop_addr, src_stop_addr, kArrayCopyCharBlockSize - 1);
+
+  Register tmp = temps.AcquireX();
+  __ Cmp(src_curr_addr, src_loop1_stop_addr);
+  __ B(&pre_loop2, ge);
+  // loop 1
+  __ Bind(&loop1);
+  __ Ldr(tmp, MemOperand(src_curr_addr, kArrayCopyCharBlockSize, PostIndex));
+  __ Str(tmp, MemOperand(dst_curr_addr, kArrayCopyCharBlockSize, PostIndex));
+  __ Cmp(src_curr_addr, src_loop1_stop_addr);
+  __ B(&loop1, lt);
+
+  __ Bind(&pre_loop2);
   __ Cmp(src_curr_addr, src_stop_addr);
   __ B(&done, eq);
+
+  // loop2
+  __ Bind(&loop2);
   __ Ldrh(tmp, MemOperand(src_curr_addr, char_size, PostIndex));
   __ Strh(tmp, MemOperand(dst_curr_addr, char_size, PostIndex));
-  __ B(&loop);
+  __ Cmp(src_curr_addr, src_stop_addr);
+  __ B(&loop2, lt);
+
   __ Bind(&done);
 
   __ Bind(slow_path->GetExitLabel());

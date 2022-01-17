@@ -24,6 +24,62 @@ public class Main {
         testObjectCopy();
         testOverlappingMoves();
         testFloatAndDouble();
+        testArrayCopyChar();
+    }
+
+    public static void testArrayCopyChar() {
+        testArrayCopyCharCase(3);
+        testArrayCopyCharCase(7);
+        testArrayCopyCharCase(15);
+        testArrayCopyCharCase(16);
+        testArrayCopyCharCase(17);
+        testArrayCopyCharCase(31);
+        testArrayCopyCharCase(32);
+        testArrayCopyCharCase(33);
+        testArrayCopyCharCase(63);
+        testArrayCopyCharCase(64);
+        testArrayCopyCharCase(65);
+        testArrayCopyCharCase(255);
+        testArrayCopyCharCase(513);
+        testArrayCopyCharCase(1025);
+    }
+
+    public static void testArrayCopyCharCase(int size) {
+        final char SRC_CHAR_START = '1';
+        final char DST_CHAR = '0';
+
+        char[] src = new char[size];
+        char[] dst = new char[2 * size];
+        for (int i = 0; i < size; ++i) {
+            src[i] = (char) ((int) SRC_CHAR_START + i);
+            dst[2 * i] = DST_CHAR;
+            dst[2 * i + 1] = DST_CHAR;
+        }
+
+        System.arraycopy(src, 0, dst, 0, size);
+
+        boolean passed = true;
+        for (int i = 0; i < 2 * size; ++i) {
+            if (i < size) {
+                // Check that we copied source array.
+                if (dst[i] != (char) ((int) SRC_CHAR_START + i)) {
+                    passed = false;
+                    break;
+                }
+            } else {
+                // Check that we didn't write more chars than necessary.
+                if (dst[i] != DST_CHAR) {
+                    passed = false;
+                    break;
+                }
+            }
+        }
+
+        if (!passed) {
+            System.out.println("arraycopy(char) " + size + " failed");
+        } else {
+            System.out.println("arraycopy(char) " + size + " passed");
+        }
     }
 
     public static void testObjectCopy() {
