@@ -46,7 +46,7 @@ bool CanRuntimeUseNterp() REQUIRES_SHARED(Locks::mutator_lock_) {
   return IsNterpSupported() &&
       !instr->InterpretOnly() &&
       !runtime->IsAotCompiler() &&
-      !runtime->GetInstrumentation()->IsActive() &&
+      !runtime->GetInstrumentation()->NeedsSlowInterpreterForListeners() &&
       // nterp only knows how to deal with the normal exits. It cannot handle any of the
       // non-standard force-returns.
       !runtime->AreNonStandardExitsEnabled() &&
