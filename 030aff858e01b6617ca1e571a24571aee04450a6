@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63c42db8_e83012c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-01-17T17:02:07Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "030aff858e01b6617ca1e571a24571aee04450a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f87b361_03a7f053",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-01-17T17:02:07Z",
+      "side": 1,
+      "message": "Strictly speaking we don\u0027t need this here at all since jvmti deoptimizes everything whenever it installs any listeners that would need to run interpreter only. I didn\u0027t find a nice place to add this check so kept this for now. Do you think I should just remove this and see if it works? Or maybe add a TODO?\n\nI tried with minimal testing like setting a break point but not sure that tests some of the listeners like exception caught etc.,",
+      "revId": "030aff858e01b6617ca1e571a24571aee04450a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
