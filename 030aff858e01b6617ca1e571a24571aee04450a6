@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e27fa486_fff63ac6",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-17T17:06:22Z",
+      "side": 1,
+      "message": "NeedsSlowInterpreterForListener?",
+      "range": {
+        "startLine": 382,
+        "startChar": 7,
+        "endLine": 382,
+        "endChar": 35
+      },
+      "revId": "030aff858e01b6617ca1e571a24571aee04450a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f87b361_03a7f053",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 1
@@ -31,6 +54,24 @@
       "writtenOn": "2022-01-17T17:02:07Z",
       "side": 1,
       "message": "Strictly speaking we don\u0027t need this here at all since jvmti deoptimizes everything whenever it installs any listeners that would need to run interpreter only. I didn\u0027t find a nice place to add this check so kept this for now. Do you think I should just remove this and see if it works? Or maybe add a TODO?\n\nI tried with minimal testing like setting a break point but not sure that tests some of the listeners like exception caught etc.,",
+      "revId": "030aff858e01b6617ca1e571a24571aee04450a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d223db2_1e391993",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-17T17:06:22Z",
+      "side": 1,
+      "message": "We could land this now, and then follow-up with a removal?\n\nIf jvmti does this at the method level, I agree we should remove it from this global check.",
+      "parentUuid": "6f87b361_03a7f053",
       "revId": "030aff858e01b6617ca1e571a24571aee04450a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
