@@ -29,6 +29,7 @@
 #include "base/logging.h"
 #include "jni.h"
 #include "runtime_callbacks.h"
+#include "runtime.h"
 #include "thread.h"
 #include "thread_state.h"
 
@@ -64,7 +65,8 @@ class Dbg {
   // the deoptimized frames.
   static bool IsForcedInterpreterNeededForException(Thread* thread)
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    if (LIKELY(!thread->HasDebuggerShadowFrames())) {
+    if (LIKELY(!thread->HasDebuggerShadowFrames() &&
+               !Runtime::Current()->GetInstrumentation()->HasDexPcListeners())) {
       return false;
     }
     return IsForcedInterpreterNeededForExceptionImpl(thread);
