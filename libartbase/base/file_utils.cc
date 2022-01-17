@@ -283,8 +283,16 @@ std::string GetArtApexData() {
   return GetAndroidDir(kArtApexDataEnvVar, kArtApexDataDefaultPath, /*must_exist=*/false);
 }
 
+static std::string GetPrebuiltPrimaryBootImageDir(const std::string& android_root) {
+  return StringPrintf("%s/framework", android_root.c_str());
+}
+
 std::string GetPrebuiltPrimaryBootImageDir() {
-  return StringPrintf("%s/javalib", kAndroidArtApexDefaultPath);
+  std::string android_root = GetAndroidRoot();
+  if (android_root.empty()) {
+    return "";
+  }
+  return GetPrebuiltPrimaryBootImageDir(android_root);
 }
 
 std::string GetDefaultBootImageLocation(const std::string& android_root,
@@ -313,7 +321,7 @@ std::string GetDefaultBootImageLocation(const std::string& android_root,
   //  - the primary boot image (contains the Core Libraries)
   //  - the boot image extensions (contains framework libraries)
   return StringPrintf("%s/boot.art!%s/%s:%s/framework/boot-framework.art!%s/%s",
-                      GetPrebuiltPrimaryBootImageDir().c_str(),
+                      GetPrebuiltPrimaryBootImageDir(android_root).c_str(),
                       kAndroidArtApexDefaultPath,
                       kEtcBootImageProf,
                       android_root.c_str(),
