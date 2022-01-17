@@ -59,9 +59,9 @@ inline ObjPtr<mirror::Class> ArtMethod::GetDeclaringClass() {
   ObjPtr<mirror::Class> result = GetDeclaringClassUnchecked<kReadBarrierOption>();
   if (kIsDebugBuild) {
     if (!IsRuntimeMethod()) {
-      CHECK(result != nullptr) << this;
+      CHECK(result != nullptr) << PrettyMethod();
     } else {
-      CHECK(result == nullptr) << this;
+      CHECK(result == nullptr) << PrettyMethod();
     }
   }
   return result;
