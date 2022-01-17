@@ -33,6 +33,24 @@
       "message": "Could you submit the nterp changes independently of this CL? They may have side effects on eg OSR, and so it\u0027d be nice to pinpoint the nterp change as a reason.",
       "revId": "5e9db2362fc4ee8644747e7432ae6e39bbbd76d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "164a0eba_bc0de66e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-01-17T11:59:03Z",
+      "side": 1,
+      "message": "Good point. Done",
+      "parentUuid": "3d4181a1_e084bd56",
+      "revId": "5e9db2362fc4ee8644747e7432ae6e39bbbd76d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
