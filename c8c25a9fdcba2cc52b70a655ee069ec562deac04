@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e60ee8cd_30c3b957",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-01-17T13:14:32Z",
+      "side": 1,
+      "message": "PTAL at changes between PS5 and PS11:\n\nhttps://android-review.googlesource.com/c/platform/art/+/1944906/5..11\n\nThis adds a fast-path for MethodHandle.invoke() (non-exact) when the conversions are essentially no-ops, e.g. no changes required to frame layout, values are 32-bits in the shadow frame.",
+      "revId": "c8c25a9fdcba2cc52b70a655ee069ec562deac04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
