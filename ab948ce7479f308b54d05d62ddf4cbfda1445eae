@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d90a56b0_440542d4",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-18T15:15:27Z",
+      "side": 1,
+      "message": "Is this better than\n\n    SUBS count, length, #4\n    B.LT copy_single_characters\n    [...]\n  loop:\n    LDR tmp, [src], #8\n    subs count, count, #4\n    STR tmp, [dst], #8\n    b.hi loop\n\n?\n\nCan we finish by copying the remaining characters together with a few we have already copied?\n\n    // Note: count is in range [-4, 0]; -4 only if length \u003d\u003d 4.\n    LSL count, count, #1\n    LDR tmp, [src, count, sxtw #0]\n    STR tmp, [dst, count, sxtw #0]",
+      "range": {
+        "startLine": 2816,
+        "startChar": 2,
+        "endLine": 2820,
+        "endChar": 19
+      },
+      "revId": "ab948ce7479f308b54d05d62ddf4cbfda1445eae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
