@@ -392,6 +392,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed22caab_da0969b4",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-18T22:27:42Z",
+      "side": 1,
+      "message": "Agreed.\n\nThe concern here is what happens if the reference is cleared before we acquire the lock. We need to make sure it has always been read and then null-checked while holding the lock. Changed this to reload and check before we actually need referent.\n\nI actually don\u0027t understand the original comment about b/33569625 on line 137. We read the referent and null-checked it after we acquired reference_processor_lock, and ClearReferent() also acquires the lock. How could it change? Actually there was a later CL associated with that bug that may have been the real fix.",
+      "parentUuid": "0cf20fc1_df34111c",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 27
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e654395_f89088b3",
@@ -415,6 +439,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94f4ac40_9c225286",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-18T22:27:42Z",
+      "side": 1,
+      "message": "We hold the lock and we\u0027re in kInitMarkingDone state. The collector needs the lock to advance to InitClearingDone state. So it can\u0027t get far while we\u0027re here.",
+      "parentUuid": "5e654395_f89088b3",
+      "range": {
+        "startLine": 161,
+        "startChar": 64,
+        "endLine": 161,
+        "endChar": 78
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d55a012_4b618cee",
@@ -428,6 +476,30 @@
       "writtenOn": "2022-01-10T11:49:58Z",
       "side": 1,
       "message": "This check seems to be done just for the sake of comments as the code just calls `finish_trace()` if needed and returns the `forwarded_ref` value in both cases.",
+      "range": {
+        "startLine": 162,
+        "startChar": 4,
+        "endLine": 162,
+        "endChar": 33
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55b13f50_7712e61f",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-18T22:27:42Z",
+      "side": 1,
+      "message": "Agreed, and fixed by replacing it with a comment.",
+      "parentUuid": "6d55a012_4b618cee",
       "range": {
         "startLine": 162,
         "startChar": 4,
@@ -934,6 +1006,30 @@
       "side": 1,
       "message": "Changed to a warning.",
       "parentUuid": "3716c649_eeb8a4db",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 34
+      },
+      "revId": "62eca06e799842af5cdeca65dec1bd7461049877",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59bab20f_13557a4f",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-18T22:27:42Z",
+      "side": 1,
+      "message": "I looked at the log from an AOSP boot. I saw 5 of these from a bunch of, but clearly not all, system apps. I probably won\u0027t have a chance to investigate for a while, but a single warning per process still seems like an appropriate level of reporting.",
+      "parentUuid": "94c418fe_e8df9a51",
       "range": {
         "startLine": 154,
         "startChar": 0,
