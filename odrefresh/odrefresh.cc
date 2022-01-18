@@ -847,7 +847,7 @@ WARN_UNUSED bool OnDeviceRefresh::CheckBootClasspathArtifactsAreUpToDate(
     // If the cache info file does not exist, it means on-device compilation has not been done
     // before.
     PLOG(INFO) << "No prior cache-info file: " << QuotePath(cache_info_filename_);
-    metrics.SetTrigger(OdrMetrics::Trigger::kMissingArtifacts);
+    metrics.SetTrigger(OdrMetrics::Trigger::kApexVersionMismatch);
     return false;
   }
 
@@ -965,7 +965,7 @@ bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
     // If the cache info file does not exist, it means on-device compilation has not been done
     // before.
     PLOG(INFO) << "No prior cache-info file: " << QuotePath(cache_info_filename_);
-    metrics.SetTrigger(OdrMetrics::Trigger::kMissingArtifacts);
+    metrics.SetTrigger(OdrMetrics::Trigger::kApexVersionMismatch);
     if (artifacts_on_system_up_to_date) {
       *jars_to_compile = jars_missing_artifacts_on_system;
       return false;
