@@ -3455,6 +3455,33 @@ void ImageSpace::Dump(std::ostream& os) const {
       << ",name=\"" << GetName() << "\"]";
 }
 
+static bool ValidateApexVersions(const OatFile& oat_file, std::string* error_msg) {
+  // The key value store only exists in the first OAT file. Skip other OAT files.
+  if (oat_file.GetOatHeader().GetKeyValueStoreSize() == 0) {
+    return true;
+  }
+
+  const char* oat_apex_versions =
+      oat_file.GetOatHeader().GetStoreValueByKey(OatHeader::kApexVersionsKey);
+  if (oat_apex_versions == nullptr) {
+    *error_msg = StringPrintf("ValidateOatFile failed to get APEX versions from oat file '%s'",
+                                oat_file.GetLocation().c_str());
+    return false;
+  }
+  // The boot image can be generated from a subset of the bootclasspath. For such cases, the oat
+  // apex versions will be a prefix of the runtime apex versions.
+  if (!android::base::StartsWith(Runtime::Current()->GetApexVersions(), oat_apex_versions)) {
+    *error_msg = StringPrintf(
+        "ValidateOatFile found APEX versions mismatch between oat file '%s' and the runtime (Oat "
+        "file: '%s', Runtime: '%s')",
+        oat_file.GetLocation().c_str(),
+        oat_apex_versions,
+        Runtime::Current()->GetApexVersions().c_str());
+        return false;
+  }
+  return true;
+}
+
 bool ImageSpace::ValidateOatFile(const OatFile& oat_file, std::string* error_msg) {
   return ValidateOatFile(oat_file, error_msg, ArrayRef<const std::string>(), ArrayRef<const int>());
 }
@@ -3463,6 +3490,10 @@ bool ImageSpace::ValidateOatFile(const OatFile& oat_file,
                                  std::string* error_msg,
                                  ArrayRef<const std::string> dex_filenames,
                                  ArrayRef<const int> dex_fds) {
+  if (!ValidateApexVersions(oat_file, error_msg)) {
+    return false;
+  }
+
   const ArtDexFileLoader dex_file_loader;
   size_t dex_file_index = 0;
   for (const OatDexFile* oat_dex_file : oat_file.GetOatDexFiles()) {
