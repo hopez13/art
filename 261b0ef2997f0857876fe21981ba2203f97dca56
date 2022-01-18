@@ -62,6 +62,52 @@
       "message": "Adding Julien and Dan to take a look from the TradeFed perspective.",
       "revId": "261b0ef2997f0857876fe21981ba2203f97dca56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09425073_7dba6149",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2022-01-18T17:53:28Z",
+      "side": 1,
+      "message": "just FYI, statically storing a test class with internal state can lead to big issues.\n\nGiven multiple tests can run in the same JVM (on different devices) if the static scope gets affected randomly, it might lead to unknown behavior.",
+      "range": {
+        "startLine": 52,
+        "startChar": 12,
+        "endLine": 52,
+        "endChar": 42
+      },
+      "revId": "261b0ef2997f0857876fe21981ba2203f97dca56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7bef1bf_2136bbeb",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2022-01-18T17:53:28Z",
+      "side": 1,
+      "message": "super-nit: maybe reflect in the naming that it can actually abort the testing if not root.",
+      "range": {
+        "startLine": 61,
+        "startChar": 19,
+        "endLine": 61,
+        "endChar": 32
+      },
+      "revId": "261b0ef2997f0857876fe21981ba2203f97dca56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
