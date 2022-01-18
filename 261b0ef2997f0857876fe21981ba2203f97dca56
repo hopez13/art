@@ -49,6 +49,54 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2012570d_a30a01db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-18T20:02:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0362dc4_edb93ce6",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 12
+      },
+      "revId": "261b0ef2997f0857876fe21981ba2203f97dca56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6880289_d95ba280",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-18T20:02:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60ff8bb3_d8a4c1e1",
+      "range": {
+        "startLine": 11,
+        "startChar": 49,
+        "endLine": 11,
+        "endChar": 56
+      },
+      "revId": "261b0ef2997f0857876fe21981ba2203f97dca56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "10ddd593_6a69df92",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "385038d7_b048d426",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-18T20:02:32Z",
+      "side": 1,
+      "message": "Thank you for pointing this out. Do you mean we shouldn\u0027t use any static fields on a test? We use static fields in this test because `beforeClassWithDevice` and `afterClassWithDevice` are static methods and we need to store some state there. If using static fields is not an option, what is the alternative?\n\nAnyway, we can fix this in a separate CL. I created b/215199775 to track this and raised some questions there.  Could you please update the bug? Thanks.",
+      "parentUuid": "09425073_7dba6149",
+      "range": {
+        "startLine": 52,
+        "startChar": 12,
+        "endLine": 52,
+        "endChar": 42
+      },
+      "revId": "261b0ef2997f0857876fe21981ba2203f97dca56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7bef1bf_2136bbeb",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-01-18T17:53:28Z",
       "side": 1,
       "message": "super-nit: maybe reflect in the naming that it can actually abort the testing if not root.",
+      "range": {
+        "startLine": 61,
+        "startChar": 19,
+        "endLine": 61,
+        "endChar": 32
+      },
+      "revId": "261b0ef2997f0857876fe21981ba2203f97dca56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b87448ab_8ec23414",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-18T20:02:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7bef1bf_2136bbeb",
       "range": {
         "startLine": 61,
         "startChar": 19,
