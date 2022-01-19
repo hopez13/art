@@ -105,6 +105,10 @@ cc_defaults {
     shared_libs: [
         "libbase",
     ],
+    tidy_checks: [
+        // Tidy warnings from jvmti.h, which is an external header.
+        "-modernize-use-using",
+    ],
 }
 
 art_cc_library {

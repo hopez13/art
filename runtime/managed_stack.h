@@ -138,11 +138,14 @@ class PACKED(4) ManagedStack {
     ArtMethod** GetSpKnownNotTagged() const {
       DCHECK(!GetTag());
       DCHECK_NE(tagged_sp_, 0u);
+      // NOLINTNEXTLINE(performance-no-int-to-ptr)
       return reinterpret_cast<ArtMethod**>(tagged_sp_);
     }
 
     ArtMethod** GetSp() const {
-      return reinterpret_cast<ArtMethod**>(tagged_sp_ & ~static_cast<uintptr_t>(1u));
+      // NOLINTNEXTLINE(performance-no-int-to-ptr)
+      return reinterpret_cast<ArtMethod**>(
+          tagged_sp_ & ~static_cast<uintptr_t>(1u));
     }
 
     bool GetTag() const {
