@@ -30,9 +30,11 @@ struct ExperimentalFlags {
   };
 
   constexpr ExperimentalFlags() : value_(0x0000) {}
+  // NOLINTNEXTLINE(google-explicit-constructor)
   constexpr ExperimentalFlags(decltype(kNone) t)  // NOLINT [runtime/explicit]
       : value_(static_cast<uint32_t>(t)) {}
 
+  // NOLINTNEXTLINE(google-explicit-constructor)
   constexpr operator decltype(kNone)() const {
     return static_cast<decltype(kNone)>(value_);
   }

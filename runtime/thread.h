@@ -2033,8 +2033,8 @@ class Thread {
 
 class SCOPED_CAPABILITY ScopedAssertNoThreadSuspension {
  public:
-  ALWAYS_INLINE ScopedAssertNoThreadSuspension(const char* cause,
-                                               bool enabled = true)
+  explicit ALWAYS_INLINE ScopedAssertNoThreadSuspension(const char* cause,
+                                                        bool enabled = true)
       ACQUIRE(Roles::uninterruptible_)
       : enabled_(enabled) {
     if (!enabled_) {
