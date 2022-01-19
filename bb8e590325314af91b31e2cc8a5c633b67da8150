@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c83c45_ce30cbe5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-19T02:15:55Z",
+      "side": 1,
+      "message": "PS6 addresses 2 major problems uncovered by 2043-reference-pauses from aosp/1952438:\n\n1. collector_ needs to remain valid while there is any danger of taking the slow path here.\n\n2. It\u0027s important to do the initial forwarding of SoftReferences after we\u0027ve done enough marking to discover the SoftReferences. Before this fix, we were blocking for almost as long as with the original.\n\nSince the new tests now pass, I have significantly more confidence in PS6.",
+      "revId": "bb8e590325314af91b31e2cc8a5c633b67da8150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
