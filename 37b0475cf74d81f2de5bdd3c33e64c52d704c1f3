@@ -22,6 +22,30 @@
       },
       "revId": "37b0475cf74d81f2de5bdd3c33e64c52d704c1f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80bb2bfc_15aba17e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7391,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-19T10:19:19Z",
+      "side": 1,
+      "message": "I prefer not to have the `vtable_length_` member at all in release builds (see `VTableIndexCheckerRelease`). I\u0027m pretty sure the compiler would not be able to optimize away the initialization.",
+      "parentUuid": "b0f18f53_259e612f",
+      "range": {
+        "startLine": 7391,
+        "startChar": 0,
+        "endLine": 7391,
+        "endChar": 30
+      },
+      "revId": "37b0475cf74d81f2de5bdd3c33e64c52d704c1f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
