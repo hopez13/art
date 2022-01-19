@@ -22,6 +22,30 @@
       },
       "revId": "b66d1391df773c8d410e5aed28a05ef5f719920d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2423a55_5131bac4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3458,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-19T12:08:24Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong preference, but I see `ImageSpace::VerifyBootClassPathChecksums` also referenced by `OatFileAssistant`, so I think it\u0027s fine to put it here. WDYT?",
+      "parentUuid": "251e6b04_b087353c",
+      "range": {
+        "startLine": 3458,
+        "startChar": 17,
+        "endLine": 3458,
+        "endChar": 37
+      },
+      "revId": "b66d1391df773c8d410e5aed28a05ef5f719920d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
