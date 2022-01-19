@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4474093d_2fed596e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1633,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-19T10:00:27Z",
+      "side": 1,
+      "message": "Nit: one condition per line.",
+      "range": {
+        "startLine": 1632,
+        "startChar": 8,
+        "endLine": 1633,
+        "endChar": 75
+      },
+      "revId": "467c863ec6490741a6b3ad4212c5d3313cca7255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc23798e_db616c97",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3458,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-19T10:00:27Z",
+      "side": 1,
+      "message": "Share this method with OatFileAssistant::ValidateApexVersions?",
+      "range": {
+        "startLine": 3458,
+        "startChar": 1,
+        "endLine": 3458,
+        "endChar": 32
+      },
+      "revId": "467c863ec6490741a6b3ad4212c5d3313cca7255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
