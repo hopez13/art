@@ -105,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef338824_da9c7da1",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Yes!",
+      "parentUuid": "08c1dc4f_d6d5baab",
+      "range": {
+        "startLine": 385,
+        "startChar": 64,
+        "endLine": 385,
+        "endChar": 65
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26b4826d_a7d95564",
@@ -118,6 +142,30 @@
       "writtenOn": "2022-01-19T15:48:11Z",
       "side": 1,
       "message": "Nit: Use \"\u0026\" for consistency?\n\nHere and on the next line.",
+      "range": {
+        "startLine": 391,
+        "startChar": 38,
+        "endLine": 391,
+        "endChar": 39
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6a97d42_0d4c664d",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26b4826d_a7d95564",
       "range": {
         "startLine": 391,
         "startChar": 38,
@@ -151,6 +199,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35e902bf_7de0e4c6",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7dfa7a7_fffcfe96",
+      "range": {
+        "startLine": 407,
+        "startChar": 2,
+        "endLine": 407,
+        "endChar": 44
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d629397_cea6a202",
@@ -174,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "077ce4a0_45a25c46",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1318,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d629397_cea6a202",
+      "range": {
+        "startLine": 1318,
+        "startChar": 2,
+        "endLine": 1318,
+        "endChar": 36
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8040465_bcd1dbb4",
@@ -187,6 +283,30 @@
       "writtenOn": "2022-01-19T15:48:11Z",
       "side": 1,
       "message": "Please don\u0027t revert this log change.",
+      "range": {
+        "startLine": 1389,
+        "startChar": 31,
+        "endLine": 1389,
+        "endChar": 41
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "773705ca_77484cea",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8040465_bcd1dbb4",
       "range": {
         "startLine": 1389,
         "startChar": 31,
@@ -222,6 +342,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c54d748f_282bcb30",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1525,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Is it not possible that `systemserver_classpath_jars_` contains `jar` but `classloader_context` is not empty? Would you suggest checking that while removing the if-else?",
+      "parentUuid": "ca2cc498_558f1f89",
+      "range": {
+        "startLine": 1520,
+        "startChar": 6,
+        "endLine": 1525,
+        "endChar": 7
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f5be879_b0670cf7",
         "filename": "odrefresh/odrefresh_test.cc",
         "patchSetId": 2
@@ -233,6 +377,30 @@
       "writtenOn": "2022-01-19T15:48:11Z",
       "side": 1,
       "message": "Is this used?",
+      "range": {
+        "startLine": 71,
+        "startChar": 49,
+        "endLine": 71,
+        "endChar": 66
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f941d72_296cc3f3",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f5be879_b0670cf7",
       "range": {
         "startLine": 71,
         "startChar": 49,
@@ -266,6 +434,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2be88da8_3993c3ea",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7baf0717_97e6b084",
+      "range": {
+        "startLine": 264,
+        "startChar": 18,
+        "endLine": 264,
+        "endChar": 23
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0b65c53_d8b4751e",
@@ -279,6 +471,24 @@
       "writtenOn": "2022-01-19T15:48:11Z",
       "side": 1,
       "message": "Please check `--compiler-filter`.",
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "151ad3b6_cb8f9c5a",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0b65c53_d8b4751e",
       "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -306,6 +516,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaed1d6a_0bda23f6",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23fbb8b2_fac4ea3a",
+      "range": {
+        "startLine": 346,
+        "startChar": 47,
+        "endLine": 346,
+        "endChar": 48
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87d7f3ea_cc0435c4",
@@ -319,6 +553,30 @@
       "writtenOn": "2022-01-19T15:48:11Z",
       "side": 1,
       "message": "Since you have split the test, do we still need `RetiresOnSaturation`?\n\nHere and below.",
+      "range": {
+        "startLine": 355,
+        "startChar": 7,
+        "endLine": 355,
+        "endChar": 26
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98b4c599_5d08466b",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-19T18:46:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87d7f3ea_cc0435c4",
       "range": {
         "startLine": 355,
         "startChar": 7,
