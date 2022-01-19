@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "251e6b04_b087353c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3458,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-19T12:06:17Z",
+      "side": 1,
+      "message": "Maybe a better place for this is in the OatFile class?",
+      "range": {
+        "startLine": 3458,
+        "startChar": 17,
+        "endLine": 3458,
+        "endChar": 37
+      },
+      "revId": "b66d1391df773c8d410e5aed28a05ef5f719920d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
