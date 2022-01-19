@@ -2674,6 +2674,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   // fine for most of them. However for some of the instructions a custom copy constructor must be
   // specified (when instruction has non-trivially copyable fields and must have a special behaviour
   // for copying them).
+  // NOLINTNEXTLINE(google-explicit-constructor)
   explicit HInstruction(const HInstruction& other)
       : previous_(nullptr),
         next_(nullptr),

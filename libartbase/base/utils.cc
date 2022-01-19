@@ -64,8 +64,7 @@
 
 namespace art {
 
-using android::base::ReadFileToString;
-using android::base::StringPrintf;
+using namespace android::base;
 
 #if defined(__arm__)
 
@@ -360,7 +359,7 @@ bool IsAddressKnownBackedByFileOrShared(const void* addr) {
   // https://www.kernel.org/doc/Documentation/vm/pagemap.txt
   uintptr_t vmstart = reinterpret_cast<uintptr_t>(AlignDown(addr, kPageSize));
   off_t index = (vmstart / kPageSize) * sizeof(uint64_t);
-  android::base::unique_fd pagemap(open("/proc/self/pagemap", O_RDONLY | O_CLOEXEC));
+  unique_fd pagemap(open("/proc/self/pagemap", O_RDONLY | O_CLOEXEC));
   if (pagemap == -1) {
     return false;
   }

@@ -54,17 +54,22 @@ class ObjPtr {
   //       them, e.g., for parameter passing. However, in general, implicit-conversion constructors
   //       are discouraged and detected by clang-tidy.
 
+  // NOLINTNEXTLINE(google-explicit-constructor)
   OBJPTR_INLINE ObjPtr(std::nullptr_t)
       REQUIRES_SHARED(Locks::mutator_lock_)
       : reference_(0u) {}
 
   template <typename Type,
             typename = typename std::enable_if_t<std::is_base_of_v<MirrorType, Type>>>
-  OBJPTR_INLINE ObjPtr(Type* ptr) REQUIRES_SHARED(Locks::mutator_lock_);
+  // NOLINTNEXTLINE(google-explicit-constructor)
+  OBJPTR_INLINE ObjPtr(Type* ptr)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <typename Type,
             typename = typename std::enable_if_t<std::is_base_of_v<MirrorType, Type>>>
-  OBJPTR_INLINE ObjPtr(const ObjPtr<Type>& other) REQUIRES_SHARED(Locks::mutator_lock_);
+  // NOLINTNEXTLINE(google-explicit-constructor)
+  OBJPTR_INLINE ObjPtr(const ObjPtr<Type>& other)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <typename Type,
             typename = typename std::enable_if_t<std::is_base_of_v<MirrorType, Type>>>
@@ -90,9 +95,11 @@ class ObjPtr {
   // Ptr unchecked does not check that object pointer is valid. Do not use if you can avoid it.
   OBJPTR_INLINE MirrorType* PtrUnchecked() const {
     if (kObjPtrPoisoning) {
+      // NOLINTNEXTLINE(performance-no-int-to-ptr)
       return reinterpret_cast<MirrorType*>(
           static_cast<uintptr_t>(static_cast<uint32_t>(reference_ << kObjectAlignmentShift)));
     } else {
+      // NOLINTNEXTLINE(performance-no-int-to-ptr)
       return reinterpret_cast<MirrorType*>(reference_);
     }
   }

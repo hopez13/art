@@ -51,11 +51,6 @@ endif
 	$(ADB) shell rm -rf data/run-test/test-*/dalvik-cache/*
 
 ########################################################################
-# cpplint rules to style check art source files
-
-include $(art_path)/build/Android.cpplint.mk
-
-########################################################################
 # The art-tools package depends on helpers and tools that are useful for developers. Similar
 # dependencies exist for the APEX builds for these tools (see build/apex/Android.bp).
 

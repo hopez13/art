@@ -27,7 +27,7 @@
 
 namespace art {
 
-using android::base::StringPrintf;
+using namespace android::base;
 
 /* static */ ScopedFlock LockedFile::Open(const char* filename, std::string* error_msg) {
   return Open(filename, O_CREAT | O_RDWR, true, error_msg);
