@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fbbf5a5_0242d210",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1625,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-19T16:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "469d3509_0599caee",
+      "range": {
+        "startLine": 1624,
+        "startChar": 4,
+        "endLine": 1625,
+        "endChar": 81
+      },
+      "revId": "bb8e590325314af91b31e2cc8a5c633b67da8150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59f7360a_089ebfc2",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-19T10:31:19Z",
       "side": 1,
       "message": "Missing `if (started_trace)`. But this could be simplified as\n\n  ObjPtr\u003cmirror::Object\u003e forwarded_ref \u003d\n      referent.IsNull() ? nullptr : collector_-\u003eIsMarked(referent.Ptr());\n\nletting the code below deal with tracing.",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 80
+      },
+      "revId": "bb8e590325314af91b31e2cc8a5c633b67da8150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09cf952e_a735b35c",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-19T16:45:08Z",
+      "side": 1,
+      "message": "Thanks! Done.",
+      "parentUuid": "59f7360a_089ebfc2",
       "range": {
         "startLine": 149,
         "startChar": 4,
