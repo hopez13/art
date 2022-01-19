@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2961f3f5_f08ecf27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2022-01-19T21:59:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e31792b6_9c7fc611",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 75
+      },
+      "revId": "f271362917194f269edad3a25ad8c25dfc199a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ffc56e6_a9354df3",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34650ae8_93a65484",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2022-01-19T21:59:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ffc56e6_a9354df3",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 96
+      },
+      "revId": "f271362917194f269edad3a25ad8c25dfc199a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26f57e2e_63629d02",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-01-14T22:10:46Z",
       "side": 1,
       "message": "That comment is kind of redundant with the function name.\n\nIf correct, please change to:\n\n// Heap profiler treats this as a Java allocation with a null object.",
+      "range": {
+        "startLine": 4108,
+        "startChar": 5,
+        "endLine": 4108,
+        "endChar": 52
+      },
+      "revId": "f271362917194f269edad3a25ad8c25dfc199a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dcc7763_40276860",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4108,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2022-01-19T21:59:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26f57e2e_63629d02",
       "range": {
         "startLine": 4108,
         "startChar": 5,
