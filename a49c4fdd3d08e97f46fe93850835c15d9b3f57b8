@@ -366,6 +366,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "035d48d5_789337ab",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1525,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-19T18:57:50Z",
+      "side": 1,
+      "message": "This if...else is still needed. I mean, you can move it out of the outer if...else. Specifically:\n\n```\nconst std::string context_path \u003d android::base::Join(classloader_context, \u0027:\u0027);\nif (art::ContainsElement(systemserver_classpath_jars_, jar)) {\n  args.emplace_back(\"--class-loader-context\u003dPCL[\" + context_path + \"]\");\n} else {\n  args.emplace_back(\"--class-loader-context\u003dPCL[];PCL[\" + context_path + \"]\");\n}\nif (!classloader_context.empty()) {\n   // Do something with class-loader-context-fds...\n}\n```",
+      "parentUuid": "c54d748f_282bcb30",
+      "range": {
+        "startLine": 1520,
+        "startChar": 6,
+        "endLine": 1525,
+        "endChar": 7
+      },
+      "revId": "a49c4fdd3d08e97f46fe93850835c15d9b3f57b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f5be879_b0670cf7",
         "filename": "odrefresh/odrefresh_test.cc",
         "patchSetId": 2
