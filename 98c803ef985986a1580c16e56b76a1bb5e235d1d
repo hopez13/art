@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c3cfe99_dc80adda",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-19T15:48:11Z",
+      "side": 1,
+      "message": "Does this mean some real problem? See my comments below.",
+      "parentUuid": "0fe8b7db_38a6d593",
+      "range": {
+        "startLine": 15,
+        "startChar": 12,
+        "endLine": 15,
+        "endChar": 28
+      },
+      "revId": "98c803ef985986a1580c16e56b76a1bb5e235d1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "da46dd9e_b1cd85d9",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-19T01:57:20Z",
       "side": 1,
       "message": "mock_exec_utils_ is global (unlike mock_odr_dexopt before), so I create different TEST_F to avoid side effects.",
+      "range": {
+        "startLine": 380,
+        "startChar": 47,
+        "endLine": 380,
+        "endChar": 60
+      },
+      "revId": "98c803ef985986a1580c16e56b76a1bb5e235d1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bd065d2_fa3491ec",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-19T15:48:11Z",
+      "side": 1,
+      "message": "Nice. Thank you for the cleanup.",
+      "parentUuid": "da46dd9e_b1cd85d9",
       "range": {
         "startLine": 380,
         "startChar": 47,
