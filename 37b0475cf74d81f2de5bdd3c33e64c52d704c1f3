@@ -46,6 +46,30 @@
       },
       "revId": "37b0475cf74d81f2de5bdd3c33e64c52d704c1f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f53d4804_9d036bdc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7391,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-19T10:32:39Z",
+      "side": 1,
+      "message": "Considering resolved after CR+2.",
+      "parentUuid": "80bb2bfc_15aba17e",
+      "range": {
+        "startLine": 7391,
+        "startChar": 0,
+        "endLine": 7391,
+        "endChar": 30
+      },
+      "revId": "37b0475cf74d81f2de5bdd3c33e64c52d704c1f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
