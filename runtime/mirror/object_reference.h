@@ -101,7 +101,7 @@ class PtrCompression {
   // Uncompress an encoded reference from its bit representation.
   static MirrorType* Decompress(uint32_t ref) {
     uintptr_t as_bits = kPoisonReferences ? -ref : ref;
-    return reinterpret_cast<MirrorType*>(as_bits);
+    return reinterpret_cast<MirrorType*>(as_bits);  // NOLINT(performance-no-int-to-ptr)
   }
 
   // Convert an ObjPtr to a compressed reference.

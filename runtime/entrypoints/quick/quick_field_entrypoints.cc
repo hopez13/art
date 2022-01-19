@@ -133,7 +133,7 @@ static ArtMethod* GetReferrer(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_
         return -1;                                                             \
       }                                                                        \
     }                                                                          \
-    if (!referrer->SkipAccessChecks() && IsObject && new_value != 0) {         \
+    if (!referrer->SkipAccessChecks() && (IsObject) && new_value != 0) {       \
       StackArtFieldHandleScope<1> rhs(self);                                   \
       ReflectiveHandle<ArtField> field_handle(rhs.NewHandle(field));           \
       if (field->ResolveType().IsNull()) {                                     \
@@ -181,7 +181,7 @@ static ArtMethod* GetReferrer(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_
         return -1;                                                             \
       }                                                                        \
     }                                                                          \
-    if (!referrer->SkipAccessChecks() && IsObject && new_value != 0) {         \
+    if (!referrer->SkipAccessChecks() && (IsObject) && new_value != 0) {       \
       StackArtFieldHandleScope<1> rhs(self);                                   \
       ReflectiveHandle<ArtField> field_handle(rhs.NewHandle(field));           \
       if (field->ResolveType().IsNull()) {                                     \
