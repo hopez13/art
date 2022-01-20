@@ -69,6 +69,24 @@
       "message": "the test is wrong, I\u0027ll comment on the bug",
       "revId": "ef5e1c9ef4f4238775ad1324b8eb28f46fb29f39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "694744dd_e0bdb723",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2022-01-20T21:54:57Z",
+      "side": 1,
+      "message": "Looking at the test details. This test is wrong. JHP doesn\u0027t do any frees regardless of what the value of the alloc address or ID is. Hence this test should never be checking frees in JHP case.\n\nThus please disable the test and fix it as Hans suggested. \n\nAs for whether null vs 0xfff..f should be the value used since that\u0027s the only new change I see in your Perfetto cl and on the bug. I still think null is a better value avoiding any issues with the address ever being 0xfff..ff now or in the future, but in all cases based on the bug discussions if I need to do that change I will simply add it to the next cl rather than go back and forth here.",
+      "parentUuid": "85f4b4ad_dfc6fdd2",
+      "revId": "ef5e1c9ef4f4238775ad1324b8eb28f46fb29f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
