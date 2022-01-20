@@ -34,6 +34,24 @@
       "parentUuid": "8c2b13ee_f89580a6",
       "revId": "ef5e1c9ef4f4238775ad1324b8eb28f46fb29f39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f4b4ad_dfc6fdd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2022-01-20T18:49:16Z",
+      "side": 1,
+      "message": "This is strange that sending a nullptr breaks your test?? It seems even without this cl that should be a valid value that doesn\u0027t break anything? So it seems that test needs to be fixed anyway?",
+      "parentUuid": "afba77a4_f54e94cb",
+      "revId": "ef5e1c9ef4f4238775ad1324b8eb28f46fb29f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
