@@ -24,6 +24,7 @@ import static org.junit.Assume.assumeTrue;
 
 import android.cts.install.lib.host.InstallUtilsHost;
 
+import com.android.tradefed.device.ITestDevice;
 import com.android.tradefed.device.ITestDevice.ApexInfo;
 import com.android.tradefed.invoker.TestInformation;
 import com.android.tradefed.util.CommandResult;
@@ -53,27 +54,27 @@ public class OdsignTestUtils {
     private final InstallUtilsHost mInstallUtils;
     private final TestInformation mTestInfo;
 
-    private boolean mWasAdbRoot = false;
-    private boolean mAdbRootEnabled = false;
+    private boolean mWasAdbRoot;
+    private boolean mAdbRootEnabled;
 
     public OdsignTestUtils(TestInformation testInfo) throws Exception {
         assertNotNull(testInfo.getDevice());
         mInstallUtils = new InstallUtilsHost(testInfo);
         mTestInfo = testInfo;
+        mAdbRootEnabled = testInfo.getDevice().isAdbRoot();
+        mWasAdbRoot = mAdbRootEnabled;
     }
 
     public void installTestApex() throws Exception {
         assumeTrue("Updating APEX is not supported", mInstallUtils.isApexUpdateSupported());
         mInstallUtils.installApexes(APEX_FILENAME);
         removeCompilationLogToAvoidBackoff();
-        reboot();
     }
 
     public void uninstallTestApex() throws Exception {
         ApexInfo apex = mInstallUtils.getApexInfo(mInstallUtils.getTestFile(APEX_FILENAME));
         mTestInfo.getDevice().uninstallPackage(apex.name);
         removeCompilationLogToAvoidBackoff();
-        reboot();
     }
 
     public Set<String> getMappedArtifacts(String pid, String grepPattern) throws Exception {
@@ -145,13 +146,16 @@ public class OdsignTestUtils {
         boolean success =
                 mTestInfo.getDevice().waitForBootComplete(BOOT_COMPLETE_TIMEOUT.toMillis());
         assertWithMessage("Device didn't boot in %s", BOOT_COMPLETE_TIMEOUT).that(success).isTrue();
+        mAdbRootEnabled = mTestInfo.getDevice().enableAdbRoot();
     }
 
     /**
      * Enables adb root or skips the test if adb root is not supported.
      */
     public void enableAdbRootOrSkipTest() throws Exception {
-        mWasAdbRoot = mTestInfo.getDevice().isAdbRoot();
+        if (mAdbRootEnabled) {
+            return;
+        }
         mAdbRootEnabled = mTestInfo.getDevice().enableAdbRoot();
         assumeTrue("ADB root failed and required to get process maps", mAdbRootEnabled);
     }
@@ -163,5 +167,21 @@ public class OdsignTestUtils {
         if (mAdbRootEnabled && !mWasAdbRoot) {
             mTestInfo.getDevice().disableAdbRoot();
         }
+    }
+
+    public boolean isAdbRootEnabled() {
+        return mAdbRootEnabled;
+    }
+
+    public boolean isCompOsPresent() throws Exception {
+        ITestDevice device = mTestInfo.getDevice();
+
+        // We have to have kernel support for a VM.
+        if (!device.doesFileExist("/dev/kvm")) {
+            return false;
+        }
+
+        // And the CompOS APEX must be present.
+        return device.doesFileExist("/apex/com.android.compos/");
     }
 }
