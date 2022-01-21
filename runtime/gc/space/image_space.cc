@@ -2243,31 +2243,43 @@ bool ImageSpace::BootImageLayout::LoadOrValidate(FilenameFn&& filename_fn,
       if (validate) {
         return false;
       }
-      VLOG(image) << "Error reading named image component header for " << base_location
-                  << ", error: " << local_error_msg;
+      LOG(ERROR) << "Error reading named image component header for " << base_location
+                 << ", error: " << local_error_msg;
+      // If the primary boot image is invalid, then no boot image extensions can be used or compiled
+      // individually. In this case, we compile everything we can compile into a single image.
+      if (bcp_index == 0) {
+        // We must at least have profiles for the core libraries.
+        if (profile_filenames.empty()) {
+          LOG(ERROR) << "Primary boot image cannot be compiled because no profile is provided.";
+          return false;
+        }
+        std::vector<std::string> all_profiles;
+        for (const NamedComponentLocation& named_component_location : named_component_locations) {
+          const std::vector<std::string>& profiles = named_component_location.profile_filenames;
+          all_profiles.insert(all_profiles.end(), profiles.begin(), profiles.end());
+        }
+        if (!CompileBootclasspathElements(base_location,
+                                          base_filename,
+                                          /*bcp_index=*/ 0,
+                                          all_profiles,
+                                          /*dependencies=*/ ArrayRef<const std::string>{},
+                                          &local_error_msg)) {
+          LOG(ERROR) << "Primary boot image cannot be compiled: " << local_error_msg;
+          return false;
+        }
+        // No extensions can be used.
+        return true;
+      }
       if (profile_filenames.empty() ||
           !CompileBootclasspathElements(base_location,
                                         base_filename,
                                         bcp_index,
                                         profile_filenames,
-                                        /*dependencies=*/ bcp_index == 0 ?
-                                            ArrayRef<const std::string>{} :
-                                            components.SubArray(/*pos=*/ 0, /*length=*/ 1),
+                                        components.SubArray(/*pos=*/ 0, /*length=*/ 1),
                                         &local_error_msg)) {
         if (!profile_filenames.empty()) {
-          VLOG(image) << "Error compiling bootclasspath for " << boot_class_path_[bcp_index]
-                      << " error: " << local_error_msg;
-          // We cannot continue without the primary boot image because other boot images use it as
-          // a dependency.
-          if (bcp_index == 0) {
-            LOG(ERROR) << "Primary boot image cannot be compiled: " << local_error_msg;
-            return false;
-          }
-        } else {
-          if (bcp_index == 0) {
-            LOG(ERROR) << "Primary boot image cannot be compiled because no profile is provided.";
-            return false;
-          }
+          LOG(ERROR) << "Error compiling boot image extension for " << boot_class_path_[bcp_index]
+                     << ", error: " << local_error_msg;
         }
         bcp_pos = bcp_index + 1u;  // Skip at least this component.
         DCHECK_GT(bcp_pos, GetNextBcpIndex());
