@@ -20,7 +20,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include <memory>
 #include <random>
+#include <string>
 
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
@@ -146,15 +148,15 @@ static bool ReadSpecificImageHeader(File* image_file,
                                     const char* file_description,
                                     /*out*/ImageHeader* image_header,
                                     /*out*/std::string* error_msg) {
-    if (!image_file->ReadFully(image_header, sizeof(ImageHeader))) {
-      *error_msg = StringPrintf("Unable to read image header from \"%s\"", file_description);
-      return false;
-    }
-    if (!image_header->IsValid()) {
-      *error_msg = StringPrintf("Image header from \"%s\" is invalid", file_description);
-      return false;
-    }
-    return true;
+  if (!image_file->PreadFully(image_header, sizeof(ImageHeader), /*offset=*/ 0)) {
+    *error_msg = StringPrintf("Unable to read image header from \"%s\"", file_description);
+    return false;
+  }
+  if (!image_header->IsValid()) {
+    *error_msg = StringPrintf("Image header from \"%s\" is invalid", file_description);
+    return false;
+  }
+  return true;
 }
 
 static bool ReadSpecificImageHeader(const char* filename,
@@ -1982,15 +1984,29 @@ bool ImageSpace::BootImageLayout::CompileBootclasspathElements(
     return false;
   }
 
-  // Check dependencies.
+  // Check dependencies and collect FDs.
   DCHECK_EQ(dependencies.empty(), bcp_index == 0);
   size_t dependency_component_count = 0;
+  std::vector<std::string> bcp_art_fds;
+  std::vector<std::string> bcp_vdex_fds;
+  std::vector<std::string> bcp_oat_fds;
   for (size_t i = 0, size = dependencies.size(); i != size; ++i) {
     if (chunks_.size() == i || chunks_[i].start_index != dependency_component_count) {
       *error_msg = StringPrintf("Missing extension dependency \"%s\"", dependencies[i].c_str());
       return false;
     }
     dependency_component_count += chunks_[i].component_count;
+    // Pass the FDs of in-memory dependencies if any.
+    bcp_art_fds.push_back(std::to_string(chunks_[i].art_fd.get()));
+    bcp_vdex_fds.push_back(std::to_string(chunks_[i].vdex_fd.get()));
+    bcp_oat_fds.push_back(std::to_string(chunks_[i].oat_fd.get()));
+    // Each chunk compiled in memory is a single image, so there are no more FDs. Pass "-1" for the
+    // remaining components as placeholders.
+    for (size_t j = 1; j < chunks_[i].component_count; j++) {
+      bcp_art_fds.push_back("-1");
+      bcp_vdex_fds.push_back("-1");
+      bcp_oat_fds.push_back("-1");
+    }
   }
 
   // Collect locations from the profile.
@@ -2068,6 +2084,12 @@ bool ImageSpace::BootImageLayout::CompileBootclasspathElements(
       head_bcp_locations.empty() ?
           Join(bcp_to_compile_locations, ':') :
           Join(head_bcp_locations, ':') + ':' + Join(bcp_to_compile_locations, ':');
+  // The BCP jars to be compiled should not pass their FDs as inputs.
+  for (size_t i = 0; i < bcp_to_compile.size(); i++) {
+    bcp_art_fds.push_back("-1");
+    bcp_vdex_fds.push_back("-1");
+    bcp_oat_fds.push_back("-1");
+  }
 
   std::vector<std::string> args;
   args.push_back(dex2oat);
@@ -2079,6 +2101,12 @@ bool ImageSpace::BootImageLayout::CompileBootclasspathElements(
     args.push_back(android::base::StringPrintf("--base=0x%08x", ART_BASE_ADDRESS));
   } else {
     args.push_back("--boot-image=" + Join(dependencies, kComponentSeparator));
+    args.push_back("--runtime-arg");
+    args.push_back("-Xbootclasspathimagefds:" + Join(bcp_art_fds, kComponentSeparator));
+    args.push_back("--runtime-arg");
+    args.push_back("-Xbootclasspathvdexfds:" + Join(bcp_vdex_fds, kComponentSeparator));
+    args.push_back("--runtime-arg");
+    args.push_back("-Xbootclasspathoatfds:" + Join(bcp_oat_fds, kComponentSeparator));
   }
   for (size_t i = bcp_index; i != bcp_end; ++i) {
     args.push_back("--dex-file=" + boot_class_path_[i]);
@@ -2243,8 +2271,8 @@ bool ImageSpace::BootImageLayout::LoadOrValidate(FilenameFn&& filename_fn,
       if (validate) {
         return false;
       }
-      VLOG(image) << "Error reading named image component header for " << base_location
-                  << ", error: " << local_error_msg;
+      LOG(ERROR) << "Error reading named image component header for " << base_location
+                 << ", error: " << local_error_msg;
       if (profile_filenames.empty() ||
           !CompileBootclasspathElements(base_location,
                                         base_filename,
@@ -2255,8 +2283,8 @@ bool ImageSpace::BootImageLayout::LoadOrValidate(FilenameFn&& filename_fn,
                                             components.SubArray(/*pos=*/ 0, /*length=*/ 1),
                                         &local_error_msg)) {
         if (!profile_filenames.empty()) {
-          VLOG(image) << "Error compiling bootclasspath for " << boot_class_path_[bcp_index]
-                      << " error: " << local_error_msg;
+          LOG(ERROR) << "Error compiling bootclasspath for " << boot_class_path_[bcp_index]
+                     << " error: " << local_error_msg;
           // We cannot continue without the primary boot image because other boot images use it as
           // a dependency.
           if (bcp_index == 0) {
@@ -2488,8 +2516,12 @@ class ImageSpace::BootImageLoader {
       }
       // Update `max_image_space_dependencies` if all previous BCP components
       // were covered and loading the current chunk succeeded.
+      size_t total_component_count = 0;
+      for (const std::unique_ptr<ImageSpace>& space : spaces) {
+        total_component_count += space->GetComponentCount();
+      }
       if (max_image_space_dependencies == chunk.start_index &&
-          spaces.size() == chunk.start_index + chunk.component_count) {
+          total_component_count == chunk.start_index + chunk.component_count) {
         max_image_space_dependencies = chunk.start_index + chunk.component_count;
       }
     }
@@ -3804,9 +3836,9 @@ bool ImageSpace::VerifyBootClassPathChecksums(
                                    std::string(oat_checksums).c_str());
          return false;
       }
-      if (image_pos != oat_bcp_size) {
+      if (bcp_pos != oat_bcp_size) {
         *error_msg = StringPrintf("Component count mismatch between checksums (%zu) and BCP (%zu)",
-                                  image_pos,
+                                  bcp_pos,
                                   oat_bcp_size);
         return false;
       }
