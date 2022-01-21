@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5b258ec_cb53e4b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-21T01:00:45Z",
+      "side": 1,
+      "message": "WDYT about this?",
+      "revId": "1ac84065faab1133de162a740707613380ef0c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d70333f5_0ad100a2",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-21T01:00:45Z",
+      "side": 1,
+      "message": "\u003e Prefer to use inclusive terms like \u0027valid\u0027, \u0027validity check\u0027 or \u0027initial check\u0027; see https://source.android.com/setup/contribute/respectful-code for more details. In the case of a false positive add BYPASS_INCLUSIVE_LANGUAGE_REASON\u003dmy_reason_here to your commit message to disable this check.\n\nPlease fix.",
+      "parentUuid": "d4effe40_84cc0ce4",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 17
+      },
+      "revId": "1ac84065faab1133de162a740707613380ef0c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
