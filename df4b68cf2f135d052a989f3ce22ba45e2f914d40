@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a376ffa7_1165aed4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-22T18:14:58Z",
+      "side": 1,
+      "message": "Lokesh pointed out that we didn\u0027t seem to be marking through SoftReferences discovered in the first marking pass. PS9 includes an attempt to fix that as well as minimally addressing an issue with hypothetical non-Baker read-barriers.\n\nUnfortunately, the PS9 fix doesn\u0027t work; it gets stuck in a loop marking from SoftReferences. Investigating. Don\u0027t run presubmits.",
+      "revId": "df4b68cf2f135d052a989f3ce22ba45e2f914d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
