@@ -56,7 +56,7 @@ struct DumpStackLastTimeTLSData : public art::TLSData {
   explicit DumpStackLastTimeTLSData(uint64_t last_dump_time_ms) {
     last_dump_time_ms_ = last_dump_time_ms;
   }
-  uint64_t last_dump_time_ms_;
+  std::atomic<uint64_t> last_dump_time_ms_;
 };
 
 #if ART_USE_FUTEXES
@@ -526,7 +526,13 @@ void Mutex::DumpStack(Thread* self, uint64_t wait_start_ms, uint64_t try_times) 
         if (IsDumpFrequent(thread)) {
           return;
         }
-        thread->SetCustomTLS(kLastDumpStackTime, new DumpStackLastTimeTLSData(MilliTime()));
+        DumpStackLastTimeTLSData* tls_data =
+            reinterpret_cast<DumpStackLastTimeTLSData*>(thread->GetCustomTLS(kLastDumpStackTime));
+        if (tls_data == nullptr) {
+          thread->SetCustomTLS(kLastDumpStackTime, new DumpStackLastTimeTLSData(MilliTime()));
+        } else {
+          tls_data->last_dump_time_ms_ = MilliTime();
+        }
         thread->DumpJavaStack(oss);
       }
       std::ostringstream oss;
