@@ -101,6 +101,7 @@ class PACKED(4) ManagedStack {
 
   ALWAYS_INLINE ShadowFrame* PushShadowFrame(ShadowFrame* new_top_frame);
   ALWAYS_INLINE ShadowFrame* PopShadowFrame();
+  ALWAYS_INLINE bool IsOnManagedStack(ShadowFrame* shadow_frame);
 
   ShadowFrame* GetTopShadowFrame() const {
     return top_shadow_frame_;

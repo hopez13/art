@@ -425,7 +425,19 @@ void Thread::Unpark() {
 #endif
 }
 
+bool Thread::IsStackedShadowFrame(ShadowFrame *sf) {
+  StackedShadowFrameRecord* record = tlsPtr_.stacked_shadow_frame_record;
+  while (record != nullptr) {
+    if (record->GetShadowFrame() == sf) {
+      return true;
+    }
+    record = record->GetLink();
+  }
+  return false;
+}
+
 void Thread::PushStackedShadowFrame(ShadowFrame* sf, StackedShadowFrameType type) {
+  CHECK(!tlsPtr_.managed_stack.ManagedStack::IsOnManagedStack(sf));
   StackedShadowFrameRecord* record = new StackedShadowFrameRecord(
       sf, type, tlsPtr_.stacked_shadow_frame_record);
   tlsPtr_.stacked_shadow_frame_record = record;

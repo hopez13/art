@@ -1068,6 +1068,7 @@ class Thread {
       REQUIRES_SHARED(Locks::mutator_lock_);
   void AssertHasDeoptimizationContext()
       REQUIRES_SHARED(Locks::mutator_lock_);
+  bool IsStackedShadowFrame(ShadowFrame* sf);
   void PushStackedShadowFrame(ShadowFrame* sf, StackedShadowFrameType type);
   ShadowFrame* PopStackedShadowFrame(StackedShadowFrameType type, bool must_be_present = true);
 

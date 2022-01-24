@@ -39,6 +39,17 @@ inline ShadowFrame* ManagedStack::PopShadowFrame() {
   return frame;
 }
 
+inline bool ManagedStack::IsOnManagedStack(ShadowFrame *shadow_frame) {
+  ShadowFrame* current = top_shadow_frame_;
+  while (current != nullptr) {
+    if (current == shadow_frame) {
+      return true;
+    }
+    current = current->GetLink();
+  }
+  return false;
+}
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_MANAGED_STACK_INL_H_

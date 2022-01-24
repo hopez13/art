@@ -433,12 +433,15 @@ inline bool Thread::ModifySuspendCount(Thread* self,
 }
 
 inline ShadowFrame* Thread::PushShadowFrame(ShadowFrame* new_top_frame) {
+  CHECK(!IsStackedShadowFrame(new_top_frame));
   new_top_frame->CheckConsistentVRegs();
   return tlsPtr_.managed_stack.PushShadowFrame(new_top_frame);
 }
 
 inline ShadowFrame* Thread::PopShadowFrame() {
-  return tlsPtr_.managed_stack.PopShadowFrame();
+  ShadowFrame* top = tlsPtr_.managed_stack.PopShadowFrame();
+  CHECK(!IsStackedShadowFrame(top));
+  return top;
 }
 
 inline uint8_t* Thread::GetStackEndForInterpreter(bool implicit_overflow_check) const {

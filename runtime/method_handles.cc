@@ -575,6 +575,9 @@ static inline bool MethodHandleInvokeTransform(ArtMethod* called_method,
       CREATE_SHADOW_FRAME(kNumRegsForTransform, &shadow_frame, called_method, /* dex pc */ 0);
   ShadowFrame* new_shadow_frame = shadow_frame_unique_ptr.get();
 
+  ScopedStackedShadowFramePusher pusher(self,
+                                        new_shadow_frame,
+                                        StackedShadowFrameType::kShadowFrameUnderConstruction);
   StackHandleScope<1> hs(self);
   MutableHandle<mirror::EmulatedStackFrame> sf(hs.NewHandle<mirror::EmulatedStackFrame>(nullptr));
   if (InvokedFromTransform(callsite_type)) {
@@ -586,10 +589,10 @@ static inline bool MethodHandleInvokeTransform(ArtMethod* called_method,
         shadow_frame.GetVRegReference(first_callee_register)));
   } else {
     sf.Assign(mirror::EmulatedStackFrame::CreateFromShadowFrameAndArgs(self,
-                                                                       callsite_type,
-                                                                       callee_type,
-                                                                       shadow_frame,
-                                                                       operands));
+                                                                      callsite_type,
+                                                                      callee_type,
+                                                                      shadow_frame,
+                                                                      operands));
 
     // Something went wrong while creating the emulated stack frame, we should
     // throw the pending exception.
@@ -1131,15 +1134,18 @@ static inline bool MethodHandleInvokeExactInternal(
   }
 
   // Allocate shadow frame on the stack.
-  const char* old_cause = self->StartAssertNoThreadSuspension("DoCallCommon");
   ShadowFrameAllocaUniquePtr shadow_frame_unique_ptr =
       CREATE_SHADOW_FRAME(num_regs, &shadow_frame, called_method, /* dex pc */ 0);
   ShadowFrame* new_shadow_frame = shadow_frame_unique_ptr.get();
-  CopyArgumentsFromCallerFrame(shadow_frame,
-                               new_shadow_frame,
-                               operands,
-                               first_dest_reg);
-  self->EndAssertNoThreadSuspension(old_cause);
+  {
+    ScopedStackedShadowFramePusher pusher(self,
+                                          new_shadow_frame,
+                                          StackedShadowFrameType::kShadowFrameUnderConstruction);
+    CopyArgumentsFromCallerFrame(shadow_frame,
+                                new_shadow_frame,
+                                operands,
+                                first_dest_reg);
+  }
 
   PerformCall(self,
               accessor,
@@ -1181,8 +1187,12 @@ bool InvokeInContext(Thread* self,
   RangeInstructionOperands effective_operands(0, num_vregs);
   ArtMethod* called_method = method_handle->GetTargetMethod();  // invoke / invokeExact.
   // Create a shadow frame
+
   ShadowFrameAllocaUniquePtr effective_frame =
       CREATE_SHADOW_FRAME(num_vregs, &shadow_frame, called_method, shadow_frame.GetDexPC());
+  ScopedStackedShadowFramePusher pusher(self,
+                                        effective_frame.get(),
+                                        StackedShadowFrameType::kShadowFrameUnderConstruction);
   if (UNLIKELY(effective_operands.GetNumberOfOperands() != 0 &&
                !emulated_stack_frame->WriteToShadowFrame(self,
                                                          effective_callsite_type,
@@ -1192,9 +1202,6 @@ bool InvokeInContext(Thread* self,
     result->SetL(nullptr);
     return false;
   }
-
-  ScopedStackedShadowFramePusher pusher(
-      self, effective_frame.get(), StackedShadowFrameType::kShadowFrameUnderConstruction);
 
   // Invoke MethodHandle in newly created context
   bool success = invoker(self,
