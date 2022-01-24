@@ -16,6 +16,29 @@
       "message": "PTAL, this now passes on -user.",
       "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "888a4ae6_aedd09da",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-24T11:32:11Z",
+      "side": 1,
+      "message": "That\u0027s clever, although I still fear there\u0027s a race condition lurking.\nAn alternative would be to look at the output of \"cmd jobscheduler get-job-state android 5132251\" - see e.g. http://cs/android/frameworks/base/tests/DynamicCodeLoggerIntegrationTests/src/com/android/server/pm/dex/DynamicCodeLoggerIntegrationTests.java?l\u003d416",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 24
+      },
+      "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
