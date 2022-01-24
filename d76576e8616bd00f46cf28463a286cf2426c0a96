@@ -16,6 +16,24 @@
       "message": "Roland, the OWNERS list is a bit short and can we include the top-level file or add a few more folks here please? Thanks",
       "revId": "d76576e8616bd00f46cf28463a286cf2426c0a96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c70e357_d7c7d259",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-24T14:25:04Z",
+      "side": 1,
+      "message": "OWNERS from the parent\u0027s directory (https://cs.android.com/android/platform/superproject/+/master:art/OWNERS) are inherited by default (https://android-review.googlesource.com/plugins/code-owners/Documentation/backend-find-owners.html#syntax).\n\nThe principal motivation for having a smaller OWNERS file in `art/tests` was to avoid the first entry from `art/OWNERS` be arbitrarily pinged by tools and people looking for an owner when a test breaks (see https://android-review.googlesource.com/c/platform/art/+/1609435/). I initially populated this list with David and I, as we were the people who were working on ART Testing the most at that time.\n\nI\u0027m happy to add more people to this list. Did you have any names in mind?",
+      "parentUuid": "96da8b49_c41aee22",
+      "revId": "d76576e8616bd00f46cf28463a286cf2426c0a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
