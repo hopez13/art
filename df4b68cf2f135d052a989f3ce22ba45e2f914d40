@@ -16,6 +16,24 @@
       "message": "Lokesh pointed out that we didn\u0027t seem to be marking through SoftReferences discovered in the first marking pass. PS9 includes an attempt to fix that as well as minimally addressing an issue with hypothetical non-Baker read-barriers.\n\nUnfortunately, the PS9 fix doesn\u0027t work; it gets stuck in a loop marking from SoftReferences. Investigating. Don\u0027t run presubmits.",
       "revId": "df4b68cf2f135d052a989f3ce22ba45e2f914d40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75b12c54_94645b50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-24T19:38:00Z",
+      "side": 1,
+      "message": "There appear to be 2 issues:\n1) It looks to me like ForwardSoftReferences, never actually did part of what it was advertised to do: Remove the References from the list. This was previously only a performance issue, because ClearWhiteReferences eventually did so.\n2) ForwardSoftReferences can now be called while the read barrier is still active and References can be concurrently added to the queue by another thread. It needs to (carefully) acquire the lock on the queue.\n\nFix with rewritten ReferenceQueue ForwardSoftReferences is in the works.",
+      "parentUuid": "a376ffa7_1165aed4",
+      "revId": "df4b68cf2f135d052a989f3ce22ba45e2f914d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
