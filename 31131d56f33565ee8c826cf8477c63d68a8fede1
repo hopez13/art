@@ -22,6 +22,30 @@
       },
       "revId": "31131d56f33565ee8c826cf8477c63d68a8fede1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d704ad1_e2555cda",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-24T13:20:20Z",
+      "side": 1,
+      "message": "That\u0027s another way to fix the problem. Both ways work. The difference is that passing the primary boot image by FDs reuses an existing feature, while generating a single image creates a new code path, which makes the logic a little bit complicated. I slightly prefer the former one. WDYT?",
+      "parentUuid": "413585ed_eee99efc",
+      "range": {
+        "startLine": 9,
+        "startChar": 64,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "31131d56f33565ee8c826cf8477c63d68a8fede1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
