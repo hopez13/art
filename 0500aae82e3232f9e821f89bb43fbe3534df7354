@@ -16,6 +16,75 @@
       "message": "Roland, PTAL, thanks.",
       "revId": "0500aae82e3232f9e821f89bb43fbe3534df7354",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b96544a2_a2d779d4",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-24T15:01:01Z",
+      "side": 1,
+      "message": "It feels odd that `OdsignTestUtils` now has to be instantiated three times (lines 62, 80, 87), because it can no longer be shared as a static state. This is probably fine though. Julien, what do you think?",
+      "range": {
+        "startLine": 62,
+        "startChar": 40,
+        "endLine": 62,
+        "endChar": 55
+      },
+      "revId": "0500aae82e3232f9e821f89bb43fbe3534df7354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "245881af_d626dd3b",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-24T15:01:01Z",
+      "side": 1,
+      "message": "I\u0027d document that the value returned by default by this method (if the property is not found) is `false`.",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 9
+      },
+      "revId": "0500aae82e3232f9e821f89bb43fbe3534df7354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0e5f309_45c1fe1d",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-24T15:01:01Z",
+      "side": 1,
+      "message": "Same comment as for https://android-review.googlesource.com/c/platform/art/+/1956078/2/test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java#62.",
+      "range": {
+        "startLine": 51,
+        "startChar": 36,
+        "endLine": 51,
+        "endChar": 55
+      },
+      "revId": "0500aae82e3232f9e821f89bb43fbe3534df7354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
