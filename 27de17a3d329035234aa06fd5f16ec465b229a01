@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "600cbe32_bb90edca",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-24T13:06:40Z",
+      "side": 1,
+      "message": "We were pointed out that statically storing test state is problematic (b/215199775). I have a fix (aosp/1956078), but it\u0027s not merged yet. Meanwhile, it will be better if new code like this doesn\u0027t introduce more of such behavior.\n\nYou may need to rebase this CL on the fix in order to avoid these static members.",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 44
+      },
+      "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "888a4ae6_aedd09da",
         "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
         "patchSetId": 3
@@ -36,6 +59,75 @@
         "startChar": 0,
         "endLine": 90,
         "endChar": 24
+      },
+      "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de0e327c_af9bbbb5",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-24T13:06:40Z",
+      "side": 1,
+      "message": "Add a message?",
+      "range": {
+        "startLine": 159,
+        "startChar": 13,
+        "endLine": 159,
+        "endChar": 14
+      },
+      "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60fb4933_18603ca3",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-24T13:06:40Z",
+      "side": 1,
+      "message": "`mAdbRootEnabled` meant that adb root is enabled by `enableAdbRootOrSkipTest`, but this CL changes its meaning. What is the meaning of this variable after the change? What problem does the change solve?",
+      "range": {
+        "startLine": 58,
+        "startChar": 20,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2274806_1b5ee1a0",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-24T13:06:40Z",
+      "side": 1,
+      "message": "Call this method in CompOsSigningHostTest?",
+      "range": {
+        "startLine": 176,
+        "startChar": 19,
+        "endLine": 176,
+        "endChar": 34
       },
       "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
