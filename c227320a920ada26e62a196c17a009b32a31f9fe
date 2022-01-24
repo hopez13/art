@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa0c12a3_04952f41",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-24T18:20:19Z",
+      "side": 1,
+      "message": "That\u0027s a new terminology, but works for me if Vladimir is also OK with it.",
+      "parentUuid": "85f689dd_773abd4c",
+      "range": {
+        "startLine": 2255,
+        "startChar": 25,
+        "endLine": 2255,
+        "endChar": 33
+      },
+      "revId": "c227320a920ada26e62a196c17a009b32a31f9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e9211b9_cdfb5237",
