@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "268e20e6_4a999fdb",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-24T16:54:32Z",
+      "side": 1,
+      "message": "Given we have the notion of primary / extension, it reads confusing to refer to the single image as primary (though it\u0027s not an error to name it this way). Maybe replace it with \"single\" then?",
+      "parentUuid": "1946c947_64af877c",
+      "range": {
+        "startLine": 2255,
+        "startChar": 25,
+        "endLine": 2255,
+        "endChar": 33
+      },
+      "revId": "c227320a920ada26e62a196c17a009b32a31f9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e9211b9_cdfb5237",
