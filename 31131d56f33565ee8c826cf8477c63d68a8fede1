@@ -46,6 +46,30 @@
       },
       "revId": "31131d56f33565ee8c826cf8477c63d68a8fede1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7da61537_0b618c23",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-24T13:47:48Z",
+      "side": 1,
+      "message": "Ack, though as part of removing the primary boot image of the apex, we should also implement generating a single image in memory to avoid having to call dex2oat twice.",
+      "parentUuid": "4d704ad1_e2555cda",
+      "range": {
+        "startLine": 9,
+        "startChar": 64,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "31131d56f33565ee8c826cf8477c63d68a8fede1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
