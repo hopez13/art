@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfdcee5f_2a1fb268",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2250,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-24T16:52:14Z",
+      "side": 1,
+      "message": "Then it goes to line 2275. Only the boot image extension will be compiled.",
+      "parentUuid": "bd1a055a_cdb32b71",
+      "range": {
+        "startLine": 2250,
+        "startChar": 16,
+        "endLine": 2250,
+        "endChar": 35
+      },
+      "revId": "c227320a920ada26e62a196c17a009b32a31f9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c2ef7fe_f85269b5",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-24T14:49:40Z",
       "side": 1,
       "message": "drop?",
+      "range": {
+        "startLine": 2255,
+        "startChar": 25,
+        "endLine": 2255,
+        "endChar": 33
+      },
+      "revId": "c227320a920ada26e62a196c17a009b32a31f9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1946c947_64af877c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-24T16:52:14Z",
+      "side": 1,
+      "message": "Line 2252~2274 handles the case where the primary boot image is invalid. In this case, we generate a single image for both ART module jars and framework jars. I think it\u0027s still correct to call it the \"primary boot image\"?",
+      "parentUuid": "4c2ef7fe_f85269b5",
       "range": {
         "startLine": 2255,
         "startChar": 25,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "864cad15_d6521512",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2269,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-24T16:52:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "8e9211b9_cdfb5237",
+      "range": {
+        "startLine": 2269,
+        "startChar": 25,
+        "endLine": 2269,
+        "endChar": 33
+      },
+      "revId": "c227320a920ada26e62a196c17a009b32a31f9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac9e8857_d2fe0101",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-01-24T14:49:40Z",
       "side": 1,
       "message": "drop?",
+      "range": {
+        "startLine": 2283,
+        "startChar": 52,
+        "endLine": 2283,
+        "endChar": 61
+      },
+      "revId": "c227320a920ada26e62a196c17a009b32a31f9fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "401857cb_f2271268",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2283,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-24T16:52:14Z",
+      "side": 1,
+      "message": "Line 2275 and below compiles the extension, so the error message is correct.",
+      "parentUuid": "ac9e8857_d2fe0101",
       "range": {
         "startLine": 2283,
         "startChar": 52,
