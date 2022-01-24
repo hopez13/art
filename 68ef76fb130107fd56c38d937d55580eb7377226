@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77fdaa3_ee2bdf95",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-01-24T09:32:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e887ed3_8d7ebbfd",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "68ef76fb130107fd56c38d937d55580eb7377226",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "109d7eab_2bacd4c0",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-01-24T09:23:51Z",
       "side": 1,
       "message": "This change isn\u0027t needed.",
+      "revId": "68ef76fb130107fd56c38d937d55580eb7377226",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8c98c16_55c936e7",
+        "filename": "runtime/image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-01-24T09:32:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "109d7eab_2bacd4c0",
       "revId": "68ef76fb130107fd56c38d937d55580eb7377226",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
