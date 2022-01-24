@@ -94,6 +94,30 @@
       },
       "revId": "31131d56f33565ee8c826cf8477c63d68a8fede1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba1bbf7e_2d3ddd88",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-24T13:58:52Z",
+      "side": 1,
+      "message": "Yes, boot times: doing one invocation will avoid a lot of overhead.",
+      "parentUuid": "5eb8261a_15eda07c",
+      "range": {
+        "startLine": 9,
+        "startChar": 64,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "31131d56f33565ee8c826cf8477c63d68a8fede1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
