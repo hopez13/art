@@ -22,6 +22,30 @@
       },
       "revId": "80a3c49311976f6e88179ee58b4b2b926a131b56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ffe71b3_8db3aa29",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2022-01-25T09:45:35Z",
+      "side": 1,
+      "message": "Thanks for your kind reminding, I making last_dump_time_ms_ atomic.\n\nThis fault only reported by HWASAN test, the test indicates that GetCustomTLS()　Use-After-Free data, \nThis happened on one thread is executing　SetCustomTLS(), and the other thread GetCustomTLS().\n\nAfter add this patch, the HWASAN test is passed.\n\nJust as you mentioned, it also should protect the creation with some existing lock, \nbut it need more test to avoid potential problem, could I commit this patch first?",
+      "parentUuid": "49bdb0b2_43065d29",
+      "range": {
+        "startLine": 529,
+        "startChar": 7,
+        "endLine": 535,
+        "endChar": 9
+      },
+      "revId": "80a3c49311976f6e88179ee58b4b2b926a131b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
