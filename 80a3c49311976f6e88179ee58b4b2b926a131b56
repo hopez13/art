@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49bdb0b2_43065d29",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-25T02:46:29Z",
+      "side": 1,
+      "message": "It seems to me that this is still prone to races, though maybe none that are easily detectable. In particular last_dump_time_ms_ can be concurrently written or read and written. That could be solved by making last_dump_time_ms_ atomic. And I think that\u0027s fine.\n\nI think concurrent calls to SetCustomTLS should be kind of OK, except that under you could still get the original race, since the first one would be deleted. Maybe protect the creation with some existing lock, so that it really only happens once?\n\nThis gets annoyingly messy, but I don\u0027t immediately see a better option.",
+      "range": {
+        "startLine": 529,
+        "startChar": 7,
+        "endLine": 535,
+        "endChar": 9
+      },
+      "revId": "80a3c49311976f6e88179ee58b4b2b926a131b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
