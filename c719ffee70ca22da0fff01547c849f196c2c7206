@@ -39,6 +39,30 @@
       },
       "revId": "c719ffee70ca22da0fff01547c849f196c2c7206",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54c35c94_99f08834",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-25T22:37:16Z",
+      "side": 1,
+      "message": "I agree: think it\u0027s OK. Are we using it enough to matter? If so, I\u0027d prefer to do it in a separate CL, just in case.\n\nWe presumably do want to do this with your collector.",
+      "parentUuid": "97480ac1_b943b5dc",
+      "range": {
+        "startLine": 1634,
+        "startChar": 4,
+        "endLine": 1638,
+        "endChar": 0
+      },
+      "revId": "c719ffee70ca22da0fff01547c849f196c2c7206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

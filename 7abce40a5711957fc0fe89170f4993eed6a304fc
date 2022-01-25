@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "969c0a32_e035fa72",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-25T22:37:16Z",
+      "side": 1,
+      "message": "reference_processor.h:109",
+      "parentUuid": "b83f1a5b_f4212e40",
+      "range": {
+        "startLine": 123,
+        "startChar": 33,
+        "endLine": 123,
+        "endChar": 51
+      },
+      "revId": "7abce40a5711957fc0fe89170f4993eed6a304fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49b18065_8a1c978f",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-25T20:38:27Z",
       "side": 1,
       "message": "Is GetReferent possible on a phantom reference? Isn\u0027t it that get() on a phantom reference always returns null? But I guess the cleaners can call it to fetch the referent, right?",
+      "range": {
+        "startLine": 124,
+        "startChar": 53,
+        "endLine": 124,
+        "endChar": 79
+      },
+      "revId": "7abce40a5711957fc0fe89170f4993eed6a304fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e73ff487_de975971",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-25T22:37:16Z",
+      "side": 1,
+      "message": "It\u0027s an esoteric corner case. RefersTo() is supposed to work on PhantomReferences. In the hypothetical non-Baker read barrier case, we punt that to get(). That makes it less incorrect than it otherwise would be. It should be the case that in real life kOtherReadBarrier is always false, so none of this shows up in the object code.\n\nThe question is: Will your collector excercise this case? If so, we need to fix refersTo(), I suspect.",
+      "parentUuid": "49b18065_8a1c978f",
       "range": {
         "startLine": 124,
         "startChar": 53,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "084860ff_29fc6e8f",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-25T22:37:16Z",
+      "side": 1,
+      "message": "This is actually checking the !kOtherReadBarrier case, in which case this should never be called on PhantomReferences. I\u0027ll add a comment to the .h file explaining this assumption. We could assert it\u0027s not a FinalizerReference, but that seems obvious enough in light of the preceding loop.",
+      "parentUuid": "a37fe7bd_993e10d5",
+      "range": {
+        "startLine": 138,
+        "startChar": 11,
+        "endLine": 138,
+        "endChar": 43
+      },
+      "revId": "7abce40a5711957fc0fe89170f4993eed6a304fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8379d1b_c2e87111",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-01-25T20:38:27Z",
       "side": 1,
       "message": "constexpr int?",
+      "range": {
+        "startLine": 197,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 18
+      },
+      "revId": "7abce40a5711957fc0fe89170f4993eed6a304fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc0fe226_8ab63489",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-25T22:37:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8379d1b_c2e87111",
       "range": {
         "startLine": 197,
         "startChar": 2,
