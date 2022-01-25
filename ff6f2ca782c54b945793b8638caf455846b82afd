@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "809ccc43_a7818ee7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-25T12:55:55Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "62e29d5a_96dd83f4",
+      "range": {
+        "startLine": 2248,
+        "startChar": 6,
+        "endLine": 2248,
+        "endChar": 16
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "975a357b_3517c2e0",
@@ -189,6 +213,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3447931_28704d66",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-25T12:55:55Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "38f8101c_87bfce37",
+      "range": {
+        "startLine": 2283,
+        "startChar": 10,
+        "endLine": 2283,
+        "endChar": 20
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b2fc91d_1e5de868",
@@ -273,6 +321,30 @@
       "side": 1,
       "message": "No, single-image boot image is also supported. When the boot image is a single image, the arguments will be something like `-Xbootclasspathimagefds:5:-1:-1:-1:-1`, where the FD of the single image comes first, followed by `-1`s.\n\nThis was introduced by victorhsieh@. I\u0027m just fixing a bug here. Actually, there is another bug with it (b/210909223). victorhsieh@ is going it fix it.",
       "parentUuid": "4710ba02_59a50387",
+      "range": {
+        "startLine": 1428,
+        "startChar": 2,
+        "endLine": 1433,
+        "endChar": 68
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb6700dd_e0a1cf16",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-25T12:55:55Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "cb65160b_8b74a551",
       "range": {
         "startLine": 1428,
         "startChar": 2,
