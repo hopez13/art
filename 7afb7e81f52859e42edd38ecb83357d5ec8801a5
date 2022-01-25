@@ -45,6 +45,30 @@
       },
       "revId": "7afb7e81f52859e42edd38ecb83357d5ec8801a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ce701e6_0703a060",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/ActivationTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-01-25T10:35:19Z",
+      "side": 1,
+      "message": "Why?\nassertThat(mappedArifacts).contains(fullArtifactPath) produces a much better error message.\n\nWhen the test was failing it was useful to see exactly what was \u0026 wasn\u0027t present.",
+      "parentUuid": "fedac53c_418d06fc",
+      "range": {
+        "startLine": 142,
+        "startChar": 12,
+        "endLine": 142,
+        "endChar": 98
+      },
+      "revId": "7afb7e81f52859e42edd38ecb83357d5ec8801a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
