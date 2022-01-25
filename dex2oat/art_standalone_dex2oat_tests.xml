@@ -14,6 +14,12 @@
      limitations under the License.
 -->
 <configuration description="Runs art_standalone_dex2oat_tests.">
+    <option name="test-suite-tag" value="cts" />
+    <option name="config-descriptor:metadata" key="component" value="art" />
+    <option name="config-descriptor:metadata" key="parameter" value="not_instant_app" />
+    <option name="config-descriptor:metadata" key="parameter" value="multi_abi" />
+    <option name="config-descriptor:metadata" key="parameter" value="secondary_user" />
+
     <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
         <option name="cleanup" value="true" />
         <option name="push" value="art_standalone_dex2oat_tests->/data/local/tmp/art_standalone_dex2oat_tests/art_standalone_dex2oat_tests" />
