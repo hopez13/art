@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62e29d5a_96dd83f4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2248,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-25T12:31:00Z",
+      "side": 1,
+      "message": "I think it\u0027s better to make the error more visible because a boot image being missing or invalid is a serious problem. Having the error printed in the log by default can make it easier for us to understand what\u0027s going on when there is a crash / test failure. WDYT?",
+      "parentUuid": "76deff73_c9dc54d9",
+      "range": {
+        "startLine": 2248,
+        "startChar": 6,
+        "endLine": 2248,
+        "endChar": 16
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "975a357b_3517c2e0",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-25T11:33:07Z",
       "side": 1,
       "message": "*error_msg \u003d",
+      "range": {
+        "startLine": 2255,
+        "startChar": 10,
+        "endLine": 2255,
+        "endChar": 23
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35d21544_5537c108",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-25T12:31:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "975a357b_3517c2e0",
       "range": {
         "startLine": 2255,
         "startChar": 10,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e4f244d_8be26cd3",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2269,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-25T12:31:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee757f0f_c7438bc2",
+      "range": {
+        "startLine": 2269,
+        "startChar": 10,
+        "endLine": 2269,
+        "endChar": 23
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2947b929_321740cf",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-01-25T11:33:07Z",
       "side": 1,
       "message": "VLOG(image)",
+      "range": {
+        "startLine": 2283,
+        "startChar": 10,
+        "endLine": 2283,
+        "endChar": 20
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38f8101c_87bfce37",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2283,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-25T12:31:00Z",
+      "side": 1,
+      "message": "Ditto. Isn\u0027t it a serious problem?",
+      "parentUuid": "2947b929_321740cf",
       "range": {
         "startLine": 2283,
         "startChar": 10,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5985ebb_fe4ef77e",
+        "filename": "runtime/gc/space/image_space_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-25T12:31:00Z",
+      "side": 1,
+      "message": "Ah, right. Only the first oat file has key-value store.",
+      "parentUuid": "2b2fc91d_1e5de868",
+      "range": {
+        "startLine": 426,
+        "startChar": 16,
+        "endLine": 426,
+        "endChar": 45
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4710ba02_59a50387",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-01-25T11:33:07Z",
       "side": 1,
       "message": "This seems to support FDs only for multi-image boot image. Is that intentional?",
+      "range": {
+        "startLine": 1428,
+        "startChar": 2,
+        "endLine": 1433,
+        "endChar": 68
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb65160b_8b74a551",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-25T12:31:00Z",
+      "side": 1,
+      "message": "No, single-image boot image is also supported. When the boot image is a single image, the arguments will be something like `-Xbootclasspathimagefds:5:-1:-1:-1:-1`, where the FD of the single image comes first, followed by `-1`s.\n\nThis was introduced by victorhsieh@. I\u0027m just fixing a bug here. Actually, there is another bug with it (b/210909223). victorhsieh@ is going it fix it.",
+      "parentUuid": "4710ba02_59a50387",
       "range": {
         "startLine": 1428,
         "startChar": 2,
