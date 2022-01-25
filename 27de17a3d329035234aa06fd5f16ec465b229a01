@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a201ca9_5b580f92",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-25T01:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "600cbe32_bb90edca",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 44
+      },
+      "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "888a4ae6_aedd09da",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-24T11:32:11Z",
       "side": 1,
       "message": "That\u0027s clever, although I still fear there\u0027s a race condition lurking.\nAn alternative would be to look at the output of \"cmd jobscheduler get-job-state android 5132251\" - see e.g. http://cs/android/frameworks/base/tests/DynamicCodeLoggerIntegrationTests/src/com/android/server/pm/dex/DynamicCodeLoggerIntegrationTests.java?l\u003d416",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 24
+      },
+      "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f5a5a4d_b57574c2",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-25T01:51:05Z",
+      "side": 1,
+      "message": "Done. get-job-state does seem to differentiate the exit status. But I think it\u0027s cleaner. I also added compos.info.signature to the containsAtLeast check below.",
+      "parentUuid": "888a4ae6_aedd09da",
       "range": {
         "startLine": 89,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d1b7a02_bc3c5be5",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-25T01:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de0e327c_af9bbbb5",
+      "range": {
+        "startLine": 159,
+        "startChar": 13,
+        "endLine": 159,
+        "endChar": 14
+      },
+      "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60fb4933_18603ca3",
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9325c7eb_09a31798",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-25T01:51:05Z",
+      "side": 1,
+      "message": "Reverted.  I was worried about the inconsistency between this variable and the actual device state, e.g. when a device reboot changes the state.  That could happen when I manually root/unroot before running the test. But anyway, it shouldn\u0027t be part of the change, if it\u0027s really a problem.",
+      "parentUuid": "60fb4933_18603ca3",
+      "range": {
+        "startLine": 58,
+        "startChar": 20,
+        "endLine": 58,
+        "endChar": 35
+      },
+      "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2274806_1b5ee1a0",
@@ -123,6 +219,30 @@
       "writtenOn": "2022-01-24T13:06:40Z",
       "side": 1,
       "message": "Call this method in CompOsSigningHostTest?",
+      "range": {
+        "startLine": 176,
+        "startChar": 19,
+        "endLine": 176,
+        "endChar": 34
+      },
+      "revId": "27de17a3d329035234aa06fd5f16ec465b229a01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cc914c4_0c35cfa2",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-25T01:51:05Z",
+      "side": 1,
+      "message": "Done. Actually I forgot to call this.",
+      "parentUuid": "c2274806_1b5ee1a0",
       "range": {
         "startLine": 176,
         "startChar": 19,

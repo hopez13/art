@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "867a7391_0e3968ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-25T01:51:05Z",
+      "side": 1,
+      "message": "I\u0027m having trouble testing with -user build. crosvm died soon after it starts for I believe unrelated reason.",
+      "range": {
+        "startLine": 22,
+        "startChar": 6,
+        "endLine": 22,
+        "endChar": 47
+      },
+      "revId": "7afb7e81f52859e42edd38ecb83357d5ec8801a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fedac53c_418d06fc",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/ActivationTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-25T01:51:05Z",
+      "side": 1,
+      "message": "FYI, this is actually restoring the change.",
+      "range": {
+        "startLine": 142,
+        "startChar": 12,
+        "endLine": 142,
+        "endChar": 98
+      },
+      "revId": "7afb7e81f52859e42edd38ecb83357d5ec8801a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
