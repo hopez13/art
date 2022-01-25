@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b8ff30d_5ad75a1a",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-01-25T22:46:51Z",
+      "side": 1,
+      "message": "In the new GC, the entire reference processing is done during the marking phase, which is essentially CMS. So if this applicable to CMS, then would be to the new GC as well.",
+      "parentUuid": "e73ff487_de975971",
+      "range": {
+        "startLine": 124,
+        "startChar": 53,
+        "endLine": 124,
+        "endChar": 79
+      },
+      "revId": "7abce40a5711957fc0fe89170f4993eed6a304fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a37fe7bd_993e10d5",

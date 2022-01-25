@@ -63,6 +63,30 @@
       },
       "revId": "c719ffee70ca22da0fff01547c849f196c2c7206",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c3eaf5a_191381cb",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-01-25T22:46:51Z",
+      "side": 1,
+      "message": "Thanks for clarifying. Once this CL is merged. I will make the required changes in the new GC as well.\n\nIn the case of CMS (and the new GC) we disable weak-ref access in a STW pause, wherein we also perform any dirty objects. I\u0027m thinking of performing one round of soft-reference forwarding before stopping the world, and then one in the pause. Does that sound good?",
+      "parentUuid": "54c35c94_99f08834",
+      "range": {
+        "startLine": 1634,
+        "startChar": 4,
+        "endLine": 1638,
+        "endChar": 0
+      },
+      "revId": "c719ffee70ca22da0fff01547c849f196c2c7206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
