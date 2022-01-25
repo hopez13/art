@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e083e88f_8bf18f29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-01-25T20:38:27Z",
+      "side": 1,
+      "message": "Overall looks good. Just some minor comments.",
+      "revId": "7abce40a5711957fc0fe89170f4993eed6a304fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b83f1a5b_f4212e40",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-01-25T20:38:27Z",
+      "side": 1,
+      "message": "I couldn\u0027t find the definition of RpState. Can you please point me to it.",
+      "range": {
+        "startLine": 123,
+        "startChar": 33,
+        "endLine": 123,
+        "endChar": 51
+      },
+      "revId": "7abce40a5711957fc0fe89170f4993eed6a304fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49b18065_8a1c978f",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-01-25T20:38:27Z",
+      "side": 1,
+      "message": "Is GetReferent possible on a phantom reference? Isn\u0027t it that get() on a phantom reference always returns null? But I guess the cleaners can call it to fetch the referent, right?",
+      "range": {
+        "startLine": 124,
+        "startChar": 53,
+        "endLine": 124,
+        "endChar": 79
+      },
+      "revId": "7abce40a5711957fc0fe89170f4993eed6a304fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a37fe7bd_993e10d5",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-01-25T20:38:27Z",
+      "side": 1,
+      "message": "This could be false if kOtherReadBarrier is false, right? OTOH, you can assert here that reference is not a finalizer-reference, right?",
+      "range": {
+        "startLine": 138,
+        "startChar": 11,
+        "endLine": 138,
+        "endChar": 43
+      },
+      "revId": "7abce40a5711957fc0fe89170f4993eed6a304fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8379d1b_c2e87111",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-01-25T20:38:27Z",
+      "side": 1,
+      "message": "constexpr int?",
+      "range": {
+        "startLine": 197,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 18
+      },
+      "revId": "7abce40a5711957fc0fe89170f4993eed6a304fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

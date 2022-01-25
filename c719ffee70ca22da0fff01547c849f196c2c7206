@@ -16,6 +16,29 @@
       "message": "I\u0027m having a hard time getting to any actionable information from the Treehugger results. And I don\u0027t see how PS6-\u003ePS8 could have broken things. Retrying.",
       "revId": "c719ffee70ca22da0fff01547c849f196c2c7206",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97480ac1_b943b5dc",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-01-25T20:38:27Z",
+      "side": 1,
+      "message": "Any particular reason why you didn\u0027t do this in CMS?\nIt should be safe to forward soft references anytime setting up the reference-processor and before enabling slow-path, right?",
+      "range": {
+        "startLine": 1634,
+        "startChar": 4,
+        "endLine": 1638,
+        "endChar": 0
+      },
+      "revId": "c719ffee70ca22da0fff01547c849f196c2c7206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
