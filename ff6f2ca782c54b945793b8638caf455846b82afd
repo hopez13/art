@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76deff73_c9dc54d9",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-25T11:33:07Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep this as `VLOG(image)`.",
+      "range": {
+        "startLine": 2248,
+        "startChar": 6,
+        "endLine": 2248,
+        "endChar": 16
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "975a357b_3517c2e0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-25T11:33:07Z",
+      "side": 1,
+      "message": "*error_msg \u003d",
+      "range": {
+        "startLine": 2255,
+        "startChar": 10,
+        "endLine": 2255,
+        "endChar": 23
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee757f0f_c7438bc2",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2269,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-25T11:33:07Z",
+      "side": 1,
+      "message": "*error_msg \u003d StringPrintf(...);",
+      "range": {
+        "startLine": 2269,
+        "startChar": 10,
+        "endLine": 2269,
+        "endChar": 23
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2947b929_321740cf",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-25T11:33:07Z",
+      "side": 1,
+      "message": "VLOG(image)",
+      "range": {
+        "startLine": 2283,
+        "startChar": 10,
+        "endLine": 2283,
+        "endChar": 20
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b2fc91d_1e5de868",
+        "filename": "runtime/gc/space/image_space_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-25T11:33:07Z",
+      "side": 1,
+      "message": "For multi-image this shall fail. Maybe you should\n\n    // This test does not support multi-image compilation.\n    ASSERT_NE(image_spaces[i]-\u003eGetImageHeader().GetImageReservationSize(), 0u);",
+      "range": {
+        "startLine": 426,
+        "startChar": 16,
+        "endLine": 426,
+        "endChar": 45
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4710ba02_59a50387",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-01-25T11:33:07Z",
+      "side": 1,
+      "message": "This seems to support FDs only for multi-image boot image. Is that intentional?",
+      "range": {
+        "startLine": 1428,
+        "startChar": 2,
+        "endLine": 1433,
+        "endChar": 68
+      },
+      "revId": "ff6f2ca782c54b945793b8638caf455846b82afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
