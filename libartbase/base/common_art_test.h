@@ -157,6 +157,8 @@ class CommonArtTestImpl {
   static std::string GetClassPathOption(const char* option,
                                         const std::vector<std::string>& class_path);
 
+  static std::string GetExecutableDir();
+
   // Retuerns the filename for a test dex (i.e. XandY or ManyMethods).
   std::string GetTestDexFileName(const char* name) const;
 
