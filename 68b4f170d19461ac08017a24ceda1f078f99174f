@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba54faa0_d86875e1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-01-26T15:18:30Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "5b4f953f_c6e694b5",
+      "range": {
+        "startLine": 682,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 68
+      },
+      "revId": "68b4f170d19461ac08017a24ceda1f078f99174f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1755967_f1ea340e",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-01-26T15:11:36Z",
       "side": 1,
       "message": "Super nit: Could this and the other `bool can_call` be `const bool`?",
+      "range": {
+        "startLine": 3657,
+        "startChar": 2,
+        "endLine": 3657,
+        "endChar": 6
+      },
+      "revId": "68b4f170d19461ac08017a24ceda1f078f99174f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca177a02_4ae8c423",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3657,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-01-26T15:18:30Z",
+      "side": 1,
+      "message": "Sure, done.",
+      "parentUuid": "a1755967_f1ea340e",
       "range": {
         "startLine": 3657,
         "startChar": 2,
