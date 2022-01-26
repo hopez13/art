@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ca8587b_c0528523",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-26T17:43:35Z",
+      "side": 1,
+      "message": "Julien is OOO until March 7. We can follow up then. Since he +1\u0027d on this CL before he left, I assume that this approach is generally fine. I have to submit the CL to unblock the subsequent one.",
+      "parentUuid": "b96544a2_a2d779d4",
+      "range": {
+        "startLine": 62,
+        "startChar": 40,
+        "endLine": 62,
+        "endChar": 55
+      },
+      "revId": "0500aae82e3232f9e821f89bb43fbe3534df7354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "245881af_d626dd3b",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1309cae5_eb8edca4",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-26T17:43:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "245881af_d626dd3b",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 9
+      },
+      "revId": "0500aae82e3232f9e821f89bb43fbe3534df7354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0e5f309_45c1fe1d",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-01-24T15:01:01Z",
       "side": 1,
       "message": "Same comment as for https://android-review.googlesource.com/c/platform/art/+/1956078/2/test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java#62.",
+      "range": {
+        "startLine": 51,
+        "startChar": 36,
+        "endLine": 51,
+        "endChar": 55
+      },
+      "revId": "0500aae82e3232f9e821f89bb43fbe3534df7354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "becf4be2_85184aba",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OnDeviceSigningHostTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-26T17:43:35Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "e0e5f309_45c1fe1d",
       "range": {
         "startLine": 51,
         "startChar": 36,
