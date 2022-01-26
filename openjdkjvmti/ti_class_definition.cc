@@ -35,6 +35,7 @@
 #include "base/logging.h"
 #include "class_linker-inl.h"
 #include "class_root-inl.h"
+#include "dex/art_dex_file_loader.h"
 #include "dex/dex_file.h"
 #include "fixed_up_dex_file.h"
 #include "handle.h"
@@ -133,13 +134,35 @@ jvmtiError ArtClassDefinition::InitCommon(art::Thread* self, jclass klass) {
 }
 
 static void DequickenDexFile(const art::DexFile* dex_file,
-                             const char* descriptor,
+                             const char* descriptor ATTRIBUTE_UNUSED,
                              /*out*/std::vector<unsigned char>* dex_data)
     REQUIRES_SHARED(art::Locks::mutator_lock_) {
-  std::unique_ptr<FixedUpDexFile> fixed_dex_file(
-      FixedUpDexFile::Create(*dex_file, descriptor));
-  dex_data->resize(fixed_dex_file->Size());
-  memcpy(dex_data->data(), fixed_dex_file->Begin(), fixed_dex_file->Size());
+  if (dex_file->IsCompactDexFile()) {
+    std::string error_msg;
+    std::vector<std::unique_ptr<const art::DexFile>> dex_files;
+    const art::ArtDexFileLoader dex_file_loader;
+    if (!dex_file_loader.Open(dex_file->GetLocation().c_str(),
+                              dex_file->GetLocation().c_str(),
+                              /* verify= */ false,
+                              /* verify_checksum= */ false,
+                              &error_msg,
+                              &dex_files)) {
+      LOG(FATAL) << "NO!";
+    }
+    const std::vector<const art::OatDexFile*>& oat_dex_files = dex_file->GetOatDexFile()->GetOatFile()->GetOatDexFiles();
+    const art::DexFile* original_dex_file = nullptr;
+    for (uint32_t i = 0; i < oat_dex_files.size(); ++i) {
+      if (dex_file->GetOatDexFile() == oat_dex_files[i]) {
+        original_dex_file = dex_files[i].get();
+        break;
+      }
+    }
+    dex_data->resize(original_dex_file->Size());
+    memcpy(dex_data->data(), original_dex_file->Begin(), original_dex_file->Size());
+    return;
+  }
+  dex_data->resize(dex_file->Size());
+  memcpy(dex_data->data(), dex_file->Begin(), dex_file->Size());
 }
 
 // Gets the data surrounding the given class.
