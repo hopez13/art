@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "37937819_3e23e4dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-01-27T15:18:00Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "496241cd_551368b1",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "139d8c882d6e68c5d47531fd7ad896782ff72ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ba9698cb_3323f804",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Yes, in CanReferenceBss we want to pass both `outer` and `caller`. Before the CL mentioned in the description (aosp/1906478) we could only reference bss when `outer` and `caller`\u0027s DexFiles were the same. In that case, it was the same to pass either outer or caller to `StoreTypeInBss` and similar methods.\nAfter that CL, they are allowed to be in different DexFiles and therefore we had to make sure we were passing the caller into `StoreTypeInBss` and similar methods",
       "parentUuid": "f7565357_bfdbdccf",
+      "range": {
+        "startLine": 179,
+        "startChar": 51,
+        "endLine": 179,
+        "endChar": 80
+      },
+      "revId": "139d8c882d6e68c5d47531fd7ad896782ff72ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f450e7d_4c890b89",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-01-27T15:18:00Z",
+      "side": 1,
+      "message": "Thanks for the explanation!",
+      "parentUuid": "6f73d3e5_9c34a8af",
       "range": {
         "startLine": 179,
         "startChar": 51,
