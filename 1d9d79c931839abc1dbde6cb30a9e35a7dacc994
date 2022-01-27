@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80bc2ad0_6c769e52",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T15:27:19Z",
+      "side": 1,
+      "message": "The JNIEnv passed here isn\u0027t quite authentic wrt what these functions will receive for real since there\u0027s no call stack, and I reckon if a partner would implement them they would likely look at it. If there\u0027s a reasonably easy way to construct a frame I\u0027m happy to add that.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 37
+      },
+      "revId": "1d9d79c931839abc1dbde6cb30a9e35a7dacc994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
