@@ -1395,6 +1395,10 @@ bool ClassLoaderContext::ClassLoaderInfoMatch(
         << " (" << context_spec << " | " << EncodeContextForOatFile("") << ")";
     return false;
   }
+  LOG(WARNING) << "CLC-DEBUG ClassLoaderContext classpath size mismatch"
+        << ". expected=" << expected_info.classpath.size()
+        << ", found=" << info.classpath.size()
+        << " (" << context_spec << " | " << EncodeContextForOatFile("") << ")";
   if (info.classpath.size() != expected_info.classpath.size()) {
     LOG(WARNING) << "ClassLoaderContext classpath size mismatch"
           << ". expected=" << expected_info.classpath.size()

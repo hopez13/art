@@ -981,6 +981,7 @@ bool OatFileAssistant::ClassLoaderContextIsOkay(const OatFile& oat_file) const {
     return true;
   }
 
+  LOG(WARNING) << "CLC-DEBUG check " << oat_file.GetLocation();
   ClassLoaderContext::VerificationResult matches = context_->VerifyClassLoaderContextMatch(
       oat_file.GetClassLoaderContext(),
       /*verify_names=*/ true,
