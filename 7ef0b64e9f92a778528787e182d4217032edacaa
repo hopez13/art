@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e25ebc8_4d954cea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-01-27T17:04:10Z",
+      "side": 1,
+      "message": "Thanks Martin.",
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5a1bb0e_7e797687",
@@ -99,6 +116,29 @@
         "startChar": 19,
         "endLine": 2,
         "endChar": 23
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06a14814_c0c019e8",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-01-27T17:04:10Z",
+      "side": 1,
+      "message": "The potential issue with this, is that the palette provider may have said \"no notifications\", but then the test makes notifications. It\u0027s probably okay in practice.\n\nIt would be great to have a test-palette that could be used to check the palette sees the invocations. We\u0027re checking the palette provided here doesn\u0027t crash if we call it, but a partner providing these APIs and wanting them called would want to know that ART continues calling them.",
+      "range": {
+        "startLine": 1207,
+        "startChar": 0,
+        "endLine": 1207,
+        "endChar": 100
       },
       "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -191,6 +231,29 @@
         "startChar": 7,
         "endLine": 42,
         "endChar": 16
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "def956ac_b6c1948e",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-01-27T17:04:10Z",
+      "side": 1,
+      "message": "\u0027Force\u0027 seems to better match the semantics than \u0027enable\u0027. Suggest using force instead of enable in names.",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 442,
+        "endChar": 78
       },
       "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
