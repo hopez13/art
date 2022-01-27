@@ -75,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dceed154_dcfaf191",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T21:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5a1bb0e_7e797687",
+      "range": {
+        "startLine": 581,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 11
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e2b97ff_2cef646a",
@@ -98,6 +122,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d3cb324_5e693aaa",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T21:58:52Z",
+      "side": 1,
+      "message": "I named it this way because the material difference between this and the one above is that this is in CTS - if we need to add more dex2oat CTS tests in the future they can go in here.\n\nBtw, I considered another approach to simply add art_standalone_dex2oat_tests to CTS instead of creating a new one. That would reduce a bit of duplicated boilerplate etc, and it also worked fine for me locally with cts-tradefed. However, I got cold feet about making all those other dex2oat tests part of CTS, not sure about the implications of that. But if it seems like a good idea I\u0027m happy to change.",
+      "parentUuid": "5e2b97ff_2cef646a",
+      "range": {
+        "startLine": 582,
+        "startChar": 11,
+        "endLine": 582,
+        "endChar": 43
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b4ce71b_c9b9d194",
@@ -111,6 +159,30 @@
       "writtenOn": "2022-01-27T16:57:37Z",
       "side": 1,
       "message": "2022?",
+      "range": {
+        "startLine": 2,
+        "startChar": 19,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43bb7515_302a37ee",
+        "filename": "dex2oat/art_standalone_dex2oat_cts_tests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T21:58:52Z",
+      "side": 1,
+      "message": "Thanks for noticing.",
+      "parentUuid": "9b4ce71b_c9b9d194",
       "range": {
         "startLine": 2,
         "startChar": 19,
@@ -168,6 +240,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80530270_f78acc5f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T21:58:52Z",
+      "side": 1,
+      "message": "Yes, we should have more ambitious tests that the notifications are called as expected.",
+      "parentUuid": "bd9f18ea_01c7ddd4",
+      "range": {
+        "startLine": 1207,
+        "startChar": 0,
+        "endLine": 1207,
+        "endChar": 100
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6186262_48c3f044",
@@ -181,6 +277,30 @@
       "writtenOn": "2022-01-27T16:57:37Z",
       "side": 1,
       "message": "Maybe rename this to match the test\u0027s filename (e.g. `Dex2oatCtsTest` or `Dex2oatPaletteTest`)? (This name is used logs to identify test cases.)",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87095d86_22e7bea4",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T21:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6186262_48c3f044",
       "range": {
         "startLine": 21,
         "startChar": 6,
@@ -214,6 +334,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6641322b_220f2f76",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T21:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc84e8ca_27b374ab",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b3dc4c3_fdb7f5a4",
@@ -227,6 +371,30 @@
       "writtenOn": "2022-01-27T16:57:37Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 7
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64193227_d5a71784",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T21:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b3dc4c3_fdb7f5a4",
       "range": {
         "startLine": 39,
         "startChar": 2,
@@ -260,6 +428,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "349f15d2_3630db43",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T21:58:52Z",
+      "side": 1,
+      "message": "Other test code use push_back, and this is of course not performance sensitive. But I\u0027m not particular either way. Done.",
+      "parentUuid": "30b42c60_62857020",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "def956ac_b6c1948e",
@@ -283,6 +475,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f38d4819_717daa5c",
+        "filename": "dex2oat/dex2oat_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T21:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "def956ac_b6c1948e",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 442,
+        "endChar": 78
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4dd4778_1425b9a7",
@@ -296,6 +512,30 @@
       "writtenOn": "2022-01-27T16:57:37Z",
       "side": 1,
       "message": "Nit: Maybe check that the call to `close` succeeded?",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 7
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5507e03_d8ce7fbe",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-01-27T21:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4dd4778_1425b9a7",
       "range": {
         "startLine": 68,
         "startChar": 2,
