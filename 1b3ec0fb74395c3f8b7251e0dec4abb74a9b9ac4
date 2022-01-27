@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acf3beb3_bb890a2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-27T00:26:12Z",
+      "side": 1,
+      "message": "Presubmit doesn\u0027t appear to be terminating. This just has an annotation change relative to aosp/1933038, which was reverted due to a build problem missed by Treehugger, and it was tested manually on up-to-date trees,",
+      "revId": "1b3ec0fb74395c3f8b7251e0dec4abb74a9b9ac4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
