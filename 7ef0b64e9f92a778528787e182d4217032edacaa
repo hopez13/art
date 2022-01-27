@@ -16,6 +16,207 @@
       "message": "TH failures are unrelated: http://b/216553247",
       "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d07f4ee0_54c7449b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-27T16:57:37Z",
+      "side": 1,
+      "message": "Thanks Martin; just a few nits on my side.",
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5a1bb0e_7e797687",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-27T16:57:37Z",
+      "side": 1,
+      "message": "I\u0027d add a comment explaining how this test is different from `art_dex2oat_tests`/`art_standalone_dex2oat_tests`.",
+      "range": {
+        "startLine": 581,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 11
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2b97ff_2cef646a",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-27T16:57:37Z",
+      "side": 1,
+      "message": "If this test is about exercising `libarpalette-system` via `dex2oat`, a more descriptive name could be `art_standalone_dex2oat_libarpalette-system_tests` (or simply `art_standalone_dex2oat_libarpalette_tests`) – unless you intend to add more (non-palette related) test cases later?",
+      "range": {
+        "startLine": 582,
+        "startChar": 11,
+        "endLine": 582,
+        "endChar": 43
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b4ce71b_c9b9d194",
+        "filename": "dex2oat/art_standalone_dex2oat_cts_tests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-27T16:57:37Z",
+      "side": 1,
+      "message": "2022?",
+      "range": {
+        "startLine": 2,
+        "startChar": 19,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6186262_48c3f044",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-27T16:57:37Z",
+      "side": 1,
+      "message": "Maybe rename this to match the test\u0027s filename (e.g. `Dex2oatCtsTest` or `Dex2oatPaletteTest`)? (This name is used logs to identify test cases.)",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc84e8ca_27b374ab",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-27T16:57:37Z",
+      "side": 1,
+      "message": "You could used `ASSERT_TRUE` here, which is more Google Test-friendly (see https://github.com/google/googletest/blob/main/docs/reference/assertions.md).",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b3dc4c3_fdb7f5a4",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-27T16:57:37Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 7
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30b42c60_62857020",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-27T16:57:37Z",
+      "side": 1,
+      "message": "Nit: Maybe use `emplace_back` here to save an object copy/move?",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 16
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4dd4778_1425b9a7",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-27T16:57:37Z",
+      "side": 1,
+      "message": "Nit: Maybe check that the call to `close` succeeded?",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 7
+      },
+      "revId": "7ef0b64e9f92a778528787e182d4217032edacaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
