@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2f3d7c9_b9319875",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-27T10:11:41Z",
+      "side": 1,
+      "message": "Given we use the testing apex for gtests, could we instead bundle the primary boot image either 1) in the apex, or 2) in the resources needed for the test.\n\nThe primary boot image should be compiled by the build system, I\u0027m not a big fan of adding a new tool for compiling it.",
+      "revId": "f045720c9c769c338df47639ad4865ccd7b6696c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
