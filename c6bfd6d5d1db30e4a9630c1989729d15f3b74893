@@ -34,6 +34,24 @@
       "parentUuid": "c33bbc9d_38631475",
       "revId": "c6bfd6d5d1db30e4a9630c1989729d15f3b74893",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23aa319b_576d8985",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-27T17:31:15Z",
+      "side": 1,
+      "message": "We\u0027d need a flag to specify an alternative file location.  BTW, it\u0027s still used to indicate that we want to re-compile everything.  Maybe when we\u0027ve done everything later, we can rename the flag to be not compos specific later, if it\u0027s indeed the only purpose.",
+      "parentUuid": "f279d998_9348ae27",
+      "revId": "c6bfd6d5d1db30e4a9630c1989729d15f3b74893",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
