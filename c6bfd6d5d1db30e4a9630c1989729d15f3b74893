@@ -52,6 +52,24 @@
       "parentUuid": "f279d998_9348ae27",
       "revId": "c6bfd6d5d1db30e4a9630c1989729d15f3b74893",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93554259_4704c6e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-27T17:37:50Z",
+      "side": 1,
+      "message": "I think metrics collection is the main purpose for this flag, though I haven\u0027t added fields to the metrics for it yet. I admit that having a flag like `--compilation-os-mode` that indicates who\u0027s using odrefresh is not ideal, but it gives us the flexibility to do more things special for CompOS in the future while keeping the commandline interface unchanged.",
+      "parentUuid": "23aa319b_576d8985",
+      "revId": "c6bfd6d5d1db30e4a9630c1989729d15f3b74893",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
