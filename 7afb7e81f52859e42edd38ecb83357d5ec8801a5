@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5df94fb5_fe9240aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-27T22:23:44Z",
+      "side": 1,
+      "message": "I don\u0027t know how long it will take for the VM problem to be fixed, so I made the test skip user build in order to gain the test coverage first.",
+      "parentUuid": "867a7391_0e3968ee",
+      "range": {
+        "startLine": 22,
+        "startChar": 6,
+        "endLine": 22,
+        "endChar": 47
+      },
+      "revId": "7afb7e81f52859e42edd38ecb83357d5ec8801a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fedac53c_418d06fc",
         "filename": "test/odsign/test-src/com/android/tests/odsign/ActivationTest.java",
         "patchSetId": 5
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "Why?\nassertThat(mappedArifacts).contains(fullArtifactPath) produces a much better error message.\n\nWhen the test was failing it was useful to see exactly what was \u0026 wasn\u0027t present.",
       "parentUuid": "fedac53c_418d06fc",
+      "range": {
+        "startLine": 142,
+        "startChar": 12,
+        "endLine": 142,
+        "endChar": 98
+      },
+      "revId": "7afb7e81f52859e42edd38ecb83357d5ec8801a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbfa2547_3e66b371",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/ActivationTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-01-27T22:23:44Z",
+      "side": 1,
+      "message": "The intention is to minimize the change while moving the code to the new file.  But it does seem nice if we can switch many of the asserts to assertThat.",
+      "parentUuid": "0ce701e6_0703a060",
       "range": {
         "startLine": 142,
         "startChar": 12,
