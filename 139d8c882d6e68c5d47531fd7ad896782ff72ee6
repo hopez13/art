@@ -3,6 +3,29 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e5f43efe_4d4ba0d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-01-27T15:05:17Z",
+      "side": 1,
+      "message": "IMO it is better to put some runnable command here, so that people can copy-paste and execute it. Just \"ART tests\" probably means \"all tests for host and device, for all compiler/interpreter/debug combinations\" which is a lot to test. For your CL I would expect that `m nothing` is enough.",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "139d8c882d6e68c5d47531fd7ad896782ff72ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ba9698cb_3323f804",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -14,6 +37,29 @@
       "writtenOn": "2022-01-27T14:43:53Z",
       "side": 1,
       "message": "Ulya PTAL",
+      "revId": "139d8c882d6e68c5d47531fd7ad896782ff72ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7565357_bfdbdccf",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-01-27T15:05:17Z",
+      "side": 1,
+      "message": "Just out of curiosity, this should still be the outer method not caller?",
+      "range": {
+        "startLine": 179,
+        "startChar": 51,
+        "endLine": 179,
+        "endChar": 80
+      },
       "revId": "139d8c882d6e68c5d47531fd7ad896782ff72ee6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
