@@ -53,6 +53,10 @@ AllocRecordObjectMap::~AllocRecordObjectMap() {
 
 void AllocRecordObjectMap::VisitRoots(RootVisitor* visitor) {
   CHECK_LE(recent_record_max_, alloc_record_max_);
+  gc::Heap* const heap = Runtime::Current()->GetHeap();
+  const bool visit_declaring_class =
+          heap->CurrentCollectorType() != gc::CollectorType::kCollectorTypeCMC
+          || !heap->MarkCompactCollector()->IsCompacting(Thread::Current());
   BufferedRootVisitor<kDefaultBufferedRootCount> buffered_visitor(visitor, RootInfo(kRootDebugger));
   size_t count = recent_record_max_;
   // Only visit the last recent_record_max_ number of allocation records in entries_ and mark the
@@ -63,12 +67,14 @@ void AllocRecordObjectMap::VisitRoots(RootVisitor* visitor) {
       buffered_visitor.VisitRootIfNonNull(record.GetClassGcRoot());
       --count;
     }
-    // Visit all of the stack frames to make sure no methods in the stack traces get unloaded by
-    // class unloading.
-    for (size_t i = 0, depth = record.GetDepth(); i < depth; ++i) {
-      const AllocRecordStackTraceElement& element = record.StackElement(i);
-      DCHECK(element.GetMethod() != nullptr);
-      element.GetMethod()->VisitRoots(buffered_visitor, kRuntimePointerSize);
+    if (visit_declaring_class) {
+      // Visit all of the stack frames to make sure no methods in the stack traces get unloaded by
+      // class unloading.
+      for (size_t i = 0, depth = record.GetDepth(); i < depth; ++i) {
+        const AllocRecordStackTraceElement& element = record.StackElement(i);
+        DCHECK(element.GetMethod() != nullptr);
+        element.GetMethod()->VisitRoots(buffered_visitor, kRuntimePointerSize);
+      }
     }
   }
 }
