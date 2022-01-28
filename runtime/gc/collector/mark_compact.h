@@ -33,6 +33,11 @@
 #include "offsets.h"
 
 namespace art {
+
+namespace mirror {
+class DexCache;
+}
+
 namespace gc {
 
 class Heap;
@@ -52,6 +57,7 @@ class MarkCompact : public GarbageCollector {
 
   void RunPhases() override REQUIRES(!Locks::mutator_lock_);
 
+  // TODO: Add condition that current thread is running gc.
   bool IsCompacting() const {
     return compacting_;
   }
@@ -101,11 +107,6 @@ class MarkCompact : public GarbageCollector {
 
   mirror::Object* IsMarked(mirror::Object* obj) override
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::heap_bitmap_lock_);
-
-  // Perform GC-root updation and heap protection so that during the concurrent
-  // compaction phase we can receive faults and compact the corresponding pages
-  // on the fly. This is performed in a STW pause.
-  void CompactionPause() REQUIRES(Locks::mutator_lock_, !Locks::heap_bitmap_lock_);
 
   mirror::Object* ReadBarrier(mirror::Object* old_ref) {
       CHECK(compacting_);
@@ -242,7 +243,10 @@ class MarkCompact : public GarbageCollector {
   // during a stop-the-world (STW) pause.
   void MarkingPause() REQUIRES(Locks::mutator_lock_, !Locks::heap_bitmap_lock_);
   // Perform stop-the-world pause prior to concurrent compaction.
-  void PreCompactionPhase() REQUIRES(!Locks::mutator_lock_);
+  // Updates GC-roots and protects heap so that during the concurrent
+  // compaction phase we can receive faults and compact the corresponding pages
+  // on the fly.
+  void PreCompactionPhase() REQUIRES(Locks::mutator_lock_);
   // Compute offset-vector and other data structures required during concurrent
   // compaction.
   void PrepareForCompaction() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -376,6 +380,7 @@ class MarkCompact : public GarbageCollector {
   void SweepLargeObjects(bool swap_bitmaps) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(Locks::heap_bitmap_lock_);
 
+  void RememberClassAndDexCache(mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_);
   // For checkpoints
   Barrier gc_barrier_;
   // Every object inside the immune spaces is assumed to be marked.
@@ -396,6 +401,7 @@ class MarkCompact : public GarbageCollector {
   // TODO: Must be replaced with an efficient mechanism eventually. Or ensure
   // that double updation doesn't happen in the first place.
   std::unordered_set<void*> updated_roots_;
+  std::unordered_set<uint32_t> dex_caches_;
   MemMap from_space_map_;
   // Any array of live-bytes in logical chunks of kOffsetChunkSize size
   // in the 'to-be-compacted' space.
@@ -448,8 +454,7 @@ class MarkCompact : public GarbageCollector {
   class CardModifiedVisitor;
   class RefFieldsVisitor;
   template <bool kCheckBegin, bool kCheckEnd> class RefsUpdateVisitor;
-  class StackRefsUpdateVisitor;
-  class CompactionPauseCallback;
+  class NativeRootsUpdateVisitor;
   class ImmuneSpaceUpdateObjVisitor;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(MarkCompact);

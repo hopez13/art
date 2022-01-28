@@ -168,6 +168,7 @@ void MarkCompact::InitializePhase() {
   moving_first_objs_count_ = 0;
   non_moving_first_objs_count_ = 0;
   black_page_count_ = 0;
+  black_allocations_begin_ = bump_pointer_space_->Limit();
 }
 
 void MarkCompact::RunPhases() {
@@ -186,6 +187,10 @@ void MarkCompact::RunPhases() {
       bump_pointer_space_->AssertAllThreadLocalBuffersAreRevoked();
     }
   }
+  // To increase likelihood of black allocations. For testing purposes only.
+  if (kIsDebugBuild && heap_->GetTaskProcessor()->GetRunningThread() == thread_running_gc_) {
+    sleep(10);
+  }
   {
     ReaderMutexLock mu(self, *Locks::mutator_lock_);
     ReclaimPhase();
@@ -193,7 +198,15 @@ void MarkCompact::RunPhases() {
   }
 
   compacting_ = true;
-  PreCompactionPhase();
+  {
+    heap_->ThreadFlipBegin(self);
+    {
+      ScopedPause pause(this);
+      PreCompactionPhase();
+    }
+    heap_->ThreadFlipEnd(self);
+  }
+
   if (kConcurrentCompaction) {
     ReaderMutexLock mu(self, *Locks::mutator_lock_);
     CompactionPhase();
@@ -408,7 +421,6 @@ void MarkCompact::PrepareForCompaction() {
   // appropriately updated in the pre-compaction pause.
   // The offset-vector entries for the post marking-pause allocations will be
   // also updated in the pre-compaction pause.
-  updated_roots_.reserve(1000000);
 }
 
 class MarkCompact::VerifyRootMarkedVisitor : public SingleRootVisitor {
@@ -493,7 +505,7 @@ void MarkCompact::MarkingPause() {
   heap_->GetReferenceProcessor()->EnableSlowPath();
 
   // Capture 'end' of moving-space at this point. Every allocation beyond this
-  // point will be considered as in to-space.
+  // point will be considered as black.
   // Align-up to page boundary so that black allocations happen from next page
   // onwards.
   black_allocations_begin_ = bump_pointer_space_->AlignEnd(thread_running_gc_, kPageSize);
@@ -505,8 +517,7 @@ void MarkCompact::SweepSystemWeaks(Thread* self, Runtime* runtime, const bool pa
   TimingLogger::ScopedTiming t(paused ? "(Paused)SweepSystemWeaks" : "SweepSystemWeaks",
                                GetTimings());
   ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
-  // Don't sweep JIT weaks with other. They are separately done.
-  runtime->SweepSystemWeaks(this, !paused);
+  runtime->SweepSystemWeaks(this);
 }
 
 void MarkCompact::ProcessReferences(Thread* self) {
@@ -1174,6 +1185,7 @@ void MarkCompact::UpdateMovingSpaceFirstObjects() {
       // a null assume it's the end.
       while (black_allocs < block_end
              && obj->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
+        RememberClassAndDexCache(obj);
         if (first_obj == nullptr) {
           first_obj = obj;
         }
@@ -1305,60 +1317,112 @@ class MarkCompact::ImmuneSpaceUpdateObjVisitor {
   MarkCompact* const collector_;
 };
 
-class MarkCompact::StackRefsUpdateVisitor : public Closure {
+// TODO: JVMTI redefinition leads to situations wherein new class object(s) and the
+// corresponding native roots are setup but are not linked to class tables and
+// therefore are not accessible, leading to memory corruption.
+class MarkCompact::NativeRootsUpdateVisitor : public ClassLoaderVisitor, public DexCacheVisitor {
  public:
-  explicit StackRefsUpdateVisitor(MarkCompact* collector, size_t bytes)
-    : collector_(collector), adjust_bytes_(bytes) {}
+  explicit NativeRootsUpdateVisitor(MarkCompact* collector, PointerSize pointer_size)
+    : collector_(collector), pointer_size_(pointer_size) {}
 
-  void Run(Thread* thread) override REQUIRES_SHARED(Locks::mutator_lock_) {
-    // Note: self is not necessarily equal to thread since thread may be suspended.
-    Thread* self = Thread::Current();
-    CHECK(thread == self
-          || thread->IsSuspended()
-          || thread->GetState() == ThreadState::kWaitingPerformingGc)
-        << thread->GetState() << " thread " << thread << " self " << self;
-    thread->VisitRoots(collector_, kVisitRootFlagAllRoots);
-    // Subtract adjust_bytes_ from TLAB pointers (top, end etc.) to align it
-    // with the black-page slide that is performed during compaction.
-    thread->AdjustTlab(adjust_bytes_);
-    // TODO: update the TLAB pointers.
-    collector_->GetBarrier().Pass(self);
+  ~NativeRootsUpdateVisitor() {
+    LOG(INFO) << "num_classes: " << classes_visited_.size()
+              << " num_dex_caches: " << dex_caches_visited_.size();
   }
 
- private:
-  MarkCompact* const collector_;
-  const size_t adjust_bytes_;
-};
-
-class MarkCompact::CompactionPauseCallback : public Closure {
- public:
-  explicit CompactionPauseCallback(MarkCompact* collector) : collector_(collector) {}
-
-  void Run(Thread* thread) override REQUIRES(Locks::mutator_lock_) {
-    DCHECK_EQ(thread, collector_->thread_running_gc_);
-    {
-      pthread_attr_t attr;
-      size_t stack_size;
-      void* stack_addr;
-      pthread_getattr_np(pthread_self(), &attr);
-      pthread_attr_getstack(&attr, &stack_addr, &stack_size);
-      pthread_attr_destroy(&attr);
-      collector_->stack_addr_ = stack_addr;
-      collector_->stack_end_ = reinterpret_cast<char*>(stack_addr) + stack_size;
+  void Visit(ObjPtr<mirror::ClassLoader> class_loader) override
+      REQUIRES_SHARED(Locks::classlinker_classes_lock_, Locks::mutator_lock_) {
+    ClassTable* const class_table = class_loader->GetClassTable();
+    if (class_table != nullptr) {
+      class_table->VisitClassesAndRoots(*this);
     }
-    collector_->CompactionPause();
+  }
 
-    collector_->stack_end_ = nullptr;
+  void Visit(ObjPtr<mirror::DexCache> dex_cache) override
+      REQUIRES_SHARED(Locks::dex_lock_, Locks::mutator_lock_)
+      REQUIRES(Locks::heap_bitmap_lock_) {
+    if (!dex_cache.IsNull()) {
+      uint32_t cache = static_cast<uint32_t>(reinterpret_cast<uintptr_t>(dex_cache.Ptr()));
+      if (dex_caches_visited_.insert(cache).second) {
+        dex_cache->VisitNativeRoots<kDefaultVerifyFlags, kWithoutReadBarrier>(*this);
+        collector_->dex_caches_.erase(cache);
+      }
+    }
+  }
+
+  void VisitDexCache(mirror::DexCache* dex_cache)
+      REQUIRES_SHARED(Locks::dex_lock_, Locks::mutator_lock_)
+      REQUIRES(Locks::heap_bitmap_lock_) {
+    dex_cache->VisitNativeRoots<kDefaultVerifyFlags, kWithoutReadBarrier>(*this);
+  }
+
+  void operator()(mirror::Object* obj)
+      ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(obj->IsClass<kDefaultVerifyFlags>());
+    ObjPtr<mirror::Class> klass = obj->AsClass<kDefaultVerifyFlags>();
+    VisitClassRoots(klass);
+  }
+
+  // For ClassTable::Visit()
+  bool operator()(ObjPtr<mirror::Class> klass)
+      ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (!klass.IsNull()) {
+      VisitClassRoots(klass);
+    }
+    return true;
+  }
+
+  void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root) const
+      ALWAYS_INLINE
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (!root->IsNull()) {
+      VisitRoot(root);
+    }
+  }
+
+  void VisitRoot(mirror::CompressedReference<mirror::Object>* root) const
+      ALWAYS_INLINE
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    collector_->UpdateRoot(root);
   }
 
  private:
+  void VisitClassRoots(ObjPtr<mirror::Class> klass)
+      ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
+    mirror::Class* klass_ptr = klass.Ptr();
+    uint32_t k = static_cast<uint32_t>(reinterpret_cast<uintptr_t>(klass_ptr));
+    // No reason to visit native roots of class in immune spaces.
+    if ((collector_->bump_pointer_space_->HasAddress(klass_ptr)
+         || collector_->non_moving_space_->HasAddress(klass_ptr))
+        && classes_visited_.insert(k).second) {
+      klass->VisitNativeRoots<kWithoutReadBarrier, /*kVisitProxyMethod*/false>(*this,
+                                                                               pointer_size_);
+      klass->VisitObsoleteDexCaches<kWithoutReadBarrier>(*this);
+      klass->VisitObsoleteClass<kWithoutReadBarrier>(*this);
+    }
+  }
+
+  std::unordered_set<uint32_t> dex_caches_visited_;
+  std::unordered_set<uint32_t> classes_visited_;
   MarkCompact* const collector_;
+  PointerSize pointer_size_;
 };
 
-void MarkCompact::CompactionPause() {
+void MarkCompact::PreCompactionPhase() {
   TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
   Runtime* runtime = Runtime::Current();
   non_moving_space_bitmap_ = non_moving_space_->GetLiveBitmap();
+  if (kIsDebugBuild) {
+    pthread_attr_t attr;
+    size_t stack_size;
+    void* stack_addr;
+    pthread_getattr_np(pthread_self(), &attr);
+    pthread_attr_getstack(&attr, &stack_addr, &stack_size);
+    pthread_attr_destroy(&attr);
+    stack_addr_ = stack_addr;
+    stack_end_ = reinterpret_cast<char*>(stack_addr) + stack_size;
+  }
+
   {
     TimingLogger::ScopedTiming t2("(Paused)UpdateCompactionDataStructures", GetTimings());
     ReaderMutexLock rmu(thread_running_gc_, *Locks::heap_bitmap_lock_);
@@ -1386,16 +1450,46 @@ void MarkCompact::CompactionPause() {
 
     heap_->GetReferenceProcessor()->UpdateRoots(this);
   }
-  if (runtime->GetJit() != nullptr) {
-    runtime->GetJit()->GetCodeCache()->SweepRootTables(this);
+
+  {
+    // Thread roots must be updated first (before space mremap and native root
+    // updation) to ensure that pre-update content is accessible.
+    TimingLogger::ScopedTiming t2("(Paused)UpdateThreadRoots", GetTimings());
+    const size_t adjust_bytes = black_allocations_begin_ - post_compact_end_;
+    MutexLock mu1(thread_running_gc_, *Locks::runtime_shutdown_lock_);
+    MutexLock mu2(thread_running_gc_, *Locks::thread_list_lock_);
+    std::list<Thread*> thread_list = runtime->GetThreadList()->GetList();
+    for (Thread* thread : thread_list) {
+      thread->VisitRoots(this, kVisitRootFlagAllRoots);
+      thread->AdjustTlab(adjust_bytes);
+    }
   }
 
   {
-    // TODO: Calculate freed objects and update that as well.
-    int32_t freed_bytes = black_allocations_begin_ - post_compact_end_;
-    bump_pointer_space_->RecordFree(0, freed_bytes);
-    RecordFree(ObjectBytePair(0, freed_bytes));
+    // Native roots must be updated before updating system weaks as class linker
+    // holds roots to class loaders and dex-caches as weak roots. Also, space
+    // mremap must be done after this step as we require reading
+    // class/dex-cache/class-loader content for updating native roots.
+    TimingLogger::ScopedTiming t2("(Paused)UpdateNativeRoots", GetTimings());
+    ClassLinker* class_linker = runtime->GetClassLinker();
+    NativeRootsUpdateVisitor visitor(this, class_linker->GetImagePointerSize());
+    {
+      ReaderMutexLock rmu(thread_running_gc_, *Locks::classlinker_classes_lock_);
+      class_linker->VisitBootClasses(&visitor);
+      class_linker->VisitClassLoaders(&visitor);
+    }
+    {
+      WriterMutexLock wmu(thread_running_gc_, *Locks::heap_bitmap_lock_);
+      ReaderMutexLock rmu(thread_running_gc_, *Locks::dex_lock_);
+      class_linker->VisitDexCaches(&visitor);
+      for (uint32_t cache : dex_caches_) {
+        visitor.VisitDexCache(reinterpret_cast<mirror::DexCache*>(cache));
+      }
+    }
+    dex_caches_.clear();
   }
+
+  SweepSystemWeaks(thread_running_gc_, runtime, /*paused*/true);
 
   {
     TimingLogger::ScopedTiming t2("(Paused)Mremap", GetTimings());
@@ -1414,12 +1508,14 @@ void MarkCompact::CompactionPause() {
            << errno;
   }
 
-  if (!kConcurrentCompaction) {
-    // We need to perform the heap compaction *before* root updation (below) so
-    // that assumptions that objects have already been compacted and laid down
-    // are not broken.
-    UpdateNonMovingSpace();
-    CompactMovingSpace();
+  {
+    TimingLogger::ScopedTiming t2("(Paused)UpdateConcurrentRoots", GetTimings());
+    runtime->VisitConcurrentRoots(this, kVisitRootFlagAllRoots);
+  }
+  {
+    // TODO: don't visit the transaction roots if it's not active.
+    TimingLogger::ScopedTiming t2("(Paused)UpdateNonThreadRoots", GetTimings());
+    runtime->VisitNonThreadRoots(this);
   }
 
   {
@@ -1448,42 +1544,19 @@ void MarkCompact::CompactionPause() {
       }
     }
   }
-  {
-    TimingLogger::ScopedTiming t2("(Paused)UpdateConcurrentRoots", GetTimings());
-    runtime->VisitConcurrentRoots(this, kVisitRootFlagAllRoots);
-  }
-  {
-    // TODO: don't visit the transaction roots if it's not active.
-    TimingLogger::ScopedTiming t2("(Paused)UpdateNonThreadRoots", GetTimings());
-    runtime->VisitNonThreadRoots(this);
-  }
-  {
-    TimingLogger::ScopedTiming t2("(Paused)UpdateSystemWeaks", GetTimings());
-    SweepSystemWeaks(thread_running_gc_, runtime, /*paused*/true);
-  }
-}
 
-void MarkCompact::PreCompactionPhase() {
-  TimingLogger::ScopedTiming split(__FUNCTION__, GetTimings());
-  DCHECK_EQ(Thread::Current(), thread_running_gc_);
-  Locks::mutator_lock_->AssertNotHeld(thread_running_gc_);
-  gc_barrier_.Init(thread_running_gc_, 0);
-  StackRefsUpdateVisitor thread_visitor(this, black_allocations_begin_ - post_compact_end_);
-  CompactionPauseCallback callback(this);
-  // To increase likelihood of black allocations. For testing purposes only.
-  if (kIsDebugBuild && heap_->GetTaskProcessor()->GetRunningThread() == thread_running_gc_) {
-    sleep(10);
+  if (!kConcurrentCompaction) {
+    UpdateNonMovingSpace();
+    CompactMovingSpace();
   }
 
-  size_t barrier_count = Runtime::Current()->GetThreadList()->FlipThreadRoots(
-      &thread_visitor, &callback, this, GetHeap()->GetGcPauseListener());
-
+  stack_end_ = nullptr;
   {
-    ScopedThreadStateChange tsc(thread_running_gc_, ThreadState::kWaitingForCheckPointsToRun);
-    gc_barrier_.Increment(thread_running_gc_, barrier_count);
+    // TODO: Calculate freed objects and update that as well.
+    int32_t freed_bytes = black_allocations_begin_ - post_compact_end_;
+    bump_pointer_space_->RecordFree(0, freed_bytes);
+    RecordFree(ObjectBytePair(0, freed_bytes));
   }
-  // TODO: do we need this?
-  QuasiAtomic::ThreadFenceForConstructor();
 }
 
 void MarkCompact::CompactionPhase() {
@@ -1900,6 +1973,14 @@ void MarkCompact::ScanObject(mirror::Object* obj) {
     UpdateLivenessInfo(obj);
   }
   obj->VisitReferences(visitor, visitor);
+  RememberClassAndDexCache(obj);
+}
+
+void MarkCompact::RememberClassAndDexCache(mirror::Object* obj) {
+  if (obj->IsDexCache()) {
+    dex_caches_.insert(
+            mirror::CompressedReference<mirror::Object>::FromMirrorPtr(obj).AsVRegValue());
+  }
 }
 
 // Scan anything that's on the mark stack.
@@ -2024,8 +2105,9 @@ void MarkCompact::VisitRoots(mirror::CompressedReference<mirror::Object>** roots
 mirror::Object* MarkCompact::IsMarked(mirror::Object* obj) {
   CHECK(obj != nullptr);
   if (current_space_bitmap_->HasAddress(obj)) {
+    const bool is_black = reinterpret_cast<uint8_t*>(obj) >= black_allocations_begin_;
     if (compacting_) {
-      if (reinterpret_cast<uint8_t*>(obj) > black_allocations_begin_) {
+      if (is_black) {
         return PostCompactBlackObjAddr(obj);
       } else if (live_words_bitmap_->Test(obj)) {
         return PostCompactOldObjAddr(obj);
@@ -2033,7 +2115,7 @@ mirror::Object* MarkCompact::IsMarked(mirror::Object* obj) {
         return nullptr;
       }
     }
-    return current_space_bitmap_->Test(obj) ? obj : nullptr;
+    return (is_black || current_space_bitmap_->Test(obj)) ? obj : nullptr;
   } else if (non_moving_space_bitmap_->HasAddress(obj)) {
     return non_moving_space_bitmap_->Test(obj) ? obj : nullptr;
   } else if (immune_spaces_.ContainsObject(obj)) {

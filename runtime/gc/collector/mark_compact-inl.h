@@ -221,7 +221,7 @@ inline bool MarkCompact::VerifyRootDoubleUpdation(void* root,
   if (!live_words_bitmap_->HasAddress(old_ref)) {
     return false;
   }
-  if (stack_end == nullptr) {
+  if (UNLIKELY(stack_end == nullptr)) {
     pthread_attr_t attr;
     size_t stack_size;
     pthread_getattr_np(pthread_self(), &attr);
@@ -232,17 +232,18 @@ inline bool MarkCompact::VerifyRootDoubleUpdation(void* root,
   if (root < stack_addr || root > stack_end) {
     auto ret = updated_roots_.insert(root);
     if (!ret.second) {
-      LOG(WARNING) << "root=" << root
-                   << " old_ref=" << old_ref
-                   << " stack_addr=" << stack_addr
-                   << " stack_end=" << stack_end;
+      LOG(ERROR) << "root=" << root
+                 << " old_ref=" << old_ref
+                 << " stack_addr=" << stack_addr
+                 << " stack_end=" << stack_end;
       return false;
     }
   }
   DCHECK(reinterpret_cast<uint8_t*>(old_ref) >= black_allocations_begin_
          || live_words_bitmap_->Test(old_ref))
         << "ref=" << old_ref
-        << " RootInfo=" << info;
+        << " <" << mirror::Object::PrettyTypeOf(old_ref)
+        << "> RootInfo [" << info << "]";
   return true;
 }
 
@@ -250,7 +251,7 @@ inline void MarkCompact::UpdateRoot(mirror::CompressedReference<mirror::Object>*
                                     const RootInfo& info) {
   DCHECK(!root->IsNull());
   mirror::Object* old_ref = root->AsMirrorPtr();
-  if (VerifyRootDoubleUpdation(root, old_ref, info)) {
+  if (!kIsDebugBuild || VerifyRootDoubleUpdation(root, old_ref, info)) {
     mirror::Object* new_ref = PostCompactAddress(old_ref);
     if (old_ref != new_ref) {
       root->Assign(new_ref);
@@ -260,7 +261,7 @@ inline void MarkCompact::UpdateRoot(mirror::CompressedReference<mirror::Object>*
 
 inline void MarkCompact::UpdateRoot(mirror::Object** root, const RootInfo& info) {
   mirror::Object* old_ref = *root;
-  if (VerifyRootDoubleUpdation(root, old_ref, info)) {
+  if (!kIsDebugBuild || VerifyRootDoubleUpdation(root, old_ref, info)) {
     mirror::Object* new_ref = PostCompactAddress(old_ref);
     if (old_ref != new_ref) {
       *root = new_ref;
