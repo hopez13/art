@@ -181,11 +181,11 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
     @Test
     public void verifyCompilationOsMode() throws Exception {
         mTestUtils.removeCompilationLogToAvoidBackoff();
+        simulateApexUpgrade();
         long timeMs = getCurrentTimeMs();
         getDevice().executeShellV2Command(ODREFRESH_BIN + " --compilation-os-mode --compile");
 
-        // odrefresh should unconditionally compile everything in Compilation OS.
-        assertArtifactsModifiedAfter(getZygoteArtifacts(), timeMs);
+        assertArtifactsNotModifiedAfter(getZygoteArtifacts(), timeMs);
         assertArtifactsModifiedAfter(getSystemServerArtifacts(), timeMs);
 
         String cacheInfo = getDevice().pullFileContents(CACHE_INFO_FILE);
