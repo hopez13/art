@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89600db9_06c51e18",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-28T17:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "514e8c33_b1aec767",
+      "range": {
+        "startLine": 38,
+        "startChar": 51,
+        "endLine": 38,
+        "endChar": 82
+      },
+      "revId": "c60c87b6a0dceefb4cef90f2a77b5065233804ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c31da74_8c2b8784",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-28T14:38:29Z",
       "side": 1,
       "message": "Style: You could move this function (as well as others below) into the anonymous namespace above instead of declaring them as `static`.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 6
+      },
+      "revId": "c60c87b6a0dceefb4cef90f2a77b5065233804ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b97845d_d3a3ae61",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-28T17:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c31da74_8c2b8784",
       "range": {
         "startLine": 44,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0ad9af4_403ddd72",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-28T17:11:13Z",
+      "side": 1,
+      "message": "`push_back` has a `value_type\u0026\u0026` overload, so this operation is just a move, not a copy. I regard a move as a cheap operation, so it should be fine.\n\nhttps://www.cplusplus.com/reference/vector/vector/push_back/",
+      "parentUuid": "f016010d_c8409737",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 87,
+        "endChar": 16
+      },
+      "revId": "c60c87b6a0dceefb4cef90f2a77b5065233804ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0378b01_70a06bbb",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6963e244_44ef2613",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-28T17:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0378b01_70a06bbb",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 113
+      },
+      "revId": "c60c87b6a0dceefb4cef90f2a77b5065233804ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "574356a0_49dc9c42",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-01-28T14:38:29Z",
       "side": 1,
       "message": "Nit: Ditto.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 113
+      },
+      "revId": "c60c87b6a0dceefb4cef90f2a77b5065233804ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "150be8cd_e433cd03",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-28T17:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "574356a0_49dc9c42",
       "range": {
         "startLine": 125,
         "startChar": 0,
