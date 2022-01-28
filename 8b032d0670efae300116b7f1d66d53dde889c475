@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22468ef3_490dde82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-28T11:34:52Z",
+      "side": 1,
+      "message": "You need to update the test in the same CL (something like aosp/1964844, though I haven\u0027t tested). Otherwise, the postsubmit will fail.",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 50
+      },
+      "revId": "8b032d0670efae300116b7f1d66d53dde889c475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af5a8004_c1c4f7d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-01-28T11:34:52Z",
+      "side": 1,
+      "message": "Thanks for the quick fix!",
+      "revId": "8b032d0670efae300116b7f1d66d53dde889c475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
