@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "514e8c33_b1aec767",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-28T14:38:29Z",
+      "side": 1,
+      "message": "I\u0027d recommend using a directory specific to this test, to avoid races with other tests creating/deleting boot images – see what we are already doing for the JAR files above.\n\n(Likewise in other test configurations).",
+      "range": {
+        "startLine": 38,
+        "startChar": 51,
+        "endLine": 38,
+        "endChar": 82
+      },
+      "revId": "c60c87b6a0dceefb4cef90f2a77b5065233804ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c31da74_8c2b8784",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-28T14:38:29Z",
+      "side": 1,
+      "message": "Style: You could move this function (as well as others below) into the anonymous namespace above instead of declaring them as `static`.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 6
+      },
+      "revId": "c60c87b6a0dceefb4cef90f2a77b5065233804ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f016010d_c8409737",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-28T14:38:29Z",
+      "side": 1,
+      "message": "Nit: Maybe use `emplace_back` here to save an object copy/move (here and in other places)?",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 87,
+        "endChar": 16
+      },
+      "revId": "c60c87b6a0dceefb4cef90f2a77b5065233804ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0378b01_70a06bbb",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-28T14:38:29Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 113
+      },
+      "revId": "c60c87b6a0dceefb4cef90f2a77b5065233804ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "574356a0_49dc9c42",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-01-28T14:38:29Z",
+      "side": 1,
+      "message": "Nit: Ditto.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 113
+      },
+      "revId": "c60c87b6a0dceefb4cef90f2a77b5065233804ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
