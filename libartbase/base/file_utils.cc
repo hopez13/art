@@ -308,6 +308,22 @@ std::string GetDefaultBootImageLocation(const std::string& android_root,
       // Additional warning for potential SELinux misconfiguration.
       PLOG(ERROR) << "Default boot image check failed, could not stat: " << boot_image_filename;
     }
+
+    const std::string minimal_boot_image =
+        GetApexDataDalvikCacheDirectory(InstructionSet::kNone) + "/boot_minimal.art";
+    const std::string minimal_boot_image_filename =
+        GetSystemImageFilename(minimal_boot_image.c_str(), kRuntimeISA);
+    if (OS::FileExists(minimal_boot_image_filename.c_str(), /*check_file_type=*/true)) {
+      return StringPrintf("%s!%s/%s:/nonx/boot_minimal-framework.art!%s/%s",
+                          minimal_boot_image.c_str(),
+                          kAndroidArtApexDefaultPath,
+                          kEtcBootImageProf,
+                          android_root.c_str(),
+                          kEtcBootImageProf);
+    } else if (errno == EACCES) {
+      // Additional warning for potential SELinux misconfiguration.
+      PLOG(ERROR) << "Minimal boot image check failed, could not stat: " << boot_image_filename;
+    }
   }
   // Boot image consists of two parts:
   //  - the primary boot image (contains the Core Libraries)

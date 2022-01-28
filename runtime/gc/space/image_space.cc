@@ -3216,9 +3216,15 @@ class ImageSpace::BootImageLoader {
       }
     }
     DCHECK_GE(max_image_space_dependencies, chunk.boot_image_component_count);
+    size_t dependency_count = 0;
+    size_t dependency_component_count = 0;
+    while (dependency_component_count < chunk.boot_image_component_count &&
+           dependency_count < spaces->size()) {
+      dependency_component_count += (*spaces)[dependency_count++]->GetComponentCount();
+    }
     ArrayRef<const std::unique_ptr<ImageSpace>> dependencies =
         ArrayRef<const std::unique_ptr<ImageSpace>>(*spaces).SubArray(
-            /*pos=*/ 0u, chunk.boot_image_component_count);
+            /*pos=*/ 0u, dependency_count);
     for (size_t i = 0u, size = locations.size(); i != size; ++i) {
       ImageSpace* space = (*spaces)[spaces->size() - chunk.image_space_count + i].get();
       size_t bcp_chunk_size = (chunk.image_space_count == 1u) ? chunk.component_count : 1u;
