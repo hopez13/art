@@ -309,7 +309,9 @@ inline bool Object::IsString() {
 
 template<VerifyObjectFlags kVerifyFlags>
 inline ObjPtr<String> Object::AsString() {
-  DCHECK((IsString<kVerifyFlags>()));
+  // Don't perform IsString check here as it is called from intern-table's
+  // SweepSystemWeaks which, in case of userfaultfd GC, is called when the
+  // object's content isn't there yet.
   return ObjPtr<String>::DownCast(this);
 }
 
