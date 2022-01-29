@@ -180,8 +180,7 @@ ObjPtr<mirror::EmulatedStackFrame> EmulatedStackFrame::CreateFromShadowFrameAndA
   // Step 4 : Copy arguments.
   ShadowFrameGetter getter(caller_frame, operands);
   EmulatedStackFrameAccessor setter(references, stack_frame, stack_frame->GetLength());
-  CopyArguments<ShadowFrameGetter, EmulatedStackFrameAccessor>(
-          self, caller_type, &getter, &setter);
+  CopyArguments<ShadowFrameGetter, EmulatedStackFrameAccessor>(self, caller_type, &getter, &setter);
 
   // Step 5: Construct the EmulatedStackFrame object.
   Handle<EmulatedStackFrame> sf(hs.NewHandle(
