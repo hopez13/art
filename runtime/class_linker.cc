@@ -7534,7 +7534,8 @@ ArtMethod* ClassLinker::LinkMethodsHelper<kPointerSize>::FindOrCreateImplementat
       DCHECK(current_method != nullptr);
       // Found a default method.
       if (vtable_impl != nullptr &&
-          current_method->GetDeclaringClass() == vtable_impl->GetDeclaringClass()) {
+          current_method->GetDeclaringClass() == vtable_impl->GetDeclaringClass() &&
+          !vtable_impl->IsDefaultConflicting()) {
         // We found a default method but it was the same one we already have from our
         // superclass. Don't bother adding it to our vtable again.
         current_method = vtable_impl;
