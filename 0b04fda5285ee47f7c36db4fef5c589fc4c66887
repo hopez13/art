@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abfaffef_a533ad85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-01-31T19:35:57Z",
+      "side": 1,
+      "message": "Currently this is failing in art/compiler/utils/assembler_thumb_test.cc:(66) Failure in test ArmVIXLAssemblerTest.VixlJniHelpers because some offsets changed. Can this happen due to 32-bit tls size changes?\n\nSpecifics:\n@@ -82,5 +82,5 @@\nf6: 18 bf         it ne\nf8: e3 46         movne r11, r12\n-      fa: d9 f8 8c c0   ldr.w r12, [r9, #140]\n+      fa: d9 f8 94 c0   ldr.w r12, [r9, #148]\nfe: bc f1 00 0f   cmp.w r12, #0\n102: 71 d1         bne 0x1e8     @ imm \u003d #226\n@@ -158,5 +158,5 @@\n21c: d9 f8 24 80   ldr.w r8, [r9, #36]\n220: 70 47         bx lr\n-     222: d9 f8 8c 00   ldr.w r0, [r9, #140]\n-     226: d9 f8 c0 e2   ldr.w lr, [r9, #704]\n+     222: d9 f8 94 00   ldr.w r0, [r9, #148]\n+     226: d9 f8 c8 e2   ldr.w lr, [r9, #712]\n22a: f0 47         blx lr\\n",
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
