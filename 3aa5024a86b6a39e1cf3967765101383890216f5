@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "095d24c1_9ea766fc",
+        "filename": "runtime/class_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-31T13:44:54Z",
+      "side": 1,
+      "message": "What does this do?",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 35
+      },
+      "revId": "3aa5024a86b6a39e1cf3967765101383890216f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d07143d_9c0cbe0d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-31T13:44:54Z",
+      "side": 1,
+      "message": "What is this for?",
+      "range": {
+        "startLine": 1423,
+        "startChar": 0,
+        "endLine": 1430,
+        "endChar": 66
+      },
+      "revId": "3aa5024a86b6a39e1cf3967765101383890216f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ff649c_8cb1bc1d",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-31T13:44:54Z",
+      "side": 1,
+      "message": "nit: add comment.",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 391,
+        "endChar": 43
+      },
+      "revId": "3aa5024a86b6a39e1cf3967765101383890216f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0fb6a8c_bf5e49dc",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-31T13:44:54Z",
+      "side": 1,
+      "message": "Change SweepSystemWeaks to do the casting instead? So that you keep the checks for all the other uses.",
+      "range": {
+        "startLine": 313,
+        "startChar": 5,
+        "endLine": 313,
+        "endChar": 21
+      },
+      "revId": "3aa5024a86b6a39e1cf3967765101383890216f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
