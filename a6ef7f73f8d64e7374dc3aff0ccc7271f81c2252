@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fabd310b_a71211bf",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-31T14:22:40Z",
+      "side": 1,
+      "message": "Add a few comments here about what we\u0027re doing below.",
+      "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6445d73b_3f60bd73",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-31T14:22:40Z",
+      "side": 1,
+      "message": "Use kBootImageMininalBasename.",
+      "range": {
+        "startLine": 313,
+        "startChar": 67,
+        "endLine": 313,
+        "endChar": 83
+      },
+      "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a124659_9bd69191",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-31T14:22:40Z",
+      "side": 1,
+      "message": "Can the name be kept as \u0027boot\u0027 ?",
+      "range": {
+        "startLine": 313,
+        "startChar": 67,
+        "endLine": 313,
+        "endChar": 79
+      },
+      "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd86ec67_5bbb828b",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-31T14:22:40Z",
+      "side": 1,
+      "message": "keep this \u0027boot\u0027 ?",
+      "range": {
+        "startLine": 317,
+        "startChar": 42,
+        "endLine": 317,
+        "endChar": 54
+      },
+      "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07754cfe_10bac439",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1681,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-01-31T14:22:40Z",
+      "side": 1,
+      "message": "Comment on whether we have a recovery strategy to eventually try to recompile fully?",
+      "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
