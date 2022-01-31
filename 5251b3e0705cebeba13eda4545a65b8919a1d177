@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45ac6eb7_363480aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-01-31T18:20:22Z",
+      "side": 1,
+      "message": "This CL changed quite a bit after the fixes. Please take another look 😊\n\nThanks!",
+      "revId": "5251b3e0705cebeba13eda4545a65b8919a1d177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f95e9420_e03c91b9",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-01-31T18:20:22Z",
+      "side": 1,
+      "message": "IsDeoptimizedMethodsEmpty requires a shared lock on deoptimized_methods_lock_. I think that\u0027s not an issue since this is only on exceptions. If that is an issue we can also check for have_dex_pc_listeners_. That works since with the current implementation we only perform limited deoptimization (i.e. update deoptimized_methods_) for break points which also installs dex_pc_listeners. Though I felt that\u0027s a bit brittle.",
+      "revId": "5251b3e0705cebeba13eda4545a65b8919a1d177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "835d791d_60b39783",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-01-31T18:20:22Z",
+      "side": 1,
+      "message": "I am not very happy having skip_throw_listeners but couldn\u0027t find a better way. We cannot check if we need a deopt prior to calling throw listeners so we might deopt after calling throw listener but before calling other listeners.\n\nOne improvement would be to pass a flag to say whether we want to skip throw listeners when calling EnterInterpreterDeoptimize instead of checking frame_cnt \u003d\u003d 0. We need to record this information when we push a deoptimization context. I can do that if that\u0027s better.",
+      "revId": "5251b3e0705cebeba13eda4545a65b8919a1d177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
