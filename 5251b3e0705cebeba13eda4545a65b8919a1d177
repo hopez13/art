@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e43911de_744779c8",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-02-01T15:28:47Z",
+      "side": 1,
+      "message": "Without this CL when we have any exception_throw_listeners (or any kind of listeners actually) we mostly run in interpreter code since we disable nterp and so it was working even without having to check if we need a deoptimization here. \n\nWhen there are exception_throw_listeners the debugger can set breakpoints or enable single stepping in the throw listener. For it to work as expected we need to check if we need to deoptimize the stack if the break point was set on any of the methods on the stack. I believe we always needed this check but it didn\u0027t impact it much since we force interpreter when any of these listeners were present.\n\nThere was a Debugger::IsActive check here but we removed it sometime back here: https://android-review.googlesource.com/c/platform/art/+/1216803/18/runtime/debugger.h#52\nI didn\u0027t dig deeper on what Debugger::IsActive actually meant.",
+      "parentUuid": "af12e7a8_f60b5816",
+      "revId": "5251b3e0705cebeba13eda4545a65b8919a1d177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "835d791d_60b39783",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 8
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Are you worried about correctness? It seems to me the frame_cnt is ok?",
       "parentUuid": "835d791d_60b39783",
+      "revId": "5251b3e0705cebeba13eda4545a65b8919a1d177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b622fda_5bb6b8b8",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-02-01T15:28:47Z",
+      "side": 1,
+      "message": "The expectation here is that we called the exception throw listener before we deoptimize. That is true with the current implementation because we check if there is an exception before checking if we need a deoptimize for other reasons. I was just a bit unsure if we somehow break this expectation in future. If this changes then we might miss a call to the listener. Though, We do have a number of tests that cover this case.",
+      "parentUuid": "c48b7e28_ed6cfe69",
       "revId": "5251b3e0705cebeba13eda4545a65b8919a1d177",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
