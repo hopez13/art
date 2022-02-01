@@ -60,6 +60,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cad63438_d8c4d59d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-01T23:51:31Z",
+      "side": 1,
+      "message": "It would be easy to see if it was compare_exchange(0, 0, order_acq_rel) here instead (I guess that is just like mutex lock/unlock in one operation, with nothing in the critical section). The added release here would mean the reader would have to see the updated name.",
+      "parentUuid": "535fcf9a_3facc679",
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d3760f81_ed33dd45",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
