@@ -16,6 +16,24 @@
       "message": "I put up a new CL at aosp/1965501. It takes a different approach, except that it borrows the OpenJdkJvm.cc change from this one. It is intended to replace this one.",
       "revId": "19e9e429a2942df3e090446ede77a4d403e6d43e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26a0dd58_9588330f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-01T12:43:15Z",
+      "side": 1,
+      "message": "Thanks Hans - abandoning this CL.",
+      "parentUuid": "0605ab8f_b32af6aa",
+      "revId": "19e9e429a2942df3e090446ede77a4d403e6d43e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
