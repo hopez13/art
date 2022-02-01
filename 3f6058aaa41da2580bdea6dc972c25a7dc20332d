@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ec42080_ddac1ee7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 7429,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-01T14:08:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5772ea4_b1eaebc5",
+      "range": {
+        "startLine": 7428,
+        "startChar": 0,
+        "endLine": 7429,
+        "endChar": 78
+      },
+      "revId": "3f6058aaa41da2580bdea6dc972c25a7dc20332d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04701553_f4e3ab72",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-01-31T14:42:56Z",
       "side": 1,
       "message": "Returns whether...",
+      "range": {
+        "startLine": 7466,
+        "startChar": 0,
+        "endLine": 7466,
+        "endChar": 14
+      },
+      "revId": "3f6058aaa41da2580bdea6dc972c25a7dc20332d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a664aa1_df875ccc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 7466,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-01T14:08:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04701553_f4e3ab72",
       "range": {
         "startLine": 7466,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b8d81ae_d028f6b4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 7566,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-01T14:08:37Z",
+      "side": 1,
+      "message": "Done (mostly copied old comment for the removed `kDefaultTranslationsInitialBufferSize`).",
+      "parentUuid": "7ae7d69f_9e1fb0d9",
+      "range": {
+        "startLine": 7566,
+        "startChar": 0,
+        "endLine": 7566,
+        "endChar": 69
+      },
+      "revId": "3f6058aaa41da2580bdea6dc972c25a7dc20332d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6948aa1_89dba130",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-01-31T14:42:56Z",
       "side": 1,
       "message": "LinearAlloc",
+      "range": {
+        "startLine": 7607,
+        "startChar": 28,
+        "endLine": 7607,
+        "endChar": 38
+      },
+      "revId": "3f6058aaa41da2580bdea6dc972c25a7dc20332d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8276b0ed_7ca33276",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 7607,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-01T14:08:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6948aa1_89dba130",
       "range": {
         "startLine": 7607,
         "startChar": 28,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c256b64e_36b13aa2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 7619,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-01T14:08:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96194804_29dea8f6",
+      "range": {
+        "startLine": 7619,
+        "startChar": 0,
+        "endLine": 7619,
+        "endChar": 49
+      },
+      "revId": "3f6058aaa41da2580bdea6dc972c25a7dc20332d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26226b71_436771c5",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-01-31T14:42:56Z",
       "side": 1,
       "message": "nit: indentation looks off?",
+      "range": {
+        "startLine": 7660,
+        "startChar": 0,
+        "endLine": 7660,
+        "endChar": 8
+      },
+      "revId": "3f6058aaa41da2580bdea6dc972c25a7dc20332d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "062e941d_88747987",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 7660,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-01T14:08:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26226b71_436771c5",
       "range": {
         "startLine": 7660,
         "startChar": 0,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fff9c7c_535b2d5a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 7757,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-01T14:08:37Z",
+      "side": 1,
+      "message": "Done (also changed \"interfaces\" to singular).",
+      "parentUuid": "0a59f233_a01d845c",
+      "range": {
+        "startLine": 7757,
+        "startChar": 5,
+        "endLine": 7757,
+        "endChar": 8
+      },
+      "revId": "3f6058aaa41da2580bdea6dc972c25a7dc20332d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43ced527_3472220b",
@@ -175,6 +343,24 @@
       "writtenOn": "2022-01-31T14:42:56Z",
       "side": 1,
       "message": "Nit: add a comment about what the code below does.",
+      "revId": "3f6058aaa41da2580bdea6dc972c25a7dc20332d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c6e9c75_47968017",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 7937,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-01T14:08:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43ced527_3472220b",
       "revId": "3f6058aaa41da2580bdea6dc972c25a7dc20332d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
