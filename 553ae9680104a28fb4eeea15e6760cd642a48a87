@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29ba768a_8a14953a",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-01T12:57:26Z",
+      "side": 1,
+      "message": "Mention that both those checks are peformed by InPlaceConvertible?",
+      "range": {
+        "startLine": 852,
+        "startChar": 0,
+        "endLine": 860,
+        "endChar": 51
+      },
+      "revId": "553ae9680104a28fb4eeea15e6760cd642a48a87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
