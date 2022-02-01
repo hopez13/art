@@ -41,6 +41,40 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "535fcf9a_3facc679",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-01T16:28:13Z",
+      "side": 1,
+      "message": "I am trying to prove myself that is correct.\n\nIt is obvious the if the reader\u0027s num_name_readers release runs first:\n[reader] copy ; release 0 -\u003e (happens after) -\u003e [writer] acquire 0; free\n\nI keep scratching my head what the \"proof\" (by contradiction?) is if the reader\u0027s num_name_readers release runs second.\n[writer] acquire 0; free OLD -\u003e ???? -\u003e [reader] acquire 0; copy OLD\nIt seems obvious that the reader must see the new pointer as opposed to the old. But I keep wondering what is the formal way to prove it.",
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3760f81_ed33dd45",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-01T16:28:13Z",
+      "side": 1,
+      "message": "SGTM. I guess \u00270\u0027 and \u0027i\u0027 would also be decent sleep times.",
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34425cdd_834e7256",
@@ -59,6 +93,29 @@
         "startChar": 2,
         "endLine": 1388,
         "endChar": 12
+      },
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1693c31d_7b868284",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-01T16:28:13Z",
+      "side": 1,
+      "message": "Does it need to be seq_cst?",
+      "range": {
+        "startLine": 1408,
+        "startChar": 27,
+        "endLine": 1408,
+        "endChar": 31
       },
       "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
