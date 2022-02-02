@@ -562,6 +562,9 @@ class Thread {
                               bool abort_on_error = true) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Gets the current outer method.
+  ArtMethod* GetOuterMethod() const REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Returns whether the given exception was thrown by the current Java method being executed
   // (Note that this includes native Java methods).
   bool IsExceptionThrownByCurrentMethod(ObjPtr<mirror::Throwable> exception) const

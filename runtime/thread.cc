@@ -3835,6 +3835,24 @@ ArtMethod* Thread::GetCurrentMethod(uint32_t* dex_pc_out,
   return method;
 }
 
+ArtMethod* Thread::GetOuterMethod() const {
+  ArtMethod* outer_method = nullptr;
+  StackVisitor::WalkStack(
+      [&](const StackVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_) {
+        if (visitor->GetMethod()->IsRuntimeMethod()) {
+          // Continue if this is a runtime method.
+          return true;
+        }
+        outer_method = visitor->GetOuterMethod();
+        return false;
+      },
+      const_cast<Thread*>(this),
+      /* context= */ nullptr,
+      StackVisitor::StackWalkKind::kIncludeInlinedFrames);
+
+  return outer_method;
+}
+
 bool Thread::HoldsLock(ObjPtr<mirror::Object> object) const {
   return object != nullptr && object->GetLockOwnerThreadId() == GetThreadId();
 }
