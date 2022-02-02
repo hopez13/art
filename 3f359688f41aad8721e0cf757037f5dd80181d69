@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "277ded8b_47606671",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-02T11:11:48Z",
+      "side": 1,
+      "message": "What are the consequences of this for\n  - primary boot image, and\n  - boot image extension?",
+      "range": {
+        "startLine": 11,
+        "startChar": 14,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "3f359688f41aad8721e0cf757037f5dd80181d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "86662b92_9caf9705",
@@ -14,6 +37,29 @@
       "writtenOn": "2022-02-02T10:52:04Z",
       "side": 1,
       "message": "Vladimir, friendly ping.",
+      "revId": "3f359688f41aad8721e0cf757037f5dd80181d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eff4dae_1f3e9115",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-02T11:11:48Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1758,
+        "startChar": 4,
+        "endLine": 1758,
+        "endChar": 41
+      },
       "revId": "3f359688f41aad8721e0cf757037f5dd80181d69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
