@@ -78,6 +78,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f8869be3_2dd9ae62",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-02T00:51:49Z",
+      "side": 1,
+      "message": "Thanks! I think your doubts are well taken. We\u0027re counting on the ordering between the write in the xchg and the acquire load of num_name_readers, which currently doesn\u0027t hold.  The failing scenario is the one in which the load of the count effectively is executed in the middle of the xchg, and the increment and name access by the reader are executed between count load in the writer, and the xchg store.\n\nAt least the load in the writer needs to be seq_cst. At least the increment for this also needs to be for this to make sense.\n\nThen we have the following argument:\nAmong the three seq_cst operations, if the load is ordered after the xchg, it will see the new value, and there is no issue. If the load is ordered before the exchange, then the seq_cst order will also order the increment before the load, which means the load must see the increment.\n\nI think the release fro the decrement suffices. But this seems tricky enough to just use seq_cst for everything here.",
+      "parentUuid": "535fcf9a_3facc679",
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d3760f81_ed33dd45",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
