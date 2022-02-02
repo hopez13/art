@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1b446ab_3955319c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-02T02:43:47Z",
+      "side": 1,
+      "message": "I looked briefly at getting rid of bool32_t. It\u0027s probably still a very good idea, but it seems much too involved to try to do in drive-by fashion here. The offsets of several of those fields seem known to the code generator, so this also involves compiler changes.",
+      "revId": "49f2d68d6969e397a77259b6649cb86531bb43cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
