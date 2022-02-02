@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3f27645_82409fb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-02-02T09:29:55Z",
+      "side": 1,
+      "message": "Thanks! lgtm but I am not very familiar with the dequickening. So I will let Vladimir / David to actually +2.",
+      "revId": "72d8ab3eb74f7d26f1d23f7f78c142dabcb424c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "154dec0b_05340d4c",
+        "filename": "openjdkjvmti/ti_class_definition.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-02-02T09:29:55Z",
+      "side": 1,
+      "message": "Do we need this? Or do we want to do it in a follow up CL after we see that there are no issues",
+      "revId": "72d8ab3eb74f7d26f1d23f7f78c142dabcb424c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
