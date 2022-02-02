@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0a6f9e9_9dfddac8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1241761
+      },
+      "writtenOn": "2022-02-02T09:58:27Z",
+      "side": 1,
+      "message": "Example run:\n```\n$ dexdump -d ~/AndroidStudioProjects/Pc2PcDebugInfo/app/build/outputs/apk/release/app-release-unsigned.apk |grep -A 19 smallMethod\n      name          : \u0027smallMethod\u0027\n      type          : \u0027()V\u0027\n      access        : 0x0001 (PUBLIC)\n      code          -\n      registers     : 3\n      ins           : 1\n      outs          : 2\n      insns size    : 8 16-bit code units\n0a83a8:                                        |[0a83a8] com.example.pc2pcdebuginfo.MainActivity.smallMethod:()V\n0a83b8: 6200 360f                              |0000: sget-object v0, Ljava/lang/System;.out:Ljava/io/PrintStream; // field@0f36\n0a83bc: 1a01 1814                              |0002: const-string v1, \"fkfkf\" // string@1418\n0a83c0: 6e20 8023 1000                         |0004: invoke-virtual {v0, v1}, Ljava/io/PrintStream;.println:(Ljava/lang/String;)V // method@2380\n0a83c6: 0e00                                   |0007: return-void\n      catches       : (none)\n      positions     : \n        0x0000 line\u003d0\n        0x0001 line\u003d1\n        0x0002 line\u003d2\n        0x0003 line\u003d3\n        0x0004 line\u003d4\n        0x0005 line\u003d5\n        0x0006 line\u003d6\n        0x0007 line\u003d7\n      locals        : \n        0x0000 - 0x0008 reg\u003d2 this Lcom/example/pc2pcdebuginfo/MainActivity; \n\n  source_file_idx   : 3581 (MainActivity.java)\n\n```\nfor an example where smallMethod otherwise has 19632 line entries due to shared debug info with a large method.",
+      "revId": "c9678c0aef02e86a788257e9bc0bf84611dc0e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
