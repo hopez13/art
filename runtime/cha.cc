@@ -467,11 +467,14 @@ void ClassHierarchyAnalysis::CheckInterfaceMethodSingleImplementationInfo(
     return;
   }
 
-  if (implementation_method->IsAbstract()) {
-    // An instantiable class doesn't supply an implementation for
-    // interface_method. Invoking the interface method on the class will throw
-    // AbstractMethodError. This is an uncommon case, so we simply treat
-    // interface_method as not having single-implementation.
+  DCHECK_EQ((implementation_method->GetAccessFlags() & kAccAbstract) != 0u,
+            implementation_method->IsAbstract() || implementation_method->IsDefaultConflicting());
+  if ((implementation_method->GetAccessFlags() & kAccAbstract) != 0u) {
+    // An instantiable class doesn't supply an implementation for interface_method,
+    // or has conflicting default method implementations. Invoking the interface method
+    // on the  class will throw AbstractMethodError or IncompatibleClassChangeError.
+    // (Note: The RI throws AME instead of ICCE for default conflict.) This is an uncommon
+    // case, so we simply treat interface_method as not having single-implementation.
     invalidated_single_impl_methods.insert(interface_method);
     return;
   }
