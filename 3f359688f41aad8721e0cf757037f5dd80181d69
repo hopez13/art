@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f71fd1_4c59f7b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-02T12:05:25Z",
+      "side": 1,
+      "message": "For both kinds (boot image and extension):\n- Small extra space used for encoding the VerifierDeps.\n- Faster runtime verification for classes which could not be fully verified at compile time (for example when a class references a class from a mainline module).",
+      "parentUuid": "277ded8b_47606671",
+      "range": {
+        "startLine": 11,
+        "startChar": 14,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "3f359688f41aad8721e0cf757037f5dd80181d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "86662b92_9caf9705",
