@@ -284,31 +284,69 @@ ObjPtr<mirror::MethodType> ResolveMethodTypeFromCode(ArtMethod* referrer,
   return method_type;
 }
 
-void MaybeUpdateBssMethodEntry(ArtMethod* callee, MethodReference callee_reference) {
-  DCHECK(callee != nullptr);
-  if (callee_reference.dex_file->GetOatDexFile() != nullptr) {
-    size_t bss_offset = IndexBssMappingLookup::GetBssOffset(
-        callee_reference.dex_file->GetOatDexFile()->GetMethodBssMapping(),
-        callee_reference.index,
-        callee_reference.dex_file->NumMethodIds(),
-        static_cast<size_t>(kRuntimePointerSize));
-    if (bss_offset != IndexBssMappingLookup::npos) {
-      DCHECK_ALIGNED(bss_offset, static_cast<size_t>(kRuntimePointerSize));
-      const OatFile* oat_file = callee_reference.dex_file->GetOatDexFile()->GetOatFile();
-      ArtMethod** method_entry = reinterpret_cast<ArtMethod**>(const_cast<uint8_t*>(
-          oat_file->BssBegin() + bss_offset));
-      DCHECK_GE(method_entry, oat_file->GetBssMethods().data());
-      DCHECK_LT(method_entry,
-                oat_file->GetBssMethods().data() + oat_file->GetBssMethods().size());
-      std::atomic<ArtMethod*>* atomic_entry =
-          reinterpret_cast<std::atomic<ArtMethod*>*>(method_entry);
-      if (kIsDebugBuild) {
-        ArtMethod* existing = atomic_entry->load(std::memory_order_acquire);
-        CHECK(existing->IsRuntimeMethod() || existing == callee);
-      }
-      static_assert(sizeof(*method_entry) == sizeof(*atomic_entry), "Size check.");
-      atomic_entry->store(callee, std::memory_order_release);
+namespace {
+
+// Helper to de-duplicate code from both branches of MaybeUpdateBssMethodEntry.
+void MaybeUpdateBssMethodEntryHelper(ArtMethod* callee,
+                                     MethodReference callee_reference,
+                                     const IndexBssMapping* method_mapping,
+                                     const OatFile* oat_file) {
+  const DexFile* dex_file = callee_reference.dex_file;
+  size_t bss_offset = IndexBssMappingLookup::GetBssOffset(method_mapping,
+                                                          callee_reference.index,
+                                                          dex_file->NumMethodIds(),
+                                                          static_cast<size_t>(kRuntimePointerSize));
+  if (bss_offset != IndexBssMappingLookup::npos) {
+    DCHECK_ALIGNED(bss_offset, static_cast<size_t>(kRuntimePointerSize));
+    DCHECK_NE(oat_file, nullptr);
+    ArtMethod** method_entry =
+        reinterpret_cast<ArtMethod**>(const_cast<uint8_t*>(oat_file->BssBegin() + bss_offset));
+    DCHECK_GE(method_entry, oat_file->GetBssMethods().data());
+    DCHECK_LT(method_entry, oat_file->GetBssMethods().data() + oat_file->GetBssMethods().size());
+    std::atomic<ArtMethod*>* atomic_entry =
+        reinterpret_cast<std::atomic<ArtMethod*>*>(method_entry);
+    if (kIsDebugBuild) {
+      ArtMethod* existing = atomic_entry->load(std::memory_order_acquire);
+      CHECK(existing->IsRuntimeMethod() || existing == callee);
     }
+    static_assert(sizeof(*method_entry) == sizeof(*atomic_entry), "Size check.");
+    atomic_entry->store(callee, std::memory_order_release);
+  }
+}
+
+}  // anonymous namespace
+
+void MaybeUpdateBssMethodEntry(ArtMethod* callee,
+                               MethodReference callee_reference,
+                               ArtMethod* outer_method) {
+  DCHECK_NE(callee, nullptr);
+  // No OatFile to update.
+  if (outer_method->GetDexFile()->GetOatDexFile() == nullptr ||
+      outer_method->GetDexFile()->GetOatDexFile()->GetOatFile() == nullptr) {
+    return;
+  }
+  const OatFile* outer_oat_file = outer_method->GetDexFile()->GetOatDexFile()->GetOatFile();
+
+  // DexFiles compiled together to an oat file case.
+  const DexFile* dex_file = callee_reference.dex_file;
+  const OatDexFile* oat_dex_file = dex_file->GetOatDexFile();
+  if (oat_dex_file != nullptr && oat_dex_file->GetOatFile() == outer_oat_file) {
+    MaybeUpdateBssMethodEntryHelper(
+        callee, callee_reference, oat_dex_file->GetMethodBssMapping(), oat_dex_file->GetOatFile());
+    return;
+  }
+
+  // Try to find the DexFile in the BCP of the outer_method.
+  ArrayRef<const OatFile::BssMappingInfo> mapping_info_vector(outer_oat_file->GetBcpBssInfo());
+  ArrayRef<const DexFile* const> bcp_dexfiles(
+      Runtime::Current()->GetClassLinker()->GetBootClassPath());
+  auto it = std::find(bcp_dexfiles.begin(), bcp_dexfiles.end(), dex_file);
+  const uint32_t dexfile_index = std::distance(bcp_dexfiles.begin(), it);
+  if (dexfile_index < mapping_info_vector.size()) {
+    MaybeUpdateBssMethodEntryHelper(callee,
+                                    callee_reference,
+                                    mapping_info_vector[dexfile_index].method_bss_mapping,
+                                    outer_oat_file);
   }
 }
 
