@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1ed6705f_aa76f716",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-02T02:40:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff60e9cc_93455a2d",
+      "range": {
+        "startLine": 1071,
+        "startChar": 12,
+        "endLine": 1071,
+        "endChar": 16
+      },
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "535fcf9a_3facc679",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -96,6 +120,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c554e1d2_0f933d5b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-02T02:40:17Z",
+      "side": 1,
+      "message": "Actually, I don\u0027t think compare_exchange with acq_rel would help. You really need the store-\u003eload ordering between the xchg store and the load. The imprtant thing to remember is that RMW operations are not fully indivisible; they only guarantee that there is no intermediate store to the value being updated. And that\u0027s essential, since they\u0027re allowed to be implemented with a lock or acq/rel lx/sx.",
+      "parentUuid": "f8869be3_2dd9ae62",
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d3760f81_ed33dd45",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -134,6 +176,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e646e1e0_42091b57",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-02T02:40:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34425cdd_834e7256",
+      "range": {
+        "startLine": 1383,
+        "startChar": 2,
+        "endLine": 1388,
+        "endChar": 12
+      },
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1693c31d_7b868284",
@@ -157,6 +223,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ecd83c1_895b0f14",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-02T02:40:17Z",
+      "side": 1,
+      "message": "Yes, but that\u0027s the default. Since I\u0027m now convinced we need it, I\u0027ll make it explicit.",
+      "parentUuid": "1693c31d_7b868284",
+      "range": {
+        "startLine": 1408,
+        "startChar": 27,
+        "endLine": 1408,
+        "endChar": 31
+      },
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a709e42b_309100ef",
@@ -170,6 +260,30 @@
       "writtenOn": "2022-02-01T12:08:27Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1968,
+        "startChar": 4,
+        "endLine": 1968,
+        "endChar": 52
+      },
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6fc8bf4_5e8c731c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1968,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-02T02:40:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a709e42b_309100ef",
       "range": {
         "startLine": 1968,
         "startChar": 4,
