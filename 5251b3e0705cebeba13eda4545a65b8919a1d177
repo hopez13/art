@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "526b11d3_2815cec6",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-02-02T09:16:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e43911de_744779c8",
+      "revId": "5251b3e0705cebeba13eda4545a65b8919a1d177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "835d791d_60b39783",
@@ -124,6 +142,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "772aeac3_ac54914a",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-02-02T09:16:33Z",
+      "side": 1,
+      "message": "I guess we can leave it as is for now.",
+      "parentUuid": "1b622fda_5bb6b8b8",
+      "revId": "5251b3e0705cebeba13eda4545a65b8919a1d177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "199faa69_a1aebf43",
@@ -147,6 +183,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ce0bb9b_498aaebf",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-02-02T09:16:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "199faa69_a1aebf43",
+      "range": {
+        "startLine": 160,
+        "startChar": 6,
+        "endLine": 161,
+        "endChar": 60
+      },
+      "revId": "5251b3e0705cebeba13eda4545a65b8919a1d177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f53dfdf_39e82a16",
@@ -160,6 +220,30 @@
       "writtenOn": "2022-02-01T12:50:46Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 3677,
+        "startChar": 48,
+        "endLine": 3677,
+        "endChar": 51
+      },
+      "revId": "5251b3e0705cebeba13eda4545a65b8919a1d177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c3057e6_1ba4247b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3677,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-02-02T09:16:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f53dfdf_39e82a16",
       "range": {
         "startLine": 3677,
         "startChar": 48,
