@@ -16,6 +16,52 @@
       "message": "Artem, here\u0027s the change we discussed a bit today. Note that it was recently reverted (https://android-review.googlesource.com/c/platform/art/+/1965511), but Jiakai will probably try to reland it soon.",
       "revId": "6454968f07511897f2ab85db14dc729c6b3788c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ec9b037_d1441698",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-02T19:57:41Z",
+      "side": 1,
+      "message": "Can\u0027t this go into art_standalone_gtest_defaults instead? A superfluous dependency wouldn\u0027t do much harm for the tests that don\u0027t strictly need it.",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 35
+      },
+      "revId": "6454968f07511897f2ab85db14dc729c6b3788c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef13eda_10cfa077",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-02T19:57:41Z",
+      "side": 1,
+      "message": "Why this condition? Shouldn\u0027t the added build target ensure it exists?",
+      "range": {
+        "startLine": 120,
+        "startChar": 7,
+        "endLine": 120,
+        "endChar": 22
+      },
+      "revId": "6454968f07511897f2ab85db14dc729c6b3788c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
