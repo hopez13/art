@@ -26,7 +26,6 @@ public class Main {
   /// CHECK-NEXT: Sub
   /// CHECK-NEXT: Mul
   /// CHECK-NEXT: ArraySet
-  /// CHECK-NEXT: ArrayGet
   /// CHECK-NEXT: LessThanOrEqual
   /// CHECK-NEXT: Select
   /// CHECK-NEXT: Add
@@ -116,8 +115,7 @@ public class Main {
   // Check LSE works when a function has SIMD code.
   //
   /// CHECK-START: double Main.$noinline$test03(int) load_store_elimination (before)
-  /// CHECK:      ArrayGet loop:none
-  /// CHECK-NEXT: Return
+  /// CHECK-NOT:  ArrayGet loop:none
 
   /// CHECK-START: double Main.$noinline$test03(int) load_store_elimination (after)
   /// CHECK-NOT:  ArrayGet loop:none

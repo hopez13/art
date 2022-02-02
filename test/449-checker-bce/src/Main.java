@@ -989,8 +989,8 @@ public class Main {
   /// CHECK: BoundsCheck
   /// CHECK: ArrayGet
   /// CHECK: BoundsCheck
-  /// CHECK: ArrayGet
-  /// CHECK: BoundsCheck
+  /// CHECK-NOT: ArrayGet
+  /// CHECK-NOT: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK: BoundsCheck
   /// CHECK: ArraySet
@@ -1212,14 +1212,14 @@ public class Main {
   /// CHECK: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
-  /// CHECK: ArrayGet
+  /// CHECK-NOT: ArrayGet
 
   /// CHECK-START: void Main.foo1(int[], int, int, boolean) BCE (after)
   /// CHECK: Phi
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
-  /// CHECK: ArrayGet
+  /// CHECK-NOT: ArrayGet
   //  Added blocks at end for deoptimization.
   /// CHECK: Exit
   /// CHECK: If
@@ -1253,13 +1253,13 @@ public class Main {
   /// CHECK: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
-  /// CHECK: ArrayGet
+  /// CHECK-NOT: ArrayGet
   /// CHECK-START: void Main.foo2(int[], int, int, boolean) BCE (after)
   /// CHECK: Phi
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
-  /// CHECK: ArrayGet
+  /// CHECK-NOT: ArrayGet
   //  Added blocks at end for deoptimization.
   /// CHECK: Exit
   /// CHECK: If
@@ -1293,13 +1293,13 @@ public class Main {
   /// CHECK: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
-  /// CHECK: ArrayGet
+  /// CHECK-NOT: ArrayGet
   /// CHECK-START: void Main.foo3(int[], int, boolean) BCE (after)
   /// CHECK: Phi
   /// CHECK-NOT: BoundsCheck
   /// CHECK: ArraySet
   /// CHECK-NOT: BoundsCheck
-  /// CHECK: ArrayGet
+  /// CHECK-NOT: ArrayGet
   //  Added blocks at end for deoptimization.
   /// CHECK: Exit
   /// CHECK: If
