@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7568ee86_3d63818d",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-02T14:03:45Z",
+      "side": 1,
+      "message": "Why not just:\n\nif (implementation_method-\u003eIsAbstract() || implementation+method-\u003eIsDefaultConflicting()) {\n...\n}",
+      "range": {
+        "startLine": 470,
+        "startChar": 0,
+        "endLine": 472,
+        "endChar": 71
+      },
+      "revId": "f455aeb7bb23299d05513acdc65c07377ec85e89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
