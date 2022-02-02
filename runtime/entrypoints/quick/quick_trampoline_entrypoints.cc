@@ -1374,7 +1374,7 @@ extern "C" const void* artQuickResolutionTrampoline(
           DCHECK_NE(called_method.index, dex::kDexNoIndex);
         }
       }
-      MaybeUpdateBssMethodEntry(called, called_method);
+      MaybeUpdateBssMethodEntry(called, called_method, caller);
     }
 
     // Static invokes need class initialization check but instance invokes can proceed even if
@@ -2404,7 +2404,8 @@ extern "C" TwoWordReturn artInvokeInterfaceTrampoline(ArtMethod* interface_metho
       CHECK(self->IsExceptionPending());
       return GetTwoWordFailureValue();  // Failure.
     }
-    MaybeUpdateBssMethodEntry(interface_method, MethodReference(&dex_file, dex_method_idx));
+    MaybeUpdateBssMethodEntry(
+        interface_method, MethodReference(&dex_file, dex_method_idx), caller_method);
 
     // Refresh `raw_this_object` which may have changed after resolution.
     raw_this_object = this_object.Get();
