@@ -33,6 +33,24 @@
       "message": "Do we need this? Or do we want to do it in a follow up CL after we see that there are no issues",
       "revId": "72d8ab3eb74f7d26f1d23f7f78c142dabcb424c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "735252b5_f25ffdba",
+        "filename": "openjdkjvmti/ti_class_definition.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-02T10:55:09Z",
+      "side": 1,
+      "message": "Yes, there\u0027s ton of cleanup opportunities by removing on demand dequickening, but I\u0027m saving that for when/if we can make this CL stick.",
+      "parentUuid": "154dec0b_05340d4c",
+      "revId": "72d8ab3eb74f7d26f1d23f7f78c142dabcb424c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
