@@ -22,6 +22,30 @@
       },
       "revId": "4539bd2914cc087c17bc1045b340c08bc6155322",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2936924f_4dfa910d",
+        "filename": "runtime/method_handles.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-02-02T08:17:07Z",
+      "side": 0,
+      "message": "Previously it was more ambiguous whether we might go call into the runtime on the paths here, now not so much. Put back as a future hint.",
+      "parentUuid": "a14c0ee0_df028cec",
+      "range": {
+        "startLine": 984,
+        "startChar": 0,
+        "endLine": 984,
+        "endChar": 78
+      },
+      "revId": "4539bd2914cc087c17bc1045b340c08bc6155322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
