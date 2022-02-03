@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d993f7_ecf9c421",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-03T17:33:13Z",
+      "side": 1,
+      "message": "It is correct.  (but very pedantic)\n\nThere are nop/data in the disassembly after the pop, so the script complains that the pop does not have matching cfa_offset adjustment.\n\nRather than trying to exclude non-reachable assembly from the analysis, I would rather be pedantically correct.",
+      "parentUuid": "f293e2d1_6f4fb3ee",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 30
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f342c6d_1f525508",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-02-03T15:57:57Z",
       "side": 1,
       "message": "Why not `pop {r4, pc}`?",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "678209f3_a88a1414",
+        "filename": "runtime/arch/arm/memcmp16_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-03T17:33:13Z",
+      "side": 1,
+      "message": "I didn\u0027t write/modify the assembly.\n\nShould I sneak in the simplification, or make it separate CL?",
+      "parentUuid": "2f342c6d_1f525508",
       "range": {
         "startLine": 153,
         "startChar": 8,
@@ -150,6 +198,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccc1ab15_bcfd20c6",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-03T17:33:13Z",
+      "side": 1,
+      "message": "Hmmm... yeah, I don\u0027t see need for them.\nBut the CFI is correct and there is no harm.",
+      "parentUuid": "38b6bfda_c88c413c",
+      "range": {
+        "startLine": 682,
+        "startChar": 4,
+        "endLine": 684,
+        "endChar": 25
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcf41d54_1160f18a",
@@ -163,6 +235,30 @@
       "writtenOn": "2022-02-03T15:57:57Z",
       "side": 1,
       "message": "Define macro CFI_RESTORE_STATE_AND_DEF_CFA?",
+      "range": {
+        "startLine": 705,
+        "startChar": 4,
+        "endLine": 706,
+        "endChar": 26
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cf9b6b3_1d6821d5",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-03T17:33:13Z",
+      "side": 1,
+      "message": "I did in the past, but I think people were not fond of it.\n\nI will do it again.",
+      "parentUuid": "dcf41d54_1160f18a",
       "range": {
         "startLine": 705,
         "startChar": 4,
@@ -242,6 +338,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c4cb470_6c53084e",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-03T17:33:13Z",
+      "side": 1,
+      "message": "There are two issues (note that CFA is compared with assembly).\n\nThe CFA has actual bug, which the `CFI_DEF_CFA_BREG_PLUS_UCONST` in opcode_start fixes.\n\nThe SPILLs are about the assembly side - just to keep the pushes and pop balanced.  Otherwise the analysis keeps thinking the assembly just keeps decreasing the stack size past all the return opcodes.  So then obviously things mismatch after this point.",
+      "parentUuid": "b31655b5_d6d5c0ea",
+      "range": {
+        "startLine": 172,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 26
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aef527ca_d74bd40a",
@@ -255,6 +375,30 @@
       "writtenOn": "2022-02-03T15:57:57Z",
       "side": 1,
       "message": "Do we need this anywhere else than `op_return`?",
+      "range": {
+        "startLine": 1935,
+        "startChar": 4,
+        "endLine": 1936,
+        "endChar": 64
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7bb4408_8817beeb",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-03T17:33:13Z",
+      "side": 1,
+      "message": "I don\u0027t think so, but to be on the safe side and future proof, I think it is better here.",
+      "parentUuid": "aef527ca_d74bd40a",
       "range": {
         "startLine": 1935,
         "startChar": 4,
@@ -301,6 +445,30 @@
       "writtenOn": "2022-02-03T15:57:57Z",
       "side": 1,
       "message": "Do not add this. The `pop {..., pc}` redirects the control flow elsewhere, so the following instruction, if reachable by a conditional branch, does not need this adjustment. If anything, code following `RESTORE_ALL_CALLEE_SAVES lr_to_pc\u003d1` should probably use `.cfi_restore_state` and `.cfi_def_cfa` directly.",
+      "range": {
+        "startLine": 499,
+        "startChar": 4,
+        "endLine": 499,
+        "endChar": 30
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdc0448a_ff1f1e85",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-03T17:33:13Z",
+      "side": 1,
+      "message": "This is pedantically correct.\n\nThe following code is indeed unreachable, but the analysis still rightfully complains that this pop is missing cfa_offset adjustment.\n\nIn particular this is needed to make return opcode\u0027s CFI offset correct at the end and in the unreachable SPILL code.\n\nIf there was reachable code after it, it would indeed need `.cfi_restore_state`, and cfa_offset from here would be ignored.",
+      "parentUuid": "183759a1_73ab78a5",
       "range": {
         "startLine": 499,
         "startChar": 4,
