@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d143a4_95b1bf6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-03T11:35:35Z",
+      "side": 1,
+      "message": "Roland - can you approve this? This is just enabling tests in CompOS mode that were initially disabled while we fixed some implementation problems (b/211458160).\n\nThey now pass just fine. One test remains disabled as it checks something that intentionally isn\u0027t true with CompOS. That will be dealt with subsequently.",
+      "revId": "5e2a751e09cb0c33956b8c203a85ad1cd319b8f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
