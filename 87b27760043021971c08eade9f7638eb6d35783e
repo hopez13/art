@@ -16,6 +16,322 @@
       "message": "PTAL",
       "revId": "87b27760043021971c08eade9f7638eb6d35783e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f83cc76_a3e5aae9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "Note: Reviewed CFI changes but not the python script.",
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f293e2d1_6f4fb3ee",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "This should not be needed at the very end of the function.",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 30
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f342c6d_1f525508",
+        "filename": "runtime/arch/arm/memcmp16_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "Why not `pop {r4, pc}`?",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb98c14c_99c613ad",
+        "filename": "runtime/arch/arm/memcmp16_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 170,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 29
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d99e9580_c76bdb02",
+        "filename": "runtime/arch/arm/memcmp16_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 188,
+        "startChar": 8,
+        "endLine": 195,
+        "endChar": 29
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38b6bfda_c88c413c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "Why do we have CFI directives for r0-r2? They do not need to be preserved and therefore they are useless for both unwinding and debugging.",
+      "range": {
+        "startLine": 682,
+        "startChar": 4,
+        "endLine": 684,
+        "endChar": 25
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcf41d54_1160f18a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "Define macro CFI_RESTORE_STATE_AND_DEF_CFA?",
+      "range": {
+        "startLine": 705,
+        "startChar": 4,
+        "endLine": 706,
+        "endChar": 26
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96f07b70_f7bad2ea",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "This is not true anymore.",
+      "range": {
+        "startLine": 709,
+        "startChar": 4,
+        "endLine": 709,
+        "endChar": 78
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e229ec95_5d31f468",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1559,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "This (and the corresponding `.cfi_remember_state`) is unnecessary, the `DELIVER_PENDING_EXCEPTION_FRAME_READY` does not save/restore registers or modify SP.",
+      "range": {
+        "startLine": 1558,
+        "startChar": 4,
+        "endLine": 1559,
+        "endChar": 50
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b31655b5_d6d5c0ea",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "Given the .cfi_restore_state above, shouldn\u0027t we just restore the CFA with `CFI_DEF_CFA_BREG_PLUS_UCONST`?",
+      "range": {
+        "startLine": 172,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 26
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aef527ca_d74bd40a",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "Do we need this anywhere else than `op_return`?",
+      "range": {
+        "startLine": 1935,
+        "startChar": 4,
+        "endLine": 1936,
+        "endChar": 64
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d158d926_76f835a6",
+        "filename": "runtime/interpreter/mterp/armng/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "CFI_DEF_CFA_BREG_PLUS_UCONST?",
+      "range": {
+        "startLine": 172,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 26
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "183759a1_73ab78a5",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "Do not add this. The `pop {..., pc}` redirects the control flow elsewhere, so the following instruction, if reachable by a conditional branch, does not need this adjustment. If anything, code following `RESTORE_ALL_CALLEE_SAVES lr_to_pc\u003d1` should probably use `.cfi_restore_state` and `.cfi_def_cfa` directly.",
+      "range": {
+        "startLine": 499,
+        "startChar": 4,
+        "endLine": 499,
+        "endChar": 30
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d729e280_abc56f5d",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2013,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-03T15:57:57Z",
+      "side": 1,
+      "message": "Move to `op_return`?",
+      "range": {
+        "startLine": 2012,
+        "startChar": 4,
+        "endLine": 2013,
+        "endChar": 64
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
