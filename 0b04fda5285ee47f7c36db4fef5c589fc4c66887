@@ -192,6 +192,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7d3713e1_d6f2cf0e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-03T21:43:03Z",
+      "side": 1,
+      "message": "Yes. This is stronger and slower than needed. But I would be amazed if the latter mattered. And it seems much clearer to me than the almost-no-op compare-exchange.\n\nI agree that having it change the value would make it clearly correct, but it shouldn\u0027t really be needed.\n\nWG21 recently ran into a related issue with a fetch_max() proposal. There is a question of whether that always writes the maximum or conditionally replaces the maximum. It matters in cases like this. Whether or not you actually need the no-op store on a given platform seems a bit subtle. On ARM, with lx, sx, you probably would.\n\nI also believe the multiple writer case is fine. Each old value is retrieved by the next writer (in modification order for that location), which will eventually deallocate it.",
+      "parentUuid": "48575444_f4d70eae",
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d3760f81_ed33dd45",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
