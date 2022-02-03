@@ -174,6 +174,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "48575444_f4d70eae",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-03T15:24:42Z",
+      "side": 1,
+      "message": "Oh, you made it SEQ_CST in the last PS.  That is strictly stronger then what I proposed, right? (despite keeping it as load rather then compare_exchange)\n\nSGTM\n\nRegarding putting d between x and y.  Intuitively, if d was increment as well, then we would miss one increment of the two, so that should be obviously disallowed.\n\nBut I think your point is that if we write back the same value, things might change by the strict reading of the standard.  Point taken.\n\nWhat if (d) sets the most significant bit? (and we promptly clear it again)  That is, it would be even more like reader-writer lock (where MSB signifies that writer lock is taken, but we still have the optimization that reader\u0027s don\u0027t spin even if writer lock is takn).\n\nPS: I am also thinking if this is safe if multiple threads try to set thread name at the same time, but I believe that it is.",
+      "parentUuid": "9aaf7b8c_a6b3095c",
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d3760f81_ed33dd45",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
