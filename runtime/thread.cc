@@ -3672,9 +3672,7 @@ void Thread::QuickDeliverException() {
 
   ReadBarrier::MaybeAssertToSpaceInvariant(exception.Ptr());
 
-  // This is a real exception: let the instrumentation know about it. Exception throw listener
-  // could set a breakpoint or install listeners that might require a deoptimization. Hence the
-  // deoptimization check needs to happen after calling the listener.
+  // This is a real exception: let the instrumentation know about it.
   instrumentation::Instrumentation* instrumentation = Runtime::Current()->GetInstrumentation();
   if (instrumentation->HasExceptionThrownListeners() &&
       IsExceptionThrownByCurrentMethod(exception)) {

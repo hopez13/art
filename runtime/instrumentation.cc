@@ -943,7 +943,11 @@ void Instrumentation::UpdateStubs() {
     InstallStubsClassVisitor visitor(this);
     runtime->GetClassLinker()->VisitClasses(&visitor);
     // Restore stack only if there is no method currently deoptimized.
-    bool empty = IsDeoptimizedMethodsEmpty();
+    bool empty;
+    {
+      ReaderMutexLock mu(self, *GetDeoptimizedMethodsLock());
+      empty = IsDeoptimizedMethodsEmpty();  // Avoid lock violation.
+    }
     if (empty) {
       MutexLock mu(self, *Locks::thread_list_lock_);
       bool no_remaining_deopts = true;
@@ -1142,7 +1146,7 @@ bool Instrumentation::RemoveDeoptimizedMethod(ArtMethod* method) {
   return true;
 }
 
-bool Instrumentation::IsDeoptimizedMethodsEmptyLocked() const {
+bool Instrumentation::IsDeoptimizedMethodsEmpty() const {
   return deoptimized_methods_.empty();
 }
 
@@ -1186,7 +1190,7 @@ void Instrumentation::Undeoptimize(ArtMethod* method) {
     bool found_and_erased = RemoveDeoptimizedMethod(method);
     CHECK(found_and_erased) << "Method " << ArtMethod::PrettyMethod(method)
         << " is not deoptimized";
-    empty = IsDeoptimizedMethodsEmptyLocked();
+    empty = IsDeoptimizedMethodsEmpty();
   }
 
   // Restore code and possibly stack only if we did not deoptimize everything.
@@ -1210,11 +1214,6 @@ void Instrumentation::Undeoptimize(ArtMethod* method) {
   }
 }
 
-bool Instrumentation::IsDeoptimizedMethodsEmpty() const {
-  ReaderMutexLock mu(Thread::Current(), *GetDeoptimizedMethodsLock());
-  return deoptimized_methods_.empty();
-}
-
 bool Instrumentation::IsDeoptimized(ArtMethod* method) {
   DCHECK(method != nullptr);
   ReaderMutexLock mu(Thread::Current(), *GetDeoptimizedMethodsLock());
@@ -1230,7 +1229,7 @@ void Instrumentation::DisableDeoptimization(const char* key) {
     ArtMethod* method;
     {
       ReaderMutexLock mu(Thread::Current(), *GetDeoptimizedMethodsLock());
-      if (IsDeoptimizedMethodsEmptyLocked()) {
+      if (IsDeoptimizedMethodsEmpty()) {
         break;
       }
       method = BeginDeoptimizedMethod();

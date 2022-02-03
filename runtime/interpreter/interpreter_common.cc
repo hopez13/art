@@ -150,14 +150,11 @@ bool SendMethodExitEvents(Thread* self,
 // behavior.
 bool MoveToExceptionHandler(Thread* self,
                             ShadowFrame& shadow_frame,
-                            bool skip_listeners,
-                            bool skip_throw_listener) {
+                            const instrumentation::Instrumentation* instrumentation) {
   self->VerifyStack();
   StackHandleScope<2> hs(self);
   Handle<mirror::Throwable> exception(hs.NewHandle(self->GetException()));
-  const instrumentation::Instrumentation* instrumentation =
-      Runtime::Current()->GetInstrumentation();
-  if (!skip_throw_listener &&
+  if (instrumentation != nullptr &&
       instrumentation->HasExceptionThrownListeners() &&
       self->IsExceptionThrownByCurrentMethod(exception.Get())) {
     // See b/65049545 for why we don't need to check to see if the exception has changed.
@@ -172,7 +169,7 @@ bool MoveToExceptionHandler(Thread* self,
   uint32_t found_dex_pc = shadow_frame.GetMethod()->FindCatchBlock(
       hs.NewHandle(exception->GetClass()), shadow_frame.GetDexPC(), &clear_exception);
   if (found_dex_pc == dex::kDexNoIndex) {
-    if (!skip_listeners) {
+    if (instrumentation != nullptr) {
       if (shadow_frame.NeedsNotifyPop()) {
         instrumentation->WatchedFramePopped(self, shadow_frame);
         if (shadow_frame.GetForcePopFrame()) {
@@ -192,12 +189,12 @@ bool MoveToExceptionHandler(Thread* self,
     return shadow_frame.GetForcePopFrame();
   } else {
     shadow_frame.SetDexPC(found_dex_pc);
-    if (!skip_listeners && instrumentation->HasExceptionHandledListeners()) {
+    if (instrumentation != nullptr && instrumentation->HasExceptionHandledListeners()) {
       self->ClearException();
       instrumentation->ExceptionHandledEvent(self, exception.Get());
       if (UNLIKELY(self->IsExceptionPending())) {
         // Exception handled event threw an exception. Try to find the handler for this one.
-        return MoveToExceptionHandler(self, shadow_frame, skip_listeners, skip_throw_listener);
+        return MoveToExceptionHandler(self, shadow_frame, instrumentation);
       } else if (!clear_exception) {
         self->SetException(exception.Get());
       }
