@@ -102,6 +102,7 @@ class ArtClassDefinition {
   art::ArrayRef<const unsigned char> GetNewOriginalDexFile() const {
     DCHECK(IsInitialized());
     if (redefined_) {
+      if (current_dex_memory_.empty()) Fill();
       return current_dex_file_;
     } else {
       return art::ArrayRef<const unsigned char>();
@@ -149,6 +150,7 @@ class ArtClassDefinition {
 
   art::ArrayRef<const unsigned char> GetDexData() const {
     DCHECK(IsInitialized());
+    if (current_dex_memory_.empty()) Fill();
     return dex_data_;
   }
 
@@ -156,6 +158,7 @@ class ArtClassDefinition {
 
  private:
   jvmtiError InitCommon(art::Thread* self, jclass klass);
+  void Fill() const;
 
   template<typename GetOriginalDexFile>
   jvmtiError InitWithDex(GetOriginalDexFile get_original, const art::DexFile* quick_dex)
@@ -179,15 +182,15 @@ class ArtClassDefinition {
 
   // A ref to the current dex data. This is either dex_data_memory_, or current_dex_file_. This is
   // what the dex file will be turned into.
-  art::ArrayRef<const unsigned char> dex_data_;
+  mutable art::ArrayRef<const unsigned char> dex_data_;
 
   // This is only used if we failed to create a mmap to store the dequickened data
-  std::vector<unsigned char> current_dex_memory_;
+  mutable std::vector<unsigned char> current_dex_memory_;
 
   // This is a dequickened version of what is loaded right now. It is either current_dex_memory_ (if
   // no other redefinition has ever happened to this) or the current dex_file_ directly (if this
   // class has been redefined, thus it cannot have any quickened stuff).
-  art::ArrayRef<const unsigned char> current_dex_file_;
+  mutable art::ArrayRef<const unsigned char> current_dex_file_;
 
   bool redefined_;
 

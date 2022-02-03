@@ -266,6 +266,7 @@ jvmtiError ArtClassDefinition::InitWithDex(GetOriginalDexFile get_original,
                                            const art::DexFile* quick_dex) {
   art::Thread* self = art::Thread::Current();
   DCHECK(quick_dex != nullptr);
+  initial_dex_file_unquickened_ = quick_dex;
   if (art::MemMap::kCanReplaceMapping && kEnableOnDemandDexDequicken) {
     size_t dequick_size = quick_dex->GetDequickenedSize();
     std::string mmap_name("anon-mmap-for-redefine: ");
@@ -284,7 +285,6 @@ jvmtiError ArtClassDefinition::InitWithDex(GetOriginalDexFile get_original,
                                            &error);
     if (UNLIKELY(dex_data_mmap_.IsValid() && temp_mmap_.IsValid())) {
       // Need to save the initial dexfile so we don't need to search for it in the fault-handler.
-      initial_dex_file_unquickened_ = quick_dex;
       dex_data_ = art::ArrayRef<const unsigned char>(dex_data_mmap_.Begin(),
                                                      dex_data_mmap_.Size());
       if (from_class_ext_) {
@@ -306,6 +306,7 @@ jvmtiError ArtClassDefinition::InitWithDex(GetOriginalDexFile get_original,
   }
   dex_data_mmap_.Reset();
   temp_mmap_.Reset();
+  if ((false)) {
   // Failed to mmap a large enough area (or on-demand dequickening was disabled). This is
   // unfortunate. Since currently the size is just a guess though we might as well try to do it
   // manually.
@@ -329,7 +330,33 @@ jvmtiError ArtClassDefinition::InitWithDex(GetOriginalDexFile get_original,
     memcpy(current_dex_memory_.data(), dex_data_.data(), current_dex_memory_.size());
     current_dex_file_ = art::ArrayRef<const unsigned char>(current_dex_memory_);
   }
+  }
   return OK;
+}
+
+void ArtClassDefinition::Fill() const {
+  art::Thread* self = art::Thread::Current();
+  art::ScopedObjectAccess soa(self);
+  if (klass_ != nullptr) {
+    art::StackHandleScope<1> hs(self);
+    art::Handle<art::mirror::Class> m_klass(hs.NewHandle(self->DecodeJObject(klass_)->AsClass()));
+    GetDexDataForRetransformation(m_klass, &current_dex_memory_);
+  } else {
+    DequickenDexFile(initial_dex_file_unquickened_, nullptr, &current_dex_memory_);
+  }
+  if (from_class_ext_) {
+    // We got initial from class_ext so the current one must have undergone redefinition so no
+    // cdex or quickening stuff.
+    // We can only do this if it's not a first load.
+    DCHECK(klass_ != nullptr);
+    const art::DexFile& cur_dex = self->DecodeJObject(klass_)->AsClass()->GetDexFile();
+    current_dex_file_ = art::ArrayRef<const unsigned char>(cur_dex.Begin(), cur_dex.Size());
+  } else {
+    // No redefinition must have ever happened so the (dequickened) cur_dex is the same as the
+    // initial dex_data. We need to copy it into another buffer to keep it around if we have a
+    // real redefinition.
+    current_dex_file_ = art::ArrayRef<const unsigned char>(current_dex_memory_);
+  }
 }
 
 jvmtiError ArtClassDefinition::Init(art::Thread* self, jclass klass) {
