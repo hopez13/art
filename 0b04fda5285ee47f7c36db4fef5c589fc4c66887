@@ -156,6 +156,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9aaf7b8c_a6b3095c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-03T01:31:26Z",
+      "side": 1,
+      "message": "Your \"on second read\" interpretation is exactly correct.\n\nI think I believe your argument about the acq-rel solution. \n\nBut this still seems subtle. My concern was that we have essentially, in the writer:\n(a) load-exclusive-acquire name\n(b) store-exclusive-release name\n(c) load-exclusive-acquire count\n[maybe:]\n(d) store-exclusive-release count\n\nReader:\n(x) load-exclusive-acquire count\n(y) store-exclusive count (incr)\n(z) load-exclusive-acquire name\n\nThe question is whether we can get\na-\u003ec-\u003ex-\u003ez-\u003eb-\u003ed-\u003ey\n\nwhich would result in the reader getting the old name, while the writer sees a zero. It\u0027s not completely clear from the standard that putting d (which doesn\u0027t change the value) between x and y is disallowed \"Atomic read-modify-write operations shall always read the last value (in the modification order) written before the write associated with the read-modify-write operation.\" but implementations and formalizations probably would, by distinguishing which write is read, rather than checking the values. The standard should be clearer\n\nI\u0027ll go ahead and submit as is, since I\u0027m not convinced this is a real performance issue.",
+      "parentUuid": "2e0fef90_83e74d02",
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d3760f81_ed33dd45",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
