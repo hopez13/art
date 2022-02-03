@@ -33,6 +33,23 @@
       "message": "Thanks!",
       "revId": "da626da09eb84924c3bc74939fa29732b877354a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1d56daf_15f81de2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-02-03T17:35:44Z",
+      "side": 1,
+      "message": "this is a fix for failures on the bots and a simple DCHECK fix so bypassing the pre submit since device_boot_test failures shouldn\u0027t be related and they have been happening on other CLs too.",
+      "revId": "da626da09eb84924c3bc74939fa29732b877354a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
