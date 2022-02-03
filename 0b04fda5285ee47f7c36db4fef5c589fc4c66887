@@ -210,6 +210,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fff36c35_e46d22d9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1242,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-03T22:14:37Z",
+      "side": 1,
+      "message": "Thanks, it is nice to know we agree that the no-seq_cst solution is doable.\n\nI also agree that the seq_cst solution here is cleaner, and I wouldn\u0027t worry about its performance.\n\n(it is also possible that there is some other corner case we missed that seq_cst fixes - I am happy to pay that insurance price)",
+      "parentUuid": "7d3713e1_d6f2cf0e",
+      "revId": "0b04fda5285ee47f7c36db4fef5c589fc4c66887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d3760f81_ed33dd45",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
