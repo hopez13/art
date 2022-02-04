@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0c5f18a_4a81d602",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-04T17:02:04Z",
+      "side": 1,
+      "message": "Not quite; we need it to be scheduled, then we start it immediately.",
+      "parentUuid": "b80d92a0_1d449f11",
+      "range": {
+        "startLine": 172,
+        "startChar": 47,
+        "endLine": 172,
+        "endChar": 55
+      },
+      "revId": "8a97cf093457f0f1228eca57e0b7d1932e9d3e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f414319_3bcd7115",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-04T16:17:41Z",
       "side": 1,
       "message": "I guess this doesn\u0027t work as expected?\n\nAnyway, I like that you\u0027re making the wait for explicit, which is more readable. Could you make this case a failure?",
+      "range": {
+        "startLine": 185,
+        "startChar": 12,
+        "endLine": 188,
+        "endChar": 46
+      },
+      "revId": "8a97cf093457f0f1228eca57e0b7d1932e9d3e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34bde703_f9742972",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-04T17:02:04Z",
+      "side": 1,
+      "message": "Mmm, I guess so.\nI removed the \"started\" boolean, since we know it\u0027s true when we are called (at least I think it is), so this then becomes the normal exit condition.",
+      "parentUuid": "3f414319_3bcd7115",
       "range": {
         "startLine": 185,
         "startChar": 12,
