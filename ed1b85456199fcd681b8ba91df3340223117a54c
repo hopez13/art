@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c47986ce_a663a65f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-04T17:31:44Z",
+      "side": 1,
+      "message": "Ulya, Vladimir PTAL",
+      "revId": "ed1b85456199fcd681b8ba91df3340223117a54c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe297a5e_97439d8f",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-04T17:31:44Z",
+      "side": 1,
+      "message": "x86, x86-64, and arm32 allow `default` to be a valid variant. Arm64 doesn\u0027t seem to do it. Vladimir do you know why that is?",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 6
+      },
+      "revId": "ed1b85456199fcd681b8ba91df3340223117a54c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
