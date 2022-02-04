@@ -16,6 +16,52 @@
       "message": "Ulya PTAL",
       "revId": "901a53cc600d5502527fa9c04c43a156fedd2506",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f229a0a5_507990be",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-04T10:46:24Z",
+      "side": 1,
+      "message": "Can you factor this out to a helper function parameterized by arch (to dedupe with arm)?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 5
+      },
+      "revId": "901a53cc600d5502527fa9c04c43a156fedd2506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "463ec6d9_8262e805",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-04T10:46:24Z",
+      "side": 1,
+      "message": "Why do we have \"default\" for x86 but not for arm?",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 144,
+        "endChar": 33
+      },
+      "revId": "901a53cc600d5502527fa9c04c43a156fedd2506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
