@@ -16,6 +16,24 @@
       "message": "What about ARM and x86-64?",
       "revId": "3b76ab46081304d6847b0d27e26aa4e0da24e673",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3451ded3_9209becb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-04T14:46:01Z",
+      "side": 1,
+      "message": "x86-64 is done with x86.\nI missed arm32 though. Preparing follow-up CL: aosp/1972626",
+      "parentUuid": "03ca8905_6cfb13a4",
+      "revId": "3b76ab46081304d6847b0d27e26aa4e0da24e673",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
