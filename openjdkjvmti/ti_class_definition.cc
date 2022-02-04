@@ -350,6 +350,41 @@ jvmtiError ArtClassDefinition::Init(art::Thread* self, const jvmtiClassDefinitio
   return OK;
 }
 
+static jvmtiError DequickenDexFile(const art::DexFile* dex_file,
+                                   const char* descriptor ATTRIBUTE_UNUSED,
+                                   /*out*/std::vector<unsigned char>* dex_data_memory,
+                                   /*out*/art::ArrayRef<const unsigned char>* dex_data)
+    REQUIRES_SHARED(art::Locks::mutator_lock_) {
+  if (dex_file->IsCompactDexFile()) {
+    std::string error_msg;
+    std::vector<std::unique_ptr<const art::DexFile>> dex_files;
+    const art::ArtDexFileLoader dex_file_loader;
+    if (!dex_file_loader.Open(dex_file->GetLocation().c_str(),
+                              dex_file->GetLocation().c_str(),
+                              /* verify= */ false,
+                              /* verify_checksum= */ false,
+                              &error_msg,
+                              &dex_files)) {
+      return ERR(INTERNAL);
+    }
+    const std::vector<const art::OatDexFile*>& oat_dex_files =
+        dex_file->GetOatDexFile()->GetOatFile()->GetOatDexFiles();
+    const art::DexFile* original_dex_file = nullptr;
+    for (uint32_t i = 0; i < oat_dex_files.size(); ++i) {
+      if (dex_file->GetOatDexFile() == oat_dex_files[i]) {
+        original_dex_file = dex_files[i].get();
+        break;
+      }
+    }
+    dex_data_memory->resize(original_dex_file->Size());
+    memcpy(dex_data_memory->data(), original_dex_file->Begin(), original_dex_file->Size());
+    *dex_data = art::ArrayRef<const unsigned char>(dex_data_memory->data(), dex_data_memory->size());
+    return OK;
+  }
+  *dex_data = art::ArrayRef<const unsigned char>(dex_file->Begin(), dex_file->Size());
+  return OK;
+}
+
 void ArtClassDefinition::InitFirstLoad(const char* descriptor,
                                        art::Handle<art::mirror::ClassLoader> klass_loader,
                                        const art::DexFile& dex_file) {
@@ -363,11 +398,35 @@ void ArtClassDefinition::InitFirstLoad(const char* descriptor,
   name_ = descriptor_str.substr(1, descriptor_str.size() - 2);
   // Android doesn't really have protection domains.
   protection_domain_ = nullptr;
-  auto get_original = [&](/*out*/std::vector<unsigned char>* dex_data)
-      REQUIRES_SHARED(art::Locks::mutator_lock_) {
-    DequickenDexFile(&dex_file, descriptor, dex_data);
-  };
-  InitWithDex(get_original, &dex_file);
+  if (dex_file.IsCompactDexFile()) {
+    std::string error_msg;
+    std::vector<std::unique_ptr<const art::DexFile>> dex_files;
+    const art::ArtDexFileLoader dex_file_loader;
+    if (!dex_file_loader.Open(dex_file->GetLocation().c_str(),
+                              dex_file->GetLocation().c_str(),
+                              /* verify= */ false,
+                              /* verify_checksum= */ false,
+                              &error_msg,
+                              &dex_files)) {
+      LOG(FATAL) < "NO";
+    }
+    const std::vector<const art::OatDexFile*>& oat_dex_files =
+        dex_file->GetOatDexFile()->GetOatFile()->GetOatDexFiles();
+    const art::DexFile* original_dex_file = nullptr;
+    for (uint32_t i = 0; i < oat_dex_files.size(); ++i) {
+      if (dex_file->GetOatDexFile() == oat_dex_files[i]) {
+        original_dex_file = dex_files[i].get();
+        break;
+      }
+    }
+    CHECK(original_dex_file != nullptr);
+    dex_data_memory_->resize(original_dex_file->Size());
+    memcpy(dex_data_memory_->data(), original_dex_file->Begin(), original_dex_file->Size());
+    current_dex_file_ = art::ArrayRef<const unsigned char>(dex_data_memory_);
+  } else {
+    current_dex_file_ = art::ArrayRef<const unsigned char>(dex_file.Begin(), dex_file.Size());
+  }
+  dex_data_ = current_dex_file_;
 }
 
 }  // namespace openjdkjvmti
