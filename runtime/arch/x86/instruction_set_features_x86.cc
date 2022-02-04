@@ -24,6 +24,7 @@
 #include <android-base/strings.h>
 
 #include "arch/x86_64/instruction_set_features_x86_64.h"
+#include "base/array_ref.h"
 
 #include <cpu_features_macros.h>
 
@@ -136,7 +137,7 @@ X86FeaturesUniquePtr X86InstructionSetFeatures::FromVariant(
     std::ostringstream os;
     os << "Unexpected CPU variant for x86: " << variant << ".\n";
     os << "Known variants: ";
-    CommaSeparateVariants(os, x86_known_variants, arraysize(x86_known_variants));
+    os << android::base::Join(ArrayRef<const char* const>(x86_known_variants), ", ");
     // `default` is a valid variant too.
     os << ", default";
     LOG(WARNING) << os.str();

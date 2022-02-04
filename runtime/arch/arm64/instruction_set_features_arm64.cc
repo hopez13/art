@@ -28,6 +28,7 @@
 #include <android-base/stringprintf.h>
 #include <android-base/strings.h>
 
+#include "base/array_ref.h"
 #include "base/stl_util.h"
 
 #include <cpu_features_macros.h>
@@ -149,7 +150,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
       std::ostringstream os;
       os << "Unexpected CPU variant for Arm64: " << variant << ".\n";
       os << "Known variants: ";
-      CommaSeparateVariants(os, arm64_known_variants, arraysize(arm64_known_variants));
+      os << android::base::Join(ArrayRef<const char* const>(arm64_known_variants), ", ");
       *error_msg = os.str();
       return nullptr;
     }
