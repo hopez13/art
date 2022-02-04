@@ -311,7 +311,7 @@ public class Main {
       int i = a.i;
       fail();
     } catch (NullPointerException ex) {
-      assertEquals("Attempt to read from field 'int A.i' on a null object reference", ex.getMessage());
+      assertEquals("Attempt to read from field 'int A.i' on a null object reference in method 'void Main.nullPointers()'", ex.getMessage());
     }
 
     // Write field.
@@ -320,7 +320,7 @@ public class Main {
       a.i = 1;
       fail();
     } catch (NullPointerException ex) {
-      assertEquals("Attempt to write to field 'int A.i' on a null object reference", ex.getMessage());
+      assertEquals("Attempt to write to field 'int A.i' on a null object reference in method 'void Main.nullPointers()'", ex.getMessage());
     }
 
     // Read array.
