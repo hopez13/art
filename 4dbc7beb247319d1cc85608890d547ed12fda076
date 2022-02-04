@@ -16,6 +16,23 @@
       "message": "Try without PhantomReferences check.",
       "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c2a7d61_30c961bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-04T02:49:23Z",
+      "side": 1,
+      "message": "It looks like this passes reasonably consistently without the PhantomReferences check (modulo unrelated TH failures. This is not terribly urgent, I think, but it would be good to get this in to see how consistent that success is. If it\u0027s really solid, that should provide a clue about the PhantomReference failure.",
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
