@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b60dfbd8_fc3633ce",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-04T14:17:06Z",
+      "side": 1,
+      "message": "In this case, I would just do\n\n  android::base::Join(ArrayRef\u003cconst char* const\u003e(variants), num_variants), \", \");\n\nAnd this can be easily inlined into callers where you don\u0027t need to specify `num_variants` because it will be deduced from the array size.",
+      "revId": "819a010423d94478d576c845f5051a4351ad2b8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d2704055_831ba650",
         "filename": "runtime/arch/instruction_set_features.h",
         "patchSetId": 4
