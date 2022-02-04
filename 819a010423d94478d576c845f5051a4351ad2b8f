@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c92654_c30f0653",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-04T11:47:45Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "819a010423d94478d576c845f5051a4351ad2b8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2704055_831ba650",
+        "filename": "runtime/arch/instruction_set_features.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-04T11:47:45Z",
+      "side": 1,
+      "message": "Nit: \"CommaSeparated\"? (https://en.wikipedia.org/wiki/Comma-separated_values)",
+      "range": {
+        "startLine": 134,
+        "startChar": 14,
+        "endLine": 134,
+        "endChar": 35
+      },
+      "revId": "819a010423d94478d576c845f5051a4351ad2b8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
