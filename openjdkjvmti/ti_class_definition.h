@@ -160,6 +160,7 @@ class ArtClassDefinition {
   template<typename GetOriginalDexFile>
   void InitWithDex(GetOriginalDexFile get_original, const art::DexFile* quick_dex)
       REQUIRES_SHARED(art::Locks::mutator_lock_);
+  jvmtiError Init(const art::DexFile& dex_file);
 
   jclass klass_;
   jobject loader_;
