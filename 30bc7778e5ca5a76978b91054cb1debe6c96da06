@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4462519e_823e5116",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-04T16:34:25Z",
+      "side": 0,
+      "message": "Not needed, `true` is the default value.",
+      "range": {
+        "startLine": 412,
+        "startChar": 52,
+        "endLine": 412,
+        "endChar": 56
+      },
+      "revId": "30bc7778e5ca5a76978b91054cb1debe6c96da06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
