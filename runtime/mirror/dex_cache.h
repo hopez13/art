@@ -149,7 +149,7 @@ class MANAGED DexCache final : public Object {
                 "String dex cache size is not a power of 2.");
 
   // Size of field dex cache. Needs to be a power of 2 for entrypoint assumptions to hold.
-  static constexpr size_t kDexCacheFieldCacheSize = 1024;
+  static constexpr size_t kDexCacheFieldCacheSize = 512;
   static_assert(IsPowerOfTwo(kDexCacheFieldCacheSize),
                 "Field dex cache size is not a power of 2.");
 
