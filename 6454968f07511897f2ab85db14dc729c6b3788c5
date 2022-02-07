@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44a99d3d_a400414f",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-07T10:01:57Z",
+      "side": 1,
+      "message": "Adding this to the defaults causing the build to fail. I\u0027m going to file a bug for it.",
+      "parentUuid": "7ec9b037_d1441698",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 35
+      },
+      "revId": "6454968f07511897f2ab85db14dc729c6b3788c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ef13eda_10cfa077",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-02T19:57:41Z",
       "side": 1,
       "message": "Why this condition? Shouldn\u0027t the added build target ensure it exists?",
+      "range": {
+        "startLine": 120,
+        "startChar": 7,
+        "endLine": 120,
+        "endChar": 22
+      },
+      "revId": "6454968f07511897f2ab85db14dc729c6b3788c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49609750_77ee3caf",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-07T10:01:57Z",
+      "side": 1,
+      "message": "This is to detect the bitness of the device. I see similar things being done in other scripts (e.g., https://cs.android.com/android/platform/superproject/+/master:art/tools/buildbot-build.sh;l\u003d272;drc\u003de208b04cc2efaf707390d7acbe8f978142701d72). I\u0027m not sure if there is a better way.",
+      "parentUuid": "8ef13eda_10cfa077",
       "range": {
         "startLine": 120,
         "startChar": 7,
