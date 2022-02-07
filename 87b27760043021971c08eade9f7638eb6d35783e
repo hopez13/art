@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "510f69ad_9b9aad5e",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-07T11:17:27Z",
+      "side": 1,
+      "message": "I think the script really needs to process control flow. Otherwise we shall not check whether we\u0027re jumping to a section with completely different CFI data.",
+      "parentUuid": "f3d993f7_ecf9c421",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 30
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f342c6d_1f525508",
         "filename": "runtime/arch/arm/memcmp16_arm.S",
         "patchSetId": 1
@@ -129,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7899d1b_b80ced27",
+        "filename": "runtime/arch/arm/memcmp16_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-07T11:17:27Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/1972702 .",
+      "parentUuid": "678209f3_a88a1414",
+      "range": {
+        "startLine": 153,
+        "startChar": 8,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb98c14c_99c613ad",
@@ -152,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc47830e_56615f3a",
+        "filename": "runtime/arch/arm/memcmp16_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-07T11:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb98c14c_99c613ad",
+      "range": {
+        "startLine": 170,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 29
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d99e9580_c76bdb02",
@@ -165,6 +237,30 @@
       "writtenOn": "2022-02-03T15:57:57Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 188,
+        "startChar": 8,
+        "endLine": 195,
+        "endChar": 29
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6a2d40_9b33714e",
+        "filename": "runtime/arch/arm/memcmp16_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-07T11:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d99e9580_c76bdb02",
       "range": {
         "startLine": 188,
         "startChar": 8,
@@ -259,6 +355,30 @@
       "side": 1,
       "message": "I did in the past, but I think people were not fond of it.\n\nI will do it again.",
       "parentUuid": "dcf41d54_1160f18a",
+      "range": {
+        "startLine": 705,
+        "startChar": 4,
+        "endLine": 706,
+        "endChar": 26
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8cc0c50_00032f5a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-07T11:17:27Z",
+      "side": 1,
+      "message": "We already have that macro on x86/x86-64, so we may as well have it on ARM/ARM64.",
+      "parentUuid": "8cf9b6b3_1d6821d5",
       "range": {
         "startLine": 705,
         "startChar": 4,
