@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0941442_69e1979c",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T10:57:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c840cce2_4e391b35",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ea338af7047510b7f8309df06f83d7f92a3a2b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1be8fb55_8e89aa5d",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-07T10:45:43Z",
       "side": 1,
       "message": "Modernize: std::is_integral_v\u003c\u003e.",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 48
+      },
+      "revId": "ea338af7047510b7f8309df06f83d7f92a3a2b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8b803e2_f0ed6567",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T10:57:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1be8fb55_8e89aa5d",
       "range": {
         "startLine": 29,
         "startChar": 16,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a589c7_67ea17f8",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T10:57:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3324d023_1436c22a",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 0
+      },
+      "revId": "ea338af7047510b7f8309df06f83d7f92a3a2b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d538e34e_3098f6b0",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-02-07T10:45:43Z",
       "side": 1,
       "message": "I\u0027d prefer `uintptr_t` as we\u0027re using this for pointers.",
+      "range": {
+        "startLine": 361,
+        "startChar": 56,
+        "endLine": 361,
+        "endChar": 62
+      },
+      "revId": "ea338af7047510b7f8309df06f83d7f92a3a2b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58a0f9f1_25b2b2dc",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T10:57:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d538e34e_3098f6b0",
       "range": {
         "startLine": 361,
         "startChar": 56,
