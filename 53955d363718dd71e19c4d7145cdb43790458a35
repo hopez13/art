@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7019c972_a5da5eae",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-07T10:52:41Z",
+      "side": 1,
+      "message": "I don\u0027t think there\u0027s a need for outputting other Arm64 variant vector since the variants either need a fix or they don\u0027t. There\u0027s no third category.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 2
+      },
+      "revId": "53955d363718dd71e19c4d7145cdb43790458a35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

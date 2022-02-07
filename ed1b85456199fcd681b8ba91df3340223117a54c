@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72d1eeeb_8973c66e",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-07T10:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d149bca7_e2f2463b",
+      "range": {
+        "startLine": 112,
+        "startChar": 43,
+        "endLine": 112,
+        "endChar": 65
+      },
+      "revId": "ed1b85456199fcd681b8ba91df3340223117a54c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe297a5e_97439d8f",
@@ -88,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f6f0b23_49bab501",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-07T10:52:41Z",
+      "side": 1,
+      "message": "\u003e The code gets here only `if (!needs_a53_835769_fix)` and that means the `arm64_variants_with_a53_835769_bug` list which actually contains \"default\" needs to be printed as well.\n\nI think that `default` shouldn\u0027t be printed. `arm64_variants_with_a53_835769_bug` and `arm64_known_variants` (now named `other_arm64_known_variants`) are disjointed sets.\n\nThe different archs seem to be printing the `Unexpected` error but with different purposes. Here in Arm64 we only do it for a small subset, but for x86 we do it for all variants.\n\n\u003e Maybe rename `arm64_known_variants` to `other_arm64_known_variants`.\n\nDone. I also changed it to print both the variants that need a fix for a53 erratum 835769, and the ones that don\u0027t.",
+      "parentUuid": "3cdba879_cddfbdc2",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 6
+      },
+      "revId": "ed1b85456199fcd681b8ba91df3340223117a54c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecd135c7_96946ba7",
@@ -111,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3217c6_56fdddb6",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-07T10:52:41Z",
+      "side": 1,
+      "message": "Done. Also done for the other archs.",
+      "parentUuid": "ecd135c7_96946ba7",
+      "range": {
+        "startLine": 151,
+        "startChar": 68,
+        "endLine": 152,
+        "endChar": 8
+      },
+      "revId": "ed1b85456199fcd681b8ba91df3340223117a54c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2742234d_abf590f0",
@@ -124,6 +196,30 @@
       "writtenOn": "2022-02-04T17:54:41Z",
       "side": 1,
       "message": "Maybe just add \"default\" to `x86_known_variants`.",
+      "range": {
+        "startLine": 136,
+        "startChar": 24,
+        "endLine": 136,
+        "endChar": 44
+      },
+      "revId": "ed1b85456199fcd681b8ba91df3340223117a54c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31b8fc48_a819e146",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-07T10:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2742234d_abf590f0",
       "range": {
         "startLine": 136,
         "startChar": 24,
