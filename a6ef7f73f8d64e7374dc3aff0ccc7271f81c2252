@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6b48604_011bf6d3",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-07T18:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fabd310b_a71211bf",
+      "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6445d73b_3f60bd73",
@@ -64,6 +82,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f5e8618_374a8e31",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-07T18:42:26Z",
+      "side": 1,
+      "message": "That variable only exists in odrefresh, and it\u0027s not flexible enough to be used here because we actually need the stem rather than the entire basename. However, I can create new variables for this.",
+      "parentUuid": "6445d73b_3f60bd73",
+      "range": {
+        "startLine": 313,
+        "startChar": 67,
+        "endLine": 313,
+        "endChar": 83
+      },
+      "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b26ee0e_606f788f",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-07T18:42:26Z",
+      "side": 1,
+      "message": "I want to use a different name so that it\u0027s easy to distinguish the minimal boot image from a full one. Note that the value of -Ximage for the minimal image and the full image are different: value for the minimal image is in the form of `\u003cminimal-boot-image\u003e!\u003cart-boot-profile\u003e:\u003cnon-existent-file\u003e!\u003cframework-boot-profile\u003e` (line 327); value for the full image is in the form of `\u003cfull-boot-image\u003e!\u003cart-boot-profile\u003e!\u003cframework-boot-profile\u003e` (line 305). This function relies on the filename to decide with form to use.",
+      "parentUuid": "4a124659_9bd69191",
+      "range": {
+        "startLine": 313,
+        "startChar": 67,
+        "endLine": 313,
+        "endChar": 79
+      },
+      "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd86ec67_5bbb828b",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8e23dd3_baba8a97",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-07T18:42:26Z",
+      "side": 1,
+      "message": "I can\u0027t. This name must match the name of the primary boot image (boot_minimal.art).",
+      "parentUuid": "cd86ec67_5bbb828b",
+      "range": {
+        "startLine": 317,
+        "startChar": 42,
+        "endLine": 317,
+        "endChar": 54
+      },
+      "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07754cfe_10bac439",
@@ -100,6 +190,24 @@
       "writtenOn": "2022-01-31T14:22:40Z",
       "side": 1,
       "message": "Comment on whether we have a recovery strategy to eventually try to recompile fully?",
+      "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c78ce26e_dcb92f74",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1681,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-07T18:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07754cfe_10bac439",
       "revId": "a6ef7f73f8d64e7374dc3aff0ccc7271f81c2252",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

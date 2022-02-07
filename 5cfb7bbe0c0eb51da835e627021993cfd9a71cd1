@@ -22,6 +22,30 @@
       },
       "revId": "5cfb7bbe0c0eb51da835e627021993cfd9a71cd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "599bbba7_9b30b4a0",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1353,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-07T18:42:26Z",
+      "side": 0,
+      "message": "It is the same as boot_classpath_compilable_jars_ since we started to generate a full boot image. Historically, they were different. `config_.GetDex2oatBootClasspath()` contained jars in the ART module, while `boot_classpath_compilable_jars_` did not.",
+      "parentUuid": "f5cb8613_9e6e69f9",
+      "range": {
+        "startLine": 1353,
+        "startChar": 61,
+        "endLine": 1353,
+        "endChar": 84
+      },
+      "revId": "5cfb7bbe0c0eb51da835e627021993cfd9a71cd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
