@@ -106,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f513421_52499be4",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T17:24:28Z",
+      "side": 1,
+      "message": "It does handle control flow to some extent (need as we often have slow paths at the end).  I would say there \"no\" control flow in this method though.\n\nWithout the fix, the output of the script is:\n000dfa10: dwarf\u003d0    infered\u003d0    push {r0, r1, r4, lr}                    // jni_entrypoints_arm.S:420\n000dfa12: dwarf\u003d16   infered\u003d16   vpush {s0, s1}                           // jni_entrypoints_arm.S:420\n000dfa16: dwarf\u003d24   infered\u003d24   mov r0, r4                               // jni_entrypoints_arm.S:420\n000dfa18: dwarf\u003d24   infered\u003d24   mov r1, r9                               // jni_entrypoints_arm.S:420\n000dfa1a: dwarf\u003d24   infered\u003d24   bl 0x4c6dc8 \u003cartJniUnlockObject\u003e @ imm \u003d #4092842 // jni_entrypoints_arm.S:420\n000dfa1e: dwarf\u003d24   infered\u003d24   vpop {s0, s1}                            // jni_entrypoints_arm.S:420\n000dfa22: dwarf\u003d16   infered\u003d16   pop {r0, r1, r4, pc}                     // jni_entrypoints_arm.S:420\n000dfa24: dwarf\u003d16   infered\u003d0    bmi 0xdf9d0 \u003cart_jni_unlock_object\u003e @ imm \u003d #-88 // \n000dfa26: dwarf\u003d16   infered\u003d0    bmi 0xdf9d2 \u003cart_jni_unlock_object+0x2\u003e @ imm \u003d #-88 // \n\nThere is question why objdump outputs the bogus opcodes after the pop.  Maybe that is data or padding.\n\nBut IMHO the tool is correct to complain the pop should have matching cfi adjustment.\n\nNote that if there was slow path, it would be handled correctly (and it would mask the issue)",
+      "parentUuid": "510f69ad_9b9aad5e",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 30
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f342c6d_1f525508",
@@ -389,6 +413,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea37f604_3b5757c6",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T17:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8cc0c50_00032f5a",
+      "range": {
+        "startLine": 705,
+        "startChar": 4,
+        "endLine": 706,
+        "endChar": 26
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96f07b70_f7bad2ea",
@@ -412,6 +460,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05887750_3ac88017",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T17:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96f07b70_f7bad2ea",
+      "range": {
+        "startLine": 709,
+        "startChar": 4,
+        "endLine": 709,
+        "endChar": 78
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e229ec95_5d31f468",
@@ -425,6 +497,30 @@
       "writtenOn": "2022-02-03T15:57:57Z",
       "side": 1,
       "message": "This (and the corresponding `.cfi_remember_state`) is unnecessary, the `DELIVER_PENDING_EXCEPTION_FRAME_READY` does not save/restore registers or modify SP.",
+      "range": {
+        "startLine": 1558,
+        "startChar": 4,
+        "endLine": 1559,
+        "endChar": 50
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3452186_68aa7c6a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1559,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T17:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e229ec95_5d31f468",
       "range": {
         "startLine": 1558,
         "startChar": 4,
@@ -529,6 +625,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc44f0c_591b9f0d",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T17:24:28Z",
+      "side": 1,
+      "message": "So although not needed, I am tempted to keep it here as safety net.",
+      "parentUuid": "e7bb4408_8817beeb",
+      "range": {
+        "startLine": 1935,
+        "startChar": 4,
+        "endLine": 1936,
+        "endChar": 64
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d158d926_76f835a6",
@@ -542,6 +662,30 @@
       "writtenOn": "2022-02-03T15:57:57Z",
       "side": 1,
       "message": "CFI_DEF_CFA_BREG_PLUS_UCONST?",
+      "range": {
+        "startLine": 172,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 26
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "818e9752_1d2599cd",
+        "filename": "runtime/interpreter/mterp/armng/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T17:24:28Z",
+      "side": 1,
+      "message": "Added to restore CFI state.\nBut the SPILL macro is still needed to balance the assembly instructions.",
+      "parentUuid": "d158d926_76f835a6",
       "range": {
         "startLine": 172,
         "startChar": 4,
@@ -612,6 +756,30 @@
       "writtenOn": "2022-02-03T15:57:57Z",
       "side": 1,
       "message": "Move to `op_return`?",
+      "range": {
+        "startLine": 2012,
+        "startChar": 4,
+        "endLine": 2013,
+        "endChar": 64
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7c2b73b_ec28a158",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2013,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-07T17:24:28Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "d729e280_abc56f5d",
       "range": {
         "startLine": 2012,
         "startChar": 4,
