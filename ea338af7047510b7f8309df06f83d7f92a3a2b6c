@@ -16,6 +16,98 @@
       "message": "(separated as-is from the shared interpreter cache CL)",
       "revId": "ea338af7047510b7f8309df06f83d7f92a3a2b6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c840cce2_4e391b35",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-07T10:45:43Z",
+      "side": 1,
+      "message": "2022",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ea338af7047510b7f8309df06f83d7f92a3a2b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1be8fb55_8e89aa5d",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-07T10:45:43Z",
+      "side": 1,
+      "message": "Modernize: std::is_integral_v\u003c\u003e.",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 48
+      },
+      "revId": "ea338af7047510b7f8309df06f83d7f92a3a2b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3324d023_1436c22a",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-07T10:45:43Z",
+      "side": 1,
+      "message": "Remove blank line at end of file.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 0
+      },
+      "revId": "ea338af7047510b7f8309df06f83d7f92a3a2b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d538e34e_3098f6b0",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-07T10:45:43Z",
+      "side": 1,
+      "message": "I\u0027d prefer `uintptr_t` as we\u0027re using this for pointers.",
+      "range": {
+        "startLine": 361,
+        "startChar": 56,
+        "endLine": 361,
+        "endChar": 62
+      },
+      "revId": "ea338af7047510b7f8309df06f83d7f92a3a2b6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
