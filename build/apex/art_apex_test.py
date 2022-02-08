@@ -469,7 +469,6 @@ class ReleaseChecker:
     self._checker.check_native_library('libart-compiler')
     self._checker.check_native_library('libart-dexlayout')
     self._checker.check_native_library('libart-disassembler')
-    self._checker.check_native_library('libartbase')
     self._checker.check_native_library('libartpalette')
     self._checker.check_native_library('libartservice')
     self._checker.check_native_library('libarttools')
@@ -611,7 +610,6 @@ class DebugChecker:
 
     # Check internal libraries for ART.
     self._checker.check_native_library('libadbconnectiond')
-    self._checker.check_native_library('libartbased')
     self._checker.check_native_library('libartd')
     self._checker.check_native_library('libartd-compiler')
     self._checker.check_native_library('libartd-dexlayout')
@@ -691,6 +689,8 @@ class TestingTargetChecker:
     # Check ART test (internal) libraries.
     self._checker.check_native_library('libartd-gtest')
     self._checker.check_native_library('libartd-simulator-container')
+    self._checker.check_native_library('libartbased')
+    self._checker.check_native_library('libartbased-testing')
 
     # Check ART test tools.
     self._checker.check_executable('signal_dumper')
