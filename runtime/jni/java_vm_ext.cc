@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "java_vm_ext.h"
+#include "java_vm_ext-inl.h"
 
 #include <dlfcn.h>
 #include <string_view>
@@ -832,17 +832,6 @@ ObjPtr<mirror::Object> JavaVMExt::DecodeGlobal(IndirectRef ref) {
 void JavaVMExt::UpdateGlobal(Thread* self, IndirectRef ref, ObjPtr<mirror::Object> result) {
   WriterMutexLock mu(self, *Locks::jni_globals_lock_);
   globals_.Update(ref, result);
-}
-
-inline bool JavaVMExt::MayAccessWeakGlobals(Thread* self) const {
-  return MayAccessWeakGlobalsUnlocked(self);
-}
-
-inline bool JavaVMExt::MayAccessWeakGlobalsUnlocked(Thread* self) const {
-  DCHECK(self != nullptr);
-  return kUseReadBarrier ?
-      self->GetWeakRefAccessEnabled() :
-      allow_accessing_weak_globals_.load(std::memory_order_seq_cst);
 }
 
 ObjPtr<mirror::Object> JavaVMExt::DecodeWeakGlobal(Thread* self, IndirectRef ref) {

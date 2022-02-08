@@ -27,6 +27,10 @@
 
 namespace art {
 
+namespace linker {
+class ImageWriter;
+}  // namespace linker
+
 namespace mirror {
 class Array;
 }  // namespace mirror
@@ -281,7 +285,7 @@ class JavaVMExt : public JavaVM {
   uint32_t global_ref_report_counter_ GUARDED_BY(Locks::jni_globals_lock_)
       = kGlobalRefReportInterval;
 
-
+  friend class linker::ImageWriter;  // Uses `globals_` and `weak_globals_` without read barrier.
   friend IndirectReferenceTable* GetIndirectReferenceTable(ScopedObjectAccess& soa,
                                                            IndirectRefKind kind);
 
