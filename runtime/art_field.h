@@ -149,6 +149,7 @@ class ArtField final {
   template<bool kTransactionActive>
   void SetDouble(ObjPtr<mirror::Object> object, double d) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  template<ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ObjPtr<mirror::Object> GetObject(ObjPtr<mirror::Object> object)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -169,7 +170,8 @@ class ArtField final {
   void Set64(ObjPtr<mirror::Object> object, uint64_t new_value)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  template<class MirrorType = mirror::Object>
+  template<class MirrorType = mirror::Object,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ObjPtr<MirrorType> GetObj(ObjPtr<mirror::Object> object)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
