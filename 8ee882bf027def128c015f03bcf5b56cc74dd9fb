@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e80c51f_19bdc9ef",
+        "filename": "runtime/oat_file-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-09T10:15:24Z",
+      "side": 0,
+      "message": "The old code allows headers with code size 0 to hold references to metadata. I guess we have not been using this for a long time. Is that worth mentioning in the commit message?",
+      "range": {
+        "startLine": 94,
+        "startChar": 9,
+        "endLine": 94,
+        "endChar": 34
+      },
+      "revId": "8ee882bf027def128c015f03bcf5b56cc74dd9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
