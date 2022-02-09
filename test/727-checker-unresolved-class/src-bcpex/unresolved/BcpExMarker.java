@@ -16,6 +16,6 @@
 
 package unresolved;
 
-// Class with the same descriptor length as UnresolvedPublicClass.
-public class UnresolvedPublicClazz implements BcpExMarker {
+public interface BcpExMarker {
+  // Marker inteface: no methods.
 }
