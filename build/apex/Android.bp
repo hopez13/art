@@ -281,6 +281,7 @@ apex_defaults {
     key: "com.android.art.key",
     required: [
         "com.android.i18n",
+        "com.android.os.statsd",
     ],
     prebuilts: [
         "art-linker-config",
