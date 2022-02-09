@@ -94,6 +94,30 @@
       },
       "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4e48119_6b8d8120",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-02-09T09:33:47Z",
+      "side": 1,
+      "message": "I think it\u0027s fine to add here as well if it solves Peter\u0027s problem (presumably his device doesn\u0027t use prebuilts), as long as base_system.mk is left as-is.",
+      "parentUuid": "eaa2ab34_c8476d04",
+      "range": {
+        "startLine": 282,
+        "startChar": 15,
+        "endLine": 284,
+        "endChar": 32
+      },
+      "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
