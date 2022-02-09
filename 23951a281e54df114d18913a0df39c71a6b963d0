@@ -22,6 +22,30 @@
       },
       "revId": "23951a281e54df114d18913a0df39c71a6b963d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48543fa7_91619297",
+        "filename": "libnativebridge/tests/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-09T15:58:36Z",
+      "side": 1,
+      "message": "I prefer to avoid a duplicated list here - when the problem is solved I\u0027d like to merge this test back into libnativebridge-tests, or else make a shared defaults instead.",
+      "parentUuid": "54d0f35b_799ac2fe",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 6
+      },
+      "revId": "23951a281e54df114d18913a0df39c71a6b963d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
