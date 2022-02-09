@@ -16,6 +16,47 @@
       "message": "I\u0027m wondering, why do I need this here and for the libdexfile standalone test, but e.g. not for art_standalone_libartpalette_tests? It\u0027s also using append-bitness, after all.",
       "revId": "583f1b660e8ad672ca20275b52e1b1c3a9fcda51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4976bc50_e53be3dd",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-02-09T14:08:23Z",
+      "side": 1,
+      "message": "The following of properties:\n\n    compile_multilib: \"both\",\n    multilib: {\n        lib32: {\n            suffix: \"32\",\n        },\n        lib64: {\n            suffix: \"64\",\n        },\n    },\n\nare part of the definition of `art_standalone_gtest_defaults ` (see https://cs.android.com/android/platform/superproject/+/master:art/test/Android.bp;l\u003d257-268;drc\u003dc9607e3cebb5fa942fec1d40b4a36a31ca5fb7c7), but is not part of the definition of `art_standalone_test_defaults` (see https://cs.android.com/android/platform/superproject/+/master:art/test/Android.bp;l\u003d153-166;drc\u003dc9607e3cebb5fa942fec1d40b4a36a31ca5fb7c7).\n\nTest modules `art_standalone_libdexfile_external_tests` (and `art_standalone_libdexfile_support_tests`), as well as `libnativeloader_test` (defined by this CL) \"inherit\" from `art_standalone_test_defaults`, while test module `art_standalone_libartpalette_tests` \"inherits\" from `art_standalone_gtest_defaults`.\n\nMaybe we could put these properties in a shared defaults (in a refactoring CL)?\n\nAlso, on the \"flattening\" of CTS test artifacts: I think Julien is working on getting rid of this (see b/215709281), meaning we should be able to simplify the build logic here eventually.",
+      "parentUuid": "1f5b370e_63421bb8",
+      "revId": "583f1b660e8ad672ca20275b52e1b1c3a9fcda51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14ecc0ba_56061f15",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-02-09T14:08:23Z",
+      "side": 1,
+      "message": "Suggestion: I\u0027d be a bit more specific here:\n\n  For the coverage of APIs backed by the ART Mainline Module.",
+      "range": {
+        "startLine": 178,
+        "startChar": 29,
+        "endLine": 178,
+        "endChar": 56
+      },
+      "revId": "583f1b660e8ad672ca20275b52e1b1c3a9fcda51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
