@@ -30,7 +30,7 @@
    movl rSELF:THREAD_SELF_OFFSET, ARG0
    movl 0(%esp), ARG1
    movl rPC, ARG2
-   call nterp_get_method
+   call nterp_get_method_${opcode}
    .if $is_super
    jmp 1b
    .else
@@ -117,7 +117,7 @@
    movl rSELF:THREAD_SELF_OFFSET, ARG0
    movl 0(%esp), ARG1
    movl rPC, ARG2
-   call nterp_get_method
+   call nterp_get_method_${opcode}
    jmp .L${opcode}_resume
 
 %def op_invoke_interface():
@@ -135,7 +135,7 @@
    movl rSELF:THREAD_SELF_OFFSET, ARG0
    movl 0(%esp), ARG1
    movl rPC, ARG2
-   call nterp_get_method
+   call nterp_get_method_${opcode}
    jmp $helper
 
 %def op_invoke_static():
@@ -169,7 +169,7 @@
    movl rSELF:THREAD_SELF_OFFSET, ARG0
    movl 0(%esp), ARG1
    movl rPC, ARG2
-   call nterp_get_method
+   call nterp_get_method_${opcode}
    jmp 1b
 
 %def op_invoke_virtual():

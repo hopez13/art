@@ -248,14 +248,16 @@ extern "C" const char* NterpGetShortyFromInvokeCustom(ArtMethod* caller, uint16_
   return dex_file->GetShorty(proto_idx);
 }
 
-FLATTEN
-extern "C" size_t NterpGetMethod(Thread* self, ArtMethod* caller, uint16_t* dex_pc_ptr)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+template<Instruction::Code kOpCode>
+ALWAYS_INLINE FLATTEN
+size_t NterpGetMethodImpl(Thread* self, ArtMethod* caller, uint16_t* dex_pc_ptr) {
+  Locks::mutator_lock_->AssertSharedHeld(self);
   UpdateHotness(caller);
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   InvokeType invoke_type = kStatic;
   uint16_t method_index = 0;
-  switch (inst->Opcode()) {
+  DCHECK_EQ(kOpCode, inst->Opcode());
+  switch (kOpCode) {
     case Instruction::INVOKE_DIRECT: {
       method_index = inst->VRegB_35c();
       invoke_type = kDirect;
@@ -377,6 +379,24 @@ extern "C" size_t NterpGetMethod(Thread* self, ArtMethod* caller, uint16_t* dex_
     return reinterpret_cast<size_t>(resolved_method);
   }
 }
+
+#define TEMPLATE_SPECIALIZATION(OPCODE)                                                           \
+  extern "C" size_t NterpGetMethod_##OPCODE(Thread* self, ArtMethod* caller, uint16_t* dex_pc) {  \
+    return NterpGetMethodImpl<Instruction::OPCODE>(self, caller, dex_pc);                         \
+  }                                                                                               \
+
+TEMPLATE_SPECIALIZATION(INVOKE_DIRECT)
+TEMPLATE_SPECIALIZATION(INVOKE_INTERFACE)
+TEMPLATE_SPECIALIZATION(INVOKE_STATIC)
+TEMPLATE_SPECIALIZATION(INVOKE_SUPER)
+TEMPLATE_SPECIALIZATION(INVOKE_VIRTUAL)
+TEMPLATE_SPECIALIZATION(INVOKE_DIRECT_RANGE)
+TEMPLATE_SPECIALIZATION(INVOKE_INTERFACE_RANGE)
+TEMPLATE_SPECIALIZATION(INVOKE_STATIC_RANGE)
+TEMPLATE_SPECIALIZATION(INVOKE_SUPER_RANGE)
+TEMPLATE_SPECIALIZATION(INVOKE_VIRTUAL_RANGE)
+
+#undef TEMPLATE_SPECIALIZATION
 
 FLATTEN
 static ArtField* ResolveFieldWithAccessChecks(Thread* self,

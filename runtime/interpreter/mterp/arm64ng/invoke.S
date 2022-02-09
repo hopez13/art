@@ -25,7 +25,7 @@
    mov x0, xSELF
    ldr x1, [sp]
    mov x2, xPC
-   bl nterp_get_method
+   bl nterp_get_method_${opcode}
    .if $is_super
    b 1b
    .else
@@ -115,7 +115,7 @@
    mov x0, xSELF
    ldr x1, [sp]
    mov x2, xPC
-   bl nterp_get_method
+   bl nterp_get_method_${opcode}
    mov x26, x0
    b 1b
 
@@ -134,7 +134,7 @@
    mov x0, xSELF
    ldr x1, [sp]
    mov x2, xPC
-   bl nterp_get_method
+   bl nterp_get_method_${opcode}
    b $helper
 
 %def op_invoke_static():
@@ -162,7 +162,7 @@
    mov x0, xSELF
    ldr x1, [sp]
    mov x2, xPC
-   bl nterp_get_method
+   bl nterp_get_method_${opcode}
    mov x2, x0
    b 1b
 
