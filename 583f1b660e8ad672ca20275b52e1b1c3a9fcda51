@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98c452ca_0a6ab924",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-09T15:52:40Z",
+      "side": 1,
+      "message": "I see. I wonder if it can simply move to art_standalone_test_defaults, although that\u0027s for another time.",
+      "parentUuid": "4976bc50_e53be3dd",
+      "revId": "583f1b660e8ad672ca20275b52e1b1c3a9fcda51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14ecc0ba_56061f15",
@@ -49,6 +67,30 @@
       "writtenOn": "2022-02-09T14:08:23Z",
       "side": 1,
       "message": "Suggestion: I\u0027d be a bit more specific here:\n\n  For the coverage of APIs backed by the ART Mainline Module.",
+      "range": {
+        "startLine": 178,
+        "startChar": 29,
+        "endLine": 178,
+        "endChar": 56
+      },
+      "revId": "583f1b660e8ad672ca20275b52e1b1c3a9fcda51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d2af18a_298aeb85",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-09T15:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14ecc0ba_56061f15",
       "range": {
         "startLine": 178,
         "startChar": 29,
