@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce357ac0_bf51b052",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-02-09T08:48:19Z",
+      "side": 1,
+      "message": "This setup is incompatible with prebuilts (whos build rules do not add the corresponding required apexes). That may not be a problem for Peter\u0027s use case  though, but in general I\u0027d recommend \"required\" on apexes.",
+      "range": {
+        "startLine": 282,
+        "startChar": 15,
+        "endLine": 284,
+        "endChar": 32
+      },
+      "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
