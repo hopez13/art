@@ -118,6 +118,30 @@
       },
       "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed288553_5b5d3015",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2022-02-09T19:52:20Z",
+      "side": 1,
+      "message": "No, the device doesn\u0027t use prebuilts.\n\nIf we want to make this work with prebuilts maybe there should be a defaults with the required clause shared between this and the prebuilts? That seems like it should be done separately though and getting the dependencies right in the non-prebuilt case seems better than nothing.",
+      "parentUuid": "d4e48119_6b8d8120",
+      "range": {
+        "startLine": 282,
+        "startChar": 15,
+        "endLine": 284,
+        "endChar": 32
+      },
+      "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
