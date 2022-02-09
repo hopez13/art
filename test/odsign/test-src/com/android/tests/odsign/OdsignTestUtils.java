@@ -24,6 +24,7 @@ import static org.junit.Assume.assumeTrue;
 
 import android.cts.install.lib.host.InstallUtilsHost;
 
+import com.android.tradefed.device.DeviceNotAvailableException;
 import com.android.tradefed.device.ITestDevice.ApexInfo;
 import com.android.tradefed.invoker.TestInformation;
 import com.android.tradefed.util.CommandResult;
@@ -275,4 +276,31 @@ public class OdsignTestUtils {
         String[] pathComponents = mappedArtifact.split("/");
         return pathComponents[pathComponents.length - 2];
     }
+
+    public String getDeviceCurrentTimestamp() throws DeviceNotAvailableException {
+        return assertCommandSucceeds("date +'%s'");
+    }
+
+    public int countFilesCreatedBeforeTime(String directory, String timestamp)
+            throws DeviceNotAvailableException {
+        // For simplicity, directory must be a simple path that doesn't require escaping.
+        String output = assertCommandSucceeds(
+                "find " + directory + " -type f ! -newerct '@" + timestamp + "' | wc -l");
+        return Integer.parseInt(output);
+    }
+
+    public int countFilesCreatedAfterTime(String directory, String timestamp)
+            throws DeviceNotAvailableException {
+        // For simplicity, directory must be a simple path that doesn't require escaping.
+        String output = assertCommandSucceeds(
+                "find " + directory + " -type f -newerct '@" + timestamp + "' | wc -l");
+        return Integer.parseInt(output);
+    }
+
+    public String assertCommandSucceeds(String command) throws DeviceNotAvailableException {
+        CommandResult result = mTestInfo.getDevice().executeShellV2Command(command);
+        assertWithMessage(result.toString()).that(result.getExitCode()).isEqualTo(0);
+        return result.getStdout().trim();
+    }
+
 }
