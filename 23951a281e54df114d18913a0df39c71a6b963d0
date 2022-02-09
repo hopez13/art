@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54d0f35b_799ac2fe",
+        "filename": "libnativebridge/tests/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-02-09T13:52:48Z",
+      "side": 1,
+      "message": "Suggestion: Add the full set of C++ sources to the `srcs` property, and list the ones you want to (temporarily) disable in `exclude_srcs`.",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 6
+      },
+      "revId": "23951a281e54df114d18913a0df39c71a6b963d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
