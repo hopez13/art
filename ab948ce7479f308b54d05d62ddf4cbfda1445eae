@@ -22,6 +22,30 @@
       },
       "revId": "ab948ce7479f308b54d05d62ddf4cbfda1445eae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82b9787a_a186e39e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1937790
+      },
+      "writtenOn": "2022-02-09T12:44:18Z",
+      "side": 1,
+      "message": "Patchset 2 now uses length-based approach (+ earlier we agreed that copying some of the characters twice is unsafe).",
+      "parentUuid": "d90a56b0_440542d4",
+      "range": {
+        "startLine": 2816,
+        "startChar": 2,
+        "endLine": 2820,
+        "endChar": 19
+      },
+      "revId": "ab948ce7479f308b54d05d62ddf4cbfda1445eae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
