@@ -142,6 +142,30 @@
       },
       "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd6cd7b_c80cadf7",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-09T20:13:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure it\u0027s possible to have a defaults that both `apex` and `apex_set` can use, but we could use a plain variable to share the list of required modules.\n\nThis is fine with me.",
+      "parentUuid": "ed288553_5b5d3015",
+      "range": {
+        "startLine": 282,
+        "startChar": 15,
+        "endLine": 284,
+        "endChar": 32
+      },
+      "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
