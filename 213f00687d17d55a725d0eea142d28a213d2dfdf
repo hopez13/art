@@ -70,6 +70,30 @@
       },
       "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaa2ab34_c8476d04",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-09T09:24:54Z",
+      "side": 1,
+      "message": "Yeah, then the runtime_libart.mk approach may be better after all, although it is a bit of an oddball way to track dependencies.\n\nIn that case I think it\u0027d be a bit odd to remove it from base_system.mk, because it\u0027s far from an ART-specific dependency. However now I see that com.android.runtime is handled in exactly that way already, so whatever.",
+      "parentUuid": "2df41dee_22b22f8d",
+      "range": {
+        "startLine": 282,
+        "startChar": 15,
+        "endLine": 284,
+        "endChar": 32
+      },
+      "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
