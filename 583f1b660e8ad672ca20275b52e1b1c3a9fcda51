@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f5b370e_63421bb8",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-09T12:46:15Z",
+      "side": 1,
+      "message": "I\u0027m wondering, why do I need this here and for the libdexfile standalone test, but e.g. not for art_standalone_libartpalette_tests? It\u0027s also using append-bitness, after all.",
+      "revId": "583f1b660e8ad672ca20275b52e1b1c3a9fcda51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
