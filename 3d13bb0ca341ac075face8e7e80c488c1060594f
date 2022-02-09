@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000020264883",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1976524?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "9337d7f5_4e6b2138",
+          "description": "Change to \"dex2oat/linker/image_writer.cc\"",
+          "replacements": [
+            {
+              "path": "dex2oat/linker/image_writer.cc",
+              "range": {
+                "startLine": 1921,
+                "startChar": 5,
+                "endLine": 1921,
+                "endChar": 11
+              },
+              "replacement": "Assign"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "4217317a_23a45c26",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1921,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-02-09T14:32:00Z",
+      "side": 1,
+      "message": "Common typo found: \"Assing\" -- should it be \"Assign\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 1921,
+        "startChar": 5,
+        "endLine": 1921,
+        "endChar": 11
+      },
+      "revId": "3d13bb0ca341ac075face8e7e80c488c1060594f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
