@@ -22,6 +22,30 @@
       },
       "revId": "b8aca6968f32866ba33bb78b3e613f5b8841ad1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f39dc727_b7990826",
+        "filename": "test/835-b216762268/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-09T15:02:40Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to affect the test. Would you prefer I inline mainTest into main?",
+      "parentUuid": "16e54136_6f82a7ad",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "b8aca6968f32866ba33bb78b3e613f5b8841ad1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
