@@ -22,6 +22,30 @@
       },
       "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b07c7d8f_e9e51ad0",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-09T08:53:17Z",
+      "side": 1,
+      "message": "Good point, but doesn\u0027t it work to add them on the prebuilt apex_set modules as well?",
+      "parentUuid": "ce357ac0_bf51b052",
+      "range": {
+        "startLine": 282,
+        "startChar": 15,
+        "endLine": 284,
+        "endChar": 32
+      },
+      "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
