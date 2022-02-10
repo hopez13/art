@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "960e972c_5fb116e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-10T14:48:36Z",
+      "side": 1,
+      "message": "We do call AddTypeGuard for the diamond pattern but I don\u0027t see a HBoundType being inserted https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/inliner.cc;l\u003d975;drc\u003d239c449f10853374a9a7a2bd1d8413354054573e",
+      "parentUuid": "1e6352ec_1ecd5e7d",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "25dec6e21e3d3a0980d135577a2d43ba8a149202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "eef08efd_c1efc550",
