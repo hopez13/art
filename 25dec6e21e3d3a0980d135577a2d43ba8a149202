@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef08efd_c1efc550",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-10T13:58:41Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "25dec6e21e3d3a0980d135577a2d43ba8a149202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "542d1ab5_f397c8e4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-10T13:58:41Z",
+      "side": 1,
+      "message": "I moved it slightly since if the `class_index` is not valid, we won\u0027t try to inline due to shortcutting.",
+      "range": {
+        "startLine": 966,
+        "startChar": 0,
+        "endLine": 966,
+        "endChar": 80
+      },
+      "revId": "25dec6e21e3d3a0980d135577a2d43ba8a149202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
