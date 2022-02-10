@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23f627d1_2e4948c4",
+        "filename": "runtime/interpreter/mterp/arm64ng/object.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-10T12:07:09Z",
+      "side": 0,
+      "message": "You\u0027re removing the ability to share slow paths. This should definitely be mentioned in the commit message.\n\nHow much code are we adding?",
+      "range": {
+        "startLine": 229,
+        "startChar": 3,
+        "endLine": 229,
+        "endChar": 92
+      },
+      "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
