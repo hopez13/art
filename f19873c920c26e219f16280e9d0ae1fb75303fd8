@@ -224,6 +224,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9bb4c28_0b890d50",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-10T19:56:05Z",
+      "side": 1,
+      "message": "Fine, it\u0027s not a big deal. Alternatively, you can create an instance of OdsignTestUtils inside CompOsTestUtils.",
+      "parentUuid": "4bb4da1b_775d763d",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 5
+      },
+      "revId": "f19873c920c26e219f16280e9d0ae1fb75303fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3db410f2_b660b2e2",
@@ -261,6 +285,30 @@
       "side": 1,
       "message": "Added a comment. Right now, this can only be second, and OdrefreshHostTest#getCurrentTimeMs can\u0027t be second for precision.\n\nI filed a issue to toybox. Once it\u0027s fixed, we may be able to consolidate both to nanosecond (at least at the code level, since getCurrentTimeMs is only micro).",
       "parentUuid": "3db410f2_b660b2e2",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 5
+      },
+      "revId": "f19873c920c26e219f16280e9d0ae1fb75303fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ef11707_6bc03350",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-10T19:56:05Z",
+      "side": 1,
+      "message": "For being used by find, you can do `getCurrentTimeMs() / 1000`.",
+      "parentUuid": "3cfcde94_f8884aec",
       "range": {
         "startLine": 280,
         "startChar": 4,
