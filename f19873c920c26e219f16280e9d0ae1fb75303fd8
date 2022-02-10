@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e33d2578_55551634",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsDenialHostTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-10T16:30:25Z",
+      "side": 1,
+      "message": "Can you do something like getDevice().getChildren(...)?",
+      "range": {
+        "startLine": 94,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 31
+      },
+      "revId": "f19873c920c26e219f16280e9d0ae1fb75303fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f161449_d9de0337",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsDenialHostTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-10T16:30:25Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 116,
+        "endChar": 95
+      },
+      "revId": "f19873c920c26e219f16280e9d0ae1fb75303fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f63d46_92570b46",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsDenialHostTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-10T16:30:25Z",
+      "side": 1,
+      "message": "getDevice().deleteFile(...)?",
+      "range": {
+        "startLine": 117,
+        "startChar": 19,
+        "endLine": 117,
+        "endChar": 40
+      },
+      "revId": "f19873c920c26e219f16280e9d0ae1fb75303fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e36bb9e2_4d8fc850",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsDenialHostTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-10T16:30:25Z",
+      "side": 1,
+      "message": "getDevice().isDirectory(...)?",
+      "revId": "f19873c920c26e219f16280e9d0ae1fb75303fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a277de5_cab49686",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-10T16:30:25Z",
+      "side": 1,
+      "message": "Duplicate method?",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 5
+      },
+      "revId": "f19873c920c26e219f16280e9d0ae1fb75303fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3db410f2_b660b2e2",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-10T16:30:25Z",
+      "side": 1,
+      "message": "Since you are moving this here, it\u0027s better to consolidate it with OdrefreshHostTest#getCurrentTimeMs",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 5
+      },
+      "revId": "f19873c920c26e219f16280e9d0ae1fb75303fd8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
