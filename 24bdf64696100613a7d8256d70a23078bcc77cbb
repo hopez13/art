@@ -70,6 +70,30 @@
       },
       "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "316d0eb1_fdba2a81",
+        "filename": "runtime/interpreter/mterp/arm64ng/object.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-10T13:19:25Z",
+      "side": 0,
+      "message": "Side-note: If needed, it is also valid to call add_slow_path outside of handler and store it in global variable for reuse.  Although, we have not needed it yet.  Presumably it makes more sense to add such shared code in the footer as we do now.",
+      "parentUuid": "f8dfa5e6_8fb92bb0",
+      "range": {
+        "startLine": 229,
+        "startChar": 3,
+        "endLine": 229,
+        "endChar": 92
+      },
+      "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
