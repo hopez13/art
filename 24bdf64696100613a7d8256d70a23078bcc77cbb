@@ -22,6 +22,30 @@
       },
       "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9a83d5_32873576",
+        "filename": "runtime/interpreter/mterp/arm64ng/object.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-10T12:11:02Z",
+      "side": 0,
+      "message": "Could we instead do something like\n\n%  if opcode \u003d\u003d \"iput_boolean\":\n%    slow_path \u003d slow_path_name(\"iput_byte\")\n%  elif opcode \u003d\u003d \"iput_char\":\n%    slow_path \u003d slow_path_name(\"iput_short\")\n%  else\n%    add_slow_path(op_iput_slow_path, volatile_store, wide, is_object)",
+      "parentUuid": "23f627d1_2e4948c4",
+      "range": {
+        "startLine": 229,
+        "startChar": 3,
+        "endLine": 229,
+        "endChar": 92
+      },
+      "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
