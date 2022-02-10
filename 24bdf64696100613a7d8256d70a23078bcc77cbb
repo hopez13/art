@@ -118,6 +118,30 @@
       },
       "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02b5be68_cd4aa4f1",
+        "filename": "runtime/interpreter/mterp/arm64ng/object.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-10T14:51:03Z",
+      "side": 0,
+      "message": "Total increase for arm64: 4*0x50 \u003d 320 bytes.",
+      "parentUuid": "9dcdcbdc_249e3c40",
+      "range": {
+        "startLine": 229,
+        "startChar": 3,
+        "endLine": 229,
+        "endChar": 92
+      },
+      "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
