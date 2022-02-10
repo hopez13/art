@@ -119,6 +119,24 @@
       "message": "You\u0027re just pushing the race condition from two threads to three threads:\n\n  T1 reads null.\n  T2 reads null.\n  T2 writes a non-null value1.\n  T3 reads value1 in `IsDumpFrequent()`.\n  T2 writes a non-null value2, deletes value1.\n  T3 uses value1 after delete.",
       "revId": "34d6f18c4fe7e8b6a6de5c2cd1fd5936957b1004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ad44242_88044bb7",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-10T11:23:42Z",
+      "side": 1,
+      "message": "(One of the writes should be on T1.)",
+      "parentUuid": "e67ead43_9b4ddc28",
+      "revId": "34d6f18c4fe7e8b6a6de5c2cd1fd5936957b1004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
