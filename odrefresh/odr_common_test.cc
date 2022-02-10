@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,34 +16,18 @@
 
 #include "odr_common.h"
 
-#include <initializer_list>
-#include <sstream>
-#include <string>
-#include <string_view>
-
-#include "android-base/parseint.h"
+#include "gmock/gmock.h"
+#include "gtest/gtest.h"
 
 namespace art {
 namespace odrefresh {
 
-std::string Concatenate(std::initializer_list<std::string_view> args) {
-  std::stringstream ss;
-  for (auto arg : args) {
-    ss << arg;
-  }
-  return ss.str();
-}
-
-std::string QuotePath(std::string_view path) {
-  return Concatenate({"'", path, "'"});
-}
-
-bool ShouldDisableRefresh(const std::string& sdk_version_str) {
-  int sdk_version = 0;
-  if (!android::base::ParseInt(sdk_version_str, &sdk_version)) {
-    return false;
-  }
-  return sdk_version >= 32;
+TEST(OdrCommonTest, ShouldDisableRefresh) {
+  EXPECT_TRUE(ShouldDisableRefresh("32"));
+  EXPECT_TRUE(ShouldDisableRefresh("33"));
+  EXPECT_FALSE(ShouldDisableRefresh("31"));
+  EXPECT_FALSE(ShouldDisableRefresh(""));
+  EXPECT_FALSE(ShouldDisableRefresh("invalid"));
 }
 
 }  // namespace odrefresh
