@@ -39,6 +39,30 @@
       },
       "revId": "d49c8e25990b3f5f1dae86ca72b1e7be3b2885dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61f2f6e9_2c1b28ee",
+        "filename": "test/etc/default-build",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-10T11:35:36Z",
+      "side": 1,
+      "message": "You have been added because this works towards fixing b/203171409 . You\u0027re not expected to review this, but you can if you want to.\n\nThe \"classes-tmp-all\" (referenced by \"src-tmp-all\") is used for compiling many things together to serve as a classpath for compilation of individual components later (allows cross-references). But those components can be loaded differently at runtime, so those classes may or may not be visible. (And there\u0027s also the overriding with src2/, src-art/ and src-ex2/.)",
+      "parentUuid": "f4e0ef17_0d1067de",
+      "range": {
+        "startLine": 281,
+        "startChar": 48,
+        "endLine": 281,
+        "endChar": 59
+      },
+      "revId": "d49c8e25990b3f5f1dae86ca72b1e7be3b2885dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
