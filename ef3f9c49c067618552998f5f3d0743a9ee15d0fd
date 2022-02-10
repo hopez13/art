@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32a606e0_dfa142b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-10T20:55:23Z",
+      "side": 1,
+      "message": "Let me know if I\u0027m wrong. For such a relanding CL, I think it\u0027s kind of a convention that PS1 contains the original change, while subsequent patchsets contain the fix. But I admit that this particular fix is too large to be contains in the same CL. Anyway, I can separate the changes in the future if that\u0027s the best practice. For now, I\u0027m going to submit this CL as-is so that it can start to soak as soon as possible.",
+      "parentUuid": "b79fdfcc_4cfaa52b",
+      "revId": "ef3f9c49c067618552998f5f3d0743a9ee15d0fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8c6fd09_3f1f657c",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-02-10T18:54:36Z",
       "side": 1,
       "message": "I\u0027d adjust the comment to mention `libartbase-testing`.",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 60
+      },
+      "revId": "ef3f9c49c067618552998f5f3d0743a9ee15d0fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a65e3a_a0fc06a9",
+        "filename": "test/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-02-10T20:55:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8c6fd09_3f1f657c",
       "range": {
         "startLine": 302,
         "startChar": 0,
