@@ -64,6 +64,9 @@ static constexpr size_t kMaximumNumberOfCumulatedDexRegisters = 32;
 // much inlining compared to code locality.
 static constexpr size_t kMaximumNumberOfRecursiveCalls = 4;
 
+// Limit recursive polymorphic call inlining to prevent code bloat.
+static constexpr size_t kMaximumNumberOfPolymorphicRecursiveCalls = 0;
+
 // Controls the use of inline caches in AOT mode.
 static constexpr bool kUseAOTInlineCaches = true;
 
@@ -946,14 +949,21 @@ bool HInliner::TryInlinePolymorphicCall(
       continue;
     }
 
+    const bool too_many_polymorphic_recursive_calls =
+        CountRecursiveCallsOf(method) > kMaximumNumberOfPolymorphicRecursiveCalls;
+    if (too_many_polymorphic_recursive_calls) {
+      LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedPolymorphicRecursiveBudget)
+          << "Method " << method->PrettyMethod()
+          << " is not inlined because it has reached its rpolymorphic ecursive call budget.";
+    }
+
     HInstruction* receiver = invoke_instruction->InputAt(0);
     HInstruction* cursor = invoke_instruction->GetPrevious();
     HBasicBlock* bb_cursor = invoke_instruction->GetBlock();
 
     dex::TypeIndex class_index = FindClassIndexIn(handle.Get(), caller_compilation_unit_);
     HInstruction* return_replacement = nullptr;
-    LOG_NOTE() << "Try inline polymorphic call to " << method->PrettyMethod();
-    if (!class_index.IsValid() ||
+    if (too_many_polymorphic_recursive_calls || !class_index.IsValid() ||
         !TryBuildAndInline(invoke_instruction,
                            method,
                            ReferenceTypeInfo::Create(handle, /* is_exact= */ true),
