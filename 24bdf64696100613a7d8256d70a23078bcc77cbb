@@ -94,6 +94,30 @@
       },
       "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dcdcbdc_249e3c40",
+        "filename": "runtime/interpreter/mterp/arm64ng/object.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-10T14:49:03Z",
+      "side": 0,
+      "message": "I looked at the disassembly for arm64 and each slow path is 0x50 bytes, including 0xc bytes padding. That seems OK to duplicate.",
+      "parentUuid": "316d0eb1_fdba2a81",
+      "range": {
+        "startLine": 229,
+        "startChar": 3,
+        "endLine": 229,
+        "endChar": 92
+      },
+      "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
