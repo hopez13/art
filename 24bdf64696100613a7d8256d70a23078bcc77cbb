@@ -46,6 +46,30 @@
       },
       "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8dfa5e6_8fb92bb0",
+        "filename": "runtime/interpreter/mterp/arm64ng/object.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-10T13:13:15Z",
+      "side": 0,
+      "message": "The slow path below is small-ish.  It is couple of bytes of code. (\u003c\u003c1k)\n\nI would much rather have the copy than to try to prove to myself that it is safe to share (now and in the future).\n\nI also think it is nicer for profiling/debugging if one opcode handler does not jump into middle of different opcode handler.",
+      "parentUuid": "9f9a83d5_32873576",
+      "range": {
+        "startLine": 229,
+        "startChar": 3,
+        "endLine": 229,
+        "endChar": 92
+      },
+      "revId": "24bdf64696100613a7d8256d70a23078bcc77cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
