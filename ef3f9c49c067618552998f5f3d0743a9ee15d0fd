@@ -16,6 +16,46 @@
       "message": "FYI, presubmits are passing. The failed presubmits don\u0027t look related.",
       "revId": "ef3f9c49c067618552998f5f3d0743a9ee15d0fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b79fdfcc_4cfaa52b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-02-10T18:54:36Z",
+      "side": 1,
+      "message": "This looks good to me, but I\u0027d be nice to have the changes adding `libartbase-testing` in a separate CL (as they were not part of the original CL); I\u0027m also fine if you want to submit the CL as-is.",
+      "revId": "ef3f9c49c067618552998f5f3d0743a9ee15d0fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8c6fd09_3f1f657c",
+        "filename": "test/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-02-10T18:54:36Z",
+      "side": 1,
+      "message": "I\u0027d adjust the comment to mention `libartbase-testing`.",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 60
+      },
+      "revId": "ef3f9c49c067618552998f5f3d0743a9ee15d0fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
