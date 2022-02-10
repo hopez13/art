@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Runner for an individual run-test.
-
+#set -x
 readonly local_path=$(dirname "$0")
 source "${local_path}/apex-bootclasspath-utils.sh"
 
