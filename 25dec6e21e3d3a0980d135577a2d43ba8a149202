@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9df137f2_5129eaa4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-10T14:35:41Z",
+      "side": 1,
+      "message": "We do add the reference_type [1] but that is used to substitute arguments only [2].\n\n[1]: https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/inliner.cc;l\u003d959;drc\u003dmaster\n[2]: https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/inliner.cc;l\u003d2028;drc\u003dmaster\n\nIn order for that type to be used in TryInlinePolymorphicCall we would need to pass that reference_type to Inlier::Run since it would be used in recursive inlining.",
+      "parentUuid": "eafd9774_d3244dd5",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "25dec6e21e3d3a0980d135577a2d43ba8a149202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "eef08efd_c1efc550",
