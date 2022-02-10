@@ -19,12 +19,12 @@ public class Main {
   // Note that this is testing we haven't intrinsified the byte[] arraycopy version.
   // Once we eventually start doing it, we will need to re-adjust this test.
 
-  /// CHECK-START-X86: void Main.typedCopy(java.lang.Object, byte[]) disassembly (after)
-  /// CHECK: InvokeStaticOrDirect method_name:java.lang.System.arraycopy intrinsic:SystemArrayCopy
-  /// CHECK-NOT:    call
-  /// CHECK: InvokeStaticOrDirect method_name:java.lang.System.arraycopy intrinsic:SystemArrayCopy
-  /// CHECK:        call
-  /// CHECK: ReturnVoid
+  // CHECK-START-X86: void Main.typedCopy(java.lang.Object, byte[]) disassembly (after)
+  // CHECK: InvokeStaticOrDirect method_name:java.lang.System.arraycopy intrinsic:SystemArrayCopy
+  // CHECK-NOT:    call
+  // CHECK: InvokeStaticOrDirect method_name:java.lang.System.arraycopy intrinsic:SystemArrayCopy
+  // CHECK:        call
+  // CHECK: ReturnVoid
   public static void typedCopy(Object o, byte[] foo) {
     System.arraycopy(o, 1, o, 0, 1);
     System.arraycopy((Object)foo, 1, (Object)foo, 0, 1);  // Don't use the @hide byte[] overload.
@@ -37,12 +37,12 @@ public class Main {
 
   // Test that we still do the optimization after inlining.
 
-  /// CHECK-START-X86: void Main.untypedCopyCaller(java.lang.Object, byte[]) disassembly (after)
-  /// CHECK: InvokeStaticOrDirect method_name:java.lang.System.arraycopy intrinsic:SystemArrayCopy
-  /// CHECK-NOT:    call
-  /// CHECK: InvokeStaticOrDirect method_name:java.lang.System.arraycopy intrinsic:SystemArrayCopy
-  /// CHECK:        call
-  /// CHECK: ReturnVoid
+  // CHECK-START-X86: void Main.untypedCopyCaller(java.lang.Object, byte[]) disassembly (after)
+  // CHECK: InvokeStaticOrDirect method_name:java.lang.System.arraycopy intrinsic:SystemArrayCopy
+  // CHECK-NOT:    call
+  // CHECK: InvokeStaticOrDirect method_name:java.lang.System.arraycopy intrinsic:SystemArrayCopy
+  // CHECK:        call
+  // CHECK: ReturnVoid
   public static void untypedCopyCaller(Object o, byte[] array) {
     untypedCopy(o, array);
   }
