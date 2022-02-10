@@ -1,0 +1,47 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000020311785",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1978319?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "cb37f0f5_577f7300",
+          "description": "Change to \"test/727-checker-unresolved-class/src-bcpex/unresolved/BcpExMarker.java\"",
+          "replacements": [
+            {
+              "path": "test/727-checker-unresolved-class/src-bcpex/unresolved/BcpExMarker.java",
+              "range": {
+                "startLine": 20,
+                "startChar": 12,
+                "endLine": 20,
+                "endChar": 20
+              },
+              "replacement": "interface"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "ab87ada2_f5597c93",
+        "filename": "test/727-checker-unresolved-class/src-bcpex/unresolved/BcpExMarker.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2022-02-10T10:31:08Z",
+      "side": 1,
+      "message": "Common typo found: \"inteface\" -- should it be \"interface\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 20,
+        "endChar": 20
+      },
+      "revId": "d6a64deb49434c530de2800b57a46f4de97bdb27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
