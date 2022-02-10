@@ -19,6 +19,7 @@
 #include <string>
 #include <string_view>
 
+#include "android-base/parseint.h"
 #include "android-base/properties.h"
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
@@ -166,6 +167,13 @@ int InitializeConfig(int argc, char** argv, OdrConfig* config) {
     std::string filter =
         android::base::GetProperty("dalvik.vm.systemservercompilerfilter", "speed");
     config->SetSystemServerCompilerFilter(filter);
+  }
+
+  int sdk_version = 0;
+  android::base::ParseInt(android::base::GetProperty("ro.build.version.sdk", /*default_value=*/"0"),
+                          &sdk_version);
+  if (sdk_version >= 32) {
+    config->SetRefresh(false);
   }
 
   return n;
