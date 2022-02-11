@@ -168,6 +168,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "196fd90b_17f85bee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-11T09:41:22Z",
+      "side": 1,
+      "message": "I don\u0027t see any code removing this case. I see the types being used for parameters, but not for the receiver. I am trying to see if I can pipe it through the inliner and make use of it in our Monomorphic and Polymorphic cases.\n\nIn this case, Bar and Foo are not related to each other but are subclasses of Baz.",
+      "parentUuid": "79543c5f_a42c8fb7",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "25dec6e21e3d3a0980d135577a2d43ba8a149202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "eef08efd_c1efc550",
