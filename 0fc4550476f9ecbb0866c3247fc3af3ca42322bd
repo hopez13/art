@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b44293b_eaaec21e",
+        "filename": "runtime/arch/arm/entrypoints_init_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-11T15:23:12Z",
+      "side": 1,
+      "message": "Break line right after \u0027(\u0027 to keep the ternary expression on one line. (Or break before \u0027:\u0027 and align \u0027:\u0027 with \u0027?\u0027.)",
+      "range": {
+        "startLine": 123,
+        "startChar": 36,
+        "endLine": 123,
+        "endChar": 37
+      },
+      "revId": "0fc4550476f9ecbb0866c3247fc3af3ca42322bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
