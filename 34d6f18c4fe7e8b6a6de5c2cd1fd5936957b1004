@@ -173,6 +173,24 @@
       "parentUuid": "07ae5353_887360ad",
       "revId": "34d6f18c4fe7e8b6a6de5c2cd1fd5936957b1004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c18b8ba_ed14d4ed",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-11T09:05:45Z",
+      "side": 1,
+      "message": "Ack, let\u0027s get this mitigation in.",
+      "parentUuid": "e1243d23_4a4d20eb",
+      "revId": "34d6f18c4fe7e8b6a6de5c2cd1fd5936957b1004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
