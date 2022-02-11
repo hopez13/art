@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "7b4f7f38ddd90fc23caf5ee9edada6bebe4397f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74dd66f8_1a036829",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-11T14:34:32Z",
+      "side": 1,
+      "message": "I would prefer the CFI_RESTORE_STATE_AND_DEF_CFA definition and use to be split out to its own CL.",
+      "range": {
+        "startLine": 71,
+        "startChar": 7,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "7b4f7f38ddd90fc23caf5ee9edada6bebe4397f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "064077b5_b26b281e",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-11T14:34:32Z",
+      "side": 1,
+      "message": "Add `.cfi_restore lr`. Either add `.cfi_restore` for r0-r2, or remove CFI directives for r0-r2 above.",
+      "revId": "7b4f7f38ddd90fc23caf5ee9edada6bebe4397f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
