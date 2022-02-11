@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cacd2316_852fdebf",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-11T11:07:08Z",
+      "side": 0,
+      "message": "Can you keep this instead of passing locations?",
+      "range": {
+        "startLine": 890,
+        "startChar": 2,
+        "endLine": 890,
+        "endChar": 54
+      },
+      "revId": "468de596d00791a1624cfe0953305844124cbe3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffbfd47a_6f60d9e2",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-11T11:07:08Z",
+      "side": 0,
+      "message": "Why did you drop this?",
+      "range": {
+        "startLine": 909,
+        "startChar": 56,
+        "endLine": 909,
+        "endChar": 76
+      },
+      "revId": "468de596d00791a1624cfe0953305844124cbe3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da1ea89f_bf3ceefa",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-11T11:07:08Z",
+      "side": 0,
+      "message": "Can you keep this instead of passing locations as a parameter?",
+      "range": {
+        "startLine": 721,
+        "startChar": 1,
+        "endLine": 721,
+        "endChar": 54
+      },
+      "revId": "468de596d00791a1624cfe0953305844124cbe3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
