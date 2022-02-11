@@ -155,6 +155,24 @@
       "parentUuid": "2ad44242_88044bb7",
       "revId": "34d6f18c4fe7e8b6a6de5c2cd1fd5936957b1004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1243d23_4a4d20eb",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-11T03:08:57Z",
+      "side": 1,
+      "message": "Vladimir - Are you OK with submitting this part first? We had discussed this earlier, and it appears to me that the remaining race is really a separate problem that seems to require writer synchronization, and this fixes a far more likely race.",
+      "parentUuid": "07ae5353_887360ad",
+      "revId": "34d6f18c4fe7e8b6a6de5c2cd1fd5936957b1004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
