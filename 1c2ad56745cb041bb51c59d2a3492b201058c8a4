@@ -39,6 +39,30 @@
       },
       "revId": "1c2ad56745cb041bb51c59d2a3492b201058c8a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "131f74e7_f29bc8df",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T13:39:23Z",
+      "side": 1,
+      "message": "Hi, \nMoved the addition of new instructions in a new CL as per previous review comment https://android-review.googlesource.com/c/platform/art/+/1981687",
+      "parentUuid": "5aae395c_d080d7ff",
+      "range": {
+        "startLine": 973,
+        "startChar": 7,
+        "endLine": 973,
+        "endChar": 21
+      },
+      "revId": "1c2ad56745cb041bb51c59d2a3492b201058c8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
