@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ea3c6c5_744b7e55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-11T21:47:53Z",
+      "side": 1,
+      "message": "Please add 184143265. That ticket is moot when this has landed.",
+      "revId": "2b906bd885251ae23d452a5f17121f80a61526a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24d80ff6_e6f50fe3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-11T21:47:53Z",
+      "side": 1,
+      "message": "The resolved comments are tiny nits that are only worth fixing if you have another reason to upload a source change.",
+      "revId": "2b906bd885251ae23d452a5f17121f80a61526a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8027bc2_af7cac02",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-11T21:47:53Z",
+      "side": 1,
+      "message": "Nit: Unnecessary space before newline.",
+      "range": {
+        "startLine": 83,
+        "startChar": 55,
+        "endLine": 83,
+        "endChar": 56
+      },
+      "revId": "2b906bd885251ae23d452a5f17121f80a61526a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7cfc6ce_8ba5bb6b",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-11T21:47:53Z",
+      "side": 1,
+      "message": "assertNull",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 18
+      },
+      "revId": "2b906bd885251ae23d452a5f17121f80a61526a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

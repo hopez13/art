@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9d89674_216fc64c",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-11T21:47:53Z",
+      "side": 0,
+      "message": "When removing a module it\u0027s hard to know that it isn\u0027t in use in some weird place, so for changes like this I find it useful to run multiproduct_kati through the `build_test\u003cn\u003e` builds on git_master to check that to some extent. I\u0027ve started a heavy presubmit with them now.\n\nLeaving this unresolved to wait in those results.",
+      "range": {
+        "startLine": 336,
+        "startChar": 10,
+        "endLine": 336,
+        "endChar": 32
+      },
+      "revId": "8046b6250629fcb739ce9eb35dcf6d6dd2c021d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e6b16f4_f722aa34",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/OdsignTestUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-11T21:47:53Z",
+      "side": 0,
+      "message": "Why not keep using this method?",
+      "range": {
+        "startLine": 72,
+        "startChar": 22,
+        "endLine": 72,
+        "endChar": 35
+      },
+      "revId": "8046b6250629fcb739ce9eb35dcf6d6dd2c021d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
