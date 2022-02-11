@@ -16,6 +16,29 @@
       "message": "Thanks for the review. Have addressed the review comments",
       "revId": "1c2ad56745cb041bb51c59d2a3492b201058c8a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aae395c_d080d7ff",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-11T12:56:53Z",
+      "side": 1,
+      "message": "PS8 does not contain a definition of `rep_movsd`. Can you add that in a separate CL? (And add a test for that please.)",
+      "range": {
+        "startLine": 973,
+        "startChar": 7,
+        "endLine": 973,
+        "endChar": 21
+      },
+      "revId": "1c2ad56745cb041bb51c59d2a3492b201058c8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
