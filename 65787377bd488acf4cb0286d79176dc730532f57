@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a2fbf0b_ad153095",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T12:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3b84edd_2eb3564c",
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "330440a2_36934b71",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-02-11T11:07:08Z",
       "side": 1,
       "message": "Why RCX instead of ECX for x86?",
+      "range": {
+        "startLine": 930,
+        "startChar": 26,
+        "endLine": 930,
+        "endChar": 29
+      },
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6797cb58_8d6a30b2",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T12:47:57Z",
+      "side": 1,
+      "message": "My Bad! Sorry about that. Changed to ECX",
+      "parentUuid": "330440a2_36934b71",
       "range": {
         "startLine": 930,
         "startChar": 26,
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17046e40_10ddb789",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T12:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16fd0592_fabcc157",
+      "range": {
+        "startLine": 946,
+        "startChar": 35,
+        "endLine": 946,
+        "endChar": 86
+      },
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdb61e29_7eb1f3af",
@@ -94,6 +160,30 @@
       "writtenOn": "2022-02-11T11:07:08Z",
       "side": 1,
       "message": "This DCHECK and the ones on lines 952 and 955 seem unnecessary to me, we can rely on `DataType::Size`.",
+      "range": {
+        "startLine": 949,
+        "startChar": 6,
+        "endLine": 949,
+        "endChar": 31
+      },
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0945b51c_c5c761ac",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T12:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdb61e29_7eb1f3af",
       "range": {
         "startLine": 949,
         "startChar": 6,
@@ -127,6 +217,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dec0f7c_7cefa07f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T12:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "666c67b3_2829ba02",
+      "range": {
+        "startLine": 777,
+        "startChar": 35,
+        "endLine": 777,
+        "endChar": 86
+      },
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23257dfc_9fd9b345",
@@ -140,6 +254,30 @@
       "writtenOn": "2022-02-11T11:07:08Z",
       "side": 1,
       "message": "This DCHECK and the ones on lines 784 and 787 seem unnecessary to me, we can rely on `DataType::Size`.",
+      "range": {
+        "startLine": 781,
+        "startChar": 6,
+        "endLine": 781,
+        "endChar": 31
+      },
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "882cc8ed_b36f78e2",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T12:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23257dfc_9fd9b345",
       "range": {
         "startLine": 781,
         "startChar": 6,
@@ -190,6 +328,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fecf8dc2_0ada5f40",
+        "filename": "compiler/optimizing/tags",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T12:47:57Z",
+      "side": 1,
+      "message": "committed by mistake.removed",
+      "parentUuid": "f9dc8faf_29e93b99",
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bfae228_98c827b8",
@@ -203,6 +359,30 @@
       "writtenOn": "2022-02-11T11:07:08Z",
       "side": 1,
       "message": "Please split the addition of new instructions in a separate CL and add tests in assembler_x86_64_test.cc (and likewise for x86, possibly in a separate CL from x86_64 --- see https://r.android.com/1897064 for an example).",
+      "range": {
+        "startLine": 984,
+        "startChar": 0,
+        "endLine": 985,
+        "endChar": 19
+      },
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e5c01a8_b156ce9a",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T12:47:57Z",
+      "side": 1,
+      "message": "Done. Please find the patch here : \nhttps://android-review.googlesource.com/c/platform/art/+/1981687",
+      "parentUuid": "4bfae228_98c827b8",
       "range": {
         "startLine": 984,
         "startChar": 0,
@@ -249,6 +429,54 @@
       "writtenOn": "2022-02-11T11:07:08Z",
       "side": 1,
       "message": "Did you forget to remove this?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 7
+      },
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62549f64_5bad9949",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T12:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbe0ded1_1d92a0ed",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 7
+      },
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "545439e7_b4883aed",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-11T12:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f366ca0_cebb71a9",
       "range": {
         "startLine": 4,
         "startChar": 0,
