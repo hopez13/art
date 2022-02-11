@@ -311,6 +311,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4794018d_4c8f8d62",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-11T14:15:51Z",
+      "side": 1,
+      "message": "I see that it comes from the previous version of the code. Ok to leave as is.",
+      "parentUuid": "57f019d0_a0481cab",
+      "range": {
+        "startLine": 832,
+        "startChar": 67,
+        "endLine": 832,
+        "endChar": 90
+      },
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9dc8faf_29e93b99",
