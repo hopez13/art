@@ -16,6 +16,46 @@
       "message": "Hi,\nKindly review the patch and provide your comments",
       "revId": "65787377bd488acf4cb0286d79176dc730532f57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3b84edd_2eb3564c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-11T11:06:12Z",
+      "side": 1,
+      "message": "Remove the \"tags\" file.",
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe0ded1_1d92a0ed",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-11T11:06:12Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 7
+      },
+      "revId": "65787377bd488acf4cb0286d79176dc730532f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
