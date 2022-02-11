@@ -137,6 +137,24 @@
       "parentUuid": "e67ead43_9b4ddc28",
       "revId": "34d6f18c4fe7e8b6a6de5c2cd1fd5936957b1004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07ae5353_887360ad",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1697000
+      },
+      "writtenOn": "2022-02-11T01:52:41Z",
+      "side": 1,
+      "message": "Thanks for your advice,although the HWASAN test is passed, it also should protect the creation with some existing lock, \nbut it need more test to avoid potential problem, could I commit this patch first.",
+      "parentUuid": "2ad44242_88044bb7",
+      "revId": "34d6f18c4fe7e8b6a6de5c2cd1fd5936957b1004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
