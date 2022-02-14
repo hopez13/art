@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ec1c53_50e9068b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-14T12:58:33Z",
+      "side": 1,
+      "message": "With `kMaximumNumberOfPolymorphicRecursiveCalls` set to 0, we would have this i.e. inlining for `NoRecursion` only.\nIf we set it to 1, we would have `NoRecursion`, `Wrapper\u003cNoRecursion\u003e`.\nIf we set it to 2, we would have `NoRecursion`, `Wrapper\u003cNoRecursion\u003e`, `Wrapper\u003cNoRecursion\u003e` and so on.\n\nThis gets quickly out of hand if we have several wrappers due to the exponential combination. If we have two wrapper classes and one non-wrapper class (test added with the CL) and compiling `AnotherWrapper.recursiveTwoWrappers` setting `kMaximumNumberOfPolymorphicRecursiveCalls` to 0 or 1:\n0: `NoRecursion`, `Wrapper\u003cNoRecursion\u003e`. Note that `Wrapper\u003cNoRecursion\u003e` is valid since `AnotherWrapper` is not in the type.\n1: `NoRecursion`, `Wrapper\u003cNoRecursion\u003e`, `AnotherWrapper\u003cNoRecursion\u003e`, `AnotherWrapper\u003cWrapper\u003cNoRecursion\u003e\u003e`, `Wrapper\u003cAnotherWrapper\u003cNoRecursion\u003e\u003e`\n\nNote that `Wrapper\u003cAnotherWrapper\u003cNoRecursion\u003e\u003e` would be accepted since the method is different (i.e. it is not `Wrapper\u003cWrapper\u003cT\u003e\u003e`).\n\nIn the general case:\n* If we set it to 0, we have an amount of cases that scale linearly irrespectively of the amount of wrapper classes.\n* If we set it to 1, we have an amount of cases that scale linearly with the amount of non-wrapper classes and exponentially with the amount of wrapper classes.\n\nTaking this into account, I\u0027d set it to 0 to avoid the combinatory explosion.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 3
+      },
+      "revId": "83c7f485ea8757c119bd974cc7757da7696d5995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18825e7b_b69a6926",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-14T12:58:33Z",
+      "side": 1,
+      "message": "After a second look, I don\u0027t think there\u0027s a bug in the type propagation. It is just the way inlining works. This CL would mitigate the code bloat.",
+      "revId": "83c7f485ea8757c119bd974cc7757da7696d5995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

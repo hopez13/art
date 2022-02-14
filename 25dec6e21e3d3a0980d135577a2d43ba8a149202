@@ -194,6 +194,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6c9119c6_ec0b3f8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-14T12:58:33Z",
+      "side": 1,
+      "message": "We were reasoning about it wrongly since I made a typo in the commit message. I now made it more explicit and talk about `unwrappedValue`.\n\nI believe that the code bloat is coming from the inline interactions and it is technically WAI but we can submit this CL to mitigate the issue.",
+      "parentUuid": "196fd90b_17f85bee",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 17
+      },
+      "revId": "25dec6e21e3d3a0980d135577a2d43ba8a149202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "eef08efd_c1efc550",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
