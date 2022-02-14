@@ -132,6 +132,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "18389485_6dd739c2",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T12:11:20Z",
+      "side": 1,
+      "message": "`pop {..., pc}` is control flow. The next instruction is unreachable.",
+      "parentUuid": "6f513421_52499be4",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 30
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f342c6d_1f525508",
         "filename": "runtime/arch/arm/memcmp16_arm.S",
         "patchSetId": 1
