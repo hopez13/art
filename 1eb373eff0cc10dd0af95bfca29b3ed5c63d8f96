@@ -16,6 +16,24 @@
       "message": "What\u0027s the motivation for this change?",
       "revId": "1eb373eff0cc10dd0af95bfca29b3ed5c63d8f96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d41a19_6ad0a00a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T14:04:00Z",
+      "side": 1,
+      "message": "Twofold:\n1. Allocating objects when the GC cannot run is odd and should be avoided.\n2. Separate the object allocation from layout and fixup phases where we should not use read barriers.",
+      "parentUuid": "a09363f6_0f0a1143",
+      "revId": "1eb373eff0cc10dd0af95bfca29b3ed5c63d8f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
