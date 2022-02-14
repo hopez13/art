@@ -1,4 +1,27 @@
 {
-  "comments": [],
-  "submitRequirementResults": []
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b634adf0_437ffe74",
+        "filename": "runtime/interpreter/mterp/x86_64ng/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T09:41:47Z",
+      "side": 1,
+      "message": "This is essentially a second slow path and should be written as such, providing a custom `suffix` to the `add_slow_path` function.",
+      "range": {
+        "startLine": 84,
+        "startChar": 35,
+        "endLine": 84,
+        "endChar": 65
+      },
+      "revId": "a5795548ebbe9e9142e569b5acd69232deddabca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
 }
