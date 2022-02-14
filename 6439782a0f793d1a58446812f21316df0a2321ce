@@ -16,6 +16,29 @@
       "message": "Orion, can you take a look at PS19 (latest)?\n\nPerhaps the test should be disabled in more configurations? The only point of running it is to make sure that the code did not bitrot and make the benchmarks easy to run.",
       "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ce7b7e_724f638b",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 1450,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-02-14T15:58:13Z",
+      "side": 1,
+      "message": "This is an OpenJDK 9 feature, do we know what fails with the jvm here? The default java version is 11 now.",
+      "range": {
+        "startLine": 1450,
+        "startChar": 18,
+        "endLine": 1450,
+        "endChar": 39
+      },
+      "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
