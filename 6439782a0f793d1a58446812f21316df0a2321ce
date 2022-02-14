@@ -39,6 +39,30 @@
       },
       "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50022055_ba55a76e",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 1450,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-14T17:14:57Z",
+      "side": 1,
+      "message": "It\u0027s actually not related do varhandles. If I remove this, the build fails because `sun.misc.Unsafe` doesn\u0027t have some of the methods added in `jdk.internal.misc.Unsafe` which I also included in this benchmark because we have intrinsics for them (namely, `compareAndSwapObject`).",
+      "parentUuid": "01ce7b7e_724f638b",
+      "range": {
+        "startLine": 1450,
+        "startChar": 18,
+        "endLine": 1450,
+        "endChar": 39
+      },
+      "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
