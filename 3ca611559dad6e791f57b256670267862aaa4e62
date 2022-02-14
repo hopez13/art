@@ -16,6 +16,162 @@
       "message": "Hi,\nCan you please let me know what the failure is ?",
       "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48184d5c_d73dc22d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T09:20:31Z",
+      "side": 1,
+      "message": "This is not based on top of the assembler CL, so missing functions in all builds. We need to retry after the assembler CL is merged.",
+      "parentUuid": "4f7cf50f_a726f89d",
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf2ce01_0459e659",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T09:20:31Z",
+      "side": 1,
+      "message": "L (And maybe reorder: MOVSB/W/L.)",
+      "range": {
+        "startLine": 900,
+        "startChar": 40,
+        "endLine": 900,
+        "endChar": 41
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04d7bd54_19e5e938",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T09:20:31Z",
+      "side": 1,
+      "message": "This should fit on one line.",
+      "range": {
+        "startLine": 953,
+        "startChar": 4,
+        "endLine": 954,
+        "endChar": 58
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7a6c0d8_2af3f5fa",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T09:20:31Z",
+      "side": 1,
+      "message": "This should fit on one line.This should fit on one line.",
+      "range": {
+        "startLine": 960,
+        "startChar": 4,
+        "endLine": 961,
+        "endChar": 59
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad33bfdc_496f42c8",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T09:20:31Z",
+      "side": 1,
+      "message": "L (And maybe reorder.)",
+      "range": {
+        "startLine": 730,
+        "startChar": 40,
+        "endLine": 730,
+        "endChar": 41
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61b1895f_0ba22998",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T09:20:31Z",
+      "side": 1,
+      "message": "This should fit on one line.",
+      "range": {
+        "startLine": 783,
+        "startChar": 4,
+        "endLine": 784,
+        "endChar": 58
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30c746e9_1d2ea564",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T09:20:31Z",
+      "side": 1,
+      "message": "This does not fit on one line but if we break before \"Address\" we can get the entire address expression on one line.",
+      "range": {
+        "startLine": 790,
+        "startChar": 4,
+        "endLine": 791,
+        "endChar": 59
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
