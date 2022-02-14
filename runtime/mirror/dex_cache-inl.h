@@ -358,7 +358,7 @@ inline void DexCache::SetResolvedMethod(uint32_t method_idx, ArtMethod* method) 
 template <typename T>
 NativeDexCachePair<T> DexCache::GetNativePair(std::atomic<NativeDexCachePair<T>>* pair_array,
                                               size_t idx) {
-  auto* array = reinterpret_cast<std::atomic<AtomicPair<uintptr_t>>*>(pair_array);
+  auto* array = reinterpret_cast<AtomicPair<uintptr_t>*>(pair_array);
   AtomicPair<uintptr_t> value = AtomicPairLoadAcquire(&array[idx]);
   return NativeDexCachePair<T>(reinterpret_cast<T*>(value.first), value.second);
 }
@@ -367,7 +367,7 @@ template <typename T>
 void DexCache::SetNativePair(std::atomic<NativeDexCachePair<T>>* pair_array,
                              size_t idx,
                              NativeDexCachePair<T> pair) {
-  auto* array = reinterpret_cast<std::atomic<AtomicPair<uintptr_t>>*>(pair_array);
+  auto* array = reinterpret_cast<AtomicPair<uintptr_t>*>(pair_array);
   AtomicPair<uintptr_t> v(reinterpret_cast<size_t>(pair.object), pair.index);
   AtomicPairStoreRelease(&array[idx], v);
 }

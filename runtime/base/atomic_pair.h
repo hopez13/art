@@ -23,6 +23,22 @@
 
 namespace art {
 
+// Implement 16-byte atomic pair using the seq-lock synchronization algorithm.
+//
+// This uses top 2-bytes of the key as version counter / lock bit,
+// which means the stored pair key can not use those bytes.
+//
+// The advantage of this is that the readers don't need exclusive cache line access,
+// and can use lither barriers.
+//
+// This does not affect 8-byte atomic pair implementation.
+//
+#define ATOMIC_PAIR_USE_SEQLOCK 1
+static constexpr uint64_t kSeqMask = (0xFFFFull << 48);
+static constexpr uint64_t kSeqLock = (0x0001ull << 48);
+static constexpr uint64_t kSeqIncr = (0x0002ull << 48);
+
+
 // std::pair<> is not trivially copyable and as such it is unsuitable for atomic operations.
 template <typename IntType>
 struct PACKED(2 * sizeof(IntType)) AtomicPair {
@@ -39,22 +55,55 @@ struct PACKED(2 * sizeof(IntType)) AtomicPair {
 
 template <typename IntType>
 ALWAYS_INLINE static inline AtomicPair<IntType> AtomicPairLoadAcquire(
-    std::atomic<AtomicPair<IntType>>* target) {
+    AtomicPair<IntType>* pair) {
   static_assert(std::atomic<AtomicPair<IntType>>::is_always_lock_free);
+  auto* target = reinterpret_cast<std::atomic<AtomicPair<IntType>>*>(pair);
   return target->load(std::memory_order_acquire);
 }
 
 template <typename IntType>
 ALWAYS_INLINE static inline void AtomicPairStoreRelease(
-    std::atomic<AtomicPair<IntType>>* target, AtomicPair<IntType> value) {
+    AtomicPair<IntType>* pair, AtomicPair<IntType> value) {
   static_assert(std::atomic<AtomicPair<IntType>>::is_always_lock_free);
+  auto* target = reinterpret_cast<std::atomic<AtomicPair<IntType>>*>(pair);
   target->store(value, std::memory_order_release);
 }
 
-// llvm does not implement 16-byte atomic operations on x86-64.
-#if defined(__x86_64__)
+#if ATOMIC_PAIR_USE_SEQLOCK
+
 ALWAYS_INLINE static inline AtomicPair<uint64_t> AtomicPairLoadAcquire(
-    std::atomic<AtomicPair<uint64_t>>* target) {
+    AtomicPair<uint64_t>* pair) {
+  auto* first = reinterpret_cast<std::atomic_uint64_t*>(&pair->first);
+  auto* second = reinterpret_cast<std::atomic_uint64_t*>(&pair->second);
+  while (true) {
+    uint64_t key0 = first->load(std::memory_order_acquire);
+    uint64_t val = second->load(std::memory_order_acquire);
+    uint64_t key1 = first->load(std::memory_order_acquire);
+    if (LIKELY(key0 == key1 && (key0 & kSeqLock) == 0)) {
+      return {key0 & ~kSeqMask, val};
+    }
+  }
+}
+
+ALWAYS_INLINE static inline void AtomicPairStoreRelease(
+    AtomicPair<uint64_t>* pair, AtomicPair<uint64_t> value) {
+  auto* first = reinterpret_cast<std::atomic_uint64_t*>(&pair->first);
+  auto* second = reinterpret_cast<std::atomic_uint64_t*>(&pair->second);
+  DCHECK_EQ(value.first & kSeqMask, 0ull);
+  uint64_t key;
+  do {
+    key = first->load(std::memory_order_relaxed);
+  } while ((key & kSeqLock) != 0 || !first->compare_exchange_weak(key, key | kSeqLock));
+  key = (value.first & ~kSeqMask) | ((key & kSeqMask) + kSeqIncr);
+  second->store(value.second, std::memory_order_release);
+  first->store(key, std::memory_order_release);
+}
+
+// llvm does not implement 16-byte atomic operations on x86-64.
+#elif defined(__x86_64__)
+ALWAYS_INLINE static inline AtomicPair<uint64_t> AtomicPairLoadAcquire(
+    AtomicPair<uint64_t>* pair) {
+  auto* target = reinterpret_cast<std::atomic<AtomicPair<uint64_t>>*>(pair);
   uint64_t first, second;
   __asm__ __volatile__(
       "lock cmpxchg16b (%2)"
@@ -65,7 +114,8 @@ ALWAYS_INLINE static inline AtomicPair<uint64_t> AtomicPairLoadAcquire(
 }
 
 ALWAYS_INLINE static inline void AtomicPairStoreRelease(
-    std::atomic<AtomicPair<uint64_t>>* target, AtomicPair<uint64_t> value) {
+    AtomicPair<uint64_t>* pair, AtomicPair<uint64_t> value) {
+  auto* target = reinterpret_cast<std::atomic<AtomicPair<uint64_t>>*>(pair);
   uint64_t first, second;
   __asm__ __volatile__ (
       "movq (%2), %%rax\n\t"
