@@ -64,6 +64,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bab7c29_b9fa4ea8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-14T14:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d87b954_e5cb5ae5",
+      "range": {
+        "startLine": 68,
+        "startChar": 68,
+        "endLine": 68,
+        "endChar": 69
+      },
+      "revId": "83c7f485ea8757c119bd974cc7757da7696d5995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc601180_71febdee",
@@ -87,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0af7d4a6_888b16c9",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-14T14:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc601180_71febdee",
+      "range": {
+        "startLine": 964,
+        "startChar": 69,
+        "endLine": 964,
+        "endChar": 77
+      },
+      "revId": "83c7f485ea8757c119bd974cc7757da7696d5995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dbc15c4_b5862b09",
@@ -100,6 +148,24 @@
       "writtenOn": "2022-02-14T13:47:28Z",
       "side": 1,
       "message": "Nit: add a comment for each of the argument you add. Could we avoid passing them and rely on the various ways we run these tests?",
+      "revId": "83c7f485ea8757c119bd974cc7757da7696d5995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acfd5104_53362149",
+        "filename": "test/2238-checker-polymorphic-recursive-inlining/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-14T14:47:14Z",
+      "side": 1,
+      "message": "We need the profile to have polymorphic inlining. Added a comment.",
+      "parentUuid": "0dbc15c4_b5862b09",
       "revId": "83c7f485ea8757c119bd974cc7757da7696d5995",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
