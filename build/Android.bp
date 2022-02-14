@@ -221,6 +221,11 @@ art_module_art_global_defaults {
             cflags: [
                 "-msse4.2",
                 "-mpopcnt",
+
+                // http://b/218805949  WAR for segfault with
+                // HOST_PREFER_32_BIT=true m -j32 test-art-host-gtest-art_oatdump_tests32
+                "-Xclang",
+                "-enable-noundef-analysis",
             ],
         },
         linux_x86_64: {
