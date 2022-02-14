@@ -22,6 +22,30 @@
       },
       "revId": "a5795548ebbe9e9142e569b5acd69232deddabca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e2e00b1_edbe6316",
+        "filename": "runtime/interpreter/mterp/x86_64ng/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-14T10:02:38Z",
+      "side": 1,
+      "message": "I don\u0027t necessarily have a problem with the opcode handler jumping in the middle of the slow-path.\n\nBut yes, it could be cleaned up.  More generally, this referred piece of code is very repetitive.  So if I were to clean it, I would go all in, and try to factor it out.\n\nOne issue is that there are occasionally some valid differences, so just fetch_from_thread_cache(\"%rsi\", fill_cache\u003d\"nterp_get_class_or_allocate_object\") does not work in general.  Making it stand-alone slow-path might indeed work better.\n\nThe other issue is that x64 is more messy than ARM.  In large number of cases the handlers are just single branch to footer code, which is still templated using assembler macros, which does not work with the slow_paths.  I tried to fix it for a while, but it is a lot work.",
+      "parentUuid": "b634adf0_437ffe74",
+      "range": {
+        "startLine": 84,
+        "startChar": 35,
+        "endLine": 84,
+        "endChar": 65
+      },
+      "revId": "a5795548ebbe9e9142e569b5acd69232deddabca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
