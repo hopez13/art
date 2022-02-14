@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a82e68a_a46d26db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T12:17:00Z",
+      "side": 1,
+      "message": "convenience?",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "1957b076e9112ace78af3f8b62684490599dee86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f04fcd0f_c45249c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T12:17:00Z",
+      "side": 1,
+      "message": "convenience",
+      "range": {
+        "startLine": 14,
+        "startChar": 29,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "1957b076e9112ace78af3f8b62684490599dee86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "583c89f0_8dfa4697",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1907,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T12:17:00Z",
+      "side": 1,
+      "message": "Should we add a specific `fill_value`? Something that the CFI checking script would recognize and treat as unreachable? (Given that it fails to treat instructions after `pop {..., pc}` as unreachable.)",
+      "range": {
+        "startLine": 1907,
+        "startChar": 4,
+        "endLine": 1907,
+        "endChar": 45
+      },
+      "revId": "1957b076e9112ace78af3f8b62684490599dee86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
