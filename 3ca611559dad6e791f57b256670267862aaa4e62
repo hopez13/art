@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c97f6ba_07afefb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-14T10:09:49Z",
+      "side": 1,
+      "message": "ok. thank you",
+      "parentUuid": "48184d5c_d73dc22d",
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bf2ce01_0459e659",
@@ -49,6 +67,30 @@
       "writtenOn": "2022-02-14T09:20:31Z",
       "side": 1,
       "message": "L (And maybe reorder: MOVSB/W/L.)",
+      "range": {
+        "startLine": 900,
+        "startChar": 40,
+        "endLine": 900,
+        "endChar": 41
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98be0c1a_5d9e2541",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-14T10:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bf2ce01_0459e659",
       "range": {
         "startLine": 900,
         "startChar": 40,
@@ -82,6 +124,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1457869_7e750f3c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-14T10:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04d7bd54_19e5e938",
+      "range": {
+        "startLine": 953,
+        "startChar": 4,
+        "endLine": 954,
+        "endChar": 58
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7a6c0d8_2af3f5fa",
@@ -95,6 +161,30 @@
       "writtenOn": "2022-02-14T09:20:31Z",
       "side": 1,
       "message": "This should fit on one line.This should fit on one line.",
+      "range": {
+        "startLine": 960,
+        "startChar": 4,
+        "endLine": 961,
+        "endChar": 59
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "855ae9a7_8708751c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-14T10:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7a6c0d8_2af3f5fa",
       "range": {
         "startLine": 960,
         "startChar": 4,
@@ -128,6 +218,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f04bcab_e19035d1",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-14T10:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad33bfdc_496f42c8",
+      "range": {
+        "startLine": 730,
+        "startChar": 40,
+        "endLine": 730,
+        "endChar": 41
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61b1895f_0ba22998",
@@ -151,6 +265,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9949fdb_fd24b691",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-14T10:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61b1895f_0ba22998",
+      "range": {
+        "startLine": 783,
+        "startChar": 4,
+        "endLine": 784,
+        "endChar": 58
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30c746e9_1d2ea564",
@@ -164,6 +302,30 @@
       "writtenOn": "2022-02-14T09:20:31Z",
       "side": 1,
       "message": "This does not fit on one line but if we break before \"Address\" we can get the entire address expression on one line.",
+      "range": {
+        "startLine": 790,
+        "startChar": 4,
+        "endLine": 791,
+        "endChar": 59
+      },
+      "revId": "3ca611559dad6e791f57b256670267862aaa4e62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e19f499_4a2c8fca",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-14T10:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30c746e9_1d2ea564",
       "range": {
         "startLine": 790,
         "startChar": 4,
