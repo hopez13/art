@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f31b5ae_93496888",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-14T10:14:08Z",
+      "side": 1,
+      "message": "This would fit on one line but I\u0027m fine with keeping it aligned with the x86-64 where the `CpuRegister` has 3 more characters than the `Register` here.",
+      "range": {
+        "startLine": 959,
+        "startChar": 4,
+        "endLine": 960,
+        "endChar": 85
+      },
+      "revId": "caec956d97f31d8064e89e9f4c799e89e48aff2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
