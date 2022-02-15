@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec39b770_f93e5b10",
+        "filename": "test/etc/default-build",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-15T12:29:01Z",
+      "side": 1,
+      "message": "This is done in the next CL in the chain: https://android-review.googlesource.com/1978318 .",
+      "parentUuid": "24a491f6_8a10ed69",
+      "range": {
+        "startLine": 259,
+        "startChar": 40,
+        "endLine": 259,
+        "endChar": 44
+      },
+      "revId": "38d8a10dd5b7604b9fc47bf99751101de57e28bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0aa922df_7d6b6075",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-15T11:42:45Z",
       "side": 1,
       "message": "Suggestion: This is very similar to lines 270–279; consider refactoring common parts.",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 48
+      },
+      "revId": "38d8a10dd5b7604b9fc47bf99751101de57e28bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d0757e_3fc5e14f",
+        "filename": "test/etc/default-build",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-15T12:29:01Z",
+      "side": 1,
+      "message": "I am considering a refactoring for a separate CL.\n\nI\u0027m also thinking about how to avoid repeated use of the file name `classes.dex`. Maybe we should use `classes\u003csuffix\u003e/classes.dex` and use `zip --junk-paths`.",
+      "parentUuid": "0aa922df_7d6b6075",
       "range": {
         "startLine": 281,
         "startChar": 0,
