@@ -98,6 +98,54 @@
       },
       "revId": "caec956d97f31d8064e89e9f4c799e89e48aff2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67d7fcb1_21dfb17d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-15T09:37:05Z",
+      "side": 1,
+      "message": "\u003e This would fit on one line but I\u0027m fine with keeping it aligned with the x86-64 where the `CpuRegister` has 3 more characters than the `Register` here.",
+      "parentUuid": "6f31b5ae_93496888",
+      "range": {
+        "startLine": 959,
+        "startChar": 4,
+        "endLine": 960,
+        "endChar": 85
+      },
+      "revId": "caec956d97f31d8064e89e9f4c799e89e48aff2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c566e9fc_766fed1a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1371444
+      },
+      "writtenOn": "2022-02-15T09:37:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "948cfb22_ceb715b0",
+      "range": {
+        "startLine": 960,
+        "startChar": 54,
+        "endLine": 960,
+        "endChar": 55
+      },
+      "revId": "caec956d97f31d8064e89e9f4c799e89e48aff2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
