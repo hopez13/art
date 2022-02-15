@@ -75,6 +75,29 @@
       },
       "revId": "caec956d97f31d8064e89e9f4c799e89e48aff2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "948cfb22_ceb715b0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-15T09:31:01Z",
+      "side": 1,
+      "message": "Missing `()`. (Flagged by presubmit.)",
+      "range": {
+        "startLine": 960,
+        "startChar": 54,
+        "endLine": 960,
+        "endChar": 55
+      },
+      "revId": "caec956d97f31d8064e89e9f4c799e89e48aff2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
