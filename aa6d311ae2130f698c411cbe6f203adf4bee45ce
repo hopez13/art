@@ -16,6 +16,24 @@
       "message": "Does it need to exist? (or should the \"if HAS_SRC and ...\" condition just be relaxed?)",
       "revId": "aa6d311ae2130f698c411cbe6f203adf4bee45ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74ca88e8_a3c3948b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-15T10:18:56Z",
+      "side": 1,
+      "message": "I\u0027m preserving the old behavior in this respect. We can relax it later if desired.",
+      "parentUuid": "e7876e17_d63d45a1",
+      "revId": "aa6d311ae2130f698c411cbe6f203adf4bee45ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
