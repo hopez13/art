@@ -178,6 +178,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cf192cd_77540917",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-15T13:41:25Z",
+      "side": 1,
+      "message": "// To be clear, I also agree it should be ok to remove the technically correct \"adjust_cfa_offset\" as optimization in the cases where this removal can not be observed by unwinder or the checker script.",
+      "parentUuid": "edde4fb0_d815c28a",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 30
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f342c6d_1f525508",
