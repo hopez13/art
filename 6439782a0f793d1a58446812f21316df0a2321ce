@@ -18,6 +18,92 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf6bacc_2eb43fec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-02-15T14:23:08Z",
+      "side": 1,
+      "message": "Very nice!",
+      "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5d06a2f_7f444caf",
+        "filename": "test/2239-varhandle-perf/build",
+        "patchSetId": 19
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-02-15T14:23:08Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 112
+      },
+      "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cb1eb32_b20c934c",
+        "filename": "test/2239-varhandle-perf/build",
+        "patchSetId": 19
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-02-15T14:23:08Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 33,
+        "startChar": 55,
+        "endLine": 33,
+        "endChar": 71
+      },
+      "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0027946_0a8cf031",
+        "filename": "test/2239-varhandle-perf/util-src/generate_java.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-02-15T14:23:08Z",
+      "side": 1,
+      "message": "Super-nit: the VH equivalents look like they are using offset, value, {value1} rather than alternating here. The value field isn\u0027t initialized so every op will fail, but the VH equivalents initialize the equivalent field.",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 65
+      },
+      "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01ce7b7e_724f638b",
@@ -55,6 +141,30 @@
       "side": 1,
       "message": "It\u0027s actually not related do varhandles. If I remove this, the build fails because `sun.misc.Unsafe` doesn\u0027t have some of the methods added in `jdk.internal.misc.Unsafe` which I also included in this benchmark because we have intrinsics for them (namely, `compareAndSwapObject`).",
       "parentUuid": "01ce7b7e_724f638b",
+      "range": {
+        "startLine": 1450,
+        "startChar": 18,
+        "endLine": 1450,
+        "endChar": 39
+      },
+      "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d49c78c_dd90b1fc",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 19
+      },
+      "lineNbr": 1450,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-02-15T14:23:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "50022055_ba55a76e",
       "range": {
         "startLine": 1450,
         "startChar": 18,
