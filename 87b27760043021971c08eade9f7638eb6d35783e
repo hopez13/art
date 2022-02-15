@@ -154,6 +154,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edde4fb0_d815c28a",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-15T13:33:05Z",
+      "side": 1,
+      "message": "Done.\n\nI still maintain that push/pop should always have corresponding adjust_cfa_offset - regardless of control flow.\n\nI believe there should be way to tell objdump not to disassemble literal data via $d $a symbols, but I have not found the right assembler directives... it should be possible though.\n\nBut on another thought, I tweaked the script to only report errors for assembly instructions that have file:line mapping.  This excludes any \"instructions\" which are in fact data/padding/literals/etc...\n\nWith this tweak, the method de-facto terminates after the pop, so the debate is rendered moot :-)",
+      "parentUuid": "18389485_6dd739c2",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 30
+      },
+      "revId": "87b27760043021971c08eade9f7638eb6d35783e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f342c6d_1f525508",

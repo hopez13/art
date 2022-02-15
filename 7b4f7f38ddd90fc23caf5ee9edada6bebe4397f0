@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "963f0819_39efeeaf",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-15T13:33:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74dd66f8_1a036829",
+      "range": {
+        "startLine": 71,
+        "startChar": 7,
+        "endLine": 71,
+        "endChar": 36
+      },
+      "revId": "7b4f7f38ddd90fc23caf5ee9edada6bebe4397f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "064077b5_b26b281e",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-02-11T14:34:32Z",
       "side": 1,
       "message": "Add `.cfi_restore lr`. Either add `.cfi_restore` for r0-r2, or remove CFI directives for r0-r2 above.",
+      "revId": "7b4f7f38ddd90fc23caf5ee9edada6bebe4397f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a36f2ed6_f238a2d3",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-15T13:33:05Z",
+      "side": 1,
+      "message": "Done, thanks.\n\n(the script only check cfa_offset, it does not check any spills/unspill.  Maybe some other day)",
+      "parentUuid": "064077b5_b26b281e",
       "revId": "7b4f7f38ddd90fc23caf5ee9edada6bebe4397f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
