@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9419e06d_1b1028ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-15T02:49:49Z",
+      "side": 1,
+      "message": "Only minor issues here. The bitmap.h comments are really about the pre-existing code.",
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49f72bc4_34cbbffc",
+        "filename": "runtime/gc/accounting/bitmap.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-15T02:49:49Z",
+      "side": 1,
+      "message": "Since the internal representation matters to some clients, I think we need a comment here to say what it is. This is interpreted as an array of kBitsPerBitmapWord-sized integers, with bits assigned in each word little end first?",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 0
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9270fbf_6754e9a6",
+        "filename": "runtime/gc/accounting/bitmap.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-15T02:49:49Z",
+      "side": 1,
+      "message": "Are the parens really correct here? If this should clearly be [start, end), i.e. closed at beginning, open at end, please fix. This is really confusing. Otherwise we should address this in a (much) later CL.",
+      "range": {
+        "startLine": 125,
+        "startChar": 35,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed885104_c4704e57",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-15T02:49:49Z",
+      "side": 1,
+      "message": "bm_address and end_bm_address?",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "780f1d6c_ebf16f49",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-15T02:49:49Z",
+      "side": 1,
+      "message": "Clearer to add these 2 to the initializations above, since they are just field initializations? May need helper functions for the arguments.",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 20
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80370e22_b11dce27",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-15T02:49:49Z",
+      "side": 1,
+      "message": "I\u0027m not quite sure what this means. kBytesCoveredByBitmapWord?",
+      "range": {
+        "startLine": 102,
+        "startChar": 26,
+        "endLine": 102,
+        "endChar": 44
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d765f94f_6429fab7",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-15T02:49:49Z",
+      "side": 1,
+      "message": "Maybe define this in a comment?",
+      "range": {
+        "startLine": 189,
+        "startChar": 17,
+        "endLine": 189,
+        "endChar": 33
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10018269_b5791631",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-15T02:49:49Z",
+      "side": 1,
+      "message": "Spelling",
+      "range": {
+        "startLine": 197,
+        "startChar": 5,
+        "endLine": 197,
+        "endChar": 10
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
