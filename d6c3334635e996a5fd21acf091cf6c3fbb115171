@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b0c403e_1053c14f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-16T15:46:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65325560_768ed71a",
+      "range": {
+        "startLine": 961,
+        "startChar": 0,
+        "endLine": 961,
+        "endChar": 86
+      },
+      "revId": "d6c3334635e996a5fd21acf091cf6c3fbb115171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "274ceae2_9bed3ba1",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-16T15:04:31Z",
       "side": 1,
       "message": "DCHECK_EQ(actually_monomorphic, UseOnlyPolymorphicInliningWithNoDeopt()).",
+      "range": {
+        "startLine": 963,
+        "startChar": 0,
+        "endLine": 965,
+        "endChar": 5
+      },
+      "revId": "d6c3334635e996a5fd21acf091cf6c3fbb115171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "173cb71a_946b96d2",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-16T15:46:36Z",
+      "side": 1,
+      "message": "It is a \"DCHECK_IMPLIES\". `actually_monomorphic` implies `UseOnlyPolymorphicInliningWithNoDeopt()` but the reverse is not true. We can still simplify it to `DCHECK(!actually_monomorphic || UseOnlyPolymorphicInliningWithNoDeopt());`",
+      "parentUuid": "274ceae2_9bed3ba1",
       "range": {
         "startLine": 963,
         "startChar": 0,
