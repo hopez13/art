@@ -22,6 +22,30 @@
       },
       "revId": "101cb89f0aefe89a1361b17dc5c2b3a491ee4573",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a9d0171_416e2dbc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-16T16:10:58Z",
+      "side": 1,
+      "message": "We don\u0027t seem to add parenthesis for boolean cases like this e.g. https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/inliner.cc;l\u003d1860;drc\u003d4f5b7cb3dfef3ea175439a8a541f8c9f9458d34a. Does the style guide say something about it?",
+      "parentUuid": "600a682c_038bfe08",
+      "range": {
+        "startLine": 963,
+        "startChar": 38,
+        "endLine": 963,
+        "endChar": 58
+      },
+      "revId": "101cb89f0aefe89a1361b17dc5c2b3a491ee4573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
