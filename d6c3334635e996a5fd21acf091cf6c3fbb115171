@@ -16,6 +16,52 @@
       "message": "Nicolas PTAL",
       "revId": "d6c3334635e996a5fd21acf091cf6c3fbb115171",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65325560_768ed71a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-16T15:04:31Z",
+      "side": 1,
+      "message": "We know the case, so just mention UseOnlyPolymorphicInliningWithNoDeopt in the comment.",
+      "range": {
+        "startLine": 961,
+        "startChar": 0,
+        "endLine": 961,
+        "endChar": 86
+      },
+      "revId": "d6c3334635e996a5fd21acf091cf6c3fbb115171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "274ceae2_9bed3ba1",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-16T15:04:31Z",
+      "side": 1,
+      "message": "DCHECK_EQ(actually_monomorphic, UseOnlyPolymorphicInliningWithNoDeopt()).",
+      "range": {
+        "startLine": 963,
+        "startChar": 0,
+        "endLine": 965,
+        "endChar": 5
+      },
+      "revId": "d6c3334635e996a5fd21acf091cf6c3fbb115171",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
