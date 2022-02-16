@@ -541,7 +541,7 @@ std::string CommonArtTestImpl::GetImageDirectory() {
     return path;
   }
   // In a chroot test, the boot image is located in a predefined location.
-  path = "/data/local/tmp/art_boot_images";
+  path = "/system/framework/art_boot_images";
   if (OS::DirectoryExists(path.c_str())) {
     return path;
   }
