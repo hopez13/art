@@ -70,6 +70,30 @@
       },
       "revId": "0c219592f283342618843b42ab97880225bd1370",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75504840_dbb92fc2",
+        "filename": "runtime/jni/java_vm_ext-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-16T16:16:59Z",
+      "side": 1,
+      "message": "For some reason the two functions have different annotations and I don\u0027t know what was the intent with `REQUIRES(Locks::jni_weak_globals_lock_)`.",
+      "parentUuid": "7a19832a_9f4c0ac3",
+      "range": {
+        "startLine": 27,
+        "startChar": 23,
+        "endLine": 27,
+        "endChar": 43
+      },
+      "revId": "0c219592f283342618843b42ab97880225bd1370",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
