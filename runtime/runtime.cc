@@ -33,6 +33,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <fstream>
 #include <limits>
 #include <string.h>
 #include <thread>
@@ -177,6 +178,10 @@
 #ifdef ART_TARGET_ANDROID
 #include <android/set_abort_message.h>
 #include "com_android_apex.h"
+#include "statslog_art.h"
+#include <log/log.h>
+#include "odsign_metrics.pb.h"                                                                                                             │                                   frameworks/proto_logging
+using OdsignMetrics = odsign::proto::OdsignMetrics;                                                                                        │                                   packages/modules/StatsD
 namespace apex = com::android::apex;
 
 #endif
@@ -1036,6 +1041,30 @@ void Runtime::EndThreadBirth() REQUIRES(Locks::runtime_shutdown_lock_) {
   }
 }
 
+#ifdef ART_TARGET_ANDROID
+void UploadOdsignStatsIfAvailable() {
+  // kOdsignMetricsFile contains osdign related metrics, read them & send to statsd
+  const std::string kOdsignMetricsFile = "/data/misc/odsign/metrics/odsign-metrics.txt";
+  std::ifstream metrics_file(kOdsignMetricsFile, std::ios::in);
+  OdsignMetrics odsignMetrics;
+  if (!metrics_file) {
+    PLOG(ERROR) << "Failed to open file "<< kOdsignMetricsFile;
+    return;
+  }
+  if (!odsignMetrics.ParseFromIstream(&metrics_file)) {
+    LOG(ERROR) << "Parsing metrics from file failed";
+  }
+  if (odsignMetrics.has_composartifactscheckrecord()) {
+    OdsignMetrics::CompOsArtifactsCheckRecord composRecord = odsignMetrics.composartifactscheckrecord();
+    int ret = art::metrics::statsd::stats_write(art::metrics::statsd::EARLY_BOOT_COMP_OS_ARTIFACTS_CHECK_REPORTED,
+                          composRecord.current_artifacts_ok(),
+                          composRecord.comp_os_pending_artifacts_exists(),
+                          composRecord.use_comp_os_generated_artifacts());
+    LOG(INFO) << "art::metrics::statsd::stats_write returned: " << ret;
+  }
+}
+#endif
+
 void Runtime::InitNonZygoteOrPostFork(
     JNIEnv* env,
     bool is_system_server,
@@ -1161,6 +1190,9 @@ void Runtime::InitNonZygoteOrPostFork(
     if (!odrefresh::UploadStatsIfAvailable(&err)) {
       LOG(WARNING) << "Failed to upload odrefresh metrics: " << err;
     }
+    #ifdef ART_TARGET_ANDROID
+      UploadOdsignStatsIfAvailable();
+    #endif
   }
 
   if (LIKELY(automatically_set_jni_ids_indirection_) && CanSetJniIdType()) {
