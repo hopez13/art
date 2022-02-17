@@ -85,6 +85,23 @@
       "message": "Hans, friendly ping. I sent the CL to you since you had the knowledge around the bug. Feel free to re-assign if you think someone else should take the review.",
       "revId": "33242492604a473b0f7686b185228c317bb5b9fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "435840dd_9637cd2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-02-17T21:17:37Z",
+      "side": 1,
+      "message": "LGTM, though there may be some fallout from code that thinks it can read the message?\n\nIn general, I think this is a good idea. I\u0027ve seen lots of issues with hard-to-identify NPEs, but I think many of those are due to unexpected source-level optimizations by R8 and the like. Those would presumably still end up with the wrong method name? At least that might give us a better hint about what\u0027s going on.\n\nOrion\u0027s observation is useful, since it suggests that this message isn\u0027t stable in the RI either.\n\nPlease submit early in the day, so that you can revert if something important breaks.",
+      "revId": "33242492604a473b0f7686b185228c317bb5b9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
