@@ -475,8 +475,11 @@ libart_cc_defaults {
         "libsigchain",
         "libunwindstack",
     ],
-    static_libs: ["libodrstatslog"],
-
+    static_libs: [
+        "libodrstatslog",
+        "lib_odsign_metrics_proto",
+        "libprotobuf-cpp-lite",
+    ],
     runtime_libs: [
         // Libraries loaded at runtime. Exceptions:
         // - libart(d)-compiler.so and libopenjdk(d).so cannot be listed here
@@ -1009,6 +1012,7 @@ cc_library_static {
         "com.android.art",
         "com.android.art.debug",
     ],
+    min_sdk_version: "31",
 }
 
 genrule {
