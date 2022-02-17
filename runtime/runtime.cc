@@ -33,6 +33,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <fstream>
 #include <limits>
 #include <string.h>
 #include <thread>
@@ -177,6 +178,8 @@
 #ifdef ART_TARGET_ANDROID
 #include <android/set_abort_message.h>
 #include "com_android_apex.h"
+#include "statslog_art.h"
+#include <log/log.h>
 namespace apex = com::android::apex;
 
 #endif
@@ -1036,6 +1039,28 @@ void Runtime::EndThreadBirth() REQUIRES(Locks::runtime_shutdown_lock_) {
   }
 }
 
+#ifdef ART_TARGET_ANDROID
+void UploadOdsignStatsIfAvailable(){
+  const std::string kOdsignMetricsFile = "/data/misc/odsign/odsign-metrics.txt";
+  std::ifstream ifs;
+  ifs.open(kOdsignMetricsFile, std::ifstream::in);
+
+  if(!ifs) {
+    SLOGE ( "error opening metrics file:%s",  strerror(errno));
+  }
+
+  bool current_artifacts_ok, comp_os_pending_artifacts_exists, use_comp_os_generated_artifacts;
+  while(ifs && ifs >> current_artifacts_ok >> comp_os_pending_artifacts_exists >> use_comp_os_generated_artifacts){
+    int ret = art::metrics::statsd::stats_write(art::metrics::statsd::EARLY_BOOT_COMP_OS_ARTIFACTS_CHECK_REPORTED,
+                            current_artifacts_ok, comp_os_pending_artifacts_exists,
+                            use_comp_os_generated_artifacts);
+
+    SLOGE ( "art::metrics::statsd::stats_write returned: %d", ret);
+  }
+  ifs.close();
+}
+#endif
+
 void Runtime::InitNonZygoteOrPostFork(
     JNIEnv* env,
     bool is_system_server,
@@ -1161,6 +1186,9 @@ void Runtime::InitNonZygoteOrPostFork(
     if (!odrefresh::UploadStatsIfAvailable(&err)) {
       LOG(WARNING) << "Failed to upload odrefresh metrics: " << err;
     }
+    #ifdef ART_TARGET_ANDROID
+      UploadOdsignStatsIfAvailable();
+    #endif
   }
 
   if (LIKELY(automatically_set_jni_ids_indirection_) && CanSetJniIdType()) {
