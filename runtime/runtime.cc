@@ -33,6 +33,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include <fstream>
 #include <limits>
 #include <string.h>
 #include <thread>
@@ -177,7 +178,12 @@
 
 #ifdef ART_TARGET_ANDROID
 #include <android/set_abort_message.h>
+#include <android-base/result.h>
 #include "com_android_apex.h"
+#include "statslog_art.h"
+#include <log/log.h>
+#include "odsign_metrics.pb.h"
+using odsign::proto::OdsignMetrics;
 namespace apex = com::android::apex;
 
 #endif
@@ -231,6 +237,32 @@ void CheckConstants() {
   CHECK_EQ(mirror::Array::kFirstElementOffset, mirror::Array::FirstElementOffset());
 }
 
+#ifdef ART_TARGET_ANDROID
+android::base::Result<void> UploadOdsignStatsIfAvailable() {
+  // kOdsignMetricsFile contains osdign related metrics, read them & send to statsd
+  const std::string kOdsignMetricsFile = "/data/misc/odsign/metrics/odsign-metrics.txt";
+  std::ifstream metrics_file(kOdsignMetricsFile, std::ios::in);
+  OdsignMetrics odsign_metrics;
+  if (!metrics_file) {
+    return ErrnoErrorf("Failed to open file {}", kOdsignMetricsFile);
+  }
+  if (!odsign_metrics.ParseFromIstream(&metrics_file)) {
+    return ErrnoErrorf("Parsing metrics from file failed");
+  }
+  if (odsign_metrics.has_comp_os_artifacts_check_record()) {
+    const OdsignMetrics::CompOsArtifactsCheckRecord& composRecord = odsign_metrics.comp_os_artifacts_check_record();
+    int ret = art::metrics::statsd::stats_write(
+      art::metrics::statsd::EARLY_BOOT_COMP_OS_ARTIFACTS_CHECK_REPORTED,
+      composRecord.current_artifacts_ok(),
+      composRecord.comp_os_pending_artifacts_exists(),
+      composRecord.use_comp_os_generated_artifacts());
+    if (ret < 0) {
+      return ErrnoErrorf("art::metrics::statsd::stats_write returned {} ", ret);
+    }
+  }
+  return {};
+}
+#endif
 }  // namespace
 
 Runtime::Runtime()
@@ -1162,6 +1194,12 @@ void Runtime::InitNonZygoteOrPostFork(
     if (!odrefresh::UploadStatsIfAvailable(&err)) {
       LOG(WARNING) << "Failed to upload odrefresh metrics: " << err;
     }
+  #ifdef ART_TARGET_ANDROID
+    auto uploadOdsignStatsStatus = UploadOdsignStatsIfAvailable();
+    if (!uploadOdsignStatsStatus.ok()) {
+      LOG(WARNING) << "Failed to upload odsign metrics: "<< uploadOdsignStatsStatus.error();
+    }
+  #endif
   }
 
   if (LIKELY(automatically_set_jni_ids_indirection_) && CanSetJniIdType()) {
