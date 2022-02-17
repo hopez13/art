@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce108a84_0fd923f8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6960,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-17T17:32:57Z",
+      "side": 1,
+      "message": "This is supposed to be inlined and we already have that information in the caller, so avoid reloading it from the class access flags.",
+      "parentUuid": "3e84c85d_3532aa4b",
+      "range": {
+        "startLine": 6959,
+        "startChar": 0,
+        "endLine": 6960,
+        "endChar": 46
+      },
+      "revId": "610d447b7ab035a00665c02a4ba960a2a1ab18c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffb282a5_2a4e95f6",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-17T15:13:39Z",
       "side": 1,
       "message": "Add a comment on what this check means.",
+      "range": {
+        "startLine": 7752,
+        "startChar": 0,
+        "endLine": 7752,
+        "endChar": 95
+      },
+      "revId": "610d447b7ab035a00665c02a4ba960a2a1ab18c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83be69c8_faa5e3fc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7752,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-17T17:32:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffb282a5_2a4e95f6",
       "range": {
         "startLine": 7752,
         "startChar": 0,
