@@ -102,7 +102,24 @@
       "message": "LGTM, though there may be some fallout from code that thinks it can read the message?\n\nIn general, I think this is a good idea. I\u0027ve seen lots of issues with hard-to-identify NPEs, but I think many of those are due to unexpected source-level optimizations by R8 and the like. Those would presumably still end up with the wrong method name? At least that might give us a better hint about what\u0027s going on.\n\nOrion\u0027s observation is useful, since it suggests that this message isn\u0027t stable in the RI either.\n\nPlease submit early in the day, so that you can revert if something important breaks.",
       "revId": "33242492604a473b0f7686b185228c317bb5b9fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f637b8cf_cb55bd1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-02-18T11:21:46Z",
+      "side": 1,
+      "message": "[Apologies, I\u0027ve managed to miss the email here]\n\nThe pointer was largely just to say it\u0027s a good problem to progress. It went into OpenJDK 14, it looks like something any developer would appreciate.",
+      "parentUuid": "b51be908_06ccf8c1",
+      "revId": "33242492604a473b0f7686b185228c317bb5b9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
-  ],
-  "submitRequirementResults": []
+  ]
 }
