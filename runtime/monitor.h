@@ -419,6 +419,12 @@ class Monitor {
   void CheckLockOwnerRequest(Thread* self)
       REQUIRES(monitor_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // MIUI ADD: START
+  bool need_boost_ = false;
+  void UpdateBoostState(ObjPtr<mirror::Object> obj) REQUIRES(Locks::mutator_lock_);
+  bool IsSystemMajorMonitor(ObjPtr<mirror::Object> obj) REQUIRES(Locks::mutator_lock_);
+  // END
+
   void MaybeEnableTimeout() REQUIRES(Locks::mutator_lock_);
 
   // The denser encoded version of this monitor as stored in the lock word.
