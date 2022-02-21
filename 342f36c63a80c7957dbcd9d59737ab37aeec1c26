@@ -33,6 +33,29 @@
       "message": "LGTM; out of curiosity, do we have continuous builds using `clang-tidy`?",
       "revId": "342f36c63a80c7957dbcd9d59737ab37aeec1c26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d91bd72a_49b9a9bb",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-21T14:08:00Z",
+      "side": 1,
+      "message": "I randomly looked at this file, and it\u0027s not particularly big or unusual. I also note almost all the excluded files are tests. Is it the gtest TEST_* macros that interact badly with clang-tidy?",
+      "range": {
+        "startLine": 381,
+        "startChar": 9,
+        "endLine": 381,
+        "endChar": 31
+      },
+      "revId": "342f36c63a80c7957dbcd9d59737ab37aeec1c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
