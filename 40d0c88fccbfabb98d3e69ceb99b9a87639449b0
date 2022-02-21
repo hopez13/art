@@ -70,6 +70,30 @@
       },
       "revId": "40d0c88fccbfabb98d3e69ceb99b9a87639449b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33514678_c97c1569",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4337,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-02-21T13:48:34Z",
+      "side": 1,
+      "message": "Moving it in loop doesn\u0027t play nice with the future CLs.",
+      "parentUuid": "f8dcf89e_d01fc40c",
+      "range": {
+        "startLine": 4337,
+        "startChar": 6,
+        "endLine": 4337,
+        "endChar": 96
+      },
+      "revId": "40d0c88fccbfabb98d3e69ceb99b9a87639449b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
