@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8587d8f_df7d5758",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-21T13:30:43Z",
+      "side": 1,
+      "message": "How about:\nentry.second \u003d SweepCacheEntry(visitor, reinterpret_cast\u003cconst Instruction*\u003e(entry.first));",
+      "range": {
+        "startLine": 4337,
+        "startChar": 6,
+        "endLine": 4337,
+        "endChar": 96
+      },
+      "revId": "40d0c88fccbfabb98d3e69ceb99b9a87639449b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
