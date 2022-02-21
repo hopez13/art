@@ -46,6 +46,30 @@
       },
       "revId": "40d0c88fccbfabb98d3e69ceb99b9a87639449b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8dcf89e_d01fc40c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-21T13:41:32Z",
+      "side": 1,
+      "message": "Oh right. Yeah, a pointer could do. Alternatively, you could move the for loop in the helper, no?",
+      "parentUuid": "e20fbc87_4fb54e6b",
+      "range": {
+        "startLine": 4337,
+        "startChar": 6,
+        "endLine": 4337,
+        "endChar": 96
+      },
+      "revId": "40d0c88fccbfabb98d3e69ceb99b9a87639449b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
