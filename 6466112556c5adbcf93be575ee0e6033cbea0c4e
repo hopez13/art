@@ -16,6 +16,29 @@
       "message": "Ulya, Roland adding you as reviewers for the base CL since you both expressed an opinion on this macro",
       "revId": "6466112556c5adbcf93be575ee0e6033cbea0c4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32b07d1d_dea4bd22",
+        "filename": "libartbase/base/logging.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-22T17:05:13Z",
+      "side": 1,
+      "message": "I would probably be paranoid and wrap this in `do { ... } while(false)` to avoid undesired situations like a hanging `else` binding to this `if`. Note that the weird do-while(0) idiom requires a semicolon after the statement, so you won\u0027t have a problem with redundant semicolons.",
+      "range": {
+        "startLine": 168,
+        "startChar": 2,
+        "endLine": 168,
+        "endChar": 58
+      },
+      "revId": "6466112556c5adbcf93be575ee0e6033cbea0c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
