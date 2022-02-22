@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4c46dda7_81e1d02e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2022-02-22T20:49:59Z",
+      "side": 1,
+      "message": "Yes, there are. This [cs/ link](https://source.corp.google.com/search?q\u003dwith_clang_tidy%20case:yes\u0026sq\u003d) is probably the easiest way to see the builds that have this turned on internally.",
+      "parentUuid": "1e58eac4_6e825c6a",
+      "revId": "342f36c63a80c7957dbcd9d59737ab37aeec1c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d91bd72a_49b9a9bb",
         "filename": "compiler/Android.bp",
         "patchSetId": 1
@@ -56,7 +74,30 @@
       },
       "revId": "342f36c63a80c7957dbcd9d59737ab37aeec1c26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b46f5ba5_9262c837",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2022-02-22T20:49:59Z",
+      "side": 1,
+      "message": "We\u0027re currently setting a 90 second timeout, which isn\u0027t actually that long, when you consider how many different analyses might be happening. The problem is that we really don\u0027t want anything near that length getting killed by the builder, which might lead to inconsistent results between runs (i.e. something that makes it in 89 seconds today, but 91 seconds tomorrow, then back to 89 seconds, ...).",
+      "parentUuid": "d91bd72a_49b9a9bb",
+      "range": {
+        "startLine": 381,
+        "startChar": 9,
+        "endLine": 381,
+        "endChar": 31
+      },
+      "revId": "342f36c63a80c7957dbcd9d59737ab37aeec1c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
-  ],
-  "submitRequirementResults": []
+  ]
 }
