@@ -63,6 +63,30 @@
       },
       "revId": "6466112556c5adbcf93be575ee0e6033cbea0c4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00566bb4_2bc7b43c",
+        "filename": "libartbase/base/logging.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-02-22T17:11:47Z",
+      "side": 1,
+      "message": "Ah, right, I forgot about `\u003c\u003c`. Ok then.",
+      "parentUuid": "99dda970_c93b6162",
+      "range": {
+        "startLine": 168,
+        "startChar": 2,
+        "endLine": 168,
+        "endChar": 58
+      },
+      "revId": "6466112556c5adbcf93be575ee0e6033cbea0c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
