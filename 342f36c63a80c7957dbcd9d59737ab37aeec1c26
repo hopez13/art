@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c422abf5_14a8b491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2022-02-22T21:38:53Z",
+      "side": 1,
+      "message": "Yes, in AOSP and internal master branches, each have 3 build targets that make tidy-soong_subset.",
+      "parentUuid": "1159623d_4ee73857",
+      "revId": "342f36c63a80c7957dbcd9d59737ab37aeec1c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d91bd72a_49b9a9bb",
         "filename": "compiler/Android.bp",
         "patchSetId": 1
@@ -89,6 +107,30 @@
       "writtenOn": "2022-02-22T20:49:59Z",
       "side": 1,
       "message": "We\u0027re currently setting a 90 second timeout, which isn\u0027t actually that long, when you consider how many different analyses might be happening. The problem is that we really don\u0027t want anything near that length getting killed by the builder, which might lead to inconsistent results between runs (i.e. something that makes it in 89 seconds today, but 91 seconds tomorrow, then back to 89 seconds, ...).",
+      "parentUuid": "d91bd72a_49b9a9bb",
+      "range": {
+        "startLine": 381,
+        "startChar": 9,
+        "endLine": 381,
+        "endChar": 31
+      },
+      "revId": "342f36c63a80c7957dbcd9d59737ab37aeec1c26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aef53b48_0b345c3d",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2022-02-22T21:38:53Z",
+      "side": 1,
+      "message": "That\u0027s very possible. When we identify those test files and fix either clang-tidy or the source code, maybe many test files can be compiled in less time.",
       "parentUuid": "d91bd72a_49b9a9bb",
       "range": {
         "startLine": 381,
