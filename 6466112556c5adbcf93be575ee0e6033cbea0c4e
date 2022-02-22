@@ -39,6 +39,30 @@
       },
       "revId": "6466112556c5adbcf93be575ee0e6033cbea0c4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99dda970_c93b6162",
+        "filename": "libartbase/base/logging.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-22T17:08:31Z",
+      "side": 1,
+      "message": "I emulated how android\u0027s logging does it (https://cs.android.com/android/platform/superproject/+/master:system/libbase/include/android-base/logging.h;l\u003d322;drc\u003d087b6880b76b9034c5b098d94b7b7a1208c2a40b).\n\nIf we wrap it in a `do { ... } while(false)` I don\u0027t think we would be able to do `DCHECK_IMPLIES(...) \u003c\u003c \"another string\"`",
+      "parentUuid": "32b07d1d_dea4bd22",
+      "range": {
+        "startLine": 168,
+        "startChar": 2,
+        "endLine": 168,
+        "endChar": 58
+      },
+      "revId": "6466112556c5adbcf93be575ee0e6033cbea0c4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
