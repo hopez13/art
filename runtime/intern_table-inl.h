@@ -28,6 +28,16 @@
 
 namespace art {
 
+inline int32_t InternTable::Utf8String::Hash(uint32_t utf16_length, const char* utf8_data) {
+  if (LIKELY(utf8_data[utf16_length] == 0)) {
+    int32_t hash = ComputeUtf16Hash(utf8_data, utf16_length);
+    DCHECK_EQ(hash, ComputeUtf16HashFromModifiedUtf8(utf8_data, utf16_length));
+    return hash;
+  } else {
+    return ComputeUtf16HashFromModifiedUtf8(utf8_data, utf16_length);
+  }
+}
+
 inline std::size_t InternTable::StringHash::operator()(const GcRoot<mirror::String>& root) const {
   if (kIsDebugBuild) {
     Locks::mutator_lock_->AssertSharedHeld(Thread::Current());
@@ -56,15 +66,13 @@ inline bool InternTable::StringEquals::operator()(const GcRoot<mirror::String>& 
     return false;
   }
   if (a_string->IsCompressed()) {
-    size_t b_byte_count = strlen(b.GetUtf8Data());
-    size_t b_utf8_length = CountModifiedUtf8Chars(b.GetUtf8Data(), b_byte_count);
-    // Modified UTF-8 single byte character range is 0x01 .. 0x7f
+    // Modified UTF-8 single byte character range is 0x01 .. 0x7f.
     // The string compression occurs on regular ASCII with same exact range,
-    // not on extended ASCII which up to 0xff
-    const bool is_b_regular_ascii = (b_byte_count == b_utf8_length);
-    if (is_b_regular_ascii) {
-      return memcmp(b.GetUtf8Data(),
-                    a_string->GetValueCompressed(), a_length * sizeof(uint8_t)) == 0;
+    // not on extended ASCII which is up to 0xff.
+    DCHECK_GE(strlen(b.GetUtf8Data()), a_length);
+    if (memcmp(b.GetUtf8Data(), a_string->GetValueCompressed(), a_length * sizeof(uint8_t)) == 0) {
+      DCHECK_EQ(b.GetUtf8Data()[a_length], 0);
+      return true;
     } else {
       return false;
     }
