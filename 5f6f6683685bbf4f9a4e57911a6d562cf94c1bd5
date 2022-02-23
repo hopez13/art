@@ -33,6 +33,207 @@
       "message": "Friendly ping. The merge conflict is due to a comment in sharpening.cc which can be resolved easily later on. This patchset was verified by tree hugger",
       "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23f5dcc8_9d153c0c",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-23T15:31:54Z",
+      "side": 1,
+      "message": "Can this be null?",
+      "range": {
+        "startLine": 327,
+        "startChar": 36,
+        "endLine": 327,
+        "endChar": 75
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7d506ec_85e51b1c",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-23T15:31:54Z",
+      "side": 1,
+      "message": "Can this be null? (For example without oat file but JITting?)",
+      "range": {
+        "startLine": 332,
+        "startChar": 19,
+        "endLine": 332,
+        "endChar": 27
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c4097c_f1c553a3",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-23T15:31:54Z",
+      "side": 1,
+      "message": "We should only look for the .bss entry associated with the outer method because that\u0027s the one that was used to reach the entrypoint that calls this.",
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bfbf1f8_161f483f",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-23T15:31:54Z",
+      "side": 1,
+      "message": "This is the inner method and we really need to update the .bss entry for the outer method\u0027s oat file.",
+      "range": {
+        "startLine": 73,
+        "startChar": 74,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "691bfd1a_03db2a1a",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-23T15:31:54Z",
+      "side": 1,
+      "message": "BCP dex files are likely to satisfy this condition but we still want to update the .bss entry in `outer_method`\u0027s oat file.",
+      "range": {
+        "startLine": 179,
+        "startChar": 6,
+        "endLine": 179,
+        "endChar": 29
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40fbf7ab_c8bb6510",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-23T15:31:54Z",
+      "side": 1,
+      "message": "Use helper function `Class::IsBootStrapClassLoaded()` to avoid the read barrier.",
+      "range": {
+        "startLine": 237,
+        "startChar": 55,
+        "endLine": 237,
+        "endChar": 82
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72d11d89_51aa33df",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-23T15:31:54Z",
+      "side": 1,
+      "message": "We need the outer method here.",
+      "range": {
+        "startLine": 1377,
+        "startChar": 55,
+        "endLine": 1377,
+        "endChar": 61
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7442157_27dbef21",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2408,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-23T15:31:54Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2408,
+        "startChar": 70,
+        "endLine": 2408,
+        "endChar": 83
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee1a1333_7525ba4b",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-23T15:31:54Z",
+      "side": 1,
+      "message": "The word \"Then\" feels a bit odd here. Maybe \"Therefore\" would be better?",
+      "range": {
+        "startLine": 1031,
+        "startChar": 69,
+        "endLine": 1031,
+        "endChar": 73
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
