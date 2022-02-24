@@ -30,6 +30,7 @@ art_cc_defaults {
     srcs: [
         "dex/quick_compiler_callbacks.cc",
         "driver/compiler_driver.cc",
+        "linker/code_info_table_deduper.cc",
         "linker/elf_writer.cc",
         "linker/elf_writer_quick.cc",
         "linker/image_writer.cc",
@@ -419,6 +420,7 @@ art_cc_library_static {
     defaults: ["libart-gtest-defaults"],
     srcs: [
         "common_compiler_driver_test.cc",
+        "linker/code_info_table_deduper_test.cc",
     ],
     shared_libs: [
         "libart-compiler-gtest",
