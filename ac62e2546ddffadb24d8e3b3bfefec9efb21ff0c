@@ -22,6 +22,30 @@
       },
       "revId": "ac62e2546ddffadb24d8e3b3bfefec9efb21ff0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b73fc9f6_3e4a2328",
+        "filename": "runtime/intern_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-24T10:05:21Z",
+      "side": 1,
+      "message": "That\u0027s what I had in PS1. But then I was thinking about how this gets compiled and decided not to let clang++ emit two different paths that unlock the mutex. (Though clang++ could theoretically transform the code and emit only one unlock, I want the best possible code without relying on such optimizations.)",
+      "parentUuid": "82875d6e_db2e13db",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 3
+      },
+      "revId": "ac62e2546ddffadb24d8e3b3bfefec9efb21ff0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
