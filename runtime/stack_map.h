@@ -24,6 +24,7 @@
 #include "base/bit_table.h"
 #include "base/bit_utils.h"
 #include "base/bit_vector.h"
+#include "base/hash_map.h"
 #include "base/leb128.h"
 #include "base/memory_region.h"
 #include "dex/dex_file_types.h"
@@ -285,6 +286,9 @@ class CodeInfo {
    public:
     explicit Deduper(std::vector<uint8_t>* output) : writer_(output) {
       DCHECK_EQ(output->size(), 0u);
+      // This is used only in dex2oat. Let's reserve large initial buffers.
+      output->reserve(256 * KB);
+      dedupe_map_.reserve(256 * KB / sizeof(DedupeMap::value_type));
     }
 
     // Copy CodeInfo into output while de-duplicating the internal bit tables.
@@ -292,10 +296,30 @@ class CodeInfo {
     size_t Dedupe(const uint8_t* code_info);
 
    private:
+    class DedupeMapEntryEmpty {
+     public:
+      void MakeEmpty(std::pair<BitMemoryRegion, uint32_t>& item) const {
+        item = std::pair<BitMemoryRegion, uint32_t>();
+      }
+      bool IsEmpty(const std::pair<BitMemoryRegion, uint32_t>& item) const {
+        return !item.first.IsValid();
+      }
+    };
+
+    class BitMemoryRegionEquals {
+     public:
+      bool operator()(const BitMemoryRegion& lhs, const BitMemoryRegion& rhs) const {
+        return BitMemoryRegion::Equals(lhs, rhs);
+      }
+    };
+
+    using DedupeMap =
+        HashMap<BitMemoryRegion, uint32_t, DedupeMapEntryEmpty, DataHash, BitMemoryRegionEquals>;
+
     BitMemoryWriter<std::vector<uint8_t>> writer_;
 
     // Deduplicate at BitTable level. The value is bit offset within the output.
-    std::map<BitMemoryRegion, uint32_t, BitMemoryRegion::Less> dedupe_map_;
+    DedupeMap dedupe_map_;
   };
 
   ALWAYS_INLINE CodeInfo() {}
@@ -505,6 +529,7 @@ class CodeInfo {
   bool HasBitTable(size_t i) { return ((bit_table_flags_ >> i) & 1) != 0; }
   bool IsBitTableDeduped(size_t i) { return ((bit_table_flags_ >> (kNumBitTables + i)) & 1) != 0; }
   void SetBitTableDeduped(size_t i) { bit_table_flags_ |= 1 << (kNumBitTables + i); }
+  bool HasDedupedBitTables() { return (bit_table_flags_ >> kNumBitTables) != 0u; }
 
   enum Flags {
     kHasInlineInfo = 1 << 0,

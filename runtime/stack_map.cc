@@ -82,43 +82,98 @@ CodeInfo CodeInfo::DecodeInlineInfoOnly(const OatQuickMethodHeader* header) {
 
 size_t CodeInfo::Deduper::Dedupe(const uint8_t* code_info_data) {
   writer_.ByteAlign();
-  size_t deduped_offset = writer_.NumberOfWrittenBits() / kBitsPerByte;
+  size_t start_bit_offset = writer_.NumberOfWrittenBits();
 
   // The back-reference offset takes space so dedupe is not worth it for tiny tables.
-  constexpr size_t kMinDedupSize = 32;  // Assume 32-bit offset on average.
+  constexpr size_t kMinDedupSize = 33;  // Assume 32-bit offset on average.
 
-  // Read the existing code info and find (and keep) dedup-map iterator for each table.
-  // The iterator stores BitMemoryRegion and bit_offset of previous identical BitTable.
-  std::map<BitMemoryRegion, uint32_t, BitMemoryRegion::Less>::iterator it[kNumBitTables];
-  CodeInfo code_info(code_info_data, nullptr, [&](size_t i, auto*, BitMemoryRegion region) {
-    it[i] = dedupe_map_.emplace(region, /*bit_offset=*/0).first;
-    if (it[i]->second != 0 && region.size_in_bits() > kMinDedupSize) {  // Seen before and large?
-      code_info.SetBitTableDeduped(i);  // Mark as deduped before we write header.
-    }
-  });
-
-  // Write the code info back, but replace deduped tables with relative offsets.
-  std::array<uint32_t, kNumHeaders> header;
+  // Read the existing code info and record deduplicaton data.
+  BitMemoryReader reader(code_info_data);
+  std::array<uint32_t, kNumHeaders> header = reader.ReadInterleavedVarints<kNumHeaders>();
+  CodeInfo code_info;
   ForEachHeaderField([&code_info, &header](size_t i, auto member_pointer) {
-    header[i] = code_info.*member_pointer;
+    code_info.*member_pointer = header[i];
   });
-  writer_.WriteInterleavedVarints(header);
-  ForEachBitTableField([this, &code_info, &it](size_t i, auto) {
-    if (code_info.HasBitTable(i)) {
-      uint32_t& bit_offset = it[i]->second;
-      if (code_info.IsBitTableDeduped(i)) {
-        DCHECK_NE(bit_offset, 0u);
-        writer_.WriteVarint(writer_.NumberOfWrittenBits() - bit_offset);
-      } else {
-        bit_offset = writer_.NumberOfWrittenBits();  // Store offset in dedup map.
-        writer_.WriteRegion(it[i]->first);
+  DCHECK(!code_info.HasDedupedBitTables());  // Input `CodeInfo` has no deduped tables.
+  BitMemoryRegion regions[kNumBitTables];
+  size_t hashes[kNumBitTables];  // Only for tables satisfying the `kMinDedupSize` constraint.
+  std::fill_n(hashes, kNumBitTables, 0u);
+  size_t deduped_offsets[kNumBitTables];  // Only for deduped tables.
+  std::fill_n(deduped_offsets, kNumBitTables, 0u);
+  ForEachBitTableField([&](size_t i, auto member_pointer) {
+    auto& table = code_info.*member_pointer;
+    if (LIKELY(code_info.HasBitTable(i))) {
+      DCHECK(!code_info.IsBitTableDeduped(i));
+      size_t table_start_bit_offset = reader.NumberOfReadBits();
+      table.Decode(reader);
+      BitMemoryRegion region = reader.GetReadRegion().Subregion(table_start_bit_offset);
+      regions[i] = region;
+      if (region.size_in_bits() >= kMinDedupSize) {
+        // Record the `region` in `dedupe_map_` with bit offset based on copying the entire
+        // `CodeInfo` data. Update the bit offset later if we deduplicate any table.
+        // (Table deduplication changes header bits which may change the encoded header size.)
+        hashes[i] = DataHash()(region);
+        uint32_t expected_bit_offset =
+            dchecked_integral_cast<uint32_t>(start_bit_offset + table_start_bit_offset);
+        auto [it, inserted] =
+            dedupe_map_.InsertWithHash(std::make_pair(region, expected_bit_offset), hashes[i]);
+        if (!inserted) {
+          code_info.SetBitTableDeduped(i);  // Mark as deduped before we write header.
+          // Record the found bit offset. In the unlikely case that two tables in the same
+          // `CodeInfo` have the same encoding, this shall need to be adjusted because the
+          // header encoding size is likely to change with addition of deduplication bits.
+          deduped_offsets[i] = it->second;
+        }
       }
     }
   });
 
+  if (code_info.HasDedupedBitTables()) {
+    // Update bit table flags in the `header` and write the `header`.
+    header[kNumHeaders - 1u] = code_info.bit_table_flags_;
+    ForEachHeaderField([&code_info, &header](size_t i, auto member_pointer) {
+      DCHECK_EQ(code_info.*member_pointer, header[i]);
+    });
+    writer_.WriteInterleavedVarints(header);
+    // Write the tables and update offsets in `dedupe_map_` after encoding the `header`.
+    ForEachBitTableField([&](size_t i, auto member_pointer ATTRIBUTE_UNUSED) {
+      if (code_info.HasBitTable(i)) {
+        size_t current_bit_offset = writer_.NumberOfWrittenBits();
+        if (code_info.IsBitTableDeduped(i)) {
+          DCHECK_GE(regions[i].size_in_bits(), kMinDedupSize);
+          size_t deduped_offset = deduped_offsets[i];
+          DCHECK_NE(deduped_offset, 0u);
+          if (UNLIKELY(deduped_offset > start_bit_offset)) {
+            // This table must have identical representation with one of the previous tables
+            // in this `CodeInfo`. Retrieve the dedupe offset from the `dedupe_map_`.
+            DCHECK_NE(i, 0u);
+            auto it = dedupe_map_.FindWithHash(regions[i], hashes[i]);
+            DCHECK(it != dedupe_map_.end());
+            deduped_offset = it->second;
+            DCHECK_GT(deduped_offset, start_bit_offset);
+            DCHECK_LT(deduped_offset, current_bit_offset);
+          }
+          writer_.WriteVarint(current_bit_offset - deduped_offset);
+        } else {
+          writer_.WriteRegion(regions[i]);
+          if (regions[i].size_in_bits() >= kMinDedupSize) {
+            // Update offset in `dedupe_map_`.
+            auto it = dedupe_map_.FindWithHash(regions[i], hashes[i]);
+            DCHECK(it != dedupe_map_.end());
+            DCHECK_GT(it->second, start_bit_offset);
+            it->second = current_bit_offset;
+          }
+        }
+      }
+    });
+  } else {
+    // No deduped tables. Just copy the source data.
+    writer_.WriteRegion(reader.GetReadRegion());
+  }
+
   if (kIsDebugBuild) {
     CodeInfo old_code_info(code_info_data);
-    CodeInfo new_code_info(writer_.data() + deduped_offset);
+    CodeInfo new_code_info(writer_.data() + start_bit_offset / kBitsPerByte);
     ForEachHeaderField([&old_code_info, &new_code_info](size_t, auto member_pointer) {
       if (member_pointer != &CodeInfo::bit_table_flags_) {  // Expected to differ.
         DCHECK_EQ(old_code_info.*member_pointer, new_code_info.*member_pointer);
@@ -130,7 +185,7 @@ size_t CodeInfo::Deduper::Dedupe(const uint8_t* code_info_data) {
     });
   }
 
-  return deduped_offset;
+  return start_bit_offset / kBitsPerByte;
 }
 
 StackMap CodeInfo::GetStackMapForNativePcOffset(uintptr_t pc, InstructionSet isa) const {
