@@ -101,6 +101,7 @@
 #include "palette/palette.h"
 #include "profile/profile_compilation_info.h"
 #include "runtime.h"
+#include "runtime_intrinsics.h"
 #include "runtime_options.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stream/buffered_output_stream.h"
@@ -1691,9 +1692,10 @@ class Dex2Oat final {
     // If we're doing the image, override the compiler filter to force full compilation. Must be
     // done ahead of WellKnownClasses::Init that causes verification.  Note: doesn't force
     // compilation of class initializers.
-    // Whilst we're in native take the opportunity to initialize well known classes.
+    // Whilst we're in native take the opportunity to initialize well known classes and intrinsics.
     Thread* self = Thread::Current();
     WellKnownClasses::Init(self->GetJniEnv());
+    InitializeIntrinsics();
 
     if (!IsBootImage() && !IsBootImageExtension()) {
       constexpr bool kSaveDexInput = false;
