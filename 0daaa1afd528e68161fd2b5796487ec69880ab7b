@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db3b75c8_1dfa7177",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2022-02-24T19:23:06Z",
+      "side": 1,
+      "message": "Yes, the goal was to have each namespace be a dictionary of variables in Starlark, instead of having a variable whose name is the concatenation of the namespace and variable name.\n\nI could introduce an ART_MODULE_SOURCE_BUILD variable that then sets the soong config variable when set, and update all the comments and your g3doc page to talk about that. Would that be acceptable?",
+      "parentUuid": "5745e57d_a44696df",
+      "range": {
+        "startLine": 103,
+        "startChar": 3,
+        "endLine": 103,
+        "endChar": 51
+      },
+      "revId": "0daaa1afd528e68161fd2b5796487ec69880ab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02fb1015_96b37992",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 1
