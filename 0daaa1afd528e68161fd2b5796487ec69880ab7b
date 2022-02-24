@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5745e57d_a44696df",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-24T10:05:37Z",
+      "side": 1,
+      "message": "Please do not change the variable name in comments. It is intentionally mentioned in many places to allow searching for relevant code locations, and the user visible name, which may need to be used locally and in CI invocations, is `SOONG_CONFIG_art_module_source_build`.\n\nIn fact, I\u0027d prefer to not rewrite the variable references at all for the same reason. Is the plan to change the format of these variables outside make? If so, it may be necessary to introduce a new variable to control this one.",
+      "range": {
+        "startLine": 103,
+        "startChar": 3,
+        "endLine": 103,
+        "endChar": 51
+      },
+      "revId": "0daaa1afd528e68161fd2b5796487ec69880ab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02fb1015_96b37992",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-24T10:05:37Z",
+      "side": 1,
+      "message": "Same here - it\u0027s a message surfaced to users.",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 59
+      },
+      "revId": "0daaa1afd528e68161fd2b5796487ec69880ab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
