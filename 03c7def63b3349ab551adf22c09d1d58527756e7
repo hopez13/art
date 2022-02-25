@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a41fce4a_f7eea522",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-25T13:58:32Z",
+      "side": 1,
+      "message": "Obsolete comment.",
+      "range": {
+        "startLine": 1692,
+        "startChar": 4,
+        "endLine": 1694,
+        "endChar": 41
+      },
+      "revId": "03c7def63b3349ab551adf22c09d1d58527756e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc1f7c63_24201b9d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-25T13:58:32Z",
+      "side": 1,
+      "message": "Only needed if `IsBootImage() || runtime_-\u003eGetHeap()-\u003eGetBootImageSpaces().empty()`.\n\nAnd remove the initialization from the `CompilerDriver::LoadImageClasses()`.",
+      "range": {
+        "startLine": 1698,
+        "startChar": 4,
+        "endLine": 1698,
+        "endChar": 27
+      },
+      "revId": "03c7def63b3349ab551adf22c09d1d58527756e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
