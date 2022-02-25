@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cc05880_016d153b",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2022-02-25T20:51:50Z",
+      "side": 1,
+      "message": "\u003e I\u0027m curious, would those Starlark dictionaries be queried directly from kati in soong_config_get?\n\nCurrently there\u0027s either no starlark in the build, or all the product/board config makefiles are converted to starlark, so there\u0027s no scenario where there exists a starlark dictionary that is queried from make. But if we ever do have that scenario we would try to keep make backwards compatibility, yes.\n\nI\u0027ve gone ahead and refactored the makefiles to be based around a ART_MODULE_BUILD_FROM_SORCE, keeping compatibility with SOONG_CONFIG_art_module_source_build for now because there\u0027s some stuff in internal master that needs to be changed to use ART_MODULE_BUILD_FROM_SORCE after this topic is submitted. \n\nThere are still some auto-generated files that mention SOONG_CONFIG_art_module_source_build in comments, like prebuilts/module_sdk/art/current/sdk/Android.bp. Do you have guidance on how to regenerate these files to fix the comments?",
+      "parentUuid": "9d420e0f_efa56b6b",
+      "range": {
+        "startLine": 103,
+        "startChar": 3,
+        "endLine": 103,
+        "endChar": 51
+      },
+      "revId": "0daaa1afd528e68161fd2b5796487ec69880ab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02fb1015_96b37992",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 1
@@ -85,6 +109,30 @@
       "writtenOn": "2022-02-24T10:05:37Z",
       "side": 1,
       "message": "Same here - it\u0027s a message surfaced to users.",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 59
+      },
+      "revId": "0daaa1afd528e68161fd2b5796487ec69880ab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "397e0006_27a68d70",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2022-02-25T20:51:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02fb1015_96b37992",
       "range": {
         "startLine": 30,
         "startChar": 10,
