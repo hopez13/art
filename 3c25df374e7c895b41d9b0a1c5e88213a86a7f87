@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30691860_df512d6b",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-25T13:36:00Z",
+      "side": 1,
+      "message": "I decided this is an edge case not worth reasoning too much about (we have never sent a hidden api exemption list yet, and this will only affect old releases). Given the comment \"... adds new members to the public API list\", looks expected to mark it as public.",
+      "parentUuid": "36f6cf5c_fe478ac3",
+      "range": {
+        "startLine": 587,
+        "startChar": 4,
+        "endLine": 587,
+        "endChar": 26
+      },
+      "revId": "3c25df374e7c895b41d9b0a1c5e88213a86a7f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28c4d120_fcd05014",
         "filename": "runtime/hidden_api.cc",
         "patchSetId": 1
