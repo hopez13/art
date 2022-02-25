@@ -16,6 +16,23 @@
       "message": "Presubmit failed as I\u0027d not noticed that `dexlayout_tests` generate output from `dexlayout` and compare that against the output of `dexdump`.\n\nWe seem to have a fair amount of duplication between output routines in `dexdump` and `dexlayout`. This CL continues that approach, but there\u0027s probably a common library waiting to happen here.",
       "revId": "77112fee4d5513be36501c1c38cd2339101e1269",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1618754_dd1e48b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-02-25T10:31:34Z",
+      "side": 1,
+      "message": "PTAL, this needs a second review due to the change required in dexlayout.cc, thanks!\n",
+      "revId": "77112fee4d5513be36501c1c38cd2339101e1269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
