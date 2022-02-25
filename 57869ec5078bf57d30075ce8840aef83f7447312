@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79a69db0_4c7081b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-02-25T12:01:24Z",
+      "side": 1,
+      "message": "Thanks Nicolas and Martin.",
+      "revId": "57869ec5078bf57d30075ce8840aef83f7447312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ede9acd3_1b28d268",
@@ -14,6 +31,24 @@
       "writtenOn": "2022-02-25T09:37:11Z",
       "side": 1,
       "message": "Why is this added when it\u0027s not in TEST_MAPPING?",
+      "revId": "57869ec5078bf57d30075ce8840aef83f7447312",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e1188f_2d96e0f6",
+        "filename": "test/2238-checker-polymorphic-recursive-inlining/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-02-25T12:01:24Z",
+      "side": 1,
+      "message": "This test gets a Blueprint file because it is supported at build time¹.\n\nIt is not added to ART\u0027s `TEST_MAPPING` because it is (currently) not yet supported at run time (because it has a custom `run` script). For the same reason:\n- it uses the `art-run-test-target-no-test-suite-tag-template` test configuration, which prevents it from being run in ART\u0027s non-`TEST_MAPPING` ATP configurations;\n- it\u0027s not added to ART MTS.\n\nNotes:\n¹I have made the choice of building ART run-tests even if we can\u0027t run them (yet) because:\n- it may help track any regression in building these tests;\n- I think this is useful when experimenting / trying to support these tests at run time.",
+      "parentUuid": "ede9acd3_1b28d268",
       "revId": "57869ec5078bf57d30075ce8840aef83f7447312",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
