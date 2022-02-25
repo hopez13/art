@@ -16,6 +16,29 @@
       "message": "Thanks Vladimir, I need a new +2 after needing to update runtime/common_runtime_test.cc",
       "revId": "b169fc746f32b53be21ed6425a0d8346343f8477",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc2666ef_e02093ff",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-25T15:46:31Z",
+      "side": 1,
+      "message": "Do we need to do this after every time we call `WellKnownClasses::Init`? https://cs.android.com/search?q\u003dWellKnownClasses::Init%5Cb\u0026ss\u003dandroid%2Fplatform%2Fsuperproject",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 25
+      },
+      "revId": "b169fc746f32b53be21ed6425a0d8346343f8477",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
