@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d50f5c6c_453f863e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-02-25T10:53:05Z",
+      "side": 1,
+      "message": "I did and I got 1 failure in SiteTest#objectsAllocatedAtKnownSites. I\u0027m still investigating it, though I\u0027m not too familiar with the tool. There\u0027s also b/217709315 which might fix it, but that won\u0027t go in too quickly, so I\u0027ll try and fix this failure for now.\nI think TH should run the test as well as TEST_MAPPING specifies it, but it may be skipped for some reason.",
+      "parentUuid": "ff0178f8_12c1af81",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "5620f709b6fa420c17c57d1c9b87a4b14beb23f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b1ea07bd_a1ffb664",
