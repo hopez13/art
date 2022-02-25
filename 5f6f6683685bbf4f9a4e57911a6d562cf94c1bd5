@@ -82,6 +82,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4578140_bfe48a1a",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-25T16:26:11Z",
+      "side": 1,
+      "message": "Looking at the code, it seems we\u0027re creating a fake `OatFile` object even if we have only a vdex file, so this is probably OK.",
+      "parentUuid": "26de04a3_011ef54f",
+      "range": {
+        "startLine": 327,
+        "startChar": 36,
+        "endLine": 327,
+        "endChar": 75
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7d506ec_85e51b1c",
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Same as above. Let\u0027s talk in the other comment to have only one thread. I will resolve this comment when the other one gets resolved.",
       "parentUuid": "d7d506ec_85e51b1c",
+      "range": {
+        "startLine": 332,
+        "startChar": 19,
+        "endLine": 332,
+        "endChar": 27
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1acfca3_15f9cef0",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-25T16:26:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "818c98f4_c2bcbc29",
       "range": {
         "startLine": 332,
         "startChar": 19,
@@ -213,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07da85d9_cf25473a",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-25T16:26:11Z",
+      "side": 1,
+      "message": "That\u0027s one way to do that. But it would be faster with `DoGetCalleeSaveMethodOuterCallerAndPc()` which could be renamed and moved from `entrypoint_utils.cc` to `entrypoint_utils-inl.h`. (And the `callee_frame_size` in that function should be `constexpr`.) We could also check if the PC is in the code section of the `OatFile` before trying to update the .bss entry.",
+      "parentUuid": "637e4474_33b76aa8",
+      "range": {
+        "startLine": 73,
+        "startChar": 74,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "691bfd1a_03db2a1a",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 6
@@ -271,6 +343,30 @@
       "side": 1,
       "message": "Should we do that every time we do `caller-\u003eGetDeclaringClass()-\u003eGetClassLoader() \u003d\u003d nullptr`? We are doing that in several places",
       "parentUuid": "40fbf7ab_c8bb6510",
+      "range": {
+        "startLine": 237,
+        "startChar": 55,
+        "endLine": 237,
+        "endChar": 82
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ca6ea58_52b6dbaa",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-25T16:26:11Z",
+      "side": 1,
+      "message": "Yes, we should. (And I\u0027m opportunistically doing the replacements when I touch code near such patterns.)",
+      "parentUuid": "118eaf00_cd98b992",
       "range": {
         "startLine": 237,
         "startChar": 55,

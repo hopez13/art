@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5076140_80920b75",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-25T16:26:11Z",
+      "side": 1,
+      "message": "This should really use the dex file from the `outer_method`.",
+      "range": {
+        "startLine": 323,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 77
+      },
+      "revId": "69be52f4997474dbba30e6f33cbbae11ed17df68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
