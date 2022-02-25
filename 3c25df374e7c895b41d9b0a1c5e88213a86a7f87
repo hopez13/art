@@ -33,6 +33,24 @@
       "message": "So what happens for non-debuggable apps? Do we keep issuing the warning. I tried to look up uses of kAccPublicApi, but I don\u0027t understand this fully. I saw uses of this flag that impact things other than logging. For example here: https://cs.android.com/android/platform/superproject/+/master:art/runtime/mirror/class.cc;l\u003d2124.\nIs it safe that we might return a nullptr there because this flag isn\u0027t set?",
       "revId": "3c25df374e7c895b41d9b0a1c5e88213a86a7f87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eee65d56_2c8d72a3",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-25T10:49:38Z",
+      "side": 1,
+      "message": "No, we don\u0027t emit the warning at all (see line 619).\n\nThe code you point to is OK, if the flag is not set, we will go slow path.",
+      "parentUuid": "28c4d120_fcd05014",
+      "revId": "3c25df374e7c895b41d9b0a1c5e88213a86a7f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
