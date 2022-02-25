@@ -22,6 +22,30 @@
       },
       "revId": "4e67c70ea84dce420abad53517073bccfe352e6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06882b05_75e22e0c",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-02-25T15:53:59Z",
+      "side": 1,
+      "message": "I wanted to initially differentiate ART gtests (which depend on ART\u0027s internal libraries and binaries) from \"other gtests\" (which depend on other, \"non-ART\" libraries); another reason was to segregate presubmits tests (i.e. only run `libnativeloader_test` for changes happening under directory `libnativeloader`).\n\nHowever, I had second thoughts about this since yesterday, and I went with the approach of simplifying and unifying presubmits (see PS2).",
+      "parentUuid": "f35263d3_b012c156",
+      "range": {
+        "startLine": 238,
+        "startChar": 2,
+        "endLine": 238,
+        "endChar": 21
+      },
+      "revId": "4e67c70ea84dce420abad53517073bccfe352e6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
