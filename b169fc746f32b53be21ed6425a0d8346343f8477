@@ -87,6 +87,30 @@
       },
       "revId": "b169fc746f32b53be21ed6425a0d8346343f8477",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7609924_b0571401",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-25T17:48:16Z",
+      "side": 1,
+      "message": "Jiakai made sure we have a boot image for gtests. The need for this change in this file is because I removed the InitializeIntrinsics in CompilerDriver::LoadImageClasses.",
+      "parentUuid": "c3c92a08_1abace32",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 25
+      },
+      "revId": "b169fc746f32b53be21ed6425a0d8346343f8477",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
