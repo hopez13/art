@@ -33,6 +33,24 @@
       "message": "This task is now run even if `CompileMethodsFromProfile` is never called (i.e., `space-\u003eGetProfileFiles()` is empty). Is this expected?",
       "revId": "276710fceeb4e359aceadd09b603a113832967fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d68ca2b_49af3e60",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-25T15:10:51Z",
+      "side": 1,
+      "message": "This code is only invoked when InZygoteUsingJit returns true (where it checks we have a profile). I\u0027ll add a DCHECK to make it clearer.",
+      "parentUuid": "ca70b5f8_36927d94",
+      "revId": "276710fceeb4e359aceadd09b603a113832967fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
