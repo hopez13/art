@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d420e0f_efa56b6b",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-02-25T09:55:28Z",
+      "side": 1,
+      "message": "Aha. I\u0027m curious, would those Starlark dictionaries be queried directly from kati in soong_config_get?\n\n\u003e I could introduce an ART_MODULE_SOURCE_BUILD variable that then sets the soong config variable when set, and update all the comments and your g3doc page to talk about that. Would that be acceptable?\n\nYes, that sounds good, except perhaps it should be called `ART_MODULE_BUILD_FROM_SORCE` to align with `MODULE_BUILD_FROM_SOURCE`.\n\nWe could then use that variable in the .mk code rather than `$(call soong_config_get,...)`? Iow the Soong config variable would only be used to build soong.variables.",
+      "parentUuid": "db3b75c8_1dfa7177",
+      "range": {
+        "startLine": 103,
+        "startChar": 3,
+        "endLine": 103,
+        "endChar": 51
+      },
+      "revId": "0daaa1afd528e68161fd2b5796487ec69880ab7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02fb1015_96b37992",
         "filename": "build/Android.common_path.mk",
         "patchSetId": 1
