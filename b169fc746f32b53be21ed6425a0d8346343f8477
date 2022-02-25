@@ -63,6 +63,30 @@
       },
       "revId": "b169fc746f32b53be21ed6425a0d8346343f8477",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3c92a08_1abace32",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-25T16:43:54Z",
+      "side": 1,
+      "message": "Should we check if we have a boot image?\n\n(I\u0027ve changed many tests to use the primary boot image to make the setup cheaper and I don\u0027t know how much cost we add with `InitializeIntrinsics()`.)",
+      "parentUuid": "8ca4a813_fa0d0049",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 25
+      },
+      "revId": "b169fc746f32b53be21ed6425a0d8346343f8477",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
