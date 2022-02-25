@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "727172cd_ec16943f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-25T14:19:01Z",
+      "side": 1,
+      "message": "Done. I\u0027ve also moved the WellKnownClasses and intrinsics init in CreateRuntime, which seems more appropriate.",
+      "parentUuid": "a41fce4a_f7eea522",
+      "range": {
+        "startLine": 1692,
+        "startChar": 4,
+        "endLine": 1694,
+        "endChar": 41
+      },
+      "revId": "03c7def63b3349ab551adf22c09d1d58527756e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc1f7c63_24201b9d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-25T13:58:32Z",
       "side": 1,
       "message": "Only needed if `IsBootImage() || runtime_-\u003eGetHeap()-\u003eGetBootImageSpaces().empty()`.\n\nAnd remove the initialization from the `CompilerDriver::LoadImageClasses()`.",
+      "range": {
+        "startLine": 1698,
+        "startChar": 4,
+        "endLine": 1698,
+        "endChar": 27
+      },
+      "revId": "03c7def63b3349ab551adf22c09d1d58527756e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61dadf55_8bba2b02",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-25T14:19:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc1f7c63_24201b9d",
       "range": {
         "startLine": 1698,
         "startChar": 4,
