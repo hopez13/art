@@ -285,6 +285,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a28d026d_18049364",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-28T10:09:48Z",
+      "side": 1,
+      "message": "Can we just call `GetCalleeSaveOuterMethod` since that\u0027s what we really want?\n\nI don\u0027t think there\u0027s a need to move it to the inl.h and we can keep it in the .cc.\n\nWe can\u0027t change `const` to `constexpr` since the CalleeSaveType is a parameter. We could template the method but I don\u0027t know if that\u0027s needed.",
+      "parentUuid": "07da85d9_cf25473a",
+      "range": {
+        "startLine": 73,
+        "startChar": 74,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "691bfd1a_03db2a1a",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 6
@@ -296,6 +320,30 @@
       "writtenOn": "2022-02-23T15:31:54Z",
       "side": 1,
       "message": "BCP dex files are likely to satisfy this condition but we still want to update the .bss entry in `outer_method`\u0027s oat file.",
+      "range": {
+        "startLine": 179,
+        "startChar": 6,
+        "endLine": 179,
+        "endChar": 29
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8750d96b_ea087481",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-28T10:09:48Z",
+      "side": 1,
+      "message": "We can ask first about BCP dexfiles and then for `oat_dex_file !\u003d nullptr`. That way even if BCP DexFiles satisfy `oat_dex_file !\u003d nullptr` they will go to the outer_method.",
+      "parentUuid": "691bfd1a_03db2a1a",
       "range": {
         "startLine": 179,
         "startChar": 6,
@@ -367,6 +415,30 @@
       "side": 1,
       "message": "Yes, we should. (And I\u0027m opportunistically doing the replacements when I touch code near such patterns.)",
       "parentUuid": "118eaf00_cd98b992",
+      "range": {
+        "startLine": 237,
+        "startChar": 55,
+        "endLine": 237,
+        "endChar": 82
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1816155b_78eb8278",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-28T10:09:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ca6ea58_52b6dbaa",
       "range": {
         "startLine": 237,
         "startChar": 55,

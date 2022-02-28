@@ -22,6 +22,30 @@
       },
       "revId": "69be52f4997474dbba30e6f33cbbae11ed17df68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14b85eb7_074ca00d",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-02-28T10:09:48Z",
+      "side": 1,
+      "message": "I think that in this case we can do the same as we do in Store(String|Type)InBss and ask for the BCP DexFiles first.\nFor non-BCP we want to keep the current way of doing things.",
+      "parentUuid": "f5076140_80920b75",
+      "range": {
+        "startLine": 323,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 77
+      },
+      "revId": "69be52f4997474dbba30e6f33cbbae11ed17df68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
