@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f89419af_13b3869d",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-28T18:01:59Z",
+      "side": 1,
+      "message": "Why is this needed now?\n(And does it have any side-effects? I\u0027m not sure what the oldest version the ART APEX has to support.)",
+      "range": {
+        "startLine": 1011,
+        "startChar": 4,
+        "endLine": 1011,
+        "endChar": 26
+      },
+      "revId": "b5cf75bc005fa5b9d2d40de0e58d0bda89feebc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e66bd52_f6ce99e2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-28T18:01:59Z",
+      "side": 1,
+      "message": "Should you delete the file after uploading? (That would require more permissions.)\nOtherwise we may repeat the upload.\n\nOr should odsign be responsible for deleting it when it starts a run? That keeps write permissions in one place.",
+      "range": {
+        "startLine": 1043,
+        "startChar": 5,
+        "endLine": 1043,
+        "endChar": 33
+      },
+      "revId": "b5cf75bc005fa5b9d2d40de0e58d0bda89feebc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "996dabd1_17922a69",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-28T18:01:59Z",
+      "side": 1,
+      "message": "The indenting here looks really weird.\nContinuation lines should be aligned one space to the right of the \"(\" on the first line.\n(ART style is a little odd, but I think that\u0027s right.)",
+      "range": {
+        "startLine": 1054,
+        "startChar": 0,
+        "endLine": 1056,
+        "endChar": 61
+      },
+      "revId": "b5cf75bc005fa5b9d2d40de0e58d0bda89feebc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae187cc9_022389e2",
         "filename": "runtime/runtime.cc",
         "patchSetId": 5
@@ -19,6 +88,29 @@
         "startChar": 4,
         "endLine": 1058,
         "endChar": 9
+      },
+      "revId": "b5cf75bc005fa5b9d2d40de0e58d0bda89feebc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "818f1f98_629adbed",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-02-28T18:01:59Z",
+      "side": 1,
+      "message": "I think this is redundant unless you want to check the return value - not really needed for an input file.",
+      "range": {
+        "startLine": 1060,
+        "startChar": 2,
+        "endLine": 1060,
+        "endChar": 14
       },
       "revId": "b5cf75bc005fa5b9d2d40de0e58d0bda89feebc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
