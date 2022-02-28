@@ -33,6 +33,24 @@
       "message": "Please add bug number. These tests should be investigated.",
       "revId": "1af40b022a506fecc076b2d95c5ff104849400e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ce2941b_c045db0c",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-02-28T12:20:40Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure the `640-checker-integer-valueof` should be disabled becuase `CanReferenceBootImageObjects()` returns false in this configuration. Do all tests listed here rely on `CanReferenceBootImageObjects()` returning true?",
+      "parentUuid": "e6fe18c6_681b7949",
+      "revId": "1af40b022a506fecc076b2d95c5ff104849400e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
