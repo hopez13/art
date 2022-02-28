@@ -51,6 +51,24 @@
       "parentUuid": "e6fe18c6_681b7949",
       "revId": "1af40b022a506fecc076b2d95c5ff104849400e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ae1bd4a_43bcee0c",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-02-28T13:56:06Z",
+      "side": 1,
+      "message": "That\u0027s right, they\u0027re expected to fail, which is why I haven\u0027t filed a bug.",
+      "parentUuid": "1ce2941b_c045db0c",
+      "revId": "1af40b022a506fecc076b2d95c5ff104849400e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
