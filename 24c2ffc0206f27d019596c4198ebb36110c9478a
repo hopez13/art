@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac6755ab_92fbcc5c",
+        "filename": "test/12345-VarHandleCasTest/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-01T13:58:18Z",
+      "side": 1,
+      "message": "Spurious failure can lead to a task being skipped because `continue` proceeds to incrementing `i`.",
+      "range": {
+        "startLine": 47,
+        "startChar": 14,
+        "endLine": 49,
+        "endChar": 15
+      },
+      "revId": "24c2ffc0206f27d019596c4198ebb36110c9478a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
