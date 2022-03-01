@@ -184,7 +184,8 @@ class OatTest : public CommonCompilerDriverTest {
         /*update_input_vdex=*/ false,
         copy,
         &opened_dex_files_maps,
-        &opened_dex_files)) {
+        &opened_dex_files,
+        /*disab_dexlayout*/false)) {
       return false;
     }
 

@@ -262,7 +262,8 @@ inline void ImageTest::DoCompile(ImageHeader::StorageMode storage_mode,
             /* update_input_vdex */ false,
             /* copy_dex_files */ CopyOption::kOnlyIfCompressed,
             &cur_opened_dex_files_maps,
-            &cur_opened_dex_files);
+            &cur_opened_dex_files,
+            /*disable dexlayout*/ false);
         ASSERT_TRUE(dex_files_ok);
 
         if (!cur_opened_dex_files_maps.empty()) {

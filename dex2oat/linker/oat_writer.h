@@ -164,7 +164,8 @@ class OatWriter {
                             bool use_existing_vdex,
                             CopyOption copy_dex_files,
                             /*out*/ std::vector<MemMap>* opened_dex_files_map,
-                            /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files);
+                            /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files,
+                            bool dex_disable_layout);
   // Start writing .rodata, including supporting data structures for dex files.
   bool StartRoData(const std::vector<const DexFile*>& dex_files,
                    OutputStream* oat_rodata,
@@ -278,7 +279,8 @@ class OatWriter {
   bool WriteDexFiles(File* file,
                      bool use_existing_vdex,
                      CopyOption copy_dex_files,
-                     /*out*/ std::vector<MemMap>* opened_dex_files_map);
+                     /*out*/ std::vector<MemMap>* opened_dex_files_map,
+                     bool dex_disable_layout);
   bool WriteDexFile(File* file,
                     OatDexFile* oat_dex_file,
                     bool use_existing_vdex);
