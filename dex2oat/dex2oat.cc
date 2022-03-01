@@ -547,7 +547,8 @@ class Dex2Oat final {
         crash_on_linkage_violation_(false),
         compile_individually_(false),
         profile_load_attempted_(false),
-        should_report_dex2oat_compilation_(false) {}
+        should_report_dex2oat_compilation_(false),
+        compile_disable_dexlayout_(false) {}
 
   ~Dex2Oat() {
     // Log completion time before deleting the runtime_, because this accesses
@@ -1120,6 +1121,8 @@ class Dex2Oat final {
     }
     AssignTrueIfExists(args, M::CompileIndividually, &compile_individually_);
 
+    AssignTrueIfExists(args, M::CompileDisableDexLayout, &compile_disable_dexlayout_);
+
     if (args.Exists(M::Base)) {
       ParseBase(*args.Get(M::Base));
     }
@@ -1455,7 +1458,8 @@ class Dex2Oat final {
             use_existing_vdex_,
             copy_dex_files_,
             &opened_dex_files_map,
-            &opened_dex_files)) {
+            &opened_dex_files,
+            compile_disable_dexlayout_)) {
           return dex2oat::ReturnCode::kOther;
         }
         dex_files_per_oat_file_.push_back(MakeNonOwningPointerVector(opened_dex_files));
@@ -2962,6 +2966,9 @@ class Dex2Oat final {
 
   // Whether PaletteNotify{Start,End}Dex2oatCompilation should be called.
   bool should_report_dex2oat_compilation_;
+
+  // disable dexlayout when compile.
+  bool compile_disable_dexlayout_;
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(Dex2Oat);
 };
