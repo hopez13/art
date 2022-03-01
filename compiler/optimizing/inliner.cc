@@ -67,7 +67,7 @@ static constexpr size_t kMaximumNumberOfRecursiveCalls = 4;
 // Limit recursive polymorphic call inlining to prevent code bloat, since it can quickly get out of
 // hand in the presence of multiple Wrapper classes. We set this to 0 to disallow polymorphic
 // recursive calls at all.
-static constexpr size_t kMaximumNumberOfPolymorphicRecursiveCalls = 0;
+static constexpr size_t kMaximumNumberOfPolymorphicRecursiveCalls = 100;
 
 // Controls the use of inline caches in AOT mode.
 static constexpr bool kUseAOTInlineCaches = true;
