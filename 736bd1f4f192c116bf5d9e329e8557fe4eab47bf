@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "733e5f0a_ced1efda",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-03-01T00:30:58Z",
+      "side": 1,
+      "message": "Maybe technically correct, but less helpful. Please use ART_MODULE_BUILD_FROM_SOURCE in these comments as well, to make it easier to search for.",
+      "range": {
+        "startLine": 236,
+        "startChar": 17,
+        "endLine": 236,
+        "endChar": 81
+      },
+      "revId": "736bd1f4f192c116bf5d9e329e8557fe4eab47bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
