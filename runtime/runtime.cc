@@ -941,7 +941,7 @@ bool Runtime::Start() {
       LOG(WARNING) << "Failed to load JIT compiler with error " << error_msg;
     }
     CreateJitCodeCache(/*rwx_memory_allowed=*/true);
-    CreateJit();
+    //CreateJit();
   }
 
   // Send the start phase event. We have to wait till here as this is when the main thread peer

@@ -440,7 +440,10 @@ Parser CreateDex2oatArgumentParser() {
           .IntoKey(M::ForceJitZygote)
       .Define("--force-palette-compilation-hooks")
           .WithHelp("Force PaletteNotify{Start,End}Dex2oatCompilation calls.")
-          .IntoKey(M::ForcePaletteCompilationHooks);
+          .IntoKey(M::ForcePaletteCompilationHooks)
+      .Define("--compile-disable-dexlayout")
+          .WithHelp("Compiles disable dexlayout ")
+          .IntoKey(M::CompileDisableDexLayout);
 
   AddCompilerOptionsArgumentParserOptions<Dex2oatArgumentMap>(*parser_builder);
 

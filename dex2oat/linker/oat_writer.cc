@@ -686,7 +686,8 @@ bool OatWriter::WriteAndOpenDexFiles(
     bool use_existing_vdex,
     CopyOption copy_dex_files,
     /*out*/ std::vector<MemMap>* opened_dex_files_map,
-    /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files) {
+    /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files,
+    bool dex_disable_layout) {
   CHECK(write_state_ == WriteState::kAddingDexFileSources);
 
   // Reserve space for Vdex header, sections, and checksums.
@@ -698,7 +699,7 @@ bool OatWriter::WriteAndOpenDexFiles(
   // Write DEX files into VDEX, mmap and open them.
   std::vector<MemMap> dex_files_map;
   std::vector<std::unique_ptr<const DexFile>> dex_files;
-  if (!WriteDexFiles(vdex_file, use_existing_vdex, copy_dex_files, &dex_files_map) ||
+  if (!WriteDexFiles(vdex_file, use_existing_vdex, copy_dex_files, &dex_files_map, dex_disable_layout) ||
       !OpenDexFiles(vdex_file, verify, &dex_files_map, &dex_files)) {
     return false;
   }
@@ -3104,7 +3105,8 @@ bool OatWriter::RecordOatDataOffset(OutputStream* out) {
 bool OatWriter::WriteDexFiles(File* file,
                               bool use_existing_vdex,
                               CopyOption copy_dex_files,
-                              /*out*/ std::vector<MemMap>* opened_dex_files_map) {
+                              /*out*/ std::vector<MemMap>* opened_dex_files_map,
+                              bool dex_disable_layout) {
   TimingLogger::ScopedTiming split("Write Dex files", timings_);
 
   // If extraction is enabled, only do it if not all the dex files are aligned and uncompressed.
@@ -3130,10 +3132,9 @@ bool OatWriter::WriteDexFiles(File* file,
 
   if (extract_dex_files_into_vdex_) {
     vdex_dex_files_offset_ = vdex_size_;
-
-    // Perform dexlayout if requested.
-    if (profile_compilation_info_ != nullptr ||
-        compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone) {
+     // Perform dexlayout if requested.
+    if (!dex_disable_layout && (profile_compilation_info_ != nullptr ||
+        compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone)) {
       for (OatDexFile& oat_dex_file : oat_dex_files_) {
         // use_existing_vdex should not be used with compact dex and layout.
         CHECK(!use_existing_vdex)
