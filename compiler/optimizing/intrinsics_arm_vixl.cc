@@ -3485,6 +3485,8 @@ static void GenerateCompareAndSet(CodeGeneratorARMVIXL* codegen,
     __ cmp(eq, HighRegisterFrom(old_value), HighRegisterFrom(expected));
   } else if (expected.IsRegisterPair()) {
     DCHECK_EQ(type, DataType::Type::kReference);
+    DCHECK_NE(RegisterFrom(old_value).GetReg(), LowRegisterFrom(expected).GetReg());
+    DCHECK_NE(RegisterFrom(old_value).GetReg(), HighRegisterFrom(expected).GetReg());
     // Check if the loaded value matches any of the two registers in `expected`.
     __ Cmp(RegisterFrom(old_value), LowRegisterFrom(expected));
     ExactAssemblyScope aas(assembler->GetVIXLAssembler(), 2 * k16BitT32InstructionSizeInBytes);
@@ -4895,7 +4897,7 @@ static void GenerateVarHandleCompareAndSetOrExchange(HInvoke* invoke,
   if (kEmitCompilerReadBarrier && value_type == DataType::Type::kReference) {
     // The `old_value_temp` is used first for the marked `old_value` and then for the unmarked
     // reloaded old value for subsequent CAS in the slow path.
-    vixl32::Register old_value_temp = store_result;
+    vixl32::Register old_value_temp = return_success ? RegisterFrom(out) : store_result;
     // The slow path store result must not clobber `old_value`.
     vixl32::Register slow_path_store_result = return_success ? RegisterFrom(out) : store_result;
     ReadBarrierCasSlowPathARMVIXL* rb_slow_path =
