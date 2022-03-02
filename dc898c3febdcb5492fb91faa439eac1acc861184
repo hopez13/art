@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d2e8e50_9a861584",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-02T14:42:43Z",
+      "side": 1,
+      "message": "I was under the impression that the OatDexFiles that we would get here would have a non-null OatFile. I was wrong.\nAdded the early break on related methods too.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 5
+      },
+      "revId": "dc898c3febdcb5492fb91faa439eac1acc861184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
