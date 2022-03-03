@@ -16,6 +16,23 @@
       "message": "I\u0027m not 100% sure it will not add clobbering similar to http://requiem/doc/postmortem151274 for e.g. `compareAndExchange` (for that I\u0027d need to go through all the generated assembly for all methods that depend on this code, or implement the analysis in b/219433026).\n\nBut I can confirm that this fixes the repro in aosp/2003811 and passes existing varhandle tests, so I\u0027m in favor of merging it before verifying all related intrinsics.\n\n+1 to wait for Soring to try this on the original full test in b/208156527.",
       "revId": "22969c45d7ad36ddf49e68a393195d92c8594a18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe9875fd_49aeffcc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-03-03T09:01:48Z",
+      "side": 1,
+      "message": "The tests have run through the night without any failures. It looks like this fixes it. Thank you Ulya and Vladimir.",
+      "revId": "22969c45d7ad36ddf49e68a393195d92c8594a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
