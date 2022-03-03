@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8989e525_817f000a",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2022-03-03T21:19:19Z",
+      "side": 1,
+      "message": "Are these stubs on the master-art branch? In my local build on the master branch these are full implementation libraries. Replacing them with prebuilts can cause problems, e.g. when working on ABI changes. So can we change this code to e.g. only replace with prebuilts if we are on master-art?",
+      "revId": "c631a24787697f561e73b4a24e0e7faea3ac7538",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
