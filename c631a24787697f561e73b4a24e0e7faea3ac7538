@@ -16,6 +16,24 @@
       "message": "Are these stubs on the master-art branch? In my local build on the master branch these are full implementation libraries. Replacing them with prebuilts can cause problems, e.g. when working on ABI changes. So can we change this code to e.g. only replace with prebuilts if we are on master-art?",
       "revId": "c631a24787697f561e73b4a24e0e7faea3ac7538",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0120a001_1de4bfb9",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-03-03T21:45:53Z",
+      "side": 1,
+      "message": "They\u0027re full implementation libs on master-art too, which are necessary for the chroot set up by this script.\n\nSGTM to only do this on master-art. There\u0027s already a condition higher up in this script (at HEAD) to detect it for TARGET_BUILD_UNBUNDLED.\n\nWhen we don\u0027t do this copying it may be necessary to add the list of implementation libs to make_command.",
+      "parentUuid": "8989e525_817f000a",
+      "revId": "c631a24787697f561e73b4a24e0e7faea3ac7538",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
