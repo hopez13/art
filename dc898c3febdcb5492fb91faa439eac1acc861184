@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d579556_50774c65",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T09:12:19Z",
+      "side": 1,
+      "message": "This is not the right class to check.\n\nWe need the declaring class of the inner-most inlined method. I think the `callee_reference` should be replaced with `inner_method` (or `caller_method`?) and `callee_index` (or `callee_index_in_caller_dex_file`?).\n\nAlternatively,\n\n  if (outer_method has no oat file) return;\n  if (callee_reference.dex_file has the same oat file as outer_method) {\n    Use callee_reference.dex_file-\u003eGetOatDexFile()-\u003eGetMethodBssMapping().\n  } else {\n    Try to find callee_reference.dex_file in BCP dex files\n    (maybe `.SubArray(/*pos\u003d*/ 0, oat_file-\u003eGetBcpBssInfo().size())`)\n    and use outer_method\u0027s oat file\u0027s GetBcpBssInfo().\n  }",
+      "range": {
+        "startLine": 325,
+        "startChar": 6,
+        "endLine": 325,
+        "endChar": 33
+      },
+      "revId": "dc898c3febdcb5492fb91faa439eac1acc861184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c289e363_1bc30fbc",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T09:12:19Z",
+      "side": 1,
+      "message": "Why not just `std::find()` and avoid the lambda?",
+      "range": {
+        "startLine": 336,
+        "startChar": 19,
+        "endLine": 336,
+        "endChar": 26
+      },
+      "revId": "dc898c3febdcb5492fb91faa439eac1acc861184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9d2e8e50_9a861584",
