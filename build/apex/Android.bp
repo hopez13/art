@@ -254,7 +254,10 @@ art_module_apex_defaults {
 // Default values shared by device ART APEXes.
 apex_defaults {
     name: "com.android.art-device-defaults-minus-odrefresh",
-    defaults: ["com.android.art-defaults"],
+    defaults: [
+        "com.android.art-defaults",
+        "s-launched-apex-module",
+    ],
     compile_multilib: "both",
     manifest: "manifest-art.json",
     bootclasspath_fragments: ["art-bootclasspath-fragment"],
@@ -295,7 +298,6 @@ apex_defaults {
             enabled: false,
         },
     },
-    min_sdk_version: "31",
     // Indicates that pre-installed version of this apex can be compressed.
     // Whether it actually will be compressed is controlled on per-device basis.
     compressible: true,
@@ -367,7 +369,6 @@ apex_test {
     file_contexts: ":com.android.art-file_contexts",
     certificate: ":com.android.art.certificate",
     installable: false,
-    min_sdk_version: "31",
 }
 
 // Release version of the ART APEX module (not containing debug
