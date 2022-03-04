@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35bdb5b6_a2af3c9c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2491,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T16:58:18Z",
+      "side": 1,
+      "message": "Move to `oat_file-inl.h`?",
+      "range": {
+        "startLine": 2491,
+        "startChar": 40,
+        "endLine": 2491,
+        "endChar": 58
+      },
+      "revId": "3f3629ef27551f57503a01b906dbab6406dc3eea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec96a566_1c8221dd",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2494,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T16:58:18Z",
+      "side": 1,
+      "message": "Maybe\n\n  bcp_dexfiles \u003d bcp_dexfiles.SubArray(/*pos\u003d*/ 0u, mapping_info_vector.size());\n\nto reduce the search range? This should also implicitly `DCHECK()` that BCP has at least `mapping_info_vector.size()` dex files.\n\nAnd this also allows\n\n  if (it !\u003d bcp_dexfiles.end()) {\n    const uint32_t dexfile_index \u003d std::distance(bcp_dexfiles.begin(), it);\n    return \u0026mapping_info_vector[dexfile_index];\n  } else {\n    return nullptr;\n  }\n\n(Pushing the `std::distance()` into the \"then\" block. We could even drop the local variable `dexfile_index`.)",
+      "revId": "3f3629ef27551f57503a01b906dbab6406dc3eea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
