@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "958e82f7_4a6775f1",
+        "filename": "test/2239-varhandle-perf/build",
+        "patchSetId": 19
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-03-04T17:58:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5d06a2f_7f444caf",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 112
+      },
+      "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cb1eb32_b20c934c",
@@ -81,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f03b5fd3_3970b9a6",
+        "filename": "test/2239-varhandle-perf/build",
+        "patchSetId": 19
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-03-04T17:58:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cb1eb32_b20c934c",
+      "range": {
+        "startLine": 33,
+        "startChar": 55,
+        "endLine": 33,
+        "endChar": 71
+      },
+      "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0027946_0a8cf031",
@@ -94,6 +142,30 @@
       "writtenOn": "2022-02-15T14:23:08Z",
       "side": 1,
       "message": "Super-nit: the VH equivalents look like they are using offset, value, {value1} rather than alternating here. The value field isn\u0027t initialized so every op will fail, but the VH equivalents initialize the equivalent field.",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 65
+      },
+      "revId": "6439782a0f793d1a58446812f21316df0a2321ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a84984d_4a46a040",
+        "filename": "test/2239-varhandle-perf/util-src/generate_java.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-03-04T17:58:39Z",
+      "side": 1,
+      "message": "I did two things to make them closer:\n\n1) added initialization for the Unsafe case\n2) added alternation to VH case\n\nThe latter is not strictly necessary, because VH and Unsafe methods are slightly different in that `VarHandle.compareAnd...` methods implicitly load the expected value (with semantics of `VarHandle.get()`), while in Unsafe it is passed explicitly. But I added alternation just for symmetry.",
+      "parentUuid": "d0027946_0a8cf031",
       "range": {
         "startLine": 395,
         "startChar": 0,
