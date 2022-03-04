@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "133fd362_063849d7",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T11:47:13Z",
+      "side": 1,
+      "message": "Well, we could do that without a helper, we would just need to initialize a local variable `const IndexBssMapping* method_mapping` differently in \"then\" and \"else\" branches of `if (oat_dex_file !\u003d nullptr \u0026\u0026 oat_dex_file-\u003eGetOatFile() \u003d\u003d outer_oat_file)`.\n\n(The helper function is good for readability but I am sometimes also concerned about code size and I\u0027m not sure clang++ shall merge the two helper function calls if it decides to inline.)",
+      "revId": "e7f095ed89c826f29427a03ef599d99c29228e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e10aa9f5_986aff28",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T11:47:13Z",
+      "side": 1,
+      "message": "Add `static` if you want to keep the helper function.",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 4
+      },
+      "revId": "e7f095ed89c826f29427a03ef599d99c29228e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5dd6f40_ff318de8",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T11:47:13Z",
+      "side": 1,
+      "message": "outer_oat_file",
+      "range": {
+        "startLine": 335,
+        "startChar": 71,
+        "endLine": 335,
+        "endChar": 97
+      },
+      "revId": "e7f095ed89c826f29427a03ef599d99c29228e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
