@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc7175ba_9a245fe9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2022-03-04T02:50:51Z",
+      "side": 1,
+      "message": "Looks like the presubmit failures are real. From one of the cuttlefish boot logs:\n\n[   10.577886] apexd: Found two apex packages /system/apex/com.google.android.os.statsd.apex and /system/apex/com.android.os.statsd.apex with the same module name com.android.os.statsd\n\nI guess we would need to somehow suppress this dependency in the case where ART is not a prebuilt and statsd is? For now I\u0027ll just add this dependency to my target I suppose.",
+      "revId": "213f00687d17d55a725d0eea142d28a213d2dfdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce357ac0_bf51b052",
