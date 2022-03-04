@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f1391b8_aae60cce",
+        "filename": "test/835-b216762268/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-04T10:04:39Z",
+      "side": 1,
+      "message": "Can you move back to expectEquals mode? I find it easier to see issues when everything is expressed in the same file.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 62
+      },
+      "revId": "85abb90351e129ec00c51914e9ef617c811534cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
