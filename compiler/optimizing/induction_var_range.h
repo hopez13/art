@@ -58,13 +58,13 @@ class InductionVarRange {
   explicit InductionVarRange(HInductionVarAnalysis* induction);
 
   /**
-   * Given a context denoted by the first instruction, returns a possibly conservative lower
+   * Given a context block, returns a possibly conservative lower
    * and upper bound on the instruction's value in the output parameters min_val and max_val,
    * respectively. The need_finite_test flag denotes if an additional finite-test is needed
    * to protect the range evaluation inside its loop. The parameter chase_hint defines an
    * instruction at which chasing may stop. Returns false on failure.
    */
-  bool GetInductionRange(HInstruction* context,
+  bool GetInductionRange(HBasicBlock* context,
                          HInstruction* instruction,
                          HInstruction* chase_hint,
                          /*out*/ Value* min_val,
@@ -77,7 +77,7 @@ class InductionVarRange {
    * and need_taken test flags denote if an additional finite-test and/or taken-test
    * are needed to protect the range evaluation inside its loop.
    */
-  bool CanGenerateRange(HInstruction* context,
+  bool CanGenerateRange(HBasicBlock* context,
                         HInstruction* instruction,
                         /*out*/ bool* needs_finite_test,
                         /*out*/ bool* needs_taken_test);
@@ -97,7 +97,7 @@ class InductionVarRange {
    *
    * Precondition: CanGenerateRange() returns true.
    */
-  void GenerateRange(HInstruction* context,
+  void GenerateRange(HBasicBlock* context,
                      HInstruction* instruction,
                      HGraph* graph,
                      HBasicBlock* block,
@@ -105,12 +105,12 @@ class InductionVarRange {
                      /*out*/ HInstruction** upper);
 
   /**
-   * Generates explicit taken-test for the loop in the given context. Code is generated in
+   * Generates explicit taken-test for the given `loop_control` instruction. Code is generated in
    * given block and graph. Returns generated taken-test.
    *
    * Precondition: CanGenerateRange() returns true and needs_taken_test is set.
    */
-  HInstruction* GenerateTakenTest(HInstruction* context, HGraph* graph, HBasicBlock* block);
+  HInstruction* GenerateTakenTest(HInstruction* loop_control, HGraph* graph, HBasicBlock* block);
 
   /**
    * Returns true if induction analysis is able to generate code for last value of
@@ -177,7 +177,7 @@ class InductionVarRange {
    * as context and the index as instruction to make sure the stride is tested against the
    * loop that envelops the reference the closest). Returns invariant offset on success.
    */
-  bool IsUnitStride(HInstruction* context,
+  bool IsUnitStride(HBasicBlock* context,
                     HInstruction* instruction,
                     HGraph* graph,
                     /*out*/ HInstruction** offset) const;
@@ -211,68 +211,87 @@ class InductionVarRange {
    * Returns true if exact or upper/lower bound on the given induction
    * information is known as a 64-bit constant, which is returned in value.
    */
-  bool IsConstant(HInductionVarAnalysis::InductionInfo* info,
+  bool IsConstant(HBasicBlock* context,
+                  HLoopInformation* loop,
+                  HInductionVarAnalysis::InductionInfo* info,
                   ConstantRequest request,
                   /*out*/ int64_t* value) const;
 
   /** Returns whether induction information can be obtained. */
-  bool HasInductionInfo(HInstruction* context,
+  bool HasInductionInfo(HBasicBlock* context,
                         HInstruction* instruction,
                         /*out*/ HLoopInformation** loop,
                         /*out*/ HInductionVarAnalysis::InductionInfo** info,
                         /*out*/ HInductionVarAnalysis::InductionInfo** trip) const;
 
   bool HasFetchInLoop(HInductionVarAnalysis::InductionInfo* info) const;
-  bool NeedsTripCount(HInductionVarAnalysis::InductionInfo* info,
+  bool NeedsTripCount(HBasicBlock* context,
+                      HLoopInformation* loop,
+                      HInductionVarAnalysis::InductionInfo* info,
                       /*out*/ int64_t* stride_value) const;
   bool IsBodyTripCount(HInductionVarAnalysis::InductionInfo* trip) const;
   bool IsUnsafeTripCount(HInductionVarAnalysis::InductionInfo* trip) const;
-  bool IsWellBehavedTripCount(HInductionVarAnalysis::InductionInfo* trip) const;
+  bool IsWellBehavedTripCount(HBasicBlock* context,
+                              HLoopInformation* loop,
+                              HInductionVarAnalysis::InductionInfo* trip) const;
 
-  Value GetLinear(HInductionVarAnalysis::InductionInfo* info,
+  Value GetLinear(HBasicBlock* context,
+                  HLoopInformation* loop,
+                  HInductionVarAnalysis::InductionInfo* info,
                   HInductionVarAnalysis::InductionInfo* trip,
-                  bool in_body,
                   bool is_min) const;
-  Value GetPolynomial(HInductionVarAnalysis::InductionInfo* info,
+  Value GetPolynomial(HBasicBlock* context,
+                      HLoopInformation* loop,
+                      HInductionVarAnalysis::InductionInfo* info,
                       HInductionVarAnalysis::InductionInfo* trip,
-                      bool in_body,
                       bool is_min) const;
-  Value GetGeometric(HInductionVarAnalysis::InductionInfo* info,
+  Value GetGeometric(HBasicBlock* context,
+                     HLoopInformation* loop,
+                     HInductionVarAnalysis::InductionInfo* info,
                      HInductionVarAnalysis::InductionInfo* trip,
-                     bool in_body,
                      bool is_min) const;
-  Value GetFetch(HInstruction* instruction,
+  Value GetFetch(HBasicBlock* context,
+                 HLoopInformation* loop,
+                 HInstruction* instruction,
                  HInductionVarAnalysis::InductionInfo* trip,
-                 bool in_body,
                  bool is_min) const;
-  Value GetVal(HInductionVarAnalysis::InductionInfo* info,
+  Value GetVal(HBasicBlock* context,
+               HLoopInformation* loop,
+               HInductionVarAnalysis::InductionInfo* info,
                HInductionVarAnalysis::InductionInfo* trip,
-               bool in_body,
                bool is_min) const;
-  Value GetMul(HInductionVarAnalysis::InductionInfo* info1,
+  Value GetMul(HBasicBlock* context,
+               HLoopInformation* loop,
+               HInductionVarAnalysis::InductionInfo* info1,
                HInductionVarAnalysis::InductionInfo* info2,
                HInductionVarAnalysis::InductionInfo* trip,
-               bool in_body,
                bool is_min) const;
-  Value GetDiv(HInductionVarAnalysis::InductionInfo* info1,
+  Value GetDiv(HBasicBlock* context,
+               HLoopInformation* loop,
+               HInductionVarAnalysis::InductionInfo* info1,
                HInductionVarAnalysis::InductionInfo* info2,
                HInductionVarAnalysis::InductionInfo* trip,
-               bool in_body,
                bool is_min) const;
-  Value GetRem(HInductionVarAnalysis::InductionInfo* info1,
+  Value GetRem(HBasicBlock* context,
+               HLoopInformation* loop,
+               HInductionVarAnalysis::InductionInfo* info1,
                HInductionVarAnalysis::InductionInfo* info2) const;
-  Value GetXor(HInductionVarAnalysis::InductionInfo* info1,
+  Value GetXor(HBasicBlock* context,
+               HLoopInformation* loop,
+               HInductionVarAnalysis::InductionInfo* info1,
                HInductionVarAnalysis::InductionInfo* info2) const;
 
-  Value MulRangeAndConstant(int64_t value,
+  Value MulRangeAndConstant(HBasicBlock* context,
+                            HLoopInformation* loop,
+                            int64_t value,
                             HInductionVarAnalysis::InductionInfo* info,
                             HInductionVarAnalysis::InductionInfo* trip,
-                            bool in_body,
                             bool is_min) const;
-  Value DivRangeAndConstant(int64_t value,
+  Value DivRangeAndConstant(HBasicBlock* context,
+                            HLoopInformation* loop,
+                            int64_t value,
                             HInductionVarAnalysis::InductionInfo* info,
                             HInductionVarAnalysis::InductionInfo* trip,
-                            bool in_body,
                             bool is_min) const;
 
   Value AddValue(Value v1, Value v2) const;
@@ -286,7 +305,7 @@ class InductionVarRange {
    * success. With values nullptr, the method can be used to determine if code generation
    * would be successful without generating actual code yet.
    */
-  bool GenerateRangeOrLastValue(HInstruction* context,
+  bool GenerateRangeOrLastValue(HBasicBlock* context,
                                 HInstruction* instruction,
                                 bool is_last_val,
                                 HGraph* graph,
@@ -298,38 +317,47 @@ class InductionVarRange {
                                 /*out*/ bool* needs_finite_test,
                                 /*out*/ bool* needs_taken_test) const;
 
-  bool GenerateLastValuePolynomial(HInductionVarAnalysis::InductionInfo* info,
+  bool GenerateLastValuePolynomial(HBasicBlock* context,
+                                   HLoopInformation* loop,
+                                   HInductionVarAnalysis::InductionInfo* info,
                                    HInductionVarAnalysis::InductionInfo* trip,
                                    HGraph* graph,
                                    HBasicBlock* block,
                                    /*out*/HInstruction** result) const;
 
-  bool GenerateLastValueGeometric(HInductionVarAnalysis::InductionInfo* info,
+  bool GenerateLastValueGeometric(HBasicBlock* context,
+                                  HLoopInformation* loop,
+                                  HInductionVarAnalysis::InductionInfo* info,
                                   HInductionVarAnalysis::InductionInfo* trip,
                                   HGraph* graph,
                                   HBasicBlock* block,
                                   /*out*/HInstruction** result) const;
 
-  bool GenerateLastValueWrapAround(HInductionVarAnalysis::InductionInfo* info,
+  bool GenerateLastValueWrapAround(HBasicBlock* context,
+                                   HLoopInformation* loop,
+                                   HInductionVarAnalysis::InductionInfo* info,
                                    HInductionVarAnalysis::InductionInfo* trip,
                                    HGraph* graph,
                                    HBasicBlock* block,
                                    /*out*/HInstruction** result) const;
 
-  bool GenerateLastValuePeriodic(HInductionVarAnalysis::InductionInfo* info,
+  bool GenerateLastValuePeriodic(HBasicBlock* context,
+                                 HLoopInformation* loop,
+                                 HInductionVarAnalysis::InductionInfo* info,
                                  HInductionVarAnalysis::InductionInfo* trip,
                                  HGraph* graph,
                                  HBasicBlock* block,
                                  /*out*/HInstruction** result,
                                  /*out*/ bool* needs_taken_test) const;
 
-  bool GenerateCode(HInductionVarAnalysis::InductionInfo* info,
+  bool GenerateCode(HBasicBlock* context,
+                    HLoopInformation* loop,
+                    HInductionVarAnalysis::InductionInfo* info,
                     HInductionVarAnalysis::InductionInfo* trip,
                     HGraph* graph,
                     HBasicBlock* block,
-                    /*out*/ HInstruction** result,
-                    bool in_body,
-                    bool is_min) const;
+                    bool is_min,
+                    /*out*/ HInstruction** result) const;
 
   void ReplaceInduction(HInductionVarAnalysis::InductionInfo* info,
                         HInstruction* fetch,
