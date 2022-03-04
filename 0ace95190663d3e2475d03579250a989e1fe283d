@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89a60b12_da54c40e",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "Maybe \"Check if there is an oat file for a .bss entry update.\"?\nOr move the comment on the same line as the `return;` below.",
+      "range": {
+        "startLine": 291,
+        "startChar": 2,
+        "endLine": 291,
+        "endChar": 26
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22b26ecc_4f701a1d",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "Please update comment after code changes.",
+      "range": {
+        "startLine": 216,
+        "startChar": 3,
+        "endLine": 220,
+        "endChar": 91
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0085a2b_6e6821bc",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "Change or move after the \"return\" below.",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 26
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "755c62a8_babbcaac",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "\u0026",
+      "range": {
+        "startLine": 112,
+        "startChar": 35,
+        "endLine": 112,
+        "endChar": 36
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43d77725_e9dfe259",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 145,
+        "startChar": 2,
+        "endLine": 145,
+        "endChar": 26
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd9f511d_225ee834",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether we should have a helper function for this in `OatFile`. Maybe it could return `BssMappingInfo` by value (filled with nulls if not found).",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 163,
+        "endChar": 75
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a45f82a8_878cbf29",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "Maybe we should just drop this function now. All relevant checks are present in `StoreTypeInBss()`/`StoreStringInBss()` and this \"quick check\" is not simple and therefore not really that quick anymore.\n\n(Or we could re-purpose this function to check that the `outer_method` has an oat file and remove the unnecessary argument `caller`. Then replace the related `if`s in `StoreTypeInBss()`/`StoreStringInBss()` with `DCHECK()`s.)",
+      "range": {
+        "startLine": 179,
+        "startChar": 26,
+        "endLine": 179,
+        "endChar": 41
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65645847_aaa33520",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "`outer_method`",
+      "range": {
+        "startLine": 239,
+        "startChar": 45,
+        "endLine": 239,
+        "endChar": 51
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78be0848_4ba4a223",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "`outer_method`",
+      "range": {
+        "startLine": 258,
+        "startChar": 45,
+        "endLine": 258,
+        "endChar": 51
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cbc33ee_2346e772",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "`outer_method`",
+      "range": {
+        "startLine": 294,
+        "startChar": 45,
+        "endLine": 294,
+        "endChar": 51
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db9037f0_1306e9bb",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "than",
+      "range": {
+        "startLine": 1030,
+        "startChar": 43,
+        "endLine": 1030,
+        "endChar": 47
+      },
+      "revId": "0ace95190663d3e2475d03579250a989e1fe283d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

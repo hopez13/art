@@ -333,6 +333,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08112ab4_637521ff",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:34:35Z",
+      "side": 1,
+      "message": "I guess this is OK. Using `DoGetCalleeSaveMethodOuterCallerAndPc()` should be faster than calling `self-\u003eGetCurrentMethod(\u0026dex_pc)` but this difference should be small and fetching the outer method a second time (because `Thread::GetCurrentMethod()` shall internally fetch it once) should be negligible overhead.\n\nIf you don\u0027t want to optimize this, just Ack this comment and move on.",
+      "parentUuid": "3d85d2f3_41247611",
+      "range": {
+        "startLine": 73,
+        "startChar": 74,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "691bfd1a_03db2a1a",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 6
