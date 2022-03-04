@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8a4d615_1869174c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2015,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-04T14:51:43Z",
+      "side": 1,
+      "message": "Do we already have all required libraries loaded when adding the boot image? Shouldn\u0027t we add this hook to zygote class preloading instead?",
+      "range": {
+        "startLine": 2015,
+        "startChar": 38,
+        "endLine": 2015,
+        "endChar": 61
+      },
+      "revId": "e9daff41b129b0ef6496b3fb4d92a70494e74d3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
