@@ -2006,6 +2006,17 @@ bool ClassLinker::AddImageSpace(
           method.SetEntryPointFromQuickCompiledCode(GetQuickToInterpreterBridge());
         }
       }
+
+      // For the boot image, lookup native method addresses to avoid forked
+      // processes to dirty the ArtMethod.
+      if (!app_image && method.IsNative() && method.GetDeclaringClass()->IsInitialized()) {
+        JavaVMExt* vm = down_cast<JNIEnvExt*>(self->GetJniEnv())->GetVm();
+        std::string error_msg;
+        const void* native_code = vm->FindCodeForNativeMethod(&method, error_msg);
+        if (native_code != nullptr) {
+          RegisterNative(self, &method, native_code);
+        }
+      }
     }, space->Begin(), image_pointer_size_);
   }
 
@@ -3346,6 +3357,22 @@ uint32_t ClassLinker::SizeOfClassWithoutEmbeddedTables(const DexFile& dex_file,
 void ClassLinker::FixupStaticTrampolines(Thread* self, ObjPtr<mirror::Class> klass) {
   ScopedAssertNoThreadSuspension sants(__FUNCTION__);
   DCHECK(klass->IsVisiblyInitialized()) << klass->PrettyDescriptor();
+
+  if (Runtime::Current()->IsZygote()) {
+    // Eagerly lookup for native methods code in the zygote, so forked apps don't
+    // dirty the the method.
+    for (ArtMethod& method : klass->GetDeclaredMethods(kRuntimePointerSize)) {
+      if (method.IsNative()) {
+        JavaVMExt* vm = down_cast<JNIEnvExt*>(self->GetJniEnv())->GetVm();
+        std::string error_msg;
+        const void* native_code = vm->FindCodeForNativeMethod(&method, error_msg);
+        if (native_code != nullptr) {
+          RegisterNative(self, &method, native_code);
+        }
+      }
+    }
+  }
+
   size_t num_direct_methods = klass->NumDirectMethods();
   if (num_direct_methods == 0) {
     return;  // No direct methods => no static methods.
@@ -5708,7 +5735,9 @@ bool ClassLinker::EnsureInitialized(Thread* self,
       // Thanks to the x86 memory model classes skip the initialized status.
       DCHECK(c->IsVisiblyInitialized());
     } else if (UNLIKELY(!c->IsVisiblyInitialized())) {
-      if (self->IncrementMakeVisiblyInitializedCounter()) {
+      // When it is the zygote initializing the class, we want to make sure we
+      // call FixupStaticTrampolines before any fork.
+      if (self->IncrementMakeVisiblyInitializedCounter() || Runtime::Current()->IsZygote()) {
         MakeInitializedClassesVisiblyInitialized(self, /*wait=*/ false);
       }
     }

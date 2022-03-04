@@ -1148,23 +1148,17 @@ static void* FindCodeForNativeMethodInAgents(ArtMethod* m) REQUIRES_SHARED(Locks
   return nullptr;
 }
 
-void* JavaVMExt::FindCodeForNativeMethod(ArtMethod* m) {
+void* JavaVMExt::FindCodeForNativeMethod(ArtMethod* m, std::string& error_msg) {
   CHECK(m->IsNative());
   ObjPtr<mirror::Class> c = m->GetDeclaringClass();
   // If this is a static method, it could be called before the class has been initialized.
   CHECK(c->IsInitializing()) << c->GetStatus() << " " << m->PrettyMethod();
-  std::string detail;
   Thread* const self = Thread::Current();
-  void* native_method = libraries_->FindNativeMethod(self, m, detail);
+  void* native_method = libraries_->FindNativeMethod(self, m, error_msg);
   if (native_method == nullptr) {
     // Lookup JNI native methods from native TI Agent libraries. See runtime/ti/agent.h for more
     // information. Agent libraries are searched for native methods after all jni libraries.
     native_method = FindCodeForNativeMethodInAgents(m);
-  }
-  // Throwing can cause libraries_lock to be reacquired.
-  if (native_method == nullptr) {
-    LOG(ERROR) << detail;
-    self->ThrowNewException("Ljava/lang/UnsatisfiedLinkError;", detail.c_str());
   }
   return native_method;
 }
