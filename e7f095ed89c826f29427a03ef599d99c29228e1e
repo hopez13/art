@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "970cf82e_d3820850",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-04T12:54:12Z",
+      "side": 1,
+      "message": "Ack, removed the helper. Based on this, I also removed the helpers for StoreString|TypeInBss",
+      "parentUuid": "133fd362_063849d7",
+      "revId": "e7f095ed89c826f29427a03ef599d99c29228e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e10aa9f5_986aff28",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da6cdab6_662ab06d",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-04T12:54:12Z",
+      "side": 1,
+      "message": "Removed it per the other comment.",
+      "parentUuid": "e10aa9f5_986aff28",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 4
+      },
+      "revId": "e7f095ed89c826f29427a03ef599d99c29228e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5dd6f40_ff318de8",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-03-04T11:47:13Z",
       "side": 1,
       "message": "outer_oat_file",
+      "range": {
+        "startLine": 335,
+        "startChar": 71,
+        "endLine": 335,
+        "endChar": 97
+      },
+      "revId": "e7f095ed89c826f29427a03ef599d99c29228e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9effe5bb_ec656459",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-04T12:54:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5dd6f40_ff318de8",
       "range": {
         "startLine": 335,
         "startChar": 71,
