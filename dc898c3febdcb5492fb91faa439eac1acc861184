@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02fe651d_355e9ed6",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-04T11:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da0f6c91_a81ecf9c",
+      "range": {
+        "startLine": 325,
+        "startChar": 6,
+        "endLine": 325,
+        "endChar": 33
+      },
+      "revId": "dc898c3febdcb5492fb91faa439eac1acc861184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c289e363_1bc30fbc",
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "I\u0027m pretty sure we can, given that the container is `ArrayRef\u003cconst DexFile* const\u003e`.",
       "parentUuid": "a0d435a3_554369e2",
+      "range": {
+        "startLine": 336,
+        "startChar": 19,
+        "endLine": 336,
+        "endChar": 26
+      },
+      "revId": "dc898c3febdcb5492fb91faa439eac1acc861184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60ad8de7_c742c9f8",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-04T11:15:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf26c570_e4377ba3",
       "range": {
         "startLine": 336,
         "startChar": 19,
