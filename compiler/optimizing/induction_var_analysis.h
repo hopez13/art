@@ -119,9 +119,13 @@ class HInductionVarAnalysis : public HOptimization {
   };
 
 
-  InductionInfo* CreateInvariantOp(InductionOp op, InductionInfo* a, InductionInfo* b) {
+  InductionInfo* CreateInvariantOp(HBasicBlock* context,
+                                   HLoopInformation* loop,
+                                   InductionOp op,
+                                   InductionInfo* a,
+                                   InductionInfo* b) {
     DCHECK(((op != kNeg && a != nullptr) || (op == kNeg && a == nullptr)) && b != nullptr);
-    return CreateSimplifiedInvariant(op, a, b);
+    return CreateSimplifiedInvariant(context, loop, op, a, b);
   }
 
   InductionInfo* CreateInvariantFetch(HInstruction* f) {
@@ -166,12 +170,21 @@ class HInductionVarAnalysis : public HOptimization {
                              HInstruction* phi,
                              size_t input_index,
                              size_t adjust_input_size);
-  InductionInfo* TransferAddSub(InductionInfo* a,
+  InductionInfo* TransferAddSub(HBasicBlock* context,
+                                HLoopInformation* loop,
+                                InductionInfo* a,
                                 InductionInfo* b,
                                 InductionOp op,
                                 DataType::Type type);
-  InductionInfo* TransferNeg(InductionInfo* a, DataType::Type type);
-  InductionInfo* TransferMul(InductionInfo* a, InductionInfo* b, DataType::Type type);
+  InductionInfo* TransferNeg(HBasicBlock* context,
+                             HLoopInformation* loop,
+                             InductionInfo* a,
+                             DataType::Type type);
+  InductionInfo* TransferMul(HBasicBlock* context,
+                             HLoopInformation* loop,
+                             InductionInfo* a,
+                             InductionInfo* b,
+                             DataType::Type type);
   InductionInfo* TransferConversion(InductionInfo* a, DataType::Type from, DataType::Type to);
 
   // Solvers.
@@ -216,30 +229,41 @@ class HInductionVarAnalysis : public HOptimization {
 
   // Trip count information.
   void VisitControl(HLoopInformation* loop);
-  void VisitCondition(HLoopInformation* loop,
+  void VisitCondition(HBasicBlock* context,
+                      HLoopInformation* loop,
                       HBasicBlock* body,
                       InductionInfo* a,
                       InductionInfo* b,
                       DataType::Type type,
                       IfCondition cmp);
-  void VisitTripCount(HLoopInformation* loop,
+  void VisitTripCount(HBasicBlock* context,
+                      HLoopInformation* loop,
                       InductionInfo* lower_expr,
                       InductionInfo* upper_expr,
                       InductionInfo* stride,
                       int64_t stride_value,
                       DataType::Type type,
                       IfCondition cmp);
-  bool IsTaken(InductionInfo* lower_expr, InductionInfo* upper_expr, IfCondition cmp);
-  bool IsFinite(InductionInfo* upper_expr,
+  bool IsTaken(HBasicBlock* context,
+               HLoopInformation* loop,
+               InductionInfo* lower_expr,
+               InductionInfo* upper_expr,
+               IfCondition cmp);
+  bool IsFinite(HBasicBlock* context,
+                HLoopInformation* loop,
+                InductionInfo* upper_expr,
                 int64_t stride_value,
                 DataType::Type type,
                 IfCondition cmp);
-  bool FitsNarrowerControl(InductionInfo* lower_expr,
+  bool FitsNarrowerControl(HBasicBlock* context,
+                           HLoopInformation* loop,
+                           InductionInfo* lower_expr,
                            InductionInfo* upper_expr,
                            int64_t stride_value,
                            DataType::Type type,
                            IfCondition cmp);
-  bool RewriteBreakLoop(HLoopInformation* loop,
+  bool RewriteBreakLoop(HBasicBlock* context,
+                        HLoopInformation* loop,
                         HBasicBlock* body,
                         int64_t stride_value,
                         DataType::Type type);
@@ -252,7 +276,11 @@ class HInductionVarAnalysis : public HOptimization {
   void AssignInfo(HLoopInformation* loop, HInstruction* instruction, InductionInfo* info);
   InductionInfo* LookupInfo(HLoopInformation* loop, HInstruction* instruction);
   InductionInfo* CreateConstant(int64_t value, DataType::Type type);
-  InductionInfo* CreateSimplifiedInvariant(InductionOp op, InductionInfo* a, InductionInfo* b);
+  InductionInfo* CreateSimplifiedInvariant(HBasicBlock* context,
+                                           HLoopInformation* loop,
+                                           InductionOp op,
+                                           InductionInfo* a,
+                                           InductionInfo* b);
   HInstruction* GetShiftConstant(HLoopInformation* loop,
                                  HInstruction* instruction,
                                  InductionInfo* initial);
@@ -260,9 +288,18 @@ class HInductionVarAnalysis : public HOptimization {
   ArenaSet<HInstruction*>* LookupCycle(HPhi* phi);
 
   // Constants.
-  bool IsExact(InductionInfo* info, /*out*/ int64_t* value);
-  bool IsAtMost(InductionInfo* info, /*out*/ int64_t* value);
-  bool IsAtLeast(InductionInfo* info, /*out*/ int64_t* value);
+  bool IsExact(HBasicBlock* context,
+               HLoopInformation* loop,
+               InductionInfo* info,
+               /*out*/int64_t* value);
+  bool IsAtMost(HBasicBlock* context,
+                HLoopInformation* loop,
+                InductionInfo* info,
+                /*out*/int64_t* value);
+  bool IsAtLeast(HBasicBlock* context,
+                 HLoopInformation* loop,
+                 InductionInfo* info,
+                 /*out*/int64_t* value);
 
   // Helpers.
   static bool IsNarrowingLinear(InductionInfo* info);
