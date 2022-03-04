@@ -357,6 +357,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e7eba2d_1b4ced44",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-04T16:21:08Z",
+      "side": 1,
+      "message": "I think you were looking at an old patchset when making the last comment. After your Feb 25th comment I changed it to use `GetCalleeSaveOuterMethod` which calls `DoGetCalleeSaveMethodOuterCallerAndPc` and drops the `pc`",
+      "parentUuid": "08112ab4_637521ff",
+      "range": {
+        "startLine": 73,
+        "startChar": 74,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "691bfd1a_03db2a1a",
         "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
         "patchSetId": 6
