@@ -94,6 +94,30 @@
       },
       "revId": "aaf19baf88724091dd229f72a30e074af639c431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aefeacb_f71c718a",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-03-07T16:19:11Z",
+      "side": 1,
+      "message": "@rpl - good point. I was about to suggest moving it up into `com.android.art-defaults` so that it\u0027s consistent at least, but I suppose that doesn\u0027t work either. It\u0027s getting a bit messy either way with the defaults structure we have here.\n\nLet\u0027s stick with this then, but please add a comment \"Does not imply this is a released module\" to the inherit here just to dispel any doubts.",
+      "parentUuid": "a34bef65_25374f01",
+      "range": {
+        "startLine": 341,
+        "startChar": 4,
+        "endLine": 341,
+        "endChar": 43
+      },
+      "revId": "aaf19baf88724091dd229f72a30e074af639c431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
