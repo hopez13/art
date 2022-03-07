@@ -22,6 +22,30 @@
       },
       "revId": "aaf19baf88724091dd229f72a30e074af639c431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97c724df_d946ecbc",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-03-07T15:40:00Z",
+      "side": 1,
+      "message": "Even though the effect may be the same, I think it\u0027d be better to not do that, to not create confusion about in what sense this module would be considered released (which it of course isn\u0027t).",
+      "parentUuid": "a5fdfce3_3c684542",
+      "range": {
+        "startLine": 341,
+        "startChar": 4,
+        "endLine": 341,
+        "endChar": 43
+      },
+      "revId": "aaf19baf88724091dd229f72a30e074af639c431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
