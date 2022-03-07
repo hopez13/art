@@ -16,6 +16,24 @@
       "message": "I think this change adds updatable:true to some things that didn\u0027t have it in the past, but if it build, it seems fine for now (could well have to change this in the future if we add new things to the defaults, but we can cross that bridge when we get there).",
       "revId": "dd9a7168d73e001beefa6e831851ff907de1b63b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a1be311_175eb9c0",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-03-07T18:43:19Z",
+      "side": 1,
+      "message": "I was a bit surprised that we didn\u0027t already have updatable:true in here, but it\u0027s actually the default: https://cs.android.com/android/platform/superproject/+/master:build/soong/apex/apex.go;l\u003d1334;drc\u003dbe90172f0a7c7783f2ec100bdb0755b1fdc8fb9f",
+      "parentUuid": "53254024_6e6273bb",
+      "revId": "dd9a7168d73e001beefa6e831851ff907de1b63b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
