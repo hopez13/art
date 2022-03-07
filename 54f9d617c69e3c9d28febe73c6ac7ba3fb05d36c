@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f46f1f_31020502",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-07T16:18:00Z",
+      "side": 1,
+      "message": "Use `IsVisiblyInitialized()`. (`PreZygoteFork()` calls `MakeInitializedClassesVisiblyInitialized()` first.)",
+      "range": {
+        "startLine": 706,
+        "startChar": 33,
+        "endLine": 706,
+        "endChar": 48
+      },
+      "revId": "54f9d617c69e3c9d28febe73c6ac7ba3fb05d36c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
