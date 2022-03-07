@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5fdfce3_3c684542",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-07T15:10:14Z",
+      "side": 1,
+      "message": "Maybe also use `s-launched-apex-module` here and remove line 356?",
+      "range": {
+        "startLine": 341,
+        "startChar": 4,
+        "endLine": 341,
+        "endChar": 43
+      },
+      "revId": "aaf19baf88724091dd229f72a30e074af639c431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
