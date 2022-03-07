@@ -22,6 +22,30 @@
       },
       "revId": "e9daff41b129b0ef6496b3fb4d92a70494e74d3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fd5ed0b_4ef5fb35",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2015,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-07T13:40:32Z",
+      "side": 1,
+      "message": "Good point. I\u0027ve removed this code here, and only do it before the first fork.",
+      "parentUuid": "e8a4d615_1869174c",
+      "range": {
+        "startLine": 2015,
+        "startChar": 38,
+        "endLine": 2015,
+        "endChar": 61
+      },
+      "revId": "e9daff41b129b0ef6496b3fb4d92a70494e74d3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
