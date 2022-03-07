@@ -403,6 +403,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25ec6afc_1237e667",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-07T11:49:40Z",
+      "side": 1,
+      "message": "(Sorry I missed your previous comment.)\n\nNo, I was not looking on older PS. There is duplicate work being done between `self-\u003eGetCurrentMethod(\u0026dex_pc)` and `GetCalleeSaveOuterMethod()`. Using `DoGetCalleeSaveMethodOuterCallerAndPc()` above (plus explicit call to get dex pc) would avoid the duplicate work and it would also be faster because `self-\u003eGetCurrentMethod(\u0026dex_pc)` is not using the known runtime frame type.\n\nBut as I said before, this should be negligible overhead. (Same in trampoline entrypoints.)",
+      "parentUuid": "b6835113_6e9ed8df",
+      "range": {
+        "startLine": 73,
+        "startChar": 74,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "691bfd1a_03db2a1a",
