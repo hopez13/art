@@ -427,6 +427,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d94ebd46_c803352f",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-07T12:43:48Z",
+      "side": 1,
+      "message": "There are three things that we want:\n1) Current Method\n2) dex_pc\n3) Outer_method\nWe are making a call for 1) and 2), and a second call for 3).\nIf I understood correctly, you are suggesting doing a call for 1), and a second one for 2) and 3). Unless I\u0027m missing something we still have to call `self-\u003eGetCurrentMethod` to get the current method so I don\u0027t know if we would be saving something overall.",
+      "parentUuid": "25ec6afc_1237e667",
+      "range": {
+        "startLine": 73,
+        "startChar": 74,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "5f6f6683685bbf4f9a4e57911a6d562cf94c1bd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "691bfd1a_03db2a1a",
