@@ -16,6 +16,24 @@
       "message": "This method grew a lot!\n\nIs it really needed to do in so many passes?",
       "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d32df127_ca817ebb",
+        "filename": "dex2oat/linker/code_info_table_deduper.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-08T17:10:55Z",
+      "side": 1,
+      "message": "Well, each bit has its purpose.\n\nUnlike `std::map\u003c\u003e`, the `HashSet\u003c\u003e` can move entries, so we need to pre-allocate.\n\nTo reduce the memory usage, the `DedupeSetEntry` contains only bit offset and bit size in `output` data, so we need to copy the data to `output` before inserting entries in the `HashSet\u003c\u003e`. For performance reasons we prefer a single `writer_.WriteRegion(read_region)` instead of writing individual tables which means we need separate sections of code for decoding the code info and populating the `dedupe_set_`.",
+      "parentUuid": "6f447939_107c38c6",
+      "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
