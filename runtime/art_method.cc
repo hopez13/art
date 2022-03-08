@@ -508,7 +508,7 @@ static const OatFile::OatMethod FindOatMethodFor(ArtMethod* method,
 
 bool ArtMethod::EqualParameters(Handle<mirror::ObjectArray<mirror::Class>> params) {
   const DexFile* dex_file = GetDexFile();
-  const auto& method_id = dex_file->GetMethodId(GetDexMethodIndex());
+  const auto& method_id = std::move(dex_file)->GetMethodId(GetDexMethodIndex());
   const auto& proto_id = dex_file->GetMethodPrototype(method_id);
   const dex::TypeList* proto_params = dex_file->GetProtoParameters(proto_id);
   auto count = proto_params != nullptr ? proto_params->Size() : 0u;
