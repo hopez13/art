@@ -34,6 +34,24 @@
       "parentUuid": "6f447939_107c38c6",
       "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2308002a_24045bcb",
+        "filename": "dex2oat/linker/code_info_table_deduper.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-03-08T18:18:13Z",
+      "side": 1,
+      "message": "Hmmm... but shouldn\u0027t it all still be possible in single pass? (same as it was before)  Or similar - I feel like hashing during the CodeInfo read might be simpler.\n\nWhat was wrong with having the BitMemoryRegion as (part of) key? (internally it is also just bit offset+size as well).  I mean, understand we need some extra work if we want to calculate the hash just once, but on other it shouldn\u0027t fundamentally change the simple single-pass algorithm, right?\n\nThe copy to writer seems like unnecessary extra work, and has hidden issue that writing one table can spill into following one that is then read (which is easy to fix though).\n\nPerformance wise, we can still have trivial fast path \"if there no de-dups, just copy everything\".  Is that good enough?",
+      "parentUuid": "d32df127_ca817ebb",
+      "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
