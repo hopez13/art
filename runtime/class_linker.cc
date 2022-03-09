@@ -3647,7 +3647,10 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
                              ArtMethod* dst) {
   const uint32_t dex_method_idx = method.GetIndex();
   const dex::MethodId& method_id = dex_file.GetMethodId(dex_method_idx);
-  const char* method_name = dex_file.StringDataByIdx(method_id.name_idx_);
+  uint32_t name_utf16_length;
+  const char* method_name = dex_file.StringDataAndUtf16LengthByIdx(method_id.name_idx_,
+                                                                   &name_utf16_length);
+  std::string_view shorty = dex_file.GetShortyView(dex_file.GetProtoId(method_id.proto_idx_));
 
   ScopedAssertNoThreadSuspension ants("LoadMethod");
   dst->SetDexMethodIndex(dex_method_idx);
@@ -3656,30 +3659,37 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
   // Get access flags from the DexFile and set hiddenapi runtime access flags.
   uint32_t access_flags = method.GetAccessFlags() | hiddenapi::CreateRuntimeFlags(method);
 
-  if (UNLIKELY(strcmp("finalize", method_name) == 0)) {
+  auto has_ascii_name = [method_name, name_utf16_length](const char* ascii_name,
+                                                         size_t length) ALWAYS_INLINE {
+    DCHECK_EQ(strlen(ascii_name), length);
+    return length == name_utf16_length &&
+           method_name[length] == 0 &&  // Is `method_name` an ASCII string?
+           memcmp(ascii_name, method_name, length) == 0;
+  };
+  if (UNLIKELY(has_ascii_name("finalize", sizeof("finalize") - 1u))) {
     // Set finalizable flag on declaring class.
-    if (strcmp("V", dex_file.GetShorty(method_id.proto_idx_)) == 0) {
+    if (shorty == "V") {
       // Void return type.
       if (klass->GetClassLoader() != nullptr) {  // All non-boot finalizer methods are flagged.
         klass->SetFinalizable();
       } else {
-        std::string temp;
-        const char* klass_descriptor = klass->GetDescriptor(&temp);
+        std::string_view klass_descriptor =
+            dex_file.GetTypeDescriptorView(dex_file.GetTypeId(klass->GetDexTypeIndex()));
         // The Enum class declares a "final" finalize() method to prevent subclasses from
         // introducing a finalizer. We don't want to set the finalizable flag for Enum or its
         // subclasses, so we exclude it here.
         // We also want to avoid setting the flag on Object, where we know that finalize() is
         // empty.
-        if (strcmp(klass_descriptor, "Ljava/lang/Object;") != 0 &&
-            strcmp(klass_descriptor, "Ljava/lang/Enum;") != 0) {
+        if (klass_descriptor != "Ljava/lang/Object;" &&
+            klass_descriptor != "Ljava/lang/Enum;") {
           klass->SetFinalizable();
         }
       }
     }
   } else if (method_name[0] == '<') {
     // Fix broken access flags for initializers. Bug 11157540.
-    bool is_init = (strcmp("<init>", method_name) == 0);
-    bool is_clinit = !is_init && (strcmp("<clinit>", method_name) == 0);
+    bool is_init = has_ascii_name("<init>", sizeof("<init>") - 1u);
+    bool is_clinit = has_ascii_name("<clinit>", sizeof("<clinit>") - 1u);
     if (UNLIKELY(!is_init && !is_clinit)) {
       LOG(WARNING) << "Unexpected '<' at start of method name " << method_name;
     } else {
@@ -3690,54 +3700,54 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
       }
     }
   }
+  size_t slow_args_search_start = 1u;  // First arg.
   if (UNLIKELY((access_flags & kAccNative) != 0u)) {
     // Check if the native method is annotated with @FastNative or @CriticalNative.
-    access_flags |= annotations::GetNativeMethodAnnotationAccessFlags(
-        dex_file, dst->GetClassDef(), dex_method_idx);
-  } else if ((access_flags & kAccAbstract) == 0u &&
-             annotations::MethodIsNeverCompile(dex_file, dst->GetClassDef(), dex_method_idx)) {
-    access_flags |= kAccCompileDontBother;
-  }
-  dst->SetAccessFlags(access_flags);
-  // Must be done after SetAccessFlags since IsAbstract depends on it.
-  if (klass->IsInterface() && dst->IsAbstract()) {
-    dst->CalculateAndSetImtIndex();
-  }
-  if (dst->HasCodeItem()) {
-    DCHECK_NE(method.GetCodeItemOffset(), 0u);
-    if (Runtime::Current()->IsAotCompiler()) {
-      dst->SetDataPtrSize(reinterpret_cast32<void*>(method.GetCodeItemOffset()), image_pointer_size_);
-    } else {
-      dst->SetCodeItem(dst->GetDexFile()->GetCodeItem(method.GetCodeItemOffset()),
-                       dst->GetDexFile()->IsCompactDexFile());
-    }
-  } else {
-    dst->SetDataPtrSize(nullptr, image_pointer_size_);
+    const dex::ClassDef& class_def = dex_file.GetClassDef(klass->GetDexClassDefIndex());
+    access_flags |=
+        annotations::GetNativeMethodAnnotationAccessFlags(dex_file, class_def, dex_method_idx);
+    dst->SetAccessFlags(access_flags);
+    DCHECK(!dst->IsAbstract());
+    DCHECK(!dst->HasCodeItem());
     DCHECK_EQ(method.GetCodeItemOffset(), 0u);
-  }
-
-  // Set optimization flags related to the shorty.
-  uint32_t shorty_length;
-  const char* shorty = dst->GetShorty(&shorty_length);
-  bool all_parameters_are_reference = true;
-  bool all_parameters_are_reference_or_int = true;
-  bool return_type_is_fp = (shorty[0] == 'F' || shorty[0] == 'D');
-
-  for (size_t i = 1; i < shorty_length; ++i) {
-    if (shorty[i] != 'L') {
-      all_parameters_are_reference = false;
-      if (shorty[i] == 'F' || shorty[i] == 'D' || shorty[i] == 'J') {
-        all_parameters_are_reference_or_int = false;
-        break;
-      }
+    dst->SetDataPtrSize(nullptr, image_pointer_size_);  // JNI stub/trampoline not linked yet.
+  } else if ((access_flags & kAccAbstract) != 0u) {
+    dst->SetAccessFlags(access_flags);
+    // Must be done after SetAccessFlags since IsAbstract depends on it.
+    DCHECK(dst->IsAbstract());
+    if (klass->IsInterface()) {
+      dst->CalculateAndSetImtIndex();
+    }
+    DCHECK(!dst->HasCodeItem());
+    DCHECK_EQ(method.GetCodeItemOffset(), 0u);
+    dst->SetDataPtrSize(nullptr, image_pointer_size_);  // Single implementation not set yet.
+  } else {
+    const dex::ClassDef& class_def = dex_file.GetClassDef(klass->GetDexClassDefIndex());
+    if (annotations::MethodIsNeverCompile(dex_file, class_def, dex_method_idx)) {
+      access_flags |= kAccCompileDontBother;
+    }
+    dst->SetAccessFlags(access_flags);
+    DCHECK(!dst->IsAbstract());
+    DCHECK(dst->HasCodeItem());
+    uint32_t code_item_offset = method.GetCodeItemOffset();
+    DCHECK_NE(code_item_offset, 0u);
+    if (Runtime::Current()->IsAotCompiler()) {
+      dst->SetDataPtrSize(reinterpret_cast32<void*>(code_item_offset), image_pointer_size_);
+    } else {
+      dst->SetCodeItem(dex_file.GetCodeItem(code_item_offset), dex_file.IsCompactDexFile());
+    }
+    // Check for nterp entry fast-path based on shorty.
+    slow_args_search_start = shorty.find_first_not_of('L', 1u);
+    if (slow_args_search_start == std::string_view::npos) {
+      dst->SetNterpEntryPointFastPathFlag();
     }
   }
 
-  if (!dst->IsNative() && all_parameters_are_reference) {
-    dst->SetNterpEntryPointFastPathFlag();
-  }
-
-  if (!return_type_is_fp && all_parameters_are_reference_or_int) {
+  // Check for nterp invoke fast-path based on shorty.
+  auto is_slow_arg = [](char c) { return c == 'F' || c == 'D' || c == 'J'; };
+  if ((shorty[0] != 'F' && shorty[0] != 'D') &&  // Returns reference or integral type.
+      (slow_args_search_start == std::string_view::npos ||
+       std::none_of(shorty.begin() + slow_args_search_start, shorty.end(), is_slow_arg))) {
     dst->SetNterpInvokeFastPathFlag();
   }
 }
