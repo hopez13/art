@@ -16,6 +16,52 @@
       "message": "Vladimir PTAL",
       "revId": "d5c21c1b878aedd4f1f0087dbdcd6526731c7eb9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "183b49df_6f00d036",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-09T10:00:19Z",
+      "side": 1,
+      "message": "Rename to `outer_method`. (Or pass the outer method\u0027s class loader instead because that\u0027s the only thing we need here.)",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 46
+      },
+      "revId": "d5c21c1b878aedd4f1f0087dbdcd6526731c7eb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d8c372d_41c27da2",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-09T10:00:19Z",
+      "side": 1,
+      "message": "I think this should remain `caller` because that\u0027s the context for the class-in-the-same-package test.",
+      "range": {
+        "startLine": 130,
+        "startChar": 41,
+        "endLine": 130,
+        "endChar": 53
+      },
+      "revId": "d5c21c1b878aedd4f1f0087dbdcd6526731c7eb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
