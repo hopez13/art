@@ -142,6 +142,24 @@
       "parentUuid": "0ace4152_8e335500",
       "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f454c7c1_a2556351",
+        "filename": "dex2oat/linker/code_info_table_deduper.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-09T16:39:47Z",
+      "side": 1,
+      "message": "I was suggesting removing the hash as an alternative to the `uint16_t` proposal. This is something I\u0027d like to do later together with reserving a huge initial buffer (thus reducing the number of unnecessary equality comparisons). I\u0027m planning to propagate `--{single,multi}-image` to `CompilerOptions` as I really do not want to do huge reservations for multiple oat files.\n\nWhat about my comment do you not understand? Would it be better to discuss it offline?",
+      "parentUuid": "7adddd0a_7e35b5e3",
+      "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
