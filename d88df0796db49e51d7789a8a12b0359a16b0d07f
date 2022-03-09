@@ -106,6 +106,24 @@
       "parentUuid": "8181b8bd_11e86f78",
       "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ace4152_8e335500",
+        "filename": "dex2oat/linker/code_info_table_deduper.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-09T12:41:07Z",
+      "side": 1,
+      "message": "BitMemoryRegion holds a pointer, so it should really be `alignof(size_t)`. Making the other members `uint32_t` would only reduce the entry size here from 32B to 24B for dex2oat64. I\u0027d prefer to keep those members `size_t`.\n\nThe `HashSet\u003c\u003e` does not have a pointer to `code_info_data` and adding that to the hash/equals structures and modifying it for each `Dedupe()` call is also quite intrusive. (And HashSet\u003c\u003e would need new functions to expose references to hash/equals functions.)\n\nWe could also remove the `hash` from the entry but that means more calls to `Equals()`. Once we pre-allocate a huge table, this should be OK but I\u0027d prefer to keep the member for now.\n\nI\u0027ve recently recorded some statistics on my test device:\next: CodeInfoTableDeduper stats: num_code_infos_\u003d14428 dedupe_set_.size()\u003d38858 output_bits\u003d12673981\nfull: CodeInfoTableDeduper stats: num_code_infos_\u003d20803 dedupe_set_.size()\u003d59693 output_bits\u003d21591133\nGiven `kNumBitTables \u003d 8`, unique bit tables are ~33.7% for extension and ~35.9% for the full boot image.\n\nWe need `DedupeSetEntry*` to update the entry as we rewrite the `output` (for new entries). And while we\u0027re rewriting them, we should not do any lookups in the `HashSet\u003c\u003e` with temporarily invalid contents. See also comment in lines 94-96. I don\u0027t really want to remove and re-insert entries given the statistics above; see `HashSet::InsertWithHash` samples in profiles posted on the bug. (That would also make this function even longer.)",
+      "parentUuid": "4ddc783d_3eb2f5ed",
+      "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
