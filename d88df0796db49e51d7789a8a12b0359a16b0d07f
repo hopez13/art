@@ -52,6 +52,24 @@
       "parentUuid": "d32df127_ca817ebb",
       "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "554bacd3_776976a1",
+        "filename": "dex2oat/linker/code_info_table_deduper.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-09T09:40:42Z",
+      "side": 1,
+      "message": "`BitMemoryRegion` itself is `3 * sizeof(size_t)` and you need that additional offset to the `output` which shall yield 16B entries in `dex2oat32` and 32B entries in `dex2oat64`, compared to my 12B entries. And I\u0027d like to pre-allocate a buffer with 100K entries or 1.5MB for the boot image compilation which would then be 2MB or 4MB with the `HashMap\u003cBitMemoryRegion, uint32_t\u003e`. (I\u0027ve seen ~60K actual entries when compiling the whole boot image, ~39K for the extension. Pair that with the max load factor that I\u0027ve set to 0.75 and some extra space for larger profile.)\n\nThe copy to writer is \"unnecessary\" only if there are actual deduplicated tables. (It is in fact necessary for the insertion to the `dedupe_set_` now that entries reference the `output`.)\n\nHashing during the reading of the code info does not buy us anything as the insertion also needs to do actual comparisons with `BitMemoryRegion::Equals()`.\n\nThere is also one subtle problem that prevents some simplification. If one code info has two bit tables with the same bit representation, we want to deduplicate, so we cannot simply search for duplicates during the initial pass (which would be possible with overloaded operators in hash function and equality function) but need to take also newly inserted entries into account.",
+      "parentUuid": "2308002a_24045bcb",
+      "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
