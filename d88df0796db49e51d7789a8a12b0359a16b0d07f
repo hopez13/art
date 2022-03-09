@@ -124,6 +124,24 @@
       "parentUuid": "4ddc783d_3eb2f5ed",
       "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7adddd0a_7e35b5e3",
+        "filename": "dex2oat/linker/code_info_table_deduper.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-03-09T15:59:22Z",
+      "side": 1,
+      "message": "I wasn\u0027t suggesting removing the `hash` but making it uint16.  But with 60k entries, by birthday paradox, uint32 is already pretty tight fit. So scratch that comment.\n\nI don\u0027t follow the last comment.  Given `DedupeSetEntry` surely it should be easy enough to look it up and just modify in pace.  Having the pointer is nice, but hashtable lookup should be very cheap too, right?  (note that we probably need to add `lhs.bit_offset \u003d\u003d rhs.bit_offset || BitMemoryRegion::Equals` in `DedupeSetEntryEquals` to avoid the bit region comparison on that path)",
+      "parentUuid": "0ace4152_8e335500",
+      "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
