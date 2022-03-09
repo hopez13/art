@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43792749_4f2ccc93",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-09T11:48:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "183b49df_6f00d036",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 46
+      },
+      "revId": "d5c21c1b878aedd4f1f0087dbdcd6526731c7eb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d8c372d_41c27da2",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-09T10:00:19Z",
       "side": 1,
       "message": "I think this should remain `caller` because that\u0027s the context for the class-in-the-same-package test.",
+      "range": {
+        "startLine": 130,
+        "startChar": 41,
+        "endLine": 130,
+        "endChar": 53
+      },
+      "revId": "d5c21c1b878aedd4f1f0087dbdcd6526731c7eb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fffa3a4e_df1c8473",
+        "filename": "runtime/entrypoints/quick/quick_dexcache_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-09T11:48:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d8c372d_41c27da2",
       "range": {
         "startLine": 130,
         "startChar": 41,
