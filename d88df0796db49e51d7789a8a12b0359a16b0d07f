@@ -88,6 +88,24 @@
       "parentUuid": "554bacd3_776976a1",
       "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ddc783d_3eb2f5ed",
+        "filename": "dex2oat/linker/code_info_table_deduper.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-03-09T11:11:18Z",
+      "side": 1,
+      "message": "Or could you lookup the `DedupeSetEntry` by-value (i.e. getting the pointer) and then modify it in-place?",
+      "parentUuid": "8181b8bd_11e86f78",
+      "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
