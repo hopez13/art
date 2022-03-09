@@ -70,6 +70,24 @@
       "parentUuid": "2308002a_24045bcb",
       "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8181b8bd_11e86f78",
+        "filename": "dex2oat/linker/code_info_table_deduper.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-03-09T11:09:17Z",
+      "side": 1,
+      "message": "I see.  The set memory use is important.  There is a question whether `BitMemoryRegion` needs to be `size_t`.  That is kind of arbitrary.  So I guess the only difference is the removal of buffer pointer from the key.  Fair enough.\n\nOf course there are ways that you could make the entries still point to the read buffer (e.g. one bit in the entry which would mean to use `current_read_buffer_` instead of `output_`).  But that is extra code, and I was arguing for simplicity, so maybe not.\n\nAlso, mirror thought.  If size is of the essence, would 16-bit hash+bit_size do? (i.e. never dedupe 64k+ tables).  I guess we don\u0027t have that big tables.  But then if we ever do, dedupe would be super useful there.  I don\u0027t know.\n\nDo you know how often we have any dupes vs not?  Would it be worth aligning the output before the big copy?  That would make the copy cheaper, but then you would always need to move it.  I don\u0027t know which way the tradeoff goes.\n\nOverall, am I starting to see why it got so complex.  My main though now is why the `DedupeSetEntry` pointer?  Wouldn\u0027t just value do?  In case of movement remove the old, and insert new. Would it have measurable performance difference?",
+      "parentUuid": "554bacd3_776976a1",
+      "revId": "d88df0796db49e51d7789a8a12b0359a16b0d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
