@@ -16,6 +16,29 @@
       "message": "Thanks Vladimir. PTAL.",
       "revId": "abf943b759db32ea0e74f91f7ca3d18f739a518f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f839e764_fbf820ae",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-10T16:02:04Z",
+      "side": 1,
+      "message": "IsCriticalNative",
+      "range": {
+        "startLine": 711,
+        "startChar": 19,
+        "endLine": 711,
+        "endChar": 29
+      },
+      "revId": "abf943b759db32ea0e74f91f7ca3d18f739a518f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
