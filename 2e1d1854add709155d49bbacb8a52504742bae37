@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae146bb3_05196f82",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-10T15:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a2f8a3_2ce94a02",
+      "range": {
+        "startLine": 709,
+        "startChar": 32,
+        "endLine": 709,
+        "endChar": 87
+      },
+      "revId": "2e1d1854add709155d49bbacb8a52504742bae37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0feccdad_d58e102f",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-10T15:52:00Z",
       "side": 1,
       "message": "Or\n\n  method.IsCriticalNative()\n      ? class_linker_-\u003eIsJniDlsymLookupCriticalStub(existing)\n      : class_linker_-\u003eIsJniDlsymLookupStub(existing)\n\n?",
+      "range": {
+        "startLine": 711,
+        "startChar": 12,
+        "endLine": 712,
+        "endChar": 57
+      },
+      "revId": "2e1d1854add709155d49bbacb8a52504742bae37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03478c0f_b23b80ef",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-10T15:55:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0feccdad_d58e102f",
       "range": {
         "startLine": 711,
         "startChar": 12,
