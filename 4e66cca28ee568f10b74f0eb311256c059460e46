@@ -16,6 +16,310 @@
       "message": "The failing presubmit build seems to be in the Media component and completely unrelated to this change.",
       "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75beaad0_9252b6bf",
+        "filename": "test/719-varhandle-concurrency/check",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Note: This custom `check` script is currently ignored when running the test with Atest/TradeFed (handling custom `check` in the ART run-test TradeFed test runner is work in progress). This means that in theory we could see some test failures if the test is slow to execute; in practice, this should be fine, as we don\u0027t run ART run-tests in gcstress mode in TradeFed/ATP (yet).",
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "724434c0_0f651cb7",
+        "filename": "test/719-varhandle-concurrency/check",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "If this is a new file, the year here should be 2022.",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a50e41d_7d1fbcc5",
+        "filename": "test/719-varhandle-concurrency/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "I\u0027d mention b/208156527 here for reference.",
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e907eb02_d624eb02",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Ditto, if this is a new file, the year here should be 2022.",
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67e8022a_0c4aea06",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Out of curiosity, why is `QA` not initialized at the point of declaration, i.e:\n\n  private static final VarHandle QA \u003d\n      MethodHandles.arrayElementVarHandle(TestTask[].class);\n\n?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 3
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "043cfd29_07260294",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Drop?",
+      "range": {
+        "startLine": 44,
+        "startChar": 62,
+        "endLine": 44,
+        "endChar": 65
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b03ea4e6_3f4b1c91",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Nit: I think we usually use try to use `//`-style comments everywhere (except for Javadoc comments).",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 93
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71f0eb14_b8378473",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 105
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11b8ba1b_0ad410d0",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Nit: I think this:\n\n  TASK_COUNT * (TASK_COUNT + 1) / 2\n\nis slightly easier to read, IMO.",
+      "range": {
+        "startLine": 92,
+        "startChar": 26,
+        "endLine": 92,
+        "endChar": 62
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "025d7634_0e557d09",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Style: Add a space between `(TestTask)` and `QA`.",
+      "range": {
+        "startLine": 114,
+        "startChar": 27,
+        "endLine": 114,
+        "endChar": 39
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "726a1873_6ecdc3d9",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Nit: `{@code true}`.",
+      "range": {
+        "startLine": 137,
+        "startChar": 17,
+        "endLine": 137,
+        "endChar": 21
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74cd0211_3aa2a20c",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Nit: `{@code false}`.",
+      "range": {
+        "startLine": 138,
+        "startChar": 29,
+        "endLine": 138,
+        "endChar": 34
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13e7a84b_1fe7e04e",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Nit: `{@code false}`.",
+      "range": {
+        "startLine": 138,
+        "startChar": 19,
+        "endLine": 138,
+        "endChar": 24
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a32a2dfe_c9710cac",
+        "filename": "test/719-varhandle-concurrency/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-10T15:02:16Z",
+      "side": 1,
+      "message": "Nit: I like to use format strings to report errors, i.e.:\n\n  String.format (\"[iteration %d] %s : %d !\u003d %d\", iteration, msg, actual, expected)",
+      "range": {
+        "startLine": 223,
+        "startChar": 25,
+        "endLine": 223,
+        "endChar": 100
+      },
+      "revId": "4e66cca28ee568f10b74f0eb311256c059460e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
