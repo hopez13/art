@@ -167,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9f65b1e_bd7bc3d0",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-10T11:46:34Z",
+      "side": 1,
+      "message": "Can we remove this now? Or is it intended to be permanent?\n(I\u0027d suggest logging as a warning iff it fails.)",
+      "parentUuid": "ae187cc9_022389e2",
+      "range": {
+        "startLine": 1058,
+        "startChar": 4,
+        "endLine": 1058,
+        "endChar": 9
+      },
+      "revId": "b5cf75bc005fa5b9d2d40de0e58d0bda89feebc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "818f1f98_629adbed",
         "filename": "runtime/runtime.cc",
         "patchSetId": 5

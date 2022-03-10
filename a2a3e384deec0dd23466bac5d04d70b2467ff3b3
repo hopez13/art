@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed1b9f76_68f66633",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-10T11:46:34Z",
+      "side": 1,
+      "message": "I\u0027d be slightly tempted to have a different library for OdsignMetrics.\n(See the code I deleted in ag/16467077, where we had a Compos-related proto)",
+      "range": {
+        "startLine": 479,
+        "startChar": 6,
+        "endLine": 479,
+        "endChar": 27
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4e734fe_84a81aa5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-10T11:46:34Z",
+      "side": 1,
+      "message": "Some corruption seems to have occurred here.",
+      "range": {
+        "startLine": 183,
+        "startChar": 136,
+        "endLine": 183,
+        "endChar": 199
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57108531_83249e00",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-10T11:46:34Z",
+      "side": 1,
+      "message": "Prefer\nusing odsign::proto::OdsignMetrics;",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 52
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b2c0c6b_e0695827",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-10T11:46:34Z",
+      "side": 1,
+      "message": "Line break here (line too long) - and then indent the following lines.",
+      "range": {
+        "startLine": 1059,
+        "startChar": 48,
+        "endLine": 1059,
+        "endChar": 51
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
