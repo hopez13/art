@@ -22,6 +22,30 @@
       },
       "revId": "184b5ced9a86774ce7e4173a203b0a832206e028",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8025d50_6734f271",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3684,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-10T16:03:46Z",
+      "side": 1,
+      "message": "Yes, if we avoided getting the descriptor. (And I\u0027d use `!klass-\u003eHasSuperClass()` to avoid the read barrier.) But we would still need to do something about `Enum` and I\u0027m not sure that we can rely on `klass-\u003eIsEnum() \u0026\u0026 !klass-\u003eGetSuperClass()-\u003eHasSuperClass()`. I don\u0027t see `kAccEnum` enforcement in `DexFileVerifier` or elsewhere.",
+      "parentUuid": "69b7714f_d30bba75",
+      "range": {
+        "startLine": 3684,
+        "startChar": 12,
+        "endLine": 3684,
+        "endChar": 51
+      },
+      "revId": "184b5ced9a86774ce7e4173a203b0a832206e028",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
