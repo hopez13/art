@@ -72,6 +72,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f83ad774_e2736596",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-10T15:34:35Z",
+      "side": 1,
+      "message": "Nit: Mark this function as `static` or put it in the anonymous namespace starting from line 218. Personally, I prefer putting it in the anonymous namespace.",
+      "range": {
+        "startLine": 1045,
+        "startChar": 0,
+        "endLine": 1045,
+        "endChar": 4
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6af18206_cd236431",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-10T15:34:35Z",
+      "side": 1,
+      "message": "Nit: snake_case",
+      "range": {
+        "startLine": 1049,
+        "startChar": 16,
+        "endLine": 1049,
+        "endChar": 29
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a09a864_6bc56826",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-10T15:34:35Z",
+      "side": 1,
+      "message": "Instead of logging the error here, you can change the function return type to `Result\u003cvoid\u003e` and return `ErrnoErrorf(...)` and `Errorf(...)`. Then you can log the error at the call site.\n\nBesides, since failing to upload the stats is not critical, prefer WARNING over ERROR.",
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99701c68_333b695d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-10T15:34:35Z",
+      "side": 1,
+      "message": "`const OdsignMetrics::CompOsArtifactsCheckRecord\u0026`",
+      "range": {
+        "startLine": 1058,
+        "startChar": 4,
+        "endLine": 1058,
+        "endChar": 45
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8b2c0c6b_e0695827",
         "filename": "runtime/runtime.cc",
         "patchSetId": 7
@@ -88,6 +174,46 @@
         "startChar": 48,
         "endLine": 1059,
         "endChar": 51
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebb4c88f_2b75e23e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-10T15:34:35Z",
+      "side": 1,
+      "message": "Is this too noisy? I think you can check the return value and return `Errorf(...)` only if there is an error, then the caller can decide how to log the error.",
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "420d1165_b443b0b5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-10T15:34:35Z",
+      "side": 1,
+      "message": "Nit: We don\u0027t do indentation for #ifdef. Also, indent the line below as if there is no #ifdef.",
+      "range": {
+        "startLine": 1193,
+        "startChar": 0,
+        "endLine": 1193,
+        "endChar": 4
       },
       "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
