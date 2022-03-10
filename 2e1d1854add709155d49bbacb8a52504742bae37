@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "2e1d1854add709155d49bbacb8a52504742bae37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04a2f8a3_2ce94a02",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-10T15:52:00Z",
+      "side": 1,
+      "message": "Can you swap these operands? I suspect `clang++` still refuses to merge the relaxed atomic loads for method access flags, so we should check the local variable first.",
+      "range": {
+        "startLine": 709,
+        "startChar": 32,
+        "endLine": 709,
+        "endChar": 87
+      },
+      "revId": "2e1d1854add709155d49bbacb8a52504742bae37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0feccdad_d58e102f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-10T15:52:00Z",
+      "side": 1,
+      "message": "Or\n\n  method.IsCriticalNative()\n      ? class_linker_-\u003eIsJniDlsymLookupCriticalStub(existing)\n      : class_linker_-\u003eIsJniDlsymLookupStub(existing)\n\n?",
+      "range": {
+        "startLine": 711,
+        "startChar": 12,
+        "endLine": 712,
+        "endChar": 57
+      },
+      "revId": "2e1d1854add709155d49bbacb8a52504742bae37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
