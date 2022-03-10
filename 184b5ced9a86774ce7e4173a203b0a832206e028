@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b7714f_d30bba75",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3684,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-10T14:43:54Z",
+      "side": 1,
+      "message": "Would `class-\u003eGetSuperclass() !\u003d nullptr` be faster?",
+      "range": {
+        "startLine": 3684,
+        "startChar": 12,
+        "endLine": 3684,
+        "endChar": 51
+      },
+      "revId": "184b5ced9a86774ce7e4173a203b0a832206e028",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
