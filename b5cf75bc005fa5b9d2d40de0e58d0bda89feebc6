@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "008ba718_b8614ad9",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-10T02:03:17Z",
+      "side": 1,
+      "message": "It was throwing error indicating that i need min_sdk_version 31. Will ask around",
+      "parentUuid": "f89419af_13b3869d",
+      "range": {
+        "startLine": 1011,
+        "startChar": 4,
+        "endLine": 1011,
+        "endChar": 26
+      },
+      "revId": "b5cf75bc005fa5b9d2d40de0e58d0bda89feebc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e66bd52_f6ce99e2",
         "filename": "runtime/runtime.cc",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2022-02-28T18:01:59Z",
       "side": 1,
       "message": "Should you delete the file after uploading? (That would require more permissions.)\nOtherwise we may repeat the upload.\n\nOr should odsign be responsible for deleting it when it starts a run? That keeps write permissions in one place.",
+      "range": {
+        "startLine": 1043,
+        "startChar": 5,
+        "endLine": 1043,
+        "endChar": 33
+      },
+      "revId": "b5cf75bc005fa5b9d2d40de0e58d0bda89feebc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f217e1_f66ef862",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-10T02:03:17Z",
+      "side": 1,
+      "message": "We are doing it in odsign\u0027s (see ~StatsReport())",
+      "parentUuid": "7e66bd52_f6ce99e2",
       "range": {
         "startLine": 1043,
         "startChar": 5,
@@ -106,6 +154,30 @@
       "writtenOn": "2022-02-28T18:01:59Z",
       "side": 1,
       "message": "I think this is redundant unless you want to check the return value - not really needed for an input file.",
+      "range": {
+        "startLine": 1060,
+        "startChar": 2,
+        "endLine": 1060,
+        "endChar": 14
+      },
+      "revId": "b5cf75bc005fa5b9d2d40de0e58d0bda89feebc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61b35066_2edcaeb3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-10T02:03:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "818f1f98_629adbed",
       "range": {
         "startLine": 1060,
         "startChar": 2,
