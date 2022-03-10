@@ -1903,6 +1903,14 @@ bool ImageSpace::BootImageLayout::ReadHeader(const std::string& base_location,
   int bcp_image_fd = bcp_index < boot_class_path_image_fds_.size()
       ? boot_class_path_image_fds_[bcp_index]
       : -1;
+  LOG(INFO) << StringPrintf(
+      "ReadHeader, base_location: %s, base_filename: %s, bcp_index: %zu, actual_filename: %s, "
+      "bcp_image_fd: %d",
+      base_location.c_str(),
+      base_filename.c_str(),
+      bcp_index,
+      actual_filename.c_str(),
+      bcp_image_fd);
   ImageHeader header;
   // When BCP image is provided as FD, it needs to be dup'ed (since it's stored in unique_fd) so
   // that it can later be used in LoadComponents.
@@ -2211,12 +2219,20 @@ bool ImageSpace::BootImageLayout::LoadOrValidate(FilenameFn&& filename_fn,
   // Load the image headers of named components.
   DCHECK_EQ(named_component_locations.size(), named_components.size());
   const size_t bcp_component_count = boot_class_path_.size();
+  for (const std::string& bcp : boot_class_path_) {
+    LOG(INFO) << "bcp: " << bcp;
+  }
   size_t bcp_pos = 0u;
   for (size_t i = 0, size = named_components.size(); i != size; ++i) {
     const std::string& base_location = named_component_locations[i].base_location;
     size_t bcp_index = named_component_locations[i].bcp_index;
     const std::vector<std::string>& profile_filenames =
         named_component_locations[i].profile_filenames;
+    LOG(INFO) << StringPrintf("i: %zu, bcp_pos: %zu, base_location: %s, bcp_index: %zu",
+                              i,
+                              bcp_pos,
+                              base_location.c_str(),
+                              bcp_index);
     DCHECK_EQ(i == 0, bcp_index == 0);
     if (bcp_index < bcp_pos) {
       DCHECK_NE(i, 0u);
