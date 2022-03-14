@@ -118,6 +118,30 @@
       },
       "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34bab6d6_3486728b",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-03-14T18:00:12Z",
+      "side": 1,
+      "message": "The odrefresh case is simpler I supposed, since both the producer and consumers are in the ART module?  Since odsign is not part of ART module, using protobuf seems easier to maintain for backward/forward compatibility than text.  But I don\u0027t know the cost to have such an extra dependency.  Is using text a good trade-off?",
+      "parentUuid": "aa6dcfe8_9e4fec85",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 31
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
