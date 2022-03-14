@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d38ecaeb_3b2db1b3",
+        "filename": "test/925-threadgroups/src/art/Test925.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-14T13:36:51Z",
+      "side": 1,
+      "message": "Suggestion: Filter `threads` using streams:\n\n  private static Thread[] filteredThread(Thread[] threads) {\n      return Arrays\n                 .stream(threads)\n                 .filter(t -\u003e\n                     !t.getName().startsWith(\"Jit thread pool worker\") \u0026\u0026\n                     !t.getName().startsWith(\"Metrics Background Reporting Thread\"))\n                 .toArray();\n  }\n\n(not tried).",
+      "range": {
+        "startLine": 93,
+        "startChar": 2,
+        "endLine": 93,
+        "endChar": 69
+      },
+      "revId": "a88a8caf17bde2858536503a898564ec0e84934f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9919f220_37891106",
+        "filename": "test/925-threadgroups/src/art/Test925.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-14T13:36:51Z",
+      "side": 1,
+      "message": "I think this should be removed, otherwise you\u0027ll filter out one thread at most.",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 14
+      },
+      "revId": "a88a8caf17bde2858536503a898564ec0e84934f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
