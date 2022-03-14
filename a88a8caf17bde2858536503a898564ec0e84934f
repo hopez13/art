@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6083080_bcb395fb",
+        "filename": "test/925-threadgroups/src/art/Test925.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-14T13:52:46Z",
+      "side": 1,
+      "message": "As this a bug fix, I\u0027d rather not rewrite it with a different style. (also I\u0027m not seeing a big readability improvements of using streams here, but that\u0027s really just personal preference)",
+      "parentUuid": "d38ecaeb_3b2db1b3",
+      "range": {
+        "startLine": 93,
+        "startChar": 2,
+        "endLine": 93,
+        "endChar": 69
+      },
+      "revId": "a88a8caf17bde2858536503a898564ec0e84934f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9919f220_37891106",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-14T13:36:51Z",
       "side": 1,
       "message": "I think this should be removed, otherwise you\u0027ll filter out one thread at most.",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 14
+      },
+      "revId": "a88a8caf17bde2858536503a898564ec0e84934f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41af8b7f_8c298d34",
+        "filename": "test/925-threadgroups/src/art/Test925.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-14T13:52:46Z",
+      "side": 1,
+      "message": "Oh, great catch! That will teach me into running the test only with --interpreter. Done.",
+      "parentUuid": "9919f220_37891106",
       "range": {
         "startLine": 103,
         "startChar": 8,
