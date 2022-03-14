@@ -46,6 +46,30 @@
       },
       "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74844aae_10bce050",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-14T09:32:05Z",
+      "side": 1,
+      "message": "Can we do something similar to odrefresh? We did not need extra libraries for it.\n\nThe other option for uploading I think would be in system server.",
+      "parentUuid": "3c2c13fb_8d5758f2",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 31
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
