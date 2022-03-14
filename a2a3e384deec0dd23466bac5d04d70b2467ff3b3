@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39953c6d_59d67c1e",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T01:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed1b9f76_68f66633",
+      "range": {
+        "startLine": 479,
+        "startChar": 6,
+        "endLine": 479,
+        "endChar": 27
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4e734fe_84a81aa5",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-10T11:46:34Z",
       "side": 1,
       "message": "Some corruption seems to have occurred here.",
+      "range": {
+        "startLine": 183,
+        "startChar": 136,
+        "endLine": 183,
+        "endChar": 199
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8542cef_7339cd65",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T01:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4e734fe_84a81aa5",
       "range": {
         "startLine": 183,
         "startChar": 136,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "302f1b21_606b0347",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T01:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57108531_83249e00",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 52
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f83ad774_e2736596",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-03-10T15:34:35Z",
       "side": 1,
       "message": "Nit: Mark this function as `static` or put it in the anonymous namespace starting from line 218. Personally, I prefer putting it in the anonymous namespace.",
+      "range": {
+        "startLine": 1045,
+        "startChar": 0,
+        "endLine": 1045,
+        "endChar": 4
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f32d389a_20e95e9b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T01:08:45Z",
+      "side": 1,
+      "message": "Added it to anonymous namespace",
+      "parentUuid": "f83ad774_e2736596",
       "range": {
         "startLine": 1045,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a33e54c5_c0221ba1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T01:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6af18206_cd236431",
+      "range": {
+        "startLine": 1049,
+        "startChar": 16,
+        "endLine": 1049,
+        "endChar": 29
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a09a864_6bc56826",
@@ -133,6 +253,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa2df681_f28bd822",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T01:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a09a864_6bc56826",
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99701c68_333b695d",
@@ -146,6 +284,30 @@
       "writtenOn": "2022-03-10T15:34:35Z",
       "side": 1,
       "message": "`const OdsignMetrics::CompOsArtifactsCheckRecord\u0026`",
+      "range": {
+        "startLine": 1058,
+        "startChar": 4,
+        "endLine": 1058,
+        "endChar": 45
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2244a0b_dba349e5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T01:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99701c68_333b695d",
       "range": {
         "startLine": 1058,
         "startChar": 4,
@@ -179,6 +341,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6287c31d_12b322d2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T01:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b2c0c6b_e0695827",
+      "range": {
+        "startLine": 1059,
+        "startChar": 48,
+        "endLine": 1059,
+        "endChar": 51
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebb4c88f_2b75e23e",
@@ -196,6 +382,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76908712_63ac22cc",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T01:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebb4c88f_2b75e23e",
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "420d1165_b443b0b5",
@@ -209,6 +413,30 @@
       "writtenOn": "2022-03-10T15:34:35Z",
       "side": 1,
       "message": "Nit: We don\u0027t do indentation for #ifdef. Also, indent the line below as if there is no #ifdef.",
+      "range": {
+        "startLine": 1193,
+        "startChar": 0,
+        "endLine": 1193,
+        "endChar": 4
+      },
+      "revId": "a2a3e384deec0dd23466bac5d04d70b2467ff3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9317e29b_157c479b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T01:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "420d1165_b443b0b5",
       "range": {
         "startLine": 1193,
         "startChar": 0,
