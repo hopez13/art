@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6722aff2_ffe73864",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-14T15:34:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "80ab9c60_7e74aa53",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 60
+      },
+      "revId": "57ec4b4dab117ce1760efa54e63e0cbd5949ab4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7baefff1_27ab497d",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Can it be something else? But yeah, adding a check just in case.",
       "parentUuid": "7baefff1_27ab497d",
+      "range": {
+        "startLine": 2787,
+        "startChar": 0,
+        "endLine": 2787,
+        "endChar": 52
+      },
+      "revId": "57ec4b4dab117ce1760efa54e63e0cbd5949ab4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1f41429_516c80b9",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2787,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-14T15:34:03Z",
+      "side": 1,
+      "message": "I don\u0027t think it can be something else ... currently. I think it is a good safety net to add this particular DCHECK.",
+      "parentUuid": "ebaa5ee4_0e8717d7",
       "range": {
         "startLine": 2787,
         "startChar": 0,
