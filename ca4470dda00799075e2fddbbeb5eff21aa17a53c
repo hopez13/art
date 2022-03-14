@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79de4b8b_ebe82f75",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-14T09:18:16Z",
+      "side": 1,
+      "message": "We really try hard to avoid new dependencies in the ART module. If uploading odsign stats require new library dependencies, we should discuss where else to put the uploading instead.",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 31
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
