@@ -2778,9 +2778,15 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
     // Accept only calls on the StringBuilder (which shall all be removed).
     // TODO: Carve-out for const-string? Or rely on environment pruning (to be implemented)?
     if (holder->InputCount() == 0 || holder->InputAt(0) != sb) {
-      // When inlining the constructor, we have a NewArray as an environment use.
-      if (constructor_inlined && holder == maybe_new_array) {
-        continue;
+      // When inlining the constructor, we have a NewArray and may have a LoadClass as an
+      // environment use.
+      if (constructor_inlined) {
+        if (holder == maybe_new_array) {
+          continue;
+        }
+        if (holder == maybe_new_array->InputAt(0)) {
+          continue;
+        }
       }
       return false;
     }
@@ -2826,6 +2832,19 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
     DCHECK(fence->IsConstructorFence());
     block->RemoveInstruction(fence);
     block->RemoveInstruction(maybe_new_array);
+    if (sb->HasEnvironmentUses()) {
+      // We know the only remaining use is from the loadclass.
+      for (HEnvironment* env = maybe_new_array->InputAt(0)->GetEnvironment();
+           env != nullptr;
+           env = env->GetParent()) {
+        for (size_t i = 0, size = env->Size(); i != size; ++i) {
+          if (env->GetInstructionAt(i) == sb) {
+            env->RemoveAsUserOfInput(i);
+            env->SetRawEnvAt(i, /*instruction=*/ nullptr);
+          }
+        }
+      }
+    }
   }
   DCHECK(!sb->HasEnvironmentUses());
   block->RemoveInstruction(sb);
