@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80ab9c60_7e74aa53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-14T15:26:46Z",
+      "side": 1,
+      "message": "It\u0027s already being run this way here:\nhttps://blackbox.googleplex.com/dashboard/art-module/target/git_master/coral-userdebug/2/mts-art/0",
+      "parentUuid": "503a3058_a4062f9b",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 60
+      },
+      "revId": "57ec4b4dab117ce1760efa54e63e0cbd5949ab4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7baefff1_27ab497d",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-14T13:46:57Z",
       "side": 1,
       "message": "Are we expecting `maybe_new_array-\u003eInputAt(0)` to always be a LoadClass? If so, can we add a DCHECK for it?",
+      "range": {
+        "startLine": 2787,
+        "startChar": 0,
+        "endLine": 2787,
+        "endChar": 52
+      },
+      "revId": "57ec4b4dab117ce1760efa54e63e0cbd5949ab4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebaa5ee4_0e8717d7",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2787,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-14T15:26:46Z",
+      "side": 1,
+      "message": "Can it be something else? But yeah, adding a check just in case.",
+      "parentUuid": "7baefff1_27ab497d",
       "range": {
         "startLine": 2787,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bb65ed1_2275cbaa",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2826,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-14T15:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47d9af5d_fafb47f8",
+      "range": {
+        "startLine": 2825,
+        "startChar": 61,
+        "endLine": 2826,
+        "endChar": 24
+      },
+      "revId": "57ec4b4dab117ce1760efa54e63e0cbd5949ab4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c81bab1_e51ecb89",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-03-14T13:46:57Z",
       "side": 1,
       "message": "nit: LoadClass\nAlso, let\u0027s DCHECK that it is in fact a LoadClass",
+      "range": {
+        "startLine": 2836,
+        "startChar": 52,
+        "endLine": 2836,
+        "endChar": 61
+      },
+      "revId": "57ec4b4dab117ce1760efa54e63e0cbd5949ab4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a2ea8b3_e6ec79e0",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2836,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-14T15:26:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c81bab1_e51ecb89",
       "range": {
         "startLine": 2836,
         "startChar": 52,
