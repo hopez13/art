@@ -21,6 +21,10 @@
 #if defined(__BIONIC__) || defined(__GLIBC__)
 #include <malloc.h>  // For mallinfo()
 #endif
+#if defined(__BIONIC__) && defined(ART_TARGET)
+#include <linux/userfaultfd.h>
+#include <sys/ioctl.h>
+#endif
 #include <memory>
 #include <random>
 #include <unistd.h>
@@ -406,6 +410,7 @@ Heap::Heap(size_t initial_size,
       backtrace_lock_(nullptr),
       seen_backtrace_count_(0u),
       unique_backtrace_count_(0u),
+      uffd_(-1),
       gc_disabled_for_shutdown_(false),
       dump_region_info_before_gc_(dump_region_info_before_gc),
       dump_region_info_after_gc_(dump_region_info_after_gc),
@@ -2680,6 +2685,58 @@ collector::GcType Heap::CollectGarbageInternal(collector::GcType gc_type,
     ++runtime->GetStats()->gc_for_alloc_count;
     ++self->GetStats()->gc_for_alloc_count;
   }
+
+#if defined(__BIONIC__) && defined(ART_TARGET)
+  if (uffd_ >= 0 && gc_cause == kGcCauseBackground) {
+    // Attempt to use all userfaultfd ioctls that we intend to use.
+    // Register ioctl
+    {
+      struct uffdio_register uffd_register;
+      uffd_register.range.start = 0;
+      uffd_register.range.len = 0;
+      uffd_register.mode = UFFDIO_REGISTER_MODE_MISSING;
+      CHECK(ioctl(uffd_, UFFDIO_REGISTER, &uffd_register) == -1
+            && errno == EINVAL);
+    }
+    // Copy ioctl
+    {
+      struct uffdio_copy uffd_copy = {.src = 0, .dst = 0, .len = 0, .mode = 0};
+      CHECK(ioctl(uffd_, UFFDIO_COPY, &uffd_copy) == -1
+            && errno == EINVAL);
+    }
+    // Zeropage ioctl
+    {
+      struct uffdio_zeropage uffd_zeropage;
+      uffd_zeropage.range.start = 0;
+      uffd_zeropage.range.len = 0;
+      uffd_zeropage.mode = 0;
+      CHECK(ioctl(uffd_, UFFDIO_ZEROPAGE, &uffd_zeropage) == -1
+            && errno == EINVAL);
+    }
+    // Continue ioctl
+    {
+      struct uffdio_continue uffd_continue;
+      uffd_continue.range.start = 0;
+      uffd_continue.range.len = 0;
+      uffd_continue.mode = 0;
+      CHECK(ioctl(uffd_, UFFDIO_CONTINUE, &uffd_continue) == -1
+            && errno == EINVAL);
+    }
+    // Wake ioctl
+    {
+      struct uffdio_range uffd_range = {.start = 0, .len = 0};
+      CHECK(ioctl(uffd_, UFFDIO_WAKE, &uffd_range) == -1
+            && errno == EINVAL);
+    }
+    // Unregister ioctl
+    {
+      struct uffdio_range uffd_range = {.start = 0, .len = 0};
+      CHECK(ioctl(uffd_, UFFDIO_UNREGISTER, &uffd_range) == -1
+            && errno == EINVAL);
+    }
+  }
+#endif
+
   const size_t bytes_allocated_before_gc = GetBytesAllocated();
 
   DCHECK_LT(gc_type, collector::kGcTypeMax);
@@ -4579,6 +4636,18 @@ void Heap::PostForkChildAction(Thread* self) {
   uint32_t starting_gc_num = GetCurrentGcNum();
   uint64_t last_adj_time = NanoTime();
   next_gc_type_ = NonStickyGcType();  // Always start with a full gc.
+
+#if defined(__BIONIC__) && defined(ART_TARGET)
+  uffd_ = syscall(__NR_userfaultfd, O_CLOEXEC | O_NONBLOCK | UFFD_USER_MODE_ONLY);
+  if (uffd_ >= 0) {
+    struct uffdio_api api = {.api = UFFD_API, .features = 0};
+    CHECK_EQ(ioctl(uffd_, UFFDIO_API, &api), 0) << "ioctl_userfaultfd: API: " << strerror(errno);
+  } else {
+    // The syscall should fail only if it doesn't exist in the kernel or if it's
+    // denied by SELinux.
+    CHECK(errno == ENOSYS || errno == EACCES) << "userfaultfd: " << strerror(errno);
+  }
+#endif
 
   // Temporarily increase target_footprint_ and concurrent_start_bytes_ to
   // max values to avoid GC during app launch.
