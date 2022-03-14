@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "503a3058_a4062f9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-14T13:46:57Z",
+      "side": 1,
+      "message": "Should we add a test to `697` to trigger the new implementation? One that also triggers without `--no-image` if possible",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 60
+      },
+      "revId": "57ec4b4dab117ce1760efa54e63e0cbd5949ab4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7baefff1_27ab497d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2787,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-14T13:46:57Z",
+      "side": 1,
+      "message": "Are we expecting `maybe_new_array-\u003eInputAt(0)` to always be a LoadClass? If so, can we add a DCHECK for it?",
+      "range": {
+        "startLine": 2787,
+        "startChar": 0,
+        "endLine": 2787,
+        "endChar": 52
+      },
+      "revId": "57ec4b4dab117ce1760efa54e63e0cbd5949ab4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47d9af5d_fafb47f8",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2826,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-14T13:46:57Z",
+      "side": 1,
+      "message": "Suggestion: Replace with `, and all remaining environment uses (if any).` so that the comment is still valid.",
+      "range": {
+        "startLine": 2825,
+        "startChar": 61,
+        "endLine": 2826,
+        "endChar": 24
+      },
+      "revId": "57ec4b4dab117ce1760efa54e63e0cbd5949ab4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c81bab1_e51ecb89",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2836,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-14T13:46:57Z",
+      "side": 1,
+      "message": "nit: LoadClass\nAlso, let\u0027s DCHECK that it is in fact a LoadClass",
+      "range": {
+        "startLine": 2836,
+        "startChar": 52,
+        "endLine": 2836,
+        "endChar": 61
+      },
+      "revId": "57ec4b4dab117ce1760efa54e63e0cbd5949ab4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
