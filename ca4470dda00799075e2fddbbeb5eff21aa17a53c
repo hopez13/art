@@ -70,6 +70,30 @@
       },
       "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cb2a1d1_af77bc89",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-14T09:59:46Z",
+      "side": 1,
+      "message": "Odrefresh uses a text file to avoid the dependency, I think? As in art/odrefresh/odr_metrics_record.cc. (With some interesting code generation funkiness for enums: http://cs/android-internal/art/odrefresh/Android.bp?l\u003d91\u0026rcl\u003d39f6d00b731c8e043d984c4f508e72b1f9fc54a6)\n\nShikha: That seems reasonable, if we want to avoid the proto dependency.",
+      "parentUuid": "74844aae_10bce050",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 31
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
