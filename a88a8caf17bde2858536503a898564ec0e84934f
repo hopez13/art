@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c45625d0_167c6bf9",
+        "filename": "test/925-threadgroups/src/art/Test925.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-03-14T14:02:33Z",
+      "side": 1,
+      "message": "\u003e As this a bug fix, I\u0027d rather not rewrite it with a different style.\n\nSounds good to me.\n\n\u003e (also I\u0027m not seeing a big readability improvements of using streams here, but that\u0027s really just personal preference)\n\nWell, for one thing, using this functional approach would have prevented the logic error caused by leaving the `break` statement in the iterative/imperative solution. :-)",
+      "parentUuid": "d6083080_bcb395fb",
+      "range": {
+        "startLine": 93,
+        "startChar": 2,
+        "endLine": 93,
+        "endChar": 69
+      },
+      "revId": "a88a8caf17bde2858536503a898564ec0e84934f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9919f220_37891106",
