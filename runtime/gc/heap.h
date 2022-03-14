@@ -1677,6 +1677,9 @@ class Heap {
   // Stack trace hashes that we already saw,
   std::unordered_set<uint64_t> seen_backtraces_ GUARDED_BY(backtrace_lock_);
 
+  // Userfaultfd file descriptor.
+  // TODO (lokeshgidra): remove this when the userfaultfd-based GC is in use.
+  int uffd_;
   // We disable GC when we are shutting down the runtime in case there are daemon threads still
   // allocating.
   bool gc_disabled_for_shutdown_ GUARDED_BY(gc_complete_lock_);
