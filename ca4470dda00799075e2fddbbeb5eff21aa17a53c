@@ -94,6 +94,30 @@
       },
       "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa6dcfe8_9e4fec85",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T11:15:51Z",
+      "side": 1,
+      "message": "We can change the file back to text \u0026 remove the 2 proto related libs. \n\nBut we will continue the dependency on libstatslog_art (which odrefresh also use). Coding vise this looks like an easier option. Wanted to check if everyone is okay with it.\n\ncc++ rpl@ for odrefresh metrics",
+      "parentUuid": "4cb2a1d1_af77bc89",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 31
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
