@@ -22,6 +22,30 @@
       },
       "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c2c13fb_8d5758f2",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-14T09:30:08Z",
+      "side": 1,
+      "message": "I don\u0027t see how we can get away with using the proto library since the processing is done using proto. (I was using a normal txt processing before, but the suggestion was to use proto).\n\nThe uploading has to be done after statsd has started \u0026 since uploading odrefresh metrics is also here, I thought I could just add it here. Any suggestion on where else we can upload?\n\n@Alan",
+      "parentUuid": "79de4b8b_ebe82f75",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 31
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
