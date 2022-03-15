@@ -16,6 +16,29 @@
       "message": "https://android-review.googlesource.com/c/platform/prebuilts/runtime/+/2025844\n\nwill fix the treehugger failures. Waiting for the CL to be merged and will rerun treehugger again.",
       "revId": "8dc4ca5466720da9e0c40a80f98785aa30d1cb97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "424a5306_fa260a39",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2698,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-15T09:46:23Z",
+      "side": 1,
+      "message": "I personally prefer when the code in CHECK can be discarded or replaced with a DCHECK. So I\u0027d suggest creating a local variable for the return of the syscalls. I know this is temporary code so up to you.",
+      "range": {
+        "startLine": 2698,
+        "startChar": 6,
+        "endLine": 2698,
+        "endChar": 11
+      },
+      "revId": "8dc4ca5466720da9e0c40a80f98785aa30d1cb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
