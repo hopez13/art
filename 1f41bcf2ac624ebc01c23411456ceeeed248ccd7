@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42f652f3_0269f398",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-15T20:48:40Z",
+      "side": 1,
+      "message": "add \"to ensure it\u0027s available for future GC use.\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "1f41bcf2ac624ebc01c23411456ceeeed248ccd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a262929_06621044",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3827,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-15T20:48:40Z",
+      "side": 1,
+      "message": "I would have called it \"MaybePerformUffdIoctls\". But I don\u0027t feel strongly about it.",
+      "revId": "1f41bcf2ac624ebc01c23411456ceeeed248ccd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
