@@ -166,6 +166,224 @@
       },
       "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c2fc513_7bf37b49",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-15T15:44:34Z",
+      "side": 1,
+      "message": "Nit: Is this used?",
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ca60e7b_4b9e6f03",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-15T15:44:34Z",
+      "side": 1,
+      "message": "Nit: Move it to the anonymous namespace starting from line 220.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 35
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed52cf29_3d41b756",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-15T15:44:34Z",
+      "side": 1,
+      "message": "Does `ParseFromIstream` set `errno`? If not, use `Errorf` instead.",
+      "range": {
+        "startLine": 250,
+        "startChar": 11,
+        "endLine": 250,
+        "endChar": 22
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "611f12d0_62957b7c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-15T15:44:34Z",
+      "side": 1,
+      "message": "Nit: Too long. Please break it into two lines and indent the second line with **4** spaces.",
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac08ada6_2688d79a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-15T15:44:34Z",
+      "side": 1,
+      "message": "Nit: snake_case",
+      "range": {
+        "startLine": 253,
+        "startChar": 53,
+        "endLine": 253,
+        "endChar": 65
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f1c430_00fe2c3f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-15T15:44:34Z",
+      "side": 1,
+      "message": "Nit: Indent with 4 spaces.",
+      "range": {
+        "startLine": 255,
+        "startChar": 4,
+        "endLine": 255,
+        "endChar": 6
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bd18002_202de3f1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-15T15:44:34Z",
+      "side": 1,
+      "message": "Errorf",
+      "range": {
+        "startLine": 260,
+        "startChar": 13,
+        "endLine": 260,
+        "endChar": 24
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd39ac48_b76046f8",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-15T15:44:34Z",
+      "side": 1,
+      "message": "Nit: Don\u0027t indent #ifdef. (I.e., no space before #ifdef at all)",
+      "range": {
+        "startLine": 1197,
+        "startChar": 0,
+        "endLine": 1197,
+        "endChar": 2
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b828435_cb1359d7",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-15T15:44:34Z",
+      "side": 1,
+      "message": "Nit: Spell out the type. go/cstyle#Type_deduction",
+      "range": {
+        "startLine": 1198,
+        "startChar": 4,
+        "endLine": 1198,
+        "endChar": 8
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87623f65_06ac4928",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-15T15:44:34Z",
+      "side": 1,
+      "message": "Nit: snake_case",
+      "range": {
+        "startLine": 1198,
+        "startChar": 9,
+        "endLine": 1198,
+        "endChar": 32
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
