@@ -194,6 +194,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "334c16e6_67f25656",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-15T16:17:23Z",
+      "side": 1,
+      "message": "Or on the third hand:\nJiakai suggests adding a new class in frameworks/base/services/core/java/com/android/server/pm/dex to do the upload, and   schedule it in a call from SystemServer.java.",
+      "parentUuid": "3b08633e_8edad174",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 31
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c2fc513_7bf37b49",
         "filename": "runtime/runtime.cc",
         "patchSetId": 10
