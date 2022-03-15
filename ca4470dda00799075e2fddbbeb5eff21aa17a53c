@@ -170,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b08633e_8edad174",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-03-15T15:47:02Z",
+      "side": 1,
+      "message": "Or something like that - e.g. post a task to the handler to upload the stats in the ArtManagerService.",
+      "parentUuid": "5e314a42_b081a0bb",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 31
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c2fc513_7bf37b49",
         "filename": "runtime/runtime.cc",
         "patchSetId": 10
