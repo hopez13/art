@@ -142,6 +142,30 @@
       },
       "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e314a42_b081a0bb",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2022-03-15T15:18:58Z",
+      "side": 1,
+      "message": "Discussed with Alan offline. How about we move keep the proto file like that \u0026 move the read code in ArtManagerService on post Success (cs.android.com/android/platform/superproject/+/master:frameworks/base/services/core/java/com/android/server/pm/dex/ArtManagerService.java;drc\u003dmaster;bpv\u003d1;bpt\u003d1;l\u003d367)",
+      "parentUuid": "34bab6d6_3486728b",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 31
+      },
+      "revId": "ca4470dda00799075e2fddbbeb5eff21aa17a53c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
