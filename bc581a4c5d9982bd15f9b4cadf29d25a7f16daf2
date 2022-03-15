@@ -16,6 +16,24 @@
       "message": "We will have to close the fd for app/webview zygotes before they fork otherwise they end up doing stat on the fd and that isn\u0027t allowed under SELinux policy. So, in these cases the ioctls will be attempted only till the first fork. But that should be ok, right?",
       "revId": "bc581a4c5d9982bd15f9b4cadf29d25a7f16daf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5864bb1b_793680b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-15T23:57:42Z",
+      "side": 1,
+      "message": "It presumably gets reopened in the child of the webview zygote, right? So it\u0027s just the webview zygote process that will stop running it? That sounds fine to me.",
+      "parentUuid": "99912976_4cad24c8",
+      "revId": "bc581a4c5d9982bd15f9b4cadf29d25a7f16daf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
