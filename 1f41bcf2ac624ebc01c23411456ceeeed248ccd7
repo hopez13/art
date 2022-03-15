@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f67a153a_2a5ef103",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-03-15T20:54:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42f652f3_0269f398",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "1f41bcf2ac624ebc01c23411456ceeeed248ccd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a262929_06621044",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-03-15T20:48:40Z",
       "side": 1,
       "message": "I would have called it \"MaybePerformUffdIoctls\". But I don\u0027t feel strongly about it.",
+      "revId": "1f41bcf2ac624ebc01c23411456ceeeed248ccd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "990cdf67_fc1b031f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3827,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-03-15T20:54:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a262929_06621044",
       "revId": "1f41bcf2ac624ebc01c23411456ceeeed248ccd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
