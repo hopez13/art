@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d1726ca_fd3335ac",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2699,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-15T16:30:13Z",
+      "side": 1,
+      "message": "nit: making these two checks make the debugging easier (ie CHECK_EQ will tell you the values of both arguments).",
+      "range": {
+        "startLine": 2699,
+        "startChar": 6,
+        "endLine": 2699,
+        "endChar": 42
+      },
+      "revId": "59bcfe8e00d7793bbfd5b2a7034b68b7b5a5e74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
