@@ -16,6 +16,24 @@
       "message": "Failures seem to be real. Otherwise LGTM.",
       "revId": "3efbcffa7ede9408aaa60c3792d45d649eab9773",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "582c507c_a83f7cb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-03-15T17:03:16Z",
+      "side": 1,
+      "message": "They are due to outdated userfaultfd.h. I have another CL (https://android-review.googlesource.com/c/platform/prebuilts/runtime/+/2025844) waiting for review, which will resolve these failures.\n\nI will not merge this CL until all treehugger tests pass after the above CL is merged.",
+      "parentUuid": "21e54319_9cb91a7f",
+      "revId": "3efbcffa7ede9408aaa60c3792d45d649eab9773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
