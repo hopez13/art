@@ -33,6 +33,7 @@ art_runtime_base_binaries_both_on_device_first_on_host = [
 art_runtime_base_binaries_first_on_device_first_on_host = [
     "dexoptanalyzer",
     "profman",
+    "profman2",
 ]
 
 // - Base requirements (libraries).

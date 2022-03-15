@@ -113,6 +113,31 @@ art_cc_binary {
 }
 
 art_cc_binary {
+    name: "profman2",
+    defaults: ["profman-defaults"],
+    target: {
+        android: {
+            shared_libs: [
+                "libartbase",
+                "libdexfile",
+                "libprofile",
+            ],
+        },
+        host: {
+            // Make the host binary static, except for system libraries. This
+            // avoids having to bundle host dynamic libs in prebuilts.
+            static_libs: ["libprofman_static"],
+            stl: "c++_static",
+
+        },
+    },
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+}
+
+art_cc_binary {
     name: "profmand",
     defaults: [
         "art_debug_defaults",
