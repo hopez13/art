@@ -22,6 +22,30 @@
       },
       "revId": "1ad2ec11bf1006d4a387fc8d0267fca7ae783887",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d53d4bc3_52000168",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-16T10:07:48Z",
+      "side": 1,
+      "message": "The only change in method flags should have been that abstract methods should not be marked with `SetNterpEntryPointFastPathFlag()`.\n\nDo you think this can break some DRM?",
+      "parentUuid": "b7f2d947_300f4c92",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 43
+      },
+      "revId": "1ad2ec11bf1006d4a387fc8d0267fca7ae783887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
