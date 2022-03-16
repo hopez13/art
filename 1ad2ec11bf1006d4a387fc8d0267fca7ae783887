@@ -94,6 +94,30 @@
       },
       "revId": "1ad2ec11bf1006d4a387fc8d0267fca7ae783887",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "168689b8_2690317a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-16T20:42:50Z",
+      "side": 1,
+      "message": "Indeed, changing the argument type of `ClassLinker::LoadMethod()` from `ObjPtr\u003c\u003e` back to `Handle\u003c\u003e` makes those demo apps run again.\n\nI\u0027m going to abandon this revert and ask for developer outreach.",
+      "parentUuid": "07eff967_353d009f",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 43
+      },
+      "revId": "1ad2ec11bf1006d4a387fc8d0267fca7ae783887",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
