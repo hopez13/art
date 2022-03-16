@@ -78,6 +78,15 @@ bootclasspath_fragment {
         // This module does not contain any split packages.
         split_packages: [],
 
+        // The following packages currently only contain classes from this
+        // bootclasspath_fragment but some of their sub-packages contain classes
+        // from other bootckasspath modules. Packages should only be listed here
+        // when necessary for legacy purposes, new packages should match a
+        // package prefix.
+        single_packages: [
+            "android.system",
+        ],
+
         // The following packages and all their subpackages currently only
         // contain classes from this bootclasspath_fragment. Listing a package
         // here won't prevent other bootclasspath modules from adding classes in
