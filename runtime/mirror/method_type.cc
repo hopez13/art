@@ -39,29 +39,14 @@ ObjPtr<ObjectArray<Class>> AllocatePTypesArray(Thread* self, int count)
 ObjPtr<MethodType> MethodType::Create(Thread* const self,
                                       Handle<Class> return_type,
                                       Handle<ObjectArray<Class>> parameter_types) {
-  StackHandleScope<1> hs(self);
-  Handle<MethodType> mt(
-      hs.NewHandle(ObjPtr<MethodType>::DownCast(GetClassRoot<MethodType>()->AllocObject(self))));
-
-  if (mt == nullptr) {
-    self->AssertPendingOOMException();
-    return nullptr;
-  }
-
-  // We're initializing a newly allocated object, so we do not need to record that under
-  // a transaction. If the transaction is aborted, the whole object shall be unreachable.
-  mt->SetFieldObject</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
-      FormOffset(), nullptr);
-  mt->SetFieldObject</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
-      MethodDescriptorOffset(), nullptr);
-  mt->SetFieldObject</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
-      RTypeOffset(), return_type.Get());
-  mt->SetFieldObject</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
-      PTypesOffset(), parameter_types.Get());
-  mt->SetFieldObject</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
-      WrapAltOffset(), nullptr);
-
-  return mt.Get();
+  ArtMethod* methodType = jni::DecodeArtMethod(WellKnownClasses::java_lang_invoke_MethodType_methodType);
+  uint32_t args[] = {
+    static_cast<uint32_t>(reinterpret_cast<uintptr_t>(return_type.Get())),
+    static_cast<uint32_t>(reinterpret_cast<uintptr_t>(parameter_types.Get()))
+  };
+  JValue result;
+  methodType->Invoke(self, args, sizeof(args), &result, "LLL");
+  return ObjPtr<MethodType>::DownCast(result.GetL());
 }
 
 ObjPtr<MethodType> MethodType::CloneWithoutLeadingParameter(Thread* const self,
@@ -121,22 +106,14 @@ size_t MethodType::NumberOfVRegs() {
 }
 
 bool MethodType::IsExactMatch(ObjPtr<MethodType> target) {
-  const ObjPtr<ObjectArray<Class>> p_types = GetPTypes();
-  const int32_t params_length = p_types->GetLength();
-
-  const ObjPtr<ObjectArray<Class>> target_p_types = target->GetPTypes();
-  if (params_length != target_p_types->GetLength()) {
-    return false;
-  }
-  for (int32_t i = 0; i < params_length; ++i) {
-    if (p_types->GetWithoutChecks(i) != target_p_types->GetWithoutChecks(i)) {
-      return false;
-    }
-  }
-  return GetRType() == target->GetRType();
+  return target == this;
 }
 
 bool MethodType::IsConvertible(ObjPtr<MethodType> target) {
+  if (IsExactMatch(target)) {
+    return true;
+  }
+
   const ObjPtr<ObjectArray<Class>> p_types = GetPTypes();
   const int32_t params_length = p_types->GetLength();
 
@@ -194,6 +171,9 @@ static bool IsParameterInPlaceConvertible(ObjPtr<Class> from, ObjPtr<Class> to)
 }
 
 bool MethodType::IsInPlaceConvertible(ObjPtr<MethodType> target) {
+  if (IsExactMatch(target)) {
+    return true;
+  }
   const ObjPtr<ObjectArray<Class>> ptypes = GetPTypes();
   const ObjPtr<ObjectArray<Class>> target_ptypes = target->GetPTypes();
   const int32_t ptypes_length = ptypes->GetLength();

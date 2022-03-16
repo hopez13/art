@@ -108,6 +108,7 @@ jmethodID WellKnownClasses::java_lang_invoke_MethodHandle_asType;
 jmethodID WellKnownClasses::java_lang_invoke_MethodHandle_invokeExact;
 jmethodID WellKnownClasses::java_lang_invoke_MethodHandles_lookup;
 jmethodID WellKnownClasses::java_lang_invoke_MethodHandles_Lookup_findConstructor;
+jmethodID WellKnownClasses::java_lang_invoke_MethodType_methodType;
 jmethodID WellKnownClasses::java_lang_Long_valueOf;
 jmethodID WellKnownClasses::java_lang_ref_FinalizerReference_add;
 jmethodID WellKnownClasses::java_lang_ref_ReferenceQueue_add;
@@ -411,6 +412,7 @@ void WellKnownClasses::InitFieldsAndMethodsOnly(JNIEnv* env) {
   java_lang_invoke_MethodHandle_invokeExact = CacheMethod(env, "java/lang/invoke/MethodHandle", false, "invokeExact", "([Ljava/lang/Object;)Ljava/lang/Object;");
   java_lang_invoke_MethodHandles_lookup = CacheMethod(env, "java/lang/invoke/MethodHandles", true, "lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;");
   java_lang_invoke_MethodHandles_Lookup_findConstructor = CacheMethod(env, "java/lang/invoke/MethodHandles$Lookup", false, "findConstructor", "(Ljava/lang/Class;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;");
+  java_lang_invoke_MethodType_methodType = CacheMethod(env, "java/lang/invoke/MethodType", true, "methodType", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;");
 
   java_lang_ref_FinalizerReference_add = CacheMethod(env, "java/lang/ref/FinalizerReference", true, "add", "(Ljava/lang/Object;)V");
   java_lang_ref_ReferenceQueue_add = CacheMethod(env, "java/lang/ref/ReferenceQueue", true, "add", "(Ljava/lang/ref/Reference;)V");
@@ -613,6 +615,7 @@ void WellKnownClasses::Clear() {
   java_lang_invoke_MethodHandle_invokeExact = nullptr;
   java_lang_invoke_MethodHandles_lookup = nullptr;
   java_lang_invoke_MethodHandles_Lookup_findConstructor = nullptr;
+  java_lang_invoke_MethodType_methodType = nullptr;
   java_lang_Long_valueOf = nullptr;
   java_lang_ref_FinalizerReference_add = nullptr;
   java_lang_ref_ReferenceQueue_add = nullptr;
