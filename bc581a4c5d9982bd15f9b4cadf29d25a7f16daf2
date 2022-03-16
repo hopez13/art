@@ -34,6 +34,24 @@
       "parentUuid": "99912976_4cad24c8",
       "revId": "bc581a4c5d9982bd15f9b4cadf29d25a7f16daf2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "213113bb_1de49813",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-03-16T00:56:16Z",
+      "side": 1,
+      "message": "That\u0027s right. The child processes will get their own fd.\n\nThe only issue is that in practice we will have to reopen fds for these app zygotes as well (to avoid the fallback). And in case any of these zygote processes have their own seccomp filter, then we\u0027ll have to use fallback.",
+      "parentUuid": "5864bb1b_793680b9",
+      "revId": "bc581a4c5d9982bd15f9b4cadf29d25a7f16daf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
