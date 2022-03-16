@@ -165,7 +165,6 @@ art_cc_defaults {
     data: [
         ":art-gtest-jars-ProfileTestMultiDex",
     ],
-    tidy_timeout_srcs: ["profile_assistant_test.cc"],
     srcs: ["profile_assistant_test.cc"],
 }
 
