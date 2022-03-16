@@ -692,15 +692,12 @@ standalone-apex-files: deapexer \
 
 ART_TARGET_PLATFORM_DEPENDENCIES := \
   $(TARGET_OUT)/etc/public.libraries.txt \
-  $(TARGET_OUT_SHARED_LIBRARIES)/heapprofd_client_api.so \
-  $(TARGET_OUT_SHARED_LIBRARIES)/libartpalette-system.so \
   $(TARGET_OUT_SHARED_LIBRARIES)/libcutils.so \
   $(TARGET_OUT_SHARED_LIBRARIES)/liblz4.so \
   $(TARGET_OUT_SHARED_LIBRARIES)/libprocessgroup.so \
   $(TARGET_OUT_SHARED_LIBRARIES)/libprocinfo.so \
   $(TARGET_OUT_SHARED_LIBRARIES)/libselinux.so \
   $(TARGET_OUT_SHARED_LIBRARIES)/libtombstoned_client.so \
-  $(TARGET_OUT_SHARED_LIBRARIES)/libz.so \
 
 # Also include libartbenchmark, we always include it when running golem.
 # libstdc++ is needed when building for ART_TARGET_LINUX.
