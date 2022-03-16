@@ -975,7 +975,7 @@ class ClassLinker {
 
   void LoadMethod(const DexFile& dex_file,
                   const ClassAccessor::Method& method,
-                  ObjPtr<mirror::Class> klass,
+                  Handle<mirror::Class> klass,
                   ArtMethod* dst)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
