@@ -24,6 +24,7 @@
 #include <inttypes.h>
 #include <sched.h>
 #include <signal.h>
+#include <sys/prctl.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -912,6 +913,11 @@ void DumpPerfetto(art::Thread* self) {
   // Make sure that this is the first thing we do after forking, so if anything
   // below hangs, the fork will go away from the watchdog.
   ArmWatchdogOrDie();
+
+  // Change the name of forked process to "dump_perfetto".
+  // Learn more: https://man7.org/linux/man-pages/man2/prctl.2.html
+  prctl(PR_SET_NAME, reinterpret_cast<std::uintptr_t>("dump_perfetto"),
+        nullptr, nullptr, nullptr);
 
   struct timespec ts = {};
   if (clock_gettime(CLOCK_BOOTTIME, &ts) != 0) {
