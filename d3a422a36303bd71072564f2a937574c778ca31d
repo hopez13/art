@@ -1,0 +1,573 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b546fbaf_de2812ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "To be continued ...\n\nThese are basically all nits, many in comments. But there are enough of them that I\u0027ll go ahead and send these and continue tomorrow.",
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ea09c5a_eb51280f",
+        "filename": "runtime/gc/accounting/space_bitmap-inl.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "Probably better to combine these, since num_zeros changes meaning in the middle. Or maybe just follow the suggestion below.",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 88,
+        "endChar": 50
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51561ad9_bdcf3599",
+        "filename": "runtime/gc/accounting/space_bitmap-inl.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "Define a PosOfLeadingBit() helper function for both of these?",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 48
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09d3931f_51c59a46",
+        "filename": "runtime/gc/accounting/space_bitmap.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "I was initially confused by this. \"backwards\" would have been clearer to me.",
+      "range": {
+        "startLine": 134,
+        "startChar": 45,
+        "endLine": 134,
+        "endChar": 55
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84040259_c573294e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "\"current\" or just \"p\" instead of \"begin\", since it\u0027s incremented repeatedly, and its meaning changes over time?",
+      "range": {
+        "startLine": 73,
+        "startChar": 13,
+        "endLine": 73,
+        "endChar": 18
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbcb8047_a51315eb",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "I think this wants to be a for loop, together with the initialization above, and the increment below. Or maybe leave the initialization with the declaration, but move it to before the loop.",
+      "range": {
+        "startLine": 196,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 45
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71756407_59b27eec",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "I think we previously concluded that large reference arrays are very rare, so this is presumably not critical. But I agree that the fact that this is potentially quadratic is annoying. Could this be avoided by having FindPrecedingObject just cache the last argument and result, and quit early if it runs into the same object?",
+      "range": {
+        "startLine": 234,
+        "startChar": 1,
+        "endLine": 236,
+        "endChar": 39
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35890249_5b84f08b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "This name doesn\u0027t seem appropriate for the first page. I would use \"obj\" at the beginning, and then copy it to prev_obj, where you assign prev_obj_end.",
+      "range": {
+        "startLine": 253,
+        "startChar": 18,
+        "endLine": 253,
+        "endChar": 26
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c85ba9e_16b0c908",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "No need to declare this until you assign it, I think.",
+      "range": {
+        "startLine": 254,
+        "startChar": 2,
+        "endLine": 254,
+        "endChar": 25
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "535ed4a5_c4c9bab1",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "I expect that clang is good enough at dead code elimination that you could drop the \"if\" and make it a DCHECK.",
+      "range": {
+        "startLine": 314,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 22
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03bffe2e_e1b7ec00",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "I would associate much of this comment with the called function, where it\u0027s probably partially redundant. This could also be shortened a bit anyway; the function name already says this is only for moving space.\n\nPresumably only the data for pages at the end needs to be updated? That part actually does belong here, but it\u0027s currently a little unclear.",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 67
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06c793a3_24b48003",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "Again, I don\u0027t think this belongs in the caller. I would normally expect it in the callee\u0027s declaration.",
+      "range": {
+        "startLine": 329,
+        "startChar": 1,
+        "endLine": 331,
+        "endChar": 68
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b2dba51_10f2e2bd",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "live",
+      "range": {
+        "startLine": 336,
+        "startChar": 5,
+        "endLine": 336,
+        "endChar": 10
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b94de6b6_ca7cf4c7",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "\"over time\", no \"the\"",
+      "range": {
+        "startLine": 339,
+        "startChar": 58,
+        "endLine": 339,
+        "endChar": 61
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "814ab70c_39de6d0c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "avoided --\u003e kept",
+      "range": {
+        "startLine": 347,
+        "startChar": 65,
+        "endLine": 347,
+        "endChar": 72
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "389eb4e9_d2c5cad1",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "\"a similar\"",
+      "range": {
+        "startLine": 348,
+        "startChar": 21,
+        "endLine": 348,
+        "endChar": 28
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a5dd200_f35eae92",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "I think this is std::exclusive_scan. In this case, that might be beneficial to performance, since someone may have tuned it for better vectorization and cache performance. I didn\u0027t look. In theory, there is also a parallel version, which we may want to avoid for now.",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 3
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0752638e_28466882",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "a very",
+      "range": {
+        "startLine": 625,
+        "startChar": 55,
+        "endLine": 625,
+        "endChar": 60
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7633732d_81244ad3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "I think this changes the meaning of offset. I would instead introduce a new variable, ideally with a more informative name that distinguishes it from the old one.",
+      "range": {
+        "startLine": 626,
+        "startChar": 4,
+        "endLine": 626,
+        "endChar": 13
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47a7b433_7fe240d4",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "Please add a comment defining what this is. There are no uses in this file that give much of a hint.",
+      "range": {
+        "startLine": 103,
+        "startChar": 28,
+        "endLine": 103,
+        "endChar": 46
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cf11f65_4aa3e642",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "Could you add a comment? The code reads almost as though this should be an identity function.",
+      "range": {
+        "startLine": 149,
+        "startChar": 2,
+        "endLine": 154,
+        "endChar": 0
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58fb07ac_d63f803b",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "Please be more explicit about objects that continue past the end of the page. Can we also be more explicit about how the post-compact page is specified. Is addr the page address? Is obj a pre-or post-compact address? Maybe addr should be renamed page?",
+      "range": {
+        "startLine": 190,
+        "startChar": 2,
+        "endLine": 192,
+        "endChar": 69
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2437c31d_679cb462",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "Why is it called current? Can we say something about what the entries mean?",
+      "range": {
+        "startLine": 316,
+        "startChar": 37,
+        "endLine": 316,
+        "endChar": 58
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b511e563_0ad2c81f",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "Presumably this points to the beginning of an ObjReference array? I would add a comment along the lines of \"first_objs_moving_space_[i] is the address of the first object on the ith page.\"",
+      "range": {
+        "startLine": 325,
+        "startChar": 16,
+        "endLine": 325,
+        "endChar": 40
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d02c4f2b_40f802cb",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T03:06:59Z",
+      "side": 1,
+      "message": "\"Size of first_objs_moving_space_ array\"?",
+      "range": {
+        "startLine": 328,
+        "startChar": 9,
+        "endLine": 328,
+        "endChar": 34
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
