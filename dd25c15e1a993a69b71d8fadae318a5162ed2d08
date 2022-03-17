@@ -36,6 +36,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4bff65c_0e7def4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2022-03-17T14:26:15Z",
+      "side": 1,
+      "message": "Thanks!\n\nSo, I took a look at this, and it turns out that we already rename the thread (here\u0027s all the calls that lead to the thread rename):\n\n[ArtPlugin_Initialize](https://cs.android.com/android/platform/superproject/+/master:art/perfetto_hprof/perfetto_hprof.cc;l\u003d1022;drc\u003dd3f8758e8ac7b8f539ca6d9ead3dbb41b4903001)\n\n[art::Runtime::AttachCurrentThread]\nhttps://cs.android.com/android/platform/superproject/+/master:art/runtime/runtime.cc;l\u003d2330;drc\u003dba842429a777575fb683e21c31c5d962305b93fd\n\n[art::Thread::Attach](\nhttps://cs.android.com/android/platform/superproject/+/master:art/runtime/thread.cc;l\u003d1070;drc\u003dba842429a777575fb683e21c31c5d962305b93fd)\n\n[art::SetThreadName](https://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/utils.cc;l\u003d297;drc\u003dba842429a777575fb683e21c31c5d962305b93fd)\n\n[pthread_set_name_np](https://cs.android.com/android/platform/superproject/+/master:bionic/libc/bionic/pthread_setname_np.cpp;l\u003d94;drc\u003dba842429a777575fb683e21c31c5d962305b93fd)\n\nI\u0027ve captured traces while doing a heap dump of com.android.systemui:\n\nHere\u0027s a trace **without** the patch applied:\n\nhttp://ui.perfetto.dev/#!/?url\u003dhttps%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2F7957b80a-2483-44a1-9d7a-398f5a0f5b3b\n\nTrace processor thinks that the process name is \"com.android.systemui\" (8794) and the thread name is \"perfetto_hprof_\".\n\nHere\u0027s a trace **with** the patch applied:\n\nhttp://ui.perfetto.dev/#!/?url\u003dhttps%3A%2F%2Fstorage.googleapis.com%2Fperfetto-ui-data%2F39decf91-eb14-4dd4-8606-c08b62a25e11\n\nTrace processor thinks that the process name is \"com.android.systemui\" (8851) and the thread name is \"dump_perfetto\".\n\nI tried doing `ps -A | grep ...` while the dump is happening (on android), but it appears that the process name is still com.android.systemui\n\nTaking a step back, what are we trying to achieve by changing the process name? I think changing the thread name (which we already do) makes what\u0027s happening sufficiently clear, but I\u0027m probably something.",
+      "revId": "dd25c15e1a993a69b71d8fadae318a5162ed2d08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "755712c9_75616f01",
