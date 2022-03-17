@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8978c01_1907da6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-03-17T14:44:05Z",
+      "side": 1,
+      "message": "I think filed the original bug 2 years ago. My memory is really hazy, I believe at the time we were trying to debug some issue and it was not immediately clear going through logcat which process corresponded to the heap dump and which one was the real one.\n\nPerhaps this is no longer necessary though, maybe we should leave the current behaviour and close the bug.",
+      "parentUuid": "e4bff65c_0e7def4d",
+      "revId": "dd25c15e1a993a69b71d8fadae318a5162ed2d08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "755712c9_75616f01",
