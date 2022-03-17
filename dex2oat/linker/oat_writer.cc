@@ -1517,6 +1517,13 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
   InitMapMethodVisitor(OatWriter* writer, size_t offset)
       : OatDexMethodVisitor(writer, offset),
         dedupe_bit_table_(&writer_->code_info_data_) {
+    // Reserve a large buffer for `CodeInfo` bit table deduplication except for
+    // multi-image compilation as we do not want to reserve multiple large buffers.
+    // User devices should not do any multi-image compilation.
+    if (!writer->GetCompilerOptions().IsMultiImage()) {
+      static constexpr size_t kBufferSizeInBytes = 1 * MB;
+      dedupe_bit_table_.ReserveDedupeBuffer(kBufferSizeInBytes);
+    }
   }
 
   bool VisitMethod(size_t class_def_method_index,

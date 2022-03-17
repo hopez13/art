@@ -78,9 +78,8 @@ size_t CodeInfoTableDeduper::Dedupe(const uint8_t* code_info_data) {
         uint32_t table_bit_start = start_bit_offset + bit_table_bit_starts[i];
         BitMemoryRegion region(
             const_cast<uint8_t*>(writer_.data()), table_bit_start, table_bit_size);
-        uint32_t hash = DataHash()(region);
-        DedupeSetEntry entry{table_bit_start, table_bit_size, hash};
-        auto [it, inserted] = dedupe_set_.InsertWithHash(entry, hash);
+        DedupeSetEntry entry{table_bit_start, table_bit_size};
+        auto [it, inserted] = dedupe_set_.insert(entry);
         dedupe_entries[i] = &*it;
         if (!inserted) {
           code_info.SetBitTableDeduped(i);  // Mark as deduped before we write header.
