@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fb6acb2_2a207eff",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-17T00:02:16Z",
+      "side": 1,
+      "message": "Not for this CL, but:\nThe name CheckReference here seems misleading. I think we use the same name elsewhere for functions that actually just perform checks, with no other effects?",
+      "range": {
+        "startLine": 1083,
+        "startChar": 4,
+        "endLine": 1083,
+        "endChar": 18
+      },
+      "revId": "6408e9703d489fe35748b1b0887f974992f8eebb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
