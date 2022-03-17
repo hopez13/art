@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9a1e064_5a1d6267",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-03-17T12:09:10Z",
+      "side": 1,
+      "message": "Thanks a lot! Does this new name get reflected e.g. in ps / logcat ?",
+      "revId": "dd25c15e1a993a69b71d8fadae318a5162ed2d08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "755712c9_75616f01",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-03-17T12:09:10Z",
+      "side": 1,
+      "message": "The platform code (e.g. ActivityThread) does AndroidRuntime::setArgv0 (which boils to prctl and something extra). Not sure what the rationale and whether we need it (probably not?) but just double checking.",
+      "range": {
+        "startLine": 919,
+        "startChar": 0,
+        "endLine": 919,
+        "endChar": 71
+      },
+      "revId": "dd25c15e1a993a69b71d8fadae318a5162ed2d08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
