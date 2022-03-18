@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb4bc8f_014ece73",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2534,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-18T17:41:39Z",
+      "side": 1,
+      "message": "No difference in behavior. It\u0027s just a preference of style. go/totw/126 discusses the details of preferring `make_unique` over `new`. When I saw `new`, an alarm in my mind was triggered, so it took me a moment (short but unnecessary) to realize that it is safe :)",
+      "parentUuid": "0e826608_0d3050c8",
+      "range": {
+        "startLine": 2534,
+        "startChar": 4,
+        "endLine": 2534,
+        "endChar": 57
+      },
+      "revId": "df2f90fb2b25fa7421191d2000673a55246fd562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "046f1bc6_91528e32",
