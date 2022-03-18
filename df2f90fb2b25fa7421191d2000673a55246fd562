@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ad44c19_9f2b40e6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2534,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-18T17:12:03Z",
+      "side": 1,
+      "message": "`preloaded_classes_.clear()` or `preloaded_classes_ \u003d std::make_unique\u003cHashSet\u003cstd::string\u003e\u003e()`.\n\nhttps://screenshot.googleplex.com/4TsQafKiJnRpD9Y (go/totw/126)",
+      "range": {
+        "startLine": 2534,
+        "startChar": 4,
+        "endLine": 2534,
+        "endChar": 57
+      },
+      "revId": "df2f90fb2b25fa7421191d2000673a55246fd562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "046f1bc6_91528e32",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2535,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-18T17:12:03Z",
+      "side": 1,
+      "message": "Negate it.",
+      "range": {
+        "startLine": 2535,
+        "startChar": 8,
+        "endLine": 2535,
+        "endChar": 38
+      },
+      "revId": "df2f90fb2b25fa7421191d2000673a55246fd562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4179d2a_a46a669e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2537,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-18T17:12:03Z",
+      "side": 1,
+      "message": "Can the type be omitted?",
+      "range": {
+        "startLine": 2537,
+        "startChar": 32,
+        "endLine": 2537,
+        "endChar": 54
+      },
+      "revId": "df2f90fb2b25fa7421191d2000673a55246fd562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fb847b0_905e5094",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2795,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-18T17:12:03Z",
+      "side": 1,
+      "message": "Hmm... Shouldn\u0027t dex2oat fail in this case? If so, use the other",
+      "revId": "df2f90fb2b25fa7421191d2000673a55246fd562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "576af1a2_3626d5d1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2796,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-18T17:12:03Z",
+      "side": 1,
+      "message": "Hmm... Shouldn\u0027t dex2oat fail in this case? If so, return a boolean and handle the return value.",
+      "range": {
+        "startLine": 2796,
+        "startChar": 6,
+        "endLine": 2796,
+        "endChar": 12
+      },
+      "revId": "df2f90fb2b25fa7421191d2000673a55246fd562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a337c3c4_57439b95",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2819,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-18T17:12:03Z",
+      "side": 1,
+      "message": "Can this be a wrapper of the other overload?",
+      "revId": "df2f90fb2b25fa7421191d2000673a55246fd562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd0e8d37_9a6fbc5e",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-18T17:12:03Z",
+      "side": 1,
+      "message": "If you decide to put it on /system, you need to generate fsv_meta for it for CompOS. https://cs.android.com/android/platform/superproject/+/master:build/make/core/Makefile;l\u003d2873;drc\u003ddd780ca8d095e0f85737f183ac0240c5fa32dd98",
+      "range": {
+        "startLine": 1351,
+        "startChar": 43,
+        "endLine": 1351,
+        "endChar": 59
+      },
+      "revId": "df2f90fb2b25fa7421191d2000673a55246fd562",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
