@@ -89,6 +89,121 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c4ff505_19f81365",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-18T02:52:47Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 69,
+        "startChar": 15,
+        "endLine": 69,
+        "endChar": 19
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c50c41d0_6ea1ceb2",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-18T02:52:47Z",
+      "side": 1,
+      "message": "Move one line down or change to\n// Are all bits in the word marked?",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 39
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9583e024_63336b30",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-18T02:52:47Z",
+      "side": 1,
+      "message": "I think it\u0027s clearer to remove this, and turn the rest into an else clause.",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 152,
+        "endChar": 15
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b46b5cb8_6892bb15",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-18T02:52:47Z",
+      "side": 1,
+      "message": "Can\u0027t you delete this?",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 28
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "655e20a1_ae9d80ad",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-18T02:52:47Z",
+      "side": 1,
+      "message": "Isn\u0027t this really a for loop over the words preceding word_offset? Can you write it as such?",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 27
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84040259_c573294e",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 21
@@ -434,6 +549,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5141f975_d92cb039",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-18T02:52:47Z",
+      "side": 1,
+      "message": "I\u0027m missing something here. Why do we need to maintain both addr and from_addr for the last stride, but not earlier ones?",
+      "range": {
+        "startLine": 687,
+        "startChar": 4,
+        "endLine": 687,
+        "endChar": 25
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de9bf4f8_57443bc5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-18T02:52:47Z",
+      "side": 1,
+      "message": "Again this seems to be the beginning only at the beginning? Rename.",
+      "range": {
+        "startLine": 702,
+        "startChar": 11,
+        "endLine": 702,
+        "endChar": 16
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "47a7b433_7fe240d4",
         "filename": "runtime/gc/collector/mark_compact.h",
         "patchSetId": 21
@@ -503,6 +664,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5916fef3_3568bac3",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-18T02:52:47Z",
+      "side": 1,
+      "message": "Why is \"holder\" a good name here? Why not \"first\"?",
+      "range": {
+        "startLine": 199,
+        "startChar": 43,
+        "endLine": 199,
+        "endChar": 49
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2437c31d_679cb462",
         "filename": "runtime/gc/collector/mark_compact.h",
         "patchSetId": 21
@@ -565,6 +749,52 @@
         "startChar": 9,
         "endLine": 328,
         "endChar": 34
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28fc9aa3_b88e9ac2",
+        "filename": "runtime/mirror/object-refvisitor-inl.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-18T02:52:47Z",
+      "side": 1,
+      "message": "Can you remind about the context here? Why are we visiting the referent?",
+      "range": {
+        "startLine": 133,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 57
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e4b7e7e_e5ae6a85",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-18T02:52:47Z",
+      "side": 1,
+      "message": "Presumably fixed in a later CL?",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 57
       },
       "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
