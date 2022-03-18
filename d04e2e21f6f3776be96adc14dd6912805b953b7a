@@ -1,0 +1,239 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7816ace3_10672b87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "Are there any tests for induction_var_analysis? If not, could we add some?",
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a17b4e7_4f2c239b",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "Was this changed for readability purposes? `p` is now escaping the for loop.\n\nAlternatively, we can move that to line 181 `HInstruction* p \u003d m-\u003eGetPrevious();`, add a `m \u003d p` at line 187/188, and remove `m \u003d p` from the for loop.",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 28
+      },
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28068552_41bbaaf4",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "Is this still true with the new implementation? Previously we visited all inputs and now we might go deep on a particular input before continuing",
+      "range": {
+        "startLine": 244,
+        "startChar": 16,
+        "endLine": 244,
+        "endChar": 87
+      },
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0664e40_91c0c3b0",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "nit: `DCHECK_EQ(block-\u003eGetLoopInformation()-\u003eGetHeader(), block);` would provide more information if it crashes",
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "720e3178_f03f7b1f",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "Could we use `std::rotate_copy` here? If we save the iterator instead of `split_pos` we could do `std::rotate_copy(stack_tail.begin(), split_it, stack_tail.end(), scc.begin());` and saves us from reinventing the wheel.",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 31
+      },
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93880be1_1d89520e",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "We are assuming `scc` is empty right? Can we add a DHCECK for it?",
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e55bba90_8e6e0c66",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "If we use `i-1` here, we can move the `--i` to the for header. Alternatively, we can also use reverse_iterators which are supported by ArrayRef.",
+      "range": {
+        "startLine": 381,
+        "startChar": 30,
+        "endLine": 381,
+        "endChar": 31
+      },
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f01e17c_e5c5ac13",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 385,
+        "startChar": 30,
+        "endLine": 385,
+        "endChar": 31
+      },
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fafa4497_e0f2c0bc",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "nit: Can we move this above the method saying something like `\u0027SolveAddSub\u0027 might call itself at most once and \u0027is_first_call\u0027 is used to track that.`?",
+      "range": {
+        "startLine": 193,
+        "startChar": 50,
+        "endLine": 193,
+        "endChar": 88
+      },
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e00cde8_6def95b9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2402,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "nit: `const bool`",
+      "range": {
+        "startLine": 2402,
+        "startChar": 6,
+        "endLine": 2402,
+        "endChar": 10
+      },
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a059f9c_d407fdcd",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2412,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-18T16:19:56Z",
+      "side": 1,
+      "message": "Should we be checking `loop_info-\u003eContains(reduction-\u003eGetBlock());`? Not sure from context if we are guaranteed this (and we were checking for that before with `iset_-\u003esize() \u003d\u003d 1`).\n\nIf not, a suggestion for the comment above: `No other phi\u0027s use beside the reduction update inside the loop`, given that we changed the check (i.e. we don\u0027t check that the reduction update is a use).",
+      "range": {
+        "startLine": 2407,
+        "startChar": 0,
+        "endLine": 2412,
+        "endChar": 26
+      },
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
