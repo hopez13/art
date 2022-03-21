@@ -22,6 +22,30 @@
       },
       "revId": "723fd341f1a41a4910c1822af35aee41275bc49e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2172a2a3_72c1f35f",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-21T15:23:55Z",
+      "side": 1,
+      "message": "Reversing the order is intended.\n\nThe old code in `VisitNode()` was reversing the order (with `scc_.push_back(.); stack_.pop_back()`) before calling `ClassifyNonTrivial()` which called `RotateEntryPhiFirst()` but we\u0027re now doing both at the same time.\n\n    old: [a, b, c, d, e] -extract-\u003e [e, d, c, b, a] -rotate-\u003e [c, b, a, e, d]\n    new: [a, b, c, d, e] -extract-and-rotate-\u003e [c, b, a, e, d]",
+      "parentUuid": "58a579c0_b5a977be",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 385,
+        "endChar": 3
+      },
+      "revId": "723fd341f1a41a4910c1822af35aee41275bc49e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

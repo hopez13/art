@@ -220,6 +220,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfdf67cf_a41f192d",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-21T15:23:55Z",
+      "side": 1,
+      "message": "We want to reverse the order, see my reply to your new comment in PS4. That\u0027s why reverse iterators.\n\nThe `TransformIterator` would help extract the instruction from `StackEntry`. We cannot use `std::rotate_copy()` without that as the value type is different.",
+      "parentUuid": "1d570f73_8fe877da",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 31
+      },
+      "revId": "d04e2e21f6f3776be96adc14dd6912805b953b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "93880be1_1d89520e",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 3
