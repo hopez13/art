@@ -16,6 +16,23 @@
       "message": "Vladimir PTAL",
       "revId": "e8e0b0af555ba639c7f2e1740f2fe8d58d432af0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c4c811e_9bb912a2",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-21T15:29:28Z",
+      "side": 1,
+      "message": "Can you also add these tests:\n- Use of \u0027o\u0027 in the try block.\n- A catch handler within a try/catch block.",
+      "revId": "e8e0b0af555ba639c7f2e1740f2fe8d58d432af0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
