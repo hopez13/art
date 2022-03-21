@@ -46,6 +46,7 @@ public class Main {
       // expected
       System.out.println(e.getMessage());
     }
+    testSinkToCatchBlock();
   }
 
   /// CHECK-START: void Main.testSimpleUse() code_sinking (before)
@@ -390,12 +391,49 @@ public class Main {
     return "" + intField;
   }
 
+  private static void testSinkToCatchBlock() {
+    assertEquals(456, testSinkToCatchBlockInner());
+  }
+
+  /// CHECK-START: int Main.testSinkToCatchBlockInner() code_sinking (before)
+  /// CHECK: <<ObjLoadClass:l\d+>>   LoadClass class_name:java.lang.Object
+  /// CHECK:                         NewInstance [<<ObjLoadClass>>]
+  /// CHECK:                         TryBoundary kind:entry
+
+  /// CHECK-START: int Main.testSinkToCatchBlockInner() code_sinking (after)
+  /// CHECK:                         TryBoundary kind:entry
+  /// CHECK: <<ObjLoadClass:l\d+>>   LoadClass class_name:java.lang.Object
+  /// CHECK:                         NewInstance [<<ObjLoadClass>>]
+
+  // Consistency check to make sure there's only one entry TryBoundary.
+  /// CHECK-START: int Main.testSinkToCatchBlockInner() code_sinking (after)
+  /// CHECK:                         TryBoundary kind:entry
+  /// CHECK-NOT:                     TryBoundary kind:entry
+  private static int testSinkToCatchBlockInner() {
+    Object o = new Object();
+    try {
+      if (doEarlyReturn) {
+        return 123;
+      }
+    } catch (Error e) {
+      throw new Error(o.toString());
+    }
+    return 456;
+  }
+
+  private static void assertEquals(int expected, int actual) {
+    if (expected != actual) {
+      throw new AssertionError("Expected: " + expected + ", Actual: " + actual);
+    }
+  }
+
   volatile int volatileField;
   int intField;
   int intField2;
   Object objectField;
   static boolean doThrow;
   static boolean doLoop;
+  static boolean doEarlyReturn;
   static Main mainField = new Main();
   static Object obj = new Object();
 }
