@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58a579c0_b5a977be",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-21T15:11:02Z",
+      "side": 1,
+      "message": "If we had `[a,b,c,d,e]` and we wanted to bring `c` as the first element, tip of tree `RotateEntryPhiFirst` would do `[c,d,e,a,b]`. This would do `[c,b,a,e,d]`. I just wanted to double check this was intended.\n\nTo keep consistency with before we could do:\n```\n// split_pos - 1, or we could save `split_pos \u003d i` above.\nfor (const StackEntry\u0026 entry : stack_tail.SubArray(/*pos\u003d*/ split_pos - 1)) {\n  scc-\u003epush_back(entry.instruction);\n}\n for (const StackEntry\u0026 entry : stack_tail.SubArray(/*pos\u003d*/ 0u, split_pos - 1)) {\n  scc-\u003epush_back(entry.instruction);\n}\n```",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 385,
+        "endChar": 3
+      },
+      "revId": "723fd341f1a41a4910c1822af35aee41275bc49e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
