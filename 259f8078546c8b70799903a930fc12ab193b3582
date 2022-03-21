@@ -1,0 +1,504 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd0f9c07_d5f52222",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "I only made it part-way through mark-compact.cc here. This needs some more comments. An in-person discussion may also help.",
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b82f054d_28208f7f",
+        "filename": "runtime/gc/accounting/bitmap.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "Please add a comment that these are all unsigned operations, since that\u0027s essential, and a bit subtle.",
+      "range": {
+        "startLine": 157,
+        "startChar": 4,
+        "endLine": 157,
+        "endChar": 71
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71ba7c25_123dfd06",
+        "filename": "runtime/gc/accounting/bitmap.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "Pre-existing problem, but a bunch of these types are wrong. This is confusing enough that I would do a drive-by fix size_t -\u003e uintptr_t. For our platforms, they\u0027re the same, but especially the inconsistency with Set() is glaring. And BitIndexFromAddr uses uintptr_t, so this is really just plain wrong.",
+      "range": {
+        "startLine": 169,
+        "startChar": 27,
+        "endLine": 169,
+        "endChar": 33
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbdf0f10_f5e9459e",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "This feels like a lot of manipulation of fairly heavy-weight data structures, which I think involve a lot of allocation churn. Do we see enough cards in these sets for this to be a concern?\n\nIf there are relatively few of these, it might be cheaper to just keep a small bitmap containing hashes of cleared cards. For misses when we look them up below, we\u0027re done. For hits, we can use the std::set data structure, which should still be logarithmic.\n\nIf we have a lot of cleared cards, this is presumably the wrong data structure anyway, in that it can get much larger than the card table itself.\n\nBut all of this can probably wait, I think.",
+      "range": {
+        "startLine": 403,
+        "startChar": 4,
+        "endLine": 403,
+        "endChar": 33
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee6c5784_64ac51d2",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "Line too long. Similar issues ~30 lines down.",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 114
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68cc0ffb_debebaba",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "Why is this unexpected? If it isn\u0027t, why is this a warning?",
+      "range": {
+        "startLine": 311,
+        "startChar": 5,
+        "endLine": 311,
+        "endChar": 68
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f73f5926_3620d0fd",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "ditto.",
+      "range": {
+        "startLine": 324,
+        "startChar": 8,
+        "endLine": 324,
+        "endChar": 70
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abdbacc9_b6491eec",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "This is very confusing because offset_vector_ initially doesn\u0027t contain offsets. Maybe rename it to something less specific like chunk_info_, and add a comment about its changing meaning to the declaration?",
+      "range": {
+        "startLine": 351,
+        "startChar": 6,
+        "endLine": 351,
+        "endChar": 80
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d751ae1b_83761ad4",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "Delete \"for\"",
+      "range": {
+        "startLine": 401,
+        "startChar": 32,
+        "endLine": 401,
+        "endChar": 36
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa5cf25f_5447d6a8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "Make it clearer this applies only to the PreSweepingGcVerification call below.\n\n\"have a mark-bitmap\"",
+      "range": {
+        "startLine": 483,
+        "startChar": 13,
+        "endLine": 483,
+        "endChar": 29
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "210e3fef_593d6f41",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "during the",
+      "range": {
+        "startLine": 569,
+        "startChar": 16,
+        "endLine": 569,
+        "endChar": 23
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd959008_1c4e7e57",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "I think we need more of a description here, or in the header, of what things look like when this is invoked. As is, this is too hard to follow.",
+      "range": {
+        "startLine": 755,
+        "startChar": 0,
+        "endLine": 759,
+        "endChar": 49
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54baa0f9_6d6a21c7",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "Who can call IsCompacting and access compacting_ ? Why are there no races?\n\nThis is really a request for a comment stating the rules.",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 3
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "413731e8_e9288d4a",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "This is an odd read-barrier. Can we say how it\u0027s used?",
+      "range": {
+        "startLine": 110,
+        "startChar": 1,
+        "endLine": 110,
+        "endChar": 56
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dc6ae57_5fd1f66d",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "Please mention in function description.",
+      "range": {
+        "startLine": 155,
+        "startChar": 49,
+        "endLine": 155,
+        "endChar": 52
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a744f3df_b85a74bc",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "idx -\u003e entry ?",
+      "range": {
+        "startLine": 158,
+        "startChar": 58,
+        "endLine": 158,
+        "endChar": 61
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed51c37e_9ce30f30",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "uintptr_t, after fixing callee. This is what bugged me originally.",
+      "range": {
+        "startLine": 169,
+        "startChar": 51,
+        "endLine": 169,
+        "endChar": 57
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ac61d25_72439a4c",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "This is presumably fairly hot? Precompute the difference, turning this into just an addition, with a single load?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 73
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2ac5e09_ce885e43",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "Nit: If you ask Google to \"define updation\" it give you the correct definition, but identifies it as \"noun: Indian\". I hadn\u0027t heard it used before, though the meaning is clear. I might call this \"VerifyRootSingleUpdate\".",
+      "range": {
+        "startLine": 201,
+        "startChar": 37,
+        "endLine": 201,
+        "endChar": 45
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aa1a396_62f10d4d",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "Wouldn\u0027t that make it a newer object than a \"BlackObj\"? Maybe \"Recent\" or \"Infant\" and \"Marked\"?",
+      "range": {
+        "startLine": 222,
+        "startChar": 32,
+        "endLine": 222,
+        "endChar": 54
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afe37d25_4517262b",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "How about \"Copy and update references in the newly allocated section of moving space, which starts with first_obj\"? Why does next_page_first_obj need to be explicitly passed? What exactly is pre_compact_page?",
+      "range": {
+        "startLine": 272,
+        "startChar": 1,
+        "endLine": 272,
+        "endChar": 38
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35d7a44_5e536ead",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-21T03:13:18Z",
+      "side": 1,
+      "message": "I think we generally haven\u0027t been declaring parameters as const at the outermost level. Though I guess that\u0027s a style issue, and can be argued both ways. If it\u0027s intentional, I\u0027m OK either way. For the next one below, you really meant that the pointer is not changed inside the function? Or was the const supposed to be at the beginning?",
+      "range": {
+        "startLine": 274,
+        "startChar": 22,
+        "endLine": 274,
+        "endChar": 27
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
