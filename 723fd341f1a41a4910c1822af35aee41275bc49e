@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ddcd8c3_0ae86fa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-21T15:32:56Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "723fd341f1a41a4910c1822af35aee41275bc49e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58a579c0_b5a977be",
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "Reversing the order is intended.\n\nThe old code in `VisitNode()` was reversing the order (with `scc_.push_back(.); stack_.pop_back()`) before calling `ClassifyNonTrivial()` which called `RotateEntryPhiFirst()` but we\u0027re now doing both at the same time.\n\n    old: [a, b, c, d, e] -extract-\u003e [e, d, c, b, a] -rotate-\u003e [c, b, a, e, d]\n    new: [a, b, c, d, e] -extract-and-rotate-\u003e [c, b, a, e, d]",
       "parentUuid": "58a579c0_b5a977be",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 385,
+        "endChar": 3
+      },
+      "revId": "723fd341f1a41a4910c1822af35aee41275bc49e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e4de421_7eb1bb66",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-21T15:32:56Z",
+      "side": 1,
+      "message": "Ack, thanks!",
+      "parentUuid": "2172a2a3_72c1f35f",
       "range": {
         "startLine": 380,
         "startChar": 0,
