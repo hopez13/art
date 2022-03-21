@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2b9f966_b11ba9a6",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-21T17:11:23Z",
+      "side": 1,
+      "message": "do not",
+      "range": {
+        "startLine": 443,
+        "startChar": 19,
+        "endLine": 443,
+        "endChar": 25
+      },
+      "revId": "0b8c4527844bb00d57626485f84018bc57a5c299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a278436_9b885e41",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-21T17:11:23Z",
+      "side": 1,
+      "message": "do not",
+      "range": {
+        "startLine": 474,
+        "startChar": 19,
+        "endLine": 474,
+        "endChar": 24
+      },
+      "revId": "0b8c4527844bb00d57626485f84018bc57a5c299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25dfe02b_238bf691",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-21T17:11:23Z",
+      "side": 1,
+      "message": "a catch handler surrounded by try/catch.",
+      "range": {
+        "startLine": 474,
+        "startChar": 55,
+        "endLine": 474,
+        "endChar": 62
+      },
+      "revId": "0b8c4527844bb00d57626485f84018bc57a5c299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
