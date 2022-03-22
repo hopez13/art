@@ -310,6 +310,11 @@ static bool CanUseAotCode(ArtMethod* method, const void* quick_code)
     return true;
   }
 
+  if (!method->GetDeclaringClass()->IsVisiblyInitialized() &&
+      method->GetDeclaringClass()->IsInBootImageAndNotInPreloadedClasses()) {
+    return false;
+  }
+
   Runtime* runtime = Runtime::Current();
   // For simplicity, we never use AOT code for debuggable.
   if (runtime->IsJavaDebuggable()) {

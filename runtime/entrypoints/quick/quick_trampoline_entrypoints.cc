@@ -1237,6 +1237,7 @@ extern "C" const void* artQuickResolutionTrampoline(
   ScopedObjectAccessUnchecked soa(env);
   ScopedJniEnvLocalRefState env_state(env);
   const char* old_cause = self->StartAssertNoThreadSuspension("Quick method resolution set up");
+  LOG(ERROR) << "ENTER FOR " << called->PrettyMethod();
 
   // Compute details about the called method (avoid GCs)
   ClassLinker* linker = Runtime::Current()->GetClassLinker();
