@@ -2232,6 +2232,12 @@ class InitializeClassVisitor : public CompilationVisitor {
       // Make sure the class initialization did not leave any local references.
       self->GetJniEnv()->AssertLocalsEmpty();
     }
+
+    if (!klass->IsVisiblyInitialized() &&
+        (is_boot_image || is_boot_image_extension) &&
+        !compiler_options.IsPreloadedClass(PrettyDescriptor(descriptor).c_str())) {
+      klass->SetInBootImageAndNotInPreloadedClasses();
+    }
   }
 
  private:

@@ -1261,6 +1261,40 @@ void CodeGeneratorX86::MaybeIncrementHotness(bool is_frame_entry) {
 
 void CodeGeneratorX86::GenerateFrameEntry() {
   __ cfi().SetCurrentCFAOffset(kX86WordSize);  // return address
+
+  // Check if we need to generate the clinit check. We will jump to the
+  // resolution stub if the class is not initialized and the executing thread is
+  // not the thread initializing it.
+  if (GetGraph()->GetArtMethod() != nullptr &&
+      GetCompilerOptions().ShouldCompileWithClinitCheck(GetGraph()->GetArtMethod())) {
+    NearLabel continue_execution, resolution;
+    // We'll use EBP as temporary.
+    __ pushl(EBP);
+    // Check if we're visibly initialized.
+    __ movl(EBP, Address(kMethodRegisterArgument, ArtMethod::DeclaringClassOffset().Int32Value()));
+    __ cmpb(Address(EBP,  status_byte_offset), Immediate(shifted_visibly_initialized_value));
+    __ j(kAboveEqual, &continue_execution);
+
+    // Check if we're initializing and the thread initializing is the one
+    // executing the code.
+    __ cmpb(Address(EBP,  status_byte_offset), Immediate(shifted_initializing_value));
+    __ j(kBelow, &resolution);
+
+    __ movl(EBP, Address(EBP, mirror::Class::ClinitThreadIdOffset().Int32Value()));
+    __ fs()->cmpl(EBP, Address::Absolute(Thread::TidOffset<kX86PointerSize>().Int32Value()));
+    __ j(kEqual, &continue_execution);
+    __ Bind(&resolution);
+
+    __ popl(EBP);
+    // Jump to the resolution stub.
+    ThreadOffset32 entrypoint_offset =
+        GetThreadOffset<kX86PointerSize>(kQuickQuickResolutionTrampoline);
+    __ fs()->jmp(Address::Absolute(entrypoint_offset));
+
+    __ Bind(&continue_execution);
+    __ popl(EBP);
+  }
+
   __ Bind(&frame_entry_label_);
   bool skip_overflow_check =
       IsLeafMethod() && !FrameNeedsStackCheck(GetFrameSize(), InstructionSet::kX86);
@@ -7233,12 +7267,6 @@ void InstructionCodeGeneratorX86::VisitClinitCheck(HClinitCheck* check) {
 
 void InstructionCodeGeneratorX86::GenerateClassInitializationCheck(
     SlowPathCode* slow_path, Register class_reg) {
-  constexpr size_t status_lsb_position = SubtypeCheckBits::BitStructSizeOf();
-  const size_t status_byte_offset =
-      mirror::Class::StatusOffset().SizeValue() + (status_lsb_position / kBitsPerByte);
-  constexpr uint32_t shifted_visibly_initialized_value =
-      enum_cast<uint32_t>(ClassStatus::kVisiblyInitialized) << (status_lsb_position % kBitsPerByte);
-
   __ cmpb(Address(class_reg,  status_byte_offset), Immediate(shifted_visibly_initialized_value));
   __ j(kBelow, slow_path->GetEntryLabel());
   __ Bind(slow_path->GetExitLabel());

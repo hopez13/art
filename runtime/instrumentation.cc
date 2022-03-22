@@ -293,6 +293,7 @@ static bool CanUseAotCode(const void* quick_code)
   if (quick_code == nullptr) {
     return false;
   }
+
   Runtime* runtime = Runtime::Current();
   // For simplicity, we never use AOT code for debuggable.
   if (runtime->IsJavaDebuggable()) {
@@ -1248,9 +1249,14 @@ const void* Instrumentation::GetCodeForInvoke(ArtMethod* method) {
   // If we don't have the instrumentation, the resolution stub, or the
   // interpreter as entrypoint, just return the current entrypoint, assuming
   // it's the most optimized.
+  // For methods whose class is in the boot image and not in preloaded classes,
+  // we don't want to use their code yet if the class is not visibly
+  // initialized.
   if (code != GetQuickInstrumentationEntryPoint() &&
       !class_linker->IsQuickResolutionStub(code) &&
-      !class_linker->IsQuickToInterpreterBridge(code)) {
+      !class_linker->IsQuickToInterpreterBridge(code) &&
+      (!method->GetDeclaringClass()->IsInBootImageAndNotInPreloadedClasses() ||
+       method->GetDeclaringClass()->IsVisiblyInitialized())) {
     return code;
   }
 
