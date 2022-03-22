@@ -43,6 +43,7 @@ namespace linker {
 class Arm64RelativePatcherTest;
 }  // namespace linker
 
+class ArtMethod;
 class DexFile;
 enum class InstructionSet;
 class InstructionSetFeatures;
@@ -294,6 +295,7 @@ class CompilerOptions final {
   }
 
   bool IsImageClass(const char* descriptor) const;
+  bool IsPreloadedClass(const char* descriptor) const;
 
   const VerificationResults* GetVerificationResults() const;
 
@@ -378,6 +380,8 @@ class CompilerOptions final {
            GetDexFilesForOatFile().end();
   }
 
+  bool ShouldCompileWithClinitCheck(ArtMethod* method) const;
+
  private:
   bool ParseDumpInitFailures(const std::string& option, std::string* error_msg);
   bool ParseRegisterAllocationStrategy(const std::string& option, std::string* error_msg);
@@ -402,6 +406,7 @@ class CompilerOptions final {
   // Image classes, specifies the classes that will be included in the image if creating an image.
   // Must not be empty for real boot image, only for tests pretending to compile boot image.
   HashSet<std::string> image_classes_;
+  HashSet<std::string> preloaded_classes_;
 
   // Results of AOT verification.
   const VerificationResults* verification_results_;

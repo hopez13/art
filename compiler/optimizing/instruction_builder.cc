@@ -376,6 +376,15 @@ bool HInstructionBuilder::Build() {
       if (graph_->IsDebuggable() && code_generator_->GetCompilerOptions().IsJitCompiler()) {
         AppendInstruction(new (allocator_) HMethodEntryHook(0u));
       }
+
+      const CompilerOptions& compiler_options = code_generator_->GetCompilerOptions();
+      if (graph_->GetArtMethod() != nullptr &&
+          compiler_options.ShouldCompileWithClinitCheck(graph_->GetArtMethod())) {
+        const dex::ClassDef& class_def =
+            dex_file_->GetClassDef(dex_compilation_unit_->GetClassDefIndex());
+        HLoadClass* cls = BuildLoadClass(class_def.class_idx_, /*dex_pc=*/ 0u);
+        AppendInstruction(new (allocator_) HClinitCheck(cls, /*dex_pc=*/ 0u));
+      }
       AppendInstruction(new (allocator_) HGoto(0u));
       continue;
     } else if (current_block_->IsExitBlock()) {

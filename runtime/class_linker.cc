@@ -3383,6 +3383,11 @@ void ClassLinker::FixupStaticTrampolines(Thread* self, ObjPtr<mirror::Class> kla
       // Only update static methods.
       continue;
     }
+    if (!IsQuickResolutionStub(method->GetEntryPointFromQuickCompiledCode())) {
+      // No need to update, the entrypoint already knows how to handle the
+      // initialization.
+      continue;
+    }
     instrumentation->UpdateMethodsCode(method, instrumentation->GetCodeForInvoke(method));
   }
   // Ignore virtual methods on the iterator.
