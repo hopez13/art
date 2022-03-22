@@ -3383,6 +3383,11 @@ void ClassLinker::FixupStaticTrampolines(Thread* self, ObjPtr<mirror::Class> kla
       // Only update static methods.
       continue;
     }
+    if (!IsQuickResolutionStub(method->GetEntryPointFromQuickCompiledCode())) {
+      // Don't update the entrypoint, this could be a ArtMethod which we want to
+      // share memory between zygote and apps.
+      continue;
+    }
     instrumentation->UpdateMethodsCode(method, instrumentation->GetCodeForInvoke(method));
   }
   // Ignore virtual methods on the iterator.
