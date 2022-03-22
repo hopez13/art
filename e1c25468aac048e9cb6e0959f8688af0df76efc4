@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04972a2a_a0d585d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-03-22T10:50:03Z",
+      "side": 1,
+      "message": "1MB seems kind of arbitrary.  Why not reserve based on the number of compiled methods?",
+      "revId": "e1c25468aac048e9cb6e0959f8688af0df76efc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7b259db_4ddec491",
