@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9e58abf_c4cf3a09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-22T03:33:16Z",
+      "side": 1,
+      "message": "Finished a complete pass here.",
+      "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8b57634_05f4fdbf",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-22T03:33:16Z",
+      "side": 1,
+      "message": "Why?\nActually, I think I now understand. But I think the dex_caches_ field needs a suitable comment.",
+      "range": {
+        "startLine": 1495,
+        "startChar": 3,
+        "endLine": 1495,
+        "endChar": 24
+      },
+      "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d23fec6d_c795279b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-22T03:33:16Z",
+      "side": 1,
+      "message": "We still make that available, right? So we probably need to fix this before turning this on on a larger scale?",
+      "range": {
+        "startLine": 1561,
+        "startChar": 4,
+        "endLine": 1561,
+        "endChar": 61
+      },
+      "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3fff6fb_c5168d79",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-22T03:33:16Z",
+      "side": 1,
+      "message": "Comment please. I don\u0027t really understand the logic here.",
+      "range": {
+        "startLine": 370,
+        "startChar": 2,
+        "endLine": 370,
+        "endChar": 91
+      },
+      "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ac82114_0bde5c27",
+        "filename": "runtime/mirror/class_ext.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-03-22T03:33:16Z",
+      "side": 1,
+      "message": "Can you say more about why this is needed?",
+      "range": {
+        "startLine": 138,
+        "startChar": 5,
+        "endLine": 138,
+        "endChar": 44
+      },
+      "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
