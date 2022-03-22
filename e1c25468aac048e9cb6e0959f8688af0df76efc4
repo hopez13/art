@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff0e6173_2a888707",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-03-22T11:13:07Z",
+      "side": 1,
+      "message": "What is the goal here?\n\nIf it just performance, you can probably just allocate the upper bound (num_methods * kNumTables / kLoadFactor) and reserve that.  Maybe clamp that to 1MiB if you want.\n\nIf the goal is also memory, then I think you could pick a fixed fraction of the upper bound that should work well in practice.",
+      "revId": "e1c25468aac048e9cb6e0959f8688af0df76efc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7b259db_4ddec491",
