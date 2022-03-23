@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7cfb913_451bc519",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-03-23T16:52:06Z",
+      "side": 1,
+      "message": "Thanks! lgtm. I don\u0027t understand these things too well. So I will let Vladimir +2 this one.",
+      "revId": "86d205911640b3caa34a7e126650a1a396328d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dca33511_371771f2",
@@ -72,6 +89,24 @@
       "side": 1,
       "message": "This is FixupStaticTrampolines, which is called after finishing clinit, and is an optimization to avoid the resolution stubs. If the are instrumentation stubs there, we won\u0027t update the entrypoints anyway.",
       "parentUuid": "27c1e376_4a09a6f3",
+      "revId": "86d205911640b3caa34a7e126650a1a396328d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f77c36a2_c34f7b82",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3388,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-03-23T16:52:06Z",
+      "side": 1,
+      "message": "Right. Just to verify my understanding: we would either have an AOT code which checks for any CL init checks that might be needed (which is introduced by this change) or a resolution stub as an entry point here. If it is resolution stub we need to update the code here.\n\nWe expect instrumentation to update the entry points from AOT code to the required stub somewhere else right? Maybe in DeoptimizeBootImage?",
+      "parentUuid": "b6b435a9_d16475aa",
       "revId": "86d205911640b3caa34a7e126650a1a396328d06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
