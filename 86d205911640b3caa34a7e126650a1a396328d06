@@ -56,6 +56,24 @@
       "message": "Don\u0027t we need to check if we need to update the entry point for instrumentation reasons? For example, when instrumentation level is set to EntryExitStubs / InterpreterOnly?",
       "revId": "86d205911640b3caa34a7e126650a1a396328d06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6b435a9_d16475aa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-23T16:26:00Z",
+      "side": 1,
+      "message": "This is FixupStaticTrampolines, which is called after finishing clinit, and is an optimization to avoid the resolution stubs. If the are instrumentation stubs there, we won\u0027t update the entrypoints anyway.",
+      "parentUuid": "27c1e376_4a09a6f3",
+      "revId": "86d205911640b3caa34a7e126650a1a396328d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
