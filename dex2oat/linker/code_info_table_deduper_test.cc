@@ -35,7 +35,7 @@ TEST(StackMapTest, TestDedupeBitTables) {
   ArenaStack arena_stack(&pool);
   ScopedArenaAllocator allocator(&arena_stack);
   StackMapStream stream(&allocator, kRuntimeISA);
-  stream.BeginMethod(32, 0, 0, 2);
+  stream.BeginMethod(32, 0, 0, 2, false, false);
 
   stream.BeginStackMapEntry(0, 64 * kPcAlign);
   stream.AddDexRegisterEntry(Kind::kInStack, 0);
