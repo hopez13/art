@@ -46,6 +46,29 @@
       },
       "revId": "e9146cd3c51c8e2b110795a9d22cb107875c45e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f102492_65a2c684",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsDenialHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-23T17:29:14Z",
+      "side": 1,
+      "message": "How do you make sure that this runs after other test cases? Otherwise, you may lose some logs.",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 104,
+        "endChar": 24
+      },
+      "revId": "e9146cd3c51c8e2b110795a9d22cb107875c45e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
