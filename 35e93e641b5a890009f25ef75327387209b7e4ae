@@ -62,6 +62,30 @@
       },
       "revId": "35e93e641b5a890009f25ef75327387209b7e4ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84aa9f14_fd75e59a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-03-23T15:36:22Z",
+      "side": 1,
+      "message": "Yes, I forgot about that. This wouldn\u0027t work. I think invalidating the full JIT code cache and aborting any outstanding requests when we set it to java debuggable would be the right fix I think.",
+      "parentUuid": "959a7b61_2b7acb56",
+      "range": {
+        "startLine": 291,
+        "startChar": 20,
+        "endLine": 291,
+        "endChar": 43
+      },
+      "revId": "35e93e641b5a890009f25ef75327387209b7e4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
