@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2067bd94_bafbb03b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-03-23T14:50:35Z",
+      "side": 1,
+      "message": "PTAL. Actually we don\u0027t invalidate the earlier JITed code when we enable java debuggable. We should do it though. I will also upload a fix for that. Though I thought it\u0027s good to land this first.",
+      "revId": "35e93e641b5a890009f25ef75327387209b7e4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
