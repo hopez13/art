@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abdcb418_98f6cb18",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-23T09:07:19Z",
+      "side": 0,
+      "message": "This reasoning was wrong since the Block that has the `TryBoundary` entry is not considered a \"try block\" so we should remove the comment.",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 67
+      },
+      "revId": "db7c76b5beb1dae2bbc6bf71bb8ee6be8101106a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
