@@ -252,7 +252,7 @@ static void UpdateEntryPoints(ArtMethod* method, const void* quick_code)
   }
 }
 
-bool Instrumentation::CodeNeedsEntryExitStub(const void* code, ArtMethod* method)
+bool Instrumentation::CodeNeedsEntryExitStub(const void* entry_point, ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Proxy.init should never have entry/exit stubs.
   if (IsProxyInit(method)) {
@@ -261,12 +261,12 @@ bool Instrumentation::CodeNeedsEntryExitStub(const void* code, ArtMethod* method
 
   // In some tests runtime isn't setup fully and hence the entry points could
   // be nullptr.
-  if (code == nullptr) {
+  if (entry_point == nullptr) {
     return true;
   }
 
   // Code running in the interpreter doesn't need entry/exit stubs.
-  if (Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(code)) {
+  if (Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(entry_point)) {
     return false;
   }
 
@@ -285,8 +285,10 @@ bool Instrumentation::CodeNeedsEntryExitStub(const void* code, ArtMethod* method
   }
 
   jit::Jit* jit = Runtime::Current()->GetJit();
-  if (jit != nullptr && jit->GetCodeCache()->ContainsPc(code)) {
-    return false;
+  if (jit != nullptr && jit->GetCodeCache()->ContainsPc(entry_point)) {
+    // If JITed code was compiled with instrumentation support we don't need entry / exit stub.
+    OatQuickMethodHeader* header  = OatQuickMethodHeader::FromEntryPoint(entry_point);
+    return !header->HasShouldDeoptimizeFlag();
   }
   return true;
 }
