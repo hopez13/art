@@ -212,7 +212,7 @@ static bool IsProxyInit(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_)
 
 // Returns true if we need entry exit stub to call entry hooks. JITed code
 // directly call entry / exit hooks and don't need the stub.
-static bool CodeNeedsEntryExitStub(const void* code, ArtMethod* method)
+static bool CodeNeedsEntryExitStub(const void* entry_point, ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Proxy.init should never have entry/exit stubs.
   if (IsProxyInit(method)) {
@@ -221,12 +221,12 @@ static bool CodeNeedsEntryExitStub(const void* code, ArtMethod* method)
 
   // In some tests runtime isn't setup fully and hence the entry points could
   // be nullptr.
-  if (code == nullptr) {
+  if (entry_point == nullptr) {
     return true;
   }
 
   // Code running in the interpreter doesn't need entry/exit stubs.
-  if (Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(code)) {
+  if (Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(entry_point)) {
     return false;
   }
 
@@ -245,8 +245,10 @@ static bool CodeNeedsEntryExitStub(const void* code, ArtMethod* method)
   }
 
   jit::Jit* jit = Runtime::Current()->GetJit();
-  if (jit != nullptr && jit->GetCodeCache()->ContainsPc(code)) {
-    return false;
+  if (jit != nullptr && jit->GetCodeCache()->ContainsPc(entry_point)) {
+    // If JITed code was compiled with instrumentation support we don't need entry / exit stub.
+    OatQuickMethodHeader* header  = OatQuickMethodHeader::FromEntryPoint(entry_point);
+    return !CodeInfo::IsDebuggable(header->GetOptimizedCodeInfoPtr());
   }
   return true;
 }
@@ -1653,7 +1655,7 @@ bool Instrumentation::ShouldDeoptimizeCaller(Thread* self, ArtMethod** sp) {
   }
 
   if (NeedsSlowInterpreterForMethod(self, caller)) {
-    if (!Runtime::Current()->IsAsyncDeoptimizeable(caller_pc)) {
+    if (!Runtime::Current()->IsAsyncDeoptimizeable(caller, caller_pc)) {
       LOG(WARNING) << "Got a deoptimization request on un-deoptimizable method "
                    << caller->PrettyMethod();
       return false;
@@ -1678,7 +1680,7 @@ bool Instrumentation::ShouldDeoptimizeCaller(Thread* self, ArtMethod** sp) {
     }
   }
 
-  if (should_deoptimize_frame && !Runtime::Current()->IsAsyncDeoptimizeable(caller_pc)) {
+  if (should_deoptimize_frame && !Runtime::Current()->IsAsyncDeoptimizeable(caller, caller_pc)) {
       LOG(WARNING) << "Got a deoptimization request on un-deoptimizable method "
                    << caller->PrettyMethod();
       return false;
@@ -1755,7 +1757,7 @@ TwoWordReturn Instrumentation::PopInstrumentationStackFrame(Thread* self,
     // Restore the return value if it's a reference since it might have moved.
     *reinterpret_cast<mirror::Object**>(gpr_result) = res.Get();
   }
-  if (deoptimize && Runtime::Current()->IsAsyncDeoptimizeable(*return_pc_addr)) {
+  if (deoptimize && Runtime::Current()->IsAsyncDeoptimizeable(visitor.caller, *return_pc_addr)) {
     if (kVerboseInstrumentation) {
       LOG(INFO) << "Deoptimizing "
                 << visitor.caller->PrettyMethod()
@@ -1775,7 +1777,7 @@ TwoWordReturn Instrumentation::PopInstrumentationStackFrame(Thread* self,
     return GetTwoWordSuccessValue(*return_pc_addr,
                                   reinterpret_cast<uintptr_t>(GetQuickDeoptimizationEntryPoint()));
   } else {
-    if (deoptimize && !Runtime::Current()->IsAsyncDeoptimizeable(*return_pc_addr)) {
+    if (deoptimize && !Runtime::Current()->IsAsyncDeoptimizeable(visitor.caller, *return_pc_addr)) {
       VLOG(deopt) << "Got a deoptimization request on un-deoptimizable " << method->PrettyMethod()
                   << " at PC " << reinterpret_cast<void*>(*return_pc_addr);
     }
