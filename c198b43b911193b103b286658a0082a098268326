@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13316baf_5535736c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-03-23T13:46:24Z",
+      "side": 1,
+      "message": "Of all the options to remove the dependency, this is the easiest, and it is still reasonable.\n\nFor the sake of argument, if we ever generate massive Android.bp, we still need this file anyway.",
+      "revId": "c198b43b911193b103b286658a0082a098268326",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
