@@ -93,6 +93,30 @@
       },
       "revId": "e9146cd3c51c8e2b110795a9d22cb107875c45e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20011803_68b6984e",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsDenialHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-23T18:29:50Z",
+      "side": 1,
+      "message": "Oh, I see. The compilation happens during beforeClassWithDevice. It\u0027s worth mentioning this in the comment.",
+      "parentUuid": "c2358800_40616815",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 104,
+        "endChar": 24
+      },
+      "revId": "e9146cd3c51c8e2b110795a9d22cb107875c45e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
