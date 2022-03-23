@@ -324,8 +324,15 @@ class BitMemoryRegion final : public ValueObject {
   size_t bit_size_ = 0;
 };
 
-constexpr uint32_t kVarintBits = 4;  // Minimum number of bits used for varint.
-constexpr uint32_t kVarintMax = 11;  // Maximum value which is stored "inline".
+// Minimum number of bits used for varint. A varint represents either a value stored "inline" or
+// the number of bytes that are required to encode the value.
+constexpr uint32_t kVarintBits = 4;
+// Maximum value which is stored "inline". We use the rest of the values to encode the number of
+// bytes required to encode the value when the value is greater than kVarintMax.
+// For example: for 4 bits and a maximum value of 11 we encode any value less than or equal to 11
+// inline and use 12, 13, 14 and 15 to represent that the value is encoded in 1, 2, 3 and 4 bytes
+// respectively.
+constexpr uint32_t kVarintMax = 11;
 
 class BitMemoryReader {
  public:

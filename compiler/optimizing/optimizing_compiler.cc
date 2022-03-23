@@ -1125,7 +1125,8 @@ static ScopedArenaVector<uint8_t> CreateJniStackMap(ScopedArenaAllocator* alloca
       jni_compiled_method.GetCoreSpillMask(),
       jni_compiled_method.GetFpSpillMask(),
       /* num_dex_registers= */ 0,
-      /* baseline= */ false);
+      /* baseline= */ false,
+      /* debuggable= */ false);
   stack_map_stream->EndMethod(code_size);
   return stack_map_stream->Encode();
 }
