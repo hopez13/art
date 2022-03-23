@@ -69,6 +69,30 @@
       },
       "revId": "e9146cd3c51c8e2b110795a9d22cb107875c45e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2358800_40616815",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsDenialHostTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-03-23T17:43:13Z",
+      "side": 1,
+      "message": "The whole output directory is backed up (L70) and restored (L96). So the logs should always be available.",
+      "parentUuid": "4f102492_65a2c684",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 104,
+        "endChar": 24
+      },
+      "revId": "e9146cd3c51c8e2b110795a9d22cb107875c45e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
