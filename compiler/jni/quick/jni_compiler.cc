@@ -110,12 +110,12 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
   // debuggable runtimes.
   bool should_tag_sp = compiler_options.GetDebuggable() && compiler_options.IsJitCompiler();
 
-  // We don't JIT stubs for critical native methods in debuggable runtimes.
+  bool needs_entry_exit_hooks =
+      compiler_options.GetDebuggable() && compiler_options.IsJitCompiler();
+  // We don't support JITing stubs for critical native methods in debuggable runtimes yet.
   // TODO(mythria): Add support required for calling method entry / exit hooks from critical native
   // methods.
-  bool needs_entry_exit_hooks = compiler_options.GetDebuggable() &&
-                                compiler_options.IsJitCompiler() &&
-                                !is_critical_native;
+  DCHECK_IMPLIES(needs_entry_exit_hooks, !is_critical_native);
 
   VLOG(jni) << "JniCompile: Method :: "
               << dex_file.PrettyMethod(method_idx, /* with signature */ true)
