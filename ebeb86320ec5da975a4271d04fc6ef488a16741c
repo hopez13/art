@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb31b0f5_5d91e895",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-24T07:58:15Z",
+      "side": 0,
+      "message": "These two tests do fail when removing that particular piece of code.",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 55
+      },
+      "revId": "ebeb86320ec5da975a4271d04fc6ef488a16741c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
