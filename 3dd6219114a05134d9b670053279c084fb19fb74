@@ -16,6 +16,24 @@
       "message": "I am concerned about the lack of error handling. If we fail to read the input for one compilation and succeed for another, this may result in inconsistent data and potential correctness issues.",
       "revId": "3dd6219114a05134d9b670053279c084fb19fb74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d914d0d_91e74512",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-24T16:07:46Z",
+      "side": 1,
+      "message": "Good point. Fixing here:\nhttps://android-review.googlesource.com/c/platform/art/+/2042283",
+      "parentUuid": "7dbe089c_0202fc66",
+      "revId": "3dd6219114a05134d9b670053279c084fb19fb74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
