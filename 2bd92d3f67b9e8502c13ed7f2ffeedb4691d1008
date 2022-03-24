@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffc85d11_b1b238f4",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2806,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-24T17:02:29Z",
+      "side": 1,
+      "message": "The code here does not verify that we managed to read the data, but at least we abort compilation if we fail to open files which is exactly what we did before https://android-review.googlesource.com/2024664 .",
+      "revId": "2bd92d3f67b9e8502c13ed7f2ffeedb4691d1008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
