@@ -3397,4 +3397,15 @@ void Runtime::MadviseFileForRange(size_t madvise_size_limit_bytes,
   }
 }
 
+// Return whether a boot image has a profile. This means we'll need to pre-JIT
+// methods in that profile for performance.
+bool Runtime::HasImageWithProfile() const {
+  for (gc::space::ImageSpace* space : GetHeap()->GetBootImageSpaces()) {
+    if (!space->GetProfileFiles().empty()) {
+      return true;
+    }
+  }
+  return false;
+}
+
 }  // namespace art
