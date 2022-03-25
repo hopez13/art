@@ -532,7 +532,9 @@ void InstrumentationInstallStack(Thread* thread, void* arg, bool deopt_all_frame
         // If it is a JITed frame then just set the deopt bit if required
         // otherwise continue
         const OatQuickMethodHeader* method_header = GetCurrentOatQuickMethodHeader();
-        if (method_header != nullptr && method_header->HasShouldDeoptimizeFlag()) {
+        if (method_header != nullptr &&
+            method_header->HasShouldDeoptimizeFlag() &&
+            Runtime::Current()->IsJavaDebuggable()) {
           if (deopt_all_frames_) {
             SetShouldDeoptimizeFlag(DeoptimizeFlagValue::kDebug);
           }
