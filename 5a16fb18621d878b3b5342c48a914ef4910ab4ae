@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "5a16fb18621d878b3b5342c48a914ef4910ab4ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61fca3a5_ea6f973b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-25T16:14:38Z",
+      "side": 1,
+      "message": "Isn\u0027t there a case where we can have both non-debuggable and debuggable JIT compiled methods running? And so even with that check, we could set the flag for a CHA check?\n\nWould it make things simpler to have a dedicated debuggable flag to JIT code?",
+      "range": {
+        "startLine": 537,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 53
+      },
+      "revId": "5a16fb18621d878b3b5342c48a914ef4910ab4ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
