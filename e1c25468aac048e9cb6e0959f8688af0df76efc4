@@ -35,6 +35,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9b22478_0e662194",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-25T10:13:13Z",
+      "side": 1,
+      "message": "The goal is performance but within reasonable memory footprint.",
+      "parentUuid": "ff0e6173_2a888707",
+      "revId": "e1c25468aac048e9cb6e0959f8688af0df76efc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21078d87_afa5a2f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-25T10:13:13Z",
+      "side": 1,
+      "message": "Getting the number of compiled methods is non-trivial, the `AtomicDexRefMap\u003c\u003e` does not provide a `size()`.\n\nGetting the number of unique code infos would be easier as long as code deduplication is enabled, otherwise it\u0027s back to walking the `AtomicDexRefMap\u003c\u003e`. (I would not mind removing the `dex2oat` option `--deduplicate-code` completely to simplify the code. We\u0027re always using the default `true` anyway, except for a gtest that checks `--deduplicate-code\u003dfalse` produces more code.)",
+      "parentUuid": "04972a2a_a0d585d6",
+      "revId": "e1c25468aac048e9cb6e0959f8688af0df76efc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7b259db_4ddec491",
