@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6113d057_b5b70069",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-03-25T16:35:41Z",
+      "side": 1,
+      "message": "Even if the checksums starts with \"i\", it may not be optimal because it may be compiled with less boot images than what the runtime loads. Consider `oat_boot_class_path_checksums !\u003d runtime-\u003eGetBootClassPathChecksums()` instead?",
+      "range": {
+        "startLine": 963,
+        "startChar": 8,
+        "endLine": 963,
+        "endChar": 55
+      },
+      "revId": "bb3b72625d81bf91edda8ef2e1d10cf6d46bc09b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
