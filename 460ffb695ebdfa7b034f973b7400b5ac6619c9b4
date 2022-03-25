@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e03cc66e_c5fdee1e",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-25T14:01:36Z",
+      "side": 1,
+      "message": "nit: this can be moved down to line 893 after the `if (c !\u003d nullptr) {` since it won\u0027t be used if c is null",
+      "range": {
+        "startLine": 880,
+        "startChar": 0,
+        "endLine": 880,
+        "endChar": 51
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1575fd02_02a84fe0",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-25T14:01:36Z",
+      "side": 1,
+      "message": "From what I could see these pointers (and in other methods) are not used to modify values. Can we make them const?",
+      "range": {
+        "startLine": 122,
+        "startChar": 35,
+        "endLine": 123,
+        "endChar": 58
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "207c93c6_cb465a66",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-25T14:01:36Z",
+      "side": 1,
+      "message": "suggestion: (i.e. it is ignoring `is_min`)",
+      "range": {
+        "startLine": 653,
+        "startChar": 53,
+        "endLine": 653,
+        "endChar": 72
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ebaae8_592569f3",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1432,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-25T14:01:36Z",
+      "side": 1,
+      "message": "Over here we pass is_min but in line 804 where we do something similar we override it to false. Why not override here too?",
+      "range": {
+        "startLine": 1432,
+        "startChar": 81,
+        "endLine": 1432,
+        "endChar": 87
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
