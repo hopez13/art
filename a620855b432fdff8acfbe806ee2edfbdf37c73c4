@@ -22,6 +22,30 @@
       },
       "revId": "a620855b432fdff8acfbe806ee2edfbdf37c73c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9361631a_8abbea8f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8454,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-25T18:07:33Z",
+      "side": 1,
+      "message": "I don\u0027t think it matters but I prefer to use the lowest index.\n\nUpdated the comment.",
+      "parentUuid": "461ef497_2fc4c494",
+      "range": {
+        "startLine": 8454,
+        "startChar": 20,
+        "endLine": 8454,
+        "endChar": 21
+      },
+      "revId": "a620855b432fdff8acfbe806ee2edfbdf37c73c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
