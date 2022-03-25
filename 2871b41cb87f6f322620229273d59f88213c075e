@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fda2a0b4_7481523c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-03-25T15:02:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50b4a682_36219381",
+      "range": {
+        "startLine": 1395,
+        "startChar": 83,
+        "endLine": 1395,
+        "endChar": 93
+      },
+      "revId": "2871b41cb87f6f322620229273d59f88213c075e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c12e4b1_2d6af254",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-03-25T14:10:28Z",
       "side": 1,
       "message": "Add a comment?",
+      "revId": "2871b41cb87f6f322620229273d59f88213c075e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ddb22a2_05b50593",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-03-25T15:02:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c12e4b1_2d6af254",
       "revId": "2871b41cb87f6f322620229273d59f88213c075e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6f9fb70_4727f301",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1190,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-03-25T15:02:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af02117f_9ef816a1",
+      "range": {
+        "startLine": 1190,
+        "startChar": 0,
+        "endLine": 1190,
+        "endChar": 78
+      },
+      "revId": "2871b41cb87f6f322620229273d59f88213c075e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51b1683a_ae504c6e",
@@ -94,6 +160,24 @@
       "writtenOn": "2022-03-25T14:10:28Z",
       "side": 1,
       "message": "nit: add a high-level comment.",
+      "revId": "2871b41cb87f6f322620229273d59f88213c075e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06959b40_69820013",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-03-25T15:02:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51b1683a_ae504c6e",
       "revId": "2871b41cb87f6f322620229273d59f88213c075e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
