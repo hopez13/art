@@ -1193,7 +1193,12 @@ void Instrumentation::Undeoptimize(ArtMethod* method) {
                !method->GetDeclaringClass()->IsVisiblyInitialized()) {
       UpdateEntryPoints(method, GetQuickResolutionStub());
     } else {
-      UpdateEntryPoints(method, GetOptimizedCodeFor(method));
+      const void* code = GetOptimizedCodeFor(method);
+      if (EntryExitStubsInstalled() && CodeNeedsEntryExitStub(code, method)) {
+          UpdateEntryPoints(method, GetQuickInstrumentationEntryPoint());
+      } else {
+          UpdateEntryPoints(method, code);
+      }
     }
 
     // If there is no deoptimized method left, we can restore the stack of each thread.
@@ -1285,6 +1290,16 @@ const void* Instrumentation::GetCodeForInvoke(ArtMethod* method) {
   }
 
   return GetOptimizedCodeFor(method);
+}
+
+const void* Instrumentation::GetMaybeInstrumentedCodeForInvoke(ArtMethod* method) {
+  // This is called by resolution trampolines and that should never be getting proxy methods.
+  DCHECK(!method->IsProxyMethod()) << method->PrettyMethod();
+  const void* code = GetCodeForInvoke(method);
+  if (EntryExitStubsInstalled() && CodeNeedsEntryExitStub(code, method)) {
+    return GetQuickInstrumentationEntryPoint();
+  }
+  return code;
 }
 
 void Instrumentation::MethodEnterEventImpl(Thread* thread, ArtMethod* method) const {
