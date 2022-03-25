@@ -16,6 +16,86 @@
       "message": "Thanks!",
       "revId": "2871b41cb87f6f322620229273d59f88213c075e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50b4a682_36219381",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-25T14:10:28Z",
+      "side": 1,
+      "message": "missing \u0027the\u0027",
+      "range": {
+        "startLine": 1395,
+        "startChar": 83,
+        "endLine": 1395,
+        "endChar": 93
+      },
+      "revId": "2871b41cb87f6f322620229273d59f88213c075e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c12e4b1_2d6af254",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-25T14:10:28Z",
+      "side": 1,
+      "message": "Add a comment?",
+      "revId": "2871b41cb87f6f322620229273d59f88213c075e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af02117f_9ef816a1",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-25T14:10:28Z",
+      "side": 1,
+      "message": "Update comment?",
+      "range": {
+        "startLine": 1190,
+        "startChar": 0,
+        "endLine": 1190,
+        "endChar": 78
+      },
+      "revId": "2871b41cb87f6f322620229273d59f88213c075e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51b1683a_ae504c6e",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-25T14:10:28Z",
+      "side": 1,
+      "message": "nit: add a high-level comment.",
+      "revId": "2871b41cb87f6f322620229273d59f88213c075e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
