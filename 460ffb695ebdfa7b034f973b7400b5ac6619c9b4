@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "13add058_ea09690e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-25T14:08:25Z",
+      "side": 1,
+      "message": "Was there an issue passing the instruction before? It looks like we could lose some context by just passing the block and may regret it later if we need more than the block?",
+      "range": {
+        "startLine": 914,
+        "startChar": 14,
+        "endLine": 914,
+        "endChar": 38
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e03cc66e_c5fdee1e",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 2
