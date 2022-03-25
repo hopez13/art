@@ -309,6 +309,9 @@ class Instrumentation {
   // Return the code that we can execute for an invoke including from the JIT.
   const void* GetCodeForInvoke(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  const void* GetMaybeInstrumentedCodeForInvoke(ArtMethod* method)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   void ForceInterpretOnly() {
     forced_interpret_only_ = true;
   }
