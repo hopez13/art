@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee9de065_4fd041fd",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-25T17:24:20Z",
+      "side": 1,
+      "message": "At the moment, the induction range cannot change within a block. But if we start analyzing instructions with implicit control flow (say, `HBoundsCheck`), this could change. Do you want me to change the `context` back to `HInstruction*`?",
+      "parentUuid": "13add058_ea09690e",
+      "range": {
+        "startLine": 914,
+        "startChar": 14,
+        "endLine": 914,
+        "endChar": 38
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e03cc66e_c5fdee1e",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-25T14:01:36Z",
       "side": 1,
       "message": "nit: this can be moved down to line 893 after the `if (c !\u003d nullptr) {` since it won\u0027t be used if c is null",
+      "range": {
+        "startLine": 880,
+        "startChar": 0,
+        "endLine": 880,
+        "endChar": 51
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dcb5906_5a69a4e1",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-25T17:24:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e03cc66e_c5fdee1e",
       "range": {
         "startLine": 880,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb7a3f0e_75348f89",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-25T17:24:20Z",
+      "side": 1,
+      "message": "I essentially gave up on const in the Optimizing compiler, especially in relation to `HInstruction` and related classes, such as `HBasicBlock` and `HLoopInformation`. Do you want me to annotate these?\n\n(But then, should we also make the `InductionInfo` more const? It should probably have members like `const InductionInfo* const op_a;`.)",
+      "parentUuid": "1575fd02_02a84fe0",
+      "range": {
+        "startLine": 122,
+        "startChar": 35,
+        "endLine": 123,
+        "endChar": 58
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "207c93c6_cb465a66",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 2
@@ -83,6 +155,30 @@
       "writtenOn": "2022-03-25T14:01:36Z",
       "side": 1,
       "message": "suggestion: (i.e. it is ignoring `is_min`)",
+      "range": {
+        "startLine": 653,
+        "startChar": 53,
+        "endLine": 653,
+        "endChar": 72
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed014b0_80c5c532",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-25T17:24:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "207c93c6_cb465a66",
       "range": {
         "startLine": 653,
         "startChar": 53,
@@ -106,6 +202,30 @@
       "writtenOn": "2022-03-25T14:01:36Z",
       "side": 1,
       "message": "Over here we pass is_min but in line 804 where we do something similar we override it to false. Why not override here too?",
+      "range": {
+        "startLine": 1432,
+        "startChar": 81,
+        "endLine": 1432,
+        "endChar": 87
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7aa7294d_03ca652d",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1432,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-25T17:24:20Z",
+      "side": 1,
+      "message": "Done. Well spotted!",
+      "parentUuid": "16ebaae8_592569f3",
       "range": {
         "startLine": 1432,
         "startChar": 81,
