@@ -120,7 +120,7 @@ if [[ $build_target == "yes" ]]; then
   # Indirect dependencies in the platform, e.g. through heapprofd_client_api.
   # These are built to go into system/lib(64) to be part of the system linker
   # namespace.
-  make_command+=" libbacktrace libnetd_client-target libprocinfo libtombstoned_client libunwindstack"
+  make_command+=" libnetd_client-target libprocinfo libtombstoned_client libunwindstack"
   # Extract jars from other APEX SDKs for use by vogar. Note these go into
   # out/target/common/obj/JAVA_LIBRARIES which isn't removed by "m installclean".
   make_command+=" conscrypt core-icu4j"
