@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d75cd349_d06f6003",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-28T07:19:51Z",
+      "side": 1,
+      "message": "I\u0027d say \"perfect is the enemy of good\". I\u0027d be okay with just having the `HBasicBlock`  and `HLoopInformation` parameters as const since it should be fairly quick (maybe even a regex?) and related to this CL. We can leave `InductionInfo` and other changes for another time. WDYT?\n\nSide note: Maybe we could have a team cleanup project to const correct the compiler with small action items that folks can grab when they have some spare time.",
+      "parentUuid": "fb7a3f0e_75348f89",
+      "range": {
+        "startLine": 122,
+        "startChar": 35,
+        "endLine": 123,
+        "endChar": 58
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "207c93c6_cb465a66",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 2
