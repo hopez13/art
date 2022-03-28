@@ -52,6 +52,93 @@
       "parentUuid": "c98912a0_554cbef4",
       "revId": "3176cb5c8e0bccb307ce9e49c441248052b6ab00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3b407f9_9d0fe301",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-28T12:43:44Z",
+      "side": 1,
+      "message": "Yes, exactly.",
+      "parentUuid": "2ed61b6f_bd5c5e69",
+      "revId": "3176cb5c8e0bccb307ce9e49c441248052b6ab00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "336fd916_2ec5cdbf",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-28T12:43:44Z",
+      "side": 1,
+      "message": "You\u0027re treating `preloaded_classes_` as descriptors while the file `art/build/boot/preloaded-classes` contains the classes in dotted format (`android.compat.Compatibility`). There needs to be some translation.",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 155,
+        "endChar": 91
+      },
+      "revId": "3176cb5c8e0bccb307ce9e49c441248052b6ab00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc025b77_3c03268c",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-28T12:43:44Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 168,
+        "startChar": 91,
+        "endLine": 168,
+        "endChar": 93
+      },
+      "revId": "3176cb5c8e0bccb307ce9e49c441248052b6ab00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31c834e6_bc90cb80",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-28T12:43:44Z",
+      "side": 1,
+      "message": "If class initialization fails, we shall get the called method in the stack trace. With clinit check in the caller we would not.",
+      "range": {
+        "startLine": 386,
+        "startChar": 8,
+        "endLine": 386,
+        "endChar": 78
+      },
+      "revId": "3176cb5c8e0bccb307ce9e49c441248052b6ab00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
