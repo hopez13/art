@@ -22,6 +22,30 @@
       },
       "revId": "bb3b72625d81bf91edda8ef2e1d10cf6d46bc09b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c8d2ccc_e1b5c922",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-03-28T13:00:11Z",
+      "side": 1,
+      "message": "The \u0027!\u003d\u0027 will always happen because at runtime we have an in-memory boot image, and therefore runtime-\u003eGetBootClassPathChecksums will always start with \"i\".\n\nI think compiling against less boot image than what the runtime loads is an edge case (using minimal boot art, right?), which we can just live with.",
+      "parentUuid": "6113d057_b5b70069",
+      "range": {
+        "startLine": 963,
+        "startChar": 8,
+        "endLine": 963,
+        "endChar": 55
+      },
+      "revId": "bb3b72625d81bf91edda8ef2e1d10cf6d46bc09b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
