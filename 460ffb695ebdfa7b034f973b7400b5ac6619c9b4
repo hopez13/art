@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc9cad82_e11eede7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-28T12:49:21Z",
+      "side": 1,
+      "message": "Marking as resolved after offline chat. We shall change to `HInstruction*` in the future if we need to.",
+      "parentUuid": "ee9de065_4fd041fd",
+      "range": {
+        "startLine": 914,
+        "startChar": 14,
+        "endLine": 914,
+        "endChar": 38
+      },
+      "revId": "460ffb695ebdfa7b034f973b7400b5ac6619c9b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e03cc66e_c5fdee1e",
