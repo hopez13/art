@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8becc72_4c7f03c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-29T14:05:30Z",
+      "side": 1,
+      "message": "Nicolas PTAL\nRed bot is a known bug b/227277030",
+      "revId": "9c84bf6dc55a7fcfdc0d32a59ffb127dedf355c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b2c5720_221a8bdc",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-29T14:05:30Z",
+      "side": 1,
+      "message": "This is what `680-sink-regression` was intending to do, based on the aosp/646337 and b/75971227. Now it is a proper regression test since it would fail if we removed the code like the test aosp/2038583 did.",
+      "range": {
+        "startLine": 667,
+        "startChar": 21,
+        "endLine": 667,
+        "endChar": 42
+      },
+      "revId": "9c84bf6dc55a7fcfdc0d32a59ffb127dedf355c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
