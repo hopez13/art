@@ -227,10 +227,6 @@ static bool RemoveNonNullControlDependences(HBasicBlock* block, HBasicBlock* thr
 // Removal of the never taken edge to B2 may expose
 // other optimization opportunities, such as code sinking.
 bool HDeadCodeElimination::SimplifyAlwaysThrows() {
-  // Make sure exceptions go to exit.
-  if (graph_->HasTryCatch()) {
-    return false;
-  }
   HBasicBlock* exit = graph_->GetExitBlock();
   if (exit == nullptr) {
     return false;
@@ -240,6 +236,14 @@ bool HDeadCodeElimination::SimplifyAlwaysThrows() {
 
   // Order does not matter, just pick one.
   for (HBasicBlock* block : graph_->GetReversePostOrder()) {
+    if (block->GetTryCatchInformation() != nullptr) {
+      // If we are inside a try/catch, the exceptions might not go to the exit block.
+      // TODO(solanes): Maybe we can do a `goto catch` if inside of a try catch instead of going to
+      // the exit. If we do so, we have to take into account that we should go to the nearest valid
+      // catch i.e. one that would accept our exception type.
+      continue;
+    }
+
     HInstruction* first = block->GetFirstInstruction();
     HInstruction* last = block->GetLastInstruction();
     // Ensure only one throwing instruction appears before goto.
