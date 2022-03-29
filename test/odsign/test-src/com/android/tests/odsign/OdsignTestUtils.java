@@ -237,6 +237,7 @@ public class OdsignTestUtils {
     }
 
     public void reboot() throws Exception {
+        mTestInfo.getDevice().getOptions().setRebootTimeout((int) BOOT_COMPLETE_TIMEOUT.toMillis());
         mTestInfo.getDevice().reboot();
         boolean success =
                 mTestInfo.getDevice().waitForBootComplete(BOOT_COMPLETE_TIMEOUT.toMillis());
