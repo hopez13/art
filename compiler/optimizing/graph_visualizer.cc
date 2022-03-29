@@ -657,10 +657,11 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
       StartAttributeStream("dex_pc") << "n/a";
     }
     HBasicBlock* block = instruction->GetBlock();
-    if (IsPass(kDebugDumpName)) {
-      // Include block name for logcat use.
-      StartAttributeStream("block") << namer_.GetName(block);
+    StartAttributeStream("block") << namer_.GetName(block);
+    if (instruction->IsGoto()) {
+      StartAttributeStream("target") << namer_.GetName(block->GetSingleSuccessor());
     }
+
     instruction->Accept(this);
     if (instruction->HasEnvironment()) {
       StringList envs;
