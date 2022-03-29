@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4ece6c3_202c52b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-03-29T15:44:00Z",
+      "side": 1,
+      "message": "Can you do a sweep through the test cases for host and device before going further here because this CL has the potential to take out all of our libcore test on go/art-buildbot :-)",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 35
+      },
+      "revId": "f09aa31aae773b50c15f0b9bb7ebb0c016c012ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f17dd15b_e81cc67c",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-03-29T15:44:00Z",
+      "side": 1,
+      "message": "We should add the test packages from CtsLibcoreOjTestCases here.\n\nIt\u0027s maybe easiest to extract them via `dexdump CtsLibcoreOjTestCases`.",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 42
+      },
+      "revId": "f09aa31aae773b50c15f0b9bb7ebb0c016c012ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
