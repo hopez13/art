@@ -16,6 +16,29 @@
       "message": "Nice! V. cool demonstration on the power of HWASan :-)\n",
       "revId": "838f6c4137663d1578bcf56b6b5f10b5dc42e258",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d7fd9ed_859d88a0",
+        "filename": "cmdline/detail/cmdline_parse_argument_detail.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-30T14:32:13Z",
+      "side": 1,
+      "message": "We could have captured `nblank` by value instead. But I\u0027ve prepared a better cleanup in https://android-review.googlesource.com/2049863 .",
+      "range": {
+        "startLine": 158,
+        "startChar": 22,
+        "endLine": 158,
+        "endChar": 23
+      },
+      "revId": "838f6c4137663d1578bcf56b6b5f10b5dc42e258",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
