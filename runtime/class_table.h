@@ -109,6 +109,10 @@ class ClassTable {
     uint32_t operator()(const TableSlot& slot) const NO_THREAD_SAFETY_ANALYSIS;
     // uint32_t for cross compilation.
     uint32_t operator()(const DescriptorHashPair& pair) const NO_THREAD_SAFETY_ANALYSIS;
+
+   private:
+    static uint32_t UpdateHashForProxyClass(uint32_t hash, ObjPtr<mirror::Class> proxy_class)
+        REQUIRES_SHARED(Locks::mutator_lock_);
   };
 
   class ClassDescriptorEquals {
