@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2d88692_603f7cbb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-31T16:36:57Z",
+      "side": 1,
+      "message": "Not sure if you meant that they aren\u0027t singletons, or if you meant that they shouldn\u0027t be.\n\nCurrently they are considered singletons i.e. in CalculateEscape (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/escape.cc;l\u003d108;drc\u003dbb550e415da77e7e21c8f800657984c145bb42e1) we mark those as singletons which are returnable. We are doing the same thing in VisitDeoptimize (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/load_store_elimination.cc;l\u003d1049;drc\u003d872ec72de447b2803894e17253399a54a4c10e1f) too.",
+      "parentUuid": "bcb20808_774658ed",
+      "range": {
+        "startLine": 1532,
+        "startChar": 6,
+        "endLine": 1532,
+        "endChar": 29
+      },
+      "revId": "af0152b796cfc33d6ed8c1100012795d3cb59d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3d270d6_b9771d3d",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-31T13:44:50Z",
       "side": 1,
       "message": "refersTo(null)",
+      "range": {
+        "startLine": 1463,
+        "startChar": 20,
+        "endLine": 1463,
+        "endChar": 33
+      },
+      "revId": "af0152b796cfc33d6ed8c1100012795d3cb59d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a50d8f10_d84ee84d",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-31T16:36:57Z",
+      "side": 1,
+      "message": "From offline group chat, it seems like we can\u0027t use `refersTo` right now on ART run-tests. We could potentially update the API level but I think it is out of the scope of this CL. WDYT?",
+      "parentUuid": "b3d270d6_b9771d3d",
       "range": {
         "startLine": 1463,
         "startChar": 20,
