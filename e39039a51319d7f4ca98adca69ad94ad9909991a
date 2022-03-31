@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a5c7e54_5c696d5f",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-31T13:40:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c996e40_a8a2fdc6",
+      "range": {
+        "startLine": 661,
+        "startChar": 4,
+        "endLine": 663,
+        "endChar": 5
+      },
+      "revId": "e39039a51319d7f4ca98adca69ad94ad9909991a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c100715_26498044",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-03-31T13:28:51Z",
       "side": 1,
       "message": "Gerrit says \"No newline at end of right file.\" Please add newline.",
+      "revId": "e39039a51319d7f4ca98adca69ad94ad9909991a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15dca7ca_94f8a02b",
+        "filename": "test/2042-checker-dce-always-throw/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-31T13:40:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c100715_26498044",
       "revId": "e39039a51319d7f4ca98adca69ad94ad9909991a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
