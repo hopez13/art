@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "678d7170_5162f4ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-31T13:01:45Z",
+      "side": 1,
+      "message": "Yes but for SimplifyAlwaysThrows we need an always throwing instruction followed by a Goto in the same block. We never have Throw-\u003eGoto so it is really just for invokes.",
+      "parentUuid": "bd6f7046_d4153b08",
+      "range": {
+        "startLine": 14,
+        "startChar": 44,
+        "endLine": 14,
+        "endChar": 50
+      },
+      "revId": "5ca031d8d49eb026bdb0a3456221fa45b4c2e8fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "455567f8_509d6e5f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51642aec_2caa7b33",
+        "filename": "test/2042-checker-dce-always-throw/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-31T13:01:45Z",
+      "side": 1,
+      "message": "Done. I also added a CHECK-EVAL to test the `before` case.",
+      "parentUuid": "d5fd3900_c0956dd6",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 25
+      },
+      "revId": "5ca031d8d49eb026bdb0a3456221fa45b4c2e8fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef690ebd_8b5127e7",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-03-30T13:37:05Z",
       "side": 1,
       "message": "I\u0027d prefer to have a `$noinline$` prefix on these test methods to make sure the test executes the same code that we check with the `CHECK` assertions.",
+      "range": {
+        "startLine": 48,
+        "startChar": 21,
+        "endLine": 48,
+        "endChar": 38
+      },
+      "revId": "5ca031d8d49eb026bdb0a3456221fa45b4c2e8fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a89fb2d_c73746c4",
+        "filename": "test/2042-checker-dce-always-throw/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-03-31T13:01:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef690ebd_8b5127e7",
       "range": {
         "startLine": 48,
         "startChar": 21,
