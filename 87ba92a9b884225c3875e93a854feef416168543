@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b34347_75394612",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1893966
+      },
+      "writtenOn": "2022-03-31T08:01:43Z",
+      "side": 1,
+      "message": "See my reply in the other cl",
+      "parentUuid": "0592f2b1_e81dd2d5",
+      "range": {
+        "startLine": 9,
+        "startChar": 18,
+        "endLine": 9,
+        "endChar": 32
+      },
+      "revId": "87ba92a9b884225c3875e93a854feef416168543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6278a79a_9fc38e9c",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-28T14:09:39Z",
       "side": 1,
       "message": "Not needed.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "87ba92a9b884225c3875e93a854feef416168543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df4219b0_11bd42ce",
+        "filename": "runtime/native/libcore_io_Memory.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1893966
+      },
+      "writtenOn": "2022-03-31T08:01:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6278a79a_9fc38e9c",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cc23ee2_f2215166",
+        "filename": "runtime/native/libcore_io_Memory.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1893966
+      },
+      "writtenOn": "2022-03-31T08:01:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1465830_069684b9",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "87ba92a9b884225c3875e93a854feef416168543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ac6c369_7008e0eb",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-03-28T14:09:39Z",
       "side": 1,
       "message": "ART has a 100-char limit (go/artstyle); it\u0027s probably easiest to apply clang-format here:\n\n$ cd $ANDROID_BUILD_TOP\n$ prebuilts/clang/host/linux-x86/clang-stable/bin/clang-format -i runtime/native/libcore_io_Memory.cc",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 121
+      },
+      "revId": "87ba92a9b884225c3875e93a854feef416168543",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5ed282d_8fa531b0",
+        "filename": "runtime/native/libcore_io_Memory.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1893966
+      },
+      "writtenOn": "2022-03-31T08:01:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ac6c369_7008e0eb",
       "range": {
         "startLine": 93,
         "startChar": 0,
