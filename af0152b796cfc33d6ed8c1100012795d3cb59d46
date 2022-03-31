@@ -16,6 +16,52 @@
       "message": "Vladimir PTAL\nFYI tests passed in Patchset 1 and patchset 2 was just a rebase",
       "revId": "af0152b796cfc33d6ed8c1100012795d3cb59d46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcb20808_774658ed",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-31T13:44:50Z",
+      "side": 1,
+      "message": "I think finalizable objects should never be marked as singletons.",
+      "range": {
+        "startLine": 1532,
+        "startChar": 6,
+        "endLine": 1532,
+        "endChar": 29
+      },
+      "revId": "af0152b796cfc33d6ed8c1100012795d3cb59d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3d270d6_b9771d3d",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-31T13:44:50Z",
+      "side": 1,
+      "message": "refersTo(null)",
+      "range": {
+        "startLine": 1463,
+        "startChar": 20,
+        "endLine": 1463,
+        "endChar": 33
+      },
+      "revId": "af0152b796cfc33d6ed8c1100012795d3cb59d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
