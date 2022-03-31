@@ -22,6 +22,25 @@
 
 namespace art {
 
+uint32_t ClassTable::ClassDescriptorHash::UpdateHashForProxyClass(
+    uint32_t hash, ObjPtr<mirror::Class> proxy_class) {
+  // No read barrier needed, the `name` field is constant for proxy classes and
+  // the contents of the String are also constant. See ReadBarrierOption.
+  DCHECK(proxy_class->IsProxyClass());
+  ObjPtr<mirror::String> name = proxy_class->GetName<kVerifyNone, kWithoutReadBarrier>();
+  DCHECK(name != nullptr);
+  std::string dot_name = name->ToModifiedUtf8();
+  // Update hash for characters we would get from `DotToDescriptor(dot_name)`.
+  DCHECK(!dot_name.empty());
+  DCHECK_NE(dot_name[0], '[');
+  hash = UpdateModifiedUtf8Hash(hash, 'L');
+  for (char c : dot_name) {
+    hash = UpdateModifiedUtf8Hash(hash, (c != '.') ? c : '/');
+  }
+  hash = UpdateModifiedUtf8Hash(hash, ';');
+  return hash;
+}
+
 ClassTable::ClassTable() : lock_("Class loader classes", kClassLoaderClassesLock) {
   Runtime* const runtime = Runtime::Current();
   classes_.push_back(ClassSet(runtime->GetHashTableMinLoadFactor(),
