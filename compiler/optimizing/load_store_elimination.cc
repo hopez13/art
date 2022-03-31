@@ -1531,7 +1531,11 @@ LSEVisitor::Value LSEVisitor::PrepareLoopStoredBy(HBasicBlock* block, size_t idx
   ReferenceInfo* ref_info = heap_location_collector_.GetHeapLocation(idx)->GetReferenceInfo();
   if (ref_info->IsSingleton() &&
       block->GetLoopInformation()->Contains(*ref_info->GetReference()->GetBlock())) {
-    return Value::PureUnknown();
+    HInstruction* reference = ref_info->GetReference();
+    // Finalizable objects always escape.
+    if (!reference->IsNewInstance() || !reference->AsNewInstance()->IsFinalizable()) {
+      return Value::PureUnknown();
+    }
   }
   PhiPlaceholder phi_placeholder = GetPhiPlaceholder(block->GetBlockId(), idx);
   return Value::ForLoopPhiPlaceholder(phi_placeholder);
