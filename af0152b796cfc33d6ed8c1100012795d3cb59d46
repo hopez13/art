@@ -65,6 +65,53 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9fe907a_80f55b30",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-31T16:51:52Z",
+      "side": 1,
+      "message": "I meant that they should not be. But that other code seems to imply otherwise and I\u0027m OK with replicating it.",
+      "parentUuid": "a2d88692_603f7cbb",
+      "range": {
+        "startLine": 1532,
+        "startChar": 6,
+        "endLine": 1532,
+        "endChar": 29
+      },
+      "revId": "af0152b796cfc33d6ed8c1100012795d3cb59d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd0560c8_ed904f04",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1533,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-31T16:51:52Z",
+      "side": 1,
+      "message": "You have a local variable for this below. Can you move this part of the condition to the `if` below to reuse that variable?",
+      "range": {
+        "startLine": 1533,
+        "startChar": 45,
+        "endLine": 1533,
+        "endChar": 69
+      },
+      "revId": "af0152b796cfc33d6ed8c1100012795d3cb59d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3d270d6_b9771d3d",
@@ -102,6 +149,30 @@
       "side": 1,
       "message": "From offline group chat, it seems like we can\u0027t use `refersTo` right now on ART run-tests. We could potentially update the API level but I think it is out of the scope of this CL. WDYT?",
       "parentUuid": "b3d270d6_b9771d3d",
+      "range": {
+        "startLine": 1463,
+        "startChar": 20,
+        "endLine": 1463,
+        "endChar": 33
+      },
+      "revId": "af0152b796cfc33d6ed8c1100012795d3cb59d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99d48ce9_910d2fd1",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-03-31T16:51:52Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a50d8f10_d84ee84d",
       "range": {
         "startLine": 1463,
         "startChar": 20,
