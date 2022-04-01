@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdb16aa9_c5900793",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1533,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-01T14:19:13Z",
+      "side": 1,
+      "message": "Done. We can combine the ifs too.",
+      "parentUuid": "dd0560c8_ed904f04",
+      "range": {
+        "startLine": 1533,
+        "startChar": 45,
+        "endLine": 1533,
+        "endChar": 69
+      },
+      "revId": "af0152b796cfc33d6ed8c1100012795d3cb59d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3d270d6_b9771d3d",
