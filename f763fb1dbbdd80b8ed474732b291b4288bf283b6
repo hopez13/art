@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "587c95f6_a4edefdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-01T15:10:01Z",
+      "side": 1,
+      "message": "Non-python-expert LGTM.",
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6c73b38_268358d2",
@@ -55,6 +72,30 @@
       "side": 1,
       "message": "Most of the compiles are called just once, and the python documentation suggests that the `re` module also does caching of the compiled expressions.  So I would rather keep is nested for clarity.\n\nPS: The main bottleneck of the whole script is first the LLVM tools dump all the DWARF/assembly, and then the top level re expressions parsing it.  I don\u0027t claim that the script is fast.  I don\u0027t want to run it in the default build config.",
       "parentUuid": "b6c73b38_268358d2",
+      "range": {
+        "startLine": 22,
+        "startChar": 15,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c54646e_6a05a3d3",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-01T15:10:01Z",
+      "side": 1,
+      "message": "\u003e re  module also does caching of the compiled expressions\n\nGood to know!",
+      "parentUuid": "5e9fe90d_76f19a39",
       "range": {
         "startLine": 22,
         "startChar": 15,
