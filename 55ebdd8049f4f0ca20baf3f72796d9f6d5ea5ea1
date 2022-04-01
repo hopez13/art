@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4ac176f_b2f71f37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-01T14:01:24Z",
+      "side": 1,
+      "message": "LGTM thanks! I left a couple of comments but they are nits",
+      "revId": "55ebdd8049f4f0ca20baf3f72796d9f6d5ea5ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "602f3c2c_3d4e2c14",
+        "filename": "runtime/class_table-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-01T14:01:24Z",
+      "side": 1,
+      "message": "Is this comment here because of the `kWithoutReadBarrier` at line 41? If so, maybe we can move the comment there.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 100
+      },
+      "revId": "55ebdd8049f4f0ca20baf3f72796d9f6d5ea5ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "887b9ef8_625cebe8",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-01T14:01:24Z",
+      "side": 1,
+      "message": "Please remove extra spaces.",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 4
+      },
+      "revId": "55ebdd8049f4f0ca20baf3f72796d9f6d5ea5ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
