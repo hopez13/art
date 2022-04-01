@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e9fe90d_76f19a39",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-01T14:59:52Z",
+      "side": 1,
+      "message": "Most of the compiles are called just once, and the python documentation suggests that the `re` module also does caching of the compiled expressions.  So I would rather keep is nested for clarity.\n\nPS: The main bottleneck of the whole script is first the LLVM tools dump all the DWARF/assembly, and then the top level re expressions parsing it.  I don\u0027t claim that the script is fast.  I don\u0027t want to run it in the default build config.",
+      "parentUuid": "b6c73b38_268358d2",
+      "range": {
+        "startLine": 22,
+        "startChar": 15,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cfe4393_036cc93a",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bf347b5_7a9b0e5e",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-01T14:59:52Z",
+      "side": 1,
+      "message": "This not exhaustive.  In addition to other forms of the above instructions, there is also dozens of other ways to change the stack pointer.\n\nBut it does not need to be exhaustive.  The motivation is sanity check.\n\nIf the stack pointer is adjusted in new way (and if the DWARF CFI is correct), this script will complain about the discrepancy.\n\nSo general, if the cfa inference heuristic here is insufficient, the script will complain.",
+      "parentUuid": "0cfe4393_036cc93a",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 75
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70534886_ccd67e20",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-04-01T14:21:27Z",
       "side": 1,
       "message": "From parsing standpoint this is inefficient: you repeatedly scan the same string, matching different regexps on it. A more efficient approach is to use one joined regexp with named capturing groups, as described here: https://docs.python.org/3.2/library/re.html#writing-a-tokenizer. I\u0027m ok with leaving this as is if it\u0027s not performance-critcal.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 27
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1733b17_f6a7fc01",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-01T14:59:52Z",
+      "side": 1,
+      "message": "I considered something like that, but I am not convinced it is performance critical.\n\nThis part of the checker is run only on hand-written assembly.  That is, the LLVM tools still dump DWARF/assembly for C++ code, but C++ code is excluded from the stack pointer checks here.",
+      "parentUuid": "70534886_ccd67e20",
       "range": {
         "startLine": 142,
         "startChar": 0,
