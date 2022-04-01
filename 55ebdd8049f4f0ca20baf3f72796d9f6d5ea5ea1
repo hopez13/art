@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "511c2640_4d3bba38",
+        "filename": "runtime/class_table-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-01T16:31:55Z",
+      "side": 1,
+      "message": "This comment covers the entire function. Line 41 is part of it but this extends also to everything that happens in the `UpdateHashForProxyClass()` and `klass-\u003eGetDexFile()`. That\u0027s why I included a reference to `Class::GetDescriptor()` where you can find further details.",
+      "parentUuid": "602f3c2c_3d4e2c14",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 100
+      },
+      "revId": "55ebdd8049f4f0ca20baf3f72796d9f6d5ea5ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "887b9ef8_625cebe8",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-04-01T14:01:24Z",
       "side": 1,
       "message": "Please remove extra spaces.",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 4
+      },
+      "revId": "55ebdd8049f4f0ca20baf3f72796d9f6d5ea5ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a798d824_c1338391",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-01T16:31:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "887b9ef8_625cebe8",
       "range": {
         "startLine": 33,
         "startChar": 2,
