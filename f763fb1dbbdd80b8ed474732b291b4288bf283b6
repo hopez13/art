@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c5e48da_a9a9358b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-01T14:21:27Z",
+      "side": 1,
+      "message": "A few generic parsing-related comments, not python-specific.",
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c73b38_268358d2",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-01T14:21:27Z",
+      "side": 1,
+      "message": "All `re.compile` objects can be global so that the regexps are compiled once (they have static regexp arguments as far as I can see).",
+      "range": {
+        "startLine": 22,
+        "startChar": 15,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cfe4393_036cc93a",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-01T14:21:27Z",
+      "side": 1,
+      "message": "Looking at this, I\u0027m a bit worried if you may have an instruction that changes stack pointer and should be captured by one of these regexps, and is even listed here, but due to some regexp quirk it doesn\u0027t match (e.g. there is a slightly different form of this instruction not anticipated by your regexp). Perhaps a safer approach would be to tokenize a generic instruction, check the opcode (mnemonics) an do the processing based on that?",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 75
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70534886_ccd67e20",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-01T14:21:27Z",
+      "side": 1,
+      "message": "From parsing standpoint this is inefficient: you repeatedly scan the same string, matching different regexps on it. A more efficient approach is to use one joined regexp with named capturing groups, as described here: https://docs.python.org/3.2/library/re.html#writing-a-tokenizer. I\u0027m ok with leaving this as is if it\u0027s not performance-critcal.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 27
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
