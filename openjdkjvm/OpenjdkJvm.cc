@@ -210,6 +210,25 @@ JNIEXPORT jlong JVM_CurrentTimeMillis(JNIEnv* env ATTRIBUTE_UNUSED,
     return when;
 }
 
+/**
+ * See the spec of this function in jdk.internal.misc.VM.
+ * @return -1 if the system time isn't within  +/- 2^32 seconds from offset_secs
+ */
+JNIEXPORT jlong JVM_GetNanoTimeAdjustment(JNIEnv *ATTRIBUTE_UNUSED,
+                                         jclass ATTRIBUTE_UNUSED,
+                                         jlong offset_secs) {
+    struct timeval tv;
+    gettimeofday(&tv, (struct timezone *) nullptr);
+    jlong sec_diff = ((jlong) tv.tv_sec) - offset_secs;
+    const jlong max_diff = ((jlong) 1) << 32;
+    const jlong min_diff = -max_diff;
+    if (sec_diff >= max_diff || sec_diff <= min_diff) {
+        return -1;
+    }
+    jlong usec_diff = sec_diff * 1000000LL + tv.tv_usec;
+    return usec_diff * 1000;
+}
+
 JNIEXPORT jint JVM_Socket(jint domain, jint type, jint protocol) {
     return TEMP_FAILURE_RETRY(socket(domain, type, protocol));
 }
