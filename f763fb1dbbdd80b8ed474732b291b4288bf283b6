@@ -37,6 +37,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b06e1562_96dc14c5",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-04T15:24:07Z",
+      "side": 1,
+      "message": "Use `CFI_RESTORE_STATE_AND_DEF_CFA`.",
+      "range": {
+        "startLine": 170,
+        "startChar": 4,
+        "endLine": 170,
+        "endChar": 22
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "101de123_97add261",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-04T15:24:07Z",
+      "side": 1,
+      "message": "We could \"un-confuse\" the script by adding expressions for code flow-terminating instructions (including \"ret\"). But we\u0027d need some custom heuristic to tell the script that all nterp opcode handlers are reachable and should have the same SP offset as the last \"BR\" before the NOP handler.\n\nDo we process nterp handlers indiviually? Or do we see the nterp as a single function?",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 96
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db75efbe_643c20a7",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-04T15:24:07Z",
+      "side": 1,
+      "message": "double typo",
+      "range": {
+        "startLine": 1904,
+        "startChar": 6,
+        "endLine": 1904,
+        "endChar": 22
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a0e1d03_5e4a21d3",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-04T15:24:07Z",
+      "side": 1,
+      "message": "Missing copyright header.",
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b6c73b38_268358d2",
         "filename": "tools/check_cfi.py",
         "patchSetId": 3
@@ -155,6 +241,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a32c3036_fffc7f41",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-04T15:24:07Z",
+      "side": 1,
+      "message": "Is this map retrieval with default result `offset` if the map does not contain a value for key `addr`?",
+      "range": {
+        "startLine": 136,
+        "startChar": 13,
+        "endLine": 136,
+        "endChar": 44
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c036e410_d98c947c",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-04T15:24:07Z",
+      "side": 1,
+      "message": "Isn\u0027t it an actual error in assembly if the SP offset for an incoming branch does not match SP offset from a fall-through instruction?\n\nHowever, to detect such errors, we would need to detect code flow-terminating instructions, such as \"ret\", \"pop {..., pc}\", \"bx \u003creg\u003e\" and \"br \u003creg\u003e, to avoid too many false positives.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 44
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70534886_ccd67e20",
         "filename": "tools/check_cfi.py",
         "patchSetId": 3
@@ -195,6 +327,29 @@
         "startChar": 0,
         "endLine": 143,
         "endChar": 27
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "598fb276_f40868a5",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-04T15:24:07Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 172,
+        "startChar": 85,
+        "endLine": 172,
+        "endChar": 92
       },
       "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
