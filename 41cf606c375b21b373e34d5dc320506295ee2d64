@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae10a44b_ea1352d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-04-05T14:25:53Z",
+      "side": 1,
+      "message": "Before landing this can you update the Test: stanza to include the device test run and also send a heads-up to art-team@ saying that we\u0027re about to turn this on and it\u0027s been tested on host and device, but we might expect some additional failures on go/art-buildbot due to the range of devices and configs there.",
+      "revId": "41cf606c375b21b373e34d5dc320506295ee2d64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
