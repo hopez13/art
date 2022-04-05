@@ -107,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24e923c0_c6f6b1ce",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-05T10:37:44Z",
+      "side": 1,
+      "message": "But we do have the names of the handlers somewhere as we can surface them in stack traces, right? They may just need to be retrieved from different data source and found with appropriate regex.\n\nCan you add a TODO to improve the script and remove the dead code?",
+      "parentUuid": "53f62b9d_1c0360b1",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 96
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db75efbe_643c20a7",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 3
@@ -300,6 +324,30 @@
       "side": 1,
       "message": "Yes.  Other options are:\n\n`offset \u003d future_offset.get(addr) or offset`\n\n\n  if offset in future_offset:\n     offset \u003d future_offset.get(addr)",
       "parentUuid": "a32c3036_fffc7f41",
+      "range": {
+        "startLine": 136,
+        "startChar": 13,
+        "endLine": 136,
+        "endChar": 44
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c3b21f4_d6d828a1",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-05T10:37:44Z",
+      "side": 1,
+      "message": "I guess all versions are OK for someone familiar with the python APIs but maybe the last one is the best for someone who rarely reads/writes python. (Assuming you meant `if addr in future_offset:`.)",
+      "parentUuid": "7be3c4a7_3082130d",
       "range": {
         "startLine": 136,
         "startChar": 13,
