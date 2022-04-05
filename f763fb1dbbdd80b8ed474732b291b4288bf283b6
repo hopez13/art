@@ -83,6 +83,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53f62b9d_1c0360b1",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-05T10:15:44Z",
+      "side": 1,
+      "message": "Yes, I know that treating all branches as conditional is questionable.  But, in general, it has not been in issue (and it is not an issue here).  In particular, if I added that support, I should also probably check that \"ret\" in middle of function does not cause the rest of the function to be accidentally skipped.  So I would need to add support for the termination, and then simultaneously add check that no code follows it until the next known-reachable instruction, or the end of the function, which is what the current version effectively does already.  So it would be adding two new features, which together are essentially a no-op anyway.\n\nYes, the we need to find a way to add control-flow edge from the \"calculated handler jump\" to the start of each handler.  That is the issue, and the heuristic would solve it.  I am not quite sure how to do it.  I guess it is easy to identify the jump site by \"end of hard-coded symbol\", but I am not sure how to identify the handlers.\n\nThe nterp is handled as one big function.",
+      "parentUuid": "101de123_97add261",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 96
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db75efbe_643c20a7",
         "filename": "runtime/interpreter/mterp/arm64ng/main.S",
         "patchSetId": 3
@@ -264,6 +288,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7be3c4a7_3082130d",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-05T10:15:44Z",
+      "side": 1,
+      "message": "Yes.  Other options are:\n\n`offset \u003d future_offset.get(addr) or offset`\n\n\n  if offset in future_offset:\n     offset \u003d future_offset.get(addr)",
+      "parentUuid": "a32c3036_fffc7f41",
+      "range": {
+        "startLine": 136,
+        "startChar": 13,
+        "endLine": 136,
+        "endChar": 44
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c036e410_d98c947c",
         "filename": "tools/check_cfi.py",
         "patchSetId": 3
@@ -275,6 +323,30 @@
       "writtenOn": "2022-04-04T15:24:07Z",
       "side": 1,
       "message": "Isn\u0027t it an actual error in assembly if the SP offset for an incoming branch does not match SP offset from a fall-through instruction?\n\nHowever, to detect such errors, we would need to detect code flow-terminating instructions, such as \"ret\", \"pop {..., pc}\", \"bx \u003creg\u003e\" and \"br \u003creg\u003e, to avoid too many false positives.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 44
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a720793_6a43b20c",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-05T10:15:44Z",
+      "side": 1,
+      "message": "It would be an error... which this script does not try to find.\n\nThis script tries to check correctness of DWARF CFI.   Trying to check that the SP is consistent within the assembly alone wasn\u0027t a goal I had in mind.\n\nTherefore I took the the \"all branches are considered conditional\" and \"incoming jump takes precedence over fall-through\" approach, which is equivalent assuming the assembly is correct.\n\nAlso note that I only support forward-only branches.  It is single-pass algorithm.  I don\u0027t build control-flow graph.  This was sufficient for our use cases (checking CFI in slow-paths).\n\nI could try to add this assembly control-flow checking feature though.  It is a big beyond the scope of \"check CFI\", but it is reasonable.\n\n---\n\nHaving said all that.  Note that all of above is unrelated to the code line.  The `if` just compresses the output (removes repeated offset entries, as it not necessary to specify the offset didn\u0027t change).",
+      "parentUuid": "c036e410_d98c947c",
       "range": {
         "startLine": 138,
         "startChar": 0,
