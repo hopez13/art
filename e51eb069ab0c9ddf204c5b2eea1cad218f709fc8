@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "623bc196_338484db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2022-04-05T11:49:59Z",
+      "side": 1,
+      "message": "Good news: all tests are passing on the device. Below there are five failures -- the first one will be fixed and the rest are my test files.\n\n```\nOutcomes: 15345. Passed: 15328, Failed: 0, Skipped: 1, Warnings: 16. Took 11m27s.\n[114/114] Test set test.java.util.concurrent PASSED\n\nOverall, 5 test(s) failed:\n  test.java.security.KeyStore.PBETest#main FAIL (EXEC_FAILED)\n  test.java.lang.String.SampleJunitTest#testSystemProperties FAIL (EXEC_FAILED)\n  test.java.lang.String.SampleTestClass#testTimeout FAIL (ERROR)\n  test.java.lang.String.SampleTestMethods# FAIL (ERROR)\n  test.java.lang.String.SampleTestMethods# FAIL (ERROR)\n```",
+      "parentUuid": "82d8f184_f82efb1e",
+      "revId": "e51eb069ab0c9ddf204c5b2eea1cad218f709fc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd857a7b_4914ce2d",
