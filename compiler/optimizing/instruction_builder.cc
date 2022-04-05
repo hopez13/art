@@ -1147,25 +1147,7 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
   return HandleInvoke(invoke, operands, shorty, /* is_unresolved= */ false);
 }
 
-static bool VarHandleAccessorNeedsReturnTypeCheck(HInvoke* invoke, DataType::Type return_type) {
-  mirror::VarHandle::AccessModeTemplate access_mode_template =
-      mirror::VarHandle::GetAccessModeTemplateByIntrinsic(invoke->GetIntrinsic());
-
-  switch (access_mode_template) {
-    case mirror::VarHandle::AccessModeTemplate::kGet:
-    case mirror::VarHandle::AccessModeTemplate::kGetAndUpdate:
-    case mirror::VarHandle::AccessModeTemplate::kCompareAndExchange:
-      return return_type == DataType::Type::kReference;
-    case mirror::VarHandle::AccessModeTemplate::kSet:
-    case mirror::VarHandle::AccessModeTemplate::kCompareAndSet:
-      return false;
-  }
-}
-
-// This function initializes `VarHandleOptimizations`, does a number of static checks and disables
-// the intrinsic if some of the checks fail. This is necessary for the code generator to work (for
-// both the baseline and the optimizing compiler).
-static void DecideVarHandleIntrinsic(HInvoke* invoke) {
+static bool IsVarHandleIntrinsic(HInvoke* invoke) {
   switch (invoke->GetIntrinsic()) {
     case Intrinsics::kVarHandleCompareAndExchange:
     case Intrinsics::kVarHandleCompareAndExchangeAcquire:
@@ -1198,11 +1180,34 @@ static void DecideVarHandleIntrinsic(HInvoke* invoke) {
     case Intrinsics::kVarHandleWeakCompareAndSetAcquire:
     case Intrinsics::kVarHandleWeakCompareAndSetPlain:
     case Intrinsics::kVarHandleWeakCompareAndSetRelease:
-      break;
+      return true;
     default:
-      return;  // Not a VarHandle intrinsic, skip.
+      return false;
   }
+}
 
+static bool VarHandleAccessorNeedsReturnTypeCheck(HInvoke* invoke, DataType::Type return_type) {
+  DCHECK(IsVarHandleIntrinsic(invoke));
+
+  mirror::VarHandle::AccessModeTemplate access_mode_template =
+      mirror::VarHandle::GetAccessModeTemplateByIntrinsic(invoke->GetIntrinsic());
+
+  switch (access_mode_template) {
+    case mirror::VarHandle::AccessModeTemplate::kGet:
+    case mirror::VarHandle::AccessModeTemplate::kGetAndUpdate:
+    case mirror::VarHandle::AccessModeTemplate::kCompareAndExchange:
+      return return_type == DataType::Type::kReference;
+    case mirror::VarHandle::AccessModeTemplate::kSet:
+    case mirror::VarHandle::AccessModeTemplate::kCompareAndSet:
+      return false;
+  }
+}
+
+// This function initializes `VarHandleOptimizations`, does a number of static checks and disables
+// the intrinsic if some of the checks fail. This is necessary for the code generator to work (for
+// both the baseline and the optimizing compiler).
+static void DecideVarHandleIntrinsic(HInvoke* invoke) {
+  DCHECK(IsVarHandleIntrinsic(invoke));
   DCHECK(invoke->IsInvokePolymorphic());
   VarHandleOptimizations optimizations(invoke);
 
@@ -1346,20 +1351,19 @@ bool HInstructionBuilder::BuildInvokePolymorphic(uint32_t dex_pc,
     return false;
   }
 
-  if (invoke->GetIntrinsic() != Intrinsics::kMethodHandleInvoke &&
-      invoke->GetIntrinsic() != Intrinsics::kMethodHandleInvokeExact &&
-      VarHandleAccessorNeedsReturnTypeCheck(invoke, return_type)) {
-    // Type check is needed because VarHandle intrinsics do not type check the retrieved reference.
-    ScopedObjectAccess soa(Thread::Current());
-    ArtMethod* referrer = graph_->GetArtMethod();
-    dex::TypeIndex return_type_index =
-        referrer->GetDexFile()->GetProtoId(proto_idx).return_type_idx_;
+  if (IsVarHandleIntrinsic(invoke)) {
+    if (VarHandleAccessorNeedsReturnTypeCheck(invoke, return_type)) {
+      // Type check is needed because VarHandle intrinsics don't type check the retrieved reference.
+      ScopedObjectAccess soa(Thread::Current());
+      ArtMethod* referrer = graph_->GetArtMethod();
+      dex::TypeIndex return_type_index =
+          referrer->GetDexFile()->GetProtoId(proto_idx).return_type_idx_;
 
-    BuildTypeCheck(/* is_instance_of= */ false, invoke, return_type_index, dex_pc);
-    latest_result_ = current_block_->GetLastInstruction();
+      BuildTypeCheck(/* is_instance_of= */ false, invoke, return_type_index, dex_pc);
+      latest_result_ = current_block_->GetLastInstruction();
+    }
+    DecideVarHandleIntrinsic(invoke);
   }
-
-  DecideVarHandleIntrinsic(invoke);
 
   return true;
 }
