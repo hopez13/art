@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffe0aee2_f21a61f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-05T08:02:05Z",
+      "side": 1,
+      "message": "Pre-existing failure.",
+      "parentUuid": "838e87b5_4bfb5b10",
+      "revId": "9c238f03fdc95264fbc03612c78735eef7bc5ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7f1b4f6_7ccebc89",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ddf18fd_45b98abf",
+        "filename": "runtime/intern_table-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-05T08:02:05Z",
+      "side": 1,
+      "message": "The last table is where we insert new interns and we want to keep using it. The table we\u0027re inserting from a boot/app image should not be modified (it should be \"frozen\"), so we\u0027re inserting it before the last table.\n\nSee also `ClassTable::FreezeSnapshot()` which has the same purpose but different naming from `InternTable::AddNewTable()`. Consistent naming is another TODO item.",
+      "parentUuid": "d7f1b4f6_7ccebc89",
+      "range": {
+        "startLine": 133,
+        "startChar": 5,
+        "endLine": 133,
+        "endChar": 44
+      },
+      "revId": "9c238f03fdc95264fbc03612c78735eef7bc5ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "627a25a6_c61d21e3",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-04-04T17:03:03Z",
       "side": 1,
       "message": "Is this loop\u0027s purpose just to wait until we are clear to insert? Is something keeping us from starvation?",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 16
+      },
+      "revId": "9c238f03fdc95264fbc03612c78735eef7bc5ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffbc642e_8a55a342",
+        "filename": "runtime/intern_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-05T08:02:05Z",
+      "side": 1,
+      "message": "We wait while the GC is processing weak references because we do not know which weak interns are strongly reachable in that GC phase.",
+      "parentUuid": "627a25a6_c61d21e3",
       "range": {
         "startLine": 212,
         "startChar": 0,
