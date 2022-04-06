@@ -18,6 +18,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e9580c8_f14294af",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-06T10:15:55Z",
+      "side": 1,
+      "message": "This should be updated. We do have support for inlining across dex files even with .bss entries with the exception of the situation described below.",
+      "range": {
+        "startLine": 1940,
+        "startChar": 9,
+        "endLine": 1941,
+        "endChar": 20
+      },
+      "revId": "b183958de762cf3925e77dfd8fe7747993df7863",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fa31d323_746c6a24",
