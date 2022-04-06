@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aacb0b5c_1abf532a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-06T14:08:41Z",
+      "side": 1,
+      "message": "All HInvokePolymorphic instructions should target intrinsics. If we see a non-intrinsic HInvokePolymorphic, this cleanup shall let the program run for a bit longer but it\u0027s likely to crash soon anyway.",
+      "range": {
+        "startLine": 11,
+        "startChar": 34,
+        "endLine": 11,
+        "endChar": 67
+      },
+      "revId": "eed6e5b86a483df6395ca6abc5580c072be667fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
