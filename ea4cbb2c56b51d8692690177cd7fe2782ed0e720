@@ -34,6 +34,41 @@
       "parentUuid": "95c0f17b_9e8d0e19",
       "revId": "ea4cbb2c56b51d8692690177cd7fe2782ed0e720",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "939cbeb1_66b1b2ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-06T08:28:09Z",
+      "side": 1,
+      "message": "Ack, sounds reasonable. Not for this CL, but I wonder how many other lambdas we have that could benefit from ALWAYS_INLINE.\n\n\u003e Note: While experimenting, I also noticed that FLATTEN shall inline even functions marked as NO_INLINE. This interfered with the things I wanted to try.\n\nThis was surprising. So flatten overrides the no_inline.",
+      "parentUuid": "723a8137_dc3f4b47",
+      "revId": "ea4cbb2c56b51d8692690177cd7fe2782ed0e720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d2a8cb7_01188533",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-06T08:28:09Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "ea4cbb2c56b51d8692690177cd7fe2782ed0e720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
