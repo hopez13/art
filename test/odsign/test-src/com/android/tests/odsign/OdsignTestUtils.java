@@ -274,25 +274,6 @@ public class OdsignTestUtils {
     }
 
     /**
-     * Enables adb root or skips the test if adb root is not supported.
-     */
-    public void enableAdbRootOrSkipTest() throws Exception {
-        setBoolean(WAS_ADB_ROOT_KEY, mTestInfo.getDevice().isAdbRoot());
-        boolean adbRootEnabled = mTestInfo.getDevice().enableAdbRoot();
-        assumeTrue("ADB root failed and required to get process maps", adbRootEnabled);
-        setBoolean(ADB_ROOT_ENABLED_KEY, adbRootEnabled);
-    }
-
-    /**
-     * Restores the device to the state before {@link enableAdbRootOrSkipTest} was called.
-     */
-    public void restoreAdbRoot() throws Exception {
-        if (getBooleanOrDefault(ADB_ROOT_ENABLED_KEY) && !getBooleanOrDefault(WAS_ADB_ROOT_KEY)) {
-            mTestInfo.getDevice().disableAdbRoot();
-        }
-    }
-
-    /**
      * Returns the value of a boolean test property, or false if it does not exist.
      */
     private boolean getBooleanOrDefault(String key) {
