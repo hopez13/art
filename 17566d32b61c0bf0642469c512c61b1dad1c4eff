@@ -16,6 +16,29 @@
       "message": "Vladimir PTAL",
       "revId": "17566d32b61c0bf0642469c512c61b1dad1c4eff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed38dbf3_71ce8adc",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-06T19:31:54Z",
+      "side": 1,
+      "message": "Technically `/*inout*/` because it\u0027s not necessarily output of this function. If it was `true` on entry, it shall remain `true` whether we mark the method as always throwing or not.\n\n(Alternatively, make it a pure `/*out*/` by setting to `false` when we enter the function and rewrite the caller to `||` all the results.)",
+      "range": {
+        "startLine": 75,
+        "startChar": 46,
+        "endLine": 75,
+        "endChar": 53
+      },
+      "revId": "17566d32b61c0bf0642469c512c61b1dad1c4eff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
