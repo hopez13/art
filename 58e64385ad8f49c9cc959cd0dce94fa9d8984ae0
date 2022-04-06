@@ -16,6 +16,29 @@
       "message": "Thanks for the review!",
       "revId": "58e64385ad8f49c9cc959cd0dce94fa9d8984ae0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7456fb5_ef090883",
+        "filename": "test/odsign/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-04-06T15:30:09Z",
+      "side": 1,
+      "message": "I assume you\u0027ll update those GCL configs to _full.  I\u0027ll also update the TEST_MAPPING reference from packages/modules/Virtualization.",
+      "range": {
+        "startLine": 41,
+        "startChar": 11,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "58e64385ad8f49c9cc959cd0dce94fa9d8984ae0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
