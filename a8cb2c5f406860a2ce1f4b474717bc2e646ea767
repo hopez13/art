@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d6f51d_082154f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-06T12:21:19Z",
+      "side": 1,
+      "message": "I like this new annotation-based approach!",
+      "revId": "a8cb2c5f406860a2ce1f4b474717bc2e646ea767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ea66e9a_fa09e627",
+        "filename": "test/odsign/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-06T12:21:19Z",
+      "side": 1,
+      "message": "Out of curiosity, do we need `device-tests` here, or could we use `general-tests`? (See the documentation at https://source.android.com/compatibility/tests/development/test-mapping#packaging_build_script_rules). I don\u0027t remember whether we discussed this before.",
+      "range": {
+        "startLine": 45,
+        "startChar": 9,
+        "endLine": 45,
+        "endChar": 21
+      },
+      "revId": "a8cb2c5f406860a2ce1f4b474717bc2e646ea767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "725f8380_2752776c",
+        "filename": "test/odsign/odsign-e2e-tests-full.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-06T12:21:19Z",
+      "side": 1,
+      "message": "Nit: 2022.",
+      "range": {
+        "startLine": 2,
+        "startChar": 19,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "a8cb2c5f406860a2ce1f4b474717bc2e646ea767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c66a2a8_70091647",
+        "filename": "test/odsign/odsign-e2e-tests-full.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-06T12:21:19Z",
+      "side": 1,
+      "message": "Nit: I think you should be able to use:\n\n  \u003ctarget_preparer class\u003d\"com.android.tradefed.targetprep.RootTargetPreparer\" /\u003e\n\nhere.",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 98
+      },
+      "revId": "a8cb2c5f406860a2ce1f4b474717bc2e646ea767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
