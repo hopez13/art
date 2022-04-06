@@ -16,6 +16,24 @@
       "message": "Did you get some numbers on how much this improves?\nHow were the methods selected to be ALWAYS_INLINE or FLATTEN?",
       "revId": "ea4cbb2c56b51d8692690177cd7fe2782ed0e720",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "723a8137_dc3f4b47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-06T08:21:17Z",
+      "side": 1,
+      "message": "See the bug for profiles before and after the CL.\n\nI have considered making the two `Find()` functions also ALWAYS_INLINE (in addition to FLATTEN) but the profiles I collected did not show much difference. Same for some other functions I considered for these attributes, such as `Insert()`.\n\nNote: While experimenting, I also noticed that FLATTEN shall inline even functions marked as NO_INLINE. This interfered with the things I wanted to try.",
+      "parentUuid": "95c0f17b_9e8d0e19",
+      "revId": "ea4cbb2c56b51d8692690177cd7fe2782ed0e720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
