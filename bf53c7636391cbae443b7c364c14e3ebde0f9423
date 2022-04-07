@@ -16,6 +16,23 @@
       "message": "Vladimir PTAL. Update can be seen in 1..2",
       "revId": "bf53c7636391cbae443b7c364c14e3ebde0f9423",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c6cd38c_6a98e5b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T13:39:56Z",
+      "side": 1,
+      "message": "Please rebase. You may need to wait for the parent change to be merged to internal branches to avoid TreeHugger failures.",
+      "revId": "bf53c7636391cbae443b7c364c14e3ebde0f9423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
