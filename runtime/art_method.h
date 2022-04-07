@@ -27,6 +27,7 @@
 #include "base/bit_utils.h"
 #include "base/casts.h"
 #include "base/enums.h"
+#include "base/logging.h"
 #include "base/macros.h"
 #include "base/runtime_debug.h"
 #include "dex/dex_file_structs.h"
@@ -116,6 +117,8 @@ class ArtMethod final {
   // before the method is linked.
   void SetAccessFlags(uint32_t new_access_flags) REQUIRES_SHARED(Locks::mutator_lock_) {
     access_flags_.store(new_access_flags, std::memory_order_relaxed);
+    // The following check ensures that we do not set `Intrinsics::kNone` (see b/228049006).
+    DCHECK_IMPLIES((access_flags_ & kAccIntrinsic) != 0, (access_flags_ & kAccIntrinsicBits) != 0);
   }
 
   static constexpr MemberOffset AccessFlagsOffset() {
