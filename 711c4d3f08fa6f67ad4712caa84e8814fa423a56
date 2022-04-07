@@ -22,6 +22,30 @@
       },
       "revId": "711c4d3f08fa6f67ad4712caa84e8814fa423a56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70c8b40b_66ce0a9d",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-07T14:11:33Z",
+      "side": 1,
+      "message": "Done.\n\nBy the way it\u0027s confusing to me that the comment says \"This version should only be called...\" as if there was another safer `SetAccessFlags` function for `ArtMethod`. Do you know why it says that?",
+      "parentUuid": "674c3a43_a98f4cb7",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 99
+      },
+      "revId": "711c4d3f08fa6f67ad4712caa84e8814fa423a56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
