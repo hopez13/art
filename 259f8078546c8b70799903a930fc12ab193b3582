@@ -89,6 +89,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6abb05ae_9b8a070e",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-07T02:52:47Z",
+      "side": 1,
+      "message": "Make this part of a for-loop, since it\u0027s controlling the iteration.",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 14
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9047e32c_fdf47e8b",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-07T02:52:47Z",
+      "side": 1,
+      "message": "Probably change the naming here. VerifyStackRoot?",
+      "range": {
+        "startLine": 190,
+        "startChar": 41,
+        "endLine": 190,
+        "endChar": 49
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "094a24fb_9fb0e68c",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-07T02:52:47Z",
+      "side": 1,
+      "message": "Should this be a DCHECK?\nIf it\u0027s expected to be called on non-stack roots, won\u0027t this create log spam?",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 49
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ea66beb_298ee42f",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-07T02:52:47Z",
+      "side": 1,
+      "message": "Just subtract a precomputed black_allocations_begin_ - post_compact_end_ .",
+      "range": {
+        "startLine": 275,
+        "startChar": 43,
+        "endLine": 277,
+        "endChar": 72
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee6c5784_64ac51d2",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 18
@@ -266,6 +358,121 @@
         "startChar": 0,
         "endLine": 759,
         "endChar": 49
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2df6759c_a63a3b14",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-07T02:52:47Z",
+      "side": 1,
+      "message": "Since this is regularly incremented, begin is not the right name.",
+      "range": {
+        "startLine": 929,
+        "startChar": 11,
+        "endLine": 929,
+        "endChar": 16
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27d2e480_1e55b5e3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-07T02:52:47Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 1020,
+        "startChar": 58,
+        "endLine": 1020,
+        "endChar": 71
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b75e517_dfa80713",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-07T02:52:47Z",
+      "side": 1,
+      "message": "Grammar.",
+      "range": {
+        "startLine": 1022,
+        "startChar": 24,
+        "endLine": 1023,
+        "endChar": 52
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c04d405c_45894343",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1025,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-07T02:52:47Z",
+      "side": 1,
+      "message": "remainder",
+      "range": {
+        "startLine": 1025,
+        "startChar": 20,
+        "endLine": 1025,
+        "endChar": 29
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aff78273_03f4c986",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-07T02:52:47Z",
+      "side": 1,
+      "message": "Not really the page size, right? Please rename or add comment.",
+      "range": {
+        "startLine": 1039,
+        "startChar": 13,
+        "endLine": 1039,
+        "endChar": 22
       },
       "revId": "259f8078546c8b70799903a930fc12ab193b3582",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
