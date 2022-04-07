@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f53a48d_6cfbdb8d",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-07T11:45:46Z",
+      "side": 1,
+      "message": "It needs CFI_DEF_CFA_BREG_PLUS_UCONST\n(the stack size is dynamic)",
+      "parentUuid": "b06e1562_96dc14c5",
+      "range": {
+        "startLine": 170,
+        "startChar": 4,
+        "endLine": 170,
+        "endChar": 22
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "101de123_97add261",
@@ -129,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e4ab9a_bd9c15ab",
+        "filename": "runtime/interpreter/mterp/arm64ng/control_flow.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-07T11:45:46Z",
+      "side": 1,
+      "message": "Done.  There is a simple fix actually... just ignore the handlers in the checker.\nThe CFA inside handlers can not be checked anyway as it is dynamic.\nAnd the epilogue is still checked as before.\n\nAt the moment I just excluded them by symbol name.\nMore general solution would have been to stop checking at \"mov sp, ?\" and restart at \"mov ?, sp\".",
+      "parentUuid": "24e923c0_c6f6b1ce",
+      "range": {
+        "startLine": 173,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 96
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db75efbe_643c20a7",
@@ -152,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3729dba_046fddf8",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-07T11:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db75efbe_643c20a7",
+      "range": {
+        "startLine": 1904,
+        "startChar": 6,
+        "endLine": 1904,
+        "endChar": 22
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a0e1d03_5e4a21d3",
@@ -165,6 +237,24 @@
       "writtenOn": "2022-04-04T15:24:07Z",
       "side": 1,
       "message": "Missing copyright header.",
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca7b50ca_8164af9f",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-07T11:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a0e1d03_5e4a21d3",
       "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -358,6 +448,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab842f4c_c1bf5881",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-07T11:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c3b21f4_d6d828a1",
+      "range": {
+        "startLine": 136,
+        "startChar": 13,
+        "endLine": 136,
+        "endChar": 44
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c036e410_d98c947c",
@@ -465,6 +579,30 @@
       "writtenOn": "2022-04-04T15:24:07Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 172,
+        "startChar": 85,
+        "endLine": 172,
+        "endChar": 92
+      },
+      "revId": "f763fb1dbbdd80b8ed474732b291b4288bf283b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e7ec914_1ac137ed",
+        "filename": "tools/check_cfi.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-07T11:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "598fb276_f40868a5",
       "range": {
         "startLine": 172,
         "startChar": 85,
