@@ -238,6 +238,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c26504a_e12017be",
+        "filename": "test/182-method-linking/src/pkg1/I1.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-07T14:04:43Z",
+      "side": 1,
+      "message": "Ack, but it looks to me that `src/pkg1/I1.java` could be out of sync with `src2/pkg1/I1.java` if we are not careful given that the difference is code comments.",
+      "parentUuid": "4186db10_2169fb14",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "77db50b2c997aa472df443628901f337254490e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff8e64eb_0fb9fcdf",
