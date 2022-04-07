@@ -69,6 +69,24 @@
       "message": "LGTM, thanks!",
       "revId": "ea4cbb2c56b51d8692690177cd7fe2782ed0e720",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72964ed7_1bac64c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T16:18:05Z",
+      "side": 1,
+      "message": "There are lambdas that we should inline in `CodeInfo` constructors: https://android-review.googlesource.com/2057471 .\n\nAnd then there are lambdas in `ClassLinker::LoadMethod()` but I\u0027m thinking about other optimizations in that area, so I\u0027m not going to force inlining there for now.",
+      "parentUuid": "939cbeb1_66b1b2ab",
+      "revId": "ea4cbb2c56b51d8692690177cd7fe2782ed0e720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
