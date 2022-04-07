@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de27f65b_a4b8e8eb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8091,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T13:35:42Z",
+      "side": 1,
+      "message": "I\u0027d like to keep the reference. See also line 8027 above (line 8037 in PS3 due to rebase).",
+      "parentUuid": "f2a19fe7_716b1df2",
+      "range": {
+        "startLine": 8091,
+        "startChar": 43,
+        "endLine": 8091,
+        "endChar": 54
+      },
+      "revId": "77db50b2c997aa472df443628901f337254490e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6038d8c_53c68058",
         "filename": "test/182-method-linking/src/pkg1/I1.java",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-07T08:48:05Z",
       "side": 1,
       "message": "If this is not the one used at runtime WDYT about changing the `System.out.println` to something else so we should get a stdout difference if this gets called?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 80
+      },
+      "revId": "77db50b2c997aa472df443628901f337254490e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3e4e251_9d9db616",
+        "filename": "test/182-method-linking/src/pkg1/I1.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T13:35:42Z",
+      "side": 1,
+      "message": "This is the one that\u0027s intended to be used and it is used when you run the test on RI (`--jvm`).\n\nI consider it a bug that we throw the IAE during method linking but this could be reasonably considered as WAI and we could deliberately maintain the difference from RI.",
+      "parentUuid": "c6038d8c_53c68058",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70a66197_2537a6c7",
+        "filename": "test/182-method-linking/src/pkg1/I1.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T13:35:42Z",
+      "side": 1,
+      "message": "This code is commented out to allow compilation to succeed. The version in src2/ has this code enabled.",
+      "parentUuid": "0d1ed65f_33c6b2f0",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "77db50b2c997aa472df443628901f337254490e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff8e64eb_0fb9fcdf",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-04-07T08:48:05Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "77db50b2c997aa472df443628901f337254490e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de60aa36_3e205361",
+        "filename": "test/182-method-linking/src/pkg1/I1.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T13:35:42Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "ff8e64eb_0fb9fcdf",
       "range": {
         "startLine": 26,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8f347af_055fb6e6",
+        "filename": "test/182-method-linking/src/pkg2/I2.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T13:35:42Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "e2b51157_84a38db7",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 80
+      },
+      "revId": "77db50b2c997aa472df443628901f337254490e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb4dcb74_7771e365",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b943ed2_f0c363b8",
+        "filename": "test/182-method-linking/src/pkg2/I2.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T13:35:42Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "bb4dcb74_7771e365",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "77db50b2c997aa472df443628901f337254490e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d95e2761_3fb060de",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-04-07T08:48:05Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "77db50b2c997aa472df443628901f337254490e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "728901ee_2e3b2ecc",
+        "filename": "test/182-method-linking/src/pkg2/I2.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T13:35:42Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "d95e2761_3fb060de",
       "range": {
         "startLine": 26,
         "startChar": 0,
