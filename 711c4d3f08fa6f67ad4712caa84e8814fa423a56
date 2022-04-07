@@ -46,6 +46,30 @@
       },
       "revId": "711c4d3f08fa6f67ad4712caa84e8814fa423a56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0458e7c_decf9a91",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T14:42:46Z",
+      "side": 1,
+      "message": "There is `AddAccessFlags()` and `ClearAccessFlags()`. The `SetAccessFlags()` should be done only during class linking (while the method has not escaped to other threads) or when essentially single-threaded (runtime initialization, all threads suspended by jvmti, etc.).",
+      "parentUuid": "70c8b40b_66ce0a9d",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 99
+      },
+      "revId": "711c4d3f08fa6f67ad4712caa84e8814fa423a56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
