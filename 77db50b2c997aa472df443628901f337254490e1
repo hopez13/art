@@ -216,6 +216,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4186db10_2169fb14",
+        "filename": "test/182-method-linking/src/pkg1/I1.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T14:00:24Z",
+      "side": 1,
+      "message": "This file (`src/pkg1/I1.java`) is used only for compiling other classes, the run-time definition of `interface I1` is in another file (`src2/pkg1/I1.java`). The commented out code is intended to tell you what is in that other file and what we needed to change to allow other classes to compile. In particular, `CXI1` and `DXI1` declare a package-private `foo()`, so they would not compile with an interface that requires it to be public.\n\nIf this is confusing, we should schedule a video conference to discuss this further.",
+      "parentUuid": "19c4b939_211f69c8",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "77db50b2c997aa472df443628901f337254490e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff8e64eb_0fb9fcdf",
         "filename": "test/182-method-linking/src/pkg1/I1.java",
         "patchSetId": 2
