@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "674c3a43_a98f4cb7",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-07T14:04:21Z",
+      "side": 1,
+      "message": "I\u0027d prefer to check `new_access_flags` instead of `access_flags_`. Reading the latter twice would appear to be racy, so we would be relying on never clearing the intrinsic flag and number.",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 99
+      },
+      "revId": "711c4d3f08fa6f67ad4712caa84e8814fa423a56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
