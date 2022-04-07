@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a96e3402_dce50f65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-07T09:35:05Z",
+      "side": 1,
+      "message": "Local commit has the typo. Fixed it in gerrit but forgot to fix locally. When pushing a local update, it pushes the old commit message too.",
+      "parentUuid": "355a37c4_9bb0bd4f",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "a1114daeae96f5b6956a6c078b463d41d39b0a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49efc9a0_514ad7a2",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-07T09:15:12Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 13,
+        "startChar": 19,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "a1114daeae96f5b6956a6c078b463d41d39b0a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "098eb706_91c07c72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-07T09:35:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49efc9a0_514ad7a2",
       "range": {
         "startLine": 13,
         "startChar": 19,
