@@ -70,6 +70,30 @@
       },
       "revId": "711c4d3f08fa6f67ad4712caa84e8814fa423a56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbe39fc3_d193db5a",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-07T15:01:05Z",
+      "side": 1,
+      "message": "Ah, I see. I added the check for not `kNone` to `AddAccessFlags()` as well, PTAL.",
+      "parentUuid": "f0458e7c_decf9a91",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 99
+      },
+      "revId": "711c4d3f08fa6f67ad4712caa84e8814fa423a56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
