@@ -199,6 +199,7 @@ END_MACRO
 
 MACRO2(NO_ARG_RUNTIME_EXCEPTION, c_name, cxx_name)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME  // save all registers as basis for long jump context
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rdi  // pass Thread::Current()
@@ -209,6 +210,7 @@ END_MACRO
 
 MACRO2(NO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING, c_name, cxx_name)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_EVERYTHING_FRAME        // save all registers as basis for long jump context
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rdi  // pass Thread::Current()
@@ -219,6 +221,7 @@ END_MACRO
 
 MACRO2(ONE_ARG_RUNTIME_EXCEPTION, c_name, cxx_name)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME  // save all registers as basis for long jump context
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rsi  // pass Thread::Current()
@@ -229,6 +232,7 @@ END_MACRO
 
 MACRO2(TWO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING, c_name, cxx_name)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_EVERYTHING_FRAME        // save all registers as basis for long jump context
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rdx  // pass Thread::Current()
@@ -246,6 +250,7 @@ NO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING art_quick_throw_null_pointer_exception,
      * Call installed by a signal handler to create and deliver a NullPointerException.
      */
 DEFINE_FUNCTION_CUSTOM_CFA art_quick_throw_null_pointer_exception_from_signal, 2 * __SIZEOF_POINTER__
+    UNREACHABLE
     // Fault address and return address were saved by the fault handler.
     // Save all registers as basis for long jump context; R15 will replace fault address later.
     SETUP_SAVE_EVERYTHING_FRAME_R15_SAVED
@@ -305,6 +310,7 @@ TWO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING art_quick_throw_string_bounds, artThro
      * Adapted from x86 code.
      */
 MACRO1(INVOKE_TRAMPOLINE_BODY, cxx_name)
+    UNREACHABLE
     SETUP_SAVE_REFS_AND_ARGS_FRAME  // save callee saves in case allocation triggers GC
     // Helper signature is always
     // (method_idx, *this_object, *caller_method, *self, sp)
@@ -416,6 +422,7 @@ END_MACRO
      *   r9 = char* shorty
      */
 DEFINE_FUNCTION art_quick_invoke_stub
+    UNREACHABLE
 #if defined(__APPLE__)
     int3
     int3
@@ -510,6 +517,7 @@ END_FUNCTION art_quick_invoke_stub
      *   r9 = char* shorty
      */
 DEFINE_FUNCTION art_quick_invoke_static_stub
+    UNREACHABLE
 #if defined(__APPLE__)
     int3
     int3
@@ -598,6 +606,7 @@ END_FUNCTION art_quick_invoke_static_stub
      *   rsi = fprs
      */
 DEFINE_FUNCTION art_quick_do_long_jump
+    UNREACHABLE
 #if defined(__APPLE__)
     int3
     int3
@@ -645,6 +654,7 @@ END_FUNCTION art_quick_do_long_jump
 
 MACRO3(ONE_ARG_DOWNCALL, c_name, cxx_name, return_macro)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_REFS_ONLY_FRAME           // save ref containing registers for GC
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rsi    // pass Thread::Current()
@@ -656,6 +666,7 @@ END_MACRO
 
 MACRO3(TWO_ARG_DOWNCALL, c_name, cxx_name, return_macro)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_REFS_ONLY_FRAME           // save ref containing registers for GC
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rdx    // pass Thread::Current()
@@ -667,6 +678,7 @@ END_MACRO
 
 MACRO3(THREE_ARG_DOWNCALL, c_name, cxx_name, return_macro)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_REFS_ONLY_FRAME          // save ref containing registers for GC
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rcx   // pass Thread::Current()
@@ -678,6 +690,7 @@ END_MACRO
 
 MACRO3(FOUR_ARG_DOWNCALL, c_name, cxx_name, return_macro)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_REFS_ONLY_FRAME          // save ref containing registers for GC
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %r8    // pass Thread::Current()
@@ -689,6 +702,7 @@ END_MACRO
 
 MACRO3(ONE_ARG_REF_DOWNCALL, c_name, cxx_name, return_macro)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_REFS_ONLY_FRAME
                                         // arg0 is in rdi
     movq %gs:THREAD_SELF_OFFSET, %rsi   // pass Thread::Current()
@@ -700,6 +714,7 @@ END_MACRO
 
 MACRO3(TWO_ARG_REF_DOWNCALL, c_name, cxx_name, return_macro)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_REFS_ONLY_FRAME
                                         // arg0 and arg1 are in rdi/rsi
     movq %gs:THREAD_SELF_OFFSET, %rdx   // pass Thread::Current()
@@ -711,6 +726,7 @@ END_MACRO
 
 MACRO3(THREE_ARG_REF_DOWNCALL, c_name, cxx_name, return_macro)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_REFS_ONLY_FRAME
                                         // arg0, arg1, and arg2 are in rdi/rsi/rdx
     movq %gs:THREAD_SELF_OFFSET, %rcx   // pass Thread::Current()
@@ -726,6 +742,7 @@ END_MACRO
      */
 MACRO3(ONE_ARG_SAVE_EVERYTHING_DOWNCALL, c_name, cxx_name, runtime_method_offset = RUNTIME_SAVE_EVERYTHING_METHOD_OFFSET)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     SETUP_SAVE_EVERYTHING_FRAME \runtime_method_offset  // save everything for GC
     // Outgoing argument set up
     movl %eax, %edi                               // pass the index of the constant as arg0
@@ -797,6 +814,7 @@ GENERATE_ALLOC_ENTRYPOINTS_ALLOC_STRING_FROM_STRING(_tlab, TLAB)
 // A hand-written override for GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT_RESOLVED(_rosalloc, RosAlloc).
 MACRO2(ART_QUICK_ALLOC_OBJECT_ROSALLOC, c_name, cxx_name)
     DEFINE_FUNCTION VAR(c_name)
+    UNREACHABLE
     // Fast path rosalloc allocation.
     // RDI: mirror::Class*, RAX: return value
     // RSI, RDX, RCX, R8, R9: free.
@@ -926,6 +944,7 @@ END_MACRO
 // The common slow path code for art_quick_alloc_object_{resolved, initialized}_tlab
 // and art_quick_alloc_object_{resolved, initialized}_region_tlab.
 MACRO1(ALLOC_OBJECT_TLAB_SLOW_PATH, cxx_name)
+    UNREACHABLE
     SETUP_SAVE_REFS_ONLY_FRAME                             // save ref containing registers for GC
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rsi                      // pass Thread::Current()
@@ -937,6 +956,7 @@ END_MACRO
 // A hand-written override for GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT_RESOLVED(_tlab, TLAB). May be
 // called with CC if the GC is not active.
 DEFINE_FUNCTION art_quick_alloc_object_resolved_tlab
+    UNREACHABLE
     // RDI: mirror::Class* klass
     // RDX, RSI, RCX, R8, R9: free. RAX: return val.
     ALLOC_OBJECT_RESOLVED_TLAB_FAST_PATH .Lart_quick_alloc_object_resolved_tlab_slow_path
@@ -947,6 +967,7 @@ END_FUNCTION art_quick_alloc_object_resolved_tlab
 // A hand-written override for GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT_INITIALIZED(_tlab, TLAB).
 // May be called with CC if the GC is not active.
 DEFINE_FUNCTION art_quick_alloc_object_initialized_tlab
+    UNREACHABLE
     // RDI: mirror::Class* klass
     // RDX, RSI, RCX, R8, R9: free. RAX: return val.
     ALLOC_OBJECT_INITIALIZED_TLAB_FAST_PATH .Lart_quick_alloc_object_initialized_tlab_slow_path
@@ -1009,6 +1030,7 @@ END_MACRO
 
 MACRO3(GENERATE_ALLOC_ARRAY_TLAB, c_entrypoint, cxx_name, size_setup)
     DEFINE_FUNCTION VAR(c_entrypoint)
+    UNREACHABLE
     // RDI: mirror::Class* klass, RSI: int32_t component_count
     // RDX, RCX, R8, R9: free. RAX: return val.
     CALL_MACRO(size_setup)
@@ -1038,6 +1060,7 @@ GENERATE_ALLOC_ARRAY_TLAB art_quick_alloc_array_resolved64_tlab, artAllocArrayFr
 
 // A hand-written override for GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT_RESOLVED(_region_tlab, RegionTLAB).
 DEFINE_FUNCTION art_quick_alloc_object_resolved_region_tlab
+    UNREACHABLE
     // Fast path region tlab allocation.
     // RDI: mirror::Class* klass
     // RDX, RSI, RCX, R8, R9: free. RAX: return val.
@@ -1049,6 +1072,7 @@ END_FUNCTION art_quick_alloc_object_resolved_region_tlab
 
 // A hand-written override for GENERATE_ALLOC_ENTRYPOINTS_ALLOC_OBJECT_INITIALIZED(_region_tlab, RegionTLAB).
 DEFINE_FUNCTION art_quick_alloc_object_initialized_region_tlab
+    UNREACHABLE
     // Fast path region tlab allocation.
     // RDI: mirror::Class* klass
     // RDX, RSI, RCX, R8, R9: free. RAX: return val.
@@ -1074,6 +1098,7 @@ TWO_ARG_REF_DOWNCALL art_quick_handle_fill_data, artHandleFillArrayDataFromCode,
      * RDI holds the possibly null object to lock.
      */
 DEFINE_FUNCTION art_quick_lock_object
+    UNREACHABLE
     testq %rdi, %rdi                      // Null check object.
     jz   art_quick_lock_object_no_inline
     LOCK_OBJECT_FAST_PATH rdi, ecx, art_quick_lock_object_no_inline
@@ -1084,6 +1109,7 @@ END_FUNCTION art_quick_lock_object
      * RDI holds the possibly null object to lock.
      */
 DEFINE_FUNCTION art_quick_lock_object_no_inline
+    UNREACHABLE
     // This is also the slow path for art_quick_lock_object.
     SETUP_SAVE_REFS_ONLY_FRAME
     movq %gs:THREAD_SELF_OFFSET, %rsi     // pass Thread::Current()
@@ -1098,6 +1124,7 @@ END_FUNCTION art_quick_lock_object_no_inline
      * RDI holds the possibly null object to unlock.
      */
 DEFINE_FUNCTION art_quick_unlock_object
+    UNREACHABLE
     testq %rdi, %rdi                      // Null check object.
     jz   art_quick_lock_object_no_inline
     UNLOCK_OBJECT_FAST_PATH rdi, ecx, /*saved_rax*/ none, art_quick_unlock_object_no_inline
@@ -1109,6 +1136,7 @@ END_FUNCTION art_quick_unlock_object
      * RDI holds the possibly null object to unlock.
      */
 DEFINE_FUNCTION art_quick_unlock_object_no_inline
+    UNREACHABLE
     // This is also the slow path for art_quick_unlock_object.
     SETUP_SAVE_REFS_ONLY_FRAME
     movq %gs:THREAD_SELF_OFFSET, %rsi     // pass Thread::Current()
@@ -1118,6 +1146,7 @@ DEFINE_FUNCTION art_quick_unlock_object_no_inline
 END_FUNCTION art_quick_unlock_object_no_inline
 
 DEFINE_FUNCTION art_quick_check_instance_of
+    UNREACHABLE
     // Type check using the bit string passes null as the target class. In that case just throw.
     testl %esi, %esi
     jz .Lthrow_class_cast_exception_for_bitstring_check
@@ -1208,6 +1237,7 @@ MACRO4(READ_BARRIER, obj_reg, offset, dest_reg32, dest_reg64)
 END_MACRO
 
 DEFINE_FUNCTION art_quick_aput_obj
+    UNREACHABLE
     testl %edx, %edx                // store of null
 //  test %rdx, %rdx
     jz .Ldo_aput_null
@@ -1295,11 +1325,13 @@ END_FUNCTION art_quick_aput_obj
 
 // TODO: This is quite silly on X86_64 now.
 DEFINE_FUNCTION art_quick_memcpy
+    UNREACHABLE
     call PLT_SYMBOL(memcpy)       // (void*, const void*, size_t)
     ret
 END_FUNCTION art_quick_memcpy
 
 DEFINE_FUNCTION art_quick_test_suspend
+    UNREACHABLE
     SETUP_SAVE_EVERYTHING_FRAME RUNTIME_SAVE_EVERYTHING_FOR_SUSPEND_CHECK_METHOD_OFFSET  // save everything for GC
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rdi           // pass Thread::Current()
@@ -1347,6 +1379,7 @@ ONE_ARG_REF_DOWNCALL art_quick_get64_static, artGet64StaticFromCompiledCode, RET
 ONE_ARG_REF_DOWNCALL art_quick_get_obj_static, artGetObjStaticFromCompiledCode, RETURN_OR_DELIVER_PENDING_EXCEPTION
 
 DEFINE_FUNCTION art_quick_proxy_invoke_handler
+    UNREACHABLE
     SETUP_SAVE_REFS_AND_ARGS_FRAME_WITH_METHOD_IN_RDI
 
     movq %gs:THREAD_SELF_OFFSET, %rdx       // Pass Thread::Current().
@@ -1365,6 +1398,7 @@ END_FUNCTION art_quick_proxy_invoke_handler
      * Note that this stub writes to rdi.
      */
 DEFINE_FUNCTION art_quick_imt_conflict_trampoline
+    UNREACHABLE
 #if defined(__APPLE__)
     int3
     int3
@@ -1393,6 +1427,7 @@ DEFINE_FUNCTION art_quick_imt_conflict_trampoline
 END_FUNCTION art_quick_imt_conflict_trampoline
 
 DEFINE_FUNCTION art_quick_resolution_trampoline
+    UNREACHABLE
     SETUP_SAVE_REFS_AND_ARGS_FRAME
     movq %gs:THREAD_SELF_OFFSET, %rdx
     movq %rsp, %rcx
@@ -1483,6 +1518,7 @@ END_FUNCTION art_quick_resolution_trampoline
      * Called to do a generic JNI down-call
      */
 DEFINE_FUNCTION art_quick_generic_jni_trampoline
+    UNREACHABLE
     SETUP_SAVE_REFS_AND_ARGS_FRAME_WITH_METHOD_IN_RDI
 
     movq %rsp, %rbp                 // save SP at (old) callee-save frame
@@ -1724,6 +1760,7 @@ DEFINE_FUNCTION art_quick_generic_jni_trampoline_simulator
 END_FUNCTION art_quick_generic_jni_trampoline_simulator
 
 DEFINE_FUNCTION art_deliver_pending_exception
+    UNREACHABLE
     // This will create a new save-all frame, required by the runtime.
     DELIVER_PENDING_EXCEPTION
 END_FUNCTION art_deliver_pending_exception
@@ -1735,6 +1772,7 @@ END_FUNCTION art_deliver_pending_exception
      * RSI, RDX, RCX, R8, R9 are arguments to that method.
      */
 DEFINE_FUNCTION art_quick_to_interpreter_bridge
+    UNREACHABLE
     SETUP_SAVE_REFS_AND_ARGS_FRAME     // Set up frame and save arguments.
     movq %gs:THREAD_SELF_OFFSET, %rsi  // RSI := Thread::Current()
     movq %rsp, %rdx                    // RDX := sp
@@ -1754,6 +1792,7 @@ ONE_ARG_RUNTIME_EXCEPTION art_invoke_obsolete_method_stub, artInvokeObsoleteMeth
      * Routine that intercepts method calls and returns.
      */
 DEFINE_FUNCTION art_quick_instrumentation_entry
+    UNREACHABLE
 #if defined(__APPLE__)
     int3
     int3
@@ -1785,6 +1824,7 @@ DEFINE_FUNCTION art_quick_instrumentation_entry
 END_FUNCTION art_quick_instrumentation_entry
 
 DEFINE_FUNCTION_CUSTOM_CFA art_quick_instrumentation_exit, 0
+    UNREACHABLE
     pushq LITERAL(0)          // Push a fake return PC as there will be none on the stack.
     CFI_ADJUST_CFA_OFFSET(8)
 
@@ -1820,6 +1860,7 @@ END_FUNCTION art_quick_instrumentation_exit
      * will long jump to the upcall with a special exception of -1.
      */
 DEFINE_FUNCTION art_quick_deoptimize
+    UNREACHABLE
     SETUP_SAVE_EVERYTHING_FRAME        // Stack should be aligned now.
     movq %gs:THREAD_SELF_OFFSET, %rdi  // Pass Thread.
     call SYMBOL(artDeoptimize)         // (Thread*)
@@ -1831,6 +1872,7 @@ END_FUNCTION art_quick_deoptimize
      * will long jump to the interpreter bridge.
      */
 DEFINE_FUNCTION art_quick_deoptimize_from_compiled_code
+    UNREACHABLE
     SETUP_SAVE_EVERYTHING_FRAME
                                                 // Stack should be aligned now.
     movq %gs:THREAD_SELF_OFFSET, %rsi           // Pass Thread.
@@ -1846,6 +1888,7 @@ END_FUNCTION art_quick_deoptimize_from_compiled_code
      *    rsi:   comp string object (known non-null)
      */
 DEFINE_FUNCTION art_quick_string_compareto
+    UNREACHABLE
     movl MIRROR_STRING_COUNT_OFFSET(%edi), %r8d
     movl MIRROR_STRING_COUNT_OFFSET(%esi), %r9d
     /* Build pointers to the start of string data */
@@ -1935,6 +1978,7 @@ END_FUNCTION art_quick_string_compareto
 UNIMPLEMENTED art_quick_memcmp16
 
 DEFINE_FUNCTION art_quick_instance_of
+    UNREACHABLE
     SETUP_FP_CALLEE_SAVE_FRAME
     subq LITERAL(8), %rsp                      // Alignment padding.
     CFI_ADJUST_CFA_OFFSET(8)
@@ -1946,6 +1990,7 @@ DEFINE_FUNCTION art_quick_instance_of
 END_FUNCTION art_quick_instance_of
 
 DEFINE_FUNCTION art_quick_string_builder_append
+    UNREACHABLE
     SETUP_SAVE_REFS_ONLY_FRAME                // save ref containing registers for GC
     // Outgoing argument set up
     leaq FRAME_SIZE_SAVE_REFS_ONLY + __SIZEOF_POINTER__(%rsp), %rsi  // pass args
@@ -1972,6 +2017,7 @@ END_FUNCTION art_quick_string_builder_append
 // - everything else is the same as in the standard runtime calling
 //   convention (e.g. standard callee-save registers are preserved).
 MACRO2(READ_BARRIER_MARK_REG, name, reg)
+    UNREACHABLE
     DEFINE_FUNCTION VAR(name)
     // Null check so that we can load the lock word.
     testq REG_VAR(reg), REG_VAR(reg)
@@ -2084,6 +2130,7 @@ READ_BARRIER_MARK_REG art_quick_read_barrier_mark_reg14, r14
 READ_BARRIER_MARK_REG art_quick_read_barrier_mark_reg15, r15
 
 DEFINE_FUNCTION art_quick_read_barrier_slow
+    UNREACHABLE
     SETUP_FP_CALLEE_SAVE_FRAME
     subq LITERAL(8), %rsp           // Alignment padding.
     CFI_ADJUST_CFA_OFFSET(8)
@@ -2095,6 +2142,7 @@ DEFINE_FUNCTION art_quick_read_barrier_slow
 END_FUNCTION art_quick_read_barrier_slow
 
 DEFINE_FUNCTION art_quick_read_barrier_for_root_slow
+    UNREACHABLE
     SETUP_FP_CALLEE_SAVE_FRAME
     subq LITERAL(8), %rsp                  // Alignment padding.
     CFI_ADJUST_CFA_OFFSET(8)
@@ -2119,6 +2167,7 @@ END_FUNCTION art_quick_read_barrier_for_root_slow
      * Note that the native C ABI already aligned the stack to 16-byte.
      */
 DEFINE_FUNCTION art_quick_osr_stub
+    UNREACHABLE
     // Save the non-volatiles.
     PUSH rbp                      // Save rbp.
     PUSH rcx                      // Save rcx/result*.
@@ -2165,6 +2214,7 @@ DEFINE_FUNCTION art_quick_osr_stub
 END_FUNCTION art_quick_osr_stub
 
 DEFINE_FUNCTION art_quick_invoke_polymorphic
+    UNREACHABLE
                                                    // On entry: RDI := unused, RSI := receiver
     SETUP_SAVE_REFS_AND_ARGS_FRAME                 // save callee saves
     movq %rsi, %rdi                                // RDI := receiver
@@ -2178,6 +2228,7 @@ DEFINE_FUNCTION art_quick_invoke_polymorphic
 END_FUNCTION art_quick_invoke_polymorphic
 
 DEFINE_FUNCTION art_quick_invoke_custom
+    UNREACHABLE
     SETUP_SAVE_REFS_AND_ARGS_FRAME                 // save callee saves
                                                    // RDI := call_site_index
     movq %gs:THREAD_SELF_OFFSET, %rsi              // RSI := Thread::Current()
@@ -2205,6 +2256,7 @@ END_FUNCTION ExecuteSwitchImplAsm
 
 // On entry: edi is the class, r11 is the inline cache. r10 and rax are available.
 DEFINE_FUNCTION art_quick_update_inline_cache
+    UNREACHABLE
 #if (INLINE_CACHE_SIZE != 5)
 #error "INLINE_CACHE_SIZE not as expected."
 #endif
@@ -2256,6 +2308,7 @@ END_FUNCTION art_quick_update_inline_cache
 
 // On entry, method is at the bottom of the stack.
 DEFINE_FUNCTION art_quick_compile_optimized
+    UNREACHABLE
     SETUP_SAVE_EVERYTHING_FRAME
     movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rdi // pass ArtMethod
     movq %gs:THREAD_SELF_OFFSET, %rsi           // pass Thread::Current()
@@ -2266,6 +2319,7 @@ END_FUNCTION art_quick_compile_optimized
 
 // On entry, method is at the bottom of the stack.
 DEFINE_FUNCTION art_quick_method_entry_hook
+    UNREACHABLE
     SETUP_SAVE_EVERYTHING_FRAME
 
     movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rdi // pass ArtMethod
@@ -2287,6 +2341,7 @@ END_FUNCTION art_quick_method_entry_hook
 // On entry, method is at the bottom of the stack.
 // and r8 has should_deopt_frame value.
 DEFINE_FUNCTION art_quick_method_exit_hook
+    UNREACHABLE
     SETUP_SAVE_EVERYTHING_FRAME
 
     leaq 16(%rsp), %rcx                         // floating-point result pointer in kSaveEverything

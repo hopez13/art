@@ -57,6 +57,7 @@ END_MACRO
 
 MACRO3(JNI_SAVE_MANAGED_ARGS_TRAMPOLINE, name, cxx_name, arg1)
 DEFINE_FUNCTION \name
+    UNREACHABLE
     // Note: Managed callee-save registers have been saved by the JNI stub.
     // Save register args RDI, RSI, RDX, RCX, R8, R9, mmx0-mmx7 and align stack.
     SAVE_MANAGED_ARGS_INCREASE_FRAME
@@ -73,6 +74,7 @@ END_MACRO
 
 MACRO4(JNI_SAVE_RETURN_VALUE_TRAMPOLINE, name, cxx_name, arg1, arg2)
 DEFINE_FUNCTION \name
+    UNREACHABLE
     // Save return registers and return address.
     PUSH_ARG rax
     INCREASE_FRAME /*mmx0*/ 8 + /*padding*/ 8
@@ -95,6 +97,7 @@ END_MACRO
      * Jni dlsym lookup stub.
      */
 DEFINE_FUNCTION art_jni_dlsym_lookup_stub
+    // UNREACHABLE
     // Save callee and GPR args.
     PUSH_ARG r9   // Arg.
     PUSH_ARG r8   // Arg.
@@ -155,6 +158,7 @@ END_FUNCTION art_jni_dlsym_lookup_stub
      * Jni dlsym lookup stub for @CriticalNative.
      */
 DEFINE_FUNCTION art_jni_dlsym_lookup_critical_stub
+    UNREACHABLE
     // The hidden arg holding the tagged method (bit 0 set means GenericJNI) is RAX.
     // For Generic JNI we already have a managed frame, so we reuse the art_jni_dlsym_lookup_stub.
     testq LITERAL(1), %rax
@@ -426,6 +430,7 @@ JNI_SAVE_RETURN_VALUE_TRAMPOLINE \
      *     All argument registers need to be preserved.
      */
 DEFINE_FUNCTION art_jni_lock_object
+    UNREACHABLE
     LOCK_OBJECT_FAST_PATH rbx, ebp, art_jni_lock_object_no_inline
 END_FUNCTION art_jni_lock_object
 
@@ -438,6 +443,7 @@ END_FUNCTION art_jni_lock_object
      *     All argument registers need to be preserved.
      */
 DEFINE_FUNCTION art_jni_lock_object_no_inline
+    UNREACHABLE
     // This is also the slow path for art_jni_lock_object.
     // Save register args RDI, RSI, RDX, RCX, R8, R9, mmx0-mmx7 and align stack.
     SAVE_MANAGED_ARGS_INCREASE_FRAME
@@ -470,6 +476,7 @@ END_FUNCTION art_jni_lock_object_no_inline
      *     Return registers RAX and mmx0 need to be preserved.
      */
 DEFINE_FUNCTION art_jni_unlock_object
+    UNREACHABLE
     movq %rax, %r12                       // Preserve RAX in a different register.
     UNLOCK_OBJECT_FAST_PATH rbx, ebp, /*saved_rax*/ r12, .Lunlock_object_jni_slow
 
