@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a375ba5_ead4d7cb",
+        "filename": "test/061-out-of-memory/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-08T14:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47734fd3_db7f3108",
+      "range": {
+        "startLine": 34,
+        "startChar": 23,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "cb823c775c4abbb384a721b5067ec45d3266bd38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6d9dc94_13430a1a",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d9eadb0_36f86876",
+        "filename": "test/061-out-of-memory/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-08T14:07:11Z",
+      "side": 1,
+      "message": "Ack, removed.",
+      "parentUuid": "e6d9dc94_13430a1a",
+      "range": {
+        "startLine": 39,
+        "startChar": 12,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "cb823c775c4abbb384a721b5067ec45d3266bd38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03485361_280766d7",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-04-08T14:02:49Z",
       "side": 1,
       "message": "and BoundsCheck",
+      "range": {
+        "startLine": 110,
+        "startChar": 83,
+        "endLine": 110,
+        "endChar": 92
+      },
+      "revId": "cb823c775c4abbb384a721b5067ec45d3266bd38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2ea5760_8be57cc2",
+        "filename": "test/510-checker-try-catch/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-08T14:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03485361_280766d7",
       "range": {
         "startLine": 110,
         "startChar": 83,
