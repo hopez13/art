@@ -22,6 +22,30 @@
       },
       "revId": "0da1a77317f1263eea934f9a379626b6c3bd8d9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "231fbe35_50984bb4",
+        "filename": "test/odsign/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-04-11T13:11:13Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure about the difference between `java_defaults` and `art_module_java_defaults`. I just had an impression that `art_*` soong modules are more commonly used in the ART codebase.\n\nLet me check if it\u0027s the cause of the breakage, but looks like this can be java_defaults anyway. You made a good point. I\u0027ll send out a CL.",
+      "parentUuid": "e1cf5b6c_ea126b5b",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 24
+      },
+      "revId": "0da1a77317f1263eea934f9a379626b6c3bd8d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
