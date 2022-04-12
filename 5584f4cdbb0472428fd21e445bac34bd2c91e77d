@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "740f453e_cd250fac",
+        "filename": "runtime/gc/accounting/bitmap.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-12T22:28:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49f72bc4_34cbbffc",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 0
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9270fbf_6754e9a6",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-02-15T02:49:49Z",
       "side": 1,
       "message": "Are the parens really correct here? If this should clearly be [start, end), i.e. closed at beginning, open at end, please fix. This is really confusing. Otherwise we should address this in a (much) later CL.",
+      "range": {
+        "startLine": 125,
+        "startChar": 35,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9d18627_29422fcb",
+        "filename": "runtime/gc/accounting/bitmap.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-12T22:28:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9270fbf_6754e9a6",
       "range": {
         "startLine": 125,
         "startChar": 35,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "308a4fd7_cdce332f",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-12T22:28:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed885104_c4704e57",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "780f1d6c_ebf16f49",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-02-15T02:49:49Z",
       "side": 1,
       "message": "Clearer to add these 2 to the initializations above, since they are just field initializations? May need helper functions for the arguments.",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 20
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bd7217b_ff7696cc",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-12T22:28:58Z",
+      "side": 1,
+      "message": "I\u0027ll address this in a later CL when all the fields to be initialized in the constructor are introduced.",
+      "parentUuid": "780f1d6c_ebf16f49",
       "range": {
         "startLine": 49,
         "startChar": 2,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4190c8a_0b57fae5",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-12T22:28:58Z",
+      "side": 1,
+      "message": "I have tried explaining in an comment above. It\u0027s not \u0027bytes covered by bitmap word\u0027. Let me know if I need to further elaborate on it.",
+      "parentUuid": "80370e22_b11dce27",
+      "range": {
+        "startLine": 102,
+        "startChar": 26,
+        "endLine": 102,
+        "endChar": 44
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d765f94f_6429fab7",
         "filename": "runtime/gc/collector/mark_compact.h",
         "patchSetId": 13
@@ -146,6 +266,30 @@
       "writtenOn": "2022-02-15T02:49:49Z",
       "side": 1,
       "message": "Maybe define this in a comment?",
+      "range": {
+        "startLine": 189,
+        "startChar": 17,
+        "endLine": 189,
+        "endChar": 33
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1e2cec9_c83b582f",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-12T22:28:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d765f94f_6429fab7",
       "range": {
         "startLine": 189,
         "startChar": 17,
@@ -169,6 +313,30 @@
       "writtenOn": "2022-02-15T02:49:49Z",
       "side": 1,
       "message": "Spelling",
+      "range": {
+        "startLine": 197,
+        "startChar": 5,
+        "endLine": 197,
+        "endChar": 10
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63bb190b_5ec6add2",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-12T22:28:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10018269_b5791631",
       "range": {
         "startLine": 197,
         "startChar": 5,
