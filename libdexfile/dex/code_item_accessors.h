@@ -161,6 +161,10 @@ class CodeItemDebugInfoAccessor : public CodeItemDataAccessor {
     return debug_info_offset_;
   }
 
+  bool HasDebugInfo() const {
+    return debug_info_offset_ != 0u;
+  }
+
   template<typename NewLocalVisitor>
   bool DecodeDebugLocalInfo(bool is_static,
                             uint32_t method_idx,
