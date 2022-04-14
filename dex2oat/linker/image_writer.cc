@@ -1110,7 +1110,7 @@ class ImageWriter::PruneClassesVisitor : public ClassVisitor {
         Runtime::Current()->GetClassLinker()->ClassTableForClassLoader(class_loader_);
     WriterMutexLock mu(Thread::Current(), class_table->lock_);
     for (mirror::Class* klass : classes_to_prune_) {
-      uint32_t hash = ClassTable::TableSlot::HashDescriptor(klass);
+      uint32_t hash = klass->DescriptorHash();
       DCHECK(!class_table->classes_.empty());
       ClassTable::ClassSet& last_class_set = class_table->classes_.back();
       auto it = last_class_set.FindWithHash(ClassTable::TableSlot(klass, hash), hash);
@@ -1684,7 +1684,7 @@ class ImageWriter::LayoutHelper::CollectClassesVisitor {
       size_t oat_index = pair.second;
       DCHECK(image_writer->image_infos_[oat_index].class_table_.has_value());
       ClassTable::ClassSet& class_table = *image_writer->image_infos_[oat_index].class_table_;
-      uint32_t hash = ClassTable::TableSlot::HashDescriptor(klass);
+      uint32_t hash = klass->DescriptorHash();
       bool inserted = class_table.InsertWithHash(ClassTable::TableSlot(klass, hash), hash).second;
       DCHECK(inserted) << "Class " << klass->PrettyDescriptor()
           << " (" << klass.Ptr() << ") already inserted";
@@ -1700,7 +1700,7 @@ class ImageWriter::LayoutHelper::CollectClassesVisitor {
         DCHECK(image_info.class_table_.has_value());
         ClassTable::ClassSet& table = *image_info.class_table_;
         for (mirror::Class* klass : boot_image_classes) {
-          uint32_t hash = ClassTable::TableSlot::HashDescriptor(klass);
+          uint32_t hash = klass->DescriptorHash();
           bool inserted = table.InsertWithHash(ClassTable::TableSlot(klass, hash), hash).second;
           DCHECK(inserted) << "Boot image class " << klass->PrettyDescriptor()
               << " (" << klass << ") already inserted";
