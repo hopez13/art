@@ -7527,10 +7527,8 @@ void InstructionCodeGeneratorARMVIXL::VisitLoadClass(HLoadClass* cls) NO_THREAD_
     }
     case HLoadClass::LoadKind::kBootImageRelRo: {
       DCHECK(!codegen_->GetCompilerOptions().IsBootImage());
-      CodeGeneratorARMVIXL::PcRelativePatchInfo* labels =
-          codegen_->NewBootImageRelRoPatch(CodeGenerator::GetBootImageOffset(cls));
-      codegen_->EmitMovwMovtPlaceholder(labels, out);
-      __ Ldr(out, MemOperand(out, /* offset= */ 0));
+      uint32_t boot_image_offset = CodeGenerator::GetBootImageOffset(cls);
+      codegen_->LoadBootImageRelRoEntry(out, boot_image_offset);
       break;
     }
     case HLoadClass::LoadKind::kBssEntry:
@@ -7752,10 +7750,8 @@ void InstructionCodeGeneratorARMVIXL::VisitLoadString(HLoadString* load) NO_THRE
     }
     case HLoadString::LoadKind::kBootImageRelRo: {
       DCHECK(!codegen_->GetCompilerOptions().IsBootImage());
-      CodeGeneratorARMVIXL::PcRelativePatchInfo* labels =
-          codegen_->NewBootImageRelRoPatch(CodeGenerator::GetBootImageOffset(load));
-      codegen_->EmitMovwMovtPlaceholder(labels, out);
-      __ Ldr(out, MemOperand(out, /* offset= */ 0));
+      uint32_t boot_image_offset = CodeGenerator::GetBootImageOffset(load);
+      codegen_->LoadBootImageRelRoEntry(out, boot_image_offset);
       return;
     }
     case HLoadString::LoadKind::kBssEntry: {
@@ -9222,10 +9218,7 @@ void CodeGeneratorARMVIXL::LoadMethod(MethodLoadKind load_kind, Location temp, H
     }
     case MethodLoadKind::kBootImageRelRo: {
       uint32_t boot_image_offset = GetBootImageOffset(invoke);
-      PcRelativePatchInfo* labels = NewBootImageRelRoPatch(boot_image_offset);
-      vixl32::Register temp_reg = RegisterFrom(temp);
-      EmitMovwMovtPlaceholder(labels, temp_reg);
-      GetAssembler()->LoadFromOffset(kLoadWord, temp_reg, temp_reg, /* offset*/ 0);
+      LoadBootImageRelRoEntry(RegisterFrom(temp), boot_image_offset);
       break;
     }
     case MethodLoadKind::kBssEntry: {
@@ -9520,6 +9513,13 @@ VIXLUInt32Literal* CodeGeneratorARMVIXL::DeduplicateJitClassLiteral(const DexFil
       });
 }
 
+void CodeGeneratorARMVIXL::LoadBootImageRelRoEntry(vixl32::Register reg,
+                                                   uint32_t boot_image_offset) {
+  CodeGeneratorARMVIXL::PcRelativePatchInfo* labels = NewBootImageRelRoPatch(boot_image_offset);
+  EmitMovwMovtPlaceholder(labels, reg);
+  __ Ldr(reg, MemOperand(reg, /* offset= */ 0));
+}
+
 void CodeGeneratorARMVIXL::LoadBootImageAddress(vixl32::Register reg,
                                                 uint32_t boot_image_reference) {
   if (GetCompilerOptions().IsBootImage()) {
@@ -9527,10 +9527,7 @@ void CodeGeneratorARMVIXL::LoadBootImageAddress(vixl32::Register reg,
         NewBootImageIntrinsicPatch(boot_image_reference);
     EmitMovwMovtPlaceholder(labels, reg);
   } else if (GetCompilerOptions().GetCompilePic()) {
-    CodeGeneratorARMVIXL::PcRelativePatchInfo* labels =
-        NewBootImageRelRoPatch(boot_image_reference);
-    EmitMovwMovtPlaceholder(labels, reg);
-    __ Ldr(reg, MemOperand(reg, /* offset= */ 0));
+    LoadBootImageRelRoEntry(reg, boot_image_reference);
   } else {
     DCHECK(GetCompilerOptions().IsJitCompiler());
     gc::Heap* heap = Runtime::Current()->GetHeap();
