@@ -221,6 +221,12 @@ inline uint32_t CodeItemDebugInfoAccessor::VisitParameterNames(const Visitor& vi
 
 inline bool CodeItemDebugInfoAccessor::GetLineNumForPc(const uint32_t address,
                                                        uint32_t* line_num) const {
+  if (!HasDebugInfo()) {
+    // If debug info is not available it's probably due to R8. In this case the PC needs to be
+    // stored as a line number and decoded later using a map file.
+    *line_num = address;
+    return true;
+  }
   return DecodeDebugPositionInfo([&](const DexFile::PositionInfo& entry) {
     // We know that this callback will be called in ascending address order, so keep going until we
     // find a match or we've just gone past it.
