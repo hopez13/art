@@ -36,7 +36,7 @@ class TransformArrayRef {
   using FallbackConstIter = std::iterator<std::random_access_iterator_tag, void, void, void, void>;
   using PreferredConstIter =
       TransformIterator<typename ArrayRef<BaseType>::const_iterator, Function>;
-  template <typename F, typename = typename std::result_of<F(const BaseType&)>::type>
+  template <typename F, typename = typename std::result_of_t<F(const BaseType&)>>
   static PreferredConstIter ConstIterHelper(int&);
   template <typename F>
   static FallbackConstIter ConstIterHelper(const int&);
@@ -50,15 +50,13 @@ class TransformArrayRef {
   using pointer = typename Iter::pointer;
   using const_pointer = typename ConstIter::pointer;
   using iterator = Iter;
-  using const_iterator = typename std::conditional<
-      std::is_same<ConstIter, FallbackConstIter>::value,
-      void,
-      ConstIter>::type;
+  using const_iterator =
+      typename std::conditional_t<std::is_same_v<ConstIter, FallbackConstIter>, void, ConstIter>;
   using reverse_iterator = std::reverse_iterator<Iter>;
-  using const_reverse_iterator = typename std::conditional<
-      std::is_same<ConstIter, FallbackConstIter>::value,
+  using const_reverse_iterator = typename std::conditional_t<
+      std::is_same_v<ConstIter, FallbackConstIter>,
       void,
-      std::reverse_iterator<ConstIter>>::type;
+      std::reverse_iterator<ConstIter>>;
   using difference_type = typename ArrayRef<BaseType>::difference_type;
   using size_type = typename ArrayRef<BaseType>::size_type;
 
@@ -71,7 +69,7 @@ class TransformArrayRef {
       : data_(base, fn) { }
 
   template <typename OtherBT,
-            typename = typename std::enable_if<std::is_same<BaseType, const OtherBT>::value>::type>
+            typename = typename std::enable_if_t<std::is_same_v<BaseType, const OtherBT>>>
   TransformArrayRef(const TransformArrayRef<OtherBT, Function>& other)
       : TransformArrayRef(other.base(), other.GetFunction()) { }
 
@@ -80,7 +78,7 @@ class TransformArrayRef {
   TransformArrayRef& operator=(const TransformArrayRef& other) = default;
 
   template <typename OtherBT,
-            typename = typename std::enable_if<std::is_same<BaseType, const OtherBT>::value>::type>
+            typename = typename std::enable_if_t<std::is_same_v<BaseType, const OtherBT>>>
   TransformArrayRef& operator=(const TransformArrayRef<OtherBT, Function>& other) {
     return *this = TransformArrayRef(other.base(), other.GetFunction());
   }

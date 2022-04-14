@@ -56,7 +56,7 @@ class IntrusiveForwardListBaseHookTraits;
 
 template <typename T,
           typename HookTraits =
-              IntrusiveForwardListBaseHookTraits<typename std::remove_const<T>::type>>
+              IntrusiveForwardListBaseHookTraits<typename std::remove_const_t<T>>>
 class IntrusiveForwardList;
 
 template <typename T, typename HookTraits>
@@ -69,7 +69,7 @@ class IntrusiveForwardListIterator : public std::iterator<std::forward_iterator_
 
   // Conversion from iterator to const_iterator.
   template <typename OtherT,
-            typename = typename std::enable_if<std::is_same<T, const OtherT>::value>::type>
+            typename = typename std::enable_if_t<std::is_same_v<T, const OtherT>>>
   IntrusiveForwardListIterator(const IntrusiveForwardListIterator<OtherT, HookTraits>& src)  // NOLINT, implicit
       : hook_(src.hook_) { }
 
@@ -106,20 +106,20 @@ class IntrusiveForwardListIterator : public std::iterator<std::forward_iterator_
   friend class IntrusiveForwardList;
 
   template <typename OtherT1, typename OtherT2, typename OtherTraits>
-  friend typename std::enable_if<std::is_same<const OtherT1, const OtherT2>::value, bool>::type
+  friend typename std::enable_if_t<std::is_same_v<const OtherT1, const OtherT2>, bool>
   operator==(const IntrusiveForwardListIterator<OtherT1, OtherTraits>& lhs,
              const IntrusiveForwardListIterator<OtherT2, OtherTraits>& rhs);
 };
 
 template <typename T, typename OtherT, typename HookTraits>
-typename std::enable_if<std::is_same<const T, const OtherT>::value, bool>::type operator==(
+typename std::enable_if_t<std::is_same_v<const T, const OtherT>, bool> operator==(
     const IntrusiveForwardListIterator<T, HookTraits>& lhs,
     const IntrusiveForwardListIterator<OtherT, HookTraits>& rhs) {
   return lhs.hook_ == rhs.hook_;
 }
 
 template <typename T, typename OtherT, typename HookTraits>
-typename std::enable_if<std::is_same<const T, const OtherT>::value, bool>::type operator!=(
+typename std::enable_if_t<std::is_same_v<const T, const OtherT>, bool> operator!=(
     const IntrusiveForwardListIterator<T, HookTraits>& lhs,
     const IntrusiveForwardListIterator<OtherT, HookTraits>& rhs) {
   return !(lhs == rhs);
