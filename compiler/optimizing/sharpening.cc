@@ -181,6 +181,10 @@ HLoadClass::LoadKind HSharpening::ComputeLoadClassKind(
     // locations of target classes. The additional register pressure
     // for using the ArtMethod* should be considered.
     desired_load_kind = HLoadClass::LoadKind::kReferrersClass;
+    // Determine whether the referrer's class is in the boot image.
+    is_in_boot_image =
+        (compiler_options.IsBootImage() || compiler_options.IsBootImageExtension()) &&
+        compiler_options.IsImageClass(dex_file.StringByTypeIdx(type_index));
   } else if (load_class->NeedsAccessCheck()) {
     DCHECK_EQ(load_class->GetLoadKind(), HLoadClass::LoadKind::kRuntimeCall);
     if (klass != nullptr) {
