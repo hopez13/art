@@ -22,6 +22,30 @@
       },
       "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c30ec6eb_ae00a824",
+        "filename": "runtime/gc/accounting/bitmap.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-15T20:51:45Z",
+      "side": 0,
+      "message": "I don\u0027t remember the context, but I think I was getting a crash. Anyways, I have fixed it now.",
+      "parentUuid": "3b6b30cd_4400fafe",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 87
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
