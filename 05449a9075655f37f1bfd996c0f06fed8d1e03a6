@@ -22,6 +22,30 @@
       },
       "revId": "05449a9075655f37f1bfd996c0f06fed8d1e03a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dad21cf3_386bed67",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-17T01:55:43Z",
+      "side": 1,
+      "message": "yeah it was just to give sufficient time for black allocations to occur for testing purposes. That\u0027s why only doing it in debug and when it\u0027s background GC. Reduced it to 3 seconds.",
+      "parentUuid": "a04cbed2_6f378177",
+      "range": {
+        "startLine": 192,
+        "startChar": 3,
+        "endLine": 192,
+        "endChar": 14
+      },
+      "revId": "05449a9075655f37f1bfd996c0f06fed8d1e03a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c6c26d7_6ed45dd9",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-17T01:55:43Z",
+      "side": 1,
+      "message": "Added comment in dex_caches_ declaration.",
+      "parentUuid": "f8b57634_05f4fdbf",
+      "range": {
+        "startLine": 1495,
+        "startChar": 3,
+        "endLine": 1495,
+        "endChar": 24
+      },
+      "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d23fec6d_c795279b",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-22T03:33:16Z",
       "side": 1,
       "message": "We still make that available, right? So we probably need to fix this before turning this on on a larger scale?",
+      "range": {
+        "startLine": 1561,
+        "startChar": 4,
+        "endLine": 1561,
+        "endChar": 61
+      },
+      "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af3761f0_7be09d31",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-17T01:55:43Z",
+      "side": 1,
+      "message": "Yes certainly. I have an implementation in mind. Will do it soon.",
+      "parentUuid": "d23fec6d_c795279b",
       "range": {
         "startLine": 1561,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "161ccc4d_07aa6d39",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-17T01:55:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3fff6fb_c5168d79",
+      "range": {
+        "startLine": 370,
+        "startChar": 2,
+        "endLine": 370,
+        "endChar": 91
+      },
+      "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ac82114_0bde5c27",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-03-22T03:33:16Z",
       "side": 1,
       "message": "Can you say more about why this is needed?",
+      "range": {
+        "startLine": 138,
+        "startChar": 5,
+        "endLine": 138,
+        "endChar": 44
+      },
+      "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "700db040_ba3abd9c",
+        "filename": "runtime/mirror/class_ext.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-17T01:55:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ac82114_0bde5c27",
       "range": {
         "startLine": 138,
         "startChar": 5,
