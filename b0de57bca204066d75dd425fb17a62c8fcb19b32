@@ -16,6 +16,24 @@
       "message": "Should we remove this `build` file? (And update `regen-test-files` to ignore tests with `java-wrapper.sh`?)",
       "revId": "b0de57bca204066d75dd425fb17a62c8fcb19b32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d4eeb8c_16f156a9",
+        "filename": "test/124-missing-classes/build",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-04-19T11:21:48Z",
+      "side": 1,
+      "message": "Yes, but I was planning to do that in follow up CL.\n(thanks for pointing out that I need to change `regen-test-files` as well)",
+      "parentUuid": "bc0b1c94_41119889",
+      "revId": "b0de57bca204066d75dd425fb17a62c8fcb19b32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
