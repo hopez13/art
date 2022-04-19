@@ -16,6 +16,115 @@
       "message": "I\u0027ll leave the code review to someone else. The general approach looks reasonable to me.",
       "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09d8b7db_b40e5e38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434507
+      },
+      "writtenOn": "2022-04-19T06:43:44Z",
+      "side": 1,
+      "message": "It seems like this is approach is not handling inlining, outlining, kotlin file names etc. I know this is an attempt to get the current approach to work, but in the ideal setup this should use the RetraceApi instead:\n\nhttps://source.corp.google.com/r8/src/main/java/com/android/tools/r8/retrace/Retracer.java\n",
+      "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "658db5f9_df031aa6",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1434507
+      },
+      "writtenOn": "2022-04-19T06:43:44Z",
+      "side": 1,
+      "message": "Just to be certain, if we have 1:3:void foo():42:44 -\u003e a\n\nand lookup a for position 2, we will get 43? That is the lookup will be appending the delta?",
+      "range": {
+        "startLine": 329,
+        "startChar": 14,
+        "endLine": 329,
+        "endChar": 44
+      },
+      "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a04be820_f5eda7f6",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1434507
+      },
+      "writtenOn": "2022-04-19T06:43:44Z",
+      "side": 1,
+      "message": "I would be a bit careful with checking against a compiler version. Is there no map-version present? # \n\n{\"id\":\"com.android.tools.r8.mapping\",\"version\":\"1.0\"}\n\nYou can see more here: https://source.corp.google.com/r8/doc/retrace.md",
+      "range": {
+        "startLine": 383,
+        "startChar": 44,
+        "endLine": 383,
+        "endChar": 60
+      },
+      "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "746a0c11_0ed4db4e",
+        "filename": "tools/ahat/src/test/com/android/ahat/ProguardMapTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1434507
+      },
+      "writtenOn": "2022-04-19T06:43:44Z",
+      "side": 1,
+      "message": "nit: should this be fields since the checking below is all fieldName?",
+      "range": {
+        "startLine": 234,
+        "startChar": 5,
+        "endLine": 234,
+        "endChar": 36
+      },
+      "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c29ff5c0_9bfd16cb",
+        "filename": "tools/ahat/src/test/com/android/ahat/ProguardMapTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1434507
+      },
+      "writtenOn": "2022-04-19T06:43:44Z",
+      "side": 1,
+      "message": "This will probably not work for kotlin files.",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 0
+      },
+      "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
