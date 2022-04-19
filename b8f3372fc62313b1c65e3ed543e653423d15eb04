@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5a9ccc6_516f5776",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2022-04-19T13:47:26Z",
+      "side": 1,
+      "message": "The only duplicated reference that was failing was \"org.apache.harmony.tests.java.lang.MathTest#test_cbrt_D\", found in libcore/expectations/knownfailures.txt, in https://r.android.com/2057469 (which was reverted). Fixed in this CL by removing duplicated entry.",
+      "parentUuid": "e1f50f08_d454bb1d",
+      "revId": "b8f3372fc62313b1c65e3ed543e653423d15eb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3faf958b_879f2cb4",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-04-19T13:33:35Z",
       "side": 1,
       "message": "Missing failures or no longer needed.",
+      "range": {
+        "startLine": 288,
+        "startChar": 51,
+        "endLine": 288,
+        "endChar": 74
+      },
+      "revId": "b8f3372fc62313b1c65e3ed543e653423d15eb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cac9fea2_4bafb164",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2022-04-19T13:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3faf958b_879f2cb4",
       "range": {
         "startLine": 288,
         "startChar": 51,
