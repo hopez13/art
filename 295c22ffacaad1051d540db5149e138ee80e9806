@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f3c5fe41_cda6da11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-04-19T08:29:12Z",
+      "side": 1,
+      "message": "Yes, it\u0027s not yet handling those cases. We\u0027ll have all this working better once b/217709315 is resolved.",
+      "parentUuid": "09d8b7db_b40e5e38",
+      "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "658db5f9_df031aa6",
         "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
         "patchSetId": 2
@@ -48,6 +66,30 @@
       "writtenOn": "2022-04-19T06:43:44Z",
       "side": 1,
       "message": "Just to be certain, if we have 1:3:void foo():42:44 -\u003e a\n\nand lookup a for position 2, we will get 43? That is the lookup will be appending the delta?",
+      "range": {
+        "startLine": 329,
+        "startChar": 14,
+        "endLine": 329,
+        "endChar": 44
+      },
+      "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c2c2d14_90946775",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-04-19T08:29:12Z",
+      "side": 1,
+      "message": "Yes, that\u0027s right.",
+      "parentUuid": "658db5f9_df031aa6",
       "range": {
         "startLine": 329,
         "startChar": 14,
@@ -83,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "76db9476_f49b2dc7",
+        "filename": "tools/ahat/src/main/com/android/ahat/proguard/ProguardMap.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-04-19T08:29:12Z",
+      "side": 1,
+      "message": "I could use that, though it\u0027s not present pre 3.1.21 and since the line number mapping change went in 3.1.4 we need to check the compiler version anyway. Though it\u0027s better to have a more consistent check of the version. I could do that in a new CL, or I presume it would be handled by using the Retrace API.",
+      "parentUuid": "a04be820_f5eda7f6",
+      "range": {
+        "startLine": 383,
+        "startChar": 44,
+        "endLine": 383,
+        "endChar": 60
+      },
+      "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "746a0c11_0ed4db4e",
         "filename": "tools/ahat/src/test/com/android/ahat/ProguardMapTest.java",
         "patchSetId": 2
@@ -94,6 +160,30 @@
       "writtenOn": "2022-04-19T06:43:44Z",
       "side": 1,
       "message": "nit: should this be fields since the checking below is all fieldName?",
+      "range": {
+        "startLine": 234,
+        "startChar": 5,
+        "endLine": 234,
+        "endChar": 36
+      },
+      "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ab10f3_e1fa7351",
+        "filename": "tools/ahat/src/test/com/android/ahat/ProguardMapTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-04-19T08:29:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "746a0c11_0ed4db4e",
       "range": {
         "startLine": 234,
         "startChar": 5,
@@ -117,6 +207,30 @@
       "writtenOn": "2022-04-19T06:43:44Z",
       "side": 1,
       "message": "This will probably not work for kotlin files.",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 0
+      },
+      "revId": "295c22ffacaad1051d540db5149e138ee80e9806",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "625935f0_dfa363cd",
+        "filename": "tools/ahat/src/test/com/android/ahat/ProguardMapTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-04-19T08:29:12Z",
+      "side": 1,
+      "message": "It could be, this is the same as in the old proguard map test. I\u0027m not sure if the ahat tool is meant to be handling Kotlin files.",
+      "parentUuid": "c29ff5c0_9bfd16cb",
       "range": {
         "startLine": 311,
         "startChar": 0,
