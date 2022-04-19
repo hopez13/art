@@ -30,6 +30,7 @@ public class Main {
     assertEquals(1, $noinline$testTryCatchBlocking(new Point(), boolean_throw));
     assertEquals(1, $noinline$testTryCatchPhi(new Point(), boolean_throw));
     assertEquals(2, $noinline$testTryCatchPhiWithTwoCatches(new Point(), new int[0]));
+    assertEquals(1, $noinline$testKeepStoreInsideTryCatch());
   }
 
   /// CHECK-START: int Main.$noinline$testDifferentFields(Point, Point, boolean, boolean) load_store_elimination (before)
@@ -199,9 +200,38 @@ public class Main {
     return obj.y;
   }
 
+  // Check that we don't eliminate the first store to `main.sumForKeepStoreInsideTryCatch` since it
+  // is observable.
+
+  // Consistency check to make sure the try/catch wasn't removed by an earlier pass.
+  /// CHECK-START: int Main.$noinline$testKeepStoreInsideTryCatch() load_store_elimination (after)
+  /// CHECK-DAG: TryBoundary kind:entry
+
+  /// CHECK-START: int Main.$noinline$testKeepStoreInsideTryCatch() load_store_elimination (before)
+  /// CHECK:     InstanceFieldSet field_name:Main.sumForKeepStoreInsideTryCatch
+  /// CHECK:     InstanceFieldSet field_name:Main.sumForKeepStoreInsideTryCatch
+
+  /// CHECK-START: int Main.$noinline$testKeepStoreInsideTryCatch() load_store_elimination (after)
+  /// CHECK:     InstanceFieldSet field_name:Main.sumForKeepStoreInsideTryCatch
+  /// CHECK:     InstanceFieldSet field_name:Main.sumForKeepStoreInsideTryCatch
+  private static int $noinline$testKeepStoreInsideTryCatch() {
+    Main main = new Main();
+    main.sumForKeepStoreInsideTryCatch = 0;
+    try {
+      int[] array = {1};
+      main.sumForKeepStoreInsideTryCatch += array[0];
+      main.sumForKeepStoreInsideTryCatch += array[1];
+      throw new RuntimeException("Unreachable");
+    } catch (ArrayIndexOutOfBoundsException e) {
+      return main.sumForKeepStoreInsideTryCatch;
+    }
+  }
+
   private static void assertEquals(int expected, int actual) {
     if (expected != actual) {
       throw new AssertionError("Expected: " + expected + ", Actual: " + actual);
     }
   }
+
+  int sumForKeepStoreInsideTryCatch;
 }

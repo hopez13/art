@@ -1035,6 +1035,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   }
 
   void VisitDeoptimize(HDeoptimize* instruction) override {
+    const bool inside_try_catch = instruction->GetBlock()->GetTryCatchInformation() != nullptr;
     ScopedArenaVector<ValueRecord>& heap_values =
         heap_values_for_[instruction->GetBlock()->GetBlockId()];
     for (size_t i = 0u, size = heap_values.size(); i != size; ++i) {
@@ -1044,9 +1045,10 @@ class LSEVisitor final : private HGraphDelegateVisitor {
       }
       // Stores are generally observeable after deoptimization, except
       // for singletons that don't escape in the deoptimization environment.
+      // Stores are presumed to be oberservable when a deoptmize is within a try/catch.
       bool observable = true;
       ReferenceInfo* info = heap_location_collector_.GetHeapLocation(i)->GetReferenceInfo();
-      if (info->IsSingleton()) {
+      if (info->IsSingleton() && !inside_try_catch) {
         HInstruction* reference = info->GetReference();
         // Finalizable objects always escape.
         if (!reference->IsNewInstance() || !reference->AsNewInstance()->IsFinalizable()) {
@@ -1089,11 +1091,79 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     HandleExit(return_void->GetBlock());
   }
 
+  void HandleThrowingInstruction(HInstruction* instruction) {
+    DCHECK(instruction->CanThrow());
+    HBasicBlock* block = instruction->GetBlock();
+    if (block->GetTryCatchInformation() != nullptr) {
+      // All stores are necessary stores since we are throwing inside a try catch and not
+      // necessarily exiting the method.
+      ScopedArenaVector<ValueRecord>& heap_values = heap_values_for_[block->GetBlockId()];
+      for (size_t i = 0u, size = heap_values.size(); i != size; ++i) {
+        KeepStores(heap_values[i].stored_by);
+        heap_values[i].stored_by = Value::PureUnknown();
+      }
+    }
+  }
+
+  void VisitMethodEntryHook(HMethodEntryHook* method_entry) override {
+    HandleThrowingInstruction(method_entry);
+  }
+
+  void VisitMethodExitHook(HMethodExitHook* method_exit) override {
+    HandleThrowingInstruction(method_exit);
+  }
+
+  void VisitDivZeroCheck(HDivZeroCheck* div_zero_check) override {
+    HandleThrowingInstruction(div_zero_check);
+  }
+
+  void VisitNullCheck(HNullCheck* null_check) override {
+    HandleThrowingInstruction(null_check);
+  }
+
+  void VisitBoundsCheck(HBoundsCheck* bounds_check) override {
+    HandleThrowingInstruction(bounds_check);
+  }
+
+  void VisitLoadClass(HLoadClass* load_class) override {
+    if (load_class->CanThrow()) {
+      HandleThrowingInstruction(load_class);
+    }
+  }
+
+  void VisitLoadString(HLoadString* load_string) override {
+    if (load_string->CanThrow()) {
+      HandleThrowingInstruction(load_string);
+    }
+  }
+
+  void VisitStringBuilderAppend(HStringBuilderAppend* sb_append) override {
+    HandleThrowingInstruction(sb_append);
+  }
+
   void VisitThrow(HThrow* throw_instruction) override {
-    HandleExit(throw_instruction->GetBlock());
+    if (throw_instruction->GetBlock()->GetTryCatchInformation() != nullptr) {
+      HandleThrowingInstruction(throw_instruction);
+    } else {
+      HandleExit(throw_instruction->GetBlock());
+    }
+  }
+
+  void VisitCheckCast(HCheckCast* check_cast) override {
+    HandleThrowingInstruction(check_cast);
+  }
+
+  void VisitMonitorOperation(HMonitorOperation* monitor_op) override {
+    if (monitor_op->CanThrow()) {
+      HandleThrowingInstruction(monitor_op);
+    }
   }
 
   void HandleInvoke(HInstruction* instruction) {
+    // If `instruction` can throw and it's inside a try/catch, we have to presume all stores are
+    // visible.
+    const bool must_keep_stores =
+        instruction->CanThrow() && instruction->GetBlock()->GetTryCatchInformation() != nullptr;
     SideEffects side_effects = instruction->GetSideEffects();
     ScopedArenaVector<ValueRecord>& heap_values =
         heap_values_for_[instruction->GetBlock()->GetBlockId()];
@@ -1119,12 +1189,13 @@ class LSEVisitor final : private HGraphDelegateVisitor {
                               return cohort.PrecedesBlock(blk);
                             });
       };
-      if (ref_info->IsSingleton() ||
-          // partial and we aren't currently escaping and we haven't escaped yet.
-          (ref_info->IsPartialSingleton() && partial_singleton_did_not_escape(ref_info, blk))) {
+      if (!must_keep_stores &&
+          (ref_info->IsSingleton() ||
+           // partial and we aren't currently escaping and we haven't escaped yet.
+           (ref_info->IsPartialSingleton() && partial_singleton_did_not_escape(ref_info, blk)))) {
         // Singleton references cannot be seen by the callee.
       } else {
-        if (side_effects.DoesAnyRead() || side_effects.DoesAnyWrite()) {
+        if (must_keep_stores || side_effects.DoesAnyRead() || side_effects.DoesAnyWrite()) {
           // Previous stores may become visible (read) and/or impossible for LSE to track (write).
           KeepStores(heap_values[i].stored_by);
           heap_values[i].stored_by = Value::PureUnknown();
@@ -1177,6 +1248,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
       // new_instance can potentially be eliminated.
       singleton_new_instances_.push_back(new_instance);
     }
+    const bool inside_try_catch = new_instance->GetBlock()->GetTryCatchInformation() != nullptr;
     ScopedArenaVector<ValueRecord>& heap_values =
         heap_values_for_[new_instance->GetBlock()->GetBlockId()];
     for (size_t i = 0u, size = heap_values.size(); i != size; ++i) {
@@ -1195,6 +1267,10 @@ class LSEVisitor final : private HGraphDelegateVisitor {
           heap_values[i].value = Value::ForInstruction(new_instance->GetLoadClass());
           heap_values[i].stored_by = Value::PureUnknown();
         }
+      } else if (inside_try_catch) {
+        // Since NewInstance can throw, we presume all stores could be visible.
+        KeepStores(heap_values[i].stored_by);
+        heap_values[i].stored_by = Value::PureUnknown();
       }
     }
   }
@@ -1216,12 +1292,17 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     }
     ScopedArenaVector<ValueRecord>& heap_values =
         heap_values_for_[new_array->GetBlock()->GetBlockId()];
+    const bool inside_try_catch = new_array->GetBlock()->GetTryCatchInformation() != nullptr;
     for (size_t i = 0u, size = heap_values.size(); i != size; ++i) {
       HeapLocation* location = heap_location_collector_.GetHeapLocation(i);
       HInstruction* ref = location->GetReferenceInfo()->GetReference();
       if (ref == new_array && location->GetIndex() != nullptr) {
         // Array elements are set to default heap values.
         heap_values[i].value = Value::Default();
+        heap_values[i].stored_by = Value::PureUnknown();
+      } else if (inside_try_catch) {
+        // Since NewArray can throw, we presume all stores could be visible.
+        KeepStores(heap_values[i].stored_by);
         heap_values[i].stored_by = Value::PureUnknown();
       }
     }
@@ -1829,7 +1910,11 @@ void LSEVisitor::VisitSetLocation(HInstruction* instruction, size_t idx, HInstru
 
   if (instruction->CanThrow()) {
     // Previous stores can become visible.
-    HandleExit(instruction->GetBlock());
+    if (instruction->GetBlock()->GetTryCatchInformation() != nullptr) {
+      HandleThrowingInstruction(instruction);
+    } else {
+      HandleExit(instruction->GetBlock());
+    }
     // We cannot remove a possibly throwing store.
     // After marking it as kept, it does not matter if we track it in `stored_by` or not.
     kept_stores_.SetBit(instruction->GetId());
