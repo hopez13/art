@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1f50f08_d454bb1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-04-19T13:33:35Z",
+      "side": 1,
+      "message": "Do we have any colliding expectations with --debug or other buildbot flags?",
+      "revId": "b8f3372fc62313b1c65e3ed543e653423d15eb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3faf958b_879f2cb4",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-04-19T13:33:35Z",
+      "side": 1,
+      "message": "Missing failures or no longer needed.",
+      "range": {
+        "startLine": 288,
+        "startChar": 51,
+        "endLine": 288,
+        "endChar": 74
+      },
+      "revId": "b8f3372fc62313b1c65e3ed543e653423d15eb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
