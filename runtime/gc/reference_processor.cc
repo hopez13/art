@@ -118,7 +118,7 @@ ObjPtr<mirror::Object> ReferenceProcessor::GetReferent(Thread* self,
   // Keeping reference_processor_lock_ blocks the broadcast when we try to reenable the fast path.
   while (slow_path_required()) {
     DCHECK(collector_ != nullptr);
-    constexpr bool kOtherReadBarrier = kUseReadBarrier && !kUseBakerReadBarrier;
+    const bool kOtherReadBarrier = kUseReadBarrier && !kUseBakerReadBarrier;
     if (UNLIKELY(reference->IsFinalizerReferenceInstance()
                  || rp_state_ == RpState::kStarting /* too early to determine mark state */
                  || (kOtherReadBarrier && reference->IsPhantomReferenceInstance()))) {

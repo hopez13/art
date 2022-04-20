@@ -443,14 +443,18 @@ extern "C" mirror::Object* artReadBarrierSlow(mirror::Object* ref ATTRIBUTE_UNUS
                                               mirror::Object* obj,
                                               uint32_t offset) {
   // Used only in connection with non-volatile loads.
+  // On ARM targets we would never reach here if we are using userfaultfd GC.
+  // But on intel targets we may as the read-barrier is not fully optimized.
+#if defined(__aarch64__) || defined(__arm__)
   DCHECK(kEmitCompilerReadBarrier);
+#else
+  DCHECK(kUseUserfaultfd || kEmitCompilerReadBarrier);
+#endif
   uint8_t* raw_addr = reinterpret_cast<uint8_t*>(obj) + offset;
   mirror::HeapReference<mirror::Object>* ref_addr =
      reinterpret_cast<mirror::HeapReference<mirror::Object>*>(raw_addr);
-  constexpr ReadBarrierOption kReadBarrierOption =
-      kUseReadBarrier ? kWithReadBarrier : kWithoutReadBarrier;
   mirror::Object* result =
-      ReadBarrier::Barrier<mirror::Object, /* kIsVolatile= */ false, kReadBarrierOption>(
+      ReadBarrier::Barrier<mirror::Object, /* kIsVolatile= */ false, kWithReadBarrier>(
         obj,
         MemberOffset(offset),
         ref_addr);

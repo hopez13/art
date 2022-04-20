@@ -25,6 +25,7 @@
 #include "gc/verification-inl.h"
 #include "jit/jit_code_cache.h"
 #include "mirror/object-refvisitor-inl.h"
+#include "read_barrier_config.h"
 #include "scoped_thread_state_change-inl.h"
 #include "sigchain.h"
 #include "thread_list.h"
@@ -36,10 +37,6 @@
 #include <unistd.h>
 #include <fstream>
 #include <numeric>
-
-namespace art {
-namespace gc {
-namespace collector {
 
 #ifndef __BIONIC__
 #ifndef MREMAP_DONTUNMAP
@@ -59,6 +56,30 @@ namespace collector {
 #endif
 #endif  // __NR_userfaultfd
 #endif  // __BIONIC__
+
+namespace art {
+
+bool ShouldUseUserfaultfd() {
+  int fd = syscall(__NR_userfaultfd, O_CLOEXEC | UFFD_USER_MODE_ONLY);
+#ifndef ART_TARGET
+  // On host we may not have the kernel patches that restrict userfaultfd to
+  // user mode. But that is not a security concern as we are on host.
+  // Therefore, attempt one more time without UFFD_USER_MODE_ONLY.
+  if (fd == -1 && errno == EINVAL) {
+    fd = syscall(__NR_userfaultfd, O_CLOEXEC);
+  }
+#endif
+  if (fd >= 0) {
+    close(fd);
+    return true;
+  } else {
+    return false;
+  }
+}
+
+namespace gc {
+namespace collector {
+
 // Turn of kCheckLocks when profiling the GC as it slows down the GC
 // significantly.
 static constexpr bool kCheckLocks = kDebugLocking;
