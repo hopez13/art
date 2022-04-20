@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e607dd37_48c4f76f",
+        "filename": "tools/build_linux_bionic.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-20T13:32:39Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 107
+      },
+      "revId": "39a111b83f4099d78784ff47737c5c5ca2fd43a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5f74971_027d438e",
+        "filename": "tools/build_linux_bionic.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-20T13:32:39Z",
+      "side": 1,
+      "message": "Nit: You can use this:\n\n  $(\u003c ${OUT_DIR}/soong/build_number.txt)\n\nhere, which is faster (as the shell does not need to create a process for `cat`).",
+      "range": {
+        "startLine": 53,
+        "startChar": 17,
+        "endLine": 53,
+        "endChar": 57
+      },
+      "revId": "39a111b83f4099d78784ff47737c5c5ca2fd43a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b4b52f4_beaaa07c",
+        "filename": "tools/build_linux_bionic.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-20T13:32:39Z",
+      "side": 1,
+      "message": "I might be reading this wrong, but wouldn\u0027t this:\n\n  cp -f $OUT_DIR/soong/soong.variables ${tmp_soong_var}\n\nfeel more usual?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 53
+      },
+      "revId": "39a111b83f4099d78784ff47737c5c5ca2fd43a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8f0edd8_96f42813",
+        "filename": "tools/build_linux_bionic.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-20T13:32:39Z",
+      "side": 1,
+      "message": "Suggestion: Instead of using `xargs`, replace this with `find`\u0027s `-delete` action flag.",
+      "range": {
+        "startLine": 62,
+        "startChar": 33,
+        "endLine": 62,
+        "endChar": 60
+      },
+      "revId": "39a111b83f4099d78784ff47737c5c5ca2fd43a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f4546d2_c2da8b0b",
+        "filename": "tools/build_linux_bionic.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-20T13:32:39Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 67,
+        "startChar": 39,
+        "endLine": 67,
+        "endChar": 66
+      },
+      "revId": "39a111b83f4099d78784ff47737c5c5ca2fd43a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa6a8d12_5887a95b",
+        "filename": "tools/build_linux_bionic_tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-20T13:32:39Z",
+      "side": 1,
+      "message": "Ditto:\n\n  cp -f $OUT_DIR/soong/soong.variables ${tmp_soong_var}\n\nseems more natural.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "39a111b83f4099d78784ff47737c5c5ca2fd43a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
