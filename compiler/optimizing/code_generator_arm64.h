@@ -92,7 +92,11 @@ const vixl::aarch64::CPURegList runtime_reserved_core_registers =
     vixl::aarch64::CPURegList(
         tr,
         // Reserve X20 as Marking Register when emitting Baker read barriers.
-        ((kEmitCompilerReadBarrier && kUseBakerReadBarrier) ? mr : vixl::aarch64::NoCPUReg),
+        // TODO: We don't need to reserve marking-register for userfaultfd GC. But
+        // that would require some work in the assembler code as the right GC is
+        // chosen at load-time and not compile time.
+        ((kEmitCompilerReadBarrier && kUseBakerReadBarrier) || kUseUserfaultfd
+         ? mr : vixl::aarch64::NoCPUReg),
         kImplicitSuspendCheckRegister,
         vixl::aarch64::lr);
 
