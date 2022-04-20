@@ -50,7 +50,6 @@
 #if defined(__linux__)
 #include <linux/unistd.h>
 #include <sys/syscall.h>
-#include <sys/utsname.h>
 #endif
 
 #if defined(_WIN32)
@@ -159,6 +158,7 @@ bool FlushCpuCaches(void* begin, void* end) {
 #endif
 
 bool CacheOperationsMaySegFault() {
+  bool ret = false;
 #if defined(__linux__) && defined(__aarch64__)
   // Avoid issue on older ARM64 kernels where data cache operations could be classified as writes
   // and cause segmentation faults. This was fixed in Linux 3.11rc2:
@@ -167,18 +167,16 @@ bool CacheOperationsMaySegFault() {
   //
   // This behaviour means we should avoid the dual view JIT on the device. This is just
   // an issue when running tests on devices that have an old kernel.
-  static constexpr int kRequiredMajor = 3;
-  static constexpr int kRequiredMinor = 12;
-  struct utsname uts;
-  int major, minor;
-  if (uname(&uts) != 0 ||
-      strcmp(uts.sysname, "Linux") != 0 ||
-      sscanf(uts.release, "%d.%d", &major, &minor) != 2 ||
-      (major < kRequiredMajor || (major == kRequiredMajor && minor < kRequiredMinor))) {
-    return true;
-  }
+  CheckKernelVersion([&ret] (int major, int minor) {
+                       static constexpr int kRequiredMajor = 3;
+                       static constexpr int kRequiredMinor = 12;
+                       if (major < kRequiredMajor
+                           || (major == kRequiredMajor && minor < kRequiredMinor)) {
+                         ret = true;
+                       }
+                     });
 #endif
-  return false;
+  return ret;
 }
 
 uint32_t GetTid() {

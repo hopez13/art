@@ -31,6 +31,10 @@
 #include "globals.h"
 #include "macros.h"
 
+#if defined(__linux__)
+#include <sys/utsname.h>
+#endif
+
 namespace art {
 
 static inline uint32_t PointerToLowMemUInt32(const void* p) {
@@ -124,6 +128,18 @@ NO_RETURN void SleepForever();
 
 // Flush CPU caches. Returns true on success, false if flush failed.
 WARN_UNUSED bool FlushCpuCaches(void* begin, void* end);
+
+#if defined(__linux__)
+template <typename Fn>
+void CheckKernelVersion(Fn func) {
+  struct utsname uts;
+  int major, minor;
+  CHECK_EQ(uname(&uts), 0);
+  CHECK_EQ(strcmp(uts.sysname, "Linux"), 0);
+  CHECK_EQ(sscanf(uts.release, "%d.%d:", &major, &minor), 2);
+  func(major, minor);
+}
+#endif
 
 // On some old kernels, a cache operation may segfault.
 WARN_UNUSED bool CacheOperationsMaySegFault();

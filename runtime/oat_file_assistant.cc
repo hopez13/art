@@ -420,8 +420,8 @@ OatFileAssistant::OatStatus OatFileAssistant::GivenOatFileStatus(const OatFile& 
   // kOatRelocationOutOfDate. If they don't contain compiled code, the read
   // barrier state doesn't matter.
   const bool is_cc = file.GetOatHeader().IsConcurrentCopying();
-  constexpr bool kRuntimeIsCC = kUseReadBarrier;
-  if (is_cc != kRuntimeIsCC) {
+  const bool gRuntimeIsCC = gUseReadBarrier;
+  if (is_cc != gRuntimeIsCC) {
     return kOatCannotOpen;
   }
 
