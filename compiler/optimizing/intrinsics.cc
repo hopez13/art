@@ -392,7 +392,7 @@ void IntrinsicVisitor::CreateReferenceGetReferentLocations(HInvoke* invoke,
 }
 
 void IntrinsicVisitor::CreateReferenceRefersToLocations(HInvoke* invoke) {
-  if (kEmitCompilerReadBarrier && !kUseBakerReadBarrier) {
+  if (gEmitCompilerReadBarrier && !kUseBakerReadBarrier) {
     // Unimplemented for non-Baker read barrier.
     return;
   }
