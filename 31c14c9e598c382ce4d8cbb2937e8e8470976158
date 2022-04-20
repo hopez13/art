@@ -16,6 +16,24 @@
       "message": "I don\u0027t know enough about these methods and where they are used to see if the lock is needed or not. Can you explain it in the commit message? The justification that `ArtMethod::access_flags_` are accessed without a lock is not the real reason.",
       "revId": "31c14c9e598c382ce4d8cbb2937e8e8470976158",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e85cff89_3069aee2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-20T15:13:26Z",
+      "side": 1,
+      "message": "Updated commit message.",
+      "parentUuid": "893f57f9_5cf26006",
+      "revId": "31c14c9e598c382ce4d8cbb2937e8e8470976158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
