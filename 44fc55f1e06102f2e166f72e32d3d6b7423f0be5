@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8ddb46e_cadd26b0",
+        "filename": "tools/build_linux_bionic.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-20T13:43:43Z",
+      "side": 1,
+      "message": "The use of `echo -n` is generally discouraged because of portability issues (see e.g. https://pubs.opengroup.org/onlinepubs/9699919799/utilities/echo.html#tag_20_37_16 or https://wiki.bash-hackers.org/scripting/nonportable#echo_command); it\u0027s usually better to use `printf` instead.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 7
+      },
+      "revId": "44fc55f1e06102f2e166f72e32d3d6b7423f0be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
