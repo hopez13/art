@@ -175,19 +175,21 @@ inline bool Object::AtomicSetReadBarrierState(uint32_t expected_rb_state, uint32
 }
 
 inline bool Object::AtomicSetMarkBit(uint32_t expected_mark_bit, uint32_t mark_bit) {
-  LockWord expected_lw;
-  LockWord new_lw;
-  do {
-    LockWord lw = GetLockWord(false);
-    if (UNLIKELY(lw.MarkBitState() != expected_mark_bit)) {
-      // Lost the race.
-      return false;
-    }
-    expected_lw = lw;
-    new_lw = lw;
-    new_lw.SetMarkBitState(mark_bit);
-    // Since this is only set from the mutator, we can use the non-release CAS.
-  } while (!CasLockWord(expected_lw, new_lw, CASMode::kWeak, std::memory_order_relaxed));
+  if (kUseReadBarrier) {
+    LockWord expected_lw;
+    LockWord new_lw;
+    do {
+      LockWord lw = GetLockWord(false);
+      if (UNLIKELY(lw.MarkBitState() != expected_mark_bit)) {
+        // Lost the race.
+        return false;
+      }
+      expected_lw = lw;
+      new_lw = lw;
+      new_lw.SetMarkBitState(mark_bit);
+      // Since this is only set from the mutator, we can use the non-release CAS.
+    } while (!CasLockWord(expected_lw, new_lw, CASMode::kWeak, std::memory_order_relaxed));
+  }
   return true;
 }
 
