@@ -22,6 +22,30 @@
       },
       "revId": "44fc55f1e06102f2e166f72e32d3d6b7423f0be5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c558cac_12ba110a",
+        "filename": "tools/build_linux_bionic.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-04-20T16:37:21Z",
+      "side": 1,
+      "message": "That\u0027s a valid point, but there\u0027s also the aspect of replacing a well known idiom with a less well known one, in a situation where the deficiencies of the first don\u0027t matter in practice. I\u0027m on the fence whether this change is an improvement or not, but done anyway.",
+      "parentUuid": "f8ddb46e_cadd26b0",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 7
+      },
+      "revId": "44fc55f1e06102f2e166f72e32d3d6b7423f0be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
