@@ -1034,7 +1034,7 @@ class Heap {
         allocator_type != kAllocatorTypeRegion;
   }
   static ALWAYS_INLINE bool AllocatorMayHaveConcurrentGC(AllocatorType allocator_type) {
-    if (kUseUserfaultfd || kUseReadBarrier) {
+    if (gUseUserfaultfd || gUseReadBarrier) {
       // May have the TLAB allocator but is always concurrent. TODO: clean this up.
       return true;
     }
