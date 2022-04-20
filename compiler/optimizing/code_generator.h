@@ -56,7 +56,7 @@ static int32_t constexpr kPrimIntMax = 0x7fffffff;
 // Maximum value for a primitive long.
 static int64_t constexpr kPrimLongMax = INT64_C(0x7fffffffffffffff);
 
-static constexpr ReadBarrierOption kCompilerReadBarrierOption =
+static const ReadBarrierOption kCompilerReadBarrierOption =
     kEmitCompilerReadBarrier ? kWithReadBarrier : kWithoutReadBarrier;
 
 class Assembler;
