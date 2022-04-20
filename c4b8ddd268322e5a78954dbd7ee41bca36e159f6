@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bead3bee_9957f1c8",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9520,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "Nit: omit spaces?",
+      "range": {
+        "startLine": 9520,
+        "startChar": 30,
+        "endLine": 9520,
+        "endChar": 43
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18023e9b_168dcb81",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9544,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "This change seems orthogonal to the whole patch. Why didn\u0027t we hit this check before, are all varhandles in the primary image by accident?",
+      "range": {
+        "startLine": 9544,
+        "startChar": 43,
+        "endLine": 9544,
+        "endChar": 88
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e6d6d6b_30114a92",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2878,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "Can you split this into separate functions for different simplifications? I.e. one function for `SetSkipObjectNullCheck`, one for `SetUseKnownBootImageVarHandle`.",
+      "range": {
+        "startLine": 2878,
+        "startChar": 35,
+        "endLine": 2878,
+        "endChar": 61
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f867df_39e8df2b",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2910,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "I thought static field implies `expected_coordinates_count \u003d\u003d 0u`, doesn\u0027t it?",
+      "range": {
+        "startLine": 2910,
+        "startChar": 43,
+        "endLine": 2910,
+        "endChar": 75
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59c54451_644ea901",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2917,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "Why not other methods (why only `get`)? Can you expand the comment to explain this?",
+      "range": {
+        "startLine": 2917,
+        "startChar": 31,
+        "endLine": 2917,
+        "endChar": 47
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e18c9c_d36d7694",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2937,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "This is unexpected. What\u0027s the logic behind these checks? Can you add a comment?",
+      "range": {
+        "startLine": 2937,
+        "startChar": 49,
+        "endLine": 2937,
+        "endChar": 50
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cd41e41_d045d0bd",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "Maybe worth mentioning, byte array views are also unsupported.",
+      "range": {
+        "startLine": 241,
+        "startChar": 83,
+        "endLine": 241,
+        "endChar": 94
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef7d2fba_2ced4d13",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3572,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "This function is for instance fields, not static fields, so if the optimization only handles static fields, this should be a DCHECK.\n\n(likewise for other arches)",
+      "range": {
+        "startLine": 3572,
+        "startChar": 2,
+        "endLine": 3572,
+        "endChar": 55
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e809baa_f91f5095",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3696,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "This looks weird: `expected_coordinates_count \u003d\u003d 0u` excludes the possibility of `expected_coordinates_count \u003d\u003d 2u`. Can you remove this condition or add a comment explaining the rationale behind this whole check?\n\nAlso I think just the `optimizations.GetUseKnownBootImageVarHandle()` condition implies that this is not an array varhandle (less than 2 coordinates).\n\n(and for other arches)",
+      "range": {
+        "startLine": 3692,
+        "startChar": 0,
+        "endLine": 3696,
+        "endChar": 3
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a4c2a50_f678e9b9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3868,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "Is it perhaps better to generate an empty slow path and avoid all the null checks?",
+      "range": {
+        "startLine": 3868,
+        "startChar": 4,
+        "endLine": 3868,
+        "endChar": 31
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "532a3deb_03a5900b",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-20T16:03:54Z",
+      "side": 1,
+      "message": "This repeats a few times, can you add a helper?",
+      "range": {
+        "startLine": 186,
+        "startChar": 8,
+        "endLine": 187,
+        "endChar": 75
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
