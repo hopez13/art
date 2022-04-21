@@ -189,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f02686b_3ceb4d64",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2910,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-04-21T13:38:38Z",
+      "side": 1,
+      "message": "Ah, thanks for the explanation.",
+      "parentUuid": "f09f59d1_bc649049",
+      "range": {
+        "startLine": 2910,
+        "startChar": 43,
+        "endLine": 2910,
+        "endChar": 75
+      },
+      "revId": "c4b8ddd268322e5a78954dbd7ee41bca36e159f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59c54451_644ea901",
