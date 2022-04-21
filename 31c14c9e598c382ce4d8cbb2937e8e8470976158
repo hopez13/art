@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63659e33_e3199269",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4631,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-21T12:46:46Z",
+      "side": 0,
+      "message": "I did not want to duplicate the comment. `ArtMethod*` is the only type that\u0027s naturally 64-bit (on arm64), so it seemed better to keep the comment here, in the context of loading the `ArtMethod*`.",
+      "parentUuid": "272612c9_6d2c4955",
+      "range": {
+        "startLine": 4631,
+        "startChar": 6,
+        "endLine": 4631,
+        "endChar": 92
+      },
+      "revId": "31c14c9e598c382ce4d8cbb2937e8e8470976158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b131740f_d8eddf75",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-20T16:03:54Z",
       "side": 0,
       "message": "Are we sure that `CanHoldLoadOffsetThumb(type, offset)` and `CHECK(!dest.IsSP());` from `LoadFromOffset` will pass, so it is the same as `__ Ldr(temp_reg, MemOperand(temp_reg, 0));`?",
+      "range": {
+        "startLine": 9228,
+        "startChar": 5,
+        "endLine": 9228,
+        "endChar": 83
+      },
+      "revId": "31c14c9e598c382ce4d8cbb2937e8e8470976158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95dc8b45_78d2384a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9228,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-21T12:46:46Z",
+      "side": 0,
+      "message": "The offset is 0 and the `temp_reg` cannot be SP, so yes, I\u0027m sure the replacement shall emit the same code.",
+      "parentUuid": "b131740f_d8eddf75",
       "range": {
         "startLine": 9228,
         "startChar": 5,
