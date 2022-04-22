@@ -16,6 +16,24 @@
       "message": "This seems to have broken a lot of golem benchmarks. Reverting this while I investigate the issue. PTAL.",
       "revId": "79f078d87e410ed6d7b78a3afe8f7008db3601dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c418a37a_22789c33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-22T13:54:55Z",
+      "side": 1,
+      "message": "You should be able to self-approve a clean revert of your own CL. And you may want to skip TH.",
+      "parentUuid": "8a13e416_b714b2a8",
+      "revId": "79f078d87e410ed6d7b78a3afe8f7008db3601dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
