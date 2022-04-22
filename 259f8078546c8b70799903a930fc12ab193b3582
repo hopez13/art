@@ -1426,6 +1426,30 @@
       },
       "revId": "259f8078546c8b70799903a930fc12ab193b3582",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b95608f_dec108f1",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T23:39:58Z",
+      "side": 1,
+      "message": "My only concern here is consistency, of which I think there isn\u0027t much in this regard. But I don\u0027t think it\u0027s worth trying to address that here.\n\nAs we discussed. I don\u0027t think this actually helps the compiler much: If the variable is exposed to unknown code, it can change it anyway via const_cast. But there is a trade-off between brevity and error detection. Either approach makes sense to me. As does omitting it only in very short functions. But I don\u0027t think we consistently follow any of those 3 policies.",
+      "parentUuid": "d20c66e4_1754da6a",
+      "range": {
+        "startLine": 274,
+        "startChar": 22,
+        "endLine": 274,
+        "endChar": 27
+      },
+      "revId": "259f8078546c8b70799903a930fc12ab193b3582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
