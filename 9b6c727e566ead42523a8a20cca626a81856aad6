@@ -1,0 +1,435 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42f4828a_99ff9754",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "Getting there ...",
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "025594df_2272cc91",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "Can we not ensure stack_end_ is set when we get here?\n\nIs any of this needed for non-debug purposes? It doesn\u0027t look like it can all be optimized out.",
+      "range": {
+        "startLine": 199,
+        "startChar": 4,
+        "endLine": 203,
+        "endChar": 65
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d72394e0_766db821",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "IIUC. you don\u0027t actually assume this. Delete?",
+      "range": {
+        "startLine": 764,
+        "startChar": 3,
+        "endLine": 764,
+        "endChar": 67
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a383d8c4_29edb455",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "Why does that give you the first chunk size? Does it need a comment someplace?\n\nI think I now understand, but that comment from below really needs to go with the pre_compact_offset_moving_space_ declaration as well. I think that for cases like this, I would prefer a (unnamed?) union of arrays, so you can use an appropriate name in each context.",
+      "range": {
+        "startLine": 773,
+        "startChar": 36,
+        "endLine": 773,
+        "endChar": 68
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63e2d54a_0ce6f476",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "Please move down a line, where the assertion holds.",
+      "range": {
+        "startLine": 890,
+        "startChar": 4,
+        "endLine": 890,
+        "endChar": 79
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e9e6042_7e4e0b88",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "I still don\u0027t like this name. \"Allocated-black pages\"?",
+      "range": {
+        "startLine": 951,
+        "startChar": 5,
+        "endLine": 951,
+        "endChar": 16
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "114693a9_09c4a729",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "Currently SlideBlackPage would be much easier to read if this came first. If you use a union to give some of these things better names, it may not matter anymore.",
+      "range": {
+        "startLine": 1030,
+        "startChar": 0,
+        "endLine": 1030,
+        "endChar": 51
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e31de9d0_e44bc732",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "It would be good to justify this in the comment.",
+      "range": {
+        "startLine": 1067,
+        "startChar": 6,
+        "endLine": 1068,
+        "endChar": 36
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b57b0e8_e6fcb763",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "remaining_chunk_size?",
+      "range": {
+        "startLine": 1094,
+        "startChar": 10,
+        "endLine": 1094,
+        "endChar": 20
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e496b3_8c12a2aa",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "Is the \u003d\u003d case handle correctly here?",
+      "range": {
+        "startLine": 1125,
+        "startChar": 27,
+        "endLine": 1125,
+        "endChar": 29
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfb74a01_8c3f66b9",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "can be",
+      "range": {
+        "startLine": 1267,
+        "startChar": 39,
+        "endLine": 1267,
+        "endChar": 42
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f5b70b6_56aee4c8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "past",
+      "range": {
+        "startLine": 1268,
+        "startChar": 44,
+        "endLine": 1268,
+        "endChar": 48
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c79461f3_4b287fcb",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1269,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "\"involves\"? You do this, right?",
+      "range": {
+        "startLine": 1269,
+        "startChar": 7,
+        "endLine": 1269,
+        "endChar": 20
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9156017f_48883386",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "Seems like a good idea for the future. I think this is basically an O(heap size) operation, since the amount of concurrently allocated memory will grow with heap size. It seems suboptimal to do this in a pause. It might even make sense to eventually do this in the allocator?",
+      "range": {
+        "startLine": 1270,
+        "startChar": 4,
+        "endLine": 1271,
+        "endChar": 53
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d77591b_64179ff7",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "Rightly or wrongly, Perfetto relies on this, right? So we can\u0027t really ship without it?",
+      "range": {
+        "startLine": 1288,
+        "startChar": 4,
+        "endLine": 1288,
+        "endChar": 61
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d338cc44_a5a5f55d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "Why would we?\n\nI would be surprised if ThreadFenceForConstructor() is the correct call for pretty much anything other than its purpose in a Java constructor. It works there because we are only ordering writes to write-once fields.",
+      "range": {
+        "startLine": 1375,
+        "startChar": 1,
+        "endLine": 1376,
+        "endChar": 43
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59532d20_37598107",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "This name seems suboptimal. Something with \"BlackAllocations\" perhaps?",
+      "range": {
+        "startLine": 283,
+        "startChar": 7,
+        "endLine": 283,
+        "endChar": 36
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f523d5ce_5e29fcda",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 4520,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "Agree. But also that it\u0027s rare enough to probably not matter much.",
+      "range": {
+        "startLine": 4518,
+        "startChar": 4,
+        "endLine": 4520,
+        "endChar": 46
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9f430eb_da2ca4b4",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-04-22T03:34:15Z",
+      "side": 1,
+      "message": "I find this a bit confusing. Can we give an overview of the model here? The space logically consists of one large main block plus secondary blocks that may represent TLABs? Do any of them have headers?",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 180,
+        "endChar": 58
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
