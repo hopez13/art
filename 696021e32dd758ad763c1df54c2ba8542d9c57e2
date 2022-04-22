@@ -16,6 +16,29 @@
       "message": "PTAL.",
       "revId": "696021e32dd758ad763c1df54c2ba8542d9c57e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e08e0c8b_5630db14",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-22T16:36:26Z",
+      "side": 1,
+      "message": "If the DCHECK() fails, PC shall be zero, so this adds no information for debugging. If you prefer the DCHECK_NE() just for style, feel free to submit.",
+      "range": {
+        "startLine": 558,
+        "startChar": 2,
+        "endLine": 558,
+        "endChar": 19
+      },
+      "revId": "696021e32dd758ad763c1df54c2ba8542d9c57e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
