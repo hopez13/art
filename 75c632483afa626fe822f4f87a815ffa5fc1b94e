@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5762a77e_6a208391",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-04-22T14:07:35Z",
+      "side": 1,
+      "message": "PTAL. Thanks!",
+      "revId": "75c632483afa626fe822f4f87a815ffa5fc1b94e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "760db216_c7b8ad0d",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-04-22T14:07:35Z",
+      "side": 1,
+      "message": "We already have this check that infers we are running GenericJNI stub. If we add a way to check if the current pc belongs to GenericJNIStub then we can remove this check along with the check I added. Maybe for now this OK.",
+      "revId": "75c632483afa626fe822f4f87a815ffa5fc1b94e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
