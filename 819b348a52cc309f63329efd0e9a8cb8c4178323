@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95a036e3_571ba6a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-25T19:04:26Z",
+      "side": 1,
+      "message": "typo. should be \u0027--gcstress\u0027",
+      "range": {
+        "startLine": 16,
+        "startChar": 40,
+        "endLine": 16,
+        "endChar": 49
+      },
+      "revId": "819b348a52cc309f63329efd0e9a8cb8c4178323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81ef5198_6d2b2399",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-25T19:04:26Z",
+      "side": 1,
+      "message": "Thanks for getting to this, Vladimir. Are you also planning to optimize arm/arm64 as well? As discussed last week, there also marking register check isn\u0027t done.",
+      "revId": "819b348a52cc309f63329efd0e9a8cb8c4178323",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
