@@ -461,6 +461,11 @@ class Jit {
 
   static bool BindCompilerMethods(std::string* error_msg);
 
+  void AddCompileTask(Thread* self,
+                      ArtMethod* method,
+                      CompilationKind compilation_kind,
+                      bool precompile = false);
+
   // JIT compiler
   static void* jit_library_handle_;
   static JitCompilerInterface* jit_compiler_;

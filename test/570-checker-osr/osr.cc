@@ -128,6 +128,13 @@ extern "C" JNIEXPORT void JNICALL Java_Main_ensureHasOsrCode(JNIEnv* env,
         while (jit->GetCodeCache()->LookupOsrMethodHeader(m) == nullptr) {
           // Sleep to yield to the compiler thread.
           usleep(1000);
+          {
+            MutexLock mu(Thread::Current(), *Locks::jit_lock_);
+            if (jit->GetCodeCache()->IsMethodBeingCompiled(m, CompilationKind::kOsr)) {
+              continue;
+            }
+            jit->GetCodeCache()->AddMethodBeingCompiled(m, CompilationKind::kOsr);
+          }
           // Will either ensure it's compiled or do the compilation itself.
           jit->CompileMethod(
               m, Thread::Current(), CompilationKind::kOsr, /*prejit=*/ false);

@@ -271,10 +271,17 @@ static void ForceJitCompiled(Thread* self,
   do {
     // Sleep to yield to the compiler thread.
     usleep(1000);
-    ScopedObjectAccess soa(self);
     // Will either ensure it's compiled or do the compilation itself. We do
     // this before checking if we will execute JIT code in case the request
     // is for an 'optimized' compilation.
+    {
+      MutexLock mu(self, *Locks::jit_lock_);
+      if (code_cache->IsMethodBeingCompiled(method, kind)) {
+        continue;
+      }
+      code_cache->AddMethodBeingCompiled(method, kind);
+    }
+    ScopedObjectAccess soa(self);
     jit->CompileMethod(method, self, kind, /*prejit=*/ false);
   } while (!code_cache->ContainsPc(method->GetEntryPointFromQuickCompiledCode()));
 }
