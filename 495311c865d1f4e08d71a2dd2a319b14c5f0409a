@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f6867fc_082fd15b",
+        "filename": "test/530-checker-lse2/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-25T08:49:25Z",
+      "side": 0,
+      "message": "This was added to show that HDeoptimize wouldn\u0027t block LSE. There are a lot of blockers in the method (e.g. `NullCheck`s) and this test doesn\u0027t really make sense now.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 29
+      },
+      "revId": "495311c865d1f4e08d71a2dd2a319b14c5f0409a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
