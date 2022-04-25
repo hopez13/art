@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3db11871_d1b8b1ed",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-25T13:52:36Z",
+      "side": 0,
+      "message": "I suppose the direct 0 comparison isn\u0027t relevant for any GC anymore?",
+      "range": {
+        "startLine": 186,
+        "startChar": 29,
+        "endLine": 186,
+        "endChar": 50
+      },
+      "revId": "8090271060e78a4af3eae6dcc7d2e8929a378698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5b98ebc_2549c250",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1622,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-25T13:52:36Z",
+      "side": 0,
+      "message": "what happened to this option?",
+      "range": {
+        "startLine": 1622,
+        "startChar": 64,
+        "endLine": 1622,
+        "endChar": 90
+      },
+      "revId": "8090271060e78a4af3eae6dcc7d2e8929a378698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
