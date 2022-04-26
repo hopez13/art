@@ -999,84 +999,34 @@ END art_quick_check_instance_of
     .cfi_restore \xReg2
 .endm
 
-    /*
-     * Macro to insert read barrier, only used in art_quick_aput_obj.
-     * xDest, wDest and xObj are registers, offset is a defined literal such as
-     * MIRROR_OBJECT_CLASS_OFFSET. Dest needs both x and w versions of the same register to handle
-     * name mismatch between instructions. This macro uses the lower 32b of register when possible.
-     * TODO: When read barrier has a fast path, add heap unpoisoning support for the fast path.
-     */
-.macro READ_BARRIER xDest, wDest, xObj, xTemp, wTemp, offset, number
-#ifdef USE_READ_BARRIER
-# ifdef USE_BAKER_READ_BARRIER
-    ldr \wTemp, [\xObj, #MIRROR_OBJECT_LOCK_WORD_OFFSET]
-    tbnz \wTemp, #LOCK_WORD_READ_BARRIER_STATE_SHIFT, .Lrb_slowpath\number
-    // False dependency to avoid needing load/load fence.
-    add \xObj, \xObj, \xTemp, lsr #32
-    ldr \wDest, [\xObj, #\offset]   // Heap reference = 32b. This also zero-extends to \xDest.
-    UNPOISON_HEAP_REF \wDest
-    b .Lrb_exit\number
-# endif  // USE_BAKER_READ_BARRIER
-.Lrb_slowpath\number:
-    // Store registers used in art_quick_aput_obj (x0-x4, LR), stack is 16B aligned.
-    SAVE_TWO_REGS_INCREASE_FRAME x0, x1, 48
-    SAVE_TWO_REGS x2, x3, 16
-    SAVE_TWO_REGS x4, xLR, 32
-
-    // mov x0, \xRef                // pass ref in x0 (no-op for now since parameter ref is unused)
-    .ifnc \xObj, x1
-        mov x1, \xObj               // pass xObj
-    .endif
-    mov w2, #\offset                // pass offset
-    bl artReadBarrierSlow           // artReadBarrierSlow(ref, xObj, offset)
-    // No need to unpoison return value in w0, artReadBarrierSlow() would do the unpoisoning.
-    .ifnc \wDest, w0
-        mov \wDest, w0              // save return value in wDest
-    .endif
-
-    // Conditionally restore saved registers
-    POP_REG_NE x0, 0, \xDest
-    POP_REG_NE x1, 8, \xDest
-    POP_REG_NE x2, 16, \xDest
-    POP_REG_NE x3, 24, \xDest
-    POP_REG_NE x4, 32, \xDest
-    RESTORE_REG xLR, 40
-    DECREASE_FRAME 48
-.Lrb_exit\number:
-#else
-    ldr \wDest, [\xObj, #\offset]   // Heap reference = 32b. This also zero-extends to \xDest.
-    UNPOISON_HEAP_REF \wDest
-#endif  // USE_READ_BARRIER
-.endm
-
-#ifdef USE_READ_BARRIER
-    .extern artReadBarrierSlow
-#endif
 ENTRY art_quick_aput_obj
-    cbz x2, .Ldo_aput_null
-    READ_BARRIER x3, w3, x0, x3, w3, MIRROR_OBJECT_CLASS_OFFSET, 0  // Heap reference = 32b
-                                                                    // This also zero-extends to x3
-    READ_BARRIER x3, w3, x3, x4, w4, MIRROR_CLASS_COMPONENT_TYPE_OFFSET, 1 // Heap reference = 32b
-    // This also zero-extends to x3
-    READ_BARRIER x4, w4, x2, x4, w4, MIRROR_OBJECT_CLASS_OFFSET, 2  // Heap reference = 32b
-                                                                    // This also zero-extends to x4
+    cbz x2, .Laput_obj_null
+    ldr w3, [x0, #MIRROR_OBJECT_CLASS_OFFSET]          // Heap reference = 32b; zero-extends to x3.
+    UNPOISON_HEAP_REF w3
+#ifdef USE_READ_BARRIER
+    cbnz wMR, .Laput_obj_gc_marking
+#endif  // USE_READ_BARRIER
+    ldr w3, [x3, #MIRROR_CLASS_COMPONENT_TYPE_OFFSET]  // Heap reference = 32b; zero-extends to x3.
+    UNPOISON_HEAP_REF w3
+    ldr w4, [x2, #MIRROR_OBJECT_CLASS_OFFSET]          // Heap reference = 32b; zero-extends to x4.
+    UNPOISON_HEAP_REF w4
     cmp w3, w4  // value's type == array's component type - trivial assignability
-    bne .Lcheck_assignability
-.Ldo_aput:
+    bne .Laput_obj_check_assignability
+.Laput_obj_store:
     add x3, x0, #MIRROR_OBJECT_ARRAY_DATA_OFFSET
-                                                         // "Compress" = do nothing
     POISON_HEAP_REF w2
-    str w2, [x3, x1, lsl #2]                             // Heap reference = 32b
+    str w2, [x3, x1, lsl #2]                             // Heap reference = 32b.
     ldr x3, [xSELF, #THREAD_CARD_TABLE_OFFSET]
     lsr x0, x0, #CARD_TABLE_CARD_SHIFT
     strb w3, [x3, x0]
     ret
-.Ldo_aput_null:
+
+.Laput_obj_null:
     add x3, x0, #MIRROR_OBJECT_ARRAY_DATA_OFFSET
-                                                         // "Compress" = do nothing
-    str w2, [x3, x1, lsl #2]                             // Heap reference = 32b
+    str w2, [x3, x1, lsl #2]                             // Heap reference = 32b.
     ret
-.Lcheck_assignability:
+
+.Laput_obj_check_assignability:
     // Store arguments and link register
     SAVE_TWO_REGS_INCREASE_FRAME x0, x1, 32
     SAVE_TWO_REGS x2, xLR, 16
@@ -1087,7 +1037,7 @@ ENTRY art_quick_aput_obj
     bl artIsAssignableFromCode
 
     // Check for exception
-    cbz x0, .Lthrow_array_store_exception
+    cbz x0, .Laput_obj_throw_array_store_exception
 
     // Restore
     .cfi_remember_state
@@ -1095,23 +1045,43 @@ ENTRY art_quick_aput_obj
     RESTORE_TWO_REGS_DECREASE_FRAME x0, x1, 32
 
     add x3, x0, #MIRROR_OBJECT_ARRAY_DATA_OFFSET
-                                                          // "Compress" = do nothing
     POISON_HEAP_REF w2
-    str w2, [x3, x1, lsl #2]                              // Heap reference = 32b
+    str w2, [x3, x1, lsl #2]                              // Heap reference = 32b.
     ldr x3, [xSELF, #THREAD_CARD_TABLE_OFFSET]
     lsr x0, x0, #CARD_TABLE_CARD_SHIFT
     strb w3, [x3, x0]
     ret
     CFI_RESTORE_STATE_AND_DEF_CFA sp, 32
-.Lthrow_array_store_exception:
+
+.Laput_obj_throw_array_store_exception:
     RESTORE_TWO_REGS x2, xLR, 16
     RESTORE_TWO_REGS_DECREASE_FRAME x0, x1, 32
 
+#ifdef USE_READ_BARRIER
+    .cfi_remember_state
+#endif  // USE_READ_BARRIER
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME
     mov x1, x2                      // Pass value.
     mov x2, xSELF                   // Pass Thread::Current.
     bl artThrowArrayStoreException  // (Object*, Object*, Thread*).
-    brk 0                           // Unreached.
+    brk 0                           // Unreachable.
+
+#ifdef USE_READ_BARRIER
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, 0
+.Laput_obj_gc_marking:
+    SAVE_REG_INCREASE_FRAME lr, 16                     // Save LR with correct stack alignment.
+    bl art_quick_read_barrier_mark_reg03
+    ldr w3, [x3, #MIRROR_CLASS_COMPONENT_TYPE_OFFSET]  // Heap reference = 32b; zero-extends to x3.
+    UNPOISON_HEAP_REF w3
+    bl art_quick_read_barrier_mark_reg03
+    ldr w4, [x2, #MIRROR_OBJECT_CLASS_OFFSET]          // Heap reference = 32b; zero-extends to x4.
+    UNPOISON_HEAP_REF w4
+    bl art_quick_read_barrier_mark_reg04
+    RESTORE_REG_DECREASE_FRAME lr, 16                  // Restore LR.
+    cmp w3, w4  // value's type == array's component type - trivial assignability
+    bne .Laput_obj_check_assignability
+    b   .Laput_obj_store
+#endif  // USE_READ_BARRIER
 END art_quick_aput_obj
 
 // Macro to facilitate adding new allocation entrypoints.
@@ -2111,15 +2081,10 @@ END art_quick_string_builder_append
      * `wreg` (corresponding to X register `xreg`), saving and restoring
      * all caller-save registers.
      *
-     * If `wreg` is different from `w0`, the generated function follows a
-     * non-standard runtime calling convention:
-     * - register `wreg` is used to pass the (sole) argument of this
-     *   function (instead of W0);
-     * - register `wreg` is used to return the result of this function
-     *   (instead of W0);
-     * - W0 is treated like a normal (non-argument) caller-save register;
-     * - everything else is the same as in the standard runtime calling
-     *   convention (e.g. standard callee-save registers are preserved).
+     * The generated function follows a non-standard runtime calling convention:
+     * - register `reg` (which may be different from W0) is used to pass the (sole) argument,
+     * - register `reg` (which may be different from W0) is used to return the result,
+     * - all other registers are callee-save (the values they hold are preserved).
      */
 .macro READ_BARRIER_MARK_REG name, wreg, xreg
 ENTRY \name
