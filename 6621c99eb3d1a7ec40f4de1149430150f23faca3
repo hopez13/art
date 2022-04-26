@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7efe4cf7_7aa868b2",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-26T14:19:03Z",
+      "side": 1,
+      "message": "The ArtMethods, to which we store pointers in these sets, are the same that get allocated in ArtMethod arrays during class loading, right?\n\nIf so, then I don\u0027t think we need to visit them as roots (in Runtime::VisitConcurrentRoots()) during GC. Be it CC or the new GC, they will get visited either during graph traversal (by calling VisitNativeRoots() on classes) or via the (yet to be implemented) userfaultfd-protected space which will have all ArtMethod/ArtField arrays allocated in it.\n\nPlease let me know if I\u0027m missing something.",
+      "range": {
+        "startLine": 550,
+        "startChar": 2,
+        "endLine": 553,
+        "endChar": 0
+      },
+      "revId": "6621c99eb3d1a7ec40f4de1149430150f23faca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
