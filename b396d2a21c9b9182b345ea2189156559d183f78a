@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a81b5573_e6134d23",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-26T10:35:29Z",
+      "side": 1,
+      "message": "Jump to line 1270?",
+      "revId": "b396d2a21c9b9182b345ea2189156559d183f78a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "012427a7_ba201d29",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-26T10:35:29Z",
+      "side": 1,
+      "message": "Jump to line 1179?",
+      "range": {
+        "startLine": 1207,
+        "startChar": 4,
+        "endLine": 1211,
+        "endChar": 26
+      },
+      "revId": "b396d2a21c9b9182b345ea2189156559d183f78a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
