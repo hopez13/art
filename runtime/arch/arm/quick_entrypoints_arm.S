@@ -601,69 +601,23 @@ END art_quick_check_instance_of
     .cfi_rel_offset \rReg, \offset
 .endm
 
-    /*
-     * Macro to insert read barrier, only used in art_quick_aput_obj.
-     * rObj and rDest are registers, offset is a defined literal such as MIRROR_OBJECT_CLASS_OFFSET.
-     * TODO: When read barrier has a fast path, add heap unpoisoning support for the fast path.
-     */
-.macro READ_BARRIER rDest, rObj, offset
-#ifdef USE_READ_BARRIER
-    push {r0-r3, ip, lr}            @ 6 words for saved registers (used in art_quick_aput_obj)
-    .cfi_adjust_cfa_offset 24
-    .cfi_rel_offset r0, 0
-    .cfi_rel_offset r1, 4
-    .cfi_rel_offset r2, 8
-    .cfi_rel_offset r3, 12
-    .cfi_rel_offset ip, 16
-    .cfi_rel_offset lr, 20
-    sub sp, #8                      @ push padding
-    .cfi_adjust_cfa_offset 8
-    @ mov r0, \rRef                 @ pass ref in r0 (no-op for now since parameter ref is unused)
-    .ifnc \rObj, r1
-        mov r1, \rObj               @ pass rObj
-    .endif
-    mov r2, #\offset                @ pass offset
-    bl artReadBarrierSlow           @ artReadBarrierSlow(ref, rObj, offset)
-    @ No need to unpoison return value in r0, artReadBarrierSlow() would do the unpoisoning.
-    .ifnc \rDest, r0
-        mov \rDest, r0              @ save return value in rDest
-    .endif
-    add sp, #8                      @ pop padding
-    .cfi_adjust_cfa_offset -8
-    POP_REG_NE r0, 0, \rDest        @ conditionally restore saved registers
-    POP_REG_NE r1, 4, \rDest
-    POP_REG_NE r2, 8, \rDest
-    POP_REG_NE r3, 12, \rDest
-    POP_REG_NE ip, 16, \rDest
-    add sp, #20
-    .cfi_adjust_cfa_offset -20
-    pop {lr}                        @ restore lr
-    .cfi_adjust_cfa_offset -4
-    .cfi_restore lr
-#else
-    ldr \rDest, [\rObj, #\offset]
-    UNPOISON_HEAP_REF \rDest
-#endif  // USE_READ_BARRIER
-.endm
-
-#ifdef USE_READ_BARRIER
-    .extern artReadBarrierSlow
-#endif
     .hidden art_quick_aput_obj
 ENTRY art_quick_aput_obj
+    cbz r2, .Laput_obj_null
+    ldr r3, [r0, #MIRROR_OBJECT_CLASS_OFFSET]
+    UNPOISON_HEAP_REF r3
 #ifdef USE_READ_BARRIER
-    @ The offset to .Ldo_aput_null is too large to use cbz due to expansion from READ_BARRIER macro.
-    tst r2, r2
-    beq .Ldo_aput_null
-#else
-    cbz r2, .Ldo_aput_null
+    cmp rMR, #0
+    bne .Laput_obj_gc_marking
 #endif  // USE_READ_BARRIER
-    READ_BARRIER r3, r0, MIRROR_OBJECT_CLASS_OFFSET
-    READ_BARRIER ip, r2, MIRROR_OBJECT_CLASS_OFFSET
-    READ_BARRIER r3, r3, MIRROR_CLASS_COMPONENT_TYPE_OFFSET
-    cmp r3, ip  @ value's type == array's component type - trivial assignability
-    bne .Lcheck_assignability
-.Ldo_aput:
+    // R4 is a scratch register in managed ARM ABI.
+    ldr r4, [r2, #MIRROR_OBJECT_CLASS_OFFSET]
+    UNPOISON_HEAP_REF r4
+    ldr r3, [r3, #MIRROR_CLASS_COMPONENT_TYPE_OFFSET]
+    UNPOISON_HEAP_REF r3
+    cmp r3, r4  @ value's type == array's component type - trivial assignability
+    bne .Laput_obj_check_assignability
+.Laput_obj_store:
     add r3, r0, #MIRROR_OBJECT_ARRAY_DATA_OFFSET
     POISON_HEAP_REF r2
     str r2, [r3, r1, lsl #2]
@@ -671,26 +625,22 @@ ENTRY art_quick_aput_obj
     lsr r0, r0, #CARD_TABLE_CARD_SHIFT
     strb r3, [r3, r0]
     blx lr
-.Ldo_aput_null:
+
+.Laput_obj_null:
     add r3, r0, #MIRROR_OBJECT_ARRAY_DATA_OFFSET
     str r2, [r3, r1, lsl #2]
     blx lr
-.Lcheck_assignability:
+
+.Laput_obj_check_assignability:
     push {r0-r2, lr}             @ save arguments
     .cfi_adjust_cfa_offset 16
-    .cfi_rel_offset r0, 0
-    .cfi_rel_offset r1, 4
-    .cfi_rel_offset r2, 8
     .cfi_rel_offset lr, 12
-    mov r1, ip
+    mov r1, r4
     mov r0, r3
     bl artIsAssignableFromCode
     cbz r0, .Lthrow_array_store_exception
     .cfi_remember_state
     pop {r0-r2, lr}
-    .cfi_restore r0
-    .cfi_restore r1
-    .cfi_restore r2
     .cfi_restore lr
     .cfi_adjust_cfa_offset -16
     add r3, r0, #MIRROR_OBJECT_ARRAY_DATA_OFFSET
@@ -700,19 +650,43 @@ ENTRY art_quick_aput_obj
     lsr r0, r0, #CARD_TABLE_CARD_SHIFT
     strb r3, [r3, r0]
     blx lr
+
 .Lthrow_array_store_exception:
     CFI_RESTORE_STATE_AND_DEF_CFA sp, 16
     pop {r0-r2, lr}
-    .cfi_restore r0
-    .cfi_restore r1
-    .cfi_restore r2
     .cfi_restore lr
     .cfi_adjust_cfa_offset -16
+#ifdef USE_READ_BARRIER
+    .cfi_remember_state
+#endif  // USE_READ_BARRIER
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME r3
     mov r1, r2
-    mov r2, rSELF                  @ pass Thread::Current
+    mov r2, rSELF                  @ Pass Thread::Current.
     bl artThrowArrayStoreException @ (Class*, Class*, Thread*)
-    bkpt                           @ unreached
+    bkpt                           @ Unreachable.
+
+#ifdef USE_READ_BARRIER
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, 0
+.Laput_obj_gc_marking:
+    str lr, [sp, #-8]!             @ Save LR with correct stack alignment.
+    .cfi_rel_offset lr, 0
+    .cfi_adjust_cfa_offset 8
+    bl  art_quick_read_barrier_mark_reg03
+    // R4 is a scratch register in managed ARM ABI.
+    ldr r4, [r2, #MIRROR_OBJECT_CLASS_OFFSET]
+    UNPOISON_HEAP_REF r4
+    bl  art_quick_read_barrier_mark_reg04
+    ldr r3, [r3, #MIRROR_CLASS_COMPONENT_TYPE_OFFSET]
+    UNPOISON_HEAP_REF r3
+    bl  art_quick_read_barrier_mark_reg03
+    ldr lr, [sp], #8               @ Restore LR.
+    .cfi_restore lr
+    .cfi_adjust_cfa_offset -8
+    cmp r3, r4  @ value's type == array's component type - trivial assignability
+    // All registers are set up for correctly `.Laput_obj_check_assignability`.
+    bne .Laput_obj_check_assignability
+    b   .Laput_obj_store
+#endif  // USE_READ_BARRIER
 END art_quick_aput_obj
 
 // Macro to facilitate adding new allocation entrypoints.
@@ -1895,13 +1869,9 @@ END art_quick_string_builder_append
      *
      * If `reg` is different from `r0`, the generated function follows a
      * non-standard runtime calling convention:
-     * - register `reg` is used to pass the (sole) argument of this
-     *   function (instead of R0);
-     * - register `reg` is used to return the result of this function
-     *   (instead of R0);
-     * - R0 is treated like a normal (non-argument) caller-save register;
-     * - everything else is the same as in the standard runtime calling
-     *   convention (e.g. standard callee-save registers are preserved).
+     * - register `reg` (which may be different from R0) is used to pass the (sole) argument,
+     * - register `reg` (which may be different from R0) is used to return the result,
+     * - all other registers are callee-save (the values they hold are preserved).
      */
 .macro READ_BARRIER_MARK_REG name, reg
 ENTRY \name
