@@ -22,6 +22,30 @@
       },
       "revId": "6621c99eb3d1a7ec40f4de1149430150f23faca3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feb78306_f19f97fd",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-26T14:23:58Z",
+      "side": 1,
+      "message": "Visiting them here prevents class unloading, in case the class loader becomes unreachable. What you mention I think works when the class loader is reachable in Java land, but when it stops being reachable, we need to visit those methods to make sure their classes stay live.",
+      "parentUuid": "7efe4cf7_7aa868b2",
+      "range": {
+        "startLine": 550,
+        "startChar": 2,
+        "endLine": 553,
+        "endChar": 0
+      },
+      "revId": "6621c99eb3d1a7ec40f4de1149430150f23faca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
