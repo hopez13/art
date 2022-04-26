@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "091786cf_a08af128",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-26T17:01:27Z",
+      "side": 1,
+      "message": "Android commit messages are required to have a `Test:` stanza (and optionally a `Bug:` stanza) – see go/commit-change#footers-and-machine-parsable-text.\n\nHere, I\u0027d recommend adding this:\n\n  Test: Build",
+      "revId": "9492bcf1cb8d441f705df5907826f8eaff0c4bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a411ef5a_4d74ed91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-04-26T17:01:27Z",
+      "side": 1,
+      "message": "Looks good to me, just a nit regarding the commit message.",
+      "revId": "9492bcf1cb8d441f705df5907826f8eaff0c4bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
