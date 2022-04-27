@@ -22,6 +22,30 @@
       },
       "revId": "9d31daa0b3f8e748a19555870932bace11f2b199",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "141f7dd0_c1a6cf6b",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-27T09:25:59Z",
+      "side": 0,
+      "message": "I don\u0027t expect any measurable performance regression.\n\nWe deliberately set the mark bit for all objects in boot images.\n\nA thread would go to the slow-path in `READ_BARRIER_MARK_REG` no more than once per object per GC, right?\n\nDo we clear the mark bit in movable spaces between GCs? Or do we clear it during GC for objects referenced by the object we\u0027re about to move (which is going to be gray)?",
+      "parentUuid": "5a6c9cb1_50cfeea0",
+      "range": {
+        "startLine": 1013,
+        "startChar": 19,
+        "endLine": 1013,
+        "endChar": 52
+      },
+      "revId": "9d31daa0b3f8e748a19555870932bace11f2b199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
