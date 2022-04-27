@@ -16,6 +16,7 @@
 
 #include "mark_compact-inl.h"
 
+#include "android-base/properties.h"
 #include "base/quasi_atomic.h"
 #include "base/systrace.h"
 #include "base/utils.h"
@@ -101,8 +102,15 @@ bool ShouldUseUserfaultfd() {
 #ifdef ART_FORCE_USE_READ_BARRIER
 const bool gUseReadBarrier = kUseBakerReadBarrier || kUseTableLookupReadBarrier;
 #else
+#ifdef ART_TARGET
+const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
+                             && !ShouldUseUserfaultfd()
+                             && !::android::base::GetBoolProperty(
+                                 "persist.device_config.runtime_native_boot.enable_uffd_gc", false);
+#else
 const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
                              && !ShouldUseUserfaultfd();
+#endif
 #endif
 const bool gUseUserfaultfd = !gUseReadBarrier;
 const bool gEmitCompilerReadBarrier = kForceReadBarrier || gUseReadBarrier;
