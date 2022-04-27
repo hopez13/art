@@ -1986,7 +1986,12 @@ bool ClassLinker::AddImageSpace(
     ScopedTrace trace("AppImage:UpdateCodeItemAndNterp");
     bool can_use_nterp = interpreter::CanRuntimeUseNterp();
     uint16_t hotness_threshold = runtime->GetJITOptions()->GetWarmupThreshold();
+    bool is_profiling_bcp =
+        runtime->GetJITOptions()->GetProfileSaverOptions().GetProfileBootClassPath();
     header.VisitPackedArtMethods([&](ArtMethod& method) REQUIRES_SHARED(Locks::mutator_lock_) {
+      if (is_profiling_bcp) {
+        method.ClearMemorySharedMethod();
+      }
       // In the image, the `data` pointer field of the ArtMethod contains the code
       // item offset. Change this to the actual pointer to the code item.
       if (method.HasCodeItem()) {
@@ -3762,7 +3767,8 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
     }
   }
 
-  if (Runtime::Current()->IsZygote()) {
+  if (Runtime::Current()->IsZygote() &&
+      !Runtime::Current()->GetJITOptions()->GetProfileSaverOptions().GetProfileBootClassPath()) {
     dst->SetMemorySharedMethod();
   }
 }
