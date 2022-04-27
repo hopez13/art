@@ -16,6 +16,29 @@
       "message": "Thanks Santiago, PTAL.",
       "revId": "b4f75ab4f8e2101fc772465724c1a77fe15ff4dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fad6d653_842e8ab6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1993,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-27T13:50:29Z",
+      "side": 1,
+      "message": "To avoid negatively affecting the performance, I\u0027d move this to its own `VisitPackedArtMethods()`.",
+      "range": {
+        "startLine": 1993,
+        "startChar": 8,
+        "endLine": 1993,
+        "endChar": 41
+      },
+      "revId": "b4f75ab4f8e2101fc772465724c1a77fe15ff4dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
