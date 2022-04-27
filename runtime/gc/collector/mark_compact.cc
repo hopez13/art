@@ -16,6 +16,7 @@
 
 #include "mark_compact-inl.h"
 
+#include "android-base/properties.h"
 #include "base/quasi_atomic.h"
 #include "base/systrace.h"
 #include "base/utils.h"
@@ -76,7 +77,8 @@ static const bool gHaveMremapDontunmap = IsKernelVersionAtLeast(5, 13);
 static const bool gKernelHasFaultRetry = IsKernelVersionAtLeast(5, 7);
 #endif
 
-#ifndef ART_FORCE_USE_READ_BARRIER
+// The other cases are defined as constexpr in runtime/read_barrier_config.h
+#if !defined(ART_FORCE_USE_READ_BARRIER) && defined(ART_USE_READ_BARRIER)
 static bool ShouldUseUserfaultfd() {
 #if !defined(__linux__)
   return false;
@@ -97,15 +99,18 @@ static bool ShouldUseUserfaultfd() {
     return false;
   }
 }
-#endif
 
-// The other cases are defined as a constexpr in runtime/read_barrier_config.h
-#ifndef ART_FORCE_USE_READ_BARRIER
+#ifdef ART_TARGET
+const bool gUseReadBarrier =
+    (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
+    && !(android::base::GetBoolProperty("persist.device_config.runtime_native_boot.enable_uffd_gc",
+                                        false)
+         && ShouldUseUserfaultfd());
+#else
 const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
                              && !ShouldUseUserfaultfd();
-#ifdef ART_DEFAULT_GC_TYPE_IS_CMC
-const bool gUseUserfaultfd = !gUseReadBarrier;
 #endif
+const bool gUseUserfaultfd = !gUseReadBarrier;
 #endif
 
 namespace gc {
