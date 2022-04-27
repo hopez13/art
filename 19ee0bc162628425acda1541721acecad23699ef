@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c08cb890_891b870a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3773,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-27T13:38:33Z",
+      "side": 1,
+      "message": "No, that other use is in dex2oat, which does not know about boot image profiling.",
+      "parentUuid": "43e3605d_e8e18a0f",
+      "range": {
+        "startLine": 3770,
+        "startChar": 0,
+        "endLine": 3773,
+        "endChar": 3
+      },
+      "revId": "19ee0bc162628425acda1541721acecad23699ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5825dc3_269f757a",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd8fe948_c8c32b3c",
+        "filename": "test/595-profile-saving/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-27T13:38:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5825dc3_269f757a",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "19ee0bc162628425acda1541721acecad23699ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03e5762f_08f6aad2",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-04-27T13:33:29Z",
       "side": 1,
       "message": "typo: `Did`",
+      "range": {
+        "startLine": 78,
+        "startChar": 34,
+        "endLine": 78,
+        "endChar": 37
+      },
+      "revId": "19ee0bc162628425acda1541721acecad23699ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2bff1a8_29521506",
+        "filename": "test/595-profile-saving/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-27T13:38:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03e5762f_08f6aad2",
       "range": {
         "startLine": 78,
         "startChar": 34,
