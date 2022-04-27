@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d356d542_8446836c",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-27T11:36:40Z",
+      "side": 1,
+      "message": "The problem is that we can specify only one supported GC type. We should be able to have both `kUseReadBarrier` and `kUseUserfaultfd` set to true. (Maybe renamed as `kSupports*`.) And they should remain as `static constexpr`.\n\n`kUseReadBarrier` should define how we compile libart.so . If we support both CC GC, it should be `true` whether uffd GC is supported or not.\n\n`kEmitCompilerReadBarrier` should change to a compiler option and define whether we actually want to emit compiler barriers (`false` for uffd GC).",
+      "revId": "873e7f34e77d2af89326496e7f1bfe9d7998a307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eae5a16e_ea0fbf78",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
