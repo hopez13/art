@@ -1491,7 +1491,7 @@ class Thread {
   // Like Thread::Dump(std::cerr).
   void DumpFromGdb() const REQUIRES_SHARED(Locks::mutator_lock_);
 
-  static void* CreateCallback(void* arg);
+  static void* UserfaultfdCreateCallback(void* arg);
 
   void HandleUncaughtExceptions(ScopedObjectAccessAlreadyRunnable& soa)
       REQUIRES_SHARED(Locks::mutator_lock_);
