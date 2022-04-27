@@ -3136,8 +3136,9 @@ RuntimeCallbacks* Runtime::GetRuntimeCallbacks() {
 // Used to patch boot image method entry point to interpreter bridge.
 class UpdateEntryPointsClassVisitor : public ClassVisitor {
  public:
-  explicit UpdateEntryPointsClassVisitor(instrumentation::Instrumentation* instrumentation)
-      : instrumentation_(instrumentation) {}
+  explicit UpdateEntryPointsClassVisitor(instrumentation::Instrumentation* instrumentation,
+                                         bool deoptimize_native_methods)
+      : instrumentation_(instrumentation), deoptimize_native_methods_(deoptimize_native_methods) {}
 
   bool operator()(ObjPtr<mirror::Class> klass) override REQUIRES(Locks::mutator_lock_) {
     DCHECK(Locks::mutator_lock_->IsExclusiveHeld(Thread::Current()));
@@ -3145,14 +3146,14 @@ class UpdateEntryPointsClassVisitor : public ClassVisitor {
     for (auto& m : klass->GetMethods(pointer_size)) {
       const void* code = m.GetEntryPointFromQuickCompiledCode();
       if (Runtime::Current()->GetHeap()->IsInBootImageOatFile(code) &&
-          !m.IsNative() &&
+          (!m.IsNative() || deoptimize_native_methods_) &&
           !m.IsProxyMethod()) {
         instrumentation_->InitializeMethodsCode(&m, /*aot_code=*/ nullptr);
       }
 
       if (Runtime::Current()->GetJit() != nullptr &&
           Runtime::Current()->GetJit()->GetCodeCache()->IsInZygoteExecSpace(code) &&
-          !m.IsNative()) {
+          (!m.IsNative() || deoptimize_native_methods_)) {
         DCHECK(!m.IsProxyMethod());
         instrumentation_->InitializeMethodsCode(&m, /*aot_code=*/ nullptr);
       }
@@ -3169,6 +3170,7 @@ class UpdateEntryPointsClassVisitor : public ClassVisitor {
 
  private:
   instrumentation::Instrumentation* const instrumentation_;
+  bool const deoptimize_native_methods_;
 };
 
 void Runtime::SetJavaDebuggable(bool value) {
@@ -3181,7 +3183,8 @@ void Runtime::DeoptimizeBootImage() {
   // we patch entry points of methods in boot image to interpreter bridge, as
   // boot image code may be AOT compiled as not debuggable.
   if (!GetInstrumentation()->IsForcedInterpretOnly()) {
-    UpdateEntryPointsClassVisitor visitor(GetInstrumentation());
+    UpdateEntryPointsClassVisitor visitor(GetInstrumentation(),
+                                          /* deoptimize_native_methods= */ IsJavaDebuggable());
     GetClassLinker()->VisitClasses(&visitor);
     jit::Jit* jit = GetJit();
     if (jit != nullptr) {
