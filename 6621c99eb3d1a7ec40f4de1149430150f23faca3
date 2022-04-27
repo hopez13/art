@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b95878cb_fd049a17",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-27T12:20:54Z",
+      "side": 1,
+      "message": "IIUC what you\u0027re suggesting, IsValid would check if the ArtMethod is still live? How would you do that?\n\nI agree the RAII implementation looks odd, but it\u0027s essentially just to say we\u0027re done compiling that method on all return points. Would it look less odd if I did that explicitly in the method?\n\nNote that the other benefit of doing the enquueing externally is that we can check if the method is already in the queue.",
+      "parentUuid": "3b4e6940_628f5ebd",
+      "range": {
+        "startLine": 262,
+        "startChar": 6,
+        "endLine": 262,
+        "endChar": 23
+      },
+      "revId": "6621c99eb3d1a7ec40f4de1149430150f23faca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7efe4cf7_7aa868b2",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 1
