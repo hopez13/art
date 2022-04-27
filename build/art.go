@@ -71,7 +71,9 @@ func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 		// For now force CC as we don't want to make userfaultfd GC the default.
 		// Eventually, make it such that we force CC only if ART_USE_READ_BARRIER
 		// was set to true explicitly during build time.
-		cflags = append(cflags, "-DART_FORCE_USE_READ_BARRIER=1")
+		if ctx.Config().IsEnvTrue("ART_USE_READ_BARRIER") {
+			cflags = append(cflags, "-DART_FORCE_USE_READ_BARRIER=1")
+		}
 	}
 	// The only GC for which tlab isn't used is CMS, which isn't actually used.
 	// When read-barrier is not set, we use userfaultfd GC.
