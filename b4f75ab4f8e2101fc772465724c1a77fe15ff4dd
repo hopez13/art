@@ -87,6 +87,30 @@
       },
       "revId": "b4f75ab4f8e2101fc772465724c1a77fe15ff4dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "347f6a91_653307c4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1993,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-27T14:18:37Z",
+      "side": 1,
+      "message": "Having a boolean check inside the loop can be detrimental. Having a separate loop that we do not execute under normal circumstances is better.",
+      "parentUuid": "cbd1d681_6a4bb32c",
+      "range": {
+        "startLine": 1993,
+        "startChar": 8,
+        "endLine": 1993,
+        "endChar": 41
+      },
+      "revId": "b4f75ab4f8e2101fc772465724c1a77fe15ff4dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
