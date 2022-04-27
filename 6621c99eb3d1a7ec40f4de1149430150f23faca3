@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b4e6940_628f5ebd",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-27T10:46:58Z",
+      "side": 1,
+      "message": "This is a very odd RAII class because you need to acquire the resource before construction and then we release it in destructor.\n\nCan we instead try to acquire the resource in the constructor instead of external callers? We would then have `bool IsValid()` to indicate whether we should proceed with the compilation and also whether to release the resource in destructor.\n\nWe would need to make this movable, so that we can transfer ownership to a new `JitCompileTask` after we have checked that the compilation should proceed.",
+      "range": {
+        "startLine": 262,
+        "startChar": 6,
+        "endLine": 262,
+        "endChar": 23
+      },
+      "revId": "6621c99eb3d1a7ec40f4de1149430150f23faca3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7efe4cf7_7aa868b2",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 1
