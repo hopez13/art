@@ -46,6 +46,30 @@
       },
       "revId": "9d31daa0b3f8e748a19555870932bace11f2b199",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9f8584d_d596339a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-27T17:07:27Z",
+      "side": 0,
+      "message": "\u003e I don\u0027t expect any measurable performance regression.\n\u003e \n\u003e We deliberately set the mark bit for all objects in boot images.\n\nThat\u0027s true but for the objects in the moving space we set the bit (during a GC) only for those objects for which read-barrier was invoked. So all those objects where gc-thread beats the mutators in processing them, they won\u0027t have the bit set and would unnecessarily take the slow-path here.\nThis mark-bit optimization was mainly for GC-root referred objects as in those cases there is no holder object in which we can check the read-barrier state.\n\nAs long as objects in the boot image are immutable we rely on the mark-bit, which as you said is set, to skip the read-barrier slow-path. But for objects on dirty cards we switch to relying on read-barrier state.\n\nAnother point worth mentioning, for such immutable boot-image objects, the mark-bit is mainly effective when they are referred by some GC-root and we load from it. For a field-load we rely on the fact that read-barrier state is NonGray. That bails us out immediately after marking-register check.\n\nI went through the interpreter and optimizing/code_generator_arm64.cc. As expected, in the case of AOT/JIT we are heavily optimized, trying to avoid the slowpath as much as possible. But, in interpreter it seems like we are not utilizing the read-barrier state and forwarding pointer at all.\n\nBTW, is art_quick_aput_obj only used in the interpreter or in AOT/JIT as well?\n\n\u003e \n\u003e A thread would go to the slow-path in `READ_BARRIER_MARK_REG` no more than once per object per GC, right?\n\nThat\u0027s true. But my concern is that it may go to the slow-path even in cases when it is not required.\n\u003e \n\u003e Do we clear the mark bit in movable spaces between GCs? Or do we clear it during GC for objects referenced by the object we\u0027re about to move (which is going to be gray)?\n\nWe clear them for all the objects for which we set them after the GC cycle is finished. We use a 512KB ObjectStack to track those objects for which it is set. If and when the stack is full, we stop doing that. And as I said earlier, we attempt to set it only for objects on which artReadBarrierMark (ReadBarrier::Mark) is invoked.",
+      "parentUuid": "141f7dd0_c1a6cf6b",
+      "range": {
+        "startLine": 1013,
+        "startChar": 19,
+        "endLine": 1013,
+        "endChar": 52
+      },
+      "revId": "9d31daa0b3f8e748a19555870932bace11f2b199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
