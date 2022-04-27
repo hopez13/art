@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c93185b_966c8142",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-27T10:54:48Z",
+      "side": 1,
+      "message": "Overrode `VisitInstruction` since handling throwing instructions may require special treatment e.g. like VisitNewArray. I think that overriding `VisitInstruction` provides a better safety net, and should be faster too since we don\u0027t have to ask if an always-non-throwing instruction throws.",
+      "parentUuid": "0fe0a526_06025b8f",
+      "range": {
+        "startLine": 1124,
+        "startChar": 4,
+        "endLine": 1126,
+        "endChar": 5
+      },
+      "revId": "4f54ccb48b551f231b5bdb7c9dfce2e119bbba4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74df3176_0b09ddcf",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-04-27T09:55:58Z",
       "side": 1,
       "message": "Are we sure that \"removable\" instructions shall actually be \"removed\"? If not, we shall need to be more conservative here.",
+      "range": {
+        "startLine": 1257,
+        "startChar": 16,
+        "endLine": 1258,
+        "endChar": 78
+      },
+      "revId": "4f54ccb48b551f231b5bdb7c9dfce2e119bbba4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "184d792d_800cbbd0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-04-27T10:54:48Z",
+      "side": 1,
+      "message": "`removable` instructions are the ones that are able to be removed. They are not guaranteed to be removed.\n\nWhat do you mean with being `more conservative`? I emulated what we are doing on `HandleExit`.",
+      "parentUuid": "74df3176_0b09ddcf",
       "range": {
         "startLine": 1257,
         "startChar": 16,
