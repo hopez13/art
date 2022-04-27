@@ -16,6 +16,24 @@
       "message": "QQ: why this change rather than in the known failures file and scoping the failure to device?",
       "revId": "cc0d168c84076971402e3026c6ec2eedb84ee360",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e86b471_b0812448",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2022-04-27T14:23:38Z",
+      "side": 1,
+      "message": "tl;dr: it\u0027s easier to remove first and then reenable, and similar thing has already been done.\n\nIt\u0027s similar to already merged https://r.android.com/2072273 which removed some of similar slow tests, I have a tracking bug for that.\n\nInitially I was planning to remove all failing tests first and then re enable them fixing all tracking bugs after. It was easier to remove them as adding known failures has more configurations (debug, gcstress, fugu, etc.) which I couldn\u0027t always test in advance and there were issues like duplicated entries.\n\nFirst thing was to have art buildbot run green and then gradually re enable the rest.",
+      "parentUuid": "152e51f1_a20498c2",
+      "revId": "cc0d168c84076971402e3026c6ec2eedb84ee360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
