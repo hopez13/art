@@ -64,12 +64,8 @@ static constexpr bool kUseTableLookupReadBarrier = false;
 
 bool ShouldUseUserfaultfd();
 
-#ifdef ART_FORCE_USE_READ_BARRIER
-static const bool kUseReadBarrier = kUseBakerReadBarrier || kUseTableLookupReadBarrier;
-#else
 static const bool kUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
                                     && !ShouldUseUserfaultfd();
-#endif
 static const bool kUseUserfaultfd = !kUseReadBarrier;
 
 // Debugging flag that forces the generation of read barriers, but
