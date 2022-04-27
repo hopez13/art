@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a6c9cb1_50cfeea0",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-04-27T07:20:12Z",
+      "side": 0,
+      "message": "This CL could potentially cause some performance regression. Although you are checking the marking register now, which is good. But, read-barrier state is no longer being checked in the holder object. Instead, READ_BARRIER_MARK_REG checks mark-bit, which is only an ad-hoc optimization. We set it only for objects on which read-barrier was invoked in the current GC cycle. Whereas, read-barrier state test is universal.\nIn other words, if the array\u0027s read-barrier state is NonGray, which means all refs in it are updated, but class object doesn\u0027t have mark-bit set, then we would end up taking the slowpath, even though it isn\u0027t required.\n\nAlso, more registers are spilled/restored in READ_BARRIER_MARK_REG than in READ_BARRIER.\n\n\nIsn\u0027t it possible that we continue using READ_BARRIER but also check if \u0027mr\u0027 is non-zero, like you are doing in this CL in art_quick_aput_obj?\n\nIdeally, READ_BARRIER should be tweaked a bit to fetch dest, check if it has mark-bit or forwarding pointer, and if not then call artReadBarrierMark. This would be the most optimized.",
+      "range": {
+        "startLine": 1013,
+        "startChar": 19,
+        "endLine": 1013,
+        "endChar": 52
+      },
+      "revId": "9d31daa0b3f8e748a19555870932bace11f2b199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
