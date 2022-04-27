@@ -16,6 +16,98 @@
       "message": "Vladimir PTAL",
       "revId": "4f54ccb48b551f231b5bdb7c9dfce2e119bbba4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fe0a526_06025b8f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-27T09:55:58Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether we should override `VisitInstruction()` with this code instead of overriding individual throwing instruction visitors.\n\nAlternatively, we could override `VisitInstruction()` with `DCHECK(!instruction-\u003eCanThrow())` to ensure that no throwing instruction reaches the base class visitor.",
+      "range": {
+        "startLine": 1124,
+        "startChar": 4,
+        "endLine": 1126,
+        "endChar": 5
+      },
+      "revId": "4f54ccb48b551f231b5bdb7c9dfce2e119bbba4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74df3176_0b09ddcf",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-27T09:55:58Z",
+      "side": 1,
+      "message": "Are we sure that \"removable\" instructions shall actually be \"removed\"? If not, we shall need to be more conservative here.",
+      "range": {
+        "startLine": 1257,
+        "startChar": 16,
+        "endLine": 1258,
+        "endChar": 78
+      },
+      "revId": "4f54ccb48b551f231b5bdb7c9dfce2e119bbba4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d635684c_a0262e7d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-27T09:55:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1291,
+        "startChar": 17,
+        "endLine": 1292,
+        "endChar": 77
+      },
+      "revId": "4f54ccb48b551f231b5bdb7c9dfce2e119bbba4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8b7aa4e_17826e10",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-27T09:55:58Z",
+      "side": 1,
+      "message": "Note: Weak null check elimination - there is a NullCheck in both predecessors but we fail to eliminate the one here; we only eliminate null checks dominated by other null checks.",
+      "range": {
+        "startLine": 1045,
+        "startChar": 4,
+        "endLine": 1045,
+        "endChar": 9
+      },
+      "revId": "4f54ccb48b551f231b5bdb7c9dfce2e119bbba4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
