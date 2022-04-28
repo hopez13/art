@@ -70,6 +70,30 @@
       },
       "revId": "9d31daa0b3f8e748a19555870932bace11f2b199",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de4adb3b_ca913f33",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-28T13:53:28Z",
+      "side": 0,
+      "message": "`git grep art_quick_aput_obj` says that nterp uses it.\n\nI added back the gray checks.\n\nWhat happens if the ObjectStack is full? Do we keep the mark bit set for some objects? Does this affect correctness of GC root loads during the next GC?",
+      "parentUuid": "f9f8584d_d596339a",
+      "range": {
+        "startLine": 1013,
+        "startChar": 19,
+        "endLine": 1013,
+        "endChar": 52
+      },
+      "revId": "9d31daa0b3f8e748a19555870932bace11f2b199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
