@@ -16,6 +16,29 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "ad1b62294d834a83c4ad83fdd2e422552e715e2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea6669a1_899defaa",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-28T13:44:00Z",
+      "side": 1,
+      "message": "This should copy `other.owns_compilation_` (allow moving non-owning `ScopedCompilation`).",
+      "range": {
+        "startLine": 756,
+        "startChar": 24,
+        "endLine": 756,
+        "endChar": 28
+      },
+      "revId": "ad1b62294d834a83c4ad83fdd2e422552e715e2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
