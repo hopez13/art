@@ -143,6 +143,60 @@ void StringBackend::ReportHistogram(DatumId histogram_type,
   }
 }
 
+TextFormatter::TextFormatter() = default;
+
+void TextFormatter::FormatBeginReport(uint64_t timestamp_since_start_ms,
+                                      std::optional<SessionData> session_data) {
+  os_ << "\n*** ART internal metrics ***\n";
+  os_ << "  Metadata:\n";
+  os_ << "    timestamp_since_start_ms: " << timestamp_since_start_ms << "\n";
+  if (session_data.has_value()) {
+    os_ << "    session_id: " << session_data->session_id << "\n";
+    os_ << "    uid: " << session_data->uid << "\n";
+    os_ << "    compilation_reason: " << CompilationReasonName(session_data->compilation_reason)
+                   << "\n";
+    os_ << "    compiler_filter: " << CompilerFilterReportingName(session_data->compiler_filter)
+        << "\n";
+  }
+  os_ << "  Metrics:\n";
+}
+
+void TextFormatter::FormatReportCounter(DatumId counter_type, uint64_t value) {
+  os_ << "    " << DatumName(counter_type) << ": count = " << value << "\n";
+}
+
+void TextFormatter::FormatReportHistogram(DatumId histogram_type,
+                                          int64_t minimum_value_,
+                                          int64_t maximum_value_,
+                                          const std::vector<uint32_t>& buckets) {
+  os_ << "    " << DatumName(histogram_type) << ": range = " << minimum_value_ << "..." << maximum_value_;
+  if (!buckets.empty()) {
+    os_ << ", buckets: ";
+    bool first = true;
+    for (const auto& count : buckets) {
+      if (!first) {
+        os_ << ",";
+      }
+      first = false;
+      os_ << count;
+    }
+    os_ << "\n";
+  } else {
+    os_ << ", no buckets\n";
+  }
+}
+
+void TextFormatter::FormatEndReport() {
+  os_ << "*** Done dumping ART internal metrics ***\n";
+}
+
+std::string TextFormatter::GetAndResetBuffer() {
+  std::string result = os_.str();
+  os_.clear();
+  os_.str("");
+  return result;
+}
+
 LogBackend::LogBackend(android::base::LogSeverity level) : level_{level} {}
 
 void LogBackend::BeginReport(uint64_t timestamp_since_start_ms) {

@@ -460,6 +460,46 @@ class StringBackend : public MetricsBackend {
   std::optional<SessionData> session_data_;
 };
 
+// Base class for formatting metrics into different formats
+// (human-readable text, JSON, etc.)
+class MetricsFormatter {
+ public:
+  virtual ~MetricsFormatter() = default;
+
+  virtual void FormatBeginReport(uint64_t timestamp_since_start_ms,
+                                 std::optional<SessionData> session_data) = 0;
+  virtual void FormatEndReport() = 0;
+  virtual void FormatReportCounter(DatumId counter_type, uint64_t value) = 0;
+  virtual void FormatReportHistogram(DatumId histogram_type,
+                                     int64_t low_value,
+                                     int64_t high_value,
+                                     const std::vector<uint32_t>& buckets) = 0;
+  virtual std::string GetAndResetBuffer() = 0;
+};
+
+// Formatter outputting metrics in human-readable text format
+class TextFormatter : public MetricsFormatter {
+ public:
+  TextFormatter();
+
+  void FormatBeginReport(uint64_t timestamp_millis,
+                         std::optional<SessionData> session_data) override;
+
+  void FormatReportCounter(DatumId counter_type, uint64_t value) override;
+
+  void FormatReportHistogram(DatumId histogram_type,
+                             int64_t low_value,
+                             int64_t high_value,
+                             const std::vector<uint32_t>& buckets) override;
+
+  void FormatEndReport() override;
+
+  std::string GetAndResetBuffer() override;
+
+ private:
+  std::ostringstream os_;
+};
+
 // A backend that writes metrics in human-readable format to the log (i.e. logcat).
 class LogBackend : public StringBackend {
  public:
