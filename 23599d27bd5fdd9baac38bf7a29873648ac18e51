@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61ac786a_7a750f97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2022-04-28T21:04:55Z",
+      "side": 1,
+      "message": "This accidentally skipped dex2oat (which we also want to skip) but has the wrong description.",
+      "revId": "23599d27bd5fdd9baac38bf7a29873648ac18e51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
