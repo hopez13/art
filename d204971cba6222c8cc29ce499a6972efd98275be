@@ -16,6 +16,29 @@
       "message": "PTAL at PS1..PS3 which has the fix.",
       "revId": "d204971cba6222c8cc29ce499a6972efd98275be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "349876cb_78d2572c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-28T08:51:11Z",
+      "side": 1,
+      "message": "nit: you could call Runtime::Current()-\u003eIsJavaDebuggable() here",
+      "range": {
+        "startLine": 3141,
+        "startChar": 70,
+        "endLine": 3141,
+        "endChar": 95
+      },
+      "revId": "d204971cba6222c8cc29ce499a6972efd98275be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
