@@ -16,6 +16,144 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6e95eb3_a9b49286",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-28T09:52:55Z",
+      "side": 1,
+      "message": "This should not be default, you need to transfer ownership and set `other.is_already_being_compiled_` to true.",
+      "range": {
+        "startLine": 752,
+        "startChar": 47,
+        "endLine": 752,
+        "endChar": 56
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2276e95a_383d8080",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-28T09:52:55Z",
+      "side": 1,
+      "message": "This is an odd name. And I\u0027d prefer the negated value, maybe `owns_compilation_`.",
+      "range": {
+        "startLine": 786,
+        "startChar": 7,
+        "endLine": 786,
+        "endChar": 33
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69747b24_953bb843",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-28T09:52:55Z",
+      "side": 1,
+      "message": "Replace with\n\n  DCHECK(!scoped_compilation_.IsAlreadyBeingCompiled());\n  DCHECK(sc.IsAlreadyBeingCompiled());\n\nOr similar if you replace the `IsAlreadyBeingCompiled()` with a different function. This bit of code actually shows how bad the current naming is, it would be better with `OwnsCompilation()`.",
+      "range": {
+        "startLine": 804,
+        "startChar": 4,
+        "endLine": 804,
+        "endChar": 41
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b67ed33_3cc106ef",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-28T09:52:55Z",
+      "side": 1,
+      "message": "Remove. This should be done by the move constructor.",
+      "range": {
+        "startLine": 1334,
+        "startChar": 2,
+        "endLine": 1334,
+        "endChar": 18
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "637bc3bd_4f40a991",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-28T09:52:55Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1382,
+        "startChar": 6,
+        "endLine": 1382,
+        "endChar": 22
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25caf04e_81a1f386",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1833,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-28T09:52:55Z",
+      "side": 1,
+      "message": "Are you sure? I would frame the TODO as a question unless you\u0027re sure about this.",
+      "range": {
+        "startLine": 1833,
+        "startChar": 11,
+        "endLine": 1833,
+        "endChar": 25
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
