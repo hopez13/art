@@ -514,6 +514,7 @@ class ReleaseChecker:
     self._checker.check_native_library('libnpt')
     self._checker.check_native_library('libunwindstack')
     self._checker.check_native_library('libziparchive')
+    self._checker.check_native_library('libjsoncpp')
 
     # Allow extra dependencies that appear in ASAN builds.
     self._checker.check_optional_native_library('libclang_rt.asan*')
