@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "426e0ecd_0b2a05a5",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-28T12:39:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6e95eb3_a9b49286",
+      "range": {
+        "startLine": 752,
+        "startChar": 47,
+        "endLine": 752,
+        "endChar": 56
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2276e95a_383d8080",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-04-28T09:52:55Z",
       "side": 1,
       "message": "This is an odd name. And I\u0027d prefer the negated value, maybe `owns_compilation_`.",
+      "range": {
+        "startLine": 786,
+        "startChar": 7,
+        "endLine": 786,
+        "endChar": 33
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b431089d_4d5cfe46",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-28T12:39:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2276e95a_383d8080",
       "range": {
         "startLine": 786,
         "startChar": 7,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "689a4d01_0b9f63d4",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-28T12:39:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69747b24_953bb843",
+      "range": {
+        "startLine": 804,
+        "startChar": 4,
+        "endLine": 804,
+        "endChar": 41
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b67ed33_3cc106ef",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-04-28T09:52:55Z",
       "side": 1,
       "message": "Remove. This should be done by the move constructor.",
+      "range": {
+        "startLine": 1334,
+        "startChar": 2,
+        "endLine": 1334,
+        "endChar": 18
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d418252b_42ca9fdf",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-28T12:39:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b67ed33_3cc106ef",
       "range": {
         "startLine": 1334,
         "startChar": 2,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b37adf8_860c566e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-28T12:39:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "637bc3bd_4f40a991",
+      "range": {
+        "startLine": 1382,
+        "startChar": 6,
+        "endLine": 1382,
+        "endChar": 22
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25caf04e_81a1f386",
@@ -146,6 +266,30 @@
       "writtenOn": "2022-04-28T09:52:55Z",
       "side": 1,
       "message": "Are you sure? I would frame the TODO as a question unless you\u0027re sure about this.",
+      "range": {
+        "startLine": 1833,
+        "startChar": 11,
+        "endLine": 1833,
+        "endChar": 25
+      },
+      "revId": "0b4e4450c971b63f498992ada6680c4d3bab5232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb7d4ddc_a6cdd9b9",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1833,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-28T12:39:38Z",
+      "side": 1,
+      "message": "Yeah, pretty sure. I\u0027ve extended the comment to be more explicit.",
+      "parentUuid": "25caf04e_81a1f386",
       "range": {
         "startLine": 1833,
         "startChar": 11,
