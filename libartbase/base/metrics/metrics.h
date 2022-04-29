@@ -434,33 +434,6 @@ class MetricsAccumulator final : MetricsBase<T> {
   friend class ArtMetrics;
 };
 
-// A backend that writes metrics in a human-readable format to a string.
-//
-// This is used as a base for LogBackend and FileBackend.
-class StringBackend : public MetricsBackend {
- public:
-  StringBackend();
-
-  void BeginOrUpdateSession(const SessionData& session_data) override;
-
-  void BeginReport(uint64_t timestamp_millis) override;
-
-  void ReportCounter(DatumId counter_type, uint64_t value) override;
-
-  void ReportHistogram(DatumId histogram_type,
-                       int64_t low_value,
-                       int64_t high_value,
-                       const std::vector<uint32_t>& buckets) override;
-
-  void EndReport() override;
-
-  std::string GetAndResetBuffer();
-
- private:
-  std::ostringstream os_;
-  std::optional<SessionData> session_data_;
-};
-
 // Base class for formatting metrics into different formats
 // (human-readable text, JSON, etc.)
 class MetricsFormatter {
@@ -525,10 +498,40 @@ class JsonFormatter : public MetricsFormatter {
   Json::Value json_root_;
 };
 
+// A backend that writes metrics to a string.
+// The format of the metrics' output is delegated
+// to the MetricsFormatter class.
+//
+// This is used as a base for LogBackend and FileBackend.
+class StringBackend : public MetricsBackend {
+ public:
+  explicit StringBackend(MetricsFormatter* formatter);
+  ~StringBackend();
+
+  void BeginOrUpdateSession(const SessionData& session_data) override;
+
+  void BeginReport(uint64_t timestamp_millis) override;
+
+  void ReportCounter(DatumId counter_type, uint64_t value) override;
+
+  void ReportHistogram(DatumId histogram_type,
+                       int64_t low_value,
+                       int64_t high_value,
+                       const std::vector<uint32_t>& buckets) override;
+
+  void EndReport() override;
+
+  std::string GetAndResetBuffer();
+
+ private:
+  MetricsFormatter* formatter_;
+  std::optional<SessionData> session_data_;
+};
+
 // A backend that writes metrics in human-readable format to the log (i.e. logcat).
 class LogBackend : public StringBackend {
  public:
-  explicit LogBackend(android::base::LogSeverity level);
+  explicit LogBackend(MetricsFormatter* formatter, android::base::LogSeverity level);
 
   void BeginReport(uint64_t timestamp_millis) override;
   void EndReport() override;
@@ -538,12 +541,9 @@ class LogBackend : public StringBackend {
 };
 
 // A backend that writes metrics to a file.
-//
-// These are currently written in the same human-readable format used by StringBackend and
-// LogBackend, but we will probably want a more machine-readable format in the future.
 class FileBackend : public StringBackend {
  public:
-  explicit FileBackend(const std::string& filename);
+  explicit FileBackend(MetricsFormatter* formatter, const std::string& filename);
 
   void BeginReport(uint64_t timestamp_millis) override;
   void EndReport() override;

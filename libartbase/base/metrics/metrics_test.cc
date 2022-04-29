@@ -249,7 +249,7 @@ TEST_F(MetricsTest, HistogramTimer) {
 // Makes sure all defined metrics are included when dumping through StreamBackend.
 TEST_F(MetricsTest, StreamBackendDumpAllMetrics) {
   ArtMetrics metrics;
-  StringBackend backend;
+  StringBackend backend(new TextFormatter());
 
   metrics.ReportAllMetrics(&backend);
 

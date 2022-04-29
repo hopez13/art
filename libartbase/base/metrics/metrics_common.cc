@@ -76,7 +76,7 @@ void ArtMetrics::ReportAllMetrics(MetricsBackend* backend) const {
 }
 
 void ArtMetrics::DumpForSigQuit(std::ostream& os) const {
-  StringBackend backend;
+  StringBackend backend(new TextFormatter());
   ReportAllMetrics(&backend);
   os << backend.GetAndResetBuffer();
 }
@@ -88,13 +88,16 @@ void ArtMetrics::Reset() {
 #undef ART_METRIC
 }
 
-StringBackend::StringBackend() {}
+StringBackend::StringBackend(MetricsFormatter* formatter)
+  : formatter_(formatter)
+{}
+
+StringBackend::~StringBackend() {
+  delete formatter_;
+}
 
 std::string StringBackend::GetAndResetBuffer() {
-  std::string result = os_.str();
-  os_.clear();
-  os_.str("");
-  return result;
+  return formatter_->GetAndResetBuffer();
 }
 
 void StringBackend::BeginOrUpdateSession(const SessionData& session_data) {
@@ -102,45 +105,22 @@ void StringBackend::BeginOrUpdateSession(const SessionData& session_data) {
 }
 
 void StringBackend::BeginReport(uint64_t timestamp_since_start_ms) {
-  os_ << "\n*** ART internal metrics ***\n";
-  os_ << "  Metadata:\n";
-  os_ << "    timestamp_since_start_ms: " << timestamp_since_start_ms << "\n";
-  if (session_data_.has_value()) {
-    os_ << "    session_id: " << session_data_->session_id << "\n";
-    os_ << "    uid: " << session_data_->uid << "\n";
-    os_ << "    compilation_reason: " << CompilationReasonName(session_data_->compilation_reason)
-        << "\n";
-    os_ << "    compiler_filter: " << CompilerFilterReportingName(session_data_->compiler_filter)
-        << "\n";
-  }
-  os_ << "  Metrics:\n";
+  formatter_->FormatBeginReport(timestamp_since_start_ms, session_data_);
 }
 
-void StringBackend::EndReport() { os_ << "*** Done dumping ART internal metrics ***\n"; }
+void StringBackend::EndReport() {
+  formatter_->FormatEndReport();
+}
 
 void StringBackend::ReportCounter(DatumId counter_type, uint64_t value) {
-  os_ << "    " << DatumName(counter_type) << ": count = " << value << "\n";
+  formatter_->FormatReportCounter(counter_type, value);
 }
 
 void StringBackend::ReportHistogram(DatumId histogram_type,
                                     int64_t minimum_value_,
                                     int64_t maximum_value_,
                                     const std::vector<uint32_t>& buckets) {
-  os_ << "    " << DatumName(histogram_type) << ": range = " << minimum_value_ << "..." << maximum_value_;
-  if (buckets.size() > 0) {
-    os_ << ", buckets: ";
-    bool first = true;
-    for (const auto& count : buckets) {
-      if (!first) {
-        os_ << ",";
-      }
-      first = false;
-      os_ << count;
-    }
-    os_ << "\n";
-  } else {
-    os_ << ", no buckets\n";
-  }
+  formatter_->FormatReportHistogram(histogram_type, minimum_value_, maximum_value_, buckets);
 }
 
 TextFormatter::TextFormatter() = default;
@@ -245,22 +225,26 @@ std::string JsonFormatter::GetAndResetBuffer() {
   return document;
 }
 
-LogBackend::LogBackend(android::base::LogSeverity level) : level_{level} {}
+LogBackend::LogBackend(MetricsFormatter* formatter, android::base::LogSeverity level)
+  : StringBackend(formatter), level_{level}
+{}
 
 void LogBackend::BeginReport(uint64_t timestamp_since_start_ms) {
-  GetAndResetBuffer();
+  StringBackend::GetAndResetBuffer();
   StringBackend::BeginReport(timestamp_since_start_ms);
 }
 
 void LogBackend::EndReport() {
   StringBackend::EndReport();
-  LOG_STREAM(level_) << GetAndResetBuffer();
+  LOG_STREAM(level_) << StringBackend::GetAndResetBuffer();
 }
 
-FileBackend::FileBackend(const std::string& filename) : filename_{filename} {}
+FileBackend::FileBackend(MetricsFormatter* formatter, const std::string& filename)
+  : StringBackend(formatter), filename_{filename}
+{}
 
 void FileBackend::BeginReport(uint64_t timestamp_since_start_ms) {
-  GetAndResetBuffer();
+  StringBackend::GetAndResetBuffer();
   StringBackend::BeginReport(timestamp_since_start_ms);
 }
 
@@ -272,7 +256,7 @@ void FileBackend::EndReport() {
   if (file.get() == nullptr) {
     LOG(WARNING) << "Could open metrics file '" << filename_ << "': " << error_message;
   } else {
-    if (!android::base::WriteStringToFd(GetAndResetBuffer(), file.get()->Fd())) {
+    if (!android::base::WriteStringToFd(StringBackend::GetAndResetBuffer(), file.get()->Fd())) {
       PLOG(WARNING) << "Error writing metrics to file";
     }
   }
