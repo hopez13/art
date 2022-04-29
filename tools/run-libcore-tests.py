@@ -100,8 +100,6 @@ LIBCORE_TEST_NAMES = [
   "org.apache.harmony.tests.javax.security",
   "tests.java.lang.String",
   ### OpenJDK upstream tests (ojluni). ###
-  # "test.java.awt",
-  "test.java.awt",
   # test.java.io
   "test.java.io.ByteArrayInputStream",
   "test.java.io.ByteArrayOutputStream",
@@ -135,10 +133,24 @@ LIBCORE_TEST_NAMES = [
   "test.java.lang.StrictMath.Log10Tests",
   "test.java.lang.StrictMath.MultiplicationTests",
   "test.java.lang.StrictMath.PowTests",
-  "test.java.lang.String",
+  # Sharded test.java.lang.String
+  "test.java.lang.String.Lines",
+  "test.java.lang.String.Strip",
+  "test.java.lang.String.IsBlank",
+  "test.java.lang.String.Chars",
+  "test.java.lang.String.concat",
+  "test.java.lang.String.StringRepeat",
+  "test.java.lang.String.CompactString",
   "test.java.lang.Thread",
-  # test.java.lang.invoke
-  "test.java.lang.invoke",
+  # Sharded test.java.lang.invoke
+  "test.java.lang.invoke.VarHandles.VarHandleTestAccessInt",
+  "test.java.lang.invoke.VarHandles.VarHandleTestByteArrayAsInt",
+  "test.java.lang.invoke.VarHandles.VarHandleTestMethodHandleAccessInt",
+  "test.java.lang.invoke.VarHandles.VarHandleTestMethodTypeInt",
+  "test.java.lang.invoke.VarHandles.VarHandleTestReflection",
+  "test.java.lang.invoke.DropArgumentsTest",
+  "test.java.lang.invoke.ArrayLengthTest",
+  "test.java.lang.invoke.MethodTypeTest",
   # test.java.lang.ref
   "test.java.lang.ref.SoftReference",
   "test.java.lang.ref.BasicTest",
@@ -178,7 +190,6 @@ LIBCORE_TEST_NAMES = [
   # test.java.nio
   "test.java.nio.channels.Channels",
   "test.java.nio.channels.SelectionKey",
-  "test.java.nio.channels.Selector",
   "test.java.nio.file",
   # test.java.security
   "test.java.security.cert",
@@ -190,10 +201,7 @@ LIBCORE_TEST_NAMES = [
   "test.java.security.KeyAgreement.NegativeTest",
   "test.java.security.KeyStore",
   "test.java.security.Provider",
-  # test.java.time
-  "test.java.time",
   # test.java.util
-  "test.java.util.Arrays",
   "test.java.util.Collection",
   "test.java.util.Collections",
   "test.java.util.Date",
@@ -203,20 +211,23 @@ LIBCORE_TEST_NAMES = [
   "test.java.util.LinkedHashMap",
   "test.java.util.LinkedHashSet",
   "test.java.util.List",
-  "test.java.util.Map",
+  # Sharded test.java.util.Map
+  "test.java.util.Map.BasicSerialization",
+  "test.java.util.Map.Defaults",
+  "test.java.util.Map.EntryComparators",
+  "test.java.util.Map.EntryHashCode",
+  "test.java.util.Map.EntrySetIterator",
+  "test.java.util.Map.Get",
+  "test.java.util.Map.LockStep",
+  "test.java.util.Map.MapBinToFromTreeTest",
+  "test.java.util.Map.MapFactories",
+  "test.java.util.Map.MapWithCollisionsProviders",
+  "test.java.util.Map.ToArray",
   "test.java.util.Optional",
   "test.java.util.TestFormatter",
   "test.java.util.TimeZone",
-  # test.java.util.concurrent
-  "test.java.util.concurrent",
   # test.java.util.function
   "test.java.util.function",
-  # test.java.util.stream
-  "test.java.util.stream",
-  # test.java.util.zip
-  "test.java.util.zip.ZipFile",
-  # tck.java.time
-  "tck.java.time",
 ]
 # "org.apache.harmony.security",  # We don't have rights to revert changes in case of failures.
 
