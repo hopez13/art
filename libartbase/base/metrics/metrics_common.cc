@@ -197,6 +197,54 @@ std::string TextFormatter::GetAndResetBuffer() {
   return result;
 }
 
+JsonFormatter::JsonFormatter() = default;
+
+void JsonFormatter::FormatBeginReport(uint64_t timestamp_millis,
+                                      std::optional<SessionData> session_data) {
+  Json::Value& metadata = json_root_["metadata"];
+  metadata["timestamp_since_start_ms"] = timestamp_millis;
+  if (session_data.has_value()) {
+    metadata["session_id"] = session_data->session_id;
+    metadata["uid"] = session_data->uid;
+    metadata["compilation_reason"] = CompilationReasonName(session_data->compilation_reason);
+    metadata["compiler_filter"] = CompilerFilterReportingName(session_data->compiler_filter);
+  }
+}
+
+void JsonFormatter::FormatReportCounter(DatumId counter_type, uint64_t value) {
+  Json::Value& counter = json_root_["metrics"][DatumName(counter_type)];
+  counter["counter_type"] = "count";
+  counter["value"] = value;
+}
+
+void JsonFormatter::FormatReportHistogram(DatumId histogram_type,
+                                          int64_t low_value,
+                                          int64_t high_value,
+                                          const std::vector<uint32_t>& buckets) {
+  Json::Value& histogram = json_root_["metrics"][DatumName(histogram_type)];
+  histogram["counter_type"] = "range";
+  histogram["minimum_value"] = low_value;
+  histogram["maximum_value"] = high_value;
+
+  Json::Value bucketsList(Json::arrayValue);
+  if (!buckets.empty()) {
+    for (const auto& count : buckets) {
+      bucketsList.append(count);
+    }
+  }
+  histogram["buckets"] = bucketsList;
+}
+
+void JsonFormatter::FormatEndReport() {}
+
+std::string JsonFormatter::GetAndResetBuffer() {
+  Json::StreamWriterBuilder builder;
+  builder["indentation"] = "";
+  std::string document = Json::writeString(builder, json_root_);
+  json_root_.clear();
+  return document;
+}
+
 LogBackend::LogBackend(android::base::LogSeverity level) : level_{level} {}
 
 void LogBackend::BeginReport(uint64_t timestamp_since_start_ms) {

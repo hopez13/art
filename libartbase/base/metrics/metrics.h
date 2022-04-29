@@ -30,6 +30,7 @@
 #include "android-base/logging.h"
 #include "base/bit_utils.h"
 #include "base/time_utils.h"
+#include "json/json.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic error "-Wconversion"
@@ -498,6 +499,30 @@ class TextFormatter : public MetricsFormatter {
 
  private:
   std::ostringstream os_;
+};
+
+
+// Formatter outputting metrics in JSON format
+class JsonFormatter : public MetricsFormatter {
+ public:
+  JsonFormatter();
+
+  void FormatBeginReport(uint64_t timestamp_millis,
+                         std::optional<SessionData> session_data) override;
+
+  void FormatReportCounter(DatumId counter_type, uint64_t value) override;
+
+  void FormatReportHistogram(DatumId histogram_type,
+                             int64_t low_value,
+                             int64_t high_value,
+                             const std::vector<uint32_t>& buckets) override;
+
+  void FormatEndReport() override;
+
+  std::string GetAndResetBuffer() override;
+
+ private:
+  Json::Value json_root_;
 };
 
 // A backend that writes metrics in human-readable format to the log (i.e. logcat).
