@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48e29393_c1a03104",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-29T08:15:46Z",
+      "side": 1,
+      "message": "Probably the crash is still there 😊\n\nAs discussed, you could craft a run test that passes the --force-jitzygote flag.",
+      "revId": "1fbfa9b23cd1f0b4e00fd82ea999f9530f18b609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a611db46_c119ba2a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2943,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-29T08:15:46Z",
+      "side": 1,
+      "message": "Remove the AsLoadClass.",
+      "range": {
+        "startLine": 2943,
+        "startChar": 64,
+        "endLine": 2943,
+        "endChar": 76
+      },
+      "revId": "1fbfa9b23cd1f0b4e00fd82ea999f9530f18b609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
