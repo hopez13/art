@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d6dc051_0a5cd300",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-29T08:22:32Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "90aafb4877017348b585f35fa0144a7be9c148f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "786e9b93_de82aa49",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-04-29T08:22:32Z",
+      "side": 1,
+      "message": "This will crash the execution right? Could we instead do `exit(EXIT_FAILURE)?`",
+      "range": {
+        "startLine": 1040,
+        "startChar": 6,
+        "endLine": 1040,
+        "endChar": 16
+      },
+      "revId": "90aafb4877017348b585f35fa0144a7be9c148f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
