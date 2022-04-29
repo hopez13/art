@@ -16,6 +16,24 @@
       "message": "Can we do this in two steps? Reducing the gcstress workload as part 1 and then optimizing overall time as part 2.\n\nIs there something we can do in vogar to avoid the manual sharding the python script? The problem with manual sharding is that CLs can both split into shards and silently drop shards by not adding them. It looks like we might have some missing shards here for test.java.lang.invoke for example.",
       "revId": "104dad7ab57d12b70f988b42ba6c6799c1da007c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c4c9317_5d39bfe2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2022-04-29T15:23:44Z",
+      "side": 1,
+      "message": "\u003e Can we do this in two steps? \n\nOf course, will do it now.\n\n\u003e Is there something we can do in vogar to avoid the manual sharding the python script?\n\nYes, I added http://b/208639267#comment24 that explains it. tl;dr is to teach vogar to run tests not per specified string which is usually a whole package that gets executed in single thread, but extract individual test classes/methods and execute each in a separate available thread.",
+      "parentUuid": "d714c14d_6312762f",
+      "revId": "104dad7ab57d12b70f988b42ba6c6799c1da007c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
