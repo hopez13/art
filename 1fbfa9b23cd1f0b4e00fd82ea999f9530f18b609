@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb99de9c_6345a9fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-29T08:38:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48e29393_c1a03104",
+      "revId": "1fbfa9b23cd1f0b4e00fd82ea999f9530f18b609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a611db46_c119ba2a",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-04-29T08:15:46Z",
       "side": 1,
       "message": "Remove the AsLoadClass.",
+      "range": {
+        "startLine": 2943,
+        "startChar": 64,
+        "endLine": 2943,
+        "endChar": 76
+      },
+      "revId": "1fbfa9b23cd1f0b4e00fd82ea999f9530f18b609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7863f543_74001f49",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-29T08:38:25Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/2079462",
+      "parentUuid": "a611db46_c119ba2a",
       "range": {
         "startLine": 2943,
         "startChar": 64,
