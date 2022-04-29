@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0f96f4d_bb229c8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-04-29T14:56:26Z",
+      "side": 1,
+      "message": "A happier longer term solution would be a `vogar` command-line option `--runner-type\u003djunit+main`. The vogar expectations file are a pain when combining them due to duplicate rejection which might cause problems down the line, e.g. a failure that needs to in `libcore_failures.txt` conflicts with the fugu failure list being added here.",
+      "revId": "d7ea9ff679442bea67a3eb1d79b78655c7cb3bec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
