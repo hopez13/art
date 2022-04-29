@@ -118,6 +118,30 @@
       },
       "revId": "9d31daa0b3f8e748a19555870932bace11f2b199",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc614326_9b6e864a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-04-29T08:42:25Z",
+      "side": 0,
+      "message": "For the record, the correctness of GC root loads is OK as discussed offline.",
+      "parentUuid": "6258635a_2a55d0d0",
+      "range": {
+        "startLine": 1013,
+        "startChar": 19,
+        "endLine": 1013,
+        "endChar": 52
+      },
+      "revId": "9d31daa0b3f8e748a19555870932bace11f2b199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
