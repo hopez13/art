@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d714c14d_6312762f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-04-29T14:43:44Z",
+      "side": 1,
+      "message": "Can we do this in two steps? Reducing the gcstress workload as part 1 and then optimizing overall time as part 2.\n\nIs there something we can do in vogar to avoid the manual sharding the python script? The problem with manual sharding is that CLs can both split into shards and silently drop shards by not adding them. It looks like we might have some missing shards here for test.java.lang.invoke for example.",
+      "revId": "104dad7ab57d12b70f988b42ba6c6799c1da007c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

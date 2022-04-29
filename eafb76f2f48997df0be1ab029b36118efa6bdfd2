@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2897de56_fa08a361",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-04-29T14:43:44Z",
+      "side": 0,
+      "message": "We are dropping lots of test coverage from here on.\n\nThe bug highlighted specific issues with gcstress. Can we drop the tests highlighted for gcstress by expectations or by filtering in `get_test_names` like we do for the highmemory tests?",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 36
+      },
+      "revId": "eafb76f2f48997df0be1ab029b36118efa6bdfd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
