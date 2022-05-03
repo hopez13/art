@@ -493,7 +493,7 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
 bool HLoopOptimization::Run() {
   // Skip if there is no loop or the graph has irreducible loops.
   // TODO: make this less of a sledgehammer.
-  if (!graph_->HasLoops() || graph_->HasIrreducibleLoops()) {
+  if (!graph_->HasLoops() || graph_->HasTryCatch() || graph_->HasIrreducibleLoops()) {
     return false;
   }
 

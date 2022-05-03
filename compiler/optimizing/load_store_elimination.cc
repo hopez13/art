@@ -3878,7 +3878,7 @@ class LSEVisitorWrapper : public DeletableArenaObject<kArenaAllocLSE> {
 };
 
 bool LoadStoreElimination::Run(bool enable_partial_lse) {
-  if (graph_->IsDebuggable()) {
+  if (graph_->IsDebuggable() || graph_->HasTryCatch()) {
     // Debugger may set heap values or trigger deoptimization of callers.
     // Skip this optimization.
     return false;

@@ -233,6 +233,9 @@ static bool RemoveNonNullControlDependences(HBasicBlock* block, HBasicBlock* thr
 // Removal of the never taken edge to B2 may expose
 // other optimization opportunities, such as code sinking.
 bool HDeadCodeElimination::SimplifyAlwaysThrows() {
+  if (graph_->HasTryCatch()) {
+    return false;
+  }
   HBasicBlock* exit = graph_->GetExitBlock();
   if (exit == nullptr) {
     return false;
