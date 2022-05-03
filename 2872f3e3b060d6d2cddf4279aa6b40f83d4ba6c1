@@ -1,6 +1,86 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1f5dbc5_1a65161e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "Could you mention the size of the ART APEX before and after your change, so that we can evaluate the cost of including the jsoncpp library to the ART Module? You can use e.g. these commands to find out:\n\n  m com.android.art\n  ls -l out/soong/.intermediates/art/build/apex/com.android.art/android_common_com.android.art_image/com.android.art*apex\n\nYou should see two files:\n* `com.android.art.apex` is the uncompressed ART APEX;\n* `com.android.art.capex` is the compressed ART APEX (included in system images).\n\nI think we\u0027re interested in the sizes of both APEXes, before and after your change. Thanks!",
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a5632b_5afff185",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "Could you add\n\n  Bug: 175048705\n  \nhere? This will associates this CL with the corresponding ticket (and vice versa).",
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d79a3ef_819f0d1d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "Could you also add:\n\n  Test: atest art_standalone_libartbase_tests\n\nhere?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 5
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c7d0bb7_e446f584",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "Could you also add:\n\n  Test: art/build/apex/runtests.sh\n\nhere?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 5
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "60739471_0338fe65",
@@ -14,6 +94,29 @@
       "writtenOn": "2022-05-03T14:30:58Z",
       "side": 1,
       "message": "Nice start!",
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ecedee3_57b733c6",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "You may have to add a check for `libjsoncpp` here (check with `art/build/apex/runtests.sh`).",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 516,
+        "endChar": 55
+      },
       "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -36,6 +139,236 @@
         "startChar": 17,
         "endLine": 80,
         "endChar": 27
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "911cf201_d9f416a3",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "Could this be turned into a const reference, i.e.:\n\n  const std::optional\u003cSessionData\u003e\u0026 session_data\n\n?",
+      "range": {
+        "startLine": 444,
+        "startChar": 33,
+        "endLine": 444,
+        "endChar": 72
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d6c3e9d_de71a7b0",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "I\u0027d define the default constructor here (instead of in https://android-review.googlesource.com/c/platform/art/+/2085483/2/libartbase/base/metrics/metrics_common.cc#126):\n\n  TextFormatter() \u003d default;",
+      "range": {
+        "startLine": 457,
+        "startChar": 2,
+        "endLine": 457,
+        "endChar": 18
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "044a02bf_e9c06e0f",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 481,
+        "startChar": 2,
+        "endLine": 481,
+        "endChar": 18
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a55d8fb3_dd8400c4",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "In general we favor the use of smart pointers instead of raw pointers; you could use an `std::unique_ptr\u003cMetricsFormatter\u003e` here.",
+      "range": {
+        "startLine": 527,
+        "startChar": 2,
+        "endLine": 527,
+        "endChar": 31
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac09c88b_48c3ffa8",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "Nit: Indentation is off.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 19
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c73397a0_bcced471",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "Nit: Long line (I know this was already the case in the original code, but it\u0027s a good opportunity to fix it).",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 106
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b109a11_4e496427",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "I think you could drop this condition, for the sake of simplicity.",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 23
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59787458_34f08b70",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "Nit: Use braces (`{formatter}`) for consistency (or use parentheses for all initializers).",
+      "range": {
+        "startLine": 229,
+        "startChar": 17,
+        "endLine": 229,
+        "endChar": 28
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d59cec6_824dbb0c",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 243,
+        "startChar": 17,
+        "endLine": 243,
+        "endChar": 28
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec2e79d6_ee6ec4fd",
+        "filename": "libartbase/base/metrics/metrics_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-03T16:17:32Z",
+      "side": 1,
+      "message": "I think you could just use the simpler:\n\n  ASSERT_EQ(result, …);\n\nhere and below.",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 37
       },
       "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
