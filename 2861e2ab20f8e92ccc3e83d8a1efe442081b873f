@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32dd9ca3_d6acd7c5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-05-03T14:43:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0499a568_5293514b",
+      "range": {
+        "startLine": 1065,
+        "startChar": 0,
+        "endLine": 1066,
+        "endChar": 75
+      },
+      "revId": "2861e2ab20f8e92ccc3e83d8a1efe442081b873f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6d124bd_a6820286",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-05-03T14:19:01Z",
       "side": 1,
       "message": "Could this be merged into just:\n```\nvoid VisitInstruction(HInstruction* instruction) {\n  if (instruction-\u003eCanThrow()) Handle...\n}\n```",
+      "range": {
+        "startLine": 1098,
+        "startChar": 0,
+        "endLine": 1151,
+        "endChar": 3
+      },
+      "revId": "2861e2ab20f8e92ccc3e83d8a1efe442081b873f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a44edcae_a790b4c0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-05-03T14:43:10Z",
+      "side": 1,
+      "message": "I overrode `VisitInstruction` since handling throwing instructions may require special treatment e.g. like `VisitNewArray`. I think that overriding `VisitInstruction`  provides a better safety net, and should be faster too since we don\u0027t have to ask if an always-non-throwing instruction throws.",
+      "parentUuid": "c6d124bd_a6820286",
       "range": {
         "startLine": 1098,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bf8c4b5_cbdd3480",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-05-03T14:43:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88f32dca_198b1972",
+      "range": {
+        "startLine": 1257,
+        "startChar": 17,
+        "endLine": 1258,
+        "endChar": 76
+      },
+      "revId": "2861e2ab20f8e92ccc3e83d8a1efe442081b873f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65076ea7_da6b89bd",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-05-03T14:19:01Z",
       "side": 1,
       "message": "See my previous comment.",
+      "range": {
+        "startLine": 1299,
+        "startChar": 0,
+        "endLine": 1303,
+        "endChar": 3
+      },
+      "revId": "2861e2ab20f8e92ccc3e83d8a1efe442081b873f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85cf81a0_66c3dd52",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-05-03T14:43:10Z",
+      "side": 1,
+      "message": "Replying in the other comment.",
+      "parentUuid": "65076ea7_da6b89bd",
       "range": {
         "startLine": 1299,
         "startChar": 0,
