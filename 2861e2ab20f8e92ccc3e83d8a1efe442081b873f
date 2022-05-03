@@ -16,6 +16,98 @@
       "message": "Nicolas PTAL\nCL is split into two for easier review but will be merged as a topic",
       "revId": "2861e2ab20f8e92ccc3e83d8a1efe442081b873f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0499a568_5293514b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-03T14:19:01Z",
+      "side": 1,
+      "message": "Move this as part of the check line 1053?",
+      "range": {
+        "startLine": 1065,
+        "startChar": 0,
+        "endLine": 1066,
+        "endChar": 75
+      },
+      "revId": "2861e2ab20f8e92ccc3e83d8a1efe442081b873f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6d124bd_a6820286",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-03T14:19:01Z",
+      "side": 1,
+      "message": "Could this be merged into just:\n```\nvoid VisitInstruction(HInstruction* instruction) {\n  if (instruction-\u003eCanThrow()) Handle...\n}\n```",
+      "range": {
+        "startLine": 1098,
+        "startChar": 0,
+        "endLine": 1151,
+        "endChar": 3
+      },
+      "revId": "2861e2ab20f8e92ccc3e83d8a1efe442081b873f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88f32dca_198b1972",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-03T14:19:01Z",
+      "side": 1,
+      "message": "Add a helper for these checks? The name of the helper will also help readability.",
+      "range": {
+        "startLine": 1257,
+        "startChar": 17,
+        "endLine": 1258,
+        "endChar": 76
+      },
+      "revId": "2861e2ab20f8e92ccc3e83d8a1efe442081b873f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65076ea7_da6b89bd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-03T14:19:01Z",
+      "side": 1,
+      "message": "See my previous comment.",
+      "range": {
+        "startLine": 1299,
+        "startChar": 0,
+        "endLine": 1303,
+        "endChar": 3
+      },
+      "revId": "2861e2ab20f8e92ccc3e83d8a1efe442081b873f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
