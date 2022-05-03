@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60739471_0338fe65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-03T14:30:58Z",
+      "side": 1,
+      "message": "Nice start!",
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "071828ab_d566d58e",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-03T14:30:58Z",
+      "side": 1,
+      "message": "What\u0027s the size of the library? And can you paste in the commit message the overall apex size increase?",
+      "range": {
+        "startLine": 80,
+        "startChar": 17,
+        "endLine": 80,
+        "endChar": 27
+      },
+      "revId": "2872f3e3b060d6d2cddf4279aa6b40f83d4ba6c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
