@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e3115b2_68f89ecd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-04T16:39:24Z",
+      "side": 1,
+      "message": "I have tried to link libjsoncpp statically rather than dynamically, but it looks like the APEX file size gets even bigger in that case:\n\n* without libjsoncpp: 60,862,464 uncompressed, 22,745,088 compressed\n* with libjsoncpp as shared lib: 61,288,448 uncompressed, 22,904,832 compressed\n* with libjsoncpp as static lib: 61,399,040 uncompressed, 22,941,696 compressed",
+      "revId": "6909092a8cba91cea0fc21310cbf8663044a24cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecdd4413_450f366e",
@@ -31,6 +48,30 @@
       "writtenOn": "2022-05-04T14:24:21Z",
       "side": 1,
       "message": "Nit: Could you keep this list sorted in lexicographic order? Thanks!",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 52
+      },
+      "revId": "6909092a8cba91cea0fc21310cbf8663044a24cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ab34c9d_d090d389",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-04T16:39:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecdd4413_450f366e",
       "range": {
         "startLine": 507,
         "startChar": 0,
@@ -64,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27682c5a_8362f9af",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-04T16:39:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "455d31df_f58e621b",
+      "range": {
+        "startLine": 508,
+        "startChar": 25,
+        "endLine": 508,
+        "endChar": 52
+      },
+      "revId": "6909092a8cba91cea0fc21310cbf8663044a24cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d4c9177_19f6db16",
@@ -77,6 +142,30 @@
       "writtenOn": "2022-05-04T14:24:21Z",
       "side": 1,
       "message": "Nit: Likewise, as it seems this list was originally sorted in lexicographic order, I think it\u0027d be nice to preserve this",
+      "range": {
+        "startLine": 468,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 21
+      },
+      "revId": "6909092a8cba91cea0fc21310cbf8663044a24cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb9602d9_55f790d6",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-04T16:39:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d4c9177_19f6db16",
       "range": {
         "startLine": 468,
         "startChar": 0,
