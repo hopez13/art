@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2777b4ba_362b0f90",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1891746
+      },
+      "writtenOn": "2022-05-04T22:25:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3ab101e_ae058dfb",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 20
+      },
+      "revId": "6bfbfb0192ca7a87d96cabb4cab87671196228a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61766a8a_8ad2b79f",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-04T08:34:53Z",
       "side": 1,
       "message": "Why would we want to have this code depend on being an app process? What kind of execution would you want to allow it?\n\nI think we should remove this check.",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 75
+      },
+      "revId": "6bfbfb0192ca7a87d96cabb4cab87671196228a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2fef4d1_83861544",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1891746
+      },
+      "writtenOn": "2022-05-04T22:25:28Z",
+      "side": 1,
+      "message": "If we unconditionally enforce this rule, root processes will no longer be able to load any DEX file (as the check will always pass due to its superuser privilege). For simplicity, we limit this enforcement to app processes only",
+      "parentUuid": "61766a8a_8ad2b79f",
       "range": {
         "startLine": 324,
         "startChar": 0,
