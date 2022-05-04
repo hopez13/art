@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d5e4d24_21397ee9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-04T14:24:21Z",
+      "side": 1,
+      "message": "Nice! Just one additional comment and a couple of nits.",
+      "revId": "6909092a8cba91cea0fc21310cbf8663044a24cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecdd4413_450f366e",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-04T14:24:21Z",
+      "side": 1,
+      "message": "Nit: Could you keep this list sorted in lexicographic order? Thanks!",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 52
+      },
+      "revId": "6909092a8cba91cea0fc21310cbf8663044a24cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "455d31df_f58e621b",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-04T14:24:21Z",
+      "side": 1,
+      "message": "I think you should also use a `std::unique_ptr\u003cMetricsFormatter\u003e` here, to make clear that the `StringBackend` object is the sole owner of this `MetricsFormatter` pointer.",
+      "range": {
+        "startLine": 508,
+        "startChar": 25,
+        "endLine": 508,
+        "endChar": 52
+      },
+      "revId": "6909092a8cba91cea0fc21310cbf8663044a24cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d4c9177_19f6db16",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-04T14:24:21Z",
+      "side": 1,
+      "message": "Nit: Likewise, as it seems this list was originally sorted in lexicographic order, I think it\u0027d be nice to preserve this",
+      "range": {
+        "startLine": 468,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 21
+      },
+      "revId": "6909092a8cba91cea0fc21310cbf8663044a24cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
