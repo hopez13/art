@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c329336_48dcd132",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-05T14:43:28Z",
+      "side": 1,
+      "message": "Thanks for looking into this, Stefano. I\u0027ll check if we can ship `libjsoncpp` as a shared library among Mainline Modules and I\u0027ll report here.",
+      "parentUuid": "2e3115b2_68f89ecd",
+      "revId": "6909092a8cba91cea0fc21310cbf8663044a24cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ecdd4413_450f366e",
         "filename": "build/apex/art_apex_test.py",
         "patchSetId": 3
