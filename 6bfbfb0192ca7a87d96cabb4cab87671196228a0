@@ -117,6 +117,30 @@
       },
       "revId": "6bfbfb0192ca7a87d96cabb4cab87671196228a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d23e995d_cb417d69",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1891746
+      },
+      "writtenOn": "2022-05-05T17:04:26Z",
+      "side": 1,
+      "message": "Is there an API to get this info? That would actually be perfect!",
+      "parentUuid": "f0e9237b_fffe12af",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 75
+      },
+      "revId": "6bfbfb0192ca7a87d96cabb4cab87671196228a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
