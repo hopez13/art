@@ -800,9 +800,15 @@ void StackVisitor::WalkStack(bool include_transitions) {
         // between GenericJNI frame and JIT-compiled JNI stub; the entrypoint may have
         // changed since the frame was entered. The top quick frame tag indicates
         // GenericJNI here, otherwise it's either AOT-compiled or JNI-compiled JNI stub.
-        if (UNLIKELY(current_fragment->GetTopQuickFrameTag())) {
+        if (UNLIKELY(current_fragment->GetTopQuickFrameGenericJniTag())) {
           // The generic JNI does not have any method header.
           cur_oat_quick_method_header_ = nullptr;
+        } else if (UNLIKELY(current_fragment->GetTopQuickFrameJitTag())) {
+          // Should be JITed code.
+          Runtime* runtime = Runtime::Current();
+          const void* code = runtime->GetJit()->GetCodeCache()->GetJniStubCode(method);
+          CHECK(code != nullptr) << method->PrettyMethod();
+          cur_oat_quick_method_header_ = OatQuickMethodHeader::FromCodePointer(code);
         } else {
           const void* existing_entry_point = method->GetEntryPointFromQuickCompiledCode();
           CHECK(existing_entry_point != nullptr);
