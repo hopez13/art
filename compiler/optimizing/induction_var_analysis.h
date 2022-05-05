@@ -119,13 +119,9 @@ class HInductionVarAnalysis : public HOptimization {
   };
 
 
-  InductionInfo* CreateInvariantOp(const HBasicBlock* context,
-                                   const HLoopInformation* loop,
-                                   InductionOp op,
-                                   InductionInfo* a,
-                                   InductionInfo* b) {
+  InductionInfo* CreateInvariantOp(InductionOp op, InductionInfo* a, InductionInfo* b) {
     DCHECK(((op != kNeg && a != nullptr) || (op == kNeg && a == nullptr)) && b != nullptr);
-    return CreateSimplifiedInvariant(context, loop, op, a, b);
+    return CreateSimplifiedInvariant(op, a, b);
   }
 
   InductionInfo* CreateInvariantFetch(HInstruction* f) {
@@ -153,38 +149,29 @@ class HInductionVarAnalysis : public HOptimization {
   }
 
   // Methods for analysis.
-  void VisitLoop(const HLoopInformation* loop);
-  size_t TryVisitNodes(const HLoopInformation* loop,
+  void VisitLoop(HLoopInformation* loop);
+  size_t TryVisitNodes(HLoopInformation* loop,
                        HInstruction* start_instruction,
                        size_t global_depth,
                        /*inout*/ ScopedArenaSafeMap<HInstruction*, NodeInfo>* visited_instructions);
   void ExtractScc(ArrayRef<const StackEntry> stack_tail, ScopedArenaVector<HInstruction*>* scc);
-  void ClassifyTrivial(const HLoopInformation* loop, HInstruction* instruction);
-  void ClassifyNonTrivial(const HLoopInformation* loop, ArrayRef<const StackEntry> stack_tail);
+  void ClassifyTrivial(HLoopInformation* loop, HInstruction* instruction);
+  void ClassifyNonTrivial(HLoopInformation* loop, ArrayRef<const StackEntry> stack_tail);
   InductionInfo* RotatePeriodicInduction(InductionInfo* induction,
                                          InductionInfo* last,
                                          DataType::Type type);
 
   // Transfer operations.
-  InductionInfo* TransferPhi(const HLoopInformation* loop,
+  InductionInfo* TransferPhi(HLoopInformation* loop,
                              HInstruction* phi,
                              size_t input_index,
                              size_t adjust_input_size);
-  InductionInfo* TransferAddSub(const HBasicBlock* context,
-                                const HLoopInformation* loop,
-                                InductionInfo* a,
+  InductionInfo* TransferAddSub(InductionInfo* a,
                                 InductionInfo* b,
                                 InductionOp op,
                                 DataType::Type type);
-  InductionInfo* TransferNeg(const HBasicBlock* context,
-                             const HLoopInformation* loop,
-                             InductionInfo* a,
-                             DataType::Type type);
-  InductionInfo* TransferMul(const HBasicBlock* context,
-                             const HLoopInformation* loop,
-                             InductionInfo* a,
-                             InductionInfo* b,
-                             DataType::Type type);
+  InductionInfo* TransferNeg(InductionInfo* a, DataType::Type type);
+  InductionInfo* TransferMul(InductionInfo* a, InductionInfo* b, DataType::Type type);
   InductionInfo* TransferConversion(InductionInfo* a, DataType::Type from, DataType::Type to);
 
   // Solvers.
@@ -192,12 +179,12 @@ class HInductionVarAnalysis : public HOptimization {
                           size_t input_index,
                           size_t adjust_input_size,
                           const ScopedArenaSafeMap<HInstruction*, InductionInfo*>& cycle);
-  InductionInfo* SolvePhiAllInputs(const HLoopInformation* loop,
+  InductionInfo* SolvePhiAllInputs(HLoopInformation* loop,
                                    HInstruction* entry_phi,
                                    HInstruction* phi,
                                    const ScopedArenaSafeMap<HInstruction*, InductionInfo*>& cycle,
                                    DataType::Type type);
-  InductionInfo* SolveAddSub(const HLoopInformation* loop,
+  InductionInfo* SolveAddSub(HLoopInformation* loop,
                              HInstruction* entry_phi,
                              HInstruction* instruction,
                              HInstruction* x,
@@ -205,19 +192,19 @@ class HInductionVarAnalysis : public HOptimization {
                              InductionOp op,
                              const ScopedArenaSafeMap<HInstruction*, InductionInfo*>& cycle,
                              DataType::Type type);
-  InductionInfo* SolveOp(const HLoopInformation* loop,
+  InductionInfo* SolveOp(HLoopInformation* loop,
                          HInstruction* entry_phi,
                          HInstruction* instruction,
                          HInstruction* x,
                          HInstruction* y,
                          InductionOp op,
                          DataType::Type type);
-  InductionInfo* SolveTest(const HLoopInformation* loop,
+  InductionInfo* SolveTest(HLoopInformation* loop,
                            HInstruction* entry_phi,
                            HInstruction* instruction,
                            int64_t opposite_value,
                            DataType::Type type);
-  InductionInfo* SolveConversion(const HLoopInformation* loop,
+  InductionInfo* SolveConversion(HLoopInformation* loop,
                                  HInstruction* entry_phi,
                                  HTypeConversion* conversion,
                                  const ScopedArenaSafeMap<HInstruction*, InductionInfo*>& cycle,
@@ -228,42 +215,31 @@ class HInductionVarAnalysis : public HOptimization {
   //
 
   // Trip count information.
-  void VisitControl(const HLoopInformation* loop);
-  void VisitCondition(const HBasicBlock* context,
-                      const HLoopInformation* loop,
+  void VisitControl(HLoopInformation* loop);
+  void VisitCondition(HLoopInformation* loop,
                       HBasicBlock* body,
                       InductionInfo* a,
                       InductionInfo* b,
                       DataType::Type type,
                       IfCondition cmp);
-  void VisitTripCount(const HBasicBlock* context,
-                      const HLoopInformation* loop,
+  void VisitTripCount(HLoopInformation* loop,
                       InductionInfo* lower_expr,
                       InductionInfo* upper_expr,
                       InductionInfo* stride,
                       int64_t stride_value,
                       DataType::Type type,
                       IfCondition cmp);
-  bool IsTaken(const HBasicBlock* context,
-               const HLoopInformation* loop,
-               InductionInfo* lower_expr,
-               InductionInfo* upper_expr,
-               IfCondition cmp);
-  bool IsFinite(const HBasicBlock* context,
-                const HLoopInformation* loop,
-                InductionInfo* upper_expr,
+  bool IsTaken(InductionInfo* lower_expr, InductionInfo* upper_expr, IfCondition cmp);
+  bool IsFinite(InductionInfo* upper_expr,
                 int64_t stride_value,
                 DataType::Type type,
                 IfCondition cmp);
-  bool FitsNarrowerControl(const HBasicBlock* context,
-                           const HLoopInformation* loop,
-                           InductionInfo* lower_expr,
+  bool FitsNarrowerControl(InductionInfo* lower_expr,
                            InductionInfo* upper_expr,
                            int64_t stride_value,
                            DataType::Type type,
                            IfCondition cmp);
-  bool RewriteBreakLoop(const HBasicBlock* context,
-                        const HLoopInformation* loop,
+  bool RewriteBreakLoop(HLoopInformation* loop,
                         HBasicBlock* body,
                         int64_t stride_value,
                         DataType::Type type);
@@ -273,33 +249,20 @@ class HInductionVarAnalysis : public HOptimization {
   //
 
   // Assign and lookup.
-  void AssignInfo(const HLoopInformation* loop, HInstruction* instruction, InductionInfo* info);
-  InductionInfo* LookupInfo(const HLoopInformation* loop, HInstruction* instruction);
+  void AssignInfo(HLoopInformation* loop, HInstruction* instruction, InductionInfo* info);
+  InductionInfo* LookupInfo(HLoopInformation* loop, HInstruction* instruction);
   InductionInfo* CreateConstant(int64_t value, DataType::Type type);
-  InductionInfo* CreateSimplifiedInvariant(const HBasicBlock* context,
-                                           const HLoopInformation* loop,
-                                           InductionOp op,
-                                           InductionInfo* a,
-                                           InductionInfo* b);
-  HInstruction* GetShiftConstant(const HLoopInformation* loop,
+  InductionInfo* CreateSimplifiedInvariant(InductionOp op, InductionInfo* a, InductionInfo* b);
+  HInstruction* GetShiftConstant(HLoopInformation* loop,
                                  HInstruction* instruction,
                                  InductionInfo* initial);
   void AssignCycle(HPhi* phi, ArrayRef<HInstruction* const> scc);
   ArenaSet<HInstruction*>* LookupCycle(HPhi* phi);
 
   // Constants.
-  bool IsExact(const HBasicBlock* context,
-               const HLoopInformation* loop,
-               InductionInfo* info,
-               /*out*/int64_t* value);
-  bool IsAtMost(const HBasicBlock* context,
-                const HLoopInformation* loop,
-                InductionInfo* info,
-                /*out*/int64_t* value);
-  bool IsAtLeast(const HBasicBlock* context,
-                 const HLoopInformation* loop,
-                 InductionInfo* info,
-                 /*out*/int64_t* value);
+  bool IsExact(InductionInfo* info, /*out*/ int64_t* value);
+  bool IsAtMost(InductionInfo* info, /*out*/ int64_t* value);
+  bool IsAtLeast(InductionInfo* info, /*out*/ int64_t* value);
 
   // Helpers.
   static bool IsNarrowingLinear(InductionInfo* info);
@@ -311,7 +274,7 @@ class HInductionVarAnalysis : public HOptimization {
    * Maintains the results of the analysis as a mapping from loops to a mapping from instructions
    * to the induction information for that instruction in that loop.
    */
-  ArenaSafeMap<const HLoopInformation*, ArenaSafeMap<HInstruction*, InductionInfo*>> induction_;
+  ArenaSafeMap<HLoopInformation*, ArenaSafeMap<HInstruction*, InductionInfo*>> induction_;
 
   /**
    * Preserves induction cycle information for each loop-phi.
