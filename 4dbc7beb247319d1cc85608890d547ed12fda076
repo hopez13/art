@@ -33,6 +33,184 @@
       "message": "It looks like this passes reasonably consistently without the PhantomReferences check (modulo unrelated TH failures. This is not terribly urgent, I think, but it would be good to get this in to see how consistent that success is. If it\u0027s really solid, that should provide a clue about the PhantomReference failure.",
       "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3659119c_24c28d8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-06T00:18:30Z",
+      "side": 1,
+      "message": "Mostly looks good. Only some minor comments.",
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2738b0f0_1414700a",
+        "filename": "test/2042-reference-processing/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-06T00:18:30Z",
+      "side": 1,
+      "message": "If this is intentionally 10% of TOTAL_OBJS (above), then I\u0027d suggest using \u0027(TOTAL_OBJS / 10)\u0027 rather than hard-coding it.",
+      "range": {
+        "startLine": 52,
+        "startChar": 69,
+        "endLine": 52,
+        "endChar": 75
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc3cbe37_07a92494",
+        "filename": "test/2042-reference-processing/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-06T00:18:30Z",
+      "side": 1,
+      "message": "Isn\u0027t the convention to define all fields together in the beginning?",
+      "range": {
+        "startLine": 87,
+        "startChar": 3,
+        "endLine": 87,
+        "endChar": 33
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4911a48b_255dec6a",
+        "filename": "test/2042-reference-processing/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-06T00:18:30Z",
+      "side": 1,
+      "message": "Maybe compute this once and store in a local var? Used several times in this function.",
+      "range": {
+        "startLine": 217,
+        "startChar": 21,
+        "endLine": 217,
+        "endChar": 41
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbc01b7c_5d81e9bd",
+        "filename": "test/2043-reference-pauses/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-06T00:18:30Z",
+      "side": 1,
+      "message": "sure",
+      "range": {
+        "startLine": 25,
+        "startChar": 26,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fda2ad2d_5aef2c9d",
+        "filename": "test/2043-reference-pauses/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-06T00:18:30Z",
+      "side": 1,
+      "message": "why not use NREFS_PER_BATCH?",
+      "range": {
+        "startLine": 158,
+        "startChar": 29,
+        "endLine": 158,
+        "endChar": 45
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67787841_45e64084",
+        "filename": "test/2043-reference-pauses/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-06T00:18:30Z",
+      "side": 1,
+      "message": "objects?",
+      "range": {
+        "startLine": 211,
+        "startChar": 76,
+        "endLine": 211,
+        "endChar": 82
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86baff29_cd48d74f",
+        "filename": "test/2043-reference-pauses/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-06T00:18:30Z",
+      "side": 1,
+      "message": "I don\u0027t see its usage anywhere in the function.",
+      "range": {
+        "startLine": 213,
+        "startChar": 11,
+        "endLine": 213,
+        "endChar": 63
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
