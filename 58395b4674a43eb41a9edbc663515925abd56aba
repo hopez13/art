@@ -50,6 +50,24 @@
       "message": "Thanks! just curious, how come this didn\u0027t impact it earlier? Your change seems a bit unrelated to this right?",
       "revId": "58395b4674a43eb41a9edbc663515925abd56aba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a653f8f3_3c6c3b0b",
+        "filename": "test/597-deopt-busy-loop/src/FloatLoop.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-06T09:42:12Z",
+      "side": 1,
+      "message": "In my change, the jit compilations now are never able to load classes (the jit thread is never able to, but the tests were compiling from the main thread. This now makes things consistent). Before my change, jit compilations were able to load classes, and so were loading int[] while compiling.",
+      "parentUuid": "24c18abf_48b88a5b",
+      "revId": "58395b4674a43eb41a9edbc663515925abd56aba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
