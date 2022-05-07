@@ -75,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79ce9b51_016b979a",
+        "filename": "test/2042-reference-processing/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-07T00:51:18Z",
+      "side": 1,
+      "message": "It\u0027s not. But added a comment about what this represents. I just want to make sure we don\u0027t use too much memory for the queue, so this is designed for elements to be dropped if queue processing falls behind.",
+      "parentUuid": "2738b0f0_1414700a",
+      "range": {
+        "startLine": 52,
+        "startChar": 69,
+        "endLine": 52,
+        "endChar": 75
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc3cbe37_07a92494",
@@ -88,6 +112,30 @@
       "writtenOn": "2022-05-06T00:18:30Z",
       "side": 1,
       "message": "Isn\u0027t the convention to define all fields together in the beginning?",
+      "range": {
+        "startLine": 87,
+        "startChar": 3,
+        "endLine": 87,
+        "endChar": 33
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34debcf7_ad2f5629",
+        "filename": "test/2042-reference-processing/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-07T00:51:18Z",
+      "side": 1,
+      "message": "Indeed. Moved.",
+      "parentUuid": "fc3cbe37_07a92494",
       "range": {
         "startLine": 87,
         "startChar": 3,
@@ -121,6 +169,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eece1ea8_63103694",
+        "filename": "test/2042-reference-processing/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-07T00:51:18Z",
+      "side": 1,
+      "message": "I introduced another constant for it. That version seems to read better.",
+      "parentUuid": "4911a48b_255dec6a",
+      "range": {
+        "startLine": 217,
+        "startChar": 21,
+        "endLine": 217,
+        "endChar": 41
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbc01b7c_5d81e9bd",
@@ -134,6 +206,30 @@
       "writtenOn": "2022-05-06T00:18:30Z",
       "side": 1,
       "message": "sure",
+      "range": {
+        "startLine": 25,
+        "startChar": 26,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b3eca9e_087f6078",
+        "filename": "test/2043-reference-pauses/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-07T00:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbc01b7c_5d81e9bd",
       "range": {
         "startLine": 25,
         "startChar": 26,
@@ -167,6 +263,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e23d65d_2ae7dfe1",
+        "filename": "test/2043-reference-pauses/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-07T00:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fda2ad2d_5aef2c9d",
+      "range": {
+        "startLine": 158,
+        "startChar": 29,
+        "endLine": 158,
+        "endChar": 45
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67787841_45e64084",
@@ -190,6 +310,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "060bbc5c_24870233",
+        "filename": "test/2043-reference-pauses/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-07T00:51:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67787841_45e64084",
+      "range": {
+        "startLine": 211,
+        "startChar": 76,
+        "endLine": 211,
+        "endChar": 82
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86baff29_cd48d74f",
@@ -203,6 +347,30 @@
       "writtenOn": "2022-05-06T00:18:30Z",
       "side": 1,
       "message": "I don\u0027t see its usage anywhere in the function.",
+      "range": {
+        "startLine": 213,
+        "startChar": 11,
+        "endLine": 213,
+        "endChar": 63
+      },
+      "revId": "4dbc7beb247319d1cc85608890d547ed12fda076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f98bc0ee_9ad8ad01",
+        "filename": "test/2043-reference-pauses/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-07T00:51:18Z",
+      "side": 1,
+      "message": "Indeed. This was copied elsewhere, and inadvertently not deleted.",
+      "parentUuid": "86baff29_cd48d74f",
       "range": {
         "startLine": 213,
         "startChar": 11,
