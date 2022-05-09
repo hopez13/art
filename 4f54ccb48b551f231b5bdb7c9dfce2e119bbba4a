@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "351edfb0_9cd13e2f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-05-09T09:45:11Z",
+      "side": 1,
+      "message": "Sorry, I confused the meaning of the code and thought that we\u0027re concerned with the instruction throwing. But that\u0027s not the case, we\u0027re really asking here whether the reference escaped. So, this is OK.",
+      "parentUuid": "184d792d_800cbbd0",
+      "range": {
+        "startLine": 1257,
+        "startChar": 16,
+        "endLine": 1258,
+        "endChar": 78
+      },
+      "revId": "4f54ccb48b551f231b5bdb7c9dfce2e119bbba4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d635684c_a0262e7d",
@@ -125,6 +149,30 @@
       "writtenOn": "2022-04-27T09:55:58Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1291,
+        "startChar": 17,
+        "endLine": 1292,
+        "endChar": 77
+      },
+      "revId": "4f54ccb48b551f231b5bdb7c9dfce2e119bbba4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "512a7859_d6c1fc4b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1292,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-05-09T09:45:11Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "d635684c_a0262e7d",
       "range": {
         "startLine": 1291,
         "startChar": 17,
