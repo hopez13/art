@@ -105,7 +105,7 @@ const bool gUseReadBarrier = kUseBakerReadBarrier || kUseTableLookupReadBarrier;
 const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
                              && !(android::base::GetBoolProperty(
                                     "persist.device_config.runtime_native_boot.enable_uffd_gc",
-                                    false)
+                                    true)
                                   && ShouldUseUserfaultfd());
 #else
 const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
