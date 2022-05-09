@@ -22,6 +22,30 @@
       },
       "revId": "d229ad362a509417b0f50617b492121507d95e96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e1462ad_cac145fb",
+        "filename": "tools/libcore_gcstress_debug_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2022-05-09T14:52:09Z",
+      "side": 1,
+      "message": "These tests fail only on x86 host: https://ci.chromium.org/p/art/builders/ci/host-x86-gcstress-debug",
+      "parentUuid": "a12c9c9e_98281e9d",
+      "range": {
+        "startLine": 54,
+        "startChar": 11,
+        "endLine": 54,
+        "endChar": 14
+      },
+      "revId": "d229ad362a509417b0f50617b492121507d95e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
