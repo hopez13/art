@@ -113,7 +113,7 @@ const WrapInStruct<bool> INIT_PRIORITY(101) gUseReadBarrier((kUseBakerReadBarrie
                                                              || kUseTableLookupReadBarrier)
                                                             && !(android::base::GetBoolProperty(
                                                                               UFFD_GC_SYS_PROP_KEY,
-                                                                              false)
+                                                                              true)
                                                                  && ShouldUseUserfaultfd()));
 #else
 const WrapInStruct<bool> INIT_PRIORITY(101) gUseReadBarrier((kUseBakerReadBarrier
