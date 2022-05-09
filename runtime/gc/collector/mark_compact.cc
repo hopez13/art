@@ -113,7 +113,7 @@ const bool gEmitCompilerReadBarrier = kForceReadBarrier || gUseReadBarrier;
 const WrapInStruct<bool> HIGHEST_INIT_PRIO
     gUseReadBarrier((kUseBakerReadBarrier || kUseTableLookupReadBarrier)
                     && !(android::base::GetBoolProperty(
-                        "persist.device_config.runtime_native_boot.enable_uffd_gc", false)
+                        "persist.device_config.runtime_native_boot.enable_uffd_gc", true)
                          && ShouldUseUserfaultfd()));
 #else
 const WrapInStruct<bool> HIGHEST_INIT_PRIO
