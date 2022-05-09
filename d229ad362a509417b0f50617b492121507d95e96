@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a12c9c9e_98281e9d",
+        "filename": "tools/libcore_gcstress_debug_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-05-09T14:09:16Z",
+      "side": 1,
+      "message": "Should these tests also be flagged as failing for device? Host may be the best performing case.",
+      "range": {
+        "startLine": 54,
+        "startChar": 11,
+        "endLine": 54,
+        "endChar": 14
+      },
+      "revId": "d229ad362a509417b0f50617b492121507d95e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
