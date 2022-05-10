@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f33c46c_ad590a56",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-10T16:25:50Z",
+      "side": 0,
+      "message": "That\u0027s right. But someday, if and when we are able to get rid of CC entirely, then we can get the 2 bits back and use direct 0 comparison.",
+      "parentUuid": "3db11871_d1b8b1ed",
+      "range": {
+        "startLine": 186,
+        "startChar": 29,
+        "endLine": 186,
+        "endChar": 50
+      },
+      "revId": "8090271060e78a4af3eae6dcc7d2e8929a378698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5b98ebc_2549c250",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-25T13:52:36Z",
       "side": 0,
       "message": "what happened to this option?",
+      "range": {
+        "startLine": 1622,
+        "startChar": 64,
+        "endLine": 1622,
+        "endChar": 90
+      },
+      "revId": "8090271060e78a4af3eae6dcc7d2e8929a378698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fe51e19_439a0207",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1622,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-10T16:25:50Z",
+      "side": 0,
+      "message": "Currently it is set to CMS. Changed the default to CMC",
+      "parentUuid": "c5b98ebc_2549c250",
       "range": {
         "startLine": 1622,
         "startChar": 64,
