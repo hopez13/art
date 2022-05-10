@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "31f00a7a_ddbfb687",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-10T16:25:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbe3dfc0_a3c381ef",
+      "range": {
+        "startLine": 108,
+        "startChar": 33,
+        "endLine": 108,
+        "endChar": 35
+      },
+      "revId": "1f90dcba45081ba8cc06e0c43d7b76d977d71514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e048e903_5275efd3",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 12
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-10T14:17:52Z",
       "side": 1,
       "message": "Just FYI, if you submit this change, you\u0027ll need a build without this line for teammates to dogfood, as mentioned in b/231298279.",
+      "range": {
+        "startLine": 108,
+        "startChar": 29,
+        "endLine": 109,
+        "endChar": 100
+      },
+      "revId": "1f90dcba45081ba8cc06e0c43d7b76d977d71514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d65ad5a8_c2c51c22",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-10T16:25:38Z",
+      "side": 1,
+      "message": "Yes. I\u0027m going to set the default to true in the \u0027[DO NOT MERGE]\u0027 CL above this one.",
+      "parentUuid": "e048e903_5275efd3",
       "range": {
         "startLine": 108,
         "startChar": 29,
