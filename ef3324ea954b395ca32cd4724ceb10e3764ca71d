@@ -16,6 +16,86 @@
       "message": "PTAL. Thanks!",
       "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff929d50_ecefc3db",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-10T11:57:51Z",
+      "side": 1,
+      "message": "invariant",
+      "range": {
+        "startLine": 100,
+        "startChar": 10,
+        "endLine": 100,
+        "endChar": 19
+      },
+      "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c174a93_297c5172",
+        "filename": "runtime/managed_stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-10T11:57:51Z",
+      "side": 1,
+      "message": "GetJitJniTag ?",
+      "range": {
+        "startLine": 156,
+        "startChar": 9,
+        "endLine": 156,
+        "endChar": 18
+      },
+      "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c391921_2ae6c549",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-10T11:57:51Z",
+      "side": 1,
+      "message": "Can you add more comments here about what do we expect finding?",
+      "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0344093a_3a3e35e9",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-10T11:57:51Z",
+      "side": 1,
+      "message": "Add more comments related to the check line 806.",
+      "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
