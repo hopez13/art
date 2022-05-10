@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a07e1680_9f190466",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-10T15:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff929d50_ecefc3db",
+      "range": {
+        "startLine": 100,
+        "startChar": 10,
+        "endLine": 100,
+        "endChar": 19
+      },
+      "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c174a93_297c5172",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-05-10T11:57:51Z",
       "side": 1,
       "message": "GetJitJniTag ?",
+      "range": {
+        "startLine": 156,
+        "startChar": 9,
+        "endLine": 156,
+        "endChar": 18
+      },
+      "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1061b97d_948bc66e",
+        "filename": "runtime/managed_stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-10T15:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c174a93_297c5172",
       "range": {
         "startLine": 156,
         "startChar": 9,
@@ -83,6 +131,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74c3f380_7c6274ed",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-10T15:25:10Z",
+      "side": 1,
+      "message": "Below we also handle when the entry point is not a resolution stub or generic jni stub. But as far as my understanding goes the entry point shouldn\u0027t be a resolution stub since we are seeing this method on stack. It cannot be a generic jni stub unless we replace the JITed / AOT code with generic jni after executing. I was under the impression that this isn\u0027t possible but maybe I am wrong. Is it possible to have GenericJni stub as entrypoint? If yes, in which cases? I will update the comment to include generic jni stub too along with when we expect if it is possible.",
+      "parentUuid": "4c391921_2ae6c549",
+      "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0344093a_3a3e35e9",
         "filename": "runtime/stack.cc",
         "patchSetId": 3
@@ -94,6 +160,24 @@
       "writtenOn": "2022-05-10T11:57:51Z",
       "side": 1,
       "message": "Add more comments related to the check line 806.",
+      "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fd91698_233b869d",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-10T15:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0344093a_3a3e35e9",
       "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
