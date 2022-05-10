@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe3dfc0_a3c381ef",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-10T14:17:52Z",
+      "side": 1,
+      "message": "go/totw/151\n\u003e 4.For all other code:\n\u003e a. Is the namespace common and well-known? (such as std or absl)? Don\u0027t fully qualify.",
+      "range": {
+        "startLine": 108,
+        "startChar": 33,
+        "endLine": 108,
+        "endChar": 35
+      },
+      "revId": "1f90dcba45081ba8cc06e0c43d7b76d977d71514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e048e903_5275efd3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-10T14:17:52Z",
+      "side": 1,
+      "message": "Just FYI, if you submit this change, you\u0027ll need a build without this line for teammates to dogfood, as mentioned in b/231298279.",
+      "range": {
+        "startLine": 108,
+        "startChar": 29,
+        "endLine": 109,
+        "endChar": 100
+      },
+      "revId": "1f90dcba45081ba8cc06e0c43d7b76d977d71514",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
