@@ -141,6 +141,30 @@
       },
       "revId": "6bfbfb0192ca7a87d96cabb4cab87671196228a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39065ce6_26958951",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-11T09:34:13Z",
+      "side": 1,
+      "message": "Ah, looks like we don\u0027t. But alternatively, could you check getuid \u003d\u003d 0 and then just allow loading the dex file?",
+      "parentUuid": "d23e995d_cb417d69",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 75
+      },
+      "revId": "6bfbfb0192ca7a87d96cabb4cab87671196228a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
