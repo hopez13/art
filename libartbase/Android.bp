@@ -77,6 +77,7 @@ cc_defaults {
                 "libartpalette",
                 // For common macros.
                 "libbase",
+                "libtinyxml2",
             ],
             export_shared_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
         },
@@ -96,6 +97,7 @@ cc_defaults {
                 "libartpalette",
                 // For common macros.
                 "libbase",
+                "libtinyxml2",
             ],
             export_shared_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
         },
@@ -112,6 +114,7 @@ cc_defaults {
                 // For common macros.
                 "libbase",
             ],
+            shared_libs: ["libtinyxml2"],
             export_static_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
 
             cflags: ["-Wno-thread-safety"],
@@ -131,6 +134,7 @@ cc_defaults {
         "libbase",
         "libartpalette",
         "liblog",
+        "libtinyxml2",
         "libz",
         "libziparchive",
     ],
@@ -356,6 +360,7 @@ art_cc_defaults {
     ],
     shared_libs: [
         "libbase",
+        "libtinyxml2",
     ],
     static_libs: [
         "libgmock",
@@ -388,8 +393,14 @@ cc_library_headers {
     defaults: ["art_defaults"],
     host_supported: true,
     export_include_dirs: ["."],
-    shared_libs: ["libbase"],
-    export_shared_lib_headers: ["libbase"],
+    shared_libs: [
+        "libbase",
+        "libtinyxml2",
+    ],
+    export_shared_lib_headers: [
+        "libbase",
+        "libtinyxml2",
+    ],
 
     apex_available: [
         "com.android.art",

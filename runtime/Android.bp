@@ -415,7 +415,6 @@ libart_cc_defaults {
             ],
             static_libs: [
                 "libstatslog_art",
-                "libtinyxml2",
             ],
             generated_sources: [
                 "apex-info-list-tinyxml",
@@ -474,6 +473,7 @@ libart_cc_defaults {
         "libnativebridge",
         "libnativeloader",
         "libsigchain",
+        "libtinyxml2",
         "libunwindstack",
     ],
     static_libs: ["libodrstatslog"],
