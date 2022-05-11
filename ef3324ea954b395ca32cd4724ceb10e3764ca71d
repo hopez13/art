@@ -149,6 +149,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7b94a80_bb808756",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-11T08:51:38Z",
+      "side": 1,
+      "message": "The entrypoint could still be a resolution stub if the class is being initialized.\n\nOn generic JNI being the entrypoint, I guess this could be a matter of timing? I think we want to allow flexibility in transitioning from one entrypoint to another.",
+      "parentUuid": "74c3f380_7c6274ed",
+      "revId": "ef3324ea954b395ca32cd4724ceb10e3764ca71d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0344093a_3a3e35e9",
         "filename": "runtime/stack.cc",
         "patchSetId": 3
