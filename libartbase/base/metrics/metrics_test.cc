@@ -412,6 +412,156 @@ TEST(TextFormatterTest, GetAndResetBuffer_ActuallyResetsBuffer) {
             "*** Done dumping ART internal metrics ***\n");
 }
 
+TEST(JsonFormatterTest, ReportMetrics_WithBuckets) {
+  JsonFormatter json_formatter;
+  SessionData session_data {
+      .session_id = 123,
+      .uid = 456,
+      .compilation_reason = CompilationReason::kFirstBoot,
+      .compiler_filter = CompilerFilterReporting::kSpace,
+  };
+
+  json_formatter.FormatBeginReport(250, session_data);
+  json_formatter.FormatReportCounter(DatumId::kYoungGcCount, 3u);
+  json_formatter.FormatReportHistogram(DatumId::kYoungGcCollectionTime,
+                                       300,
+                                       600,
+                                       {1, 5, 3});
+  json_formatter.FormatEndReport();
+
+  const std::string result = json_formatter.GetAndResetBuffer();
+  ASSERT_EQ(result,
+            "{"
+              "\"metadata\":{"
+                "\"compilation_reason\":\"first-boot\","
+                "\"compiler_filter\":\"space\","
+                "\"session_id\":123,"
+                "\"timestamp_since_start_ms\":250,"
+                "\"uid\":456,"
+                "\"version\":\"1.0\""
+              "},"
+              "\"metrics\":{"
+                "\"YoungGcCollectionTime\":{"
+                  "\"buckets\":[1,5,3],"
+                  "\"counter_type\":\"range\","
+                  "\"maximum_value\":600,"
+                  "\"minimum_value\":300"
+                "},"
+                "\"YoungGcCount\":{"
+                  "\"counter_type\":\"count\","
+                  "\"value\":3"
+                "}"
+              "}"
+            "}");
+}
+
+TEST(JsonFormatterTest, ReportMetrics_NoBuckets) {
+  JsonFormatter json_formatter;
+  SessionData session_data {
+      .session_id = 234,
+      .uid = 345,
+      .compilation_reason = CompilationReason::kFirstBoot,
+      .compiler_filter = CompilerFilterReporting::kSpace,
+  };
+
+  json_formatter.FormatBeginReport(160, session_data);
+  json_formatter.FormatReportCounter(DatumId::kYoungGcCount, 4u);
+  json_formatter.FormatReportHistogram(DatumId::kYoungGcCollectionTime, 20, 40, {});
+  json_formatter.FormatEndReport();
+
+  const std::string result = json_formatter.GetAndResetBuffer();
+  ASSERT_EQ(result,
+            "{"
+              "\"metadata\":{"
+                "\"compilation_reason\":\"first-boot\","
+                "\"compiler_filter\":\"space\","
+                "\"session_id\":234,"
+                "\"timestamp_since_start_ms\":160,"
+                "\"uid\":345,"
+                "\"version\":\"1.0\""
+              "},"
+              "\"metrics\":{"
+                "\"YoungGcCollectionTime\":{"
+                  "\"buckets\":[],"
+                  "\"counter_type\":\"range\","
+                  "\"maximum_value\":40,"
+                  "\"minimum_value\":20"
+                "},"
+                "\"YoungGcCount\":{"
+                  "\"counter_type\":\"count\","
+                  "\"value\":4"
+                "}"
+              "}"
+            "}");
+}
+
+TEST(JsonFormatterTest, BeginReport_NoSessionData) {
+  JsonFormatter json_formatter;
+  std::optional<SessionData> empty_session_data;
+
+  json_formatter.FormatBeginReport(100, empty_session_data);
+  json_formatter.FormatReportCounter(DatumId::kYoungGcCount, 3u);
+  json_formatter.FormatEndReport();
+
+  std::string result = json_formatter.GetAndResetBuffer();
+  ASSERT_EQ(result,
+            "{"
+              "\"metadata\":{"
+                "\"timestamp_since_start_ms\":100,"
+                "\"version\":\"1.0\""
+              "},"
+              "\"metrics\":{"
+                "\"YoungGcCount\":{"
+                  "\"counter_type\":\"count\","
+                  "\"value\":3"
+                "}"
+              "}"
+            "}");
+}
+
+TEST(JsonFormatterTest, GetAndResetBuffer_ActuallyResetsBuffer) {
+  JsonFormatter json_formatter;
+  std::optional<SessionData> empty_session_data;
+
+  json_formatter.FormatBeginReport(200, empty_session_data);
+  json_formatter.FormatReportCounter(DatumId::kFullGcCount, 1u);
+  json_formatter.FormatEndReport();
+
+  std::string result = json_formatter.GetAndResetBuffer();
+  ASSERT_EQ(result,
+            "{"
+              "\"metadata\":{"
+                "\"timestamp_since_start_ms\":200,"
+                "\"version\":\"1.0\""
+              "},"
+              "\"metrics\":{"
+                "\"FullGcCount\":{"
+                  "\"counter_type\":\"count\","
+                  "\"value\":1"
+                "}"
+              "}"
+            "}");
+
+  json_formatter.FormatBeginReport(300, empty_session_data);
+  json_formatter.FormatReportCounter(DatumId::kFullGcCount, 5u);
+  json_formatter.FormatEndReport();
+
+  result = json_formatter.GetAndResetBuffer();
+  ASSERT_EQ(result,
+            "{"
+              "\"metadata\":{"
+                "\"timestamp_since_start_ms\":300,"
+                "\"version\":\"1.0\""
+              "},"
+              "\"metrics\":{"
+                "\"FullGcCount\":{"
+                  "\"counter_type\":\"count\","
+                  "\"value\":5"
+                "}"
+              "}"
+            "}");
+}
+
 TEST(XmlFormatterTest, ReportMetrics_WithBuckets) {
   XmlFormatter xml_formatter;
   SessionData session_data {

@@ -78,6 +78,7 @@ cc_defaults {
                 // For common macros.
                 "libbase",
                 "libtinyxml2",
+                "libjsoncpp",
             ],
             export_shared_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
         },
@@ -98,6 +99,7 @@ cc_defaults {
                 // For common macros.
                 "libbase",
                 "libtinyxml2",
+                "libjsoncpp",
             ],
             export_shared_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
         },
@@ -113,6 +115,7 @@ cc_defaults {
                 "libartpalette",
                 // For common macros.
                 "libbase",
+                "libjsoncpp",
             ],
             shared_libs: ["libtinyxml2"],
             export_static_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
@@ -137,6 +140,7 @@ cc_defaults {
         "libtinyxml2",
         "libz",
         "libziparchive",
+        "libjsoncpp",
     ],
 }
 
@@ -213,6 +217,7 @@ art_cc_library {
     shared_libs: [
         "libbase",
         "libziparchive",
+        "libjsoncpp",
     ],
     export_shared_lib_headers: ["libbase"],
     target: {
@@ -361,6 +366,7 @@ art_cc_defaults {
     shared_libs: [
         "libbase",
         "libtinyxml2",
+        "libjsoncpp",
     ],
     static_libs: [
         "libgmock",
@@ -396,10 +402,12 @@ cc_library_headers {
     shared_libs: [
         "libbase",
         "libtinyxml2",
+        "libjsoncpp",
     ],
     export_shared_lib_headers: [
         "libbase",
         "libtinyxml2",
+        "libjsoncpp",
     ],
 
     apex_available: [
