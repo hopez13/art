@@ -308,7 +308,7 @@ struct Flags {
   // The output format for metrics. This is only used
   // when writing metrics to a file; metrics written
   // to logcat will be in human-readable text format.
-  // Supported values are "text" and "xml".
+  // Supported values are "text", "xml" and "json".
   Flag<std::string> MetricsFormat{"metrics.format", "text", FlagType::kCmdlineOnly};
 };
 
