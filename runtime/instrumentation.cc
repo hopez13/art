@@ -1204,7 +1204,11 @@ void Instrumentation::Undeoptimize(ArtMethod* method) {
     UpdateEntryPoints(method, GetQuickToInterpreterBridge());
   } else if (NeedsClinitCheckBeforeCall(method) &&
              !method->GetDeclaringClass()->IsVisiblyInitialized()) {
-    UpdateEntryPoints(method, GetQuickResolutionStub());
+    if (EntryExitStubsInstalled()) {
+      UpdateEntryPoints(method, GetQuickInstrumentationEntryPoint());
+    } else {
+      UpdateEntryPoints(method, GetQuickResolutionStub());
+    }
   } else {
     UpdateEntryPoints(method, GetMaybeInstrumentedCodeForInvoke(method));
   }
