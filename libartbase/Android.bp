@@ -78,6 +78,7 @@ cc_defaults {
                 "libartpalette",
                 // For common macros.
                 "libbase",
+                "libjsoncpp",
             ],
             export_shared_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
         },
@@ -98,6 +99,7 @@ cc_defaults {
                 "libartpalette",
                 // For common macros.
                 "libbase",
+                "libjsoncpp",
             ],
             export_shared_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
         },
@@ -114,6 +116,7 @@ cc_defaults {
                 "libartpalette",
                 // For common macros.
                 "libbase",
+                "libjsoncpp",
             ],
             export_static_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
 
@@ -137,6 +140,7 @@ cc_defaults {
         "libtinyxml2",
         "libz",
         "libziparchive",
+        "libjsoncpp",
     ],
 }
 
@@ -213,6 +217,7 @@ art_cc_library {
     shared_libs: [
         "libbase",
         "libziparchive",
+        "libjsoncpp",
     ],
     export_shared_lib_headers: ["libbase"],
     target: {
@@ -360,6 +365,7 @@ art_cc_defaults {
     ],
     shared_libs: [
         "libbase",
+        "libjsoncpp",
     ],
     static_libs: [
         "libgmock",
@@ -392,8 +398,14 @@ cc_library_headers {
     defaults: ["art_defaults"],
     host_supported: true,
     export_include_dirs: ["."],
-    shared_libs: ["libbase"],
-    export_shared_lib_headers: ["libbase"],
+    shared_libs: [
+        "libbase",
+        "libjsoncpp",
+    ],
+    export_shared_lib_headers: [
+        "libbase",
+        "libjsoncpp",
+    ],
 
     static_libs: ["libtinyxml2"],
     export_static_lib_headers: ["libtinyxml2"],
