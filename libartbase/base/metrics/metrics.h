@@ -30,6 +30,7 @@
 #include "android-base/logging.h"
 #include "base/bit_utils.h"
 #include "base/time_utils.h"
+#include "json/json.h"
 #include "tinyxml2.h"
 
 #pragma clang diagnostic push
@@ -475,6 +476,30 @@ class TextFormatter : public MetricsFormatter {
 
  private:
   std::ostringstream os_;
+};
+
+
+// Formatter outputting metrics in JSON format
+class JsonFormatter : public MetricsFormatter {
+ public:
+  JsonFormatter() = default;
+
+  void FormatBeginReport(uint64_t timestamp_millis,
+                         const std::optional<SessionData>& session_data) override;
+
+  void FormatReportCounter(DatumId counter_type, uint64_t value) override;
+
+  void FormatReportHistogram(DatumId histogram_type,
+                             int64_t low_value,
+                             int64_t high_value,
+                             const std::vector<uint32_t>& buckets) override;
+
+  void FormatEndReport() override;
+
+  std::string GetAndResetBuffer() override;
+
+ private:
+  Json::Value json_root_;
 };
 
 // Formatter outputting metrics in XML format

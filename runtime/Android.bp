@@ -467,6 +467,7 @@ libart_cc_defaults {
         "libartpalette",
         "libbacktrace",
         "libbase", // For common macros.
+        "libjsoncpp",
         "liblog",
         "liblz4",
         "liblzma", // libelffile(d) dependency; must be repeated here since it's a static lib.
