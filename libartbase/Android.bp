@@ -67,6 +67,7 @@ cc_defaults {
                 "base/mem_map_unix.cc",
             ],
             static_libs: [
+                "libtinyxml2",
                 // ZipArchive support, the order matters here to get all symbols.
                 "libziparchive",
             ],
@@ -88,6 +89,7 @@ cc_defaults {
             static: {
                 cflags: ["-DART_STATIC_LIBARTBASE"],
             },
+            static_libs: ["libtinyxml2"],
             shared_libs: [
                 "libziparchive",
                 "libz",
@@ -104,6 +106,7 @@ cc_defaults {
                 "base/mem_map_windows.cc",
             ],
             static_libs: [
+                "libtinyxml2",
                 "libziparchive",
                 "libz",
                 "liblog",
@@ -131,6 +134,7 @@ cc_defaults {
         "libbase",
         "libartpalette",
         "liblog",
+        "libtinyxml2",
         "libz",
         "libziparchive",
     ],
@@ -390,6 +394,9 @@ cc_library_headers {
     export_include_dirs: ["."],
     shared_libs: ["libbase"],
     export_shared_lib_headers: ["libbase"],
+
+    static_libs: ["libtinyxml2"],
+    export_static_lib_headers: ["libtinyxml2"],
 
     apex_available: [
         "com.android.art",
