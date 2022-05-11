@@ -509,6 +509,7 @@ class ReleaseChecker:
     self._checker.check_native_library('libc++')
     self._checker.check_native_library('libdt_socket')
     self._checker.check_native_library('libjdwp')
+    self._checker.check_native_library('libjsoncpp')
     self._checker.check_native_library('liblz4')
     self._checker.check_native_library('liblzma')
     self._checker.check_native_library('libnpt')
