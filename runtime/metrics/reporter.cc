@@ -132,6 +132,8 @@ void MetricsReporter::BackgroundThreadRun() {
     std::unique_ptr<MetricsFormatter> formatter;
     if (config_.metrics_format == "xml") {
       formatter = std::make_unique<XmlFormatter>();
+    } else if (config_.metrics_format == "json") {
+      formatter = std::make_unique<JsonFormatter>();
     } else {
       formatter = std::make_unique<TextFormatter>();
     }
