@@ -512,6 +512,7 @@ class ReleaseChecker:
     self._checker.check_native_library('liblz4')
     self._checker.check_native_library('liblzma')
     self._checker.check_native_library('libnpt')
+    self._checker.check_native_library('libtinyxml2')
     self._checker.check_native_library('libunwindstack')
     self._checker.check_native_library('libziparchive')
 
