@@ -535,6 +535,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fadc68e_921ff702",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-12T03:06:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "49f80c42_a47c2ce9",
+      "range": {
+        "startLine": 234,
+        "startChar": 1,
+        "endLine": 236,
+        "endChar": 39
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35890249_5b84f08b",
@@ -1336,6 +1360,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c970377_eafcdaea",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-12T03:06:30Z",
+      "side": 1,
+      "message": "Much better, but it\u0027s now unclear what the base for \u0027offset\u0027 is. Maybe just \"\u0027offset\u0027 within obj\"?",
+      "parentUuid": "ad179a5d_8dd9f3f3",
+      "range": {
+        "startLine": 190,
+        "startChar": 2,
+        "endLine": 192,
+        "endChar": 69
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5916fef3_3568bac3",
         "filename": "runtime/gc/collector/mark_compact.h",
         "patchSetId": 21
@@ -1418,6 +1466,30 @@
       "side": 1,
       "message": "Ideally it should be called \u0027moving_space_bitmap_\u0027. But I ended up copying the name from CMS as is. I\u0027ll fix it in one of the subsequent CLs to avoid several merge conflicts. Is that ok?",
       "parentUuid": "2437c31d_679cb462",
+      "range": {
+        "startLine": 316,
+        "startChar": 37,
+        "endLine": 316,
+        "endChar": 58
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f590f21_5cb2623d",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-12T03:06:30Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "7ad6bc78_13279331",
       "range": {
         "startLine": 316,
         "startChar": 37,

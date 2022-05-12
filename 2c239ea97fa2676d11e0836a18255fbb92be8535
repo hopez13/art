@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "602be42b_61f774a4",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-12T03:06:30Z",
+      "side": 1,
+      "message": "Please explain.",
+      "range": {
+        "startLine": 345,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 3
+      },
+      "revId": "2c239ea97fa2676d11e0836a18255fbb92be8535",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae2af522_b22630da",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-12T03:06:30Z",
+      "side": 1,
+      "message": "It does this for the whole heap, right? I would prefer to see a description of what it does, and where it stores the output (an informal postcondition) than how it does it.\nBoth would also be OK.\nI guess this came from the implementation. I should have suggested specifying the effect instead of the algorithm earlier.",
+      "range": {
+        "startLine": 211,
+        "startChar": 64,
+        "endLine": 212,
+        "endChar": 25
+      },
+      "revId": "2c239ea97fa2676d11e0836a18255fbb92be8535",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16309e06_6abc312a",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-12T03:06:30Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 222,
+        "endChar": 14
+      },
+      "revId": "2c239ea97fa2676d11e0836a18255fbb92be8535",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
