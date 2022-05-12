@@ -17,7 +17,9 @@
 #ifndef ART_RUNTIME_COMMON_THROWS_H_
 #define ART_RUNTIME_COMMON_THROWS_H_
 
+#include <sstream>
 #include <string_view>
+#include <unordered_map>
 
 #include "base/locks.h"
 #include "obj_ptr.h"
@@ -33,6 +35,45 @@ class ArtMethod;
 class DexFile;
 enum InvokeType : uint32_t;
 class Signature;
+
+class DepType {
+public:
+
+};
+
+class LookupInfo {
+public:
+  uint32_t dest;
+  uint32_t src;
+  uint32_t dex_pc;
+  bool is_term;
+  std::vector<uint32_t> deps;
+
+  LookupInfo()
+    : dest(0xFFFFFFFF),
+      dex_pc(0xFFFFFFFF),
+      is_term(false),
+      deps(std::vector<uint32_t>()) {}
+  LookupInfo(uint32_t dest,
+             uint32_t dex_pc,
+             bool is_term,
+             const std::vector<uint32_t>& deps = std::vector<uint32_t>())
+    : dest(dest),
+      dex_pc(dex_pc),
+      is_term(is_term),
+      deps(deps) {}
+  LookupInfo(LookupInfo&& other)
+    : dest(other.dest),
+      dex_pc(other.dex_pc),
+      is_term(other.is_term),
+      deps(std::move(other.deps)) {}
+  //LookupInfo& operator=(const LookupInfo& other) = default;
+
+  friend std::ostream& operator<<(std::ostream& os, const LookupInfo& li);
+};
+
+void print_message(std::ostream& os, ArtMethod* method, std::unordered_map<uint32_t, std::vector<uint32_t>>& g, uint32_t dex_pc)
+    REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
 // AbstractMethodError
 
@@ -230,6 +271,8 @@ void ThrowNullPointerException(const char* msg)
 void ThrowNullPointerException()
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
+std::string FormatNullPointerException(ArtMethod* method, uint32_t throw_dex_pc)
+    REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 // ReadOnlyBufferException
 
 void ThrowReadOnlyBufferException() REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;

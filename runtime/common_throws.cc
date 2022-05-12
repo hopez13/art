@@ -16,7 +16,10 @@
 
 #include "common_throws.h"
 
+#include <map>
+#include <queue>
 #include <sstream>
+#include <vector>
 
 #include <android-base/logging.h>
 #include <android-base/stringprintf.h>
@@ -530,9 +533,233 @@ static bool IsValidImplicitCheck(uintptr_t addr, const Instruction& instr)
   }
 }
 
+
+
+std::string FormatNullPointerException(ArtMethod* method, uint32_t throw_dex_pc) {
+  CodeItemInstructionAccessor accessor(method->DexInstructions());
+
+  std::set<uint32_t, std::greater<uint32_t>> borders;
+  borders.insert(0);
+  LOG(INFO) << "throw_dex_pc:" << throw_dex_pc;
+  uint32_t pc = 0;
+  for (auto i = accessor.begin(); i != accessor.end(); i++) {
+    //LOG(INFO) << "\tpc:" << pc << " instr:" << i->DumpString(method->GetDexFile());
+    if (i->IsBranch()) {
+      LOG(INFO) << "\tpc:" << pc << " " << i->DumpString(method->GetDexFile());
+      switch (i->Opcode()) {
+      case Instruction::GOTO:
+        borders.insert(pc + i->VRegA_10t());
+        break;
+      case Instruction::GOTO_16:
+        borders.insert(pc + i->VRegA_20t());
+        break;
+      case Instruction::GOTO_32:
+        borders.insert(pc + i->VRegA_30t());
+        break;
+      case Instruction::IF_EQZ:
+      case Instruction::IF_NEZ:
+      case Instruction::IF_LTZ:
+      case Instruction::IF_GEZ:
+      case Instruction::IF_GTZ:
+      case Instruction::IF_LEZ:
+        borders.insert(pc + i->VRegB_21t());
+        break;
+      case Instruction::IF_EQ:
+      case Instruction::IF_NE:
+      case Instruction::IF_LT:
+      case Instruction::IF_GE:
+      case Instruction::IF_GT:
+      case Instruction::IF_LE:
+        borders.insert(pc + i->VRegB_22t());
+        break;
+      default:
+        LOG(FATAL) << "unhandled branch opcode:" << i->Opcode();
+        return "";
+      }
+    }
+
+    pc += i->SizeInCodeUnits();
+  }
+
+  const Instruction& instr = accessor.InstructionAt(throw_dex_pc);
+  LOG(INFO) << "opcode: " << instr.Opcode();
+
+  std::ostringstream oss;
+  for (auto i : borders) {
+    oss << i << " ";
+  }
+  LOG(INFO) << "borders:" << oss.str();
+
+  pc = 0;
+  for (auto i = accessor.begin(); i != accessor.end(); i++) {
+    LOG(INFO) << "\tpc:" << pc << " instr:" << i->DumpString(method->GetDexFile());
+    pc += i->SizeInCodeUnits();
+  }
+
+  uint32_t from = *borders.lower_bound(throw_dex_pc);
+  LOG(INFO) << "from:" << from;
+  std::vector<uint32_t> insns;
+  for (auto i = accessor.InstructionsFrom(from).begin(); from <= throw_dex_pc; i++) {
+    insns.push_back(from);
+    from += i->SizeInCodeUnits();
+  }
+
+  LOG(INFO) << "to analyse";
+  for (uint32_t i : insns) {
+    const Instruction& in = accessor.InstructionAt(i);
+    LOG(INFO) << "\tpc:" << i << " " << in.DumpString(method->GetDexFile());
+  }
+  LOG(INFO) << "end to analyse";
+
+  LOG(INFO) << "processing...";
+  std::vector<LookupInfo> v;
+  for (auto i = insns.rbegin(); i != insns.rend(); i++) {
+    const Instruction& ins = accessor.InstructionAt(*i);
+
+    switch (Instruction::FormatOf(ins.Opcode())) {
+    case Instruction::k11n:
+      v.emplace_back(ins.VRegA_11n(), *i, true, std::initializer_list<uint32_t> { 1000000000u + ins.VRegB_11n() });
+      break;
+    case Instruction::k12x:
+      v.emplace_back(ins.VRegA_12x(), *i, false, std::initializer_list<uint32_t> { ins.VRegB_12x() });
+      break;
+    case Instruction::k22x:
+      v.emplace_back(ins.VRegA_22x(), *i, false, std::initializer_list<uint32_t> { ins.VRegB_22x() });
+      break;
+    case Instruction::k23x:
+      v.emplace_back(ins.VRegA_23x(), *i, false, std::initializer_list<uint32_t>{ ins.VRegB_23x(), ins.VRegC_23x() });
+      break;
+    case Instruction::k22c: {
+      switch (ins.Opcode()) {
+      case Instruction::NEW_ARRAY:
+        v.emplace_back(ins.VRegA_22c(), *i, true, std::initializer_list<uint32_t> { ins.VRegB_22c() });
+        break;
+      default:
+        LOG(INFO) << "\tk22c opcode:" << ins.Opcode() << " not handled";
+        return "";
+      }
+    }
+      break;
+    default:
+      LOG(INFO) << "\tnot yet handled: " << ins.DumpString(method->GetDexFile());
+      return "";
+    }
+  }
+
+  LOG(INFO) << "lookup infos:";
+  for (const LookupInfo& li : v) {
+    LOG(INFO) << "\t" << li;
+  }
+
+  LOG(INFO) << "resolving...";
+  //                 register  dex_pc
+  std::unordered_map<uint32_t, uint32_t> to_resolve;
+  std::unordered_map<uint32_t, std::vector<uint32_t>> g;
+  bool first = true;
+  for (const LookupInfo& li : v) {
+    if (first) {
+      first = false;
+      if (!li.is_term) {
+        for (uint32_t to : li.deps) {
+          to_resolve[to] = li.dex_pc;
+        }
+      }
+    } else {
+      auto it = to_resolve.find(li.dest);
+      if (it != to_resolve.end()) {
+        g[it->second].push_back(li.dex_pc);
+        to_resolve.erase(it);
+        if (!li.is_term) {
+          for (uint32_t to : li.deps) {
+            to_resolve[to] = li.dex_pc;
+          }
+        }
+      }
+    }
+  }
+
+  LOG(INFO) << "\ngraph:";
+  for (const auto& f : g) {
+    std::ostringstream os;
+    os << "\t" << f.first << ": ";
+    for (uint32_t to : f.second) {
+      os << to << ' ';
+    }
+    LOG(INFO) << os.str();
+  }
+
+  std::ostringstream os;
+  const Instruction& throwing_insn = accessor.InstructionAt(throw_dex_pc);
+  switch (throwing_insn.Opcode()) {
+  case Instruction::AGET_OBJECT:
+    os << "Cannot load from object array because \"";
+    print_message(os, method, g, g[throw_dex_pc][1]);
+    os << "\" is null";
+    break;
+  default:
+    break;
+  }
+
+  //print_message(os, method, g, throw_dex_pc);
+  std::string ret = os.str();
+  return ret;
+
+}
+
+void print_message(std::ostream& os, ArtMethod* method, std::unordered_map<uint32_t, std::vector<uint32_t>>& g, uint32_t dex_pc) {
+  CodeItemInstructionAccessor accessor(method->DexInstructions());
+
+  const Instruction& i = accessor.InstructionAt(dex_pc);
+  switch (i.Opcode()) {
+  case Instruction::AGET_OBJECT:
+    os << "<local0>[";
+    //print_message(os, method, g, g[dex_pc][1]);
+    print_message(os, method, g, g[dex_pc][0]);
+    os << "]";
+    return;
+  case Instruction::CONST_4:
+    os << StringPrintf("%d", i.VRegB_11n());
+    return;
+  case Instruction::NEW_ARRAY:
+    if (method->GetDexFile() != nullptr) {
+      dex::TypeIndex type_idx(i.VRegC_22c());
+      os << method->GetDexFile()->StringByTypeIdx(type_idx);
+      //os << method->GetDexFile()->PrettyType(type_idx);
+    } else {
+      os << "?";
+    }
+    return;
+  case Instruction::ARRAY_LENGTH:
+    os << "array_length_of:(";
+    print_message(os, method, g, g[dex_pc][1]);
+    os << ")";
+    return;
+  default:
+    os << "(i:" << i.Name() << " not handled yet)";
+    break;
+  }
+}
+
+std::ostream& operator<<(std::ostream& os, const LookupInfo& li) {
+  os << "pc: " << li.dex_pc << " dest:v" << li.dest << " term:" << li.is_term << " deps:[";
+  bool first = true;
+  for (uint32_t i : li.deps) {
+    if (first) {
+      first = false;
+    } else {
+      os << ", ";
+    }
+    os << "v" << i;
+  }
+  os << "]";
+  return os;
+}
+
 void ThrowNullPointerExceptionFromDexPC(bool check_address, uintptr_t addr) {
   uint32_t throw_dex_pc;
   ArtMethod* method = Thread::Current()->GetCurrentMethod(&throw_dex_pc);
+  // Thread::Current()->GetManagedStack();
+  //Thread::Current()->GetManagedStack()->GetTopShadowFrame()->
   CodeItemInstructionAccessor accessor(method->DexInstructions());
   CHECK_LT(throw_dex_pc, accessor.InsnsSizeInCodeUnits());
   const Instruction& instr = accessor.InstructionAt(throw_dex_pc);
@@ -544,6 +771,13 @@ void ThrowNullPointerExceptionFromDexPC(bool check_address, uintptr_t addr) {
                << instr.DumpString(dex_file)
                << " in "
                << method->PrettyMethod();
+  }
+
+  std::string extra = FormatNullPointerException(method, throw_dex_pc);
+  if (!extra.empty()) {
+    LOG(INFO) << "Using better NPE extra msg: " << extra.c_str();
+    ThrowNullPointerException(extra.c_str());
+    return;
   }
 
   switch (instr.Opcode()) {

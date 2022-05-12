@@ -1,0 +1,2 @@
+a[1][2].length; // a[1] is null
+Exception: java.lang.NullPointerException: Cannot load from object array because "<local0>[1]" is null
