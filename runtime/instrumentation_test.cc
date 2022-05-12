@@ -77,7 +77,6 @@ class TestInstrumentationListener final : public instrumentation::Instrumentatio
   }
 
   void MethodUnwind(Thread* thread ATTRIBUTE_UNUSED,
-                    Handle<mirror::Object> this_object ATTRIBUTE_UNUSED,
                     ArtMethod* method ATTRIBUTE_UNUSED,
                     uint32_t dex_pc ATTRIBUTE_UNUSED)
       override REQUIRES_SHARED(Locks::mutator_lock_) {
