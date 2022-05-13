@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e92ebae_c5756d2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T13:44:56Z",
+      "side": 1,
+      "message": "Did you mean \"a CTS test\" here?",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "63d161d32ca56b1a11a6c57bd9789130fb808219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee680197_142ea288",
+        "filename": "test/1940-ddms-ext/ddm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T13:44:56Z",
+      "side": 1,
+      "message": "This change is a bit surprising; do you know why it\u0027s needed?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 35
+      },
+      "revId": "63d161d32ca56b1a11a6c57bd9789130fb808219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
