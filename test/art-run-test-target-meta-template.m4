@@ -1,5 +1,6 @@
+changequote(`[', `]')dnl
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2020 The Android Open Source Project
+<!-- Copyright (C) 2022 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,6 +16,19 @@
 -->
 <!-- Note: This test config for {MODULE} is generated from a template. -->
 <configuration description="Test module config for {MODULE}">
+ifdef([ART_NO_TEST_SUITE_TAG], [],
+[    <option name="test-suite-tag" value="art-target-run-test" />
+    <option name="config-descriptor:metadata" key="mainline-param" value="com.google.android.art.apex" />
+
+])dnl
+ifdef([ART_CTS],
+[    <option name="test-suite-tag" value="cts" />
+    <option name="config-descriptor:metadata" key="component" value="art" />
+    <option name="config-descriptor:metadata" key="parameter" value="not_instant_app" />
+    <option name="config-descriptor:metadata" key="parameter" value="multi_abi" />
+    <option name="config-descriptor:metadata" key="parameter" value="secondary_user" />
+
+])dnl
     <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
         <option name="cleanup" value="true" />
         <!-- TODO: Use option `push-file` instead of deprecated option
@@ -25,6 +39,9 @@
     <test class="com.android.tradefed.testtype.ArtRunTest">
         <option name="run-test-name" value="{MODULE}" />
         <option name="classpath" value="/data/local/tmp/{MODULE}/{MODULE}.jar" />
+ifdef([ART_SLOW],
+[        <option name="test-timeout" value="120000" />
+])dnl
     </test>
 
     <!-- When this test is run in a Mainline context (e.g. with `mts-tradefed`), only enable it if
