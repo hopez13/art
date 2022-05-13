@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8e63ae7_6680ef33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-13T18:22:25Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "c505071b829dc5d3f429cee4b3043e9376ed5398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf91127_36d36e71",
+        "filename": "test/art-run-test-target-meta-template.m4",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-13T18:22:25Z",
+      "side": 1,
+      "message": "Avoid inverted flags?",
+      "range": {
+        "startLine": 19,
+        "startChar": 11,
+        "endLine": 19,
+        "endChar": 13
+      },
+      "revId": "c505071b829dc5d3f429cee4b3043e9376ed5398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c67f3a58_4fa815b1",
+        "filename": "test/art-run-test-target-meta-template.m4",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-13T18:22:25Z",
+      "side": 1,
+      "message": "These files aren\u0027t whitespace sensitive, so I suggest avoiding this sort of thing and `[` oddly placed at the beginning of lines, etc. (Sure, you can\u0027t compare the generated files byte-for-byte to the originals, but that\u0027s a one-off after all.)",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 5
+      },
+      "revId": "c505071b829dc5d3f429cee4b3043e9376ed5398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
