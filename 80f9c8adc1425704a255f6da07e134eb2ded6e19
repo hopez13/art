@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63b846d3_9c8a109b",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T14:27:46Z",
+      "side": 1,
+      "message": "Could you add the `version` element to the `document` itself, rather than the `metadata`? I think it\u0027d be better to only have metrics-related data into the `metadata` element and have `version` be independent of the structure of the rest of the document, which could change over time.",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 182,
+        "endChar": 44
+      },
+      "revId": "80f9c8adc1425704a255f6da07e134eb2ded6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

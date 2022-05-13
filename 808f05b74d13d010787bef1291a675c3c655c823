@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90235412_d0ca271d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T14:27:46Z",
+      "side": 1,
+      "message": "Thanks; this sounds good to me.\n\nDo you plan to switch Odrefresh to dynamically link `libtinyxml2` in a follow-up CL (which SGTM too)?",
+      "parentUuid": "29522531_58ab0584",
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f7de7d0_3451bcd7",
@@ -143,6 +161,24 @@
       "writtenOn": "2022-05-13T11:08:54Z",
       "side": 1,
       "message": "Could you also add a \"version\" element (starting at 1.0), emitted in XML outputs, that we could also check when parsing XML metrics files?\n\nIdeally, I think this version number should be defined in `MetricsFormatter`.",
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6cc2306_ff0d43fd",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T14:27:46Z",
+      "side": 1,
+      "message": "Thanks for implementing this!",
+      "parentUuid": "81d67225_da1105ab",
       "revId": "808f05b74d13d010787bef1291a675c3c655c823",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -278,6 +314,30 @@
       "side": 1,
       "message": "It is at the moment because of my choice to set the compact parameter in the XMLPrinter constructor to true (the rationale is that these metrics are meant for computer rather than human consumption, so newlines and indentation are superfluous) - but we can easily change it to be pretty-printed by switching that boolean. Do you have any preferences on which way to go?",
       "parentUuid": "21262a68_baf0a623",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 37
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15b5e2d0_b2cb3d8e",
+        "filename": "libartbase/base/metrics/metrics_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T14:27:46Z",
+      "side": 1,
+      "message": "I see. I think it\u0027s fine as-is. Thanks for the explanation.",
+      "parentUuid": "0e060139_6f0154e6",
       "range": {
         "startLine": 434,
         "startChar": 0,
