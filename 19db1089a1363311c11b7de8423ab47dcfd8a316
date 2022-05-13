@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3942f2d5_15631e8c",
+        "filename": "test/art-run-test-target-cts-template.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-13T10:37:19Z",
+      "side": 1,
+      "message": "Yet another one. At some point we may need to start building these from xml fragments in genrules. I looked around a bit for a tool to merge together xml trees but couldn\u0027t find anything attractive.\n\nAnyway, this is fine for now.",
+      "revId": "19db1089a1363311c11b7de8423ab47dcfd8a316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f1aad63_139858b8",
@@ -19,6 +36,98 @@
         "startChar": 69,
         "endLine": 25,
         "endChar": 83
+      },
+      "revId": "19db1089a1363311c11b7de8423ab47dcfd8a316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4702480c_fe53de37",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-13T10:37:19Z",
+      "side": 1,
+      "message": "With the introduction of the metadata files these hardcoded lists could be moved over to them so that the info is kept with the tests. Just a thought.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 24
+      },
+      "revId": "19db1089a1363311c11b7de8423ab47dcfd8a316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "762d9e44_8bb2fc69",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-13T10:37:19Z",
+      "side": 1,
+      "message": "Could be a good idea to give this a more specific name, say run-test-metadata.json, to lessen the risk of conflict with other build or test tools that may start looking for things like this. It could also avoid confusion with other tools - I e.g. found https://cs.android.com/android/platform/superproject/+/master:build/soong/multitree/metadata.go;l\u003d68;drc\u003d5eb7ee9fad2cd514fdb432d8bce075efe50fc3b2 which is completely unrelated.",
+      "range": {
+        "startLine": 438,
+        "startChar": 49,
+        "endLine": 438,
+        "endChar": 57
+      },
+      "revId": "19db1089a1363311c11b7de8423ab47dcfd8a316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "015b0d19_d44535d2",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-13T10:37:19Z",
+      "side": 1,
+      "message": "`{}` here so you don\u0027t need to check before calling `get` on it.",
+      "range": {
+        "startLine": 439,
+        "startChar": 15,
+        "endLine": 439,
+        "endChar": 19
+      },
+      "revId": "19db1089a1363311c11b7de8423ab47dcfd8a316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a34b5544_cc9df565",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-13T10:37:19Z",
+      "side": 1,
+      "message": "\"cts\" in metadata.get(\"test_suites\", [])",
+      "range": {
+        "startLine": 448,
+        "startChar": 9,
+        "endLine": 448,
+        "endChar": 90
       },
       "revId": "19db1089a1363311c11b7de8423ab47dcfd8a316",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
