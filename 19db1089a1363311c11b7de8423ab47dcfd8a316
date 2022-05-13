@@ -112,6 +112,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26893d69_075a92f4",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-13T10:44:55Z",
+      "side": 1,
+      "message": "It could be useful to allow comments in these files. I suggest a simple line based regex filter here.",
+      "range": {
+        "startLine": 442,
+        "startChar": 19,
+        "endLine": 442,
+        "endChar": 31
+      },
+      "revId": "19db1089a1363311c11b7de8423ab47dcfd8a316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a34b5544_cc9df565",
         "filename": "test/utils/regen-test-files",
         "patchSetId": 3
