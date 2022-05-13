@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd7161c_29d19f3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T11:08:54Z",
+      "side": 1,
+      "message": "This looks good to me, but I think it would probably better to also include the change of dynamically linking `libtinyxml2` in this CL (if this is not breaking anything).",
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f7de7d0_3451bcd7",
+        "filename": "libartbase/base/flags.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T11:08:54Z",
+      "side": 1,
+      "message": "Nit: End this sentence with a period.",
+      "range": {
+        "startLine": 311,
+        "startChar": 37,
+        "endLine": 311,
+        "endChar": 42
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c116d5c2_3fddc00e",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T11:08:54Z",
+      "side": 1,
+      "message": "Could you rename this as `art_runtime_metrics`, so as to clearly distinguish them from Odrefresh metrics?",
+      "range": {
+        "startLine": 177,
+        "startChar": 69,
+        "endLine": 177,
+        "endChar": 89
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d67225_da1105ab",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T11:08:54Z",
+      "side": 1,
+      "message": "Could you also add a \"version\" element (starting at 1.0), emitted in XML outputs, that we could also check when parsing XML metrics files?\n\nIdeally, I think this version number should be defined in `MetricsFormatter`.",
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48aad9a8_e4b0174e",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T11:08:54Z",
+      "side": 1,
+      "message": "Style: Long lines.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 124
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b09180_f15c6191",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T11:08:54Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 101
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21262a68_baf0a623",
+        "filename": "libartbase/base/metrics/metrics_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-13T11:08:54Z",
+      "side": 1,
+      "message": "Out of curiosity, is the generated output really a single line (with no newline character nor indentation)?",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 37
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
