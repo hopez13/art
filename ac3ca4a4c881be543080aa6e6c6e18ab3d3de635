@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3a30946_c9ac2608",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-13T14:49:19Z",
+      "side": 1,
+      "message": "PTAL at PS1..PS2 which has the fix. I verified other uses of the THREAD_TOP_QUICK_FRAME_OFFSET and this is the only one that requires a fix. We also untag it in GenericJni but that is already correct there since we know the Jit tag bit won\u0027t be set. ",
+      "revId": "ac3ca4a4c881be543080aa6e6c6e18ab3d3de635",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
