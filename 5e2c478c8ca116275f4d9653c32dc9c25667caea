@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9b49b87_d834bcfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-05-13T23:20:28Z",
+      "side": 1,
+      "message": "Jiakai, ag/18383929 should fix the problem you mentioned offline.  I can see the properties in the xml with this change.",
+      "revId": "5e2c478c8ca116275f4d9653c32dc9c25667caea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "630e2653_bdc876c4",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-05-13T23:20:28Z",
+      "side": 1,
+      "message": "Not sure I understand this.  Is it because.. all of them are readonly, thus already \"the default\" (which is what this function is checking for)?",
+      "range": {
+        "startLine": 847,
+        "startChar": 13,
+        "endLine": 847,
+        "endChar": 39
+      },
+      "revId": "5e2c478c8ca116275f4d9653c32dc9c25667caea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
