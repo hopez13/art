@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29522531_58ab0584",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-13T13:43:15Z",
+      "side": 1,
+      "message": "Yes, I have been working on this - I will have this change in the next patchset.",
+      "parentUuid": "9cd7161c_29d19f3d",
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f7de7d0_3451bcd7",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7558e4b6_6bf84621",
+        "filename": "libartbase/base/flags.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-13T13:43:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8f7de7d0_3451bcd7",
+      "range": {
+        "startLine": 311,
+        "startChar": 37,
+        "endLine": 311,
+        "endChar": 42
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c116d5c2_3fddc00e",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-05-13T11:08:54Z",
       "side": 1,
       "message": "Could you rename this as `art_runtime_metrics`, so as to clearly distinguish them from Odrefresh metrics?",
+      "range": {
+        "startLine": 177,
+        "startChar": 69,
+        "endLine": 177,
+        "endChar": 89
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ed5ca01_22fcdf3c",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-13T13:43:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c116d5c2_3fddc00e",
       "range": {
         "startLine": 177,
         "startChar": 69,
@@ -104,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a100e73_84ad8ccb",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-13T13:43:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48aad9a8_e4b0174e",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 124
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4b09180_f15c6191",
@@ -127,6 +217,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddc8682b_ffbadddf",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-13T13:43:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a4b09180_f15c6191",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 101
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21262a68_baf0a623",
@@ -140,6 +254,30 @@
       "writtenOn": "2022-05-13T11:08:54Z",
       "side": 1,
       "message": "Out of curiosity, is the generated output really a single line (with no newline character nor indentation)?",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 37
+      },
+      "revId": "808f05b74d13d010787bef1291a675c3c655c823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e060139_6f0154e6",
+        "filename": "libartbase/base/metrics/metrics_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-13T13:43:15Z",
+      "side": 1,
+      "message": "It is at the moment because of my choice to set the compact parameter in the XMLPrinter constructor to true (the rationale is that these metrics are meant for computer rather than human consumption, so newlines and indentation are superfluous) - but we can easily change it to be pretty-printed by switching that boolean. Do you have any preferences on which way to go?",
+      "parentUuid": "21262a68_baf0a623",
       "range": {
         "startLine": 434,
         "startChar": 0,
