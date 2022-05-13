@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "413eaf73_510f78a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-05-13T14:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e92ebae_c5756d2a",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "63d161d32ca56b1a11a6c57bd9789130fb808219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee680197_142ea288",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-13T13:44:56Z",
       "side": 1,
       "message": "This change is a bit surprising; do you know why it\u0027s needed?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 35
+      },
+      "revId": "63d161d32ca56b1a11a6c57bd9789130fb808219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a1be02_a80e4c1a",
+        "filename": "test/1940-ddms-ext/ddm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-05-13T14:53:54Z",
+      "side": 1,
+      "message": "These headers are not in the libnativehelper NDK, but there are a copy of these headers for the CTS in the art/test/ti-agent. So switch using these headers. btw, it\u0027s not first jvmti test to do so, and there are other JVMTI CTS using these headers too.",
+      "parentUuid": "ee680197_142ea288",
       "range": {
         "startLine": 24,
         "startChar": 0,
