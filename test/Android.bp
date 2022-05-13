@@ -459,31 +459,39 @@ art_cc_library {
 
 // ART run-tests.
 
+// ART run-tests use various test configuration templates, which are generated
+// at build time from a single "meta-template".
+genrule_defaults {
+    name: "art-run-test-target-template-defaults",
+    srcs: ["art-run-test-target-meta-template.m4"],
+    tools: ["m4"],
+}
+
 // Test configuration template for ART run-tests on target expected to run
 // successfully, and as such tagged as part of TradeFed's `art-target-run-test`
 // test suite via the `test-suite-tag`.
-filegroup {
+genrule {
     name: "art-run-test-target-template",
-    srcs: [
-        "art-run-test-target-template.xml",
-    ],
+    defaults: ["art-run-test-target-template-defaults"],
+    out: ["art-run-test-target-template.xml"],
+    cmd: "$(location m4) $(in) >$(out)",
 }
 
 // Same as `art-run-test-target-template`, but with a longer timeout.
-filegroup {
+genrule {
     name: "art-run-test-target-slow-template",
-    srcs: [
-        "art-run-test-target-slow-template.xml",
-    ],
+    defaults: ["art-run-test-target-template-defaults"],
+    out: ["art-run-test-target-slow-template.xml"],
+    cmd: "$(location m4) -D ART_SLOW $(in) >$(out)",
 }
 
 // Same as `art-run-test-target-template`, but contains additional
 // options to also make the test part of ART CTS.
-filegroup {
+genrule {
     name: "art-run-test-target-cts-template",
-    srcs: [
-        "art-run-test-target-cts-template.xml",
-    ],
+    defaults: ["art-run-test-target-template-defaults"],
+    out: ["art-run-test-target-cts-template.xml"],
+    cmd: "$(location m4) -D ART_CTS $(in) >$(out)",
 }
 
 // Test configuration template for ART run-tests on target expected to run
@@ -491,11 +499,11 @@ filegroup {
 // `art-target-run-test` test suite via the `test-suite-tag`. This is as
 // temporary measure, while we add proper support for all ART (target) run-tests
 // to TradeFed (b/147818031).
-filegroup {
+genrule {
     name: "art-run-test-target-no-test-suite-tag-template",
-    srcs: [
-        "art-run-test-target-no-test-suite-tag-template.xml",
-    ],
+    defaults: ["art-run-test-target-template-defaults"],
+    out: ["art-run-test-target-no-test-suite-tag-template.xml"],
+    cmd: "$(location m4) -D ART_NO_TEST_SUITE_TAG $(in) >$(out)",
 }
 
 java_defaults {
