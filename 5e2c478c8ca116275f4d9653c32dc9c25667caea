@@ -87,6 +87,30 @@
       },
       "revId": "5e2c478c8ca116275f4d9653c32dc9c25667caea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79096b36_9e4c7914",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-16T10:29:54Z",
+      "side": 1,
+      "message": "Ah thanks! Mind adding that level of comment for CheckSystemPropertiesAreDefault and CheckSystemPropertiesHaveNotChanged ?",
+      "parentUuid": "09921bce_c6c72508",
+      "range": {
+        "startLine": 847,
+        "startChar": 13,
+        "endLine": 847,
+        "endChar": 39
+      },
+      "revId": "5e2c478c8ca116275f4d9653c32dc9c25667caea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
