@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc26ebaa_a3da8a73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-16T13:47:15Z",
+      "side": 1,
+      "message": "typo: \u0027instance\u0027",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 53
+      },
+      "revId": "21d434ca20de2c79bd79236aad183501ede412ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8750d5dc_77a31b6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-16T13:47:15Z",
+      "side": 1,
+      "message": "\u0027to\u0027",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "21d434ca20de2c79bd79236aad183501ede412ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c349440b_604fff81",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-16T13:47:15Z",
+      "side": 1,
+      "message": "Maybe worth mentioning that it was a no-op but with performance regression (register spill and restore) because every time we would have gone to the runtime (no mark-bit or forwarding pointer would be found when not gc\u0027ing).",
+      "range": {
+        "startLine": 9,
+        "startChar": 67,
+        "endLine": 9,
+        "endChar": 72
+      },
+      "revId": "21d434ca20de2c79bd79236aad183501ede412ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
