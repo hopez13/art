@@ -63,6 +63,30 @@
       },
       "revId": "5e2c478c8ca116275f4d9653c32dc9c25667caea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09921bce_c6c72508",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-16T10:20:57Z",
+      "side": 1,
+      "message": "Basically, this function is called when cache-info.xml doesn\u0027t exist (i.e., we haven\u0027t done compilation before). In this case, we don\u0027t need to look at kCheckeSystemPropertyPrefixes because none of the prefixes are persistent. \"dalvik.vm\" is reset on boot and \"ro.dalvik.vm\" is readonly. I.e., their values are always \"the default\".\n\nIf cache-info.xml exists, the function below (`CheckSystemPropertiesHaveNotChanged`) will be called instead. That one looks at properties in `config_.GetSystemProperties()`, which include properties that match `kCheckeSystemPropertyPrefixes`. The code that reads their values is in `odrefresh/odrefresh_main.cc`.",
+      "parentUuid": "06fbd16a_f39695ba",
+      "range": {
+        "startLine": 847,
+        "startChar": 13,
+        "endLine": 847,
+        "endChar": 39
+      },
+      "revId": "5e2c478c8ca116275f4d9653c32dc9c25667caea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
