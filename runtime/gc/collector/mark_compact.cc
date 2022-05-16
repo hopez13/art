@@ -101,18 +101,29 @@ bool ShouldUseUserfaultfd() {
 
 #if defined(ART_FORCE_USE_READ_BARRIER)
 const bool gUseReadBarrier = kUseBakerReadBarrier || kUseTableLookupReadBarrier;
-#elif defined(ART_TARGET)
-const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
-                             && !(android::base::GetBoolProperty(
-                                    "persist.device_config.runtime_native_boot.enable_uffd_gc",
-                                    false)
-                                  && ShouldUseUserfaultfd());
-#else
-const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
-                             && !ShouldUseUserfaultfd();
-#endif
 const bool gUseUserfaultfd = !gUseReadBarrier;
 const bool gEmitCompilerReadBarrier = kForceReadBarrier || gUseReadBarrier;
+#else
+// Any number between 101 (highest) and 65535 (lowest and default) can be used.
+#define HIGHEST_INIT_PRIO INIT_PRIORITY(101)
+#if defined(ART_TARGET)
+// Ensure that the same default value for the phenotype flag is used as
+// odrefresh. Otherwise, it will lead to crashes when CC is run without
+// read-barrier code.
+const WrapInStruct<bool> HIGHEST_INIT_PRIO
+    gUseReadBarrier((kUseBakerReadBarrier || kUseTableLookupReadBarrier)
+                    && !(android::base::GetBoolProperty(
+                        "persist.device_config.runtime_native_boot.enable_uffd_gc", false)
+                         && ShouldUseUserfaultfd()));
+#else
+const WrapInStruct<bool> HIGHEST_INIT_PRIO
+    gUseReadBarrier((kUseBakerReadBarrier || kUseTableLookupReadBarrier)
+                    && !ShouldUseUserfaultfd());
+#endif
+const WrapInStruct<bool> HIGHEST_INIT_PRIO gUseUserfaultfd(!gUseReadBarrier);
+const WrapInStruct<bool> HIGHEST_INIT_PRIO
+    gEmitCompilerReadBarrier(kForceReadBarrier || gUseReadBarrier);
+#endif
 
 namespace gc {
 namespace collector {
