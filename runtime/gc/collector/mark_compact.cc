@@ -101,18 +101,28 @@ bool ShouldUseUserfaultfd() {
 
 #if defined(ART_FORCE_USE_READ_BARRIER)
 const bool gUseReadBarrier = kUseBakerReadBarrier || kUseTableLookupReadBarrier;
-#elif defined(ART_TARGET)
-const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
-                             && !(android::base::GetBoolProperty(
-                                    "persist.device_config.runtime_native_boot.enable_uffd_gc",
-                                    false)
-                                  && ShouldUseUserfaultfd());
-#else
-const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
-                             && !ShouldUseUserfaultfd();
-#endif
 const bool gUseUserfaultfd = !gUseReadBarrier;
 const bool gEmitCompilerReadBarrier = kForceReadBarrier || gUseReadBarrier;
+#else
+#if defined(ART_TARGET)
+// Ensure that the same default value for the phenotype flag is used as
+// odrefresh. Otherwise, it will lead to crashes when CC is run without
+// read-barrier code.
+#define UFFD_GC_SYS_PROP_KEY "persist.device_config.runtime_native_boot.enable_uffd_gc"
+const WrapInStruct<bool> INIT_PRIORITY(101) gUseReadBarrier((kUseBakerReadBarrier
+                                                             || kUseTableLookupReadBarrier)
+                                                            && !(android::base::GetBoolProperty(
+                                                                              UFFD_GC_SYS_PROP_KEY,
+                                                                              false)
+                                                                 && ShouldUseUserfaultfd()));
+#else
+const WrapInStruct<bool> INIT_PRIORITY(101) gUseReadBarrier((kUseBakerReadBarrier
+                                                             || kUseTableLookupReadBarrier)
+                                                            && !ShouldUseUserfaultfd());
+#endif
+const WrapInStruct<bool> INIT_PRIORITY(101) gUseUserfaultfd(!gUseReadBarrier);
+const WrapInStruct<bool> INIT_PRIORITY(101) gEmitCompilerReadBarrier(kForceReadBarrier || gUseReadBarrier);
+#endif
 
 namespace gc {
 namespace collector {

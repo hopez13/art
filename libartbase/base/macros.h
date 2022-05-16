@@ -106,5 +106,6 @@ template<typename T> ART_FRIEND_TEST(test_set_name, individual_test)
 
 #define HIDDEN __attribute__((visibility("hidden")))
 #define EXPORT __attribute__((visibility("default")))
+#define INIT_PRIORITY(x) __attribute__((init_priority(x)))
 
 #endif  // ART_LIBARTBASE_BASE_MACROS_H_

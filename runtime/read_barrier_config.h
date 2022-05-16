@@ -62,18 +62,37 @@ static constexpr bool kUseTableLookupReadBarrier = true;
 static constexpr bool kUseTableLookupReadBarrier = false;
 #endif
 
-extern const bool gUseReadBarrier;
-extern const bool gUseUserfaultfd;
-
 // Debugging flag that forces the generation of read barriers, but
 // does not trigger the use of the concurrent copying GC.
 //
 // TODO: Remove this flag when the read barriers compiler
 // instrumentation is completed.
 static constexpr bool kForceReadBarrier = false;
-// TODO: Likewise, remove this flag when kForceReadBarrier is removed
-// and replace it with gUseReadBarrier.
+
+// TODO: Likewise, remove gEmitCompilerReadBarrier flag when kForceReadBarrier
+// is removed and replace it with gUseReadBarrier.
+#if defined(ART_FORCE_USE_READ_BARRIER)
+extern const bool gUseReadBarrier;
+extern const bool gUseUserfaultfd;
 extern const bool gEmitCompilerReadBarrier;
+#else
+// init_priority compiler attribute doesn't work on non-class (or struct) types.
+// So wrap the bools in a class.
+template <typename T>
+class WrapInStruct {
+ public:
+  explicit WrapInStruct(const T& value) : value_(value) {}
+  // Including base/macros.h is causing compile-time issues. So directly using
+  // attribute, instead of ALWAYS_INLINE.
+  __attribute__ ((always_inline)) operator T() const { return value_; }
+
+ private:
+  T value_;
+};
+extern const WrapInStruct<bool> gUseReadBarrier;
+extern const WrapInStruct<bool> gUseUserfaultfd;
+extern const WrapInStruct<bool> gEmitCompilerReadBarrier;
+#endif
 
 // Disabled for performance reasons.
 static constexpr bool kCheckDebugDisallowReadBarrierCount = kIsDebugBuild;
