@@ -39,6 +39,30 @@
       },
       "revId": "5e2c478c8ca116275f4d9653c32dc9c25667caea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06fbd16a_f39695ba",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-16T08:33:38Z",
+      "side": 1,
+      "message": "yeah, I\u0027m also confused by this comment. How are your tests passing if you don\u0027t look at kCheckeSystemPropertyPrefixes?",
+      "parentUuid": "630e2653_bdc876c4",
+      "range": {
+        "startLine": 847,
+        "startChar": 13,
+        "endLine": 847,
+        "endChar": 39
+      },
+      "revId": "5e2c478c8ca116275f4d9653c32dc9c25667caea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
