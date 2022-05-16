@@ -39,6 +39,30 @@
       },
       "revId": "7d693b77a7ae7b004ce7a9a31419112a04b4a61d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fae8475_98bda5bf",
+        "filename": "runtime/mirror/class_ext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2022-05-16T08:00:07Z",
+      "side": 1,
+      "message": "Do you mean whether reordering is needed?\n\nCurrently it is referenced in http://cs/android/art/runtime/hidden_api.cc;l\u003d527;rcl\u003dc7aa5ef0161619d7ed6a12cf955ac40c7a1f5679",
+      "parentUuid": "5b0d5634_71443f7b",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 188,
+        "endChar": 40
+      },
+      "revId": "7d693b77a7ae7b004ce7a9a31419112a04b4a61d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
