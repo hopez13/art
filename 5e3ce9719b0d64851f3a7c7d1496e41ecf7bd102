@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "791de7dc_19070c42",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-17T08:15:41Z",
+      "side": 1,
+      "message": "No need for this macro?",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 87
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92f660df_0a83994f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-17T08:15:41Z",
+      "side": 1,
+      "message": "Add comment about the magic 101. Introduce a macro for INIT_PRIORITY(101)?",
+      "range": {
+        "startLine": 112,
+        "startChar": 39,
+        "endLine": 112,
+        "endChar": 42
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "750eaa4a_d5762480",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-17T08:15:41Z",
+      "side": 1,
+      "message": "nit: could be more readable if the parameters where all on the new line.",
+      "range": {
+        "startLine": 112,
+        "startChar": 60,
+        "endLine": 117,
+        "endChar": 93
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bb45603_717a62c3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-17T08:15:41Z",
+      "side": 1,
+      "message": "ditto on the new line.",
+      "range": {
+        "startLine": 119,
+        "startChar": 60,
+        "endLine": 121,
+        "endChar": 88
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f760737_b1e43a0b",
+        "filename": "runtime/interpreter/interpreter_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-17T08:15:41Z",
+      "side": 1,
+      "message": "Is this check still needed?",
+      "range": {
+        "startLine": 42,
+        "startChar": 6,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24cd6a5e_235c39f5",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-17T08:15:41Z",
+      "side": 1,
+      "message": "or userfaultfd GC ?",
+      "range": {
+        "startLine": 93,
+        "startChar": 84,
+        "endLine": 93,
+        "endChar": 85
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
