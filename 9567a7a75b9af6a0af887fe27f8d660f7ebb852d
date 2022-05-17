@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83bfab5f_88574bf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-17T13:35:19Z",
+      "side": 1,
+      "message": "Now that https://android-review.googlesource.com/c/platform/external/tinyxml2/+/2095249 is no longer needed for this CL (https://android-review.googlesource.com/c/platform/art/+/2085483), could you remove both changes from topic `runtime-metrics-xml`?",
+      "revId": "9567a7a75b9af6a0af887fe27f8d660f7ebb852d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
