@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c58e102_5f2becc9",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-17T08:50:50Z",
+      "side": 1,
+      "message": "This is actually not const. We pop in this method. If this isn\u0027t good then I could maintain / pass in a index of the methods for which unwind was already called.",
+      "parentUuid": "2567fa2d_e2cc7575",
+      "range": {
+        "startLine": 131,
+        "startChar": 64,
+        "endLine": 131,
+        "endChar": 65
+      },
+      "revId": "1ba3d2b1d7cc935ff482151cce6fcfa5237d63c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b6d2a66_ae8dee77",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 3
@@ -87,6 +111,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00ed19a8_134faccb",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-17T08:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76788329_3880fec5",
+      "range": {
+        "startLine": 131,
+        "startChar": 51,
+        "endLine": 132,
+        "endChar": 88
+      },
+      "revId": "1ba3d2b1d7cc935ff482151cce6fcfa5237d63c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ff698c9_7a053024",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-17T08:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6d2a66_ae8dee77",
+      "range": {
+        "startLine": 132,
+        "startChar": 45,
+        "endLine": 132,
+        "endChar": 58
+      },
+      "revId": "1ba3d2b1d7cc935ff482151cce6fcfa5237d63c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a594b6e0_e7497f1b",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-05-16T13:34:48Z",
       "side": 1,
       "message": "Why do we not invoke the unwind when doing the stack walk? Can you add a comment?",
+      "range": {
+        "startLine": 100,
+        "startChar": 6,
+        "endLine": 100,
+        "endChar": 75
+      },
+      "revId": "1ba3d2b1d7cc935ff482151cce6fcfa5237d63c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1488a7fe_5f0835dd",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-17T08:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a594b6e0_e7497f1b",
       "range": {
         "startLine": 100,
         "startChar": 6,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6975e625_1c53ab2b",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-17T08:50:50Z",
+      "side": 1,
+      "message": "As I mention in other comment this isn\u0027t actually a const.",
+      "parentUuid": "4c107e75_8b7b12ab",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 2
+      },
+      "revId": "1ba3d2b1d7cc935ff482151cce6fcfa5237d63c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2be069b9_28b8c42a",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 3
@@ -146,6 +266,30 @@
       "writtenOn": "2022-05-16T13:34:48Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 155,
+        "startChar": 5,
+        "endLine": 155,
+        "endChar": 13
+      },
+      "revId": "1ba3d2b1d7cc935ff482151cce6fcfa5237d63c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6afdce98_b5f2bcf5",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-17T08:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2be069b9_28b8c42a",
       "range": {
         "startLine": 155,
         "startChar": 5,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "840bc472_04ce9ff7",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-17T08:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03c5f51b_af82a3f9",
+      "range": {
+        "startLine": 213,
+        "startChar": 56,
+        "endLine": 214,
+        "endChar": 71
+      },
+      "revId": "1ba3d2b1d7cc935ff482151cce6fcfa5237d63c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e695078_67b29875",
@@ -192,6 +360,30 @@
       "writtenOn": "2022-05-16T13:34:48Z",
       "side": 1,
       "message": "Why do you need this now here?",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 96
+      },
+      "revId": "1ba3d2b1d7cc935ff482151cce6fcfa5237d63c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "650910c9_7bf6fbd1",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-17T08:50:50Z",
+      "side": 1,
+      "message": "Added a comment. We still need to pop off instrumentation stack frames to keep them in sync with stack. Once I remove instrumentation stubs for nterp and native methods (wip) we can drop this.",
+      "parentUuid": "5e695078_67b29875",
       "range": {
         "startLine": 217,
         "startChar": 0,
