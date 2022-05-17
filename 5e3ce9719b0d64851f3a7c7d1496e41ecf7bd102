@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8a56ef5_5528115e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-17T19:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "791de7dc_19070c42",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 87
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92f660df_0a83994f",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-17T08:15:41Z",
       "side": 1,
       "message": "Add comment about the magic 101. Introduce a macro for INIT_PRIORITY(101)?",
+      "range": {
+        "startLine": 112,
+        "startChar": 39,
+        "endLine": 112,
+        "endChar": 42
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8726572_7293baae",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-17T19:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92f660df_0a83994f",
       "range": {
         "startLine": 112,
         "startChar": 39,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3ceaf25_c74b3b09",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-17T19:46:47Z",
+      "side": 1,
+      "message": "I have tried to simplify. But all of it won\u0027t fit in one line. PTAL.",
+      "parentUuid": "750eaa4a_d5762480",
+      "range": {
+        "startLine": 112,
+        "startChar": 60,
+        "endLine": 117,
+        "endChar": 93
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bb45603_717a62c3",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-05-17T08:15:41Z",
       "side": 1,
       "message": "ditto on the new line.",
+      "range": {
+        "startLine": 119,
+        "startChar": 60,
+        "endLine": 121,
+        "endChar": 88
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66787ad7_ac99a884",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-17T19:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bb45603_717a62c3",
       "range": {
         "startLine": 119,
         "startChar": 60,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fcb6c67_5d43d514",
+        "filename": "runtime/interpreter/interpreter_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-17T19:46:47Z",
+      "side": 1,
+      "message": "Yeah it\u0027s needed. Because in the CC case we can\u0027t do this if there is a possibility that gc-thread may be sweeping system weaks.",
+      "parentUuid": "3f760737_b1e43a0b",
+      "range": {
+        "startLine": 42,
+        "startChar": 6,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24cd6a5e_235c39f5",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 1
@@ -129,6 +249,30 @@
       "writtenOn": "2022-05-17T08:15:41Z",
       "side": 1,
       "message": "or userfaultfd GC ?",
+      "range": {
+        "startLine": 93,
+        "startChar": 84,
+        "endLine": 93,
+        "endChar": 85
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b73eb34_8851deff",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-17T19:46:47Z",
+      "side": 1,
+      "message": "Actually the reason I didn\u0027t change it was because even now it\u0027s true. I mean with userfaultfd GC also it\u0027s working because we didn\u0027t get rid of the read-barrier in nterp 😊",
+      "parentUuid": "24cd6a5e_235c39f5",
       "range": {
         "startLine": 93,
         "startChar": 84,
