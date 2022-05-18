@@ -37,9 +37,11 @@ inline void InterpreterCache::Set(Thread* self, const void* key, size_t value) {
   DCHECK(self->GetInterpreterCache() == this) << "Must be called from owning thread";
 
   // For simplicity, only update the cache if weak ref accesses are enabled. If
-  // they are disabled, this means the GC is processing the cache, and is
+  // they are disabled, this means the CC GC could be processing the cache, and
   // reading it concurrently.
-  if (gUseReadBarrier && self->GetWeakRefAccessEnabled()) {
+  // NOTE: This check also works for userfaultfd-GC as GetWeakRefAccessEnabled()
+  // would always return true in that case, as intended.
+  if (self->GetWeakRefAccessEnabled()) {
     data_[IndexOf(key)] = Entry{key, value};
   }
 }
