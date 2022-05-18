@@ -1292,12 +1292,6 @@ DEFINE_FUNCTION art_quick_aput_obj
 #endif  // USE_READ_BARRIER
 END_FUNCTION art_quick_aput_obj
 
-// TODO: This is quite silly on X86_64 now.
-DEFINE_FUNCTION art_quick_memcpy
-    call PLT_SYMBOL(memcpy)       // (void*, const void*, size_t)
-    ret
-END_FUNCTION art_quick_memcpy
-
 DEFINE_FUNCTION art_quick_test_suspend
     SETUP_SAVE_EVERYTHING_FRAME RUNTIME_SAVE_EVERYTHING_FOR_SUSPEND_CHECK_METHOD_OFFSET  // save everything for GC
     // Outgoing argument set up
