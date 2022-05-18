@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d97bc10e_9f8fbeb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2022-05-18T23:38:11Z",
+      "side": 1,
+      "message": "A recent change to clang meant that functions with stack protectors could be inlined into functions marked `no_stack_protector` without adding a stack protector to the caller.  This eliminated the performance impact that this patch had last time.  The following links show the current patch\u0027s Golem benchmarks compared to the results from when the patch was last submitted:\n\n* https://golem.corp.goog/Revision?repository\u003dart\u0026revision\u003d18352\u0026patch\u003d17019\n* https://golem.corp.goog/Revision?repository\u003dart\u0026revision\u003d17122\n\nThe current presubmit failures seem to be due to a broken build target in `master-art: https://android-build.googleplex.com/builds/branches/git_master-art/grid?\n\n",
+      "revId": "549f485d219f495eaa01c4d5478cf28c77ed5573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
