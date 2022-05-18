@@ -262,6 +262,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88586daf_f257ec01",
+        "filename": "runtime/interpreter/interpreter_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-18T16:55:06Z",
+      "side": 1,
+      "message": "That\u0027s a good point! Also, since CC and uffd-GC use different mechanisms of disabling weak-ref access, GetWeakRefAccessEnabled() will always return true for the latter.\n\nI\u0027ll remove the gUseReadBarrier check in next patch. Thanks for pointing it.",
+      "parentUuid": "f23183dd_6a6c1b9c",
+      "range": {
+        "startLine": 42,
+        "startChar": 6,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24cd6a5e_235c39f5",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 1
