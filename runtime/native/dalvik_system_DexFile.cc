@@ -57,6 +57,9 @@
 
 namespace art {
 
+// Should be the same as dalvik.system.DexFile.ENFORCE_READ_ONLY_JAVA_DCL
+static constexpr uint64_t kEnforceReadOnlyJavaDcl = 218865702;
+
 using android::base::StringPrintf;
 
 static bool ConvertJavaArrayToDexFiles(
@@ -315,6 +318,26 @@ static jobject DexFile_openDexFileNative(JNIEnv* env,
   if (sourceName.c_str() == nullptr) {
     return nullptr;
   }
+
+#ifdef __ANDROID__
+  if (getuid() != 0) {
+    // Skip RO enforcement on root processes (root will always have write access to files)
+    Runtime* const runtime = Runtime::Current();
+    CompatFramework& compatFramework = runtime->GetCompatFramework();
+    if (compatFramework.IsChangeEnabled(kEnforceReadOnlyJavaDcl)) {
+      if (access(sourceName.c_str(), W_OK) == 0) {
+        LOG(ERROR) << "Attempt to load writable dex file: " << sourceName.c_str();
+        ScopedLocalRef<jclass> se(env, env->FindClass("java/lang/SecurityException"));
+        std::string message(
+            StringPrintf("Writable dex file '%s' is not allowed.", sourceName.c_str()));
+        env->ThrowNew(se.get(), message.c_str());
+        return nullptr;
+      }
+    }
+  }
+#else
+  (void) kEnforceReadOnlyJavaDcl;
+#endif
 
   std::vector<std::string> error_msgs;
   const OatFile* oat_file = nullptr;
