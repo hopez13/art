@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc984603_f9279099",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-18T06:08:08Z",
+      "side": 1,
+      "message": "Sorry for the confusion earlier. On retesting I realized that init_priority wasn\u0027t addressing the initialization issue. So in the latest patch I have removed that and simplified the IsNterpSupported(), which addressed the issue. PTAL.",
+      "revId": "a90b1e63274ede02ac97c34ad6a762d6ca24e9a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
