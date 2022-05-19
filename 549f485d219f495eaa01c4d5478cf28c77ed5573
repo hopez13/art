@@ -16,6 +16,46 @@
       "message": "A recent change to clang meant that functions with stack protectors could be inlined into functions marked `no_stack_protector` without adding a stack protector to the caller.  This eliminated the performance impact that this patch had last time.  The following links show the current patch\u0027s Golem benchmarks compared to the results from when the patch was last submitted:\n\n* https://golem.corp.goog/Revision?repository\u003dart\u0026revision\u003d18352\u0026patch\u003d17019\n* https://golem.corp.goog/Revision?repository\u003dart\u0026revision\u003d17122\n\nThe current presubmit failures seem to be due to a broken build target in `master-art: https://android-build.googleplex.com/builds/branches/git_master-art/grid?\n\n",
       "revId": "549f485d219f495eaa01c4d5478cf28c77ed5573",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11100aa9_2f6baa0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-19T06:44:26Z",
+      "side": 1,
+      "message": "I think if we\u0027re ok accepting this is brittle (is there a continuous test coming with it? Can we make it presubmit?) - we could try going with it.",
+      "revId": "549f485d219f495eaa01c4d5478cf28c77ed5573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98ac801_180a0423",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-19T06:44:26Z",
+      "side": 1,
+      "message": "Looking at your CL comment, this looks intended? Can you add a comment in the code?",
+      "range": {
+        "startLine": 74,
+        "startChar": 52,
+        "endLine": 74,
+        "endChar": 72
+      },
+      "revId": "549f485d219f495eaa01c4d5478cf28c77ed5573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
