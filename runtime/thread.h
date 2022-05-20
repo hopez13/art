@@ -544,8 +544,9 @@ class Thread {
   // that needs to be dealt with, false otherwise.
   bool ObserveAsyncException() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Find catch block and perform long jump to appropriate exception handle
-  NO_RETURN void QuickDeliverException() REQUIRES_SHARED(Locks::mutator_lock_);
+  // Find catch block and prepare the long jump context to jump to appropriate exception handle
+  // afterwards.
+  void QuickDeliverException() REQUIRES_SHARED(Locks::mutator_lock_);
 
   Context* GetLongJumpContext();
   void ReleaseLongJumpContext(Context* context) {
@@ -837,6 +838,12 @@ class Thread {
   template<PointerSize pointer_size>
   static constexpr ThreadOffset<pointer_size> CardTableOffset() {
     return ThreadOffsetFromTlsPtr<pointer_size>(OFFSETOF_MEMBER(tls_ptr_sized_values, card_table));
+  }
+
+  template<PointerSize pointer_size>
+  static constexpr ThreadOffset<pointer_size> LongJumpContextOffset() {
+    return ThreadOffsetFromTlsPtr<pointer_size>(OFFSETOF_MEMBER(tls_ptr_sized_values,
+                                                                long_jump_context));
   }
 
   template<PointerSize pointer_size>

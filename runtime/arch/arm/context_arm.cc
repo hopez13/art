@@ -99,20 +99,5 @@ void ArmContext::SmashCallerSaves() {
 
 extern "C" NO_RETURN void art_quick_do_long_jump(uint32_t*, uint32_t*);
 
-void ArmContext::DoLongJump() {
-  uintptr_t gprs[kNumberOfCoreRegisters];
-  uint32_t fprs[kNumberOfSRegisters];
-  for (size_t i = 0; i < kNumberOfCoreRegisters; ++i) {
-    gprs[i] = gprs_[i] != nullptr ? *gprs_[i] : ArmContext::kBadGprBase + i;
-  }
-  for (size_t i = 0; i < kNumberOfSRegisters; ++i) {
-    fprs[i] = fprs_[i] != nullptr ? *fprs_[i] : ArmContext::kBadFprBase + i;
-  }
-  // Ensure the Thread Register contains the address of the current thread.
-  DCHECK_EQ(reinterpret_cast<uintptr_t>(Thread::Current()), gprs[TR]);
-  // The Marking Register will be updated by art_quick_do_long_jump.
-  art_quick_do_long_jump(gprs, fprs);
-}
-
 }  // namespace arm
 }  // namespace art

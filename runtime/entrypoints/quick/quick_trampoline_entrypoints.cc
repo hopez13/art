@@ -60,8 +60,8 @@
 
 namespace art {
 
-extern "C" NO_RETURN void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self);
-extern "C" NO_RETURN void artDeoptimize(Thread* self);
+extern "C" void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self);
+extern "C" void artDeoptimize(Thread* self);
 
 // Visits the arguments as saved to the stack by a CalleeSaveType::kRefAndArgs callee save frame.
 class QuickArgumentVisitor {
@@ -2654,7 +2654,15 @@ extern "C" uint64_t artInvokeCustom(uint32_t call_site_idx, Thread* self, ArtMet
   return result.GetJ();
 }
 
-extern "C" void artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** sp ATTRIBUTE_UNUSED)
+// Enum to list possible return status options for artMethodEntryHook and artMethodExitHook;
+// the actual value will be checked in .S stubs on return.
+enum MethodHooksReturnStatus {
+  kNormal = 0,
+  kException = 1,
+  kDeoptimize = 2,
+};
+
+extern "C" int artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** sp ATTRIBUTE_UNUSED)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
   instr->MethodEnterEvent(self, method);
@@ -2663,7 +2671,9 @@ extern "C" void artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** 
     // ex: when there are break points on the method). In such cases deoptimize
     // only this method. FullFrame deoptimizations are handled on method exits.
     artDeoptimizeFromCompiledCode(DeoptimizationKind::kDebugging, self);
+    return MethodHooksReturnStatus::kDeoptimize;
   }
+  return MethodHooksReturnStatus::kNormal;
 }
 
 extern "C" int artMethodExitHook(Thread* self,
@@ -2714,17 +2724,17 @@ extern "C" int artMethodExitHook(Thread* self,
   }
 
   if (self->IsExceptionPending() || self->ObserveAsyncException()) {
-    return 1;
+    return MethodHooksReturnStatus::kException;
   }
 
   if (deoptimize) {
     DeoptimizationMethodType deopt_method_type = instr->GetDeoptimizationMethodType(method);
     self->PushDeoptimizationContext(return_value, is_ref, nullptr, false, deopt_method_type);
     artDeoptimize(self);
-    UNREACHABLE();
+    return MethodHooksReturnStatus::kDeoptimize;
   }
 
-  return 0;
+  return MethodHooksReturnStatus::kNormal;
 }
 
 }  // namespace art
