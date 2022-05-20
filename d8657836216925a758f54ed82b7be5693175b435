@@ -104,6 +104,30 @@
       },
       "revId": "d8657836216925a758f54ed82b7be5693175b435",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa7c8307_461c7c5a",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-05-20T16:42:21Z",
+      "side": 1,
+      "message": "(I didn\u0027t mean API accessibility, just the name argument)\n\nOK, so it seems like you started with what I\u0027m asking for. I think I disagree with Colin. `future_updatable` doesn\u0027t mean anything in terms of what the developer intends. If you wanted to change the behavior of future_updatable, there\u0027s no reason why all the users of it would want the same thing.\n\nThe ideal state of the `updatable` flag IMO would be if it didn\u0027t toggle any behavior, just verified that all the individual behaviors that are toggleable conform to the expected values.",
+      "parentUuid": "66cf54e4_e3440696",
+      "range": {
+        "startLine": 437,
+        "startChar": 4,
+        "endLine": 437,
+        "endChar": 21
+      },
+      "revId": "d8657836216925a758f54ed82b7be5693175b435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
