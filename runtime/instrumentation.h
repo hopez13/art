@@ -508,11 +508,21 @@ class Instrumentation {
                                 DeoptimizationMethodType deopt_type,
                                 bool is_ref,
                                 const JValue& result) REQUIRES_SHARED(Locks::mutator_lock_);
-  void DeoptimizeIfNeeded(Thread* self,
-                          ArtMethod** sp,
-                          DeoptimizationMethodType type,
-                          JValue result,
-                          bool is_ref) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Enum to list possible return status options for DeoptimizeIfNeeded;
+  // the actual value will be checked in .S stubs on return.
+  enum DeoptimizeReturnStatus {
+    kDeoptimizeNotNeeded = 0,
+    kDeoptimizeNeeded = 1,
+  };
+
+  // Deoptimize upon pending exception or if the caller requires it. Returns true if a
+  // deoptimization is needed and taken.
+  DeoptimizeReturnStatus DeoptimizeIfNeeded(Thread* self,
+                                            ArtMethod** sp,
+                                            DeoptimizationMethodType type,
+                                            JValue result,
+                                            bool is_ref) REQUIRES_SHARED(Locks::mutator_lock_);
   // TODO(mythria): Update uses of ShouldDeoptimizeCaller that takes a visitor by a method that
   // doesn't need to walk the stack. This is used on method exits to check if the caller needs a
   // deoptimization.

@@ -203,7 +203,7 @@ MACRO2(NO_ARG_RUNTIME_EXCEPTION, c_name, cxx_name)
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rdi  // pass Thread::Current()
     call CALLVAR(cxx_name)             // cxx_name(Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
     END_FUNCTION VAR(c_name)
 END_MACRO
 
@@ -213,7 +213,7 @@ MACRO2(NO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING, c_name, cxx_name)
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rdi  // pass Thread::Current()
     call CALLVAR(cxx_name)             // cxx_name(Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
     END_FUNCTION VAR(c_name)
 END_MACRO
 
@@ -223,7 +223,7 @@ MACRO2(ONE_ARG_RUNTIME_EXCEPTION, c_name, cxx_name)
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rsi  // pass Thread::Current()
     call CALLVAR(cxx_name)             // cxx_name(arg1, Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
     END_FUNCTION VAR(c_name)
 END_MACRO
 
@@ -233,7 +233,7 @@ MACRO2(TWO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING, c_name, cxx_name)
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rdx  // pass Thread::Current()
     call CALLVAR(cxx_name)             // cxx_name(Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
     END_FUNCTION VAR(c_name)
 END_MACRO
 
@@ -256,7 +256,7 @@ DEFINE_FUNCTION_CUSTOM_CFA art_quick_throw_null_pointer_exception_from_signal, 2
     // Outgoing argument set up; RDI already contains the fault address.
     movq %gs:THREAD_SELF_OFFSET, %rsi  // pass Thread::Current()
     call SYMBOL(artThrowNullPointerExceptionFromSignal)  // (addr, self)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_throw_null_pointer_exception_from_signal
 
     /*
@@ -771,10 +771,18 @@ MACRO1(DEOPT_OR_RETURN, is_ref = 0)
   movq %rax, %rsi                      // pass the result
   movq %gs:THREAD_SELF_OFFSET, %rdi    // pass Thread::Current
   call SYMBOL(artDeoptimizeIfNeeded)
+
+  cmpq LITERAL(1), %rax
+  je 3f
+
   CFI_REMEMBER_STATE
   RESTORE_SAVE_EVERYTHING_FRAME
   ret
   CFI_RESTORE_STATE_AND_DEF_CFA rsp, FRAME_SIZE_SAVE_EVERYTHING
+
+3:
+  // Deoptimize.
+  PREPARE_AND_DO_LONG_JUMP
 END_MACRO
 
 MACRO1(DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_RAX, is_ref = 0)
@@ -790,10 +798,18 @@ MACRO1(DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_RAX, is_ref = 0)
   movq %rax, %rsi                                   // pass the result
   movq %gs:THREAD_SELF_OFFSET, %rdi                 // pass Thread::Current
   call SYMBOL(artDeoptimizeIfNeeded)
+
+  cmpq LITERAL(1), %rax
+  je 3f
+
   CFI_REMEMBER_STATE
   RESTORE_SAVE_EVERYTHING_FRAME
   ret
   CFI_RESTORE_STATE_AND_DEF_CFA rsp, FRAME_SIZE_SAVE_EVERYTHING
+
+3:
+  // Deoptimize.
+  PREPARE_AND_DO_LONG_JUMP
 END_MACRO
 
 
@@ -1193,7 +1209,7 @@ DEFINE_FUNCTION art_quick_check_instance_of
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context
     mov %gs:THREAD_SELF_OFFSET, %rdx  // pass Thread::Current()
     call SYMBOL(artThrowClassCastExceptionForObject)  // (Object* src, Class* dest, Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_check_instance_of
 
 
@@ -1265,7 +1281,7 @@ DEFINE_FUNCTION art_quick_aput_obj
     movq %gs:THREAD_SELF_OFFSET, %rdx       // Pass arg 3 = Thread::Current().
                                             // Pass arg 1 = array.
     call SYMBOL(artThrowArrayStoreException) // (array, value, Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 
 #ifdef USE_READ_BARRIER
     CFI_RESTORE_STATE_AND_DEF_CFA esp, 4
@@ -1303,8 +1319,17 @@ DEFINE_FUNCTION art_quick_test_suspend
     // Outgoing argument set up
     movq %gs:THREAD_SELF_OFFSET, %rdi           // pass Thread::Current()
     call SYMBOL(artTestSuspendFromCode)         // (Thread*)
+
+    cmpq LITERAL(1), %rax
+    je .Ltest_suspend_deoptimize
+
+    // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME               // restore frame up to return address
     ret
+
+.Ltest_suspend_deoptimize:
+    // Deoptimize.
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_test_suspend
 
 UNIMPLEMENTED art_quick_ldiv
@@ -1727,7 +1752,7 @@ DEFINE_FUNCTION art_quick_deoptimize
     SETUP_SAVE_EVERYTHING_FRAME        // Stack should be aligned now.
     movq %gs:THREAD_SELF_OFFSET, %rdi  // Pass Thread.
     call SYMBOL(artDeoptimize)         // (Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_deoptimize
 
     /*
@@ -1739,7 +1764,7 @@ DEFINE_FUNCTION art_quick_deoptimize_from_compiled_code
                                                 // Stack should be aligned now.
     movq %gs:THREAD_SELF_OFFSET, %rsi           // Pass Thread.
     call SYMBOL(artDeoptimizeFromCompiledCode)  // (DeoptimizationKind, Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_deoptimize_from_compiled_code
 
     /*
@@ -2170,6 +2195,13 @@ DEFINE_FUNCTION art_quick_method_entry_hook
 
     call SYMBOL(artMethodEntryHook)              // (ArtMethod*, Thread*)
 
+    cmpq LITERAL(2), %rax
+    jne .Lentryhook_continue
+
+    // Deoptimize.
+    PREPARE_AND_DO_LONG_JUMP
+
+.Lentryhook_continue:
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
 END_FUNCTION art_quick_method_entry_hook
@@ -2187,7 +2219,14 @@ DEFINE_FUNCTION art_quick_method_exit_hook
     call SYMBOL(artMethodExitHook)              // (Thread*, ArtMethod**, gpr_res*, fpr_res*,
                                                 //  frame_size)
 
+    cmpq LITERAL(0), %rax
+    jne .Lexithook_deopt_or_exception
+
     // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
+
+.Lexithook_deopt_or_exception:
+    // Deoptimize or exception thrown.
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_method_exit_hook

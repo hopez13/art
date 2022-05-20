@@ -25,7 +25,7 @@
 
 namespace art {
 
-NO_RETURN static void artDeoptimizeImpl(Thread* self, DeoptimizationKind kind, bool single_frame)
+static void artDeoptimizeImpl(Thread* self, DeoptimizationKind kind, bool single_frame)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   Runtime::Current()->IncrementDeoptimizationCount(kind);
   if (VLOG_IS_ON(deopt)) {
@@ -47,23 +47,23 @@ NO_RETURN static void artDeoptimizeImpl(Thread* self, DeoptimizationKind kind, b
   }
   uintptr_t return_pc = exception_handler.UpdateInstrumentationStack();
   if (exception_handler.IsFullFragmentDone()) {
-    exception_handler.DoLongJump(true);
+    exception_handler.PrepareLongJump(true);
   } else {
     exception_handler.DeoptimizePartialFragmentFixup(return_pc);
     // We cannot smash the caller-saves, as we need the ArtMethod in a parameter register that would
     // be caller-saved. This has the downside that we cannot track incorrect register usage down the
     // line.
-    exception_handler.DoLongJump(false);
+    exception_handler.PrepareLongJump(false);
   }
 }
 
-extern "C" NO_RETURN void artDeoptimize(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
+extern "C" void artDeoptimize(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
   ScopedQuickEntrypointChecks sqec(self);
   artDeoptimizeImpl(self, DeoptimizationKind::kFullFrame, false);
 }
 
 // This is called directly from compiled code by an HDeoptimize.
-extern "C" NO_RETURN void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self)
+extern "C" void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ScopedQuickEntrypointChecks sqec(self);
   // Before deoptimizing to interpreter, we must push the deoptimization context.

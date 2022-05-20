@@ -99,9 +99,7 @@ void ArmContext::SmashCallerSaves() {
 
 extern "C" NO_RETURN void art_quick_do_long_jump(uint32_t*, uint32_t*);
 
-void ArmContext::DoLongJump() {
-  uintptr_t gprs[kNumberOfCoreRegisters];
-  uint32_t fprs[kNumberOfSRegisters];
+void ArmContext::CopyContextTo(uintptr_t* gprs, uintptr_t* fprs) {
   for (size_t i = 0; i < kNumberOfCoreRegisters; ++i) {
     gprs[i] = gprs_[i] != nullptr ? *gprs_[i] : ArmContext::kBadGprBase + i;
   }
@@ -110,8 +108,7 @@ void ArmContext::DoLongJump() {
   }
   // Ensure the Thread Register contains the address of the current thread.
   DCHECK_EQ(reinterpret_cast<uintptr_t>(Thread::Current()), gprs[TR]);
-  // The Marking Register will be updated by art_quick_do_long_jump.
-  art_quick_do_long_jump(gprs, fprs);
+  // The Marking Register will be updated after return, e.g: by art_quick_do_long_jump.
 }
 
 }  // namespace arm

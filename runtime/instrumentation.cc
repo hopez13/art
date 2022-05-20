@@ -55,8 +55,8 @@
 #include "thread_list.h"
 
 namespace art {
-extern "C" NO_RETURN void artDeoptimize(Thread* self);
-extern "C" NO_RETURN void artDeliverPendingExceptionFromCode(Thread* self);
+extern "C" void artDeoptimize(Thread* self);
+extern "C" void artDeliverPendingExceptionFromCode(Thread* self);
 
 namespace instrumentation {
 
@@ -1623,11 +1623,12 @@ bool Instrumentation::PushDeoptContextIfNeeded(Thread* self,
   return true;
 }
 
-void Instrumentation::DeoptimizeIfNeeded(Thread* self,
-                                         ArtMethod** sp,
-                                         DeoptimizationMethodType type,
-                                         JValue return_value,
-                                         bool is_reference) {
+Instrumentation::DeoptimizeReturnStatus Instrumentation::DeoptimizeIfNeeded(
+    Thread* self,
+    ArtMethod** sp,
+    DeoptimizationMethodType type,
+    JValue return_value,
+    bool is_reference) {
   if (self->IsAsyncExceptionPending() || ShouldDeoptimizeCaller(self, sp)) {
     self->PushDeoptimizationContext(return_value,
                                     is_reference,
@@ -1635,7 +1636,9 @@ void Instrumentation::DeoptimizeIfNeeded(Thread* self,
                                     /* from_code= */ false,
                                     type);
     artDeoptimize(self);
+    return DeoptimizeReturnStatus::kDeoptimizeNeeded;
   }
+  return DeoptimizeReturnStatus::kDeoptimizeNotNeeded;
 }
 
 bool Instrumentation::NeedsSlowInterpreterForMethod(Thread* self, ArtMethod* method) {

@@ -60,8 +60,8 @@
 
 namespace art {
 
-extern "C" NO_RETURN void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self);
-extern "C" NO_RETURN void artDeoptimize(Thread* self);
+extern "C" void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self);
+extern "C" void artDeoptimize(Thread* self);
 
 // Visits the arguments as saved to the stack by a CalleeSaveType::kRefAndArgs callee save frame.
 class QuickArgumentVisitor {
@@ -2661,7 +2661,14 @@ extern "C" void artJniMethodEntryHook(Thread* self)
   instr->MethodEnterEvent(self, method);
 }
 
-extern "C" void artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** sp ATTRIBUTE_UNUSED)
+// Enum to list possible return status options for artMethodEntryHook and artMethodExitHook;
+// the actual value will be checked in .S stubs on return.
+enum MethodHooksReturnStatus {
+  kNormal = 0,
+  kExceptionOrDeoptimize = 1,
+};
+
+extern "C" int artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** sp ATTRIBUTE_UNUSED)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
   if (instr->HasMethodEntryListeners()) {
@@ -2673,13 +2680,15 @@ extern "C" void artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** 
       // there are break points on the method). In such cases deoptimize only this method.
       // FullFrame deoptimizations are handled on method exits.
       artDeoptimizeFromCompiledCode(DeoptimizationKind::kDebugging, self);
+      return MethodHooksReturnStatus::kExceptionOrDeoptimize;
     }
   } else {
     DCHECK(!instr->IsDeoptimized(method));
   }
+  return MethodHooksReturnStatus::kNormal;
 }
 
-extern "C" void artMethodExitHook(Thread* self,
+extern "C" int artMethodExitHook(Thread* self,
                                   ArtMethod** sp,
                                   uint64_t* gpr_result,
                                   uint64_t* fpr_result,
@@ -2690,7 +2699,7 @@ extern "C" void artMethodExitHook(Thread* self,
   // twice. In all other cases (JITed JNI stubs / JITed code) we only call this for debuggable
   // runtimes.
   if (!Runtime::Current()->IsJavaDebuggable()) {
-    return;
+    return MethodHooksReturnStatus::kNormal;
   }
 
   DCHECK_EQ(reinterpret_cast<uintptr_t>(self), reinterpret_cast<uintptr_t>(Thread::Current()));
@@ -2741,7 +2750,7 @@ extern "C" void artMethodExitHook(Thread* self,
     // The exception was thrown from the method exit callback. We should not call  method unwind
     // callbacks for this case.
     self->QuickDeliverException(/* is_method_exit_exception= */ true);
-    UNREACHABLE();
+    return MethodHooksReturnStatus::kExceptionOrDeoptimize;
   }
 
   if (deoptimize) {
@@ -2752,8 +2761,10 @@ extern "C" void artMethodExitHook(Thread* self,
                                     false,
                                     deopt_method_type);
     artDeoptimize(self);
-    UNREACHABLE();
+    return MethodHooksReturnStatus::kExceptionOrDeoptimize;
   }
+
+  return MethodHooksReturnStatus::kNormal;
 }
 
 }  // namespace art

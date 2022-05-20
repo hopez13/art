@@ -94,14 +94,20 @@ class Context {
     abort();
   }
 
-  // Switches execution of the executing context to this context
-  NO_RETURN virtual void DoLongJump() = 0;
+  // Copies the values of GPRs and FPRs registers from this context to external buffers;
+  // the use case is to do a long jump afterwards.
+  //
+  // TODO: Support a new method of exception handling for x86 and arm backend and
+  // make this function pure virtual.
+  virtual void CopyContextTo(uintptr_t* gprs ATTRIBUTE_UNUSED, uintptr_t* fprs ATTRIBUTE_UNUSED) {}
 
   enum {
     kBadGprBase = 0xebad6070,
     kBadFprBase = 0xebad8070,
   };
 };
+
+extern "C" void artContextCopyForLongJump(Context* context, uintptr_t* gprs, uintptr_t* fprs);
 
 }  // namespace art
 
