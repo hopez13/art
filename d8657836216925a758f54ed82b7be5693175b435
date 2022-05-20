@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "624954f3_31dc4bf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-05-20T16:18:17Z",
+      "side": 1,
+      "message": "As ",
+      "revId": "d8657836216925a758f54ed82b7be5693175b435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e04339ef_2b391837",
@@ -31,6 +48,30 @@
       "writtenOn": "2022-05-20T15:59:36Z",
       "side": 1,
       "message": "Does adding `future_updatable: true` (while keeping updatable: false) fix the problem?",
+      "range": {
+        "startLine": 437,
+        "startChar": 4,
+        "endLine": 437,
+        "endChar": 21
+      },
+      "revId": "d8657836216925a758f54ed82b7be5693175b435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20691ca_cc7a48b5",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-05-20T16:18:17Z",
+      "side": 1,
+      "message": "Can we rename that flag to something like `use_platform_libs: false` instead? Having flags that turn on random things is just confusing. The docs for that flag says it turns on \"some build behavior\". IMO it\u0027s much better to be explicit. We\u0027ve been arguing for a long while that the `updatable` flag is problematic and we\u0027d like to break it up into separate flags.",
+      "parentUuid": "e04339ef_2b391837",
       "range": {
         "startLine": 437,
         "startChar": 4,
