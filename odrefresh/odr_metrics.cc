@@ -132,15 +132,16 @@ bool OdrMetrics::ToRecord(/*out*/OdrMetricsRecord* record) const {
 }
 
 void OdrMetrics::WriteToFile(const std::string& path, const OdrMetrics* metrics) {
-  OdrMetricsRecord record;
+  OdrMetricsRecord record{};
   if (!metrics->ToRecord(&record)) {
     LOG(ERROR) << "Attempting to report metrics without a compilation trigger.";
     return;
   }
 
   // Preserve order from frameworks/proto_logging/stats/atoms.proto in metrics file written.
-  std::ofstream ofs(path);
-  ofs << record;
+  if (!record.WriteToFile(path)) {
+    LOG(ERROR) << "Failed to report metrics to file: " << path;
+  }
 }
 
 }  // namespace odrefresh

@@ -15,58 +15,75 @@
  */
 
 #include "odr_metrics_record.h"
+#include "tinyxml2.h"
 
 #include <iosfwd>
-#include <istream>
-#include <ostream>
-#include <streambuf>
 #include <string>
 
 namespace art {
 namespace odrefresh {
 
-std::istream& operator>>(std::istream& is, OdrMetricsRecord& record) {
-  // Block I/O related exceptions
-  auto saved_exceptions = is.exceptions();
-  is.exceptions(std::ios_base::iostate {});
+bool OdrMetricsRecord::ReadFromFile(const std::string& filename) {
+  tinyxml2::XMLDocument xml_document;
+  tinyxml2::XMLError result = xml_document.LoadFile(filename.data());
+  if (result != tinyxml2::XML_SUCCESS) return false;
 
-  // The order here matches the field order of MetricsRecord.
-  is >> record.art_apex_version >> std::ws;
-  is >> record.trigger >> std::ws;
-  is >> record.stage_reached >> std::ws;
-  is >> record.status >> std::ws;
-  is >> record.primary_bcp_compilation_seconds >> std::ws;
-  is >> record.secondary_bcp_compilation_seconds >> std::ws;
-  is >> record.system_server_compilation_seconds >> std::ws;
-  is >> record.cache_space_free_start_mib >> std::ws;
-  is >> record.cache_space_free_end_mib >> std::ws;
+  tinyxml2::XMLElement* metrics = xml_document.FirstChildElement("odrefresh_metrics");
+  if (metrics == nullptr) return false;
 
-  // Restore I/O related exceptions
-  is.exceptions(saved_exceptions);
-  return is;
+  art_apex_version = ReadInt64(metrics, "art_apex_version");
+  trigger = ReadInt32(metrics, "trigger");
+  stage_reached = ReadInt32(metrics, "stage_reached");
+  status = ReadInt32(metrics, "status");
+  primary_bcp_compilation_seconds = ReadInt32(metrics, "primary_bcp_compilation_seconds");
+  secondary_bcp_compilation_seconds = ReadInt32(metrics, "secondary_bcp_compilation_seconds");
+  system_server_compilation_seconds = ReadInt32(metrics, "system_server_compilation_seconds");
+  cache_space_free_start_mib = ReadInt32(metrics, "cache_space_free_start_mib");
+  cache_space_free_end_mib = ReadInt32(metrics, "cache_space_free_end_mib");
+
+  return true;
 }
 
-std::ostream& operator<<(std::ostream& os, const OdrMetricsRecord& record) {
-  static const char kSpace = ' ';
+int64_t OdrMetricsRecord::ReadInt64(tinyxml2::XMLElement* element,
+                                    const char* name) {
+  return element->FirstChildElement(name)->Int64Text();
+}
 
-  // Block I/O related exceptions
-  auto saved_exceptions = os.exceptions();
-  os.exceptions(std::ios_base::iostate {});
+int32_t OdrMetricsRecord::ReadInt32(tinyxml2::XMLElement* element,
+                                    const char* name) {
+  return element->FirstChildElement(name)->IntText();
+}
+
+bool OdrMetricsRecord::WriteToFile(const std::string& filename) const {
+  tinyxml2::XMLDocument xml_document;
+  tinyxml2::XMLElement* metrics = xml_document.NewElement("odrefresh_metrics");
+  xml_document.InsertEndChild(metrics);
 
   // The order here matches the field order of MetricsRecord.
-  os << record.art_apex_version << kSpace;
-  os << record.trigger << kSpace;
-  os << record.stage_reached << kSpace;
-  os << record.status << kSpace;
-  os << record.primary_bcp_compilation_seconds << kSpace;
-  os << record.secondary_bcp_compilation_seconds << kSpace;
-  os << record.system_server_compilation_seconds << kSpace;
-  os << record.cache_space_free_start_mib << kSpace;
-  os << record.cache_space_free_end_mib << std::endl;
+  AddMetric(metrics, "art_apex_version", art_apex_version);
+  AddMetric(metrics, "trigger", trigger);
+  AddMetric(metrics, "stage_reached", stage_reached);
+  AddMetric(metrics, "status", status);
+  AddMetric(metrics, "primary_bcp_compilation_seconds", primary_bcp_compilation_seconds);
+  AddMetric(metrics, "secondary_bcp_compilation_seconds", secondary_bcp_compilation_seconds);
+  AddMetric(metrics, "system_server_compilation_seconds", system_server_compilation_seconds);
+  AddMetric(metrics, "cache_space_free_start_mib", cache_space_free_start_mib);
+  AddMetric(metrics, "cache_space_free_end_mib", cache_space_free_end_mib);
 
-  // Restore I/O related exceptions
-  os.exceptions(saved_exceptions);
-  return os;
+  tinyxml2::XMLError result = xml_document.SaveFile(filename.data(), /*compact=*/true);
+  return result == tinyxml2::XML_SUCCESS;
+}
+
+void OdrMetricsRecord::AddMetric(tinyxml2::XMLElement* parent,
+                                 const char* name,
+                                 int64_t value) {
+  parent->InsertNewChildElement(name)->SetText(value);
+}
+
+void OdrMetricsRecord::AddMetric(tinyxml2::XMLElement* parent,
+                                 const char* name,
+                                 int32_t value) {
+  parent->InsertNewChildElement(name)->SetText(value);
 }
 
 }  // namespace odrefresh

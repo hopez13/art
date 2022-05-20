@@ -19,12 +19,13 @@
 
 #include <cstdint>
 #include <iosfwd>  // For forward-declaration of std::string.
+#include <tinyxml2.h>
 
 namespace art {
 namespace odrefresh {
 
 // Default location for storing metrics from odrefresh.
-constexpr const char* kOdrefreshMetricsFile = "/data/misc/odrefresh/odrefresh-metrics.txt";
+constexpr const char* kOdrefreshMetricsFile = "/data/misc/odrefresh/odrefresh-metrics.xml";
 
 // MetricsRecord is a simpler container for Odrefresh metric values reported to statsd. The order
 // and types of fields here mirror definition of `OdrefreshReported` in
@@ -39,23 +40,24 @@ struct OdrMetricsRecord {
   int32_t system_server_compilation_seconds;
   int32_t cache_space_free_start_mib;
   int32_t cache_space_free_end_mib;
+
+  // Read a `MetricsRecord` from an XML file.
+  // Returns true if the XML document was found
+  // and parsed correctly, false otherwise.
+  bool ReadFromFile(const std::string& filename);
+
+  // Write a `MetricsRecord` to an XML file.
+  // Returns true is the XML document was
+  // saved correctly, false otherwise.
+  bool WriteToFile(const std::string& filename) const;
+
+ private:
+  static void AddMetric(tinyxml2::XMLElement* parent, const char* name, int64_t value);
+  static void AddMetric(tinyxml2::XMLElement* parent, const char* name, int32_t value);
+
+  static int64_t ReadInt64(tinyxml2::XMLElement* element, const char* name);
+  static int32_t ReadInt32(tinyxml2::XMLElement* element, const char* name);
 };
-
-// Read a `MetricsRecord` from an `istream`.
-//
-// This method blocks istream related exceptions, the caller should check `is.fail()` is false after
-// calling.
-//
-// Returns `is`.
-std::istream& operator>>(std::istream& is, OdrMetricsRecord& record);
-
-// Write a `MetricsRecord` to an `ostream`.
-//
-// This method blocks ostream related exceptions, the caller should check `os.fail()` is false after
-// calling.
-//
-// Returns `os`
-std::ostream& operator<<(std::ostream& os, const OdrMetricsRecord& record);
 
 }  // namespace odrefresh
 }  // namespace art
