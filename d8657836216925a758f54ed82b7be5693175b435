@@ -128,6 +128,30 @@
       },
       "revId": "d8657836216925a758f54ed82b7be5693175b435",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49ab4fe9_5ca115c6",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-05-20T17:12:39Z",
+      "side": 1,
+      "message": "I think this CL itself is an argument that `future_updatable` is not the right name, because the test apex is not meant to be updatable in the future, it just wants to disable the symlink optimization! :)",
+      "parentUuid": "aa7c8307_461c7c5a",
+      "range": {
+        "startLine": 437,
+        "startChar": 4,
+        "endLine": 437,
+        "endChar": 21
+      },
+      "revId": "d8657836216925a758f54ed82b7be5693175b435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
