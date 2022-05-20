@@ -80,6 +80,30 @@
       },
       "revId": "d8657836216925a758f54ed82b7be5693175b435",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66cf54e4_e3440696",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-20T16:36:34Z",
+      "side": 1,
+      "message": "future_updatable doesn\u0027t control the API accessibility. For that we already have platform_apis(bool) [1].\n\nThe doc says \n\n\u003e Currently, this disables the size optimization\n\nAbout the naming, please see the prior discussion with Colin [2]. \n\n[1] https://cs.android.com/android/platform/superproject/+/master:build/soong/apex/apex.go;drc\u003d520917af9d71b11bcc2179f1dfdb6c701dffe044;l\u003d143\n\n[2] https://android-review.googlesource.com/c/platform/build/soong/+/1904291/comment/264950c7_d60b1171/",
+      "parentUuid": "a20691ca_cc7a48b5",
+      "range": {
+        "startLine": 437,
+        "startChar": 4,
+        "endLine": 437,
+        "endChar": 21
+      },
+      "revId": "d8657836216925a758f54ed82b7be5693175b435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
