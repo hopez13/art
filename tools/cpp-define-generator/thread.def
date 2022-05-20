@@ -21,6 +21,8 @@
 
 ASM_DEFINE(THREAD_CARD_TABLE_OFFSET,
            art::Thread::CardTableOffset<art::kRuntimePointerSize>().Int32Value())
+ASM_DEFINE(THREAD_LONG_JUMP_CONTEXT_OFFSET,
+           art::Thread::LongJumpContextOffset<art::kRuntimePointerSize>().Int32Value())
 ASM_DEFINE(THREAD_EXCEPTION_OFFSET,
            art::Thread::ExceptionOffset<art::kRuntimePointerSize>().Int32Value())
 ASM_DEFINE(THREAD_FLAGS_OFFSET,

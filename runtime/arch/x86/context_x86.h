@@ -85,7 +85,6 @@ class X86Context final : public Context {
   void SetFPR(uint32_t reg, uintptr_t value) override;
 
   void SmashCallerSaves() override;
-  NO_RETURN void DoLongJump() override;
 
  private:
   // Pretend XMM registers are made of uin32_t pieces, because they are manipulated

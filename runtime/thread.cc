@@ -130,7 +130,7 @@ namespace art {
 using android::base::StringAppendV;
 using android::base::StringPrintf;
 
-extern "C" NO_RETURN void artDeoptimize(Thread* self);
+extern "C" void artDeoptimize(Thread* self);
 
 bool Thread::is_started_ = false;
 pthread_key_t Thread::pthread_key_self_;
@@ -3696,7 +3696,7 @@ void Thread::QuickDeliverException() {
   CHECK(exception != nullptr);
   if (exception == GetDeoptimizationException()) {
     artDeoptimize(this);
-    UNREACHABLE();
+    return;
   }
 
   ReadBarrier::MaybeAssertToSpaceInvariant(exception.Ptr());
@@ -3769,7 +3769,7 @@ void Thread::QuickDeliverException() {
           /* from_code= */ false,
           method_type);
       artDeoptimize(this);
-      UNREACHABLE();
+      return;
     } else if (visitor.caller != nullptr) {
       LOG(WARNING) << "Got a deoptimization request on un-deoptimizable method "
                    << visitor.caller->PrettyMethod();
@@ -3790,7 +3790,7 @@ void Thread::QuickDeliverException() {
     // Check the to-space invariant on the re-installed exception (if applicable).
     ReadBarrier::MaybeAssertToSpaceInvariant(GetException());
   }
-  exception_handler.DoLongJump();
+  exception_handler.PrepareLongJump();
 }
 
 Context* Thread::GetLongJumpContext() {
