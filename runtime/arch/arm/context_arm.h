@@ -86,7 +86,6 @@ class ArmContext final : public Context {
   void SetFPR(uint32_t reg, uintptr_t value) override;
 
   void SmashCallerSaves() override;
-  NO_RETURN void DoLongJump() override;
 
  private:
   // Pointers to register locations, initialized to null or the specific registers below.

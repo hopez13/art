@@ -224,7 +224,7 @@ ENTRY \c_name
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context
     mov x0, xSELF                     // pass Thread::Current
     bl  \cxx_name                     // \cxx_name(Thread*)
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END \c_name
 .endm
 
@@ -234,7 +234,7 @@ ENTRY \c_name
     SETUP_SAVE_EVERYTHING_FRAME       // save all registers as basis for long jump context
     mov x0, xSELF                     // pass Thread::Current
     bl  \cxx_name                     // \cxx_name(Thread*)
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END \c_name
 .endm
 
@@ -244,7 +244,7 @@ ENTRY \c_name
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context.
     mov x1, xSELF                     // pass Thread::Current.
     bl  \cxx_name                     // \cxx_name(arg, Thread*).
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END \c_name
 .endm
 
@@ -254,7 +254,7 @@ ENTRY \c_name
     SETUP_SAVE_EVERYTHING_FRAME       // save all registers as basis for long jump context
     mov x2, xSELF                     // pass Thread::Current
     bl  \cxx_name                     // \cxx_name(arg1, arg2, Thread*)
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END \c_name
 .endm
 
@@ -285,7 +285,7 @@ ENTRY art_quick_throw_null_pointer_exception_from_signal
     mov x0, lr                        // pass the fault address stored in LR by the fault handler.
     mov x1, xSELF                     // pass Thread::Current.
     bl  artThrowNullPointerExceptionFromSignal  // (arg, Thread*).
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_throw_null_pointer_exception_from_signal
 
     /*
@@ -974,7 +974,7 @@ ENTRY art_quick_check_instance_of
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context
     mov x2, xSELF                     // pass Thread::Current
     bl artThrowClassCastExceptionForObject     // (Object*, Class*, Thread*)
-    brk 0                             // We should not return here...
+    PREPARE_AND_DO_LONG_JUMP                             // We should not return here...
 END art_quick_check_instance_of
 
 // Restore xReg's value from [sp, #offset] if xReg is not the same as xExclude.
@@ -1114,7 +1114,7 @@ ENTRY art_quick_aput_obj
     mov x1, x2                      // Pass value.
     mov x2, xSELF                   // Pass Thread::Current.
     bl artThrowArrayStoreException  // (Object*, Object*, Thread*).
-    brk 0                           // Unreached.
+    PREPARE_AND_DO_LONG_JUMP                           // Unreached.
 END art_quick_aput_obj
 
 // Macro to facilitate adding new allocation entrypoints.
@@ -1956,7 +1956,7 @@ ENTRY art_quick_deoptimize
     SETUP_SAVE_EVERYTHING_FRAME
     mov    x0, xSELF          // Pass thread.
     bl     artDeoptimize      // (Thread*)
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_deoptimize
 
     /*
@@ -1968,7 +1968,7 @@ ENTRY art_quick_deoptimize_from_compiled_code
     SETUP_SAVE_EVERYTHING_FRAME
     mov    x1, xSELF                      // Pass thread.
     bl     artDeoptimizeFromCompiledCode  // (DeoptimizationKind, Thread*)
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_deoptimize_from_compiled_code
 
 
@@ -2599,6 +2599,14 @@ ENTRY art_quick_method_entry_hook
     mov x1, xSELF                             // pass Thread::Current
     bl  artMethodEntryHook                    // (ArtMethod*, Thread*)
 
+    cmp x0, #2
+    bne .Lentryhook_continue
+
+    // Deoptimize.
+    PREPARE_AND_DO_LONG_JUMP
+
+.Lentryhook_continue:
+
     RESTORE_SAVE_EVERYTHING_FRAME             // Note: will restore xSELF
     REFRESH_MARKING_REGISTER
     ret
@@ -2615,8 +2623,16 @@ ENTRY art_quick_method_exit_hook
     bl  artMethodExitHook                     // (Thread*, ArtMethod*, gpr_res*, fpr_res*)
 
     .cfi_remember_state
-    cbnz x0, .Ldo_deliver_instrumentation_exception_exit // Handle exception
+    cmp x0, #1
+    beq .Ldo_deliver_instrumentation_exception_exit // Handle exception
 
+    cmp x0, #2
+    bne .Lexithook_continue
+
+    // Deoptimize.
+    PREPARE_AND_DO_LONG_JUMP
+
+.Lexithook_continue:
     // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME
     REFRESH_MARKING_REGISTER

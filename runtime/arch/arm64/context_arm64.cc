@@ -130,10 +130,7 @@ void Arm64Context::SmashCallerSaves() {
 
 extern "C" NO_RETURN void art_quick_do_long_jump(uint64_t*, uint64_t*);
 
-void Arm64Context::DoLongJump() {
-  uint64_t gprs[arraysize(gprs_)];
-  uint64_t fprs[kNumberOfDRegisters];
-
+void Arm64Context::CopyContextTo(uintptr_t* gprs, uintptr_t* fprs) {
   // The long jump routine called below expects to find the value for SP at index 31.
   DCHECK_EQ(SP, 31);
 
@@ -147,8 +144,7 @@ void Arm64Context::DoLongJump() {
   DCHECK_EQ(reinterpret_cast<uintptr_t>(Thread::Current()), gprs[TR]);
   // Tell HWASan about the new stack top.
   __hwasan_handle_longjmp(reinterpret_cast<void*>(gprs[SP]));
-  // The Marking Register will be updated by art_quick_do_long_jump.
-  art_quick_do_long_jump(gprs, fprs);
+  // The Marking Register will be updated by after return (e.g. by art_quick_do_long_jump).
 }
 
 }  // namespace arm64
