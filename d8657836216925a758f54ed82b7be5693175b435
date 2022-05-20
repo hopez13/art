@@ -16,6 +16,29 @@
       "message": "This change is an alternative solution to https://android-review.googlesource.com/c/platform/art/+/2101692 to address b/232790938.",
       "revId": "d8657836216925a758f54ed82b7be5693175b435",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e04339ef_2b391837",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-05-20T15:59:36Z",
+      "side": 1,
+      "message": "Does adding `future_updatable: true` (while keeping updatable: false) fix the problem?",
+      "range": {
+        "startLine": 437,
+        "startChar": 4,
+        "endLine": 437,
+        "endChar": 21
+      },
+      "revId": "d8657836216925a758f54ed82b7be5693175b435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
