@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6db2c70_e53d8594",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2022-05-20T15:02:32Z",
+      "side": 1,
+      "message": "It is already enabled. This just changes how we use stack protector so that it can be reset on zygote fork (http://b/168258494). As for testing, if this stops working, devices won\u0027t boot, so this is already tested.",
+      "parentUuid": "ae07aeff_e0bf4858",
+      "revId": "549f485d219f495eaa01c4d5478cf28c77ed5573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f98ac801_180a0423",
         "filename": "libartbase/base/macros.h",
         "patchSetId": 1
