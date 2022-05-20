@@ -29,6 +29,7 @@ class OdrMetricsRecordTest : public CommonArtTest {};
 
 TEST_F(OdrMetricsRecordTest, HappyPath) {
   const OdrMetricsRecord expected {
+    .odrefresh_metrics_version = 0x123,
     .art_apex_version = 0x01233456'789abcde,
     .trigger = 0x01020304,
     .stage_reached = 0x11121314,
@@ -41,22 +42,13 @@ TEST_F(OdrMetricsRecordTest, HappyPath) {
   };
 
   ScratchDir dir(/*keep_files=*/false);
-  std::string file_path = dir.GetPath() + "/metrics-record.txt";
-
-  {
-    std::ofstream ofs(file_path);
-    ofs << expected;
-    ASSERT_FALSE(ofs.fail());
-    ofs.close();
-  }
+  std::string file_path = dir.GetPath() + "/metrics-record.xml";
+  ASSERT_TRUE(expected.WriteToFile(file_path));
 
   OdrMetricsRecord actual {};
-  {
-    std::ifstream ifs(file_path);
-    ifs >> actual;
-    ASSERT_TRUE(ifs.eof());
-  }
+  ASSERT_TRUE(actual.ReadFromFile(file_path));
 
+  ASSERT_EQ(expected.odrefresh_metrics_version, actual.odrefresh_metrics_version);
   ASSERT_EQ(expected.art_apex_version, actual.art_apex_version);
   ASSERT_EQ(expected.trigger, actual.trigger);
   ASSERT_EQ(expected.stage_reached, actual.stage_reached);
@@ -71,42 +63,59 @@ TEST_F(OdrMetricsRecordTest, HappyPath) {
 
 TEST_F(OdrMetricsRecordTest, EmptyInput) {
   ScratchDir dir(/*keep_files=*/false);
-  std::string file_path = dir.GetPath() + "/metrics-record.txt";
+  std::string file_path = dir.GetPath() + "/metrics-record.xml";
 
-  std::ifstream ifs(file_path);
-  OdrMetricsRecord record;
-  ifs >> record;
-
-  ASSERT_TRUE(ifs.fail());
-  ASSERT_TRUE(!ifs);
+  OdrMetricsRecord record{};
+  ASSERT_FALSE(record.ReadFromFile(file_path));
 }
 
-TEST_F(OdrMetricsRecordTest, ClosedInput) {
+TEST_F(OdrMetricsRecordTest, UnexpectedInput) {
   ScratchDir dir(/*keep_files=*/false);
-  std::string file_path = dir.GetPath() + "/metrics-record.txt";
-
-  std::ifstream ifs(file_path);
-  ifs.close();
-
-  OdrMetricsRecord record;
-  ifs >> record;
-
-  ASSERT_TRUE(ifs.fail());
-  ASSERT_TRUE(!ifs);
-}
-
-TEST_F(OdrMetricsRecordTest, ClosedOutput) {
-  ScratchDir dir(/*keep_files=*/false);
-  std::string file_path = dir.GetPath() + "/metrics-record.txt";
+  std::string file_path = dir.GetPath() + "/metrics-record.xml";
 
   std::ofstream ofs(file_path);
+  ofs << "<not_odrefresh_metrics></not_odrefresh_metrics>";
   ofs.close();
 
-  OdrMetricsRecord record {};
-  ofs << record;
+  OdrMetricsRecord record{};
+  ASSERT_FALSE(record.ReadFromFile(file_path));
+}
 
-  ASSERT_TRUE(ofs.fail());
-  ASSERT_TRUE(!ofs.good());
+TEST_F(OdrMetricsRecordTest, ExpectedElementNotFound) {
+  ScratchDir dir(/*keep_files=*/false);
+  std::string file_path = dir.GetPath() + "/metrics-record.xml";
+
+  std::ofstream ofs(file_path);
+  ofs << "<odrefresh_metrics>";
+  ofs << "<not_valid_metric>25</not_valid_metric>";
+  ofs << "</odrefresh_metrics>";
+  ofs.close();
+
+  OdrMetricsRecord record{};
+  ASSERT_FALSE(record.ReadFromFile(file_path));
+}
+
+TEST_F(OdrMetricsRecordTest, UnexpectedType) {
+  ScratchDir dir(/*keep_files=*/false);
+  std::string file_path = dir.GetPath() + "/metrics-record.xml";
+
+  std::ofstream ofs(file_path);
+  ofs << "<odrefresh_metrics>";
+  ofs << "<odrefresh_metrics_version>291</odrefresh_metrics_version>";
+  ofs << "<art_apex_version>81966764218039518</art_apex_version>";
+  ofs << "<trigger>16909060</trigger>";
+  ofs << "<stage_reached>286397204</stage_reached>";
+  ofs << "<status>abcd</status>";  // it should be an int32
+  ofs << "<primary_bcp_compilation_seconds>825373492</primary_bcp_compilation_seconds>";
+  ofs << "<secondary_bcp_compilation_seconds>1094861636</secondary_bcp_compilation_seconds>";
+  ofs << "<system_server_compilation_seconds>1364349780</system_server_compilation_seconds>";
+  ofs << "<cache_space_free_start_mib>1633837924</cache_space_free_start_mib>";
+  ofs << "<cache_space_free_end_mib>1903326068</cache_space_free_end_mib>";
+  ofs << "</odrefresh_metrics>";
+  ofs.close();
+
+  OdrMetricsRecord record{};
+  ASSERT_FALSE(record.ReadFromFile(file_path));
 }
 
 }  // namespace odrefresh

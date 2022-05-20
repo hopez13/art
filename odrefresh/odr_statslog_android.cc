@@ -103,16 +103,9 @@ int32_t TranslateTrigger(int32_t art_metrics_trigger) {
 bool ReadValues(const char* metrics_file,
                 /*out*/ OdrMetricsRecord* record,
                 /*out*/ std::string* error_msg) {
-  std::ifstream ifs(metrics_file);
-  if (!ifs) {
+  if (!record->ReadFromFile(metrics_file)) {
     *error_msg = android::base::StringPrintf(
-        "metrics file '%s' could not be opened: %s", metrics_file, strerror(errno));
-    return false;
-  }
-
-  ifs >> *record;
-  if (!ifs) {
-    *error_msg = "file parsing error.";
+        "Unable to open or parse metrics file: %s", metrics_file);
     return false;
   }
 
