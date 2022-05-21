@@ -176,6 +176,30 @@
       },
       "revId": "d8657836216925a758f54ed82b7be5693175b435",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e21108ca_d80fde33",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-21T09:33:29Z",
+      "side": 1,
+      "message": "\u003e \u003e Does adding `future_updatable: true` (while keeping updatable: false) fix the problem?\n\u003e \n\u003e Yes, this disables the symlink optimizations (see PS2). I haven\u0027t verified whether this affects checks on APEX allowed dependency though (I\u0027ll wait for TreeHugger\u0027s results).\n\nTreeHugger seems happy with this change, so it should be ready to submit.",
+      "parentUuid": "c960c70d_46fda89b",
+      "range": {
+        "startLine": 437,
+        "startChar": 4,
+        "endLine": 437,
+        "endChar": 21
+      },
+      "revId": "d8657836216925a758f54ed82b7be5693175b435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
