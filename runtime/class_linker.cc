@@ -96,7 +96,7 @@
 #include "jit/jit_code_cache.h"
 #include "jni/java_vm_ext.h"
 #include "jni/jni_internal.h"
-#include "linear_alloc.h"
+#include "linear_alloc-inl.h"
 #include "mirror/array-alloc-inl.h"
 #include "mirror/array-inl.h"
 #include "mirror/call_site.h"
@@ -3480,7 +3480,7 @@ LengthPrefixedArray<ArtField>* ClassLinker::AllocArtFieldArray(Thread* self,
   // If the ArtField alignment changes, review all uses of LengthPrefixedArray<ArtField>.
   static_assert(alignof(ArtField) == 4, "ArtField alignment is expected to be 4.");
   size_t storage_size = LengthPrefixedArray<ArtField>::ComputeSize(length);
-  void* array_storage = allocator->Alloc(self, storage_size);
+  void* array_storage = allocator->Alloc(self, storage_size, LinearAllocKind::kArtFieldArray);
   auto* ret = new(array_storage) LengthPrefixedArray<ArtField>(length);
   CHECK(ret != nullptr);
   std::uninitialized_fill_n(&ret->At(0), length, ArtField());
@@ -3497,7 +3497,7 @@ LengthPrefixedArray<ArtMethod>* ClassLinker::AllocArtMethodArray(Thread* self,
   const size_t method_size = ArtMethod::Size(image_pointer_size_);
   const size_t storage_size =
       LengthPrefixedArray<ArtMethod>::ComputeSize(length, method_size, method_alignment);
-  void* array_storage = allocator->Alloc(self, storage_size);
+  void* array_storage = allocator->Alloc(self, storage_size, LinearAllocKind::kArtMethodArray);
   auto* ret = new (array_storage) LengthPrefixedArray<ArtMethod>(length);
   CHECK(ret != nullptr);
   for (size_t i = 0; i < length; ++i) {
@@ -5902,7 +5902,9 @@ bool ClassLinker::LinkClass(Thread* self,
     if (imt == nullptr) {
       LinearAlloc* allocator = GetAllocatorForClassLoader(klass->GetClassLoader());
       imt = reinterpret_cast<ImTable*>(
-          allocator->Alloc(self, ImTable::SizeInBytes(image_pointer_size_)));
+          allocator->Alloc(self,
+                           ImTable::SizeInBytes(image_pointer_size_),
+                           LinearAllocKind::kNoGCRoots));
       if (imt == nullptr) {
         return false;
       }
@@ -6185,8 +6187,9 @@ ArtMethod* ClassLinker::AddMethodToConflictTable(ObjPtr<mirror::Class> klass,
   // Allocate a new table. Note that we will leak this table at the next conflict,
   // but that's a tradeoff compared to making the table fixed size.
   void* data = linear_alloc->Alloc(
-      Thread::Current(), ImtConflictTable::ComputeSizeWithOneMoreEntry(current_table,
-                                                                       image_pointer_size_));
+      Thread::Current(),
+      ImtConflictTable::ComputeSizeWithOneMoreEntry(current_table, image_pointer_size_),
+      LinearAllocKind::kNoGCRoots);
   if (data == nullptr) {
     LOG(ERROR) << "Failed to allocate conflict table";
     return conflict_method;
@@ -6300,8 +6303,8 @@ ImtConflictTable* ClassLinker::CreateImtConflictTable(size_t count,
                                                       LinearAlloc* linear_alloc,
                                                       PointerSize image_pointer_size) {
   void* data = linear_alloc->Alloc(Thread::Current(),
-                                   ImtConflictTable::ComputeSize(count,
-                                                                 image_pointer_size));
+                                   ImtConflictTable::ComputeSize(count, image_pointer_size),
+                                   LinearAllocKind::kNoGCRoots);
   return (data != nullptr) ? new (data) ImtConflictTable(count, image_pointer_size) : nullptr;
 }
 
@@ -7602,13 +7605,19 @@ void ClassLinker::LinkMethodsHelper<kPointerSize>::ReallocMethods(ObjPtr<mirror:
           self_, old_methods, old_methods_ptr_size, new_size));
   CHECK(methods != nullptr);  // Native allocation failure aborts.
 
-  if (methods != old_methods) {
+  if (kUseReadBarrier && methods != old_methods) {
     StrideIterator<ArtMethod> out = methods->begin(kMethodSize, kMethodAlignment);
     // Copy over the old methods. The `ArtMethod::CopyFrom()` is only necessary to not miss
     // read barriers since `LinearAlloc::Realloc()` won't do read barriers when it copies.
     for (auto& m : klass->GetMethods(kPointerSize)) {
       out->CopyFrom(&m, kPointerSize);
       ++out;
+    }
+  } else if (kUseUserfaultfd) {
+    // Clear the declaring class of the old dangling method array so that GC doesn't
+    // try to update them, which could potentially cause memory corruption.
+    for (auto& m : *old_methods) {
+      m.SetDeclaringClass(nullptr);
     }
   }
 

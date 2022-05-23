@@ -27,6 +27,7 @@
 #include "object_array.h"
 
 namespace art {
+enum class LinearAllocKind;
 
 namespace linker {
 class ImageWriter;
@@ -453,7 +454,7 @@ class MANAGED DexCache final : public Object {
  private:
   // Allocate new array in linear alloc and save it in the given fields.
   template<typename T, size_t kMaxCacheSize>
-  T* AllocArray(MemberOffset obj_offset, MemberOffset num_offset, size_t num)
+  T* AllocArray(MemberOffset obj_offset, MemberOffset num_offset, size_t num, LinearAllocKind kind)
      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Visit instance fields of the dex cache as well as its associated arrays.
