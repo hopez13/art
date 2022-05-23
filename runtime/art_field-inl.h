@@ -64,6 +64,45 @@ inline void ArtField::SetDeclaringClass(ObjPtr<mirror::Class> new_declaring_clas
   declaring_class_ = GcRoot<mirror::Class>(new_declaring_class);
 }
 
+template<typename RootVisitorType>
+void ArtField::VisitArrayRoots(RootVisitorType& visitor,
+                               uint8_t* start_boundary,
+                               uint8_t* end_boundary,
+                               LengthPrefixedArray<ArtField>* array) {
+  DCHECK_LE(start_boundary, end_boundary);
+  // Compute the first method to be visited.
+  ArtField* first_field = &(array->At(0));
+  if (reinterpret_cast<uint8_t*>(first_field) >= end_boundary) {
+    // nothing to do
+    return;
+  }
+  size_t end_idx = (end_boundary - reinterpret_cast<uint8_t*>(first_field)) / sizeof(ArtField);
+  if (end_idx < array->size()) {
+    // Adjust if the declaring class of this method is within the page boundary.
+    if (reinterpret_cast<uint8_t*>(array->At(end_idx).declaring_class_.AddressWithoutBarrier())
+        < end_boundary) {
+      end_idx++;
+    }
+  } else {
+    end_idx = array->size();
+  }
+
+  size_t idx = 0;
+  if (reinterpret_cast<uint8_t*>(first_field) < start_boundary) {
+    idx = (start_boundary - reinterpret_cast<uint8_t*>(first_field)) / sizeof(ArtField);
+    if (reinterpret_cast<uint8_t*>(array->At(idx).declaring_class_.AddressWithoutBarrier())
+        < start_boundary) {
+      idx++;
+    }
+  }
+
+  // Visit all the methods in the array until we reach either the end of array
+  // or end_boundary.
+  while (idx < end_idx) {
+    visitor.VisitRoot(array->At(idx++).declaring_class_.AddressWithoutBarrier());
+  }
+}
+
 inline MemberOffset ArtField::GetOffsetDuringLinking() {
   DCHECK(GetDeclaringClass()->IsLoaded() || GetDeclaringClass()->IsErroneous());
   return MemberOffset(offset_);

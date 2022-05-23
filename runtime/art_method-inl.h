@@ -405,6 +405,64 @@ void ArtMethod::VisitRoots(RootVisitorType& visitor, PointerSize pointer_size) {
   }
 }
 
+template<typename RootVisitorType>
+void ArtMethod::VisitRoots(RootVisitorType& visitor,
+                           uint8_t* start_boundary,
+                           uint8_t* end_boundary,
+                           ArtMethod* method) {
+  mirror::CompressedReference<mirror::Object>* cls_ptr =
+      method->declaring_class_.AddressWithoutBarrier();
+  if (reinterpret_cast<uint8_t*>(cls_ptr) >= start_boundary
+      && reinterpret_cast<uint8_t*>(cls_ptr) < end_boundary) {
+    visitor.VisitRootIfNonNull(cls_ptr);
+  }
+}
+
+template<typename RootVisitorType>
+void ArtMethod::VisitArrayRoots(RootVisitorType& visitor,
+                                uint8_t* start_boundary,
+                                uint8_t* end_boundary,
+                                LengthPrefixedArray<ArtMethod>* array,
+                                PointerSize pointer_size) {
+  DCHECK_LE(start_boundary, end_boundary);
+  const size_t method_alignment = ArtMethod::Alignment(pointer_size);
+  const size_t method_size = ArtMethod::Size(pointer_size);
+  // Compute the first method to be visited.
+  ArtMethod* first_method = &(array->At(0, method_size, method_alignment));
+  if (reinterpret_cast<uint8_t*>(first_method) >= end_boundary) {
+    // nothing to do
+    return;
+  }
+  size_t end_idx = (end_boundary - reinterpret_cast<uint8_t*>(first_method)) / method_size;
+  if (end_idx < array->size()) {
+    // Adjust if the declaring class of this method is within the page boundary.
+    ArtMethod& end_method = array->At(end_idx, method_size, method_alignment);
+    if (reinterpret_cast<uint8_t*>(end_method.declaring_class_.AddressWithoutBarrier())
+        < end_boundary) {
+      end_idx++;
+    }
+  } else {
+    end_idx = array->size();
+  }
+
+  size_t idx = 0;
+  if (reinterpret_cast<uint8_t*>(first_method) < start_boundary) {
+    idx = (start_boundary - reinterpret_cast<uint8_t*>(first_method)) / method_size;
+    ArtMethod& start_method = array->At(idx, method_size, method_alignment);
+    if (reinterpret_cast<uint8_t*>(start_method.declaring_class_.AddressWithoutBarrier())
+        < start_boundary) {
+      idx++;
+    }
+  }
+
+  // Visit all the methods in the array until we reach either the end of array
+  // or end_boundary.
+  while (idx < end_idx) {
+    ArtMethod& method = array->At(idx++, method_size, method_alignment);
+    visitor.VisitRootIfNonNull(method.declaring_class_.AddressWithoutBarrier());
+  }
+}
+
 template <typename Visitor>
 inline void ArtMethod::UpdateEntrypoints(const Visitor& visitor, PointerSize pointer_size) {
   if (IsNative()) {
