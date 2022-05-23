@@ -22,7 +22,7 @@
 #include "base/casts.h"
 #include "class_linker.h"
 #include "jit/jit.h"
-#include "linear_alloc.h"
+#include "linear_alloc-inl.h"
 #include "nativehelper/ScopedUtfChars.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
@@ -80,7 +80,7 @@ extern "C" JNIEXPORT void JNICALL Java_Main_reuseArenaOfMethod(JNIEnv*,
   std::unique_ptr<LinearAlloc> alloc(Runtime::Current()->CreateLinearAlloc());
   do {
     // Ask for a byte - it's sufficient to get an arena.
-    alloc->Alloc(Thread::Current(), 1);
+    alloc->Alloc(Thread::Current(), 1, LinearAllocKind::kNoGCRoots);
   } while (!alloc->Contains(ptr));
 }
 
