@@ -128,6 +128,29 @@
       },
       "revId": "549f485d219f495eaa01c4d5478cf28c77ed5573",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a01eda0f_8c7b4885",
+        "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-05-23T08:23:07Z",
+      "side": 1,
+      "message": "Naive questions:\n\n1) naively this method doesn\u0027t look like it meets the criteria for -fstack-protector-strong [https://clang.llvm.org/docs/ClangCommandLineReference.html].\n\n-\u003e The templatized method that\u0027s invoked is expanded in-situ.\n\n2) what leads to changes in the arm entrypoints in this CL, but not other architectures?\n\n-\u003e the other entrypoints are written in assembly.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 18
+      },
+      "revId": "549f485d219f495eaa01c4d5478cf28c77ed5573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
