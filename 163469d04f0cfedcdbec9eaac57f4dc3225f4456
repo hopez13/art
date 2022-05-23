@@ -39,6 +39,30 @@
       },
       "revId": "163469d04f0cfedcdbec9eaac57f4dc3225f4456",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a49a9514_5829cee8",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-23T14:47:25Z",
+      "side": 1,
+      "message": "I am a little bit confused about the existing code. I don\u0027t think we should be checking shadow_frame.GetForcePopFrame() (line 278 in original code) only when method entry listeners are enabled. I think method entry listeners and force pop frame are two different debug features. So I am not sure why checking for force pop should be conditional on having method entry listeners. So I made it so they are independent. I forgot to mention this in the commit description. Should I pull that to a different CL so it is clear and we can see incase that breaks something?",
+      "parentUuid": "28d27e77_963e1b2a",
+      "range": {
+        "startLine": 276,
+        "startChar": 63,
+        "endLine": 276,
+        "endChar": 95
+      },
+      "revId": "163469d04f0cfedcdbec9eaac57f4dc3225f4456",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
