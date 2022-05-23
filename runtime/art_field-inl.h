@@ -64,6 +64,32 @@ inline void ArtField::SetDeclaringClass(ObjPtr<mirror::Class> new_declaring_clas
   declaring_class_ = GcRoot<mirror::Class>(new_declaring_class);
 }
 
+template<typename RootVisitorType>
+void ArtField::VisitArrayRoots(RootVisitorType& visitor,
+                               uint8_t* start_boundary,
+                               uint8_t* end_boundary,
+                               LengthPrefixedArray<ArtField>* array) {
+  DCHECK_LE(start_boundary, end_boundary);
+  DCHECK_NE(array->size(), 0u);
+  constexpr size_t field_size = sizeof(ArtField);
+  ArtField* first_field = &array->At(0);
+  uint8_t* declaring_class =
+      reinterpret_cast<uint8_t*>(first_field->GetDeclaringClassAddressWithoutBarrier());
+  // Jump to the first class to visit.
+  if (declaring_class < start_boundary) {
+    size_t remainder = (start_boundary - declaring_class) % field_size;
+    declaring_class = start_boundary;
+    if (remainder > 0) {
+      declaring_class += field_size - remainder;
+    }
+  }
+  while (declaring_class < end_boundary) {
+    visitor.VisitRoot(
+        reinterpret_cast<mirror::CompressedReference<mirror::Object>*>(declaring_class));
+    declaring_class += field_size;
+  }
+}
+
 inline MemberOffset ArtField::GetOffsetDuringLinking() {
   DCHECK(GetDeclaringClass()->IsLoaded() || GetDeclaringClass()->IsErroneous());
   return MemberOffset(offset_);

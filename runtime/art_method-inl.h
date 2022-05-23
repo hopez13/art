@@ -405,6 +405,45 @@ void ArtMethod::VisitRoots(RootVisitorType& visitor, PointerSize pointer_size) {
   }
 }
 
+template<typename RootVisitorType>
+void ArtMethod::VisitRoots(RootVisitorType& visitor,
+                           uint8_t* start_boundary,
+                           uint8_t* end_boundary,
+                           ArtMethod* method) {
+  mirror::CompressedReference<mirror::Object>* cls_ptr =
+      method->GetDeclaringClassAddressWithoutBarrier();
+  if (reinterpret_cast<uint8_t*>(cls_ptr) >= start_boundary
+      && reinterpret_cast<uint8_t*>(cls_ptr) < end_boundary) {
+    visitor.VisitRootIfNonNull(cls_ptr);
+  }
+}
+
+template<PointerSize kPointerSize, typename RootVisitorType>
+void ArtMethod::VisitArrayRoots(RootVisitorType& visitor,
+                                uint8_t* start_boundary,
+                                uint8_t* end_boundary,
+                                LengthPrefixedArray<ArtMethod>* array) {
+  DCHECK_LE(start_boundary, end_boundary);
+  DCHECK_NE(array->size(), 0u);
+  constexpr size_t method_size = ArtMethod::Size(kPointerSize);
+  ArtMethod* first_method = &array->At(0, method_size, ArtMethod::Alignment(kPointerSize));
+  uint8_t* declaring_class =
+      reinterpret_cast<uint8_t*>(first_method->GetDeclaringClassAddressWithoutBarrier());
+  // Jump to the first class to visit.
+  if (declaring_class < start_boundary) {
+    size_t remainder = (start_boundary - declaring_class) % method_size;
+    declaring_class = start_boundary;
+    if (remainder > 0) {
+      declaring_class += method_size - remainder;
+    }
+  }
+  while (declaring_class < end_boundary) {
+    visitor.VisitRootIfNonNull(
+        reinterpret_cast<mirror::CompressedReference<mirror::Object>*>(declaring_class));
+    declaring_class += method_size;
+  }
+}
+
 template <typename Visitor>
 inline void ArtMethod::UpdateEntrypoints(const Visitor& visitor, PointerSize pointer_size) {
   if (IsNative()) {
