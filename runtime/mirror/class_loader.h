@@ -60,7 +60,8 @@ class MANAGED ClassLoader : public Object {
         GetField64(OFFSET_OF_OBJECT_MEMBER(ClassLoader, allocator_)));
   }
 
-  void SetAllocator(LinearAlloc* allocator) REQUIRES_SHARED(Locks::mutator_lock_) {
+  void SetAllocator(LinearAlloc* allocator)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
     SetField64<false>(OFFSET_OF_OBJECT_MEMBER(ClassLoader, allocator_),
                       reinterpret_cast<uint64_t>(allocator));
   }
