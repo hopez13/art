@@ -24,21 +24,46 @@ namespace art {
 
 class ArenaPool;
 
+enum class LinearAllocKind : uint32_t {
+  kNoGCRoots,
+  kGCRootArray,
+  kArtMethodArray,
+  kArtFieldArray,
+  kDexCacheArray,
+  kArtMethod
+};
+
+class TrackingHeader final {
+ public:
+  static_assert(sizeof(TrackingHeader) == ArenaAllocator::kAlignment);
+  TrackingHeader(uint32_t size, LinearAllocKind kind) : size_(size), kind_(kind) {}
+
+  LinearAllocKind GetKind() const { return kind_; }
+
+ private:
+  LinearAllocKind kind_;
+  uint32_t size_;
+
+  DISALLOW_IMPLICIT_CONSTRUCTORS(TrackingHeader);
+};
+
 // TODO: Support freeing if we add class unloading.
+template <bool kTrackAllocations>
 class LinearAlloc {
  public:
-  explicit LinearAlloc(ArenaPool* pool);
+  explicit LinearAlloc(ArenaPool* pool) : lock_("linear alloc"), allocator_(pool) {}
 
-  void* Alloc(Thread* self, size_t size) REQUIRES(!lock_);
-  void* AllocAlign16(Thread* self, size_t size) REQUIRES(!lock_);
+  void* Alloc(Thread* self, size_t size, LinearAllocKind, kind) REQUIRES(!lock_);
+  void* AllocAlign16(Thread* self, size_t size, LinearAllocKind kind) REQUIRES(!lock_);
 
   // Realloc never frees the input pointer, it is the caller's job to do this if necessary.
-  void* Realloc(Thread* self, void* ptr, size_t old_size, size_t new_size) REQUIRES(!lock_);
+  void* Realloc(Thread* self, void* ptr, size_t old_size, size_t new_size, LinearAllocKind kind)
+      REQUIRES(!lock_);
 
   // Allocate an array of structs of type T.
   template<class T>
-  T* AllocArray(Thread* self, size_t elements) REQUIRES(!lock_) {
-    return reinterpret_cast<T*>(Alloc(self, elements * sizeof(T)));
+  T* AllocArray(Thread* self, size_t elements, LinearAllocKind kind) REQUIRES(!lock_) {
+    return reinterpret_cast<T*>(Alloc(self, elements * sizeof(T), kind));
   }
 
   // Return the number of bytes used in the allocator.
@@ -51,7 +76,13 @@ class LinearAlloc {
 
   // Unsafe version of 'Contains' only to be used when the allocator is going
   // to be deleted.
-  bool ContainsUnsafe(void* ptr) const NO_THREAD_SAFETY_ANALYSIS;
+  bool ContainsUnsafe(void* ptr) const NO_THREAD_SAFETY_ANALYSIS {
+    return allocator_.Contains(ptr);
+  }
+
+  // Set the given object as the first object for all the pages where the
+  // page-beginning overlaps with the object.
+  void SetFirstObject(void* begin, size_t bytes) const;
 
  private:
   mutable Mutex lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;

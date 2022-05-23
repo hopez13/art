@@ -209,6 +209,8 @@ class Arena {
     return memory_ <= ptr && ptr < memory_ + bytes_allocated_;
   }
 
+  Arena* Next() const { return next_; }
+
  protected:
   size_t bytes_allocated_;
   uint8_t* memory_;
@@ -353,6 +355,10 @@ class ArenaAllocator
 
   ArenaPool* GetArenaPool() const {
     return pool_;
+  }
+
+  Arena* GetHeadArena() const {
+    return arena_head_;
   }
 
   bool Contains(const void* ptr) const;
