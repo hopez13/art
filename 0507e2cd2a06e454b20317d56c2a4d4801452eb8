@@ -16,6 +16,29 @@
       "message": "Thanks Jiyong and Anton.",
       "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6df7ad38_731f4a0a",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-23T13:28:37Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me what this self-containedness means:\n\nIf it\u0027s only supposed to work on a system image from the same build then symlinks would be fine, and this is just a workaround for it not working correctly (b/233357459).\n\nOtoh, if it should work with some amount of version skew (which I guess is what you mean) then we want to build what effectively amounts to an unbundled APEX that we can update with, without it necessarily being fully updatable itself. The right way to do that is to use `TARGET_BUILD_UNBUNDLED` in the build, which should work without changes here.",
+      "range": {
+        "startLine": 440,
+        "startChar": 36,
+        "endLine": 441,
+        "endChar": 44
+      },
+      "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
