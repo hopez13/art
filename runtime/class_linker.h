@@ -37,6 +37,7 @@
 #include "gc_root.h"
 #include "handle.h"
 #include "jni.h"
+#include "linear_alloc.h"
 #include "mirror/class.h"
 #include "mirror/object.h"
 #include "oat_file.h"
@@ -55,7 +56,6 @@ class ImtConflictTable;
 template<typename T> class LengthPrefixedArray;
 template<class T> class MutableHandle;
 class InternTable;
-class LinearAlloc;
 class OatFile;
 template<class T> class ObjectLock;
 class Runtime;

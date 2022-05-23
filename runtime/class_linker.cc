@@ -43,6 +43,7 @@
 #include "base/hash_set.h"
 #include "base/leb128.h"
 #include "base/logging.h"
+#include "base/mem_map_arena_pool.h"
 #include "base/metrics/metrics.h"
 #include "base/mutex-inl.h"
 #include "base/os.h"
@@ -96,7 +97,7 @@
 #include "jit/jit_code_cache.h"
 #include "jni/java_vm_ext.h"
 #include "jni/jni_internal.h"
-#include "linear_alloc.h"
+#include "linear_alloc-inl.h"
 #include "mirror/array-alloc-inl.h"
 #include "mirror/array-inl.h"
 #include "mirror/call_site.h"
@@ -3480,7 +3481,7 @@ LengthPrefixedArray<ArtField>* ClassLinker::AllocArtFieldArray(Thread* self,
   // If the ArtField alignment changes, review all uses of LengthPrefixedArray<ArtField>.
   static_assert(alignof(ArtField) == 4, "ArtField alignment is expected to be 4.");
   size_t storage_size = LengthPrefixedArray<ArtField>::ComputeSize(length);
-  void* array_storage = allocator->Alloc(self, storage_size);
+  void* array_storage = allocator->Alloc(self, storage_size, LinearAllocKind::kArtFieldArray);
   auto* ret = new(array_storage) LengthPrefixedArray<ArtField>(length);
   CHECK(ret != nullptr);
   std::uninitialized_fill_n(&ret->At(0), length, ArtField());
@@ -3497,7 +3498,7 @@ LengthPrefixedArray<ArtMethod>* ClassLinker::AllocArtMethodArray(Thread* self,
   const size_t method_size = ArtMethod::Size(image_pointer_size_);
   const size_t storage_size =
       LengthPrefixedArray<ArtMethod>::ComputeSize(length, method_size, method_alignment);
-  void* array_storage = allocator->Alloc(self, storage_size);
+  void* array_storage = allocator->Alloc(self, storage_size, LinearAllocKind::kArtMethodArray);
   auto* ret = new (array_storage) LengthPrefixedArray<ArtMethod>(length);
   CHECK(ret != nullptr);
   for (size_t i = 0; i < length; ++i) {
@@ -5902,7 +5903,9 @@ bool ClassLinker::LinkClass(Thread* self,
     if (imt == nullptr) {
       LinearAlloc* allocator = GetAllocatorForClassLoader(klass->GetClassLoader());
       imt = reinterpret_cast<ImTable*>(
-          allocator->Alloc(self, ImTable::SizeInBytes(image_pointer_size_)));
+          allocator->Alloc(self,
+                           ImTable::SizeInBytes(image_pointer_size_),
+                           LinearAllocKind::kNoGCRoots));
       if (imt == nullptr) {
         return false;
       }
@@ -6185,8 +6188,9 @@ ArtMethod* ClassLinker::AddMethodToConflictTable(ObjPtr<mirror::Class> klass,
   // Allocate a new table. Note that we will leak this table at the next conflict,
   // but that's a tradeoff compared to making the table fixed size.
   void* data = linear_alloc->Alloc(
-      Thread::Current(), ImtConflictTable::ComputeSizeWithOneMoreEntry(current_table,
-                                                                       image_pointer_size_));
+      Thread::Current(),
+      ImtConflictTable::ComputeSizeWithOneMoreEntry(current_table, image_pointer_size_),
+      LinearAllocKind::kNoGCRoots);
   if (data == nullptr) {
     LOG(ERROR) << "Failed to allocate conflict table";
     return conflict_method;
@@ -6300,8 +6304,8 @@ ImtConflictTable* ClassLinker::CreateImtConflictTable(size_t count,
                                                       LinearAlloc* linear_alloc,
                                                       PointerSize image_pointer_size) {
   void* data = linear_alloc->Alloc(Thread::Current(),
-                                   ImtConflictTable::ComputeSize(count,
-                                                                 image_pointer_size));
+                                   ImtConflictTable::ComputeSize(count, image_pointer_size),
+                                   LinearAllocKind::kNoGCRoots);
   return (data != nullptr) ? new (data) ImtConflictTable(count, image_pointer_size) : nullptr;
 }
 
@@ -6917,7 +6921,7 @@ class ClassLinker::LinkMethodsHelper {
         klass_(klass),
         self_(self),
         runtime_(runtime),
-        stack_(runtime->GetLinearAlloc()->GetArenaPool()),
+        stack_(GetArenaPool()),
         allocator_(&stack_),
         copied_method_records_(copied_method_records_initial_buffer_,
                                kCopiedMethodRecordInitialBufferSize,
@@ -6945,6 +6949,12 @@ class ClassLinker::LinkMethodsHelper {
   // Allocate a pointer array.
   static ObjPtr<mirror::PointerArray> AllocPointerArray(Thread* self, size_t length)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  ArenaPool* GetArenaPool() {
+    bool low_4gb = Runtime::Current()->IsAotCompiler() && Is64BitInstructionSet(kRuntimeISA);
+    static ArenaPool* pool = new MemMapArenaPool(low_4gb);
+    return pool;
+  }
 
   // Allocate method arrays for interfaces.
   bool AllocateIfTableMethodArrays(Thread* self,
@@ -7603,12 +7613,22 @@ void ClassLinker::LinkMethodsHelper<kPointerSize>::ReallocMethods(ObjPtr<mirror:
   CHECK(methods != nullptr);  // Native allocation failure aborts.
 
   if (methods != old_methods) {
-    StrideIterator<ArtMethod> out = methods->begin(kMethodSize, kMethodAlignment);
-    // Copy over the old methods. The `ArtMethod::CopyFrom()` is only necessary to not miss
-    // read barriers since `LinearAlloc::Realloc()` won't do read barriers when it copies.
-    for (auto& m : klass->GetMethods(kPointerSize)) {
-      out->CopyFrom(&m, kPointerSize);
-      ++out;
+    if (gUseReadBarrier) {
+      StrideIterator<ArtMethod> out = methods->begin(kMethodSize, kMethodAlignment);
+      // Copy over the old methods. The `ArtMethod::CopyFrom()` is only necessary to not miss
+      // read barriers since `LinearAlloc::Realloc()` won't do read barriers when it copies.
+      for (auto& m : klass->GetMethods(kPointerSize)) {
+        out->CopyFrom(&m, kPointerSize);
+        ++out;
+      }
+    } else {
+      DCHECK(gUseUserfaultfd);
+      // Clear the declaring class of the old dangling method array so that GC doesn't
+      // try to update them, which could cause crashes in userfaultfd GC due to
+      // checks in post-compact address computation.
+      for (auto& m : *old_methods) {
+        m.SetDeclaringClass(nullptr);
+      }
     }
   }
 
