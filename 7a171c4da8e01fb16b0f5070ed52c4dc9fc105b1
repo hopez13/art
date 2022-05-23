@@ -16,6 +16,179 @@
       "message": "No objection, but not sure this adds much given the lifetime of the data (written during boot, read by system server and then erased).",
       "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "876003fa_0c62f61b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-23T12:38:59Z",
+      "side": 1,
+      "message": "I agree that the current implementation is fine in most cases. But as that data is handled by two different processes via the filesystem, I think adding a bit of structure may help to diagnose weird issues (e.g. data file corruption) before reporting these metrics to StatsD.",
+      "parentUuid": "f1b2186a_328acbb2",
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1f8400_4ea7cc99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-23T12:38:59Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b63fc2_dae64abc",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-23T12:38:59Z",
+      "side": 1,
+      "message": "Nit: The Android style is usually this one:\n\n  if (result !\u003d tinyxml2::XML_SUCCESS) {\n    return false;\n  }\n\nAlso, I think it\u0027d be useful to log additional errors here, as we have more context, e.g.:\n\n  if (result !\u003d tinyxml2::XML_SUCCESS) {\n    LOG(ERROR) \u003c\u003c \"Loading XML file \" \u003c\u003c filename \u003c\u003c \" failed with error: \"\n               \u003c\u003c ErrorStr();\n    return false;\n  }",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 52
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0648e47_f1088774",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-23T12:38:59Z",
+      "side": 1,
+      "message": "Ditto, I\u0027d do something like:\n\n  if (metrics \u003d\u003d nullptr) {\n    LOG(ERROR) \u003c\u003c \"Cannot find element `odrefresh_metrics` in XML document \"\n               \u003c\u003c filename;\n    return false;\n  }",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 39
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "331e5310_f1b79b02",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-23T12:38:59Z",
+      "side": 1,
+      "message": "I\u0027m wondering about error cases here; if the element named `name` cannot be found (e.g. because the file is corrupted), we\u0027ll get a null pointer here IIUC. Could you add some error processing to gracefully fail here?",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 41
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "449a791b_65117dbc",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-23T12:38:59Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 54,
+        "startChar": 9,
+        "endLine": 54,
+        "endChar": 41
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "150cbda3_1cf0f417",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-23T12:38:59Z",
+      "side": 1,
+      "message": "I think these could be refactored into a method template.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 54
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13dc69d6_9d3e3753",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-05-23T12:38:59Z",
+      "side": 1,
+      "message": "Could you also add a version number here, as you did for runtime metrics?",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
