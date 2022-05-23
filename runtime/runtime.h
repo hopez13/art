@@ -43,6 +43,7 @@
 #include "jdwp_provider.h"
 #include "jni/jni_id_manager.h"
 #include "jni_id_type.h"
+#include "linear_alloc.h"
 #include "metrics/reporter.h"
 #include "obj_ptr.h"
 #include "offsets.h"
@@ -97,7 +98,6 @@ enum class InstructionSet;
 class InternTable;
 class IsMarkedVisitor;
 class JavaVMExt;
-class LinearAlloc;
 class MonitorList;
 class MonitorPool;
 class NullPointerHandler;
@@ -785,6 +785,9 @@ class Runtime {
   // Create the JIT and instrumentation and code cache.
   void CreateJit();
 
+  ArenaPool* GetLinearAllocArenaPool() {
+    return linear_alloc_arena_pool_.get();
+  }
   ArenaPool* GetArenaPool() {
     return arena_pool_.get();
   }
@@ -1237,10 +1240,13 @@ class Runtime {
 
   std::unique_ptr<ArenaPool> jit_arena_pool_;
   std::unique_ptr<ArenaPool> arena_pool_;
-  // Special low 4gb pool for compiler linear alloc. We need ArtFields to be in low 4gb if we are
-  // compiling using a 32 bit image on a 64 bit compiler in case we resolve things in the image
-  // since the field arrays are int arrays in this case.
-  std::unique_ptr<ArenaPool> low_4gb_arena_pool_;
+  // This pool is used for linear alloc if we are using userfaultfd GC, or if
+  // low 4gb pool is required for compiler linear alloc. Otherwise, use
+  // arena_pool_.
+  // We need ArtFields to be in low 4gb if we are compiling using a 32 bit image
+  // on a 64 bit compiler in case we resolve things in the image since the field
+  // arrays are int arrays in this case.
+  std::unique_ptr<ArenaPool> linear_alloc_arena_pool_;
 
   // Shared linear alloc for now.
   std::unique_ptr<LinearAlloc> linear_alloc_;

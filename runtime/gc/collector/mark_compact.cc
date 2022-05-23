@@ -1406,7 +1406,6 @@ void MarkCompact::UpdateMovingSpaceBlackAllocations() {
       // BumpPointerSpace::Walk() also works similarly.
       while (black_allocs < block_end
              && obj->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
-        RememberDexCaches(obj);
         if (first_obj == nullptr) {
           first_obj = obj;
         }
@@ -1541,6 +1540,7 @@ class MarkCompact::ImmuneSpaceUpdateObjVisitor {
 // TODO: JVMTI redefinition leads to situations wherein new class object(s) and the
 // corresponding native roots are setup but are not linked to class tables and
 // therefore are not accessible, leading to memory corruption.
+#if 0
 class MarkCompact::NativeRootsUpdateVisitor : public ClassLoaderVisitor, public DexCacheVisitor {
  public:
   explicit NativeRootsUpdateVisitor(MarkCompact* collector, PointerSize pointer_size)
@@ -1628,6 +1628,121 @@ class MarkCompact::NativeRootsUpdateVisitor : public ClassLoaderVisitor, public 
   MarkCompact* const collector_;
   PointerSize pointer_size_;
 };
+#endif
+class MarkCompact::NativeRootsUpdateVisitor : public ClassLoaderVisitor {
+ public:
+  explicit NativeRootsUpdateVisitor(MarkCompact* collector)
+      : collector_(collector),
+        pointer_size_(Runtime::Current()->GetClassLinker()->GetImagePointerSize()) {}
+
+  void Visit(ObjPtr<mirror::ClassLoader> class_loader) override
+      REQUIRES_SHARED(Locks::classlinker_classes_lock_, Locks::mutator_lock_) {
+    ClassTable* const class_table = class_loader->GetClassTable();
+    if (class_table != nullptr) {
+      class_table->VisitRoots(*this);
+    }
+  }
+
+  void operator()(uint8_t* page_begin, uint8_t* first_obj)
+      ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK_ALIGNED(page_begin, kPageSize);
+    uint8_t* page_end = page_begin + kPageSize;
+    uint32_t obj_size;
+    for (uint8_t* byte = first_obj; byte < page_end;) {
+      TrackingHeader* header = reinterpret_cast<TrackingHeader*>(byte);
+      obj_size = header->GetSize();
+      LinearAllocKind kind = header->GetKind();
+      if (obj_size == 0) {
+        // No more objects in this page to visit.
+        DCHECK_EQ(static_cast<uint32_t>(kind), 0u);
+        break;
+      }
+      uint8_t* obj = byte + sizeof(TrackingHeader);
+      uint8_t* obj_end = byte + obj_size;
+      if (header->Is16Aligned()) {
+        obj = AlignUp(obj, 16);
+      }
+      if (UNLIKELY(obj >= page_end)) {
+        break;
+      }
+      VisitObject(kind, obj, obj < page_begin ? page_begin : obj, std::min(obj_end, page_end));
+      obj_size = RoundUp(obj_size, LinearAlloc::kAlignment);
+      byte += obj_size;
+    }
+  }
+
+  void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root) const
+      ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (!root->IsNull()) {
+      VisitRoot(root);
+    }
+  }
+
+  void VisitRoot(mirror::CompressedReference<mirror::Object>* root) const
+      ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
+    mirror::Object* old_ref = root->AsMirrorPtr();
+    DCHECK_NE(old_ref, nullptr);
+    if (collector_->live_words_bitmap_->HasAddress(old_ref)) {
+      if (reinterpret_cast<uint8_t*>(old_ref) >= collector_->black_allocations_begin_) {
+        mirror::Object* new_ref = collector_->PostCompactBlackObjAddr(old_ref);
+        root->Assign(new_ref);
+      } else if (collector_->live_words_bitmap_->Test(old_ref)) {
+        DCHECK(collector_->moving_space_bitmap_->Test(old_ref)) << old_ref;
+        mirror::Object* new_ref = collector_->PostCompactOldObjAddr(old_ref);
+        root->Assign(new_ref);
+      }
+    }
+  }
+
+ private:
+  void VisitObject(LinearAllocKind kind,
+                   void* obj,
+                   uint8_t* start_boundary,
+                   uint8_t* end_boundary)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    switch (kind) {
+      case LinearAllocKind::kGCRootArray:
+        {
+          GcRoot<mirror::Object>* root = reinterpret_cast<GcRoot<mirror::Object>*>(start_boundary);
+          GcRoot<mirror::Object>* last = reinterpret_cast<GcRoot<mirror::Object>*>(end_boundary);
+          for (; root < last; root++) {
+            VisitRootIfNonNull(root->AddressWithoutBarrier());
+          }
+        }
+        break;
+      case LinearAllocKind::kArtMethodArray:
+        ArtMethod::VisitArrayRoots(*this,
+                                   start_boundary,
+                                   end_boundary,
+                                   static_cast<LengthPrefixedArray<ArtMethod>*>(obj),
+                                   pointer_size_);
+        break;
+      case LinearAllocKind::kArtMethod:
+        ArtMethod::VisitRoots(*this, start_boundary, end_boundary, static_cast<ArtMethod*>(obj));
+        break;
+      case LinearAllocKind::kArtFieldArray:
+        ArtField::VisitArrayRoots(*this,
+                                  start_boundary,
+                                  end_boundary,
+                                  static_cast<LengthPrefixedArray<ArtField>*>(obj));
+        break;
+      case LinearAllocKind::kDexCacheArray:
+        {
+          mirror::DexCachePair<mirror::Object>* first =
+              reinterpret_cast<mirror::DexCachePair<mirror::Object>*>(start_boundary);
+          mirror::DexCachePair<mirror::Object>* last =
+              reinterpret_cast<mirror::DexCachePair<mirror::Object>*>(end_boundary);
+          mirror::DexCache::VisitDexCachePairRoots(*this, first, last);
+        }
+        break;
+      case LinearAllocKind::kNoGCRoots:
+        break;
+    }
+  }
+
+  MarkCompact* const collector_;
+  const PointerSize pointer_size_;
+};
 
 void MarkCompact::PreCompactionPhase() {
   TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
@@ -1696,7 +1811,7 @@ void MarkCompact::PreCompactionPhase() {
       thread->AdjustTlab(black_objs_slide_diff_);
     }
   }
-
+#if 0
   {
     // Native roots must be updated before updating system weaks as class linker
     // holds roots to class loaders and dex-caches as weak roots. Also, space
@@ -1719,6 +1834,18 @@ void MarkCompact::PreCompactionPhase() {
       }
     }
     dex_caches_.clear();
+  }
+#endif
+  {
+    TimingLogger::ScopedTiming t2("(Paused)UpdateNativeRoots", GetTimings());
+    NativeRootsUpdateVisitor visitor(this);
+    {
+      ReaderMutexLock rmu(thread_running_gc_, *Locks::classlinker_classes_lock_);
+      runtime->GetClassLinker()->VisitClassLoaders(&visitor);
+    }
+    GcVisitedArenaPool *arena_pool =
+        static_cast<GcVisitedArenaPool*>(runtime->GetLinearAllocArenaPool());
+    arena_pool->VisitRoots(visitor);
   }
 
   SweepSystemWeaks(thread_running_gc_, runtime, /*paused*/true);
@@ -2387,14 +2514,6 @@ void MarkCompact::ScanObject(mirror::Object* obj) {
     UpdateLivenessInfo(obj);
   }
   obj->VisitReferences(visitor, visitor);
-  RememberDexCaches(obj);
-}
-
-void MarkCompact::RememberDexCaches(mirror::Object* obj) {
-  if (obj->IsDexCache()) {
-    dex_caches_.insert(
-            mirror::CompressedReference<mirror::Object>::FromMirrorPtr(obj).AsVRegValue());
-  }
 }
 
 // Scan anything that's on the mark stack.

@@ -184,7 +184,7 @@ class Arena {
   void Reset();
   // Release is used inbetween uses and uses madvise for memory usage.
   virtual void Release() { }
-  uint8_t* Begin() {
+  uint8_t* Begin() const {
     return memory_;
   }
 
@@ -208,6 +208,8 @@ class Arena {
   bool Contains(const void* ptr) const {
     return memory_ <= ptr && ptr < memory_ + bytes_allocated_;
   }
+
+  Arena* Next() const { return next_; }
 
  protected:
   size_t bytes_allocated_;
@@ -353,6 +355,10 @@ class ArenaAllocator
 
   ArenaPool* GetArenaPool() const {
     return pool_;
+  }
+
+  Arena* GetHeadArena() const {
+    return arena_head_;
   }
 
   bool Contains(const void* ptr) const;
