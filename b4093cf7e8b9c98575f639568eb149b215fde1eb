@@ -33,6 +33,24 @@
       "message": "Just curious, why is this important?",
       "revId": "b4093cf7e8b9c98575f639568eb149b215fde1eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4560021_6f188a45",
+        "filename": "test/837-deopt/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-23T09:01:41Z",
+      "side": 1,
+      "message": "For the inline cache to be populated. I\u0027ve added the comment.",
+      "parentUuid": "c21f2690_a9c9e9f7",
+      "revId": "b4093cf7e8b9c98575f639568eb149b215fde1eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
