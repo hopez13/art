@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8717190f_aeca8b0c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-23T14:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c58e102_5f2becc9",
+      "range": {
+        "startLine": 131,
+        "startChar": 64,
+        "endLine": 131,
+        "endChar": 65
+      },
+      "revId": "1ba3d2b1d7cc935ff482151cce6fcfa5237d63c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b6d2a66_ae8dee77",
@@ -243,6 +267,30 @@
       "side": 1,
       "message": "As I mention in other comment this isn\u0027t actually a const.",
       "parentUuid": "4c107e75_8b7b12ab",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 2
+      },
+      "revId": "1ba3d2b1d7cc935ff482151cce6fcfa5237d63c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff3ec5d_18831eaf",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-23T14:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6975e625_1c53ab2b",
       "range": {
         "startLine": 109,
         "startChar": 0,

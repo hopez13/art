@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bdccbf8_1c8e2e37",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-23T14:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50b9a7b3_c0559c61",
+      "range": {
+        "startLine": 575,
+        "startChar": 36,
+        "endLine": 576,
+        "endChar": 80
+      },
+      "revId": "8a5aad13b1509b7a8122a4cb513e47e37cef5203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "222d0035_9e9b753d",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6efdc1b8_06164464",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-23T14:56:16Z",
+      "side": 1,
+      "message": "We discussed this and I will keep it this way so we don\u0027t have to walk the stack two times.",
+      "parentUuid": "222d0035_9e9b753d",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 105,
+        "endChar": 36
+      },
+      "revId": "8a5aad13b1509b7a8122a4cb513e47e37cef5203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80ab7ce1_7242fef4",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-05-17T14:58:44Z",
       "side": 1,
       "message": "Why was this not needed before?",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 90
+      },
+      "revId": "8a5aad13b1509b7a8122a4cb513e47e37cef5203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd006901_59bdcff1",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-05-23T14:56:16Z",
+      "side": 1,
+      "message": "This was done earlier as well. This was done in InstructionFramePopper which was both popping off frames from the instruction stack and also calling method unwind callbacks. The problem was it was only doing those for the methods on the instrumentation stack. But with my changes, JITed code won\u0027t have any entries on instrumentation stack so we would miss out on calling method unwind for those methods. So now, I split it into two, one that processes unwind callbacks based on what\u0027s there on the stack and this one to pop off frames on instrumentation stack (for ex: nterp frames). We can eventually remove this after we change nterp to handle method entry / exit hooks without using instrumentation stubs.",
+      "parentUuid": "80ab7ce1_7242fef4",
       "range": {
         "startLine": 219,
         "startChar": 0,
