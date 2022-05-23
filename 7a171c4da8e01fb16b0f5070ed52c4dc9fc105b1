@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "788554e7_1e2a19c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-05-23T13:22:34Z",
+      "side": 1,
+      "message": "`odr_statslog_android.cc` validates that the file was read and that the values from enumeration types are in the known sets of values. Admittedly it\u0027s not tagging the data that is written so someone could mess up the reader and writer code (that fit on the same terminal screen).\n\nAre you proposing to detect value corruption? Checksum/hash?",
+      "parentUuid": "876003fa_0c62f61b",
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2b63fc2_dae64abc",
@@ -112,6 +130,30 @@
       "writtenOn": "2022-05-23T12:38:59Z",
       "side": 1,
       "message": "I\u0027m wondering about error cases here; if the element named `name` cannot be found (e.g. because the file is corrupted), we\u0027ll get a null pointer here IIUC. Could you add some error processing to gracefully fail here?",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 41
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17d9ef33_cc581138",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-05-23T13:22:34Z",
+      "side": 1,
+      "message": "Rather than munge XML yourself, you could just as well generate most of these bits from an xsd file (see CacheInfo.xsd).",
+      "parentUuid": "331e5310_f1b79b02",
       "range": {
         "startLine": 49,
         "startChar": 9,
