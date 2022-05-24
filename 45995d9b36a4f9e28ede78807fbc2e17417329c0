@@ -22,6 +22,30 @@
       },
       "revId": "45995d9b36a4f9e28ede78807fbc2e17417329c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed158b1d_2f2a8600",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-24T10:20:16Z",
+      "side": 0,
+      "message": "No. The test is testing libartservice, so it should use source code.",
+      "parentUuid": "353004e9_a796fcfd",
+      "range": {
+        "startLine": 106,
+        "startChar": 8,
+        "endLine": 106,
+        "endChar": 24
+      },
+      "revId": "45995d9b36a4f9e28ede78807fbc2e17417329c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
