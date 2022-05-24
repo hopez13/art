@@ -46,6 +46,30 @@
       },
       "revId": "45995d9b36a4f9e28ede78807fbc2e17417329c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67bdaa98_18acce5b",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-24T12:26:47Z",
+      "side": 0,
+      "message": "Discussed offline. I\u0027m not convinced this is the right way - if we add this to MTS it needs to link dynamically to test what\u0027s on device, at least. But for now it does the job.",
+      "parentUuid": "ed158b1d_2f2a8600",
+      "range": {
+        "startLine": 106,
+        "startChar": 8,
+        "endLine": 106,
+        "endChar": 24
+      },
+      "revId": "45995d9b36a4f9e28ede78807fbc2e17417329c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
