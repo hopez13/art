@@ -36,7 +36,9 @@
 #include "dex/dex_file-inl.h"
 #include "driver/compiler_options.h"
 #include "entrypoints/quick/quick_entrypoints.h"
+#include "instrumentation.h"
 #include "jni/jni_env_ext.h"
+#include "runtime.h"
 #include "thread.h"
 #include "utils/arm/managed_register_arm.h"
 #include "utils/arm64/managed_register_arm64.h"
@@ -227,6 +229,20 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
   //       @CriticalNative method.
   if (LIKELY(!is_critical_native)) {
     __ StoreStackPointerToThread(Thread::TopOfManagedStackOffset<kPointerSize>(), should_tag_sp);
+  }
+
+  // 1.5. Call any method entry hooks if required.
+  // For critical native methods, we don't JIT stubs in debuggable runtimes.
+  // TODO(mythria): Add support to call method entry / exit hooks for critical native methods too.
+  std::unique_ptr<JNIMacroLabel> method_entry_hook_slow_path;
+  std::unique_ptr<JNIMacroLabel> method_entry_hook_return;
+  if (UNLIKELY(!is_critical_native && Runtime::Current()->IsJavaDebuggable())) {
+    uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
+    int offset = instrumentation::Instrumentation::NeedsEntryExitHooksOffset().Int32Value();
+    method_entry_hook_slow_path = __ CreateLabel();
+    method_entry_hook_return = __ CreateLabel();
+    __ TestAndJump(address + offset, method_entry_hook_slow_path.get(), JNIMacroUnaryCondition::kNotZero, 1);
+    __ Bind(method_entry_hook_return.get());
   }
 
   // 2. Lock the object (if synchronized) and transition out of Runnable (if normal native).
@@ -539,7 +555,22 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
     __ Bind(suspend_check_resume.get());
   }
 
-  // 7.5. Remove activation - need to restore callee save registers since the GC
+  // 7.5. Check if method exit hooks needs to be called
+  // For critical native methods, we don't JIT stubs in debuggable runtimes.
+  // TODO(mythria): Add support to call method entry / exit hooks for critical native methods too.
+  std::unique_ptr<JNIMacroLabel> method_exit_hook_slow_path;
+  std::unique_ptr<JNIMacroLabel> method_exit_hook_return;
+  // Critical native methods don't need method exit callbacks as they aren't user visible.
+  if (UNLIKELY(!is_critical_native && Runtime::Current()->IsJavaDebuggable())) {
+    uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
+    int offset = instrumentation::Instrumentation::NeedsEntryExitHooksOffset().Int32Value();
+    method_exit_hook_slow_path = __ CreateLabel();
+    method_exit_hook_return = __ CreateLabel();
+    __ TestAndJump(address + offset, method_exit_hook_slow_path.get(), JNIMacroUnaryCondition::kNotZero, 1);
+    __ Bind(method_exit_hook_return.get());
+  }
+
+  // 7.6. Remove activation - need to restore callee save registers since the GC
   //      may have changed them.
   DCHECK_EQ(jni_asm->cfi().GetCurrentCFAOffset(), static_cast<int>(current_frame_size));
   if (LIKELY(!is_critical_native) || !main_jni_conv->UseTailCall()) {
@@ -635,6 +666,17 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
     }
     DCHECK_EQ(jni_asm->cfi().GetCurrentCFAOffset(), static_cast<int>(current_frame_size));
     __ DeliverPendingException();
+  }
+
+  // 8.6. Method entry / exit hooks slow paths.
+  if (UNLIKELY(!is_critical_native && Runtime::Current()->IsJavaDebuggable())) {
+    __ Bind(method_entry_hook_slow_path.get());
+    __ CallFromThread(QUICK_ENTRYPOINT_OFFSET(kPointerSize, pMethodEntryHook));
+    __ Jump(method_entry_hook_return.get());
+
+    __ Bind(method_exit_hook_slow_path.get());
+    __ CallFromThread(QUICK_ENTRYPOINT_OFFSET(kPointerSize, pMethodExitHook));
+    __ Jump(method_exit_hook_return.get());
   }
 
   // 9. Finalize code generation.

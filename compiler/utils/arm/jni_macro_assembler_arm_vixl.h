@@ -213,6 +213,12 @@ class ArmVIXLJNIMacroAssembler final
   void TestGcMarking(JNIMacroLabel* label, JNIMacroUnaryCondition cond) override;
   // Emit a conditional jump to the label by applying a unary condition test to object's mark bit.
   void TestMarkBit(ManagedRegister ref, JNIMacroLabel* label, JNIMacroUnaryCondition cond) override;
+  // Emit a conditional jump to label by applying unary condition test by loading from specified
+  // address.
+  void TestAndJump(uintptr_t address,
+                   JNIMacroLabel* label,
+                   JNIMacroUnaryCondition cond,
+                   size_t size) override;
   // Code at this offset will serve as the target for the Jump call.
   void Bind(JNIMacroLabel* label) override;
 

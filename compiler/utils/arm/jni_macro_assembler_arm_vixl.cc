@@ -1220,6 +1220,31 @@ void ArmVIXLJNIMacroAssembler::TestMarkBit(ManagedRegister mref,
   }
 }
 
+void ArmVIXLJNIMacroAssembler::TestAndJump(uintptr_t address,
+                                       JNIMacroLabel* label,
+                                       JNIMacroUnaryCondition cond,
+                                       size_t size) {
+  UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
+  vixl32::Register scratch = temps.Acquire();
+  ___ Mov(scratch, static_cast<uint32_t>(address));
+  if (size == 1) {
+    ___ Ldrb(scratch, MemOperand(scratch, 0));
+  } else {
+    UNIMPLEMENTED(FATAL);
+  }
+  switch (cond) {
+    case JNIMacroUnaryCondition::kZero:
+      ___ CompareAndBranchIfZero(scratch, ArmVIXLJNIMacroLabel::Cast(label)->AsArm());
+      break;
+    case JNIMacroUnaryCondition::kNotZero:
+      ___ CompareAndBranchIfNonZero(scratch, ArmVIXLJNIMacroLabel::Cast(label)->AsArm());
+      break;
+    default:
+      LOG(FATAL) << "Not implemented unary condition: " << static_cast<int>(cond);
+      UNREACHABLE();
+  }
+}
+
 void ArmVIXLJNIMacroAssembler::Bind(JNIMacroLabel* label) {
   CHECK(label != nullptr);
   ___ Bind(ArmVIXLJNIMacroLabel::Cast(label)->AsArm());
