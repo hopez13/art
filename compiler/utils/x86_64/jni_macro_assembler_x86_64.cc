@@ -810,6 +810,20 @@ void X86_64JNIMacroAssembler::TestMarkBit(ManagedRegister mref,
   __ j(UnaryConditionToX86_64Condition(cond), X86_64JNIMacroLabel::Cast(label)->AsX86_64());
 }
 
+void X86_64JNIMacroAssembler::TestAndJump(uintptr_t address,
+                                       JNIMacroLabel* label,
+                                       JNIMacroUnaryCondition cond,
+                                       size_t size) {
+  CpuRegister scratch = GetScratchRegister();
+  if (size == 1) {
+    __ movq(scratch, Immediate(address));
+    __ cmpb(Address(scratch, 0), Immediate(0));
+  } else {
+    UNIMPLEMENTED(FATAL);
+  }
+  __ j(UnaryConditionToX86_64Condition(cond), X86_64JNIMacroLabel::Cast(label)->AsX86_64());
+}
+
 void X86_64JNIMacroAssembler::Bind(JNIMacroLabel* label) {
   CHECK(label != nullptr);
   __ Bind(X86_64JNIMacroLabel::Cast(label)->AsX86_64());

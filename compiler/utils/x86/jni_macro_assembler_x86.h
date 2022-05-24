@@ -189,6 +189,12 @@ class X86JNIMacroAssembler final : public JNIMacroAssemblerFwd<X86Assembler, Poi
   void TestGcMarking(JNIMacroLabel* label, JNIMacroUnaryCondition cond) override;
   // Emit a conditional jump to the label by applying a unary condition test to object's mark bit.
   void TestMarkBit(ManagedRegister ref, JNIMacroLabel* label, JNIMacroUnaryCondition cond) override;
+  // Emit a conditional jump to label by applying unary condition test to the value loaded from
+  // specified address.
+  void TestAndJump(uintptr_t address,
+                   JNIMacroLabel* label,
+                   JNIMacroUnaryCondition cond,
+                   size_t size) override;
   // Code at this offset will serve as the target for the Jump call.
   void Bind(JNIMacroLabel* label) override;
 
