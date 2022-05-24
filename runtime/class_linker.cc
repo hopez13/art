@@ -247,23 +247,26 @@ static void ChangeInterpreterBridgeToNterp(ArtMethod* method, ClassLinker* class
   }
 }
 
+static void UpdateMethodsToNterp(Handle<mirror::Class> klass, PointerSize pointer_size)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  Runtime* runtime = Runtime::Current();
+  ClassLinker* class_linker = runtime->GetClassLinker();
+  if (interpreter::CanRuntimeUseNterp()) {
+    for (ArtMethod& m : klass->GetMethods(pointer_size)) {
+      ChangeInterpreterBridgeToNterp(&m, class_linker);
+    }
+  }
+}
+
 // Ensures that methods have the kAccSkipAccessChecks bit set. We use the
 // kAccVerificationAttempted bit on the class access flags to determine whether this has been done
 // before.
 static void EnsureSkipAccessChecksMethods(Handle<mirror::Class> klass, PointerSize pointer_size)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  Runtime* runtime = Runtime::Current();
-  ClassLinker* class_linker = runtime->GetClassLinker();
   if (!klass->WasVerificationAttempted()) {
     klass->SetSkipAccessChecksFlagOnAllMethods(pointer_size);
     klass->SetVerificationAttempted();
-    // Now that the class has passed verification, try to set nterp entrypoints
-    // to methods that currently use the switch interpreter.
-    if (interpreter::CanRuntimeUseNterp()) {
-      for (ArtMethod& m : klass->GetMethods(pointer_size)) {
-        ChangeInterpreterBridgeToNterp(&m, class_linker);
-      }
-    }
+    UpdateMethodsToNterp(klass, pointer_size);
   }
 }
 
@@ -4582,6 +4585,7 @@ verifier::FailureKind ClassLinker::VerifyClass(Thread* self,
         // Mark the class as having a verification attempt to avoid re-running
         // the verifier and avoid calling EnsureSkipAccessChecksMethods.
         klass->SetVerificationAttempted();
+        UpdateMethodsToNterp(klass, image_pointer_size_);
         mirror::Class::SetStatus(klass, ClassStatus::kVerified, self);
       }
       return verifier::FailureKind::kAccessChecksFailure;
@@ -4729,6 +4733,7 @@ verifier::FailureKind ClassLinker::VerifyClass(Thread* self,
         // As this is a fake verified status, make sure the methods are _not_ marked
         // kAccSkipAccessChecks later.
         klass->SetVerificationAttempted();
+        UpdateMethodsToNterp(klass, image_pointer_size_);
       }
     }
   } else {
@@ -4745,6 +4750,7 @@ verifier::FailureKind ClassLinker::VerifyClass(Thread* self,
       // Never skip access checks if the verification soft fail is forced.
       // Mark the class as having a verification attempt to avoid re-running the verifier.
       klass->SetVerificationAttempted();
+      UpdateMethodsToNterp(klass, image_pointer_size_);
     } else {
       // Class is verified so we don't need to do any access check on its methods.
       // Let the interpreter know it by setting the kAccSkipAccessChecks flag onto each
