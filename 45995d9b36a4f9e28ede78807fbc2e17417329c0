@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "353004e9_a796fcfd",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-24T09:58:13Z",
+      "side": 0,
+      "message": "Shouldn\u0027t the tests continue to link the lib dynamically?",
+      "range": {
+        "startLine": 106,
+        "startChar": 8,
+        "endLine": 106,
+        "endChar": 24
+      },
+      "revId": "45995d9b36a4f9e28ede78807fbc2e17417329c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
