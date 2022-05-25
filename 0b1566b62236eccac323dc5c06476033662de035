@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85164766_71e60cdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2022-05-25T18:48:34Z",
+      "side": 1,
+      "message": "The current presubmit failures seem to be due to a flaky test and a currently broken master-art build.",
+      "revId": "0b1566b62236eccac323dc5c06476033662de035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da6909d6_d43b1a55",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-05-25T08:42:12Z",
       "side": 1,
       "message": "Please add a comment why OBJPTR_INLINE needs this.",
+      "range": {
+        "startLine": 28,
+        "startChar": 53,
+        "endLine": 28,
+        "endChar": 71
+      },
+      "revId": "0b1566b62236eccac323dc5c06476033662de035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89575500_d1088c35",
+        "filename": "runtime/obj_ptr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2022-05-25T18:48:34Z",
+      "side": 1,
+      "message": "No longer needed.",
+      "parentUuid": "da6909d6_d43b1a55",
       "range": {
         "startLine": 28,
         "startChar": 53,

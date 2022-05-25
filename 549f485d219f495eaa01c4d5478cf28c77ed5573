@@ -132,6 +132,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b2525477_835f52fa",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1047255
+      },
+      "writtenOn": "2022-05-25T18:48:34Z",
+      "side": 1,
+      "message": "The compiler change that allowed us to resurrect this patch set makes this unnecessary.  Thanks for bringing it to my attention.",
+      "parentUuid": "f98ac801_180a0423",
+      "range": {
+        "startLine": 74,
+        "startChar": 52,
+        "endLine": 74,
+        "endChar": 72
+      },
+      "revId": "549f485d219f495eaa01c4d5478cf28c77ed5573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a01eda0f_8c7b4885",
         "filename": "runtime/arch/arm/quick_entrypoints_cc_arm.cc",
         "patchSetId": 1
