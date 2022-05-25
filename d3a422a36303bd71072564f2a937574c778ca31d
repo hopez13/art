@@ -1170,6 +1170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80d7fd7b_16eec627",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T01:06:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "22e1fb6e_1a5e6a4e",
+      "range": {
+        "startLine": 687,
+        "startChar": 4,
+        "endLine": 687,
+        "endChar": 25
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de9bf4f8_57443bc5",
@@ -1396,6 +1420,30 @@
       "side": 1,
       "message": "The offset is actually relative to the moving space\u0027s beginning. But it is guaranteed to be within the obj. I could have made the offsets relative to object beginning too, but didn\u0027t see any difference in the two approach and ended up choosing the former.\n\nUpdated the comment. PTAL",
       "parentUuid": "1c970377_eafcdaea",
+      "range": {
+        "startLine": 190,
+        "startChar": 2,
+        "endLine": 192,
+        "endChar": 69
+      },
+      "revId": "d3a422a36303bd71072564f2a937574c778ca31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bee28290_efc954c5",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T01:06:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b66ae213_3b764963",
       "range": {
         "startLine": 190,
         "startChar": 2,
