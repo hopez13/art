@@ -16,6 +16,24 @@
       "message": "Also print the ArtMethod ?",
       "revId": "beabd61bed8241cb66d9321e8eab417b8f23438a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c318787_0de26544",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-05-25T13:57:11Z",
+      "side": 1,
+      "message": "I thought about that, but the main reason this might happen is if the stack is corrupted, in which case accessing ArtMethod might crash.  I fine with the crash as we are failing anyway, but then we would get no info.\n\nThe printed PC should match with one of the methods printed in native backtrace.  Although the native backtrace prints mmap-relative PCs, so it is painful to interpret.",
+      "parentUuid": "fbf00242_a2707b07",
+      "revId": "beabd61bed8241cb66d9321e8eab417b8f23438a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
