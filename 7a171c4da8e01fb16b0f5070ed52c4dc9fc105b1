@@ -96,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5eeddcd1_db144957",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-25T16:52:00Z",
+      "side": 1,
+      "message": "I agree, some logging about this could be useful - will change.",
+      "parentUuid": "d2b63fc2_dae64abc",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 52
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0648e47_f1088774",
         "filename": "odrefresh/odr_metrics_record.cc",
         "patchSetId": 1
@@ -107,6 +131,30 @@
       "writtenOn": "2022-05-23T12:38:59Z",
       "side": 1,
       "message": "Ditto, I\u0027d do something like:\n\n  if (metrics \u003d\u003d nullptr) {\n    LOG(ERROR) \u003c\u003c \"Cannot find element `odrefresh_metrics` in XML document \"\n               \u003c\u003c filename;\n    return false;\n  }",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 39
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a8fc61_d018215b",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-25T16:52:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b0648e47_f1088774",
       "range": {
         "startLine": 32,
         "startChar": 0,
@@ -166,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08a7a719_5c20a26e",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-25T16:52:00Z",
+      "side": 1,
+      "message": "I tried the XML schema solution but decided against it because it generates more code (~350 vs ~100 of the hand-rolled solution) - but if you think it would be better I can change it.",
+      "parentUuid": "331e5310_f1b79b02",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 41
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "449a791b_65117dbc",
         "filename": "odrefresh/odr_metrics_record.cc",
         "patchSetId": 1
@@ -177,6 +249,30 @@
       "writtenOn": "2022-05-23T12:38:59Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 54,
+        "startChar": 9,
+        "endLine": 54,
+        "endChar": 41
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eba055c_61cbe961",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-25T16:52:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "449a791b_65117dbc",
       "range": {
         "startLine": 54,
         "startChar": 9,
@@ -212,6 +308,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c21ebf65_b1dc19a8",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-25T16:52:00Z",
+      "side": 1,
+      "message": "Sounds good, I\u0027ll look into that",
+      "parentUuid": "150cbda3_1cf0f417",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 54
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13dc69d6_9d3e3753",
         "filename": "odrefresh/odr_metrics_record.h",
         "patchSetId": 1
@@ -223,6 +343,30 @@
       "writtenOn": "2022-05-23T12:38:59Z",
       "side": 1,
       "message": "Could you also add a version number here, as you did for runtime metrics?",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "7a171c4da8e01fb16b0f5070ed52c4dc9fc105b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05c79f01_2932d65f",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-25T16:52:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "13dc69d6_9d3e3753",
       "range": {
         "startLine": 33,
         "startChar": 7,
