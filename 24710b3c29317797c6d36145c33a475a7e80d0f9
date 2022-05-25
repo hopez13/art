@@ -34,6 +34,24 @@
       "parentUuid": "9934fdc0_022b5d26",
       "revId": "24710b3c29317797c6d36145c33a475a7e80d0f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e037cfa_0fce7803",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1121678
+      },
+      "writtenOn": "2022-05-25T11:57:41Z",
+      "side": 0,
+      "message": "Thanks, that worked (at least locally). Re-running presubmit.",
+      "parentUuid": "fdd0d91a_955b34b7",
+      "revId": "24710b3c29317797c6d36145c33a475a7e80d0f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
