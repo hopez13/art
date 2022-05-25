@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b85afb4_d1de45cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T21:16:48Z",
+      "side": 1,
+      "message": "I made a pass through this. I\u0027m fine with it, except that I unfortunately disagree with a conclusion that you and Nicolas reached earlier.",
+      "revId": "ae9a28445ce4a9b300ae9f43364a0e1726a13213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8664b018_332276e7",
+        "filename": "runtime/interpreter/interpreter_cache-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T21:16:48Z",
+      "side": 1,
+      "message": "I think GetWeakRefAccessEnabled used to start with\n\nCHECK(gUseReadBarrier);\n\nI would rather not remove the CHECK, since GetWeakRefAccessEnabled doesn\u0027t do what it says in the other case. And the whole mechanism for checking the weak reference status is more than confusing enough as is.",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "ae9a28445ce4a9b300ae9f43364a0e1726a13213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
