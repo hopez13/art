@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3af1ca3_71bcc5e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1952265
+      },
+      "writtenOn": "2022-05-25T14:54:20Z",
+      "side": 1,
+      "message": "This patch includes the following patchsets (PS):\n- PS1 is a clean revert with no changes.\n- PS2 includes a basic fix/workaround to the original bug however will impact performance slightly negatively.\n- PS3 includes a codegen fix which includes a flag to disable codegen instead of removing the SuspendCheck node.",
+      "revId": "437fe4309375553d416d6f100414e634aa21fd48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
