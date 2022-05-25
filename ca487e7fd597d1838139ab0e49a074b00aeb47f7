@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d416590_80a2b72f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "Finished a full pass here.",
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60404cee_95b7ded3",
@@ -66,6 +83,230 @@
         "endLine": 142,
         "endChar": 6
       },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baddbd6f_ae2ef816",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "This should presumably be static or in an anonymous namespace? Especially since this is clearly meant to be called exactly once.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 29
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "244c14ce_b04a3e03",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "Again, I think this could be simpler with a different API.",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 79,
+        "endChar": 24
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70f09546_330ae702",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "Can\u0027t we simplify this to\n\n(kUseBakerReadBarrier || kUseTableLookupReadBarrier) \u0026\u0026 (!ShouldUseUserfaultfd() || kForceReadBarrier)",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 56
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5d9b112_68459a5a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "Isn\u0027t that redundant? Or what\u0027s the relationship between kForceReadBarrier and ART_FORCE_USE_READ_BARRIER?",
+      "range": {
+        "startLine": 108,
+        "startChar": 38,
+        "endLine": 108,
+        "endChar": 55
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1c0973b_ef40309b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "If you\u0027re changing this anyway, please make that \"off\"",
+      "range": {
+        "startLine": 113,
+        "startChar": 8,
+        "endLine": 113,
+        "endChar": 10
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d288f0b3_b43f83e3",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "Why are we keeping this at all? If we want to keep it, could we rename it to MayHaveConcurrentGC(), since there is no longer an allocator involved?",
+      "range": {
+        "startLine": 1037,
+        "startChar": 24,
+        "endLine": 1037,
+        "endChar": 52
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "944106a8_ba030e0d",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "gOtherReadBarrier -\u003e otherUseReadBarrier\n\nAnd I would reveres the operands of \u0026\u0026 to have the compile-time subexpression first. (The compiler probably does that anyway, but ...)",
+      "range": {
+        "startLine": 121,
+        "startChar": 15,
+        "endLine": 121,
+        "endChar": 76
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6e00405_adc05bd7",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "Is this still correct? What\u0027s the intended logic here? If we\u0027re not using read barriers, will we still be able to use read barrier code?\n\nAt a minimum, the is_cc name here seems wrong, It should be something like has_read_barriers?",
+      "range": {
+        "startLine": 422,
+        "startChar": 13,
+        "endLine": 422,
+        "endChar": 18
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58209e59_fd0ffad2",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "Do you understand this comment, or why the next 3 lines are correct?",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 201,
+        "endChar": 23
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ccd640f_e680b52b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-25T19:29:19Z",
+      "side": 1,
+      "message": "So we now have a parameter to which we\u0027re unconditionally adding one? If so, should we file a bug to fix this so that we use the parameter directly? Presumably this requires adjusting a bunch of configurations, but this seems really confusing as is.\n\n(And maybe we don\u0027t actually want to adjust all the configurations, since the result may be too large anyway.)",
       "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
