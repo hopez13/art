@@ -519,6 +519,9 @@ class MarkCompact : public GarbageCollector {
   void* stack_end_;
 
   uint8_t* conc_compaction_termination_page_;
+  // Number of objects freed during this GC in moving space. This is eventually
+  // consistent by the end of marking phase.
+  int32_t freed_objects_;
   // Userfault file descriptor, accessed only by the GC itself.
   // kFallbackMode value indicates that we are in the fallback mode.
   int uffd_;
