@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d690072_ea8a05db",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-26T14:51:47Z",
+      "side": 1,
+      "message": "I think it still makes sense to be consistent and call it \"generate_code\" in this context. But a big comment on the instruction-\u003eSetGenerateCode(false) is warranted.",
+      "range": {
+        "startLine": 986,
+        "startChar": 61,
+        "endLine": 986,
+        "endChar": 71
+      },
+      "revId": "7eec0dc096e6b9ade49b63a7c6d64f9c14b02421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99ced8c0_dcf1bed9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-26T14:51:47Z",
+      "side": 1,
+      "message": "Would SuspendChecksAreAllowedToNoOp be clearer?",
+      "range": {
+        "startLine": 684,
+        "startChar": 7,
+        "endLine": 684,
+        "endChar": 41
+      },
+      "revId": "7eec0dc096e6b9ade49b63a7c6d64f9c14b02421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
