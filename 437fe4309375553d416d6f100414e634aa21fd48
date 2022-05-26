@@ -16,6 +16,69 @@
       "message": "This patch includes the following patchsets (PS):\n- PS1 is a clean revert with no changes.\n- PS2 includes a basic fix/workaround to the original bug however will impact performance slightly negatively.\n- PS3 includes a codegen fix which includes a flag to disable codegen instead of removing the SuspendCheck node.",
       "revId": "437fe4309375553d416d6f100414e634aa21fd48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ebd1ab9_3811eaaa",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-26T09:12:41Z",
+      "side": 1,
+      "message": "This reads a bit odd with the SetGenerateCode(false) below. Can you add a comment?",
+      "range": {
+        "startLine": 713,
+        "startChar": 6,
+        "endLine": 713,
+        "endChar": 19
+      },
+      "revId": "437fe4309375553d416d6f100414e634aa21fd48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed6acf39_b2e757d3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-26T09:12:41Z",
+      "side": 1,
+      "message": "Not applicable anymore.",
+      "range": {
+        "startLine": 683,
+        "startChar": 20,
+        "endLine": 685,
+        "endChar": 10
+      },
+      "revId": "437fe4309375553d416d6f100414e634aa21fd48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72b87398_ec5b2978",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 6749,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-26T09:12:41Z",
+      "side": 1,
+      "message": "Add a comment here on why we have this flag, and we just don\u0027t remove the instruction. That\u0027s likely just for CHA right?",
+      "revId": "437fe4309375553d416d6f100414e634aa21fd48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
