@@ -89,6 +89,22 @@ class OatFileAssistant {
     kOatUpToDate,
   };
 
+  // Options that a runtime would take if the OAT file were going to be loaded by the runtime.
+  struct RuntimeOptions {
+    // Required. See `-Ximage`.
+    const std::vector<std::string> image_locations;
+    // Required. See `-Xbootclasspath`.
+    const std::vector<std::string> boot_class_path;
+    // Required. See `-Xbootclasspath-locations`.
+    const std::vector<std::string> boot_class_path_locations;
+    // Optional. See `-Xbootclasspathfds`.
+    const std::vector<int> boot_class_path_fds;
+    // Required. See `-Xforcejitzygote`.
+    const bool use_jit_zygote;
+    // Required. See `-Xdeny-art-apex-data-files`.
+    const bool deny_art_apex_data_files;
+  };
+
   // Constructs an OatFileAssistant object to assist the oat file
   // corresponding to the given dex location with the target instruction set.
   //
@@ -110,11 +126,15 @@ class OatFileAssistant {
   // only_load_trusted_executable should be true if the caller intends to have
   // only oat files from trusted locations loaded executable. See IsTrustedLocation() for
   // details on trusted locations.
+  //
+  // runtime_options should be provided with all the required fields filled if the caller intends to
+  // use OatFileAssistant without a runtime.
   OatFileAssistant(const char* dex_location,
                    const InstructionSet isa,
                    ClassLoaderContext* context,
                    bool load_executable,
-                   bool only_load_trusted_executable = false);
+                   bool only_load_trusted_executable = false,
+                   std::unique_ptr<RuntimeOptions> runtime_options = nullptr);
 
   // Similar to this(const char*, const InstructionSet, bool), however, if a valid zip_fd is
   // provided, vdex, oat, and zip files will be read from vdex_fd, oat_fd and zip_fd respectively.
@@ -124,6 +144,7 @@ class OatFileAssistant {
                    ClassLoaderContext* context,
                    bool load_executable,
                    bool only_load_trusted_executable,
+                   std::unique_ptr<RuntimeOptions> runtime_options,
                    int vdex_fd,
                    int oat_fd,
                    int zip_fd);
@@ -189,7 +210,8 @@ class OatFileAssistant {
   static void GetOptimizationStatus(const std::string& filename,
                                     InstructionSet isa,
                                     std::string* out_compilation_filter,
-                                    std::string* out_compilation_reason);
+                                    std::string* out_compilation_reason,
+                                    std::unique_ptr<RuntimeOptions> runtime_options = nullptr);
 
   // Open and returns an image space associated with the oat file.
   static std::unique_ptr<gc::space::ImageSpace> OpenImageSpace(const OatFile* oat_file);
@@ -253,8 +275,19 @@ class OatFileAssistant {
   // Returns false on error, in which case error_msg describes the error and
   // oat_filename is not changed.
   // Neither oat_filename nor error_msg may be null.
+  //
+  // Calling this function requires an active runtime.
   static bool DexLocationToOatFilename(const std::string& location,
                                        InstructionSet isa,
+                                       std::string* oat_filename,
+                                       std::string* error_msg);
+
+  // Same as above, but also takes `deny_art_apex_data_files` from input.
+  //
+  // Calling this function does not require an active runtime.
+  static bool DexLocationToOatFilename(const std::string& location,
+                                       InstructionSet isa,
+                                       bool deny_art_apex_data_files,
                                        std::string* oat_filename,
                                        std::string* error_msg);
 
@@ -262,6 +295,8 @@ class OatFileAssistant {
   // is known, creates an absolute path in that directory and tries to infer path
   // of a corresponding vdex file. Otherwise only creates a basename dex_location
   // from the combined checksums. Returns true if all out-arguments have been set.
+  //
+  // Calling this function requires an active runtime.
   static bool AnonymousDexVdexLocation(const std::vector<const DexFile::Header*>& dex_headers,
                                        InstructionSet isa,
                                        /* out */ std::string* dex_location,
@@ -432,6 +467,8 @@ class OatFileAssistant {
   // Will be set during GetRequiredDexChecksums.
   bool zip_file_only_contains_uncompressed_dex_ = true;
 
+  std::unique_ptr<RuntimeOptions> runtime_options_;
+
   // Cached value of the required dex checksums.
   // This should be accessed only by the GetRequiredDexChecksums() method.
   std::vector<uint32_t> cached_required_dex_checksums_;
@@ -461,6 +498,13 @@ class OatFileAssistant {
 
   std::string cached_boot_class_path_;
   std::string cached_boot_class_path_checksums_;
+
+  // Apex versions of boot classpath jars concatenated in a string. The format is of the type:
+  // '/apex1_version/apex2_version//'
+  //
+  // When the apex is the factory version, we don't encode it (for example in the third entry in the
+  // example above).
+  std::string apex_versions_;
 
   friend class OatFileAssistantTest;
 

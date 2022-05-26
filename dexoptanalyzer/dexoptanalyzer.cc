@@ -324,6 +324,7 @@ class DexoptAnalyzer final {
                                                             class_loader_context.get(),
                                                             /*load_executable=*/ false,
                                                             /*only_load_trusted_executable=*/ false,
+                                                            /*runtime_options=*/ nullptr,
                                                             vdex_fd_,
                                                             oat_fd_,
                                                             zip_fd_);
