@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f56875b_9ba7e85e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1952265
+      },
+      "writtenOn": "2022-05-26T15:29:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d690072_ea8a05db",
+      "range": {
+        "startLine": 986,
+        "startChar": 61,
+        "endLine": 986,
+        "endChar": 71
+      },
+      "revId": "7eec0dc096e6b9ade49b63a7c6d64f9c14b02421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99ced8c0_dcf1bed9",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-26T14:51:47Z",
       "side": 1,
       "message": "Would SuspendChecksAreAllowedToNoOp be clearer?",
+      "range": {
+        "startLine": 684,
+        "startChar": 7,
+        "endLine": 684,
+        "endChar": 41
+      },
+      "revId": "7eec0dc096e6b9ade49b63a7c6d64f9c14b02421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79f37728_c2ab4a02",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1952265
+      },
+      "writtenOn": "2022-05-26T15:29:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ced8c0_dcf1bed9",
       "range": {
         "startLine": 684,
         "startChar": 7,
