@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdbb5c82_87fbf667",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-26T16:51:26Z",
+      "side": 1,
+      "message": "Sorry final nit, but maybe again for consistency (and fixing the name confusion), rename the method to SetIsNoOp ?",
+      "range": {
+        "startLine": 721,
+        "startChar": 17,
+        "endLine": 721,
+        "endChar": 32
+      },
+      "revId": "126449e98e1d4d9a15695b50cffac06729b20f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ecb997f_ab332651",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-26T16:51:26Z",
+      "side": 1,
+      "message": "should always generate code for them",
+      "range": {
+        "startLine": 683,
+        "startChar": 38,
+        "endLine": 683,
+        "endChar": 60
+      },
+      "revId": "126449e98e1d4d9a15695b50cffac06729b20f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
