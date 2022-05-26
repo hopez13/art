@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c529c573_b08e0c39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-26T02:56:47Z",
+      "side": 1,
+      "message": "Failures say\n\nCaused by: com.android.tools.r8.internal.f: Cannot fit requested classes in a single dex file (# methods: 65551 \u003e 65536)\n\nwhich is unlikely to be caused by this change.",
+      "revId": "7bee0f09e6bb4f3af0dca11c614e7bd3d965f14c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
