@@ -24,6 +24,7 @@
 #include <random>
 #include <string>
 
+#include "android-base/logging.h"
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
 #include "android-base/unique_fd.h"
@@ -1425,13 +1426,19 @@ class ImageSpace::BootImageLayout {
                   ArrayRef<const int> boot_class_path_image_fds,
                   ArrayRef<const int> boot_class_path_vdex_fds,
                   ArrayRef<const int> boot_class_path_oat_fds)
-     : image_locations_(image_locations),
-       boot_class_path_(boot_class_path),
-       boot_class_path_locations_(boot_class_path_locations),
-       boot_class_path_fds_(boot_class_path_fds),
-       boot_class_path_image_fds_(boot_class_path_image_fds),
-       boot_class_path_vdex_fds_(boot_class_path_vdex_fds),
-       boot_class_path_oat_fds_(boot_class_path_oat_fds) {}
+      : image_locations_(image_locations),
+        boot_class_path_(boot_class_path),
+        boot_class_path_locations_(boot_class_path_locations),
+        boot_class_path_fds_(boot_class_path_fds),
+        boot_class_path_image_fds_(boot_class_path_image_fds),
+        boot_class_path_vdex_fds_(boot_class_path_vdex_fds),
+        boot_class_path_oat_fds_(boot_class_path_oat_fds) {
+    if (Runtime::Current() != nullptr) {
+      apex_versions_ = Runtime::Current()->GetApexVersions();
+    } else {
+      apex_versions_ = Runtime::GetApexVersions(boot_class_path_locations);
+    }
+  }
 
   std::string GetPrimaryImageLocation();
 
@@ -1563,6 +1570,7 @@ class ImageSpace::BootImageLayout {
   size_t next_bcp_index_ = 0u;
   size_t total_component_count_ = 0u;
   size_t total_reservation_size_ = 0u;
+  std::string apex_versions_;
 };
 
 std::string ImageSpace::BootImageLayout::GetPrimaryImageLocation() {
@@ -1886,7 +1894,7 @@ bool ImageSpace::BootImageLayout::ValidateOatFile(
                               error_msg->c_str());
     return false;
   }
-  if (!ImageSpace::ValidateOatFile(*oat_file, error_msg, dex_filenames, dex_fds)) {
+  if (!ImageSpace::ValidateOatFile(*oat_file, error_msg, dex_filenames, dex_fds, apex_versions_)) {
     return false;
   }
   return true;
@@ -3519,7 +3527,9 @@ void ImageSpace::Dump(std::ostream& os) const {
       << ",name=\"" << GetName() << "\"]";
 }
 
-bool ImageSpace::ValidateApexVersions(const OatFile& oat_file, std::string* error_msg) {
+bool ImageSpace::ValidateApexVersions(const OatFile& oat_file,
+                                      const std::string& apex_versions,
+                                      std::string* error_msg) {
   // For a boot image, the key value store only exists in the first OAT file. Skip other OAT files.
   if (oat_file.GetOatHeader().GetKeyValueStoreSize() == 0) {
     return true;
@@ -3542,27 +3552,33 @@ bool ImageSpace::ValidateApexVersions(const OatFile& oat_file, std::string* erro
   // For a boot image, it can be generated from a subset of the bootclasspath.
   // For an app image, some dex files get compiled with a subset of the bootclasspath.
   // For such cases, the OAT APEX versions will be a prefix of the runtime APEX versions.
-  if (!android::base::StartsWith(Runtime::Current()->GetApexVersions(), oat_apex_versions)) {
+  if (!android::base::StartsWith(apex_versions, oat_apex_versions)) {
     *error_msg = StringPrintf(
         "ValidateApexVersions found APEX versions mismatch between oat file '%s' and the runtime "
         "(Oat file: '%s', Runtime: '%s')",
         oat_file.GetLocation().c_str(),
         oat_apex_versions,
-        Runtime::Current()->GetApexVersions().c_str());
+        apex_versions.c_str());
     return false;
   }
   return true;
 }
 
 bool ImageSpace::ValidateOatFile(const OatFile& oat_file, std::string* error_msg) {
-  return ValidateOatFile(oat_file, error_msg, ArrayRef<const std::string>(), ArrayRef<const int>());
+  DCHECK(Runtime::Current() != nullptr);
+  return ValidateOatFile(oat_file,
+                         error_msg,
+                         ArrayRef<const std::string>(),
+                         ArrayRef<const int>(),
+                         Runtime::Current()->GetApexVersions());
 }
 
 bool ImageSpace::ValidateOatFile(const OatFile& oat_file,
                                  std::string* error_msg,
                                  ArrayRef<const std::string> dex_filenames,
-                                 ArrayRef<const int> dex_fds) {
-  if (!ValidateApexVersions(oat_file, error_msg)) {
+                                 ArrayRef<const int> dex_fds,
+                                 const std::string& apex_versions) {
+  if (!ValidateApexVersions(oat_file, apex_versions, error_msg)) {
     return false;
   }
 
