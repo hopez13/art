@@ -29,7 +29,7 @@
 
 #include <android-base/file.h>
 #include <android-base/stringprintf.h>
-
+#include <android-base/properties.h>
 #include "arch/instruction_set.h"
 #include "base/logging.h"  // For GetCmdLine.
 #include "base/os.h"
@@ -127,7 +127,11 @@ void SignalCatcher::HandleSigQuit() {
   std::string fingerprint = runtime->GetFingerprint();
   os << "Build fingerprint: '" << (fingerprint.empty() ? "unknown" : fingerprint) << "'\n";
   os << "ABI: '" << GetInstructionSetString(runtime->GetInstructionSet()) << "'\n";
-
+  std::string hardware  = android::base::GetProperty("ro.hardware", "unknown");
+  os << "Hardware: '" << hardware << "'\n";
+  std::string version;
+  if (!android::base::ReadFileToString("/proc/version", &version)) version = "unknown";
+  os << "Kernel: '" << version << "'\n";
   os << "Build type: " << (kIsDebugBuild ? "debug" : "optimized") << "\n";
 
   runtime->DumpForSigQuit(os);
