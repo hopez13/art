@@ -16,6 +16,29 @@
       "message": "FYI: I realized that I introduced a bug in PS2 that can make OatFileAssistant::GetDexoptNeeded return wrong results in some cases. PS3 added a new function OatFileAssistant::IsBootImageUsable to fix it. Please see the diff between PS2 and PS3.",
       "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "191d6228_bc63728d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T16:31:57Z",
+      "side": 1,
+      "message": "Was this change needed? Why?",
+      "range": {
+        "startLine": 1557,
+        "startChar": 0,
+        "endLine": 1564,
+        "endChar": 3
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
