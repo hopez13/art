@@ -20,6 +20,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b229c5f_8b39f601",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T09:00:46Z",
+      "side": 1,
+      "message": "Add a reference to where this is done.",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 76
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d7eb90f_8d2092bd",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T09:00:46Z",
+      "side": 1,
+      "message": "This contradicts line 567?",
+      "range": {
+        "startLine": 570,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 90
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2267a97_030315af",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T09:00:46Z",
+      "side": 1,
+      "message": "Add a comment why you can use directly MethodExitHook and you don\u0027t need a JNI specific one (and same for why we need a special JniMethodEntryHook) ?",
+      "range": {
+        "startLine": 686,
+        "startChar": 60,
+        "endLine": 686,
+        "endChar": 75
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d732a0ae_dc4b128f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T09:00:46Z",
+      "side": 1,
+      "message": "Add a DCHECK that you are running the JIT compiler?",
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "62ec1692_35a96100",
         "filename": "compiler/utils/assembler_thumb_test_expected.cc.inc",
         "patchSetId": 3
@@ -31,6 +117,132 @@
       "writtenOn": "2022-05-26T13:30:02Z",
       "side": 1,
       "message": "This was because of the new entry point. This one is loading the entry point for exception handling.",
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95b533b8_b09d434a",
+        "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T09:00:46Z",
+      "side": 1,
+      "message": "You cannot use an absolute address here?",
+      "range": {
+        "startLine": 816,
+        "startChar": 0,
+        "endLine": 816,
+        "endChar": 45
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a5ffd2f_c8258747",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T09:00:46Z",
+      "side": 1,
+      "message": "Add a commen why you\u0027re checking for exception pending.",
+      "range": {
+        "startLine": 236,
+        "startChar": 16,
+        "endLine": 236,
+        "endChar": 39
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "800d0e9f_81136eff",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T09:00:46Z",
+      "side": 1,
+      "message": "Don\u0027t we move the runtime to debuggable if exit stubs are installed?",
+      "range": {
+        "startLine": 237,
+        "startChar": 15,
+        "endLine": 237,
+        "endChar": 53
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3b17177_bc62ebb0",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2731,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T09:00:46Z",
+      "side": 1,
+      "message": "nit: line too long.",
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebf77829_f5e88118",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2738,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T09:00:46Z",
+      "side": 1,
+      "message": "Why moving this to the end? Add a comment about the ordering between line 2720 and line 2736.",
+      "range": {
+        "startLine": 2736,
+        "startChar": 0,
+        "endLine": 2738,
+        "endChar": 3
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4482a36f_30d8f093",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-05-27T09:00:46Z",
+      "side": 1,
+      "message": "Why do we check only native here, and not if the method is jitted (where there is also no instrumentation stubs).",
       "revId": "199c22102f754448f59403289478c0d53806be57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
