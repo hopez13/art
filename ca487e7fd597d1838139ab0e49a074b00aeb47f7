@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19edaa4b_155745aa",
+        "filename": "build/art.go",
+        "patchSetId": 17
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "Not sure about that. But ART_USE_TLAB is not set for CMS.",
+      "parentUuid": "60404cee_95b7ded3",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 44
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a6238b7_68b63722",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
         "patchSetId": 17
@@ -54,6 +78,30 @@
       "writtenOn": "2022-05-25T16:57:49Z",
       "side": 1,
       "message": "Please fix all of these.",
+      "range": {
+        "startLine": 219,
+        "startChar": 29,
+        "endLine": 219,
+        "endChar": 38
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ff348e1_e19f4ac0",
+        "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a6238b7_68b63722",
       "range": {
         "startLine": 219,
         "startChar": 29,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50a48594_ec9e7d4f",
+        "filename": "libartbase/base/utils.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e79ae409_8ea60a35",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 6
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baddbd6f_ae2ef816",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-05-25T19:29:19Z",
       "side": 1,
       "message": "This should presumably be static or in an anonymous namespace? Especially since this is clearly meant to be called exactly once.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 29
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01d66971_4968c6e8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baddbd6f_ae2ef816",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -158,6 +254,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd924afa_7f1a890f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "No this won\u0027t be possible. Because this gets further complicated in a subsequent CL due to phenotype flag.\n\nRegarding kForceReadBarrier, I think it\u0027s time to get rid of it. Please take a look at my reply to the following comment. If you agree, then I\u0027ll remove it.",
+      "parentUuid": "70f09546_330ae702",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 56
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e5d9b112_68459a5a",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 17
@@ -169,6 +289,30 @@
       "writtenOn": "2022-05-25T19:29:19Z",
       "side": 1,
       "message": "Isn\u0027t that redundant? Or what\u0027s the relationship between kForceReadBarrier and ART_FORCE_USE_READ_BARRIER?",
+      "range": {
+        "startLine": 108,
+        "startChar": 38,
+        "endLine": 108,
+        "endChar": 55
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4542c1c_2e471212",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "None, actually! kForceReadBarrier is set to \u0027false\u0027 in runtime/read_barrier_config.h and but seems to be there for testing purposes with the following:\n\n\"// TODO: Remove this flag when the read barriers compiler\n// instrumentation is completed.\n\"\n\nI guess it\u0027s time to act on the TODO?",
+      "parentUuid": "e5d9b112_68459a5a",
       "range": {
         "startLine": 108,
         "startChar": 38,
@@ -202,6 +346,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b22982a_0ff11033",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1c0973b_ef40309b",
+      "range": {
+        "startLine": 113,
+        "startChar": 8,
+        "endLine": 113,
+        "endChar": 10
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d288f0b3_b43f83e3",
@@ -225,6 +393,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8da977e_0b0d8c5d",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "d288f0b3_b43f83e3",
+      "range": {
+        "startLine": 1037,
+        "startChar": 24,
+        "endLine": 1037,
+        "endChar": 52
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "944106a8_ba030e0d",
@@ -238,6 +430,30 @@
       "writtenOn": "2022-05-25T19:29:19Z",
       "side": 1,
       "message": "gOtherReadBarrier -\u003e otherUseReadBarrier\n\nAnd I would reveres the operands of \u0026\u0026 to have the compile-time subexpression first. (The compiler probably does that anyway, but ...)",
+      "range": {
+        "startLine": 121,
+        "startChar": 15,
+        "endLine": 121,
+        "endChar": 76
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c653c4_94d7f6ab",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "944106a8_ba030e0d",
       "range": {
         "startLine": 121,
         "startChar": 15,
@@ -273,6 +489,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "48493926_79080293",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "It is correct because with the new GC we only tolerate read-barriers in nterp interpreter. All the oat files, will have is_cc \u003d false.\n\nOTOH, when running with read-barrier, the recompiled oat files must have CC flag set.\n\nSince there was just single use of is_cc, eliminated it.",
+      "parentUuid": "e6e00405_adc05bd7",
+      "range": {
+        "startLine": 422,
+        "startChar": 13,
+        "endLine": 422,
+        "endChar": 18
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58209e59_fd0ffad2",
         "filename": "runtime/read_barrier-inl.h",
         "patchSetId": 17
@@ -296,6 +536,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2733b3c7_527527d1",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "Since this code was written back when CC happened to be the first concurrent moving GC, the comment means that only when read-barriers are in use can we have a situation where mutators are running concurrently. IOW, if we reach this function and we aren\u0027t running in read-barrier config, then simply return the ref as is.\n\nThe code in next 3 lines continues to be correct with the new GC as well, because mutators just can\u0027t get hold of a from-space reference when compacting.",
+      "parentUuid": "58209e59_fd0ffad2",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 201,
+        "endChar": 23
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ccd640f_e680b52b",
         "filename": "runtime/runtime.cc",
         "patchSetId": 17
@@ -307,6 +571,24 @@
       "writtenOn": "2022-05-25T19:29:19Z",
       "side": 1,
       "message": "So we now have a parameter to which we\u0027re unconditionally adding one? If so, should we file a bug to fix this so that we use the parameter directly? Presumably this requires adjusting a bunch of configurations, but this seems really confusing as is.\n\n(And maybe we don\u0027t actually want to adjust all the configurations, since the result may be too large anyway.)",
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20ed308e_9894c5b9",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:22Z",
+      "side": 1,
+      "message": "I have removed the constant and directly adding 1.0 to the foreground_heap_growth_multiplier below. You are right, even though most likely we are using the default value only, but you never know. So can\u0027t simply increase the default value and expect no regression.\n\nTo be frank, I think this extra growth multiplier for concurrent GCs doesn\u0027t make sense. This multiplier should apply only to concurrent_start_bytes_. Why do we apply it min/max_free and utilization? Isn\u0027t the purpose to give extra legroom for concurrent GC to finish before hitting the wall?",
+      "parentUuid": "3ccd640f_e680b52b",
       "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
