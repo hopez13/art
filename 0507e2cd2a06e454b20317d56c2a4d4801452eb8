@@ -39,6 +39,30 @@
       },
       "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b16c0a59_6ef8bf4d",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-05-27T15:19:46Z",
+      "side": 1,
+      "message": "I\u0027m submitting this now to fix the build issue for the time being, but I think it\u0027s still worth discussing.",
+      "parentUuid": "6df7ad38_731f4a0a",
+      "range": {
+        "startLine": 440,
+        "startChar": 36,
+        "endLine": 441,
+        "endChar": 44
+      },
+      "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
