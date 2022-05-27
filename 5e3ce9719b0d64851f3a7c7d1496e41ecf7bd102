@@ -284,6 +284,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8289cbf2_11b72def",
+        "filename": "runtime/interpreter/interpreter_cache-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:12Z",
+      "side": 1,
+      "message": "As per Hans\u0027 comment, keeping the gUseReadBarrier check here.",
+      "parentUuid": "88586daf_f257ec01",
+      "range": {
+        "startLine": 42,
+        "startChar": 6,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24cd6a5e_235c39f5",
@@ -321,6 +345,30 @@
       "side": 1,
       "message": "Actually the reason I didn\u0027t change it was because even now it\u0027s true. I mean with userfaultfd GC also it\u0027s working because we didn\u0027t get rid of the read-barrier in nterp 😊",
       "parentUuid": "24cd6a5e_235c39f5",
+      "range": {
+        "startLine": 93,
+        "startChar": 84,
+        "endLine": 93,
+        "endChar": 85
+      },
+      "revId": "5e3ce9719b0d64851f3a7c7d1496e41ecf7bd102",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c71699c4_145eaf35",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b73eb34_8851deff",
       "range": {
         "startLine": 93,
         "startChar": 84,

@@ -22,6 +22,30 @@
       },
       "revId": "6f12e4a82a5fa92284fe3828e1661431501d144d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c32e68c_51a4632d",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-05-27T05:08:12Z",
+      "side": 0,
+      "message": "Added back as a DCHECK given that it\u0027s not a constexpr anymore.",
+      "parentUuid": "44ab1500_2a60945d",
+      "range": {
+        "startLine": 376,
+        "startChar": 1,
+        "endLine": 376,
+        "endChar": 25
+      },
+      "revId": "6f12e4a82a5fa92284fe3828e1661431501d144d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
