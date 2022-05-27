@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dca61b87_42b77770",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1573,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-27T16:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dabe6d0_a1c6b368",
+      "range": {
+        "startLine": 1573,
+        "startChar": 0,
+        "endLine": 1573,
+        "endChar": 29
+      },
+      "revId": "05bac9ecbb4a53832948a8199e9252288c73b5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89559a89_942a2294",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-05-27T12:11:56Z",
       "side": 1,
       "message": "This looks like better placed somewhere in the caller of oat file asistant.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 19
+      },
+      "revId": "05bac9ecbb4a53832948a8199e9252288c73b5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fcf1dee_820053d4",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-27T16:11:06Z",
+      "side": 1,
+      "message": "I think it makes sense to call it here. OatFileAssistant uses MemMap, so it should be responsible for initializing it. It is okay if MemMap::Init is called multiple times because subsequent calls are no-ops.",
+      "parentUuid": "89559a89_942a2294",
       "range": {
         "startLine": 174,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63525e8f_2c3732a5",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-27T16:11:06Z",
+      "side": 1,
+      "message": "Then we have to ask the caller to keep those objects alive during the lifetime of OatFileAssistant. This makes things trickier but makes sense because we probably want the caller to cache those objects somewhere for performance. Done. Also added a comment.\n\nAlso, added `apex_versions` to this struct. Although it is not a \"runtime option\", it makes sense to put it here because we want the caller to cache that too.",
+      "parentUuid": "888493f6_2ac0e9e4",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 47
+      },
+      "revId": "05bac9ecbb4a53832948a8199e9252288c73b5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b081fdc1_4cee21ab",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e371a9af_b58cfbd6",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-27T16:11:06Z",
+      "side": 1,
+      "message": "I added some fields to OatFileAssistant and it caused this function\u0027s stack frame to exceed the size limit.",
+      "parentUuid": "b081fdc1_4cee21ab",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 78
+      },
+      "revId": "05bac9ecbb4a53832948a8199e9252288c73b5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f63ae24c_e4c4176e",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-05-27T12:11:56Z",
       "side": 1,
       "message": "Is the name because it is meant to only be used by tests? Can you mention it too in the comments?",
+      "range": {
+        "startLine": 263,
+        "startChar": 14,
+        "endLine": 263,
+        "endChar": 32
+      },
+      "revId": "05bac9ecbb4a53832948a8199e9252288c73b5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d8af778_4d33deaf",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-27T16:11:06Z",
+      "side": 1,
+      "message": "Yes. Done.",
+      "parentUuid": "f63ae24c_e4c4176e",
       "range": {
         "startLine": 263,
         "startChar": 14,
