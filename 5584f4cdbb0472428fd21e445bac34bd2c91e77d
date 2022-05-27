@@ -253,6 +253,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f471a7fb_cc6a74ad",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-05-27T03:21:00Z",
+      "side": 1,
+      "message": "Added further nit to b/233815394 .",
+      "parentUuid": "b4190c8a_0b57fae5",
+      "range": {
+        "startLine": 102,
+        "startChar": 26,
+        "endLine": 102,
+        "endChar": 44
+      },
+      "revId": "5584f4cdbb0472428fd21e445bac34bd2c91e77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d765f94f_6429fab7",
