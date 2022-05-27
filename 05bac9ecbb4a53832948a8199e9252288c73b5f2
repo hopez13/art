@@ -118,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e49fc97e_430a6d8b",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-27T16:44:15Z",
+      "side": 1,
+      "message": "Before my change, this was `!Runtime::Current()-\u003eHasImageWithProfile()`.\n\n`Runtime::Current()-\u003eHasImageWithProfile()` means the runtime is using JIT Zygote. It can be due to the `-Xforcejitzygote` flag or due to that the boot image is not usable. Therefore, `runtime_options_-\u003euse_jit_zygote` isn\u0027t equivalent to that. I need to add a function to keep the behavior remain the same as before.",
+      "parentUuid": "8736ac24_cfe9a20c",
+      "range": {
+        "startLine": 1013,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 65
+      },
+      "revId": "05bac9ecbb4a53832948a8199e9252288c73b5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "888493f6_2ac0e9e4",
