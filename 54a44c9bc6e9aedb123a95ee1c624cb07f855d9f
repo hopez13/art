@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a731e27d_3167f54e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T15:31:35Z",
+      "side": 1,
+      "message": "To save your time next time, you can selectively run the related tests only. E.g., `atest ArtGtestsTargetChroot:OdrMetricsRecordTest`, where the name following the colon is the test class name. And you don\u0027t need to run run-tests for this change because you didn\u0027t change the runtime.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1f59e4b_808e507a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T15:31:35Z",
+      "side": 1,
+      "message": "Nice!",
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "608c58c0_8fe04042",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T15:31:35Z",
+      "side": 1,
+      "message": "Ditto, android::base::Result. Then you don\u0027t need the output parameter.\n\nP.S., You can use `OR_RETURN` at call sites to propagate the error (https://cs.android.com/android/platform/superproject/+/master:system/libbase/include/android-base/errors.h;l\u003d75;drc\u003d6a6a7e5d862a0b8a2258bd0d2d1f182ca830946c), and use result matcher in tests (https://cs.android.com/android/platform/superproject/+/master:system/libbase/include/android-base/result-gmock.h).",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 4
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8212a1d_91960970",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T15:31:35Z",
+      "side": 1,
+      "message": "Nit: \"Reads\"",
+      "range": {
+        "startLine": 45,
+        "startChar": 5,
+        "endLine": 45,
+        "endChar": 9
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b653aac_172f24c1",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T15:31:35Z",
+      "side": 1,
+      "message": "Nit: You don\u0027t need a line break here. The column width is 100 characters.",
+      "range": {
+        "startLine": 46,
+        "startChar": 46,
+        "endLine": 46,
+        "endChar": 47
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e668f397_f9b35279",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T15:31:35Z",
+      "side": 1,
+      "message": "I know we use \"bool\" a lot for returning the result in ART, but please use android::base::Result in new code because it\u0027s better. https://cs.android.com/android/platform/superproject/+/master:system/libbase/include/android-base/result.h",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 6
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f3805eb_505681ed",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T15:31:35Z",
+      "side": 1,
+      "message": "Nit: \"Writes\"",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 10
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f33eef2_24ec25ef",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T15:31:35Z",
+      "side": 1,
+      "message": "Are they helper functions that are unrelated to any class members? If so, you don\u0027t need to define it in the header. You can put them in the .cc file in an anonymous namespace. See go/cstyle#Internal_Linkage and go/totw/186.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 89
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37fe2709_a7f35dfe",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T15:31:35Z",
+      "side": 1,
+      "message": "Nit: Capitalize the first character and put a period at the end of a comment, even if the comment is not a complete sentence.",
+      "range": {
+        "startLine": 108,
+        "startChar": 38,
+        "endLine": 108,
+        "endChar": 59
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
