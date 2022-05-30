@@ -91,6 +91,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "05dc311a_9a84c8df",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fea53139_b3f034e0",
+      "range": {
+        "startLine": 1557,
+        "startChar": 0,
+        "endLine": 1564,
+        "endChar": 3
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b638396f_ad8639a7",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 3
@@ -102,6 +126,30 @@
       "writtenOn": "2022-05-30T13:51:08Z",
       "side": 1,
       "message": "I had to look up if this initializer form is by guidelines. It seems yes: https://google.github.io/styleguide/cppguide.html#Designated_initializers, but one should be careful about the order.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 52
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67949316_3cd0c9e7",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "The order is enforced by the compiler.",
+      "parentUuid": "b638396f_ad8639a7",
       "range": {
         "startLine": 153,
         "startChar": 0,
@@ -135,6 +183,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efabb75f_768d68c7",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "Whether the function is static or not is not the point. The point here is that this function is not using OatFileAssistant or being used by OatFileAssistant. It is just a function that happens to be defined in the OatFileAssistant class.",
+      "parentUuid": "a5b165de_7a2c25dd",
+      "range": {
+        "startLine": 519,
+        "startChar": 33,
+        "endLine": 520,
+        "endChar": 40
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5c2f38a_615c51bc",
@@ -148,6 +220,30 @@
       "writtenOn": "2022-05-30T13:51:08Z",
       "side": 1,
       "message": "Can you expand the comment to explain why it is ok to only verify the primary one?",
+      "range": {
+        "startLine": 750,
+        "startChar": 2,
+        "endLine": 750,
+        "endChar": 40
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83cc8391_fe3ae523",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "I found it hard to justify this if the function name is `IsBootImageUsable` :) I changed the function name. There is a comment in the call site (`OatFileInfo::CompilerFilterIsOkay`) that explains why we only need to verify the primary image.",
+      "parentUuid": "d5c2f38a_615c51bc",
       "range": {
         "startLine": 750,
         "startChar": 2,
@@ -181,6 +277,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad8f17b5_cf6ee6f2",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b84db36_071e172c",
+      "range": {
+        "startLine": 1131,
+        "startChar": 0,
+        "endLine": 1133,
+        "endChar": 80
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "142e0a7b_415e46ba",
@@ -194,6 +314,30 @@
       "writtenOn": "2022-05-30T13:51:08Z",
       "side": 1,
       "message": "was? (singular)",
+      "range": {
+        "startLine": 93,
+        "startChar": 55,
+        "endLine": 93,
+        "endChar": 59
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5422bb4_d500cbab",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "\"were\" seems to be the correct choice here. https://www.grammarly.com/blog/conditional-sentences-was-instead-of-were/",
+      "parentUuid": "142e0a7b_415e46ba",
       "range": {
         "startLine": 93,
         "startChar": 55,
@@ -227,6 +371,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c1ffbd_3a112839",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "The style guide suggests to put all input-only parameters before any output parameters. go/cstyle#Inputs_and_Outputs",
+      "parentUuid": "77c80e9a_b279d9f4",
+      "range": {
+        "startLine": 297,
+        "startChar": 39,
+        "endLine": 297,
+        "endChar": 69
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab91a007_419b9d94",
@@ -240,6 +408,30 @@
       "writtenOn": "2022-05-30T13:51:08Z",
       "side": 1,
       "message": "Can it be `const`?",
+      "range": {
+        "startLine": 458,
+        "startChar": 2,
+        "endLine": 458,
+        "endChar": 27
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cf6d3d8_757d040c",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "No, this function caches the result in a class member.",
+      "parentUuid": "ab91a007_419b9d94",
       "range": {
         "startLine": 458,
         "startChar": 2,
@@ -273,6 +465,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77dedd7_1a889067",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5b957ff_fca226f7",
+      "range": {
+        "startLine": 480,
+        "startChar": 2,
+        "endLine": 480,
+        "endChar": 51
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69aa7b63_491caf28",
@@ -286,6 +502,30 @@
       "writtenOn": "2022-05-30T13:51:08Z",
       "side": 1,
       "message": "Please use `/*arg\u003d*/` here and everywhere in this file.",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 80
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd37071f_183bd754",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "I wanted to keep consistency with the rest of the file, but now I have looked it again and found that this file is already using a mix of both styles, unfortunately, so yes, let\u0027s use the new style for new code! Done.",
+      "parentUuid": "69aa7b63_491caf28",
       "range": {
         "startLine": 218,
         "startChar": 0,
@@ -319,6 +559,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31b9260d_6ec78d45",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1934,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "498c67bd_dc369ba3",
+      "range": {
+        "startLine": 1929,
+        "startChar": 0,
+        "endLine": 1934,
+        "endChar": 69
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4f2a403_a450e596",
@@ -342,6 +606,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a9c4a54_d14c4135",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "Done. I\u0027d omit \"const\" because we don\u0027t seem to prefer that in C++, at least not in ART codebase.",
+      "parentUuid": "a4f2a403_a450e596",
+      "range": {
+        "startLine": 1341,
+        "startChar": 2,
+        "endLine": 1341,
+        "endChar": 72
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af2d23c7_7053ab05",
@@ -355,6 +643,30 @@
       "writtenOn": "2022-05-30T13:51:08Z",
       "side": 1,
       "message": "\"are encoded in\" .oat files? I mean the jars. Or else I don\u0027t understand the comment.",
+      "range": {
+        "startLine": 1095,
+        "startChar": 17,
+        "endLine": 1095,
+        "endChar": 32
+      },
+      "revId": "170f4214d89dc0e7b0437536e94f5ccdffcb03cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a21a1d2f_af63177d",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-05-30T17:07:36Z",
+      "side": 1,
+      "message": "The \"string (containing apex versions of ...)\" is encoded in .oat files.\n\nActually, this is an existing comment moved from below.",
+      "parentUuid": "af2d23c7_7053ab05",
       "range": {
         "startLine": 1095,
         "startChar": 17,
