@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2ee53163_d4d42772",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-31T09:53:46Z",
+      "side": 1,
+      "message": "Thank you for the tip!",
+      "parentUuid": "a731e27d_3167f54e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a1f59e4b_808e507a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d45f30c_b7a81f78",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-31T09:53:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "608c58c0_8fe04042",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 4
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae1ab1f8_84303286",
@@ -81,6 +129,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e045add7_4124247c",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-31T09:53:46Z",
+      "side": 1,
+      "message": "You\u0027re right - this was relevant in the struct initialisation case, but moving to XML it should not be strictly required anymore. Will remove the comment.",
+      "parentUuid": "ae1ab1f8_84303286",
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "014c0c40_e7ad070c",
@@ -94,6 +160,30 @@
       "writtenOn": "2022-05-30T15:38:50Z",
       "side": 1,
       "message": "Can this be `const T\u0026`?",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 35
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b51cadcf_e394616e",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-31T09:53:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "014c0c40_e7ad070c",
       "range": {
         "startLine": 105,
         "startChar": 33,
@@ -127,6 +217,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0e79f8e_73978065",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-31T09:53:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8212a1d_91960970",
+      "range": {
+        "startLine": 45,
+        "startChar": 5,
+        "endLine": 45,
+        "endChar": 9
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b653aac_172f24c1",
@@ -140,6 +254,30 @@
       "writtenOn": "2022-05-30T15:31:35Z",
       "side": 1,
       "message": "Nit: You don\u0027t need a line break here. The column width is 100 characters.",
+      "range": {
+        "startLine": 46,
+        "startChar": 46,
+        "endLine": 46,
+        "endChar": 47
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c59a2fce_b5b8302d",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-31T09:53:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b653aac_172f24c1",
       "range": {
         "startLine": 46,
         "startChar": 46,
@@ -173,6 +311,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0929b77_06be4a74",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-31T09:53:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e668f397_f9b35279",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 6
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f3805eb_505681ed",
@@ -186,6 +348,30 @@
       "writtenOn": "2022-05-30T15:31:35Z",
       "side": 1,
       "message": "Nit: \"Writes\"",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 10
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6779373a_1a34cccd",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-31T09:53:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f3805eb_505681ed",
       "range": {
         "startLine": 50,
         "startChar": 5,
@@ -221,6 +407,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39631a57_19f74763",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-31T09:53:46Z",
+      "side": 1,
+      "message": "Yes, they are helper methods to reduce a bit of repetition in the XML document building (hence them being private) - I will look into your suggestion.",
+      "parentUuid": "4f33eef2_24ec25ef",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 89
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37fe2709_a7f35dfe",
         "filename": "odrefresh/odr_metrics_record_test.cc",
         "patchSetId": 2
@@ -232,6 +442,30 @@
       "writtenOn": "2022-05-30T15:31:35Z",
       "side": 1,
       "message": "Nit: Capitalize the first character and put a period at the end of a comment, even if the comment is not a complete sentence.",
+      "range": {
+        "startLine": 108,
+        "startChar": 38,
+        "endLine": 108,
+        "endChar": 59
+      },
+      "revId": "54a44c9bc6e9aedb123a95ee1c624cb07f855d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c45e466_fff349ba",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-05-31T09:53:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37fe2709_a7f35dfe",
       "range": {
         "startLine": 108,
         "startChar": 38,
