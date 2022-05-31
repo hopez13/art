@@ -16,6 +16,23 @@
       "message": "This should fix fugu on art-buildbot.",
       "revId": "882b875cc6aabd75921c8bc4d4292bf6b4a0dbdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5bee102_8f6cec5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-05-31T10:09:51Z",
+      "side": 1,
+      "message": "I\u0027m curious if we need to make this change?\n\nThe recent runs of fugu are failing completely, but the last (somewhat) successful run appears to be https://ci.chromium.org/ui/p/art/builders/ci/fugu-ndebug/2410/overview which has duplicate expectations.",
+      "revId": "882b875cc6aabd75921c8bc4d4292bf6b4a0dbdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
