@@ -33,6 +33,24 @@
       "message": "I\u0027m curious if we need to make this change?\n\nThe recent runs of fugu are failing completely, but the last (somewhat) successful run appears to be https://ci.chromium.org/ui/p/art/builders/ci/fugu-ndebug/2410/overview which has duplicate expectations.",
       "revId": "882b875cc6aabd75921c8bc4d4292bf6b4a0dbdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f94a511_9755dacb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2022-05-31T11:31:23Z",
+      "side": 1,
+      "message": "Those duplicate expectations were fixed in https://android.googlesource.com/platform/art/+/8447cc7996c4b5f9c86fd9b2d82db43e40e85dba%5E%21 but before that test run it was failing with the same message.\n\nInitially the failure was introduced when ojluni tests were enabled on buildbot. I added expectations under EXEC_FAILED error category but tests were still failing with\n\n\u003e Test using the getrandom() syscall, only available from Linux 3.17.\n\u003e http://b/141230711\n\u003e test.java.awt Failed task: run test.java.awt ERROR\n\u003e [45/144] Test set test.java.awt FAILED (0 test(s) failed)\n\nNotice that the result of the task is ERROR, and I suspect putting expectations under EXEC_FAILED makes the test \"fail\" in terms of vogar while ERROR is expected.",
+      "parentUuid": "d5bee102_8f6cec5e",
+      "revId": "882b875cc6aabd75921c8bc4d4292bf6b4a0dbdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
