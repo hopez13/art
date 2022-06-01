@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a1592cb_44107445",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-01T02:57:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cddcdbe0_24d4d10c",
+      "range": {
+        "startLine": 199,
+        "startChar": 4,
+        "endLine": 203,
+        "endChar": 65
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d72394e0_766db821",
@@ -290,6 +314,30 @@
       "side": 1,
       "message": "I renamed the function as you suggested in another comment. Please let me know if you still want me to move it before SlideBlackPage().",
       "parentUuid": "114693a9_09c4a729",
+      "range": {
+        "startLine": 1030,
+        "startChar": 0,
+        "endLine": 1030,
+        "endChar": 51
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3afbc39b_adad912f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-01T02:57:08Z",
+      "side": 1,
+      "message": "I think it\u0027s OK.",
+      "parentUuid": "00940e9c_7d220893",
       "range": {
         "startLine": 1030,
         "startChar": 0,
@@ -666,6 +714,30 @@
       "side": 1,
       "message": "True. I\u0027ll prioritize it to be done in the next CL. But I guess we can at least proceed with teamfood without this, right?",
       "parentUuid": "9d77591b_64179ff7",
+      "range": {
+        "startLine": 1288,
+        "startChar": 4,
+        "endLine": 1288,
+        "endChar": 61
+      },
+      "revId": "9b6c727e566ead42523a8a20cca626a81856aad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e4755cc_92e6b638",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-01T02:57:08Z",
+      "side": 1,
+      "message": "I believe this has now been handled in another CL.",
+      "parentUuid": "48b0022d_f540c223",
       "range": {
         "startLine": 1288,
         "startChar": 4,

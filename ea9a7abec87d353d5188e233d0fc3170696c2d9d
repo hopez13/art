@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a9298fe_63a77b2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-01T02:57:08Z",
+      "side": 1,
+      "message": "I don\u0027t think I had made it completely through this before. I added a few things to the \"assorted nits\" bug. I\u0027m more concerned about the bump_pointer_space_walk-inl.h comment. Can you check if my concern there is warranted? If it\u0027s just a documentation issue, I suggest we add it to the same bug. If it\u0027s more serious, it\u0027s your call as to whether we should just file a separate bug. It\u0027s clearly not new.",
+      "revId": "ea9a7abec87d353d5188e233d0fc3170696c2d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d16491fc_efcb53d3",
+        "filename": "runtime/gc/space/bump_pointer_space-walk-inl.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-01T02:57:08Z",
+      "side": 1,
+      "message": "[ If this is a problem, it\u0027s clearly preexisting; feel free to just open a bug. ]\n\nLet\u0027s say Thread A allocates an object, but get\u0027s suspended on a slow page fault before setting the class. In the meantime, Thread B allocates 10,000 objects. Then, with Thread A still blocked, we come along and try to walk the heap, now ignoring Thread B\u0027s 10K objects. Is that OK? Why? It feels like there are at least some unstated assumptions here.",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 94
+      },
+      "revId": "ea9a7abec87d353d5188e233d0fc3170696c2d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86ea0f12_a801cd5d",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-01T02:57:08Z",
+      "side": 1,
+      "message": "Looks obsolete. Added to b/233815394 .",
+      "range": {
+        "startLine": 50,
+        "startChar": 58,
+        "endLine": 52,
+        "endChar": 46
+      },
+      "revId": "ea9a7abec87d353d5188e233d0fc3170696c2d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7db96ac_a50def7e",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-01T02:57:08Z",
+      "side": 1,
+      "message": "Not terribly clear. Added to b/233815394",
+      "range": {
+        "startLine": 194,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 0
+      },
+      "revId": "ea9a7abec87d353d5188e233d0fc3170696c2d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "653e22ae_7d9ab5ea",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-01T02:57:08Z",
+      "side": 1,
+      "message": "Why did the DCHECK get deleted here?\n\nAdded to b/233815394",
+      "range": {
+        "startLine": 425,
+        "startChar": 10,
+        "endLine": 425,
+        "endChar": 56
+      },
+      "revId": "ea9a7abec87d353d5188e233d0fc3170696c2d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
