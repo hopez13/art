@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee9f12f_d51ac714",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-01T18:56:03Z",
+      "side": 1,
+      "message": "Can you explain the CreateThreadPool deletion? I don\u0027t really understand why it was there to start with. Should that go in the CL description?",
+      "range": {
+        "startLine": 167,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 82
+      },
+      "revId": "8f408f6090bab3783cda908ad930a0eb42165ad7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
