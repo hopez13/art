@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e4d0573_ddd6ec6e",
+        "filename": "runtime/gc/space/bump_pointer_space-walk-inl.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-06-01T17:56:39Z",
+      "side": 1,
+      "message": "While I completely agree that the comment needs to be updated with more explanation, but this is not going to be a problem.\n\nFirstly, it is a problem only for the main block. Because that\u0027s the only one where the scenario that you mentioned could happen. All the subsequent blocks are TLABs and therefore the 10K objects allocated by Thread B will not be ignored.\n\nWithin the main block also it won\u0027t be a problem because the only places from where allocations in the main block happen are all single-threaded: AllocThreadUnsafe() and Alloc(). While the former is self-explanatory, latter is called only by zygote-GC in PreZygoteFork(). In fact, I think the latter can be replaced with the former.",
+      "parentUuid": "d16491fc_efcb53d3",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 94
+      },
+      "revId": "ea9a7abec87d353d5188e233d0fc3170696c2d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "86ea0f12_a801cd5d",
@@ -77,6 +101,30 @@
       "writtenOn": "2022-06-01T02:57:08Z",
       "side": 1,
       "message": "Not terribly clear. Added to b/233815394",
+      "range": {
+        "startLine": 194,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 0
+      },
+      "revId": "ea9a7abec87d353d5188e233d0fc3170696c2d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b73502f_9c09803a",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-06-01T17:56:39Z",
+      "side": 1,
+      "message": "thanks.",
+      "parentUuid": "a7db96ac_a50def7e",
       "range": {
         "startLine": 194,
         "startChar": 2,
