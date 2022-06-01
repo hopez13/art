@@ -67,6 +67,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "712007f7_40f52e9d",
+        "filename": "runtime/gc/space/bump_pointer_space-walk-inl.h",
+        "patchSetId": 30
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-01T18:31:45Z",
+      "side": 1,
+      "message": "I\u0027m still not fully convinced this is correct. But I think we need to write down the safe usage rules before we can resolve this.\nEven if this is just called concurrently with a single allocating thread, this seems problematic. GetClass does relaxed reads, which means that even with a single writer, there is no guarantee that these will appear to get filled in order.\nBy the same token, if these can be concurrently allocated and written, how do we know that the visitor sees any kind of consistent object?\nBut none of this is really an issue with this CL; I\u0027ll add it to b/233815394 .",
+      "parentUuid": "0e4d0573_ddd6ec6e",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 94
+      },
+      "revId": "ea9a7abec87d353d5188e233d0fc3170696c2d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "86ea0f12_a801cd5d",
         "filename": "runtime/gc/space/bump_pointer_space.h",
         "patchSetId": 30
