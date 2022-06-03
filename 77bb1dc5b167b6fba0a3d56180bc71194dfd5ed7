@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f162c31_5b57cc74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-03T23:06:16Z",
+      "side": 1,
+      "message": "One possible remaining issue in class_ext.h .",
+      "revId": "77bb1dc5b167b6fba0a3d56180bc71194dfd5ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cb17077_f1c11386",
+        "filename": "runtime/intern_table.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-03T23:06:16Z",
+      "side": 1,
+      "message": "Added to b/233815394 .",
+      "range": {
+        "startLine": 410,
+        "startChar": 9,
+        "endLine": 410,
+        "endChar": 17
+      },
+      "revId": "77bb1dc5b167b6fba0a3d56180bc71194dfd5ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
