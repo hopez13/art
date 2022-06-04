@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b7b51e3_c8db3dd0",
+        "filename": "build/art.go",
+        "patchSetId": 17
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-04T01:21:26Z",
+      "side": 1,
+      "message": "Can we just change the comment to \"The only GC which does not want ART_USE_TLAB set is CMS, ...",
+      "parentUuid": "19edaa4b_155745aa",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 44
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a6238b7_68b63722",
         "filename": "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
         "patchSetId": 17
@@ -276,6 +300,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29a2ff91_988d00a0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-04T01:21:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dd924afa_7f1a890f",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 56
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5d9b112_68459a5a",
@@ -313,6 +361,30 @@
       "side": 1,
       "message": "None, actually! kForceReadBarrier is set to \u0027false\u0027 in runtime/read_barrier_config.h and but seems to be there for testing purposes with the following:\n\n\"// TODO: Remove this flag when the read barriers compiler\n// instrumentation is completed.\n\"\n\nI guess it\u0027s time to act on the TODO?",
       "parentUuid": "e5d9b112_68459a5a",
+      "range": {
+        "startLine": 108,
+        "startChar": 38,
+        "endLine": 108,
+        "endChar": 55
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7bce720_76cbc100",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-04T01:21:26Z",
+      "side": 1,
+      "message": "Agreed. This is needlessly confusing.",
+      "parentUuid": "b4542c1c_2e471212",
       "range": {
         "startLine": 108,
         "startChar": 38,
@@ -511,6 +583,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bcf428e_e646d6dd",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-04T01:21:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48493926_79080293",
+      "range": {
+        "startLine": 422,
+        "startChar": 13,
+        "endLine": 422,
+        "endChar": 18
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58209e59_fd0ffad2",
@@ -558,6 +654,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6b0c797_a5ee3106",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-04T01:21:26Z",
+      "side": 1,
+      "message": "I think I don\u0027t understand how this is intended to be used. Even with CMS, mutators can run while the GC is setting mark bits, and an object may not yet have been marked by the GC. The comment in the .h file appears to say that we should return null in that case. It seems that \"marked\" here means something else, but that still seems unclear to me.\n\nI\u0027ll add this to b/233815394. since it\u0027s not really related to this CL.",
+      "parentUuid": "2733b3c7_527527d1",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 201,
+        "endChar": 23
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ccd640f_e680b52b",
@@ -589,6 +709,24 @@
       "side": 1,
       "message": "I have removed the constant and directly adding 1.0 to the foreground_heap_growth_multiplier below. You are right, even though most likely we are using the default value only, but you never know. So can\u0027t simply increase the default value and expect no regression.\n\nTo be frank, I think this extra growth multiplier for concurrent GCs doesn\u0027t make sense. This multiplier should apply only to concurrent_start_bytes_. Why do we apply it min/max_free and utilization? Isn\u0027t the purpose to give extra legroom for concurrent GC to finish before hitting the wall?",
       "parentUuid": "3ccd640f_e680b52b",
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6e40e57_12ae60a4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-04T01:21:26Z",
+      "side": 1,
+      "message": "Isn\u0027t it effectively to increase the extra heap size we give ourselves, so that we have to GC less frequently for foreground apps that are actively running and allocating? It\u0027s basically a multiplier for the extra heap space we allow ourselves before the next GC.\n\nCan we add a comment that the +1.0 is for historical reasons, and that it should be removed when we revisit the heap configurations",
+      "parentUuid": "20ed308e_9894c5b9",
       "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
