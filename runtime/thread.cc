@@ -3695,7 +3695,7 @@ void Thread::DumpThreadOffset(std::ostream& os, uint32_t offset) {
   os << offset;
 }
 
-void Thread::QuickDeliverException() {
+void Thread::QuickDeliverException(bool is_method_exit_exception) {
   // Get exception from thread.
   ObjPtr<mirror::Throwable> exception = GetException();
   CHECK(exception != nullptr);
@@ -3788,7 +3788,7 @@ void Thread::QuickDeliverException() {
   // resolution.
   ClearException();
   QuickExceptionHandler exception_handler(this, false);
-  exception_handler.FindCatch(exception);
+  exception_handler.FindCatch(exception, is_method_exit_exception);
   if (exception_handler.GetClearException()) {
     // Exception was cleared as part of delivery.
     DCHECK(!IsExceptionPending());

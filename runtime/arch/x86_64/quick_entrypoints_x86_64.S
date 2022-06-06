@@ -2164,7 +2164,6 @@ DEFINE_FUNCTION art_quick_method_entry_hook
 END_FUNCTION art_quick_method_entry_hook
 
 // On entry, method is at the bottom of the stack.
-// and r8 has should_deopt_frame value.
 DEFINE_FUNCTION art_quick_method_exit_hook
     SETUP_SAVE_EVERYTHING_FRAME
 

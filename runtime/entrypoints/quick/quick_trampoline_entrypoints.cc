@@ -2711,7 +2711,10 @@ extern "C" int artMethodExitHook(Thread* self,
   }
 
   if (self->IsExceptionPending() || self->ObserveAsyncException()) {
-    return 1;
+    // The exception was thrown from the method exit callback. We should not call  method unwind
+    // callbacks for this case.
+    self->QuickDeliverException(/* is_method_exit_exception= */ true);
+    UNREACHABLE();
   }
 
   if (deoptimize) {
