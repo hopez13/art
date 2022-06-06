@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87c898a0_6007be66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-06-06T20:52:46Z",
+      "side": 1,
+      "message": "A test stanza with a sample invocation of the script would be good.",
+      "revId": "7d6c3eeef7f625c9cf555aaf579a7c0648f0ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f1b6d01_c5da14c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-06-06T20:52:46Z",
+      "side": 1,
+      "message": "A few trivial comments, but otherwise thumbs up, nice improvement.",
+      "revId": "7d6c3eeef7f625c9cf555aaf579a7c0648f0ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "274eeb1c_148ebc37",
+        "filename": "tools/PresubmitJsonLinter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-06-06T20:52:46Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "7d6c3eeef7f625c9cf555aaf579a7c0648f0ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5203c4d_ad34b110",
+        "filename": "tools/PresubmitJsonLinter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-06-06T20:52:46Z",
+      "side": 1,
+      "message": "Exceptions from compile() are uncaught. Is there sufficient information to be useful to the user? Would it\u0027d be better to catch the exception and error() the bad pattern and then bail?",
+      "range": {
+        "startLine": 81,
+        "startChar": 30,
+        "endLine": 81,
+        "endChar": 45
+      },
+      "revId": "7d6c3eeef7f625c9cf555aaf579a7c0648f0ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ec54f6c_24e1ef75",
+        "filename": "tools/PresubmitJsonLinter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-06-06T20:52:46Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "7d6c3eeef7f625c9cf555aaf579a7c0648f0ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50eb8b09_ebf293dd",
+        "filename": "tools/PresubmitJsonLinter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-06-06T20:52:46Z",
+      "side": 1,
+      "message": "It\u0027d be nice to enforce the presence of a bug and possibly other attributes, but as we don\u0027t have that enforced already, it\u0027s fine as-is.",
+      "revId": "7d6c3eeef7f625c9cf555aaf579a7c0648f0ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71d9154e_a2ca6eba",
+        "filename": "tools/check_presubmit_json_expectations.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-06-06T20:52:46Z",
+      "side": 1,
+      "message": "more commonly \u0027#!/bin/bash\u0027",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 3
+      },
+      "revId": "7d6c3eeef7f625c9cf555aaf579a7c0648f0ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
