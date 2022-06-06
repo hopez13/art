@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad944804_556083c3",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b229c5f_8b39f601",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 76
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d7eb90f_8d2092bd",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-05-27T09:00:46Z",
       "side": 1,
       "message": "This contradicts line 567?",
+      "range": {
+        "startLine": 570,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 90
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dbffb24_d6491a3e",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d7eb90f_8d2092bd",
       "range": {
         "startLine": 570,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8de2a72b_f4c3b778",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2267a97_030315af",
+      "range": {
+        "startLine": 686,
+        "startChar": 60,
+        "endLine": 686,
+        "endChar": 75
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d732a0ae_dc4b128f",
@@ -104,6 +176,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c72df638_9041c95b",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d732a0ae_dc4b128f",
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62ec1692_35a96100",
@@ -117,6 +207,24 @@
       "writtenOn": "2022-05-26T13:30:02Z",
       "side": 1,
       "message": "This was because of the new entry point. This one is loading the entry point for exception handling.",
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "829d4703_2fd8284a",
+        "filename": "compiler/utils/assembler_thumb_test_expected.cc.inc",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "62ec1692_35a96100",
       "revId": "199c22102f754448f59403289478c0d53806be57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -146,6 +254,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d9743b59_414bc56b",
+        "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "I am a bit unsure here but I think we need to use some segment register for 64-bit absolute address. gs() is used for offsets from tls but this one isn\u0027t a Thread offset. I am not sure if there is another way of doing this. If there is let me know and I will update this. We use the same sequence for JITed code too. See here: https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/code_generator_x86_64.cc;l\u003d1566;",
+      "parentUuid": "95b533b8_b09d434a",
+      "range": {
+        "startLine": 816,
+        "startChar": 0,
+        "endLine": 816,
+        "endChar": 45
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a5ffd2f_c8258747",
         "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
         "patchSetId": 3
@@ -157,6 +289,30 @@
       "writtenOn": "2022-05-27T09:00:46Z",
       "side": 1,
       "message": "Add a commen why you\u0027re checking for exception pending.",
+      "range": {
+        "startLine": 236,
+        "startChar": 16,
+        "endLine": 236,
+        "endChar": 39
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b48e2c65_3a52c988",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a5ffd2f_c8258747",
       "range": {
         "startLine": 236,
         "startChar": 16,
@@ -192,6 +348,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "248a743e_0e2be2b8",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "AFAIU, we don\u0027t always move to debuggable when we install stubs. Though in most cases we test for we do move to debuggable. If we attach a debugger to a non-debuggable runtime after the app has started then we don\u0027t set debuggable. We still install exit stubs there, so it is possible to have AreExitStubsInstalled true and IsJavaDebuggable false.",
+      "parentUuid": "800d0e9f_81136eff",
+      "range": {
+        "startLine": 237,
+        "startChar": 15,
+        "endLine": 237,
+        "endChar": 53
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3b17177_bc62ebb0",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -203,6 +383,24 @@
       "writtenOn": "2022-05-27T09:00:46Z",
       "side": 1,
       "message": "nit: line too long.",
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45cae041_bbb39f3f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2731,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3b17177_bc62ebb0",
       "revId": "199c22102f754448f59403289478c0d53806be57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -230,6 +428,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01312929_f20ca572",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2738,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "Actually we don\u0027t need to. Restored this back. I did this as a fix but my understanding was wrong. We were calling method unwind events when method exit throws since the method that is exiting is still on the stack. I uploaded a separate fix for that and rebased this CL on top of the fix.",
+      "parentUuid": "ebf77829_f5e88118",
+      "range": {
+        "startLine": 2736,
+        "startChar": 0,
+        "endLine": 2738,
+        "endChar": 3
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4482a36f_30d8f093",
@@ -243,6 +465,24 @@
       "writtenOn": "2022-05-27T09:00:46Z",
       "side": 1,
       "message": "Why do we check only native here, and not if the method is jitted (where there is also no instrumentation stubs).",
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ece9cd5b_fdc97393",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-06T10:32:11Z",
+      "side": 1,
+      "message": "We also check for JITed methods too but later in the code. I moved this check to the place where JITed code is checked too to avoid confusion. All this will go once nterps stop using instrumentation stubs too.",
+      "parentUuid": "4482a36f_30d8f093",
       "revId": "199c22102f754448f59403289478c0d53806be57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
