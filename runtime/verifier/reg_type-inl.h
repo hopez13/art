@@ -58,6 +58,20 @@ inline bool RegType::CanAccessMember(ObjPtr<mirror::Class> klass, uint32_t acces
   }
 }
 
+inline bool RegType::HasSameNestHost(const RegType& other) const {
+  DCHECK(IsReferenceTypes());
+  DCHECK(!IsNull());
+  if (Equals(other)) {
+    return true;  // Trivial accessibility.
+  } else {
+    if (!IsUnresolvedTypes() && !other.IsUnresolvedTypes()) {
+      return GetClass()->HasSameNestHost(other.GetClass());
+    } else {
+      return false;  // More complicated test not possible on unresolved types, be conservative.
+    }
+  }
+}
+
 inline bool RegType::IsConstantBoolean() const {
   if (!IsConstant()) {
     return false;
