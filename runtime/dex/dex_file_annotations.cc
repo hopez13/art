@@ -1755,7 +1755,7 @@ ObjPtr<mirror::Class> GetNestHost(Handle<mirror::Class> klass) {
   }
   ObjPtr<mirror::Object> obj = GetAnnotationValue(data,
                                                   annotation_item,
-                                                  "host",
+                                                  "value",
                                                   ScopedNullHandle<mirror::Class>(),
                                                   DexFile::kDexAnnotationType);
   if (obj == nullptr) {
@@ -1772,7 +1772,73 @@ ObjPtr<mirror::Class> GetNestHost(Handle<mirror::Class> klass) {
 ObjPtr<mirror::ObjectArray<mirror::Class>> GetNestMembers(Handle<mirror::Class> klass) {
   return GetAnnotationArrayValue<mirror::Class>(klass,
                                                 "Ldalvik/annotation/NestMembers;",
-                                                "classes");
+                                                "value");
+}
+
+bool HasNestMember(Handle<mirror::Class> host, Handle<mirror::Class> member) {
+  if (member.Get() == host.Get()) {
+    return true;
+  }
+  ClassData data(host);
+  const DexFile& dex_file = data.GetDexFile();
+  const AnnotationSetItem* annotation_set = FindAnnotationSetForClass(data);
+  if (annotation_set == nullptr) {
+    return false;
+  }
+  const AnnotationItem* annotation_item =
+      SearchAnnotationSet(dex_file, annotation_set,
+                          "Ldalvik/annotation/NestMembers;",
+                          DexFile::kDexVisibilitySystem);
+  if (annotation_item == nullptr) {
+    return false;
+  }
+  // StackHandleScope<1> hs(Thread::Current());
+  // Handle<mirror::Class> class_array_class =
+  //     hs.NewHandle(GetClassRoot<mirror::ObjectArray<mirror::Class>>());
+  // DCHECK(class_array_class != nullptr);
+
+  const uint8_t* annotation =
+      SearchEncodedAnnotation(dex_file, annotation_item->annotation_, "value");
+  if (annotation == nullptr) {
+    return false;
+  }
+
+  uint8_t header_byte = *(annotation++);
+  uint8_t value_type = header_byte & DexFile::kDexAnnotationValueTypeMask;
+
+  if (value_type != DexFile::kDexAnnotationArray) {
+    return false;
+  }
+
+  Thread* self = Thread::Current();
+  ScopedObjectAccessUnchecked soa(self);
+  uint32_t size = DecodeUnsignedLeb128(&annotation);
+  int32_t item_width;
+  for (uint32_t i = 0; i < size; ++i, annotation += item_width) {
+      uint8_t item_header_byte = *(annotation++);
+      uint8_t item_value_type = item_header_byte & DexFile::kDexAnnotationValueTypeMask;
+      uint8_t item_value_arg = item_header_byte >> DexFile::kDexAnnotationValueArgShift;
+      item_width = item_value_arg + 1;
+
+      if (item_value_type != DexFile::kDexAnnotationType) {
+        continue;
+      }
+
+      uint32_t index = DexFile::ReadUnsignedInt(annotation, item_value_arg, false);
+      dex::TypeIndex type_index(index);
+
+      ObjPtr<mirror::Object> element_object = Runtime::Current()->GetClassLinker()->LookupResolvedType(
+          type_index,
+          data.GetDexCache(),
+          data.GetClassLoader());
+      if (element_object == nullptr) {
+        continue;
+      }
+      if (member.Get() == element_object) {
+        return true;
+      }
+  }
+  return false;
 }
 
 ObjPtr<mirror::ObjectArray<mirror::Class>> GetPermittedSubclasses(Handle<mirror::Class> klass) {
