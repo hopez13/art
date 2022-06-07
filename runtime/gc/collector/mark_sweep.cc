@@ -175,11 +175,6 @@ void MarkSweep::RunPhases() {
   FinishPhase();
 }
 
-void MarkSweep::ProcessReferences(Thread* self) {
-  WriterMutexLock mu(self, *Locks::heap_bitmap_lock_);
-  GetHeap()->GetReferenceProcessor()->ProcessReferences(self, GetTimings());
-}
-
 void MarkSweep::PausePhase() {
   TimingLogger::ScopedTiming t("(Paused)PausePhase", GetTimings());
   Thread* self = Thread::Current();
@@ -202,16 +197,14 @@ void MarkSweep::PausePhase() {
     RevokeAllThreadLocalAllocationStacks(self);
   }
   heap_->PreSweepingGcVerification(this);
-  // Disallow new system weaks to prevent a race which occurs when someone adds a new system
-  // weak before we sweep them. Since this new system weak may not be marked, the GC may
-  // incorrectly sweep it. This also fixes a race where interning may attempt to return a strong
-  // reference to a string that is about to be swept.
-  Runtime::Current()->DisallowNewSystemWeaks();
   // Enable the reference processing slow path, needs to be done with mutators paused since there
   // is no lock in the GetReferent fast path.
   ReferenceProcessor* rp = GetHeap()->GetReferenceProcessor();
   rp->Setup(self, this, /*concurrent=*/true, GetCurrentIteration()->GetClearSoftReferences());
-  rp->EnableSlowPath();
+  // We disable weak reference access via thread-locals. This isn't strictly necessary for this
+  // collector, but it saves a memory_order_acquire constraint when testing flags, and allows us
+  // to share code with concurrent-copying.
+  Runtime::Current()->GetThreadList()->DisableWeakRefAccessPaused();
 }
 
 void MarkSweep::PreCleanCards() {
@@ -339,12 +332,10 @@ void MarkSweep::ReclaimPhase() {
   TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
   Thread* const self = Thread::Current();
   // Process the references concurrently.
-  ProcessReferences(self);
+  GetHeap()->GetReferenceProcessor()->ProcessReferences(self, GetTimings());
   // There is no need to sweep interpreter caches as this GC doesn't move
   // objects and hence would be a nop.
-  SweepSystemWeaks(self);
   Runtime* const runtime = Runtime::Current();
-  runtime->AllowNewSystemWeaks();
   // Clean up class loaders after system weaks are swept since that is how we know if class
   // unloading occurred.
   runtime->GetClassLinker()->CleanupClassLoaders();
@@ -353,7 +344,7 @@ void MarkSweep::ReclaimPhase() {
     GetHeap()->RecordFreeRevoke();
     // Reclaim unmarked objects.
     Sweep(false);
-    // Swap the live and mark bitmaps for each space which we modified space. This is an
+    // Swap the live and mark bitmaps for each space which we modified. This is an
     // optimization that enables us to not clear live bits inside of the sweep. Only swaps unbound
     // bitmaps.
     SwapBitmaps();
@@ -1096,12 +1087,6 @@ void MarkSweep::ReMarkRoots() {
     VerifyRootMarkedVisitor visitor(this);
     Runtime::Current()->VisitRoots(&visitor);
   }
-}
-
-void MarkSweep::SweepSystemWeaks(Thread* self) {
-  TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
-  ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
-  Runtime::Current()->SweepSystemWeaks(this);
 }
 
 class MarkSweep::VerifySystemWeakVisitor : public IsMarkedVisitor {

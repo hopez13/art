@@ -35,6 +35,7 @@ namespace collector {
 class GarbageCollector;
 }  // namespace collector
 class GcPauseListener;
+class ReferenceProcessor;
 }  // namespace gc
 class Closure;
 class IsMarkedVisitor;
@@ -219,6 +220,23 @@ class ThreadList {
   std::optional<std::string> WaitForSuspendBarrier(AtomicInteger* barrier, pid_t t = 0)
       REQUIRES(!Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_);
 
+  // Clear the global weak reference access flag. This makes it the caller's
+  // responsibility to explicitly deal with the per-thread flags.
+  void DisableGlobalWeakRefAccess() REQUIRES(Locks::thread_list_lock_) {
+    weak_ref_access_enabled_ = false;
+  }
+
+  // Disable weak reference access while the world is already stopped.
+  void DisableWeakRefAccessPaused() REQUIRES(Locks::mutator_lock_);
+
+  // Asynchronously re-enable fast-path weak reference access from mutators.
+  void ReenableWeakRefAccess(Thread* self, gc::ReferenceProcessor* rp)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool IsWeakRefAccessEnabled() const REQUIRES(Locks::thread_list_lock_) {
+    return weak_ref_access_enabled_;
+  }
+
  private:
   uint32_t AllocThreadId(Thread* self);
   void ReleaseThreadId(Thread* self, uint32_t id) REQUIRES(!Locks::allocated_thread_ids_lock_);
@@ -270,6 +288,9 @@ class ThreadList {
   const uint64_t thread_suspend_timeout_ns_;
 
   std::unique_ptr<Barrier> empty_checkpoint_barrier_;
+
+  // Fast path access to weak references etc. is enabled.  Used only for new threads and DCHECKs.
+  bool weak_ref_access_enabled_ GUARDED_BY(Locks::thread_list_lock_);
 
   friend class Thread;
 

@@ -29,68 +29,19 @@ class AbstractSystemWeakHolder {
  public:
   virtual ~AbstractSystemWeakHolder() {}
 
-  virtual void Allow() REQUIRES_SHARED(Locks::mutator_lock_) = 0;
-  virtual void Disallow() REQUIRES_SHARED(Locks::mutator_lock_) = 0;
-  // See Runtime::BroadcastForNewSystemWeaks for the broadcast_for_checkpoint definition.
-  virtual void Broadcast(bool broadcast_for_checkpoint) = 0;
-
   virtual void Sweep(IsMarkedVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 };
 
 class SystemWeakHolder : public AbstractSystemWeakHolder {
  public:
-  explicit SystemWeakHolder(LockLevel level)
-      : allow_disallow_lock_("SystemWeakHolder", level),
-        new_weak_condition_("SystemWeakHolder new condition", allow_disallow_lock_),
-        allow_new_system_weak_(true) {
-  }
+  explicit SystemWeakHolder() {}
   virtual ~SystemWeakHolder() {}
 
-  void Allow() override
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_) {
-    CHECK(!gUseReadBarrier);
-    MutexLock mu(Thread::Current(), allow_disallow_lock_);
-    allow_new_system_weak_ = true;
-    new_weak_condition_.Broadcast(Thread::Current());
-  }
-
-  void Disallow() override
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_) {
-    CHECK(!gUseReadBarrier);
-    MutexLock mu(Thread::Current(), allow_disallow_lock_);
-    allow_new_system_weak_ = false;
-  }
-
-  void Broadcast([[maybe_unused]] bool broadcast_for_checkpoint) override
-      REQUIRES(!allow_disallow_lock_) {
-    MutexLock mu(Thread::Current(), allow_disallow_lock_);
-    new_weak_condition_.Broadcast(Thread::Current());
-  }
-
-  // WARNING: For lock annotations only.
-  Mutex* GetAllowDisallowLock() const RETURN_CAPABILITY(allow_disallow_lock_) {
-    return nullptr;
-  }
-
  protected:
-  void Wait(Thread* self)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(allow_disallow_lock_) {
+  void Wait(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
     // Wait for GC's sweeping to complete and allow new records
-    while (UNLIKELY((!gUseReadBarrier && !allow_new_system_weak_) ||
-                    (gUseReadBarrier && !self->GetWeakRefAccessEnabled()))) {
-      // Check and run the empty checkpoint before blocking so the empty checkpoint will work in the
-      // presence of threads blocking for weak ref access.
-      self->CheckEmptyCheckpointFromWeakRefAccess(&allow_disallow_lock_);
-      new_weak_condition_.WaitHoldingLocks(self);
-    }
+    self->WaitUntilDoneProcessingReferences();
   }
-
-  Mutex allow_disallow_lock_;
-  ConditionVariable new_weak_condition_ GUARDED_BY(allow_disallow_lock_);
-  bool allow_new_system_weak_ GUARDED_BY(allow_disallow_lock_);
 };
 
 }  // namespace gc

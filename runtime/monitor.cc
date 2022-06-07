@@ -1606,10 +1606,7 @@ uint32_t Monitor::GetOwnerThreadId() {
   }
 }
 
-MonitorList::MonitorList()
-    : allow_new_monitors_(true), monitor_list_lock_("MonitorList lock", kMonitorListLock),
-      monitor_add_condition_("MonitorList disallow condition", monitor_list_lock_) {
-}
+MonitorList::MonitorList() : monitor_list_lock_("MonitorList lock", kMonitorListLock) {}
 
 MonitorList::~MonitorList() {
   Thread* self = Thread::Current();
@@ -1620,37 +1617,15 @@ MonitorList::~MonitorList() {
   MonitorPool::ReleaseMonitors(self, &list_);
 }
 
-void MonitorList::DisallowNewMonitors() {
-  CHECK(!gUseReadBarrier);
-  MutexLock mu(Thread::Current(), monitor_list_lock_);
-  allow_new_monitors_ = false;
-}
-
-void MonitorList::AllowNewMonitors() {
-  CHECK(!gUseReadBarrier);
-  Thread* self = Thread::Current();
-  MutexLock mu(self, monitor_list_lock_);
-  allow_new_monitors_ = true;
-  monitor_add_condition_.Broadcast(self);
-}
-
-void MonitorList::BroadcastForNewMonitors() {
-  Thread* self = Thread::Current();
-  MutexLock mu(self, monitor_list_lock_);
-  monitor_add_condition_.Broadcast(self);
-}
-
 void MonitorList::Add(Monitor* m) {
   Thread* self = Thread::Current();
   MutexLock mu(self, monitor_list_lock_);
   // CMS needs this to block for concurrent reference processing because an object allocated during
   // the GC won't be marked and concurrent reference processing would incorrectly clear the JNI weak
-  // ref. But CC (gUseReadBarrier == true) doesn't because of the to-space invariant.
-  while (!gUseReadBarrier && UNLIKELY(!allow_new_monitors_)) {
-    // Check and run the empty checkpoint before blocking so the empty checkpoint will work in the
-    // presence of threads blocking for weak ref access.
-    self->CheckEmptyCheckpointFromWeakRefAccess(&monitor_list_lock_);
-    monitor_add_condition_.WaitHoldingLocks(self);
+  // ref. But CC and CMC don't because of the to-space invariant.
+  // FIXME: double-check that we didn't break abything here.
+  if (gc::Heap::RecentObjectsCanBeUnmarked(Runtime::Current()->GetHeap()->CurrentCollectorType())) {
+    self->WaitUntilDoneProcessingReferences();
   }
   list_.push_front(m);
 }

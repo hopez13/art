@@ -52,15 +52,15 @@ namespace openjdkjvmti {
 
 template <typename T>
 void JvmtiWeakTable<T>::Lock() {
-  allow_disallow_lock_.ExclusiveLock(art::Thread::Current());
+  weak_table_lock_.ExclusiveLock(art::Thread::Current());
 }
 template <typename T>
 void JvmtiWeakTable<T>::Unlock() {
-  allow_disallow_lock_.ExclusiveUnlock(art::Thread::Current());
+  weak_table_lock_.ExclusiveUnlock(art::Thread::Current());
 }
 template <typename T>
 void JvmtiWeakTable<T>::AssertLocked() {
-  allow_disallow_lock_.AssertHeld(art::Thread::Current());
+  weak_table_lock_.AssertHeld(art::Thread::Current());
 }
 
 template <typename T>
@@ -89,16 +89,16 @@ bool JvmtiWeakTable<T>::GetTagSlowPath(art::Thread* self, art::ObjPtr<art::mirro
 template <typename T>
 bool JvmtiWeakTable<T>::Remove(art::ObjPtr<art::mirror::Object> obj, /* out */ T* tag) {
   art::Thread* self = art::Thread::Current();
-  art::MutexLock mu(self, allow_disallow_lock_);
   Wait(self);
+  art::MutexLock mu(self, weak_table_lock_);
 
   return RemoveLocked(self, obj, tag);
 }
 template <typename T>
 bool JvmtiWeakTable<T>::RemoveLocked(art::ObjPtr<art::mirror::Object> obj, T* tag) {
   art::Thread* self = art::Thread::Current();
-  allow_disallow_lock_.AssertHeld(self);
   Wait(self);
+  weak_table_lock_.AssertHeld(self);
 
   return RemoveLocked(self, obj, tag);
 }
@@ -134,16 +134,16 @@ bool JvmtiWeakTable<T>::RemoveLocked(art::Thread* self, art::ObjPtr<art::mirror:
 template <typename T>
 bool JvmtiWeakTable<T>::Set(art::ObjPtr<art::mirror::Object> obj, T new_tag) {
   art::Thread* self = art::Thread::Current();
-  art::MutexLock mu(self, allow_disallow_lock_);
   Wait(self);
+  art::MutexLock mu(self, weak_table_lock_);
 
   return SetLocked(self, obj, new_tag);
 }
 template <typename T>
 bool JvmtiWeakTable<T>::SetLocked(art::ObjPtr<art::mirror::Object> obj, T new_tag) {
   art::Thread* self = art::Thread::Current();
-  allow_disallow_lock_.AssertHeld(self);
   Wait(self);
+  weak_table_lock_.AssertHeld(self);
 
   return SetLocked(self, obj, new_tag);
 }
@@ -196,7 +196,7 @@ template <typename T>
 template <bool kHandleNull>
 void JvmtiWeakTable<T>::SweepImpl(art::IsMarkedVisitor* visitor) {
   art::Thread* self = art::Thread::Current();
-  art::MutexLock mu(self, allow_disallow_lock_);
+  art::MutexLock mu(self, weak_table_lock_);
 
   auto IsMarkedUpdater = [&]([[maybe_unused]] const art::GcRoot<art::mirror::Object>& original_root,
                              art::mirror::Object* original_obj) {
@@ -329,8 +329,8 @@ jvmtiError JvmtiWeakTable<T>::GetTaggedObjects(jvmtiEnv* jvmti_env,
   }
 
   art::Thread* self = art::Thread::Current();
-  art::MutexLock mu(self, allow_disallow_lock_);
   Wait(self);
+  art::MutexLock mu(self, weak_table_lock_);
 
   art::JNIEnvExt* jni_env = self->GetJniEnv();
 
@@ -390,8 +390,8 @@ jvmtiError JvmtiWeakTable<T>::GetTaggedObjects(jvmtiEnv* jvmti_env,
 template <typename T>
 art::ObjPtr<art::mirror::Object> JvmtiWeakTable<T>::Find(T tag) {
   art::Thread* self = art::Thread::Current();
-  art::MutexLock mu(self, allow_disallow_lock_);
   Wait(self);
+  art::MutexLock mu(self, weak_table_lock_);
 
   for (auto& pair : tagged_objects_) {
     if (tag == pair.second) {

@@ -148,9 +148,6 @@ class ConcurrentCopying : public GarbageCollector {
   Barrier& GetBarrier() {
     return *gc_barrier_;
   }
-  bool IsWeakRefAccessEnabled() REQUIRES(Locks::thread_list_lock_) {
-    return weak_ref_access_enabled_;
-  }
   void RevokeThreadLocalMarkStack(Thread* thread) REQUIRES(!mark_stack_lock_);
 
   // Blindly return the forwarding pointer from the lockword, or null if there is none.
@@ -239,7 +236,6 @@ class ConcurrentCopying : public GarbageCollector {
   void DelayReferenceReferent(ObjPtr<mirror::Class> klass,
                               ObjPtr<mirror::Reference> reference) override
       REQUIRES_SHARED(Locks::mutator_lock_);
-  void ProcessReferences(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
   mirror::Object* MarkObject(mirror::Object* from_ref) override
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!mark_stack_lock_, !skipped_blocks_lock_, !immune_gray_stack_lock_);
@@ -409,7 +405,6 @@ class ConcurrentCopying : public GarbageCollector {
   // the flag, and to ensure that CHECKs prior to a state change cannot be delayed past the state
   // change.
   Atomic<MarkStackMode> mark_stack_mode_;
-  bool weak_ref_access_enabled_ GUARDED_BY(Locks::thread_list_lock_);
 
   // How many objects and bytes we moved. The GC thread moves many more objects
   // than mutators.  Therefore, we separate the two to avoid CAS.  Bytes_moved_ and

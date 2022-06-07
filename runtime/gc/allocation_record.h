@@ -251,21 +251,6 @@ class AllocRecordObjectMap {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(Locks::alloc_tracker_lock_);
 
-  // Allocation tracking could be enabled by user in between DisallowNewAllocationRecords() and
-  // AllowNewAllocationRecords(), in which case new allocation records can be added although they
-  // should be disallowed. However, this is GC-safe because new objects are not processed in this GC
-  // cycle. The only downside of not handling this case is that such new allocation records can be
-  // swept from the list. But missing the first few records is acceptable for using the button to
-  // enable allocation tracking.
-  void DisallowNewAllocationRecords()
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(Locks::alloc_tracker_lock_);
-  void AllowNewAllocationRecords()
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(Locks::alloc_tracker_lock_);
-  void BroadcastForNewAllocationRecords()
-      REQUIRES(Locks::alloc_tracker_lock_);
-
   // TODO: Is there a better way to hide the entries_'s type?
   EntryList::iterator Begin()
       REQUIRES_SHARED(Locks::mutator_lock_)
@@ -297,8 +282,6 @@ class AllocRecordObjectMap {
   size_t alloc_record_max_ GUARDED_BY(Locks::alloc_tracker_lock_) = kDefaultNumAllocRecords;
   size_t recent_record_max_ GUARDED_BY(Locks::alloc_tracker_lock_) = kDefaultNumRecentRecords;
   size_t max_stack_depth_ = kDefaultAllocStackDepth;
-  bool allow_new_record_ GUARDED_BY(Locks::alloc_tracker_lock_) = true;
-  ConditionVariable new_record_condition_ GUARDED_BY(Locks::alloc_tracker_lock_);
   // see the comment in typedef of EntryList
   EntryList entries_ GUARDED_BY(Locks::alloc_tracker_lock_);
 

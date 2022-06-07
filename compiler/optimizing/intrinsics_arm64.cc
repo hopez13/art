@@ -3544,7 +3544,7 @@ void IntrinsicCodeGeneratorARM64::VisitReferenceGetReferent(HInvoke* invoke) {
   SlowPathCodeARM64* slow_path = new (GetAllocator()) IntrinsicSlowPathARM64(invoke);
   codegen_->AddSlowPath(slow_path);
 
-  if (codegen_->EmitReadBarrier()) {
+  {
     // Check self->GetWeakRefAccessEnabled().
     UseScratchRegisterScope temps(masm);
     Register temp = temps.AcquireW();
@@ -3560,12 +3560,9 @@ void IntrinsicCodeGeneratorARM64::VisitReferenceGetReferent(HInvoke* invoke) {
     Register temp = temps.AcquireW();
     codegen_->LoadIntrinsicDeclaringClass(temp, invoke);
 
-    // Check static fields java.lang.ref.Reference.{disableIntrinsic,slowPathEnabled} together.
+    // check Reference.disableIntrinsic.
     MemberOffset disable_intrinsic_offset = IntrinsicVisitor::GetReferenceDisableIntrinsicOffset();
-    DCHECK_ALIGNED(disable_intrinsic_offset.Uint32Value(), 2u);
-    DCHECK_EQ(disable_intrinsic_offset.Uint32Value() + 1u,
-              IntrinsicVisitor::GetReferenceSlowPathEnabledOffset().Uint32Value());
-    __ Ldrh(temp, HeapOperand(temp, disable_intrinsic_offset.Uint32Value()));
+    __ Ldrb(temp, HeapOperand(temp, disable_intrinsic_offset.Uint32Value()));
     __ Cbnz(temp, slow_path->GetEntryLabel());
   }
 
