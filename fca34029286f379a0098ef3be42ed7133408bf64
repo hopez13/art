@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8e2edba_c1eedd1f",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-07T12:39:06Z",
+      "side": 1,
+      "message": "But those were there before this change too, so this still looks like a nop change.\n\nIf this CL fixes all the bugprone-macro-parentheses warnings then I gather that the last hunk in http://b/213953102#comment11 with the extra single quotes was actually superfluous. Is that correct?",
+      "parentUuid": "39d70c97_d9601e61",
+      "range": {
+        "startLine": 168,
+        "startChar": 57,
+        "endLine": 168,
+        "endChar": 59
+      },
+      "revId": "fca34029286f379a0098ef3be42ed7133408bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "409cd8b3_2003b392",
         "filename": "libnativeloader/native_loader_test.cpp",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "You\u0027re correct this is not a bugprone-macro-parentheses fix, but it was marked as error by tidy-art and I could only make it complete by resolving it.",
       "parentUuid": "409cd8b3_2003b392",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 20
+      },
+      "revId": "fca34029286f379a0098ef3be42ed7133408bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28b27323_2e9b75dc",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-07T12:39:06Z",
+      "side": 1,
+      "message": "But you\u0027re only adding bugprone-macro-parentheses to the error list. Do you mean that flag enables this error too, or was it already there in clang-tidy runs before this CL? In any case, it\u0027s worth a clarification in the description.",
+      "parentUuid": "6db05774_efae9eee",
       "range": {
         "startLine": 172,
         "startChar": 2,
