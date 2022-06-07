@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b702a3a_26cc638d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-07T12:09:39Z",
+      "side": 1,
+      "message": "It does, but to make cpplint happy I had to leave the NOLINTNEXTLINE directive general (instead of applying the specific one for bugprone-macro-parentheses) in unstarted_runtime.cc",
+      "parentUuid": "b3c7aa4b_fb7e4135",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "fca34029286f379a0098ef3be42ed7133408bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f95eaa46_1e83f108",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39d70c97_d9601e61",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-07T12:09:39Z",
+      "side": 1,
+      "message": "You\u0027re right %s by itself does not add the quotes, but it\u0027s surrounded by two \\\" characters, which are the ones making a difference.",
+      "parentUuid": "f95eaa46_1e83f108",
+      "range": {
+        "startLine": 168,
+        "startChar": 57,
+        "endLine": 168,
+        "endChar": 59
+      },
+      "revId": "fca34029286f379a0098ef3be42ed7133408bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "409cd8b3_2003b392",
         "filename": "libnativeloader/native_loader_test.cpp",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2022-06-07T12:04:20Z",
       "side": 1,
       "message": "Not a bugprone-macro-parentheses fix. Maybe move it to a different CL, or at least mention it in the description.",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 20
+      },
+      "revId": "fca34029286f379a0098ef3be42ed7133408bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6db05774_efae9eee",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-07T12:09:39Z",
+      "side": 1,
+      "message": "You\u0027re correct this is not a bugprone-macro-parentheses fix, but it was marked as error by tidy-art and I could only make it complete by resolving it.",
+      "parentUuid": "409cd8b3_2003b392",
       "range": {
         "startLine": 172,
         "startChar": 2,
