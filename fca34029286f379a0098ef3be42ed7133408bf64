@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3c7aa4b_fb7e4135",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-07T12:04:20Z",
+      "side": 1,
+      "message": "I assume this passes the cpplint upload check as well.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "fca34029286f379a0098ef3be42ed7133408bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f95eaa46_1e83f108",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-07T12:04:20Z",
+      "side": 1,
+      "message": "%s doesn\u0027t quote, so it looks to me like it doesn\u0027t change anything. Am I missing something?",
+      "range": {
+        "startLine": 168,
+        "startChar": 57,
+        "endLine": 168,
+        "endChar": 59
+      },
+      "revId": "fca34029286f379a0098ef3be42ed7133408bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "409cd8b3_2003b392",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-07T12:04:20Z",
+      "side": 1,
+      "message": "Not a bugprone-macro-parentheses fix. Maybe move it to a different CL, or at least mention it in the description.",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 20
+      },
+      "revId": "fca34029286f379a0098ef3be42ed7133408bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
