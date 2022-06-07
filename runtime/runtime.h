@@ -454,13 +454,6 @@ class Runtime {
     return true;
   }
 
-  void DisallowNewSystemWeaks() REQUIRES_SHARED(Locks::mutator_lock_);
-  void AllowNewSystemWeaks() REQUIRES_SHARED(Locks::mutator_lock_);
-  // broadcast_for_checkpoint is true when we broadcast for making blocking threads to respond to
-  // checkpoint requests. It's false when we broadcast to unblock blocking threads after system weak
-  // access is reenabled.
-  void BroadcastForNewSystemWeaks(bool broadcast_for_checkpoint = false);
-
   // Visit all the roots. If only_dirty is true then non-dirty roots won't be visited. If
   // clean_dirty is true then dirty roots will be marked as non-dirty after visiting.
   void VisitRoots(RootVisitor* visitor, VisitRootFlags flags = kVisitRootFlagAllRoots)

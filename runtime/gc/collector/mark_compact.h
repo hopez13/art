@@ -451,10 +451,6 @@ class MarkCompact final : public GarbageCollector {
   void UpdateLivenessInfo(mirror::Object* obj, size_t obj_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void ProcessReferences(Thread* self)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::heap_bitmap_lock_);
-
   void MarkObjectNonNull(mirror::Object* obj,
                          mirror::Object* holder = nullptr,
                          MemberOffset offset = MemberOffset(0))

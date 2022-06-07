@@ -97,7 +97,6 @@ ConcurrentCopying::ConcurrentCopying(Heap* heap,
       live_stack_freeze_size_(0),
       from_space_num_bytes_at_first_pause_(0),
       mark_stack_mode_(kMarkStackModeOff),
-      weak_ref_access_enabled_(true),
       copied_live_bytes_ratio_sum_(0.f),
       gc_count_(0),
       reclaimed_bytes_ratio_sum_(0.f),
@@ -1453,10 +1452,6 @@ void ConcurrentCopying::CopyingPhase() {
   }
   Thread* self = Thread::Current();
   accounting::CardTable* const card_table = heap_->GetCardTable();
-  if (kIsDebugBuild) {
-    MutexLock mu(self, *Locks::thread_list_lock_);
-    CHECK(weak_ref_access_enabled_);
-  }
 
   // Scan immune spaces.
   // Update all the fields in the immune spaces first without graying the objects so that we
@@ -1673,52 +1668,27 @@ void ConcurrentCopying::CopyingPhase() {
       LOG(INFO) << "ProcessReferences";
     }
     // Process weak references. This also marks through finalizers. Although
-    // reference processing is "disabled", some accesses will proceed once we've ensured that
+    // reference access is "disabled", some accesses will proceed once we've ensured that
     // objects directly reachable by the mutator are marked, i.e. before we mark through
-    // finalizers.
-    ProcessReferences(self);
+    // finalizers. Sweeps system weaks and reenables fast reference access.
+    // We don't really need to lock the heap bitmap lock as we use CAS to mark in bitmaps.
+    GetHeap()->GetReferenceProcessor()->ProcessReferences(self, GetTimings());
     CheckEmptyMarkStack();
-    // JNI WeakGlobalRefs and most other system weaks cannot be processed until we're done marking
-    // through finalizers, since such references to finalizer-reachable objects must be preserved.
-    if (kVerboseMode) {
-      LOG(INFO) << "SweepSystemWeaks";
-    }
-    SweepSystemWeaks(self);
-    CheckEmptyMarkStack();
-    ReenableWeakRefAccess(self);
     if (kVerboseMode) {
       LOG(INFO) << "SweepSystemWeaks done";
     }
     // Marking is done. Disable marking.
     DisableMarking();
     CheckEmptyMarkStack();
+    if (kIsDebugBuild) {
+      MutexLock mu(self, *Locks::thread_list_lock_);
+      CHECK(Runtime::Current()->GetThreadList()->IsWeakRefAccessEnabled());
+    }
   }
 
-  if (kIsDebugBuild) {
-    MutexLock mu(self, *Locks::thread_list_lock_);
-    CHECK(weak_ref_access_enabled_);
-  }
   if (kVerboseMode) {
     LOG(INFO) << "GC end of CopyingPhase";
   }
-}
-
-void ConcurrentCopying::ReenableWeakRefAccess(Thread* self) {
-  if (kVerboseMode) {
-    LOG(INFO) << "ReenableWeakRefAccess";
-  }
-  // Iterate all threads (don't need to or can't use a checkpoint) and re-enable weak ref access.
-  {
-    MutexLock mu(self, *Locks::thread_list_lock_);
-    weak_ref_access_enabled_ = true;  // This is for new threads.
-    std::list<Thread*> thread_list = Runtime::Current()->GetThreadList()->GetList();
-    for (Thread* thread : thread_list) {
-      thread->SetWeakRefAccessEnabled(true);
-    }
-  }
-  // Unblock blocking threads.
-  GetHeap()->GetReferenceProcessor()->BroadcastForSlowPath(self);
-  Runtime::Current()->BroadcastForNewSystemWeaks();
 }
 
 class ConcurrentCopying::DisableMarkingCheckpoint : public Closure {
@@ -2401,19 +2371,15 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
 
 class ConcurrentCopying::DisableWeakRefAccessCallback : public Closure {
  public:
-  explicit DisableWeakRefAccessCallback(ConcurrentCopying* concurrent_copying)
-      : concurrent_copying_(concurrent_copying) {
-  }
+  explicit DisableWeakRefAccessCallback() {}
 
   void Run([[maybe_unused]] Thread* self) override REQUIRES(Locks::thread_list_lock_) {
     // This needs to run under the thread_list_lock_ critical section in ThreadList::RunCheckpoint()
     // to avoid a deadlock b/31500969.
-    CHECK(concurrent_copying_->weak_ref_access_enabled_);
-    concurrent_copying_->weak_ref_access_enabled_ = false;
+    ThreadList* tl = Runtime::Current()->GetThreadList();
+    CHECK(tl->IsWeakRefAccessEnabled());
+    tl->DisableGlobalWeakRefAccess();
   }
-
- private:
-  ConcurrentCopying* const concurrent_copying_;
 };
 
 void ConcurrentCopying::SwitchToSharedMarkStackMode() {
@@ -2424,7 +2390,7 @@ void ConcurrentCopying::SwitchToSharedMarkStackMode() {
   CHECK_EQ(static_cast<uint32_t>(mark_stack_mode_.load(std::memory_order_relaxed)),
            static_cast<uint32_t>(kMarkStackModeThreadLocal));
   mark_stack_mode_.store(kMarkStackModeShared, std::memory_order_release);
-  DisableWeakRefAccessCallback dwrac(this);
+  DisableWeakRefAccessCallback dwrac;
   // Process the thread local mark stacks one last time after switching to the shared mark stack
   // mode and disable weak ref accesses.
   ProcessThreadLocalMarkStacks(/* disable_weak_ref_access= */ true,
@@ -2484,12 +2450,6 @@ void ConcurrentCopying::CheckEmptyMarkStack() {
     CHECK(revoked_mark_stacks_.empty());
     CHECK_EQ(pooled_mark_stacks_.size(), kMarkStackPoolSize);
   }
-}
-
-void ConcurrentCopying::SweepSystemWeaks(Thread* self) {
-  TimingLogger::ScopedTiming split("SweepSystemWeaks", GetTimings());
-  ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
-  Runtime::Current()->SweepSystemWeaks(this);
 }
 
 void ConcurrentCopying::Sweep(bool swap_bitmaps) {
@@ -3852,12 +3812,6 @@ mirror::Object* ConcurrentCopying::MarkObject(mirror::Object* from_ref) {
 void ConcurrentCopying::DelayReferenceReferent(ObjPtr<mirror::Class> klass,
                                                ObjPtr<mirror::Reference> reference) {
   heap_->GetReferenceProcessor()->DelayReferenceReferent(klass, reference, this);
-}
-
-void ConcurrentCopying::ProcessReferences(Thread* self) {
-  // We don't really need to lock the heap bitmap lock as we use CAS to mark in bitmaps.
-  WriterMutexLock mu(self, *Locks::heap_bitmap_lock_);
-  GetHeap()->GetReferenceProcessor()->ProcessReferences(self, GetTimings());
 }
 
 void ConcurrentCopying::RevokeAllThreadLocalBuffers() {

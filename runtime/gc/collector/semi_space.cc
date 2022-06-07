@@ -144,7 +144,6 @@ void SemiSpace::InitializePhase() {
 }
 
 void SemiSpace::ProcessReferences(Thread* self) {
-  WriterMutexLock mu(self, *Locks::heap_bitmap_lock_);
   ReferenceProcessor* rp = GetHeap()->GetReferenceProcessor();
   rp->Setup(self, this, /*concurrent=*/false, GetCurrentIteration()->GetClearSoftReferences());
   rp->ProcessReferences(self, GetTimings());
@@ -194,11 +193,6 @@ void SemiSpace::MarkingPhase() {
     MarkReachableObjects();
   }
   ProcessReferences(self_);
-  {
-    ReaderMutexLock mu(self_, *Locks::heap_bitmap_lock_);
-    SweepSystemWeaks();
-  }
-  Runtime::Current()->BroadcastForNewSystemWeaks();
   Runtime::Current()->GetClassLinker()->CleanupClassLoaders();
   // Revoke buffers before measuring how many objects were moved since the TLABs need to be revoked
   // before they are properly counted.
@@ -503,7 +497,7 @@ void SemiSpace::SweepSystemWeaks() {
   TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
   Runtime* runtime = Runtime::Current();
   runtime->SweepSystemWeaks(this);
-  runtime->GetThreadList()->SweepInterpreterCaches(this);
+  runtime->GetThreadList()->SweepInterpreterCaches(this); ??? Delete?
 }
 
 bool SemiSpace::ShouldSweepSpace(space::ContinuousSpace* space) const {

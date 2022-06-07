@@ -68,6 +68,7 @@
 #include "gc/allocator/rosalloc.h"
 #include "gc/heap.h"
 #include "gc/space/space-inl.h"
+#include "gc/reference_processor.h"
 #include "gc_root.h"
 #include "handle_scope-inl.h"
 #include "indirect_reference_table-inl.h"
@@ -1929,6 +1930,16 @@ void Thread::WaitForFlipFunctionTestingExited(Thread* self, ThreadExitFlag* tef)
       return;
     }
   }
+}
+
+void Thread::WaitForReferencesSlowPath() {
+  DCHECK_EQ(Current(), this);
+  MutexLock mu(this, *Locks::reference_processor_lock_);
+  gc::ReferenceProcessor* rp = Runtime::Current()->GetHeap()->GetReferenceProcessor();
+  DCHECK(!GetWeakRefAccessEnabled());
+  ATraceBegin("Waiting for reference processing");
+  rp->RunnableWaitUntilRPDone(/*self=*/ this);
+  ATraceEnd();
 }
 
 void Thread::FullSuspendCheck(bool implicit) {

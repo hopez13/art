@@ -56,7 +56,7 @@
 #include "imt_conflict_table.h"
 #include "indirect_reference_table-inl.h"
 #include "intern_table-inl.h"
-#include "jni/java_vm_ext-inl.h"
+#include "jni/java_vm_ext.h"
 #include "jni/jni_internal.h"
 #include "linear_alloc.h"
 #include "lock_word.h"

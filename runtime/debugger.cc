@@ -953,9 +953,8 @@ jbyteArray Dbg::GetRecentAllocations() {
       CHECK(!Runtime::Current()->GetHeap()->IsAllocTrackingEnabled());
       records = &fallback_record_map;
     }
-    // We don't need to wait on the condition variable records->new_record_condition_, because this
-    // function only reads the class objects, which are already marked so it doesn't change their
-    // reachability.
+    // We don't need to wait for reference processing, because this function only reads the class
+    // objects, which are already marked so it doesn't change their reachability.
 
     //
     // Part 1: generate string tables.

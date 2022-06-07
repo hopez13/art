@@ -459,8 +459,7 @@ void ThreadList::RunEmptyCheckpoint() {
 
   // Wake up the threads blocking for weak ref access so that they will respond to the empty
   // checkpoint request. Otherwise we will hang as they are blocking in the kRunnable state.
-  Runtime::Current()->GetHeap()->GetReferenceProcessor()->BroadcastForSlowPath(self);
-  Runtime::Current()->BroadcastForNewSystemWeaks(/*broadcast_for_checkpoint=*/true);
+  Runtime::Current()->GetHeap()->GetReferenceProcessor()->WakeWeakRefWaiters(self);
   {
     ScopedThreadStateChange tsc(self, ThreadState::kWaitingForCheckPointsToRun);
     uint64_t total_wait_time = 0;
@@ -1384,6 +1383,25 @@ void ThreadList::SuspendAllDaemonThreadsForShutdown() {
   // At this point no threads should be touching our data structures anymore.
 }
 
+void ThreadList::DisableWeakRefAccessPaused() {
+  // Iterate all threads (don't need to or can't use a checkpoint) and re-enable weak ref access.
+  MutexLock mu(Thread::Current(), *Locks::thread_list_lock_);
+  DisableGlobalWeakRefAccess();
+  for (Thread* thread : list_) {
+    thread->SetWeakRefAccessEnabled(false);
+  }
+}
+
+void ThreadList::ReenableWeakRefAccess(Thread* self, ReferenceProcessor* rp) {
+  // Iterate all threads (don't need to or can't use a checkpoint) and re-enable weak ref access.
+  MutexLock mu(self, *Locks::thread_list_lock_);
+  weak_ref_access_enabled_ = true;
+  for (Thread* thread : list_) {
+    thread->SetWeakRefAccessEnabled(true);
+  }
+  rp->WakeWeakRefWaiters(self);
+}
+
 void ThreadList::Register(Thread* self) {
   DCHECK_EQ(self, Thread::Current());
   CHECK(!shut_down_);
@@ -1413,8 +1431,8 @@ void ThreadList::Register(Thread* self) {
     if (cc->IsUsingReadBarrierEntrypoints()) {
       self->SetReadBarrierEntrypoints();
     }
-    self->SetWeakRefAccessEnabled(cc->IsWeakRefAccessEnabled());
   }
+  self->SetWeakRefAccessEnabled(IsWeakRefAccessEnabled());
 }
 
 void ThreadList::Unregister(Thread* self, bool should_run_callbacks) {

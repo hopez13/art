@@ -43,22 +43,10 @@ namespace openjdkjvmti {
 // Instantiate for jlong = JVMTI tags.
 template class JvmtiWeakTable<jlong>;
 
-void ObjectTagTable::Allow() {
-  JvmtiWeakTable<jlong>::Allow();
-  SendDelayedFreeEvents();
-}
-
-void ObjectTagTable::Broadcast(bool broadcast_for_checkpoint) {
-  JvmtiWeakTable<jlong>::Broadcast(broadcast_for_checkpoint);
-  if (!broadcast_for_checkpoint) {
-    SendDelayedFreeEvents();
-  }
-}
-
-void ObjectTagTable::SendDelayedFreeEvents() {
+void ObjectTagTable::SendDelayedFreeEvents(art::Thread* self) {
   std::vector<jlong> to_send;
   {
-    art::MutexLock mu(art::Thread::Current(), lock_);
+    art::MutexLock mu(self, lock_);
     to_send.swap(null_tags_);
   }
   for (jlong t : to_send) {
