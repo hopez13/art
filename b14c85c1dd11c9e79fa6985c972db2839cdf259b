@@ -16,6 +16,24 @@
       "message": "Thanks for the fix!",
       "revId": "b14c85c1dd11c9e79fa6985c972db2839cdf259b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cff944fd_18399c40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-07T10:13:45Z",
+      "side": 1,
+      "message": "NP. The problem is that only art/build/apex/runtests.sh tests the host APEX and it\u0027s not run in CI.",
+      "parentUuid": "5b228fc6_2088aa9e",
+      "revId": "b14c85c1dd11c9e79fa6985c972db2839cdf259b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
