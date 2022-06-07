@@ -3846,8 +3846,11 @@ ArtMethod* MethodVerifier<kVerifierDebug>::ResolveMethodAndCheckAccess(
                                      << " from " << referrer << ")";
     return res_method;
   }
-  // Check that invoke-virtual and invoke-super are not used on private methods of the same class.
-  if (res_method->IsPrivate() && (method_type == METHOD_VIRTUAL || method_type == METHOD_SUPER)) {
+  // Check that invoke-virtual is not used on private methods of the same class, nor is invoke-super
+  // used on a private method of a class outside the nest group.
+  if (res_method->IsPrivate() &&
+      (method_type == METHOD_VIRTUAL ||
+       (method_type == METHOD_SUPER && !referrer.HasSameNestHost(klass_type)) )) {
     Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "invoke-super/virtual can't be used on private method "
                                       << res_method->PrettyMethod();
     return nullptr;
