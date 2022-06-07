@@ -83,7 +83,7 @@ struct CSFSelector<InstructionSet::kX86_64> { using type = x86_64::X86_64CalleeS
 
 }  // namespace detail
 
-using RuntimeCalleeSaveFrame = detail::CSFSelector<kRuntimeISA>::type;
+using RuntimeCalleeSaveFrame = detail::CSFSelector<kRuntimeQuickCodeISA>::type;
 
 }  // namespace art
 

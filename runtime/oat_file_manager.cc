@@ -198,7 +198,7 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
                  << "Are you using the deprecated DexFile APIs?";
   } else if (context != nullptr) {
     auto oat_file_assistant = std::make_unique<OatFileAssistant>(dex_location,
-                                                                 kRuntimeISA,
+                                                                 kRuntimeQuickCodeISA,
                                                                  context.get(),
                                                                  runtime->GetOatFilesExecutable(),
                                                                  only_use_system_oat_files_);
@@ -345,7 +345,7 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
           // file as non-executable.
           auto nonexecutable_oat_file_assistant =
               std::make_unique<OatFileAssistant>(dex_location,
-                                                 kRuntimeISA,
+                                                 kRuntimeQuickCodeISA,
                                                  context.get(),
                                                  /*load_executable=*/false,
                                                  only_use_system_oat_files_);

@@ -52,6 +52,9 @@ static constexpr InstructionSet kRuntimeISA = InstructionSet::kX86_64;
 static constexpr InstructionSet kRuntimeISA = InstructionSet::kNone;
 #endif
 
+// kRuntimeQuickCodeISA reflects the statically known ISA for the quick code.
+static constexpr InstructionSet kRuntimeQuickCodeISA = kRuntimeISA;
+
 // Architecture-specific pointer sizes
 static constexpr PointerSize kArmPointerSize = PointerSize::k32;
 static constexpr PointerSize kArm64PointerSize = PointerSize::k64;
