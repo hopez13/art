@@ -2161,6 +2161,87 @@ ArtMethod* Class::FindAccessibleInterfaceMethod(ArtMethod* implementation_method
   return nullptr;
 }
 
+static inline bool classInMemberList(ObjPtr<mirror::Class> klass,
+        ObjPtr<mirror::Class> host,
+        ObjPtr<mirror::ObjectArray<mirror::Class>> members)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (klass == host) {
+    return true;
+  }
+
+  for (auto it = members->begin(); it != members->end(); ++it) {
+    if (*it == klass) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+bool Class::HasSameNestHost(ObjPtr<mirror::Class> klass)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (klass == this) {
+    // A class is in the same nest group as itself.
+    return true;
+  }
+  if (IsPrimitive() || klass->IsPrimitive()) {
+    // Primitives do not form nest groups.
+    return false;
+  }
+  if (IsArrayClass() || klass->IsArrayClass()) {
+    // Arrays do not form nest groups.
+    return false;
+  }
+
+  if (!this->IsInSamePackage(klass)) {
+    // If classes are in different packages, they cannot be part of the same nest group.
+    return false;
+  }
+
+  StackHandleScope<3> hs(Thread::Current());
+  Handle<mirror::Class> hThis(hs.NewHandle(this));
+  Handle<mirror::Class> hKlass(hs.NewHandle(klass));
+  // Get the nest host for each class from the annotation. If the annotation is missing, it is
+  // implied that the class is the host of its own group.
+  ObjPtr<mirror::Class> hostOfThis = annotations::GetNestHost(hThis);
+  if (hostOfThis == nullptr) {
+    hostOfThis = this;
+  }
+  ObjPtr<mirror::Class> hostOfKlass = annotations::GetNestHost(hKlass);
+  if (hostOfKlass == nullptr) {
+    hostOfKlass = klass;
+  }
+
+  if (hostOfThis != hostOfKlass) {
+    // Hosts differ, so they must be part of different groups. There is an unlikely case where the
+    // host specified could be wrong (because the host doesn't have the class as a member), but then
+    // the class (A) is considered to be its own host. If it happens that this class (A) has the
+    // other one (B) in the list of members and B has A as nest host, then they would be as part of
+    // the same nest group, though in reality we shouldn't see this case.
+    if (UNLIKELY(hostOfThis == klass || hostOfKlass == this)) {
+      // Try and see if the second class is in the list of members of the first one. Make sure
+      // hostOfThis points to the class that could have the other as a member.
+      if (hostOfKlass == this) {
+        hostOfThis = this;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  Handle<mirror::Class> hHost(hs.NewHandle(hostOfThis));
+  ObjPtr<mirror::ObjectArray<mirror::Class>> members = annotations::GetNestMembers(hHost);
+  if (members == nullptr) {
+    return false;
+  }
+
+  if (!classInMemberList(this, hostOfThis, members) || !classInMemberList(klass, hostOfThis, members)) {
+    return false;
+  }
+
+  return true;
+}
+
 
 }  // namespace mirror
 }  // namespace art
