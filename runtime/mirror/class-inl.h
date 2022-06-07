@@ -464,12 +464,13 @@ inline bool Class::IsAssignableFromArray(ObjPtr<Class> src) {
 }
 
 template <bool throw_on_failure>
-inline bool Class::ResolvedFieldAccessTest(ObjPtr<Class> access_to,
+inline bool Class::ResolvedFieldAccessTest(Handle<Class> access_from,
+                                           Handle<Class> access_to,
                                            ArtField* field,
-                                           ObjPtr<DexCache> dex_cache,
+                                           Handle<DexCache> dex_cache,
                                            uint32_t field_idx) {
-  DCHECK(dex_cache != nullptr);
-  if (UNLIKELY(!this->CanAccess(access_to))) {
+  DCHECK(dex_cache.Get() != nullptr);
+  if (UNLIKELY(!access_from->CanAccess(access_to.Get()))) {
     // The referrer class can't access the field's declaring class but may still be able
     // to access the field if the FieldId specifies an accessible subclass of the declaring
     // class rather than the declaring class itself.
@@ -478,38 +479,38 @@ inline bool Class::ResolvedFieldAccessTest(ObjPtr<Class> access_to,
     // cache. Use LookupResolveType here to search the class table if it is not in the dex cache.
     // should be no thread suspension due to the class being resolved.
     ObjPtr<Class> dex_access_to = Runtime::Current()->GetClassLinker()->LookupResolvedType(
-        class_idx,
-        dex_cache,
-        GetClassLoader());
+        class_idx, dex_cache.Get(), access_from->GetClassLoader());
     DCHECK(dex_access_to != nullptr);
-    if (UNLIKELY(!this->CanAccess(dex_access_to))) {
+    if (UNLIKELY(!access_from->CanAccess(dex_access_to))) {
       if (throw_on_failure) {
-        ThrowIllegalAccessErrorClass(this, dex_access_to);
+        ThrowIllegalAccessErrorClass(access_from.Get(), dex_access_to);
       }
       return false;
     }
   }
-  if (LIKELY(this->CanAccessMember(access_to, field->GetAccessFlags()))) {
+  if (LIKELY(CanAccessMember(access_from, access_to, field->GetAccessFlags()))) {
     return true;
   }
   if (throw_on_failure) {
-    ThrowIllegalAccessErrorField(this, field);
+    ThrowIllegalAccessErrorField(access_from.Get(), field);
   }
   return false;
 }
 
-inline bool Class::CanAccessResolvedField(ObjPtr<Class> access_to,
+inline bool Class::CanAccessResolvedField(Handle<Class> access_from,
+                                          Handle<Class> access_to,
                                           ArtField* field,
-                                          ObjPtr<DexCache> dex_cache,
+                                          Handle<DexCache> dex_cache,
                                           uint32_t field_idx) {
-  return ResolvedFieldAccessTest<false>(access_to, field, dex_cache, field_idx);
+  return ResolvedFieldAccessTest<false>(access_from, access_to, field, dex_cache, field_idx);
 }
 
-inline bool Class::CheckResolvedFieldAccess(ObjPtr<Class> access_to,
+inline bool Class::CheckResolvedFieldAccess(Handle<Class> access_from,
+                                            Handle<Class> access_to,
                                             ArtField* field,
-                                            ObjPtr<DexCache> dex_cache,
+                                            Handle<DexCache> dex_cache,
                                             uint32_t field_idx) {
-  return ResolvedFieldAccessTest<true>(access_to, field, dex_cache, field_idx);
+  return ResolvedFieldAccessTest<true>(access_from, access_to, field, dex_cache, field_idx);
 }
 
 inline bool Class::IsObsoleteVersionOf(ObjPtr<Class> klass) {
@@ -1146,10 +1147,12 @@ inline bool Class::CanAccess(ObjPtr<Class> that) {
   return that->IsPublic() || this->IsInSamePackage(that);
 }
 
-
-inline bool Class::CanAccessMember(ObjPtr<Class> access_to, uint32_t member_flags) {
+inline bool Class::CanAccessMemberFast(ObjPtr<mirror::Class> access_from,
+                                       ObjPtr<mirror::Class> access_to,
+                                       uint32_t member_flags)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
   // Classes can access all of their own members
-  if (this == access_to) {
+  if (access_from == access_to) {
     return true;
   }
   // Public members are trivially accessible
@@ -1162,12 +1165,40 @@ inline bool Class::CanAccessMember(ObjPtr<Class> access_to, uint32_t member_flag
   }
   // Check for protected access from a sub-class, which may or may not be in the same package.
   if (member_flags & kAccProtected) {
-    if (!this->IsInterface() && this->IsSubClass(access_to)) {
+    if (!access_from->IsInterface() && access_from->IsSubClass(access_to)) {
       return true;
     }
   }
-  // Allow protected access from other classes in the same package.
-  return this->IsInSamePackage(access_to);
+  // Allow protected access from other classes in the same package. No need to check nest group
+  // membership as classes from different packages cannot be in the same nest group.
+  return access_from->IsInSamePackage(access_to);
+}
+
+inline bool Class::CanAccessMember(Handle<Class> access_from,
+                                   Handle<Class> access_to,
+                                   uint32_t member_flags) {
+  // Classes can access all of their own members
+  if (access_from.Get() == access_to.Get()) {
+    return true;
+  }
+  // Public members are trivially accessible
+  if (member_flags & kAccPublic) {
+    return true;
+  }
+  if (member_flags & kAccPrivate) {
+    // Classes which are part of the same nest group have access to the private members. Otherwise,
+    // private members are trivially not accessible.
+    return HaveSameNestHost(access_from, access_to);
+  }
+  // Check for protected access from a sub-class, which may or may not be in the same package.
+  if (member_flags & kAccProtected) {
+    if (!access_from->IsInterface() && access_from->IsSubClass(access_to.Get())) {
+      return true;
+    }
+  }
+  // Allow protected access from other classes in the same package. No need to check nest group
+  // membership as classes from different packages cannot be in the same nest group.
+  return access_from->IsInSamePackage(access_to.Get());
 }
 
 inline bool Class::CannotBeAssignedFromOtherTypes() {
