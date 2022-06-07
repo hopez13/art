@@ -711,16 +711,18 @@ bool InlineMethodAnalyser::ComputeSpecialAccessorInfo(ArtMethod* method,
   if (method == nullptr) {
     return false;
   }
-  ObjPtr<mirror::DexCache> dex_cache = method->GetDexCache();
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   ArtField* field = class_linker->LookupResolvedField(field_idx, method, /* is_static= */ false);
   if (field == nullptr || field->IsStatic()) {
     return false;
   }
-  ObjPtr<mirror::Class> method_class = method->GetDeclaringClass();
-  ObjPtr<mirror::Class> field_class = field->GetDeclaringClass();
-  if (!method_class->CanAccessResolvedField(field_class, field, dex_cache, field_idx) ||
-      (is_put && field->IsFinal() && method_class != field_class)) {
+  StackHandleScope<3> hs(Thread::Current());
+  Handle<mirror::Class> method_class(hs.NewHandle(method->GetDeclaringClass()));
+  Handle<mirror::Class> field_class(hs.NewHandle(field->GetDeclaringClass()));
+  Handle<mirror::DexCache> dex_cache(hs.NewHandle(method->GetDexCache()));
+  if (!mirror::Class::CanAccessResolvedField(
+          method_class, field_class, field, dex_cache, field_idx) ||
+      (is_put && field->IsFinal() && method_class.Get() != field_class.Get())) {
     return false;
   }
   DCHECK_GE(field->GetOffset().Int32Value(), 0);

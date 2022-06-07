@@ -165,8 +165,8 @@ class CompilerDriver {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Can we fast-path an IGET/IPUT access to an instance field? If yes, compute the field offset.
-  std::pair<bool, bool> IsFastInstanceField(ObjPtr<mirror::DexCache> dex_cache,
-                                            ObjPtr<mirror::Class> referrer_class,
+  std::pair<bool, bool> IsFastInstanceField(Handle<mirror::DexCache> dex_cache,
+                                            Handle<mirror::Class> referrer_class,
                                             ArtField* resolved_field,
                                             uint16_t field_idx)
       REQUIRES_SHARED(Locks::mutator_lock_);
