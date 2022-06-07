@@ -1218,7 +1218,14 @@ inline bool Class::CanAccessMember(ObjPtr<Class> access_to, uint32_t member_flag
   }
   // Private members are trivially not accessible
   if (member_flags & kAccPrivate) {
-    return false;
+    // Classes which are part of the same nest group could have access to the private and protected
+    // members. Though, since a nested group is contained within the same package and access to
+    // protected members is allowed within the same package, only check the nest group information
+    // for private members.
+    StackHandleScope<2> hs(Thread::Current());
+    Handle<mirror::Class> h_this(hs.NewHandle(this));
+    Handle<mirror::Class> h_access_to(hs.NewHandle(access_to));
+    return HaveSameNestHost(h_this, h_access_to);
   }
   // Check for protected access from a sub-class, which may or may not be in the same package.
   if (member_flags & kAccProtected) {
