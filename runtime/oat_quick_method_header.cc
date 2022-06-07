@@ -78,7 +78,7 @@ uintptr_t OatQuickMethodHeader::ToNativeQuickPc(ArtMethod* method,
                                    : code_info.GetStackMapForDexPc(dex_pc);
   if (stack_map.IsValid()) {
     return reinterpret_cast<uintptr_t>(entry_point) +
-           stack_map.GetNativePcOffset(kRuntimeISA);
+           stack_map.GetNativePcOffset(kRuntimeQuickCodeISA);
   }
   if (abort_on_failure) {
     ScopedObjectAccess soa(Thread::Current());
@@ -93,7 +93,7 @@ static inline OatQuickMethodHeader* GetNterpMethodHeader() {
     return nullptr;
   }
   uintptr_t nterp_entrypoint = reinterpret_cast<uintptr_t>(interpreter::GetNterpEntryPoint());
-  uintptr_t nterp_code_pointer = (kRuntimeISA == InstructionSet::kArm)
+  uintptr_t nterp_code_pointer = (kRuntimeQuickCodeISA == InstructionSet::kArm)
       // Remove the Thumb mode bit if present on ARM.
       ? nterp_entrypoint & ~static_cast<uintptr_t>(1)
       : nterp_entrypoint;

@@ -1755,7 +1755,7 @@ class OatFileBackedByVdex final : public OatFileBase {
     store.Put(OatHeader::kCompilationReasonKey, "vdex");
     store.Put(OatHeader::kConcurrentCopying,
               kUseReadBarrier ? OatHeader::kTrueValue : OatHeader::kFalseValue);
-    oat_header_.reset(OatHeader::Create(kRuntimeISA,
+    oat_header_.reset(OatHeader::Create(kRuntimeQuickCodeISA,
                                         isa_features.get(),
                                         number_of_dex_files,
                                         &store));
