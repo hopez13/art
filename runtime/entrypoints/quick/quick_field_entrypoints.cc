@@ -57,9 +57,10 @@ inline ArtField* FindFieldFast(uint32_t field_idx,
   }
   ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
   if (UNLIKELY(!referring_class->CanAccess(fields_class) ||
-               !referring_class->CanAccessMember(fields_class, resolved_field->GetAccessFlags()) ||
+               !mirror::Class::CanAccessMemberFast(
+                   referring_class, fields_class, resolved_field->GetAccessFlags()) ||
                (is_set && !resolved_field->CanBeChangedBy(referrer)))) {
-    // Illegal access.
+    // Potential illegal access.
     return nullptr;
   }
   if (should_resolve_type && resolved_field->LookupResolvedType() == nullptr) {
