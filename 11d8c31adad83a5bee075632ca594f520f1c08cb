@@ -16,6 +16,52 @@
       "message": "Left a generic comment on this on the internal cherry-pick ag/18670930.",
       "revId": "11d8c31adad83a5bee075632ca594f520f1c08cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72cc0873_d0aa9203",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-07T15:44:28Z",
+      "side": 1,
+      "message": "ART style for this is to pass std::string* error_msg. I suggest staying with this for consistency.",
+      "range": {
+        "startLine": 1155,
+        "startChar": 0,
+        "endLine": 1155,
+        "endChar": 17
+      },
+      "revId": "11d8c31adad83a5bee075632ca594f520f1c08cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44b373cb_4c0bdc72",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-07T15:44:28Z",
+      "side": 1,
+      "message": "Could we return bool instead? android::base::Result isn\u0027t common in the ART code base.",
+      "range": {
+        "startLine": 226,
+        "startChar": 9,
+        "endLine": 226,
+        "endChar": 36
+      },
+      "revId": "11d8c31adad83a5bee075632ca594f520f1c08cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
