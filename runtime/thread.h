@@ -456,6 +456,23 @@ class EXPORT Thread {
   void WaitForFlipFunctionTestingExited(Thread* self, ThreadExitFlag* tef)
       REQUIRES(!Locks::thread_suspend_count_lock_, !Locks::thread_list_lock_);
 
+  // Wait for reference processing to finish and weak reference access to be fully reenabled.
+  // It cannot be disabled again until we hit another suspend point.
+  // Only safe for current thread.
+  void WaitUntilDoneProcessingReferences()
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::reference_processor_lock_) {
+    if (!GetWeakRefAccessEnabled()) {
+      WaitForReferencesSlowPath();
+    }
+  }
+
+ private:
+  void WaitForReferencesSlowPath()
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::reference_processor_lock_);
+
+ public:
   gc::accounting::AtomicStack<mirror::Object>* GetThreadLocalMarkStack() {
     CHECK(gUseReadBarrier);
     return tlsPtr_.thread_local_mark_stack;
@@ -2023,14 +2040,18 @@ class EXPORT Thread {
 
     // Determines whether the thread is allowed to directly access a weak ref
     // (Reference::GetReferent() and system weaks) and to potentially mark an object alive/gray.
-    // This is used for concurrent reference processing of the CC collector only. This is thread
-    // local so that we can enable/disable weak ref access by using a checkpoint and avoid a race
-    // around the time weak ref access gets disabled and concurrent reference processing begins
-    // (if weak ref access is disabled during a pause, this is not an issue.) Other collectors use
-    // Runtime::DisallowNewSystemWeaks() and ReferenceProcessor::EnableSlowPath().  Can be
-    // concurrently accessed by GetReferent() and set (by iterating over threads).
-    // Can be changed from kEnabled to kVisiblyEnabled by readers. No other concurrent access is
-    // possible when that happens.
+    // This is used for concurrent reference processing of the CC collector. This is thread local
+    // so that we can enable/disable weak ref access by using a checkpoint and avoid a race around
+    // the time weak ref access gets disabled and concurrent reference processing begins (if weak
+    // ref access is disabled during a pause, this is not an issue.)
+    //
+    // Though less essential, this is is now also used by all other collectors, since (1) a single
+    // mechanism simplifies the code and (2) we can avoid an acquire load on every test by
+    // tracking whether this thread has previously been informed that access is enabled.
+    //
+    // Can be concurrently accessed by GetReferent() and set (by iterating over threads).  Can be
+    // changed from kEnabled to kVisiblyEnabled by readers. No other concurrent access is possible
+    // when that happens.
     mutable std::atomic<WeakRefAccessState> weak_ref_access_enabled;
 
     // A thread local version of Heap::disable_thread_flip_count_. This keeps track of how many

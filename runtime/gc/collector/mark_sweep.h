@@ -129,10 +129,6 @@ class MarkSweep : public GarbageCollector {
       REQUIRES(!mark_stack_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void ProcessReferences(Thread* self)
-      REQUIRES(!mark_stack_lock_)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
   // Update and mark references from immune spaces.
   void UpdateAndMarkModUnion()
       REQUIRES(!mark_stack_lock_)

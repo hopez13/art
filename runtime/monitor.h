@@ -446,9 +446,6 @@ class MonitorList {
 
   void SweepMonitorList(IsMarkedVisitor* visitor)
       REQUIRES(!monitor_list_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
-  void DisallowNewMonitors() REQUIRES(!monitor_list_lock_);
-  void AllowNewMonitors() REQUIRES(!monitor_list_lock_);
-  void BroadcastForNewMonitors() REQUIRES(!monitor_list_lock_);
   // Returns how many monitors were deflated.
   size_t DeflateMonitors() REQUIRES(!monitor_list_lock_) REQUIRES(Locks::mutator_lock_);
   EXPORT size_t Size() REQUIRES(!monitor_list_lock_);
@@ -456,13 +453,7 @@ class MonitorList {
   using Monitors = std::list<Monitor*, TrackingAllocator<Monitor*, kAllocatorTagMonitorList>>;
 
  private:
-  // During sweeping we may free an object and on a separate thread have an object created using
-  // the newly freed memory. That object may then have its lock-word inflated and a monitor created.
-  // If we allow new monitor registration during sweeping this monitor may be incorrectly freed as
-  // the object wasn't marked when sweeping began.
-  bool allow_new_monitors_ GUARDED_BY(monitor_list_lock_);
   Mutex monitor_list_lock_ DEFAULT_MUTEX_ACQUIRED_AFTER;
-  ConditionVariable monitor_add_condition_ GUARDED_BY(monitor_list_lock_);
   Monitors list_ GUARDED_BY(monitor_list_lock_);
 
   friend class Monitor;

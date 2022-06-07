@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "java_vm_ext-inl.h"
+#include "java_vm_ext.h"
 
 #include <dlfcn.h>
 #include <string_view>
@@ -516,10 +516,6 @@ JavaVMExt::JavaVMExt(Runtime* runtime, const RuntimeArgumentMap& runtime_options
       libraries_(new Libraries),
       unchecked_functions_(&gJniInvokeInterface),
       weak_globals_(kWeakGlobal),
-      allow_accessing_weak_globals_(true),
-      weak_globals_add_condition_("weak globals add condition",
-                                  (CHECK(Locks::jni_weak_globals_lock_ != nullptr),
-                                   *Locks::jni_weak_globals_lock_)),
       env_hooks_lock_("environment hooks lock", art::kGenericBottomLock),
       env_hooks_(),
       enable_allocation_tracking_delta_(
@@ -714,19 +710,6 @@ jobject JavaVMExt::AddGlobalRef(Thread* self, ObjPtr<mirror::Object> obj) {
   return reinterpret_cast<jobject>(ref);
 }
 
-void JavaVMExt::WaitForWeakGlobalsAccess(Thread* self) {
-  if (UNLIKELY(!MayAccessWeakGlobals(self))) {
-    ATraceBegin("Blocking on WeakGlobal access");
-    do {
-      // Check and run the empty checkpoint before blocking so the empty checkpoint will work in the
-      // presence of threads blocking for weak ref access.
-      self->CheckEmptyCheckpointFromWeakRefAccess(Locks::jni_weak_globals_lock_);
-      weak_globals_add_condition_.WaitHoldingLocks(self);
-    } while (!MayAccessWeakGlobals(self));
-    ATraceEnd();
-  }
-}
-
 jweak JavaVMExt::AddWeakGlobalRef(Thread* self, ObjPtr<mirror::Object> obj) {
   if (obj == nullptr) {
     return nullptr;
@@ -734,9 +717,9 @@ jweak JavaVMExt::AddWeakGlobalRef(Thread* self, ObjPtr<mirror::Object> obj) {
   MutexLock mu(self, *Locks::jni_weak_globals_lock_);
   // CMS needs this to block for concurrent reference processing because an object allocated during
   // the GC won't be marked and concurrent reference processing would incorrectly clear the JNI weak
-  // ref. But CC (gUseReadBarrier == true) doesn't because of the to-space invariant.
-  if (!gUseReadBarrier) {
-    WaitForWeakGlobalsAccess(self);
+  // ref. But CC and CMC don't.
+  if (gc::Heap::RecentObjectsCanBeUnmarked(Runtime::Current()->GetHeap()->CurrentCollectorType())) {
+    self->WaitUntilDoneProcessingReferences();
   }
   std::string error_msg;
   IndirectRef ref = weak_globals_.Add(obj, &error_msg);
@@ -813,31 +796,6 @@ void JavaVMExt::DumpForSigQuit(std::ostream& os) {
   }
 }
 
-void JavaVMExt::DisallowNewWeakGlobals() {
-  CHECK(!gUseReadBarrier);
-  Thread* const self = Thread::Current();
-  MutexLock mu(self, *Locks::jni_weak_globals_lock_);
-  // DisallowNewWeakGlobals is only called by CMS during the pause. It is required to have the
-  // mutator lock exclusively held so that we don't have any threads in the middle of
-  // DecodeWeakGlobal.
-  Locks::mutator_lock_->AssertExclusiveHeld(self);
-  allow_accessing_weak_globals_.store(false, std::memory_order_seq_cst);
-}
-
-void JavaVMExt::AllowNewWeakGlobals() {
-  CHECK(!gUseReadBarrier);
-  Thread* self = Thread::Current();
-  MutexLock mu(self, *Locks::jni_weak_globals_lock_);
-  allow_accessing_weak_globals_.store(true, std::memory_order_seq_cst);
-  weak_globals_add_condition_.Broadcast(self);
-}
-
-void JavaVMExt::BroadcastForNewWeakGlobals() {
-  Thread* self = Thread::Current();
-  MutexLock mu(self, *Locks::jni_weak_globals_lock_);
-  weak_globals_add_condition_.Broadcast(self);
-}
-
 ObjPtr<mirror::Object> JavaVMExt::DecodeGlobal(IndirectRef ref) {
   return globals_.Get(ref);
 }
@@ -848,14 +806,9 @@ void JavaVMExt::UpdateGlobal(Thread* self, IndirectRef ref, ObjPtr<mirror::Objec
 }
 
 ObjPtr<mirror::Object> JavaVMExt::DecodeWeakGlobal(Thread* self, IndirectRef ref) {
-  // It is safe to access GetWeakRefAccessEnabled without the lock since CC uses checkpoints to call
-  // SetWeakRefAccessEnabled, and the other collectors only modify allow_accessing_weak_globals_
-  // when the mutators are paused.
-  // This only applies in the case where MayAccessWeakGlobals goes from false to true. In the other
-  // case, it may be racy, this is benign since DecodeWeakGlobalLocked does the correct behavior
-  // if MayAccessWeakGlobals is false.
   DCHECK_EQ(IndirectReferenceTable::GetIndirectRefKind(ref), kWeakGlobal);
-  if (LIKELY(MayAccessWeakGlobals(self))) {
+  if (LIKELY(self->GetWeakRefAccessEnabled())) {
+    // We hold the mutator lock, so weak ref access cannot be disabled asynchronously.
     return weak_globals_.Get(ref);
   }
   MutexLock mu(self, *Locks::jni_weak_globals_lock_);
@@ -870,7 +823,7 @@ ObjPtr<mirror::Object> JavaVMExt::DecodeWeakGlobalLocked(Thread* self, IndirectR
   // TODO: Otherwise we should just wait for kInitMarkingDone, and track which weak globals were
   // marked at that point. We would only need one mark bit per entry in the weak_globals_ table,
   // and a quick pass over that early on during reference processing.
-  WaitForWeakGlobalsAccess(self);
+  Thread::Current()->WaitUntilDoneProcessingReferences();
   return weak_globals_.Get(ref);
 }
 
@@ -886,16 +839,14 @@ ObjPtr<mirror::Object> JavaVMExt::DecodeWeakGlobalDuringShutdown(Thread* self, I
     return DecodeWeakGlobal(self, ref);
   }
   // self can be null during a runtime shutdown. ~Runtime()->~ClassLinker()->DecodeWeakGlobal().
-  if (!gUseReadBarrier) {
-    DCHECK(allow_accessing_weak_globals_.load(std::memory_order_seq_cst));
-  }
+  DCHECK(self == nullptr || self->GetWeakRefAccessEnabled());
   return weak_globals_.Get(ref);
 }
 
 bool JavaVMExt::IsWeakGlobalCleared(Thread* self, IndirectRef ref) {
   DCHECK_EQ(IndirectReferenceTable::GetIndirectRefKind(ref), kWeakGlobal);
+  self->WaitUntilDoneProcessingReferences();
   MutexLock mu(self, *Locks::jni_weak_globals_lock_);
-  WaitForWeakGlobalsAccess(self);
   // When just checking a weak ref has been cleared, avoid triggering the read barrier in decode
   // (DecodeWeakGlobal) so that we won't accidentally mark the object alive. Since the cleared
   // sentinel is a non-moving object, we can compare the ref to it without the read barrier and

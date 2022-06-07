@@ -45,56 +45,51 @@ namespace openjdkjvmti {
 struct ArtJvmTiEnv;
 class EventHandler;
 
-class ObjectTagTable final : public JvmtiWeakTable<jlong> {
+class ObjectTagTable final : public JvmtiWeakTable<jlong>, public art::Closure {
  public:
-  ObjectTagTable(EventHandler* event_handler, ArtJvmTiEnv* env)
-      : lock_("Object tag table lock", art::LockLevel::kGenericBottomLock),
-        event_handler_(event_handler),
-        jvmti_env_(env) {}
+  ObjectTagTable(EventHandler* event_handler, ArtJvmTiEnv* env);
 
-  // Denotes that weak-refs are visible on all threads. Used by semi-space.
-  void Allow() override
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_);
-  // Used by cms and the checkpoint system.
-  void Broadcast(bool broadcast_for_checkpoint) override
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_);
+  ~ObjectTagTable();
 
   bool Set(art::ObjPtr<art::mirror::Object> obj, jlong tag) override
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_);
+      REQUIRES(!weak_table_lock_);
   bool SetLocked(art::ObjPtr<art::mirror::Object> obj, jlong tag) override
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(allow_disallow_lock_);
+      REQUIRES(weak_table_lock_);
 
   jlong GetTagOrZero(art::ObjPtr<art::mirror::Object> obj)
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_) {
+      REQUIRES(!weak_table_lock_) {
     jlong tmp = 0;
     GetTag(obj, &tmp);
     return tmp;
   }
-  jlong GetTagOrZeroLocked(art::ObjPtr<art::mirror::Object> obj)
+  jlong GetTagOrZeroLocked(art::ObjPtr<art::mirror::Object> obj ATTRIBUTE_UNUSED)
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(allow_disallow_lock_) {
-    jlong tmp = 0;
-    GetTagLocked(obj, &tmp);
-    return tmp;
+      REQUIRES(weak_table_lock_) {
+    UNIMPLEMENTED(FATAL);
+    UNREACHABLE();
+    // See JvmtiWeakTable::GetTagLocked()
   }
+
+  void Run(art::Thread* self) override REQUIRES_SHARED(art::Locks::mutator_lock_) {
+    SendDelayedFreeEvents(self);
+  }
+
 
  protected:
   bool DoesHandleNullOnSweep() override;
   void HandleNullSweep(jlong tag) override;
 
  private:
-  void SendDelayedFreeEvents()
+  void SendDelayedFreeEvents(art::Thread* self)
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_);
+      REQUIRES(!weak_table_lock_);
 
   void SendSingleFreeEvent(jlong tag)
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_, !lock_);
+      REQUIRES(!weak_table_lock_, !lock_);
 
   art::Mutex lock_ BOTTOM_MUTEX_ACQUIRED_AFTER;
   std::vector<jlong> null_tags_ GUARDED_BY(lock_);
