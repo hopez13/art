@@ -845,7 +845,7 @@ std::string Runtime::GetCompilerExecutable() const {
     compiler_executable += 'd';
   }
   if (kIsTargetBuild) {
-    compiler_executable += Is64BitInstructionSet(kRuntimeISA) ? "64" : "32";
+    compiler_executable += Is64BitInstructionSet(kRuntimeQuickCodeISA) ? "64" : "32";
   }
   return compiler_executable;
 }
@@ -1661,7 +1661,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   InitPlatformSignalHandlers();
 
   // Change the implicit checks flags based on runtime architecture.
-  switch (kRuntimeISA) {
+  switch (kRuntimeQuickCodeISA) {
     case InstructionSet::kArm64:
       // TODO: Implicit suspend checks are currently disabled to facilitate search
       // for unrelated memory use regressions. Bug: 213757852.

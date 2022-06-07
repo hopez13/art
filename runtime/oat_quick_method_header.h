@@ -47,8 +47,8 @@ class PACKED(4) OatQuickMethodHeader {
   static OatQuickMethodHeader* FromCodePointer(const void* code_ptr) {
     uintptr_t code = reinterpret_cast<uintptr_t>(code_ptr);
     uintptr_t header = code - OFFSETOF_MEMBER(OatQuickMethodHeader, code_);
-    DCHECK(IsAlignedParam(code, GetInstructionSetAlignment(kRuntimeISA)) ||
-           IsAlignedParam(header, GetInstructionSetAlignment(kRuntimeISA)))
+    DCHECK(IsAlignedParam(code, GetInstructionSetAlignment(kRuntimeQuickCodeISA)) ||
+           IsAlignedParam(header, GetInstructionSetAlignment(kRuntimeQuickCodeISA)))
         << std::hex << code << " " << std::hex << header;
     return reinterpret_cast<OatQuickMethodHeader*>(header);
   }
@@ -58,7 +58,7 @@ class PACKED(4) OatQuickMethodHeader {
   }
 
   static size_t InstructionAlignedSize() {
-    return RoundUp(sizeof(OatQuickMethodHeader), GetInstructionSetAlignment(kRuntimeISA));
+    return RoundUp(sizeof(OatQuickMethodHeader), GetInstructionSetAlignment(kRuntimeQuickCodeISA));
   }
 
   OatQuickMethodHeader(const OatQuickMethodHeader&) = default;
@@ -112,8 +112,8 @@ class PACKED(4) OatQuickMethodHeader {
     DCHECK_NE(data_, kInvalidData) << std::hex << reinterpret_cast<uintptr_t>(code_);
     // Remove hwasan tag to make comparison below valid. The PC from the stack does not have it.
     uintptr_t code_start = reinterpret_cast<uintptr_t>(HWASanUntag(code_));
-    static_assert(kRuntimeISA != InstructionSet::kThumb2, "kThumb2 cannot be a runtime ISA");
-    if (kRuntimeISA == InstructionSet::kArm) {
+    static_assert(kRuntimeQuickCodeISA != InstructionSet::kThumb2, "kThumb2 cannot be a runtime ISA");
+    if (kRuntimeQuickCodeISA == InstructionSet::kArm) {
       // On Thumb-2, the pc is offset by one.
       code_start++;
     }
@@ -121,12 +121,13 @@ class PACKED(4) OatQuickMethodHeader {
   }
 
   const uint8_t* GetEntryPoint() const {
-    // When the runtime architecture is ARM, `kRuntimeISA` is set to `kArm`
+    // When the runtime architecture is ARM, `kRuntimeQuickCodeISA` is set to `kArm`
     // (not `kThumb2`), *but* we always generate code for the Thumb-2
     // instruction set anyway. Thumb-2 requires the entrypoint to be of
     // offset 1.
-    static_assert(kRuntimeISA != InstructionSet::kThumb2, "kThumb2 cannot be a runtime ISA");
-    return (kRuntimeISA == InstructionSet::kArm)
+    static_assert(kRuntimeQuickCodeISA != InstructionSet::kThumb2,
+                  "kThumb2 cannot be a runtime ISA");
+    return (kRuntimeQuickCodeISA == InstructionSet::kArm)
         ? reinterpret_cast<uint8_t*>(reinterpret_cast<uintptr_t>(code_) | 1)
         : code_;
   }
