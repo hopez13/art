@@ -209,8 +209,11 @@ class RegType {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Can this type access a member with the given properties?
-  bool CanAccessMember(ObjPtr<mirror::Class> klass, uint32_t access_flags) const
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  template <typename MemberType>
+  bool CanAccessMember(MemberType* member) const REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Is this type in the same nest group as another class?
+  bool HasSameNestHost(const RegType& other) const REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Can this type be assigned by src?
   // Note: Object and interface types may always be assigned to one another, see

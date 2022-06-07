@@ -3840,16 +3840,24 @@ ArtMethod* MethodVerifier<kVerifierDebug>::ResolveMethodAndCheckAccess(
     return nullptr;
   }
   // Check if access is allowed.
-  if (!referrer.CanAccessMember(res_method->GetDeclaringClass(), res_method->GetAccessFlags())) {
+  if (!referrer.CanAccessMember(res_method)) {
     Fail(VERIFY_ERROR_ACCESS_METHOD) << "illegal method access (call "
                                      << res_method->PrettyMethod()
                                      << " from " << referrer << ")";
     return res_method;
   }
-  // Check that invoke-virtual and invoke-super are not used on private methods of the same class.
-  if (res_method->IsPrivate() && (method_type == METHOD_VIRTUAL || method_type == METHOD_SUPER)) {
-    Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "invoke-super/virtual can't be used on private method "
-                                      << res_method->PrettyMethod();
+  // Check that invoke-virtual is not used on private methods of the same class.
+  if (res_method->IsPrivate() && method_type == METHOD_VIRTUAL) {
+    Fail(VERIFY_ERROR_BAD_CLASS_HARD)
+        << "invoke-virtual can't be used on private method " << res_method->PrettyMethod();
+    return nullptr;
+  }
+  // Check that invoke-super is not used on a private method of a class outside the nest group.
+  if (res_method->IsPrivate() && method_type == METHOD_SUPER &&
+      !referrer.HasSameNestHost(klass_type)) {
+    Fail(VERIFY_ERROR_BAD_CLASS_HARD)
+        << "invoke-super can't be used on a private method "
+        << "unless part of the same nest group " << res_method->PrettyMethod();
     return nullptr;
   }
   // See if the method type implied by the invoke instruction matches the access flags for the
@@ -4544,8 +4552,7 @@ ArtField* MethodVerifier<kVerifierDebug>::GetStaticField(int field_idx) {
     DCHECK(self_->IsExceptionPending());
     self_->ClearException();
     return nullptr;
-  } else if (!GetDeclaringClass().CanAccessMember(field->GetDeclaringClass(),
-                                                  field->GetAccessFlags())) {
+  } else if (!GetDeclaringClass().CanAccessMember(field)) {
     Fail(VERIFY_ERROR_ACCESS_FIELD) << "cannot access static field " << field->PrettyField()
                                     << " from " << GetDeclaringClass();
     return nullptr;
@@ -4633,8 +4640,7 @@ ArtField* MethodVerifier<kVerifierDebug>::GetInstanceField(const RegType& obj_ty
   }
 
   // Few last soft failure checks.
-  if (!GetDeclaringClass().CanAccessMember(field->GetDeclaringClass(),
-                                           field->GetAccessFlags())) {
+  if (!GetDeclaringClass().CanAccessMember(field)) {
     Fail(VERIFY_ERROR_ACCESS_FIELD) << "cannot access instance field " << field->PrettyField()
                                     << " from " << GetDeclaringClass();
     return nullptr;
