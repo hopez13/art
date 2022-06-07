@@ -16,6 +16,24 @@
       "message": "The test failures here are real: anything using Mockito is unhappy.",
       "revId": "f7a7f8ce66bcaed69cb49a7a03f678bde0264920",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46c12e93_128fbd20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1891746
+      },
+      "writtenOn": "2022-06-07T17:26:24Z",
+      "side": 1,
+      "message": "Yup I know, thank you for the tip! I just wanted to re-trigger the errors from tip-of-branch to check what tests are affected. I\u0027m thinking of a way to solve this.",
+      "parentUuid": "07f51d26_9892b734",
+      "revId": "f7a7f8ce66bcaed69cb49a7a03f678bde0264920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
