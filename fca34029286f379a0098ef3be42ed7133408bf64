@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a18b757e_7f3f5c27",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-07T15:38:19Z",
+      "side": 1,
+      "message": "Aha, they looked odd to me. Thanks for clarifying.",
+      "parentUuid": "305f5847_3208f9ee",
+      "range": {
+        "startLine": 168,
+        "startChar": 57,
+        "endLine": 168,
+        "endChar": 59
+      },
+      "revId": "fca34029286f379a0098ef3be42ed7133408bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "409cd8b3_2003b392",
@@ -228,6 +252,30 @@
       "side": 1,
       "message": "I have just tried running m tidy-art on the master branch (without these changes) and indeed the issue seem to be already there:\n\n❯ unset WITH_TIDY; m tidy-art | grep \"error: \"                                      20m 3s 13:41:13\n/usr/local/google/home/scianciulli/Code/aosp-master-with-phones/art/libnativeloader/native_loader_test.cpp:172:15: error: the variable \u0027ext_libs\u0027 is copy-constructed from a const reference but is only used as const reference; consider making it a const reference [performance-unnecessary-copy-initialization,-warnings-as-errors]\n/usr/local/google/home/scianciulli/Code/aosp-master-with-phones/art/libnativeloader/native_loader_test.cpp:172:15: error: the variable \u0027ext_libs\u0027 is copy-constructed from a const reference but is only used as const reference; consider making it a const reference [performance-unnecessary-copy-initialization,-warnings-as-errors]\n\n❯ git log --oneline\n5bdddf911d (HEAD, m/aosp-master-with-phones, aosp/master) Fix malformed json expectations\n\nI will mention it in the description.",
       "parentUuid": "28b27323_2e9b75dc",
+      "range": {
+        "startLine": 172,
+        "startChar": 2,
+        "endLine": 172,
+        "endChar": 20
+      },
+      "revId": "fca34029286f379a0098ef3be42ed7133408bf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccfc65bc_95191614",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-07T15:38:19Z",
+      "side": 1,
+      "message": "Right. That\u0027s what happens when tests don\u0027t run in presubmit.",
+      "parentUuid": "210ac52a_5658daea",
       "range": {
         "startLine": 172,
         "startChar": 2,
