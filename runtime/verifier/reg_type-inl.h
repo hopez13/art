@@ -46,15 +46,36 @@ inline bool RegType::CanAccess(const RegType& other) const {
   }
 }
 
-inline bool RegType::CanAccessMember(ObjPtr<mirror::Class> klass, uint32_t access_flags) const {
+template <typename MemberType>
+inline bool RegType::CanAccessMember(MemberType* member) const {
   DCHECK(IsReferenceTypes());
   if (IsNull()) {
     return true;
   }
   if (!IsUnresolvedTypes()) {
-    return GetClass()->CanAccessMember(klass, access_flags);
+    StackHandleScope<2> hs(Thread::Current());
+    Handle<mirror::Class> h_this(hs.NewHandle(GetClass()));
+    Handle<mirror::Class> h_other(hs.NewHandle(member->GetDeclaringClass()));
+    return mirror::Class::CanAccessMember(h_this, h_other, member->GetAccessFlags());
   } else {
     return false;  // More complicated test not possible on unresolved types, be conservative.
+  }
+}
+
+inline bool RegType::HasSameNestHost(const RegType& other) const {
+  DCHECK(IsReferenceTypes());
+  DCHECK(!IsNull());
+  if (Equals(other)) {
+    return true;  // Trivial accessibility.
+  } else {
+    if (!IsUnresolvedTypes() && !other.IsUnresolvedTypes()) {
+      StackHandleScope<2> hs(Thread::Current());
+      Handle<mirror::Class> h_this(hs.NewHandle(GetClass()));
+      Handle<mirror::Class> h_other(hs.NewHandle(other.GetClass()));
+      return mirror::Class::HaveSameNestHost(h_this, h_other);
+    } else {
+      return false;  // More complicated test not possible on unresolved types, be conservative.
+    }
   }
 }
 
