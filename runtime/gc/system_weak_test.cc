@@ -43,36 +43,9 @@ class SystemWeakTest : public CommonRuntimeTest {
 
 struct CountingSystemWeakHolder : public SystemWeakHolder {
   CountingSystemWeakHolder()
-      : SystemWeakHolder(kAllocTrackerLock),
-        allow_count_(0),
-        disallow_count_(0),
-        sweep_count_(0) {}
-
-  void Allow() override
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_) {
-    SystemWeakHolder::Allow();
-
-    allow_count_++;
-  }
-
-  void Disallow() override
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_) {
-    SystemWeakHolder::Disallow();
-
-    disallow_count_++;
-  }
-
-  void Broadcast(bool broadcast_for_checkpoint) override
-      REQUIRES(!allow_disallow_lock_) {
-    SystemWeakHolder::Broadcast(broadcast_for_checkpoint);
-
-    if (!broadcast_for_checkpoint) {
-      // Don't count the broadcasts for running checkpoints.
-      allow_count_++;
-    }
-  }
+      : SystemWeakHolder(),
+        sweep_count_(0),
+        lock_("CountingSystemWeakHolder", kAllocTrackerLock) {}
 
   void Sweep(IsMarkedVisitor* visitor) override
       REQUIRES_SHARED(Locks::mutator_lock_)
@@ -105,37 +78,10 @@ struct CountingSystemWeakHolder : public SystemWeakHolder {
     weak_ = obj;
   }
 
-  size_t allow_count_;
-  size_t disallow_count_;
   size_t sweep_count_;
   GcRoot<mirror::Object> weak_ GUARDED_BY(allow_disallow_lock_);
+  Mutex lock_;
 };
-
-static bool CollectorDoesAllowOrBroadcast() {
-  CollectorType type = Runtime::Current()->GetHeap()->CurrentCollectorType();
-  switch (type) {
-    case CollectorType::kCollectorTypeCMS:
-    case CollectorType::kCollectorTypeCMC:
-    case CollectorType::kCollectorTypeCC:
-    case CollectorType::kCollectorTypeSS:
-      return true;
-
-    default:
-      return false;
-  }
-}
-
-static bool CollectorDoesDisallow() {
-  CollectorType type = Runtime::Current()->GetHeap()->CurrentCollectorType();
-  switch (type) {
-    case CollectorType::kCollectorTypeCMS:
-    case CollectorType::kCollectorTypeCMC:
-      return true;
-
-    default:
-      return false;
-  }
-}
 
 TEST_F(SystemWeakTest, Keep) {
   CountingSystemWeakHolder cswh;
@@ -152,9 +98,6 @@ TEST_F(SystemWeakTest, Keep) {
   // Trigger a GC.
   Runtime::Current()->GetHeap()->CollectGarbage(/* clear_soft_references= */ false);
 
-  // Expect the holder to have been called.
-  EXPECT_EQ(CollectorDoesAllowOrBroadcast() ? 1U : 0U, cswh.allow_count_);
-  EXPECT_EQ(CollectorDoesDisallow() ? 1U : 0U, cswh.disallow_count_);
   // Userfaultfd GC uses SweepSystemWeaks also for concurrent updation.
   // TODO: Explore this can be reverted back to unconditionally compare with 1
   // once concurrent updation of native roots is full implemented in userfaultfd
@@ -178,9 +121,6 @@ TEST_F(SystemWeakTest, Discard) {
   // Trigger a GC.
   Runtime::Current()->GetHeap()->CollectGarbage(/* clear_soft_references= */ false);
 
-  // Expect the holder to have been called.
-  EXPECT_EQ(CollectorDoesAllowOrBroadcast() ? 1U : 0U, cswh.allow_count_);
-  EXPECT_EQ(CollectorDoesDisallow() ? 1U : 0U, cswh.disallow_count_);
   // Userfaultfd GC uses SweepSystemWeaks also for concurrent updation.
   // TODO: Explore this can be reverted back to unconditionally compare with 1
   // once concurrent updation of native roots is full implemented in userfaultfd
@@ -207,9 +147,6 @@ TEST_F(SystemWeakTest, Remove) {
   // Trigger a GC.
   Runtime::Current()->GetHeap()->CollectGarbage(/* clear_soft_references= */ false);
 
-  // Expect the holder to have been called.
-  ASSERT_EQ(CollectorDoesAllowOrBroadcast() ? 1U : 0U, cswh.allow_count_);
-  ASSERT_EQ(CollectorDoesDisallow() ? 1U : 0U, cswh.disallow_count_);
   // Userfaultfd GC uses SweepSystemWeaks also for concurrent updation.
   // TODO: Explore this can be reverted back to unconditionally compare with 1
   // once concurrent updation of native roots is full implemented in userfaultfd
@@ -228,8 +165,6 @@ TEST_F(SystemWeakTest, Remove) {
   Runtime::Current()->GetHeap()->CollectGarbage(/* clear_soft_references= */ false);
 
   // Expectation: no change in the numbers.
-  EXPECT_EQ(CollectorDoesAllowOrBroadcast() ? 1U : 0U, cswh.allow_count_);
-  EXPECT_EQ(CollectorDoesDisallow() ? 1U : 0U, cswh.disallow_count_);
   EXPECT_EQ(expected_sweep_count, cswh.sweep_count_);
 }
 

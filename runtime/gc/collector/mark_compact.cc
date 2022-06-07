@@ -1308,9 +1308,10 @@ void MarkCompact::MarkingPause() {
   // interning may attempt to return a strong reference to a string that is
   // about to be swept.
   runtime->DisallowNewSystemWeaks();
-  // Enable the reference processing slow path, needs to be done with mutators
-  // paused since there is no lock in the GetReferent fast path.
-  heap_->GetReferenceProcessor()->EnableSlowPath();
+  // We disable weak reference access via thread-locals. This isn't strictly necessary for this
+  // collector, but it saves a memory_order_acquire constraint when testing flags, and allows us
+  // to share code with concurent-copying.
+  Runtime::Current()->GetThreadList()->DisableWeakRefAccessPaused();
 }
 
 void MarkCompact::SweepSystemWeaks(Thread* self, Runtime* runtime, const bool paused) {

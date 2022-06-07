@@ -256,9 +256,7 @@ JitCodeCache* JitCodeCache::Create(bool used_only_for_profile_data,
 }
 
 JitCodeCache::JitCodeCache()
-    : is_weak_access_enabled_(true),
-      inline_cache_cond_("Jit inline cache condition variable", *Locks::jit_lock_),
-      zygote_map_(&shared_region_),
+    : zygote_map_(&shared_region_),
       lock_cond_("Jit code cache condition variable", *Locks::jit_lock_),
       collection_in_progress_(false),
       last_collection_increased_code_cache_(false),
@@ -577,47 +575,13 @@ void JitCodeCache::RemoveMethodsIn(Thread* self, const LinearAlloc& alloc) {
   }
 }
 
-bool JitCodeCache::IsWeakAccessEnabled(Thread* self) const {
-  return gUseReadBarrier
-      ? self->GetWeakRefAccessEnabled()
-      : is_weak_access_enabled_.load(std::memory_order_seq_cst);
-}
-
-void JitCodeCache::WaitUntilInlineCacheAccessible(Thread* self) {
-  if (IsWeakAccessEnabled(self)) {
-    return;
-  }
-  ScopedThreadSuspension sts(self, ThreadState::kWaitingWeakGcRootRead);
-  MutexLock mu(self, *Locks::jit_lock_);
-  while (!IsWeakAccessEnabled(self)) {
-    inline_cache_cond_.Wait(self);
-  }
-}
-
-void JitCodeCache::BroadcastForInlineCacheAccess() {
-  Thread* self = Thread::Current();
-  MutexLock mu(self, *Locks::jit_lock_);
-  inline_cache_cond_.Broadcast(self);
-}
-
-void JitCodeCache::AllowInlineCacheAccess() {
-  DCHECK(!gUseReadBarrier);
-  is_weak_access_enabled_.store(true, std::memory_order_seq_cst);
-  BroadcastForInlineCacheAccess();
-}
-
-void JitCodeCache::DisallowInlineCacheAccess() {
-  DCHECK(!gUseReadBarrier);
-  is_weak_access_enabled_.store(false, std::memory_order_seq_cst);
-}
-
 void JitCodeCache::CopyInlineCacheInto(
     const InlineCache& ic,
     /*out*/StackHandleScope<InlineCache::kIndividualCacheSize>* classes) {
   static_assert(arraysize(ic.classes_) == InlineCache::kIndividualCacheSize);
   DCHECK_EQ(classes->NumberOfReferences(), InlineCache::kIndividualCacheSize);
   DCHECK_EQ(classes->RemainingSlots(), InlineCache::kIndividualCacheSize);
-  WaitUntilInlineCacheAccessible(Thread::Current());
+  Thread::Current()->WaitUntilDoneProcessingReferences();
   // Note that we don't need to lock `lock_` here, the compiler calling
   // this method has already ensured the inline cache will not be deleted.
   for (const GcRoot<mirror::Class>& root : ic.classes_) {
@@ -1545,7 +1509,7 @@ void* JitCodeCache::MoreCore(const void* mspace, intptr_t increment) {
 void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_locations,
                                       std::vector<ProfileMethodInfo>& methods) {
   Thread* self = Thread::Current();
-  WaitUntilInlineCacheAccessible(self);
+  self->WaitUntilDoneProcessingReferences();
   // TODO: Avoid read barriers for potentially dead methods.
   // ScopedDebugDisallowReadBarriers sddrb(self);
   MutexLock mu(self, *Locks::jit_lock_);

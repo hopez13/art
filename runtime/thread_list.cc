@@ -1297,6 +1297,24 @@ void ThreadList::SuspendAllDaemonThreadsForShutdown() {
   // At this point no threads should be touching our data structures anymore.
 }
 
+void ThreadList::DisableWeakRefAccessPaused() {
+  // Iterate all threads (don't need to or can't use a checkpoint) and re-enable weak ref access.
+  MutexLock mu(Thread::Current(), *Locks::thread_list_lock_);
+  DisableGlobalWeakRefAccess();
+  for (Thread* thread : list_) {
+    thread->SetWeakRefAccessEnabled(false);
+  }
+}
+
+void ThreadList::ReenableWeakRefAccess(Thread* self) {
+  // Iterate all threads (don't need to or can't use a checkpoint) and re-enable weak ref access.
+  MutexLock mu(self, *Locks::thread_list_lock_);
+  weak_ref_access_enabled_ = true;
+  for (Thread* thread : list_) {
+    thread->SetWeakRefAccessEnabled(true);
+  }
+}
+
 void ThreadList::Register(Thread* self) {
   DCHECK_EQ(self, Thread::Current());
   CHECK(!shut_down_);
@@ -1327,8 +1345,8 @@ void ThreadList::Register(Thread* self) {
     if (cc->IsUsingReadBarrierEntrypoints()) {
       self->SetReadBarrierEntrypoints();
     }
-    self->SetWeakRefAccessEnabled(cc->IsWeakRefAccessEnabled());
   }
+  self->SetWeakRefAccessEnabled(IsWeakRefAccessEnabled());
 }
 
 void ThreadList::Unregister(Thread* self, bool should_run_callbacks) {

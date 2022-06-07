@@ -45,7 +45,7 @@ template class JvmtiWeakTable<jlong>;
 
 void ObjectTagTable::Allow() {
   JvmtiWeakTable<jlong>::Allow();
-  SendDelayedFreeEvents();
+  SendDelayedFreeEvents(); Need GC callback ????
 }
 
 void ObjectTagTable::Broadcast(bool broadcast_for_checkpoint) {

@@ -52,35 +52,26 @@ class ObjectTagTable final : public JvmtiWeakTable<jlong> {
         event_handler_(event_handler),
         jvmti_env_(env) {}
 
-  // Denotes that weak-refs are visible on all threads. Used by semi-space.
-  void Allow() override
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_);
-  // Used by cms and the checkpoint system.
-  void Broadcast(bool broadcast_for_checkpoint) override
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_);
-
   bool Set(art::ObjPtr<art::mirror::Object> obj, jlong tag) override
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_);
+      REQUIRES(!weak_table_lock_);
   bool SetLocked(art::ObjPtr<art::mirror::Object> obj, jlong tag) override
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(allow_disallow_lock_);
+      REQUIRES(weak_table_lock_);
 
   jlong GetTagOrZero(art::ObjPtr<art::mirror::Object> obj)
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_) {
+      REQUIRES(!weak_table_lock_) {
     jlong tmp = 0;
     GetTag(obj, &tmp);
     return tmp;
   }
-  jlong GetTagOrZeroLocked(art::ObjPtr<art::mirror::Object> obj)
+  jlong GetTagOrZeroLocked(art::ObjPtr<art::mirror::Object> obj ATTRIBUTE_UNUSED)
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(allow_disallow_lock_) {
-    jlong tmp = 0;
-    GetTagLocked(obj, &tmp);
-    return tmp;
+      REQUIRES(weak_table_lock_) {
+    UNIMPLEMENTED(FATAL);
+    UNREACHABLE();
+    // See JvmtiWeakTable::GetTagLocked()
   }
 
  protected:
@@ -90,11 +81,11 @@ class ObjectTagTable final : public JvmtiWeakTable<jlong> {
  private:
   void SendDelayedFreeEvents()
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_);
+      REQUIRES(!weak_table_lock_);
 
   void SendSingleFreeEvent(jlong tag)
       REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!allow_disallow_lock_, !lock_);
+      REQUIRES(!weak_table_lock_, !lock_);
 
   art::Mutex lock_ BOTTOM_MUTEX_ACQUIRED_AFTER;
   std::vector<jlong> null_tags_ GUARDED_BY(lock_);

@@ -4285,35 +4285,6 @@ void Heap::SweepAllocationRecords(IsMarkedVisitor* visitor) const {
   }
 }
 
-void Heap::AllowNewAllocationRecords() const {
-  CHECK(!gUseReadBarrier);
-  MutexLock mu(Thread::Current(), *Locks::alloc_tracker_lock_);
-  AllocRecordObjectMap* allocation_records = GetAllocationRecords();
-  if (allocation_records != nullptr) {
-    allocation_records->AllowNewAllocationRecords();
-  }
-}
-
-void Heap::DisallowNewAllocationRecords() const {
-  CHECK(!gUseReadBarrier);
-  MutexLock mu(Thread::Current(), *Locks::alloc_tracker_lock_);
-  AllocRecordObjectMap* allocation_records = GetAllocationRecords();
-  if (allocation_records != nullptr) {
-    allocation_records->DisallowNewAllocationRecords();
-  }
-}
-
-void Heap::BroadcastForNewAllocationRecords() const {
-  // Always broadcast without checking IsAllocTrackingEnabled() because IsAllocTrackingEnabled() may
-  // be set to false while some threads are waiting for system weak access in
-  // AllocRecordObjectMap::RecordAllocation() and we may fail to wake them up. b/27467554.
-  MutexLock mu(Thread::Current(), *Locks::alloc_tracker_lock_);
-  AllocRecordObjectMap* allocation_records = GetAllocationRecords();
-  if (allocation_records != nullptr) {
-    allocation_records->BroadcastForNewAllocationRecords();
-  }
-}
-
 // Perfetto Java Heap Profiler Support.
 
 // Perfetto initialization.

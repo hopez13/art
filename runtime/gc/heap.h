@@ -943,17 +943,6 @@ class Heap {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::alloc_tracker_lock_);
 
-  void DisallowNewAllocationRecords() const
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::alloc_tracker_lock_);
-
-  void AllowNewAllocationRecords() const
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::alloc_tracker_lock_);
-
-  void BroadcastForNewAllocationRecords() const
-      REQUIRES(!Locks::alloc_tracker_lock_);
-
   void DisableGCForShutdown() REQUIRES(!*gc_complete_lock_);
   bool IsGCDisabledForShutdown() const REQUIRES(!*gc_complete_lock_);
 
@@ -985,6 +974,12 @@ class Heap {
   void TraceHeapSize(size_t heap_size);
 
   bool AddHeapTask(gc::HeapTask* task);
+
+  // Can recently allocated objects appear unmarked while references are still being cleared? The
+  // true case requires extra care in monitor allocation.
+  static bool RecentObjectsCanBeUnmarked(CollectorType collector_type) {
+    return collector_type == kCollectorTypeCMS;
+  }
 
  private:
   class ConcurrentGCTask;

@@ -51,37 +51,6 @@ ReferenceProcessor::ReferenceProcessor()
       cleared_references_(Locks::reference_queue_cleared_references_lock_) {
 }
 
-static inline MemberOffset GetSlowPathFlagOffset(ObjPtr<mirror::Class> reference_class)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  DCHECK(reference_class == GetClassRoot<mirror::Reference>());
-  // Second static field
-  ArtField* field = reference_class->GetStaticField(1);
-  DCHECK_STREQ(field->GetName(), "slowPathEnabled");
-  return field->GetOffset();
-}
-
-static inline void SetSlowPathFlag(bool enabled) REQUIRES_SHARED(Locks::mutator_lock_) {
-  ObjPtr<mirror::Class> reference_class = GetClassRoot<mirror::Reference>();
-  MemberOffset slow_path_offset = GetSlowPathFlagOffset(reference_class);
-  reference_class->SetFieldBoolean</* kTransactionActive= */ false, /* kCheckTransaction= */ false>(
-      slow_path_offset, enabled ? 1 : 0);
-}
-
-void ReferenceProcessor::EnableSlowPath() {
-  SetSlowPathFlag(/* enabled= */ true);
-}
-
-void ReferenceProcessor::DisableSlowPath(Thread* self) {
-  SetSlowPathFlag(/* enabled= */ false);
-  condition_.Broadcast(self);
-}
-
-bool ReferenceProcessor::SlowPathEnabled() {
-  ObjPtr<mirror::Class> reference_class = GetClassRoot<mirror::Reference>();
-  MemberOffset slow_path_offset = GetSlowPathFlagOffset(reference_class);
-  return reference_class->GetFieldBoolean(slow_path_offset);
-}
-
 void ReferenceProcessor::BroadcastForSlowPath(Thread* self) {
   MutexLock mu(self, *Locks::reference_processor_lock_);
   condition_.Broadcast(self);
@@ -195,11 +164,16 @@ void ReferenceProcessor::Setup(Thread* self,
   rp_state_ = RpState::kStarting;
   concurrent_ = concurrent;
   clear_soft_references_ = clear_soft_references;
+  if (kIsDebugBuild) {
+    MutexLock mu(self, *Locks::thread_list_lock_);
+    CHECK(rp->IsWeakRefAccessEnabled());
+  }
 }
 
 // Process reference class instances and schedule finalizations.
 // We advance rp_state_ to signal partial completion for the benefit of GetReferent.
 void ReferenceProcessor::ProcessReferences(Thread* self, TimingLogger* timings) {
+  ??? Check that slow path is enabled
   TimingLogger::ScopedTiming t(concurrent_ ? __FUNCTION__ : "(Paused)ProcessReferences", timings);
   if (!clear_soft_references_) {
     // Forward any additional SoftReferences we discovered late, now that reference access has been
@@ -310,6 +284,17 @@ void ReferenceProcessor::ProcessReferences(Thread* self, TimingLogger* timings) 
       DisableSlowPath(self);
     }
   }
+  {
+    // JNI WeakGlobalRefs and most other system weaks cannot be processed until we're done marking
+    // through finalizers, since such references to finalizer-reachable objects must be preserved.
+    TimingLogger::ScopedTiming t3("SweepSystemWeaks", timings);
+    ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
+    Runtime::Current()->SweepSystemWeaks(this);
+  }
+  Runtime::Current()->GetThreadList()->GetList() thread_list->ReenableWeakRefAccess();
+  // Unblock blocking threads.
+  BroadcastForSlowPath(self);
+  Runtime::Current()->BroadcastForNewSystemWeaks();
 }
 
 // Process the "referent" field in a java.lang.ref.Reference.  If the referent has not yet been
@@ -407,7 +392,7 @@ void ReferenceProcessor::ClearReferent(ObjPtr<mirror::Reference> ref) {
   // CAS. If we do not wait, it can result in the GC un-clearing references due to race conditions.
   // This also handles the race where the referent gets cleared after a null check but before
   // IsMarkedHeapReference is called.
-  WaitUntilDoneProcessingReferences(self);
+  RunnableWaitUntilRPDone(self);
   if (Runtime::Current()->IsActiveTransaction()) {
     ref->ClearReferent<true>();
   } else {
@@ -415,10 +400,11 @@ void ReferenceProcessor::ClearReferent(ObjPtr<mirror::Reference> ref) {
   }
 }
 
-void ReferenceProcessor::WaitUntilDoneProcessingReferences(Thread* self) {
-  // Wait until we are done processing reference.
-  while ((!gUseReadBarrier && SlowPathEnabled()) ||
-         (gUseReadBarrier && !self->GetWeakRefAccessEnabled())) {
+void ReferenceProcessor::RunnableWaitUntilRPDone(Thread* self) {
+  // We're in Runnable state. Wait until we are done processing references.
+  while (!self->GetWeakRefAccessEnabled()) {
+    // We block with the mutator lock held. But we know the GC is currently processing references,
+    // and thus does not need to suspend us.
     // Check and run the empty checkpoint before blocking so the empty checkpoint will work in the
     // presence of threads blocking for weak ref access.
     self->CheckEmptyCheckpointFromWeakRefAccess(Locks::reference_processor_lock_);
@@ -426,11 +412,20 @@ void ReferenceProcessor::WaitUntilDoneProcessingReferences(Thread* self) {
   }
 }
 
+void ReferenceProcessor::SuspendedWaitUntilRPDone(Thread *self) {
+  // We're in a suspended state. Wait until we are done processing references.
+  DCHECK(Locks::reference_processor_lock_->IsExclusiveHeld(self));
+  while (!self->GetWeakRefAccessEnabled()) {
+    condition_.WaitHoldingLocks(self);
+  }
+}
+
+
 bool ReferenceProcessor::MakeCircularListIfUnenqueued(
     ObjPtr<mirror::FinalizerReference> reference) {
   Thread* self = Thread::Current();
   MutexLock mu(self, *Locks::reference_processor_lock_);
-  WaitUntilDoneProcessingReferences(self);
+  RunnableWaitUntilRPDone(self);
   // At this point, since the sentinel of the reference is live, it is guaranteed to not be
   // enqueued if we just finished processing references. Otherwise, we may be doing the main GC
   // phase. Since we are holding the reference processor lock, it guarantees that reference

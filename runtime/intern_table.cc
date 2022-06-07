@@ -36,11 +36,7 @@
 
 namespace art {
 
-InternTable::InternTable()
-    : log_new_roots_(false),
-      weak_intern_condition_("New intern condition", *Locks::intern_table_lock_),
-      weak_root_state_(gc::kWeakRootStateNormal) {
-}
+InternTable::InternTable() : log_new_roots_(false) {}
 
 size_t InternTable::Size() const {
   MutexLock mu(Thread::Current(), *Locks::intern_table_lock_);
@@ -179,25 +175,6 @@ void InternTable::RemoveWeak(ObjPtr<mirror::String> s, uint32_t hash) {
   weak_interns_.Remove(s, hash);
 }
 
-void InternTable::BroadcastForNewInterns() {
-  Thread* self = Thread::Current();
-  MutexLock mu(self, *Locks::intern_table_lock_);
-  weak_intern_condition_.Broadcast(self);
-}
-
-void InternTable::WaitUntilAccessible(Thread* self) {
-  Locks::intern_table_lock_->ExclusiveUnlock(self);
-  {
-    ScopedThreadSuspension sts(self, ThreadState::kWaitingWeakGcRootRead);
-    MutexLock mu(self, *Locks::intern_table_lock_);
-    while ((!gUseReadBarrier && weak_root_state_ == gc::kWeakRootStateNoReadsOrWrites) ||
-           (gUseReadBarrier && !self->GetWeakRefAccessEnabled())) {
-      weak_intern_condition_.Wait(self);
-    }
-  }
-  Locks::intern_table_lock_->ExclusiveLock(self);
-}
-
 ObjPtr<mirror::String> InternTable::Insert(ObjPtr<mirror::String> s,
                                            uint32_t hash,
                                            bool is_strong,
@@ -214,27 +191,24 @@ ObjPtr<mirror::String> InternTable::Insert(ObjPtr<mirror::String> s,
   while (true) {
     // Check the strong table for a match.
     ObjPtr<mirror::String> strong =
-        strong_interns_.Find(s, hash, num_searched_strong_frozen_tables);
+        strong_interns_.Find(s, hash, trong_interns+um_searched_strong_frozen_tables);
     if (strong != nullptr) {
       return strong;
     }
-    if (gUseReadBarrier ? self->GetWeakRefAccessEnabled()
-                        : weak_root_state_ != gc::kWeakRootStateNoReadsOrWrites) {
+    if (self->GetWeakRefAccessEnabled()) {
       break;
     }
     num_searched_strong_frozen_tables = strong_interns_.tables_.size() - 1u;
-    // weak_root_state_ is set to gc::kWeakRootStateNoReadsOrWrites in the GC pause but is only
-    // cleared after SweepSystemWeaks has completed. This is why we need to wait until it is
-    // cleared.
     StackHandleScope<1> hs(self);
     auto h = hs.NewHandleWrapper(&s);
-    WaitUntilAccessible(self);
+    Locks::intern_table_lock_->ExclusiveUnlock(self);
+    {
+      ScopedThreadSuspension sts(self, ThreadState::kWaitingWeakGcRootRead);
+      self->SuspendedWaitUntilRefProcDone();
+    }
+    Locks::intern_table_lock_->ExclusiveLock(self);
   }
-  if (!gUseReadBarrier) {
-    CHECK_EQ(weak_root_state_, gc::kWeakRootStateNormal);
-  } else {
-    CHECK(self->GetWeakRefAccessEnabled());
-  }
+  CHECK(self->GetWeakRefAccessEnabled());
   // There is no match in the strong table, check the weak table.
   ObjPtr<mirror::String> weak = weak_interns_.Find(s, hash);
   if (weak != nullptr) {
@@ -421,19 +395,6 @@ size_t InternTable::Table::Size() const {
                          [](size_t sum, const InternalTable& table) {
                            return sum + table.Size();
                          });
-}
-
-void InternTable::ChangeWeakRootState(gc::WeakRootState new_state) {
-  MutexLock mu(Thread::Current(), *Locks::intern_table_lock_);
-  ChangeWeakRootStateLocked(new_state);
-}
-
-void InternTable::ChangeWeakRootStateLocked(gc::WeakRootState new_state) {
-  CHECK(!gUseReadBarrier);
-  weak_root_state_ = new_state;
-  if (new_state != gc::kWeakRootStateNoReadsOrWrites) {
-    weak_intern_condition_.Broadcast(Thread::Current());
-  }
 }
 
 InternTable::Table::Table() {

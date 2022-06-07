@@ -866,9 +866,7 @@ class FollowReferencesHelper final {
         stop_reports_(false) {
   }
 
-  void Init()
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+  void Init() REQUIRES_SHARED(art::Locks::mutator_lock_) {
     if (initial_object_.IsNull()) {
       CollectAndReportRootsVisitor carrv(this, tag_table_, &worklist_, &visited_);
 
@@ -889,9 +887,7 @@ class FollowReferencesHelper final {
     }
   }
 
-  void Work()
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+  void Work() REQUIRES_SHARED(art::Locks::mutator_lock_) {
     // Currently implemented as a BFS. To lower overhead, we don't erase elements immediately
     // from the head of the work list, instead postponing until there's a gap that's "large."
     //
@@ -928,8 +924,7 @@ class FollowReferencesHelper final {
 
     void VisitRoots(art::mirror::Object*** roots, size_t count, const art::RootInfo& info)
         override
-        REQUIRES_SHARED(art::Locks::mutator_lock_)
-        REQUIRES(!*helper_->tag_table_->GetAllowDisallowLock()) {
+        REQUIRES_SHARED(art::Locks::mutator_lock_) {
       for (size_t i = 0; i != count; ++i) {
         AddRoot(*roots[i], info);
       }
@@ -938,8 +933,7 @@ class FollowReferencesHelper final {
     void VisitRoots(art::mirror::CompressedReference<art::mirror::Object>** roots,
                     size_t count,
                     const art::RootInfo& info)
-        override REQUIRES_SHARED(art::Locks::mutator_lock_)
-        REQUIRES(!*helper_->tag_table_->GetAllowDisallowLock()) {
+        override REQUIRES_SHARED(art::Locks::mutator_lock_) {
       for (size_t i = 0; i != count; ++i) {
         AddRoot(roots[i]->AsMirrorPtr(), info);
       }
@@ -951,8 +945,7 @@ class FollowReferencesHelper final {
 
    private:
     void AddRoot(art::mirror::Object* root_obj, const art::RootInfo& info)
-        REQUIRES_SHARED(art::Locks::mutator_lock_)
-        REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+        REQUIRES_SHARED(art::Locks::mutator_lock_) {
       if (stop_reports_) {
         return;
       }
@@ -1074,8 +1067,7 @@ class FollowReferencesHelper final {
     }
 
     bool ReportRoot(art::mirror::Object* root_obj, const art::RootInfo& info)
-        REQUIRES_SHARED(art::Locks::mutator_lock_)
-        REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+        REQUIRES_SHARED(art::Locks::mutator_lock_) {
       jvmtiHeapReferenceInfo ref_info;
       jvmtiHeapReferenceKind kind = GetReferenceKind(info, &ref_info);
       jint result = helper_->ReportReference(kind, &ref_info, nullptr, root_obj);
@@ -1094,8 +1086,7 @@ class FollowReferencesHelper final {
   };
 
   void VisitObject(art::mirror::Object* obj)
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+      REQUIRES_SHARED(art::Locks::mutator_lock_) {
     if (obj->IsClass()) {
       VisitClass(obj->AsClass().Ptr());
       return;
@@ -1111,8 +1102,7 @@ class FollowReferencesHelper final {
             [[maybe_unused]] art::ObjPtr<art::mirror::Class> obj_klass,
             art::ArtField& field,
             size_t field_index,
-            [[maybe_unused]] void* user_data) REQUIRES_SHARED(art::Locks::mutator_lock_)
-            REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+            [[maybe_unused]] void* user_data) REQUIRES_SHARED(art::Locks::mutator_lock_) {
               art::ObjPtr<art::mirror::Object> field_value = field.GetObject(src);
               if (field_value != nullptr) {
                 jvmtiHeapReferenceInfo reference_info;
@@ -1153,8 +1143,7 @@ class FollowReferencesHelper final {
   }
 
   void VisitArray(art::mirror::Object* array)
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+      REQUIRES_SHARED(art::Locks::mutator_lock_) {
     stop_reports_ = !ReportReferenceMaybeEnqueue(JVMTI_HEAP_REFERENCE_CLASS,
                                                  nullptr,
                                                  array,
@@ -1188,8 +1177,7 @@ class FollowReferencesHelper final {
   }
 
   void VisitClass(art::mirror::Class* klass)
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+      REQUIRES_SHARED(art::Locks::mutator_lock_) {
     // TODO: Are erroneous classes reported? Are non-prepared ones? For now, just use resolved ones.
     if (!klass->IsResolved()) {
       return;
@@ -1246,8 +1234,7 @@ class FollowReferencesHelper final {
             art::ObjPtr<art::mirror::Class> obj_klass,
             art::ArtField& field,
             size_t field_index,
-            [[maybe_unused]] void* user_data) REQUIRES_SHARED(art::Locks::mutator_lock_)
-            REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+            [[maybe_unused]] void* user_data) REQUIRES_SHARED(art::Locks::mutator_lock_) {
               art::ObjPtr<art::mirror::Object> field_value = field.GetObject(obj_klass);
               if (field_value != nullptr) {
                 jvmtiHeapReferenceInfo reference_info;
@@ -1286,8 +1273,7 @@ class FollowReferencesHelper final {
                                    const jvmtiHeapReferenceInfo* reference_info,
                                    art::mirror::Object* referree,
                                    art::mirror::Object* referrer)
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+      REQUIRES_SHARED(art::Locks::mutator_lock_) {
     jint result = ReportReference(kind, reference_info, referree, referrer);
     if ((result & JVMTI_VISIT_ABORT) == 0) {
       if ((result & JVMTI_VISIT_OBJECTS) != 0) {
@@ -1303,8 +1289,7 @@ class FollowReferencesHelper final {
                        const jvmtiHeapReferenceInfo* reference_info,
                        art::mirror::Object* referrer,
                        art::mirror::Object* referree)
-      REQUIRES_SHARED(art::Locks::mutator_lock_)
-      REQUIRES(!*tag_table_->GetAllowDisallowLock()) {
+      REQUIRES_SHARED(art::Locks::mutator_lock_) {
     if (referree == nullptr || stop_reports_) {
       return 0;
     }
