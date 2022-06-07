@@ -79,7 +79,8 @@ ThreadList::ThreadList(uint64_t thread_suspend_timeout_ns)
       long_suspend_(false),
       shut_down_(false),
       thread_suspend_timeout_ns_(thread_suspend_timeout_ns),
-      empty_checkpoint_barrier_(new Barrier(0)) {
+      empty_checkpoint_barrier_(new Barrier(0)),
+      weak_ref_access_enabled_(true) {
   CHECK(Monitor::IsValidLockWord(LockWord::FromThinLockId(kMaxThreadId, 1, 0U)));
 }
 
@@ -459,8 +460,7 @@ void ThreadList::RunEmptyCheckpoint() {
 
   // Wake up the threads blocking for weak ref access so that they will respond to the empty
   // checkpoint request. Otherwise we will hang as they are blocking in the kRunnable state.
-  Runtime::Current()->GetHeap()->GetReferenceProcessor()->BroadcastForSlowPath(self);
-  Runtime::Current()->BroadcastForNewSystemWeaks(/*broadcast_for_checkpoint=*/true);
+  Runtime::Current()->GetHeap()->GetReferenceProcessor()->WakeWeakRefWaiters(self);
   {
     ScopedThreadStateChange tsc(self, ThreadState::kWaitingForCheckPointsToRun);
     uint64_t total_wait_time = 0;
@@ -1415,6 +1415,28 @@ void ThreadList::SuspendAllDaemonThreadsForShutdown() {
   // At this point no threads should be touching our data structures anymore.
 }
 
+void ThreadList::DisableWeakRefAccessPaused() {
+  // Iterate over all threads to disable weak ref access. This needs to be done in a pause, so
+  // that no accesses are still in progress.
+  Locks::mutator_lock_->AssertExclusiveHeld(Thread::Current());
+  MutexLock mu(Thread::Current(), *Locks::thread_list_lock_);
+  DisableGlobalWeakRefAccess();
+  for (Thread* thread : list_) {
+    thread->SetWeakRefAccessEnabled(false);
+  }
+}
+
+void ThreadList::ReenableWeakRefAccess(Thread* self, gc::ReferenceProcessor* rp) {
+  // Iterate over all threads (don't need to or can't use a checkpoint) and re-enable weak ref
+  // access.
+  MutexLock mu(self, *Locks::thread_list_lock_);
+  weak_ref_access_enabled_ = true;
+  for (Thread* thread : list_) {
+    thread->SetWeakRefAccessEnabled(true);
+  }
+  rp->WakeWeakRefWaiters(self);
+}
+
 void ThreadList::Register(Thread* self) {
   DCHECK_EQ(self, Thread::Current());
   CHECK(!shut_down_);
@@ -1444,8 +1466,8 @@ void ThreadList::Register(Thread* self) {
     if (cc->IsUsingReadBarrierEntrypoints()) {
       self->SetReadBarrierEntrypoints();
     }
-    self->SetWeakRefAccessEnabled(cc->IsWeakRefAccessEnabled());
   }
+  self->SetWeakRefAccessEnabled(IsWeakRefAccessEnabled());
 }
 
 void ThreadList::Unregister(Thread* self, bool should_run_callbacks) {

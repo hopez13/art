@@ -179,14 +179,6 @@ MemberOffset IntrinsicVisitor::GetReferenceDisableIntrinsicOffset() {
   return field->GetOffset();
 }
 
-MemberOffset IntrinsicVisitor::GetReferenceSlowPathEnabledOffset() {
-  ScopedObjectAccess soa(Thread::Current());
-  // The "slowPathEnabled" is the second static field.
-  ArtField* field = GetClassRoot<mirror::Reference>()->GetStaticField(1);
-  DCHECK_STREQ(field->GetName(), "slowPathEnabled");
-  return field->GetOffset();
-}
-
 void IntrinsicVisitor::CreateReferenceGetReferentLocations(HInvoke* invoke,
                                                            CodeGenerator* codegen) {
   if (!CanReferenceBootImageObjects(invoke, codegen->GetCompilerOptions())) {

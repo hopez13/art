@@ -131,6 +131,7 @@ class MarkCompact final : public GarbageCollector {
                               ObjPtr<mirror::Reference> reference) override
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::heap_bitmap_lock_);
 
+  // For marked objects, returns the pre-compact address if not compacting_ .
   mirror::Object* IsMarked(mirror::Object* obj) override
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::heap_bitmap_lock_);
 
@@ -270,7 +271,8 @@ class MarkCompact final : public GarbageCollector {
   void MarkingPhase() REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Locks::heap_bitmap_lock_);
   void CompactionPhase() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void SweepSystemWeaks(Thread* self, Runtime* runtime, const bool paused)
+  // Sweeps system weaks a second time to adjust addresses.
+  void SweepSystemWeaksPaused(Thread* self, Runtime* runtime)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::heap_bitmap_lock_);
   // Update the reference at given offset in the given object with post-compact
@@ -450,10 +452,6 @@ class MarkCompact final : public GarbageCollector {
   // Also updates freed_objects_ counter.
   void UpdateLivenessInfo(mirror::Object* obj, size_t obj_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
-
-  void ProcessReferences(Thread* self)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::heap_bitmap_lock_);
 
   void MarkObjectNonNull(mirror::Object* obj,
                          mirror::Object* holder = nullptr,

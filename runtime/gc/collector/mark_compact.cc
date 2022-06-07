@@ -1371,27 +1371,22 @@ void MarkCompact::MarkingPause() {
   // mutator-lock to exclusive and vice-versa starting from here till compaction pause.
   // heap_->PreSweepingGcVerification(this);
 
-  // Disallow new system weaks to prevent a race which occurs when someone adds
-  // a new system weak before we sweep them. Since this new system weak may not
-  // be marked, the GC may incorrectly sweep it. This also fixes a race where
-  // interning may attempt to return a strong reference to a string that is
-  // about to be swept.
-  runtime->DisallowNewSystemWeaks();
-  // Enable the reference processing slow path, needs to be done with mutators
-  // paused since there is no lock in the GetReferent fast path.
-  heap_->GetReferenceProcessor()->EnableSlowPath();
+  // This also disables new system weak creation to prevent a race which occurs
+  // when someone adds a new system weak before we sweep them. Since this new
+  // system weak may not be marked, the GC may incorrectly sweep it. This also
+  // fixes a race where interning may attempt to return a strong reference to a
+  // string that is about to be swept.
+  // We disable weak reference access via thread-locals. This isn't strictly necessary for this
+  // collector, but it saves a memory_order_acquire constraint when testing flags, and allows us
+  // to share code with concurent-copying.
+  Runtime::Current()->GetThreadList()->DisableWeakRefAccessPaused();
 }
 
-void MarkCompact::SweepSystemWeaks(Thread* self, Runtime* runtime, const bool paused) {
-  TimingLogger::ScopedTiming t(paused ? "(Paused)SweepSystemWeaks" : "SweepSystemWeaks",
-                               GetTimings());
+void MarkCompact::SweepSystemWeaksPaused(Thread* self, Runtime* runtime) {
+  TimingLogger::ScopedTiming t("(Paused)SweepSystemWeaks", GetTimings());
   ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
+  DCHECK(compacting_);
   runtime->SweepSystemWeaks(this);
-}
-
-void MarkCompact::ProcessReferences(Thread* self) {
-  WriterMutexLock mu(self, *Locks::heap_bitmap_lock_);
-  GetHeap()->GetReferenceProcessor()->ProcessReferences(self, GetTimings());
 }
 
 void MarkCompact::Sweep(bool swap_bitmaps) {
@@ -1432,12 +1427,8 @@ void MarkCompact::ReclaimPhase() {
   TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
   DCHECK(thread_running_gc_ == Thread::Current());
   Runtime* const runtime = Runtime::Current();
-  // Process the references concurrently.
-  ProcessReferences(thread_running_gc_);
-  // TODO: Try to merge this system-weak sweeping with the one while updating
-  // references during the compaction pause.
-  SweepSystemWeaks(thread_running_gc_, runtime, /*paused*/ false);
-  runtime->AllowNewSystemWeaks();
+  // Process the references concurrently. Sweeps system weaks the first time to clear stale refs.
+  GetHeap()->GetReferenceProcessor()->ProcessReferences(thread_running_gc_, GetTimings());
   // Clean up class loaders after system weaks are swept since that is how we know if class
   // unloading occurred.
   runtime->GetClassLinker()->CleanupClassLoaders();
@@ -2920,7 +2911,9 @@ void MarkCompact::CompactionPause() {
       linker->VisitClassLoaders(&updater);
       linker->GetBootClassTable()->VisitRoots(updater, /*skip_classes=*/true);
     }
-    SweepSystemWeaks(thread_running_gc_, runtime, /*paused=*/true);
+    // Scan system weaks again, this time just updating addresses. IsMarked() now behaves
+    // differently.
+    SweepSystemWeaksPaused(thread_running_gc_, runtime);
 
     bool has_zygote_space = heap_->HasZygoteSpace();
     GcVisitedArenaPool* arena_pool =

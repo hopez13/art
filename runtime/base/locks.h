@@ -77,14 +77,10 @@ enum LockLevel : uint8_t {
   kTransactionLogLock,
   kCustomTlsLock,
   kJniFunctionTableLock,
+  kReferenceProcessorLock,
   kJniWeakGlobalsLock,
   kJniGlobalsLock,
-  kReferenceQueueSoftReferencesLock,
-  kReferenceQueuePhantomReferencesLock,
-  kReferenceQueueFinalizerReferencesLock,
-  kReferenceQueueWeakReferencesLock,
-  kReferenceQueueClearedReferencesLock,
-  kReferenceProcessorLock,
+  kReferenceQueueLock,
   kJitDebugInterfaceLock,
   kBumpPointerSpaceBlockLock,
   kArenaPoolLock,
@@ -246,6 +242,10 @@ class EXPORT Locks {
   static Mutex* trace_lock_ ACQUIRED_AFTER(profiler_lock_);
 
   // Guards debugger recent allocation records.
+  // This is acquired in SweepSystemWeaks() while weak reference access is disabled. It is
+  // unsafe to do anything that might block on weak reference access while holding this.
+  // TODO: This feels like it should appear much later in the list and probably, like many
+  // locks here, doesn't need its own lock level.
   static Mutex* alloc_tracker_lock_ ACQUIRED_AFTER(trace_lock_);
 
   // Guards updates to instrumentation to ensure mutual exclusion of
@@ -303,23 +303,27 @@ class EXPORT Locks {
   // Guards intern table.
   static Mutex* intern_table_lock_ ACQUIRED_AFTER(host_dlopen_handles_lock_);
 
-  // Guards reference processor.
-  static Mutex* reference_processor_lock_ ACQUIRED_AFTER(intern_table_lock_);
-
+  // The following 5 share the same lock level. We approximate that by pretending here that
+  // they're ordered.
   // Guards cleared references queue.
-  static Mutex* reference_queue_cleared_references_lock_ ACQUIRED_AFTER(reference_processor_lock_);
+  static Mutex* reference_queue_cleared_references_lock_ ACQUIRED_AFTER(intern_table_lock_);
 
   // Guards weak references queue.
-  static Mutex* reference_queue_weak_references_lock_ ACQUIRED_AFTER(reference_queue_cleared_references_lock_);
+  static Mutex* reference_queue_weak_references_lock_
+      ACQUIRED_AFTER(reference_queue_cleared_references_lock_);
 
   // Guards finalizer references queue.
-  static Mutex* reference_queue_finalizer_references_lock_ ACQUIRED_AFTER(reference_queue_weak_references_lock_);
+  static Mutex* reference_queue_finalizer_references_lock_
+      ACQUIRED_AFTER(reference_queue_weak_references_lock_);
 
   // Guards phantom references queue.
-  static Mutex* reference_queue_phantom_references_lock_ ACQUIRED_AFTER(reference_queue_finalizer_references_lock_);
+  static Mutex* reference_queue_phantom_references_lock_
+      ACQUIRED_AFTER(reference_queue_finalizer_references_lock_);
 
   // Guards soft references queue.
-  static Mutex* reference_queue_soft_references_lock_ ACQUIRED_AFTER(reference_queue_phantom_references_lock_);
+  static Mutex* reference_queue_soft_references_lock_
+      ACQUIRED_AFTER(reference_queue_phantom_references_lock_);
+
 
   // Guard accesses to the JNI Global Reference table.
   static ReaderWriterMutex* jni_globals_lock_ ACQUIRED_AFTER(reference_queue_soft_references_lock_);
@@ -327,8 +331,11 @@ class EXPORT Locks {
   // Guard accesses to the JNI Weak Global Reference table.
   static Mutex* jni_weak_globals_lock_ ACQUIRED_AFTER(jni_globals_lock_);
 
+  // Guards reference processor.
+  static Mutex* reference_processor_lock_ ACQUIRED_AFTER(jni_weak_globals_lock_);
+
   // Guard accesses to the JNI function table override.
-  static Mutex* jni_function_table_lock_ ACQUIRED_AFTER(jni_weak_globals_lock_);
+  static Mutex* jni_function_table_lock_ ACQUIRED_AFTER(reference_processor_lock_);
 
   // Guard accesses to the Thread::custom_tls_. We use this to allow the TLS of other threads to be
   // read (the reader must hold the ThreadListLock or have some other way of ensuring the thread

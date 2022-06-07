@@ -3297,23 +3297,18 @@ void IntrinsicCodeGeneratorX86_64::VisitReferenceGetReferent(HInvoke* invoke) {
   SlowPathCode* slow_path = new (GetAllocator()) IntrinsicSlowPathX86_64(invoke);
   codegen_->AddSlowPath(slow_path);
 
-  if (codegen_->EmitReadBarrier()) {
-    // Check self->GetWeakRefAccessEnabled().
-    ThreadOffset64 offset = Thread::WeakRefAccessEnabledOffset<kX86_64PointerSize>();
-    __ gs()->cmpl(Address::Absolute(offset, /* no_rip= */ true),
-                  Immediate(enum_cast<int32_t>(WeakRefAccessState::kVisiblyEnabled)));
-    __ j(kNotEqual, slow_path->GetEntryLabel());
-  }
+  // Check self->GetWeakRefAccessEnabled().
+  ThreadOffset64 offset = Thread::WeakRefAccessEnabledOffset<kX86_64PointerSize>();
+  __ gs()->cmpl(Address::Absolute(offset, /* no_rip= */ true),
+                Immediate(enum_cast<int32_t>(WeakRefAccessState::kVisiblyEnabled)));
+  __ j(kNotEqual, slow_path->GetEntryLabel());
 
   // Load the java.lang.ref.Reference class, use the output register as a temporary.
   codegen_->LoadIntrinsicDeclaringClass(out.AsRegister<CpuRegister>(), invoke);
 
-  // Check static fields java.lang.ref.Reference.{disableIntrinsic,slowPathEnabled} together.
+  // check Reference.disableIntrinsic.
   MemberOffset disable_intrinsic_offset = IntrinsicVisitor::GetReferenceDisableIntrinsicOffset();
-  DCHECK_ALIGNED(disable_intrinsic_offset.Uint32Value(), 2u);
-  DCHECK_EQ(disable_intrinsic_offset.Uint32Value() + 1u,
-            IntrinsicVisitor::GetReferenceSlowPathEnabledOffset().Uint32Value());
-  __ cmpw(Address(out.AsRegister<CpuRegister>(), disable_intrinsic_offset.Uint32Value()),
+  __ cmpb(Address(out.AsRegister<CpuRegister>(), disable_intrinsic_offset.Uint32Value()),
           Immediate(0));
   __ j(kNotEqual, slow_path->GetEntryLabel());
 

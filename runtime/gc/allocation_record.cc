@@ -138,21 +138,6 @@ void AllocRecordObjectMap::SweepAllocationRecords(IsMarkedVisitor* visitor) {
   VLOG(heap) << "Updated " << count_moved << " allocation records";
 }
 
-void AllocRecordObjectMap::AllowNewAllocationRecords() {
-  CHECK(!gUseReadBarrier);
-  allow_new_record_ = true;
-  new_record_condition_.Broadcast(Thread::Current());
-}
-
-void AllocRecordObjectMap::DisallowNewAllocationRecords() {
-  CHECK(!gUseReadBarrier);
-  allow_new_record_ = false;
-}
-
-void AllocRecordObjectMap::BroadcastForNewAllocationRecords() {
-  new_record_condition_.Broadcast(Thread::Current());
-}
-
 void AllocRecordObjectMap::SetAllocTrackingEnabled(bool enable) {
   Thread* self = Thread::Current();
   Heap* heap = Runtime::Current()->GetHeap();
@@ -226,25 +211,16 @@ void AllocRecordObjectMap::RecordAllocation(Thread* self,
         art::StackVisitor::StackWalkKind::kIncludeInlinedFrames);
   }
 
+  // Wait for GC's sweeping and reference processing to complete and allow new records.
+  // Do this BEFORE acquiring alloc_tracker_lock_ .
+  self->WaitUntilDoneProcessingReferences();
+
   MutexLock mu(self, *Locks::alloc_tracker_lock_);
   Heap* const heap = Runtime::Current()->GetHeap();
-  if (!heap->IsAllocTrackingEnabled()) {
-    // In the process of shutting down recording, bail.
-    return;
-  }
 
   // TODO Skip recording allocations associated with DDMS. This was a feature of the old debugger
   // but when we switched to the JVMTI based debugger the feature was (unintentionally) broken.
   // Since nobody seemed to really notice or care it might not be worth the trouble.
-
-  // Wait for GC's sweeping to complete and allow new records.
-  while (UNLIKELY((!gUseReadBarrier && !allow_new_record_) ||
-                  (gUseReadBarrier && !self->GetWeakRefAccessEnabled()))) {
-    // Check and run the empty checkpoint before blocking so the empty checkpoint will work in the
-    // presence of threads blocking for weak ref access.
-    self->CheckEmptyCheckpointFromWeakRefAccess(Locks::alloc_tracker_lock_);
-    new_record_condition_.WaitHoldingLocks(self);
-  }
 
   if (!heap->IsAllocTrackingEnabled()) {
     // Return if the allocation tracking has been disabled while waiting for system weak access
@@ -266,8 +242,7 @@ void AllocRecordObjectMap::Clear() {
   entries_.clear();
 }
 
-AllocRecordObjectMap::AllocRecordObjectMap()
-    : new_record_condition_("New allocation record condition", *Locks::alloc_tracker_lock_) {}
+AllocRecordObjectMap::AllocRecordObjectMap() {}
 
 }  // namespace gc
 }  // namespace art

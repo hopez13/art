@@ -449,7 +449,6 @@ inline bool Thread::PushOnThreadLocalAllocationStack(mirror::Object* obj) {
 }
 
 inline bool Thread::GetWeakRefAccessEnabled() const {
-  DCHECK(gUseReadBarrier);
   DCHECK(this == Thread::Current());
   WeakRefAccessState s = tls32_.weak_ref_access_enabled.load(std::memory_order_relaxed);
   if (LIKELY(s == WeakRefAccessState::kVisiblyEnabled)) {
@@ -463,9 +462,9 @@ inline bool Thread::GetWeakRefAccessEnabled() const {
   }
   DCHECK(s == WeakRefAccessState::kEnabled)
       << "state = " << static_cast<std::underlying_type_t<WeakRefAccessState>>(s);
-  // The state is only changed back to DISABLED during a checkpoint. Thus no other thread can
-  // change the value concurrently here. No other thread reads the value we store here, so there
-  // is no need for a release store.
+  // The state is only changed back to DISABLED during a pause. Thus no other thread can change
+  // the value concurrently here. No other thread reads the value we store here, so there is no
+  // need for a release store.
   tls32_.weak_ref_access_enabled.store(WeakRefAccessState::kVisiblyEnabled,
                                        std::memory_order_relaxed);
   return true;

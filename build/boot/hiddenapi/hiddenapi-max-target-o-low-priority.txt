@@ -3040,7 +3040,6 @@ Ljava/lang/ref/Reference;->disableIntrinsic:Z
 Ljava/lang/ref/Reference;->pendingNext:Ljava/lang/ref/Reference;
 Ljava/lang/ref/Reference;->queue:Ljava/lang/ref/ReferenceQueue;
 Ljava/lang/ref/Reference;->queueNext:Ljava/lang/ref/Reference;
-Ljava/lang/ref/Reference;->slowPathEnabled:Z
 Ljava/lang/ref/ReferenceQueue;->enqueue(Ljava/lang/ref/Reference;)Z
 Ljava/lang/ref/ReferenceQueue;->enqueueLocked(Ljava/lang/ref/Reference;)Z
 Ljava/lang/ref/ReferenceQueue;->enqueuePending(Ljava/lang/ref/Reference;)V
