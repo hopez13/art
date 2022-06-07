@@ -2157,6 +2157,52 @@ ArtMethod* Class::FindAccessibleInterfaceMethod(ArtMethod* implementation_method
   return nullptr;
 }
 
+bool Class::HaveSameNestHost(Handle<mirror::Class> h_klass, Handle<mirror::Class> h_other)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (h_klass.Get() == h_other.Get()) {
+    // A class is in the same nest group as itself.
+    return true;
+  }
+  if (h_klass->IsPrimitive() || h_other->IsPrimitive()) {
+    // Primitives do not form nest groups.
+    return false;
+  }
+  if (h_klass->IsArrayClass() || h_other->IsArrayClass()) {
+    // Arrays do not form nest groups.
+    return false;
+  }
+
+  if (!h_klass->IsInSamePackage(h_other.Get())) {
+    // If classes are in different packages, they cannot be part of the same nest group.
+    return false;
+  }
+
+  // Get the nest host for each class from the annotation. If the annotation is missing, it is
+  // implied that the class is the host of its own group.
+  StackHandleScope<2> hs(Thread::Current());
+  Handle<mirror::Class> h_host(hs.NewHandle(annotations::GetNestHost(h_klass)));
+  if (h_host == nullptr) {
+    h_host = h_klass;
+  }
+  Handle<mirror::Class> h_host_of_other(hs.NewHandle(annotations::GetNestHost(h_other)));
+  if (h_host_of_other == nullptr) {
+    h_host_of_other = h_other;
+  }
+
+  if (h_host.Get() != h_host_of_other.Get()) {
+    // Hosts differ, so they must be part of different groups.
+    return false;
+  }
+
+  // Both classes have the same host. Need to also check that those classes are recognized as
+  // members by the host.
+  if (!annotations::HasNestMember(h_host, h_klass) ||
+      !annotations::HasNestMember(h_host, h_other)) {
+    return false;
+  }
+
+  return true;
+}
 
 }  // namespace mirror
 }  // namespace art

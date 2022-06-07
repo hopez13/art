@@ -5138,7 +5138,7 @@ ObjPtr<mirror::Class> ClassLinker::CreateProxyClass(ScopedObjectAccessAlreadyRun
 void ClassLinker::CreateProxyConstructor(Handle<mirror::Class> klass, ArtMethod* out) {
   // Create constructor for Proxy that must initialize the method.
   ObjPtr<mirror::Class> proxy_class = GetClassRoot<mirror::Proxy>(this);
-  CHECK_EQ(proxy_class->NumDirectMethods(), 21u);
+  CHECK_EQ(proxy_class->NumDirectMethods(), 15u);
 
   // Find the <init>(InvocationHandler)V method. The exact method offset varies depending
   // on which front-end compiler was used to build the libcore DEX files.
