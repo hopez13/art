@@ -401,22 +401,21 @@ inline ArtMethod* ClassLinker::ResolveMethod(uint32_t method_idx,
 
   // Note: We can check for IllegalAccessError only if we have a referrer.
   if (kResolveMode == ResolveMode::kCheckICCEAndIAE && resolved != nullptr && referrer != nullptr) {
-    ObjPtr<mirror::Class> methods_class = resolved->GetDeclaringClass();
-    ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
-    if (UNLIKELY(!referring_class->CanAccess(methods_class))) {
+    StackHandleScope<2> hs(Thread::Current());
+    Handle<mirror::Class> referring_class(hs.NewHandle(referrer->GetDeclaringClass()));
+    Handle<mirror::Class> methods_class(hs.NewHandle(resolved->GetDeclaringClass()));
+    if (UNLIKELY(!referring_class->CanAccess(methods_class.Get()))) {
       // The referrer class can't access the method's declaring class but may still be able
       // to access the method if the MethodId specifies an accessible subclass of the declaring
       // class rather than the declaring class itself.
       if (UNLIKELY(!referring_class->CanAccess(klass))) {
-        ThrowIllegalAccessErrorClassForMethodDispatch(referring_class,
-                                                      klass,
-                                                      resolved,
-                                                      type);
+        ThrowIllegalAccessErrorClassForMethodDispatch(referring_class.Get(), klass, resolved, type);
         return nullptr;
       }
     }
-    if (UNLIKELY(!referring_class->CanAccessMember(methods_class, resolved->GetAccessFlags()))) {
-      ThrowIllegalAccessErrorMethod(referring_class, resolved);
+    if (UNLIKELY(!mirror::Class::CanAccessMember(
+            referring_class, methods_class, resolved->GetAccessFlags()))) {
+      ThrowIllegalAccessErrorMethod(referring_class.Get(), resolved);
       return nullptr;
     }
   }

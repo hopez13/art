@@ -618,25 +618,35 @@ class MANAGED Class final : public Object {
   // Returns true if this class can access that class.
   bool CanAccess(ObjPtr<Class> that) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Can this class access a member in the provided class with the provided member access flags?
+  // Can a class access a member in the provided class with the provided member access flags?  This
+  // is a fast check that will not try and establish nest group membership, therefore rejecting any
+  // private access.
   // Note that access to the class isn't checked in case the declaring class is protected and the
   // method has been exposed by a public sub-class
-  bool CanAccessMember(ObjPtr<Class> access_to, uint32_t member_flags)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  static bool CanAccessMemberFast(ObjPtr<mirror::Class> access_from,
+                                  ObjPtr<mirror::Class> access_to,
+                                  uint32_t member_flags) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Can this class access a resolved field?
+  // Can a class access a member in the provided class with the provided member access flags?
+  // Note that access to the class isn't checked in case the declaring class is protected and the
+  // method has been exposed by a public sub-class
+  static bool CanAccessMember(Handle<Class> access_from,
+                              Handle<Class> access_to,
+                              uint32_t member_flags) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Can a certain class access a resolved field?
   // Note that access to field's class is checked and this may require looking up the class
   // referenced by the FieldId in the DexFile in case the declaring class is inaccessible.
-  bool CanAccessResolvedField(ObjPtr<Class> access_to,
-                              ArtField* field,
-                              ObjPtr<DexCache> dex_cache,
-                              uint32_t field_idx)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  bool CheckResolvedFieldAccess(ObjPtr<Class> access_to,
-                                ArtField* field,
-                                ObjPtr<DexCache> dex_cache,
-                                uint32_t field_idx)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  static bool CanAccessResolvedField(Handle<Class> access_from,
+                                     Handle<Class> access_to,
+                                     ArtField* field,
+                                     Handle<DexCache> dex_cache,
+                                     uint32_t field_idx) REQUIRES_SHARED(Locks::mutator_lock_);
+  static bool CheckResolvedFieldAccess(Handle<Class> access_from,
+                                       Handle<Class> access_to,
+                                       ArtField* field,
+                                       Handle<DexCache> dex_cache,
+                                       uint32_t field_idx) REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsSubClass(ObjPtr<Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -1365,6 +1375,14 @@ class MANAGED Class final : public Object {
   // See b/259501764.
   bool CheckIsVisibleWithTargetSdk(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Checks if a class has the same nest host as another one. This is the
+  // criteria for establishing that two classes belong to the same nest group
+  // and therefore should have access to each other's private fields and
+  // methods.
+  // This is static because 'h_klass' may be moved by GC.
+  static bool HaveSameNestHost(Handle<mirror::Class> h_klass, Handle<mirror::Class> other)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   template <typename T, VerifyObjectFlags kVerifyFlags, typename Visitor>
   void FixupNativePointer(
@@ -1379,11 +1397,11 @@ class MANAGED Class final : public Object {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <bool throw_on_failure>
-  bool ResolvedFieldAccessTest(ObjPtr<Class> access_to,
-                               ArtField* field,
-                               ObjPtr<DexCache> dex_cache,
-                               uint32_t field_idx)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  static bool ResolvedFieldAccessTest(Handle<Class> access_from,
+                                      Handle<Class> access_to,
+                                      ArtField* field,
+                                      Handle<DexCache> dex_cache,
+                                      uint32_t field_idx) REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsArrayAssignableFromArray(ObjPtr<Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
   bool IsAssignableFromArray(ObjPtr<Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);

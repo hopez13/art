@@ -5142,7 +5142,7 @@ ObjPtr<mirror::Class> ClassLinker::CreateProxyClass(ScopedObjectAccessAlreadyRun
 void ClassLinker::CreateProxyConstructor(Handle<mirror::Class> klass, ArtMethod* out) {
   // Create constructor for Proxy that must initialize the method.
   ObjPtr<mirror::Class> proxy_class = GetClassRoot<mirror::Proxy>(this);
-  CHECK_EQ(proxy_class->NumDirectMethods(), 21u);
+  CHECK_EQ(proxy_class->NumDirectMethods(), 15u);
 
   // Find the <init>(InvocationHandler)V method. The exact method offset varies depending
   // on which front-end compiler was used to build the libcore DEX files.
@@ -6557,6 +6557,19 @@ static bool NotSubinterfaceOfAny(
   return true;
 }
 
+static inline bool CanAccessMethod(Thread* self, Handle<mirror::Class> klass, ArtMethod* method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  StackHandleScope<1> hs(self);
+  Handle<mirror::Class> access_to(hs.NewHandle(method->GetDeclaringClass()));
+  return mirror::Class::CanAccessMember(klass, access_to, method->GetAccessFlags());
+}
+
+static inline bool CanAccessMethodFast(ObjPtr<mirror::Class> klass, ArtMethod* method)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  ObjPtr<mirror::Class> access_to = method->GetDeclaringClass();
+  return mirror::Class::CanAccessMemberFast(klass, access_to, method->GetAccessFlags());
+}
+
 // We record new interfaces by the index of the direct interface and the index in the
 // direct interface's `IfTable`, or `dex::kDexNoIndex` if it's the direct interface itself.
 struct NewInterfaceReference {
@@ -6879,8 +6892,7 @@ void CheckVTableHasNoDuplicates(Thread* self, Handle<mirror::Class> klass)
       ArtMethod* vtable_entry = vtable->GetElementPtrSize<ArtMethod*, kPointerSize>(start);
       // Don't bother if we cannot 'see' the vtable entry (i.e. it is a package-private member
       // maybe).
-      if (!klass->CanAccessMember(vtable_entry->GetDeclaringClass(),
-                                  vtable_entry->GetAccessFlags())) {
+      if (!CanAccessMethod(self, klass, vtable_entry)) {
         continue;
       }
       break;
@@ -6909,8 +6921,7 @@ void CheckVTableHasNoDuplicates(Thread* self, Handle<mirror::Class> klass)
         // Can use Unchecked here as the start loop already ensured that the arrays are correct
         // wrt/ kPointerSize.
         ArtMethod* vtable_entry = vtable->GetElementPtrSizeUnchecked<ArtMethod*, kPointerSize>(i);
-        if (!klass->CanAccessMember(vtable_entry->GetDeclaringClass(),
-                                    vtable_entry->GetAccessFlags())) {
+        if (!CanAccessMethod(self, klass, vtable_entry)) {
           continue;
         }
         ArtMethod* m = vtable_entry->GetInterfaceMethodIfProxy(kPointerSize);
@@ -6983,8 +6994,7 @@ void CheckVTableHasNoDuplicates(Thread* self, Handle<mirror::Class> klass)
     ArtMethod* vtable_entry = vtable->GetElementPtrSizeUnchecked<ArtMethod*, kPointerSize>(i);
     // Don't bother if we cannot 'see' the vtable entry (i.e. it is a package-private member
     // maybe).
-    if (!klass->CanAccessMember(vtable_entry->GetDeclaringClass(),
-                                vtable_entry->GetAccessFlags())) {
+    if (!CanAccessMethod(self, klass, vtable_entry)) {
       continue;
     }
     ArtMethod* m = vtable_entry->GetInterfaceMethodIfProxy(kPointerSize);
@@ -7083,8 +7093,7 @@ class ClassLinker::LinkMethodsHelper {
                              ObjPtr<mirror::Class> super_class,
                              bool is_super_abstract,
                              size_t num_virtual_methods,
-                             ObjPtr<mirror::IfTable> iftable)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+                             ObjPtr<mirror::IfTable> iftable) REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool FindCopiedMethodsForInterface(ObjPtr<mirror::Class> klass,
                                      size_t num_virtual_methods,
@@ -8136,8 +8145,10 @@ size_t ClassLinker::LinkMethodsHelper<kPointerSize>::AssignVTableIndexes(
   for (size_t j = 0; j < super_vtable_length; ++j) {
     // Search the hash table to see if we are overridden by any method.
     ArtMethod* super_method = super_vtable_accessor.GetVTableEntry(j);
-    if (!klass->CanAccessMember(super_method->GetDeclaringClass(),
-                                super_method->GetAccessFlags())) {
+    // Check if the method can be accessed without checking the nest group if the method is private.
+    // A class cannot override a private method, even from a nest member. This makes the check abide
+    // by the no thread suspension guarantee.
+    if (!CanAccessMethodFast(klass, super_method)) {
       // Continue on to the next method since this one is package private and cannot be overridden.
       // Before Android 4.1, the package-private method super_method might have been incorrectly
       // overridden.
@@ -8153,7 +8164,8 @@ size_t ClassLinker::LinkMethodsHelper<kPointerSize>::AssignVTableIndexes(
     ArtMethod* virtual_method = klass->GetVirtualMethodDuringLinking(*it, kPointerSize);
     if (super_method->IsFinal()) {
       sants.reset();
-      ThrowLinkageError(klass, "Method %s overrides final method in class %s",
+      ThrowLinkageError(klass,
+                        "Method %s overrides final method in class %s",
                         virtual_method->PrettyMethod().c_str(),
                         super_method->GetDeclaringClassDescriptor());
       return 0u;
@@ -8612,8 +8624,7 @@ bool ClassLinker::LinkMethodsHelper<kPointerSize>::LinkMethods(
           vtable->SetElementPtrSize(vtable_index, &virtual_method, kPointerSize);
           if (kIsDebugBuild) {
             ArtMethod* current_method = super_class->GetVTableEntry(vtable_index, kPointerSize);
-            DCHECK(klass->CanAccessMember(current_method->GetDeclaringClass(),
-                                          current_method->GetAccessFlags()));
+            DCHECK(CanAccessMethod(self, klass, current_method));
             DCHECK(!current_method->IsFinal());
           }
         }
@@ -9681,14 +9692,16 @@ ObjPtr<mirror::MethodHandle> ClassLinker::ResolveMethodHandleForField(
   ArtField* target_field =
       ResolveField(method_handle.field_or_method_idx_, referrer, is_static);
   if (LIKELY(target_field != nullptr)) {
-    ObjPtr<mirror::Class> target_class = target_field->GetDeclaringClass();
-    ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
-    if (UNLIKELY(!referring_class->CanAccessMember(target_class, target_field->GetAccessFlags()))) {
-      ThrowIllegalAccessErrorField(referring_class, target_field);
+    StackHandleScope<2> hs(self);
+    Handle<mirror::Class> target_class(hs.NewHandle(target_field->GetDeclaringClass()));
+    Handle<mirror::Class> referring_class(hs.NewHandle(referrer->GetDeclaringClass()));
+    if (UNLIKELY(!mirror::Class::CanAccessMember(
+            referring_class, target_class, target_field->GetAccessFlags()))) {
+      ThrowIllegalAccessErrorField(referring_class.Get(), target_field);
       return nullptr;
     }
     if (UNLIKELY(is_put && target_field->IsFinal())) {
-      ThrowIllegalAccessErrorField(referring_class, target_field);
+      ThrowIllegalAccessErrorField(referring_class.Get(), target_field);
       return nullptr;
     }
   } else {
@@ -9860,12 +9873,15 @@ ObjPtr<mirror::MethodHandle> ClassLinker::ResolveMethodHandleForMethod(
     return nullptr;
   }
 
-  ObjPtr<mirror::Class> target_class = target_method->GetDeclaringClass();
-  ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
-  uint32_t access_flags = target_method->GetAccessFlags();
-  if (UNLIKELY(!referring_class->CanAccessMember(target_class, access_flags))) {
-    ThrowIllegalAccessErrorMethod(referring_class, target_method);
-    return nullptr;
+  {
+    StackHandleScope<2> hs(self);
+    Handle<mirror::Class> target_class(hs.NewHandle(target_method->GetDeclaringClass()));
+    Handle<mirror::Class> referring_class(hs.NewHandle(referrer->GetDeclaringClass()));
+    uint32_t access_flags = target_method->GetAccessFlags();
+    if (UNLIKELY(!mirror::Class::CanAccessMember(referring_class, target_class, access_flags))) {
+      ThrowIllegalAccessErrorMethod(referring_class.Get(), target_method);
+      return nullptr;
+    }
   }
 
   // Calculate the number of parameters from the method shorty. We add the
