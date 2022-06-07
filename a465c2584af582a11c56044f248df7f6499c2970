@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb4a66b_b0970cb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-07T12:28:42Z",
+      "side": 1,
+      "message": "This helps chroot builds and tests work with banchan which uses module_\u003carch\u003e products. However, there are still some snags:\n\n- libcrypto in external/boringssl and liblzma in external/lzma don\u0027t build since they specify sdk_version (b/187288515).\n- 32 bit gtests don\u0027t work on 64 bit Cuttlefish due to missing system/lib/libprocessgroup.so in the chroot. When I compare to a successful run on an armv8 device I see the latter lacks a lot more 32 bit libs, but otoh it doesn\u0027t push the 32 bit gtests at all there, so maybe it shouldn\u0027t do that on x86_64 Cuttlefish either.\n\nAnyway, that\u0027s for later.",
+      "revId": "a465c2584af582a11c56044f248df7f6499c2970",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
