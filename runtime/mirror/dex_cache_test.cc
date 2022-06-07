@@ -25,6 +25,7 @@
 #include "linear_alloc.h"
 #include "mirror/class_loader-inl.h"
 #include "mirror/dex_cache-inl.h"
+#include "object.h"
 #include "scoped_thread_state_change-inl.h"
 
 namespace art {
@@ -76,7 +77,7 @@ TEST_F(DexCacheTest, TestResolvedFieldAccess) {
   ScopedObjectAccess soa(Thread::Current());
   jobject jclass_loader(LoadDex("Packages"));
   ASSERT_TRUE(jclass_loader != nullptr);
-  StackHandleScope<3> hs(soa.Self());
+  StackHandleScope<4> hs(soa.Self());
   Handle<mirror::ClassLoader> class_loader(hs.NewHandle(
       soa.Decode<mirror::ClassLoader>(jclass_loader)));
   Handle<mirror::Class> klass1 =
@@ -86,15 +87,12 @@ TEST_F(DexCacheTest, TestResolvedFieldAccess) {
       hs.NewHandle(class_linker_->FindClass(soa.Self(), "Lpackage2/Package2;", class_loader));
   ASSERT_TRUE(klass2 != nullptr);
   EXPECT_OBJ_PTR_EQ(klass1->GetDexCache(), klass2->GetDexCache());
+  Handle<mirror::DexCache> dex_cache(hs.NewHandle(klass1->GetDexCache()));
 
   EXPECT_NE(klass1->NumStaticFields(), 0u);
   for (ArtField& field : klass2->GetSFields()) {
-    EXPECT_FALSE(
-        klass1->ResolvedFieldAccessTest</*throw_on_failure=*/ false>(
-            klass2.Get(),
-            &field,
-            klass1->GetDexCache(),
-            field.GetDexFieldIndex()));
+    EXPECT_FALSE(mirror::Class::ResolvedFieldAccessTest</*throw_on_failure=*/false>(
+        klass1, klass2, &field, dex_cache, field.GetDexFieldIndex()));
   }
 }
 
