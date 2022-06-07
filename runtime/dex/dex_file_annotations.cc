@@ -411,7 +411,7 @@ ObjPtr<mirror::Object> ProcessEncodedAnnotation(const ClassData& klass, const ui
   return result.GetL();
 }
 
-template <bool kTransactionActive>
+template <bool kTransactionActive, bool kAllowPartialArray=false>
 bool ProcessAnnotationValue(const ClassData& klass,
                             const uint8_t** annotation_ptr,
                             DexFile::AnnotationValue* annotation_value,
@@ -488,15 +488,22 @@ bool ProcessAnnotationValue(const ClassData& klass,
         annotation_value->value_.SetI(index);
       } else {
         dex::TypeIndex type_index(index);
-        StackHandleScope<2> hs(self);
-        element_object = Runtime::Current()->GetClassLinker()->ResolveType(
-            type_index,
-            hs.NewHandle(klass.GetDexCache()),
-            hs.NewHandle(klass.GetClassLoader()));
+        if (!kAllowPartialArray) {
+          StackHandleScope<2> hs(self);
+          element_object = Runtime::Current()->GetClassLinker()->ResolveType(
+              type_index,
+              hs.NewHandle(klass.GetDexCache()),
+              hs.NewHandle(klass.GetClassLoader()));
+        } else {
+          element_object = Runtime::Current()->GetClassLinker()->LookupResolvedType(
+              type_index,
+              klass.GetDexCache(),
+              klass.GetClassLoader());
+        }
         set_object = true;
         if (element_object == nullptr) {
-          CHECK(self->IsExceptionPending());
-          if (result_style == DexFile::kAllObjects) {
+          CHECK(self->IsExceptionPending() || kAllowPartialArray);
+          if (result_style == DexFile::kAllObjects && !kAllowPartialArray) {
             const char* msg = dex_file.StringByTypeIdx(type_index);
             self->ThrowNewWrappedException("Ljava/lang/TypeNotPresentException;", msg);
             element_object = self->GetException();
@@ -599,12 +606,18 @@ bool ProcessAnnotationValue(const ClassData& klass,
         }
         DexFile::AnnotationValue new_annotation_value;
         for (uint32_t i = 0; i < size; ++i) {
-          if (!ProcessAnnotationValue<kTransactionActive>(klass,
+          if (!ProcessAnnotationValue<kTransactionActive, kAllowPartialArray>(klass,
                                                           &annotation,
                                                           &new_annotation_value,
                                                           component_type,
                                                           DexFile::kPrimitivesOrObjects)) {
-            return false;
+            if (!kAllowPartialArray) {
+              return false;
+            } else {
+              new_array->AsObjectArray<mirror::Object>()->
+                  SetWithoutChecks<kTransactionActive>(i, nullptr);
+              continue;
+            }
           }
           if (!component_type->IsPrimitive()) {
             ObjPtr<mirror::Object> obj = new_annotation_value.value_.GetL();
@@ -808,6 +821,7 @@ ObjPtr<mirror::Object> GetAnnotationObjectFromAnnotationSet(const ClassData& kla
   return ProcessEncodedAnnotation(klass, &annotation);
 }
 
+template<bool kAllowPartialArray=false>
 ObjPtr<mirror::Object> GetAnnotationValue(const ClassData& klass,
                                           const AnnotationItem* annotation_item,
                                           const char* annotation_name,
@@ -822,12 +836,12 @@ ObjPtr<mirror::Object> GetAnnotationValue(const ClassData& klass,
   }
   DexFile::AnnotationValue annotation_value;
   bool result = Runtime::Current()->IsActiveTransaction()
-      ? ProcessAnnotationValue<true>(klass,
+      ? ProcessAnnotationValue<true, kAllowPartialArray>(klass,
                                      &annotation,
                                      &annotation_value,
                                      array_class,
                                      DexFile::kAllObjects)
-      : ProcessAnnotationValue<false>(klass,
+      : ProcessAnnotationValue<false, kAllowPartialArray>(klass,
                                       &annotation,
                                       &annotation_value,
                                       array_class,
@@ -841,7 +855,7 @@ ObjPtr<mirror::Object> GetAnnotationValue(const ClassData& klass,
   return annotation_value.value_.GetL();
 }
 
-template<typename T>
+template<typename T, bool kAllowPartialArray=false>
 static inline ObjPtr<mirror::ObjectArray<T>> GetAnnotationArrayValue(
                                      Handle<mirror::Class> klass,
                                      const char* annotation_name,
@@ -1755,7 +1769,7 @@ ObjPtr<mirror::Class> GetNestHost(Handle<mirror::Class> klass) {
   }
   ObjPtr<mirror::Object> obj = GetAnnotationValue(data,
                                                   annotation_item,
-                                                  "host",
+                                                  "value",
                                                   ScopedNullHandle<mirror::Class>(),
                                                   DexFile::kDexAnnotationType);
   if (obj == nullptr) {
@@ -1772,7 +1786,29 @@ ObjPtr<mirror::Class> GetNestHost(Handle<mirror::Class> klass) {
 ObjPtr<mirror::ObjectArray<mirror::Class>> GetNestMembers(Handle<mirror::Class> klass) {
   return GetAnnotationArrayValue<mirror::Class>(klass,
                                                 "Ldalvik/annotation/NestMembers;",
-                                                "classes");
+                                                "value");
+}
+
+bool HasNestMember(Handle<mirror::Class> host, Handle<mirror::Class> klass) {
+  if (klass.Get() == host.Get()) {
+    return true;
+  }
+  ObjPtr<mirror::ObjectArray<mirror::Class>> members =
+      GetAnnotationArrayValue<mirror::Class, /* kAllowPartialArray */ true>(host,
+                                                "Ldalvik/annotation/NestMembers;",
+                                                "value");
+  if (members == nullptr) {
+    return false;
+  }
+  for (auto member : *members.Ptr()) {
+    if (member == nullptr) {
+      continue;
+    }
+    if (member == klass.Get()) {
+      return true;
+    }
+  }
+  return false;
 }
 
 ObjPtr<mirror::ObjectArray<mirror::Class>> GetPermittedSubclasses(Handle<mirror::Class> klass) {
