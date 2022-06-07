@@ -19,3 +19,4 @@ service artd /apex/com.android.art/bin/artd
     oneshot  # Prevents the service from automatically restarting each time it is stopped.
     class core
     user artd
+    capabilities CHOWN DAC_OVERRIDE DAC_READ_SEARCH FOWNER SETUID SETGID
