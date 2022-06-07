@@ -2161,6 +2161,75 @@ ArtMethod* Class::FindAccessibleInterfaceMethod(ArtMethod* implementation_method
   return nullptr;
 }
 
+static inline bool ClassInMemberList(Handle<mirror::Class> h_klass,
+                                     Handle<mirror::Class> h_host,
+                                     ObjPtr<mirror::ObjectArray<mirror::Class>> members)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // A host is implicitly a member of its own group.
+  if (h_klass.Get() == h_host.Get()) {
+    return true;
+  }
+  // A host without NestMembers is a singleton nest group.
+  if (members == nullptr) {
+    return false;
+  }
+
+  for (auto member : *members.Ptr()) {
+    if (member == h_klass.Get()) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+bool Class::HaveSameNestHost(Handle<mirror::Class> h_klass, Handle<mirror::Class> h_other)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (h_klass.Get() == h_other.Get()) {
+    // A class is in the same nest group as itself.
+    return true;
+  }
+  if (h_klass->IsPrimitive() || h_other->IsPrimitive()) {
+    // Primitives do not form nest groups.
+    return false;
+  }
+  if (h_klass->IsArrayClass() || h_other->IsArrayClass()) {
+    // Arrays do not form nest groups.
+    return false;
+  }
+
+  if (!h_klass->IsInSamePackage(h_other.Get())) {
+    // If classes are in different packages, they cannot be part of the same nest group.
+    return false;
+  }
+
+  // Get the nest host for each class from the annotation. If the annotation is missing, it is
+  // implied that the class is the host of its own group.
+  StackHandleScope<1> hs(Thread::Current());
+  Handle<mirror::Class> h_host(hs.NewHandle(annotations::GetNestHost(h_klass)));
+  if (h_host == nullptr) {
+    h_host = h_klass;
+  }
+  ObjPtr<mirror::Class> host_of_other = annotations::GetNestHost(h_other);
+  if (host_of_other == nullptr) {
+    host_of_other = h_other.Get();
+  }
+
+  if (h_host.Get() != host_of_other) {
+    // Hosts differ, so they must be part of different groups.
+    return false;
+  }
+
+  ObjPtr<mirror::ObjectArray<mirror::Class>> members = annotations::GetNestMembers(h_host);
+
+  if (!ClassInMemberList(h_klass, h_host, members) ||
+      !ClassInMemberList(h_other, h_host, members)) {
+    return false;
+  }
+
+  return true;
+}
+
 
 }  // namespace mirror
 }  // namespace art
