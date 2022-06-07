@@ -87,6 +87,30 @@
       },
       "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c34a90c6_abe12342",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-07T15:49:46Z",
+      "side": 1,
+      "message": "Thanks for the clarification. Why wouldn\u0027t we be able to use TARGET_BUILD_UNBUNDLED in the ArtGtestsTargetChroot build as well?",
+      "parentUuid": "9f5618f0_370d98da",
+      "range": {
+        "startLine": 440,
+        "startChar": 36,
+        "endLine": 441,
+        "endChar": 44
+      },
+      "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
