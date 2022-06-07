@@ -1371,6 +1371,14 @@ class MANAGED Class final : public Object {
   size_t GetMethodIdOffset(ArtMethod* method, PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Checks if a class has the same nest host as another one. This is the
+  // criteria for establishing that two classes belong to the same nest group
+  // and therefore should have access to each other's private fields and
+  // methods.
+  // This is static because 'this' may be moved by GC.
+  static bool HaveSameNestHost(Handle<mirror::Class> h_klass, Handle<mirror::Class> other)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   template <typename T, VerifyObjectFlags kVerifyFlags, typename Visitor>
   void FixupNativePointer(
