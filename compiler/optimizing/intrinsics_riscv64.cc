@@ -751,12 +751,10 @@ void IntrinsicCodeGeneratorRISCV64::VisitReferenceGetReferent(HInvoke* invoke) {
     XRegister temp = srs.AllocateXRegister();
     codegen_->LoadIntrinsicDeclaringClass(temp, invoke);
 
-    // Check static fields java.lang.ref.Reference.{disableIntrinsic,slowPathEnabled} together.
+    // Check java.lang.ref.Reference.disableIntrinsic.
+    // TODO: Remove this from all architectures in a follow-on CL?
     MemberOffset disable_intrinsic_offset = IntrinsicVisitor::GetReferenceDisableIntrinsicOffset();
-    DCHECK_ALIGNED(disable_intrinsic_offset.Uint32Value(), 2u);
-    DCHECK_EQ(disable_intrinsic_offset.Uint32Value() + 1u,
-              IntrinsicVisitor::GetReferenceSlowPathEnabledOffset().Uint32Value());
-    __ Loadhu(temp, temp, disable_intrinsic_offset.Int32Value());
+    __ Loadbu(temp, temp, disable_intrinsic_offset.Int32Value());
     __ Bnez(temp, slow_path->GetEntryLabel());
   }
 

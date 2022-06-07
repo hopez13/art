@@ -55,19 +55,21 @@ class ReferenceProcessor {
              bool concurrent,
              bool clear_soft_references)
       REQUIRES(!Locks::reference_processor_lock_);
-  // Enqueue all types of java.lang.ref.References, and mark through finalizers.
-  // Assumes there is no concurrent mutator-driven marking, i.e. all potentially
-  // mutator-accessible objects should be marked before this.
+
+  // Enqueue all types of java.lang.ref.References, and mark through finalizers.  Reenables
+  // fast weak reference access. Assumes:
+  //
+  // 1. There is no concurrent mutator-driven marking, i.e. all potentially mutator-accessible
+  // objects should be marked before this.
+  //
+  // 2. Fast weak reference access is disabled before this, since we use collector-specific
+  // mechanisms to do so.
   void ProcessReferences(Thread* self, TimingLogger* timings)
       REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(Locks::heap_bitmap_lock_)
+      REQUIRES(!Locks::heap_bitmap_lock_)
       REQUIRES(!Locks::reference_processor_lock_);
 
-  // The slow path bool is contained in the reference class object, can only be set once
-  // Only allow setting this with mutators suspended so that we can avoid using a lock in the
-  // GetReferent fast path as an optimization.
-  void EnableSlowPath() REQUIRES_SHARED(Locks::mutator_lock_);
-  void BroadcastForSlowPath(Thread* self);
+  void WakeWeakRefWaiters(Thread* self);
   // Decode the referent, may block if references are being processed. In the normal
   // no-read-barrier or Baker-read-barrier cases, we assume reference is not a PhantomReference.
   ObjPtr<mirror::Object> GetReferent(Thread* self, ObjPtr<mirror::Reference> reference)
@@ -91,16 +93,21 @@ class ReferenceProcessor {
       REQUIRES(!Locks::reference_processor_lock_);
   uint32_t ForwardSoftReferences(TimingLogger* timings)
       REQUIRES_SHARED(Locks::mutator_lock_);
-
- private:
-  bool SlowPathEnabled() REQUIRES_SHARED(Locks::mutator_lock_);
-  // Called by ProcessReferences.
-  void DisableSlowPath(Thread* self) REQUIRES(Locks::reference_processor_lock_)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  // Wait until reference processing is done.
-  void WaitUntilDoneProcessingReferences(Thread* self)
+  // TODO: Revisit when to call each of the following. For now, we're just preserving historical
+  // behavior.
+  // Wait until reference processing is done, without releasing mutator lock. When we return
+  // IsWeakRefAccessEnabled() is true.
+  void RunnableWaitUntilRPDone(Thread* self)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(Locks::reference_processor_lock_);
+  // Wait until reference processing is done. We're already in a suspended state.
+  // After calling this version recheck IsWeakRefAccessEnabled() with mutator lock held; Otherwise
+  // it may have asynchronously been disabled again.
+  void SuspendedWaitUntilRPDone(Thread* self)
+      REQUIRES_SHARED(!Locks::mutator_lock_)
+      REQUIRES(Locks::reference_processor_lock_);
+
+ private:
   // Collector which is clearing references, used by the GetReferent to return referents which are
   // already marked. Only updated by thread currently running GC.
   // Guarded by reference_processor_lock_ when not read by collector. Only the collector changes

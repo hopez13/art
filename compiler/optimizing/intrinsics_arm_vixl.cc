@@ -2400,7 +2400,7 @@ void IntrinsicCodeGeneratorARMVIXL::VisitReferenceGetReferent(HInvoke* invoke) {
   SlowPathCodeARMVIXL* slow_path = new (GetAllocator()) IntrinsicSlowPathARMVIXL(invoke);
   codegen_->AddSlowPath(slow_path);
 
-  if (codegen_->EmitReadBarrier()) {
+  {
     // Check self->GetWeakRefAccessEnabled().
     UseScratchRegisterScope temps(assembler->GetVIXLAssembler());
     vixl32::Register temp = temps.Acquire();
@@ -2416,12 +2416,9 @@ void IntrinsicCodeGeneratorARMVIXL::VisitReferenceGetReferent(HInvoke* invoke) {
     vixl32::Register temp = temps.Acquire();
     codegen_->LoadIntrinsicDeclaringClass(temp, invoke);
 
-    // Check static fields java.lang.ref.Reference.{disableIntrinsic,slowPathEnabled} together.
+    // check Reference.disableIntrinsic.
     MemberOffset disable_intrinsic_offset = IntrinsicVisitor::GetReferenceDisableIntrinsicOffset();
-    DCHECK_ALIGNED(disable_intrinsic_offset.Uint32Value(), 2u);
-    DCHECK_EQ(disable_intrinsic_offset.Uint32Value() + 1u,
-              IntrinsicVisitor::GetReferenceSlowPathEnabledOffset().Uint32Value());
-    __ Ldrh(temp, MemOperand(temp, disable_intrinsic_offset.Uint32Value()));
+    __ Ldrb(temp, MemOperand(temp, disable_intrinsic_offset.Uint32Value()));
     __ Cmp(temp, 0);
     __ B(ne, slow_path->GetEntryLabel());
   }

@@ -22,7 +22,6 @@
 #include "base/hash_set.h"
 #include "base/macros.h"
 #include "base/mutex.h"
-#include "gc/weak_root_state.h"
 #include "gc_root.h"
 
 namespace art HIDDEN {
@@ -184,8 +183,6 @@ class InternTable {
 
   void DumpForSigQuit(std::ostream& os) const REQUIRES(!Locks::intern_table_lock_);
 
-  void BroadcastForNewInterns();
-
   // Add all of the strings in the image's intern table into this intern table. This is required so
   // the intern table is correct.
   // The visitor arg type is UnorderedSet
@@ -198,10 +195,6 @@ class InternTable {
   // longer inserted into and ideally unmodified. This is done to prevent dirty pages.
   void AddNewTable()
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Locks::intern_table_lock_);
-
-  // Change the weak root state. May broadcast to waiters.
-  void ChangeWeakRootState(gc::WeakRootState new_state)
-      REQUIRES(!Locks::intern_table_lock_);
 
  private:
   // Table which holds pre zygote and post zygote interned strings. There is one instance for
@@ -301,16 +294,11 @@ class InternTable {
   void RemoveWeak(ObjPtr<mirror::String> s, uint32_t hash)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::intern_table_lock_);
 
-  // Change the weak root state. May broadcast to waiters.
-  void ChangeWeakRootStateLocked(gc::WeakRootState new_state)
-      REQUIRES(Locks::intern_table_lock_);
-
   // Wait until we can read weak roots.
   void WaitUntilAccessible(Thread* self)
       REQUIRES(Locks::intern_table_lock_) REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool log_new_roots_ GUARDED_BY(Locks::intern_table_lock_);
-  ConditionVariable weak_intern_condition_ GUARDED_BY(Locks::intern_table_lock_);
   // Since this contains (strong) roots, they need a read barrier to
   // enable concurrent intern table (strong) root scan. Do not
   // directly access the strings in it. Use functions that contain
@@ -322,8 +310,6 @@ class InternTable {
   // not directly access the strings in it. Use functions that contain
   // read barriers.
   Table weak_interns_ GUARDED_BY(Locks::intern_table_lock_);
-  // Weak root state, used for concurrent system weak processing and more.
-  gc::WeakRootState weak_root_state_ GUARDED_BY(Locks::intern_table_lock_);
 
   friend class gc::space::ImageSpace;
   friend class linker::ImageWriter;

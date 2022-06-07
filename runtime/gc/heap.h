@@ -972,17 +972,6 @@ class Heap {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::alloc_tracker_lock_);
 
-  void DisallowNewAllocationRecords() const
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::alloc_tracker_lock_);
-
-  void AllowNewAllocationRecords() const
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::alloc_tracker_lock_);
-
-  void BroadcastForNewAllocationRecords() const
-      REQUIRES(!Locks::alloc_tracker_lock_);
-
   void DisableGCForShutdown() REQUIRES(!*gc_complete_lock_);
   bool IsGCDisabledForShutdown() const REQUIRES(!*gc_complete_lock_);
 
@@ -1015,6 +1004,17 @@ class Heap {
 
   bool AddHeapTask(gc::HeapTask* task);
 
+  // Add a task to be invoked every time as the last step in the GC's reference processing.
+  EXPORT void AddPostGcTask(Closure* t) {
+    post_gc_tasks_.push_back(t);
+  }
+
+  // Remove a task that was previously added and hasn't yet been removed.
+  EXPORT void RemovePostGcTask(Closure* t);
+
+  // Invoke all tasks registered by AddPostGcTask, and not yet removed.
+  void RunPostGcTasks(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
+
   // TODO: Kernels for arm and x86 in both, 32-bit and 64-bit modes use 512 entries per page-table
   // page. Find a way to confirm that in userspace.
   // Address range covered by 1 Page Middle Directory (PMD) entry in the page table
@@ -1032,6 +1032,12 @@ class Heap {
     const size_t pud_size = GetPUDSize();
     const size_t pmd_size = GetPMDSize();
     return size < pud_size ? pmd_size : pud_size;
+  }
+
+  // Can recently allocated objects appear unmarked while references are still being cleared? The
+  // true case requires extra care in monitor allocation.
+  static bool RecentObjectsCanBeUnmarked(CollectorType collector_type) {
+    return collector_type == kCollectorTypeCMS;
   }
 
  private:
@@ -1762,6 +1768,8 @@ class Heap {
   Atomic<GcPauseListener*> gc_pause_listener_;
 
   std::unique_ptr<Verification> verification_;
+
+  std::vector<Closure*> post_gc_tasks_;
 
   friend class CollectorTransitionTask;
   friend class collector::GarbageCollector;

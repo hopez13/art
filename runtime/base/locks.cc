@@ -271,29 +271,22 @@ void Locks::Init() {
     DCHECK(intern_table_lock_ == nullptr);
     intern_table_lock_ = new Mutex("InternTable lock", current_lock_level);
 
-    UPDATE_CURRENT_LOCK_LEVEL(kReferenceProcessorLock);
-    DCHECK(reference_processor_lock_ == nullptr);
-    reference_processor_lock_ = new Mutex("ReferenceProcessor lock", current_lock_level);
-
-    UPDATE_CURRENT_LOCK_LEVEL(kReferenceQueueClearedReferencesLock);
+    UPDATE_CURRENT_LOCK_LEVEL(kReferenceQueueLock);
     DCHECK(reference_queue_cleared_references_lock_ == nullptr);
-    reference_queue_cleared_references_lock_ = new Mutex("ReferenceQueue cleared references lock", current_lock_level);
-
-    UPDATE_CURRENT_LOCK_LEVEL(kReferenceQueueWeakReferencesLock);
+    reference_queue_cleared_references_lock_ = new Mutex(
+        "ReferenceQueue cleared references lock", current_lock_level);
     DCHECK(reference_queue_weak_references_lock_ == nullptr);
-    reference_queue_weak_references_lock_ = new Mutex("ReferenceQueue cleared references lock", current_lock_level);
-
-    UPDATE_CURRENT_LOCK_LEVEL(kReferenceQueueFinalizerReferencesLock);
+    reference_queue_weak_references_lock_ = new Mutex(
+        "ReferenceQueue cleared references lock", current_lock_level);
     DCHECK(reference_queue_finalizer_references_lock_ == nullptr);
-    reference_queue_finalizer_references_lock_ = new Mutex("ReferenceQueue finalizer references lock", current_lock_level);
-
-    UPDATE_CURRENT_LOCK_LEVEL(kReferenceQueuePhantomReferencesLock);
+    reference_queue_finalizer_references_lock_ = new Mutex(
+        "ReferenceQueue finalizer references lock", current_lock_level);
     DCHECK(reference_queue_phantom_references_lock_ == nullptr);
-    reference_queue_phantom_references_lock_ = new Mutex("ReferenceQueue phantom references lock", current_lock_level);
-
-    UPDATE_CURRENT_LOCK_LEVEL(kReferenceQueueSoftReferencesLock);
+    reference_queue_phantom_references_lock_ = new Mutex(
+        "ReferenceQueue phantom references lock", current_lock_level);
     DCHECK(reference_queue_soft_references_lock_ == nullptr);
-    reference_queue_soft_references_lock_ = new Mutex("ReferenceQueue soft references lock", current_lock_level);
+    reference_queue_soft_references_lock_ = new Mutex("ReferenceQueue soft references lock",
+                                                      current_lock_level);
 
     UPDATE_CURRENT_LOCK_LEVEL(kJniGlobalsLock);
     DCHECK(jni_globals_lock_ == nullptr);
@@ -303,6 +296,10 @@ void Locks::Init() {
     UPDATE_CURRENT_LOCK_LEVEL(kJniWeakGlobalsLock);
     DCHECK(jni_weak_globals_lock_ == nullptr);
     jni_weak_globals_lock_ = new Mutex("JNI weak global reference table lock", current_lock_level);
+
+    UPDATE_CURRENT_LOCK_LEVEL(kReferenceProcessorLock);
+    DCHECK(reference_processor_lock_ == nullptr);
+    reference_processor_lock_ = new Mutex("ReferenceProcessor lock", current_lock_level);
 
     UPDATE_CURRENT_LOCK_LEVEL(kJniFunctionTableLock);
     DCHECK(jni_function_table_lock_ == nullptr);

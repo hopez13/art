@@ -362,12 +362,6 @@ class JitCodeCache {
       REQUIRES(!Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // The GC needs to disallow the reading of inline caches when it processes them,
-  // to avoid having a class being used while it is being deleted.
-  void AllowInlineCacheAccess() REQUIRES(!Locks::jit_lock_);
-  void DisallowInlineCacheAccess() REQUIRES(!Locks::jit_lock_);
-  void BroadcastForInlineCacheAccess() REQUIRES(!Locks::jit_lock_);
-
   // Notify the code cache that the method at the pointer 'old_method' is being moved to the pointer
   // 'new_method' since it is being made obsolete.
   EXPORT void MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_method)
@@ -507,21 +501,8 @@ class JitCodeCache {
     return reserved_capacity_;
   }
 
-  bool IsWeakAccessEnabled(Thread* self) const;
-  void WaitUntilInlineCacheAccessible(Thread* self)
-      REQUIRES(!Locks::jit_lock_)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
   class JniStubKey;
   class JniStubData;
-
-  // Whether the GC allows accessing weaks in inline caches. Note that this
-  // is not used by the concurrent collector, which uses
-  // Thread::SetWeakRefAccessEnabled instead.
-  Atomic<bool> is_weak_access_enabled_;
-
-  // Condition to wait on for accessing inline caches.
-  ConditionVariable inline_cache_cond_ GUARDED_BY(Locks::jit_lock_);
 
   // Reserved capacity of the JIT code cache.
   const size_t reserved_capacity_;
