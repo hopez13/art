@@ -63,6 +63,30 @@
       },
       "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f5618f0_370d98da",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-07T15:03:42Z",
+      "side": 1,
+      "message": "\u003e It\u0027s not clear to me what this self-containedness means:\n\u003e \n\u003e If it\u0027s only supposed to work on a system image from the same build then symlinks would be fine, and this is just a workaround for it not working correctly (b/233357459).\n\u003e \n\u003e Otoh, if it should work with some amount of version skew (which I guess is what you mean) then we want to build what effectively amounts to an unbundled APEX that we can update with, without it necessarily being fully updatable itself. The right way to do that is to use `TARGET_BUILD_UNBUNDLED` in the build, which should work without changes here.\n\nThe Testing ART APEX is used for testing, both on system images from the same – or a reasonably close – build (e.g. as part of `ArtGtestsTargetChroot`) *and* on \"old\" system images (e.g. as part of the ART Buildbot on LUCI, against pre-Android S platforms via the chroot-based setup).\n\nI think we could probably use `TARGET_BUILD_UNBUNDLED` for the latter case, but I\u0027m not sure about the former case.\n\nI think the way forward here is the removal of the Testing ART APEX (b/192274705).",
+      "parentUuid": "b16c0a59_6ef8bf4d",
+      "range": {
+        "startLine": 440,
+        "startChar": 36,
+        "endLine": 441,
+        "endChar": 44
+      },
+      "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
