@@ -3821,12 +3821,14 @@ ArtMethod* MethodVerifier<kVerifierDebug>::ResolveMethodAndCheckAccess(
     }
   }
 
+  bool sameNestGroup = referrer.HasSameNestHost(klass_type);
+
   // Check specifically for non-public object methods being provided for interface dispatch. This
   // can occur if we failed to find a method with FindInterfaceMethod but later find one with
   // FindClassMethod for error message use.
   if (method_type == METHOD_INTERFACE &&
       res_method->GetDeclaringClass()->IsObjectClass() &&
-      !res_method->IsPublic()) {
+      !res_method->IsPublic() && !sameNestGroup) {
     Fail(VERIFY_ERROR_NO_METHOD) << "invoke-interface " << klass->PrettyDescriptor() << "."
                                  << dex_file_->GetMethodName(method_id) << " "
                                  << dex_file_->GetMethodSignature(method_id) << " resolved to "
@@ -3843,7 +3845,9 @@ ArtMethod* MethodVerifier<kVerifierDebug>::ResolveMethodAndCheckAccess(
     return res_method;
   }
   // Check that invoke-virtual and invoke-super are not used on private methods of the same class.
-  if (res_method->IsPrivate() && (method_type == METHOD_VIRTUAL || method_type == METHOD_SUPER)) {
+  if (res_method->IsPrivate() &&
+      (method_type == METHOD_VIRTUAL || method_type == METHOD_SUPER) &&
+      !sameNestGroup) {
     Fail(VERIFY_ERROR_BAD_CLASS_HARD) << "invoke-super/virtual can't be used on private method "
                                       << res_method->PrettyMethod();
     return nullptr;
