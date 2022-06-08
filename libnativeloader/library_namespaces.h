@@ -21,6 +21,7 @@
 #error "Not available for host or linux target"
 #endif
 
+#undef LOG_TAG
 #define LOG_TAG "nativeloader"
 
 #include "native_loader_namespace.h"
