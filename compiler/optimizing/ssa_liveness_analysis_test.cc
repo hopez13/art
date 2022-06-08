@@ -217,4 +217,55 @@ TEST_F(SsaLivenessAnalysisTest, TestDeoptimize) {
   }
 }
 
+#if defined(ART_ENABLE_CODEGEN_arm64)
+// Test that instructions with multiple outputs are given multiple live intervals.
+TEST_F(SsaLivenessAnalysisTest, TestMultipleOutputs) {
+  HInstruction* array = new (GetAllocator()) HParameterValue(
+      graph_->GetDexFile(), dex::TypeIndex(0), 0, DataType::Type::kReference);
+  HInstruction* index = new (GetAllocator()) HParameterValue(
+      graph_->GetDexFile(), dex::TypeIndex(1), 1, DataType::Type::kInt32);
+  HInstruction* const0 = graph_->GetIntConstant(0);
+  HInstruction* const1 = graph_->GetIntConstant(1);
+  HInstruction* const entry[] = { array, index };
+  for (HInstruction* insn : entry) {
+    entry_->AddInstruction(insn);
+  }
+
+  HBasicBlock* block = CreateSuccessor(entry_);
+  HInstruction* ldp = new (GetAllocator()) HArmLoadPair(
+      array, index, DataType::Type::kInt32, 0);
+  block->AddInstruction(ldp);
+  HInstruction* projection0 = new (GetAllocator()) HProjectionNode(
+      ldp, const0, DataType::Type::kInt32, 0);
+  block->AddInstruction(projection0);
+  HInstruction* projection1 = new (GetAllocator()) HProjectionNode(
+      ldp, const1, DataType::Type::kInt32, 0);
+  block->AddInstruction(projection1);
+  HInstruction* const instructions[] = { ldp, projection0, projection1 };
+
+  graph_->BuildDominatorTree();
+  SsaLivenessAnalysis ssa_analysis(graph_, codegen_.get(), GetScopedAllocator());
+  ssa_analysis.Analyze();
+
+  EXPECT_FALSE(graph_->IsDebuggable());
+  EXPECT_EQ(12u, ldp->GetLifetimePosition());
+  static const char* const expected[] = {
+      "ranges: { [12,14) }, uses: { 14 }, { } is_fixed: 0, is_split: 0 is_low: 0 is_high: 0",
+      "ranges: { [12,16) }, uses: { 16 }, { } is_fixed: 0, is_split: 0 is_low: 0 is_high: 0",
+      "ranges: { [14,16) }, uses: { }, { } is_fixed: 0, is_split: 0 is_low: 0 is_high: 0",
+      "ranges: { [16,18) }, uses: { }, { } is_fixed: 0, is_split: 0 is_low: 0 is_high: 0"
+  };
+  size_t instruction_index = 0u;
+  for (HInstruction* instruction : instructions) {
+    for (size_t out_index = 0; out_index < instruction->OutputCount(); out_index++) {
+      std::ostringstream instruction_dump;
+      instruction->GetLiveInterval(out_index)->Dump(instruction_dump);
+      EXPECT_STREQ(expected[instruction_index], instruction_dump.str().c_str())
+          << instruction_index;
+      ++instruction_index;
+    }
+  }
+}
+#endif  // defined(ART_ENABLE_CODEGEN_arm64)
+
 }  // namespace art

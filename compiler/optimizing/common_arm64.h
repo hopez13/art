@@ -82,6 +82,10 @@ inline vixl::aarch64::Register OutputRegister(HInstruction* instr) {
   return RegisterFrom(instr->GetLocations()->Out(), instr->GetType());
 }
 
+inline vixl::aarch64::Register OutputRegisterAt(HInstruction* instr, int input_index) {
+  return RegisterFrom(instr->GetLocations()->OutAt(input_index), instr->GetType());
+}
+
 inline vixl::aarch64::Register InputRegisterAt(HInstruction* instr, int input_index) {
   return RegisterFrom(instr->GetLocations()->InAt(input_index),
                       instr->InputAt(input_index)->GetType());

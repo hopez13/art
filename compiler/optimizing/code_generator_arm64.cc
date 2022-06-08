@@ -83,6 +83,7 @@ using helpers::OperandFromMemOperand;
 using helpers::OutputCPURegister;
 using helpers::OutputFPRegister;
 using helpers::OutputRegister;
+using helpers::OutputRegisterAt;
 using helpers::RegisterFrom;
 using helpers::StackOperandFrom;
 using helpers::VIXLRegCodeFromART;
@@ -6946,6 +6947,56 @@ void InstructionCodeGeneratorARM64::VisitClassTableGet(HClassTableGet* instructi
     __ Ldr(XRegisterFrom(locations->Out()),
            MemOperand(XRegisterFrom(locations->Out()), method_offset));
   }
+}
+
+void LocationsBuilderARM64::VisitArmLoadPair(HArmLoadPair* instruction) {
+  LocationSummary* locations =
+      new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  // The array register.
+  locations->SetInAt(0, Location::RequiresRegister());
+  // The array offset.
+  locations->SetInAt(1, Location::RegisterOrConstant(instruction->InputAt(1)));
+  // The output registers.
+  locations->SetOutAt(0, Location::RequiresRegister(), Location::kOutputOverlap);
+  locations->SetOutAt(1, Location::RequiresRegister(), Location::kOutputOverlap);
+  return;
+}
+
+void InstructionCodeGeneratorARM64::VisitArmLoadPair(HArmLoadPair* instruction) {
+  Register obj = InputRegisterAt(instruction, 0);
+  DataType::Type type = instruction->GetType();
+  LocationSummary* locations = instruction->GetLocations();
+  Location index = locations->InAt(1);
+  uint32_t offset = mirror::Array::DataOffset(DataType::Size(type)).Uint32Value();
+  MemOperand source = HeapOperand(obj);
+
+  if (index.IsConstant()) {
+    offset += Int64FromLocation(index) << DataType::SizeShift(type);
+    source = HeapOperand(obj, offset);
+  }
+  else {
+    source = HeapOperand(obj, XRegisterFrom(index), LSL, DataType::SizeShift(type));
+  }
+  __ Ldp(OutputRegisterAt(instruction, 0),
+         OutputRegisterAt(instruction, 1),
+         source);
+  return;
+}
+
+void LocationsBuilderARM64::VisitProjectionNode(HProjectionNode* instruction) {
+  // ProjectionNode just outputs the output from another instruction.
+  LocationSummary* locations =
+      new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  locations->SetInAt(0, Location::RequiresRegister());
+  // TODO: Need to check whether we want SameAsFirstInput() and/or NoOutputOverlap here.
+  locations->SetOut(Location::SameAsFirstInput());
+  return;
+}
+
+void InstructionCodeGeneratorARM64::VisitProjectionNode(HProjectionNode* instruction ATTRIBUTE_UNUSED) {
+  // ProjectionNode just passes through the output from another instruction and
+  // does not generate any code.
+  return;
 }
 
 static void PatchJitRootUse(uint8_t* code,

@@ -240,46 +240,45 @@ void RegisterAllocatorLinearScan::ProcessInstruction(HInstruction* instruction) 
     BlockRegisters(position, position + 1, /* caller_save_only= */ true);
   }
   CheckForFixedInputs(instruction);
+  for (size_t out_index = 0; out_index < instruction->OutputCount(); out_index++) {
+    LiveInterval* current = instruction->GetLiveInterval(out_index);
+    if (current == nullptr)
+      return;
 
-  LiveInterval* current = instruction->GetLiveInterval();
-  if (current == nullptr)
-    return;
+    const bool core_register = !DataType::IsFloatingPointType(instruction->GetType());
+    ScopedArenaVector<LiveInterval*>& unhandled =
+        core_register ? unhandled_core_intervals_ : unhandled_fp_intervals_;
 
-  const bool core_register = !DataType::IsFloatingPointType(instruction->GetType());
-  ScopedArenaVector<LiveInterval*>& unhandled =
-      core_register ? unhandled_core_intervals_ : unhandled_fp_intervals_;
-
-  DCHECK(unhandled.empty() || current->StartsBeforeOrAt(unhandled.back()));
-
-  if (codegen_->NeedsTwoRegisters(current->GetType())) {
-    current->AddHighInterval();
-  }
-
-  AddSafepointsFor(instruction);
-  current->ResetSearchCache();
-  CheckForFixedOutput(instruction);
-
-  if (instruction->IsPhi() && instruction->AsPhi()->IsCatchPhi()) {
-    AllocateSpillSlotForCatchPhi(instruction->AsPhi());
-  }
-
-  // If needed, add interval to the list of unhandled intervals.
-  if (current->HasSpillSlot() || instruction->IsConstant()) {
-    // Split just before first register use.
-    size_t first_register_use = current->FirstRegisterUse();
-    if (first_register_use != kNoLifetime) {
-      LiveInterval* split = SplitBetween(current, current->GetStart(), first_register_use - 1);
-      // Don't add directly to `unhandled`, it needs to be sorted and the start
-      // of this new interval might be after intervals already in the list.
-      AddSorted(&unhandled, split);
-    } else {
-      // Nothing to do, we won't allocate a register for this value.
+    if (codegen_->NeedsTwoRegisters(current->GetType())) {
+      current->AddHighInterval();
     }
-  } else {
-    // Don't add directly to `unhandled`, temp or safepoint intervals
-    // for this instruction may have been added, and those can be
-    // processed first.
-    AddSorted(&unhandled, current);
+
+    AddSafepointsFor(current);
+    current->ResetSearchCache();
+    CheckForFixedOutput(current);
+
+    if (instruction->IsPhi() && instruction->AsPhi()->IsCatchPhi()) {
+      AllocateSpillSlotForCatchPhi(instruction->AsPhi());
+    }
+
+    // If needed, add interval to the list of unhandled intervals.
+    if (current->HasSpillSlot() || instruction->IsConstant()) {
+      // Split just before first register use.
+      size_t first_register_use = current->FirstRegisterUse();
+      if (first_register_use != kNoLifetime) {
+        LiveInterval* split = SplitBetween(current, current->GetStart(), first_register_use - 1);
+        // Don't add directly to `unhandled`, it needs to be sorted and the start
+        // of this new interval might be after intervals already in the list.
+        AddSorted(&unhandled, split);
+      } else {
+        // Nothing to do, we won't allocate a register for this value.
+      }
+    } else {
+      // Don't add directly to `unhandled`, temp or safepoint intervals
+      // for this instruction may have been added, and those can be
+      // processed first.
+      AddSorted(&unhandled, current);
+    }
   }
 }
 
@@ -362,8 +361,7 @@ void RegisterAllocatorLinearScan::CheckForFixedInputs(HInstruction* instruction)
   }
 }
 
-void RegisterAllocatorLinearScan::AddSafepointsFor(HInstruction* instruction) {
-  LiveInterval* current = instruction->GetLiveInterval();
+void RegisterAllocatorLinearScan::AddSafepointsFor(LiveInterval* current) {
   for (size_t safepoint_index = safepoints_.size(); safepoint_index > 0; --safepoint_index) {
     HInstruction* safepoint = safepoints_[safepoint_index - 1u];
     size_t safepoint_position = SafepointPosition::ComputePosition(safepoint);
@@ -376,7 +374,7 @@ void RegisterAllocatorLinearScan::AddSafepointsFor(HInstruction* instruction) {
       // The safepoint is for this instruction, so the location of the instruction
       // does not need to be saved.
       DCHECK_EQ(safepoint_index, safepoints_.size());
-      DCHECK_EQ(safepoint, instruction);
+      DCHECK_EQ(safepoint, current->GetDefinedBy());
       continue;
     } else if (current->IsDeadAt(safepoint_position)) {
       break;
@@ -388,10 +386,12 @@ void RegisterAllocatorLinearScan::AddSafepointsFor(HInstruction* instruction) {
   }
 }
 
-void RegisterAllocatorLinearScan::CheckForFixedOutput(HInstruction* instruction) {
+void RegisterAllocatorLinearScan::CheckForFixedOutput(LiveInterval* current) {
+  HInstruction* instruction = current->GetDefinedBy();
   LocationSummary* locations = instruction->GetLocations();
   size_t position = instruction->GetLifetimePosition();
-  LiveInterval* current = instruction->GetLiveInterval();
+  int output_index = instruction->GetIndexFromInterval(current);
+  DCHECK(output_index != -1);
   // Some instructions define their output in fixed register/stack slot. We need
   // to ensure we know these locations before doing register allocation. For a
   // given register, we create an interval that covers these locations. The register
@@ -399,7 +399,7 @@ void RegisterAllocatorLinearScan::CheckForFixedOutput(HInstruction* instruction)
   // interval.
   //
   // The backwards walking ensures the ranges are ordered on increasing start positions.
-  Location output = locations->Out();
+  Location output = locations->OutAt(output_index);
   if (output.IsUnallocated() && output.GetPolicy() == Location::kSameAsFirstInput) {
     Location first = locations->InAt(0);
     if (first.IsRegister() || first.IsFpuRegister()) {
@@ -467,8 +467,10 @@ bool RegisterAllocatorLinearScan::ValidateInternal(bool log_fatal_on_failure) co
       allocator.Adapter(kArenaAllocRegisterAllocatorValidate));
   for (size_t i = 0; i < liveness_.GetNumberOfSsaValues(); ++i) {
     HInstruction* instruction = liveness_.GetInstructionFromSsaIndex(i);
-    if (ShouldProcess(processing_core_registers_, instruction->GetLiveInterval())) {
-      intervals.push_back(instruction->GetLiveInterval());
+    for (size_t out_index = 0; out_index < instruction->OutputCount(); out_index++) {
+      if (ShouldProcess(processing_core_registers_, instruction->GetLiveInterval(out_index))) {
+        intervals.push_back(instruction->GetLiveInterval(out_index));
+      }
     }
   }
 
@@ -664,18 +666,24 @@ bool RegisterAllocatorLinearScan::TryAllocateFreeReg(LiveInterval* current) {
   }
 
   // An interval that starts an instruction (that is, it is not split), may
-  // re-use the registers used by the inputs of that instruciton, based on the
+  // re-use the registers used by the inputs of that instruction, based on the
   // location summary.
   HInstruction* defined_by = current->GetDefinedBy();
   if (defined_by != nullptr && !current->IsSplit()) {
     LocationSummary* locations = defined_by->GetLocations();
-    if (!locations->OutputCanOverlapWithInputs() && locations->Out().IsUnallocated()) {
+    int output_index = defined_by->GetIndexFromInterval(current);
+    DCHECK(output_index != -1);
+    if (!locations->OutputCanOverlapWithInputs() && locations->OutAt(output_index).IsUnallocated()) {
       HInputsRef inputs = defined_by->GetInputs();
       for (size_t i = 0; i < inputs.size(); ++i) {
         if (locations->InAt(i).IsValid()) {
+          uint32_t input_out_index = 0;
+          if (defined_by->IsProjectionNode()) {
+            input_out_index = defined_by->InputAt(1)->AsIntConstant()->GetValue();
+          }
           // Take the last interval of the input. It is the location of that interval
           // that will be used at `defined_by`.
-          LiveInterval* interval = inputs[i]->GetLiveInterval()->GetLastSibling();
+          LiveInterval* interval = inputs[i]->GetLiveInterval(input_out_index)->GetLastSibling();
           // Note that interval may have not been processed yet.
           // TODO: Handle non-split intervals last in the work list.
           if (interval->HasRegister() && interval->SameRegisterKind(*current)) {

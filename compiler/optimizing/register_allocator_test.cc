@@ -941,4 +941,51 @@ TEST_F(RegisterAllocatorTest, SpillInactive) {
   ASSERT_TRUE(ValidateIntervals(intervals, codegen));
 }
 
+#if defined(ART_ENABLE_CODEGEN_arm64)
+// Test that instructions with multiple outputs are spilled correctly.
+// This test only applies to the linear scan allocator.
+TEST_F(RegisterAllocatorTest, SpillMultipleOutputs) {
+  // Create a synthesized graph to please the register_allocator and
+  // ssa_liveness_analysis code.
+  HGraph* graph = CreateGraph();
+  HBasicBlock* entry = new (GetAllocator()) HBasicBlock(graph);
+  graph->AddBlock(entry);
+  graph->SetEntryBlock(entry);
+  HInstruction* array = new (GetAllocator()) HParameterValue(
+      graph_->GetDexFile(), dex::TypeIndex(0), 0, DataType::Type::kReference);
+  HInstruction* index = new (GetAllocator()) HParameterValue(
+      graph_->GetDexFile(), dex::TypeIndex(1), 1, DataType::Type::kInt32);
+  HInstruction* const0 = graph_->GetIntConstant(0);
+  HInstruction* const1 = graph_->GetIntConstant(1);
+  HInstruction* const entry_params[] = { array, index };
+  for (HInstruction* insn : entry_params) {
+    entry->AddInstruction(insn);
+  }
+
+  // Add more multiple output instructions than we have registers for.
+  for (int i = 0; i < 34; i++) {
+    HBasicBlock* block = CreateSuccessor(entry_);
+    HInstruction* ldp = new (GetAllocator()) HArmLoadPair(
+        array, index, DataType::Type::kInt32, 0);
+    block->AddInstruction(ldp);
+    HInstruction* projection0 = new (GetAllocator()) HProjectionNode(
+        ldp, const0, DataType::Type::kInt32, 0);
+    block->AddInstruction(projection0);
+    HInstruction* projection1 = new (GetAllocator()) HProjectionNode(
+        ldp, const1, DataType::Type::kInt32, 0);
+    block->AddInstruction(projection1);
+  }
+
+  std::unique_ptr<CompilerOptions> compiler_options = CommonCompilerTest::CreateCompilerOptions(InstructionSet::kArm64, "default");
+  ARM64::CodeGeneratorARM64 codegen(graph, *compiler_options);
+  SsaLivenessAnalysis liveness(graph, &codegen, GetScopedAllocator());
+  liveness.Analyze();
+
+  std::unique_ptr<RegisterAllocator> register_allocator =
+      RegisterAllocator::Create(GetScopedAllocator(), &codegen, liveness, Strategy::kRegisterAllocatorLinearScan);
+  register_allocator->AllocateRegisters();
+  ASSERT_TRUE(register_allocator->Validate(false));
+}
+#endif  // defined(ART_ENABLE_CODEGEN_arm64)
+
 }  // namespace art

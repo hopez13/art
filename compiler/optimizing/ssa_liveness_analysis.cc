@@ -64,17 +64,23 @@ void SsaLivenessAnalysis::NumberInstructions() {
 
     // Add a null marker to notify we are starting a block.
     instructions_from_lifetime_position_.push_back(nullptr);
-
     for (HInstructionIterator inst_it(block->GetInstructions()); !inst_it.Done();
          inst_it.Advance()) {
       HInstruction* current = inst_it.Current();
       codegen_->AllocateLocations(current);
       LocationSummary* locations = current->GetLocations();
-      if (locations != nullptr && locations->Out().IsValid()) {
-        instructions_from_ssa_index_.push_back(current);
-        current->SetSsaIndex(ssa_index++);
-        current->SetLiveInterval(
-            LiveInterval::MakeInterval(allocator_, current->GetType(), current));
+      if (locations != nullptr) {
+        for (size_t out_index = 0; out_index < locations->GetOutputCount(); out_index++) {
+          if (locations->OutAt(out_index).IsValid()) {
+            if (!current->HasSsaIndex()) {
+              instructions_from_ssa_index_.push_back(current);
+              current->SetSsaIndex(ssa_index++);
+            }
+            current->SetLiveInterval(
+                LiveInterval::MakeInterval(allocator_, current->GetType(), current),
+                out_index);
+          }
+        }
       }
       instructions_from_lifetime_position_.push_back(current);
       current->SetLifetimePosition(lifetime_position);
@@ -108,9 +114,13 @@ void SsaLivenessAnalysis::RecursivelyProcessInputs(HInstruction* current,
                                                    BitVector* live_in) {
   HInputsRef inputs = current->GetInputs();
   for (size_t i = 0; i < inputs.size(); ++i) {
+    uint32_t output_index = 0;
+    if (current->IsProjectionNode() && i == 0) {
+      output_index = current->InputAt(1)->AsIntConstant()->GetValue();
+    }
     HInstruction* input = inputs[i];
     bool has_in_location = current->GetLocations()->InAt(i).IsValid();
-    bool has_out_location = input->GetLocations()->Out().IsValid();
+    bool has_out_location = input->GetLocations()->OutAt(output_index).IsValid();
 
     if (has_in_location) {
       DCHECK(has_out_location)
@@ -120,7 +130,7 @@ void SsaLivenessAnalysis::RecursivelyProcessInputs(HInstruction* current,
       DCHECK(input->HasSsaIndex());
       // `input` generates a result used by `current`. Add use and update
       // the live-in set.
-      input->GetLiveInterval()->AddUse(current, /* environment= */ nullptr, i, actual_user);
+      input->GetLiveInterval(output_index)->AddUse(current, /* environment= */ nullptr, i, actual_user);
       live_in->SetBit(input->GetSsaIndex());
     } else if (has_out_location) {
       // `input` generates a result but it is not used by `current`.
@@ -155,11 +165,15 @@ void SsaLivenessAnalysis::ProcessEnvironment(HInstruction* current,
       // affect the live range of that instruction.
       if (should_be_live) {
         CHECK(instruction->HasSsaIndex()) << instruction->DebugName();
+        uint32_t output_index = 0;
+        if (current->IsProjectionNode()) {
+          output_index = current->InputAt(1)->AsIntConstant()->GetValue();
+        }
         live_in->SetBit(instruction->GetSsaIndex());
-        instruction->GetLiveInterval()->AddUse(current,
-                                               environment,
-                                               i,
-                                               actual_user);
+        instruction->GetLiveInterval(output_index)->AddUse(current,
+                                                           environment,
+                                                           i,
+                                                           actual_user);
       }
     }
   }
@@ -202,7 +216,9 @@ void SsaLivenessAnalysis::ComputeLiveRanges() {
     // Instructions defined in this block will have their start of the range adjusted.
     for (uint32_t idx : live_in->Indexes()) {
       HInstruction* current = GetInstructionFromSsaIndex(idx);
-      current->GetLiveInterval()->AddRange(block->GetLifetimeStart(), block->GetLifetimeEnd());
+      for (size_t out_index = 0; out_index < current->OutputCount(); out_index++) {
+        current->GetLiveInterval(out_index)->AddRange(block->GetLifetimeStart(), block->GetLifetimeEnd());
+      }
     }
 
     for (HBackwardInstructionIterator back_it(block->GetInstructions()); !back_it.Done();
@@ -212,13 +228,18 @@ void SsaLivenessAnalysis::ComputeLiveRanges() {
         // Kill the instruction and shorten its interval.
         kill->SetBit(current->GetSsaIndex());
         live_in->ClearBit(current->GetSsaIndex());
-        current->GetLiveInterval()->SetFrom(current->GetLifetimePosition());
+        // Set all output intervals to start at this lifetime position.
+        for (size_t out_index = 0; out_index < current->OutputCount(); out_index++) {
+          current->GetLiveInterval(out_index)->SetFrom(current->GetLifetimePosition());
+        }
       }
 
       // Process inputs of instructions.
       if (current->IsEmittedAtUseSite()) {
         if (kIsDebugBuild) {
-          DCHECK(!current->GetLocations()->Out().IsValid());
+          for (size_t out_index = 0; out_index < current->OutputCount(); out_index++) {
+            DCHECK(!current->GetLocations()->OutAt(out_index).IsValid());
+          }
           for (const HUseListNode<HInstruction*>& use : current->GetUses()) {
             HInstruction* user = use.GetUser();
             size_t index = use.GetIndex();
@@ -263,7 +284,9 @@ void SsaLivenessAnalysis::ComputeLiveRanges() {
       // that covers the full loop.
       for (uint32_t idx : live_in->Indexes()) {
         HInstruction* current = GetInstructionFromSsaIndex(idx);
-        current->GetLiveInterval()->AddLoopRange(block->GetLifetimeStart(), last_position);
+        for (size_t out_index = 0; out_index < current->OutputCount(); out_index++) {
+          current->GetLiveInterval(out_index)->AddLoopRange(block->GetLifetimeStart(), last_position);
+        }
       }
     }
   }
@@ -341,13 +364,16 @@ int LiveInterval::FindFirstRegisterHint(size_t* free_until,
   DCHECK(!IsHighInterval());
   if (IsTemp()) return kNoRegister;
 
-  if (GetParent() == this && defined_by_ != nullptr) {
-    // This is the first interval for the instruction. Try to find
-    // a register based on its definition.
-    DCHECK_EQ(defined_by_->GetLiveInterval(), this);
-    int hint = FindHintAtDefinition();
-    if (hint != kNoRegister && free_until[hint] > GetStart()) {
-      return hint;
+  if (defined_by_ != nullptr) {
+    for (size_t out_index = 0; out_index < defined_by_->OutputCount(); out_index++) {
+      if (GetParent() == this && defined_by_->GetLiveInterval(out_index) == this) {
+        // This is the first interval for the instruction. Try to find
+        // a register based on its definition.
+        int hint = FindHintAtDefinition();
+        if (hint != kNoRegister && free_until[hint] > GetStart()) {
+          return hint;
+        }
+      }
     }
   }
 
@@ -453,11 +479,17 @@ int LiveInterval::FindHintAtDefinition() const {
     }
   } else {
     LocationSummary* locations = GetDefinedBy()->GetLocations();
-    Location out = locations->Out();
+    int output_index = defined_by_->GetIndexFromInterval(this);
+    DCHECK(output_index != -1);
+    Location out = locations->OutAt(output_index);
     if (out.IsUnallocated() && out.GetPolicy() == Location::kSameAsFirstInput) {
       // Try to use the same register as the first input.
+      uint32_t input_out_index = 0;
+      if (defined_by_->IsProjectionNode()) {
+        input_out_index = defined_by_->InputAt(1)->AsIntConstant()->GetValue();
+      }
       LiveInterval* input_interval =
-          GetDefinedBy()->InputAt(0)->GetLiveInterval()->GetSiblingAt(GetStart() - 1);
+          defined_by_->InputAt(0)->GetLiveInterval(input_out_index)->GetSiblingAt(GetStart() - 1);
       if (input_interval->GetEnd() == GetStart()) {
         // If the input dies at the start of this instruction, we know its register can
         // be reused.

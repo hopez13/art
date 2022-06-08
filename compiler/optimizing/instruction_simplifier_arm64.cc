@@ -190,6 +190,91 @@ bool InstructionSimplifierArm64Visitor::TryMergeIntoUsersShifterOperand(HInstruc
   return true;
 }
 
+// Return the numerical array index from an array instruction (ArraySet or
+// ArrayGet).
+int32_t GetArrayIndexFromInstruction(HInstruction* instruction) {
+  HInstruction* index = nullptr;
+  if (instruction->IsArraySet()) {
+    index = instruction->AsArraySet()->GetIndex();
+  }
+  else if (instruction->IsArrayGet()) {
+    index = instruction->AsArrayGet()->GetIndex();
+  }
+  // TODO: Optimize this to get index values that aren't only HIntConstant's.
+  if ((index == nullptr) || !index->IsIntConstant()) {
+    return -1;
+  }
+  return index->AsIntConstant()->GetValue();
+}
+
+// Combine two consecutive ArrayGet instructions with a single LoadPair
+// instruction.
+// For example, replace:
+//   i1  ArrayGet arr, idx
+//   i2  ArrayGet arr, idx+1
+// with
+//   l1  LoadPair arr, idx
+//   i1  ProjectionNode l1, 0
+//   i2  ProjectionNode l1, 1
+bool TryCombineArrayGet(HArrayGet* array_get) {
+  HInstruction* array = array_get->GetArray();
+  int32_t index = GetArrayIndexFromInstruction(array_get);
+
+  // Some types won't benefit from LDP, e.g: if read barriers are needed.
+  if (array_get->GetType() != DataType::Type::kInt32) {
+    return false;
+  }
+
+  HInstruction *next = array_get->GetNext();
+  while (next != nullptr) {
+    int32_t next_index = GetArrayIndexFromInstruction(next);
+    // If the second array element is set before a second ArrayGet, we can't
+    // apply the opt.
+    if (next->IsArraySet() && (array == next->AsArraySet()->GetArray())
+        && (next_index == (index + 1))) {
+      return false;
+    }
+
+    // Calls might alter the array so don't apply the opt.
+    if (next->IsInvoke()) {
+      return false;
+    }
+
+    if (next->IsArrayGet()) {
+      HArrayGet* next_aget = next->AsArrayGet();
+      // Make sure this next ArrayGet accesses the next consecutive memory location.
+      if (array == next_aget->GetArray() && next_index == (index + 1)) {
+        HBasicBlock* block = array_get->GetBlock();
+        ArenaAllocator* allocator = block->GetGraph()->GetAllocator();
+        // If the second ArrayGet references the same array as the first ArrayGet.
+        HArmLoadPair* ldp = new (allocator) HArmLoadPair(
+            array,
+            array_get->GetIndex(),
+            array_get->GetType(),
+            array_get->GetDexPc());
+        block->InsertInstructionBefore(ldp, array_get);
+
+        HProjectionNode* output1 = new (allocator) HProjectionNode(
+            ldp,
+            block->GetGraph()->GetIntConstant(0),
+            array_get->GetType(),
+            array_get->GetDexPc());
+        HProjectionNode* output2 = new (allocator) HProjectionNode(
+            ldp,
+            block->GetGraph()->GetIntConstant(1),
+            array_get->GetType(),
+            array_get->GetDexPc());
+        block->ReplaceAndRemoveInstructionWith(array_get, output1);
+        block->ReplaceAndRemoveInstructionWith(next_aget, output2);
+
+        return true;
+      }
+    }
+    next = next->GetNext();
+  }
+  return false;
+}
+
 void InstructionSimplifierArm64Visitor::VisitAnd(HAnd* instruction) {
   if (TryMergeNegatedInput(instruction)) {
     RecordSimplification();
@@ -202,6 +287,10 @@ void InstructionSimplifierArm64Visitor::VisitArrayGet(HArrayGet* instruction) {
                                    instruction->GetArray(),
                                    instruction->GetIndex(),
                                    data_offset)) {
+    RecordSimplification();
+  }
+
+  if (TryCombineArrayGet(instruction)) {
     RecordSimplification();
   }
 }

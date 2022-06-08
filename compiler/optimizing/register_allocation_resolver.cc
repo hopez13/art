@@ -57,95 +57,99 @@ void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoint
   // TODO: Use pointers of Location inside LiveInterval to avoid doing another iteration.
   for (size_t i = 0, e = liveness_.GetNumberOfSsaValues(); i < e; ++i) {
     HInstruction* instruction = liveness_.GetInstructionFromSsaIndex(i);
-    LiveInterval* current = instruction->GetLiveInterval();
-    LocationSummary* locations = instruction->GetLocations();
-    Location location = locations->Out();
-    if (instruction->IsParameterValue()) {
-      // Now that we know the frame size, adjust the parameter's location.
-      if (location.IsStackSlot()) {
-        location = Location::StackSlot(location.GetStackIndex() + codegen_->GetFrameSize());
-        current->SetSpillSlot(location.GetStackIndex());
-        locations->UpdateOut(location);
-      } else if (location.IsDoubleStackSlot()) {
-        location = Location::DoubleStackSlot(location.GetStackIndex() + codegen_->GetFrameSize());
-        current->SetSpillSlot(location.GetStackIndex());
-        locations->UpdateOut(location);
-      } else if (current->HasSpillSlot()) {
-        current->SetSpillSlot(current->GetSpillSlot() + codegen_->GetFrameSize());
-      }
-    } else if (instruction->IsCurrentMethod()) {
-      // The current method is always at offset 0.
-      DCHECK_IMPLIES(current->HasSpillSlot(), (current->GetSpillSlot() == 0));
-    } else if (instruction->IsPhi() && instruction->AsPhi()->IsCatchPhi()) {
-      DCHECK(current->HasSpillSlot());
-      size_t slot = current->GetSpillSlot()
-                    + spill_slots
-                    + reserved_out_slots
-                    - catch_phi_spill_slots;
-      current->SetSpillSlot(slot * kVRegSize);
-    } else if (current->HasSpillSlot()) {
-      // Adjust the stack slot, now that we know the number of them for each type.
-      // The way this implementation lays out the stack is the following:
-      // [parameter slots       ]
-      // [art method (caller)   ]
-      // [entry spill (core)    ]
-      // [entry spill (float)   ]
-      // [should_deoptimize flag] (this is optional)
-      // [catch phi spill slots ]
-      // [double spill slots    ]
-      // [long spill slots      ]
-      // [float spill slots     ]
-      // [int/ref values        ]
-      // [maximum out values    ] (number of arguments for calls)
-      // [art method            ].
-      size_t slot = current->GetSpillSlot();
-      switch (current->GetType()) {
-        case DataType::Type::kFloat64:
-          slot += long_spill_slots;
-          FALLTHROUGH_INTENDED;
-        case DataType::Type::kUint64:
-        case DataType::Type::kInt64:
-          slot += float_spill_slots;
-          FALLTHROUGH_INTENDED;
-        case DataType::Type::kFloat32:
-          slot += int_spill_slots;
-          FALLTHROUGH_INTENDED;
-        case DataType::Type::kReference:
-        case DataType::Type::kUint32:
-        case DataType::Type::kInt32:
-        case DataType::Type::kUint16:
-        case DataType::Type::kUint8:
-        case DataType::Type::kInt8:
-        case DataType::Type::kBool:
-        case DataType::Type::kInt16:
-          slot += reserved_out_slots;
-          break;
-        case DataType::Type::kVoid:
-          LOG(FATAL) << "Unexpected type for interval " << current->GetType();
-      }
-      current->SetSpillSlot(slot * kVRegSize);
-    }
-
-    Location source = current->ToLocation();
-
-    if (location.IsUnallocated()) {
-      if (location.GetPolicy() == Location::kSameAsFirstInput) {
-        if (locations->InAt(0).IsUnallocated()) {
-          locations->SetInAt(0, source);
-        } else {
-          DCHECK(locations->InAt(0).Equals(source));
+    for (size_t out_index = 0; out_index < instruction->OutputCount(); out_index++) {
+      LiveInterval* current = instruction->GetLiveInterval(out_index);
+      LocationSummary* locations = instruction->GetLocations();
+      Location location = locations->OutAt(out_index);
+      if (instruction->IsParameterValue()) {
+        // Now that we know the frame size, adjust the parameter's location.
+        if (location.IsStackSlot()) {
+          location = Location::StackSlot(location.GetStackIndex() + codegen_->GetFrameSize());
+          current->SetSpillSlot(location.GetStackIndex());
+          locations->UpdateOut(location, out_index);
+        } else if (location.IsDoubleStackSlot()) {
+          location = Location::DoubleStackSlot(location.GetStackIndex() + codegen_->GetFrameSize());
+          current->SetSpillSlot(location.GetStackIndex());
+          locations->UpdateOut(location, out_index);
+        } else if (current->HasSpillSlot()) {
+          current->SetSpillSlot(current->GetSpillSlot() + codegen_->GetFrameSize());
         }
+      } else if (instruction->IsCurrentMethod()) {
+        // The current method is always at offset 0.
+        DCHECK_IMPLIES(current->HasSpillSlot(), (current->GetSpillSlot() == 0));
+      } else if (instruction->IsPhi() && instruction->AsPhi()->IsCatchPhi()) {
+        DCHECK(current->HasSpillSlot());
+        size_t slot = current->GetSpillSlot()
+                      + spill_slots
+                      + reserved_out_slots
+                      - catch_phi_spill_slots;
+        current->SetSpillSlot(slot * kVRegSize);
+      } else if (current->HasSpillSlot()) {
+        // Adjust the stack slot, now that we know the number of them for each type.
+        // The way this implementation lays out the stack is the following:
+        // [parameter slots       ]
+        // [art method (caller)   ]
+        // [entry spill (core)    ]
+        // [entry spill (float)   ]
+        // [should_deoptimize flag] (this is optional)
+        // [catch phi spill slots ]
+        // [double spill slots    ]
+        // [long spill slots      ]
+        // [float spill slots     ]
+        // [int/ref values        ]
+        // [maximum out values    ] (number of arguments for calls)
+        // [art method            ].
+        size_t slot = current->GetSpillSlot();
+        switch (current->GetType()) {
+          case DataType::Type::kFloat64:
+            slot += long_spill_slots;
+            FALLTHROUGH_INTENDED;
+          case DataType::Type::kUint64:
+          case DataType::Type::kInt64:
+            slot += float_spill_slots;
+            FALLTHROUGH_INTENDED;
+          case DataType::Type::kFloat32:
+            slot += int_spill_slots;
+            FALLTHROUGH_INTENDED;
+          case DataType::Type::kReference:
+          case DataType::Type::kUint32:
+          case DataType::Type::kInt32:
+          case DataType::Type::kUint16:
+          case DataType::Type::kUint8:
+          case DataType::Type::kInt8:
+          case DataType::Type::kBool:
+          case DataType::Type::kInt16:
+            slot += reserved_out_slots;
+            break;
+          case DataType::Type::kVoid:
+            LOG(FATAL) << "Unexpected type for interval " << current->GetType();
+        }
+        current->SetSpillSlot(slot * kVRegSize);
       }
-      locations->UpdateOut(source);
-    } else {
-      DCHECK(source.Equals(location));
+
+      Location source = current->ToLocation();
+
+      if (location.IsUnallocated()) {
+        if (location.GetPolicy() == Location::kSameAsFirstInput) {
+          if (locations->InAt(0).IsUnallocated()) {
+            locations->SetInAt(0, source);
+          } else {
+            DCHECK(locations->InAt(0).Equals(source));
+          }
+        }
+        locations->UpdateOut(source, out_index);
+      } else {
+        DCHECK(source.Equals(location));
+      }
     }
   }
 
   // Connect siblings and resolve inputs.
   for (size_t i = 0, e = liveness_.GetNumberOfSsaValues(); i < e; ++i) {
     HInstruction* instruction = liveness_.GetInstructionFromSsaIndex(i);
-    ConnectSiblings(instruction->GetLiveInterval());
+    for (size_t out_index = 0; out_index < instruction->OutputCount(); out_index++) {
+      ConnectSiblings(instruction->GetLiveInterval(out_index));
+    }
   }
 
   // Resolve non-linear control flow across branches. Order does not matter.
@@ -157,22 +161,28 @@ void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoint
       if (kIsDebugBuild) {
         BitVector* live = liveness_.GetLiveInSet(*block);
         for (uint32_t idx : live->Indexes()) {
-          LiveInterval* interval = liveness_.GetInstructionFromSsaIndex(idx)->GetLiveInterval();
-          LiveInterval* sibling = interval->GetSiblingAt(block->GetLifetimeStart());
-          // `GetSiblingAt` returns the sibling that contains a position, but there could be
-          // a lifetime hole in it. `CoversSlow` returns whether the interval is live at that
-          // position.
-          if ((sibling != nullptr) && sibling->CoversSlow(block->GetLifetimeStart())) {
-            DCHECK(!sibling->HasRegister());
+          HInstruction* instruction = liveness_.GetInstructionFromSsaIndex(idx);
+          for (size_t out_index = 0; out_index < instruction->OutputCount(); out_index++) {
+            LiveInterval* interval = instruction->GetLiveInterval(out_index);
+            LiveInterval* sibling = interval->GetSiblingAt(block->GetLifetimeStart());
+            // `GetSiblingAt` returns the sibling that contains a position, but there could be
+            // a lifetime hole in it. `CoversSlow` returns whether the interval is live at that
+            // position.
+            if ((sibling != nullptr) && sibling->CoversSlow(block->GetLifetimeStart())) {
+              DCHECK(!sibling->HasRegister());
+            }
           }
         }
       }
     } else {
       BitVector* live = liveness_.GetLiveInSet(*block);
       for (uint32_t idx : live->Indexes()) {
-        LiveInterval* interval = liveness_.GetInstructionFromSsaIndex(idx)->GetLiveInterval();
-        for (HBasicBlock* predecessor : block->GetPredecessors()) {
-          ConnectSplitSiblings(interval, predecessor, block);
+        HInstruction* instruction = liveness_.GetInstructionFromSsaIndex(idx);
+        for (size_t out_index = 0; out_index < instruction->OutputCount(); out_index++) {
+          LiveInterval* interval = instruction->GetLiveInterval(out_index);
+          for (HBasicBlock* predecessor : block->GetPredecessors()) {
+            ConnectSplitSiblings(interval, predecessor, block);
+          }
         }
       }
     }
@@ -232,38 +242,40 @@ void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoint
 void RegisterAllocationResolver::UpdateSafepointLiveRegisters() {
   for (size_t i = 0, e = liveness_.GetNumberOfSsaValues(); i < e; ++i) {
     HInstruction* instruction = liveness_.GetInstructionFromSsaIndex(i);
-    for (LiveInterval* current = instruction->GetLiveInterval();
-         current != nullptr;
-         current = current->GetNextSibling()) {
-      if (!current->HasRegister()) {
-        continue;
-      }
-      Location source = current->ToLocation();
-      for (SafepointPosition* safepoint_position = current->GetFirstSafepoint();
-           safepoint_position != nullptr;
-           safepoint_position = safepoint_position->GetNext()) {
-        DCHECK(current->CoversSlow(safepoint_position->GetPosition()));
-        LocationSummary* locations = safepoint_position->GetLocations();
-        switch (source.GetKind()) {
-          case Location::kRegister:
-          case Location::kFpuRegister: {
-            locations->AddLiveRegister(source);
-            break;
-          }
-          case Location::kRegisterPair:
-          case Location::kFpuRegisterPair: {
-            locations->AddLiveRegister(source.ToLow());
-            locations->AddLiveRegister(source.ToHigh());
-            break;
-          }
-          case Location::kStackSlot:  // Fall-through
-          case Location::kDoubleStackSlot:  // Fall-through
-          case Location::kConstant: {
-            // Nothing to do.
-            break;
-          }
-          default: {
-            LOG(FATAL) << "Unexpected location for object";
+    for (size_t out_index = 0; out_index < instruction->OutputCount(); out_index++) {
+      for (LiveInterval* current = instruction->GetLiveInterval(out_index);
+           current != nullptr;
+           current = current->GetNextSibling()) {
+        if (!current->HasRegister()) {
+          continue;
+        }
+        Location source = current->ToLocation();
+        for (SafepointPosition* safepoint_position = current->GetFirstSafepoint();
+             safepoint_position != nullptr;
+             safepoint_position = safepoint_position->GetNext()) {
+          DCHECK(current->CoversSlow(safepoint_position->GetPosition()));
+          LocationSummary* locations = safepoint_position->GetLocations();
+          switch (source.GetKind()) {
+            case Location::kRegister:
+            case Location::kFpuRegister: {
+              locations->AddLiveRegister(source);
+              break;
+            }
+            case Location::kRegisterPair:
+            case Location::kFpuRegisterPair: {
+              locations->AddLiveRegister(source.ToLow());
+              locations->AddLiveRegister(source.ToHigh());
+              break;
+            }
+            case Location::kStackSlot:  // Fall-through
+            case Location::kDoubleStackSlot:  // Fall-through
+            case Location::kConstant: {
+              // Nothing to do.
+              break;
+            }
+            default: {
+              LOG(FATAL) << "Unexpected location for object";
+            }
           }
         }
       }
@@ -299,7 +311,7 @@ void RegisterAllocationResolver::ConnectSiblings(LiveInterval* interval) {
   LiveInterval* current = interval;
   if (current->HasSpillSlot()
       && current->HasRegister()
-      // Currently, we spill unconditionnally the current method in the code generators.
+      // Currently, we spill unconditionally the current method in the code generators.
       && !interval->GetDefinedBy()->IsCurrentMethod()) {
     // We spill eagerly, so move must be at definition.
     Location loc;

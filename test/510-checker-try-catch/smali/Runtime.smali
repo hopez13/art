@@ -215,8 +215,9 @@
 # to the location of the catch phi.
 
 ## CHECK-START: int Runtime.testCatchPhi_int(boolean, boolean) register (after)
-## CHECK-DAG:     <<Val1:i\d+>> ArrayGet
-## CHECK-DAG:     <<Val2:i\d+>> ArrayGet
+## CHECK-DAG:                   ArmLoadPair
+## CHECK:         <<Val1:i\d+>> ProjectionNode
+## CHECK:         <<Val2:i\d+>> ProjectionNode
 ## CHECK-DAG:                   Phi [<<Val1>>,<<Val2>>] is_catch_phi:true
 
 .method public static testCatchPhi_int(ZZ)I
@@ -389,9 +390,10 @@
 # copy the value to the location of the catch phi. The value is then returned.
 
 ## CHECK-START: int Runtime.testCatchPhi_singleSlot(boolean, boolean) register (after)
-## CHECK:         <<Val1:i\d+>> ArrayGet
+## CHECK:                       ArmLoadPair
+## CHECK:         <<Val1:i\d+>> ProjectionNode
 ## CHECK-NEXT:                  ParallelMove moves:[{{.*->}}{{\d+}}(sp)]
-## CHECK:         <<Val2:i\d+>> ArrayGet
+## CHECK:         <<Val2:i\d+>> ProjectionNode
 ## CHECK-NEXT:                  ParallelMove moves:[{{.*->}}{{\d+}}(sp)]
 ## CHECK:                       Phi [<<Val1>>,<<Val2>>] is_catch_phi:true
 

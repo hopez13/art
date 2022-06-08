@@ -106,15 +106,17 @@ static bool CheckTypeConsistency(HInstruction* instruction) {
     return true;
   }
 
-  if (locations->Out().IsUnallocated()
-      && (locations->Out().GetPolicy() == Location::kSameAsFirstInput)) {
-    DCHECK(CheckType(instruction->GetType(), locations->InAt(0)))
-        << instruction->GetType()
-        << " " << locations->InAt(0);
-  } else {
-    DCHECK(CheckType(instruction->GetType(), locations->Out()))
-        << instruction->GetType()
-        << " " << locations->Out();
+  for (size_t out_index = 0; out_index < instruction->OutputCount(); out_index++) {
+    Location out = locations->OutAt(out_index);
+    if (out.IsUnallocated() && (out.GetPolicy() == Location::kSameAsFirstInput)) {
+      DCHECK(CheckType(instruction->GetType(), locations->InAt(0)))
+          << instruction->GetType()
+          << " " << locations->InAt(0);
+    } else {
+      DCHECK(CheckType(instruction->GetType(), out))
+          << instruction->GetType()
+          << " " << out;
+    }
   }
 
   HConstInputsRef inputs = instruction->GetInputs();

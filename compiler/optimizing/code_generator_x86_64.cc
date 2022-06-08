@@ -7866,6 +7866,22 @@ void InstructionCodeGeneratorX86_64::VisitIntermediateAddress(HIntermediateAddre
   LOG(FATAL) << "Unreachable";
 }
 
+void LocationsBuilderARM64::VisitProjectionNode(HProjectionNode* instruction) {
+  // ProjectionNode just outputs the output from another instruction.
+  LocationSummary* locations =
+      new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  locations->SetInAt(0, Location::RequiresRegister());
+  // TODO: Need to check whether we want SameAsFirstInput() and/or NoOutputOverlap here.
+  locations->SetOut(Location::SameAsFirstInput());
+  return;
+}
+
+void InstructionCodeGeneratorARM64::VisitProjectionNode(HProjectionNode* instruction ATTRIBUTE_UNUSED) {
+  // ProjectionNode just passes through the output from another instruction and
+  // does not generate any code.
+  return;
+}
+
 void CodeGeneratorX86_64::Load32BitValue(CpuRegister dest, int32_t value) {
   if (value == 0) {
     __ xorl(dest, dest);

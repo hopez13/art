@@ -9938,6 +9938,16 @@ void InstructionCodeGeneratorARMVIXL::VisitClassTableGet(HClassTableGet* instruc
   }
 }
 
+void LocationsBuilderARMVIXL::VisitProjectionNode(HProjectionNode* instruction ATTRIBUTE_UNUSED) {
+  TODO_VIXL32(FATAL);
+  UNREACHABLE();
+}
+
+void InstructionCodeGeneratorARMVIXL::VisitProjectionNode(HProjectionNode* instruction ATTRIBUTE_UNUSED) {
+  TODO_VIXL32(FATAL);
+  UNREACHABLE();
+}
+
 static void PatchJitRootUse(uint8_t* code,
                             const uint8_t* roots_data,
                             VIXLUInt32Literal* literal,

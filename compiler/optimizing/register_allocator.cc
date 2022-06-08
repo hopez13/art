@@ -62,7 +62,10 @@ RegisterAllocator::~RegisterAllocator() {
         it.Current()->SetLiveInterval(bad_live_interval);
       }
       for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
-        it.Current()->SetLiveInterval(bad_live_interval);
+        HInstruction* instruction = it.Current();
+        for (size_t i = 0; i < instruction->OutputCount(); i++) {
+          instruction->SetLiveInterval(bad_live_interval, i);
+        }
       }
     }
   }

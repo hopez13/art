@@ -555,18 +555,28 @@ class LocationSummary : public ArenaObject<kArenaAllocLocationSummary> {
   // same register as one of the inputs); it is set to
   // `Location::kOutputOverlap` by default for safety.
   void SetOut(Location location, Location::OutputOverlap overlaps = Location::kOutputOverlap) {
-    DCHECK(output_.IsInvalid());
+    DCHECK(outputs_[0].IsInvalid());
     output_overlaps_ = overlaps;
-    output_ = location;
+    outputs_[0] = location;
   }
 
-  void UpdateOut(Location location) {
+  void SetOutAt(uint32_t at,
+                Location location,
+                Location::OutputOverlap overlaps = Location::kOutputOverlap) {
+    DCHECK(outputs_[at].IsInvalid());
+    output_overlaps_ = overlaps;
+    outputs_[at] = location;
+  }
+
+  void UpdateOut(Location location, uint32_t out_index = 0) {
     // There are two reasons for updating an output:
     // 1) Parameters, where we only know the exact stack slot after
     //    doing full register allocation.
     // 2) Unallocated location.
-    DCHECK(output_.IsStackSlot() || output_.IsDoubleStackSlot() || output_.IsUnallocated());
-    output_ = location;
+    DCHECK(outputs_[out_index].IsStackSlot()
+        || outputs_[out_index].IsDoubleStackSlot()
+        || outputs_[out_index].IsUnallocated());
+    outputs_[out_index] = location;
   }
 
   void AddTemp(Location location) {
@@ -594,7 +604,13 @@ class LocationSummary : public ArenaObject<kArenaAllocLocationSummary> {
 
   bool HasTemps() const { return !temps_.empty(); }
 
-  Location Out() const { return output_; }
+  Location Out() const { return outputs_[0]; }
+
+  Location OutAt(uint32_t at) const { return outputs_[at]; }
+
+  size_t GetOutputCount() {
+    return outputs_.size();
+  }
 
   bool CanCall() const {
     return call_kind_ != kNoCall;
@@ -679,8 +695,8 @@ class LocationSummary : public ArenaObject<kArenaAllocLocationSummary> {
 
   bool OutputUsesSameAs(uint32_t input_index) const {
     return (input_index == 0)
-        && output_.IsUnallocated()
-        && (output_.GetPolicy() == Location::kSameAsFirstInput);
+        && outputs_[0].IsUnallocated()
+        && (outputs_[0].GetPolicy() == Location::kSameAsFirstInput);
   }
 
   bool IsFixedInput(uint32_t input_index) const {
@@ -716,7 +732,7 @@ class LocationSummary : public ArenaObject<kArenaAllocLocationSummary> {
   // Whether the output overlaps with any of the inputs. If it overlaps, then it cannot
   // share the same register as the inputs.
   Location::OutputOverlap output_overlaps_;
-  Location output_;
+  ArenaVector<Location> outputs_;
 
   // Mask of objects that live in the stack.
   BitVector* stack_mask_;

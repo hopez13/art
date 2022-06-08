@@ -593,7 +593,9 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
     }
 
     if (IsDefiningPosition(position)) {
-      DCHECK(defined_by_->GetLocations()->Out().IsValid());
+      int output_index = defined_by_->GetIndexFromInterval(this);
+      DCHECK(output_index != -1);
+      DCHECK(defined_by_->GetLocations()->OutAt(output_index).IsValid());
       return position;
     }
 
@@ -878,19 +880,21 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
   bool IsUsingInputRegister() const {
     if (defined_by_ != nullptr && !IsSplit()) {
       for (const HInstruction* input : defined_by_->GetInputs()) {
-        LiveInterval* interval = input->GetLiveInterval();
+        for (size_t out_index = 0; out_index < input->OutputCount(); out_index++) {
+          LiveInterval* interval = input->GetLiveInterval(out_index);
 
-        // Find the interval that covers `defined_by`_. Calls to this function
-        // are made outside the linear scan, hence we need to use CoversSlow.
-        while (interval != nullptr && !interval->CoversSlow(defined_by_->GetLifetimePosition())) {
-          interval = interval->GetNextSibling();
-        }
+          // Find the interval that covers `defined_by`_. Calls to this function
+          // are made outside the linear scan, hence we need to use CoversSlow.
+          while (interval != nullptr && !interval->CoversSlow(defined_by_->GetLifetimePosition())) {
+            interval = interval->GetNextSibling();
+          }
 
-        // Check if both intervals have the same register of the same kind.
-        if (interval != nullptr
-            && interval->SameRegisterKind(*this)
-            && interval->GetRegister() == GetRegister()) {
-          return true;
+          // Check if both intervals have the same register of the same kind.
+          if (interval != nullptr
+              && interval->SameRegisterKind(*this)
+              && interval->GetRegister() == GetRegister()) {
+            return true;
+          }
         }
       }
     }
@@ -909,20 +913,22 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
         return false;
       }
       for (const HInstruction* input : defined_by_->GetInputs()) {
-        LiveInterval* interval = input->GetLiveInterval();
+        for (size_t out_index = 0; out_index < input->OutputCount(); out_index++) {
+          LiveInterval* interval = input->GetLiveInterval(out_index);
 
-        // Find the interval that covers `defined_by`_. Calls to this function
-        // are made outside the linear scan, hence we need to use CoversSlow.
-        while (interval != nullptr && !interval->CoversSlow(defined_by_->GetLifetimePosition())) {
-          interval = interval->GetNextSibling();
-        }
+          // Find the interval that covers `defined_by`_. Calls to this function
+          // are made outside the linear scan, hence we need to use CoversSlow.
+          while (interval != nullptr && !interval->CoversSlow(defined_by_->GetLifetimePosition())) {
+            interval = interval->GetNextSibling();
+          }
 
-        if (interval != nullptr
-            && interval->SameRegisterKind(*this)
-            && interval->GetRegister() == GetRegister()) {
-          // We found the input that has the same register. Check if it is live after
-          // `defined_by`_.
-          return !interval->CoversSlow(defined_by_->GetLifetimePosition() + 1);
+          if (interval != nullptr
+              && interval->SameRegisterKind(*this)
+              && interval->GetRegister() == GetRegister()) {
+            // We found the input that has the same register. Check if it is live after
+            // `defined_by`_.
+            return !interval->CoversSlow(defined_by_->GetLifetimePosition() + 1);
+          }
         }
       }
     }
@@ -954,26 +960,28 @@ class LiveInterval : public ArenaObject<kArenaAllocSsaLiveness> {
   bool DefinitionRequiresRegister() const {
     DCHECK(IsParent());
     LocationSummary* locations = defined_by_->GetLocations();
-    Location location = locations->Out();
-    // This interval is the first interval of the instruction. If the output
-    // of the instruction requires a register, we return the position of that instruction
-    // as the first register use.
-    if (location.IsUnallocated()) {
-      if ((location.GetPolicy() == Location::kRequiresRegister)
-           || (location.GetPolicy() == Location::kSameAsFirstInput
-               && (locations->InAt(0).IsRegister()
-                   || locations->InAt(0).IsRegisterPair()
-                   || locations->InAt(0).GetPolicy() == Location::kRequiresRegister))) {
-        return true;
-      } else if ((location.GetPolicy() == Location::kRequiresFpuRegister)
-                 || (location.GetPolicy() == Location::kSameAsFirstInput
-                     && (locations->InAt(0).IsFpuRegister()
-                         || locations->InAt(0).IsFpuRegisterPair()
-                         || locations->InAt(0).GetPolicy() == Location::kRequiresFpuRegister))) {
+    for (size_t out_index = 0; out_index < locations->GetOutputCount(); out_index++) {
+      Location location = locations->OutAt(out_index);
+      // This interval is the first interval of the instruction. If the output
+      // of the instruction requires a register, we return the position of that instruction
+      // as the first register use.
+      if (location.IsUnallocated()) {
+        if ((location.GetPolicy() == Location::kRequiresRegister)
+             || (location.GetPolicy() == Location::kSameAsFirstInput
+                 && (locations->InAt(0).IsRegister()
+                     || locations->InAt(0).IsRegisterPair()
+                     || locations->InAt(0).GetPolicy() == Location::kRequiresRegister))) {
+          return true;
+        } else if ((location.GetPolicy() == Location::kRequiresFpuRegister)
+                   || (location.GetPolicy() == Location::kSameAsFirstInput
+                       && (locations->InAt(0).IsFpuRegister()
+                           || locations->InAt(0).IsFpuRegisterPair()
+                           || locations->InAt(0).GetPolicy() == Location::kRequiresFpuRegister))) {
+          return true;
+        }
+      } else if (location.IsRegister() || location.IsRegisterPair()) {
         return true;
       }
-    } else if (location.IsRegister() || location.IsRegisterPair()) {
-      return true;
     }
     return false;
   }

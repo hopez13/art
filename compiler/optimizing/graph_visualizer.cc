@@ -686,16 +686,18 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
         && is_after_pass_
         && instruction->GetLifetimePosition() != kNoLifetime) {
       StartAttributeStream("liveness") << instruction->GetLifetimePosition();
-      if (instruction->HasLiveInterval()) {
-        LiveInterval* interval = instruction->GetLiveInterval();
-        StartAttributeStream("ranges")
-            << StringList(interval->GetFirstRange(), StringList::kSetBrackets);
-        StartAttributeStream("uses") << StringList(interval->GetUses());
-        StartAttributeStream("env_uses") << StringList(interval->GetEnvironmentUses());
-        StartAttributeStream("is_fixed") << interval->IsFixed();
-        StartAttributeStream("is_split") << interval->IsSplit();
-        StartAttributeStream("is_low") << interval->IsLowInterval();
-        StartAttributeStream("is_high") << interval->IsHighInterval();
+      for (size_t out_index = 0; out_index < instruction->OutputCount(); out_index++) {
+        if (instruction->HasLiveInterval(out_index)) {
+          LiveInterval* interval = instruction->GetLiveInterval(out_index);
+          StartAttributeStream("ranges")
+              << StringList(interval->GetFirstRange(), StringList::kSetBrackets);
+          StartAttributeStream("uses") << StringList(interval->GetUses());
+          StartAttributeStream("env_uses") << StringList(interval->GetEnvironmentUses());
+          StartAttributeStream("is_fixed") << interval->IsFixed();
+          StartAttributeStream("is_split") << interval->IsSplit();
+          StartAttributeStream("is_low") << interval->IsLowInterval();
+          StartAttributeStream("is_high") << interval->IsHighInterval();
+        }
       }
     }
 
@@ -709,7 +711,9 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
         }
         std::ostream& attr = StartAttributeStream("locations");
         attr << input_list << "->";
-        DumpLocation(attr, locations->Out());
+        for (size_t out_index = 0; out_index < locations->GetOutputCount(); out_index++) {
+          DumpLocation(attr, locations->OutAt(out_index));
+        }
       }
     }
 

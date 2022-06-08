@@ -250,7 +250,6 @@ class HDataProcWithShifterOp final : public HExpression<2> {
 
   friend std::ostream& operator<<(std::ostream& os, OpKind op);
 };
-
 std::ostream& operator<<(std::ostream& os, const HDataProcWithShifterOp::OpKind op);
 
 }  // namespace art

@@ -1578,6 +1578,7 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(ParallelMove, Instruction)                                          \
   M(ParameterValue, Instruction)                                        \
   M(Phi, Instruction)                                                   \
+  M(ProjectionNode, Instruction)                                        \
   M(Rem, BinaryOperation)                                               \
   M(Return, Instruction)                                                \
   M(ReturnVoid, Instruction)                                            \
@@ -1653,7 +1654,12 @@ class HLoopInformationOutwardIterator : public ValueObject {
 
 #define FOR_EACH_CONCRETE_INSTRUCTION_ARM(M)
 
+#ifndef ART_ENABLE_CODEGEN_arm64
 #define FOR_EACH_CONCRETE_INSTRUCTION_ARM64(M)
+#else
+#define FOR_EACH_CONCRETE_INSTRUCTION_ARM64(M)                          \
+  M(ArmLoadPair, Instruction)
+#endif
 
 #ifndef ART_ENABLE_CODEGEN_x86
 #define FOR_EACH_CONCRETE_INSTRUCTION_X86(M)
@@ -2234,7 +2240,6 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
         packed_fields_(0u),
         environment_(nullptr),
         locations_(nullptr),
-        live_interval_(nullptr),
         lifetime_position_(kNoLifetime),
         side_effects_(side_effects),
         reference_type_handle_(ReferenceTypeInfo::CreateInvalid().GetTypeHandle()) {
@@ -2309,6 +2314,8 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   void SetRawInputAt(size_t index, HInstruction* input) {
     SetRawInputRecordAt(index, HUserRecord<HInstruction*>(input));
   }
+
+  virtual size_t OutputCount() const { return 1; }
 
   virtual void Accept(HGraphVisitor* visitor) = 0;
   virtual const char* DebugName() const = 0;
@@ -2455,6 +2462,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   int GetId() const { return id_; }
   void SetId(int id) { id_ = id; }
 
+  // TODO: Check whether we need an array/map of ssa indexes (i.e: one per output).
   int GetSsaIndex() const { return ssa_index_; }
   void SetSsaIndex(int ssa_index) { ssa_index_ = ssa_index; }
   bool HasSsaIndex() const { return ssa_index_ != -1; }
@@ -2614,9 +2622,20 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
 
   size_t GetLifetimePosition() const { return lifetime_position_; }
   void SetLifetimePosition(size_t position) { lifetime_position_ = position; }
-  LiveInterval* GetLiveInterval() const { return live_interval_; }
-  void SetLiveInterval(LiveInterval* interval) { live_interval_ = interval; }
-  bool HasLiveInterval() const { return live_interval_ != nullptr; }
+  virtual LiveInterval* GetLiveInterval(size_t index = 0) const { return live_intervals_[index]; }
+  virtual void SetLiveInterval(LiveInterval* interval, size_t index = 0) { live_intervals_[index] = interval; }
+  virtual bool HasLiveInterval(size_t index = 0) const { return live_intervals_[index] != nullptr; }
+
+  // Return the output index for the live interval given or -1 if the interval
+  // is not found.
+  virtual int GetIndexFromInterval(const LiveInterval* search_interval) const {
+    for (size_t i = 0; i < OutputCount(); i++) {
+      if ((live_intervals_[i]) == search_interval) {
+        return i;
+      }
+    }
+    return -1;
+  }
 
   bool IsSuspendCheckEntry() const { return IsSuspendCheck() && GetBlock()->IsEntryBlock(); }
 
@@ -2714,11 +2733,9 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
         packed_fields_(other.packed_fields_),
         environment_(nullptr),
         locations_(nullptr),
-        live_interval_(nullptr),
         lifetime_position_(kNoLifetime),
         side_effects_(other.side_effects_),
-        reference_type_handle_(other.reference_type_handle_) {
-  }
+        reference_type_handle_(other.reference_type_handle_) {}
 
  private:
   using InstructionKindField =
@@ -2794,7 +2811,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   LocationSummary* locations_;
 
   // Set by the liveness analysis.
-  LiveInterval* live_interval_;
+  std::array<LiveInterval*, 1> live_intervals_;
 
   // Set by the liveness analysis, this is the position in a linear
   // order of blocks where this instruction's live interval start.
@@ -3029,6 +3046,59 @@ class HExpression<0> : public HInstruction {
 
  private:
   friend class SsaBuilder;
+};
+
+template<size_t inputs, size_t outputs>
+class HMOExpression : public HExpression<inputs> {
+ public:
+  HMOExpression<inputs, outputs>(HInstruction::InstructionKind kind, SideEffects side_effects, uint32_t dex_pc)
+      : HExpression<inputs>(kind, side_effects, dex_pc) {}
+  HMOExpression<inputs, outputs>(HInstruction::InstructionKind kind,
+                                 DataType::Type type,
+                                 SideEffects side_effects,
+                                 uint32_t dex_pc)
+      : HExpression<inputs>(kind, type, side_effects, dex_pc) {}
+
+  size_t OutputCount() const override { return outputs; }
+  LiveInterval* GetLiveInterval(size_t index = 0) const override { return live_intervals_[index]; }
+  void SetLiveInterval(LiveInterval* interval, size_t index = 0) override { live_intervals_[index] = interval; }
+  bool HasLiveInterval(size_t index = 0) const override { return live_intervals_[index] != nullptr; }
+
+  // Return the output index for the live interval given or -1 if the interval
+  // is not found.
+  int GetIndexFromInterval(const LiveInterval* search_interval) const override {
+    for (size_t i = 0; i < OutputCount(); i++) {
+      if ((live_intervals_[i]) == search_interval) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+ private:
+  std::array<LiveInterval*, outputs> live_intervals_;
+};
+
+/**
+ * Returns a value from an instruction with multiple outputs.
+ */
+class HProjectionNode : public HExpression<2> {
+ public:
+  HProjectionNode(HInstruction* instruction,
+                  HInstruction* index,
+                  DataType::Type type,
+                  uint32_t dex_pc)
+      : HExpression(kProjectionNode, type, SideEffects::AllReads(), dex_pc) {
+    SetRawInputAt(0, instruction);
+    SetRawInputAt(1, index);
+  }
+
+  DECLARE_INSTRUCTION(ProjectionNode);
+
+ protected:
+  DEFAULT_COPY_CONSTRUCTOR(ProjectionNode);
+
+  uint32_t index_;
 };
 
 class HMethodEntryHook : public HExpression<0> {
@@ -8445,6 +8515,9 @@ class HIntermediateAddress final : public HExpression<2> {
 
 #if defined(ART_ENABLE_CODEGEN_arm) || defined(ART_ENABLE_CODEGEN_arm64)
 #include "nodes_shared.h"
+#endif
+#if defined(ART_ENABLE_CODEGEN_arm64)
+#include "nodes_arm64.h"
 #endif
 #if defined(ART_ENABLE_CODEGEN_x86) || defined(ART_ENABLE_CODEGEN_x86_64)
 #include "nodes_x86.h"

@@ -57,6 +57,10 @@ void SchedulingLatencyVisitorARM64::VisitMultiplyAccumulate(HMultiplyAccumulate*
   last_visited_latency_ = kArm64MulIntegerLatency;
 }
 
+void SchedulingLatencyVisitorARM64::VisitArmLoadPair(HArmLoadPair* instruction ATTRIBUTE_UNUSED) {
+  last_visited_latency_ = kArm64MemoryLoadLatency;
+}
+
 void SchedulingLatencyVisitorARM64::VisitArrayGet(HArrayGet* instruction) {
   if (!instruction->GetArray()->IsIntermediateAddress()) {
     // Take the intermediate address computation into account.
