@@ -15,6 +15,8 @@
  */
 
 #include "nativebridge/native_bridge.h"
+
+#undef LOG_TAG
 #define LOG_TAG "nativebridge"
 
 #include <dlfcn.h>
