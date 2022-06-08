@@ -228,6 +228,30 @@
       },
       "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05252f1d_55d87bb6",
+        "filename": "runtime/mirror/class_ext.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-06-08T21:26:55Z",
+      "side": 1,
+      "message": "I think it would be better to add it to the bug because most likely this code can be removed once concurrent native root update is implemented.",
+      "parentUuid": "121b0c55_1ebab4a5",
+      "range": {
+        "startLine": 138,
+        "startChar": 5,
+        "endLine": 138,
+        "endChar": 44
+      },
+      "revId": "b68b4cfe98e2bec74c7d1feca9033ed285ac419b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
