@@ -15,6 +15,8 @@
  */
 
 #include "nativeloader/native_loader.h"
+
+#undef LOG_TAG
 #define LOG_TAG "nativeloader"
 
 #include <dlfcn.h>

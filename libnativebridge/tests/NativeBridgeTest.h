@@ -17,6 +17,7 @@
 #ifndef ART_LIBNATIVEBRIDGE_TESTS_NATIVEBRIDGETEST_H_
 #define ART_LIBNATIVEBRIDGE_TESTS_NATIVEBRIDGETEST_H_
 
+#undef LOG_TAG
 #define LOG_TAG "NativeBridge_test"
 
 #include <nativebridge/native_bridge.h>
