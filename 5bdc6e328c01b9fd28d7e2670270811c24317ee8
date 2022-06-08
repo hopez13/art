@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea28ef62_17e3dc62",
+        "filename": "artd/artd.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2022-06-08T09:51:05Z",
+      "side": 1,
+      "message": "I think you also need to specify the group to be artd, otherwise it defaults to root 😭",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 8
+      },
+      "revId": "5bdc6e328c01b9fd28d7e2670270811c24317ee8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
