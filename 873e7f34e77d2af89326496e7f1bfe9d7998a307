@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dce3fdb_1c68c209",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-06-08T22:06:24Z",
+      "side": 1,
+      "message": "I read Vladimir\u0027s comment as saying something a bit different. I think he was suggesting something like kSupportReadBarrier to indicate whether the read barrier code is compiled in, the appropriate register is reserved, etc. Similarly, kSupportUserFaultfd would indicate wither mark-compact using userfaultfd is a supported GC. In general we would have some set of mechanisms that are compiled in, and a global variable that selects which of the supported GC types is actually used. That does sound cleaner to me, I think. But it also seems like something that can be done after the fact.\n\nAdded this to b/233815394, though it\u0027s a bit of a stretch.",
+      "parentUuid": "ae6b8d69_a10460a1",
+      "revId": "873e7f34e77d2af89326496e7f1bfe9d7998a307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eae5a16e_ea0fbf78",
