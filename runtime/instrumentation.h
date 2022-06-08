@@ -375,6 +375,13 @@ class Instrumentation {
     return have_exception_handled_listeners_;
   }
 
+  // Returns if dex pc events need to be reported for the specified method.
+  // These events are reported when:
+  // 1. The method is deoptimized. This is done when there is a breakpoint on method.
+  // 2. When the thread is deoptimized. This is used when single stepping a single thread.
+  // 3. When interpreter stubs are installed.
+  bool NeedsDexPcEvents(ArtMethod* method, Thread* thread) REQUIRES_SHARED(Locks::mutator_lock_);
+
   bool NeedsSlowInterpreterForListeners() const REQUIRES_SHARED(Locks::mutator_lock_) {
     return have_field_read_listeners_ ||
            have_field_write_listeners_ ||
