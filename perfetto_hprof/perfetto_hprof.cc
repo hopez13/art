@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#undef LOG_TAG
 #define LOG_TAG "perfetto_hprof"
 
 #include "perfetto_hprof.h"

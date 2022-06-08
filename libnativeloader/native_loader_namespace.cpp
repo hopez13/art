@@ -16,6 +16,7 @@
 
 #if defined(ART_TARGET_ANDROID)
 
+#undef LOG_TAG
 #define LOG_TAG "nativeloader"
 
 #include "native_loader_namespace.h"
