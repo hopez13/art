@@ -266,6 +266,9 @@ static inline JValue Execute(
   DCHECK(!shadow_frame.GetMethod()->IsAbstract());
   DCHECK(!shadow_frame.GetMethod()->IsNative());
 
+  shadow_frame.SetNotifyDexPcMoveEvents(
+      Runtime::Current()->GetInstrumentation()->NeedsDexPcEvents(shadow_frame.GetMethod(), self));
+
   if (LIKELY(!from_deoptimize)) {  // Entering the method, but not via deoptimization.
     if (kIsDebugBuild) {
       CHECK_EQ(shadow_frame.GetDexPC(), 0u);
