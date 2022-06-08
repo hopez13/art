@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afe927cf_9cc4b95f",
+        "filename": "build/art.go",
+        "patchSetId": 17
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-06-08T21:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b7b51e3_c8db3dd0",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 78,
+        "endChar": 44
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a6238b7_68b63722",
@@ -385,6 +409,30 @@
       "side": 1,
       "message": "Agreed. This is needlessly confusing.",
       "parentUuid": "b4542c1c_2e471212",
+      "range": {
+        "startLine": 108,
+        "startChar": 38,
+        "endLine": 108,
+        "endChar": 55
+      },
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0427817b_d211b50b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-06-08T21:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bce720_76cbc100",
       "range": {
         "startLine": 108,
         "startChar": 38,
@@ -727,6 +775,24 @@
       "side": 1,
       "message": "Isn\u0027t it effectively to increase the extra heap size we give ourselves, so that we have to GC less frequently for foreground apps that are actively running and allocating? It\u0027s basically a multiplier for the extra heap space we allow ourselves before the next GC.\n\nCan we add a comment that the +1.0 is for historical reasons, and that it should be removed when we revisit the heap configurations",
       "parentUuid": "20ed308e_9894c5b9",
+      "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "540d46c2_7999f98f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-06-08T21:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6e40e57_12ae60a4",
       "revId": "ca487e7fd597d1838139ab0e49a074b00aeb47f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
