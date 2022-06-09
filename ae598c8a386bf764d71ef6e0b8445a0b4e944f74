@@ -39,6 +39,30 @@
       },
       "revId": "ae598c8a386bf764d71ef6e0b8445a0b4e944f74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b519a592_9bfa9cf3",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1760,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-09T10:24:54Z",
+      "side": 1,
+      "message": "I didn\u0027t know and also in the file only DCHECK is used. I preferred to have this check similar to the other ones here.",
+      "parentUuid": "6249b558_16c003ff",
+      "range": {
+        "startLine": 1760,
+        "startChar": 2,
+        "endLine": 1760,
+        "endChar": 8
+      },
+      "revId": "ae598c8a386bf764d71ef6e0b8445a0b4e944f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
