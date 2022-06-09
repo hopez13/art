@@ -286,6 +286,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf531f69_93092976",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-09T15:34:10Z",
+      "side": 1,
+      "message": "I suggest using a constant to encode the current version number, as we do for other version numbers in ART; see e.g.:\n- Art (image) file: https://cs.android.com/android/platform/superproject/+/master:art/runtime/image.cc;l\u003d33;drc\u003d3fa6e46c0f379a35d51e37b9253c1d7369e3158f\n- Oat file: https://cs.android.com/android/platform/superproject/+/master:art/runtime/oat.h;l\u003d36;drc\u003d307fd6dbb589e9dea02457f689c809811472e480\n- Vdex file version: https://cs.android.com/android/platform/superproject/+/master:art/runtime/vdex_file.h;l\u003d127;drc\u003d84caad6a6af9052eb8f4feeaf93b510922d20a08\n- Profile compilation information: https://cs.android.com/android/platform/superproject/+/master:art/libprofile/profile/profile_compilation_info.cc;l\u003d59-60;drc\u003d53258d07c179d8530adcf8c73848e114830c913c\n- Compact Dex \"magic\" version: https://cs.android.com/android/platform/superproject/+/master:art/libdexfile/dex/compact_dex_file.h;l\u003d31;drc\u003d5fb6f63b0827d7991404086b3999f6ba21f50e36\n- Odrefresh compilation log version: https://cs.android.com/android/platform/superproject/+/master:art/odrefresh/odr_compilation_log.h;l\u003d59;drc\u003d5a65d03bebba368639fb4c99041f7ee05741b1b3",
+      "parentUuid": "3645a535_cfad7c83",
+      "range": {
+        "startLine": 103,
+        "startChar": 50,
+        "endLine": 103,
+        "endChar": 75
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b60295e_be8ce904",
         "filename": "odrefresh/odr_metrics_record.cc",
         "patchSetId": 4
@@ -345,6 +369,30 @@
       "side": 1,
       "message": "Actually, not true: I tried the change within AddMetric (lines 81-86) rather than here - will make the change",
       "parentUuid": "a2e45a39_8fe43fa3",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e077daf_23dd9bf0",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-09T15:34:10Z",
+      "side": 1,
+      "message": "Sorry about the confusion: my \"Ditto\" comment refered to this comment for lines 78–79:\n\n\u003e Nit: This can fit on a single (100-character) line.",
+      "parentUuid": "953e8cfa_bbeeaf82",
       "range": {
         "startLine": 108,
         "startChar": 0,
