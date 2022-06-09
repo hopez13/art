@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a4703ac_262e8744",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-09T16:32:40Z",
+      "side": 1,
+      "message": "clang-format says that the solution proposed by Roland (with the three arguments on the same line) is the way to go.",
+      "parentUuid": "5d0c84b8_b9b1c51c",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 32
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5eb78b81_402ef4a8",
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "Small tip: We usually upload a patchset and then reply \"Done\" rather than \"Ack\". Personally, I interpret \"Ack\" as \"I see your comment but I\u0027m not going to do it for some reason\" :)",
       "parentUuid": "73a9521a_08203bcf",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 55
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "921f9343_e486db95",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-09T16:32:40Z",
+      "side": 1,
+      "message": "I was actually interpreting it the other way around (as a shortcut to say \"yes, you\u0027re right, this will be fixed in the the next patchset\") :D but I\u0027ll keep it in mind for the future.",
+      "parentUuid": "581057a8_192df205",
       "range": {
         "startLine": 78,
         "startChar": 0,
@@ -392,6 +440,30 @@
       "writtenOn": "2022-06-09T15:34:10Z",
       "side": 1,
       "message": "Sorry about the confusion: my \"Ditto\" comment refered to this comment for lines 78–79:\n\n\u003e Nit: This can fit on a single (100-character) line.",
+      "parentUuid": "953e8cfa_bbeeaf82",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e951e5a_ca4691be",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-09T16:32:40Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "953e8cfa_bbeeaf82",
       "range": {
         "startLine": 108,
