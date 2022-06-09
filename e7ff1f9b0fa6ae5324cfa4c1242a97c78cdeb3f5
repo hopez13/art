@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc1d907_3b5c3560",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-09T15:15:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a375b6a5_3898b015",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 43
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f21deb2_50e377fd",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-09T14:35:31Z",
       "side": 1,
       "message": "Nit: This can fit on a single line.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 32
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21a793b3_aa8a597a",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-09T15:15:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1f21deb2_50e377fd",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73a9521a_08203bcf",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-09T15:15:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5eb78b81_402ef4a8",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 55
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad8ff7f0_6ff62174",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-06-09T14:35:31Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 54
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c0bc0c7_d4fc4fb8",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-09T15:15:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ad8ff7f0_6ff62174",
       "range": {
         "startLine": 90,
         "startChar": 0,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3645a535_cfad7c83",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-09T15:15:43Z",
+      "side": 1,
+      "message": "At the moment it is not explicitly initialised - I will add an assignment for it in OdrMetrics::ToRecord.",
+      "parentUuid": "72547672_fd1969ff",
+      "range": {
+        "startLine": 103,
+        "startChar": 50,
+        "endLine": 103,
+        "endChar": 75
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b60295e_be8ce904",
         "filename": "odrefresh/odr_metrics_record.cc",
         "patchSetId": 4
@@ -129,6 +249,30 @@
       "writtenOn": "2022-06-09T14:35:31Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2e45a39_8fe43fa3",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-09T15:15:43Z",
+      "side": 1,
+      "message": "Which comment is ditto-ed here? These three metrics are initialised to 0 in odr_metrics.h (https://cs.android.com/android/platform/superproject/+/master:art/odrefresh/odr_metrics.h;l\u003d140-142?q\u003dodr_metrics.h) and unfortunately they don\u0027t fit within the 100-chars limit if I change them to be one line per metric (102 chars for primary_bcp_compilation_seconds, 106 for both secondary_bcp_compilation_seconds and system_server_compilation_seconds).",
+      "parentUuid": "0b60295e_be8ce904",
       "range": {
         "startLine": 108,
         "startChar": 0,
