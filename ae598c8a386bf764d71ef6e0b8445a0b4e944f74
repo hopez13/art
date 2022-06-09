@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "807ae1fb_aadd1611",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-06-09T10:03:25Z",
+      "side": 1,
+      "message": "LGTM (but I\u0027m not very familiar with this code).",
+      "revId": "ae598c8a386bf764d71ef6e0b8445a0b4e944f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6249b558_16c003ff",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1760,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-06-09T10:03:25Z",
+      "side": 1,
+      "message": "`DCHECK(x !\u003d y)` is usually `DCHECK_NE(x, y)` but I guess you didn\u0027t use it due to type checking issues?",
+      "range": {
+        "startLine": 1760,
+        "startChar": 2,
+        "endLine": 1760,
+        "endChar": 8
+      },
+      "revId": "ae598c8a386bf764d71ef6e0b8445a0b4e944f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
