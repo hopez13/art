@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20908927_f79d71b2",
+        "filename": "build/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-09T14:19:32Z",
+      "side": 1,
+      "message": "I think this will affect many log messages in dex2oat and other tools as well. Do we want that? Maybe it\u0027s better to set it in defaults for various shared runtime libraries instead? E.g. libartbase, runtime, libdexfile, etc.",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
