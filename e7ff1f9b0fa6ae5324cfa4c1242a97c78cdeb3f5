@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a375b6a5_3898b015",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-09T14:35:31Z",
+      "side": 1,
+      "message": "I think it\u0027d be better to have these be part of a single statement, so that both pieces of information are emitted on the same logcat line. As the logcat is shared by all Android processes, two (independently) emitted errors could potentially be separated by other log lines from other processes/threads in the logcat output.",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 43
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f21deb2_50e377fd",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-09T14:35:31Z",
+      "side": 1,
+      "message": "Nit: This can fit on a single line.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 32
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eb78b81_402ef4a8",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-09T14:35:31Z",
+      "side": 1,
+      "message": "Nit: This can fit on a single (100-character) line.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 55
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad8ff7f0_6ff62174",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-09T14:35:31Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 54
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72547672_fd1969ff",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-09T14:35:31Z",
+      "side": 1,
+      "message": "Where is the `odrefresh_metrics_version` member initialized (for non-test cases)?",
+      "range": {
+        "startLine": 103,
+        "startChar": 50,
+        "endLine": 103,
+        "endChar": 75
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b60295e_be8ce904",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-09T14:35:31Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "e7ff1f9b0fa6ae5324cfa4c1242a97c78cdeb3f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
