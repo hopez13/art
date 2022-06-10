@@ -46,6 +46,30 @@
       },
       "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0bc97ec_d2c3b03b",
+        "filename": "build/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-10T11:30:31Z",
+      "side": 1,
+      "message": "That\u0027s also an aspect, but as you say, it\u0027s tricky to resolve, and with the argument b/234733378 I suppose the dex2oat tag on such messages from libart are considered regressions as well(*).\n\nHowever, I was more thinking that this defaults get inherited into all compilation units, not only libart, libdexfile, etc. So we\u0027d get the \"art\" tag in top level messages in dex2oat/*.cc as well.\n\n*) Then it\u0027s another question whether it\u0027s a good idea to fix a regression that occurred as far back as 2017. Arguably it\u0027d be a new regression for everything that has started to depend on the de-facto tags after that date.",
+      "parentUuid": "e2aab47e_62eed97f",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
