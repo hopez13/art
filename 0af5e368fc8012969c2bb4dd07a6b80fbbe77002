@@ -22,6 +22,30 @@
       },
       "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2aab47e_62eed97f",
+        "filename": "build/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T09:47:46Z",
+      "side": 1,
+      "message": "Right - you\u0027re saying I\u0027m introducing a regression where currently the tag for dex2oat would always be \"dex2oat\" and now I\u0027m changing it to be ART?\n\nThat would be tricky to resolve though - dex2oat uses libart.so and libart.so will be compiled with the \"art\" tag.\n\nTom, is there a solution for this? Can we make the dex2oat process always use the tag \"dex2oat\"? If not, I\u0027d rather we be consistent, so either:\n1) Use the \u0027art\u0027 tag (this CL)\n2) Use the process name tag (the current behavior)",
+      "parentUuid": "20908927_f79d71b2",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
