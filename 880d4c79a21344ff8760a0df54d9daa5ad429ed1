@@ -1,0 +1,337 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a336e682_31308d21",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "nit: methods start with capital letter.",
+      "range": {
+        "startLine": 2164,
+        "startChar": 19,
+        "endLine": 2164,
+        "endChar": 36
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "587960ab_4833fc7e",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2166,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "nit: align all parameters at the same indentation",
+      "range": {
+        "startLine": 2165,
+        "startChar": 0,
+        "endLine": 2166,
+        "endChar": 59
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "802f0179_77198fbe",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "for (auto it: members)",
+      "range": {
+        "startLine": 2172,
+        "startChar": 0,
+        "endLine": 2172,
+        "endChar": 64
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "596e8eb5_e4ea5cdd",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 2181,
+        "startChar": 0,
+        "endLine": 2182,
+        "endChar": 43
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04382351_258a4788",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "Add a comment why you\u0027re creating handles. It\u0027s considered risky to have \"this\" be a dangling pointer, so consider making this method static, or take two handles as parameters.",
+      "range": {
+        "startLine": 2200,
+        "startChar": 0,
+        "endLine": 2202,
+        "endChar": 50
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84278972_aec15705",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "for local variable we don\u0027t camelcase, instead use h_this.",
+      "range": {
+        "startLine": 2202,
+        "startChar": 24,
+        "endLine": 2202,
+        "endChar": 29
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84762de6_f40a3ee6",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "h_klass",
+      "range": {
+        "startLine": 2203,
+        "startChar": 24,
+        "endLine": 2203,
+        "endChar": 30
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa6e6700_408afaf8",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "host_of_this",
+      "range": {
+        "startLine": 2206,
+        "startChar": 24,
+        "endLine": 2206,
+        "endChar": 34
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09b5926_565572a1",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "host_of_klass",
+      "range": {
+        "startLine": 2210,
+        "startChar": 24,
+        "endLine": 2210,
+        "endChar": 35
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "835c43b2_e6a6815a",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "That\u0027s problematic 😊 Using handles would generally mean you expect to release what we call \"the mutator lock\", meaning the GC can run. Objects move, so \u0027this\u0027 might have moved, which is what I mention as \"dangling\" above. I think best would be to make this method static and have it take two handles.",
+      "range": {
+        "startLine": 2221,
+        "startChar": 55,
+        "endLine": 2221,
+        "endChar": 59
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "143b210d_95580c51",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca841dc_e608ea7f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3830,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "Add comments for this check. Are we expecting nests in j.l.Object?",
+      "range": {
+        "startLine": 3830,
+        "startChar": 0,
+        "endLine": 3830,
+        "endChar": 46
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c369fda1_8a740292",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3849,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "I think this should only apply to invokesuper?",
+      "range": {
+        "startLine": 3849,
+        "startChar": 0,
+        "endLine": 3849,
+        "endChar": 46
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b32f5764_022d5712",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "No need for the temporary variables",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 54
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55694f27_2e7cbb9e",
+        "filename": "test/185-nest-group-access/src/testpackage/TestNestedClasses.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-10T16:49:21Z",
+      "side": 1,
+      "message": "Missing copyright",
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
