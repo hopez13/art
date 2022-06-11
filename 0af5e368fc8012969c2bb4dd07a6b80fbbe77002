@@ -70,6 +70,30 @@
       },
       "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a1d90fd_1449bed0",
+        "filename": "build/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2022-06-11T00:23:37Z",
+      "side": 1,
+      "message": "dex2oat as the tag for that process is part of the regression, though I understand why that process is special and may want to be tagged differently. It should be possible to keep dex2oat for that process and use art for others:\n\nIf I understand correctly:\n* dex2oat gets its tag from its process name and not a LOG_TAG define? \n* It is built as a separate executable so it should be able to specify its own LOG_TAG in it\u0027s Android.bp\n* The caveat is that this CL specifies LOG_TAG as the default that dex2oat uses, so it would need to override the default\n\nI believe this can be done by adding the below to the Android.bp that builds dex2oat\n\"-ULOG_TAG\"\n\"-DLOG_TAG\u003d\\\"dex2oat\\\"\"\n\nI\u0027m basing that belief on how target specific #define overrides are done, for example here: https://cs.android.com/android/platform/superproject/+/master:system/core/init/Android.bp;l\u003d128.\n\nIf that doesn\u0027t work the Soong team could be consulted.",
+      "parentUuid": "b0bc97ec_d2c3b03b",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
