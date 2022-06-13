@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2d02139_cc5693ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-13T15:03:11Z",
+      "side": 1,
+      "message": "Heads up, this is the first time I\u0027m hearing about the feature so there might be some naive questions :)",
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "036ff191_ccb361d2",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-13T15:03:11Z",
+      "side": 1,
+      "message": "nit: I\u0027d remove this comment since it is superseded by the one you are adding.",
+      "range": {
+        "startLine": 1219,
+        "startChar": 0,
+        "endLine": 1219,
+        "endChar": 49
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90aebd26_63fe74b6",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-13T15:03:11Z",
+      "side": 1,
+      "message": "I\u0027d simplify this to: `Classes which are part of the same nest group could have access to the private members.`\n\nIf you want to talk about the protected ones you can add a comment below in the `kAccProtected` mentioning why it is not needed to check if they have the same nest host.",
+      "range": {
+        "startLine": 1221,
+        "startChar": 0,
+        "endLine": 1224,
+        "endChar": 27
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b715298b_13428b5d",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2218,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-13T15:03:11Z",
+      "side": 1,
+      "message": "It took me a while to understand this. Basically what you want to say is that you are covering a border case in which `klass` is `other`\u0027s host (or viceversa). Can you rephrase it?",
+      "range": {
+        "startLine": 2214,
+        "startChar": 0,
+        "endLine": 2218,
+        "endChar": 73
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bfd3b99_666f4fc9",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2235,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-13T15:03:11Z",
+      "side": 1,
+      "message": "I\u0027m curious: When can this happen? If we reach this point we know that the classes are:\n```\nA) Different, and\n  B1) Have the same host, or\n  B2) One is the host of the other one\n```\n\nTherefore there should be at least one nest member right?",
+      "range": {
+        "startLine": 2233,
+        "startChar": 0,
+        "endLine": 2235,
+        "endChar": 3
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f792add_d5b8437c",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-13T15:03:11Z",
+      "side": 1,
+      "message": "Related to the comment above, let\u0027s say a class is its own host. Would that class be in the host\u0027s member list?",
+      "range": {
+        "startLine": 2237,
+        "startChar": 34,
+        "endLine": 2237,
+        "endChar": 40
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bbd4e05_aeb4b677",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-13T15:03:11Z",
+      "side": 1,
+      "message": "Is it not possible due to some technical restriction? Or just not worth the effort to implement it?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 96
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b83c9daa_92f1f9a3",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-13T15:03:11Z",
+      "side": 1,
+      "message": "nit: `Is this type in the same nest group as another class?` to keep it in line with the other comments. I don\u0027t think the second sentence is needed.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 14
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4625e9e_007d724f",
+        "filename": "test/185-nest-group-access/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-13T15:03:11Z",
+      "side": 1,
+      "message": "Can we make these (and below) the method\u0027s name we are calling? i.e. here it would be `host.testInnerAccess`. At least I don\u0027t see the purpose of having the `nested.`. It even repeats in lines 32 and 40 for different calls for example.",
+      "range": {
+        "startLine": 27,
+        "startChar": 15,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
