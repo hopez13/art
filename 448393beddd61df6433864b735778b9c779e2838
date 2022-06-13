@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0582a2ed_e22258e3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4588,
+      "author": {
+        "id": 1942415
+      },
+      "writtenOn": "2022-06-13T03:56:31Z",
+      "side": 1,
+      "message": "As the next line codes has set ClassStatus to ClassStatus::kVerified, is it still needed to call UpdateMethodsToNterp?",
+      "range": {
+        "startLine": 4588,
+        "startChar": 8,
+        "endLine": 4588,
+        "endChar": 28
+      },
+      "revId": "448393beddd61df6433864b735778b9c779e2838",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58bb097e_fa6141f9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4736,
+      "author": {
+        "id": 1942415
+      },
+      "writtenOn": "2022-06-13T03:56:31Z",
+      "side": 1,
+      "message": "Same question as the above one",
+      "range": {
+        "startLine": 4736,
+        "startChar": 8,
+        "endLine": 4736,
+        "endChar": 28
+      },
+      "revId": "448393beddd61df6433864b735778b9c779e2838",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
