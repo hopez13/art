@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "160f2557_0835d1cc",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2714,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-13T14:46:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55146963_55a5fe56",
+      "range": {
+        "startLine": 2714,
+        "startChar": 11,
+        "endLine": 2714,
+        "endChar": 19
+      },
+      "revId": "e249701b0aef27bfc88363ae2f633edd1ec4d49f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5f89a6b_733f272f",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-06-07T15:51:15Z",
       "side": 1,
       "message": "Looks like we now only return 0 from this method?",
+      "range": {
+        "startLine": 2727,
+        "startChar": 0,
+        "endLine": 2727,
+        "endChar": 11
+      },
+      "revId": "e249701b0aef27bfc88363ae2f633edd1ec4d49f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b26ddec7_4d4eda15",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2727,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-13T14:46:17Z",
+      "side": 1,
+      "message": "You are right. I made this void and also removed checks for return value in the stubs. Thanks!",
+      "parentUuid": "d5f89a6b_733f272f",
       "range": {
         "startLine": 2727,
         "startChar": 0,
