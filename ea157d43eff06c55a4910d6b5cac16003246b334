@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "869d7455_2ab70b13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-13T15:04:20Z",
+      "side": 1,
+      "message": "PTAL. I updated it so method exit doesn\u0027t return any value and we just deoptimize from method exit directly. New changes in PS4..5. Thanks!",
+      "revId": "ea157d43eff06c55a4910d6b5cac16003246b334",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69143e8c_44c3d18e",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-13T15:04:20Z",
+      "side": 1,
+      "message": "I had to update this check because we now deoptimize directly from the method exit. Then the top frame on the stack is the native method. Everything should still work in my understanding. Earlier we were going back to native then call the exception which sets up callee save frame (runtime method) and native method is at depth 1 whereas now we just see native method on top at depth 0. Depth 1 is still possible if the native method causes some exception.",
+      "revId": "ea157d43eff06c55a4910d6b5cac16003246b334",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

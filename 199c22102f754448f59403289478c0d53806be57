@@ -276,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a356085_a1760f55",
+        "filename": "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 816,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-13T15:04:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9743b59_414bc56b",
+      "range": {
+        "startLine": 816,
+        "startChar": 0,
+        "endLine": 816,
+        "endChar": 45
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a5ffd2f_c8258747",
@@ -360,6 +384,30 @@
       "side": 1,
       "message": "AFAIU, we don\u0027t always move to debuggable when we install stubs. Though in most cases we test for we do move to debuggable. If we attach a debugger to a non-debuggable runtime after the app has started then we don\u0027t set debuggable. We still install exit stubs there, so it is possible to have AreExitStubsInstalled true and IsJavaDebuggable false.",
       "parentUuid": "800d0e9f_81136eff",
+      "range": {
+        "startLine": 237,
+        "startChar": 15,
+        "endLine": 237,
+        "endChar": 53
+      },
+      "revId": "199c22102f754448f59403289478c0d53806be57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d76a2bb4_fd3fb844",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-13T15:04:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "248a743e_0e2be2b8",
       "range": {
         "startLine": 237,
         "startChar": 15,
