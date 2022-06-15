@@ -88,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f56ae868_88ddfa28",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T09:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90aebd26_63fe74b6",
+      "range": {
+        "startLine": 1221,
+        "startChar": 0,
+        "endLine": 1224,
+        "endChar": 27
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b715298b_13428b5d",
@@ -135,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d0053fb_9ceb4161",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2218,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T09:36:00Z",
+      "side": 1,
+      "message": "Rereading JVMS 5.4.4 and JVMS 4.7.29, a class should not have NestHost and NestMembers annotations. So in the example in my previous comment A is not following the specification. It is more clear to just reject access between A and B in this case. If needed we can always relax the strictness later on.",
+      "parentUuid": "4bad216c_cb1a3536",
+      "range": {
+        "startLine": 2214,
+        "startChar": 0,
+        "endLine": 2218,
+        "endChar": 73
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bfd3b99_666f4fc9",
@@ -172,6 +220,30 @@
       "side": 1,
       "message": "Not necessarily. You could have A(host\u003dC), B(host\u003dC), however C does not have a HostMembers annotation. If the compilation to bytecode and then to dex was correct, you shouldn\u0027t get into this state, however we have to check that the host class has a member list and `klass` and `other` are in it.",
       "parentUuid": "4bfd3b99_666f4fc9",
+      "range": {
+        "startLine": 2233,
+        "startChar": 0,
+        "endLine": 2235,
+        "endChar": 3
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20053a61_4e5c3040",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2235,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T09:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ed2a35d_3bb70206",
       "range": {
         "startLine": 2233,
         "startChar": 0,
@@ -253,6 +325,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "000965ee_8e2a27c9",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T09:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16cca32f_0ede32f8",
+      "range": {
+        "startLine": 2237,
+        "startChar": 34,
+        "endLine": 2237,
+        "endChar": 40
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bbd4e05_aeb4b677",
@@ -300,6 +396,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be034013_3facadb1",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T09:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12f4c2cd_550ba54c",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 96
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b83c9daa_92f1f9a3",
@@ -323,6 +443,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e8a965c_ec5e6034",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T09:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b83c9daa_92f1f9a3",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 14
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4625e9e_007d724f",
@@ -336,6 +480,30 @@
       "writtenOn": "2022-06-13T15:03:11Z",
       "side": 1,
       "message": "Can we make these (and below) the method\u0027s name we are calling? i.e. here it would be `host.testInnerAccess`. At least I don\u0027t see the purpose of having the `nested.`. It even repeats in lines 32 and 40 for different calls for example.",
+      "range": {
+        "startLine": 27,
+        "startChar": 15,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deacd08e_dbf12e04",
+        "filename": "test/185-nest-group-access/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T09:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4625e9e_007d724f",
       "range": {
         "startLine": 27,
         "startChar": 15,
