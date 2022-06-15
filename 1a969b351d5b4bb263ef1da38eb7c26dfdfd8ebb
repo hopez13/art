@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f14a9cad_4485e1d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-06-15T20:04:58Z",
+      "side": 1,
+      "message": "I may need to do a different cherrypick order for this, as the companion CL has a downstream conflict, but wanted to get review started now.\n\nHappy to move this gating logic elsewhere, this seemed like the simplest place to put it.",
+      "revId": "1a969b351d5b4bb263ef1da38eb7c26dfdfd8ebb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
