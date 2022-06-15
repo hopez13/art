@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0a15ef5_870bbca0",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T08:17:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "036ff191_ccb361d2",
+      "range": {
+        "startLine": 1219,
+        "startChar": 0,
+        "endLine": 1219,
+        "endChar": 49
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90aebd26_63fe74b6",
@@ -195,6 +219,30 @@
       "side": 1,
       "message": "No, a host should not include itself in the NestMembers attribute. See the implementation at https://cs.android.com/android/_/android/platform/libcore/+/57556e337e162de68429edfa3d510e5c5825c3f5:ojluni/src/main/java/java/lang/Class.java;l\u003d2838;drc\u003ddde5c3a3da2df8b842dc2b204400279f4c7beed7;bpv\u003d0;bpt\u003d0",
       "parentUuid": "5f792add_d5b8437c",
+      "range": {
+        "startLine": 2237,
+        "startChar": 34,
+        "endLine": 2237,
+        "endChar": 40
+      },
+      "revId": "3a864b8ea8d6fdf9926da7bf3128660269143942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16cca32f_0ede32f8",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T08:17:23Z",
+      "side": 1,
+      "message": "There is also https://docs.oracle.com/javase/specs/jvms/se17/html/jvms-4.html#jvms-4.7.29 where it specifies:\n\n\u003e [NestMembers] should consist of references to other classes and interfaces that are in the same run-time package and have NestHost attributes which reference the current class or interface.",
+      "parentUuid": "a129180b_1849ce42",
       "range": {
         "startLine": 2237,
         "startChar": 34,
