@@ -626,6 +626,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02b700bd_cb0e0d03",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3849,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T15:03:55Z",
+      "side": 1,
+      "message": "I raised b/236125275 to deal with this.",
+      "parentUuid": "bb2d8608_4d5b40a6",
+      "range": {
+        "startLine": 3849,
+        "startChar": 0,
+        "endLine": 3849,
+        "endChar": 46
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b32f5764_022d5712",
         "filename": "runtime/verifier/reg_type-inl.h",
         "patchSetId": 4

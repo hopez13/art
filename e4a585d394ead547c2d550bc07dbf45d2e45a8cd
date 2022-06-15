@@ -64,6 +64,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c720d1c_f7669a3a",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2165,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T15:03:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34bc7db4_6a2a3c11",
+      "range": {
+        "startLine": 2164,
+        "startChar": 37,
+        "endLine": 2165,
+        "endChar": 66
+      },
+      "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4b2fbf5_2b0f62bc",
@@ -197,6 +221,30 @@
       "side": 1,
       "message": "+1 for being consistent. As this shouldn\u0027t be performance critical (?) I suggest handles.",
       "parentUuid": "60a436ba_6a511df6",
+      "range": {
+        "startLine": 2213,
+        "startChar": 2,
+        "endLine": 2213,
+        "endChar": 8
+      },
+      "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f3d46c0_4c11291c",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T15:03:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a4d2a5c_8387241e",
       "range": {
         "startLine": 2213,
         "startChar": 2,
