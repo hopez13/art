@@ -602,6 +602,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb2d8608_4d5b40a6",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3849,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-15T12:32:55Z",
+      "side": 1,
+      "message": "A private method can only be called thrhough invoke-direct. I actually think now that you do\u0027t need this change. invokevirtual and invokesuper should never be used on private methods AFAIU.",
+      "parentUuid": "6ff29e3e_3e4d8f70",
+      "range": {
+        "startLine": 3849,
+        "startChar": 0,
+        "endLine": 3849,
+        "endChar": 46
+      },
+      "revId": "880d4c79a21344ff8760a0df54d9daa5ad429ed1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b32f5764_022d5712",
         "filename": "runtime/verifier/reg_type-inl.h",
         "patchSetId": 4

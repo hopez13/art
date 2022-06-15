@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6175ff16_135645d0",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-15T12:32:55Z",
+      "side": 1,
+      "message": "Oh I see now why this is also problematic :) \"this\" and \"access_to\" are also not handles.\n\nMaybe better is if we guarantee HaveSameNestHost cannot release the mutator lock.",
+      "range": {
+        "startLine": 1220,
+        "startChar": 0,
+        "endLine": 1225,
+        "endChar": 49
+      },
+      "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34bc7db4_6a2a3c11",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-15T12:32:55Z",
+      "side": 1,
+      "message": "Maybe for consistency these could be ObjPtr?",
+      "range": {
+        "startLine": 2164,
+        "startChar": 37,
+        "endLine": 2165,
+        "endChar": 66
+      },
+      "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c4b2fbf5_2b0f62bc",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 6
@@ -127,6 +173,30 @@
       "side": 1,
       "message": "Ah I see. If the Handle creation is not that big of a deal, I\u0027d make them both handles for A) Symmetry, and B) future-proofing in case someone inserts code between the second `GetNestHost` and the use of `host_of_other`.\n\nNo strong opinion though, up to you.",
       "parentUuid": "f830fdd6_681c2d38",
+      "range": {
+        "startLine": 2213,
+        "startChar": 2,
+        "endLine": 2213,
+        "endChar": 8
+      },
+      "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a4d2a5c_8387241e",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-15T12:32:55Z",
+      "side": 1,
+      "message": "+1 for being consistent. As this shouldn\u0027t be performance critical (?) I suggest handles.",
+      "parentUuid": "60a436ba_6a511df6",
       "range": {
         "startLine": 2213,
         "startChar": 2,
