@@ -16,6 +16,23 @@
       "message": "I may need to do a different cherrypick order for this, as the companion CL has a downstream conflict, but wanted to get review started now.\n\nHappy to move this gating logic elsewhere, this seemed like the simplest place to put it.",
       "revId": "1a969b351d5b4bb263ef1da38eb7c26dfdfd8ebb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "910377e3_3c8d750f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3380,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-06-15T20:05:39Z",
+      "side": 1,
+      "message": "I considered adding a verbose log here, but given the trace hook below I\u0027m not sure it\u0027s necessary for debugging.",
+      "revId": "1a969b351d5b4bb263ef1da38eb7c26dfdfd8ebb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
