@@ -22,6 +22,30 @@
       },
       "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4c71dc8_006a0320",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-06-15T11:09:02Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure about it, but I thought that Handle may have some overhead. And since this pointer is not needed except for comparing with the other host straight after assignment, I don\u0027t care if the Class object gets moved by the GC later on. For symmetry it may be nice to use Handle here as well, though I don\u0027t know what the overhead is.",
+      "parentUuid": "c4b2fbf5_2b0f62bc",
+      "range": {
+        "startLine": 2213,
+        "startChar": 2,
+        "endLine": 2213,
+        "endChar": 8
+      },
+      "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
