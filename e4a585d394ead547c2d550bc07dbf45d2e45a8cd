@@ -46,6 +46,30 @@
       },
       "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d14019f_c9271751",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-15T11:13:25Z",
+      "side": 1,
+      "message": "Do we need a Handle here? Or do we just need it for the `GetNestMembers` call in line 2223? We could keep both of this as `ObjPtr` and create the `Handle` only if we reach line 2223.",
+      "parentUuid": "b4c71dc8_006a0320",
+      "range": {
+        "startLine": 2213,
+        "startChar": 2,
+        "endLine": 2213,
+        "endChar": 8
+      },
+      "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
