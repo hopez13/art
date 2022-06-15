@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc177661_a11df832",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-15T11:18:52Z",
+      "side": 1,
+      "message": "FYI the CL is marked as WIP. Was this intentional?",
+      "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4b2fbf5_2b0f62bc",
@@ -86,6 +103,30 @@
       "side": 1,
       "message": "We need a Handle for the result of the first call to `GetNestHost` because the second call could trigger a GC move.",
       "parentUuid": "3d14019f_c9271751",
+      "range": {
+        "startLine": 2213,
+        "startChar": 2,
+        "endLine": 2213,
+        "endChar": 8
+      },
+      "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60a436ba_6a511df6",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2213,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-15T11:18:52Z",
+      "side": 1,
+      "message": "Ah I see. If the Handle creation is not that big of a deal, I\u0027d make them both handles for A) Symmetry, and B) future-proofing in case someone inserts code between the second `GetNestHost` and the use of `host_of_other`.\n\nNo strong opinion though, up to you.",
+      "parentUuid": "f830fdd6_681c2d38",
       "range": {
         "startLine": 2213,
         "startChar": 2,
