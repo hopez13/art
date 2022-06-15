@@ -118,6 +118,30 @@
       },
       "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "153f1aac_5835c059",
+        "filename": "build/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2022-06-15T20:51:32Z",
+      "side": 1,
+      "message": "Ah, right. That would only change the LOG_TAG for the dex2oat specific files, not the ones that had already been compiled into libart.so.  If you use the LOG_TAG approach, zygote and dex2oat will all have the \u0027art\u0027 log tag.\n\nIs that a problem though? It seems that most Java processes use LOG_TAG to differentiate the internal classes that generated the logs, since the pid can be used to filter logs by process. Are there some files within ART that are only used by either zygote or dex2oat that would benefit from more specific LOG_TAG within that file? The rest would remain as \u0027art\u0027.",
+      "parentUuid": "37029ef4_26af6347",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
