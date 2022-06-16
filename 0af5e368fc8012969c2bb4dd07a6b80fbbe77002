@@ -190,6 +190,30 @@
       },
       "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4c52d0d_7bf00a89",
+        "filename": "build/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-06-16T16:55:24Z",
+      "side": 1,
+      "message": "i actually thought that using the process name was a feature, because we used to have the opposite problem (similar to the \"all stacks that end in abort() get assigned to the libc team, who have to say \u0027you called abort, and we did what you asked\u0027\").\n\nbut we did leave this LOG_TAG stuff in specifically so teams could choose their poison (because, yeah, neither is ideal, and we don\u0027t let you store _both_, which is i think the core problem --- different people legitimately disagree about which is more important, not least because it can depend on \"what\u0027s the bug you\u0027re looking at?\").\n\n(the truncation is sad, though. personally i\u0027d rather fix that!)",
+      "parentUuid": "785a974a_d7ca6f98",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
