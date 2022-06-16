@@ -166,6 +166,30 @@
       },
       "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "785a974a_d7ca6f98",
+        "filename": "build/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2022-06-16T16:41:10Z",
+      "side": 1,
+      "message": "The issue if b/234733378 is not fixed is that it will lead to confusion, especially when developers (platform and potentially app developers) are on-boarded. Our team has many new-to-Android developers and some engineers whose only experience with Android is triaging failures, so confusion in the logs has been a big concern. In the app case, it would be a big help if logs emitted from ART were tagged as such. \n\nI understand the benefit of keeping dex2oat emitting `dex2oat` logs since many non-Java / non-App processes use a single tag for their logs. There are some options, though they\u0027re not too clean. I don\u0027t believe there\u0027s a restriction that LOG_TAG must be a literal, so a variable could be used in libart and set appropriately.\n\nI\u0027ll add enh@ here in case he sees something that I don\u0027t which would more easily allow the dex2oat case to stay as-is.",
+      "parentUuid": "7b615a96_6c9853f9",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
