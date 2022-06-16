@@ -142,6 +142,30 @@
       },
       "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b615a96_6c9853f9",
+        "filename": "build/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-16T08:20:02Z",
+      "side": 1,
+      "message": "I fail to really weigh the severity of b/234733378 compared to having \u0027art\u0027 as a log tag for most of our libraries. If b/234733378 really should be fixed, and we want this CL, then I\u0027m willing to accept the \"regression\" of dex2oat emitting \"art\" log tags.",
+      "parentUuid": "153f1aac_5835c059",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 153,
+        "endChar": 28
+      },
+      "revId": "0af5e368fc8012969c2bb4dd07a6b80fbbe77002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
