@@ -762,7 +762,14 @@ class ScopedCompilation {
         compilation_kind_(compilation_kind),
         owns_compilation_(true) {
     MutexLock mu(Thread::Current(), *Locks::jit_lock_);
-    if (jit_->GetCodeCache()->IsMethodBeingCompiled(method_, compilation_kind_)) {
+    // We don't want to enqueue any new tasks when thread pool has stopped. We stop thread pool when
+    // redefinition is in progress since the methods could be made obsolete and we don't want to
+    // compile them. We also want to avoid visiting these methods when replacing the old references
+    // (see HeapExtensions::ReplaceReferences)  which might cause unintended replacement of the
+    // declaring class.
+    if (jit_->GetThreadPool() == nullptr ||
+        !jit_->GetThreadPool()->HasStarted(Thread::Current()) ||
+        jit_->GetCodeCache()->IsMethodBeingCompiled(method_, compilation_kind_)) {
       owns_compilation_ = false;
       return;
     }
@@ -772,7 +779,6 @@ class ScopedCompilation {
   bool OwnsCompilation() const {
     return owns_compilation_;
   }
-
 
   ~ScopedCompilation() {
     if (owns_compilation_) {
