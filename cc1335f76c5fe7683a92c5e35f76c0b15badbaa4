@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebea9a65_5ceefaec",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-17T15:57:44Z",
+      "side": 1,
+      "message": "I forgot to pull in this fix from the other CL. For native methods we do want to install instrumentation entry point. They can never be in deoptimized list. InterpretOnly also returns false for mathod-\u003eIsNative. So ideally we could drop method-\u003eIsNative check but just kept it.",
+      "revId": "cc1335f76c5fe7683a92c5e35f76c0b15badbaa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
