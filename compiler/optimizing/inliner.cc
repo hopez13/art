@@ -1807,7 +1807,7 @@ void HInliner::SubstituteArguments(HGraph* callee_graph,
   // are more specific than the declared ones, run RTP again on the inner graph.
   if (run_rtp || ArgumentTypesMoreSpecific(invoke_instruction, resolved_method)) {
     ReferenceTypePropagation(callee_graph,
-                             outer_compilation_unit_.GetClassLoader(),
+                             dex_compilation_unit.GetClassLoader(),
                              dex_compilation_unit.GetDexCache(),
                              /* is_first_run= */ false).Run();
   }
