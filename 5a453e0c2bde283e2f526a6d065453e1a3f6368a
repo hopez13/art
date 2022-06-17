@@ -16,6 +16,52 @@
       "message": "Thanks! PTAL.",
       "revId": "5a453e0c2bde283e2f526a6d065453e1a3f6368a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ad0c14_c61c915c",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-17T13:37:31Z",
+      "side": 1,
+      "message": "I think this will also resolve the jitatfirstuse issue?",
+      "range": {
+        "startLine": 765,
+        "startChar": 0,
+        "endLine": 765,
+        "endChar": 74
+      },
+      "revId": "5a453e0c2bde283e2f526a6d065453e1a3f6368a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ec12773_3bac1460",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-17T13:37:31Z",
+      "side": 1,
+      "message": "Note: Lokesh will also clean this up as it also affects the new GC with double updation of the ArtMethod. So this comment is likely going to be stalled quickly. I suggest just saying this simplifies jvmti, which is the only user of pausing the JIT,",
+      "range": {
+        "startLine": 767,
+        "startChar": 21,
+        "endLine": 769,
+        "endChar": 23
+      },
+      "revId": "5a453e0c2bde283e2f526a6d065453e1a3f6368a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
