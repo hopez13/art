@@ -1776,6 +1776,9 @@ void Jit::MaybeEnqueueCompilation(ArtMethod* method, Thread* self) {
   if (!UseJitCompilation()) {
     return;
   }
+  if (method->IsMemorySharedMethod()) {
+    LOG(ERROR) << "INCREMENT FOR " << method->PrettyMethod();
+  }
 
   if (IgnoreSamplesForMethod(method)) {
     return;
