@@ -1805,6 +1805,7 @@ void Jit::MaybeEnqueueCompilation(ArtMethod* method, Thread* self) {
   static constexpr size_t kIndividualSharedMethodHotnessThreshold = 0xff;
   if (method->IsMemorySharedMethod()) {
     MutexLock mu(self, lock_);
+    LOG(ERROR) << "INCREMENT FOR " << method->PrettyMethod();
     auto it = shared_method_counters_.find(method);
     if (it == shared_method_counters_.end()) {
       shared_method_counters_[method] = kIndividualSharedMethodHotnessThreshold;
