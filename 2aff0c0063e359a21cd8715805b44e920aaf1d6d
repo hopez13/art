@@ -22,6 +22,30 @@
       },
       "revId": "2aff0c0063e359a21cd8715805b44e920aaf1d6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a4e66b7_f00dc6be",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 6
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-17T14:27:02Z",
+      "side": 1,
+      "message": "Discussed this offline. While this isn\u0027t essential it is good to keep this to make tests less flaky. This is also just a change in test script so safe to keep it.",
+      "parentUuid": "71b9b373_aedca89e",
+      "range": {
+        "startLine": 657,
+        "startChar": 35,
+        "endLine": 657,
+        "endChar": 37
+      },
+      "revId": "2aff0c0063e359a21cd8715805b44e920aaf1d6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
