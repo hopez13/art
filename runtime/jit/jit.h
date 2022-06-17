@@ -376,6 +376,18 @@ class Jit {
   // Start JIT threads.
   void Start();
 
+  // This is used to suspend jit which will also disallow enqueuing compilation tasks. This is set
+  // in ScopedJitSuspend which is used to suspend any JIT activity while redefining the class. We
+  // don't want to enqueue any new tasks while redefinition is in progress since the methods could
+  // be made obsolete and we don't want to compile them. We also want to avoid visiting these
+  // methods when replacing the old references (see HeapExtensions::ReplaceReferences)  which might
+  // cause unintended replacement of the declaring class.
+  void SetSuspend(bool val);
+
+  bool IsSuspended() REQUIRES(Locks::jit_lock_) {
+    return is_suspended_;
+  }
+
   // Transition to a child state.
   void PostForkChildAction(bool is_system_server, bool is_zygote);
 
@@ -518,6 +530,8 @@ class Jit {
   // Map of hotness counters for methods which we want to share the memory
   // between the zygote and apps.
   std::map<ArtMethod*, uint16_t> shared_method_counters_;
+
+  bool is_suspended_ GUARDED_BY(Locks::jit_lock_);
 
   friend class art::jit::JitCompileTask;
 

@@ -185,7 +185,8 @@ Jit::Jit(JitCodeCache* code_cache, JitOptions* options)
       lock_("JIT memory use lock"),
       zygote_mapping_methods_(),
       fd_methods_(-1),
-      fd_methods_size_(0) {}
+      fd_methods_size_(0),
+      is_suspended_(false) {}
 
 Jit* Jit::Create(JitCodeCache* code_cache, JitOptions* options) {
   if (jit_load_ == nullptr) {
@@ -762,7 +763,7 @@ class ScopedCompilation {
         compilation_kind_(compilation_kind),
         owns_compilation_(true) {
     MutexLock mu(Thread::Current(), *Locks::jit_lock_);
-    if (jit_->GetCodeCache()->IsMethodBeingCompiled(method_, compilation_kind_)) {
+    if (jit_->IsSuspended() || jit_->GetCodeCache()->IsMethodBeingCompiled(method_, compilation_kind_)) {
       owns_compilation_ = false;
       return;
     }
@@ -1577,10 +1578,16 @@ void Jit::Start() {
   GetThreadPool()->StartWorkers(Thread::Current());
 }
 
+void Jit::SetSuspend(bool val) {
+  MutexLock mu(Thread::Current(), *Locks::jit_lock_);
+  is_suspended_ = val;
+}
+
 ScopedJitSuspend::ScopedJitSuspend() {
   jit::Jit* jit = Runtime::Current()->GetJit();
   was_on_ = (jit != nullptr) && (jit->GetThreadPool() != nullptr);
   if (was_on_) {
+    jit->SetSuspend(true);
     jit->Stop();
   }
 }
@@ -1590,6 +1597,7 @@ ScopedJitSuspend::~ScopedJitSuspend() {
     DCHECK(Runtime::Current()->GetJit() != nullptr);
     DCHECK(Runtime::Current()->GetJit()->GetThreadPool() != nullptr);
     Runtime::Current()->GetJit()->Start();
+    Runtime::Current()->GetJit()->SetSuspend(false);
   }
 }
 
