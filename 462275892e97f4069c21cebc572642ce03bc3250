@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6c16520_ffc26361",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-17T13:28:05Z",
+      "side": 1,
+      "message": "is that obsolete?",
+      "range": {
+        "startLine": 628,
+        "startChar": 42,
+        "endLine": 628,
+        "endChar": 58
+      },
+      "revId": "462275892e97f4069c21cebc572642ce03bc3250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bdecd43_a4247f0c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-17T13:28:05Z",
+      "side": 1,
+      "message": "Does that cover the IsDeoptimized check?",
+      "range": {
+        "startLine": 1061,
+        "startChar": 7,
+        "endLine": 1061,
+        "endChar": 28
+      },
+      "revId": "462275892e97f4069c21cebc572642ce03bc3250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
