@@ -350,11 +350,18 @@ void DlMallocSpace::CheckMoreCoreForPrecondition() {
 }
 #endif
 
+struct MSpaceCbArgs {
+  size_t maxContiguous;
+  size_t used;
+};
+
 static void MSpaceChunkCallback(void* start, void* end, size_t used_bytes, void* arg) {
   size_t chunk_size = reinterpret_cast<uint8_t*>(end) - reinterpret_cast<uint8_t*>(start);
+  MSpaceCbArgs* mSpaceCbArgs = reinterpret_cast<MSpaceCbArgs*>(arg);
+  mSpaceCbArgs->used += used_bytes;
   if (used_bytes < chunk_size) {
     size_t chunk_free_bytes = chunk_size - used_bytes;
-    size_t& max_contiguous_allocation = *reinterpret_cast<size_t*>(arg);
+    size_t& max_contiguous_allocation = mSpaceCbArgs->maxContiguous;
     max_contiguous_allocation = std::max(max_contiguous_allocation, chunk_free_bytes);
   }
 }
@@ -362,16 +369,17 @@ static void MSpaceChunkCallback(void* start, void* end, size_t used_bytes, void*
 bool DlMallocSpace::LogFragmentationAllocFailure(std::ostream& os,
                                                  size_t failed_alloc_bytes) {
   Thread* const self = Thread::Current();
-  size_t max_contiguous_allocation = 0;
+  MSpaceCbArgs mSpaceCbArgs = {0, 0};
   // To allow the Walk/InspectAll() to exclusively-lock the mutator
   // lock, temporarily release the shared access to the mutator
   // lock here by transitioning to the suspended state.
   Locks::mutator_lock_->AssertSharedHeld(self);
   ScopedThreadSuspension sts(self, ThreadState::kSuspended);
-  Walk(MSpaceChunkCallback, &max_contiguous_allocation);
-  if (failed_alloc_bytes > max_contiguous_allocation) {
-    os << "; failed due to fragmentation (largest possible contiguous allocation "
-       <<  max_contiguous_allocation << " bytes)";
+  Walk(MSpaceChunkCallback, &mSpaceCbArgs);
+  if (failed_alloc_bytes > mSpaceCbArgs.maxContiguous) {
+    os << "; failed due to malloc_space fragmentation (largest possible contiguous allocation "
+       << mSpaceCbArgs.maxContiguous << " bytes, space in use " << mSpaceCbArgs.used
+       << " bytes, capacity = " << Capacity() << ")";
     return true;
   }
   return false;
