@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c04fb03b_2e7d4cc6",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-17T13:51:46Z",
+      "side": 1,
+      "message": "I am not so sure. Since jitatfirstuse also has other problems like they are running on regular java threads which are made to appear as runtime threads [1] and we only stop the threads from the thread worker pool in ScopedJitSuspend. There is no easy way to stop / wait for regular threads that are used on JItAtFirstUse. Also at some point during compilation we change to native which means SuspendAll may not suspend them too [2]. So I still think having 1 as threshold is a good fix for the moment. Even in future I think we should fix JitAtFirstUse to post threads via the worker pool and wait for them to finish instead of using java threads.\n\nI am also less confident that this fixes jitatfirstuse issues because the crashes that JitAtFirstUse fixed passed the check that all methods in the old class has old class as declaring class. It was crashing while executing which kind of suggests it was using wrong code. I am not totally sure.\n\n[1]https://cs.android.com/android/platform/superproject/+/master:art/runtime/jit/jit.cc;l\u003d1838;\n[2]https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/optimizing_compiler.cc;l\u003d1330",
+      "parentUuid": "d2ad0c14_c61c915c",
+      "range": {
+        "startLine": 765,
+        "startChar": 0,
+        "endLine": 765,
+        "endChar": 74
+      },
+      "revId": "5a453e0c2bde283e2f526a6d065453e1a3f6368a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ec12773_3bac1460",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2022-06-17T13:37:31Z",
       "side": 1,
       "message": "Note: Lokesh will also clean this up as it also affects the new GC with double updation of the ArtMethod. So this comment is likely going to be stalled quickly. I suggest just saying this simplifies jvmti, which is the only user of pausing the JIT,",
+      "range": {
+        "startLine": 767,
+        "startChar": 21,
+        "endLine": 769,
+        "endChar": 23
+      },
+      "revId": "5a453e0c2bde283e2f526a6d065453e1a3f6368a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebecebb9_40a106e5",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-17T13:51:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ec12773_3bac1460",
       "range": {
         "startLine": 767,
         "startChar": 21,
