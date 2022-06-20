@@ -34,6 +34,24 @@
       "parentUuid": "efc1f593_46b7b8e7",
       "revId": "7c05d3599a73a76de60bdf1273855391d34af8eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1acbd57b_1a7f4a36",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-20T08:30:06Z",
+      "side": 1,
+      "message": "Discussed offline - HasShouldDeoptimizeFlag is also use by CHA, and if there\u0027s no stub we\u0027ll just return true anwyay.",
+      "parentUuid": "75bcfd5d_a4610289",
+      "revId": "7c05d3599a73a76de60bdf1273855391d34af8eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -33,6 +33,24 @@
       "message": "We still need the check for MethodBeingInspected because that also includes a check if locals have been modified. That is related to the frame and method won\u0027t be deoptimized. I will have a followup CL to change the runtime callback to HaveLocalsChanged and only use IsDeoptimized for other ases.",
       "revId": "bc0318ab1496e2468223be3ad76738d7b8ee7579",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77fe04d_96b929f3",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-20T08:30:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8e068585_1a4be7f1",
+      "revId": "bc0318ab1496e2468223be3ad76738d7b8ee7579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
