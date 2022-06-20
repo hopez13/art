@@ -50,6 +50,9 @@ if [ -z "$ANDROID_BUILD_TOP" ]; then
     export ANDROID_BUILD_TOP=$oldwd
 fi
 
+# Ensure that the prebuilt python3 is on the PATH
+export PATH="${ANDROID_BUILD_TOP}/prebuilts/build-tools/path/linux-x86/:$PATH"
+
 # OUT_DIR defaults to out, and may be relative to $ANDROID_BUILD_TOP.
 # Convert it to an absolute path, since we cd into the tmp_dir to run the tests.
 export OUT_DIR=${OUT_DIR:-out}
