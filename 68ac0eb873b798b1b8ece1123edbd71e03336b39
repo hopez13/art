@@ -16,6 +16,24 @@
       "message": "Nicolas, when this eventually makes its way into a mainline update, I\u0027m wondering what the best way would be to gate its behavior? In particular, we probably want the older behavior on S (as we won\u0027t have the fixed behavior from ActivityThread for forwarding process state), so would it make sense to add an API/SDK check?",
       "revId": "68ac0eb873b798b1b8ece1123edbd71e03336b39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "892d7f84_5af42ab0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-20T08:43:09Z",
+      "side": 1,
+      "message": "Good point! You can use android_get_device_api_level() (see example in libartbase/base/membarrier.cc).",
+      "parentUuid": "f5bf0fe1_f8324daa",
+      "revId": "68ac0eb873b798b1b8ece1123edbd71e03336b39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
