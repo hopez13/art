@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9983ff2f_f49a65b0",
+        "filename": "runtime/gc/space/dlmalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-20T08:46:28Z",
+      "side": 1,
+      "message": "nit: max_contiguous ?",
+      "range": {
+        "startLine": 354,
+        "startChar": 9,
+        "endLine": 354,
+        "endChar": 22
+      },
+      "revId": "c49c746ed723887929dc3ff82347ed3a09d52c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f699587_c1edc007",
+        "filename": "runtime/gc/space/dlmalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-20T08:46:28Z",
+      "side": 1,
+      "message": "m_space_sb_args?",
+      "range": {
+        "startLine": 360,
+        "startChar": 16,
+        "endLine": 360,
+        "endChar": 28
+      },
+      "revId": "c49c746ed723887929dc3ff82347ed3a09d52c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3859daa_1a8b090c",
+        "filename": "runtime/gc/space/dlmalloc_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-20T08:46:28Z",
+      "side": 1,
+      "message": "m_space_cb_args?",
+      "range": {
+        "startLine": 372,
+        "startChar": 15,
+        "endLine": 372,
+        "endChar": 27
+      },
+      "revId": "c49c746ed723887929dc3ff82347ed3a09d52c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
