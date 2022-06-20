@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efc1f593_46b7b8e7",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-20T06:27:28Z",
+      "side": 1,
+      "message": "We cannot return from here. We should also expect JITed frames to have instrumentation stubs. For ex: we already have JITed frames on stack before moving to java debuggable. The logic around here is a bit of a problem since HasShouldDeoptimizeFlag is also true when we have CHA optimizations. We discussed this earlier and wanted to clean it up but it got missed. I will look into it now. This code doesn\u0027t exist in tm-dev.",
+      "revId": "7c05d3599a73a76de60bdf1273855391d34af8eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
