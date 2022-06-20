@@ -42,7 +42,8 @@ fi
 checker="${progdir}/../tools/checker/checker.py"
 export JAVA="java"
 export JAVAC="javac -g -Xlint:-options -source 1.8 -target 1.8"
-export RUN="${progdir}/etc/run-test-jar"
+export PYTHON3="${ANDROID_BUILD_TOP}/prebuilts/build-tools/path/linux-x86/python3"
+export RUN="${PYTHON3} ${progdir}/etc/run-test-jar"
 export DEX_LOCATION=/data/run-test/${test_dir}
 
 # ANDROID_BUILD_TOP is not set in a build environment.
