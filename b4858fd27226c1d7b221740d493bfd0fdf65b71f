@@ -16,6 +16,24 @@
       "message": "This CL seems empty; did you forget to add some files to it? :-)",
       "revId": "b4858fd27226c1d7b221740d493bfd0fdf65b71f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e8bdbc8_21632b44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-20T14:38:49Z",
+      "side": 1,
+      "message": "No, it\u0027s actually just this file being modified - line 51 has print as a statement (e.g., `print \"Hello!\"`) which is only supported in Python 2, which is now out of support; adding `from __future__ import print_function` as the first import changes the behaviour of `print` from statement to function, which is supported by both Python 2 and Python 3.",
+      "parentUuid": "7a43c0c5_36d23cbe",
+      "revId": "b4858fd27226c1d7b221740d493bfd0fdf65b71f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
