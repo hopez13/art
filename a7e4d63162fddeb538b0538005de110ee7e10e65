@@ -134,6 +134,24 @@
       "parentUuid": "e25ec1d3_f685fb59",
       "revId": "a7e4d63162fddeb538b0538005de110ee7e10e65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2587aa35_90185439",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-21T20:44:45Z",
+      "side": 1,
+      "message": "Oh I see! But then then HaveLocalsChanged should really be attached to a frame right? So today with your CL, it\u0027s only OSR that looks at HaveLocalsChanged?",
+      "parentUuid": "9bd31db0_9051ef85",
+      "revId": "a7e4d63162fddeb538b0538005de110ee7e10e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
