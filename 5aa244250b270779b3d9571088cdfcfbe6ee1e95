@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2355d4a1_06cfdbe3",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-21T21:08:16Z",
+      "side": 1,
+      "message": "Hmm, this looks suspicious - it\u0027s not just a few mistyped letters exactly.\n\nI\u0027m wondering if calin@ in https://r.android.com/1344281 actually intended to pass for_boot_image\u003dtrue to the ProfileCompilationInfo constructors instead. I can\u0027t say I\u0027ve fully understood this test, but it doesn\u0027t look like it\u0027s intended to check that the input_data1 and input_data2 above are correctly cleared if invalid.\n\nDoes the test still work if you move the true flags up to the constructors instead?",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48322071_05d6d9ad",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-21T21:08:16Z",
+      "side": 1,
+      "message": "I doubt this is still true. Could you please check if the proper constant works now?",
+      "range": {
+        "startLine": 229,
+        "startChar": 55,
+        "endLine": 230,
+        "endChar": 56
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
