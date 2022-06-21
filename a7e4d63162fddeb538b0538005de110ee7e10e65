@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f9ee8c_5085bff0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-21T15:04:57Z",
+      "side": 1,
+      "message": "We could, but as I mentioned in a later comment, I think we only need the have locals changed check only when OSRing because it is for that particular frame.",
+      "parentUuid": "d58915fa_7f610893",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 13
+      },
+      "revId": "a7e4d63162fddeb538b0538005de110ee7e10e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b63ae246_e572e669",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-06-21T14:13:45Z",
       "side": 1,
       "message": "Why do we not check if if locals have changed?",
+      "revId": "a7e4d63162fddeb538b0538005de110ee7e10e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44f3b122_c87dfe51",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-21T15:04:57Z",
+      "side": 1,
+      "message": "In my understanding we change locals for a particular frame on the stack. It shouldn\u0027t stop us from using JITed code in the new invocations. So that check is really only needed for OSR.",
+      "parentUuid": "88e24488_a76fb606",
       "revId": "a7e4d63162fddeb538b0538005de110ee7e10e65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
