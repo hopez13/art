@@ -16,6 +16,298 @@
       "message": "(the gerit diff isn\u0027t great; it might be easier to review Base-\u003ePS2 (just file moves) and then PS2-\u003ePS3 (actual changes))",
       "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3af06c00_051e289e",
+        "filename": "test/000-nop/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Maybe drop this?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 42
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0343c975_fc77523c",
+        "filename": "test/000-nop/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Nit: Add a newline at the end of the file.",
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0753929_49b0a853",
+        "filename": "test/089-many-methods/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Drop.",
+      "range": {
+        "startLine": 23,
+        "startChar": 48,
+        "endLine": 23,
+        "endChar": 53
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2a6c1ac_44ac8be1",
+        "filename": "test/370-dex-v37/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "This looks similar to `test/180-native-default-method/build.py`; consider refactoring this code in a shared function (maybe in a follow-up CL)?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 74
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a511ed03_dfe6732a",
+        "filename": "test/663-odd-dex-size2/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Maybe drop this?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 42
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06643248_bea49304",
+        "filename": "test/663-odd-dex-size2/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Nit: Add a newline at the end of the file.",
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85b0595f_30debd2d",
+        "filename": "test/663-odd-dex-size3/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Maybe drop this?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 42
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ed0c79b_16250b3e",
+        "filename": "test/663-odd-dex-size3/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Nit: Add a newline at the end of the file.",
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34f043b5_6971b5a8",
+        "filename": "test/663-odd-dex-size4/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Maybe drop this?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 42
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc96ac2_bc159c6d",
+        "filename": "test/663-odd-dex-size4/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Nit: Add a newline at the end of the file.",
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d6316b0_201041bb",
+        "filename": "test/952-invoke-custom/javac_wrapper.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Consider adding an explicit check for the presence of this file (maybe in a follow-up CL).",
+      "range": {
+        "startLine": 19,
+        "startChar": 16,
+        "endLine": 19,
+        "endChar": 74
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "298b5ec3_43621fa3",
+        "filename": "test/979-const-method-handle/javac_wrapper.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Consider adding an explicit check for the presence of this file (maybe in a follow-up CL).",
+      "range": {
+        "startLine": 19,
+        "startChar": 16,
+        "endLine": 19,
+        "endChar": 74
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f70e6d53_adad0f0e",
+        "filename": "test/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Why this change? In general, it\u0027s preferable to have named dependencies rather than depending on globbing, especially if they are in small number.",
+      "range": {
+        "startLine": 1850,
+        "startChar": 8,
+        "endLine": 1850,
+        "endChar": 15
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d2b570d_46dbe179",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-22T12:14:42Z",
+      "side": 1,
+      "message": "Do the changes in this script affect its output (i.e. does running `art/test/utils/regen-test-files` with or without this CL generate the same files)?",
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
