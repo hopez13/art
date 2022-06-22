@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b661ecab_2462f854",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-22T07:42:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69f9ee8c_5085bff0",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 13
+      },
+      "revId": "a7e4d63162fddeb538b0538005de110ee7e10e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b63ae246_e572e669",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -61,6 +85,23 @@
       "writtenOn": "2022-06-21T09:51:36Z",
       "side": 1,
       "message": "PTAL. Thanks!",
+      "revId": "a7e4d63162fddeb538b0538005de110ee7e10e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8610a344_b8e588c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-22T07:42:32Z",
+      "side": 1,
+      "message": "Thanks!",
       "revId": "a7e4d63162fddeb538b0538005de110ee7e10e65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -150,6 +191,24 @@
       "side": 1,
       "message": "Oh I see! But then then HaveLocalsChanged should really be attached to a frame right? So today with your CL, it\u0027s only OSR that looks at HaveLocalsChanged?",
       "parentUuid": "9bd31db0_9051ef85",
+      "revId": "a7e4d63162fddeb538b0538005de110ee7e10e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fefd2b9_51716682",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-22T07:42:32Z",
+      "side": 1,
+      "message": "Yes, it should be attached to frame which is why I think it is maintained as a global instead of frame specific (more context [1]). If we use FrameId then we should also reset this when frame has exited since we would reuse FrameIds. Since we are now only using it to avoid OSR I don\u0027t think it is super important. \n\n[1] https://cs.android.com/android/platform/superproject/+/master:art/openjdkjvmti/ti_method.cc",
+      "parentUuid": "2587aa35_90185439",
       "revId": "a7e4d63162fddeb538b0538005de110ee7e10e65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
