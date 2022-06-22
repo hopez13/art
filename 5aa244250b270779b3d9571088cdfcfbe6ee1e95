@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b0a91af_76356687",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-22T11:32:23Z",
+      "side": 1,
+      "message": "That\u0027s a good point - the constructor for ProfileCompilationInfo indeed accepts a boolean parameter called `for_boot_image` (false if not specified) - but I can see two overloads for the `Load` method, and none of them are compatible with removing this boolean parameter:\n\n```\n  bool Load(\n      int fd,\n      bool merge_classes \u003d true,\n      const ProfileLoadFilterFn\u0026 filter_fn \u003d ProfileFilterFnAcceptAll)\n...\n  bool Load(const std::string\u0026 filename, bool clear_if_invalid);\n```\n\nso moving the boolean attribute to the constructor will not compile.\n\nIn fact, I don\u0027t see any references to `boot_profile{N}` in the rest of test, and commenting out lines 1074-1077 makes the test still pass - is it possible they are not needed after all?",
+      "parentUuid": "2355d4a1_06cfdbe3",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48322071_05d6d9ad",
         "filename": "runtime/metrics/statsd.cc",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-21T21:08:16Z",
       "side": 1,
       "message": "I doubt this is still true. Could you please check if the proper constant works now?",
+      "range": {
+        "startLine": 229,
+        "startChar": 55,
+        "endLine": 230,
+        "endChar": 56
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "227e0d15_1a130d35",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-22T11:32:23Z",
+      "side": 1,
+      "message": "I imagine you are referring to\n\n```\nenum class ThreadType {\n  kMain,\n  kBackground,\n};\n```\n\nin `metrics.h` - I can see this definition but there seem to be no reference to this enum anywhere in the ART module; I think `static_cast\u003cint32_t\u003e(ThreadType::kMain)` should work fine (although the comment mentions that 0 should correspond to UNKNOWN but will correspond to the main thread instead).",
+      "parentUuid": "48322071_05d6d9ad",
       "range": {
         "startLine": 229,
         "startChar": 55,
