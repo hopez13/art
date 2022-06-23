@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6272f36_3c51fe62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-23T13:17:26Z",
+      "side": 1,
+      "message": "I didn\u0027t remove the logic that tries not to replace declaring class. I think it is safe to remove but will do it in a follow up CL. We are also using ReplaceReferences from HeapExtensions::ChangeArraySize : https://cs.android.com/android/platform/superproject/+/master:art/openjdkjvmti/ti_heap.cc;l\u003d1974.\n\nI don\u0027t think we need that logic there but I am not entirely sure.",
+      "revId": "c5066c80c3cf81e5943b428e6859c94ec50c8973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c7e928_852ea0d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-23T13:17:26Z",
+      "side": 1,
+      "message": "PTAL.  Thanks!",
+      "revId": "c5066c80c3cf81e5943b428e6859c94ec50c8973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
