@@ -33,6 +33,23 @@
       "message": "PTAL.  Thanks!",
       "revId": "c5066c80c3cf81e5943b428e6859c94ec50c8973",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66184339_b28fe65c",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2913,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-23T15:20:01Z",
+      "side": 1,
+      "message": "Can you then remove the code in ReplaceStrongRoots:\n\n```\n            if (jfri.GetVReg() \u003d\u003d art::JavaFrameRootInfo::kMethodDeclaringClass) {\n              info.Describe(VLOG_STREAM(plugin) \u003c\u003c \"Not changing declaring-class during stack\"\n                                                \u003c\u003c \" walk. Found obsolete java frame id \");\n              continue;\n```",
+      "revId": "c5066c80c3cf81e5943b428e6859c94ec50c8973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

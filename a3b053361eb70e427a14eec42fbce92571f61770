@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0548928f_0de67e10",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2937,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-23T15:20:01Z",
+      "side": 0,
+      "message": "I think you can still keep this? AS the loop will just be a no-op in debug build, but std::for_each probably doesn\u0027t know about it.",
+      "range": {
+        "startLine": 2937,
+        "startChar": 0,
+        "endLine": 2937,
+        "endChar": 27
+      },
+      "revId": "a3b053361eb70e427a14eec42fbce92571f61770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
