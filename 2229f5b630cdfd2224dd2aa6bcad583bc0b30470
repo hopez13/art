@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f5ad6c9_37b5aec3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1810,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-06-23T09:16:26Z",
+      "side": 0,
+      "message": "e.g. this was the wrong class loader. It should have been the `dex_compilation_unit`\u0027s class loader.",
+      "range": {
+        "startLine": 1810,
+        "startChar": 29,
+        "endLine": 1810,
+        "endChar": 52
+      },
+      "revId": "2229f5b630cdfd2224dd2aa6bcad583bc0b30470",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
