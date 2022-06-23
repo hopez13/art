@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c90a239_636f0fa9",
+        "filename": "test/000-nop/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3af06c00_051e289e",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 42
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0343c975_fc77523c",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50fe12a3_966003c3",
+        "filename": "test/000-nop/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0343c975_fc77523c",
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0753929_49b0a853",
@@ -71,6 +113,30 @@
       "writtenOn": "2022-06-22T12:14:42Z",
       "side": 1,
       "message": "Drop.",
+      "range": {
+        "startLine": 23,
+        "startChar": 48,
+        "endLine": 23,
+        "endChar": 53
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f819030b_f0bbfc44",
+        "filename": "test/089-many-methods/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0753929_49b0a853",
       "range": {
         "startLine": 23,
         "startChar": 48,
@@ -106,6 +172,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62d8bf9f_c8983f6c",
+        "filename": "test/370-dex-v37/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Yes (in a followup CL).  \n\nAlso, they are similar, but not exact.  I wanted to double check why in the future.\n\nAs is, I just wanted to preserve the bash behavior 1:1",
+      "parentUuid": "e2a6c1ac_44ac8be1",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 74
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a511ed03_dfe6732a",
         "filename": "test/663-odd-dex-size2/build.py",
         "patchSetId": 3
@@ -117,6 +207,30 @@
       "writtenOn": "2022-06-22T12:14:42Z",
       "side": 1,
       "message": "Maybe drop this?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 42
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0e01345_8ea6329e",
+        "filename": "test/663-odd-dex-size2/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a511ed03_dfe6732a",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -144,6 +258,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf2e35c9_631dbb31",
+        "filename": "test/663-odd-dex-size2/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06643248_bea49304",
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85b0595f_30debd2d",
@@ -157,6 +289,30 @@
       "writtenOn": "2022-06-22T12:14:42Z",
       "side": 1,
       "message": "Maybe drop this?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 42
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0fdd4e1_9002c176",
+        "filename": "test/663-odd-dex-size3/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85b0595f_30debd2d",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -184,6 +340,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ec83ef3_ddd84a9d",
+        "filename": "test/663-odd-dex-size3/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ed0c79b_16250b3e",
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34f043b5_6971b5a8",
@@ -207,6 +381,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f684b8bc_187ca17c",
+        "filename": "test/663-odd-dex-size4/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34f043b5_6971b5a8",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 42
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dc96ac2_bc159c6d",
@@ -220,6 +418,24 @@
       "writtenOn": "2022-06-22T12:14:42Z",
       "side": 1,
       "message": "Nit: Add a newline at the end of the file.",
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdbef045_b223355f",
+        "filename": "test/663-odd-dex-size4/build.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dc96ac2_bc159c6d",
       "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -293,6 +509,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10985ef9_e0aed18d",
+        "filename": "test/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "I was just worried about missing dependencies in the future.  It is easy to miss one and * help.  \n\nBut fair enough, explicit is the usual way.",
+      "parentUuid": "f70e6d53_adad0f0e",
+      "range": {
+        "startLine": 1850,
+        "startChar": 8,
+        "endLine": 1850,
+        "endChar": 15
+      },
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d2b570d_46dbe179",
@@ -306,6 +546,24 @@
       "writtenOn": "2022-06-22T12:14:42Z",
       "side": 1,
       "message": "Do the changes in this script affect its output (i.e. does running `art/test/utils/regen-test-files` with or without this CL generate the same files)?",
+      "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63ca7419_23ac0b49",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Yes, running the script produces the same output.  (no git diff)\n\n(I added preceding CL as the state currently isn\u0027t up to date in top of tree)",
+      "parentUuid": "4d2b570d_46dbe179",
       "revId": "7d41d33fc4ea21fc6c8b063403c1eaba76e3e0ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

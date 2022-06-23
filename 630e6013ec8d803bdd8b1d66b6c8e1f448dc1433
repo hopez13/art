@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0da60d65_e738263a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-23T11:04:07Z",
+      "side": 1,
+      "message": "Right, there are two answers, negligible and significant.\n\nAs it stands now, it is negligible.  The tests takes ages to build (300 cpu-minutes), and python startup time is tiny faction of the time.\n\nHowever, with RBE enabled (the followup CL), most of the javac and D8 invocations become a no-op.  Then python is the main thing that is left, and then the difference of this CL is significant.  (I think around 2x if memory serves)",
+      "parentUuid": "610b670d_5a3923b9",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 40
+      },
+      "revId": "630e6013ec8d803bdd8b1d66b6c8e1f448dc1433",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6065312f_ca3c9384",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
