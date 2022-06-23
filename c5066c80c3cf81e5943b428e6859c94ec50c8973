@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3b86f58_160e36b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-23T15:21:03Z",
+      "side": 1,
+      "message": "I agree I think it\u0027s safe to remove.",
+      "parentUuid": "a6272f36_3c51fe62",
+      "revId": "c5066c80c3cf81e5943b428e6859c94ec50c8973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b9c7e928_852ea0d6",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-06-23T15:20:01Z",
       "side": 1,
       "message": "Can you then remove the code in ReplaceStrongRoots:\n\n```\n            if (jfri.GetVReg() \u003d\u003d art::JavaFrameRootInfo::kMethodDeclaringClass) {\n              info.Describe(VLOG_STREAM(plugin) \u003c\u003c \"Not changing declaring-class during stack\"\n                                                \u003c\u003c \" walk. Found obsolete java frame id \");\n              continue;\n```",
+      "revId": "c5066c80c3cf81e5943b428e6859c94ec50c8973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7765273_fb086048",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2913,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-23T15:21:03Z",
+      "side": 1,
+      "message": "Ah nevermind, just saw your other comment.",
+      "parentUuid": "66184339_b28fe65c",
       "revId": "c5066c80c3cf81e5943b428e6859c94ec50c8973",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
