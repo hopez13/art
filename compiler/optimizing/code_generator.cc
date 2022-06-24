@@ -1340,8 +1340,9 @@ void CodeGenerator::RecordCatchBlockInfo() {
       continue;
     }
 
-    // Get the outer dex_pc
-    uint32_t outer_dex_pc = block->GetDexPc();
+    // Get the outer dex_pc. We save the full environment list for DCHECK purposes.
+    std::vector<uint32_t> dex_pc_list_for_verification;
+    dex_pc_list_for_verification.push_back(block->GetDexPc());
     DCHECK(block->GetFirstInstruction()->IsNop());
     DCHECK(block->GetFirstInstruction()->AsNop()->NeedsEnvironment());
     HEnvironment* const environment = block->GetFirstInstruction()->GetEnvironment();
@@ -1349,15 +1350,22 @@ void CodeGenerator::RecordCatchBlockInfo() {
     HEnvironment* outer_environment = environment;
     while (outer_environment->GetParent() != nullptr) {
       outer_environment = outer_environment->GetParent();
+      dex_pc_list_for_verification.push_back(outer_environment->GetDexPc());
     }
-    outer_dex_pc = outer_environment->GetDexPc();
+
+    // dex_pc_list_for_verification now it is set from innnermost to outermost. Let's reverse it
+    // since we are expected to pass from outermost to innermost.
+    std::reverse(dex_pc_list_for_verification.begin(), dex_pc_list_for_verification.end());
+    DCHECK_EQ(dex_pc_list_for_verification.front(), outer_environment->GetDexPc());
 
     uint32_t native_pc = GetAddressOf(block);
-    stack_map_stream->BeginStackMapEntry(outer_dex_pc,
+    stack_map_stream->BeginStackMapEntry(outer_environment->GetDexPc(),
                                          native_pc,
                                          /* register_mask= */ 0,
                                          /* sp_mask= */ nullptr,
-                                         StackMap::Kind::Catch);
+                                         StackMap::Kind::Catch,
+                                         /* needs_vreg_info= */ true,
+                                         dex_pc_list_for_verification);
 
     EmitEnvironment(environment,
                     /* slow_path= */ nullptr,
@@ -1556,8 +1564,8 @@ void CodeGenerator::EmitVRegInfoOnlyCatchPhis(HEnvironment* environment) {
           break;
         }
         default: {
-          // All catch phis must be allocated to a stack slot.
-          LOG(FATAL) << "Unexpected kind " << location.GetKind();
+          LOG(FATAL) << "All catch phis must be allocated to a stack slot. Unexpected kind "
+                     << location.GetKind();
           UNREACHABLE();
         }
       }
