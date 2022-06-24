@@ -140,6 +140,26 @@ uint32_t StackVisitor::GetDexPc(bool abort_on_failure) const {
   }
 }
 
+// Returns vector of the inlined dex pcs, in order from innermost to outermost but it replaces the
+// outermost one with `handler_dex_pc`. In essence, (innermost dex pc, mid dex pc #1, ..., mid dex
+// pc #n-1, `handler_dex_pc`)
+std::vector<uint32_t> StackVisitor::GetDexPcList(uint32_t handler_dex_pc) const {
+  if (cur_shadow_frame_ == nullptr && cur_quick_frame_ != nullptr && IsInInlinedFrame()) {
+    auto infos = GetCurrentInlineInfo()->GetInlineInfosOf(*GetCurrentStackMap());
+    DCHECK_NE(infos.size(), 0u);
+    std::vector<uint32_t> result;
+    // Note that we skip the last one since we want to insert the `handler_dex_pc`.
+    for (size_t index = 0; index < infos.size() - 1; --index) {
+      result.push_back(infos[index].GetDexPc());
+    }
+    result.push_back(handler_dex_pc);
+    return result;
+  }
+
+  // No inlined frames.
+  return {handler_dex_pc};
+}
+
 extern "C" mirror::Object* artQuickGetProxyThisObject(ArtMethod** sp)
     REQUIRES_SHARED(Locks::mutator_lock_);
 

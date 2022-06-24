@@ -20,6 +20,7 @@
 #include <limits>
 
 #include "arch/instruction_set.h"
+#include "base/array_ref.h"
 #include "base/bit_memory_region.h"
 #include "base/bit_table.h"
 #include "base/bit_utils.h"
@@ -409,12 +410,30 @@ class CodeInfo {
     return stack_maps_.GetInvalidRow();
   }
 
-  // Searches the stack map list backwards because catch stack maps are stored at the end.
-  StackMap GetCatchStackMapForDexPc(uint32_t dex_pc) const {
+  StackMap GetCatchStackMapForDexPc(ArrayRef<const uint32_t> dex_pcs) const {
+    // Searches the stack map list backwards because catch stack maps are stored at the end.
     for (size_t i = GetNumberOfStackMaps(); i > 0; --i) {
       StackMap stack_map = GetStackMapAt(i - 1);
-      if (stack_map.GetDexPc() == dex_pc && stack_map.GetKind() == StackMap::Kind::Catch) {
-        return stack_map;
+      if (UNLIKELY(stack_map.GetKind() != StackMap::Kind::Catch)) {
+        // Early break since we should have catch stack maps only at the end.
+        for (size_t j = i - 1; j > 0; --j) {
+          DCHECK(GetStackMapAt(j - 1).GetKind() != StackMap::Kind::Catch);
+        }
+        break;
+      }
+
+      // Both the hanlder dex_pc and all of the inline dex_pcs have to match.
+      if (stack_map.GetDexPc() == dex_pcs.back() &&
+          GetInlineInfosOf(stack_map).size() == dex_pcs.size() - 1) {
+        const BitTableRange<InlineInfo> inline_infos = GetInlineInfosOf(stack_map);
+        bool is_valid = true;
+        for (size_t inline_info_index = 0; inline_info_index < inline_infos.size() && is_valid;
+             ++inline_info_index) {
+          is_valid = inline_infos[inline_info_index].GetDexPc() == dex_pcs[inline_info_index];
+        }
+        if (is_valid) {
+          return stack_map;
+        }
       }
     }
     return stack_maps_.GetInvalidRow();

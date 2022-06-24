@@ -1341,7 +1341,8 @@ void CodeGenerator::RecordCatchBlockInfo() {
     }
 
     // Get the outer dex_pc
-    uint32_t outer_dex_pc = block->GetDexPc();
+    std::vector<uint32_t> dex_pc_list;
+    dex_pc_list.push_back(block->GetDexPc());
     DCHECK(block->GetFirstInstruction()->IsNop());
     DCHECK(block->GetFirstInstruction()->AsNop()->NeedsEnvironment());
     HEnvironment* const environment = block->GetFirstInstruction()->GetEnvironment();
@@ -1349,15 +1350,17 @@ void CodeGenerator::RecordCatchBlockInfo() {
     HEnvironment* outer_environment = environment;
     while (outer_environment->GetParent() != nullptr) {
       outer_environment = outer_environment->GetParent();
+      dex_pc_list.push_back(outer_environment->GetDexPc());
     }
-    outer_dex_pc = outer_environment->GetDexPc();
 
     uint32_t native_pc = GetAddressOf(block);
-    stack_map_stream->BeginStackMapEntry(outer_dex_pc,
+    stack_map_stream->BeginStackMapEntry(dex_pc_list.back(),
                                          native_pc,
                                          /* register_mask= */ 0,
                                          /* sp_mask= */ nullptr,
-                                         StackMap::Kind::Catch);
+                                         StackMap::Kind::Catch,
+                                         /* needs_vreg_info= */ true,
+                                         dex_pc_list);
 
     EmitEnvironment(environment, /* slow_path= */ nullptr);
 
