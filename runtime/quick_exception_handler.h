@@ -23,6 +23,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "deoptimization_kind.h"
+#include "dex_register_location.h"
 #include "stack_reference.h"
 
 namespace art {
@@ -166,6 +167,11 @@ class QuickExceptionHandler {
 
   void PrepareForLongJumpToInvokeStubOrInterpreterBridge()
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool IsAccessibleRegister(uint32_t reg, bool is_float) const;
+
+// TODO(solanes): Move this to protected? Move somewhere else?
+  bool SetRegisterIfAccessible(uint32_t reg, DexRegisterLocation::Kind location_kind, uint32_t val);
 
   DISALLOW_COPY_AND_ASSIGN(QuickExceptionHandler);
 };

@@ -17,6 +17,7 @@
 #include "quick_exception_handler.h"
 #include <ios>
 #include <queue>
+#include <vector>
 
 #include "arch/context.h"
 #include "art_method-inl.h"
@@ -274,6 +275,38 @@ static VRegKind ToVRegKind(DexRegisterLocation::Kind kind) {
       LOG(FATAL) << "Unexpected vreg location " << kind;
       UNREACHABLE();
   }
+
+}
+
+// We have the same methods in StackVisitor. Maybe move to a common place?
+bool QuickExceptionHandler::IsAccessibleRegister(uint32_t reg, bool is_float) const {
+  return is_float ? context_->IsAccessibleFPR(reg) : context_->IsAccessibleGPR(reg);
+}
+
+// TODO(solanes): Move this to protected? Move somewhere else?
+bool QuickExceptionHandler::SetRegisterIfAccessible(uint32_t reg,
+                                                    DexRegisterLocation::Kind location_kind,
+                                                    uint32_t val) {
+  const bool is_float = (location_kind == DexRegisterLocation::Kind::kInFpuRegister) ||
+                        (location_kind == DexRegisterLocation::Kind::kInFpuRegisterHigh);
+
+  if (kRuntimeISA == InstructionSet::kX86 && is_float) {
+    // X86 float registers are 64-bit and each XMM register is provided as two separate
+    // 32-bit registers by the context.
+    reg = (location_kind == DexRegisterLocation::Kind::kInFpuRegisterHigh) ? (2 * reg + 1) :
+                                                                             (2 * reg);
+  }
+
+  if (!IsAccessibleRegister(reg, is_float)) {
+    return false;
+  }
+
+  if (is_float) {
+    context_->SetFPR(reg, val);
+  } else {
+    context_->SetGPR(reg, val);
+  }
+  return true;
 }
 
 void QuickExceptionHandler::SetCatchEnvironmentForOptimizedHandler(StackVisitor* stack_visitor) {
@@ -307,39 +340,97 @@ void QuickExceptionHandler::SetCatchEnvironmentForOptimizedHandler(StackVisitor*
   DexRegisterMap throw_vreg_map = code_info.GetDexRegisterMapOf(throw_stack_map, throw_depth);
   DCHECK_EQ(throw_vreg_map.size(), catch_vreg_map.size());
 
+  // TODO(solanes): Do this in a better way.
+  const size_t catch_vreg_start =
+      catch_depth == 0 ? 0 : code_info.GetDexRegisterMapOf(catch_stack_map, catch_depth - 1).size();
+
   // Copy values between them.
-  for (uint16_t vreg = 0; vreg < catch_vreg_map.size(); ++vreg) {
-    DexRegisterLocation::Kind catch_location = catch_vreg_map[vreg].GetKind();
-    if (catch_location == DexRegisterLocation::Kind::kNone) {
+
+  // We are going to copy everything from the environment that it is not in the catch's environment.
+  // Since might have to move things between registers, the safe way to do it it is to save all the
+  // values and then store all the values. Otherwise, we might risk reading the wrong value. For
+  // example, if the throw's stack map is [x1,x2] and the catch is [x2,x1] we need to read both
+  // values before setting both values.
+  std::vector<uint32_t> values(catch_vreg_map.size());
+  for (size_t vreg = 0; vreg < catch_vreg_map.size(); ++vreg) {
+    using Kind = DexRegisterLocation::Kind;
+    Kind catch_location_kind = catch_vreg_map[vreg].GetKind();
+    if (catch_location_kind == Kind::kNone) {
       continue;
     }
-    DCHECK_EQ(catch_location, DexRegisterLocation::Kind::kInStack);
+
+    // vregs present in the catch's phis are expected to be in the stack.
+    if (vreg >= catch_vreg_start) {
+      DCHECK_EQ(catch_location_kind, Kind::kInStack);
+    }
+
+    if (catch_location_kind == Kind::kConstant) {
+      // We skip constants because the compiled code knows how to handle them.
+      // TODO(solanes): Can we skip them?
+      continue;
+    }
 
     // Get vreg value from its current location.
-    uint32_t vreg_value;
     VRegKind vreg_kind = ToVRegKind(throw_vreg_map[vreg].GetKind());
     DCHECK_NE(vreg_kind, kReferenceVReg)
         << "The fast path in GetVReg doesn't expect a kReferenceVReg";
 
-    bool get_vreg_success =
-        stack_visitor->GetVReg(stack_visitor->GetMethod(),
-                               vreg,
-                               vreg_kind,
-                               &vreg_value,
-                               throw_vreg_map[vreg],
-                               /* need_full_register_list= */ true);
+    bool get_vreg_success = stack_visitor->GetVReg(stack_visitor->GetMethod(),
+                                                   vreg,
+                                                   vreg_kind,
+                                                   &values[vreg],
+                                                   throw_vreg_map[vreg],
+                                                   /* need_full_register_list= */ true);
     CHECK(get_vreg_success) << "VReg " << vreg << " was optimized out ("
                             << "method=" << ArtMethod::PrettyMethod(stack_visitor->GetMethod())
                             << ", dex_pc=" << stack_visitor->GetDexPc() << ", "
                             << "native_pc_offset=" << stack_visitor->GetNativePcOffset() << ")";
-
-    // Copy value to the catch phi's stack slot.
-    int32_t slot_offset = catch_vreg_map[vreg].GetStackOffsetInBytes();
-    ArtMethod** frame_top = stack_visitor->GetCurrentQuickFrame();
-    uint8_t* slot_address = reinterpret_cast<uint8_t*>(frame_top) + slot_offset;
-    uint32_t* slot_ptr = reinterpret_cast<uint32_t*>(slot_address);
-    *slot_ptr = vreg_value;
   }
+
+
+  for (size_t vreg = 0; vreg < catch_vreg_map.size(); ++vreg) {
+    using Kind = DexRegisterLocation::Kind;
+    Kind catch_location_kind = catch_vreg_map[vreg].GetKind();
+    if (catch_location_kind == Kind::kNone) {
+      continue;
+    }
+
+    // vregs present in the catch's phis are expected to be in the stack.
+    if (vreg >= catch_vreg_start) {
+      DCHECK_EQ(catch_location_kind, Kind::kInStack);
+    }
+
+    if (catch_location_kind == Kind::kConstant) {
+      // We skip constants because the compiled code knows how to handle them.
+      // TODO(solanes): Can we skip them?
+      continue;
+    }
+
+    const uint32_t vreg_value = values[vreg];
+    // Copy value to the where the catch expects it
+    switch (catch_location_kind) {
+      case Kind::kInStack: {
+        int32_t slot_offset = catch_vreg_map[vreg].GetStackOffsetInBytes();
+        ArtMethod** frame_top = stack_visitor->GetCurrentQuickFrame();
+        uint8_t* slot_address = reinterpret_cast<uint8_t*>(frame_top) + slot_offset;
+        uint32_t* slot_ptr = reinterpret_cast<uint32_t*>(slot_address);
+        *slot_ptr = vreg_value;
+        break;
+      }
+      case Kind::kInRegister:
+      case Kind::kInRegisterHigh:
+      case Kind::kInFpuRegister:
+      case Kind::kInFpuRegisterHigh: {
+        SetRegisterIfAccessible(
+            catch_vreg_map[vreg].GetMachineRegister(), catch_location_kind, vreg_value);
+        break;
+      }
+      default: {
+        LOG(FATAL) << "Unexpected vreg location " << catch_location_kind;
+        UNREACHABLE();
+      }
+    }
+    }
 }
 
 // Prepares deoptimization.
