@@ -26,7 +26,6 @@ namespace art {
   const OatQuickMethodHeader* method_header = GetCurrentOatQuickMethodHeader();               \
   uintptr_t native_quick_pc = method_header->ToNativeQuickPc(GetMethod(),                     \
                                                  dex_pc,                                      \
-                                                 /* is_catch_handler */ false,                \
                                                  abort_if_not_found);                         \
   if (native_quick_pc != UINTPTR_MAX) {                                                       \
     CheckReferences(t,                                                                        \
