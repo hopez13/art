@@ -23,6 +23,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "deoptimization_kind.h"
+#include "dex_register_location.h"
 #include "stack_reference.h"
 
 namespace art {

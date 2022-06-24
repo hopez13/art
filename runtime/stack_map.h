@@ -373,6 +373,9 @@ class CodeInfo {
 
       uint32_t num_of_reg = (depth == 0)
           ? number_of_dex_registers_
+      // TODO(solanes): Should this one be
+      // : inline_infos_.GetRow(inline_info.Row() - 1).GetNumberOfDexRegisters();
+      // ?
           : GetInlineInfosOf(stack_map)[depth - 1].GetNumberOfDexRegisters();
 
       DexRegisterMap map(num_of_reg, DexRegisterLocation::Invalid());
