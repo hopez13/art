@@ -192,6 +192,12 @@ class StackVisitor {
 
   uint32_t GetDexPc(bool abort_on_failure = true) const REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Returns a vector of the inlined dex pcs, in order from outermost to innermost but it replaces
+  // the innermost one with `handler_dex_pc`. In essence, (outermost dex pc, mid dex pc #1, ..., mid
+  // dex pc #n-1, `handler_dex_pc`).
+  std::vector<uint32_t> ComputeDexPcList(uint32_t handler_dex_pc) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   ObjPtr<mirror::Object> GetThisObject() const REQUIRES_SHARED(Locks::mutator_lock_);
 
   size_t GetNativePcOffset() const REQUIRES_SHARED(Locks::mutator_lock_);
@@ -225,9 +231,8 @@ class StackVisitor {
                uint16_t vreg,
                VRegKind kind,
                uint32_t* val,
-               std::optional<DexRegisterLocation> location =
-                   std::optional<DexRegisterLocation>()) const
-      REQUIRES_SHARED(Locks::mutator_lock_);
+               std::optional<DexRegisterLocation> location = std::optional<DexRegisterLocation>(),
+               bool need_full_register_list = false) const REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool GetVRegPair(ArtMethod* m, uint16_t vreg, VRegKind kind_lo, VRegKind kind_hi,
                    uint64_t* val) const
@@ -262,6 +267,8 @@ class StackVisitor {
   bool IsInInlinedFrame() const {
     return !current_inline_frames_.empty();
   }
+
+  size_t InlineDepth() const { return current_inline_frames_.size(); }
 
   InlineInfo GetCurrentInlinedFrame() const {
     return current_inline_frames_.back();
@@ -334,7 +341,8 @@ class StackVisitor {
   bool GetVRegFromOptimizedCode(ArtMethod* m,
                                 uint16_t vreg,
                                 VRegKind kind,
-                                uint32_t* val) const
+                                uint32_t* val,
+                                bool need_full_register_list = false) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool GetVRegPairFromDebuggerShadowFrame(uint16_t vreg,
