@@ -412,6 +412,13 @@ void CodeGenerator::Compile(CodeAllocator* allocator) {
     for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
       HInstruction* current = it.Current();
       if (current->HasEnvironment()) {
+
+        // Catch StackMaps are dealt with later on in `RecordCatchBlockInfo`.
+        if (block->IsCatchBlock() && block->GetFirstInstruction() == current) {
+          DCHECK(current->IsNop());
+          continue;
+        }
+
         // Create stackmap for HNop or any instruction which calls native code.
         // Note that we need correct mapping for the native PC of the call instruction,
         // so the runtime's stackmap is not sufficient since it is at PC after the call.
@@ -1333,53 +1340,29 @@ void CodeGenerator::RecordCatchBlockInfo() {
       continue;
     }
 
-    uint32_t dex_pc = block->GetDexPc();
-    uint32_t num_vregs = graph_->GetNumberOfVRegs();
-    uint32_t native_pc = GetAddressOf(block);
+    // Get the outer dex_pc
+    uint32_t outer_dex_pc = block->GetDexPc();
+    DCHECK(block->GetFirstInstruction()->IsNop());
+    DCHECK(block->GetFirstInstruction()->AsNop()->NeedsEnvironment());
+    HEnvironment* const environment = block->GetFirstInstruction()->GetEnvironment();
+    DCHECK_NE(environment, nullptr);
+    HEnvironment* outer_environment = environment;
+    while (outer_environment->GetParent() != nullptr) {
+      outer_environment = outer_environment->GetParent();
+    }
+    outer_dex_pc = outer_environment->GetDexPc();
 
-    stack_map_stream->BeginStackMapEntry(dex_pc,
+    uint32_t native_pc = GetAddressOf(block);
+    stack_map_stream->BeginStackMapEntry(outer_dex_pc,
                                          native_pc,
                                          /* register_mask= */ 0,
                                          /* sp_mask= */ nullptr,
                                          StackMap::Kind::Catch);
 
-    HInstruction* current_phi = block->GetFirstPhi();
-    for (size_t vreg = 0; vreg < num_vregs; ++vreg) {
-      while (current_phi != nullptr && current_phi->AsPhi()->GetRegNumber() < vreg) {
-        HInstruction* next_phi = current_phi->GetNext();
-        DCHECK(next_phi == nullptr ||
-               current_phi->AsPhi()->GetRegNumber() <= next_phi->AsPhi()->GetRegNumber())
-            << "Phis need to be sorted by vreg number to keep this a linear-time loop.";
-        current_phi = next_phi;
-      }
-
-      if (current_phi == nullptr || current_phi->AsPhi()->GetRegNumber() != vreg) {
-        stack_map_stream->AddDexRegisterEntry(DexRegisterLocation::Kind::kNone, 0);
-      } else {
-        Location location = current_phi->GetLocations()->Out();
-        switch (location.GetKind()) {
-          case Location::kStackSlot: {
-            stack_map_stream->AddDexRegisterEntry(
-                DexRegisterLocation::Kind::kInStack, location.GetStackIndex());
-            break;
-          }
-          case Location::kDoubleStackSlot: {
-            stack_map_stream->AddDexRegisterEntry(
-                DexRegisterLocation::Kind::kInStack, location.GetStackIndex());
-            stack_map_stream->AddDexRegisterEntry(
-                DexRegisterLocation::Kind::kInStack, location.GetHighStackIndex(kVRegSize));
-            ++vreg;
-            DCHECK_LT(vreg, num_vregs);
-            break;
-          }
-          default: {
-            // All catch phis must be allocated to a stack slot.
-            LOG(FATAL) << "Unexpected kind " << location.GetKind();
-            UNREACHABLE();
-          }
-        }
-      }
-    }
+    EmitEnvironment(environment,
+                    /* slow_path= */ nullptr,
+                    /* needs_vreg_info= */ true,
+                    /* is_for_catch_handler= */ true);
 
     stack_map_stream->EndStackMapEntry();
   }
@@ -1538,9 +1521,53 @@ void CodeGenerator::EmitVRegInfo(HEnvironment* environment, SlowPathCode* slow_p
   }
 }
 
+void CodeGenerator::EmitVRegInfoOnlyCatchPhis(HEnvironment* environment) {
+  StackMapStream* stack_map_stream = GetStackMapStream();
+  DCHECK(environment->GetHolder()->GetBlock()->IsCatchBlock());
+  DCHECK_EQ(environment->GetHolder()->GetBlock()->GetFirstInstruction(), environment->GetHolder());
+  HInstruction* current_phi = environment->GetHolder()->GetBlock()->GetFirstPhi();
+  for (size_t vreg = 0; vreg < environment->Size(); ++vreg) {
+    while (current_phi != nullptr && current_phi->AsPhi()->GetRegNumber() < vreg) {
+      HInstruction* next_phi = current_phi->GetNext();
+      DCHECK(next_phi == nullptr ||
+             current_phi->AsPhi()->GetRegNumber() <= next_phi->AsPhi()->GetRegNumber())
+          << "Phis need to be sorted by vreg number to keep this a linear-time loop.";
+      current_phi = next_phi;
+    }
+
+    if (current_phi == nullptr || current_phi->AsPhi()->GetRegNumber() != vreg) {
+      stack_map_stream->AddDexRegisterEntry(DexRegisterLocation::Kind::kNone, 0);
+    } else {
+      Location location = current_phi->GetLocations()->Out();
+      switch (location.GetKind()) {
+        case Location::kStackSlot: {
+          stack_map_stream->AddDexRegisterEntry(DexRegisterLocation::Kind::kInStack,
+                                                location.GetStackIndex());
+          break;
+        }
+        case Location::kDoubleStackSlot: {
+          stack_map_stream->AddDexRegisterEntry(DexRegisterLocation::Kind::kInStack,
+                                                location.GetStackIndex());
+          stack_map_stream->AddDexRegisterEntry(DexRegisterLocation::Kind::kInStack,
+                                                location.GetHighStackIndex(kVRegSize));
+          ++vreg;
+          DCHECK_LT(vreg, environment->Size());
+          break;
+        }
+        default: {
+          // All catch phis must be allocated to a stack slot.
+          LOG(FATAL) << "Unexpected kind " << location.GetKind();
+          UNREACHABLE();
+        }
+      }
+    }
+  }
+}
+
 void CodeGenerator::EmitEnvironment(HEnvironment* environment,
                                     SlowPathCode* slow_path,
-                                    bool needs_vreg_info) {
+                                    bool needs_vreg_info,
+                                    bool is_for_catch_handler) {
   if (environment == nullptr) return;
 
   StackMapStream* stack_map_stream = GetStackMapStream();
@@ -1548,7 +1575,7 @@ void CodeGenerator::EmitEnvironment(HEnvironment* environment,
 
   if (emit_inline_info) {
     // We emit the parent environment first.
-    EmitEnvironment(environment->GetParent(), slow_path, needs_vreg_info);
+    EmitEnvironment(environment->GetParent(), slow_path, needs_vreg_info, is_for_catch_handler);
     stack_map_stream->BeginInlineInfoEntry(environment->GetMethod(),
                                            environment->GetDexPc(),
                                            needs_vreg_info ? environment->Size() : 0,
@@ -1556,9 +1583,13 @@ void CodeGenerator::EmitEnvironment(HEnvironment* environment,
                                            this);
   }
 
+  // If a dex register map is not required we just won't emit it.
   if (needs_vreg_info) {
-    // If a dex register map is not required we just won't emit it.
-    EmitVRegInfo(environment, slow_path);
+    if (is_for_catch_handler) {
+      EmitVRegInfoOnlyCatchPhis(environment);
+    } else {
+      EmitVRegInfo(environment, slow_path);
+    }
   }
 
   if (emit_inline_info) {
