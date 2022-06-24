@@ -16,6 +16,24 @@
       "message": "Do we want to disable it for all the of the above configuaritions?  Or just:\n\nif args.gcstress and args.debug:",
       "revId": "7cf46f7e6201449f30ebd3442dc87c85102dea35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3afd0a9b_7979ef4c",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2022-06-24T09:19:16Z",
+      "side": 1,
+      "message": "Only gcstress + debug, other configurations work fine",
+      "parentUuid": "9b60c130_1f80786d",
+      "revId": "7cf46f7e6201449f30ebd3442dc87c85102dea35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
