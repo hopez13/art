@@ -1583,8 +1583,10 @@ void CodeGenerator::EmitEnvironment(HEnvironment* environment,
   bool emit_inline_info = environment->GetParent() != nullptr;
 
   if (emit_inline_info) {
-    // We emit the parent environment first.
-    EmitEnvironment(environment->GetParent(), slow_path, needs_vreg_info, is_for_catch_handler);
+    // We emit the parent environment first. We set `is_for_catch_handler` as false every time since
+    // we don't inline try catches inside of other try catches.
+    EmitEnvironment(
+        environment->GetParent(), slow_path, needs_vreg_info, /* is_for_catch_handler= */ false);
     stack_map_stream->BeginInlineInfoEntry(environment->GetMethod(),
                                            environment->GetDexPc(),
                                            needs_vreg_info ? environment->Size() : 0,
