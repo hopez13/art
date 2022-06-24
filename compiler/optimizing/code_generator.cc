@@ -1604,7 +1604,9 @@ void CodeGenerator::EmitEnvironment(HEnvironment* environment,
       // this inline;s environment.
       DCHECK_GE(stack_map_stream->GetExpectedNumDexRegisters(), environment->Size());
       const size_t vreg_start = stack_map_stream->GetExpectedNumDexRegisters() - environment->Size();
-      EmitVRegInfoOnlyCatchPhis(environment, vreg_start);
+      // TODO(solanes): Should we always start at 0?
+      UNUSED(vreg_start);
+      EmitVRegInfoOnlyCatchPhis(environment, 0);
     } else {
       EmitVRegInfo(environment, slow_path);
     }
