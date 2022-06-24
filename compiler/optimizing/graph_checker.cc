@@ -532,17 +532,10 @@ void GraphChecker::VisitInstruction(HInstruction* instruction) {
                           instruction->GetId(),
                           current_block_->GetBlockId()));
   } else if (instruction->CanThrowIntoCatchBlock()) {
-    // Find the top-level environment. This corresponds to the environment of
-    // the catch block since we do not inline methods with try/catch.
-    HEnvironment* environment = instruction->GetEnvironment();
-    while (environment->GetParent() != nullptr) {
-      environment = environment->GetParent();
-    }
-
-    // Find all catch blocks and test that `instruction` has an environment
-    // value for each one.
+    // Find all catch blocks and test that `instruction` has an environment value for each one.
     const HTryBoundary& entry = instruction->GetBlock()->GetTryCatchInformation()->GetTryEntry();
     for (HBasicBlock* catch_block : entry.GetExceptionHandlers()) {
+      const HEnvironment* environment = catch_block->GetFirstInstruction()->GetEnvironment();
       for (HInstructionIterator phi_it(catch_block->GetPhis()); !phi_it.Done(); phi_it.Advance()) {
         HPhi* catch_phi = phi_it.Current()->AsPhi();
         if (environment->GetInstructionAt(catch_phi->GetRegNumber()) == nullptr) {
