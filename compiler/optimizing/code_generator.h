@@ -837,8 +837,10 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   void BlockIfInRegister(Location location, bool is_out = false) const;
   void EmitEnvironment(HEnvironment* environment,
                        SlowPathCode* slow_path,
-                       bool needs_vreg_info = true);
+                       bool needs_vreg_info = true,
+                       bool is_for_catch_handler = false);
   void EmitVRegInfo(HEnvironment* environment, SlowPathCode* slow_path);
+  void EmitVRegInfoOnlyCatchPhis(HEnvironment* environment);
 
   static void PrepareCriticalNativeArgumentMoves(
       HInvokeStaticOrDirect* invoke,
