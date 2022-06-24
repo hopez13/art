@@ -191,6 +191,8 @@ class StackVisitor {
   }
 
   uint32_t GetDexPc(bool abort_on_failure = true) const REQUIRES_SHARED(Locks::mutator_lock_);
+  std::vector<uint32_t> GetDexPcList(uint32_t handler_dex_pc) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   ObjPtr<mirror::Object> GetThisObject() const REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -261,6 +263,10 @@ class StackVisitor {
 
   bool IsInInlinedFrame() const {
     return !current_inline_frames_.empty();
+  }
+
+  size_t InlineDepth() const {
+    return current_inline_frames_.size();
   }
 
   InlineInfo GetCurrentInlinedFrame() const {

@@ -104,10 +104,13 @@ void StackMapStream::BeginStackMapEntry(uint32_t dex_pc,
                                         uint32_t register_mask,
                                         BitVector* stack_mask,
                                         StackMap::Kind kind,
-                                        bool needs_vreg_info) {
+                                        bool needs_vreg_info,
+                                        std::vector<uint32_t> dex_pc_list_for_catch_verification) {
   DCHECK(in_method_) << "Call BeginMethod first";
   DCHECK(!in_stack_map_) << "Mismatched Begin/End calls";
   in_stack_map_ = true;
+
+  DCHECK_IMPLIES(!dex_pc_list_for_catch_verification.empty(), kind == StackMap::Kind::Catch);
 
   current_stack_map_ = BitTableBuilder<StackMap>::Entry();
   current_stack_map_[StackMap::kKind] = static_cast<uint32_t>(kind);
@@ -149,7 +152,8 @@ void StackMapStream::BeginStackMapEntry(uint32_t dex_pc,
                                                                     instruction_set_);
         CHECK_EQ(stack_map.Row(), stack_map_index);
       } else if (kind == StackMap::Kind::Catch) {
-        StackMap stack_map = code_info.GetCatchStackMapForDexPc(dex_pc);
+        StackMap stack_map = code_info.GetCatchStackMapForDexPc(
+            ArrayRef<const uint32_t>(dex_pc_list_for_catch_verification));
         CHECK_EQ(stack_map.Row(), stack_map_index);
       }
       StackMap stack_map = code_info.GetStackMapAt(stack_map_index);
