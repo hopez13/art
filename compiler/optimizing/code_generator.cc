@@ -1340,8 +1340,9 @@ void CodeGenerator::RecordCatchBlockInfo() {
       continue;
     }
 
-    // Get the outer dex_pc
-    uint32_t outer_dex_pc = block->GetDexPc();
+    // Get the outer dex_pc. We save the full environment list for DCHECK purposes.
+    std::vector<uint32_t> dex_pc_list_for_verification;
+    dex_pc_list_for_verification.push_back(block->GetDexPc());
     DCHECK(block->GetFirstInstruction()->IsNop());
     DCHECK(block->GetFirstInstruction()->AsNop()->NeedsEnvironment());
     HEnvironment* const environment = block->GetFirstInstruction()->GetEnvironment();
@@ -1349,15 +1350,22 @@ void CodeGenerator::RecordCatchBlockInfo() {
     HEnvironment* outer_environment = environment;
     while (outer_environment->GetParent() != nullptr) {
       outer_environment = outer_environment->GetParent();
+      dex_pc_list_for_verification.push_back(outer_environment->GetDexPc());
     }
-    outer_dex_pc = outer_environment->GetDexPc();
+
+    // dex_pc_list_for_verification now it is set from innnermost to outermost. Let's reverse it
+    // since we are expected to pass from outermost to innermost.
+    std::reverse(dex_pc_list_for_verification.begin(), dex_pc_list_for_verification.end());
+    DCHECK_EQ(dex_pc_list_for_verification.front(), outer_environment->GetDexPc());
 
     uint32_t native_pc = GetAddressOf(block);
-    stack_map_stream->BeginStackMapEntry(outer_dex_pc,
+    stack_map_stream->BeginStackMapEntry(outer_environment->GetDexPc(),
                                          native_pc,
                                          /* register_mask= */ 0,
                                          /* sp_mask= */ nullptr,
-                                         StackMap::Kind::Catch);
+                                         StackMap::Kind::Catch,
+                                         /* needs_vreg_info= */ true,
+                                         dex_pc_list_for_verification);
 
     EmitEnvironment(environment,
                     /* slow_path= */ nullptr,
@@ -1521,12 +1529,13 @@ void CodeGenerator::EmitVRegInfo(HEnvironment* environment, SlowPathCode* slow_p
   }
 }
 
-void CodeGenerator::EmitVRegInfoOnlyCatchPhis(HEnvironment* environment) {
+void CodeGenerator::EmitVRegInfoOnlyCatchPhis(HEnvironment* environment, size_t vreg_start) {
   StackMapStream* stack_map_stream = GetStackMapStream();
   DCHECK(environment->GetHolder()->GetBlock()->IsCatchBlock());
   DCHECK_EQ(environment->GetHolder()->GetBlock()->GetFirstInstruction(), environment->GetHolder());
   HInstruction* current_phi = environment->GetHolder()->GetBlock()->GetFirstPhi();
-  for (size_t vreg = 0; vreg < environment->Size(); ++vreg) {
+  for (size_t i = 0; i < environment->Size(); ++i) {
+    const size_t vreg = vreg_start + i;
 
     while (current_phi != nullptr && current_phi->AsPhi()->GetRegNumber() < vreg) {
       HInstruction* next_phi = current_phi->GetNext();
@@ -1551,13 +1560,13 @@ void CodeGenerator::EmitVRegInfoOnlyCatchPhis(HEnvironment* environment) {
                                                 location.GetStackIndex());
           stack_map_stream->AddDexRegisterEntry(DexRegisterLocation::Kind::kInStack,
                                                 location.GetHighStackIndex(kVRegSize));
-          ++vreg;
-          DCHECK_LT(vreg, environment->Size());
+          ++i;
+          DCHECK_LT(i, environment->Size());
           break;
         }
         default: {
-          // All catch phis must be allocated to a stack slot.
-          LOG(FATAL) << "Unexpected kind " << location.GetKind();
+          LOG(FATAL) << "All catch phis must be allocated to a stack slot. Unexpected kind "
+                     << location.GetKind();
           UNREACHABLE();
         }
       }
@@ -1587,7 +1596,16 @@ void CodeGenerator::EmitEnvironment(HEnvironment* environment,
   // If a dex register map is not required we just won't emit it.
   if (needs_vreg_info) {
     if (is_for_catch_handler) {
-      EmitVRegInfoOnlyCatchPhis(environment);
+      // We want to emit the vreg that are relevant to just this inline info. They are the vregs in
+      // [ stack_map_stream->GetExpectedNumDexRegisters() - environment->Size(), ...,
+      // stack_map_stream->GetExpectedNumDexRegisters() ). For example if
+      // stack_map_stream->GetExpectedNumDexRegisters() = 3 and environment->Size() = 2 we want
+      // [1,2]. This is because vreg 0 was from the parent's environment and vregs 1 and 2 are from
+      // this inline's environment.
+      DCHECK_GE(stack_map_stream->GetExpectedNumDexRegisters(), environment->Size());
+      const size_t vreg_start =
+          stack_map_stream->GetExpectedNumDexRegisters() - environment->Size();
+      EmitVRegInfoOnlyCatchPhis(environment, vreg_start);
     } else {
       EmitVRegInfo(environment, slow_path);
     }
