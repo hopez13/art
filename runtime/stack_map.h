@@ -20,9 +20,11 @@
 #include <limits>
 
 #include "arch/instruction_set.h"
+#include "base/array_ref.h"
 #include "base/bit_memory_region.h"
 #include "base/bit_table.h"
 #include "base/bit_utils.h"
+#include "base/logging.h"
 #include "base/memory_region.h"
 #include "dex/dex_file_types.h"
 #include "dex_register_location.h"
@@ -360,9 +362,23 @@ class CodeInfo {
     return GetMethodInfoOf(inline_info).GetMethodIndex();
   }
 
-  ALWAYS_INLINE DexRegisterMap GetDexRegisterMapOf(StackMap stack_map) const {
+  // This method is used to grab the dex register map, from the outermost frame to the inlined
+  // frames indicated by `depth`.
+  // If `depth` is 0, grab just the registers from the outermost level (i.e.
+  // number_of_dex_registers_). If it is greater than 0, grab as many inline frames as `depth`
+  // indicates.
+  ALWAYS_INLINE DexRegisterMap GetDexRegisterMapOf(StackMap stack_map, uint32_t depth = 0) const {
     if (stack_map.HasDexRegisterMap()) {
-      DexRegisterMap map(number_of_dex_registers_, DexRegisterLocation::Invalid());
+      DCHECK_IMPLIES(depth != 0, stack_map.HasInlineInfoIndex());
+
+      uint32_t num_of_reg = (depth == 0)
+          ? number_of_dex_registers_
+      // TODO(solanes): Should this one be
+      // : inline_infos_.GetRow(inline_info.Row() - 1).GetNumberOfDexRegisters();
+      // ?
+          : GetInlineInfosOf(stack_map)[depth - 1].GetNumberOfDexRegisters();
+
+      DexRegisterMap map(num_of_reg, DexRegisterLocation::Invalid());
       DecodeDexRegisterMap(stack_map.Row(), /* first_dex_register= */ 0, &map);
       return map;
     }
@@ -409,12 +425,30 @@ class CodeInfo {
     return stack_maps_.GetInvalidRow();
   }
 
-  // Searches the stack map list backwards because catch stack maps are stored at the end.
-  StackMap GetCatchStackMapForDexPc(uint32_t dex_pc) const {
+  StackMap GetCatchStackMapForDexPc(ArrayRef<const uint32_t> dex_pcs) const {
+    // Searches the stack map list backwards because catch stack maps are stored at the end.
     for (size_t i = GetNumberOfStackMaps(); i > 0; --i) {
       StackMap stack_map = GetStackMapAt(i - 1);
-      if (stack_map.GetDexPc() == dex_pc && stack_map.GetKind() == StackMap::Kind::Catch) {
-        return stack_map;
+      if (UNLIKELY(stack_map.GetKind() != StackMap::Kind::Catch)) {
+        // Early break since we should have catch stack maps only at the end.
+        for (size_t j = i - 1; j > 0; --j) {
+          DCHECK(GetStackMapAt(j - 1).GetKind() != StackMap::Kind::Catch);
+        }
+        break;
+      }
+
+      // Both the handler dex_pc and all of the inline dex_pcs have to match.
+      if (stack_map.GetDexPc() == dex_pcs.front() &&
+          GetInlineInfosOf(stack_map).size() == dex_pcs.size() - 1) {
+        const BitTableRange<InlineInfo> inline_infos = GetInlineInfosOf(stack_map);
+        bool is_valid = true;
+        for (size_t inline_info_index = 0; inline_info_index < inline_infos.size() && is_valid;
+             ++inline_info_index) {
+          is_valid = inline_infos[inline_info_index].GetDexPc() == dex_pcs[inline_info_index + 1];
+        }
+        if (is_valid) {
+          return stack_map;
+        }
       }
     }
     return stack_maps_.GetInvalidRow();
