@@ -19,9 +19,11 @@
 
 #include <android-base/logging.h>
 
+#include "base/array_ref.h"
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "deoptimization_kind.h"
+#include "stack_map.h"
 #include "stack_reference.h"
 
 namespace art {
@@ -103,12 +105,20 @@ class QuickExceptionHandler {
     return *handler_quick_frame_;
   }
 
-  uint32_t GetHandlerDexPc() const {
-    return handler_dex_pc_;
+  ArrayRef<const uint32_t> GetHandlerDexPcList() const {
+    return ArrayRef<const uint32_t>(handler_dex_pc_list_);
   }
 
-  void SetHandlerDexPc(uint32_t dex_pc) {
-    handler_dex_pc_ = dex_pc;
+  void SetHandlerDexPcList(std::vector<uint32_t>&& handler_dex_pc_list) {
+    handler_dex_pc_list_ = std::move(handler_dex_pc_list);
+  }
+
+  StackMap GetCatchStackMap() const {
+    return catch_stack_map_;
+  }
+
+  void SetCatchStackMap(StackMap stack_map) {
+    catch_stack_map_ = stack_map;
   }
 
   bool GetClearException() const {
@@ -151,8 +161,11 @@ class QuickExceptionHandler {
   const OatQuickMethodHeader* handler_method_header_;
   // The value for argument 0.
   uintptr_t handler_quick_arg0_;
-  // The handler's dex PC, zero implies an uncaught exception.
-  uint32_t handler_dex_pc_;
+  // The handler's dex PC list including the inline dex_pcs. The dex_pcs are ordered from outermost
+  // to innermost. An empty list implies an uncaught exception.
+  std::vector<uint32_t> handler_dex_pc_list_;
+  // StackMap corresponding to the found catch.
+  StackMap catch_stack_map_;
   // Should the exception be cleared as the catch block has no move-exception?
   bool clear_exception_;
   // Frame depth of the catch handler or the upcall.
