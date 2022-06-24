@@ -1529,13 +1529,12 @@ void CodeGenerator::EmitVRegInfo(HEnvironment* environment, SlowPathCode* slow_p
   }
 }
 
-void CodeGenerator::EmitVRegInfoOnlyCatchPhis(HEnvironment* environment, size_t vreg_start) {
+void CodeGenerator::EmitVRegInfoOnlyCatchPhis(HEnvironment* environment) {
   StackMapStream* stack_map_stream = GetStackMapStream();
   DCHECK(environment->GetHolder()->GetBlock()->IsCatchBlock());
   DCHECK_EQ(environment->GetHolder()->GetBlock()->GetFirstInstruction(), environment->GetHolder());
   HInstruction* current_phi = environment->GetHolder()->GetBlock()->GetFirstPhi();
-  for (size_t i = 0; i < environment->Size(); ++i) {
-    const size_t vreg = vreg_start + i;
+  for (size_t vreg = 0; vreg < environment->Size(); ++vreg) {
 
     while (current_phi != nullptr && current_phi->AsPhi()->GetRegNumber() < vreg) {
       HInstruction* next_phi = current_phi->GetNext();
@@ -1560,8 +1559,8 @@ void CodeGenerator::EmitVRegInfoOnlyCatchPhis(HEnvironment* environment, size_t 
                                                 location.GetStackIndex());
           stack_map_stream->AddDexRegisterEntry(DexRegisterLocation::Kind::kInStack,
                                                 location.GetHighStackIndex(kVRegSize));
-          ++i;
-          DCHECK_LT(i, environment->Size());
+          ++vreg;
+          DCHECK_LT(vreg, environment->Size());
           break;
         }
         default: {
@@ -1584,8 +1583,9 @@ void CodeGenerator::EmitEnvironment(HEnvironment* environment,
   bool emit_inline_info = environment->GetParent() != nullptr;
 
   if (emit_inline_info) {
-    // We emit the parent environment first.
-    EmitEnvironment(environment->GetParent(), slow_path, needs_vreg_info, is_for_catch_handler);
+    // We emit the parent environment first. We set `is_for_catch_handler` as false every time since
+    // we don't inline try catches inside of other try catches.
+    EmitEnvironment(environment->GetParent(), slow_path, needs_vreg_info, /* is_for_catch_handler= */ false);
     stack_map_stream->BeginInlineInfoEntry(environment->GetMethod(),
                                            environment->GetDexPc(),
                                            needs_vreg_info ? environment->Size() : 0,
@@ -1596,16 +1596,7 @@ void CodeGenerator::EmitEnvironment(HEnvironment* environment,
   // If a dex register map is not required we just won't emit it.
   if (needs_vreg_info) {
     if (is_for_catch_handler) {
-      // We want to emit the vreg that are relevant to just this inline info. They are the vregs in
-      // [ stack_map_stream->GetExpectedNumDexRegisters() - environment->Size(), ...,
-      // stack_map_stream->GetExpectedNumDexRegisters() ). For example if
-      // stack_map_stream->GetExpectedNumDexRegisters() = 3 and environment->Size() = 2 we want
-      // [1,2]. This is because vreg 0 was from the parent's environment and vregs 1 and 2 are from
-      // this inline's environment.
-      DCHECK_GE(stack_map_stream->GetExpectedNumDexRegisters(), environment->Size());
-      const size_t vreg_start =
-          stack_map_stream->GetExpectedNumDexRegisters() - environment->Size();
-      EmitVRegInfoOnlyCatchPhis(environment, vreg_start);
+      EmitVRegInfoOnlyCatchPhis(environment);
     } else {
       EmitVRegInfo(environment, slow_path);
     }

@@ -321,13 +321,12 @@ void QuickExceptionHandler::SetCatchEnvironmentForOptimizedHandler(StackVisitor*
     DCHECK_NE(vreg_kind, kReferenceVReg)
         << "The fast path in GetVReg doesn't expect a kReferenceVReg";
 
-    bool get_vreg_success =
-        stack_visitor->GetVReg(stack_visitor->GetMethod(),
-                               vreg,
-                               vreg_kind,
-                               &vreg_value,
-                               throw_vreg_map[vreg],
-                               /* need_full_register_list= */ true);
+    bool get_vreg_success = stack_visitor->GetVReg(stack_visitor->GetMethod(),
+                                                   vreg,
+                                                   vreg_kind,
+                                                   &vreg_value,
+                                                   throw_vreg_map[vreg],
+                                                   /* need_full_register_list= */ true);
     CHECK(get_vreg_success) << "VReg " << vreg << " was optimized out ("
                             << "method=" << ArtMethod::PrettyMethod(stack_visitor->GetMethod())
                             << ", dex_pc=" << stack_visitor->GetDexPc() << ", "

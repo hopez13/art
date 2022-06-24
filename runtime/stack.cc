@@ -392,9 +392,8 @@ bool StackVisitor::GetRegisterIfAccessible(uint32_t reg,
   if (kRuntimeISA == InstructionSet::kX86 && is_float) {
     // X86 float registers are 64-bit and each XMM register is provided as two separate
     // 32-bit registers by the context.
-    reg = (location_kind == DexRegisterLocation::Kind::kInFpuRegisterHigh)
-        ? (2 * reg + 1)
-        : (2 * reg);
+    reg = (location_kind == DexRegisterLocation::Kind::kInFpuRegisterHigh) ? (2 * reg + 1) :
+                                                                             (2 * reg);
   }
 
   if (!IsAccessibleRegister(reg, is_float)) {
