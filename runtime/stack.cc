@@ -383,20 +383,26 @@ bool StackVisitor::GetVRegFromOptimizedCode(DexRegisterLocation location, uint32
   UNREACHABLE();
 }
 
-bool StackVisitor::GetRegisterIfAccessible(uint32_t reg,
-                                           DexRegisterLocation::Kind location_kind,
-                                           uint32_t* val) const {
+static uint32_t MaybeUpdateRegisterLocation(uint32_t reg, DexRegisterLocation::Kind location_kind) {
   const bool is_float = (location_kind == DexRegisterLocation::Kind::kInFpuRegister) ||
                         (location_kind == DexRegisterLocation::Kind::kInFpuRegisterHigh);
 
   if (kRuntimeISA == InstructionSet::kX86 && is_float) {
     // X86 float registers are 64-bit and each XMM register is provided as two separate
     // 32-bit registers by the context.
-    reg = (location_kind == DexRegisterLocation::Kind::kInFpuRegisterHigh)
-        ? (2 * reg + 1)
-        : (2 * reg);
+    reg = (location_kind == DexRegisterLocation::Kind::kInFpuRegisterHigh) ? (2 * reg + 1) :
+                                                                             (2 * reg);
   }
+  return reg;
+}
 
+bool StackVisitor::GetRegisterIfAccessible(uint32_t reg,
+                                           DexRegisterLocation::Kind location_kind,
+                                           uint32_t* val) const {
+  reg = MaybeUpdateRegisterLocation(reg, location_kind);
+
+  const bool is_float = (location_kind == DexRegisterLocation::Kind::kInFpuRegister) ||
+                        (location_kind == DexRegisterLocation::Kind::kInFpuRegisterHigh);
   if (!IsAccessibleRegister(reg, is_float)) {
     return false;
   }
@@ -409,6 +415,41 @@ bool StackVisitor::GetRegisterIfAccessible(uint32_t reg,
     ptr_val = static_cast<uintptr_t>(is_high ? High32Bits(value_long) : Low32Bits(value_long));
   }
   *val = ptr_val;
+  return true;
+}
+
+bool StackVisitor::SetRegisterIfAccessible(uint32_t reg,
+                                           DexRegisterLocation::Kind location_kind,
+                                           uint32_t val) {
+  reg = MaybeUpdateRegisterLocation(reg, location_kind);
+
+  const bool is_float = (location_kind == DexRegisterLocation::Kind::kInFpuRegister) ||
+                        (location_kind == DexRegisterLocation::Kind::kInFpuRegisterHigh);
+  if (!IsAccessibleRegister(reg, is_float)) {
+    return false;
+  }
+
+  uintptr_t final_value = val;
+  const bool target64 = Is64BitInstructionSet(kRuntimeISA);
+  if (target64) {
+    int64_t existing_value = static_cast<int64_t>(GetRegister(reg, is_float));
+    int64_t value_long = static_cast<int64_t>(val);
+    const bool is_high = (location_kind == DexRegisterLocation::Kind::kInRegisterHigh) ||
+                         (location_kind == DexRegisterLocation::Kind::kInFpuRegisterHigh);
+    if (is_high) {
+      // Set the high bits, while keeping the lower bits
+      final_value = ( (value_long << 32) | Low32Bits(existing_value));
+    } else {
+      // Set the low bits, while keeping the higher bits.
+      final_value = ( ((existing_value >> 32) << 32) | Low32Bits(value_long));
+    }
+  }
+
+  if (is_float) {
+    context_->SetFPR(reg, final_value);
+  } else {
+    context_->SetGPR(reg, final_value);
+  }
   return true;
 }
 

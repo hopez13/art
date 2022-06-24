@@ -253,6 +253,10 @@ class StackVisitor {
                    VRegKind kind_hi)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Values will be set in the context_.
+  bool SetRegisterIfAccessible(uint32_t reg, DexRegisterLocation::Kind location_kind, uint32_t val)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   uintptr_t* GetGPRAddress(uint32_t reg) const;
 
   uintptr_t GetReturnPc() const REQUIRES_SHARED(Locks::mutator_lock_);
