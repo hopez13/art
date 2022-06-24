@@ -40,7 +40,7 @@ public class Main {
     Foo f = sf;
     f.iField = 42;
     if (sf.iField != 42) {
-      throw new Error("Expected 42, got " + f.iField);
+      throw new Error("Expected 42, got " + sf.iField);
     }
   }
 
