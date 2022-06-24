@@ -231,5 +231,21 @@ std::string MethodType::PrettyDescriptor() {
   return ss.str();
 }
 
+std::string MethodType::GetSignature() {
+  std::ostringstream ss;
+  ss << "(";
+
+  const ObjPtr<ObjectArray<Class>> p_types = GetPTypes();
+  const int32_t params_length = p_types->GetLength();
+  std::string storage;
+  for (int32_t i = 0; i < params_length; ++i) {
+    ss << p_types->GetWithoutChecks(i)->GetDescriptor(&storage);
+  }
+
+  ss << ")" << GetRType()->GetDescriptor(&storage);
+
+  return ss.str();
+}
+
 }  // namespace mirror
 }  // namespace art

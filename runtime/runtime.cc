@@ -132,6 +132,7 @@
 #include "native/java_lang_Throwable.h"
 #include "native/java_lang_VMClassLoader.h"
 #include "native/java_lang_invoke_MethodHandle.h"
+#include "native/java_lang_invoke_MethodHandles.h"
 #include "native/java_lang_invoke_MethodHandleImpl.h"
 #include "native/java_lang_ref_FinalizerReference.h"
 #include "native/java_lang_ref_Reference.h"
@@ -2235,6 +2236,7 @@ void Runtime::RegisterRuntimeNativeMethods(JNIEnv* env) {
   register_java_lang_Class(env);
   register_java_lang_Object(env);
   register_java_lang_invoke_MethodHandle(env);
+  register_java_lang_invoke_MethodHandles_Lookup(env);
   register_java_lang_invoke_MethodHandleImpl(env);
   register_java_lang_ref_FinalizerReference(env);
   register_java_lang_reflect_Array(env);

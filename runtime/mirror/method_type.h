@@ -76,6 +76,9 @@ class MANAGED MethodType : public Object {
   // exception messages and the like.
   std::string PrettyDescriptor() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Returns the Java method signature.
+  std::string GetSignature() REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   static MemberOffset FormOffset() {
     return MemberOffset(OFFSETOF_MEMBER(MethodType, form_));
