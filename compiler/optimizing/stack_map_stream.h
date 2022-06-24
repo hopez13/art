@@ -90,6 +90,10 @@ class StackMapStream : public DeletableArenaObject<kArenaAllocStackMapStream> {
     return stack_maps_.size();
   }
 
+  size_t GetExpectedNumDexRegisters() const {
+    return expected_num_dex_registers_;
+  }
+
   uint32_t GetStackMapNativePcOffset(size_t i);
   void SetStackMapNativePcOffset(size_t i, uint32_t native_pc_offset);
 
