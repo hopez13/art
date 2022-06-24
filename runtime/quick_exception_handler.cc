@@ -20,6 +20,7 @@
 
 #include "arch/context.h"
 #include "art_method-inl.h"
+#include "base/array_ref.h"
 #include "base/enums.h"
 #include "base/globals.h"
 #include "base/logging.h"  // For VLOG_IS_ON.
@@ -56,7 +57,7 @@ QuickExceptionHandler::QuickExceptionHandler(Thread* self, bool is_deoptimizatio
       handler_quick_frame_pc_(0),
       handler_method_header_(nullptr),
       handler_quick_arg0_(0),
-      handler_dex_pc_(0),
+      handler_dex_pc_list_(0),
       clear_exception_(false),
       handler_frame_depth_(kInvalidFrameDepth),
       full_fragment_done_(false) {}
@@ -133,10 +134,10 @@ class CatchBlockStackVisitor final : public StackVisitor {
       uint32_t found_dex_pc = method->FindCatchBlock(to_find, dex_pc, &clear_exception);
       exception_handler_->SetClearException(clear_exception);
       if (found_dex_pc != dex::kDexNoIndex) {
-        exception_handler_->SetHandlerDexPc(found_dex_pc);
+        exception_handler_->SetHandlerDexPcList(GetDexPcList(found_dex_pc));
         exception_handler_->SetHandlerQuickFramePc(
             GetCurrentOatQuickMethodHeader()->ToNativeQuickPc(
-                method, found_dex_pc, /* is_for_catch_handler= */ true));
+                method, exception_handler_->GetHandlerDexPcList()));
         exception_handler_->SetHandlerQuickFrame(GetCurrentQuickFrame());
         exception_handler_->SetHandlerMethodHeader(GetCurrentOatQuickMethodHeader());
         return false;  // End stack walk.
@@ -215,8 +216,9 @@ void QuickExceptionHandler::FindCatch(ObjPtr<mirror::Throwable> exception,
       }
       if (GetHandlerMethod() != nullptr) {
         const DexFile* dex_file = GetHandlerMethod()->GetDexFile();
+        DCHECK_GE(handler_dex_pc_list_.size(), 1u);
         int line_number =
-            annotations::GetLineNumFromPC(dex_file, GetHandlerMethod(), handler_dex_pc_);
+            annotations::GetLineNumFromPC(dex_file, GetHandlerMethod(), handler_dex_pc_list_.back());
         LOG(INFO) << "Handler: " << GetHandlerMethod()->PrettyMethod() << " (line: "
                   << line_number << ")";
       }
@@ -283,15 +285,15 @@ void QuickExceptionHandler::SetCatchEnvironmentForOptimizedHandler(StackVisitor*
     self_->DumpStack(LOG_STREAM(INFO) << "Setting catch phis: ");
   }
 
-  CodeItemDataAccessor accessor(GetHandlerMethod()->DexInstructionData());
-  const size_t number_of_vregs = accessor.RegistersSize();
   CodeInfo code_info(handler_method_header_);
 
   // Find stack map of the catch block.
-  StackMap catch_stack_map = code_info.GetCatchStackMapForDexPc(GetHandlerDexPc());
+  ArrayRef<const uint32_t> dex_pc_list = GetHandlerDexPcList();
+  DCHECK_GE(dex_pc_list.size(), 1u);
+  StackMap catch_stack_map = code_info.GetCatchStackMapForDexPc(dex_pc_list);
   DCHECK(catch_stack_map.IsValid());
-  DexRegisterMap catch_vreg_map = code_info.GetDexRegisterMapOf(catch_stack_map);
-  DCHECK_EQ(catch_vreg_map.size(), number_of_vregs);
+  const uint32_t catch_depth = dex_pc_list.size() - 1;
+  DexRegisterMap catch_vreg_map = code_info.GetDexRegisterMapOf(catch_stack_map, catch_depth);
 
   if (!catch_vreg_map.HasAnyLiveDexRegisters()) {
     return;
@@ -301,26 +303,43 @@ void QuickExceptionHandler::SetCatchEnvironmentForOptimizedHandler(StackVisitor*
   StackMap throw_stack_map =
       code_info.GetStackMapForNativePcOffset(stack_visitor->GetNativePcOffset());
   DCHECK(throw_stack_map.IsValid());
-  DexRegisterMap throw_vreg_map = code_info.GetDexRegisterMapOf(throw_stack_map);
-  DCHECK_EQ(throw_vreg_map.size(), number_of_vregs);
+  const uint32_t throw_depth = stack_visitor->InlineDepth();
+  DexRegisterMap throw_vreg_map = code_info.GetDexRegisterMapOf(throw_stack_map, throw_depth);
+  DCHECK_EQ(throw_vreg_map.size(), catch_vreg_map.size());
+
+  // First vreg that it is part of the catch's environment.
+  const size_t catch_vreg_start =
+      catch_depth == 0 ? 0 : code_info.GetDexRegisterMapOf(catch_stack_map, catch_depth - 1).size();
 
   // Copy values between them.
-  for (uint16_t vreg = 0; vreg < number_of_vregs; ++vreg) {
-    DexRegisterLocation::Kind catch_location = catch_vreg_map[vreg].GetKind();
-    if (catch_location == DexRegisterLocation::Kind::kNone) {
+  for (size_t vreg = 0; vreg < catch_vreg_map.size(); ++vreg) {
+    DexRegisterLocation::Kind catch_location_kind = catch_vreg_map[vreg].GetKind();
+    if (catch_location_kind == DexRegisterLocation::Kind::kNone) {
       continue;
     }
-    DCHECK(catch_location == DexRegisterLocation::Kind::kInStack);
+
+    // We skip constants because the compiled code knows how to handle them.
+    if (catch_location_kind == DexRegisterLocation::Kind::kConstant) {
+      DCHECK_LT(vreg, catch_vreg_start) << "Constants are expected only for the parent's "
+                                           "environment, not for the catch's environment";
+      continue;
+    }
+
+    DCHECK_EQ(catch_location_kind, DexRegisterLocation::Kind::kInStack);
 
     // Get vreg value from its current location.
     uint32_t vreg_value;
     VRegKind vreg_kind = ToVRegKind(throw_vreg_map[vreg].GetKind());
+    DCHECK_NE(vreg_kind, kReferenceVReg)
+        << "The fast path in GetVReg doesn't expect a kReferenceVReg";
+
     bool get_vreg_success =
         stack_visitor->GetVReg(stack_visitor->GetMethod(),
                                vreg,
                                vreg_kind,
                                &vreg_value,
-                               throw_vreg_map[vreg]);
+                               throw_vreg_map[vreg],
+                               /* need_full_register_list= */ true);
     CHECK(get_vreg_success) << "VReg " << vreg << " was optimized out ("
                             << "method=" << ArtMethod::PrettyMethod(stack_visitor->GetMethod())
                             << ", dex_pc=" << stack_visitor->GetDexPc() << ", "
@@ -700,8 +719,9 @@ void QuickExceptionHandler::DoLongJump(bool smash_caller_saves) {
   if (!is_deoptimization_ &&
       handler_method_header_ != nullptr &&
       handler_method_header_->IsNterpMethodHeader()) {
+    DCHECK_GE(handler_dex_pc_list_.size(), 1u);
     context_->SetNterpDexPC(reinterpret_cast<uintptr_t>(
-        GetHandlerMethod()->DexInstructions().Insns() + handler_dex_pc_));
+        GetHandlerMethod()->DexInstructions().Insns() + handler_dex_pc_list_.back()));
   }
   context_->DoLongJump();
   UNREACHABLE();
