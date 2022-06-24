@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "899bdb95_4bb8c7ad",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-24T15:34:26Z",
+      "side": 1,
+      "message": "\u003e In fact, I don\u0027t see any references to  boot_profile{N}  in the rest of test, and commenting out lines 1074-1077 makes the test still pass - is it possible they are not needed after all?\n\nHuh, right. Since the test talks about testing boot profiles but instead uses (non-\"boot\") profile{N} below I wonder if there may be more typos here. Clearly one of the two init blocks in 1063-1076 is a forgotten leftover or cut\u0027n\u0027paste artifact.\n\nYou may be right, but it still would be good to make a call from fully understanding the test.",
+      "parentUuid": "e31096b2_320ba062",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48322071_05d6d9ad",
         "filename": "runtime/metrics/statsd.cc",
         "patchSetId": 1
