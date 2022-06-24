@@ -34,6 +34,24 @@
       "parentUuid": "9b60c130_1f80786d",
       "revId": "7cf46f7e6201449f30ebd3442dc87c85102dea35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27463fa9_80313a64",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-06-24T11:05:39Z",
+      "side": 1,
+      "message": "This CL disables it for debug (non-gcstress) configurations as well.\n\nAnyway, let\u0027s hope we can fix vogar, and revert this soon, right?",
+      "parentUuid": "3afd0a9b_7979ef4c",
+      "revId": "7cf46f7e6201449f30ebd3442dc87c85102dea35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
