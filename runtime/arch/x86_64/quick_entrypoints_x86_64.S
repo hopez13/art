@@ -2174,7 +2174,16 @@ DEFINE_FUNCTION art_quick_method_exit_hook
     movq %gs:THREAD_SELF_OFFSET, %rdi           // Thread::Current
     call SYMBOL(artMethodExitHook)              // (Thread*, SP, gpr_res*, fpr_res*)
 
+    cmpq LITERAL(1), %rax
+    CFI_REMEMBER_STATE
+    je .Ldo_deliver_instrumentation_exception_exit
+
     // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
+
+.Ldo_deliver_instrumentation_exception_exit:
+  CFI_RESTORE_STATE_AND_DEF_CFA rsp, FRAME_SIZE_SAVE_EVERYTHING
+  DELIVER_PENDING_EXCEPTION_FRAME_READY
+
 END_FUNCTION art_quick_method_entry_hook

@@ -304,6 +304,26 @@ void Thread::AssertHasDeoptimizationContext() {
       << "No deoptimization context for thread " << *this;
 }
 
+void Thread::PushMethodExitExceptionContext(ObjPtr<mirror::Throwable> exception) {
+  JValue return_value;
+  DeoptimizationContextRecord* record = new DeoptimizationContextRecord(
+      return_value,
+      /* is_ref= */ false,
+      /* from_code= */ false,
+      exception,
+      DeoptimizationMethodType::kDefault,
+      tlsPtr_.deoptimization_context_stack);
+  tlsPtr_.deoptimization_context_stack = record;
+}
+
+void Thread::PopMethodExitExceptionContext(ObjPtr<mirror::Throwable>* exception) {
+  AssertHasDeoptimizationContext();
+  DeoptimizationContextRecord* record = tlsPtr_.deoptimization_context_stack;
+  tlsPtr_.deoptimization_context_stack = record->GetLink();
+  *exception = record->GetPendingException();
+  delete record;
+}
+
 enum {
   kPermitAvailable = 0,  // Incrementing consumes the permit
   kNoPermit = 1,  // Incrementing marks as waiter waiting
@@ -3592,6 +3612,7 @@ void Thread::DumpThreadOffset(std::ostream& os, uint32_t offset) {
   QUICK_ENTRY_POINT_INFO(pAputObject)
   QUICK_ENTRY_POINT_INFO(pJniMethodStart)
   QUICK_ENTRY_POINT_INFO(pJniMethodEnd)
+  QUICK_ENTRY_POINT_INFO(pJniMethodEntryHook)
   QUICK_ENTRY_POINT_INFO(pJniDecodeReferenceResult)
   QUICK_ENTRY_POINT_INFO(pJniLockObject)
   QUICK_ENTRY_POINT_INFO(pJniUnlockObject)
@@ -3709,7 +3730,7 @@ void Thread::DumpThreadOffset(std::ostream& os, uint32_t offset) {
   os << offset;
 }
 
-void Thread::QuickDeliverException(bool is_method_exit_exception) {
+void Thread::QuickDeliverException() {
   // Get exception from thread.
   ObjPtr<mirror::Throwable> exception = GetException();
   CHECK(exception != nullptr);
@@ -3719,6 +3740,18 @@ void Thread::QuickDeliverException(bool is_method_exit_exception) {
     ClearException();
     artDeoptimize(this);
     UNREACHABLE();
+  }
+
+  bool is_method_exit_exception = false;
+  if (exception == GetMethodExitException()) {
+    // This is a fake exception to indicate the exception happened during a method exit and method
+    // unwind callbacks shouldn't be called for the method on top of the stack. Get the real
+    // exception from deoptimization stack.
+    ClearException();
+    is_method_exit_exception = true;
+    PopMethodExitExceptionContext(&exception);
+    CHECK(exception != GetMethodExitException() && exception != GetDeoptimizationException());
+    SetException(exception);
   }
 
   ReadBarrier::MaybeAssertToSpaceInvariant(exception.Ptr());
