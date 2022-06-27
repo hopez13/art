@@ -210,6 +210,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c6ff508_4783cc9d",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-27T08:41:42Z",
+      "side": 1,
+      "message": "See the explanation on the other occurrence.",
+      "parentUuid": "0ad0eb0b_10512390",
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e54393c_84d628f0",
         "filename": "runtime/oat_file.h",
         "patchSetId": 1
@@ -221,6 +239,24 @@
       "writtenOn": "2022-06-24T17:24:40Z",
       "side": 1,
       "message": "I\u0027m not sure before and after mean the same thing here.",
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f040f406_8af17c3a",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-27T08:41:42Z",
+      "side": 1,
+      "message": "I agree with you that before and after look quite different, but there\u0027s only one constructor for the `OatClass` class, and it\u0027s clear that the fourth argument for that constructor is the number of methods for the class:\n\n```\nprivate:\n    OatClass(const OatFile* oat_file,\n             ClassStatus status,\n             OatClassType type,\n             uint32_t num_methods,\n             const uint32_t* bitmap_pointer,\n             const OatMethodOffsets* methods_pointer);\n            \n...\n\nOatFile::OatClass::OatClass(const OatFile* oat_file,\n                            ClassStatus status,\n                            OatClassType type,\n                            uint32_t num_methods,\n                            const uint32_t* bitmap_pointer,\n                            const OatMethodOffsets* methods_pointer)\n    : oat_file_(oat_file),\n      status_(status),\n      type_(type),\n      num_methods_(num_methods),\n      bitmap_(bitmap_pointer),\n      methods_pointer_(methods_pointer) {\n  DCHECK_EQ(num_methods !\u003d 0u, type !\u003d OatClassType::kNoneCompiled);\n  DCHECK_EQ(bitmap_pointer !\u003d nullptr, type \u003d\u003d OatClassType::kSomeCompiled);\n  DCHECK_EQ(methods_pointer !\u003d nullptr, type !\u003d OatClassType::kNoneCompiled);\n} \n```\n\nLooking at the Git history (https://android-review.googlesource.com/c/platform/art/+/1683151), I can see that argument used to be called `bitmap_size` and was renamed to `num_methods`, so possibly it hasn\u0027t been changed during the rename.",
+      "parentUuid": "9e54393c_84d628f0",
       "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
