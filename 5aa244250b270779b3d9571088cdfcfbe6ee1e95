@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a84de0b3_00557dd9",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-27T11:00:23Z",
+      "side": 1,
+      "message": "IIUC, this test creates two input profiles (`profile1` and `profile2`), and then merges them into one profile (`out_profile`). This can be done without line 1074-1077. Maybe we should remove these lines and see if the test still passes? Martin, WDYT?",
+      "parentUuid": "3aff79e7_a8d8765f",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48322071_05d6d9ad",
         "filename": "runtime/metrics/statsd.cc",
         "patchSetId": 1
@@ -226,6 +250,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30baadc3_ac6bc649",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-27T11:00:23Z",
+      "side": 1,
+      "message": "I guess  /* num_methods\u003d */ 0  is okay here because the intention here is to return an OatClass that doesn\u0027t contain any compiled code.",
+      "parentUuid": "0c6ff508_4783cc9d",
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e54393c_84d628f0",
@@ -257,6 +299,24 @@
       "side": 1,
       "message": "I agree with you that before and after look quite different, but there\u0027s only one constructor for the `OatClass` class, and it\u0027s clear that the fourth argument for that constructor is the number of methods for the class:\n\n```\nprivate:\n    OatClass(const OatFile* oat_file,\n             ClassStatus status,\n             OatClassType type,\n             uint32_t num_methods,\n             const uint32_t* bitmap_pointer,\n             const OatMethodOffsets* methods_pointer);\n            \n...\n\nOatFile::OatClass::OatClass(const OatFile* oat_file,\n                            ClassStatus status,\n                            OatClassType type,\n                            uint32_t num_methods,\n                            const uint32_t* bitmap_pointer,\n                            const OatMethodOffsets* methods_pointer)\n    : oat_file_(oat_file),\n      status_(status),\n      type_(type),\n      num_methods_(num_methods),\n      bitmap_(bitmap_pointer),\n      methods_pointer_(methods_pointer) {\n  DCHECK_EQ(num_methods !\u003d 0u, type !\u003d OatClassType::kNoneCompiled);\n  DCHECK_EQ(bitmap_pointer !\u003d nullptr, type \u003d\u003d OatClassType::kSomeCompiled);\n  DCHECK_EQ(methods_pointer !\u003d nullptr, type !\u003d OatClassType::kNoneCompiled);\n} \n```\n\nLooking at the Git history (https://android-review.googlesource.com/c/platform/art/+/1683151), I can see that argument used to be called `bitmap_size` and was renamed to `num_methods`, so possibly it hasn\u0027t been changed during the rename.",
       "parentUuid": "9e54393c_84d628f0",
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4a54b65_2d53c7c5",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-27T11:00:23Z",
+      "side": 1,
+      "message": "Thanks for looking into the history. Looks like aosp/1683151 is not just renaming. The changes in runtime/oat_file.cc shows that `bitmap_size` and `num_methods` do mean different things. However, I guess `/* num_methods\u003d */ 0` is okay here because the intention here is to return an invalid OatClass.",
+      "parentUuid": "f040f406_8af17c3a",
       "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
