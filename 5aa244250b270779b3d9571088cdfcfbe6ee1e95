@@ -170,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2251d6fc_cd29b81f",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-27T12:34:43Z",
+      "side": 1,
+      "message": "I should have made it clearer that the side-effect I\u0027m talking about is clearing the contents of the input profile file whenever the LoadInternal method is not successful.",
+      "parentUuid": "3c19f225_7a0025de",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48322071_05d6d9ad",
         "filename": "runtime/metrics/statsd.cc",
         "patchSetId": 1
