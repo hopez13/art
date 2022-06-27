@@ -2110,6 +2110,14 @@ extern "C" const void* artQuickGenericJniTrampoline(Thread* self,
     }
   }
 
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  if (UNLIKELY(instr->AreExitStubsInstalled() && Runtime::Current()->IsJavaDebuggable())) {
+    instr->MethodEnterEvent(self, called);
+    if (self->IsExceptionPending()) {
+      return nullptr;
+    }
+  }
+
   // Skip calling `artJniMethodStart()` for @CriticalNative and @FastNative.
   if (LIKELY(normal_native)) {
     // Start JNI.
@@ -2651,6 +2659,13 @@ extern "C" uint64_t artInvokeCustom(uint32_t call_site_idx, Thread* self, ArtMet
   return result.GetJ();
 }
 
+extern "C" void artJniMethodEntryHook(Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+  ArtMethod* method = *self->GetManagedStack()->GetTopQuickFrame();
+  instr->MethodEnterEvent(self, method);
+}
+
 extern "C" void artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** sp ATTRIBUTE_UNUSED)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
@@ -2696,8 +2711,9 @@ extern "C" void artMethodExitHook(Thread* self,
     deoptimize = instr->ShouldDeoptimizeCaller(self, visitor);
 
     // If we need a deoptimization MethodExitEvent will be called by the interpreter when it
-    // re-executes the return instruction.
-    if (!deoptimize) {
+    // re-executes the return instruction. For native methods we have to process method exit
+    // events here since deoptimization just removes the native frame.
+    if (!deoptimize || method->IsNative()) {
       instr->MethodExitEvent(self,
                              method,
                              /* frame= */ {},
@@ -2712,17 +2728,30 @@ extern "C" void artMethodExitHook(Thread* self,
   }
 
   if (self->IsExceptionPending() || self->ObserveAsyncException()) {
-    // The exception was thrown from the method exit callback. We should not call  method unwind
-    // callbacks for this case.
-    self->QuickDeliverException(/* is_method_exit_exception= */ true);
-    UNREACHABLE();
+    // The exception was thrown from the method exit callback. We should not call method unwind
+    // callbacks for this case. For native methods exception is handled after popping off native
+    // method's frame.
+    if (!method->IsNative()) {
+      self->QuickDeliverException(/* is_method_exit_exception= */ true);
+      UNREACHABLE();
+    }
   }
 
   if (deoptimize) {
     DeoptimizationMethodType deopt_method_type = instr->GetDeoptimizationMethodType(method);
-    self->PushDeoptimizationContext(return_value, is_ref, nullptr, false, deopt_method_type);
-    artDeoptimize(self);
-    UNREACHABLE();
+    self->PushDeoptimizationContext(return_value,
+                                    is_ref,
+                                    self->GetException(),
+                                    false,
+                                    deopt_method_type);
+    if (method->IsNative()) {
+      // For native methods we cannot deoptimize from here. The registers aren't all set up
+      // properly. So just set an exception here so deoptimization is handled later.
+      self->SetException(Thread::GetDeoptimizationException());
+    } else {
+      artDeoptimize(self);
+      UNREACHABLE();
+    }
   }
 }
 
