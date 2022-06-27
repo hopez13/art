@@ -266,6 +266,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8022909d_d61a5fa7",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-27T14:14:02Z",
+      "side": 1,
+      "message": "\u003e `kMergeError` is not among the statuses that trigger the clearance of the file contents, so the profiles will retain their information.\n\nI see. So `boot_profile1.Load` and `boot_profile2.Load` are noops, right? Then we can safely remove them.\n\nI don\u0027t think\n\n```\n  ProfileCompilationInfo boot_profile1(/*for_boot_image\u003d*/ true);\n  ProfileCompilationInfo boot_profile2(/*for_boot_image\u003d*/ true);\n  boot_profile1.Load(profile1.GetFilename(), /*clear_if_invalid\u003d*/ true);\n  boot_profile2.Load(profile2.GetFilename(), /*clear_if_invalid\u003d*/ true);\n```\n\nmakes any difference in terms of the test result. If the profiles are valid, the test passes with or without these lines. On the other hand, if the profiles are invalid, the test fails with or without these lines, though in different ways.",
+      "parentUuid": "3166594f_a6980aaf",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48322071_05d6d9ad",
         "filename": "runtime/metrics/statsd.cc",
         "patchSetId": 1
