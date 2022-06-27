@@ -242,6 +242,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3166594f_a6980aaf",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-27T13:59:39Z",
+      "side": 1,
+      "message": "On the other hand, I noticed that within `TestBootImageProfileWith2RawProfiles` there are a lot of references to boot profile contents (both in comments and in the title of the test) and, comparing it with the test just above (`TestBootImageProfile`), it looks like we\u0027re trying to get a similar behaviour merging together the information stored in two different boot profiles; seeing that in `TestBootImageProfile` we have this code:\n\n```\n  ProfileCompilationInfo bootProfile(/*for_boot_image\u003d*/ true);\n  bootProfile.Load(profile.GetFilename(), /*clear_if_invalid\u003d*/ true);\n```\n(with no changes on this CL), I\u0027m starting to think that we should have the same in `TestBootImageProfileWith2RawProfiles`, basically making it like the following:\n```\n  ProfileCompilationInfo boot_profile1(/*for_boot_image\u003d*/ true);\n  ProfileCompilationInfo boot_profile2(/*for_boot_image\u003d*/ true);\n  boot_profile1.Load(profile1.GetFilename(), /*clear_if_invalid\u003d*/ true);\n  boot_profile2.Load(profile2.GetFilename(), /*clear_if_invalid\u003d*/ true);\n```\n\n(I\u0027m still unsure what would be the purpose of that - also `clear_if_invalid` would not have any effect as the boot profile would be loaded correctly).",
+      "parentUuid": "a3d1feae_937a655b",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48322071_05d6d9ad",
         "filename": "runtime/metrics/statsd.cc",
         "patchSetId": 1
