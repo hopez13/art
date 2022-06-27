@@ -218,6 +218,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3d1feae_937a655b",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-27T13:47:23Z",
+      "side": 1,
+      "message": "I actually made a mistake in my previous comment: `kMergeError` is not among the statuses that trigger the clearance of the file contents, so the profiles will retain their information.\n\nWhen Profman gets called as part of the test, one of the command line arguments passed is `--generate-boot-image-profile` which, after some layers of code, will end up here:\n\n```\nbool GenerateBootImageProfile(\n    const std::vector\u003cstd::unique_ptr\u003cconst DexFile\u003e\u003e\u0026 dex_files,\n    const std::vector\u003cstd::string\u003e\u0026 profile_files,\n    const BootImageOptions\u0026 options,\n    const std::string\u0026 boot_profile_out_path,\n    const std::string\u0026 preloaded_classes_out_path) {\n[...]\nfor (const std::string\u0026 profile_file : profile_files) {\n    ProfileCompilationInfo profile(/*for_boot_image\u003d*/ true);\n    if (!profile.Load(profile_file, /*clear_if_invalid\u003d*/ false)) {\n```\n\nSince `for_boot_image` here is `true` (unlike the first part of the test), `LoadInternal` will succeed and merging the two profiles should not be a problem, which indeed is the result of the test.",
+      "parentUuid": "a6b424ce_2a92c909",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48322071_05d6d9ad",
         "filename": "runtime/metrics/statsd.cc",
         "patchSetId": 1
