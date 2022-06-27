@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c19f225_7a0025de",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-27T12:30:02Z",
+      "side": 1,
+      "message": "Removing those four lines would make the test still pass indeed (I have tried that in the first comment I left), but there\u0027s a sneaky side-effect in ProfileCompilationInfo::Load which might prevent us from removing those lines:\n\n```\nbool ProfileCompilationInfo::Load(const std::string\u0026 filename, bool clear_if_invalid) {\n...\n  ProfileLoadStatus status \u003d LoadInternal(fd, \u0026error);\n  if (status \u003d\u003d ProfileLoadStatus::kSuccess) {\n    return true;\n  }\n  \n  if (clear_if_invalid \u0026\u0026\n      ((status \u003d\u003d ProfileLoadStatus::kBadMagic) ||\n       (status \u003d\u003d ProfileLoadStatus::kVersionMismatch) ||\n       (status \u003d\u003d ProfileLoadStatus::kBadData))) {\n    LOG(WARNING) \u003c\u003c \"Clearing bad or obsolete profile data from file \"\n                 \u003c\u003c filename \u003c\u003c \": \" \u003c\u003c error;\n    if (profile_file-\u003eClearContent()) {\n      return true;\n    } else {\n      PLOG(WARNING) \u003c\u003c \"Could not clear profile file: \" \u003c\u003c filename;\n      return false;\n    }\n  }\n```\nwhich is indeed the case for that test (because of the no-argument constructor being used, which defaults `for_boot_image` to `false`) - I have tried this by adding some additional lines as part of the test:\n```\n\u003d code in ProfileCompilationInfo::Load \u003d\n  ProfileLoadStatus status \u003d LoadInternal(fd, \u0026error);\n  fprintf(stderr, \"ProfileLoadStatus status is %d\\n\", status);\n  fprintf(stderr, \"Error is %s\\n\", error.c_str());\n  if (status \u003d\u003d ProfileLoadStatus::kSuccess) {\n    return true;\n  }\n  \n\u003d test output \u003d\n[ RUN      ] ProfileAssistantTest.TestBootImageProfileWith2RawProfiles\nCalling boot_profile1.Load(/usr/local/google/home/scianciulli/Code/aosp-master-with-phones/out/soong/.temp/art-data-kaxsPG/TmpFile-tCSIEK, true)\nProfileLoadStatus status is 5\nError is Expected app profile, got boot profile.\nCalling boot_profile2.Load(/usr/local/google/home/scianciulli/Code/aosp-master-with-phones/out/soong/.temp/art-data-kaxsPG/TmpFile-cweA45, true)\nProfileLoadStatus status is 5\nError is Expected app profile, got boot profile.\nProfileLoadStatus status is 0\nError is \nProfileLoadStatus status is 0\nError is \n[       OK ] ProfileAssistantTest.TestBootImageProfileWith2RawProfiles (1094 ms)\n```\nwhere status 5 is `kMergeError`, and the two successful runs of `ProfileLoadStatus` (0 \u003d `kSuccess`) are from the actual Profman run.",
+      "parentUuid": "a84de0b3_00557dd9",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48322071_05d6d9ad",
         "filename": "runtime/metrics/statsd.cc",
         "patchSetId": 1
