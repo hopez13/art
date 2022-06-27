@@ -2370,6 +2370,10 @@ DEFINE_FUNCTION art_quick_method_exit_hook
     CFI_ADJUST_CFA_OFFSET(4)
     call SYMBOL(artMethodExitHook) // (Thread*, ArtMethod*, gpr_result*, fpr_result*)
 
+    cmpl LITERAL(1), %eax          // Check if we returned error.
+    CFI_REMEMBER_STATE
+    je .Ldo_deliver_instrumentation_exception_exit
+
     // Return result could have been changed if it's a reference.
     movl 16(%esp), %ecx
     movl %ecx, (80+32)(%esp)
@@ -2379,6 +2383,10 @@ DEFINE_FUNCTION art_quick_method_exit_hook
     // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
+
+.Ldo_deliver_instrumentation_exception_exit:
+    CFI_RESTORE_STATE_AND_DEF_CFA esp, FRAME_SIZE_SAVE_EVERYTHING
+    DELIVER_PENDING_EXCEPTION_FRAME_READY
 END_FUNCTION art_quick_method_exit_hook
 
 

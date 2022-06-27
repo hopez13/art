@@ -556,8 +556,7 @@ class Thread {
   // is_method_exit_exception is true, the exception was thrown by the method exit callback and we
   // should not send method unwind for the method on top of the stack since method exit callback was
   // already called.
-  NO_RETURN void QuickDeliverException(bool is_method_exit_exception = false)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  NO_RETURN void QuickDeliverException() REQUIRES_SHARED(Locks::mutator_lock_);
 
   Context* GetLongJumpContext();
   void ReleaseLongJumpContext(Context* context) {
@@ -1090,6 +1089,13 @@ class Thread {
     return reinterpret_cast<mirror::Throwable*>(0x100);
   }
 
+  // Returns the fake exception used to tell the actual exception happened during a method exit.
+  static mirror::Throwable* GetMethodExitException() {
+    // Note that the mirror::Throwable must be aligned to kObjectAlignment or else it cannot be
+    // represented by ObjPtr.
+    return reinterpret_cast<mirror::Throwable*>(0x200);
+  }
+
   // Currently deoptimization invokes verifier which can trigger class loading
   // and execute Java code, so there might be nested deoptimizations happening.
   // We need to save the ongoing deoptimization shadow frames and return
@@ -1111,6 +1117,12 @@ class Thread {
       REQUIRES_SHARED(Locks::mutator_lock_);
   void AssertHasDeoptimizationContext()
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void PushMethodExitExceptionContext(ObjPtr<mirror::Throwable> exception)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  void PopMethodExitExceptionContext(ObjPtr<mirror::Throwable>* exception)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   void PushStackedShadowFrame(ShadowFrame* sf, StackedShadowFrameType type);
   ShadowFrame* PopStackedShadowFrame(StackedShadowFrameType type, bool must_be_present = true);
 

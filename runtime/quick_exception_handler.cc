@@ -399,8 +399,7 @@ class DeoptimizeStackVisitor final : public StackVisitor {
       return true;
     } else if (method->IsNative()) {
       // If we return from JNI with a pending exception and want to deoptimize, we need to skip
-      // the native method.
-      // The top method is a runtime method, the native method comes next.
+      // the native method. The top method is a runtime method, the native method comes next.
       CHECK_EQ(GetFrameDepth(), 1U);
       callee_method_ = method;
       return true;
