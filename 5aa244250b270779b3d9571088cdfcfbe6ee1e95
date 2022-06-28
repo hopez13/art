@@ -384,6 +384,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1900865_cd62b25a",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-28T10:47:11Z",
+      "side": 1,
+      "message": "I would agree to make changes to the two tests in a separate CL (either deleting the four lines under examination or changing the test as Martin suggests), but if I revert the comments to be `for_boot_image\u003d` again that would make `tidy-art` fail, as this CL is also moving `bugprone-argument-comment` to the `art_clang_tidy_errors` list.\n\nShall I make a change to make it similar to the test above (`TestBootImageProfile`):\n```\n  ProfileCompilationInfo bootProfile(/*for_boot_image\u003d*/ true);\n  bootProfile.Load(profile.GetFilename(), /*clear_if_invalid\u003d*/ true);\n```\n?",
+      "parentUuid": "770c6c97_701ce6b0",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48322071_05d6d9ad",
