@@ -360,6 +360,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "770c6c97_701ce6b0",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-28T09:56:50Z",
+      "side": 1,
+      "message": "I agree that this can be a separate change. Feel free to submit this CL while keeping these lines as-is (`for_boot_image\u003d`).\n\n\u003e After digging a bit more into the test, I think the intention is to test that the profile fixtures above load correctly, before passing them to profman.\n\nI also thought about this possibility but I\u0027m not sure that\u0027s the intention because clearing the profiles doesn\u0027t change the test result. It only makes the test fail in a different way when the profiles are invalid.\n\n\u003e - Pass for_boot_image\u003dtrue to the constructors.\n\u003e - Check that the Load calls return true.\n\u003e - If they still return true with clear_if_invalid set to false then that looks like a stronger test to me, so it\u0027d be even better.\n\nThis approach won\u0027t change the test result either. If the profiles are invalid, the profman command below will fail because it does exactly steps above (https://cs.android.com/android/platform/superproject/+/master:art/profman/boot_image_profile.cc;l\u003d213-214;drc\u003dadd3d02a9be211efeafa6cff8b27bdf7e44e4081).\n\nTherefore, additionally doing these steps in this test seems redundant to me.\n\nI\u0027m marking this comment as resolved so that this CL can be submitted, but feel free to continue the discussion here. Stefano, if you would like to submit it, please revert the changes on these two lines before you do so. Thanks.",
+      "parentUuid": "c85c2779_48d1ab9a",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48322071_05d6d9ad",
