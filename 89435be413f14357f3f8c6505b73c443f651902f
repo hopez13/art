@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20aa8b55_6286b214",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2022-06-28T11:36:58Z",
+      "side": 1,
+      "message": "nit: this reads a bit confusing. When you say \"device defaults\", for many it would mean _device defaults_. Not art specific apex_defaults.\n\nPut the whole name here com.android.art-device-defaults-minus-odrefresh",
+      "range": {
+        "startLine": 7,
+        "startChar": 33,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "89435be413f14357f3f8c6505b73c443f651902f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bfe1d27_8692fa97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2022-06-28T11:36:58Z",
+      "side": 1,
+      "message": "s-launched-apex-module",
+      "range": {
+        "startLine": 9,
+        "startChar": 35,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "89435be413f14357f3f8c6505b73c443f651902f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be1a6711_f388b027",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2022-06-28T11:36:58Z",
+      "side": 1,
+      "message": "We\u0027ve already enabled compression, this is what line 305 does below.\n\nWhat you are doing here is moving the default setting to s-launched-apex-module instead.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "89435be413f14357f3f8c6505b73c443f651902f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
