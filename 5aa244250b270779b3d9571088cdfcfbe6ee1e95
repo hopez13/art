@@ -456,6 +456,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3e4a84e_1f63e6a4",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-06-28T13:29:50Z",
+      "side": 1,
+      "message": "I decided to follow Martin\u0027s advice, and I opened another CL for fixing both tests: aosp/2138474. After that CL is reviewed and merged, I will rebase this one on top of the master branch to make this CL only including changes to fix the clang-tidy issues.",
+      "parentUuid": "aafea184_d60e863f",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48322071_05d6d9ad",
