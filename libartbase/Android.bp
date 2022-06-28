@@ -122,6 +122,9 @@ cc_defaults {
         darwin: {
             enabled: true, // for libdexfile.
         },
+        linux_bionic: {
+            enabled: true,
+        },
     },
     generated_sources: ["art_libartbase_operator_srcs"],
 
@@ -363,6 +366,11 @@ art_cc_defaults {
     static_libs: [
         "libgmock",
     ],
+    target: {
+        linux_bionic: {
+            enabled: true,
+        },
+    },
 }
 
 // Version of ART gtest `art_libartbase_tests` bundled with the ART APEX on target.
@@ -373,6 +381,11 @@ art_cc_test {
         "art_gtest_defaults",
         "art_libartbase_tests_defaults",
     ],
+    target: {
+        linux_bionic: {
+            enabled: true,
+        },
+    },
 }
 
 // Standalone version of ART gtest `art_libartbase_tests`, not bundled with the ART APEX on target.
@@ -384,6 +397,11 @@ art_cc_test {
     ],
     data: [":generate-boot-image"],
     test_config_template: ":art-gtests-target-standalone-with-boot-image-template",
+    target: {
+        linux_bionic: {
+            enabled: true,
+        },
+    },
 }
 
 cc_library_headers {
