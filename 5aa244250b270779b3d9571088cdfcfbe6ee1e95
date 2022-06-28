@@ -480,6 +480,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3618f13a_6bece7bf",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-28T13:47:36Z",
+      "side": 1,
+      "message": "Note that you can rebase this CL on top of that one locally (keeping the Change-Id) and then `repo upload` the local branch with both at the same time. Gerrit will show the CL chain, so we can review this CL in parallel, and you can also run it in presubmit on top of the other CL.",
+      "parentUuid": "f3e4a84e_1f63e6a4",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48322071_05d6d9ad",
