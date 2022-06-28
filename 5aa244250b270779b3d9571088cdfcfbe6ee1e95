@@ -408,6 +408,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "306d776d_99a2ca37",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1076,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-28T10:53:19Z",
+      "side": 1,
+      "message": "\u003e that would make  tidy-art  fail, as this CL is also moving  bugprone-argument-comment  to the  art_clang_tidy_errors  list.\n\nYes, that\u0027s why I suggested this to be fixed in a CL before this one.\n\n\u003e If the profiles are invalid, the profman command below will fail because it does exactly steps above\n\nThanks for pointing out that, but it\u0027s indirect testing, i.e. assumes that the code in profman remains like that. There\u0027s still value in testing them directly. Besides, there are few direct tests of Load() - only one in profile_compilation_info_test.cc (where they ought to be), so for that reason too it seems like a good thing to have some testing here.\n\nSo it wouldn\u0027t be entirely redundant. But sure, not a big deal if they get deleted either.",
+      "parentUuid": "770c6c97_701ce6b0",
+      "range": {
+        "startLine": 1076,
+        "startChar": 47,
+        "endLine": 1076,
+        "endChar": 63
+      },
+      "revId": "5aa244250b270779b3d9571088cdfcfbe6ee1e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48322071_05d6d9ad",
