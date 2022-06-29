@@ -16,6 +16,23 @@
       "message": "The changes in this CL also solve the \"modernize-use-using\" clang-tidy issue for dlmalloc.h (because the whole library is ignored by clang-tidy), but introduce another clang-tidy issue:\n\n```\n/usr/local/google/home/scianciulli/Code/aosp-master-with-phones/art/runtime/gc/allocator/art-dlmalloc.cc:42:11: warning: suspicious #include of file with \u0027.c\u0027 extension [bugprone-suspicious-include]\n```",
       "revId": "3113e91a4172cf5b4f95ade27f05af106c2ec5d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87f3ec19_a4229124",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-06-29T11:30:18Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "3113e91a4172cf5b4f95ade27f05af106c2ec5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
