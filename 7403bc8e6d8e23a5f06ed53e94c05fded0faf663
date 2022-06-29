@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "500608b6_c54ce2e2",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-06-29T11:58:05Z",
+      "side": 1,
+      "message": "I much prefer types written out explicitly, unless they\u0027re very long and cumbersome. In particular here, where the reader has to go hunt down GetAssemblerCommand somewhere else to find out what it is. go/cstyle#Type_deduction\n\nIn any case, that\u0027s a bit off topic for this CL, so it\u0027s optional.",
+      "range": {
+        "startLine": 62,
+        "startChar": 15,
+        "endLine": 62,
+        "endChar": 19
+      },
+      "revId": "7403bc8e6d8e23a5f06ed53e94c05fded0faf663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
