@@ -176,7 +176,7 @@ class MetricsReporterTest : public CommonRuntimeTest {
     // reported. However, we don't have an easy to use iteration mechanism over metrics yet.
     // We should ads one
     ASSERT_EQ(backend_->GetReports().size(), size);
-    for (auto report : backend_->GetReports()) {
+    for (const auto& report : backend_->GetReports()) {
       ASSERT_EQ(report.data.Get(DatumId::kClassVerificationCount), with_metrics ? 2u : 0u);
       ASSERT_EQ(report.data.Get(DatumId::kJitMethodCompileCount), with_metrics ? 1u : 0u);
     }
