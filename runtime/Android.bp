@@ -384,6 +384,8 @@ libart_cc_defaults {
                 "arch/x86_64/thread_x86_64.cc",
                 "monitor_pool.cc",
                 "arch/x86/fault_handler_x86.cc",
+                // TODO(Simulator): refactor this hack.
+                "arch/arm64/context_arm64.cc",
             ],
             avx: {
                 asflags: ["-DMTERP_USE_AVX"],
