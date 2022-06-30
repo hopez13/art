@@ -33,6 +33,24 @@
       "message": "Thanks David. Could you also regenerate the ART MTS definition (using `art/test/utils/regen-test-files -m`) and upload a CL to `platform/test/mts` (if there is any change to the XML files)?",
       "revId": "5e49c3f197fa6f0263940cf29328205b2b7a4381",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "896d6000_e043675a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-06-30T09:51:17Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/c/platform/test/mts/+/2141192.",
+      "parentUuid": "052e7b96_1f971535",
+      "revId": "5e49c3f197fa6f0263940cf29328205b2b7a4381",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
