@@ -51,6 +51,24 @@
       "parentUuid": "91b80e1a_1d5ce55e",
       "revId": "2ccb068fce22cc283ac74d4975709c01c89626fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5358e7b2_1a83f795",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-06-30T17:04:52Z",
+      "side": 1,
+      "message": "There is RESTORE_SAVE_REFS_AND_ARGS_FRAME on line 1909 which will overwrite d0 with  the value from the stack (which was pushed when setting up the frame)\nOther archs don\u0027t pop d0 so I could merge the movs but for Arm64 I cannot. So, what I was saying in the earlier comment was I could either:\n1. Update method exit to only expect result in gpr. This isn\u0027t difficult.\n2. Update Arm64 to not pop d0 in RESTORE_SAVE_REFS_AND_ARGS_FRAME\n3. the approach I used of copying again.",
+      "parentUuid": "f9d2a2cd_863bd2c7",
+      "revId": "2ccb068fce22cc283ac74d4975709c01c89626fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
