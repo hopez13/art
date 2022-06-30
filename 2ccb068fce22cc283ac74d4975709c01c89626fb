@@ -33,6 +33,24 @@
       "message": "Method exit expects floating point result in d0. We also do this at the end of jni_trampoline. In all other architectures we don\u0027t restore the floating point register where the result is expected so I just moved the mov before the call to method exit. But in ARM64 the RESTORE_SAVE_REFS_AND_ARGS restores d0 so instead of moviI duplicated this move here. We could avoid this if necessary but I thought maybe it is OK for now. We could also change method exit to expect floating point results in gpr as well.",
       "revId": "2ccb068fce22cc283ac74d4975709c01c89626fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9d2a2cd_863bd2c7",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-06-30T14:44:45Z",
+      "side": 1,
+      "message": "Not sure I understand your comment, but there is a move line 1913. Why not merge them line 1902?",
+      "parentUuid": "91b80e1a_1d5ce55e",
+      "revId": "2ccb068fce22cc283ac74d4975709c01c89626fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
