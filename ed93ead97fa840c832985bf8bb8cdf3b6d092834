@@ -33,6 +33,24 @@
       "message": "Thanks Gavin! Force-submitting now.",
       "revId": "ed93ead97fa840c832985bf8bb8cdf3b6d092834",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "867abe14_86d60982",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-07-01T10:41:30Z",
+      "side": 1,
+      "message": "Actually, Gerrit doesn\u0027t seem to allow me to submit, despite the CL having Build-Cop-Override+1 and Bypass-Presubmit+1… Perhaps I also need a Code-Review+2 (or even Code-Review+1) vote too?",
+      "parentUuid": "57b5681b_4e984a9b",
+      "revId": "ed93ead97fa840c832985bf8bb8cdf3b6d092834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
