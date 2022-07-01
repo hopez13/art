@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f6e7178_a95e2361",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-01T08:35:27Z",
+      "side": 1,
+      "message": "Should you mention in the comment in the header file that there must be dex pc listeners? And when those are setup?",
+      "range": {
+        "startLine": 285,
+        "startChar": 68,
+        "endLine": 285,
+        "endChar": 85
+      },
+      "revId": "ac9c1faab147e2601f681337abad4a836bd9829f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3551834_9c7e737b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-01T08:35:27Z",
+      "side": 1,
+      "message": "nit: add a comment.",
+      "revId": "ac9c1faab147e2601f681337abad4a836bd9829f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "896f678a_5be83027",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-01T08:35:27Z",
+      "side": 1,
+      "message": "Explain why interpreter stubs need to report the event.",
+      "range": {
+        "startLine": 382,
+        "startChar": 0,
+        "endLine": 382,
+        "endChar": 45
+      },
+      "revId": "ac9c1faab147e2601f681337abad4a836bd9829f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9240feae_91e05a02",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-01T08:35:27Z",
+      "side": 1,
+      "message": "Add a comment that for performance reason this is cached and only gets updated async, so we don\u0027t check NeedsDexPcEvents at every instruction.",
+      "revId": "ac9c1faab147e2601f681337abad4a836bd9829f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
