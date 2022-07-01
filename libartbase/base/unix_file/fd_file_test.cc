@@ -196,12 +196,12 @@ TEST_F(FdFileTest, MoveConstructor) {
   int old_fd = file.Fd();
 
   FdFile file2(std::move(file));
-  EXPECT_FALSE(file.IsOpened());
-  EXPECT_TRUE(file2.IsOpened());
+  EXPECT_FALSE(file.IsOpened());  // warning?
+  EXPECT_TRUE(file2.IsOpened());  // warning?
   EXPECT_EQ(old_fd, file2.Fd());
 
-  ASSERT_EQ(file2.Flush(), 0);
-  ASSERT_EQ(file2.Close(), 0);
+  ASSERT_EQ(file2.Flush(), 0);  // no warning?
+  ASSERT_EQ(file2.Close(), 0);  // no warning?
 }
 
 TEST_F(FdFileTest, OperatorMoveEquals) {
@@ -225,15 +225,15 @@ TEST_F(FdFileTest, EraseWithPathUnlinks) {
   tmp.Close();  // This is required because of the unlink race between the scratch file and the
                 // FdFile, which leads to close-guard breakage.
   FdFile file(filename, O_RDWR, false);
-  ASSERT_TRUE(file.IsOpened());
+  ASSERT_TRUE(file.IsOpened());  // warning?
   EXPECT_GE(file.Fd(), 0);
   uint8_t buffer[16] = { 0 };
   EXPECT_TRUE(file.WriteFully(&buffer, sizeof(buffer)));
   EXPECT_EQ(file.Flush(), 0);
 
-  EXPECT_TRUE(file.Erase(true));
+  EXPECT_TRUE(file.Erase(true));  // warning?
 
-  EXPECT_FALSE(file.IsOpened());
+  EXPECT_FALSE(file.IsOpened());  // warning?
 
   EXPECT_FALSE(art::OS::FileExists(filename.c_str())) << filename;
 }

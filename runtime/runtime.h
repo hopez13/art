@@ -16,7 +16,7 @@
 
 #ifndef ART_RUNTIME_RUNTIME_H_
 #define ART_RUNTIME_RUNTIME_H_
-
+// test presubmit build aosp_arm64-userdebug_tidy
 #include <jni.h>
 #include <stdio.h>
 
@@ -1513,6 +1513,8 @@ class Runtime {
 };
 
 inline metrics::ArtMetrics* GetMetrics() { return Runtime::Current()->GetMetrics(); }
+
+inline int dummy_unused(int n) { return n+1; }
 
 }  // namespace art
 
