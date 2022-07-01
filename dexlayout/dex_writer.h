@@ -156,7 +156,7 @@ class DexWriter {
     ALWAYS_INLINE void EnsureStorage(size_t length) {
       size_t end = position_ + length;
       while (UNLIKELY(end > data_size_)) {
-        section_->Resize(data_size_ * 3 / 2 + 1);
+        section_->Resize(data_size_ * 3 / 2 + 1);  // some tidy warning?
         SyncWithSection();
       }
     }

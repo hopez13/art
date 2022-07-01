@@ -352,9 +352,9 @@ TEST(BitVector, MovementFree) {
     ASSERT_TRUE(bv.GetRawStorage() != nullptr);
     EXPECT_TRUE(bv.IsBitSet(13));
     {
-      BitVector bv2(std::move(bv));
+      BitVector bv2(std::move(bv));  // warning next line?
       ASSERT_TRUE(bv.GetRawStorage() == nullptr);
-      EXPECT_TRUE(bv2.IsBitSet(13));
+      EXPECT_TRUE(bv2.IsBitSet(13));  // warning before?
       EXPECT_EQ(alloc.FreeCount(), 0u);
       EXPECT_EQ(alloc.AllocCount(), 1u);
     }

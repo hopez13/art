@@ -1448,7 +1448,7 @@ bool HInliner::TryBuildAndInline(HInvoke* invoke_instruction,
                                  HInstruction** return_replacement) {
   // If invoke_instruction is devirtualized to a different method, give intrinsics
   // another chance before we try to inline it.
-  if (invoke_instruction->GetResolvedMethod() != method && method->IsIntrinsic()) {
+  if (invoke_instruction->GetResolvedMethod() != method && method->IsIntrinsic()) {  // comment
     MaybeRecordStat(stats_, MethodCompilationStat::kIntrinsicRecognized);
     // For simplicity, always create a new instruction to replace the existing
     // invoke.
@@ -1478,7 +1478,7 @@ bool HInliner::TryBuildAndInline(HInvoke* invoke_instruction,
   // Check whether we're allowed to inline. The outermost compilation unit is the relevant
   // dex file here (though the transitivity of an inline chain would allow checking the caller).
   if (!MayInline(codegen_->GetCompilerOptions(),
-                 *method->GetDexFile(),
+                 *method->GetDexFile(),  // more change here
                  *outer_compilation_unit_.GetDexFile())) {
     if (TryPatternSubstitution(invoke_instruction, method, return_replacement)) {
       LOG_SUCCESS() << "Successfully replaced pattern of invoke "
