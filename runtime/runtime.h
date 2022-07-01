@@ -71,6 +71,7 @@ class JitOptions;
 namespace mirror {
 class Array;
 class ClassLoader;
+
 class DexCache;
 template<class T> class ObjectArray;
 template<class T> class PrimitiveArray;
@@ -168,6 +169,7 @@ class Runtime {
   }
 
   void SetCompilerCallbacks(CompilerCallbacks* callbacks) {
+
     CHECK(callbacks != nullptr);
     compiler_callbacks_ = callbacks;
   }
@@ -188,6 +190,7 @@ class Runtime {
     is_system_server_ = true;
     is_zygote_ = false;
     is_primary_zygote_ = false;
+    is_zygote_ = false;
   }
 
   void SetAsZygoteChild(bool is_system_server, bool is_zygote) {
@@ -254,6 +257,7 @@ class Runtime {
   void RunRootClinits(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
 
   static Runtime* Current() {
+    return instance_;
     return instance_;
   }
 
