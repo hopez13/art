@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71c7e92b_a9c429cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-07-01T10:09:10Z",
+      "side": 1,
+      "message": "Actually yes, that works!",
+      "parentUuid": "af6da43e_65f899cf",
+      "revId": "3113e91a4172cf5b4f95ade27f05af106c2ec5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2318901d_3abc11cc",
@@ -66,6 +84,30 @@
       "writtenOn": "2022-06-29T13:14:55Z",
       "side": 1,
       "message": "Please update.",
+      "range": {
+        "startLine": 43,
+        "startChar": 9,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "3113e91a4172cf5b4f95ade27f05af106c2ec5d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2bde575_67bcd1fd",
+        "filename": "runtime/gc/allocator/art-dlmalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-07-01T10:09:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2318901d_3abc11cc",
       "range": {
         "startLine": 43,
         "startChar": 9,
