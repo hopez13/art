@@ -947,6 +947,7 @@ else
         good_run="yes"
     fi
     ./$check_cmd "$expected_stdout" "$test_stdout" "$expected_stderr" "$test_stderr"
+    true
     if [ "$?" = "0" ]; then
         if [ "$good_run" = "yes" ]; then
           # test_stdout == expected_stdout && test_stderr == expected_stderr

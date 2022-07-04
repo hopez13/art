@@ -2,6 +2,8 @@
 #
 # Runner for an individual run-test.
 
+WRAP="$ANDROID_BUILD_TOP/art/test/etc/wrap.py"
+
 readonly local_path=$(dirname "$0")
 source "${local_path}/apex-bootclasspath-utils.sh"
 
@@ -732,7 +734,7 @@ if [ "$USE_JVM" = "y" ]; then
     chmod u+x runit.sh
     echo "Runnable test script written to $PWD/runit.sh"
   else
-    $cmdline
+    $WRAP $cmdline
   fi
   exit
 fi
@@ -1216,35 +1218,35 @@ if [ "$EXTERNAL_LOG_TAGS" = "n" ]; then
 fi
 
 if [ "$HOST" = "n" ]; then
-    adb root > /dev/null
-    adb wait-for-device
+    $WRAP adb root > /dev/null
+    $WRAP adb wait-for-device
     if [ "$QUIET" = "n" ]; then
-      adb shell rm -rf $CHROOT_DEX_LOCATION
-      adb shell mkdir -p $CHROOT_DEX_LOCATION
-      adb push $TEST_NAME.jar $CHROOT_DEX_LOCATION
-      adb push $TEST_NAME-ex.jar $CHROOT_DEX_LOCATION
-      adb push $TEST_NAME-aotex.jar $CHROOT_DEX_LOCATION
-      adb push $TEST_NAME-bcpex.jar $CHROOT_DEX_LOCATION
+      $WRAP adb shell rm -rf $CHROOT_DEX_LOCATION
+      $WRAP adb shell mkdir -p $CHROOT_DEX_LOCATION
+      $WRAP adb push $TEST_NAME.jar $CHROOT_DEX_LOCATION
+      $WRAP adb push $TEST_NAME-ex.jar $CHROOT_DEX_LOCATION
+      $WRAP adb push $TEST_NAME-aotex.jar $CHROOT_DEX_LOCATION
+      $WRAP adb push $TEST_NAME-bcpex.jar $CHROOT_DEX_LOCATION
       if [ "$PROFILE" = "y" ] || [ "$RANDOM_PROFILE" = "y" ]; then
-        adb push profile $CHROOT_DEX_LOCATION
+        $WRAP adb push profile $CHROOT_DEX_LOCATION
       fi
       # Copy resource folder
       if [ -d res ]; then
-        adb push res $CHROOT_DEX_LOCATION
+        $WRAP adb push res $CHROOT_DEX_LOCATION
       fi
     else
-      adb shell rm -rf $CHROOT_DEX_LOCATION >/dev/null 2>&1
-      adb shell mkdir -p $CHROOT_DEX_LOCATION >/dev/null 2>&1
-      adb push $TEST_NAME.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
-      adb push $TEST_NAME-ex.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
-      adb push $TEST_NAME-aotex.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
-      adb push $TEST_NAME-bcpex.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
+      $WRAP adb shell rm -rf $CHROOT_DEX_LOCATION >/dev/null 2>&1
+      $WRAP adb shell mkdir -p $CHROOT_DEX_LOCATION >/dev/null 2>&1
+      $WRAP adb push $TEST_NAME.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
+      $WRAP adb push $TEST_NAME-ex.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
+      $WRAP adb push $TEST_NAME-aotex.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
+      $WRAP adb push $TEST_NAME-bcpex.jar $CHROOT_DEX_LOCATION >/dev/null 2>&1
       if [ "$PROFILE" = "y" ] || [ "$RANDOM_PROFILE" = "y" ]; then
-        adb push profile $CHROOT_DEX_LOCATION >/dev/null 2>&1
+        $WRAP adb push profile $CHROOT_DEX_LOCATION >/dev/null 2>&1
       fi
       # Copy resource folder
       if [ -d res ]; then
-        adb push res $CHROOT_DEX_LOCATION >/dev/null 2>&1
+        $WRAP adb push res $CHROOT_DEX_LOCATION >/dev/null 2>&1
       fi
     fi
 
@@ -1369,12 +1371,14 @@ if [ "$HOST" = "n" ]; then
       adb push $cmdfile $CHROOT_DEX_LOCATION/cmdline.sh >/dev/null 2>&1
     fi
 
+    $WRAP echo cmdline.sh \"$(cat $cmdfile | tr '"' '\\"')\"
+
     exit_status=0
     if [ "$DRY_RUN" != "y" ]; then
       if [ -n "$CHROOT" ]; then
-        adb shell chroot "$CHROOT" sh $DEX_LOCATION/cmdline.sh
+        $WRAP adb shell chroot "$CHROOT" sh $DEX_LOCATION/cmdline.sh
       else
-        adb shell sh $DEX_LOCATION/cmdline.sh
+        $WRAP adb shell sh $DEX_LOCATION/cmdline.sh
       fi
       exit_status=$?
     fi
@@ -1453,16 +1457,16 @@ else
     export ASAN_OPTIONS=$RUN_TEST_ASAN_OPTIONS
 
     mkdir -p ${mkdir_locations} || exit 1
-    $setupapex_cmdline || { echo "zipapex extraction failed." >&2 ; exit 2; }
-    $installapex_test_cmdline || $installapex_cmdline || { echo "zipapex install failed. cmd was: ${installapex_test_cmdline} || ${installapex_cmdline}." >&2; find ${mkdir_locations} -type f >&2; exit 2; }
-    $linkroot_cmdline || { echo "create symlink android-root failed." >&2 ; exit 2; }
-    $linkroot_overlay_cmdline || { echo "overlay android-root failed." >&2 ; exit 2; }
-    $profman_cmdline || { echo "Profman failed." >&2 ; exit 2; }
-    eval "$dex2oat_cmdline" || { echo "Dex2oat failed." >&2 ; exit 2; }
-    eval "$dm_cmdline" || { echo "Dex2oat failed." >&2 ; exit 2; }
-    eval "$vdex_cmdline" || { echo "Dex2oat failed." >&2 ; exit 2; }
-    $strip_cmdline || { echo "Strip failed." >&2 ; exit 3; }
-    $sync_cmdline || { echo "Sync failed." >&2 ; exit 4; }
+    $WRAP $setupapex_cmdline || { echo "zipapex extraction failed." >&2 ; exit 2; }
+    $WRAP $installapex_test_cmdline || $WRAP $installapex_cmdline || { echo "zipapex install failed. cmd was: $$WRAP {installapex_test_cmdline} || $$WRAP {installapex_cmdline}." >&2; find ${mkdir_locations} -type f >&2; exit 2; }
+    $WRAP $linkroot_cmdline || { echo "create symlink android-root failed." >&2 ; exit 2; }
+    $WRAP $linkroot_overlay_cmdline || { echo "overlay android-root failed." >&2 ; exit 2; }
+    $WRAP $profman_cmdline || { echo "Profman failed." >&2 ; exit 2; }
+    $WRAP bash -c "$dex2oat_cmdline" || { echo "Dex2oat failed." >&2 ; exit 2; }
+    $WRAP bash -c "$dm_cmdline" || { echo "Dex2oat failed." >&2 ; exit 2; }
+    $WRAP bash -c "$vdex_cmdline" || { echo "Dex2oat failed." >&2 ; exit 2; }
+    $WRAP $strip_cmdline || { echo "Strip failed." >&2 ; exit 3; }
+    $WRAP $sync_cmdline || { echo "Sync failed." >&2 ; exit 4; }
 
     if [ "$CREATE_RUNNER" = "y" ]; then
       echo "#!/bin/bash" > ${DEX_LOCATION}/runit.sh
@@ -1509,7 +1513,7 @@ else
     else
       if [ "$TIME_OUT" != "gdb" ]; then
         trap 'kill -INT -$pid' INT
-        $cmdline "$@" & pid=$!
+        $WRAP $cmdline "$@" & pid=$!
         wait $pid
         exit_value=$?
         # Add extra detail if time out is enabled.
