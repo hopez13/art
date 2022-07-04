@@ -46,7 +46,7 @@ using android::base::Result;
 using internal::ConfigEntry;
 using internal::ParseConfig;
 using internal::ParseApexLibrariesConfig;
-using std::literals::string_literals::operator""s;
+using std::literals::string_literals::operator ""s;  // NOLINT - operator ""s is actually used
 
 namespace {
 
