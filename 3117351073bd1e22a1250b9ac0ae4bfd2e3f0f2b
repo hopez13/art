@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7168085f_993da121",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-04T20:33:21Z",
+      "side": 1,
+      "message": "Optional, but I suggest creating an std::string from the first char* in the expression instead, to get rid of this.",
+      "revId": "3117351073bd1e22a1250b9ac0ae4bfd2e3f0f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
