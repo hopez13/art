@@ -1840,7 +1840,7 @@ TEST_F(ProfileAssistantTest, MergeProfilesNoProfile) {
 
   // Run profman and pass the dex file with --apk-fd.
   android::base::unique_fd apk_fd(
-      open(GetTestDexFileName("ProfileTestMultiDex").c_str(), O_RDONLY));
+      open(GetTestDexFileName("ProfileTestMultiDex").c_str(), O_RDONLY | O_CLOEXEC));
   ASSERT_GE(apk_fd.get(), 0);
 
   std::string profman_cmd = GetProfmanCmd();
@@ -1882,7 +1882,7 @@ TEST_F(ProfileAssistantTest, MergeProfilesNoProfilePassByFilename) {
 
   // Run profman and pass the dex file with --apk-fd.
   android::base::unique_fd apk_fd(
-      open(GetTestDexFileName("ProfileTestMultiDex").c_str(), O_RDONLY));
+      open(GetTestDexFileName("ProfileTestMultiDex").c_str(), O_RDONLY | O_CLOEXEC));
   ASSERT_GE(apk_fd.get(), 0);
 
   std::string profman_cmd = GetProfmanCmd();
@@ -1919,7 +1919,7 @@ TEST_F(ProfileAssistantTest, MergeProfilesNoProfileEmptyReferenceProfile) {
 
   // Run profman and pass the dex file with --apk-fd.
   android::base::unique_fd apk_fd(
-      open(GetTestDexFileName("ProfileTestMultiDex").c_str(), O_RDONLY));
+      open(GetTestDexFileName("ProfileTestMultiDex").c_str(), O_RDONLY | O_CLOEXEC));
   ASSERT_GE(apk_fd.get(), 0);
 
   std::string profman_cmd = GetProfmanCmd();
@@ -1957,7 +1957,7 @@ TEST_F(ProfileAssistantTest, MergeProfilesNoProfileEmptyReferenceProfileAfterFil
 
   // Run profman and pass the real dex file with --apk-fd.
   android::base::unique_fd apk_fd(
-      open(GetTestDexFileName("ProfileTestMultiDex").c_str(), O_RDONLY));
+      open(GetTestDexFileName("ProfileTestMultiDex").c_str(), O_RDONLY | O_CLOEXEC));
   ASSERT_GE(apk_fd.get(), 0);
 
   std::string profman_cmd = GetProfmanCmd();
@@ -2050,7 +2050,7 @@ TEST_F(ProfileAssistantTest, CopyAndUpdateProfileKeyNoUpdate) {
 
   // Run profman and pass the real dex file with --apk-fd. It won't match any entry in the profile.
   android::base::unique_fd apk_fd(
-      open(GetTestDexFileName("ProfileTestMultiDex").c_str(), O_RDONLY));
+      open(GetTestDexFileName("ProfileTestMultiDex").c_str(), O_RDONLY | O_CLOEXEC));
   ASSERT_GE(apk_fd.get(), 0);
 
   std::string profman_cmd = GetProfmanCmd();
