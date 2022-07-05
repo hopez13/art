@@ -97,6 +97,15 @@ void DeoptManager::Shutdown() {
   art::ScopedSuspendAll ssa("remove method Inspection Callback");
   art::RuntimeCallbacks* callbacks = art::Runtime::Current()->GetRuntimeCallbacks();
   callbacks->RemoveMethodInspectionCallback(&inspection_callback_);
+  art::Runtime* runtime = art::Runtime::Current();
+  // TODO(mythria): DeoptManager should use only one key. Merge
+  // kInstrumentationKey and kDeoptManagerInstrumentationKey.
+  runtime->GetInstrumentation()->DisableDeoptimization(kInstrumentationKey);
+  runtime->GetInstrumentation()->DisableDeoptimization(kInstrumentationKey);
+  runtime->GetInstrumentation()->UndeoptimizeEverything(kDeoptManagerInstrumentationKey);
+  if (!runtime->IsJavaDebuggableAtInit()) {
+    runtime->SetRuntimeDebugState(art::Runtime::RuntimeDebugState::kNonJavaDebuggable);
+  }
 }
 
 void DeoptManager::DumpDeoptInfo(art::Thread* self, std::ostream& stream) {
@@ -162,12 +171,13 @@ void DeoptManager::FinishSetup() {
                 << "'-Xcompiler-option --debuggable' to dalvikvm in the future.";
       DCHECK(runtime->GetJit() == nullptr) << "Jit should not be running yet!";
       runtime->AddCompilerOption("--debuggable");
-      runtime->SetJavaDebuggable(true);
+      runtime->SetRuntimeDebugState(art::Runtime::RuntimeDebugState::kJavaDebuggableAtInit);
     } else {
       LOG(WARNING) << "Openjdkjvmti plugin was loaded on a non-debuggable Runtime. Plugin was "
-                   << "loaded too late to change runtime state to DEBUGGABLE. Only kArtTiVersion "
-                   << "(0x" << std::hex << kArtTiVersion << ") environments are available. Some "
-                   << "functionality might not work properly.";
+                   << "loaded too late to change runtime state to JavaDebuggableAtInit. Only "
+                   << "kArtTiVersion (0x" << std::hex << kArtTiVersion << ") environments are "
+                   << "available. Some functionality might not work properly.";
+      runtime->SetRuntimeDebugState(art::Runtime::RuntimeDebugState::kJavaDebuggable);
       if (runtime->GetJit() == nullptr &&
           runtime->GetJITOptions()->UseJitCompilation() &&
           !runtime->GetInstrumentation()->IsForcedInterpretOnly()) {
