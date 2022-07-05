@@ -351,6 +351,7 @@ void EnterInterpreterFromInvoke(Thread* self,
                                 JValue* result,
                                 bool stay_in_interpreter) {
   DCHECK_EQ(self, Thread::Current());
+  DCHECK(method->GetDeclaringClass()->IsInitializing());
   bool implicit_check = Runtime::Current()->GetImplicitStackOverflowChecks();
   if (UNLIKELY(__builtin_frame_address(0) < self->GetStackEndForInterpreter(implicit_check))) {
     ThrowStackOverflowError(self);
@@ -421,21 +422,6 @@ void EnterInterpreterFromInvoke(Thread* self,
     }
   }
   self->EndAssertNoThreadSuspension(old_cause);
-  // Do this after populating the shadow frame in case EnsureInitialized causes a GC.
-  if (method->IsStatic()) {
-    ObjPtr<mirror::Class> declaring_class = method->GetDeclaringClass();
-    if (UNLIKELY(!declaring_class->IsVisiblyInitialized())) {
-      StackHandleScope<1> hs(self);
-      Handle<mirror::Class> h_class(hs.NewHandle(declaring_class));
-      if (UNLIKELY(!Runtime::Current()->GetClassLinker()->EnsureInitialized(
-                        self, h_class, /*can_init_fields=*/ true, /*can_init_parents=*/ true))) {
-        CHECK(self->IsExceptionPending());
-        self->PopShadowFrame();
-        return;
-      }
-      DCHECK(h_class->IsInitializing());
-    }
-  }
   if (LIKELY(!method->IsNative())) {
     JValue r = Execute(self, accessor, *shadow_frame, JValue(), stay_in_interpreter);
     if (result != nullptr) {
@@ -607,23 +593,6 @@ void ArtInterpreterToInterpreterBridge(Thread* self,
   }
 
   self->PushShadowFrame(shadow_frame);
-  ArtMethod* method = shadow_frame->GetMethod();
-  // Ensure static methods are initialized.
-  const bool is_static = method->IsStatic();
-  if (is_static) {
-    ObjPtr<mirror::Class> declaring_class = method->GetDeclaringClass();
-    if (UNLIKELY(!declaring_class->IsVisiblyInitialized())) {
-      StackHandleScope<1> hs(self);
-      Handle<mirror::Class> h_class(hs.NewHandle(declaring_class));
-      if (UNLIKELY(!Runtime::Current()->GetClassLinker()->EnsureInitialized(
-                        self, h_class, /*can_init_fields=*/ true, /*can_init_parents=*/ true))) {
-        DCHECK(self->IsExceptionPending());
-        self->PopShadowFrame();
-        return;
-      }
-      DCHECK(h_class->IsInitializing());
-    }
-  }
 
   if (LIKELY(!shadow_frame->GetMethod()->IsNative())) {
     result->SetJ(Execute(self, accessor, *shadow_frame, JValue()).GetJ());
@@ -631,6 +600,7 @@ void ArtInterpreterToInterpreterBridge(Thread* self,
     // We don't expect to be asked to interpret native code (which is entered via a JNI compiler
     // generated stub) except during testing and image writing.
     CHECK(!Runtime::Current()->IsStarted());
+    bool is_static = shadow_frame->GetMethod()->IsStatic();
     ObjPtr<mirror::Object> receiver = is_static ? nullptr : shadow_frame->GetVRegReference(0);
     uint32_t* args = shadow_frame->GetVRegArgs(is_static ? 0 : 1);
     UnstartedRuntime::Jni(self, shadow_frame->GetMethod(), receiver.Ptr(), args, result);
