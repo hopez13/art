@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc6234fb_8239ec5e",
+        "filename": "test/update-rollback/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-05T17:34:59Z",
+      "side": 1,
+      "message": "So the problem here isn\u0027t signing keys but that the name has to match with what\u0027s in system/apex? Then how does the device-tests suite accomplish that?",
+      "range": {
+        "startLine": 28,
+        "startChar": 54,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "eb36cbed102e2e4b796853402bbdb49016e70a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
