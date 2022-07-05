@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee46d6ab_7749575d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-07-05T18:10:36Z",
+      "side": 1,
+      "message": "Thanks Martin.",
+      "revId": "eb36cbed102e2e4b796853402bbdb49016e70a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc6234fb_8239ec5e",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-07-05T17:34:59Z",
       "side": 1,
       "message": "So the problem here isn\u0027t signing keys but that the name has to match with what\u0027s in system/apex? Then how does the device-tests suite accomplish that?",
+      "range": {
+        "startLine": 28,
+        "startChar": 54,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "eb36cbed102e2e4b796853402bbdb49016e70a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37ea5593_a9aa307d",
+        "filename": "test/update-rollback/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-07-05T18:10:36Z",
+      "side": 1,
+      "message": "Note: `device-tests` is actually not a single test suite, but a set of test suites: there\u0027s one instance of it per built product on the Android Build.\n\nThe problem with `general-tests` is that it is built once per architecture, as part of a `test_suites_*` build target on the Android Build (e.g. `test_suites_x86_64`). When a test embedding an APEX is added to `general-tests`, this means that only one version of this APEX can be built and packaged in that test suite: either the public one or the internal one. It seems the `test_suites_*` build targets produce public APEXes by default; therefore, when test `art-apex-update-rollback` was part of a `general-tests` package, it could only run against a device with a public image.\n\nBy moving the tests to `device-tests`, we are now building it (as well as its APEX dependency) in the same fashion as the product, so the test APEX will match the product against which it is tested.\n\nAdditional note: The \"magic bit\" that changes the type of the test APEX was added in ag/16184330.",
+      "parentUuid": "fc6234fb_8239ec5e",
       "range": {
         "startLine": 28,
         "startChar": 54,
