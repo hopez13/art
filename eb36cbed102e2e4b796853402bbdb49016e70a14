@@ -63,6 +63,30 @@
       },
       "revId": "eb36cbed102e2e4b796853402bbdb49016e70a14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e63a9f_f1134491",
+        "filename": "test/update-rollback/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-05T18:57:32Z",
+      "side": 1,
+      "message": "Thanks for the explanation.\n\nI had no idea PRODUCT_MANIFEST_PACKAGE_NAME_OVERRIDES had that effect. I wonder if it\u0027s only the package name in the manifest that apexd goes on to determine whether an APEX can be installed, or if it gets reflected in the file name in /system/apex as well.",
+      "parentUuid": "37ea5593_a9aa307d",
+      "range": {
+        "startLine": 28,
+        "startChar": 54,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "eb36cbed102e2e4b796853402bbdb49016e70a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
