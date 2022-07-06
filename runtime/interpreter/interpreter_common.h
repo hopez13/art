@@ -270,7 +270,8 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
     return false;
   }
   if (UNLIKELY(!called_method->IsInvokable())) {
-    called_method->ThrowInvocationTimeError();
+    called_method->ThrowInvocationTimeError(
+      (type == kStatic) ? nullptr : shadow_frame.GetVRegReference(vregC));
     result->SetJ(0);
     return false;
   }
