@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ae8ba7e_beee2c3e",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-07T09:58:30Z",
+      "side": 0,
+      "message": "Why are we removing this comment and the CHECK? Are they obsolete?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 13
+      },
+      "revId": "419e5a1277e68813179cf99852e3cf6bc426bcbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
