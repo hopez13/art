@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f643597d_16503c77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T10:14:32Z",
+      "side": 1,
+      "message": "Thanks Nicolas! Mostly lgtm. I just have a question in IntializeMethodsCode others are more like suggestions.",
+      "revId": "6a550ff176826065ced6d2e18b096bf16b0b00ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03e89195_d1181585",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3395,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T10:14:32Z",
+      "side": 1,
+      "message": "Can we use if (!NeedsClinitCheckBeforeCall(method)) here? IIUC, we only want to update methods that need Clinit check here right?",
+      "revId": "6a550ff176826065ced6d2e18b096bf16b0b00ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01135d05_22d6d17f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3399,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T10:14:32Z",
+      "side": 1,
+      "message": "This is to avoid making the page dirty right? We expect the the entry point would be the same as instrumentation-\u003eGetCodeForInvoke here right? Should we add a DCHECK for that?",
+      "revId": "6a550ff176826065ced6d2e18b096bf16b0b00ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c97f15b_4e25d91b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T10:14:32Z",
+      "side": 1,
+      "message": "I am a bit confused here, IIUC the idea is to use NterpWithClinitEntryPoint instead of resolution stub so we don\u0027t change the entry point from resolution stub to Nterp entry point right? So why do we want to do this only for DebugBuild?",
+      "revId": "6a550ff176826065ced6d2e18b096bf16b0b00ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bb1bd8f_2bebcae4",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1314,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T10:14:32Z",
+      "side": 1,
+      "message": "Maybe also a line saying nterp with clinit calls resolution stub if required which will then get the actual code from GetCodeForInvoke. So we don\u0027t want to return NterpWithClinitEntryPoint here.",
+      "revId": "6a550ff176826065ced6d2e18b096bf16b0b00ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39c50865_19714e49",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1371,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T10:14:32Z",
+      "side": 1,
+      "message": "Just double checking about this comment. NterpEntryPointWithClinitChecks still satisfies this right i.e. we still use trampoline if we have a compiled version of the method. TBH, I don\u0027t understand this comment fully.",
+      "revId": "6a550ff176826065ced6d2e18b096bf16b0b00ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb127880_c4282ea6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T10:14:32Z",
+      "side": 1,
+      "message": "nit: Maybe a comment about this.",
+      "revId": "6a550ff176826065ced6d2e18b096bf16b0b00ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
