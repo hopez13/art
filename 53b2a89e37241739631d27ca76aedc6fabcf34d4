@@ -16,6 +16,125 @@
       "message": "PTAL",
       "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49cdfcd5_5e8ae2a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T15:15:47Z",
+      "side": 1,
+      "message": "Thanks Nicolas! lgtm with minor nits.",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a5b140b_9e89a7fb",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T15:15:47Z",
+      "side": 1,
+      "message": "just for my understanding, we could also use a special trampoline that does clinit check and calls the native code right?",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6677c261_f55641f4",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T15:15:47Z",
+      "side": 1,
+      "message": "minor nit: we use a column limit of 100. I think this one limits to 80",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8c71861_ed6e9389",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T15:15:47Z",
+      "side": 1,
+      "message": "static method that isn\u0027t a constructor?",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b1802eb_704376e0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2240,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T15:15:47Z",
+      "side": 1,
+      "message": "nit: Maybe also add we need this check before constructing frame so that when class initialization fails we get the correct stack trace.",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c4f5bfd_06b842b8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 3396,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T15:15:47Z",
+      "side": 1,
+      "message": "nit: Use NeedsClinitChecksBeforeCall?",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "510d3a93_f69afc53",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-07T15:15:47Z",
+      "side": 1,
+      "message": "nit: remove this line.",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
