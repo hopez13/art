@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f2c8a64_574899fc",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T13:15:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05c1043c_a6506f65",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 38
+      },
+      "revId": "bc4e3de76807f3f832a8dc1a9de9feb120b28ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10f1c35a_3b721a9a",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-07T09:58:30Z",
       "side": 1,
       "message": "Is this an optimization to early break? If so, WDYT about changing `ThrowInvocationTimeError` slightly to do \n\n```\n  if (IsDefaultConflicting()) {\n    ThrowIncompatibleClassChangeErrorForMethodConflict(this);\n    return;\n  }\n  if (GetDeclaringClass()-\u003eIsInterface() \u0026\u0026 receiver !\u003d nullptr) {\n    ... with returns...\n    Maybe we could have a `if (np_method-\u003eIsAbstract()) { break }` if the early return is needed, explaining why we are throwing AbstractMethodError in that case.\n  }\n    \n  // Catch all   \n  DCHECK(IsAbstract());\n  ThrowAbstractMethodError(this);\n```",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 47
+      },
+      "revId": "bc4e3de76807f3f832a8dc1a9de9feb120b28ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b7d7c2c_ea04666a",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T13:15:17Z",
+      "side": 1,
+      "message": "Not an optimization, but we would need to double break from the two loops if we wanted the catch all. So I wrote it this way.",
+      "parentUuid": "10f1c35a_3b721a9a",
       "range": {
         "startLine": 173,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e39abd7a_e2c52c9f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 8115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T13:15:17Z",
+      "side": 1,
+      "message": "No, if it\u0027s abstract, it\u0027s covered by the code line 8120. Being abstract or not only mattered for when we were doing the early throw, which I\u0027ve removed.",
+      "parentUuid": "20a4246a_4b07b365",
+      "range": {
+        "startLine": 8115,
+        "startChar": 0,
+        "endLine": 8115,
+        "endChar": 49
+      },
+      "revId": "bc4e3de76807f3f832a8dc1a9de9feb120b28ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2797c836_acdcdc52",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b829b247_4b46a563",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T13:15:17Z",
+      "side": 1,
+      "message": "We cannot, we need to call `FindMethodToCall` to call `called_method-\u003eIsInvokable`, which is the method that can suspend and make `receiver` garbage.",
+      "parentUuid": "2797c836_acdcdc52",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 3
+      },
+      "revId": "bc4e3de76807f3f832a8dc1a9de9feb120b28ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de1a508b_39f2afbf",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-07-07T09:58:30Z",
       "side": 1,
       "message": "nit: `IllegalAccessError` to be in line with the other throw comments. Same for s2 and s3 below.",
+      "range": {
+        "startLine": 63,
+        "startChar": 32,
+        "endLine": 63,
+        "endChar": 37
+      },
+      "revId": "bc4e3de76807f3f832a8dc1a9de9feb120b28ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5673bd2_63a66a23",
+        "filename": "test/840-resolution/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T13:15:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de1a508b_39f2afbf",
       "range": {
         "startLine": 63,
         "startChar": 32,

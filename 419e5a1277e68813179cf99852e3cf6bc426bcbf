@@ -22,6 +22,30 @@
       },
       "revId": "419e5a1277e68813179cf99852e3cf6bc426bcbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddfde420_488a91a9",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T13:15:17Z",
+      "side": 0,
+      "message": "Yes, it references proxy methods, but it applies to all \u0027this\u0027 references. The DCHECK I\u0027ve moved to line 527.",
+      "parentUuid": "3ae8ba7e_beee2c3e",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 13
+      },
+      "revId": "419e5a1277e68813179cf99852e3cf6bc426bcbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
