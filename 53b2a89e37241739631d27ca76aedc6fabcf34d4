@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6f46be6_6b49bcfb",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T15:25:34Z",
+      "side": 1,
+      "message": "Yes indeed - now I\u0027m not sure why I haven\u0027t listed this option, but I remember some difficulties implementing it. I\u0027ll still add the option in the comment.",
+      "parentUuid": "9a5b140b_9e89a7fb",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6677c261_f55641f4",
@@ -65,6 +83,24 @@
       "writtenOn": "2022-07-07T15:15:47Z",
       "side": 1,
       "message": "minor nit: we use a column limit of 100. I think this one limits to 80",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "133a9af4_53b73856",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T15:25:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6677c261_f55641f4",
       "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -86,6 +122,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4776996b_e729f8cd",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T15:25:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8c71861_ed6e9389",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b1802eb_704376e0",
@@ -99,6 +153,24 @@
       "writtenOn": "2022-07-07T15:15:47Z",
       "side": 1,
       "message": "nit: Maybe also add we need this check before constructing frame so that when class initialization fails we get the correct stack trace.",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebc3a66b_0687146b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2240,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T15:25:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b1802eb_704376e0",
       "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -120,6 +192,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a20e05c_f069d0c4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 3396,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T15:25:34Z",
+      "side": 1,
+      "message": "This can be removed after rebase.",
+      "parentUuid": "7c4f5bfd_06b842b8",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "510d3a93_f69afc53",
@@ -133,6 +223,24 @@
       "writtenOn": "2022-07-07T15:15:47Z",
       "side": 1,
       "message": "nit: remove this line.",
+      "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b80d95be_fd2230f0",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-07T15:25:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "510d3a93_f69afc53",
       "revId": "53b2a89e37241739631d27ca76aedc6fabcf34d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
