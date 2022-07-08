@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e99d07b4_e6375abc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434507
+      },
+      "writtenOn": "2022-07-08T18:57:30Z",
+      "side": 1,
+      "message": "The tests here seems to fail after we are moving constants closer to their use-site. See b/238404145 for a diff on working and non-working.\n\nI cannot figure out how to disable the tests for suite/host-units-tests and suite/mapping.",
+      "revId": "ee66cc9d4c4d4101bb115e7a9c92ef6f4af1b0b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
