@@ -46,6 +46,30 @@
       },
       "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59f7b7b0_36ed7a02",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-08T17:54:26Z",
+      "side": 1,
+      "message": "I agree it would be quite nice to make it programmatically safe, if it can be done reasonably cheaply.\n\nHowever, swapping between owned and non-owned pointers isn\u0027t safe - you\u0027d have to do it between the unique_ptr\u0027s in `collection_` if it\u0027s to be of any use, and that means visiting them in a non-sequential order based on how they are moved around, which makes the loop rather complicated.\n\nOr am I missing something? If you see a way to do it easily then I\u0027m all for it.",
+      "parentUuid": "f33db7ea_9c58ca4f",
+      "range": {
+        "startLine": 270,
+        "startChar": 44,
+        "endLine": 270,
+        "endChar": 97
+      },
+      "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
