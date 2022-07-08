@@ -267,7 +267,7 @@ template<class T> class CollectionVector : public CollectionBase {
     for (size_t i = 0; i < Size(); ++i) {
       // There are times when the array will temporarily contain the same pointer twice, doing the
       // release here sure there is no double free errors.
-      collection_[i].release();
+      collection_[i].release(); // NOLINT - not interested in keeping around the previous element
       collection_[i].reset(it->second);
       ++it;
     }
