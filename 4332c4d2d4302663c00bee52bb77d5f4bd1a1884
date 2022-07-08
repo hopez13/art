@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc9a379_5bb0fe7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1949013
+      },
+      "writtenOn": "2022-07-08T02:36:44Z",
+      "side": 1,
+      "message": "hello,we had a trouble after megerd this feature.\nWe found that if we improve the priority of the target lock thread, there is a small probability that the ksoftirqd thread of the tasklet running the WiFi module will not be scheduled in time and eventually crash. Your company also has a boost operation on the surfaceflinger. I would like to ask if you had any relevant processing on the improvement of priority and the preemption of soft interrupt threads that cannot be scheduled in time\n",
+      "revId": "4332c4d2d4302663c00bee52bb77d5f4bd1a1884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
