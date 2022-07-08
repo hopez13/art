@@ -176,6 +176,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1389911_9e78fd0c",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-08T15:29:07Z",
+      "side": 1,
+      "message": "Looks good thanks!",
+      "parentUuid": "a3ea182e_570d7e60",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 16
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b603d799_b8cf2943",
@@ -260,6 +284,30 @@
       "side": 1,
       "message": "VLOG is actually incorrect here. Fixed it. I also changed the if a bit since this is in else part of \ndeoptimize \u0026\u0026 Runtime::Current()-\u003eIsAsyncDeoptimizeable(visitor.caller, *return_pc_addr)\nso only if (deoptimize) is sufficient here.",
       "parentUuid": "f0faeba4_72375430",
+      "range": {
+        "startLine": 1780,
+        "startChar": 65,
+        "endLine": 1780,
+        "endChar": 79
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ebf29af_f18f9f34",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-08T15:29:07Z",
+      "side": 1,
+      "message": "nit: Since the if at line 1779 returns always we could do\n```\n  if (deoptimize \u0026\u0026 Runtime::Current()-\u003eIsAsyncDeoptimizeable(visitor.caller, *return_pc_addr)) {\n...\n}\n\n if (deoptimize) {\n...\n```\nand skip having the else at line 1798.",
+      "parentUuid": "f8d66179_8968f56d",
       "range": {
         "startLine": 1780,
         "startChar": 65,
