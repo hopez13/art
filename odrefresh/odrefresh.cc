@@ -104,7 +104,7 @@ constexpr const char* kCacheInfoFile = "cache-info.xml";
 constexpr time_t kMaximumExecutionSeconds = 300;
 
 // Maximum execution time for any child process spawned.
-constexpr time_t kMaxChildProcessSeconds = 90;
+constexpr time_t kMaxChildProcessSeconds = 120;
 
 constexpr mode_t kFileMode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
 
