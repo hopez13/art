@@ -259,18 +259,22 @@ template<class T> class CollectionVector : public CollectionBase {
     return collection_[index];
   }
 
-  // Sort the vector by copying pointers over.
   template <typename MapType>
   void SortByMapOrder(const MapType& map) {
-    auto it = map.begin();
     CHECK_EQ(map.size(), Size());
-    for (size_t i = 0; i < Size(); ++i) {
-      // There are times when the array will temporarily contain the same pointer twice, doing the
-      // release here sure there is no double free errors.
-      collection_[i].release();
-      collection_[i].reset(it->second);
-      ++it;
+
+    // Building a cache of (type pointer, position in the sorted vector)
+    // entries will help with the comparison function passed to std::sort
+    std::map<T*, int> mapOrder;
+    int i = 0;
+    for (auto it = map.begin(); it != map.end(); ++it) {
+      mapOrder.insert({it->second, i});
+      i++;
     }
+
+    std::sort(collection_.begin(), collection_.end(), [&mapOrder](ElementType& a, ElementType& b) {
+      return mapOrder[a.get()] < mapOrder[b.get()];
+    });
   }
 
  protected:
