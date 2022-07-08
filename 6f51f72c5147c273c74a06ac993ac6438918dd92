@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e2fce7c7_f0cb459e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-08T16:31:44Z",
+      "side": 1,
+      "message": "Done: https://android-build.googleplex.com/builds/abtd/run/L84400000955405454\n\n(Well, on git_master_throttled, which is where the breakage is reported; we don\u0027t run this on git_master.)",
+      "parentUuid": "b1e3ebcb_0345d238",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 15
+      },
+      "revId": "6f51f72c5147c273c74a06ac993ac6438918dd92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "976f5e5a_e1c32945",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -102,6 +126,30 @@
       "writtenOn": "2022-07-08T16:12:10Z",
       "side": 1,
       "message": "The total time limit is still 300s. If compiling each boot image takes 120s, then it will leave only 60s for compiling the system server. I\u0027m not sure it will work.",
+      "range": {
+        "startLine": 104,
+        "startChar": 44,
+        "endLine": 104,
+        "endChar": 47
+      },
+      "revId": "6f51f72c5147c273c74a06ac993ac6438918dd92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f4c301d_cbc5c18b",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-08T16:31:44Z",
+      "side": 1,
+      "message": "Fair point. I\u0027ll change it to match http://cs/android-internal/packages/modules/Virtualization/compos/common/timeouts.rs?rcl\u003dc3f2ac2fb61a2ce3d650b40a589961bb2a8dcefe\u0026l\u003d51. (Although I was in the process of reducing that.)",
+      "parentUuid": "238cbdd2_1dcbcdaf",
       "range": {
         "startLine": 104,
         "startChar": 44,
