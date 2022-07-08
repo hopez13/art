@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89a666ee_dea9b974",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-08T16:31:57Z",
+      "side": 1,
+      "message": "I think this explanation is a bit confusing. It sounds like we don\u0027t care about leaking the old elements, but what actually happens here, iiuc, is that `map` has non-owning pointers to all the elements in `collection_`, exactly one each, and this just reshuffles the owning pointers so that all elements are safely in unique_ptr\u0027s again at the end of the loop. Or that\u0027s how I hope it is, because otherwise I can\u0027t see how it works.\n\nCan you please improve the comments to explain it better? The function comment should specify the assumptions on the map argument.",
+      "range": {
+        "startLine": 270,
+        "startChar": 44,
+        "endLine": 270,
+        "endChar": 97
+      },
+      "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
