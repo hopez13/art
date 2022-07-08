@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1859b9b5_2bc31872",
+        "filename": "compiler/exception_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-08T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "923b4c95_354ec391",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 72
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fde419d9_be1f053b",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-07-08T08:59:04Z",
       "side": 1,
       "message": "Same comment as Nicolas on constants",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 48
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c370ca15_29133312",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-08T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fde419d9_be1f053b",
       "range": {
         "startLine": 55,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3ea182e_570d7e60",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-08T12:49:41Z",
+      "side": 1,
+      "message": "Thanks for the detailed comment! I update this a little to also talk about interleaved and consecutive encodings.",
+      "parentUuid": "dce3634c_dd7a8a48",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 16
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b603d799_b8cf2943",
@@ -117,6 +189,30 @@
       "writtenOn": "2022-07-07T16:47:54Z",
       "side": 1,
       "message": "Is that still relevant?",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 3
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81ba0d56_3d455973",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-08T12:49:41Z",
+      "side": 1,
+      "message": "You are right. We don\u0027t need this. I fixed it.",
+      "parentUuid": "b603d799_b8cf2943",
       "range": {
         "startLine": 233,
         "startChar": 0,
@@ -150,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8d66179_8968f56d",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-08T12:49:41Z",
+      "side": 1,
+      "message": "VLOG is actually incorrect here. Fixed it. I also changed the if a bit since this is in else part of \ndeoptimize \u0026\u0026 Runtime::Current()-\u003eIsAsyncDeoptimizeable(visitor.caller, *return_pc_addr)\nso only if (deoptimize) is sufficient here.",
+      "parentUuid": "f0faeba4_72375430",
+      "range": {
+        "startLine": 1780,
+        "startChar": 65,
+        "endLine": 1780,
+        "endChar": 79
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8aaf4c15_8585dc2a",
@@ -163,6 +283,30 @@
       "writtenOn": "2022-07-08T08:59:04Z",
       "side": 1,
       "message": "Not sure if these CHECKs are needed since we would crash on method-\u003e or header-\u003e below. I\u0027d do DCHECK or just remove.",
+      "range": {
+        "startLine": 3073,
+        "startChar": 0,
+        "endLine": 3073,
+        "endChar": 29
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e01cd19_90370736",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3073,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-08T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aaf4c15_8585dc2a",
       "range": {
         "startLine": 3073,
         "startChar": 0,
@@ -196,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bbe1e15_c1f0f43d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3075,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-08T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df963561_4f1f902e",
+      "range": {
+        "startLine": 3075,
+        "startChar": 38,
+        "endLine": 3075,
+        "endChar": 40
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "555c1e49_a8f81876",
@@ -209,6 +377,30 @@
       "writtenOn": "2022-07-08T08:59:04Z",
       "side": 1,
       "message": "Suggestion: `. We` to avoid a really long sentence",
+      "range": {
+        "startLine": 509,
+        "startChar": 58,
+        "endLine": 509,
+        "endChar": 65
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f538fbb0_76c3f946",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-08T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "555c1e49_a8f81876",
       "range": {
         "startLine": 509,
         "startChar": 58,
@@ -242,6 +434,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f70f908f_28702ebd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3780,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-08T12:49:41Z",
+      "side": 1,
+      "message": "visitor.caller is good there. cf should be same as visitor.caller. cf is the debug shadow stack frame corresponding to the frame id of the visitor.caller. I could add a DCHECK here but want to avoid that for this CL since frame ids are a little brittle. This code requires some cleaning up. I will do that in a follow up CL.",
+      "parentUuid": "6afae307_15c86c6c",
+      "range": {
+        "startLine": 3780,
+        "startChar": 38,
+        "endLine": 3780,
+        "endChar": 53
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8cedf73_f8e31d72",
@@ -255,6 +471,24 @@
       "writtenOn": "2022-07-07T16:47:54Z",
       "side": 1,
       "message": "Line too long",
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ae4cf59_6d857db2",
+        "filename": "test/543-env-long-ref/env_long_ref.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-08T12:49:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8cedf73_f8e31d72",
       "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
