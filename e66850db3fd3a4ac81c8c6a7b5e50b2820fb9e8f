@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51305681_df8ddbe6",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2022-07-08T12:39:52Z",
+      "side": 1,
+      "message": "internal change also adds compressible:false to this one, why skip it here?",
+      "range": {
+        "startLine": 342,
+        "startChar": 27,
+        "endLine": 342,
+        "endChar": 34
+      },
+      "revId": "e66850db3fd3a4ac81c8c6a7b5e50b2820fb9e8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
