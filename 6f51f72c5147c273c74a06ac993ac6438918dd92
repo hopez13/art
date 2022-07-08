@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c499eefb_dd1f5dea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2022-07-08T16:07:13Z",
+      "side": 1,
+      "message": "Yes, it is - e.g. https://cs.android.com/android/platform/superproject/+/master:art/TEST_MAPPING;drc\u003d3c37682612903a0eae8632274cd5c9bf4de37cc3;l\u003d1306\n\n(Which makes it slightly odd that the breakage wasn\u0027t detected in presubmit.)",
+      "parentUuid": "bdd33ac4_ee18c32d",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 15
+      },
+      "revId": "6f51f72c5147c273c74a06ac993ac6438918dd92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "976f5e5a_e1c32945",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
