@@ -248,9 +248,6 @@ jvmtiError SearchUtil::AddToBootstrapClassLoaderSearch(jvmtiEnv* env,
   }
 
   current->AppendToBootClassPath(segment, segment, dex_files);
-  for (std::unique_ptr<const art::DexFile>& dex_file : dex_files) {
-    dex_file.release();
-  }
 
   return ERR(NONE);
 }

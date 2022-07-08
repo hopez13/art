@@ -265,8 +265,13 @@ template<class T> class CollectionVector : public CollectionBase {
     auto it = map.begin();
     CHECK_EQ(map.size(), Size());
     for (size_t i = 0; i < Size(); ++i) {
-      // There are times when the array will temporarily contain the same pointer twice, doing the
-      // release here sure there is no double free errors.
+      // The map argument contains non-owning pointers to the same elements stored in collection_,
+      // in the desired order, and they will be copied over to collection_ as part of this cycle.
+      // Because of this, there are times when the array will temporarily contain the same pointer
+      // twice, so calling release() here assures there will be no double free errors. The invariant
+      // that all items in collection_ will be unique and sorted will be true again at the end of
+      // the cycle.
+      // NOLINTNEXTLINE
       collection_[i].release();
       collection_[i].reset(it->second);
       ++it;
