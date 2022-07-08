@@ -22,6 +22,30 @@
       },
       "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f33db7ea_9c58ca4f",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-07-08T17:27:26Z",
+      "side": 1,
+      "message": "On a second glance, what if we sidestep completely the problem explained in the comment by making use of `std::swap`? If I understand correctly, we might be running into trouble sometimes because we have duplicates of the unique pointers during the execution of `SortByMapOrder` - but if we reorder the vector by swapping items rather than releasing and resetting them, the problem should no longer be there (maybe at a small performance cost, but I imagine the length of the vector to be sorted is not going to be massive). What do you think?",
+      "parentUuid": "89a666ee_dea9b974",
+      "range": {
+        "startLine": 270,
+        "startChar": 44,
+        "endLine": 270,
+        "endChar": 97
+      },
+      "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
