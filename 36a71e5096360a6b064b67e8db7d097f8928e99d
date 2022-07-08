@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3a0cee3_5c4a31ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-08T08:59:04Z",
+      "side": 1,
+      "message": "Overall LGTM, thanks for the extra comments on varint!",
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "923b4c95_354ec391",
@@ -43,6 +60,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fde419d9_be1f053b",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-08T08:59:04Z",
+      "side": 1,
+      "message": "Same comment as Nicolas on constants",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 48
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce3634c_dd7a8a48",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-08T08:59:04Z",
+      "side": 1,
+      "message": "Suggestion:\n\n```\nWe encode any value less than or equal to 11 inline. We use 12, 13, 14 and 15 to represent that the value is encoded in 1, 2, 3 and 4 bytes respectively.\n\nFor example if we want to encode 1, 15, 16, 7, 11, 256 we would have:\n\nMeaning: 1--- 15-- 12-- 7--- 11-- 256- 15------- 12------- 256----------------\nBits:    0001 1100 1100 0111 1011 1101 0000 1111 0000 1100 0000 0001 0000 0000\n\nLow numbers (1, 7, 11) are encoded inline. 15 and 12 are set with 12 to show we need to load one byte for each to have their real values (15 and 12), and 256 is set with 13 to show we need to load two bytes. This is done to compress the values in the bit array and keep the size down.\n```\n\nWDYT?",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 16
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b603d799_b8cf2943",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 4
@@ -59,6 +122,121 @@
         "startChar": 0,
         "endLine": 238,
         "endChar": 3
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0faeba4_72375430",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-08T08:59:04Z",
+      "side": 1,
+      "message": "Should this one be `method`? That\u0027s what the VLOG in 1781 is talking about right?",
+      "range": {
+        "startLine": 1780,
+        "startChar": 65,
+        "endLine": 1780,
+        "endChar": 79
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aaf4c15_8585dc2a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3073,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-08T08:59:04Z",
+      "side": 1,
+      "message": "Not sure if these CHECKs are needed since we would crash on method-\u003e or header-\u003e below. I\u0027d do DCHECK or just remove.",
+      "range": {
+        "startLine": 3073,
+        "startChar": 0,
+        "endLine": 3073,
+        "endChar": 29
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df963561_4f1f902e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3075,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-08T08:59:04Z",
+      "side": 1,
+      "message": "nit: extra space",
+      "range": {
+        "startLine": 3075,
+        "startChar": 38,
+        "endLine": 3075,
+        "endChar": 40
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "555c1e49_a8f81876",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-08T08:59:04Z",
+      "side": 1,
+      "message": "Suggestion: `. We` to avoid a really long sentence",
+      "range": {
+        "startLine": 509,
+        "startChar": 58,
+        "endLine": 509,
+        "endChar": 65
+      },
+      "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6afae307_15c86c6c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3780,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-08T08:59:04Z",
+      "side": 1,
+      "message": "Should we also check that cf-\u003eGetMethod is async deoptimizeable? Or is that implied somehow from the relationship between visitor and cf?",
+      "range": {
+        "startLine": 3780,
+        "startChar": 38,
+        "endLine": 3780,
+        "endChar": 53
       },
       "revId": "36a71e5096360a6b064b67e8db7d097f8928e99d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
