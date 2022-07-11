@@ -16,6 +16,23 @@
       "message": "The tests here seems to fail after we are moving constants closer to their use-site. See b/238404145 for a diff on working and non-working.\n\nI cannot figure out how to disable the tests for suite/host-units-tests and suite/mapping.",
       "revId": "ee66cc9d4c4d4101bb115e7a9c92ef6f4af1b0b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f681025_1e2f8c67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-11T08:37:53Z",
+      "side": 1,
+      "message": "Can we fix those tests as part of landing the new r8 instead? They\u0027re kind of important to keep running.",
+      "revId": "ee66cc9d4c4d4101bb115e7a9c92ef6f4af1b0b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
