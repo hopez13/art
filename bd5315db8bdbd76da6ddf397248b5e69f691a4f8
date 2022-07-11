@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa58957_cecc243d",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-11T09:45:05Z",
+      "side": 1,
+      "message": "Done. I still left them as two different variables. I thought it\u0027s easier to read that way but happy to change it.",
+      "parentUuid": "d30a8e3c_3cb2ecc1",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 75
+      },
+      "revId": "bd5315db8bdbd76da6ddf397248b5e69f691a4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70989fe4_f1caa6bb",
@@ -61,6 +85,30 @@
       "writtenOn": "2022-07-11T08:35:33Z",
       "side": 1,
       "message": "Isn\u0027t that covered by the check below?",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 3
+      },
+      "revId": "bd5315db8bdbd76da6ddf397248b5e69f691a4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80906662_34ca60fc",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-11T09:45:05Z",
+      "side": 1,
+      "message": "The check covers JITed JNI stubs but not GenericJNITrampolines. I swapped the checks so we first check for JITed code. In the current implementation it doesn\u0027t matter that much since we never change JavaDebuggable after the runtime has started but it\u0027s better to have JITed code check first when I later add the ability to switch to debuggable after starting runtime.",
+      "parentUuid": "70989fe4_f1caa6bb",
       "range": {
         "startLine": 234,
         "startChar": 0,
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "Oh, thanks for pointing that out. Maybe it could help readability if this was written:\n\n```\nif (deoptimize) {\n  if (IsAsync()) {\n    // Do stuff and return\n  } else {\n    // log\n}\n```",
       "parentUuid": "3831b09c_929f5803",
+      "range": {
+        "startLine": 1801,
+        "startChar": 0,
+        "endLine": 1801,
+        "endChar": 88
+      },
+      "revId": "bd5315db8bdbd76da6ddf397248b5e69f691a4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fefd9045_9f9cd204",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1801,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-11T09:45:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed1b67ba_5cb9903d",
       "range": {
         "startLine": 1801,
         "startChar": 0,
