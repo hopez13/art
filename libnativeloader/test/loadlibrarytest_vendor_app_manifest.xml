@@ -16,10 +16,10 @@
  -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="android.test.app.system">
+    package="android.test.app.vendor">
 
     <application>
-        <activity android:name="android.test.app.TestActivity" >
+        <activity android:name="android.test.app.TestActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

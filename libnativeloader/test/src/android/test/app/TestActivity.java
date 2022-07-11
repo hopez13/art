@@ -17,28 +17,70 @@
 package android.test.app;
 
 import android.app.Activity;
+import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
 import android.util.Log;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
 public class TestActivity extends Activity {
+    private static final String LOG_FILE_NAME = "TestActivity.log";
+
+    private File mTempLogFile;
+    private OutputStreamWriter mLogStream;
 
     @Override
     public void onCreate(Bundle icicle) {
-         super.onCreate(icicle);
-         tryLoadingLib("foo.oem1");
-         tryLoadingLib("bar.oem1");
-         tryLoadingLib("foo.oem2");
-         tryLoadingLib("bar.oem2");
-         tryLoadingLib("foo.product1");
-         tryLoadingLib("bar.product1");
+        super.onCreate(icicle);
+        openLogFile();
+        try {
+            tryLoadingLib("foo.oem1");
+            tryLoadingLib("bar.oem1");
+            tryLoadingLib("foo.oem2");
+            tryLoadingLib("bar.oem2");
+            tryLoadingLib("foo.product1");
+            tryLoadingLib("bar.product1");
+        } finally {
+            finalizeLogFile();
+        }
     }
 
     private void tryLoadingLib(String name) {
         try {
             System.loadLibrary(name);
-            Log.d(getPackageName(), "library " + name + " is successfully loaded");
+            Log("LOAD_SUCCESS: " + name);
         } catch (UnsatisfiedLinkError e) {
-            Log.d(getPackageName(), "failed to load libarary " + name, e);
+            Log("LOAD_FAILED: " + name);
+            Log.d(getPackageName(), null, e);
         }
+    }
+
+    private void openLogFile() {
+        try {
+            mTempLogFile = File.createTempFile("TestActivity.log", null, getDataDir());
+            mLogStream = new OutputStreamWriter(new FileOutputStream(mTempLogFile));
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to create temporary log file in " + getDataDir(), e);
+        }
+    }
+
+    private void finalizeLogFile() {
+        File logFile = new File(getDataDir() + "/" + LOG_FILE_NAME);
+        try {
+            mLogStream.close();
+            if (!mTempLogFile.renameTo(logFile)) {
+                throw new RuntimeException("Failed to rename temporary log file to " + logFile);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to finalize log file " + logFile, e);
+        }
+    }
+
+    private void Log(String msg) {
+        Log.d(getPackageName(), msg);
+        new PrintWriter(mLogStream).println(msg);
     }
 }
