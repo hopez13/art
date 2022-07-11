@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ef7dc5f_0c52b0f4",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-11T08:35:33Z",
+      "side": 1,
+      "message": "Maybe move this up, and then write:\n```\nbool should_tag_sp \u003d needs_entry_exit_hooks;\n```",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 75
+      },
+      "revId": "bd5315db8bdbd76da6ddf397248b5e69f691a4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70989fe4_f1caa6bb",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-11T08:35:33Z",
+      "side": 1,
+      "message": "Isn\u0027t that covered by the check below?",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 3
+      },
+      "revId": "bd5315db8bdbd76da6ddf397248b5e69f691a4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d0cf537_1b58a1aa",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1801,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-11T08:35:33Z",
+      "side": 1,
+      "message": "Is this the case because we always use entry/exit hooks now? Please add a comment.",
+      "range": {
+        "startLine": 1801,
+        "startChar": 0,
+        "endLine": 1801,
+        "endChar": 88
+      },
+      "revId": "bd5315db8bdbd76da6ddf397248b5e69f691a4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
