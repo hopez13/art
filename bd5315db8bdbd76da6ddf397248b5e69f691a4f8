@@ -116,6 +116,30 @@
       },
       "revId": "bd5315db8bdbd76da6ddf397248b5e69f691a4f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed1b67ba_5cb9903d",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1801,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-11T08:52:48Z",
+      "side": 1,
+      "message": "Oh, thanks for pointing that out. Maybe it could help readability if this was written:\n\n```\nif (deoptimize) {\n  if (IsAsync()) {\n    // Do stuff and return\n  } else {\n    // log\n}\n```",
+      "parentUuid": "3831b09c_929f5803",
+      "range": {
+        "startLine": 1801,
+        "startChar": 0,
+        "endLine": 1801,
+        "endChar": 88
+      },
+      "revId": "bd5315db8bdbd76da6ddf397248b5e69f691a4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
