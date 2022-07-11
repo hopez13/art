@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d30a8e3c_3cb2ecc1",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-11T08:49:11Z",
+      "side": 1,
+      "message": "nit: Adding to this, can we make these two bools const? From what I could see we do not modify them.",
+      "parentUuid": "3ef7dc5f_0c52b0f4",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 75
+      },
+      "revId": "bd5315db8bdbd76da6ddf397248b5e69f691a4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70989fe4_f1caa6bb",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 7
@@ -60,6 +84,30 @@
       "writtenOn": "2022-07-11T08:35:33Z",
       "side": 1,
       "message": "Is this the case because we always use entry/exit hooks now? Please add a comment.",
+      "range": {
+        "startLine": 1801,
+        "startChar": 0,
+        "endLine": 1801,
+        "endChar": 88
+      },
+      "revId": "bd5315db8bdbd76da6ddf397248b5e69f691a4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3831b09c_929f5803",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1801,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-11T08:49:11Z",
+      "side": 1,
+      "message": "If this were true, we would have hit the `if` at line 1779.",
+      "parentUuid": "8d0cf537_1b58a1aa",
       "range": {
         "startLine": 1801,
         "startChar": 0,
