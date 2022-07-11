@@ -22,6 +22,30 @@
       },
       "revId": "e66850db3fd3a4ac81c8c6a7b5e50b2820fb9e8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09a5dd79_c27ad61b",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1944185
+      },
+      "writtenOn": "2022-07-11T13:09:53Z",
+      "side": 1,
+      "message": "This fix shouldn\u0027t modify the current implementation, so i don\u0027t prefer to change it in AOSP in the same CL with making the compression true by default.",
+      "parentUuid": "51305681_df8ddbe6",
+      "range": {
+        "startLine": 342,
+        "startChar": 27,
+        "endLine": 342,
+        "endChar": 34
+      },
+      "revId": "e66850db3fd3a4ac81c8c6a7b5e50b2820fb9e8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
