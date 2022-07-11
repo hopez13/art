@@ -16,6 +16,23 @@
       "message": "Thanks Santiago and Nicolas! ",
       "revId": "68145810b0e4ef284db1df2df3018b5cbdecd448",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b54aa246_3484bcc3",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-11T10:22:54Z",
+      "side": 1,
+      "message": "So at this point, this only covers generic jni no? Maybe be explicit about it and check that the entry point is generic jni?",
+      "revId": "68145810b0e4ef284db1df2df3018b5cbdecd448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
