@@ -46,6 +46,30 @@
       },
       "revId": "e66850db3fd3a4ac81c8c6a7b5e50b2820fb9e8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab862b77_56273ee6",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2022-07-11T13:30:15Z",
+      "side": 1,
+      "message": "Am I missing something? s-launched-apex-module adds compressible:true, which is false by default. So this apex_test goes from false to true with your topic?\n\nWhy did internal change had set it to false then?",
+      "parentUuid": "09a5dd79_c27ad61b",
+      "range": {
+        "startLine": 342,
+        "startChar": 27,
+        "endLine": 342,
+        "endChar": 34
+      },
+      "revId": "e66850db3fd3a4ac81c8c6a7b5e50b2820fb9e8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
