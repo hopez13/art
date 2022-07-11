@@ -33,6 +33,24 @@
       "message": "Can we fix those tests as part of landing the new r8 instead? They\u0027re kind of important to keep running.",
       "revId": "ee66cc9d4c4d4101bb115e7a9c92ef6f4af1b0b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6982c83_38c5f6c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1508587
+      },
+      "writtenOn": "2022-07-11T09:13:58Z",
+      "side": 1,
+      "message": "This roll allows platform to be compiled with JDK17, which is blocking platform development, so it would be nice to roll and fix the tests later.\n\nThe r8 team is away for the next 2 weeks so the alternative is to wait 2 weeks and then try to fix the test and land.",
+      "parentUuid": "2f681025_1e2f8c67",
+      "revId": "ee66cc9d4c4d4101bb115e7a9c92ef6f4af1b0b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
