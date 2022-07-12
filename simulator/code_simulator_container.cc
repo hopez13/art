@@ -26,30 +26,56 @@ namespace art {
 
 CodeSimulatorContainer::CodeSimulatorContainer(InstructionSet target_isa)
     : libart_simulator_handle_(nullptr),
-      simulator_(nullptr) {
+      entry_points_manager_(nullptr),
+      target_isa_(target_isa) {
   const char* libart_simulator_so_name =
       kIsDebugBuild ? "libartd-simulator.so" : "libart-simulator.so";
   libart_simulator_handle_ = dlopen(libart_simulator_so_name, RTLD_NOW);
   // It is not a real error when libart-simulator does not exist, e.g., on target.
   if (libart_simulator_handle_ == nullptr) {
     VLOG(simulator) << "Could not load " << libart_simulator_so_name << ": " << dlerror();
-  } else {
-    using CreateCodeSimulatorPtr = CodeSimulator*(*)(InstructionSet);
-    CreateCodeSimulatorPtr create_code_simulator =
-        reinterpret_cast<CreateCodeSimulatorPtr>(
-            dlsym(libart_simulator_handle_, "CreateCodeSimulator"));
-    DCHECK(create_code_simulator != nullptr) << "Fail to find symbol of CreateCodeSimulator: "
-        << dlerror();
-    simulator_ = create_code_simulator(target_isa);
   }
 }
 
+void CodeSimulatorContainer::InitEntryPointsManager() {
+  using CreateSimulatorEntryPointsManagerPtr = SimulatorEntryPointsManager*(*)(InstructionSet);
+  CreateSimulatorEntryPointsManagerPtr  create_qpoints_manager =
+      reinterpret_cast<CreateSimulatorEntryPointsManagerPtr >(
+          dlsym(libart_simulator_handle_, "CreateSimulatorEntryPointsManager"));
+  CHECK(create_qpoints_manager != nullptr) <<
+      "Fail to find symbol of CreateSimulatorEntryPointsManager: " <<
+      dlerror();
+  entry_points_manager_ = create_qpoints_manager(target_isa_);
+}
+
+BasicCodeSimulator* CodeSimulatorContainer::CreateBasicExecutor() {
+  using CreateCodeSimulatorPtr = BasicCodeSimulator*(*)(InstructionSet);
+  CreateCodeSimulatorPtr create_code_simulator =
+      reinterpret_cast<CreateCodeSimulatorPtr>(
+          dlsym(libart_simulator_handle_, "CreateBasicCodeSimulator"));
+  CHECK(create_code_simulator != nullptr) << "Fail to find symbol of CreateBasicCodeSimulator: "
+      << dlerror();
+  return create_code_simulator(target_isa_);
+}
+
+CodeSimulator* CodeSimulatorContainer::CreateExecutor() {
+  using CreateCodeSimulatorPtr = CodeSimulator*(*)(InstructionSet);
+  CreateCodeSimulatorPtr create_code_simulator =
+      reinterpret_cast<CreateCodeSimulatorPtr>(
+          dlsym(libart_simulator_handle_, "CreateCodeSimulator"));
+  CHECK(create_code_simulator != nullptr) << "Fail to find symbol of CreateCodeSimulator: "
+      << dlerror();
+  return create_code_simulator(target_isa_);
+}
+
 CodeSimulatorContainer::~CodeSimulatorContainer() {
-  // Free simulator object before closing libart-simulator because destructor of
-  // CodeSimulator lives in it.
-  if (simulator_ != nullptr) {
-    delete simulator_;
+#ifdef ART_USE_SIMULATOR
+  // Free entrypoints manager object before closing libart-simulator because
+  // CodeSimulatorContainer's destructor lives in it.
+  if (entry_points_manager_ != nullptr) {
+    delete entry_points_manager_;
   }
+#endif
   if (libart_simulator_handle_ != nullptr) {
     dlclose(libart_simulator_handle_);
   }
