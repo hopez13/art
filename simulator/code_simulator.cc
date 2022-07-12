@@ -20,7 +20,18 @@
 
 namespace art {
 
-CodeSimulator* CodeSimulator::CreateCodeSimulator(InstructionSet target_isa) {
+BasicCodeSimulator* CreateBasicCodeSimulator(InstructionSet target_isa) {
+  switch (target_isa) {
+    case InstructionSet::kArm64:
+      return arm64::BasicCodeSimulatorArm64::CreateBasicCodeSimulatorArm64();
+    default:
+      return nullptr;
+  }
+}
+
+#ifdef ART_USE_SIMULATOR
+
+CodeSimulator* CreateCodeSimulator(InstructionSet target_isa) {
   switch (target_isa) {
     case InstructionSet::kArm64:
       return arm64::CodeSimulatorArm64::CreateCodeSimulatorArm64();
@@ -29,8 +40,35 @@ CodeSimulator* CodeSimulator::CreateCodeSimulator(InstructionSet target_isa) {
   }
 }
 
-CodeSimulator* CreateCodeSimulator(InstructionSet target_isa) {
-  return CodeSimulator::CreateCodeSimulator(target_isa);
+SimulatorEntryPointsManager::SimulatorEntryPointsManager() {
+  uintptr_t* begin = reinterpret_cast<uintptr_t*>(&entry_points_);
+  uintptr_t* end = reinterpret_cast<uintptr_t*>(
+      reinterpret_cast<uint8_t*>(&entry_points_) + sizeof(entry_points_));
+  for (uintptr_t* it = begin; it != end; ++it) {
+    *it = GetUnimplementedEntryPoint();
+  }
+
+  SetStubToUnimplemented(&invoke_stub_);
+  SetStubToUnimplemented(&invoke_static_stub_);
+  SetStubToUnimplemented(&long_jump_stub_);
+  SetStubToUnimplemented(&pending_exception_stub_);
+  SetStubToUnimplemented(&deoptimize_stub_);
+
+  SetStubToUnimplemented(&instrumentation_exit_stub_);
+  SetStubToUnimplemented(&instrumentation_entry_stub_);
+  SetStubToUnimplemented(&proxy_invoke_stub_);
+  SetStubToUnimplemented(&invoke_obsolete_stub_);
 }
+
+SimulatorEntryPointsManager* CreateSimulatorEntryPointsManager(InstructionSet target_isa) {
+  switch (target_isa) {
+    case InstructionSet::kArm64:
+      return arm64::SimulatorEntryPointsManagerArm64::CreateSimulatorEntryPointsManagerArm64();
+    default:
+      return nullptr;
+  }
+}
+
+#endif
 
 }  // namespace art
