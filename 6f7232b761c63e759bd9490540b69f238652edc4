@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bbc3940_33441350",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-12T08:50:31Z",
+      "side": 1,
+      "message": "PTAL. Thanks!",
+      "revId": "6f7232b761c63e759bd9490540b69f238652edc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6b7b7fa_7c7023a1",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1714,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-12T08:50:31Z",
+      "side": 1,
+      "message": "I can\u0027t use info.Describe here since the ArtMethods on the stack may not have their declaring class properly setup. We would replace all of them with the newly redefined class and later fix it up. It is harmless in general but info.Describe has checks that everything is in order.",
+      "revId": "6f7232b761c63e759bd9490540b69f238652edc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
