@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17f7e98d_f39286cd",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-12T14:52:44Z",
+      "side": 1,
+      "message": "If we need this here, then don\u0027t we need it in the other apex_test modules below too? They also inherit `s-launched-apex-module`, albeit indirectly.\n\nHowever, first I\u0027d like to know if we need it. This is for generating capex modules preloaded in the system image, isn\u0027t? Does it affect modules when they don\u0027t go into a system image (i.e. aren\u0027t on `TARGET_PRODUCT`) as well?",
+      "range": {
+        "startLine": 363,
+        "startChar": 4,
+        "endLine": 363,
+        "endChar": 24
+      },
+      "revId": "3ab57c5a925b601aa40fd8de84096cafd02ad162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
