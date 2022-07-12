@@ -22,6 +22,30 @@
       },
       "revId": "3ab57c5a925b601aa40fd8de84096cafd02ad162",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f5a1050_d7e8e4ba",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1061164
+      },
+      "writtenOn": "2022-07-12T15:43:16Z",
+      "side": 1,
+      "message": "This change is just cp-ing the internal change.\n\nThe logic for this change is that:\n\nthis apex_test had compressible:false before (soong default). Other apex_tests either defaulted to \"com.android.art-device-defaults-minus-odrefresh\" (which has compressible:true) or don\u0027t default to s-launched-apex-module.\n\nSo, essentially we are keeping the status quo here. We could probably change the compressible property for the apex_test. However, let\u0027s do that as a separate change.",
+      "parentUuid": "17f7e98d_f39286cd",
+      "range": {
+        "startLine": 363,
+        "startChar": 4,
+        "endLine": 363,
+        "endChar": 24
+      },
+      "revId": "3ab57c5a925b601aa40fd8de84096cafd02ad162",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
