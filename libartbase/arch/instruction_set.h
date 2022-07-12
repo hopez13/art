@@ -48,7 +48,7 @@ static constexpr InstructionSet kRuntimeISA = InstructionSet::kX86_64;
 static constexpr InstructionSet kRuntimeISA = InstructionSet::kNone;
 #endif
 
-// #define ART_USE_SIMULATOR
+#define ART_USE_SIMULATOR
 
 // kRuntimeQuickCodeISA reflects the statically known ISA for the quick code. Note that in
 // simulator mode it is different from kRuntimeISA.
