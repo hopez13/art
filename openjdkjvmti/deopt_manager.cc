@@ -164,8 +164,8 @@ void DeoptManager::FinishSetup() {
       runtime->AddCompilerOption("--debuggable");
       runtime->SetJavaDebuggable(true);
     } else {
-      LOG(WARNING) << "Openjdkjvmti plugin was loaded on a non-debuggable Runtime. Plugin was "
-                   << "loaded too late to change runtime state to DEBUGGABLE. Only kArtTiVersion "
+      CHECK(false);
+      LOG(WARNING) << "Openjdkjvmti plugin was loaded on a non-debuggable Runtime. Plugin was " << "loaded too late to change runtime state to DEBUGGABLE. Only kArtTiVersion "
                    << "(0x" << std::hex << kArtTiVersion << ") environments are available. Some "
                    << "functionality might not work properly.";
       if (runtime->GetJit() == nullptr &&

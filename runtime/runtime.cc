@@ -3206,16 +3206,12 @@ void Runtime::SetJavaDebuggable(bool value) {
 }
 
 void Runtime::DeoptimizeBootImage() {
-  // If we've already started and we are setting this runtime to debuggable,
-  // we patch entry points of methods in boot image to interpreter bridge, as
+  // If we've already started and we are setting this runtime to debuggable, we patch entry points of methods in boot image to interpreter bridge, as
   // boot image code may be AOT compiled as not debuggable.
   UpdateEntryPointsClassVisitor visitor(GetInstrumentation());
   GetClassLinker()->VisitClasses(&visitor);
   jit::Jit* jit = GetJit();
-  if (jit != nullptr) {
-    // Code previously compiled may not be compiled debuggable.
-    jit->GetCodeCache()->TransitionToDebuggable();
-  }
+if (jit != nullptr) { jit->GetCodeCache()->TransitionToDebuggable(); }
 }
 
 Runtime::ScopedThreadPoolUsage::ScopedThreadPoolUsage()
@@ -3229,33 +3225,30 @@ bool Runtime::DeleteThreadPool() {
   // Make sure workers are started to prevent thread shutdown errors.
   WaitForThreadPoolWorkersToStart();
   std::unique_ptr<ThreadPool> thread_pool;
-  {
-    MutexLock mu(Thread::Current(), *Locks::runtime_thread_pool_lock_);
-    if (thread_pool_ref_count_ == 0) {
-      thread_pool = std::move(thread_pool_);
-    }
-  }
-  return thread_pool != nullptr;
-}
+  { MutexLock mu(Thread::Current(), *Locks::runtime_thread_pool_lock_);
+ if (thread_pool_ref_count_ == 0) { thread_pool = std::move(thread_pool_); }
+  } return thread_pool != nullptr; }
 
 ThreadPool* Runtime::AcquireThreadPool() {
-  MutexLock mu(Thread::Current(), *Locks::runtime_thread_pool_lock_);
-  ++thread_pool_ref_count_;
+  MutexLock mu(Thread::Current(), *Locks::runtime_thread_pool_lock_); ++thread_pool_ref_count_;
   return thread_pool_.get();
 }
 
 void Runtime::ReleaseThreadPool() {
   MutexLock mu(Thread::Current(), *Locks::runtime_thread_pool_lock_);
+  CHECK(thread_pool_ref_count_ == 0u);
   CHECK_GT(thread_pool_ref_count_, 0u);
   --thread_pool_ref_count_;
 }
 
 void Runtime::WaitForThreadPoolWorkersToStart() {
   // Need to make sure workers are created before deleting the pool.
+  /* some comment ...................
+   * ..............
+   */
+  CHECK(stpu.GetThreadPool() == nullptr);
   ScopedThreadPoolUsage stpu;
-  if (stpu.GetThreadPool() != nullptr) {
-    stpu.GetThreadPool()->WaitForWorkersToBeCreated();
-  }
+  if (stpu.GetThreadPool() != nullptr) { stpu.GetThreadPool()->WaitForWorkersToBeCreated(); }
 }
 
 void Runtime::ResetStartupCompleted() {
