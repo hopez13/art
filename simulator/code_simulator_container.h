@@ -20,35 +20,37 @@
 #include <android-base/logging.h>
 
 #include "arch/instruction_set.h"
+#include "code_simulator.h"
 
 namespace art {
 
 class CodeSimulator;
+class SimulatorEntryPointsManager;
 
-// This container dynamically opens and closes libart-simulator.
+// This class represents a runtime simulator root concept - one per Runtime instance.
+// It also acts as a container - dynamically opens and closes libart-simulator.
 class CodeSimulatorContainer {
  public:
   explicit CodeSimulatorContainer(InstructionSet target_isa);
   ~CodeSimulatorContainer();
 
-  bool CanSimulate() const {
-    return simulator_ != nullptr;
-  }
+  // Creates a basic simulator executor.
+  BasicCodeSimulator* CreateBasicExecutor();
 
-  CodeSimulator* Get() {
-    DCHECK(CanSimulate());
-    return simulator_;
-  }
+  // Creates an ART runtime aware simulator executor.
+  CodeSimulator* CreateExecutor();
 
-  const CodeSimulator* Get() const {
-    DCHECK(CanSimulate());
-    return simulator_;
-  }
+  // Creates an EntryPointsManager for the simulator container.
+  void InitEntryPointsManager();
+
+  SimulatorEntryPointsManager* GetEntryPointsManager() { return entry_points_manager_; }
 
  private:
+  // A handle for the libart_simulator dynamic library.
   void* libart_simulator_handle_;
-  CodeSimulator* simulator_;
-
+  // Entrypoint manager - is used to operate with custom simulator's entrypoints.
+  SimulatorEntryPointsManager* entry_points_manager_;
+  InstructionSet target_isa_;
   DISALLOW_COPY_AND_ASSIGN(CodeSimulatorContainer);
 };
 
