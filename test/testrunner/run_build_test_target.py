@@ -35,6 +35,13 @@ import sys
 from target_config import target_config
 import env
 
+# Ensure the script is run using the python from Android tree
+print("Using", sys.executable, sys.version)
+PYTHON3 = "prebuilts/build-tools/path/linux-x86/python3"
+if not os.path.samefile(sys.executable, PYTHON3):
+  p = subprocess.run([PYTHON3] + sys.argv)
+  sys.exit(p.returncode)
+
 parser = argparse.ArgumentParser()
 parser.add_argument('-j', default='1', dest='n_threads')
 # either -l/--list OR build-target is required (but not both).
