@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5df92d20_0c41487c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-14T09:24:04Z",
+      "side": 1,
+      "message": "Thanks! It looks like a nice clean up and also shares code between interpreter and nterp. I will let David +2 this since he knows more about this code.",
+      "revId": "84901c6860fc05d3f22bde3f04fc396894b93c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e37312d_8377d0bd",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-14T09:24:04Z",
+      "side": 1,
+      "message": "Since we use NterpGetMethod in switch interpreter as well, should we rename it to just GetMethod / InterpreterGetMethod / GetMethodWithoutCache or something similar?",
+      "revId": "84901c6860fc05d3f22bde3f04fc396894b93c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6a8162e_28fc2834",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-14T09:24:04Z",
+      "side": 1,
+      "message": "Instead of constants like 1, 0b11 maybe it\u0027s better to have tls_value as a bit field or declare constants like STRING_INIT_MASK / CALLED_METHOD_MASK for better readability?",
+      "revId": "84901c6860fc05d3f22bde3f04fc396894b93c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
