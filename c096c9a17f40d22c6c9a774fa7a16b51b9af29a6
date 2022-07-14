@@ -39,6 +39,30 @@
       },
       "revId": "c096c9a17f40d22c6c9a774fa7a16b51b9af29a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be2ebf9b_715f238c",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-14T14:07:37Z",
+      "side": 1,
+      "message": "Yeah good point. I\u0027ve changed the implementation to always set it.",
+      "parentUuid": "f155bba4_67aafd98",
+      "range": {
+        "startLine": 151,
+        "startChar": 37,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "c096c9a17f40d22c6c9a774fa7a16b51b9af29a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
