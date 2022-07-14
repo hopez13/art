@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33d0de10_2ad48597",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-07-14T23:01:35Z",
+      "side": 1,
+      "message": "Change to `GetDeclaredVirtualMethodsSlice` to change the `s5.foo()` test behavior to match the RI. (Then drop the `!np_method-\u003eIsStatic()` check.)",
+      "range": {
+        "startLine": 164,
+        "startChar": 40,
+        "endLine": 164,
+        "endChar": 63
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f726b4b3_468f8b88",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-07-14T23:01:35Z",
+      "side": 1,
+      "message": "`GetNameView()` shall be executed at least once (j.l.Object has virtual methods), so pull it out of both loops.",
+      "range": {
+        "startLine": 167,
+        "startChar": 40,
+        "endLine": 167,
+        "endChar": 53
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8af77946_823b4078",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-07-14T23:01:35Z",
+      "side": 1,
+      "message": "This may not be executed but maybe we should pull it out of the loops anyway?",
+      "range": {
+        "startLine": 168,
+        "startChar": 41,
+        "endLine": 168,
+        "endChar": 55
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "339ea792_30652427",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-07-14T23:01:35Z",
+      "side": 1,
+      "message": "If `np_method` is abstract, this shall trigger a `DCHECK()` in `ThrowIllegalAccessErrorForImplementingMethod()`.\n\nI\u0027m not sure which exception we should throw for an abstract package-private method but the code in `ClassLinker` ignores the abstract attribute, so I\u0027d probably remove the `DCHECK()`. (Otherwise, reorder the checks here.) Or check against the RI.",
+      "range": {
+        "startLine": 170,
+        "startChar": 12,
+        "endLine": 170,
+        "endChar": 56
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62d5d936_eb139974",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-07-14T23:01:35Z",
+      "side": 1,
+      "message": "else UNREACHABLE (the method would be a valid target and should have been called)\n\nMaybe replace the second `if` with a `DCHECK()` and the `ThrowAbstractMethodError()` with `break`.",
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b49b77e0_e02cda18",
+        "filename": "test/840-resolution/jasmin/SubClass2.j",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-07-14T23:01:35Z",
+      "side": 1,
+      "message": "Do you prefer one jasmin file over 3 Java files?\n\nsrc/SuperClass2 with package-private foo\nsrc/SubClass2 extends SuperClass2 with package-private foo\nsrc2/SuperClass2 with public foo",
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04d7c241_dbae5170",
+        "filename": "test/840-resolution/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-07-14T23:01:35Z",
+      "side": 1,
+      "message": "Change to `expected`, same below.",
+      "range": {
+        "startLine": 64,
+        "startChar": 32,
+        "endLine": 64,
+        "endChar": 34
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
