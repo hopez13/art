@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a99c93e_a8a9fdf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1514973
+      },
+      "writtenOn": "2022-07-14T17:05:21Z",
+      "side": 1,
+      "message": "Thanks for the fixup CL with the flag check! Much appreciated 😊",
+      "revId": "431d716d1a184db87827fef151b6fe47dc9bb617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ea63ce5_bb00c560",
+        "filename": "test/art_build_rules.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1514973
+      },
+      "writtenOn": "2022-07-14T17:05:21Z",
+      "side": 1,
+      "message": "nit: you could also check for \"true\" / \"TRUE\" (maybe there\u0027s some library function in Python that can do this?)",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 46
+      },
+      "revId": "431d716d1a184db87827fef151b6fe47dc9bb617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
