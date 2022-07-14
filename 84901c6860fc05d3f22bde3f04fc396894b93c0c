@@ -103,6 +103,24 @@
       "parentUuid": "b6a8162e_28fc2834",
       "revId": "84901c6860fc05d3f22bde3f04fc396894b93c0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76ff9c68_cb51ded4",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-07-14T12:53:35Z",
+      "side": 1,
+      "message": "Yeah, I don\u0027t think C++ bit fields work well for us (given the atomic and assembly use cases).\n\nGiven the small constants name values might be reasonable though (and \"thread.def\" already exports some to assembly)\n\nI don\u0027t feel strongly about it either way.",
+      "parentUuid": "cfe11b5c_94e288e6",
+      "revId": "84901c6860fc05d3f22bde3f04fc396894b93c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
