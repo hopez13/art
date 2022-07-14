@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ef6836e_d3916481",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-14T09:13:52Z",
+      "side": 1,
+      "message": "This check means the dex file shouldn\u0027t be in the dex_caches_. Did you actually find a use case that breaks without your CL?",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 72
+      },
+      "revId": "e9de4baace7391a1b10ae773149faecff9c20e9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
