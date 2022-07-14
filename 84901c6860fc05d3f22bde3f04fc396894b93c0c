@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cbac8b96_ec1933af",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-14T12:57:08Z",
+      "side": 1,
+      "message": "Please mark as /*inout*/",
+      "range": {
+        "startLine": 524,
+        "startChar": 28,
+        "endLine": 524,
+        "endChar": 34
+      },
+      "revId": "84901c6860fc05d3f22bde3f04fc396894b93c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6e37312d_8377d0bd",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 3
@@ -119,6 +142,47 @@
       "side": 1,
       "message": "Yeah, I don\u0027t think C++ bit fields work well for us (given the atomic and assembly use cases).\n\nGiven the small constants name values might be reasonable though (and \"thread.def\" already exports some to assembly)\n\nI don\u0027t feel strongly about it either way.",
       "parentUuid": "cfe11b5c_94e288e6",
+      "revId": "84901c6860fc05d3f22bde3f04fc396894b93c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d12f5ed_c5cc5ce0",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-14T12:57:08Z",
+      "side": 1,
+      "message": "Could we add constexpr values for this method only at least? We have several magic numbers `0b10`, `0b11`, `1`",
+      "parentUuid": "76ff9c68_cb51ded4",
+      "revId": "84901c6860fc05d3f22bde3f04fc396894b93c0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c4a8a06_4fbfa844",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-14T12:57:08Z",
+      "side": 1,
+      "message": "Please mark as /*inout*/",
+      "range": {
+        "startLine": 151,
+        "startChar": 35,
+        "endLine": 151,
+        "endChar": 41
+      },
       "revId": "84901c6860fc05d3f22bde3f04fc396894b93c0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
