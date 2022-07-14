@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d9496b_c2407b2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-07-14T09:37:21Z",
+      "side": 1,
+      "message": "I made the change in the caller of the script instead.\n\nI would still like to commit this CL (I have changed it to only assert that we using the right version; it does not check it is the hermetic version per se - it allows use of system python during local development) ",
+      "revId": "81701eb7bf18a9a3d28ede735e81c6ada64f6451",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
