@@ -1298,7 +1298,7 @@ class HBasicBlock : public ArenaObject<kArenaAllocBasicBlock> {
   // graph, create a Goto at the end of the former block and will create an edge
   // between the blocks. It will not, however, update the reverse post order or
   // loop and try/catch information.
-  HBasicBlock* SplitBefore(HInstruction* cursor);
+  HBasicBlock* SplitBefore(HInstruction* cursor, bool require_graph_not_in_ssa_form = true);
 
   // Split the block into two blocks just before `cursor`. Returns the newly
   // created block. Note that this method just updates raw block information,
