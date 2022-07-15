@@ -21,6 +21,7 @@
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
 #include "base/stl_util.h"
+#include "optimizing/nodes.h"
 #include "ssa_phi_elimination.h"
 
 namespace art {
@@ -213,6 +214,9 @@ static bool RemoveNonNullControlDependences(HBasicBlock* block, HBasicBlock* thr
 //          |   ...
 //          |   instr_n
 //          |   foo()  // always throws
+//          |   instr_n+2
+//          |   ...
+//          |   instr_n+m
 //          \   goto B2
 //           \ /
 //            B2
@@ -261,26 +265,46 @@ bool HDeadCodeElimination::SimplifyAlwaysThrows() {
     }
 
     HInstruction* last = block->GetLastInstruction();
-    HInstruction* prev = last->GetPrevious();
-    if (prev == nullptr) {
-      DCHECK_EQ(block->GetFirstInstruction(), block->GetLastInstruction());
-      continue;
-    }
-
-    if (prev->AlwaysThrows() &&
-        last->IsGoto() &&
+    if (last->IsGoto() &&
         block->GetPhis().IsEmpty() &&
         block->GetPredecessors().size() == 1u) {
+      // We iterate to find the first instruction that always throws. If two instructions always
+      // throw, the first one will throw and the second one will never be reached (even if we
+      // couldn't perform the optimization).
+      HInstruction* throwing_instruction = nullptr;
+      for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+        if (it.Current()->AlwaysThrows()) {
+          throwing_instruction = it.Current();
+          break;
+        }
+      }
+
+      if (throwing_instruction == nullptr) {
+        // No always-throwing instruction found. Continue with the rest of the blocks.
+        continue;
+      }
+
       HBasicBlock* pred = block->GetSinglePredecessor();
       HBasicBlock* succ = block->GetSingleSuccessor();
-      // Ensure no computations are merged through throwing block.
-      // This does not prevent the optimization per se, but would
-      // require an elaborate clean up of the SSA graph.
+      // Ensure no computations are merged through throwing block. This does not prevent the
+      // optimization per se, but would require an elaborate clean up of the SSA graph.
       if (succ != exit &&
           !block->Dominates(pred) &&
           pred->Dominates(succ) &&
           succ->GetPredecessors().size() > 1u &&
           succ->GetPhis().IsEmpty()) {
+        // Delete the instructions between the throwing instruction and the final goto (but don't
+        // delete those two). We iterate backwards to ensure safety since the removed instructions
+        // might have uses that are going to be removed too.
+        HBackwardInstructionIterator backwards_it(block->GetInstructions());
+        DCHECK(backwards_it.Current()->IsGoto());
+        backwards_it.Advance();
+        while (backwards_it.Current() != throwing_instruction) {
+          HInstruction* to_remove = backwards_it.Current();
+          backwards_it.Advance();
+          block->RemoveInstruction(to_remove);
+        }
+
         block->ReplaceSuccessor(succ, exit);
         rerun_dominance_and_loop_analysis = true;
         MaybeRecordStat(stats_, MethodCompilationStat::kSimplifyThrowingInvoke);
