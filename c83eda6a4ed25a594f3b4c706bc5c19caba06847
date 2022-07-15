@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1218fecb_0a99f55c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-07-15T18:14:56Z",
+      "side": 1,
+      "message": "A/B perf tests @ https://dashboards.corp.google.com/_f31ff276_6cb2_4ed6_973b_9640c4fb0df4?fb\u003dBootImageProfileId:eq:10208, also with a version that completely disables madvise. This CL is an improvement from the control, whereas removing madvise does show a meaningful app startup regression.\n\nHappy to rearchitect the code however y\u0027all see fit.",
+      "revId": "c83eda6a4ed25a594f3b4c706bc5c19caba06847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
