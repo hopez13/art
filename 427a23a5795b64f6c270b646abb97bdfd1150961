@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "083361ae_1be33de3",
+        "filename": "runtime/gc/allocator/art-dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-18T19:16:29Z",
+      "side": 1,
+      "message": "The problem with this line isn\u0027t that it\u0027s from external/dlmalloc, but that it\u0027s a .c file, no?",
+      "range": {
+        "startLine": 42,
+        "startChar": 35,
+        "endLine": 42,
+        "endChar": 57
+      },
+      "revId": "427a23a5795b64f6c270b646abb97bdfd1150961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
