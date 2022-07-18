@@ -22,6 +22,30 @@
       },
       "revId": "e9de4baace7391a1b10ae773149faecff9c20e9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94419823_ef0ae50b",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1959190
+      },
+      "writtenOn": "2022-07-18T07:47:15Z",
+      "side": 1,
+      "message": "In this case, I found in ClassLinker::IsDexFileRegistered(),\nFindDexCacheDataLocked() didn’t return NULL, \nBut DecodeDexcacheLocked() return FALSE.\nSo IsDexFileRegistered return false, but the dexfile still in dex_caches_.\nThen the dexfile deleted.\nWe can always reproduce this issue.",
+      "parentUuid": "3ef6836e_d3916481",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 72
+      },
+      "revId": "e9de4baace7391a1b10ae773149faecff9c20e9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
