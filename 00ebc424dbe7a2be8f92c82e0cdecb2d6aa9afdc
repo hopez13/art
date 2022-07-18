@@ -16,6 +16,24 @@
       "message": "Kousik:  Are you happy with this CL?  The only difference from the original CL is that the RBE usage can be gradually rolled out using the global variables.  (to be submitted in full-disabled 0% state)\n\nWhat sort of rollout schedule would prefer (in followup CLs)?  5% 25% 100% ?  (if anything goes wrong we can always quickly / easily go back to 0%)",
       "revId": "00ebc424dbe7a2be8f92c82e0cdecb2d6aa9afdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f952766_de02495b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1514973
+      },
+      "writtenOn": "2022-07-18T14:12:40Z",
+      "side": 1,
+      "message": "Yep, LGTM!",
+      "parentUuid": "1c1d3129_96bc7c86",
+      "revId": "00ebc424dbe7a2be8f92c82e0cdecb2d6aa9afdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
