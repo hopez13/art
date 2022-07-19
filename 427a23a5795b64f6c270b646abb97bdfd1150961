@@ -22,6 +22,30 @@
       },
       "revId": "427a23a5795b64f6c270b646abb97bdfd1150961",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6d5328c_ecdd4ba0",
+        "filename": "runtime/gc/allocator/art-dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-07-19T08:13:02Z",
+      "side": 1,
+      "message": "That\u0027s correct - the `//NOLINT` comment is to keep clang-tidy quiet about the inclusion of the dlmalloc.c file - the `from external/dlmalloc` comment is only to make it easier to spot from where the file is being included.",
+      "parentUuid": "083361ae_1be33de3",
+      "range": {
+        "startLine": 42,
+        "startChar": 35,
+        "endLine": 42,
+        "endChar": 57
+      },
+      "revId": "427a23a5795b64f6c270b646abb97bdfd1150961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
