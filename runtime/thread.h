@@ -133,6 +133,7 @@ enum class ThreadFlag : uint32_t {
   kEmptyCheckpointRequest = 1u << 2,
 
   // Register that at least 1 suspend barrier needs to be passed.
+  // Changes to this flag are guarded by suspend_count_lock_ .
   kActiveSuspendBarrier = 1u << 3,
 
   // Marks that a "flip function" needs to be executed on this thread.
@@ -140,7 +141,7 @@ enum class ThreadFlag : uint32_t {
 
   // Marks that the "flip function" is being executed by another thread.
   //
-  // This is used to guards against multiple threads trying to run the
+  // This is used to guard against multiple threads trying to run the
   // "flip function" for the same thread while the thread is suspended.
   //
   // This is not needed when the thread is running the flip function
@@ -185,6 +186,13 @@ enum class WeakRefAccessState : int32_t {
   kVisiblyEnabled = 0,  // Enabled, and previously read with acquire load by this thread.
   kEnabled,
   kDisabled
+};
+
+// See Thread.tlsPtr_.active_suspend1_barriers below for explanation.
+struct WrappedSuspend1Barrier {
+  WrappedSuspend1Barrier() : barrier_(1), next_(nullptr) {}
+  AtomicInteger barrier_;
+  struct WrappedSuspend1Barrier* next_ GUARDED_BY(Locks::thread_suspend_count_lock_);
 };
 
 // This should match RosAlloc::kNumThreadLocalSizeBrackets.
@@ -306,7 +314,7 @@ class Thread {
   }
 
   bool IsSuspended() const {
-    StateAndFlags state_and_flags = GetStateAndFlags(std::memory_order_relaxed);
+    StateAndFlags state_and_flags = GetStateAndFlags(std::memory_order_acquire);
     return state_and_flags.GetState() != ThreadState::kRunnable &&
            state_and_flags.IsFlagSet(ThreadFlag::kSuspendRequest);
   }
@@ -322,16 +330,25 @@ class Thread {
     return tls32_.define_class_counter;
   }
 
-  // If delta > 0 and (this != self or suspend_barrier is not null), this function may temporarily
-  // release thread_suspend_count_lock_ internally.
+  // Adjust the suspend count by +1 or -1. Should not be invoked on another thread with +1 while
+  // its flip_function is not null. Installs a suspend barrier if requested. At most one of the
+  // suspend barrier arguments may be non-null.
   ALWAYS_INLINE
-  bool ModifySuspendCount(Thread* self,
+  void ModifySuspendCount(Thread* self,
                           int delta,
-                          AtomicInteger* suspend_barrier,
+                          AtomicInteger* suspend_all_barrier,
+                          WrappedSuspend1Barrier* suspend1_barrier,
                           SuspendReason reason)
-      WARN_UNUSED
       REQUIRES(Locks::thread_suspend_count_lock_);
 
+  // The same, but default reason to kInternal, and barriers to nullptr.
+  ALWAYS_INLINE void ModifySuspendCount(Thread* self, int delta)
+      REQUIRES(Locks::thread_suspend_count_lock_);
+
+ private:
+  NO_RETURN static void UnsafeLogFatalForSuspendCount(Thread* self, Thread* thread);
+
+ public:
   // Requests a checkpoint closure to run on another thread. The closure will be run when the
   // thread notices the request, either in an explicit runtime CheckSuspend() call, or in a call
   // originating from a compiler generated suspend point check. This returns true if the closure
@@ -365,8 +382,14 @@ class Thread {
   bool RequestEmptyCheckpoint()
       REQUIRES(Locks::thread_suspend_count_lock_);
 
+  Closure* GetFlipFunction() {
+    return tlsPtr_.flip_function.load(std::memory_order_relaxed);
+  }
+
   // Set the flip function. This is done with all threads suspended, except for the calling thread.
-  void SetFlipFunction(Closure* function);
+  void SetFlipFunction(Closure* function)
+      REQUIRES(Locks::thread_suspend_count_lock_)
+      REQUIRES(Locks::thread_list_lock_);
 
   // Ensure that thread flip function started running. If no other thread is executing
   // it, the calling thread shall run the flip function and then notify other threads
@@ -1203,9 +1226,6 @@ class Thread {
     tlsPtr_.held_mutexes[level] = mutex;
   }
 
-  void ClearSuspendBarrier(AtomicInteger* target)
-      REQUIRES(Locks::thread_suspend_count_lock_);
-
   bool ReadFlag(ThreadFlag flag) const {
     return GetStateAndFlags(std::memory_order_relaxed).IsFlagSet(flag);
   }
@@ -1568,6 +1588,17 @@ class Thread {
   ALWAYS_INLINE void PassActiveSuspendBarriers()
       REQUIRES(!Locks::thread_suspend_count_lock_, !Roles::uninterruptible_);
 
+  // Add an entry to active_suspend1_barriers.
+  ALWAYS_INLINE void AddSuspend1Barrier(WrappedSuspend1Barrier* suspend1_barrier)
+      REQUIRES(Locks::thread_suspend_count_lock_);
+
+  // Remove last-added entry from active_suspend1_barriers.
+  // Only makes sense if we're still holding thread_suspend_count_lock_ since insertion.
+  ALWAYS_INLINE void RemoveFirstSuspend1Barrier()
+      REQUIRES(Locks::thread_suspend_count_lock_);
+
+  ALWAYS_INLINE bool HasActiveSuspendBarrier() REQUIRES(Locks::thread_suspend_count_lock_);
+
   // Registers the current thread as the jit sensitive thread. Should be called just once.
   static void SetJitSensitiveThread() {
     if (jit_sensitive_thread_ == nullptr) {
@@ -1581,13 +1612,6 @@ class Thread {
   static void SetSensitiveThreadHook(bool (*is_sensitive_thread_hook)()) {
     is_sensitive_thread_hook_ = is_sensitive_thread_hook;
   }
-
-  bool ModifySuspendCountInternal(Thread* self,
-                                  int delta,
-                                  AtomicInteger* suspend_barrier,
-                                  SuspendReason reason)
-      WARN_UNUSED
-      REQUIRES(Locks::thread_suspend_count_lock_);
 
   // Runs a single checkpoint function. If there are no more pending checkpoint functions it will
   // clear the kCheckpointRequest flag. The caller is responsible for calling this in a loop until
@@ -1885,45 +1909,47 @@ class Thread {
   } tls64_;
 
   struct PACKED(sizeof(void*)) tls_ptr_sized_values {
-      tls_ptr_sized_values() : card_table(nullptr),
-                               exception(nullptr),
-                               stack_end(nullptr),
-                               managed_stack(),
-                               suspend_trigger(nullptr),
-                               jni_env(nullptr),
-                               tmp_jni_env(nullptr),
-                               self(nullptr),
-                               opeer(nullptr),
-                               jpeer(nullptr),
-                               stack_begin(nullptr),
-                               stack_size(0),
-                               deps_or_stack_trace_sample(),
-                               wait_next(nullptr),
-                               monitor_enter_object(nullptr),
-                               top_handle_scope(nullptr),
-                               class_loader_override(nullptr),
-                               long_jump_context(nullptr),
-                               instrumentation_stack(nullptr),
-                               stacked_shadow_frame_record(nullptr),
-                               deoptimization_context_stack(nullptr),
-                               frame_id_to_shadow_frame(nullptr),
-                               name(nullptr),
-                               pthread_self(0),
-                               last_no_thread_suspension_cause(nullptr),
-                               checkpoint_function(nullptr),
-                               thread_local_start(nullptr),
-                               thread_local_pos(nullptr),
-                               thread_local_end(nullptr),
-                               thread_local_limit(nullptr),
-                               thread_local_objects(0),
-                               thread_local_alloc_stack_top(nullptr),
-                               thread_local_alloc_stack_end(nullptr),
-                               mutator_lock(nullptr),
-                               flip_function(nullptr),
-                               method_verifier(nullptr),
-                               thread_local_mark_stack(nullptr),
-                               async_exception(nullptr),
-                               top_reflective_handle_scope(nullptr) {
+    tls_ptr_sized_values() : card_table(nullptr),
+                             exception(nullptr),
+                             stack_end(nullptr),
+                             managed_stack(),
+                             suspend_trigger(nullptr),
+                             jni_env(nullptr),
+                             tmp_jni_env(nullptr),
+                             self(nullptr),
+                             opeer(nullptr),
+                             jpeer(nullptr),
+                             stack_begin(nullptr),
+                             stack_size(0),
+                             deps_or_stack_trace_sample(),
+                             wait_next(nullptr),
+                             monitor_enter_object(nullptr),
+                             top_handle_scope(nullptr),
+                             class_loader_override(nullptr),
+                             long_jump_context(nullptr),
+                             instrumentation_stack(nullptr),
+                             stacked_shadow_frame_record(nullptr),
+                             deoptimization_context_stack(nullptr),
+                             frame_id_to_shadow_frame(nullptr),
+                             name(nullptr),
+                             pthread_self(0),
+                             last_no_thread_suspension_cause(nullptr),
+                             checkpoint_function(nullptr),
+                             active_suspendall_barrier(nullptr),
+                             active_suspend1_barriers(nullptr),
+                             thread_local_pos(nullptr),
+                             thread_local_end(nullptr),
+                             thread_local_start(nullptr),
+                             thread_local_limit(nullptr),
+                             thread_local_objects(0),
+                             thread_local_alloc_stack_top(nullptr),
+                             thread_local_alloc_stack_end(nullptr),
+                             mutator_lock(nullptr),
+                             flip_function(nullptr),
+                             method_verifier(nullptr),
+                             thread_local_mark_stack(nullptr),
+                             async_exception(nullptr),
+                             top_reflective_handle_scope(nullptr) {
       std::fill(held_mutexes, held_mutexes + kLockLevelCount, nullptr);
     }
 
@@ -2033,19 +2059,28 @@ class Thread {
     // requests another checkpoint, it goes to the checkpoint overflow list.
     Closure* checkpoint_function GUARDED_BY(Locks::thread_suspend_count_lock_);
 
-    // Pending barriers that require passing or NULL if non-pending. Installation guarding by
-    // Locks::thread_suspend_count_lock_.
-    // They work effectively as art::Barrier, but implemented directly using AtomicInteger and futex
-    // to avoid additional cost of a mutex and a condition variable, as used in art::Barrier.
-    AtomicInteger* active_suspend_barriers[kMaxSuspendBarriers];
-
-    // Thread-local allocation pointer. Moved here to force alignment for thread_local_pos on ARM.
-    uint8_t* thread_local_start;
+    // After a thread observes a suspend request and enters a suspended state,
+    // it notifies the requestor by arriving at a "suspend barrier". This consists of decrementing
+    // the atomic integer representing the barrier. (This implementation was introduced in 2015 to
+    // minimize cost. There may be other options.) These atomic integer barriers are always
+    // stored on the requesting thread's stack. They are referenced from the target thread's
+    // data structure in one of two ways; in either case the data structure referring to these
+    // barriers is guarded by suspend_count_lock:
+    // 1. A SuspendAll barrier is directly referenced from the target thread. Only one of these
+    // can be active at a time:
+    AtomicInteger* active_suspendall_barrier GUARDED_BY(Locks::thread_suspend_count_lock_);
+    // 2. For individual thread suspensions, active barriers are embedded in a struct that is used
+    // to link together all suspend requests for this thread. Unlike the SuspendAll case, each
+    // barrier is referenced by a single target thread, and thus can appear only on a single list.
+    WrappedSuspend1Barrier* active_suspend1_barriers GUARDED_BY(Locks::thread_suspend_count_lock_);
 
     // thread_local_pos and thread_local_end must be consecutive for ldrd and are 8 byte aligned for
     // potentially better performance.
     uint8_t* thread_local_pos;
     uint8_t* thread_local_end;
+
+    // Thread-local allocation pointer. Can be moved above the preceding two to correct alignment.
+    uint8_t* thread_local_start;
 
     // Thread local limit is how much we can expand the thread local buffer to, it is greater or
     // equal to thread_local_end.
@@ -2073,7 +2108,8 @@ class Thread {
     BaseMutex* held_mutexes[kLockLevelCount];
 
     // The function used for thread flip.
-    Closure* flip_function;
+    // Set only while holding Locks::thread_suspend_count_lock_ . May be cleared while being read.
+    std::atomic<Closure*> flip_function;
 
     // Current method verifier, used for root marking.
     verifier::MethodVerifier* method_verifier;
