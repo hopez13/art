@@ -46,6 +46,30 @@
       },
       "revId": "427a23a5795b64f6c270b646abb97bdfd1150961",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd75af69_97ad79ab",
+        "filename": "runtime/gc/allocator/art-dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-19T10:16:08Z",
+      "side": 1,
+      "message": "\u003e the  from external/dlmalloc  comment is only to make it easier to spot from where the file is being included.\n\nWhy is that relevant? We don\u0027t do it for any other includes.\n\nI read it as the reason for the NOLINT, which makes it confusing.",
+      "parentUuid": "f6d5328c_ecdd4ba0",
+      "range": {
+        "startLine": 42,
+        "startChar": 35,
+        "endLine": 42,
+        "endChar": 57
+      },
+      "revId": "427a23a5795b64f6c270b646abb97bdfd1150961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
