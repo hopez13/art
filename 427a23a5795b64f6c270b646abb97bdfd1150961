@@ -94,6 +94,30 @@
       },
       "revId": "427a23a5795b64f6c270b646abb97bdfd1150961",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcc77b0f_3343b42d",
+        "filename": "runtime/gc/allocator/art-dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-19T10:39:31Z",
+      "side": 1,
+      "message": "Well, if I wanted to find it I\u0027d go about it the same way as any other include. There\u0027s also the risk that the path gets stale if the sources get rearranged.\n\nI think it\u0027s likely that this is taken as the reason for the NOLINT, so yes, I\u0027d prefer if it wasn\u0027t misleading in that context.",
+      "parentUuid": "3c7f50ad_e311deeb",
+      "range": {
+        "startLine": 42,
+        "startChar": 35,
+        "endLine": 42,
+        "endChar": 57
+      },
+      "revId": "427a23a5795b64f6c270b646abb97bdfd1150961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
