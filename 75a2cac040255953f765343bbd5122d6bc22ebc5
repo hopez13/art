@@ -56,6 +56,30 @@
       },
       "revId": "75a2cac040255953f765343bbd5122d6bc22ebc5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b77f1c4_d8b757ed",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-19T10:19:50Z",
+      "side": 1,
+      "message": "That\u0027s what I originally had, but technically a `throw` instruction is a throwing instruction (and it is marked as \"always throws too\") so I swapped to \"invokes\". WDYT?",
+      "parentUuid": "96b9530f_12618a38",
+      "range": {
+        "startLine": 841,
+        "startChar": 7,
+        "endLine": 841,
+        "endChar": 35
+      },
+      "revId": "75a2cac040255953f765343bbd5122d6bc22ebc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
