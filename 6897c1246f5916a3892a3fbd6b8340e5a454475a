@@ -52,6 +52,24 @@
       "parentUuid": "05cccca9_bcccd8bc",
       "revId": "6897c1246f5916a3892a3fbd6b8340e5a454475a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fdf8870_c52943c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T12:33:40Z",
+      "side": 1,
+      "message": "The default value of the flag for --verbose-dex-stat is false in the Vogar CL and the path that invokes /usr/bin/time is behind that flag.",
+      "parentUuid": "defc5ff4_b33b9d81",
+      "revId": "6897c1246f5916a3892a3fbd6b8340e5a454475a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
