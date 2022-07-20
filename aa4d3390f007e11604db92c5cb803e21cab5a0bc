@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b25b45dc_5ed45289",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-20T22:15:02Z",
+      "side": 1,
+      "message": "Jiyong, you wrote the original test with the runtest.sh script. I\u0027d appreciate if you could look over the high level test flow in the functions above and pushSystemOemLibs/pushProductLibs below to see that it captures your original test. Thanks.",
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
