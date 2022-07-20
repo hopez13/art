@@ -34,6 +34,24 @@
       "parentUuid": "05cccca9_bcccd8bc",
       "revId": "6897c1246f5916a3892a3fbd6b8340e5a454475a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "defc5ff4_b33b9d81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-07-20T12:27:50Z",
+      "side": 1,
+      "message": "I am not sure ... the tests started failing even a bit before the ART CL, which makes me also suspicious of the Vogar CL.  There is something odd...\n\nSo I would rather revert and reland.",
+      "parentUuid": "05cccca9_bcccd8bc",
+      "revId": "6897c1246f5916a3892a3fbd6b8340e5a454475a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
