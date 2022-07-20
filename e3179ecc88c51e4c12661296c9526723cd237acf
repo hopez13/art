@@ -18,6 +18,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b72a32e_5d7405bd",
+        "filename": "runtime/mirror/stack_frame_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T14:19:50Z",
+      "side": 1,
+      "message": "Transactions are used when building the boot image. We probably don\u0027t have a need for this, but it consistent to have it.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 58
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d094cee7_18ef33a7",
@@ -136,6 +159,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f293bd0_6525f053",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3197,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T14:19:50Z",
+      "side": 1,
+      "message": "Maybe more instances of this pattern (would defer to clang-format):\n\n```\nauto method_name_object(\n    hs.NewHandle(mirror::String::AllocFromModifiedUtf8(soa.Self(), method_name)));\n```",
+      "parentUuid": "c04a076a_e6a785c8",
+      "range": {
+        "startLine": 3196,
+        "startChar": 0,
+        "endLine": 3197,
+        "endChar": 31
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "efac8648_d42a9a50",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -153,6 +200,23 @@
         "endLine": 3201,
         "endChar": 25
       },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe53228e_9cdf4f2e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3201,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T14:19:50Z",
+      "side": 1,
+      "message": "Maybe more instances of this pattern (would defer to clang-format):\n\n```\nauto method_type_object(\n    hs.NewHandle\u003cmirror::MethodType\u003e(\n        class_linker-\u003eResolveMethodType(soa.Self(), proto_idx, interface_method)));\n```",
       "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -221,6 +285,29 @@
         "startChar": 24,
         "endLine": 3260,
         "endChar": 27
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d645e4dd_c6cdd0ac",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3261,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T14:19:50Z",
+      "side": 1,
+      "message": "There is art/.clang-format that approximates go/artstyle (and where it diverges is probably better because it doesn\u0027t require thought).\n\n```\n  Handle\u003cmirror::Class\u003e sfe_class \u003d\n      hs.NewHandle(class_linker-\u003eFindSystemClass(soa.Self(),\n                                                 \"Ljava/lang/StackFrameInfo;\"));\n```",
+      "range": {
+        "startLine": 3260,
+        "startChar": 0,
+        "endLine": 3261,
+        "endChar": 49
       },
       "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
