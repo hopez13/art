@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d094cee7_18ef33a7",
+        "filename": "runtime/native/java_lang_StackStreamFactory.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2022-07-20T10:36:12Z",
+      "side": 1,
+      "message": "Won\u0027t it break java code `stacks.stackLevel +\u003d endIndex - startIndex`?\n\nProbably having null in `anchor` is invalid state to be in, wouldn\u0027t it be better to throw an exception?",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "710a7ff3_924dd212",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2022-07-20T10:36:12Z",
+      "side": 1,
+      "message": "Does it follow art style guide? I can\u0027t tell what is type of this object (though I am bad at C++).",
+      "range": {
+        "startLine": 3168,
+        "startChar": 2,
+        "endLine": 3168,
+        "endChar": 65
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bbe783e_71ab4b32",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3174,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2022-07-20T10:36:12Z",
+      "side": 1,
+      "message": "nit: move into else branch?",
+      "range": {
+        "startLine": 3174,
+        "startChar": 4,
+        "endLine": 3174,
+        "endChar": 68
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cdd4088_4be548b9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3226,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2022-07-20T10:36:12Z",
+      "side": 1,
+      "message": "Why not anchor?",
+      "range": {
+        "startLine": 3226,
+        "startChar": 12,
+        "endLine": 3226,
+        "endChar": 20
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1bdf067_9b013c0f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3260,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2022-07-20T10:36:12Z",
+      "side": 1,
+      "message": "Or sfi?",
+      "range": {
+        "startLine": 3260,
+        "startChar": 24,
+        "endLine": 3260,
+        "endChar": 27
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
