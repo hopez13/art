@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ce06fc2_f2f796ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T11:35:23Z",
+      "side": 1,
+      "message": "Partial review, lunch interrupt.",
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d094cee7_18ef33a7",
@@ -49,6 +66,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ba057b5c_488dec0f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T11:35:23Z",
+      "side": 1,
+      "message": "This pattern exists in art. The main thing to know is that it\u0027s going to be a `Handle` (`StackHandle`) to a `mirror::String`.",
+      "parentUuid": "710a7ff3_924dd212",
+      "range": {
+        "startLine": 3168,
+        "startChar": 2,
+        "endLine": 3168,
+        "endChar": 65
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6bbe783e_71ab4b32",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -65,6 +106,75 @@
         "startChar": 4,
         "endLine": 3174,
         "endChar": 68
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c04a076a_e6a785c8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3197,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T11:35:23Z",
+      "side": 1,
+      "message": "If this is null, there should be an OOM exception pending. The code should immediately return as it does for `source_name_object`.",
+      "range": {
+        "startLine": 3196,
+        "startChar": 0,
+        "endLine": 3197,
+        "endChar": 31
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efac8648_d42a9a50",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3201,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T11:35:23Z",
+      "side": 1,
+      "message": "Use same `AssertPendingOOMException` pattern here for `method_type_object`.",
+      "range": {
+        "startLine": 3201,
+        "startChar": 7,
+        "endLine": 3201,
+        "endChar": 25
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5c2eaa1_3bdc684b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3213,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T11:35:23Z",
+      "side": 1,
+      "message": "Drop, shouldn\u0027t be reachable if any of these values are null.",
+      "range": {
+        "startLine": 3203,
+        "startChar": 0,
+        "endLine": 3213,
+        "endChar": 3
       },
       "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -111,6 +221,75 @@
         "startChar": 24,
         "endLine": 3260,
         "endChar": 27
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "723e8744_399c2b32",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3264,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T11:35:23Z",
+      "side": 1,
+      "message": "Please drop, not ART style.",
+      "range": {
+        "startLine": 3264,
+        "startChar": 0,
+        "endLine": 3264,
+        "endChar": 23
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7096e42_ce6276ce",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3269,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T11:35:23Z",
+      "side": 1,
+      "message": "`CHECK` is an always enabled runtime assertion, the `if` code here is not reachable.",
+      "range": {
+        "startLine": 3269,
+        "startChar": 4,
+        "endLine": 3269,
+        "endChar": 30
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bfabad3_44a76a2c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3293,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-20T11:35:23Z",
+      "side": 1,
+      "message": "Drop",
+      "range": {
+        "startLine": 3293,
+        "startChar": 2,
+        "endLine": 3293,
+        "endChar": 23
       },
       "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
