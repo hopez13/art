@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b69a2c0c_d2ff7df5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-07-20T12:30:05Z",
+      "side": 1,
+      "message": "It is ok by me.  But without reverting the vogar CL, I am only 50% sure this will actually fix the tests.",
+      "revId": "ca88aa9ffae984a39fac55887a75c4820b082c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
