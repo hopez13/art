@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05e25786_b57af549",
+        "filename": "test/661-oat-writer-layout/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-07-21T14:30:49Z",
+      "side": 0,
+      "message": "RUN used to be `.../run-test-jar`, but it is now `.../python3 .../run-test-jar`\n\nThe quotes make bash lookup the executable as if there was space in the path.\n\nRemoving the quotes make bash run python3 with the script as argument",
+      "parentUuid": "3a905667_552cdf77",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 8
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "923cb962_a8a032b9",
@@ -49,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1123b8f5_219e908a",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-07-21T14:30:49Z",
+      "side": 0,
+      "message": "\"${var//Pattern/Replacement}  Global replacement. All matches of Pattern, within var replaced with Replacement.\"\n\nI had to look it up as well.  So it replaces `\\/` with `@`.  That is `str.replace(\"/\", \"@\")` in python.\n\nI argue that python is much more readable then bash :-)",
+      "parentUuid": "923cb962_a8a032b9",
+      "range": {
+        "startLine": 862,
+        "startChar": 11,
+        "endLine": 862,
+        "endChar": 41
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "80a4bf53_f4a3af13",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 7
@@ -60,6 +108,30 @@
       "writtenOn": "2022-07-21T11:42:36Z",
       "side": 0,
       "message": "Can you redirect output in front of the command in bash? I didn\u0027t know.",
+      "range": {
+        "startLine": 971,
+        "startChar": 6,
+        "endLine": 971,
+        "endChar": 10
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c9bf8f6_31743680",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-07-21T14:30:49Z",
+      "side": 0,
+      "message": "I didn\u0027t know either.",
+      "parentUuid": "80a4bf53_f4a3af13",
       "range": {
         "startLine": 971,
         "startChar": 6,
