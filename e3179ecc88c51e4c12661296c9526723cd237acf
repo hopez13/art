@@ -66,6 +66,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3752b281_ad50b32a",
+        "filename": "runtime/native/java_lang_StackStreamFactory.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Actually, it\u0027s good point. Done now.\n\nI just added null check in the java level, and changed to return startLevel to indicate the stack walking done because the stack has disappeared, and the behavior is more consistent with the rest of the error handling in thread.cc.",
+      "parentUuid": "d094cee7_18ef33a7",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "710a7ff3_924dd212",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -134,6 +158,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b537f2e_034d0918",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3174,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "6bbe783e_71ab4b32",
+      "range": {
+        "startLine": 3174,
+        "startChar": 4,
+        "endLine": 3174,
+        "endChar": 68
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c04a076a_e6a785c8",
@@ -171,6 +219,30 @@
       "side": 1,
       "message": "Maybe more instances of this pattern (would defer to clang-format):\n\n```\nauto method_name_object(\n    hs.NewHandle(mirror::String::AllocFromModifiedUtf8(soa.Self(), method_name)));\n```",
       "parentUuid": "c04a076a_e6a785c8",
+      "range": {
+        "startLine": 3196,
+        "startChar": 0,
+        "endLine": 3197,
+        "endChar": 31
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef8b2515_f5eae1ca",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3197,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Both Done.",
+      "parentUuid": "7f293bd0_6525f053",
       "range": {
         "startLine": 3196,
         "startChar": 0,
@@ -221,6 +293,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c391dbc_aad45595",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3201,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efac8648_d42a9a50",
+      "range": {
+        "startLine": 3201,
+        "startChar": 7,
+        "endLine": 3201,
+        "endChar": 25
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa5d2c56_eb48d09b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3201,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe53228e_9cdf4f2e",
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5c2eaa1_3bdc684b",
@@ -234,6 +348,30 @@
       "writtenOn": "2022-07-20T11:35:23Z",
       "side": 1,
       "message": "Drop, shouldn\u0027t be reachable if any of these values are null.",
+      "range": {
+        "startLine": 3203,
+        "startChar": 0,
+        "endLine": 3213,
+        "endChar": 3
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88eedb6a_826acc72",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3213,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c2eaa1_3bdc684b",
       "range": {
         "startLine": 3203,
         "startChar": 0,
@@ -290,6 +428,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d87c1877_cbef8784",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3260,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1bdf067_9b013c0f",
+      "range": {
+        "startLine": 3260,
+        "startChar": 24,
+        "endLine": 3260,
+        "endChar": 27
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d645e4dd_c6cdd0ac",
@@ -303,6 +465,30 @@
       "writtenOn": "2022-07-20T14:19:50Z",
       "side": 1,
       "message": "There is art/.clang-format that approximates go/artstyle (and where it diverges is probably better because it doesn\u0027t require thought).\n\n```\n  Handle\u003cmirror::Class\u003e sfe_class \u003d\n      hs.NewHandle(class_linker-\u003eFindSystemClass(soa.Self(),\n                                                 \"Ljava/lang/StackFrameInfo;\"));\n```",
+      "range": {
+        "startLine": 3260,
+        "startChar": 0,
+        "endLine": 3261,
+        "endChar": 49
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28567125_d37fd428",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3261,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d645e4dd_c6cdd0ac",
       "range": {
         "startLine": 3260,
         "startChar": 0,
@@ -336,6 +522,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1233a346_aa433aad",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3264,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723e8744_399c2b32",
+      "range": {
+        "startLine": 3264,
+        "startChar": 0,
+        "endLine": 3264,
+        "endChar": 23
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7096e42_ce6276ce",
@@ -359,6 +569,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b39ab2d8_821ef2e7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3269,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Sorry, but dropping this anyway. I was meant to put DCHECK.",
+      "parentUuid": "b7096e42_ce6276ce",
+      "range": {
+        "startLine": 3269,
+        "startChar": 4,
+        "endLine": 3269,
+        "endChar": 30
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bfabad3_44a76a2c",
@@ -372,6 +606,30 @@
       "writtenOn": "2022-07-20T11:35:23Z",
       "side": 1,
       "message": "Drop",
+      "range": {
+        "startLine": 3293,
+        "startChar": 2,
+        "endLine": 3293,
+        "endChar": 23
+      },
+      "revId": "e3179ecc88c51e4c12661296c9526723cd237acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d0e89fd_118eb7a3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3293,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-07-21T10:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bfabad3_44a76a2c",
       "range": {
         "startLine": 3293,
         "startChar": 2,
