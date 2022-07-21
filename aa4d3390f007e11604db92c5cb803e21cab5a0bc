@@ -3,6 +3,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ed35d22_e6630888",
+        "filename": "libnativeloader/test/src/android/test/app/TestActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:32:02Z",
+      "side": 1,
+      "message": "Do you write this to a file just for checking it on the hostside? If so, I suggest defining this app as an \u003cinstrumentation\u003e (https://source.android.com/compatibility/tests/development/instrumentation) so that you can run it by `am instrument` and check the result. Example: http://cs/android-internal/cts/hostsidetests/compilation/app_using_other_app/;rcl\u003d5891dd2dd7f3ca78304e8361e68f440f21217388\n\nAccording to the doc above, you can pass arguments via `-e \u003ckey\u003e \u003cvalue\u003e` to `am instrument` and get them in the app by `getArguments()`, but I haven\u0027t tried that.",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 41
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95f403e5_810069fd",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:32:02Z",
+      "side": 1,
+      "message": "Use try-with-resources to close the file.",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 15
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f95bf63_7b1e1c75",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:32:02Z",
+      "side": 1,
+      "message": "Does this removes the apks pushed in `beforeClassWithDevice`? If so, how do subsequent tests work?",
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b25b45dc_5ed45289",
         "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
         "patchSetId": 1
@@ -14,6 +77,115 @@
       "writtenOn": "2022-07-20T22:15:02Z",
       "side": 1,
       "message": "Jiyong, you wrote the original test with the runtest.sh script. I\u0027d appreciate if you could look over the high level test flow in the functions above and pushSystemOemLibs/pushProductLibs below to see that it captures your original test. Thanks.",
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8addc6e5_590c751f",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:32:02Z",
+      "side": 1,
+      "message": "IIUC, this method internally calls `waitForBootComplete` (http://cs/android-internal/tools/tradefederation/core/src/com/android/tradefed/device/NativeDeviceStateMonitor.java;l\u003d303;rcl\u003d7c3f95494b32b32219c0f8290faebeddd9d30b4b), which is implemented by polling `dev.bootcomplete`. Don\u0027t you need to set \"dev.bootcomplete\" to 0 before the soft reboot?",
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b51f74c_f566ed70",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:32:02Z",
+      "side": 1,
+      "message": "Use try-with-resources to close the stream.",
+      "range": {
+        "startLine": 225,
+        "startChar": 12,
+        "endLine": 225,
+        "endChar": 23
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edecbe4b_b4ca089f",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:32:02Z",
+      "side": 1,
+      "message": "Nit: Simplify this with \"?:\" operator.",
+      "range": {
+        "startLine": 229,
+        "startChar": 12,
+        "endLine": 233,
+        "endChar": 13
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7549897e_81d753b6",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:32:02Z",
+      "side": 1,
+      "message": "Use try-with-resources to close the stream.",
+      "range": {
+        "startLine": 292,
+        "startChar": 8,
+        "endLine": 292,
+        "endChar": 19
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6e28c40_17b59174",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-21T14:32:02Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 300,
+        "startChar": 39,
+        "endLine": 300,
+        "endChar": 55
+      },
       "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
