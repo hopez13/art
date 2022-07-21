@@ -1,6 +1,75 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b9cb6e3_1f808f11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "I\u0027d remove this, it is gerrit terminology and confusing externally.",
+      "range": {
+        "startLine": 14,
+        "startChar": 38,
+        "endLine": 14,
+        "endChar": 65
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46917aab_302f7b39",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Can you give more details how you did that? It may be useful if someone in the future attempts to do another conversion.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06a56163_ea45579b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Is this the canonical way to run all target tests?\nHow about host tests?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 48
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8891fc53_357c5916",
@@ -14,6 +83,638 @@
       "writtenOn": "2022-07-19T18:47:54Z",
       "side": 1,
       "message": "It passed! :-)\n\nI would recommend side-by-side view in gerrit on a big monitor,\n\nor `git show --color-words\u003d\"\\w+|.\"` locally on small monitor.",
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf75321a_8668d36e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Great work! Expert conversion approach! Thanks a lot for doing this.",
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54a2883f_37f071b6",
+        "filename": "test/etc/apex_bootclasspath_utils.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "No `#!/usr/bin/env python3`? Why do you have it in run-test-jar but not here?",
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c546fb80_89ce9888",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Ideally it should be a parameter `--log` to run-art-test / testrunner.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 53
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c36d702_92a50314",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Nit: you could use a shorter `log` since it\u0027s used many times.",
+      "range": {
+        "startLine": 33,
+        "startChar": 55,
+        "endLine": 33,
+        "endChar": 63
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ce7730b_25de2d6c",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Why is `true` a special case, shouldn\u0027t it have used `save_cmd \u003d False` at the call site in the first place?",
+      "range": {
+        "startLine": 34,
+        "startChar": 35,
+        "endLine": 34,
+        "endChar": 56
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "963b7acb_f907749a",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Add a comment to this function that it is expected to output reproducible logs. Or better, add a test that runs this script on 001-HelloWorld and compares the output to reference output. Or maybe that\u0027s too much work, up to you.",
+      "range": {
+        "startLine": 40,
+        "startChar": 42,
+        "endLine": 40,
+        "endChar": 63
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e23ee20_d66bed83",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Print the faulty command as well.",
+      "range": {
+        "startLine": 49,
+        "startChar": 21,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "049fb5d6_bfc1464b",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Keeping in mind VM-based testing, these methods may still be too low level to have a counterpart for VM. But we\u0027ll see.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 30
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e9b91cb_697f4be7",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Sort alphabetically for readability (so it\u0027s easier to find a var in the list)?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 39
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97254fbf_ae67d9cd",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Should it (and similar vars) be a list of strings?",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 36
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40c0ad0b_f3b30d4e",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Nit: move these to the upper block that initializes vars (ending at line 191)?",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 0
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39650f1a_92c456c6",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Maybe use `None` here?",
+      "range": {
+        "startLine": 216,
+        "startChar": 29,
+        "endLine": 216,
+        "endChar": 31
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f408918f_35861278",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "`os.path.isfile` ?",
+      "range": {
+        "startLine": 952,
+        "startChar": 5,
+        "endLine": 952,
+        "endChar": 16
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c2b6595_29d1512c",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "`os.path.isdir` ?",
+      "range": {
+        "startLine": 980,
+        "startChar": 6,
+        "endLine": 980,
+        "endChar": 15
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b49befce_be4cbbf9",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "`os.path.isdir` ?",
+      "range": {
+        "startLine": 981,
+        "startChar": 10,
+        "endLine": 981,
+        "endChar": 19
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2edd361e_804ba9a8",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "I won\u0027t empty a global variable if it already exists, it\u0027s only a declaration, right?",
+      "range": {
+        "startLine": 1010,
+        "startChar": 4,
+        "endLine": 1010,
+        "endChar": 41
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee073416_51a278ce",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1092,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "`os.path.isfile` ?",
+      "range": {
+        "startLine": 1092,
+        "startChar": 5,
+        "endLine": 1092,
+        "endChar": 16
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec9face7_6dd670e9",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "`os.path.isfile` ?",
+      "range": {
+        "startLine": 1126,
+        "startChar": 3,
+        "endLine": 1126,
+        "endChar": 14
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c2572d9_1bbf35d9",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "`os.path.isdir` ?",
+      "range": {
+        "startLine": 1203,
+        "startChar": 9,
+        "endLine": 1203,
+        "endChar": 21
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd5fcbcd_50d8ded9",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "`os.path.isdir` ?",
+      "range": {
+        "startLine": 1215,
+        "startChar": 9,
+        "endLine": 1215,
+        "endChar": 20
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05a90e5f_799277a1",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "I see no difference with the upper block (`QUIET \u003d\u003d \"n\"), but there should be.",
+      "range": {
+        "startLine": 1205,
+        "startChar": 0,
+        "endLine": 1216,
+        "endChar": 44
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93f6248f_a1ff05f6",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "inline this variable\u0027s definition and get rid of it?",
+      "range": {
+        "startLine": 1238,
+        "startChar": 4,
+        "endLine": 1238,
+        "endChar": 32
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec62a335_68dd6d00",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1322,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of this?",
+      "range": {
+        "startLine": 1321,
+        "startChar": 0,
+        "endLine": 1322,
+        "endChar": 64
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3526fab_955028a3",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1332,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Why is it the same as line 1330?",
+      "range": {
+        "startLine": 1332,
+        "startChar": 0,
+        "endLine": 1332,
+        "endChar": 76
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d60193a4_efeb663a",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1378,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "how about `save_cmd\u003dFalse` for this one?",
+      "range": {
+        "startLine": 1378,
+        "startChar": 46,
+        "endLine": 1378,
+        "endChar": 59
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d19141c_db749c8c",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "add a local variable for this?",
+      "range": {
+        "startLine": 1395,
+        "startChar": 41,
+        "endLine": 1395,
+        "endChar": 72
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5194f13a_0a3fc5e4",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1426,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "add a local variable?",
+      "range": {
+        "startLine": 1426,
+        "startChar": 40,
+        "endLine": 1426,
+        "endChar": 71
+      },
+      "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c80e9a88_ec288fd3",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 1,
+      "message": "Shoud this `TODO` be implemented now, as host support for GDB works and is useful?",
+      "range": {
+        "startLine": 1472,
+        "startChar": 0,
+        "endLine": 1477,
+        "endChar": 53
+      },
       "revId": "c9b4cbd91c7f6f8aa8c52965668505bd2194aa6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a905667_552cdf77",
+        "filename": "test/661-oat-writer-layout/run",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 0,
+      "message": "Why remove the quotes?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 8
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "923cb962_a8a032b9",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 0,
+      "message": "TBH I\u0027m still confused how it works. I know about `${parameter/pattern/string}` susbtitutions in bash, but what is pattern here? It\u0027s ENOPARSE to me.",
+      "range": {
+        "startLine": 862,
+        "startChar": 11,
+        "endLine": 862,
+        "endChar": 41
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80a4bf53_f4a3af13",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 0,
+      "message": "Can you redirect output in front of the command in bash? I didn\u0027t know.",
+      "range": {
+        "startLine": 971,
+        "startChar": 6,
+        "endLine": 971,
+        "endChar": 10
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4b65952_486d5493",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 0,
+      "message": "Why does it need `eval` on line 1461 but not 1460? It doesn\u0027t matter for `run`, does it?",
+      "range": {
+        "startLine": 1460,
+        "startChar": 0,
+        "endLine": 1461,
+        "endChar": 71
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97800c3b_3b92aa2a",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 0,
+      "message": "I don\u0027t fully understand what it does, but it looks like your conversion is not 1:1 here, or is it?",
+      "range": {
+        "startLine": 1511,
+        "startChar": 0,
+        "endLine": 1513,
+        "endChar": 17
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "058173bc_d7c924aa",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1523,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-21T11:42:36Z",
+      "side": 0,
+      "message": "Same here.",
+      "range": {
+        "startLine": 1522,
+        "startChar": 0,
+        "endLine": 1523,
+        "endChar": 30
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
