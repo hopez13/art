@@ -2434,6 +2434,7 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   }
 
   // Does this instruction strictly dominate `other_instruction`?
+  bool Dominates(HInstruction* other_instruction) const;
   // Returns false if this instruction and `other_instruction` are the same.
   // Aborts if this instruction and `other_instruction` are both phis.
   bool StrictlyDominates(HInstruction* other_instruction) const;
@@ -2500,7 +2501,9 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   void SetLocations(LocationSummary* locations) { locations_ = locations; }
 
   void ReplaceWith(HInstruction* instruction);
-  void ReplaceUsesDominatedBy(HInstruction* dominator, HInstruction* replacement);
+  void ReplaceUsesDominatedBy(HInstruction* dominator,
+                              HInstruction* replacement,
+                              bool strictly_dominated = true);
   void ReplaceEnvUsesDominatedBy(HInstruction* dominator, HInstruction* replacement);
   void ReplaceInput(HInstruction* replacement, size_t index);
 
