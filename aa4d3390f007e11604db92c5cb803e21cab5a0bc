@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acd78548_bea3d421",
+        "filename": "libnativeloader/test/src/android/test/app/TestActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-22T13:04:26Z",
+      "side": 1,
+      "message": "Thanks, it\u0027s actually mentioned in the doc page on SAC if I had read it more carefully. I was hoping it\u0027d propagate the tests to the report, but that\u0027s not the case.\n\n(This means the tests no longer need DeviceContext at all, but I still like to keep it around because I suspect I\u0027ll need it in the tests I\u0027ll be adding.)",
+      "parentUuid": "4b464137_9395dbd6",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 41
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95f403e5_810069fd",
@@ -167,6 +191,24 @@
       "writtenOn": "2022-07-20T22:15:02Z",
       "side": 1,
       "message": "Jiyong, you wrote the original test with the runtest.sh script. I\u0027d appreciate if you could look over the high level test flow in the functions above and pushSystemOemLibs/pushProductLibs below to see that it captures your original test. Thanks.",
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cce806a_403b1b71",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-22T13:04:26Z",
+      "side": 1,
+      "message": "I see you\u0027re OOO and I need to continue, but I\u0027d still welcome your input on this when you get back.",
+      "parentUuid": "b25b45dc_5ed45289",
       "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
