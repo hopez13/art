@@ -16,6 +16,12 @@
 
 #include "constant_folding.h"
 
+#include <algorithm>
+#include <vector>
+
+#include "optimizing/data_type.h"
+#include "optimizing/nodes.h"
+
 namespace art {
 
 // This visitor tries to simplify instructions that can be evaluated
@@ -33,6 +39,9 @@ class HConstantFoldingVisitor : public HGraphDelegateVisitor {
 
   void VisitTypeConversion(HTypeConversion* inst) override;
   void VisitDivZeroCheck(HDivZeroCheck* inst) override;
+  void VisitIf(HIf* inst) override;
+
+  void PropagateValue(HBasicBlock* starting_block, HInstruction* variable, HInstruction* constant);
 
   DISALLOW_COPY_AND_ASSIGN(HConstantFoldingVisitor);
 };
@@ -130,6 +139,145 @@ void HConstantFoldingVisitor::VisitDivZeroCheck(HDivZeroCheck* inst) {
   }
 }
 
+// TODO(solanes) : CREATE TESTS!
+// One test is to propagate value to inlinee e.g.
+//   public static void main(String[] args) throws Exception {
+//     $noinline$test(true);
+//   }
+//
+//   Only one println after inlining
+//   private static void $noinline$test(boolean value) {
+//     if (value) {
+//       $inline$foo(value);
+//     }
+//   }
+//
+//   private static void $inline$foo(boolean value) {
+//     if (value) {
+//       System.out.println("True");
+//     } else {
+//       System.out.println("False");
+//     }
+//   }
+
+// TODO(solanes) : Add STATS!
+
+void HConstantFoldingVisitor::PropagateValue(HBasicBlock* starting_block,
+                                             HInstruction* variable,
+                                             HInstruction* constant) {
+  // Collect the uses to replace, and then replace them. We do this since we are iterating the use
+  // list and it is not trivial to remove things from said list while iterating.
+  std::vector<std::pair<HInstruction*, size_t>> to_remove;
+
+  // Look for dominated values.
+  for (const HUseListNode<HInstruction*>& use : variable->GetUses()) {
+    HInstruction* user = use.GetUser();
+    if (starting_block->Dominates(user->GetBlock())) {
+      to_remove.push_back({user, use.GetIndex()});
+    }
+  }
+
+  // Replace them with the constant.
+  for (const auto& pair : to_remove) {
+    pair.first->ReplaceInput(constant, pair.second);
+  }
+
+  // TODO(solanes): How to clean up env uses?
+}
+
+void HConstantFoldingVisitor::VisitIf(HIf* inst) {
+  if (inst->InputAt(0)->IsParameterValue()) {
+    // if (varaible) {
+    // SSA `varaible` guaranteed to be true
+    // } else {
+    // and here false
+    // }
+    PropagateValue(inst->IfTrueSuccessor(), inst->InputAt(0), GetGraph()->GetIntConstant(1));
+    PropagateValue(inst->IfFalseSuccessor(), inst->InputAt(0), GetGraph()->GetIntConstant(0));
+    return;
+  }
+
+  // This optimization only allows var == constant, and var != constant.
+  if (!inst->InputAt(0)->IsCondition()) {
+    return;
+  }
+  HCondition* condition = inst->InputAt(0)->AsCondition();
+  if (!condition->IsEqual() && !condition->IsNotEqual()) {
+    return;
+  }
+
+  HInstruction* left = condition->GetLeft();
+  HInstruction* right = condition->GetRight();
+
+  // We want one of them to be a constant and not the other.
+  if (left->IsConstant() == right->IsConstant()) {
+    return;
+  }
+
+  // At this point we have something like:
+  // if (variable == constant) {
+  // SSA `val` guaranteed to be equal to constant here
+  // } else {
+  // ...
+  // }
+  // Similarly with variable != constant in the else case.
+
+  HInstruction* constant = left->IsConstant() ? left : right;
+  HInstruction* variable = left->IsConstant() ? right : left;
+
+  // From this block forwards we want to replace the SSA value. We use this and not the `if` block
+  // as we want to update one of the branches but not the other.
+  HBasicBlock* starting_block =
+      condition->IsEqual() ? inst->IfTrueSuccessor() : inst->IfFalseSuccessor();
+
+  // TODO(solanes): Add test like this!
+  // private static void $noinline$test(int value) {
+  //   value++;
+  //   if (value != 3) {
+  //     System.out.println(value);
+  //   }
+  //   System.out.println(value);
+  // }
+
+  // Also add something like
+  //   private static void $noinline$test(int value) {
+  //     value++;
+  //     if (value != 3) {
+  //       System.out.println(value);
+  //     } else {
+  //       System.out.println(value);
+  //     }
+  //   }
+
+  // Note that when we don't have an explicit else block e.g.
+  //   if (variable != 3) {
+  //     ...
+  //   }
+  //   // No else.
+  // we add one of our own i.e. a block with just a Goto. This means that the IfFalseSuccessor
+  // branch will never be dominated by the IfTrueSuccessor branch.
+  // If we didn't have this "trampoline goto", it would be an issue for the "not equals" comparison.
+  // This comparison applies to the "if false" branch (aka else branch) and we want to do so for the
+  // scope of the else. If there's no explicit else, we have to make sure we are not replacing
+  // variables with constants that we can't guarantee.
+  DCHECK(!inst->IfTrueSuccessor()->Dominates(inst->IfFalseSuccessor()));
+
+  PropagateValue(starting_block, variable, constant);
+
+  // Special case for booleans since they have only two values so we know what to propagate in the
+  // other branch.
+  if (variable->GetType() == DataType::Type::kBool) {
+    HBasicBlock* starting_block_bool =
+        condition->IsEqual() ? inst->IfFalseSuccessor() : inst->IfTrueSuccessor();
+    DCHECK(constant->IsIntConstant() &&
+           (constant->AsIntConstant()->IsTrue() || constant->AsIntConstant()->IsFalse()))
+        << constant << " was expected to be true or false";
+    HInstruction* constant_bool = constant->AsIntConstant()->IsTrue() ?
+                                      GetGraph()->GetIntConstant(0) :
+                                      GetGraph()->GetIntConstant(1);
+    PropagateValue(starting_block_bool, variable, constant_bool);
+  }
+}
 
 void InstructionWithAbsorbingInputSimplifier::VisitShift(HBinaryOperation* instruction) {
   DCHECK(instruction->IsShl() || instruction->IsShr() || instruction->IsUShr());
