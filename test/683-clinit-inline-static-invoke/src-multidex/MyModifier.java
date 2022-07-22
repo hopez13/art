@@ -16,7 +16,8 @@
 
 import java.lang.reflect.Modifier;
 
-public abstract class MyModifier extends Modifier {
+// b/239968561: Cannot extend java.lang.reflect.Modifier in JDK 17.
+public abstract class MyModifier /*extends Modifier*/ {
   // Reference to MyModifier.classModifiers() shall resolve to
   // Modifier.classModifiers() which should be easily inlined.
 }

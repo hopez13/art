@@ -26,6 +26,7 @@ public class Main {
     // TypeId in the current DexFile, we erroneously provided the type index from the
     // declaring DexFile and that caused a crash. This was fixed by changing the
     // ClinitCheck entrypoint to take the Class reference from LoadClass.
-    int placeholder = MyModifier.classModifiers();
+    // b/239968561: Cannot extend java.lang.reflect.Modifier in JDK 17.
+    //int placeholder = MyModifier.classModifiers();
   }
 }
