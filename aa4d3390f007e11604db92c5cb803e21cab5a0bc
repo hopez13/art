@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b464137_9395dbd6",
+        "filename": "libnativeloader/test/src/android/test/app/TestActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-22T11:34:24Z",
+      "side": 1,
+      "message": "\u003e It would be cool if there was a way to propagate that directly to this test runner, but I couldn\u0027t find a way to do it.\n\nTry `runDeviceTests`?\n\nhttp://cs/android-internal/tools/tradefederation/core/test_framework/com/android/tradefed/testtype/junit4/BaseHostJUnit4Test.java;l\u003d484;rcl\u003d535820e6b522463f878a7fd003b59eab50c58323",
+      "parentUuid": "45409f19_700120b3",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 41
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95f403e5_810069fd",
         "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
         "patchSetId": 1

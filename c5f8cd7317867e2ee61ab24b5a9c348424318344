@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11cb585d_4fe1df08",
+        "filename": "libnativeloader/test/src/android/test/app/SystemAppTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-22T11:34:24Z",
+      "side": 1,
+      "message": "Initially, I meant passing these strings as arguments so that you don\u0027t have to duplicate this class, but this is also fine to me because the amount of duplicate code is not significant.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 51
+      },
+      "revId": "c5f8cd7317867e2ee61ab24b5a9c348424318344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bdb10a4_1cacdbff",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-22T11:34:24Z",
+      "side": 1,
+      "message": "To be more accurate, there is the full reboot in remountSystemWritable that contributes more to the test setup time than the soft reboot. http://cs/android-internal/tools/tradefederation/core/src/com/android/tradefed/device/NativeDevice.java;l\u003d4812;rcl\u003dd1d7ab61be4471df36e06d2bea3da29cc9abddb5",
+      "range": {
+        "startLine": 57,
+        "startChar": 11,
+        "endLine": 57,
+        "endChar": 32
+      },
+      "revId": "c5f8cd7317867e2ee61ab24b5a9c348424318344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07f07a95_6aa30328",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-07-22T11:34:24Z",
+      "side": 1,
+      "message": "Worth adding a comment why ctx.mDevice.installPackage is not an option here.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 89
+      },
+      "revId": "c5f8cd7317867e2ee61ab24b5a9c348424318344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
