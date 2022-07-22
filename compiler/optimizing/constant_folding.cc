@@ -16,6 +16,12 @@
 
 #include "constant_folding.h"
 
+#include <algorithm>
+#include <vector>
+
+#include "optimizing/data_type.h"
+#include "optimizing/nodes.h"
+
 namespace art {
 
 // This visitor tries to simplify instructions that can be evaluated
@@ -33,6 +39,9 @@ class HConstantFoldingVisitor : public HGraphDelegateVisitor {
 
   void VisitTypeConversion(HTypeConversion* inst) override;
   void VisitDivZeroCheck(HDivZeroCheck* inst) override;
+  void VisitIf(HIf* inst) override;
+
+  void PropagateValue(HBasicBlock* starting_block, HInstruction* variable, HInstruction* constant);
 
   DISALLOW_COPY_AND_ASSIGN(HConstantFoldingVisitor);
 };
@@ -130,6 +139,133 @@ void HConstantFoldingVisitor::VisitDivZeroCheck(HDivZeroCheck* inst) {
   }
 }
 
+void HConstantFoldingVisitor::PropagateValue(HBasicBlock* starting_block,
+                                             HInstruction* variable,
+                                             HInstruction* constant) {
+  // Collect the uses to replace, and then replace them. We do this since we are iterating the use
+  // list and it is not trivial to remove things from said list while iterating.
+  std::vector<std::pair<HInstruction*, size_t>> to_remove;
+
+  // Look for dominated values.
+  for (const HUseListNode<HInstruction*>& use : variable->GetUses()) {
+    HInstruction* user = use.GetUser();
+    if (starting_block->Dominates(user->GetBlock())) {
+      to_remove.push_back({user, use.GetIndex()});
+    }
+  }
+
+  // Replace them with the constant.
+  // TODO(solanes): How to clean up env uses?
+  for (const auto& pair : to_remove) {
+    pair.first->ReplaceInput(constant, pair.second);
+  }
+
+  MaybeRecordStat(stats_, MethodCompilationStat::kPropagatedIfValue, to_remove.size());
+}
+
+void HConstantFoldingVisitor::VisitIf(HIf* inst) {
+  if (inst->InputAt(0)->IsParameterValue()) {
+    // if (variable) {
+    //   SSA `variable` guaranteed to be true
+    // } else {
+    //   and here false
+    // }
+    DCHECK_EQ(inst->InputAt(0)->GetType(), DataType::Type::kBool);
+    PropagateValue(inst->IfTrueSuccessor(), inst->InputAt(0), GetGraph()->GetIntConstant(1));
+    PropagateValue(inst->IfFalseSuccessor(), inst->InputAt(0), GetGraph()->GetIntConstant(0));
+    return;
+  }
+
+  // This optimization only allows var == constant, and var != constant.
+  if (!inst->InputAt(0)->IsCondition()) {
+    return;
+  }
+  HCondition* condition = inst->InputAt(0)->AsCondition();
+  if (!condition->IsEqual() && !condition->IsNotEqual()) {
+    return;
+  }
+
+  HInstruction* left = condition->GetLeft();
+  HInstruction* right = condition->GetRight();
+
+  // We want one of them to be a constant and not the other.
+  if (left->IsConstant() == right->IsConstant()) {
+    return;
+  }
+
+  // At this point we have something like:
+  // if (variable == constant) {
+  //   SSA `variable` guaranteed to be equal to constant here
+  // } else {
+  //   No guarantees can be made here (usually, see boolean case below).
+  // }
+  // Similarly with variable != constant in the else case.
+
+  HConstant* constant = left->IsConstant() ? left->AsConstant() : right->AsConstant();
+  HInstruction* variable = left->IsConstant() ? right : left;
+
+  // Sometimes we have an HCompare flowing into an Equals/NonEquals, which can act as a proxy.
+  if (variable->IsCompare()) {
+    //  We only care about equality comparisons so we skip if it is a less or greater comparison.
+    if (!constant->IsArithmeticZero()) {
+      return;
+    }
+
+    // Update left and right to be the ones from the HCompare.
+    left = variable->AsCompare()->GetLeft();
+    right = variable->AsCompare()->GetRight();
+
+    // Re-check that one of them to be a constant and not the other.
+    if (left->IsConstant() == right->IsConstant()) {
+      return;
+    }
+
+    constant = left->IsConstant() ? left->AsConstant() : right->AsConstant();
+    variable = left->IsConstant() ? right : left;
+  }
+
+  // From this block forwards we want to replace the SSA value. We use this and not the `if` block
+  // as we want to update one of the branches but not the other.
+  HBasicBlock* starting_block =
+      condition->IsEqual() ? inst->IfTrueSuccessor() : inst->IfFalseSuccessor();
+
+  // Note that when we don't have an explicit else block e.g.
+  //   if (variable != 3) {
+  //     ...
+  //   }
+  //   // No else.
+  // we add one of our own i.e. a block with just a Goto. This means that the IfFalseSuccessor
+  // branch will never be dominated by the IfTrueSuccessor branch.
+  // If we didn't have this "trampoline goto", it would be an issue for the "not equals" comparison.
+  // This comparison applies to the "if false" branch (aka else branch) and we want to do so for the
+  // scope of the else. If there's no explicit else, we have to make sure we are not replacing
+  // variables with constants that we can't guarantee.
+  DCHECK(std::none_of(
+      inst->IfFalseSuccessor()->GetPredecessors().begin(),
+      inst->IfFalseSuccessor()->GetPredecessors().begin(),
+      [inst](HBasicBlock* block) { return inst->IfTrueSuccessor()->Dominates(block); }));
+
+  PropagateValue(starting_block, variable, constant);
+
+  // Special case for booleans since they have only two values so we know what to propagate in the
+  // other branch.
+  // TODO(solanes): Figure out why the boolean is sometimes neither true nor false.
+  if (variable->GetType() == DataType::Type::kBool && constant->IsIntConstant() &&
+      (constant->AsIntConstant()->IsTrue() || constant->AsIntConstant()->IsFalse())) {
+    HBasicBlock* other_starting_block =
+        condition->IsEqual() ? inst->IfFalseSuccessor() : inst->IfTrueSuccessor();
+    DCHECK_NE(other_starting_block, starting_block);
+    DCHECK(constant->IsIntConstant() &&
+           (constant->AsIntConstant()->IsTrue() || constant->AsIntConstant()->IsFalse()))
+        << constant->DebugName() << " was expected to be true or false";
+
+    HInstruction* other_constant = constant->AsIntConstant()->IsTrue() ?
+                                       GetGraph()->GetIntConstant(0) :
+                                       GetGraph()->GetIntConstant(1);
+    DCHECK_NE(other_constant, constant);
+    PropagateValue(other_starting_block, variable, other_constant);
+  }
+}
 
 void InstructionWithAbsorbingInputSimplifier::VisitShift(HBinaryOperation* instruction) {
   DCHECK(instruction->IsShl() || instruction->IsShr() || instruction->IsUShr());
