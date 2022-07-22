@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45409f19_700120b3",
+        "filename": "libnativeloader/test/src/android/test/app/TestActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-22T00:00:10Z",
+      "side": 1,
+      "message": "That\u0027s neat, thanks for the tip!\n\nIt looks like `am instrument` has a machine-readable result format that I suspect is intended for returning test results on a structured form. It would be cool if there was a way to propagate that directly to this test runner, but I couldn\u0027t find a way to do it.",
+      "parentUuid": "1ed35d22_e6630888",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 41
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95f403e5_810069fd",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aee61a5_119a78d8",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-22T00:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95f403e5_810069fd",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 15
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f95bf63_7b1e1c75",
@@ -60,6 +108,24 @@
       "writtenOn": "2022-07-21T14:32:02Z",
       "side": 1,
       "message": "Does this removes the apks pushed in `beforeClassWithDevice`? If so, how do subsequent tests work?",
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "489fd514_c39c4afc",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-22T00:00:10Z",
+      "side": 1,
+      "message": "No, the tests have their own CleanupPaths instances, so they only clean up what they add.",
+      "parentUuid": "1f95bf63_7b1e1c75",
       "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -98,6 +164,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1219d517_83fad008",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-22T00:00:10Z",
+      "side": 1,
+      "message": "I didn\u0027t notice anything, but that is indeed the case.",
+      "parentUuid": "8addc6e5_590c751f",
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b51f74c_f566ed70",
@@ -111,6 +195,30 @@
       "writtenOn": "2022-07-21T14:32:02Z",
       "side": 1,
       "message": "Use try-with-resources to close the stream.",
+      "range": {
+        "startLine": 225,
+        "startChar": 12,
+        "endLine": 225,
+        "endChar": 23
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "727d2b33_005df70d",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-22T00:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b51f74c_f566ed70",
       "range": {
         "startLine": 225,
         "startChar": 12,
@@ -144,6 +252,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48d93cd7_fc16f5a6",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-22T00:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edecbe4b_b4ca089f",
+      "range": {
+        "startLine": 229,
+        "startChar": 12,
+        "endLine": 233,
+        "endChar": 13
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7549897e_81d753b6",
@@ -167,6 +299,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28a9030c_8a318d3f",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-22T00:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7549897e_81d753b6",
+      "range": {
+        "startLine": 292,
+        "startChar": 8,
+        "endLine": 292,
+        "endChar": 19
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6e28c40_17b59174",
@@ -180,6 +336,30 @@
       "writtenOn": "2022-07-21T14:32:02Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 300,
+        "startChar": 39,
+        "endLine": 300,
+        "endChar": 55
+      },
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edb2f911_c8994001",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-22T00:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6e28c40_17b59174",
       "range": {
         "startLine": 300,
         "startChar": 39,
