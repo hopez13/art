@@ -15,6 +15,12 @@
  */
 
 #include "constant_folding.h"
+#include <ios>
+#include <vector>
+#include "optimizing/data_type.h"
+#include "optimizing/nodes.h"
+#include "scoped_thread_state_change-inl.h" // Remove this one
+#include "thread.h"
 
 namespace art {
 
@@ -33,6 +39,9 @@ class HConstantFoldingVisitor : public HGraphDelegateVisitor {
 
   void VisitTypeConversion(HTypeConversion* inst) override;
   void VisitDivZeroCheck(HDivZeroCheck* inst) override;
+  void VisitIf(HIf* inst) override;
+
+  void PropagateValue(HBasicBlock* starting_block, HInstruction* variable, HInstruction* constant);
 
   DISALLOW_COPY_AND_ASSIGN(HConstantFoldingVisitor);
 };
@@ -130,6 +139,122 @@ void HConstantFoldingVisitor::VisitDivZeroCheck(HDivZeroCheck* inst) {
   }
 }
 
+// TODO(solanes) : CREATE TESTS!
+// One test is to propagate value to inlinee e.g.
+//   public static void main(String[] args) throws Exception {
+//     $noinline$test(true);
+//   }
+// 
+//   Only one println after inlining
+//   private static void $noinline$test(boolean value) {
+//     if (value) {
+//       $inline$foo(value);
+//     }
+//   }
+// 
+//   private static void $inline$foo(boolean value) {
+//     if (value) {
+//       System.out.println("True");
+//     } else {
+//       System.out.println("False");
+//     }
+//   }
+
+
+// TODO(solanes) : Add STATS!
+
+void HConstantFoldingVisitor::PropagateValue(HBasicBlock* starting_block,
+                                             HInstruction* variable,
+                                             HInstruction* constant) {
+  LOG(INFO) << "starting_block: " << starting_block->GetBlockId();
+
+  LOG(INFO) << "We have this amount of uses: " << variable->GetUses().SizeSlow() << ". They are:";
+  int index = 0;
+  for (const HUseListNode<HInstruction*>& use : variable->GetUses()) {
+    HInstruction* user = use.GetUser();
+    LOG(INFO) << "index: " << index << " user: " << user->GetId() << " at block "
+              << user->GetBlock()->GetBlockId();
+    index++;
+  }
+
+  // Collect the uses to replace, and then replace them. We do this since we are iterating the use
+  // list and it is not trivial to remove things from said list while iterating.
+  std::vector<std::pair<HInstruction*, size_t>> to_remove;
+
+  // Look for dominated values.
+  for (const HUseListNode<HInstruction*>& use : variable->GetUses()) {
+    HInstruction* user = use.GetUser();
+    if (starting_block->Dominates(user->GetBlock())) {
+      LOG(INFO) << "Replacing input " << use.GetIndex() << " of user " << user->GetId()
+                << " at block " << user->GetBlock()->GetBlockId() << " with " << constant->GetId();
+      to_remove.push_back({user, use.GetIndex()});
+    }
+  }
+
+  // Replace them with the constant.
+  for (const auto& pair : to_remove) {
+    pair.first->ReplaceInput(constant, pair.second);
+  }
+
+  // TOOD(solanes): How to clean up env uses?
+}
+
+void HConstantFoldingVisitor::VisitIf(HIf* inst) {
+  ScopedObjectAccess soa(Thread::Current());
+  LOG(INFO) << GetGraph()->GetArtMethod()->PrettyMethod() << " with instr at " << inst->GetId();
+  LOG(INFO) << "HConstantFoldingVisitor::VisitIf";
+  if (inst->InputAt(0)->IsParameterValue()) {
+    LOG(INFO) << "IsParameterValue";
+    PropagateValue(inst->IfTrueSuccessor(), inst->InputAt(0), GetGraph()->GetIntConstant(1));
+    PropagateValue(inst->IfFalseSuccessor(), inst->InputAt(0), GetGraph()->GetIntConstant(0));
+    return;
+  }
+
+  // This optimization only allows var == constant, and var != constant.
+  if (!inst->InputAt(0)->IsCondition()) return;
+  LOG(INFO) << "IsCondition";
+  HCondition* condition = inst->InputAt(0)->AsCondition();
+  if(!condition->IsEqual() && !condition->IsNotEqual()) return;
+  LOG(INFO) << "Condition valid";
+
+  HInstruction* left = condition->GetLeft();
+  HInstruction* right = condition->GetRight();
+
+  // We want one of them to be a constant and not the other.
+  if (left->IsConstant() == right->IsConstant()) return;
+  LOG(INFO) << "Constant valid. left->IsConstant(): " << std::boolalpha << left->IsConstant()
+            << std::noboolalpha;
+
+  HInstruction* constant = left->IsConstant() ? left : right;
+  HInstruction* variable = left->IsConstant() ? right : left;
+
+  LOG(INFO) << "constant type" << constant->GetType();
+  LOG(INFO) << "variable type" << variable->GetType();
+
+  LOG(INFO) << "constant: " << constant->GetId() << " at block " << constant->GetBlock()->GetBlockId();
+  LOG(INFO) << "variable: " << variable->GetId() << " at block " << variable->GetBlock()->GetBlockId();
+  LOG(INFO) << "condition->IsEqual(): " << std::boolalpha << condition->IsEqual() << std::noboolalpha;
+
+  // From this block forwards we want to replace the SSA value. We use this and not the `if` block
+  // as we want to update one of the branches but not the other.
+  HBasicBlock* starting_block =
+      condition->IsEqual() ? inst->IfTrueSuccessor() : inst->IfFalseSuccessor();
+  LOG(INFO) << "inst->IfTrueSuccessor(): " << inst->IfTrueSuccessor()->GetBlockId() << " inst->IfFalseSuccessor(): " << inst->IfFalseSuccessor()->GetBlockId() << " starting_block: " << starting_block->GetBlockId();
+  PropagateValue(starting_block, variable, constant);
+  if (variable->GetType() == DataType::Type::kBool) {
+    // Special case for booleans since they have only two values so we know what to propagate in the
+    // other branch.
+    HBasicBlock* starting_block_bool =
+        condition->IsEqual() ? inst->IfFalseSuccessor() : inst->IfTrueSuccessor();
+    DCHECK(constant->IsIntConstant() &&
+           (constant->AsIntConstant()->IsTrue() || constant->AsIntConstant()->IsFalse()))
+        << constant << " was expected to be true or false";
+    HInstruction* constant_bool = constant->AsIntConstant()->IsTrue() ?
+                                      GetGraph()->GetIntConstant(0) :
+                                      GetGraph()->GetIntConstant(1);
+    PropagateValue(starting_block_bool, variable, constant_bool);
+  }
+}
 
 void InstructionWithAbsorbingInputSimplifier::VisitShift(HBinaryOperation* instruction) {
   DCHECK(instruction->IsShl() || instruction->IsShr() || instruction->IsUShr());
