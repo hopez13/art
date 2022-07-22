@@ -181,7 +181,7 @@ public class Main {
   // inliner.
   private static int $noinline$testDoNotSimplifyInTry(int num) {
     try {
-      $inline$testDoNotSimplifyInner(num);
+      $inline$testDoNotSimplifyInner(other_num);
     } catch (Error e) {
       return 0;
     }
@@ -250,7 +250,7 @@ public class Main {
         throw new Error();
       } catch (Error e) {
         if (num == 0) {
-          $inline$testDoNotSimplifyInner(num);
+          $inline$testDoNotSimplifyInner(other_num);
         }
         return 0;
       }
@@ -264,4 +264,8 @@ public class Main {
       throw new AssertionError("Expected " + expected + " got " + actual);
     }
   }
+
+  // This has to be non-zero value so that the tests pass. Also the compiler must not know it is
+  // guaranteed to be non-zero for our checker tests to work.
+  static int other_num = 1;
 }
