@@ -66,13 +66,20 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
         // locations to test library loading restrictions, so we cannot use
         // ITestDevice.installPackage for it since it only installs in /data.
 
+        // For testSystemPrivApp
+        ctx.pushApk("loadlibrarytest_system_priv_app", "/system/priv-app");
+
         // For testSystemApp
-        ctx.pushResource("/loadlibrarytest_system_app.apk",
-                "/system/app/loadlibrarytest_system_app/loadlibrarytest_system_app.apk");
+        ctx.pushApk("loadlibrarytest_system_app", "/system/app");
+
+        // For testSystemExtApp
+        ctx.pushApk("loadlibrarytest_system_ext_app", "/system_ext/app");
+
+        // For testProductApp
+        ctx.pushApk("loadlibrarytest_product_app", "/product/app");
 
         // For testVendorApp
-        ctx.pushResource("/loadlibrarytest_vendor_app.apk",
-                "/vendor/app/loadlibrarytest_vendor_app/loadlibrarytest_vendor_app.apk");
+        ctx.pushApk("loadlibrarytest_vendor_app", "/vendor/app");
 
         ctx.softReboot();
 
@@ -87,8 +94,25 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
     }
 
     @Test
+    public void testSystemPrivApp() throws Exception {
+        // FIXME
+        runDeviceTests("android.test.app.system_priv", "android.test.app.SystemAppTest");
+    }
+
+    @Test
     public void testSystemApp() throws Exception {
         runDeviceTests("android.test.app.system", "android.test.app.SystemAppTest");
+    }
+
+    @Test
+    public void testSystemExtApp() throws Exception {
+        // /system_ext should behave the same as /system, so run the same test class there.
+        runDeviceTests("android.test.app.system_ext", "android.test.app.SystemAppTest");
+    }
+
+    @Test
+    public void testProductApp() throws Exception {
+        runDeviceTests("android.test.app.product", "android.test.app.ProductAppTest");
     }
 
     @Test
@@ -202,6 +226,11 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
             File hostTempFile = extractResourceToTempFile(resourceName);
             mCleanup.addPath(destPath);
             assertThat(mDevice.pushFile(hostTempFile, destPath)).isTrue();
+        }
+
+        void pushApk(String apkBaseName, String destPath) throws Exception {
+            pushResource("/" + apkBaseName + ".apk",
+                    destPath + "/" + apkBaseName + "/" + apkBaseName + ".apk");
         }
 
         // Like pushString, but extracts libnativeloader_testlib.so from the library_container_app
