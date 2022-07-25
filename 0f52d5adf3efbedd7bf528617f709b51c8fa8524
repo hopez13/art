@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb16959f_dac3de37",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-25T12:54:24Z",
+      "side": 1,
+      "message": "It wasn\u0027t quite as bad in code complexity as I thought, but this is worse both in allocations and running time. And since there\u0027s nothing that can throw in the old loop I don\u0027t think it\u0027s actually buggy, it\u0027s just that the owning pointer invariant isn\u0027t upheld at all points inside it.\n\nI think we\u0027re better off accepting the ugliness and improve comments instead to explain why it\u0027s safe, in particular the assumption that the sets of pointers in `collection_` and `map` are exactly the same.\n\nOne thing that would be nice is to verify that, because otherwise this won\u0027t work and could result in both leaks and dangling pointers which may be tricky to debug. Such a check would also incur a runtime overhead, even if it\u0027s only in debug builds. I\u0027ve no idea how hot this code is, so I can\u0027t say whether that\u0027d be acceptable or not. Adding it is completely optional, but if you do, I suggest running it on go/lem to see how big the impact is.",
+      "revId": "0f52d5adf3efbedd7bf528617f709b51c8fa8524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
