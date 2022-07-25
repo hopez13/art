@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0ec7bc8_d46a6fe1",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-25T08:52:45Z",
+      "side": 1,
+      "message": "Maybe add a a comment that only the inliner sets HasAlwaysThrowingInvokes, and we run the inliner only once on a graph?",
+      "revId": "021f8f79a3ed9242af533b82ebe151a1b09a6c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
