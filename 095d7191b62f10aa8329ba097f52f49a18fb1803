@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3b4d248_2b1ef2f6",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-25T13:49:00Z",
+      "side": 1,
+      "message": "WDYT about removing this boolean and just making `if (update_cache) {` the else branch? Same on the other code.",
+      "range": {
+        "startLine": 472,
+        "startChar": 4,
+        "endLine": 472,
+        "endChar": 29
+      },
+      "revId": "095d7191b62f10aa8329ba097f52f49a18fb1803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "747517ff_bc26988d",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-25T13:49:00Z",
+      "side": 1,
+      "message": "Why do we clear the exception here? On the other paths that we have `DCHECK(self-\u003eIsExceptionPending());` we don\u0027t clear it.",
+      "range": {
+        "startLine": 475,
+        "startChar": 6,
+        "endLine": 475,
+        "endChar": 29
+      },
+      "revId": "095d7191b62f10aa8329ba097f52f49a18fb1803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
