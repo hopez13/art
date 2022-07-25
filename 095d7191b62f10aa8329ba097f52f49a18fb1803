@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d69a01ba_83a736db",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-25T15:33:19Z",
+      "side": 1,
+      "message": "Because I can update the cache in the \u0027if\u0027 as well. I\u0027ve added a comment.",
+      "parentUuid": "c3b4d248_2b1ef2f6",
+      "range": {
+        "startLine": 472,
+        "startChar": 4,
+        "endLine": 472,
+        "endChar": 29
+      },
+      "revId": "095d7191b62f10aa8329ba097f52f49a18fb1803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "747517ff_bc26988d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-25T13:49:00Z",
       "side": 1,
       "message": "Why do we clear the exception here? On the other paths that we have `DCHECK(self-\u003eIsExceptionPending());` we don\u0027t clear it.",
+      "range": {
+        "startLine": 475,
+        "startChar": 6,
+        "endLine": 475,
+        "endChar": 29
+      },
+      "revId": "095d7191b62f10aa8329ba097f52f49a18fb1803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a8b7fc1_ab8f3fe1",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-25T15:33:19Z",
+      "side": 1,
+      "message": "Because we\u0027re optimistically trying to resolve. But if we fail, we need to clear the exception to preserve interpreter semantics of not throwing when storing null.",
+      "parentUuid": "747517ff_bc26988d",
       "range": {
         "startLine": 475,
         "startChar": 6,
