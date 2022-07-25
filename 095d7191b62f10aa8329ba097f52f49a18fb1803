@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea271de0_60b5fc61",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-25T15:39:37Z",
+      "side": 1,
+      "message": "I don\u0027t understand. If we enter the `if` we will set `update_cache` to false and we will never update the cache.",
+      "parentUuid": "d69a01ba_83a736db",
+      "range": {
+        "startLine": 472,
+        "startChar": 4,
+        "endLine": 472,
+        "endChar": 29
+      },
+      "revId": "095d7191b62f10aa8329ba097f52f49a18fb1803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "747517ff_bc26988d",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 2
