@@ -1074,6 +1074,12 @@ void dumpTrace() {
     if (readDataRecord(dataFp, &dataHeader, &threadId, &methodVal, &elapsedTime))
       break;
 
+    // `threadId` must be lower than `MAX_THREADS` or we would risk a stack overflow.
+    if (threadId >= MAX_THREADS) {
+      printf("threadId too big %2d. Aborting dump.", threadId);
+      return;
+    }
+
     int32_t action = METHOD_ACTION(methodVal);
     int64_t methodId = METHOD_ID(methodVal);
 
@@ -2062,6 +2068,11 @@ DataKeys* parseDataKeys(TraceData* traceData, const char* traceFileName, uint64_
     uint64_t currentTime;
     if (readDataRecord(dataFp, &dataHeader, &threadId, &methodVal, &currentTime))
       break;
+
+    // `threadId` must be lower than `MAX_THREADS` or we would risk a stack overflow.
+    if (threadId >= MAX_THREADS) {
+      return nullptr;
+    }
 
     int32_t action = METHOD_ACTION(methodVal);
     int64_t methodId = METHOD_ID(methodVal);
