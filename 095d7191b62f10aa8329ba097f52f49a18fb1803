@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e7d5cd0_85bdbf70",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-25T21:19:43Z",
+      "side": 1,
+      "message": "I mean the if can affect if we update the cache, so I cannot move it in the else.",
+      "parentUuid": "ea271de0_60b5fc61",
+      "range": {
+        "startLine": 472,
+        "startChar": 4,
+        "endLine": 472,
+        "endChar": 29
+      },
+      "revId": "095d7191b62f10aa8329ba097f52f49a18fb1803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "747517ff_bc26988d",
