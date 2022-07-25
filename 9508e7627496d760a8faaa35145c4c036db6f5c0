@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e69a9d1f_d03e2362",
+        "filename": "test/683-clinit-inline-static-invoke/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-07-25T08:19:46Z",
+      "side": 1,
+      "message": "We likely can\u0027t take that change: the public constructor is in the API file.",
+      "range": {
+        "startLine": 29,
+        "startChar": 20,
+        "endLine": 29,
+        "endChar": 70
+      },
+      "revId": "9508e7627496d760a8faaa35145c4c036db6f5c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
