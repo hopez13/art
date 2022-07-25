@@ -439,13 +439,14 @@ extern "C" size_t NterpGetStaticField(Thread* self,
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   uint16_t field_index = inst->VRegB_21c();
   ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
+  bool is_put = IsInstructionSPut(inst->Opcode());
   ArtField* resolved_field = ResolveFieldWithAccessChecks(
       self,
       class_linker,
       field_index,
       caller,
       /* is_static */ true,
-      /* is_put */ IsInstructionSPut(inst->Opcode()),
+      is_put,
       resolve_field_type);
 
   if (resolved_field == nullptr) {
@@ -468,7 +469,15 @@ extern "C" size_t NterpGetStaticField(Thread* self,
     // check for it.
     return reinterpret_cast<size_t>(resolved_field) | 1;
   } else {
-    UpdateCache(self, dex_pc_ptr, resolved_field);
+    bool update_cache = true;
+    if (is_put && resolve_field_type == 0 && resolved_field->ResolveType() == nullptr) {
+      DCHECK(self->IsExceptionPending());
+      self->ClearException();
+      update_cache = false;
+    }
+    if (update_cache) {
+      UpdateCache(self, dex_pc_ptr, resolved_field);
+    }
     return reinterpret_cast<size_t>(resolved_field);
   }
 }
@@ -482,13 +491,14 @@ extern "C" uint32_t NterpGetInstanceFieldOffset(Thread* self,
   const Instruction* inst = Instruction::At(dex_pc_ptr);
   uint16_t field_index = inst->VRegC_22c();
   ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
+  bool is_put = IsInstructionIPut(inst->Opcode());
   ArtField* resolved_field = ResolveFieldWithAccessChecks(
       self,
       class_linker,
       field_index,
       caller,
       /* is_static */ false,
-      /* is_put */ IsInstructionIPut(inst->Opcode()),
+      is_put,
       resolve_field_type);
   if (resolved_field == nullptr) {
     DCHECK(self->IsExceptionPending());
@@ -499,7 +509,15 @@ extern "C" uint32_t NterpGetInstanceFieldOffset(Thread* self,
     // of volatile.
     return -resolved_field->GetOffset().Uint32Value();
   }
-  UpdateCache(self, dex_pc_ptr, resolved_field->GetOffset().Uint32Value());
+  bool update_cache = true;
+  if (is_put && resolve_field_type == 0 && resolved_field->ResolveType() == nullptr) {
+    DCHECK(self->IsExceptionPending());
+    self->ClearException();
+    update_cache = false;
+  }
+  if (update_cache) {
+    UpdateCache(self, dex_pc_ptr, resolved_field->GetOffset().Uint32Value());
+  }
   return resolved_field->GetOffset().Uint32Value();
 }
 
