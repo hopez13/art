@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "395803e0_92380a9f",
+        "filename": "compiler/optimizing/induction_var_range_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-26T09:38:08Z",
+      "side": 0,
+      "message": "We were doing:\n`Sub(1000, Neg((Sub(0,1000))`\nwe now simplify it to:\n`Sub(1000, 1000)`",
+      "range": {
+        "startLine": 1067,
+        "startChar": 0,
+        "endLine": 1070,
+        "endChar": 33
+      },
+      "revId": "2e6ba9c5f1513e75697a12b75774838b2e0a7df0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
