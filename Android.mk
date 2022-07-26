@@ -909,3 +909,5 @@ MIN_SDK_VERSION :=
 SDK_VERSIONS :=
 
 endif # ifeq (true,$(my_art_module_source_build))
+
+include $(art_path)/libnativeloader/test/Android.mk
