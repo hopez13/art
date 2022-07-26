@@ -16,6 +16,52 @@
       "message": "Nicolas PTAL\n\nWe can sacrifice a bit of optimization for correctness. We talked with David about long-term solutions that don\u0027t sacrifice performance but we couldn\u0027t nail a 100% solution yet.\n\nPS: The presubmit was verified but I forgot to send it for review and the bot removed the vote.",
       "revId": "9c5a138849fa557defe0badd23fbf4146bc77662",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e983aa2_7f92e736",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-26T09:47:24Z",
+      "side": 1,
+      "message": "nit: for better readability, invert the if condition and do an early return?",
+      "range": {
+        "startLine": 1129,
+        "startChar": 0,
+        "endLine": 1129,
+        "endChar": 84
+      },
+      "revId": "9c5a138849fa557defe0badd23fbf4146bc77662",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35cfe426_d14c9bab",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-26T09:47:24Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1131,
+        "startChar": 0,
+        "endLine": 1132,
+        "endChar": 47
+      },
+      "revId": "9c5a138849fa557defe0badd23fbf4146bc77662",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
