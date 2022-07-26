@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d06a7a77_4e6718d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1933440
+      },
+      "writtenOn": "2022-07-26T08:43:09Z",
+      "side": 1,
+      "message": "Suspend the class loading does not suspend execution, and the class DexPathList$Element is already loaded, so we can concurrently create an instance of the class and add it to the front of elements.\nIn China, some apps do this",
+      "parentUuid": "7780aeda_016348f8",
+      "range": {
+        "startLine": 9,
+        "startChar": 120,
+        "endLine": 9,
+        "endChar": 196
+      },
+      "revId": "51b0cb9b15a705b89c86c92e178a42a3567365b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3afb66f2_cfca8d6e",
