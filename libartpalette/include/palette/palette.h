@@ -35,4 +35,24 @@ PALETTE_METHOD_LIST(PALETTE_METHOD_DECLARATION)
 }
 #endif  // __cplusplus
 
+// C++ wrappers
+
+#ifdef __cplusplus
+
+#include <string>
+#include <vector>
+
+static inline palette_status_t PaletteSetTaskProfiles(int tid,
+                                                      const std::vector<std::string>& profiles,
+                                                      bool use_fd_cache = false) {
+  std::vector<const char*> profile_c_strs;
+  profile_c_strs.reserve(profiles.size());
+  for (const std::string& p : profiles) {
+    profile_c_strs.push_back(p.c_str());
+  }
+  return PaletteSetTaskProfiles(tid, profile_c_strs.data(), profile_c_strs.size(), use_fd_cache);
+}
+
+#endif  // __cplusplus
+
 #endif  // ART_LIBARTPALETTE_INCLUDE_PALETTE_PALETTE_H_
