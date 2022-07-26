@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee55bad6_ed112f1f",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-26T08:20:03Z",
+      "side": 1,
+      "message": "I could be missing something but what you are doing is equivalent of:\n\n```\nif (is_put \u0026\u0026 resolve_field_type \u003d\u003d 0 \u0026\u0026 resolved_field-\u003eResolveType() \u003d\u003d nullptr) {\n  DCHECK(self-\u003eIsExceptionPending());\n  self-\u003eClearException();\n} else {\n  UpdateCache(self, dex_pc_ptr, resolved_field);\n}\nreturn reinterpret_cast\u003csize_t\u003e(resolved_field);\n```\nIs it not?",
+      "parentUuid": "4e7d5cd0_85bdbf70",
+      "range": {
+        "startLine": 472,
+        "startChar": 4,
+        "endLine": 472,
+        "endChar": 29
+      },
+      "revId": "095d7191b62f10aa8329ba097f52f49a18fb1803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "747517ff_bc26988d",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 2
