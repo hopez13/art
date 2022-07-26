@@ -98,3 +98,19 @@ TEST_F(PaletteClientTest, JniInvocation) {
   EXPECT_EQ(JNI_OK, jvm->DestroyJavaVM());
 #endif
 }
+
+TEST_F(PaletteClientTest, SetTaskProfiles) {
+#ifndef ART_TARGET_ANDROID
+  GTEST_SKIP() << "SetTaskProfiles is only supported on Android";
+#else
+  std::vector<std::string> profiles = {"NormalIoPriority", "TimerSlackNormal"};
+  palette_status_t res = PaletteSetTaskProfiles(GetTid(), profiles);
+  // SetTaskProfiles will only work fully if we run as root. Otherwise it'll
+  // return false which is mapped to PALETTE_STATUS_FAILED_CHECK_LOG.
+  if (getuid() == 0) {
+    EXPECT_EQ(PALETTE_STATUS_OK, res);
+  } else {
+    EXPECT_EQ(PALETTE_STATUS_FAILED_CHECK_LOG, res);
+  }
+#endif
+}
