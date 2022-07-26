@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5450e282_6862fea5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-26T07:41:51Z",
+      "side": 1,
+      "message": "minor nit: The title should be \u003c 72 chars.",
+      "revId": "51b0cb9b15a705b89c86c92e178a42a3567365b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7780aeda_016348f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-26T07:41:51Z",
+      "side": 1,
+      "message": "Thanks a lot for the CL! I am not sure I understand the problem fully. AFAIU, we assign a new cookie we suspend the class loading so we shouldn\u0027t be loading anything concurrently when we do this and so we shouldn\u0027t add any new elements. \n\nDid you face a problem? Is it possible to add a test for this if it isn\u0027t too difficult.",
+      "range": {
+        "startLine": 9,
+        "startChar": 120,
+        "endLine": 9,
+        "endChar": 196
+      },
+      "revId": "51b0cb9b15a705b89c86c92e178a42a3567365b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3afb66f2_cfca8d6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-26T07:41:51Z",
+      "side": 1,
+      "message": "Thanks for the fix!",
+      "revId": "51b0cb9b15a705b89c86c92e178a42a3567365b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
