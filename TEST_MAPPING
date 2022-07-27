@@ -1301,6 +1301,9 @@
       "name": "art_standalone_sigchain_tests[com.google.android.art.apex]"
     },
     {
+      "name": "libnativeloader_e2e_tests[com.google.android.art.apex]"
+    },
+    {
       "name": "libnativeloader_test[com.google.android.art.apex]"
     }
   ],
@@ -2623,6 +2626,9 @@
       "name": "art_standalone_sigchain_tests"
     },
     {
+      "name": "libnativeloader_e2e_tests"
+    },
+    {
       "name": "libnativeloader_test"
     }
   ],
@@ -3931,6 +3937,9 @@
     },
     {
       "name": "art_standalone_sigchain_tests"
+    },
+    {
+      "name": "libnativeloader_e2e_tests"
     },
     {
       "name": "libnativeloader_test"
