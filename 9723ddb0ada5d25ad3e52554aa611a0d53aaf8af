@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92958ab1_8114a556",
+        "filename": "libartpalette/libartpalette.map.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-27T22:35:23Z",
+      "side": 1,
+      "message": "Note that this file is only used as version script, not stubs. So the changes here don\u0027t actually do much I believe, but I prefer to keep it synced with the one in system/libartpalette.\n\nThat said, I\u0027m inclined to get rid of it altogether, because I don\u0027t think we really need the symbol restrictions here, and it\u0027d avoid NDK-API reviews, having to keep stuff in sync etc. If there\u0027s a reason to keep it that I\u0027ve missed please let me know.",
+      "revId": "9723ddb0ada5d25ad3e52554aa611a0d53aaf8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
