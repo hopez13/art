@@ -213,6 +213,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83c1c79d_f442cee8",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-27T10:43:29Z",
+      "side": 1,
+      "message": "Just a note, I discovered that these tests don\u0027t test the product libs the right way. I\u0027ve now compared by actually getting the old manual tests to run again and corrected in https://r.android.com/2166782. More details there.",
+      "parentUuid": "4cce806a_403b1b71",
+      "revId": "aa4d3390f007e11604db92c5cb803e21cab5a0bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8addc6e5_590c751f",
