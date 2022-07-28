@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6408726_39fc4a97",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-07-28T13:30:02Z",
+      "side": 1,
+      "message": "Style: `static_cast\u003cunsigned\u003e(target_sdk_version)`.",
+      "range": {
+        "startLine": 281,
+        "startChar": 6,
+        "endLine": 281,
+        "endChar": 38
+      },
+      "revId": "efce4deea13f047dbce9d06640527acf34c17bbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
