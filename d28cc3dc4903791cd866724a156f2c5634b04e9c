@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5760ff61_6f34af16",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-28T00:08:52Z",
+      "side": 1,
+      "message": "Good point. I had to improve how I determine the test ABI, but now it works.",
+      "parentUuid": "c71dbf54_8a449f7b",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 37
+      },
+      "revId": "d28cc3dc4903791cd866724a156f2c5634b04e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccbaf86c_7770c758",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-27T14:30:58Z",
       "side": 1,
       "message": "Maybe add a comment similar to the one from line 77 above this line?\n\nActually, if `loadlibrarytest_system_priv_app`, `loadlibrarytest_system_app`, and `loadlibrarytest_system_app` share the same `srcs` property, it might be worth introducing a defaults for it?",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 54
+      },
+      "revId": "d28cc3dc4903791cd866724a156f2c5634b04e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5339aa72_33c16f10",
+        "filename": "libnativeloader/test/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-28T00:08:52Z",
+      "side": 1,
+      "message": "Yes, added comment.\n\nI prefer to dispense with a defaults when it\u0027s so few attributes that are duplicated. There\u0027s also no underlying reason for this app to use the same test class, it just happened to be no difference so far.",
+      "parentUuid": "ccbaf86c_7770c758",
       "range": {
         "startLine": 63,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "374f46da_3d530ada",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-28T00:08:52Z",
+      "side": 1,
+      "message": "No, thanks for spotting it.",
+      "parentUuid": "2fd77eae_b9eb4253",
+      "range": {
+        "startLine": 98,
+        "startChar": 8,
+        "endLine": 98,
+        "endChar": 16
+      },
+      "revId": "d28cc3dc4903791cd866724a156f2c5634b04e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14c1d863_8b7c1d61",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-07-27T14:30:58Z",
       "side": 1,
       "message": "Suggestion:\n\n```\n    String apkName \u003d String.format(\"%s.apk\", apkBaseName);\n    pushResource(String.format(\"/%s\", apkName),\n            String.format(\"%s/%s/%s\", destPath, apkBaseName, apkName));\n```",
+      "range": {
+        "startLine": 232,
+        "startChar": 25,
+        "endLine": 233,
+        "endChar": 77
+      },
+      "revId": "d28cc3dc4903791cd866724a156f2c5634b04e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49d8e165_e310cf5f",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-07-28T00:08:52Z",
+      "side": 1,
+      "message": "Thanks, but I don\u0027t really see the point, tbh. I think it\u0027s straightforward enough as-is.",
+      "parentUuid": "14c1d863_8b7c1d61",
       "range": {
         "startLine": 232,
         "startChar": 25,
