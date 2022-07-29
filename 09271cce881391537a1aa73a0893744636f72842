@@ -33,6 +33,24 @@
       "message": "The code you added looks very similar to the DisconnectAndDelete below. Isn\u0027t that what you should be calling here?",
       "revId": "09271cce881391537a1aa73a0893744636f72842",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1908fa02_afeecf01",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-07-29T13:47:36Z",
+      "side": 1,
+      "message": "`DisconnectAndDelete` requires to go through the blocks in post order and it deletes the block too. At this point we do not have dominance information, or loop information.\n\nHere we are just disconnecting it from the rest of the graph.",
+      "parentUuid": "9450dbea_75b3d77e",
+      "revId": "09271cce881391537a1aa73a0893744636f72842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
