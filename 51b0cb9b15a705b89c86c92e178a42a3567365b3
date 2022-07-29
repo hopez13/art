@@ -107,6 +107,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a72abeb7_f997dd87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-29T07:28:38Z",
+      "side": 1,
+      "message": "Thanks for the explanation. Wouldn\u0027t that impact FindSourceDexFileObject? We seem to be returning the first element again under the same assumption. \nhttps://cs.android.com/android/platform/superproject/+/master:art/openjdkjvmti/ti_class_loader.cc;l\u003d172",
+      "parentUuid": "4870e9db_20278281",
+      "range": {
+        "startLine": 9,
+        "startChar": 120,
+        "endLine": 9,
+        "endChar": 196
+      },
+      "revId": "51b0cb9b15a705b89c86c92e178a42a3567365b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3afb66f2_cfca8d6e",

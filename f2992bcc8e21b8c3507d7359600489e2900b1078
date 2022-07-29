@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21a6024c_f4c1a004",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-29T07:28:38Z",
+      "side": 1,
+      "message": "Thanks a lot and sorry for the delay. I am unfamiliar with this code and it took sometime to understand it. I have a couple of more questions which I added as comments. Thanks!",
+      "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8371f0a8_224c47c4",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1657,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-07-29T07:28:38Z",
+      "side": 1,
+      "message": "I am still unsure here. We are trying to make sure that all old_data that has same class loader has the same cookie. See lines 1685-1692. I do see why we want to maintain the same cookie per each class loader + java dex file, since if there are multiple redefinitions we don\u0027t want to miss them. I am not sure why we wanted to maintain the same cookie across all class loaders. I am not very familiar with this code, so it is taking sometime for me to understand this.\n\nGiven that we update the cookie in 1685-1692 Do we need to change something there too?",
+      "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
