@@ -238,6 +238,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca86316d_369dba72",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-07-29T13:28:11Z",
+      "side": 0,
+      "message": "\u003e The question is why was it there in the first place... If I just Ctrl+C the script it does seem to kill its children (isn\u0027t computer terminology odd sometimes?!) :-)\n\nIt may have to do with background proccesses and timeout: https://unix.stackexchange.com/questions/57667/why-cant-i-kill-a-timeout-called-from-a-bash-script-with-a-keystroke\n\n\u003e isn\u0027t computer terminology odd sometimes?!\n\nDon\u0027t mention. It would be even more confusing for an AI. :D",
+      "parentUuid": "73d897dc_30a45820",
+      "range": {
+        "startLine": 1511,
+        "startChar": 0,
+        "endLine": 1513,
+        "endChar": 17
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "058173bc_d7c924aa",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 7
