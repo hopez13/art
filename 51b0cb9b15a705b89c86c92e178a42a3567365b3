@@ -133,6 +133,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d89d7bbd_7a94fa8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1933440
+      },
+      "writtenOn": "2022-07-29T10:10:07Z",
+      "side": 1,
+      "message": "But the first element may be changed concurrently",
+      "parentUuid": "a72abeb7_f997dd87",
+      "range": {
+        "startLine": 9,
+        "startChar": 120,
+        "endLine": 9,
+        "endChar": 196
+      },
+      "revId": "51b0cb9b15a705b89c86c92e178a42a3567365b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3afb66f2_cfca8d6e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1

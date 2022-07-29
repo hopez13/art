@@ -33,6 +33,24 @@
       "message": "I am still unsure here. We are trying to make sure that all old_data that has same class loader has the same cookie. See lines 1685-1692. I do see why we want to maintain the same cookie per each class loader + java dex file, since if there are multiple redefinitions we don\u0027t want to miss them. I am not sure why we wanted to maintain the same cookie across all class loaders. I am not very familiar with this code, so it is taking sometime for me to understand this.\n\nGiven that we update the cookie in 1685-1692 Do we need to change something there too?",
       "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3f347a2_c424ac78",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1657,
+      "author": {
+        "id": 1933440
+      },
+      "writtenOn": "2022-07-29T10:10:07Z",
+      "side": 1,
+      "message": "Suppose we redefine two classes:\n1. When redefining the first class, we get JavaDexFile through FindSourceDexFileObject method, such as apk, the cookie obtained at this time is from apk\n2. Then another thread inserts the custom dex file into the front of the classloader\u0027s elments\n3. When redefining the second class, the JavaDexFile we get through the FindSourceDexFileObject method is inserted in step 2, but the cookie is still from apk\n4. Finally, incorrectly update the cookie of the apk to the inserted dex file\nhttps://cs.android.com/android/platform/superproject/+/master:art/openjdkjvmti/ti_redefine.cc;l\u003d2502;drc\u003d642d493089d58996c72cdf3149360d4ba1cd8ffb",
+      "parentUuid": "8371f0a8_224c47c4",
+      "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
