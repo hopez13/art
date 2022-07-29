@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "027aea654d10c7d0bcf29b90b02f15737bdf6d36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb33311f_1297f304",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1731,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-07-29T09:22:28Z",
+      "side": 1,
+      "message": "There seems to be shared logic with the method above `ShouldDeoptimizeCaller(Thread* self, ArtMethod** sp)`. Could we try to share some code?",
+      "range": {
+        "startLine": 1712,
+        "startChar": 0,
+        "endLine": 1731,
+        "endChar": 3
+      },
+      "revId": "027aea654d10c7d0bcf29b90b02f15737bdf6d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
