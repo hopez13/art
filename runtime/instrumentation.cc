@@ -1667,7 +1667,50 @@ bool Instrumentation::ShouldDeoptimizeCaller(Thread* self, ArtMethod** sp) {
     return false;
   }
 
-  if (NeedsSlowInterpreterForMethod(self, caller)) {
+  // Non java debuggable apps don't support redefinition and hence it isn't required to check if
+  // frame needs to be deoptimized.
+  bool should_deoptimize_frame = false;
+  if (Runtime::Current()->IsJavaDebuggable()) {
+    const OatQuickMethodHeader* header = caller->GetOatQuickMethodHeader(caller_pc);
+    if (header != nullptr && header->HasShouldDeoptimizeFlag()) {
+      DCHECK(header->IsOptimized());
+      uint8_t* should_deopt_flag_addr =
+          reinterpret_cast<uint8_t*>(caller_sp) + header->GetShouldDeoptimizeFlagOffset();
+      if ((*should_deopt_flag_addr & static_cast<uint8_t>(DeoptimizeFlagValue::kDebug)) != 0) {
+        should_deoptimize_frame = true;
+      }
+    }
+  }
+
+  return ShouldDeoptimizeCaller(self, caller, caller_pc, should_deoptimize_frame);
+}
+
+bool Instrumentation::ShouldDeoptimizeCaller(Thread* self, const NthCallerVisitor& visitor) {
+  bool should_deoptimize_frame = false;
+
+  if (visitor.caller == nullptr || visitor.caller->IsNative()) {
+    return false;
+  }
+
+  const OatQuickMethodHeader* header = visitor.GetCurrentOatQuickMethodHeader();
+  if (header != nullptr && header->HasShouldDeoptimizeFlag()) {
+    uint8_t should_deopt_flag = visitor.GetShouldDeoptimizeFlag();
+    // DeoptimizeFlag could be set for debugging or for CHA invalidations.
+    // Deoptimize here only if it was requested for debugging. CHA
+    // invalidations are handled in the JITed code.
+    if ((should_deopt_flag & static_cast<uint8_t>(DeoptimizeFlagValue::kDebug)) != 0) {
+      should_deoptimize_frame = true;
+    }
+  }
+
+  return ShouldDeoptimizeCaller(self, visitor.caller, visitor.caller_pc, should_deoptimize_frame);
+}
+
+bool Instrumentation::ShouldDeoptimizeCaller(Thread* self,
+                                             ArtMethod* caller,
+                                             uintptr_t caller_pc,
+                                             bool should_deoptimize_frame) {
+  if (NeedsSlowInterpreterForMethod(self, caller) || should_deoptimize_frame) {
     if (!Runtime::Current()->IsAsyncDeoptimizeable(caller, caller_pc)) {
       LOG(WARNING) << "Got a deoptimization request on un-deoptimizable method "
                    << caller->PrettyMethod();
@@ -1676,51 +1719,7 @@ bool Instrumentation::ShouldDeoptimizeCaller(Thread* self, ArtMethod** sp) {
     return true;
   }
 
-  // Non java debuggable apps don't support redefinition and hence it isn't required to check if
-  // frame needs to be deoptimized.
-  if (!Runtime::Current()->IsJavaDebuggable()) {
-    return false;
-  }
-
-  bool should_deoptimize_frame = false;
-  const OatQuickMethodHeader* header = caller->GetOatQuickMethodHeader(caller_pc);
-  if (header != nullptr && header->HasShouldDeoptimizeFlag()) {
-    DCHECK(header->IsOptimized());
-    uint8_t* should_deopt_flag_addr =
-        reinterpret_cast<uint8_t*>(caller_sp) + header->GetShouldDeoptimizeFlagOffset();
-    if ((*should_deopt_flag_addr & static_cast<uint8_t>(DeoptimizeFlagValue::kDebug)) != 0) {
-      should_deoptimize_frame = true;
-    }
-  }
-
-  if (should_deoptimize_frame && !Runtime::Current()->IsAsyncDeoptimizeable(caller, caller_pc)) {
-    LOG(WARNING) << "Got a deoptimization request on un-deoptimizable method "
-                 << caller->PrettyMethod();
-    return false;
-  }
-  return should_deoptimize_frame;
-}
-
-bool Instrumentation::ShouldDeoptimizeCaller(Thread* self, const NthCallerVisitor& visitor) {
-  bool should_deoptimize_frame = false;
-  if (visitor.caller != nullptr && visitor.caller->IsNative()) {
-    // Native methods don't need deoptimization. We don't set breakpoints / redefine native methods.
-    return false;
-  }
-
-  if (visitor.caller != nullptr) {
-    const OatQuickMethodHeader* header = visitor.GetCurrentOatQuickMethodHeader();
-    if (header != nullptr && header->HasShouldDeoptimizeFlag()) {
-      uint8_t should_deopt_flag = visitor.GetShouldDeoptimizeFlag();
-      // DeoptimizeFlag could be set for debugging or for CHA invalidations.
-      // Deoptimize here only if it was requested for debugging. CHA
-      // invalidations are handled in the JITed code.
-      if ((should_deopt_flag & static_cast<uint8_t>(DeoptimizeFlagValue::kDebug)) != 0) {
-        should_deoptimize_frame = true;
-      }
-    }
-  }
-  return NeedsSlowInterpreterForMethod(self, visitor.caller) || should_deoptimize_frame;
+  return false;
 }
 
 TwoWordReturn Instrumentation::PopInstrumentationStackFrame(Thread* self,
