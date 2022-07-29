@@ -1720,7 +1720,17 @@ bool Instrumentation::ShouldDeoptimizeCaller(Thread* self, const NthCallerVisito
       }
     }
   }
-  return NeedsSlowInterpreterForMethod(self, visitor.caller) || should_deoptimize_frame;
+
+  if (NeedsSlowInterpreterForMethod(self, visitor.caller) || should_deoptimize_frame) {
+    if (!Runtime::Current()->IsAsyncDeoptimizeable(visitor.caller, visitor.caller_pc)) {
+      LOG(WARNING) << "Got a deoptimization request on un-deoptimizable method "
+                   << visitor.caller->PrettyMethod();
+      return false;
+    }
+    return true;
+  }
+
+  return false;
 }
 
 TwoWordReturn Instrumentation::PopInstrumentationStackFrame(Thread* self,
