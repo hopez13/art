@@ -260,6 +260,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58127560_79edc768",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 7
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-07-29T14:16:46Z",
+      "side": 0,
+      "message": "Interesting.  I think you are right... that very much looks like the motivation.\n\nAlas, I don\u0027t think it works as intended.  I think the trap never gets executed.\n\nGood news is the both without and with my CL, ctrl+C gives you back control.\n\nBad new is the both without and with my CL, ctrl+C leaves the timeout process around.  I guess this is not horrible, and the timeout will by definition go away.\n\nBut still, I would have preffered if Ctrl+C just immediatelly killed everything.  Your link seems to suggest that timeout crates it\u0027s own process group, which could ironically make it is immute from the current killing.\n\nIn any case.  This is good to know, and I should fix it either way.\n\nBut as far as I know, this CL does not modify behavior.",
+      "parentUuid": "ca86316d_369dba72",
+      "range": {
+        "startLine": 1511,
+        "startChar": 0,
+        "endLine": 1513,
+        "endChar": 17
+      },
+      "revId": "16032a421a08fb6396de8e8f168a62fe29a0f7ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "058173bc_d7c924aa",
