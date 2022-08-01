@@ -39,6 +39,30 @@
       },
       "revId": "027aea654d10c7d0bcf29b90b02f15737bdf6d36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c37b3e2_80057ae3",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1731,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-01T14:22:02Z",
+      "side": 1,
+      "message": "Done. I want to replace ShouldDeoptimizeCaller that takes NthCallerVisitor with the one that just takes a sp. I hope to do it soonish :)",
+      "parentUuid": "cb33311f_1297f304",
+      "range": {
+        "startLine": 1712,
+        "startChar": 0,
+        "endLine": 1731,
+        "endChar": 3
+      },
+      "revId": "027aea654d10c7d0bcf29b90b02f15737bdf6d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
