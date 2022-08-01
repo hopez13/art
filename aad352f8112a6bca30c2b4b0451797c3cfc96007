@@ -16,6 +16,24 @@
       "message": "You should move all ObjPtrs into Handles in this method (especially since you create a handle already line 3257). ObjPtr becomes stalled after a suspend point, and we are hitting it:\nhttps://logs.chromium.org/logs/art/buildbucket/cr-buildbucket/8807013692223539601/+/u/test_libcore/stdout",
       "revId": "aad352f8112a6bca30c2b4b0451797c3cfc96007",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1babec51_68b1ebec",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3229,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-08-01T22:16:47Z",
+      "side": 1,
+      "message": "Filed http://b/241011241 and will try to fix accordingly.\n\nMaybe a dumb question. How to reproduce it? Assume that if I use vogar to run the test, I will be able to reproduce the bug? I wonder why it didn\u0027t happen to other tests...",
+      "parentUuid": "6e28a904_9e443646",
+      "revId": "aad352f8112a6bca30c2b4b0451797c3cfc96007",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
