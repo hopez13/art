@@ -138,6 +138,10 @@ constexpr std::optional<int32_t> EncodeDatumId(DatumId datum_id) {
 
 constexpr int32_t EncodeCompileFilter(CompilerFilterReporting filter) {
   switch (filter) {
+    case CompilerFilterReporting::kError:
+      return statsd::ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_ERROR;
+    case CompilerFilterReporting::kUnknown:
+      return statsd::ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_UNKNOWN;
     case CompilerFilterReporting::kAssumeVerified:
       return statsd::ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_ASSUMED_VERIFIED;
     case CompilerFilterReporting::kExtract:
@@ -157,40 +161,29 @@ constexpr int32_t EncodeCompileFilter(CompilerFilterReporting filter) {
           ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_EVERYTHING_PROFILE;
     case CompilerFilterReporting::kEverything:
       return statsd::ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_EVERYTHING;
-    case CompilerFilterReporting::kError:
-      return statsd::ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_ERROR;
-    case CompilerFilterReporting::kUnknown:
-       return statsd::ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_UNKNOWN;
     case CompilerFilterReporting::kRunFromApk:
-       return statsd::ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_FAKE_RUN_FROM_APK;
+      return statsd::ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_FAKE_RUN_FROM_APK;
     case CompilerFilterReporting::kRunFromApkFallback:
-       return statsd::ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_FAKE_RUN_FROM_APK_FALLBACK;
+      return statsd::ART_DATUM_REPORTED__COMPILE_FILTER__ART_COMPILATION_FILTER_FAKE_RUN_FROM_APK_FALLBACK;
   }
 }
 
 constexpr int32_t EncodeCompilationReason(CompilationReason reason) {
   switch (reason) {
-    case CompilationReason::kUnknown:
-      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_UNKNOWN;
-    case CompilationReason::kABOTA:
-      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_AB_OTA;
-    case CompilationReason::kBgDexopt:
-      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_BG_DEXOPT;
     case CompilationReason::kError:
       return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_ERROR;
+    case CompilationReason::kUnknown:
+      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_UNKNOWN;
     case CompilationReason::kFirstBoot:
       return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_FIRST_BOOT;
-    case CompilationReason::kInactive:
-      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INACTIVE;
-    case CompilationReason::kInstall:
-      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INSTALL;
-    case CompilationReason::kInstallWithDexMetadata:
-      return statsd::
-          ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INSTALL_WITH_DEX_METADATA;
-    case CompilationReason::kShared:
-      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_SHARED;
+    case CompilationReason::kBootAfterOTA:
+      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_BOOT_AFTER_OTA;
     case CompilationReason::kPostBoot:
       return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_POST_BOOT;
+    case CompilationReason::kInstall:
+      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INSTALL;
+    case CompilationReason::kInstallFast:
+      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INSTALL_FAST;
     case CompilationReason::kInstallBulk:
       return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INSTALL_BULK;
     case CompilationReason::kInstallBulkSecondary:
@@ -202,10 +195,17 @@ constexpr int32_t EncodeCompilationReason(CompilationReason reason) {
     case CompilationReason::kInstallBulkSecondaryDowngraded:
       return statsd::
           ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INSTALL_BULK_SECONDARY_DOWNGRADED;
-    case CompilationReason::kBootAfterOTA:
-      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_BOOT_AFTER_OTA;
-    case CompilationReason::kInstallFast:
-      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INSTALL_FAST;
+    case CompilationReason::kBgDexopt:
+      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_BG_DEXOPT;
+    case CompilationReason::kABOTA:
+      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_AB_OTA;
+    case CompilationReason::kInactive:
+      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INACTIVE;
+    case CompilationReason::kShared:
+      return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_SHARED;
+    case CompilationReason::kInstallWithDexMetadata:
+      return statsd::
+          ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_INSTALL_WITH_DEX_METADATA;
     case CompilationReason::kPrebuilt:
       return statsd::ART_DATUM_REPORTED__COMPILATION_REASON__ART_COMPILATION_REASON_PREBUILT;
     case CompilationReason::kCmdLine:
