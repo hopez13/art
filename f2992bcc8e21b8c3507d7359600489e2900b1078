@@ -51,6 +51,24 @@
       "parentUuid": "8371f0a8_224c47c4",
       "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c49c647_0bb851cc",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1657,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-01T05:30:18Z",
+      "side": 1,
+      "message": "During the first step, how do we make sure that the JavaDexFile is the right one? Since we are just returning the first one, wouldn\u0027t it be a problem if another thread concurrently adds another unrelated dex file?\n\nNot for this CL, but I think it will be easier if we suspend everything before starting the redefinition. I will take a look at it and see if it\u0027s simpler if we just suspend everything right at the start.",
+      "parentUuid": "e3f347a2_c424ac78",
+      "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
