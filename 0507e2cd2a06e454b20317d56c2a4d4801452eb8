@@ -111,6 +111,30 @@
       },
       "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ada99ed_5452cb19",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-01T15:03:36Z",
+      "side": 1,
+      "message": "On the continuous Android Build, the Soong module `ArtGtestsTargetChroot` is usually built as part of a `test_suites_*` build target – Can we use `TARGET_BUILD_UNBUNDLED` on such build targets?",
+      "parentUuid": "c34a90c6_abe12342",
+      "range": {
+        "startLine": 440,
+        "startChar": 36,
+        "endLine": 441,
+        "endChar": 44
+      },
+      "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
