@@ -625,6 +625,8 @@ TEST(CompilerFilterReportingTest, Name) {
 }
 
 TEST(CompilerReason, FromName) {
+  ASSERT_EQ(CompilationReasonFromName("error"),
+            CompilationReason::kError);
   ASSERT_EQ(CompilationReasonFromName("unknown"),
             CompilationReason::kUnknown);
   ASSERT_EQ(CompilationReasonFromName("first-boot"),
@@ -659,13 +661,13 @@ TEST(CompilerReason, FromName) {
             CompilationReason::kPrebuilt);
   ASSERT_EQ(CompilationReasonFromName("cmdline"),
             CompilationReason::kCmdLine);
-  ASSERT_EQ(CompilationReasonFromName("error"),
-            CompilationReason::kError);
   ASSERT_EQ(CompilationReasonFromName("vdex"),
             CompilationReason::kVdex);
 }
 
 TEST(CompilerReason, Name) {
+  ASSERT_EQ(CompilationReasonName(CompilationReason::kError),
+            "error");
   ASSERT_EQ(CompilationReasonName(CompilationReason::kUnknown),
             "unknown");
   ASSERT_EQ(CompilationReasonName(CompilationReason::kFirstBoot),
@@ -700,8 +702,6 @@ TEST(CompilerReason, Name) {
             "prebuilt");
   ASSERT_EQ(CompilationReasonName(CompilationReason::kCmdLine),
             "cmdline");
-  ASSERT_EQ(CompilationReasonName(CompilationReason::kError),
-            "error");
   ASSERT_EQ(CompilationReasonName(CompilationReason::kVdex),
             "vdex");
 }
