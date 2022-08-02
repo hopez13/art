@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e2810d_b4867b49",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-02T11:26:58Z",
+      "side": 1,
+      "message": "Can these definitions (at least `kRuntimeQuickCodeISA`) be moved to https://r.android.com/2158784?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "e7ce8640084a6e97c08fcdbf52a319f065ff486d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
