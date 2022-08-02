@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de386460_e68cdf94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-02T11:23:19Z",
+      "side": 1,
+      "message": "Maybe just `kRuntimeQuickISA` for brevity?",
+      "range": {
+        "startLine": 7,
+        "startChar": 27,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "72fa21e7d29b1afb2006ba6aa0ed6d527028a14d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "437bc977_6b648abf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-02T11:23:19Z",
+      "side": 1,
+      "message": "This seems very brittle: it is easy to confuse the two (even now it\u0027s hard to tell if your patch converts all the necessary places and only them). Would it be possible to have a constexpr function `GetRuntimeISA()` defined conditionally: under `#ifndef ART_VIXL_SIMULATOR` it would be just `kRuntimeISA`, but on simulator it would check a runtime boolean flag \"has entered simulator\" and then return the host/simulated ISA based on that flag?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "72fa21e7d29b1afb2006ba6aa0ed6d527028a14d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c035f5e_4b203c66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-02T11:23:19Z",
+      "side": 1,
+      "message": "match",
+      "range": {
+        "startLine": 14,
+        "startChar": 27,
+        "endLine": 14,
+        "endChar": 31
+      },
+      "revId": "72fa21e7d29b1afb2006ba6aa0ed6d527028a14d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
