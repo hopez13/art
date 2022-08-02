@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7d308ee_01fe9583",
+        "filename": "simulator/code_simulator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-02T11:26:42Z",
+      "side": 1,
+      "message": "As discussed, it would be best to avoid this duplication, either by generating all arm64 EPs from C++, or by using a custom linker approach.",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 95
+      },
+      "revId": "758cc1b29c0c8b365511ada32fadab4b5bfac5b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
