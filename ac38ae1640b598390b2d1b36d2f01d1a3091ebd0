@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09cf3a87_21c51995",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1683,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-02T07:13:40Z",
+      "side": 1,
+      "message": "Done. I missed it earlier. I somehow thought they couldn\u0027t be shared.",
+      "parentUuid": "3132f6ee_7601458b",
+      "range": {
+        "startLine": 1673,
+        "startChar": 0,
+        "endLine": 1683,
+        "endChar": 3
+      },
+      "revId": "ac38ae1640b598390b2d1b36d2f01d1a3091ebd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f55b7b23_15799edf",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-08-01T15:51:25Z",
       "side": 1,
       "message": "Why do you not check debuggable here?",
+      "revId": "ac38ae1640b598390b2d1b36d2f01d1a3091ebd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61f70034_e1b85f3c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-02T07:13:40Z",
+      "side": 1,
+      "message": "We could check debuggable here too. I think I just missed it when I implemented it.",
+      "parentUuid": "f55b7b23_15799edf",
       "revId": "ac38ae1640b598390b2d1b36d2f01d1a3091ebd0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
