@@ -34,6 +34,24 @@
       "parentUuid": "6e28a904_9e443646",
       "revId": "aad352f8112a6bca30c2b4b0451797c3cfc96007",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12cc3cc2_9b00d812",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-08-02T06:50:18Z",
+      "side": 1,
+      "message": "An easy way to reproduce it:\n`art/tools/run-libcore-tests.sh \u0027--mode\u003dhost\u0027 \u0027--variant\u003dX64\u0027 --debug -- libcore.java.lang.StackWalkerTest#testGetByteCodeIndex`",
+      "parentUuid": "1babec51_68b1ebec",
+      "revId": "aad352f8112a6bca30c2b4b0451797c3cfc96007",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
