@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62d1d9e3_dd217ef3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-02T11:22:40Z",
+      "side": 1,
+      "message": "I don\u0027t understand about this restricted mode. You don\u0027t expect it to be merged, right? (Since it makes so many unconditional configuration changes that we cannot accept.) Then do you intend to keep it only during development? Or do you intend to merge it together with some future change that will revert this one?",
+      "revId": "f585b1506380994501e5e21853fe09e59169a3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
