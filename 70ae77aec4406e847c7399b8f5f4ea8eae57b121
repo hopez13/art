@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "404f605c_5868d298",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-02T13:16:28Z",
+      "side": 1,
+      "message": "Nicolas PTAL",
+      "revId": "70ae77aec4406e847c7399b8f5f4ea8eae57b121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f478c91_ef98bca4",
+        "filename": "test/559-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 13
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-02T13:16:28Z",
+      "side": 1,
+      "message": "Using p1 rather than a constant so that we don\u0027t propagate the knowledge that it is 42 and render this test useless. The test `596-checker-dead-phi/smali/IrreducibleLoop.smali` below has a similar situation.",
+      "range": {
+        "startLine": 151,
+        "startChar": 13,
+        "endLine": 151,
+        "endChar": 15
+      },
+      "revId": "70ae77aec4406e847c7399b8f5f4ea8eae57b121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
