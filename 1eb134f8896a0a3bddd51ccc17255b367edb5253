@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cb3f2fc_c11cac1e",
+        "filename": "runtime/arch/context.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-02T11:23:37Z",
+      "side": 1,
+      "message": "If this check is needed only when running on the simulator, then it should still be wrapped in `#if defined(__i386__) || defined(__x86_64__)` so that the case of arm/aarch64 is not slowed down by a runtime check. Also please add a comment why the check is needed for x86.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 5
+      },
+      "revId": "1eb134f8896a0a3bddd51ccc17255b367edb5253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
