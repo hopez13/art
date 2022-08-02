@@ -39,6 +39,30 @@
       },
       "revId": "c4c2fd7b8ba1a81c06189935e2f061537d2cbfa9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb4aa0f4_1199ab2e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-02T08:47:36Z",
+      "side": 1,
+      "message": "Unfortunately yes. We try to get the quick header (caller-\u003eGetOatQuickMethodHeader) before the check in 1693. That fails if we have a shadow frame because GetOatQuickMethodHeader expects the caller_pc to be non-null. Actually, we should modify use a visitor that doesn\u0027t include transition frames but ignore runtime calls. Though I wanted to fix it by actually avoiding the NthCallerVisitor and use the other version of ShouldDeoptimizeCaller. I will do it in a follow up cl.",
+      "parentUuid": "d40a76a1_a4f6d7d3",
+      "range": {
+        "startLine": 1661,
+        "startChar": 0,
+        "endLine": 1664,
+        "endChar": 3
+      },
+      "revId": "c4c2fd7b8ba1a81c06189935e2f061537d2cbfa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
