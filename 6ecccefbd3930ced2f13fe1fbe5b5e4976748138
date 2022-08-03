@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e0d2604_d6081a36",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-08-03T08:41:04Z",
+      "side": 1,
+      "message": "Unnecessary use of `Assign` and somewhat confusing to read. `InitStackFrameInfo` is returning its frame argument which is already in the frame handle, suggest making it void.",
+      "range": {
+        "startLine": 3289,
+        "startChar": 6,
+        "endLine": 3289,
+        "endChar": 18
+      },
+      "revId": "6ecccefbd3930ced2f13fe1fbe5b5e4976748138",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
