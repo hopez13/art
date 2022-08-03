@@ -106,6 +106,12 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
       "cortex-a76",
   };
 
+  // Pixel3a(XL) is wrongly reported as cortex-a75, when it should be kryo360.
+  static const char* arm64_variants_validate_with_hwcaps[] = {
+      "cortex-a55",
+      "cortex-a75",
+  };
+
   bool needs_a53_835769_fix = FindVariantInArray(arm64_variants_with_a53_835769_bug,
                                                  arraysize(arm64_variants_with_a53_835769_bug),
                                                  variant);
@@ -127,6 +133,11 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
   bool has_dotprod = FindVariantInArray(arm64_variants_with_dotprod,
                                         arraysize(arm64_variants_with_dotprod),
                                         variant);
+
+  bool needs_hwcaps_validation = FindVariantInArray(arm64_variants_validate_with_hwcaps,
+                                                    arraysize(arm64_variants_validate_with_hwcaps),
+                                                    variant);
+
 
   // Currently there are no cpu variants which support SVE.
   bool has_sve = false;
@@ -160,6 +171,15 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
       *error_msg = os.str();
       return nullptr;
     }
+  }
+
+  if (needs_hwcaps_validation) {
+    Arm64FeaturesUniquePtr hwcaps = Arm64InstructionSetFeatures::FromHwcap();
+    has_crc = has_crc && hwcaps->has_crc_;
+    has_lse = has_lse && hwcaps->has_lse_;
+    has_fp16 = has_fp16 && hwcaps->has_fp16_;
+    has_dotprod = has_dotprod && hwcaps->has_dotprod_;
+    has_sve = has_sve && hwcaps->has_sve_;
   }
 
   return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(needs_a53_835769_fix,
