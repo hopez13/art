@@ -46,6 +46,30 @@
       },
       "revId": "6ecccefbd3930ced2f13fe1fbe5b5e4976748138",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70f887f6_8a32a4c4",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-08-03T10:52:44Z",
+      "side": 1,
+      "message": "Good call (I\u0027d only noted the last few lines of the method). `InitStackFrameInfo` could be decorated with `WARN_UNUSED` or `[[nodiscard]]` for safety.",
+      "parentUuid": "a3df1b70_66d55dc1",
+      "range": {
+        "startLine": 3289,
+        "startChar": 6,
+        "endLine": 3289,
+        "endChar": 18
+      },
+      "revId": "6ecccefbd3930ced2f13fe1fbe5b5e4976748138",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
