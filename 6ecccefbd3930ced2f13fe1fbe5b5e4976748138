@@ -22,6 +22,30 @@
       },
       "revId": "6ecccefbd3930ced2f13fe1fbe5b5e4976748138",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3df1b70_66d55dc1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-08-03T09:52:56Z",
+      "side": 1,
+      "message": "But it can return `nullptr` to indicate failure. Should I return here if the return value if null instead of assigning?",
+      "parentUuid": "1e0d2604_d6081a36",
+      "range": {
+        "startLine": 3289,
+        "startChar": 6,
+        "endLine": 3289,
+        "endChar": 18
+      },
+      "revId": "6ecccefbd3930ced2f13fe1fbe5b5e4976748138",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
