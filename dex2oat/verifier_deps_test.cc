@@ -630,5 +630,12 @@ TEST_F(VerifierDepsTest, MultiDexVerification) {
   ASSERT_FALSE(buffer.empty());
 }
 
+TEST_F(VerifierDepsTest, Assignable_Arrays) {
+  ASSERT_TRUE(TestAssignabilityRecording(/* dst= */ "[LIface;",
+                                         /* src= */ "[LMyClassExtendingInterface;"));
+  ASSERT_FALSE(HasAssignable(
+      "LIface;", "LMyClassExtendingInterface;"));
+}
+
 }  // namespace verifier
 }  // namespace art

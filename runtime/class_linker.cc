@@ -4143,11 +4143,10 @@ ObjPtr<mirror::Class> ClassLinker::CreateArrayClass(Thread* self,
                                                                      class_loader)));
   if (component_type == nullptr) {
     DCHECK(self->IsExceptionPending());
-    // We need to accept erroneous classes as component types. Under AOT, we
-    // don't accept them as we cannot encode the erroneous class in an image.
+    // We need to accept erroneous classes as component types.
     const size_t component_hash = ComputeModifiedUtf8Hash(descriptor + 1);
     component_type.Assign(LookupClass(self, descriptor + 1, component_hash, class_loader.Get()));
-    if (component_type == nullptr || Runtime::Current()->IsAotCompiler()) {
+    if (component_type == nullptr) {
       DCHECK(self->IsExceptionPending());
       return nullptr;
     } else {
