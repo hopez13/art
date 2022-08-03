@@ -39,6 +39,9 @@ class InstructionSetFeatures {
                                                                    const std::string& variant,
                                                                    std::string* error_msg);
 
+  static std::unique_ptr<const InstructionSetFeatures> FromVariantAndHwcap(
+      InstructionSet isa, const std::string& variant, std::string* error_msg);
+
   // Parse a bitmap for the given isa and create an InstructionSetFeatures.
   static std::unique_ptr<const InstructionSetFeatures> FromBitmap(InstructionSet isa,
                                                                   uint32_t bitmap);
