@@ -16,6 +16,24 @@
       "message": "LGTM, except for the build presubmit failures, which are probably related to the companion Libcore change?",
       "revId": "6d5e9e40698e78e78c0078bba545ff7e5ff4616f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac6a2271_471c3ef0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-08-03T08:46:47Z",
+      "side": 1,
+      "message": "Thanks, yes, the libcore side has some hairy merges and one of those may need rebasing.",
+      "parentUuid": "bdcfb505_7f911eb7",
+      "revId": "6d5e9e40698e78e78c0078bba545ff7e5ff4616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
