@@ -18,6 +18,52 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "988c004f_08c3427e",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-08-04T13:29:49Z",
+      "side": 1,
+      "message": "Why this check? You can replace any SSA value with true/false.",
+      "range": {
+        "startLine": 167,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 74
+      },
+      "revId": "70ae77aec4406e847c7399b8f5f4ea8eae57b121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d196e3c_dd396a60",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-08-04T13:29:49Z",
+      "side": 1,
+      "message": "nit: one condition per line",
+      "range": {
+        "startLine": 248,
+        "startChar": 6,
+        "endLine": 249,
+        "endChar": 84
+      },
+      "revId": "70ae77aec4406e847c7399b8f5f4ea8eae57b121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0f478c91_ef98bca4",
