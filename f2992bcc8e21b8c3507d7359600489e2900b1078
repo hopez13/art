@@ -69,6 +69,24 @@
       "parentUuid": "e3f347a2_c424ac78",
       "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a4ef514_02a2dfb1",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1657,
+      "author": {
+        "id": 1933440
+      },
+      "writtenOn": "2022-08-04T03:05:35Z",
+      "side": 1,
+      "message": "I think it wouldn\u0027t be a problem if another thread concurrently adds another unrelated dex file. What we need is to insert the redefine dexfile in front of the JavaDexFile cookie and correct update.",
+      "parentUuid": "6c49c647_0bb851cc",
+      "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
