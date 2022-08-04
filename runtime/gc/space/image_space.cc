@@ -1531,6 +1531,7 @@ class ImageSpace::BootImageLayout {
   bool ReadHeader(const std::string& base_location,
                   const std::string& base_filename,
                   size_t bcp_index,
+                  bool validate_oat_files,
                   /*out*/std::string* error_msg);
 
   // Compiles a consecutive subsequence of bootclasspath dex files, whose contents are included in
@@ -1911,7 +1912,8 @@ bool ImageSpace::BootImageLayout::ValidateOatFile(
 bool ImageSpace::BootImageLayout::ReadHeader(const std::string& base_location,
                                              const std::string& base_filename,
                                              size_t bcp_index,
-                                             /*out*/std::string* error_msg) {
+                                             bool validate_oat_files,
+                                             /*out*/ std::string* error_msg) {
   DCHECK_LE(next_bcp_index_, bcp_index);
   DCHECK_LT(bcp_index, boot_class_path_.size());
 
@@ -1938,12 +1940,15 @@ bool ImageSpace::BootImageLayout::ReadHeader(const std::string& base_location,
     return false;
   }
 
-  // Validate oat files. We do it here so that the boot image will be re-compiled in memory if it's
-  // outdated.
-  size_t component_count = (header.GetImageSpaceCount() == 1u) ? header.GetComponentCount() : 1u;
-  for (size_t i = 0; i < header.GetImageSpaceCount(); i++) {
-    if (!ValidateOatFile(base_location, base_filename, bcp_index + i, component_count, error_msg)) {
-      return false;
+  if (validate_oat_files) {
+    // Validate oat files. We do it here so that the boot image will be re-compiled in memory if
+    // it's outdated.
+    size_t component_count = (header.GetImageSpaceCount() == 1u) ? header.GetComponentCount() : 1u;
+    for (size_t i = 0; i < header.GetImageSpaceCount(); i++) {
+      if (!ValidateOatFile(
+              base_location, base_filename, bcp_index + i, component_count, error_msg)) {
+        return false;
+      }
     }
   }
 
@@ -2206,9 +2211,13 @@ bool ImageSpace::BootImageLayout::LoadOrValidate(FilenameFn&& filename_fn,
                                                  /*out*/std::string* error_msg) {
   DCHECK(GetChunks().empty());
   DCHECK_EQ(GetBaseAddress(), 0u);
-  bool validate = (oat_checksums != nullptr);
+  bool validate_app_oat_header = (oat_checksums != nullptr);
   static_assert(ImageSpace::kImageChecksumPrefix == 'i', "Format prefix check.");
-  DCHECK_IMPLIES(validate, StartsWith(*oat_checksums, "i"));
+  DCHECK_IMPLIES(validate_app_oat_header, StartsWith(*oat_checksums, "i"));
+
+  // Boot image oat files should only be validated when being loaded by the runtime. When validating
+  // app oat header, we don't have to validate boot image oat files again.
+  bool validate_boot_image_oat_files = !validate_app_oat_header;
 
   ArrayRef<const std::string> components = image_locations_;
   size_t named_components_count = 0u;
@@ -2239,17 +2248,18 @@ bool ImageSpace::BootImageLayout::LoadOrValidate(FilenameFn&& filename_fn,
       LOG(ERROR) << "Named image component already covered by previous image: " << base_location;
       continue;
     }
-    if (validate && bcp_index > bcp_pos) {
+    if (validate_app_oat_header && bcp_index > bcp_pos) {
       *error_msg = StringPrintf("End of contiguous boot class path images, remaining checksum: %s",
                                 std::string(*oat_checksums).c_str());
       return false;
     }
     std::string local_error_msg;
-    std::string* err_msg = validate ? error_msg : &local_error_msg;
+    std::string* err_msg = validate_app_oat_header ? error_msg : &local_error_msg;
     std::string base_filename;
     if (!filename_fn(base_location, &base_filename, err_msg) ||
-        !ReadHeader(base_location, base_filename, bcp_index, err_msg)) {
-      if (validate) {
+        !ReadHeader(
+            base_location, base_filename, bcp_index, validate_boot_image_oat_files, err_msg)) {
+      if (validate_app_oat_header) {
         return false;
       }
       LOG(ERROR) << "Error reading named image component header for " << base_location
@@ -2296,7 +2306,7 @@ bool ImageSpace::BootImageLayout::LoadOrValidate(FilenameFn&& filename_fn,
         continue;
       }
     }
-    if (validate) {
+    if (validate_app_oat_header) {
       if (!CheckAndRemoveLastChunkChecksum(oat_checksums, error_msg)) {
         return false;
       }
@@ -2332,11 +2342,12 @@ bool ImageSpace::BootImageLayout::LoadOrValidate(FilenameFn&& filename_fn,
         std::string err_msg;  // Ignored.
         std::string base_filename;
         if (filename_fn(base_location, &base_filename, &err_msg) &&
-            ReadHeader(base_location, base_filename, bcp_pos, &err_msg)) {
+            ReadHeader(
+                base_location, base_filename, bcp_pos, validate_boot_image_oat_files, &err_msg)) {
           VLOG(image) << "Found image extension for " << ExpandLocation(base_location, bcp_pos);
           bcp_pos = GetNextBcpIndex();
           found = true;
-          if (validate) {
+          if (validate_app_oat_header) {
             if (!CheckAndRemoveLastChunkChecksum(oat_checksums, error_msg)) {
               return false;
             }
@@ -2348,7 +2359,7 @@ bool ImageSpace::BootImageLayout::LoadOrValidate(FilenameFn&& filename_fn,
         }
       }
       if (!found) {
-        if (validate) {
+        if (validate_app_oat_header) {
           *error_msg = StringPrintf("Missing extension for %s, remaining checksum: %s",
                                     bcp_component.c_str(),
                                     std::string(*oat_checksums).c_str());
