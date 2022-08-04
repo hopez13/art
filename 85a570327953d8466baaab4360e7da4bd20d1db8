@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe3cb9b2_93fd12f2",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-04T16:53:26Z",
+      "side": 1,
+      "message": "Can we use `dynamic_cast` here:\n\n```\n    auto new_features \u003d dynamic_cast\u003cconst Arm64InstructionSetFeatures*\u003e(variant_features.get())\n        -\u003eIntersectWithHwcap();\n    DCHECK_NE(new_features, nullptr);\n```\n\n?",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "85a570327953d8466baaab4360e7da4bd20d1db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
