@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "215659ee_8ab094de",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-04T16:17:46Z",
+      "side": 1,
+      "message": "My thought process was that inputs to ifs are conditions, parameters, and phis. Parameters and phis are probably the ones reused and the ones where we can see benefits. Propagating that a condition is true might not get any benefit at all if e.g. we are doing common subexpression elimination.\n\nI can remove the if nevertheless, in order to make the method smaller and better understandable.",
+      "parentUuid": "988c004f_08c3427e",
+      "range": {
+        "startLine": 167,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 74
+      },
+      "revId": "70ae77aec4406e847c7399b8f5f4ea8eae57b121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d196e3c_dd396a60",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-08-04T13:29:49Z",
       "side": 1,
       "message": "nit: one condition per line",
+      "range": {
+        "startLine": 248,
+        "startChar": 6,
+        "endLine": 249,
+        "endChar": 84
+      },
+      "revId": "70ae77aec4406e847c7399b8f5f4ea8eae57b121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f7ce7ea_cf7be055",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-04T16:17:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d196e3c_dd396a60",
       "range": {
         "startLine": 248,
         "startChar": 6,
@@ -82,6 +130,29 @@
         "startChar": 13,
         "endLine": 151,
         "endChar": 15
+      },
+      "revId": "70ae77aec4406e847c7399b8f5f4ea8eae57b121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5f598c3_6896e42c",
+        "filename": "test/564-checker-inline-loop/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-04T16:17:46Z",
+      "side": 1,
+      "message": "drive-by cleanup: We can remove this check in favor of using `$inline$`",
+      "range": {
+        "startLine": 24,
+        "startChar": 38,
+        "endLine": 24,
+        "endChar": 58
       },
       "revId": "70ae77aec4406e847c7399b8f5f4ea8eae57b121",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
