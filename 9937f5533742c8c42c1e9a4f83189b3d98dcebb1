@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67ceed72_26ed878f",
+        "filename": "libnativebridge/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2022-08-04T18:47:39Z",
+      "side": 1,
+      "message": "Should we file a separate bug for the build system to generate more accurate test configs in this situation or test_per_src is really a special thing ?\n\nideally we would want to continue running those tests.",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 20
+      },
+      "revId": "9937f5533742c8c42c1e9a4f83189b3d98dcebb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
