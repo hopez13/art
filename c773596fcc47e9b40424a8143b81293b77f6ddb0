@@ -35,6 +35,252 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3919ca16_ce40e6de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "Thanks a lot Artem! Overall lgtm. This is certainly cleaner even without simulator too. I just added some minor suggestions. Thanks!",
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a60db6f_3075c242",
+        "filename": "runtime/arch/arm/context_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "Do we still need this here?",
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e440f9f3_c53795b0",
+        "filename": "runtime/arch/arm64/asm_support_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "Maybe I am missing something here, but is it possible to directly copy the values into registers instead of setting up them in stack here and later copying them to registers in art_quick_do_long_jump. I guess it is possible to get the offset of gprs_ and fprs_ from the context and copy them to registers? If it\u0027s possible but difficult, I am fine with this as is too.",
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2616e235_1cc4e25f",
+        "filename": "runtime/arch/arm64/asm_support_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "Is it possible to define it based on constants like kNumberOfCoreRegisters here?",
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee9514d7_d695b448",
+        "filename": "runtime/arch/arm64/asm_support_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "how about using earlier defined constants here?",
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d27e32aa_ee50b159",
+        "filename": "runtime/arch/arm64/context_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "drop by",
+      "range": {
+        "startLine": 147,
+        "startChar": 42,
+        "endLine": 147,
+        "endChar": 44
+      },
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6e70400_22c4de51",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2603,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "minor nit: maybe make this beq .Ldeoptimize. I think we generally try to keep the common path closer. In this case it doesn\u0027t matter that much.",
+      "range": {
+        "startLine": 2603,
+        "startChar": 2,
+        "endLine": 2603,
+        "endChar": 28
+      },
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8f7d832_ede46fca",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2630,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "minot nit: same as above. Maybe beq",
+      "range": {
+        "startLine": 2630,
+        "startChar": 3,
+        "endLine": 2630,
+        "endChar": 8
+      },
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a69b6b13_f49dd28f",
+        "filename": "runtime/arch/x86_64/asm_support_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "Same question as arm64.",
+      "range": {
+        "startLine": 477,
+        "startChar": 4,
+        "endLine": 477,
+        "endChar": 43
+      },
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5160651a_a8ee55d3",
+        "filename": "runtime/arch/x86_64/asm_support_x86_64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "Same as earlier comment in Arm64. If we can use kNumberOfCoreRegisters maybe we could also make these constants arch independent.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 7
+      },
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a90dfe8a_7052f71e",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2171,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "minor nit. same as arm64. maybe change to jeq",
+      "range": {
+        "startLine": 2171,
+        "startChar": 4,
+        "endLine": 2171,
+        "endChar": 7
+      },
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0053ecd0_3f91b27d",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2198,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "minor nit: same as above",
+      "range": {
+        "startLine": 2198,
+        "startChar": 3,
+        "endLine": 2198,
+        "endChar": 8
+      },
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "965f0b5e_af2d6e7c",
@@ -53,6 +299,70 @@
         "startChar": 11,
         "endLine": 36,
         "endChar": 19
+      },
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81a76a9a_9e44b4ff",
+        "filename": "runtime/entrypoints/quick/quick_throw_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "+1 I don\u0027t think we use return value.",
+      "parentUuid": "965f0b5e_af2d6e7c",
+      "range": {
+        "startLine": 36,
+        "startChar": 11,
+        "endLine": 36,
+        "endChar": 19
+      },
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6fb91fa_d7137a9a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2659,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "Is it possible to use these constants in .S too?",
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a50216f_2c0f2879",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-05T08:59:46Z",
+      "side": 1,
+      "message": "minor nit: maybe say on return. Just to indicate we immediately long jump on return.",
+      "range": {
+        "startLine": 548,
+        "startChar": 5,
+        "endLine": 548,
+        "endChar": 15
       },
       "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
