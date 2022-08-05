@@ -87,6 +87,30 @@
       },
       "revId": "9937f5533742c8c42c1e9a4f83189b3d98dcebb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a08ac6ac_9f80513b",
+        "filename": "libnativebridge/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1121894
+      },
+      "writtenOn": "2022-08-05T20:22:39Z",
+      "side": 1,
+      "message": "it isn\u0027t a TF/atest support per say, from what i saw, the Soong build system generated configs are wrong so that\u0027s what is needed to fix to get this to work.\n\nProbably atest folks can help since they created some of the logic for those configs in Soong. Might be worth to shoot a FR their way.",
+      "parentUuid": "f8fa70fb_07810cd6",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 20
+      },
+      "revId": "9937f5533742c8c42c1e9a4f83189b3d98dcebb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
