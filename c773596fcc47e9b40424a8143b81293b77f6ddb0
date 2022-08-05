@@ -70,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9cf361d_ab1e9c34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-05T10:03:04Z",
+      "side": 1,
+      "message": "LGTM, except for the missing support for x86 and arm.\n\nAs Hans noted, the old code did do longjmps through C++, so it may have skipped frames with destructors, and properly returning from C++ seems an improvement in that regard.",
+      "parentUuid": "dc5365e5_26163a6b",
+      "revId": "c773596fcc47e9b40424a8143b81293b77f6ddb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a60db6f_3075c242",
