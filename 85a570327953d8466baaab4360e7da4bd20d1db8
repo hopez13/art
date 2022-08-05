@@ -22,6 +22,30 @@
       },
       "revId": "85a570327953d8466baaab4360e7da4bd20d1db8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4418e4c_e5d7f732",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-08-05T07:58:55Z",
+      "side": 1,
+      "message": "We don\u0027t use dynamic_cast in ART to avoid RTTI, but I can use down_cast.",
+      "parentUuid": "fe3cb9b2_93fd12f2",
+      "range": {
+        "startLine": 65,
+        "startChar": 24,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "85a570327953d8466baaab4360e7da4bd20d1db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
