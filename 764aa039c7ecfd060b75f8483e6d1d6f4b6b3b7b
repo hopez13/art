@@ -16,6 +16,24 @@
       "message": "What happened here?",
       "revId": "764aa039c7ecfd060b75f8483e6d1d6f4b6b3b7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5db0714d_2af98dd5",
+        "filename": "test/543-checker-dce-trycatch/smali/TestCase.smali",
+        "patchSetId": 14
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-05T08:59:06Z",
+      "side": 1,
+      "message": "we have:\n\n```\n    add-int v2, p0, p1             # dead catch phi input, defined in the dead block (HInstruction)\n    move v3, v2\n    if-eqz v3, :define_phi\n```\n\nthen `v3` which has the add must be `0` so we propagate that.\n\nThere was a related weird interaction that I am now fixing in patchset 15. We were doing\n```\nif (constant_value) {\n  // propagate `constant_value` as 1 here`\n}\n```\nwhich is fine to do since it is either the same number (if `constant_value` equals `1`) or it is dead code (if `constant_value` equals `0`) but it confuses gtests and checker tests since constants which were expected to be `0` are `1` in dead code.",
+      "parentUuid": "af27fe00_99e169c9",
+      "revId": "764aa039c7ecfd060b75f8483e6d1d6f4b6b3b7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
