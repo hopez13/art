@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8974177c_56d7f51b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1367,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-08-08T08:22:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e9adf57_394b9eb7",
+      "range": {
+        "startLine": 1367,
+        "startChar": 72,
+        "endLine": 1367,
+        "endChar": 75
+      },
+      "revId": "64f046cb09f2abaf65eee505b64d20d8ef232f9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff137894_0918c33a",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-08-08T04:42:53Z",
       "side": 1,
       "message": "read barrier",
+      "range": {
+        "startLine": 1369,
+        "startChar": 53,
+        "endLine": 1369,
+        "endChar": 58
+      },
+      "revId": "64f046cb09f2abaf65eee505b64d20d8ef232f9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3843d451_655c1a86",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-08-08T08:22:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff137894_0918c33a",
       "range": {
         "startLine": 1369,
         "startChar": 53,
