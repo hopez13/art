@@ -16,6 +16,69 @@
       "message": "Thanks Nicolas!",
       "revId": "20d40b6301afb159163aa6adc9902e60e1f0f264",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dab3f75a_19c0bc3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-08T16:45:45Z",
+      "side": 1,
+      "message": "I\u0027m fine with this as a work-around. Clearly it would be better to fix the lock-ordering issue, but that may not be possible.",
+      "revId": "20d40b6301afb159163aa6adc9902e60e1f0f264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3b46f5a_b482ded1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-08T16:45:45Z",
+      "side": 1,
+      "message": "Another nit: \"The pthread_create\" (Note pthread_create spelling.)",
+      "range": {
+        "startLine": 1011,
+        "startChar": 62,
+        "endLine": 1011,
+        "endChar": 76
+      },
+      "revId": "20d40b6301afb159163aa6adc9902e60e1f0f264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56144735_06cf0d2a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-08T16:45:45Z",
+      "side": 1,
+      "message": "Should this be __tls_get_addr? A pointer to the offending code would be great, but that seems hard to come by?",
+      "range": {
+        "startLine": 1013,
+        "startChar": 7,
+        "endLine": 1013,
+        "endChar": 17
+      },
+      "revId": "20d40b6301afb159163aa6adc9902e60e1f0f264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
