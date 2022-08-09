@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddc0e015_791e065a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1514973
+      },
+      "writtenOn": "2022-08-09T14:50:21Z",
+      "side": 1,
+      "message": "Looks like our alert fired on Jul 26 whereas the previous rampup CL was merged on July 28 (indicating that its not this rampup that\u0027s caused the previous spike). The alert bug for context: https://b.corp.google.com/issues/240487331\n\nSo LGTM to this change.",
+      "revId": "30e6c68b213d5366513da3fa4799ae02dca1c377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
