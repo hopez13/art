@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3112221b_c750f242",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-09T08:18:17Z",
+      "side": 0,
+      "message": "From here until the end of the block I moved it to `TryGenerateSelectSimpleDiamondPattern` as-is (except that we do `return false` rather than `continue`). Not sure why gerrit diff didn\u0027t catch that it was the same code.",
+      "range": {
+        "startLine": 105,
+        "startChar": 4,
+        "endLine": 105,
+        "endChar": 44
+      },
+      "revId": "d48da351fbfcdd538f83b690577e3c85eb0003a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
