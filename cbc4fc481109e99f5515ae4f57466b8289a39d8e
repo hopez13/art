@@ -64,6 +64,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64bcbaef_ab250cb0",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-09T08:44:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6469d522_ed14b4eb",
+      "range": {
+        "startLine": 227,
+        "startChar": 54,
+        "endLine": 227,
+        "endChar": 65
+      },
+      "revId": "cbc4fc481109e99f5515ae4f57466b8289a39d8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad68d3cd_9416944d",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-09T08:44:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f83cd782_aa1f28f6",
+      "range": {
+        "startLine": 227,
+        "startChar": 35,
+        "endLine": 227,
+        "endChar": 36
+      },
+      "revId": "cbc4fc481109e99f5515ae4f57466b8289a39d8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dffa2051_d8ebfbeb",
@@ -77,6 +125,24 @@
       "writtenOn": "2022-08-09T08:31:50Z",
       "side": 1,
       "message": "Line too long",
+      "revId": "cbc4fc481109e99f5515ae4f57466b8289a39d8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bff538f_6fbe5fe1",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-09T08:44:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dffa2051_d8ebfbeb",
       "revId": "cbc4fc481109e99f5515ae4f57466b8289a39d8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -104,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a6a314a_e846b15c",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-09T08:44:30Z",
+      "side": 1,
+      "message": "I used clang-format and that\u0027s what it formatted to. I manually formatted it now.",
+      "parentUuid": "6c74e40c_f351519a",
+      "range": {
+        "startLine": 263,
+        "startChar": 42,
+        "endLine": 265,
+        "endChar": 66
+      },
+      "revId": "cbc4fc481109e99f5515ae4f57466b8289a39d8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "761b28b9_9fdf073e",
@@ -117,6 +207,30 @@
       "writtenOn": "2022-08-09T08:31:50Z",
       "side": 1,
       "message": "a dexer can generate",
+      "range": {
+        "startLine": 81,
+        "startChar": 19,
+        "endLine": 81,
+        "endChar": 30
+      },
+      "revId": "cbc4fc481109e99f5515ae4f57466b8289a39d8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "794f914f_d237c961",
+        "filename": "compiler/optimizing/select_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-09T08:44:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "761b28b9_9fdf073e",
       "range": {
         "startLine": 81,
         "startChar": 19,
