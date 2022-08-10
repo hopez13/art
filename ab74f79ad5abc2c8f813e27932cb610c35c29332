@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae3468ff_0aa808b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-10T10:47:00Z",
+      "side": 1,
+      "message": "I added a test for checking the breakpoints in non-debuggable runtimes. All the tests that test jvmti functionality start runtime with --jvmti which starts runtime as debuggable. This test adds an agent after runtime has started which switches the runtime mode from non-debuggable to debuggable. I added a check to make sure that we are non-debuggable but missed the fact that we have a config where we start as debuggable even without any jvmti related flags.",
+      "parentUuid": "417934ab_19ef2e27",
+      "range": {
+        "startLine": 10,
+        "startChar": 22,
+        "endLine": 10,
+        "endChar": 48
+      },
+      "revId": "ab74f79ad5abc2c8f813e27932cb610c35c29332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e56bf009_ae6e6454",
