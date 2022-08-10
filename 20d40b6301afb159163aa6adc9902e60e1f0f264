@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee94644c_c6606856",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-10T06:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3b46f5a_b482ded1",
+      "range": {
+        "startLine": 1011,
+        "startChar": 62,
+        "endLine": 1011,
+        "endChar": 76
+      },
+      "revId": "20d40b6301afb159163aa6adc9902e60e1f0f264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56144735_06cf0d2a",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-08-08T16:45:45Z",
       "side": 1,
       "message": "Should this be __tls_get_addr? A pointer to the offending code would be great, but that seems hard to come by?",
+      "range": {
+        "startLine": 1013,
+        "startChar": 7,
+        "endLine": 1013,
+        "endChar": 17
+      },
+      "revId": "20d40b6301afb159163aa6adc9902e60e1f0f264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1efa3802_05f7bee0",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-10T06:56:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56144735_06cf0d2a",
       "range": {
         "startLine": 1013,
         "startChar": 7,
