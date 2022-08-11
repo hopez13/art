@@ -104,6 +104,30 @@
       },
       "revId": "203e436f0df8093a5b9107fa903757fe071f7ea9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49964df9_86b0522b",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-11T14:03:44Z",
+      "side": 1,
+      "message": "I\u0027m fine with the CL as-is, but may I suggest this:\n\n```\ncrash_dump_locations\u003d(\n  # Location for Q+ devices.\n  \"/apex/com.android.runtime/bin\"\n  # Location on devices prior to Q.\n  \"/system/bin/\"\n)\n\nfor b in 32 64; do\n  for crash_dump_location in ${crash_dump_locations[@]}; do\n    crash_dump_path\u003d\"$crash_dump_location/crash_dump$b\"\n    if adb shell test -x \"$crash_dump_path\"; then\n      msginfo \"Copying $crash_dump_path from device to chroot\"\n      adb shell cp \"$crash_dump_path\" \"$ART_TEST_CHROOT/$crash_dump_path\"\n      break\n    fi\n  done\ndone\n```",
+      "parentUuid": "2b1844f9_c92ab442",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 72
+      },
+      "revId": "203e436f0df8093a5b9107fa903757fe071f7ea9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
