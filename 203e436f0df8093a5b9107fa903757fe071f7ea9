@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "203e436f0df8093a5b9107fa903757fe071f7ea9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69592187_dea8640d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-08-11T09:32:56Z",
+      "side": 1,
+      "message": "Roland may have more context to review this CL.",
+      "revId": "203e436f0df8093a5b9107fa903757fe071f7ea9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73f4640e_0dfe07d5",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-08-11T09:32:56Z",
+      "side": 1,
+      "message": "`cp $apex_location $ART_TEST_CHROOT/$apex_location | cp $system_location $ART_TEST_CHROOT/$apex_location`?",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 72
+      },
+      "revId": "203e436f0df8093a5b9107fa903757fe071f7ea9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
