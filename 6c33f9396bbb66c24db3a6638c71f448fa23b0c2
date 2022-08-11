@@ -117,6 +117,30 @@
       },
       "revId": "6c33f9396bbb66c24db3a6638c71f448fa23b0c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d696604c_11c55365",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-08-11T03:50:09Z",
+      "side": 1,
+      "message": "I\u0027ll address in some future CL. Thanks for pointing it out.",
+      "parentUuid": "ddff5092_25ea4b91",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 6
+      },
+      "revId": "6c33f9396bbb66c24db3a6638c71f448fa23b0c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
