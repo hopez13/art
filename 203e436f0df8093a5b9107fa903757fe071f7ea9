@@ -80,6 +80,30 @@
       },
       "revId": "203e436f0df8093a5b9107fa903757fe071f7ea9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1844f9_c92ab442",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-08-11T12:17:39Z",
+      "side": 1,
+      "message": "Sorry, it was a typo. I meant having a fallback behavior `cp $apex_location $ART_TEST_CHROOT/$apex_location || cp $system_location $ART_TEST_CHROOT/$apex_location` while not accepting the case where both commands fail. It will be too tricky if the stack trace is working on some devices but not on some other devices. I worry that the inconsistency will make future debugging harder.",
+      "parentUuid": "f56d6b47_742e1a9c",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 72
+      },
+      "revId": "203e436f0df8093a5b9107fa903757fe071f7ea9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
