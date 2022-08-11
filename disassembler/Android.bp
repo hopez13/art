@@ -139,6 +139,9 @@ art_cc_defaults {
             srcs: ["disassembler_arm64_test.cc"],
         },
     },
+    header_libs: [
+        "libart-compiler-headers",
+    ],
 }
 
 // Version of ART gtest `art_disassembler_tests` bundled with the ART APEX on target.

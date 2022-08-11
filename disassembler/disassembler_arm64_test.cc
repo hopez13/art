@@ -20,6 +20,7 @@
 
 #include <sstream>
 
+#include "common_codegen_test.h"
 #include "common_runtime_test.h"
 #include "disassembler_arm64.h"
 
@@ -34,6 +35,8 @@ using namespace vixl::aarch64;  // NOLINT(build/namespaces)
 
 namespace art {
 namespace arm64 {
+
+#ifdef ART_ENABLE_CODEGEN_TEST_arm64
 
 /**
  * Fixture class for the ArtDisassemblerTest tests.
@@ -182,6 +185,7 @@ TEST_F(ArtDisassemblerTest, UnconditionalBranchVisit) {
       "bl #-0x8 \\(addr -?0x[0-9a-f]+\\) ; state_and_flags");
 }
 
+#endif  // ART_ENABLE_CODEGEN_TEST_arm64
 
 }  // namespace arm64
 }  // namespace art

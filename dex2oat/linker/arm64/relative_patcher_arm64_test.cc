@@ -30,6 +30,8 @@
 namespace art {
 namespace linker {
 
+#ifdef ART_ENABLE_CODEGEN_TEST_arm64
+
 class Arm64RelativePatcherTest : public RelativePatcherTest {
  public:
   explicit Arm64RelativePatcherTest(const std::string& variant)
@@ -1497,6 +1499,8 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerAndMethodCallInteraction) {
 
   ASSERT_EQ(127 * MB, GetMethodOffset(method_idx) - GetMethodOffset(1u));
 }
+
+#endif  // ART_ENABLE_CODEGEN_TEST_arm64
 
 }  // namespace linker
 }  // namespace art

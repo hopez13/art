@@ -30,6 +30,8 @@
 namespace art {
 namespace linker {
 
+#ifdef ART_ENABLE_CODEGEN_TEST_arm
+
 class Thumb2RelativePatcherTest : public RelativePatcherTest {
  public:
   Thumb2RelativePatcherTest() : RelativePatcherTest(InstructionSet::kThumb2, "default") { }
@@ -1392,6 +1394,8 @@ TEST_F(Thumb2RelativePatcherTest, BakerAndMethodCallInteraction) {
 
   ASSERT_EQ(15 * MB, GetMethodOffset(method_idx) - GetMethodOffset(1u));
 }
+
+#endif  // ART_ENABLE_CODEGEN_TEST_arm
 
 }  // namespace linker
 }  // namespace art

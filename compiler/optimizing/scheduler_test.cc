@@ -26,11 +26,11 @@
 #include "pc_relative_fixups_x86.h"
 #include "register_allocator.h"
 
-#ifdef ART_ENABLE_CODEGEN_arm64
+#ifdef ART_ENABLE_CODEGEN_TEST_arm64
 #include "scheduler_arm64.h"
 #endif
 
-#ifdef ART_ENABLE_CODEGEN_arm
+#ifdef ART_ENABLE_CODEGEN_TEST_arm
 #include "scheduler_arm.h"
 #endif
 
@@ -41,17 +41,17 @@ namespace art {
 static ::std::vector<CodegenTargetConfig> GetTargetConfigs() {
   ::std::vector<CodegenTargetConfig> v;
   ::std::vector<CodegenTargetConfig> test_config_candidates = {
-#ifdef ART_ENABLE_CODEGEN_arm
+#ifdef ART_ENABLE_CODEGEN_TEST_arm
     // TODO: Should't this be `kThumb2` instead of `kArm` here?
     CodegenTargetConfig(InstructionSet::kArm, create_codegen_arm_vixl32),
 #endif
-#ifdef ART_ENABLE_CODEGEN_arm64
+#ifdef ART_ENABLE_CODEGEN_TEST_arm64
     CodegenTargetConfig(InstructionSet::kArm64, create_codegen_arm64),
 #endif
-#ifdef ART_ENABLE_CODEGEN_x86
+#ifdef ART_ENABLE_CODEGEN_TEST_x86
     CodegenTargetConfig(InstructionSet::kX86, create_codegen_x86),
 #endif
-#ifdef ART_ENABLE_CODEGEN_x86_64
+#ifdef ART_ENABLE_CODEGEN_TEST_x86_64
     CodegenTargetConfig(InstructionSet::kX86_64, create_codegen_x86_64),
 #endif
   };
@@ -389,7 +389,7 @@ class SchedulerTest : public OptimizingUnitTest {
   HGraph* graph_;
 };
 
-#if defined(ART_ENABLE_CODEGEN_arm64)
+#if defined(ART_ENABLE_CODEGEN_TEST_arm64)
 TEST_F(SchedulerTest, DependencyGraphAndSchedulerARM64) {
   CriticalPathSchedulingNodeSelector critical_path_selector;
   arm64::HSchedulerARM64 scheduler(&critical_path_selector);
@@ -403,7 +403,7 @@ TEST_F(SchedulerTest, ArrayAccessAliasingARM64) {
 }
 #endif
 
-#if defined(ART_ENABLE_CODEGEN_arm)
+#if defined(ART_ENABLE_CODEGEN_TEST_arm)
 TEST_F(SchedulerTest, DependencyGraphAndSchedulerARM) {
   CriticalPathSchedulingNodeSelector critical_path_selector;
   arm::SchedulingLatencyVisitorARM arm_latency_visitor(/*CodeGenerator*/ nullptr);

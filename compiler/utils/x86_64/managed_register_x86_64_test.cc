@@ -15,11 +15,15 @@
  */
 
 #include "managed_register_x86_64.h"
+
 #include "base/globals.h"
+#include "common_codegen_test.h"
 #include "gtest/gtest.h"
 
 namespace art {
 namespace x86_64 {
+
+#ifdef ART_ENABLE_CODEGEN_TEST_x86_64
 
 TEST(X86_64ManagedRegister, NoRegister) {
   X86_64ManagedRegister reg = ManagedRegister::NoRegister().AsX86();
@@ -354,6 +358,8 @@ TEST(X86_64ManagedRegister, Overlaps) {
   EXPECT_TRUE(!reg.Overlaps(X86_64ManagedRegister::FromRegisterPair(EBX_EDI)));
   EXPECT_TRUE(reg.Overlaps(X86_64ManagedRegister::FromRegisterPair(EDX_EBX)));
 }
+
+#endif  // ART_ENABLE_CODEGEN_TEST_x86_64
 
 }  // namespace x86_64
 }  // namespace art

@@ -40,17 +40,17 @@ namespace art {
 static ::std::vector<CodegenTargetConfig> GetTargetConfigs() {
   ::std::vector<CodegenTargetConfig> v;
   ::std::vector<CodegenTargetConfig> test_config_candidates = {
-#ifdef ART_ENABLE_CODEGEN_arm
+#ifdef ART_ENABLE_CODEGEN_TEST_arm
     // TODO: Should't this be `kThumb2` instead of `kArm` here?
     CodegenTargetConfig(InstructionSet::kArm, create_codegen_arm_vixl32),
 #endif
-#ifdef ART_ENABLE_CODEGEN_arm64
+#ifdef ART_ENABLE_CODEGEN_TEST_arm64
     CodegenTargetConfig(InstructionSet::kArm64, create_codegen_arm64),
 #endif
-#ifdef ART_ENABLE_CODEGEN_x86
+#ifdef ART_ENABLE_CODEGEN_TEST_x86
     CodegenTargetConfig(InstructionSet::kX86, create_codegen_x86),
 #endif
-#ifdef ART_ENABLE_CODEGEN_x86_64
+#ifdef ART_ENABLE_CODEGEN_TEST_x86_64
     CodegenTargetConfig(InstructionSet::kX86_64, create_codegen_x86_64),
 #endif
   };
@@ -715,7 +715,7 @@ TEST_F(CodegenTest, ComparisonsLong) {
   }
 }
 
-#ifdef ART_ENABLE_CODEGEN_arm
+#ifdef ART_ENABLE_CODEGEN_TEST_arm
 TEST_F(CodegenTest, ARMVIXLParallelMoveResolver) {
   std::unique_ptr<CompilerOptions> compiler_options =
       CommonCompilerTest::CreateCompilerOptions(InstructionSet::kThumb2, "default");
@@ -736,9 +736,9 @@ TEST_F(CodegenTest, ARMVIXLParallelMoveResolver) {
   InternalCodeAllocator code_allocator;
   codegen.Finalize(&code_allocator);
 }
-#endif
+#endif  // ART_ENABLE_CODEGEN_TEST_arm
 
-#ifdef ART_ENABLE_CODEGEN_arm64
+#ifdef ART_ENABLE_CODEGEN_TEST_arm64
 // Regression test for b/34760542.
 TEST_F(CodegenTest, ARM64ParallelMoveResolverB34760542) {
   std::unique_ptr<CompilerOptions> compiler_options =
@@ -900,6 +900,6 @@ TEST_F(CodegenTest, ARM64FrameSizeNoSIMD) {
   EXPECT_EQ(codegen.GetFpuSpillSize(), kExpectedFPSpillSize);
 }
 
-#endif
+#endif  // ART_ENABLE_CODEGEN_TEST_arm64
 
 }  // namespace art

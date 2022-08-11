@@ -21,6 +21,8 @@
 namespace art {
 namespace linker {
 
+#ifdef ART_ENABLE_CODEGEN_TEST_x86
+
 class X86RelativePatcherTest : public RelativePatcherTest {
  public:
   X86RelativePatcherTest() : RelativePatcherTest(InstructionSet::kX86, "default") { }
@@ -172,6 +174,8 @@ TEST_F(X86RelativePatcherTest, StringReference) {
   };
   EXPECT_TRUE(CheckLinkedMethod(MethodRef(1u), ArrayRef<const uint8_t>(expected_code)));
 }
+
+#endif  // ART_ENABLE_CODEGEN_TEST_x86
 
 }  // namespace linker
 }  // namespace art

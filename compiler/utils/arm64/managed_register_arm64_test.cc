@@ -18,10 +18,13 @@
 
 #include "assembler_arm64.h"
 #include "base/globals.h"
+#include "common_codegen_test.h"
 #include "gtest/gtest.h"
 
 namespace art {
 namespace arm64 {
+
+#ifdef ART_ENABLE_CODEGEN_TEST_arm64
 
 TEST(Arm64ManagedRegister, NoRegister) {
   Arm64ManagedRegister reg = ManagedRegister::NoRegister().AsArm64();
@@ -736,6 +739,8 @@ TEST(Arm64ManagedRegister, VixlRegisters) {
   EXPECT_TRUE(vixl::aarch64::s30.Is(Arm64Assembler::reg_s(S30)));
   EXPECT_TRUE(vixl::aarch64::s31.Is(Arm64Assembler::reg_s(S31)));
 }
+
+#endif  // ART_ENABLE_CODEGEN_TEST_arm64
 
 }  // namespace arm64
 }  // namespace art

@@ -27,19 +27,19 @@
 #include "prepare_for_register_allocation.h"
 #include "ssa_liveness_analysis.h"
 
-#ifdef ART_ENABLE_CODEGEN_arm
+#ifdef ART_ENABLE_CODEGEN_TEST_arm
 #include "code_generator_arm_vixl.h"
 #endif
 
-#ifdef ART_ENABLE_CODEGEN_arm64
+#ifdef ART_ENABLE_CODEGEN_TEST_arm64
 #include "code_generator_arm64.h"
 #endif
 
-#ifdef ART_ENABLE_CODEGEN_x86
+#ifdef ART_ENABLE_CODEGEN_TEST_x86
 #include "code_generator_x86.h"
 #endif
 
-#ifdef ART_ENABLE_CODEGEN_x86_64
+#ifdef ART_ENABLE_CODEGEN_TEST_x86_64
 #include "code_generator_x86_64.h"
 #endif
 
@@ -62,7 +62,7 @@ class CodegenTargetConfig {
   CreateCodegenFn create_codegen_;
 };
 
-#ifdef ART_ENABLE_CODEGEN_arm
+#ifdef ART_ENABLE_CODEGEN_TEST_arm
 // Special ARM code generator for codegen testing in a limited code
 // generation environment (i.e. with no runtime support).
 //
@@ -110,7 +110,7 @@ class TestCodeGeneratorARMVIXL : public arm::CodeGeneratorARMVIXL {
 };
 #endif
 
-#ifdef ART_ENABLE_CODEGEN_arm64
+#ifdef ART_ENABLE_CODEGEN_TEST_arm64
 // Special ARM64 code generator for codegen testing in a limited code
 // generation environment (i.e. with no runtime support).
 //
@@ -142,7 +142,7 @@ class TestCodeGeneratorARM64 : public arm64::CodeGeneratorARM64 {
 };
 #endif
 
-#ifdef ART_ENABLE_CODEGEN_x86
+#ifdef ART_ENABLE_CODEGEN_TEST_x86
 class TestCodeGeneratorX86 : public x86::CodeGeneratorX86 {
  public:
   TestCodeGeneratorX86(HGraph* graph, const CompilerOptions& compiler_options)
@@ -320,25 +320,25 @@ static void RunCode(CodegenTargetConfig target_config,
   RunCode(codegen.get(), graph, hook_before_codegen, has_result, expected);
 }
 
-#ifdef ART_ENABLE_CODEGEN_arm
+#ifdef ART_ENABLE_CODEGEN_TEST_arm
 inline CodeGenerator* create_codegen_arm_vixl32(HGraph* graph, const CompilerOptions& compiler_options) {
   return new (graph->GetAllocator()) TestCodeGeneratorARMVIXL(graph, compiler_options);
 }
 #endif
 
-#ifdef ART_ENABLE_CODEGEN_arm64
+#ifdef ART_ENABLE_CODEGEN_TEST_arm64
 inline CodeGenerator* create_codegen_arm64(HGraph* graph, const CompilerOptions& compiler_options) {
   return new (graph->GetAllocator()) TestCodeGeneratorARM64(graph, compiler_options);
 }
 #endif
 
-#ifdef ART_ENABLE_CODEGEN_x86
+#ifdef ART_ENABLE_CODEGEN_TEST_x86
 inline CodeGenerator* create_codegen_x86(HGraph* graph, const CompilerOptions& compiler_options) {
   return new (graph->GetAllocator()) TestCodeGeneratorX86(graph, compiler_options);
 }
 #endif
 
-#ifdef ART_ENABLE_CODEGEN_x86_64
+#ifdef ART_ENABLE_CODEGEN_TEST_x86_64
 inline CodeGenerator* create_codegen_x86_64(HGraph* graph, const CompilerOptions& compiler_options) {
   return new (graph->GetAllocator()) x86_64::CodeGeneratorX86_64(graph, compiler_options);
 }

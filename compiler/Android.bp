@@ -28,6 +28,17 @@ package {
     default_applicable_licenses: ["art_license"],
 }
 
+cc_library_headers {
+    name: "libart-compiler-headers",
+    defaults: ["art_defaults"],
+    host_supported: true,
+    export_include_dirs: ["."],
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+}
+
 art_cc_defaults {
     name: "libart-compiler-defaults",
     defaults: ["art_defaults"],

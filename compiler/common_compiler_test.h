@@ -24,6 +24,7 @@
 
 #include "arch/instruction_set.h"
 #include "arch/instruction_set_features.h"
+#include "common_codegen_test.h"
 #include "common_runtime_test.h"
 #include "compiler.h"
 #include "oat_file.h"

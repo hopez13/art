@@ -15,11 +15,15 @@
  */
 
 #include "managed_register_arm.h"
+
 #include "base/globals.h"
+#include "common_codegen_test.h"
 #include "gtest/gtest.h"
 
 namespace art {
 namespace arm {
+
+#ifdef ART_ENABLE_CODEGEN_TEST_arm
 
 TEST(ArmManagedRegister, NoRegister) {
   ArmManagedRegister reg = ManagedRegister::NoRegister().AsArm();
@@ -762,6 +766,8 @@ TEST(ArmManagedRegister, Overlaps) {
   EXPECT_TRUE(!reg.Overlaps(ArmManagedRegister::FromRegisterPair(R0_R1)));
   EXPECT_TRUE(reg.Overlaps(ArmManagedRegister::FromRegisterPair(R4_R5)));
 }
+
+#endif  // ART_ENABLE_CODEGEN_TEST_arm
 
 }  // namespace arm
 }  // namespace art
