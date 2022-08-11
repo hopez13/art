@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96ec7916_6a424788",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1073883
+      },
+      "writtenOn": "2022-08-11T15:39:30Z",
+      "side": 1,
+      "message": "Hi Santiago,\n\nWe recently started flagging the presubmit warnings for large perf regressions and following up with the owners to understand and fix the issue before it is merged  or get an approval from the perf team. Please do not merge this CL untill then. I understand it is still WIP CL. Would like to start the discussion early so that you will have more time.\n\ngo/pinner-guide\n\nLooks like this current change has increased the overall pinner size increase by 4 mb. Most of the difference is coming from .oat,.odex and .vdex files.\n\nFrom TOT master\nhttps://screenshot.googleplex.com/6AX9z3MVw6ifFmM\n\nFrom presubmit build id of this change\nhttps://screenshot.googleplex.com/4B46eEfEosVsMxo",
+      "revId": "2374987d64136ff66c1b7b71c00fa6fa2d8b81be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
