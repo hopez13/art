@@ -56,6 +56,30 @@
       },
       "revId": "203e436f0df8093a5b9107fa903757fe071f7ea9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f56d6b47_742e1a9c",
+        "filename": "tools/buildbot-sync.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-08-11T12:02:20Z",
+      "side": 1,
+      "message": "As is this suggestion will break fugu. I didn\u0027t want to overthink it too much, so was lenient in accepting failing cp commands.",
+      "parentUuid": "73f4640e_0dfe07d5",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 124,
+        "endChar": 72
+      },
+      "revId": "203e436f0df8093a5b9107fa903757fe071f7ea9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
