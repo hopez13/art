@@ -5088,11 +5088,13 @@ void ClassLinker::CheckProxyMethod(ArtMethod* method, ArtMethod* prototype) cons
   CHECK_EQ(prototype, method->GetInterfaceMethodIfProxy(image_pointer_size_));
 }
 
-bool ClassLinker::CanWeInitializeClass(ObjPtr<mirror::Class> klass, bool can_init_statics,
+bool ClassLinker::CanWeInitializeClass(ObjPtr<mirror::Class> klass,
+                                       bool can_init_statics,
                                        bool can_init_parents) {
   if (can_init_statics && can_init_parents) {
     return true;
   }
+  DCHECK(Runtime::Current()->IsAotCompiler());
   if (!can_init_statics) {
     // Check if there's a class initializer.
     ArtMethod* clinit = klass->FindClassInitializer(image_pointer_size_);
@@ -5273,6 +5275,16 @@ bool ClassLinker::InitializeClass(Thread* self,
       bool super_initialized = InitializeClass(self, handle_scope_super, can_init_statics, true);
       uint64_t super_t1 = stats_enabled ? NanoTime() : 0u;
       if (!super_initialized) {
+        if (!can_init_statics) {
+          // This is the AOT compiler trying to initialize as much as it can.
+          // Don't update the class status, this will be handled when the
+          // compiler calls EnsureInitialized with can_init_statics and
+          // can_init_parents as true.
+          DCHECK(Runtime::Current()->IsAotCompiler());
+          DCHECK(handle_scope_super->ShouldVerifyAtRuntime() ||
+                 handle_scope_super->IsVerifiedNeedsAccessChecks());
+          return false;
+        }
         // The super class was verified ahead of entering initializing, we should only be here if
         // the super class became erroneous due to initialization.
         // For the case of aot compiler, the super class might also be initializing but we don't
