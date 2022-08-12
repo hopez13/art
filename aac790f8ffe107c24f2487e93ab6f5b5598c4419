@@ -22,6 +22,30 @@
       },
       "revId": "aac790f8ffe107c24f2487e93ab6f5b5598c4419",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7516982e_81a6f40e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-08-12T00:12:11Z",
+      "side": 1,
+      "message": "No because we don\u0027t want to skip running in userfaultfd mode on devices, if possible. Even though that\u0027s not happening right now, but with this I\u0027m ensuring the right behavior in case reverting this CL isn\u0027t possible in future.",
+      "parentUuid": "c7d1b8a2_f5957d0f",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 26
+      },
+      "revId": "aac790f8ffe107c24f2487e93ab6f5b5598c4419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
