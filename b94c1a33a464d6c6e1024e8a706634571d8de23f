@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f47e8616_9fda7c68",
+        "filename": "test/100-reflect2/expected-stdout.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-12T13:12:23Z",
+      "side": 1,
+      "message": "Consider adding a companion change to https://android-review.googlesource.com/c/platform/libcore/+/2183757 in `platform/art`, adding `private int java.lang.String.lastIndexOfNonWhitespace()` to this ART test expected output, instead of having it added in this CL.",
+      "range": {
+        "startLine": 36,
+        "startChar": 268,
+        "endLine": 36,
+        "endChar": 323
+      },
+      "revId": "b94c1a33a464d6c6e1024e8a706634571d8de23f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
