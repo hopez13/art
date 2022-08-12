@@ -16,6 +16,132 @@
       "message": "PS7 is a not-completely-clean rebase onto the CMC collector changes.",
       "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4e86046_576185fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-12T11:07:01Z",
+      "side": 1,
+      "message": "Thanks a lot Hans! This looks a lot simpler than the earlier code. I looked at more to understand it and left some comments as I was looking. I am still a bit unsure about things around Flip function. I will let Lokesh +2 it since he knows the code better.",
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8631c8a_43164b60",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-12T11:07:01Z",
+      "side": 1,
+      "message": "relying",
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dfbbdf7_2eddfa9d",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-12T11:07:01Z",
+      "side": 1,
+      "message": "Just for my understanding, I guess this prevents the deadlock mentioned earlier A -\u003e B and B-\u003eA because only one of them can go through?",
+      "range": {
+        "startLine": 284,
+        "startChar": 22,
+        "endLine": 285,
+        "endChar": 23
+      },
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04afb66e_f5e27e02",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-12T11:07:01Z",
+      "side": 1,
+      "message": "Maybe not for this CL, but I was wondering if we could add IncrementSuspendCount and DecrementSuspendCount or have an enum instead of delta and prevent passing any other delta.",
+      "range": {
+        "startLine": 446,
+        "startChar": 4,
+        "endLine": 446,
+        "endChar": 38
+      },
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1f7a9f1_9f7009b8",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-12T11:07:01Z",
+      "side": 1,
+      "message": "In non-debug builds what happens if this fails? Would the callers of SuspendAll would still assume everything has suspended and proceed? I suppose we don\u0027t expect to fail here right? Should we make this fatal in non-debug builds too?",
+      "range": {
+        "startLine": 740,
+        "startChar": 51,
+        "endLine": 740,
+        "endChar": 71
+      },
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e20c16f_af4f233a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-12T11:07:01Z",
+      "side": 1,
+      "message": "Is it possible to share this code with ThreadSuspendByPeer?",
+      "range": {
+        "startLine": 965,
+        "startChar": 1,
+        "endLine": 1005,
+        "endChar": 18
+      },
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
