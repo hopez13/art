@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c828a284_acff4108",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-12T19:10:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8631c8a_43164b60",
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dfbbdf7_2eddfa9d",
@@ -65,6 +83,30 @@
       "writtenOn": "2022-08-12T11:07:01Z",
       "side": 1,
       "message": "Just for my understanding, I guess this prevents the deadlock mentioned earlier A -\u003e B and B-\u003eA because only one of them can go through?",
+      "range": {
+        "startLine": 284,
+        "startChar": 22,
+        "endLine": 285,
+        "endChar": 23
+      },
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6a1aecc_67bf47fe",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-12T19:10:19Z",
+      "side": 1,
+      "message": "Yes. I changed the description to hopefully make that more precise.",
+      "parentUuid": "3dfbbdf7_2eddfa9d",
       "range": {
         "startLine": 284,
         "startChar": 22,
@@ -98,6 +140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3a8602e_fb10c864",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-12T19:10:19Z",
+      "side": 1,
+      "message": "I like that idea. Let me do that in a separate PS, but not a separate CL. We could defer it, but there\u0027s so much overlap that it would just create a mess if I have to revert something.",
+      "parentUuid": "04afb66e_f5e27e02",
+      "range": {
+        "startLine": 446,
+        "startChar": 4,
+        "endLine": 446,
+        "endChar": 38
+      },
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1f7a9f1_9f7009b8",
@@ -121,6 +187,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8044047_56fe2188",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-12T19:10:19Z",
+      "side": 1,
+      "message": "Good point. I agree. Done.\n\nIt makes this CL a bit riskier still. But we really don\u0027t want to proceed if this fails.",
+      "parentUuid": "c1f7a9f1_9f7009b8",
+      "range": {
+        "startLine": 740,
+        "startChar": 51,
+        "endLine": 740,
+        "endChar": 71
+      },
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e20c16f_af4f233a",
@@ -134,6 +224,30 @@
       "writtenOn": "2022-08-12T11:07:01Z",
       "side": 1,
       "message": "Is it possible to share this code with ThreadSuspendByPeer?",
+      "range": {
+        "startLine": 965,
+        "startChar": 1,
+        "endLine": 1005,
+        "endChar": 18
+      },
+      "revId": "276b9b94d1e42bbeb08012689b64fb2f4c9d5a68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b476ec53_f137c549",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-12T19:10:19Z",
+      "side": 1,
+      "message": "I asked myself that question repeatedly while applying all the changes twice. I tentatively concluded that it needs to be parameterized in some non-trivial ways. The error handling is not the same. We can\u0027t just do the thread lookup outside because of locking issues, so we may have to pass that in as a closure. Which requires a template.\n\nI didn\u0027t try it in detail, but it seemed likely to me that the code size reduction was not worth the readability loss while debugging. And something tells me we\u0027re going to be debugging this code again at some point.",
+      "parentUuid": "0e20c16f_af4f233a",
       "range": {
         "startLine": 965,
         "startChar": 1,
