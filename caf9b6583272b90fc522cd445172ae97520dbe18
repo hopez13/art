@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed337814_3bfd79c5",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-16T09:08:57Z",
+      "side": 0,
+      "message": "This got moved to its own method, as part of EmitEnvironment.",
+      "range": {
+        "startLine": 1347,
+        "startChar": 0,
+        "endLine": 1385,
+        "endChar": 0
+      },
+      "revId": "caf9b6583272b90fc522cd445172ae97520dbe18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

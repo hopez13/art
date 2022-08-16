@@ -16,6 +16,64 @@
       "message": "Hi Santiago,\n\nWe recently started flagging the presubmit warnings for large perf regressions and following up with the owners to understand and fix the issue before it is merged  or get an approval from the perf team. Please do not merge this CL untill then. I understand it is still WIP CL. Would like to start the discussion early so that you will have more time.\n\ngo/pinner-guide\n\nLooks like this current change has increased the overall pinner size increase by 4 mb. Most of the difference is coming from .oat,.odex and .vdex files.\n\nFrom TOT master\nhttps://screenshot.googleplex.com/6AX9z3MVw6ifFmM\n\nFrom presubmit build id of this change\nhttps://screenshot.googleplex.com/4B46eEfEosVsMxo",
       "revId": "2374987d64136ff66c1b7b71c00fa6fa2d8b81be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7c10cb2_1646900b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-16T09:08:57Z",
+      "side": 1,
+      "message": "David PTAL",
+      "revId": "2374987d64136ff66c1b7b71c00fa6fa2d8b81be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34e58021_e7505edf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-16T09:08:57Z",
+      "side": 1,
+      "message": "This is a CL that lays the groundwork for try catch inlining. We are making the environment explicit in a try catch block. Previously, it was done in an implicit hand-coded way which is not fit for purpose for try catch inlining. We are expecting code size regressions in favour of app startup. I ran the ART benchmark automator (https://dashboards.corp.google.com/_b1ef2ce1_8a6a_418f_b821_92c97ab1be2f?fb\u003dBootImageProfileId:eq:10639) and we are seeing an average code size regression of 2.77% so your regression is within the expected levels.",
+      "parentUuid": "96ec7916_6a424788",
+      "revId": "2374987d64136ff66c1b7b71c00fa6fa2d8b81be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8353a313_07e80ce0",
+        "filename": "test/565-checker-condition-liveness/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-16T09:08:57Z",
+      "side": 1,
+      "message": "33 is the Nop instruction.",
+      "range": {
+        "startLine": 36,
+        "startChar": 77,
+        "endLine": 36,
+        "endChar": 79
+      },
+      "revId": "2374987d64136ff66c1b7b71c00fa6fa2d8b81be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
