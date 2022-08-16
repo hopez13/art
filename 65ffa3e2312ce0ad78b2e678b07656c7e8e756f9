@@ -16,6 +16,23 @@
       "message": "PS9 splits ModifySuspendCount, gaining clarity at the expense of a few duplicated, almost entirely error checking, lines. I think it\u0027s a win. The actual functional part of the code didn\u0027t overlap much, and the small amount of overlap looked like it was not 100% intended.",
       "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a7849cd_5dc8ae8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-16T06:33:50Z",
+      "side": 1,
+      "message": "Thanks Hans! Still lgtm.",
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
