@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80e2fa7f_07505813",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-16T05:26:33Z",
+      "side": 1,
+      "message": "Thanks! lgtm with a couple of minor nits.",
+      "revId": "046edaf749e4b1027a813869afb239b3d4f3a689",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3c6c94b_87c94013",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1658,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-16T05:26:33Z",
+      "side": 1,
+      "message": "minor nit: \u0026\u0026 with the earlier line i.e.\n\nold_data.GetSourceClassLoader() \u003d\u003d source_class_loader.Get() \u0026\u0026\nold_data.GetJavaDexFile() \u003d\u003d dex_file_obj.Get()",
+      "range": {
+        "startLine": 1658,
+        "startChar": 8,
+        "endLine": 1658,
+        "endChar": 11
+      },
+      "revId": "046edaf749e4b1027a813869afb239b3d4f3a689",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0f33744_265f58d7",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1690,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-08-16T05:26:33Z",
+      "side": 1,
+      "message": "minor nit: Same as above. \u0026\u0026 with above line.",
+      "range": {
+        "startLine": 1690,
+        "startChar": 9,
+        "endLine": 1690,
+        "endChar": 13
+      },
+      "revId": "046edaf749e4b1027a813869afb239b3d4f3a689",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
