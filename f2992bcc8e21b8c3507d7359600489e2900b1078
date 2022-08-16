@@ -124,6 +124,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c17f41ff_ff5f97e9",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1657,
+      "author": {
+        "id": 1933440
+      },
+      "writtenOn": "2022-08-16T02:58:16Z",
+      "side": 1,
+      "message": "Sorry for the delay.Your understanding is correct",
+      "parentUuid": "2dc173be_f3374dc5",
+      "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0a65bd5_ea12cfc7",
@@ -137,6 +155,30 @@
       "writtenOn": "2022-08-08T06:37:05Z",
       "side": 1,
       "message": "Could you also update this comment here. I think this is no longer correct.\n\nMaybe update it to Since every instance of this Javadex file...",
+      "range": {
+        "startLine": 1658,
+        "startChar": 9,
+        "endLine": 1658,
+        "endChar": 49
+      },
+      "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfe644f6_2db7d210",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1658,
+      "author": {
+        "id": 1933440
+      },
+      "writtenOn": "2022-08-16T02:58:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0a65bd5_ea12cfc7",
       "range": {
         "startLine": 1658,
         "startChar": 9,
@@ -170,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74e7c139_6ffed0c2",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1683,
+      "author": {
+        "id": 1933440
+      },
+      "writtenOn": "2022-08-16T02:58:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca17ba14_f37a5f19",
+      "range": {
+        "startLine": 1683,
+        "startChar": 8,
+        "endLine": 1683,
+        "endChar": 55
+      },
+      "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ba05583_2bcbc283",
@@ -183,6 +249,30 @@
       "writtenOn": "2022-08-08T06:37:05Z",
       "side": 1,
       "message": "This is the check I was mentioning that also needs to be updated to:\n\n`` old_data.GetSourceClassLoader() \u003d\u003d source_class_loader.Get() \u0026\u0026 old_data.GetJavaDexFile() \u003d\u003d dex_file_obj.Get() ``",
+      "range": {
+        "startLine": 1688,
+        "startChar": 6,
+        "endLine": 1688,
+        "endChar": 71
+      },
+      "revId": "f2992bcc8e21b8c3507d7359600489e2900b1078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c999108f_2c625b93",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1688,
+      "author": {
+        "id": 1933440
+      },
+      "writtenOn": "2022-08-16T02:58:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba05583_2bcbc283",
       "range": {
         "startLine": 1688,
         "startChar": 6,
