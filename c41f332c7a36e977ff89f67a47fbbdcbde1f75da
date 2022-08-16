@@ -33,6 +33,24 @@
       "message": "Please help to see the reason for the warning",
       "revId": "c41f332c7a36e977ff89f67a47fbbdcbde1f75da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abd2adaa_f76dc523",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-08-16T11:01:28Z",
+      "side": 1,
+      "message": "It\u0027s fine. A test is failing due to a known bug that is unrelated to this CL. I believe you can manually submit the CL.",
+      "parentUuid": "1d6143de_1f778c10",
+      "revId": "c41f332c7a36e977ff89f67a47fbbdcbde1f75da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
