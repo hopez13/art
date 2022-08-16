@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ff2590d_8fbd8810",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-08-16T16:30:05Z",
+      "side": 1,
+      "message": "The perf presubmit seems to be using a stale baseline. I triggered explicit runs with/without this change to validate improvement, see https://screenshot.googleplex.com/5akWCCu5Guqo4Zb. Lokesh can you take a look while Nicolas is out? I discussed with him here https://b.corp.google.com/issues/239467545#comment7.",
+      "revId": "a521d6b9cbe0f98d94b079f15db298788b265a8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
