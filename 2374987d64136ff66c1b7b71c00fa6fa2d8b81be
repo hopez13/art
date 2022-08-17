@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0177a617_11f36916",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-08-17T16:26:41Z",
+      "side": 1,
+      "message": "Let\u0027s chat more about this in the ART sync tomorrow. That\u0027s a nice startup win, but relative to the size increase I feel like we should get more data on downstream size impact before landing, particularly with the RSS increase (looks like +2MB on system_server alone, which seems quite large?). One thing that would be interesting to check (maybe we can add to the ART dashboard) is the size of the speed-profile compiled bits for apps used in the app startup tests.",
+      "parentUuid": "5623e2ab_be9c1310",
+      "revId": "2374987d64136ff66c1b7b71c00fa6fa2d8b81be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8353a313_07e80ce0",
