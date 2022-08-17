@@ -20,6 +20,7 @@
 #include <string_view>
 #include <unordered_map>
 
+#include "android-base/parseint.h"
 #include "android-base/properties.h"
 #include "android-base/stringprintf.h"
 #include "android-base/strings.h"
@@ -141,6 +142,18 @@ int InitializeConfig(int argc, char** argv, OdrConfig* config) {
     } else if (ArgumentMatches(arg, "--dalvik-cache=", &value)) {
       art::OverrideDalvikCacheSubDirectory(value);
       config->SetArtifactDirectory(GetApexDataDalvikCacheDirectory(art::InstructionSet::kNone));
+    } else if (ArgumentMatches(arg, "--max-execution-seconds=", &value)) {
+      int seconds;
+      if (!android::base::ParseInt(value, &seconds)) {
+        ArgumentError("Failed to parse integer: %s", value.c_str());
+      }
+      config->SetMaxExecutionSeconds(seconds);
+    } else if (ArgumentMatches(arg, "--max-child-process-seconds=", &value)) {
+      int seconds;
+      if (!android::base::ParseInt(value, &seconds)) {
+        ArgumentError("Failed to parse integer: %s", value.c_str());
+      }
+      config->SetMaxChildProcessSeconds(seconds);
     } else if (ArgumentMatches(arg, "--zygote-arch=", &value)) {
       zygote = value;
     } else if (ArgumentMatches(arg, "--boot-image-compiler-filter=", &value)) {
@@ -224,6 +237,8 @@ NO_RETURN void UsageHelp(const char* argv0) {
   UsageMsg("                                 OS.");
   UsageMsg("--dalvik-cache=<DIR>             Write artifacts to .../<DIR> rather than");
   UsageMsg("                                 .../dalvik-cache");
+  UsageMsg("--max-execution-seconds=<N>      Maximum timeout of all compilation combined");
+  UsageMsg("--max-child-process-seconds=<N>  Maximum timeout of each compilation task");
   UsageMsg("--staging-dir=<DIR>              Write temporary artifacts to <DIR> rather than");
   UsageMsg("                                 .../staging");
   UsageMsg("--zygote-arch=<STRING>           Zygote kind that overrides ro.zygote");

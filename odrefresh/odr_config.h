@@ -36,6 +36,12 @@
 namespace art {
 namespace odrefresh {
 
+  // Maximum execution time for odrefresh from start to end.
+constexpr time_t kMaximumExecutionSeconds = 300;
+
+// Maximum execution time for any child process spawned.
+constexpr time_t kMaxChildProcessSeconds = 90;
+
 // The prefixes of system properties that odrefresh keeps track of. Odrefresh will recompile
 // everything if any property matching a prefix changes.
 constexpr const char* kCheckedSystemPropertyPrefixes[]{"dalvik.vm.", "ro.dalvik.vm."};
@@ -88,6 +94,8 @@ class OdrConfig final {
   ZygoteKind zygote_kind_;
   std::string boot_classpath_;
   std::string artifact_dir_;
+  time_t max_execution_seconds_ = kMaximumExecutionSeconds;
+  time_t max_child_process_seconds_ = kMaxChildProcessSeconds;
   std::string standalone_system_server_jars_;
   bool compilation_os_mode_ = false;
   bool minimal_ = false;
@@ -175,6 +183,8 @@ class OdrConfig final {
   const std::string& GetStagingDir() const {
     return staging_dir_;
   }
+  time_t GetMaxExecutionSeconds() const { return max_execution_seconds_; }
+  time_t GetMaxChildProcessSeconds() const { return max_child_process_seconds_; }
   bool GetCompilationOsMode() const { return compilation_os_mode_; }
   bool GetMinimal() const { return minimal_; }
   const std::unordered_map<std::string, std::string>& GetSystemProperties() const {
@@ -200,6 +210,8 @@ class OdrConfig final {
     refresh_ = value;
   }
   void SetIsa(const InstructionSet isa) { isa_ = isa; }
+  void SetMaxExecutionSeconds(int seconds) { max_execution_seconds_ = seconds; }
+  void SetMaxChildProcessSeconds(int seconds) { max_child_process_seconds_ = seconds; }
 
   void SetSystemServerClasspath(const std::string& classpath) {
     system_server_classpath_ = classpath;
