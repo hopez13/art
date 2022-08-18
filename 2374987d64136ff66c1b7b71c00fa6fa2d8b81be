@@ -89,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "96d54de0_9502e932",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-08-18T08:27:33Z",
+      "side": 1,
+      "message": "Just to clarify: Are your pinner numbers just this CL (aosp/2135215)? Or the whole CL chain including aosp/2138475 and aosp/2135218?\n\nThis CL (i.e. aosp/2135215) it is a no-op in terms of code size. I verified this using the ART benchmark automator too.",
+      "parentUuid": "0177a617_11f36916",
+      "revId": "2374987d64136ff66c1b7b71c00fa6fa2d8b81be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8353a313_07e80ce0",
