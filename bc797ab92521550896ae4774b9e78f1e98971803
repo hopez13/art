@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9679b8dc_d5b8504e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-08-19T14:01:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1af64c8a_e8ee3984",
+      "range": {
+        "startLine": 10,
+        "startChar": 48,
+        "endLine": 10,
+        "endChar": 49
+      },
+      "revId": "bc797ab92521550896ae4774b9e78f1e98971803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd5da1e7_ee266f18",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-08-19T13:46:31Z",
       "side": 1,
       "message": "I think you could remove these members and computed their values on the fly from their milliseconds counterparts below. (The milliseconds values can hold up to 2^31 (\"positive\") milliseconds, which is enough to encode durations up to 24 days, which is largely enough for this usage.)",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 49
+      },
+      "revId": "bc797ab92521550896ae4774b9e78f1e98971803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55e21931_8ab53868",
+        "filename": "odrefresh/odr_metrics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-08-19T14:01:13Z",
+      "side": 1,
+      "message": "It looks to me that this comment is conflicting with the one about the `odr_metrics_record_test` - shall we remove the fields in seconds from the `OdrMetrics` class leaving only the milliseconds ones (at which point there would be no way of checking they are consistent) and using the latter to fill both the milliseconds and the seconds field in the proto written to statsd?",
+      "parentUuid": "bd5da1e7_ee266f18",
       "range": {
         "startLine": 140,
         "startChar": 0,
