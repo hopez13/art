@@ -46,6 +46,9 @@ struct OdrMetricsRecord {
   int32_t system_server_compilation_seconds;
   int32_t cache_space_free_start_mib;
   int32_t cache_space_free_end_mib;
+  int32_t primary_bcp_compilation_millis;
+  int32_t secondary_bcp_compilation_millis;
+  int32_t system_server_compilation_millis;
 
   // Reads a `MetricsRecord` from an XML file.
   // Returns an error if the XML document was not found or parsed correctly.
