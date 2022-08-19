@@ -64,16 +64,19 @@ OdrMetrics::~OdrMetrics() {
   }
 }
 
-void OdrMetrics::SetCompilationTime(int32_t seconds) {
+void OdrMetrics::SetCompilationTime(int32_t seconds, int32_t millis) {
   switch (stage_) {
     case Stage::kPrimaryBootClasspath:
       primary_bcp_compilation_seconds_ = seconds;
+      primary_bcp_compilation_millis_ = millis;
       break;
     case Stage::kSecondaryBootClasspath:
       secondary_bcp_compilation_seconds_ = seconds;
+      secondary_bcp_compilation_millis_ = millis;
       break;
     case Stage::kSystemServerClasspath:
       system_server_compilation_seconds_ = seconds;
+      system_server_compilation_millis_ = millis;
       break;
     case Stage::kCheck:
     case Stage::kComplete:
@@ -129,6 +132,9 @@ bool OdrMetrics::ToRecord(/*out*/OdrMetricsRecord* record) const {
   record->system_server_compilation_seconds = system_server_compilation_seconds_;
   record->cache_space_free_start_mib = cache_space_free_start_mib_;
   record->cache_space_free_end_mib = cache_space_free_end_mib_;
+  record->primary_bcp_compilation_millis = primary_bcp_compilation_millis_;
+  record->secondary_bcp_compilation_millis = secondary_bcp_compilation_millis_;
+  record->system_server_compilation_millis = system_server_compilation_millis_;
   return true;
 }
 

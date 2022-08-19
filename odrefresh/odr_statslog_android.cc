@@ -155,7 +155,10 @@ bool UploadStatsIfAvailable(/*out*/std::string* error_msg) {
                                                         record.secondary_bcp_compilation_seconds,
                                                         record.system_server_compilation_seconds,
                                                         record.cache_space_free_start_mib,
-                                                        record.cache_space_free_end_mib);
+                                                        record.cache_space_free_end_mib,
+                                                        record.primary_bcp_compilation_millis,
+                                                        record.secondary_bcp_compilation_millis,
+                                                        record.system_server_compilation_millis);
   if (bytes_written <= 0) {
     *error_msg = android::base::StringPrintf("stats_write returned %d", bytes_written);
     return false;
