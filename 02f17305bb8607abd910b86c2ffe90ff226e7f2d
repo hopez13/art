@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "509a4864_bb33b13b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-19T21:11:26Z",
+      "side": 1,
+      "message": "Please let me know if you want to make the GC number change in this CL. I think it might avoid still triggering a redundant GC in some corner cases.",
+      "revId": "02f17305bb8607abd910b86c2ffe90ff226e7f2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2a3b392_f9c8c54d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1555,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-19T21:11:26Z",
+      "side": 1,
+      "message": "This isn\u0027t great, especially after the change. Could you change to GetCurrentGcNum() + 1 ? Otherwise we can do that in a future change.",
+      "range": {
+        "startLine": 1555,
+        "startChar": 62,
+        "endLine": 1555,
+        "endChar": 73
+      },
+      "revId": "02f17305bb8607abd910b86c2ffe90ff226e7f2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
