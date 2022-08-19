@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1af64c8a_e8ee3984",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-19T13:46:31Z",
+      "side": 1,
+      "message": "Nit: Replace with space.",
+      "range": {
+        "startLine": 10,
+        "startChar": 48,
+        "endLine": 10,
+        "endChar": 49
+      },
+      "revId": "bc797ab92521550896ae4774b9e78f1e98971803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd5da1e7_ee266f18",
+        "filename": "odrefresh/odr_metrics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-19T13:46:31Z",
+      "side": 1,
+      "message": "I think you could remove these members and computed their values on the fly from their milliseconds counterparts below. (The milliseconds values can hold up to 2^31 (\"positive\") milliseconds, which is enough to encode durations up to 24 days, which is largely enough for this usage.)",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 49
+      },
+      "revId": "bc797ab92521550896ae4774b9e78f1e98971803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecb2b94c_6cee7fec",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-19T13:46:31Z",
+      "side": 1,
+      "message": "Please increment the version number, as this is change introduces a new format.",
+      "range": {
+        "startLine": 33,
+        "startChar": 52,
+        "endLine": 33,
+        "endChar": 53
+      },
+      "revId": "bc797ab92521550896ae4774b9e78f1e98971803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2a23352_43d46f2c",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-19T13:46:31Z",
+      "side": 1,
+      "message": "I also suggest adding a test case checking that values `\u003cbcp-type\u003e_compilation_seconds` and `\u003cbcp-type\u003e_compilation_millis` are consistent.",
+      "revId": "bc797ab92521550896ae4774b9e78f1e98971803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
