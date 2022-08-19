@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d9078ab8_10126e6a",
+        "filename": "odrefresh/odr_metrics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-19T14:42:36Z",
+      "side": 1,
+      "message": "Right, yes – sorry about the confusion. The other comments was meant if we kept both fields(in seconds and milliseconds) for a given metric.\n\nI think it\u0027s better to remove the fields expressing the values in seconds, as they are redundant information, and adjust the tests accordingly.",
+      "parentUuid": "55e21931_8ab53868",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 49
+      },
+      "revId": "bc797ab92521550896ae4774b9e78f1e98971803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ecb2b94c_6cee7fec",
         "filename": "odrefresh/odr_metrics_record.h",
         "patchSetId": 1
@@ -131,6 +155,24 @@
       "writtenOn": "2022-08-19T13:46:31Z",
       "side": 1,
       "message": "I also suggest adding a test case checking that values `\u003cbcp-type\u003e_compilation_seconds` and `\u003cbcp-type\u003e_compilation_millis` are consistent.",
+      "revId": "bc797ab92521550896ae4774b9e78f1e98971803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1485229c_c8cbde6a",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-19T14:42:36Z",
+      "side": 1,
+      "message": "As you noted in your other comment, this suggestion becomes irrelevant if you remove the fields expressing the compilation times in seconds.",
+      "parentUuid": "f2a23352_43d46f2c",
       "revId": "bc797ab92521550896ae4774b9e78f1e98971803",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
