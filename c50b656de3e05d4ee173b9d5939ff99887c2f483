@@ -46,6 +46,30 @@
       },
       "revId": "c50b656de3e05d4ee173b9d5939ff99887c2f483",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19058c6b_27e944bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-22T21:50:47Z",
+      "side": 1,
+      "message": "Right. But I\u0027m still having trouble with the relationship of the referenced bug to semi-space GC. Could you see if you agree with my comment on the bug, and if so, maybe add a comment about how that\u0027s resolved by this CL?",
+      "parentUuid": "8d4782b6_62ddae59",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "c50b656de3e05d4ee173b9d5939ff99887c2f483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
