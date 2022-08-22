@@ -22,6 +22,30 @@
       },
       "revId": "c50b656de3e05d4ee173b9d5939ff99887c2f483",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d4782b6_62ddae59",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-08-22T19:26:21Z",
+      "side": 1,
+      "message": "The bug already has links to the semi-space tests, which are failing in the absence of this CL. CMS is not tested but with this CL I\u0027m enabling that too. If the GC exists in the codebase, we should be able to run it.",
+      "parentUuid": "62f89377_a10d37eb",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "c50b656de3e05d4ee173b9d5939ff99887c2f483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
