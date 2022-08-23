@@ -3920,6 +3920,13 @@ void LSEVisitor::FinishFullLSE() {
     // location value.
     DCHECK_EQ(FindSubstitute(substitute), substitute);
 
+    // The substitute might be a NullCheck that we eliminated during LSE. If that happens, use the
+    // NullCheck's input.
+    if (substitute->IsNullCheck() && substitute->GetBlock() == nullptr) {
+      substitute = substitute->InputAt(0);
+    }
+    DCHECK(substitute->GetBlock() != nullptr) << "The substitute should be alive.";
+
     load->ReplaceWith(substitute);
     load->GetBlock()->RemoveInstruction(load);
   }
