@@ -165,7 +165,7 @@ class VlogMessage {
 // clang-format on
 
 #define DCHECK_IMPLIES(a, b) \
-  if (::android::base::kEnableDChecks) CHECK_IMPLIES(a, b)
+  CHECK_IMPLIES(a, b)
 
 }  // namespace art
 
