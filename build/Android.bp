@@ -179,6 +179,9 @@ art_module_art_global_defaults {
                 // "-marm",
                 // "-mapcs",
             ],
+            cflags: [
+                "-Wl,-mllvm,-regalloc-enable-advisor=release",
+            ],
         },
         linux: {
             cflags: [
