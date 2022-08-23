@@ -23,7 +23,7 @@ package {
 
 // --- ahat.jar ----------------
 java_binary_host {
-    name: "ahat",
+    name: "ahat_lib",
     visibility: [
         "//libcore/metrictests/memory/host",
     ],
