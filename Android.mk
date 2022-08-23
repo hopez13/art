@@ -70,7 +70,7 @@ LOCAL_IS_HOST_MODULE := true
 ifeq (true,$(my_art_module_source_build))
 
 LOCAL_REQUIRED_MODULES := \
-    ahat \
+    ahat_lib \
     dexdump \
     hprof-conv \
 

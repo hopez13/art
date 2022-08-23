@@ -25,7 +25,7 @@ package {
 }
 
 java_library_host {
-    name: "dexfuzz",
+    name: "dexfuzz_lib",
     srcs: ["src/**/*.java"],
     manifest: "manifest.txt",
 }
