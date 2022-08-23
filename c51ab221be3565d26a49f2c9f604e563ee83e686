@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68e11010_829c1145",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-08-23T11:08:59Z",
+      "side": 1,
+      "message": "It works either way, but the default -j for target is 8 or so.\n\nUsing much larger -j value does give speed up in this mode.",
+      "parentUuid": "5d147ae5_076f9947",
+      "range": {
+        "startLine": 36,
+        "startChar": 55,
+        "endLine": 36,
+        "endChar": 79
+      },
+      "revId": "c51ab221be3565d26a49f2c9f604e563ee83e686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cbd1885e_caa921af",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-08-23T10:48:50Z",
       "side": 1,
       "message": "I generally prefer options without negation in the name --- it\u0027s easier to parse without double or triple negation. Also, I don\u0027t understand why this is true by default and how it can be configured from outside. And cannot `DRY_RUN` be reused?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "c51ab221be3565d26a49f2c9f604e563ee83e686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f278acab_0af255db",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-08-23T11:08:59Z",
+      "side": 1,
+      "message": "`DRY_RUN` would execute that commands at all, so they wouldn\u0027t be recorded.  I am not sure how to make it fit.\n\nIt is only used on the `ART_TEST_CMD_DIR` path, so the `true` default does not affect normal runs.  Maybe I shouldn\u0027t do that.\n\nAny suggestion for a better variable name? (negated or not)",
+      "parentUuid": "cbd1885e_caa921af",
       "range": {
         "startLine": 37,
         "startChar": 0,
