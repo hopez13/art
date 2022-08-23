@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ceb76bf_fa84c44c",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-08-23T12:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f278acab_0af255db",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "c51ab221be3565d26a49f2c9f604e563ee83e686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e760533_3b271bc1",
@@ -125,6 +149,30 @@
       "writtenOn": "2022-08-23T10:48:50Z",
       "side": 1,
       "message": "Maybe add a comment that you are just running the `true` command instead of the real one (to ease the mental load on the reader about what kind of `true` this is).",
+      "range": {
+        "startLine": 50,
+        "startChar": 16,
+        "endLine": 50,
+        "endChar": 22
+      },
+      "revId": "c51ab221be3565d26a49f2c9f604e563ee83e686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eba44141_06ba9338",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-08-23T12:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e760533_3b271bc1",
       "range": {
         "startLine": 50,
         "startChar": 16,
