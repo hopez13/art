@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb55cb9c_594ae639",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-08-23T16:59:44Z",
+      "side": 1,
+      "message": "PTaL. Also see my comments on the bug. I\u0027m not sure if this will ensure that system property gets set always for all the runs using JVM. With JDK 17 we should at least skip part of the test when running with the JVM. I wanted to avoid skipping all the other parts.",
+      "revId": "32c2b15d334556396c83447cd2ef91e5beac8a77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
