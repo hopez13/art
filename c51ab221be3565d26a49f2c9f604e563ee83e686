@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "988e2722_3ce139cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-23T10:48:50Z",
+      "side": 1,
+      "message": "Nice change! Your approach pays off.",
+      "revId": "c51ab221be3565d26a49f2c9f604e563ee83e686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d147ae5_076f9947",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-23T10:48:50Z",
+      "side": 1,
+      "message": "Why? For speed? Is the output then synchronized? What happens if I use it with small -j value?",
+      "range": {
+        "startLine": 36,
+        "startChar": 55,
+        "endLine": 36,
+        "endChar": 79
+      },
+      "revId": "c51ab221be3565d26a49f2c9f604e563ee83e686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbd1885e_caa921af",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-23T10:48:50Z",
+      "side": 1,
+      "message": "I generally prefer options without negation in the name --- it\u0027s easier to parse without double or triple negation. Also, I don\u0027t understand why this is true by default and how it can be configured from outside. And cannot `DRY_RUN` be reused?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "c51ab221be3565d26a49f2c9f604e563ee83e686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e760533_3b271bc1",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-08-23T10:48:50Z",
+      "side": 1,
+      "message": "Maybe add a comment that you are just running the `true` command instead of the real one (to ease the mental load on the reader about what kind of `true` this is).",
+      "range": {
+        "startLine": 50,
+        "startChar": 16,
+        "endLine": 50,
+        "endChar": 22
+      },
+      "revId": "c51ab221be3565d26a49f2c9f604e563ee83e686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
