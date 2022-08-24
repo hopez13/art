@@ -18,6 +18,12 @@
 // Tests various entrypoints and patterns in simulator mode.
 //
 public class Main {
+  // Class used for testing object allocation and resolution.
+  static class ClassTest {
+    int foo() {
+      return 1;
+    }
+  }
 
   public static void expectEquals(int expected, int value) {
     if (expected != value) {
@@ -176,6 +182,38 @@ public class Main {
     System.out.println("LoopWithAllocations passed");
   }
 
+  // Test the art_quick_resolve_type entrypoint.
+  public static Class $compile$testResolveType() {
+    return ClassTest.class;
+  }
+
+  // Test the art_quick_alloc_object_initialized_rosalloc entrypoint.
+  public static Object $compile$testAllocObjectInitialized() {
+    Object x = new Object();
+    return x;
+  }
+
+  // Test the art_quick_alloc_object_resolved_rosalloc entrypoint.
+  public static ClassTest $compile$testAllocObjectResolved() {
+    ClassTest x = new ClassTest();
+    return x;
+  }
+
+  // Test object allocation entrypoints.
+  public static void testAllocObject() {
+    Object objVal = $compile$testAllocObjectInitialized();
+    if (objVal == null) {
+      System.out.println("Expected initialized object, but found NULL.");
+      throw new AssertionError();
+    }
+
+    ClassTest testObjVal = $compile$testAllocObjectResolved();
+    if (testObjVal == null) {
+      System.out.println("Expected resolved object, but found NULL.");
+      throw new AssertionError();
+    }
+  }
+
   public static void main(String[] args) throws Exception {
     System.loadLibrary(args[0]);
     Main obj = new Main();
@@ -191,6 +229,10 @@ public class Main {
     testExceptions();
 
     obj.testLoopWithAllocations();
+
+    $compile$testResolveType();
+
+    testAllocObject();
 
     System.out.println("passed");
   }
