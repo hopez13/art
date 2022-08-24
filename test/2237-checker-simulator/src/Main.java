@@ -25,6 +25,16 @@ public class Main {
     }
   }
 
+  // Class used for testing non trivial instance of and class casting.
+  static final class ClassTestFinal {
+    public String toString() {
+      return "final";
+    }
+  }
+
+  interface Itf {
+  }
+
   public static void expectEquals(int expected, int value) {
     if (expected != value) {
       throw new Error("Expected: " + expected + ", found: " + value);
@@ -214,6 +224,28 @@ public class Main {
     }
   }
 
+  // Test the CheckInstanceOf entrypoint.
+  public static boolean $compile$inline$testInstanceOfInterface(Object o) {
+    return o instanceof Itf;
+  }
+
+  // Test the InstanceofNonTrivial entrypoint by throwing a ClassCastException.
+  public static ClassTestFinal $compile$testThrowClassCastException(Object o) {
+    return (ClassTestFinal) o;
+  }
+
+  // Test InstanceOf entrypoints.
+  public static void testInstanceOf() {
+    $compile$inline$testInstanceOfInterface(new Main());
+
+    try {
+      $compile$testThrowClassCastException(new Object());
+      throw new Error("Expected check cast exception");
+    } catch (ClassCastException e) {
+      System.out.println("ClassCastException caught as expected");
+    }
+  }
+
   public static void main(String[] args) throws Exception {
     System.loadLibrary(args[0]);
     Main obj = new Main();
@@ -233,6 +265,8 @@ public class Main {
     $compile$testResolveType();
 
     testAllocObject();
+
+    testInstanceOf();
 
     System.out.println("passed");
   }

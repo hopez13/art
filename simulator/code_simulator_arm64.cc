@@ -93,6 +93,13 @@ extern "C" mirror::Object* artAllocObjectFromCodeResolvedRosAlloc(
 extern "C" mirror::Class* artResolveTypeFromCode(uint32_t type_idx, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
+extern "C" void artThrowClassCastExceptionForObject(mirror::Object* obj,
+                                                    mirror::Class* dest_type,
+                                                    Thread* self);
+
+extern "C" size_t artInstanceOfFromCode(mirror::Object* obj, mirror::Class* ref_class)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
 namespace arm64 {
 
 BasicCodeSimulatorArm64* BasicCodeSimulatorArm64::CreateBasicCodeSimulatorArm64() {
@@ -1420,6 +1427,49 @@ class VIXLAsmQuickEntryPointBuilder {
     Emit_DELIVER_PENDING_EXCEPTION_FRAME_READY();
   }
 
+    void Emit_art_quick_check_instance_of() {
+    vixl::aarch64::Label lthrow_class_cast_exception_for_bitstring_check;
+    // Type check using the bit string passes null as the target class. In that case just throw.
+    __ cbz(x1, &lthrow_class_cast_exception_for_bitstring_check);
+
+    // Store arguments and link register
+    // Stack needs to be 16B aligned on calls.
+    Emit_SAVE_TWO_REGS_INCREASE_FRAME(x0, x1, 32);
+    Emit_SAVE_REG(xLR, 24);
+
+    // Call runtime code
+    Emit_Call(artInstanceOfFromCode);
+
+    // Restore LR.
+    Emit_RESTORE_REG(xLR, 24);
+
+    vixl::aarch64::Label lthrow_class_cast_exception;
+
+    // Check for exception
+    __ cbz(x0, &lthrow_class_cast_exception);
+
+    // Restore and return
+    Emit_RESTORE_TWO_REGS_DECREASE_FRAME(x0, x1, 32);
+    __ ret();
+
+    __ Bind(&lthrow_class_cast_exception);
+    // Restore
+    Emit_RESTORE_TWO_REGS_DECREASE_FRAME(x0, x1, 32);
+
+    __ Bind(&lthrow_class_cast_exception_for_bitstring_check);
+    // Save all registers as basis for long jump context
+    Emit_SETUP_SAVE_ALL_CALLEE_SAVES_FRAME();
+
+    // Pass Thread::Current
+    __ mov(x2, xSELF);
+
+    // (Object*, Class*, Thread*)
+    Emit_Call(artThrowClassCastExceptionForObject);
+
+    // We should not return here...
+    Emit_PREPARE_AND_DO_LONG_JUMP();
+  }
+
   /*
    * Called to bridge from the quick to interpreter ABI. On entry the arguments match those
    * of a quick call:
@@ -1649,8 +1699,20 @@ class CustomSimulator final: public Simulator {
   // which can be simulated.
   void VisitUnconditionalBranchToRegister(const vixl::aarch64::Instruction* instr) override
       REQUIRES_SHARED(Locks::mutator_lock_) {
-    if (instr->Mask(UnconditionalBranchToRegisterMask) == BLR) {
-      void* target = reinterpret_cast<void*>(ReadXRegister(instr->GetRn()));
+    void* target = reinterpret_cast<void*>(ReadXRegister(instr->GetRn()));
+
+    if (instr->Mask(UnconditionalBranchToRegisterMask) == BR) {
+      auto lr = vixl::aarch64::Instruction::Cast(get_lr());
+      if (target == AddressOf(artInstanceOfFromCode)) {
+        RuntimeCallNonVoid(artInstanceOfFromCode);
+      } else {
+        // For branching to fixed addresses or labels, nothing has changed.
+        Simulator::VisitUnconditionalBranchToRegister(instr);
+        return;
+      }
+      WritePc(lr);
+      return;
+    } else if (instr->Mask(UnconditionalBranchToRegisterMask) == BLR) {
       auto next_instr = instr->GetNextInstruction();
       if (target == AddressOf(artQuickResolutionTrampoline)) {
         WriteLr(next_instr);
@@ -1727,6 +1789,12 @@ class CustomSimulator final: public Simulator {
       } else if (target == AddressOf(artResolveTypeFromCode)) {
         WriteLr(next_instr);
         RuntimeCallNonVoid(artResolveTypeFromCode);
+      } else if (target == AddressOf(artThrowClassCastExceptionForObject)) {
+        WriteLr(next_instr);
+        RuntimeCallVoid(artThrowClassCastExceptionForObject);
+      } else if (target == AddressOf(artInstanceOfFromCode)) {
+        WriteLr(next_instr);
+        RuntimeCallNonVoid(artInstanceOfFromCode);
       } else {
         // For branching to fixed addresses or labels, nothing has changed.
         Simulator::VisitUnconditionalBranchToRegister(instr);
@@ -1846,6 +1914,7 @@ SimulatorEntryPointsManagerArm64::~SimulatorEntryPointsManagerArm64() {
   DeleteEntryPointBuffer(entry_points_.pAllocObjectInitialized);
   DeleteEntryPointBuffer(entry_points_.pAllocObjectResolved);
   DeleteEntryPointBuffer(entry_points_.pResolveType);
+  DeleteEntryPointBuffer(entry_points_.pCheckInstanceOf);
 }
 
 void SimulatorEntryPointsManagerArm64::InitCustomEntryPoints() {
@@ -1896,6 +1965,10 @@ void SimulatorEntryPointsManagerArm64::InitCustomEntryPoints() {
   VIXLAsmQuickEntryPointBuilder::GenerateStub<
       &VIXLAsmQuickEntryPointBuilder::Emit_art_quick_resolve_type>(
           &entry_points_.pResolveType);
+  VIXLAsmQuickEntryPointBuilder::GenerateStub<
+      &VIXLAsmQuickEntryPointBuilder::Emit_art_quick_check_instance_of>(
+          &entry_points_.pCheckInstanceOf);
+  entry_points_.pInstanceofNonTrivial = artInstanceOfFromCode;
 }
 
 void SimulatorEntryPointsManagerArm64::UpdateOthersEntryPoints(
@@ -1909,6 +1982,8 @@ void SimulatorEntryPointsManagerArm64::UpdateOthersEntryPoints(
   others_entry_points->pAllocObjectInitialized = entry_points_.pAllocObjectInitialized;
   others_entry_points->pAllocObjectResolved = entry_points_.pAllocObjectResolved;
   others_entry_points->pResolveType = entry_points_.pResolveType;
+  others_entry_points->pCheckInstanceOf = entry_points_.pCheckInstanceOf;
+  others_entry_points->pInstanceofNonTrivial = entry_points_.pInstanceofNonTrivial;
 }
 
 #endif
