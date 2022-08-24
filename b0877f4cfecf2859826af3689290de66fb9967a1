@@ -16,6 +16,23 @@
       "message": "We may be able to replace the numeric literals in this file with the definitions from android/api-level.h, though this also adds a layer of indirection.",
       "revId": "b0877f4cfecf2859826af3689290de66fb9967a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59485635_2a3be900",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-08-24T15:35:19Z",
+      "side": 1,
+      "message": "Thanks Orion.\n\nPre-submit failures seem due to infra issues + flaky tests; restarting TreeHugger.",
+      "revId": "b0877f4cfecf2859826af3689290de66fb9967a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
