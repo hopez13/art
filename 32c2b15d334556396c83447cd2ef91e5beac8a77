@@ -16,6 +16,29 @@
       "message": "PTaL. Also see my comments on the bug. I\u0027m not sure if this will ensure that system property gets set always for all the runs using JVM. With JDK 17 we should at least skip part of the test when running with the JVM. I wanted to avoid skipping all the other parts.",
       "revId": "32c2b15d334556396c83447cd2ef91e5beac8a77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8fe5694_0f2edd6e",
+        "filename": "test/959-invoke-polymorphic-accessors/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-08-24T05:55:00Z",
+      "side": 1,
+      "message": "It\u0027s probably clearer for others if this used `java.*` properties that differ on Android and are stable:\n\nhttps://cs.android.com/android/platform/superproject/+/master:libcore/libart/src/main/java/java/lang/AndroidHardcodedSystemProperties.java;drc\u003d302dc0b3e68bf0b30f8cb6237c19064d53363f0f;l\u003d59",
+      "range": {
+        "startLine": 23,
+        "startChar": 74,
+        "endLine": 23,
+        "endChar": 86
+      },
+      "revId": "32c2b15d334556396c83447cd2ef91e5beac8a77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
