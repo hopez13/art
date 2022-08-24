@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b0cc287_85e237dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-08-24T12:20:06Z",
+      "side": 1,
+      "message": "We may be able to replace the numeric literals in this file with the definitions from android/api-level.h, though this also adds a layer of indirection.",
+      "revId": "b0877f4cfecf2859826af3689290de66fb9967a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
