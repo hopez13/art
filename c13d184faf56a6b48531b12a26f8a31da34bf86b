@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35958348_9bf83dbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-08-24T18:35:02Z",
+      "side": 1,
+      "message": "This CL fixes the issue w.r.t. ClearAllInterpreterCaches(). So giving +2.",
+      "revId": "c13d184faf56a6b48531b12a26f8a31da34bf86b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f39f530_c34994b6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4458,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-08-24T18:35:02Z",
+      "side": 1,
+      "message": "This is true only for CC. For other GCs it\u0027s possible that interpreter modifies the cache when this function is called (for instance changing a reference to long). However, in those cases GC doesn\u0027t attempt to modify the cache (condition at line 4495 is never true). But still it causes issues in IsMarked().\n\nPlease refer to the next comment in SweepInterpreterCaches() for a possible solution.",
+      "range": {
+        "startLine": 4458,
+        "startChar": 14,
+        "endLine": 4458,
+        "endChar": 90
+      },
+      "revId": "c13d184faf56a6b48531b12a26f8a31da34bf86b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e54111a_b8c221d8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4517,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-08-24T18:35:02Z",
+      "side": 1,
+      "message": "If we could just load the whole entry atomically here and if update is required (line 4496) then do it using 16B CAS, then we can solve this problem.",
+      "range": {
+        "startLine": 4515,
+        "startChar": 3,
+        "endLine": 4517,
+        "endChar": 5
+      },
+      "revId": "c13d184faf56a6b48531b12a26f8a31da34bf86b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
