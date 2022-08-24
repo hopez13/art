@@ -4456,67 +4456,16 @@ void Thread::VisitRoots(RootVisitor* visitor) {
 }
 #pragma GCC diagnostic pop
 
-static void SweepCacheEntry(IsMarkedVisitor* visitor, const Instruction* inst, size_t* value)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  // WARNING: The interpreter will not modify the cache while this method is running in GC.
-  //          However, ClearAllInterpreterCaches can still run if any dex file is closed.
-  //          Therefore the cache entry can be nulled at any point through this method.
-  if (inst == nullptr) {
-    return;
-  }
-  using Opcode = Instruction::Code;
-  Opcode opcode = inst->Opcode();
-  switch (opcode) {
-    case Opcode::NEW_INSTANCE:
-    case Opcode::CHECK_CAST:
-    case Opcode::INSTANCE_OF:
-    case Opcode::NEW_ARRAY:
-    case Opcode::CONST_CLASS: {
-      mirror::Class* cls = reinterpret_cast<mirror::Class*>(*value);
-      if (cls == nullptr || cls == Runtime::GetWeakClassSentinel()) {
-        // Entry got deleted in a previous sweep.
-        return;
-      }
-      Runtime::ProcessWeakClass(
-          reinterpret_cast<GcRoot<mirror::Class>*>(value),
-          visitor,
-          Runtime::GetWeakClassSentinel());
-      return;
-    }
-    case Opcode::CONST_STRING:
-    case Opcode::CONST_STRING_JUMBO: {
-      mirror::Object* object = reinterpret_cast<mirror::Object*>(*value);
-      if (object == nullptr) {
-        return;
-      }
-      mirror::Object* new_object = visitor->IsMarked(object);
-      // We know the string is marked because it's a strongly-interned string that
-      // is always alive (see b/117621117 for trying to make those strings weak).
-      // The IsMarked implementation of the CMS collector returns
-      // null for newly allocated objects, but we know those haven't moved. Therefore,
-      // only update the entry if we get a different non-null string.
-      if (new_object != nullptr && new_object != object) {
-        *value = reinterpret_cast<size_t>(new_object);
-      }
-      return;
-    }
-    default:
-      // The following opcode ranges store non-reference values.
-      if ((Opcode::IGET <= opcode && opcode <= Opcode::SPUT_SHORT) ||
-          (Opcode::INVOKE_VIRTUAL <= opcode && opcode <= Opcode::INVOKE_INTERFACE_RANGE)) {
-        return;  // Nothing to do for the GC.
-      }
-      // New opcode is using the cache. We need to explicitly handle it in this method.
-      DCHECK(false) << "Unhandled opcode " << inst->Opcode();
-  }
-};
-
-void Thread::SweepInterpreterCaches(IsMarkedVisitor* visitor) {
+void Thread::SweepInterpreterCaches(IsMarkedVisitor*) {
   MutexLock mu(Thread::Current(), *Locks::thread_list_lock_);
-  Runtime::Current()->GetThreadList()->ForEach([visitor](Thread* thread) {
+  Runtime::Current()->GetThreadList()->ForEach([](Thread* thread) {
     Locks::mutator_lock_->AssertSharedHeld(Thread::Current());
     for (InterpreterCache::Entry& entry : thread->GetInterpreterCache()->GetArray()) {
-      SweepCacheEntry(visitor, reinterpret_cast<const Instruction*>(entry.first), &entry.second);
+      // Clear the entry key. This is not synchronized with the running interpreter,
+      // so it effectively means some key loads in the interpreter will randomly return
+      // null where they wouldn't have before.  Since it is the map key, that is ok.
+      // However, note that we can not clear the value as that could cause issues.
+      entry.first = 0;
     }
   });
 }
