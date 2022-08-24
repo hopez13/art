@@ -16,6 +16,23 @@
       "message": "Restoring this revert because the test suppression in tools/libcore_fugu_failures.txt doesn\u0027t seem to work. Reverting this to avoid causing red in Fugu for too long until Nikita is back.",
       "revId": "613e47049d8926ed0c0359a79a6d290ee6342596",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ad80815_03193a6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-08-24T15:38:27Z",
+      "side": 1,
+      "message": "infra is flaky. retrying presubmit",
+      "revId": "613e47049d8926ed0c0359a79a6d290ee6342596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
