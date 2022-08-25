@@ -94,6 +94,30 @@
       },
       "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57893048_491084b6",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-08-25T20:55:38Z",
+      "side": 1,
+      "message": "Stefano did something like that in PS 2, but I didn\u0027t fancy paying the extra runtime cost (see other comment). If there\u0027s a way to make it safe without runtime cost (or at least much less than that), I\u0027m for it.",
+      "parentUuid": "5c12040e_4ec8e1bc",
+      "range": {
+        "startLine": 270,
+        "startChar": 44,
+        "endLine": 270,
+        "endChar": 97
+      },
+      "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

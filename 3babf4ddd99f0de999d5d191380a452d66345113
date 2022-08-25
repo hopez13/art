@@ -93,6 +93,24 @@
       "parentUuid": "bedd4afb_e2de72c1",
       "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6032cbe_433d0d5e",
+        "filename": "openjdkjvmti/ti_search.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-08-25T20:55:38Z",
+      "side": 1,
+      "message": "`ClassLinker::boot_class_path_` doesn\u0027t own the objects, but `ClassLinker:: boot_dex_files_` does: https://cs.android.com/android/platform/superproject/+/master:art/runtime/class_linker.h;l\u003d1300-1301;drc\u003d4bff111e3b7aa6517559a806b8de5cc8e71462ad\n\nLooking at other code I think the intention is to always add the files to `boot_dex_files_` when they go onto `boot_class_path_`, e.g. here: https://cs.android.com/android/platform/superproject/+/master:art/runtime/class_linker.cc;l\u003d1332-1338;drc\u003d3449fd0fe8904e0690d47cceb0b77c64d4718ea3\n\nI agree this code must leak. It originates from https://r.android.com/323526, but I don\u0027t see any comments about it there. You may be right the author didn\u0027t care enough to fix it properly - if it is as you say that these files must outlive the Runtime instance then it isn\u0027t good enough to add them to `boot_dex_files_`, so another storage has to be invented. But why is that the case? How long do they have to live?",
+      "parentUuid": "bedd4afb_e2de72c1",
+      "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
