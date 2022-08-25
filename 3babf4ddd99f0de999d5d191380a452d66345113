@@ -75,6 +75,24 @@
       "parentUuid": "9c966043_8e10ba9d",
       "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5989d363_0a148088",
+        "filename": "openjdkjvmti/ti_search.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-08-25T20:15:15Z",
+      "side": 1,
+      "message": "My understanding of this code is:\n1. The objects in `dex_files` have to outlive `art::Runtime::Current()`, so any attempt that results in those objects being deleted will lead to use-after-free. This includes all attempts that Stefano did.\n2. `art::Runtime::Current()` is not responsible for deleting those objects. `dex_file.release()` will definitely lead to memory leak, but `art::Runtime::Current()` usually lives as long as the process, so the author don\u0027t care about the case where `art::Runtime::Current()` exits early.\n3. I think it\u0027s good to keep the unique_ptrs somewhere, but I don\u0027t have knowledge of this code to tell where is most appropriate. I only know that the objects have to outlive `art::Runtime::Current()`.",
+      "parentUuid": "bedd4afb_e2de72c1",
+      "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
