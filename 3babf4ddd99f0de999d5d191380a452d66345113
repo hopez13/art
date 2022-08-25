@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b58ba6e1_b6482a55",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-08-25T17:52:26Z",
+      "side": 1,
+      "message": "Nit: I think the word is \"loop\". I\u0027d be unsure what you mean with \"cycle\" here (and below).",
+      "range": {
+        "startLine": 269,
+        "startChar": 91,
+        "endLine": 269,
+        "endChar": 96
+      },
+      "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a84fd1b4_6236dfef",
         "filename": "openjdkjvmti/ti_search.cc",
         "patchSetId": 5
@@ -14,6 +37,24 @@
       "writtenOn": "2022-08-23T16:42:33Z",
       "side": 1,
       "message": "I wasn\u0027t able to understand why this call to `dex_file.release()` is necessary - but doing a few attempts, namely:\n\n* remove the for loop altogether\n* saving the pointer returned by `release()` and manually deleting it\n* calling `clear()` on the `dex_files` vector\n\nall returned in some test error (specifically for the `936-search-onload` test). Martin, do you happen to know a bit more about this? Do you think it would be acceptable to add the `//NOLINTNEXTLINE` directive with no explanation?",
+      "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c966043_8e10ba9d",
+        "filename": "openjdkjvmti/ti_search.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-08-25T17:52:26Z",
+      "side": 1,
+      "message": "This is new code from https://r.android.com/2183547. +jiakaiz, AppendToBootClassPath takes over ownership of the DexFile\u0027s in the vector, doesn\u0027t it? Shouldn\u0027t it take dex_files through move semantics instead? I guess that means putting the vector itself in a unique_ptr so that it can be moved safely without double free.",
+      "parentUuid": "a84fd1b4_6236dfef",
       "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
