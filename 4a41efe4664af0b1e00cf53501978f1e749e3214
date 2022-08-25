@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c8e8af1_f584c3b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-08-25T11:06:36Z",
+      "side": 1,
+      "message": "I\u0027ve tried to check this patch with the failing test using heavy presubmit, but it\u0027s tricky to get it to build correctly (https://android-build.googleplex.com/builds/abtd/run/L08200000956116308, https://android-build.googleplex.com/builds/abtd/run/L38700000956123611), so I intend to submit this and just check the postsubmit outcome.",
+      "revId": "4a41efe4664af0b1e00cf53501978f1e749e3214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
