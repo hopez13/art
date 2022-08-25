@@ -16,6 +16,8 @@
 
 #include "runtime.h"
 
+#include <utility>
+
 #ifdef __linux__
 #include <sys/prctl.h>
 #endif
@@ -3488,6 +3490,34 @@ void Runtime::AppendToBootClassPath(
   ScopedObjectAccess soa(Thread::Current());
   for (const std::unique_ptr<const art::DexFile>& dex_file : dex_files) {
     GetClassLinker()->AppendToBootClassPath(Thread::Current(), dex_file.get());
+  }
+}
+
+void Runtime::AppendToBootClassPath(const std::string& filename,
+                                    const std::string& location,
+                                    const std::vector<const art::DexFile*>& dex_files) {
+  boot_class_path_.push_back(filename);
+  if (!boot_class_path_locations_.empty()) {
+    boot_class_path_locations_.push_back(location);
+  }
+  ScopedObjectAccess soa(Thread::Current());
+  for (const art::DexFile* dex_file : dex_files) {
+    GetClassLinker()->AppendToBootClassPath(Thread::Current(), dex_file);
+  }
+}
+
+void Runtime::AppendToBootClassPath(
+    const std::string& filename,
+    const std::string& location,
+    const std::vector<std::pair<const art::DexFile*, ObjPtr<mirror::DexCache>>>&
+        dex_files_and_cache) {
+  boot_class_path_.push_back(filename);
+  if (!boot_class_path_locations_.empty()) {
+    boot_class_path_locations_.push_back(location);
+  }
+  ScopedObjectAccess soa(Thread::Current());
+  for (const auto& [dex_file, dex_cache] : dex_files_and_cache) {
+    GetClassLinker()->AppendToBootClassPath(dex_file, dex_cache);
   }
 }
 
