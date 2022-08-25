@@ -57,6 +57,24 @@
       "parentUuid": "a84fd1b4_6236dfef",
       "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bedd4afb_e2de72c1",
+        "filename": "openjdkjvmti/ti_search.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-08-25T19:46:50Z",
+      "side": 1,
+      "message": "This is not new code. `dex_file.release()` exists before aosp/2183547. `AppendToBootClassPath` doesn\u0027t take ownership. I don\u0027t understand `dex_file.release()` either, so I kept it as is in my CL.",
+      "parentUuid": "9c966043_8e10ba9d",
+      "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
