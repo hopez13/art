@@ -63,6 +63,24 @@
       "message": "IMO, this is broken on the clang side, at least if we generally want to turn this warning on. Clang should not warn for a VOLATILE variable that is written but not read. The assumption should be that a volatile variable can be read by some external agent, e.g. because it is a device register. Given that it is used to communicate with an external agent, there is no reason whatsoever to expect that it should be read by the program. So why warn?\n\nI personally care less about the device driver aspects of this than being able to make value visible to the debugger even when compiling with -O2. I should be able to assign to a volatile to ensure that. This breaks that ability. ",
       "revId": "d2e37c0576e38af669455044e685dae186412c08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72698b47_87f30425",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2022-08-26T21:18:41Z",
+      "side": 1,
+      "message": "\u003e The assumption should be that a volatile variable can be read by some external agent, e.g. because it is a device register.\n\n`volatile_sum` is a local variable, not a pointer, so it can\u0027t be a memory-mapped register or interact with any external agent.\n\nI\u0027m actually not sure whether the write to `volatile_sum` really does anything. `start` is already a pointer to volatile, so the compiler is not allowed to optimize away the reads from `*start`. The loop could be changed to this and it should still work:\n\n```\nwhile (start \u003c end) {\n  *start;\n  start +\u003d kPageSize;\n}\n```",
+      "parentUuid": "f489c16e_821b504b",
+      "revId": "d2e37c0576e38af669455044e685dae186412c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
