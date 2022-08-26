@@ -81,6 +81,24 @@
       "parentUuid": "f489c16e_821b504b",
       "revId": "d2e37c0576e38af669455044e685dae186412c08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "041bcd4e_6fadc588",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2022-08-26T21:25:20Z",
+      "side": 1,
+      "message": "Correct, just because `volatile_sum` is marked `volatile` doesn\u0027t prevent the compiler from optimizing access to it, assuming that it can prove that the only way to access it is via this sequence. It is 100% an unused but set variable, which is what the warning is trying to show you. I would -1 this patch because I think `[[maybe_unused]]` is the suboptimal way to fix it. The better solution is to delete the variable entirely, as it just promotes more bad behavior around trying to prevent optimizations but not understanding the language semantics.",
+      "parentUuid": "72698b47_87f30425",
+      "revId": "d2e37c0576e38af669455044e685dae186412c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
