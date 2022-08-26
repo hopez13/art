@@ -111,6 +111,24 @@
       "parentUuid": "bedd4afb_e2de72c1",
       "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8015aefe_76646300",
+        "filename": "openjdkjvmti/ti_search.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-08-26T09:04:14Z",
+      "side": 1,
+      "message": "Good finding on `boot_dex_files_`. I think it\u0027s good enough in terms of lifetime. I said the dex files must outlive `Runtime::Current()`, but it\u0027s not accurate. More accurately, they must outlive `Runtime::Current()-\u003eclass_linker_`. Since `Runtime` only deletes `class_linker_` on destruction, the lifetime of these two can be regarded as the same.\n\nHowever, I don\u0027t see `boot_dex_files_` is ever used for holding dex files that are added dynamically. Looks like it\u0027s only used by `ClassLinker` internally to hold dex files opened during runtime initialization. If you search for `AppendToBootClassPath`, you\u0027ll find many cases where a caller adds dex files to the class linker after runtime initialization and keeps the ownership somewhere else. For example, this code (https://cs.android.com/android/platform/superproject/+/master:art/openjdkjvmti/ti_redefine.cc;l\u003d2483;drc\u003d0e520aadebc54aa8ee6cb91e1ab47b94f8ff3024) adds a dex file and keeps the ownership here (https://cs.android.com/android/platform/superproject/+/master:art/openjdkjvmti/ti_redefine.h;l\u003d284;drc\u003d3449fd0fe8904e0690d47cceb0b77c64d4718ea3). If keeping the ownership somewhere else is an established convention, then I\u0027m not sure if it\u0027s a good idea to break it. Stefano, I\u0027ll leave this to you to judge.\n\nAlternatives are:\n1. Add a static member to `SearchUtil` to hold those dex files.\n2. Keep it as is and add a comment that the release is okay because the dex files must outlive `Runtime::Current()-\u003eclass_linker_`, which usually lives as long as the process.",
+      "parentUuid": "a6032cbe_433d0d5e",
+      "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

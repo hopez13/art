@@ -118,6 +118,30 @@
       },
       "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "249017aa_57f6b98c",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-08-26T09:04:14Z",
+      "side": 1,
+      "message": "I would say I like Stefano\u0027s solution :) It\u0027s simple and easy to understand.\n\nAlternatively, you can do something like:\n\n```\nstd::unordered_map\u003cT*, std::unique_ptr\u003cT\u003e\u003e ptr_map;\nptr_map.reserve(Size());\nfor (std::unique_ptr\u003cT\u003e\u0026 element : collection_) {\n  ptr_map[element.get()] \u003d std::move(element);\n}\n\nauto it \u003d map.begin();\nfor (size_t i \u003d 0; i \u003c Size(); ++i) {\n  collection_[i] \u003d std::move(ptr_map[it-\u003esecond]);\n  ++it;\n}\n```\n\nwhich gives you the same time complexity as the current implementation (`O(n)`).\n\nI can\u0027t think of any alternative that completely avoids any extra allocation and extra runtime.\n\nI looked at the call hierarchy, and it looks like this function is only used in dex2oat, oatdump, and dexdiag, a few times for each dex file, so it\u0027s not as hot as something like 1000 calls per second or in the critical path of app startup, etc. Therefore, I think keeping the time complexity the same is good enough.",
+      "parentUuid": "57893048_491084b6",
+      "range": {
+        "startLine": 270,
+        "startChar": 44,
+        "endLine": 270,
+        "endChar": 97
+      },
+      "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
