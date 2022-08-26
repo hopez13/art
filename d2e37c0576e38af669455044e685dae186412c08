@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "190abe02_1ec6dde6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-08-26T20:10:10Z",
+      "side": 1,
+      "message": "The purpose is to ensure that the compiler doesn\u0027t optimize out the entire loop. volatile would ensure that the computation of sum doesn\u0027t take place, which would require touching the page, as required. Just wanted to clarify: [[maybe_unused]] merely suppresses the warning, right?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "d2e37c0576e38af669455044e685dae186412c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
