@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c57de8b_2e2ec654",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4465,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-26T16:22:50Z",
+      "side": 1,
+      "message": "If I understand this correctly, I\u0027m not a fan, though it\u0027s probably an improvement. We still have a data race on entry.first, right? So the first field should really be an atomic\u003c\u003e, presumably accessed with memory_order_relaxed everywhere?\n\nAs it stands, I think the logic is OK, but we\u0027re still erroneously telling the C++ compiler that this field does not change asynchronously. It\u0027s very opaque whether this has any consequences. And if we ever get a race detector ...",
+      "range": {
+        "startLine": 4465,
+        "startChar": 1,
+        "endLine": 4465,
+        "endChar": 22
+      },
+      "revId": "f743ec00ca936ba7ebd8fa1b8fa256875c7838f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
