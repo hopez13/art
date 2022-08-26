@@ -99,6 +99,24 @@
       "parentUuid": "72698b47_87f30425",
       "revId": "d2e37c0576e38af669455044e685dae186412c08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e05bfa07_13e2ac12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-26T21:48:53Z",
+      "side": 1,
+      "message": "It can still interact with a debugger, which is an external agent here.\n\nWould the warning not be generated if this were not a local, or it had its address taken? Even then, I don\u0027t see the warning being useful in catching bugs; it still seems to mostly get in the way of legitimate usage, like for debugging. I think it should just not be generated if the variable is volatile.\n\nHas the warning ever identified a bug where the variable was volatile?\n\nI agree that this code is overly paranoid, and there\u0027s probably a way to do this without volatile_sum. But the IMO, the real question is whether we should fix code to work around what seems to me to be an overzealous warning or fix the warning.\n\n(I don\u0027t like the suggested replacement code. It would take me 20 minutes with the standard to figure out whether it\u0027s correct. *start is an lvalue expression. The load only happens as a result of the rvalue conversion. Is that implied if the result is unused? I think this is one of the sticky language corner cases that I would rather not rely on. I\u0027m also not 100% sure the answer is consistent between C and C++. I agree that just dropping the write to volatile_sum at the end should be OK. If we need a workaround, that may be the cleanest. But I really dislike overzealous warnings.)",
+      "parentUuid": "72698b47_87f30425",
+      "revId": "d2e37c0576e38af669455044e685dae186412c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
