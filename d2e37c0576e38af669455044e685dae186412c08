@@ -22,6 +22,23 @@
       },
       "revId": "d2e37c0576e38af669455044e685dae186412c08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f489c16e_821b504b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-08-26T20:54:32Z",
+      "side": 1,
+      "message": "IMO, this is broken on the clang side, at least if we generally want to turn this warning on. Clang should not warn for a VOLATILE variable that is written but not read. The assumption should be that a volatile variable can be read by some external agent, e.g. because it is a device register. Given that it is used to communicate with an external agent, there is no reason whatsoever to expect that it should be read by the program. So why warn?\n\nI personally care less about the device driver aspects of this than being able to make value visible to the debugger even when compiling with -O2. I should be able to assign to a volatile to ensure that. This breaks that ability. ",
+      "revId": "d2e37c0576e38af669455044e685dae186412c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
