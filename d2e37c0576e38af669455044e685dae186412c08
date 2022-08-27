@@ -117,6 +117,24 @@
       "parentUuid": "72698b47_87f30425",
       "revId": "d2e37c0576e38af669455044e685dae186412c08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23f368f7_a55bc3e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2022-08-27T00:31:50Z",
+      "side": 1,
+      "message": "The C++ specification doesn\u0027t even acknowledge the existence of debuggers. As for a way to handle this, could I suggest that ART implement a helper routine similar to `READ_ONCE` from the Linux kernel (see https://github.com/torvalds/linux/blob/master/include/asm-generic/rwonce.h#L44)? Then you could read these objects into an otherwise unused global variable to ensure that the compiler cannot elide the loads, all without using volatile here in this function.\n\nAs for enabling more warnings like this, we\u0027ve already been having discussions about how to proceed for new warnings, so I\u0027ll follow up with the folks creating these kinds of changes. In any case, I do think some cleanup here would be great, so that we don\u0027t continue cargo-culting things that aren\u0027t clear.",
+      "parentUuid": "e05bfa07_13e2ac12",
+      "revId": "d2e37c0576e38af669455044e685dae186412c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
