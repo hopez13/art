@@ -26,7 +26,6 @@ struct Unit {
   // when running Valgrind.
   Unit() {}
   Unit(const Unit&) = default;
-  ~Unit() {}
   bool operator==(const Unit&) const {
     return true;
   }
