@@ -125,54 +125,44 @@ class AdbConnectionState {
   std::string agent_name_;
 
   AdbConnectionDebuggerController controller_;
-  AdbConnectionDdmCallback ddm_callback_;
-
-  // Eventfd used to allow the StopDebuggerThreads function to wake up sleeping threads
-  android::base::unique_fd sleep_event_fd_;
+  AdbConnectionDdmCallback ddm_callb
 
   // Context which wraps the socket which we use to talk to adbd.
-  std::unique_ptr<AdbConnectionClientContext, void(*)(AdbConnectionClientContext*)> control_ctx_;
+  
 
-  // Socket that we use to talk to the agent (if it's loaded).
-  android::base::unique_fd local_agent_control_sock_;
+  // Socket that we use to talk to the
 
   // The fd of the socket the agent uses to talk to us. We need to keep it around in order to clean
   // it up when the runtime goes away.
-  android::base::unique_fd remote_agent_control_sock_;
+  
 
   // The fd that is forwarded through adb to the client. This is guarded by the
   // adb_write_event_fd_.
-  android::base::unique_fd adb_connection_socket_;
+  
 
   // The fd we send to the agent to let us synchronize access to the shared adb_connection_socket_.
   // This is also used as a general lock for the adb_connection_socket_ on any threads other than
   // the poll thread.
-  android::base::unique_fd adb_write_event_fd_;
+  
 
-  std::atomic<bool> shutting_down_;
+  
 
-  // True if we have loaded the agent library.
-  std::atomic<bool> agent_loaded_;
+  // True if we have loaded the agent library
 
   // True if the dt_fd_forward transport is listening for a new communication channel.
-  std::atomic<bool> agent_listening_;
+  
 
   // True if the dt_fd_forward transport has the socket. If so we don't do anything to the agent or
   // the adb connection socket until connection goes away.
-  std::atomic<bool> agent_has_socket_;
+  
 
-  std::atomic<bool> sent_agent_fds_;
+  
 
-  std::atomic<bool> performed_handshake_;
 
-  bool notified_ddm_active_;
 
-  std::atomic<uint32_t> next_ddm_id_;
+  
 
-  bool started_debugger_threads_;
-
-  friend struct AdbConnectionDebuggerController;
-};
+  
 
 }  // namespace adbconnection
 
