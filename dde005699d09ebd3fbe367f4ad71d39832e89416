@@ -142,6 +142,30 @@
       },
       "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8807bb8b_1eb3db71",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-08-30T19:41:09Z",
+      "side": 1,
+      "message": "Thanks for investigating, then I agree that\u0027s efficient enough, although in theory it could become used in more hot code since `SortByMapOrder` looks like a generic helper.\n\nA DCHECK on the lookup of `it-\u003esecond` in `ptr_map` would also alleviate my concern if `collection_` and `map` don\u0027t contain the same pointers. I like that.\n\nStill, that approach would also warrant a bit of explanation why it\u0027s done that way.\n\nOne more thing, with that implementation it\u0027s starting to get a bit large for being a header defined function, so I think it should be moved to a .cc file.",
+      "parentUuid": "249017aa_57f6b98c",
+      "range": {
+        "startLine": 270,
+        "startChar": 44,
+        "endLine": 270,
+        "endChar": 97
+      },
+      "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
