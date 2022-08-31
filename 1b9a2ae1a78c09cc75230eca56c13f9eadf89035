@@ -16,6 +16,24 @@
       "message": "Martin, could you please have a look at this? You updated the base class last. I don\u0027t know how inlining gets decided, but I think the new method should be.",
       "revId": "1b9a2ae1a78c09cc75230eca56c13f9eadf89035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5882d1ce_89c8e0a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-08-31T10:39:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure, the function I managed to find returned a simple static field, which can affect inlining. This test ought to have its own fixture instead of using something from libcore, but if it also needs to be in the boot class path it gets tricky, I suppose.\n\nI don\u0027t know much about what this test tries to do, I just tried to keep it the same. +vmarko originally wrote it and should confirm it\u0027s still WAI.",
+      "parentUuid": "88491c9b_50f60c07",
+      "revId": "1b9a2ae1a78c09cc75230eca56c13f9eadf89035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
