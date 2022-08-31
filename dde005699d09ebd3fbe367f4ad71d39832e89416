@@ -166,6 +166,30 @@
       },
       "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8a65550_946fead7",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-08-31T15:14:53Z",
+      "side": 1,
+      "message": "Shall we go with Jiakai\u0027s suggestion then, as it seems to be satisfactory to both of you? Martin, can you walk me through what DCHECK you have in mind for checking the pointers in the two maps?",
+      "parentUuid": "8807bb8b_1eb3db71",
+      "range": {
+        "startLine": 270,
+        "startChar": 44,
+        "endLine": 270,
+        "endChar": 97
+      },
+      "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
