@@ -118,6 +118,30 @@
       },
       "revId": "427a23a5795b64f6c270b646abb97bdfd1150961",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d359ce0_0644c4b2",
+        "filename": "runtime/gc/allocator/art-dlmalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-08-31T09:13:00Z",
+      "side": 1,
+      "message": "Fixed later in aosp/2158792",
+      "parentUuid": "bcc77b0f_3343b42d",
+      "range": {
+        "startLine": 42,
+        "startChar": 35,
+        "endLine": 42,
+        "endChar": 57
+      },
+      "revId": "427a23a5795b64f6c270b646abb97bdfd1150961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
