@@ -29,6 +29,10 @@
 #define __hwasan_handle_longjmp(sp)
 #endif
 
+#if defined(__aarch64__) && defined(__BIONIC__)
+#include <malloc.h>
+#endif
+
 namespace art {
 namespace arm64 {
 
@@ -130,7 +134,21 @@ void Arm64Context::SmashCallerSaves() {
 
 extern "C" NO_RETURN void art_quick_do_long_jump(uint64_t*, uint64_t*);
 
-void Arm64Context::DoLongJump() {
+#if defined(__aarch64__) && defined(__BIONIC__)
+static inline __attribute__((no_sanitize("memtag"))) void untag_memory(void* from, void* to) {
+  __asm__ __volatile__(
+      ".arch_extension mte\n"
+      "1:\n"
+      "stg %[Ptr], [%[Ptr]], #16\n"
+      "cmp %[Ptr], %[End]\n"
+      "b.lt 1b\n"
+      : [Ptr] "+&r"(from)
+      : [End] "r"(to)
+      : "memory");
+}
+#endif
+
+__attribute__((no_sanitize("memtag"))) void Arm64Context::DoLongJump() {
   uint64_t gprs[arraysize(gprs_)];
   uint64_t fprs[kNumberOfDRegisters];
 
@@ -147,6 +165,10 @@ void Arm64Context::DoLongJump() {
   DCHECK_EQ(reinterpret_cast<uintptr_t>(Thread::Current()), gprs[TR]);
   // Tell HWASan about the new stack top.
   __hwasan_handle_longjmp(reinterpret_cast<void*>(gprs[SP]));
+#if defined(__aarch64__) && defined(__BIONIC__)
+  if (mallopt(M_BIONIC_MEMTAG_STACK_IS_ON, 0))
+    untag_memory(__builtin_frame_address(0), reinterpret_cast<void*>(gprs[SP]));
+#endif
   // The Marking Register will be updated by art_quick_do_long_jump.
   art_quick_do_long_jump(gprs, fprs);
 }
