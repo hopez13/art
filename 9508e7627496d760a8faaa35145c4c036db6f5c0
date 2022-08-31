@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ad67fe8_18dd8a47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-08-31T08:53:19Z",
+      "side": 1,
+      "message": "In the end I found an alternative.",
+      "parentUuid": "8ae694fe_1ac882a5",
+      "revId": "9508e7627496d760a8faaa35145c4c036db6f5c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e69a9d1f_d03e2362",
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "Even so, the test also gets compiled against OpenJDK\u0027s API. It would be good if we can find another class to use for this test. Or, if not, to disable building against OpenJDK.",
       "parentUuid": "e69a9d1f_d03e2362",
+      "range": {
+        "startLine": 29,
+        "startChar": 20,
+        "endLine": 29,
+        "endChar": 70
+      },
+      "revId": "9508e7627496d760a8faaa35145c4c036db6f5c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b4e5f7_fd61adc4",
+        "filename": "test/683-clinit-inline-static-invoke/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-08-31T08:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee3ad2f6_9221ddc0",
       "range": {
         "startLine": 29,
         "startChar": 20,
