@@ -190,6 +190,30 @@
       },
       "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "659c613b_2deda9e2",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-08-31T17:55:39Z",
+      "side": 1,
+      "message": "SGTM.\n\nSo instead of using `ptr_map[it-\u003esecond]`, which will insert a new element into `ptr_map` if one isn\u0027t found, use `std::unordered_map::find` and add a DCHECK to assert that it finds an element.",
+      "parentUuid": "e8a65550_946fead7",
+      "range": {
+        "startLine": 270,
+        "startChar": 44,
+        "endLine": 270,
+        "endChar": 97
+      },
+      "revId": "dde005699d09ebd3fbe367f4ad71d39832e89416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

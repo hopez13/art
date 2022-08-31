@@ -147,6 +147,24 @@
       "parentUuid": "8015aefe_76646300",
       "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbce54d9_f94252d1",
+        "filename": "openjdkjvmti/ti_search.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-08-31T17:55:39Z",
+      "side": 1,
+      "message": "Btw, while I think `AddExtraBootDexFiles` is the way to go here, there\u0027s enough risk with switching to it that I suggest doing it in a separate CL.",
+      "parentUuid": "b4c50ccb_db8d9afc",
+      "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
