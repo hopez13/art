@@ -183,6 +183,24 @@
       "parentUuid": "fbce54d9_f94252d1",
       "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a917f12_244f2a1b",
+        "filename": "openjdkjvmti/ti_search.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-08-31T18:37:44Z",
+      "side": 1,
+      "message": "For context, the inconsistency between `Runtime` and `ClassLinker` is the root cause of b/243128839, and I\u0027m adding comments in https://android-review.googlesource.com/c/platform/art/+/2196996/1/runtime/class_linker.h to discourage people to directly call some `ClassLinker` methods to add things to bootclasspath. Maybe I should add the a comment to `ClassLinker::AddExtraBootDexFiles` too. I think such method call should go through `Runtime` to make sure that `Runtime` is updated at the same time.\n\nStefano, you can consider adding a method in `Runtime` that is similar to `Runtime::AppendToBootClassPath` and internally calls `ClassLinker::AddExtraBootDexFiles`.",
+      "parentUuid": "7bac5a5a_e1f64a14",
+      "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
