@@ -34,6 +34,23 @@
       "parentUuid": "88491c9b_50f60c07",
       "revId": "1b9a2ae1a78c09cc75230eca56c13f9eadf89035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fee13d2b_5a8867e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-09-01T09:01:38Z",
+      "side": 1,
+      "message": "Vladimir, PTAL. I\u0027d like to get changes like these in to be able to proceed with migration to JDK 17. I\u0027m going to keep the bug open as I\u0027d like to try and switch to using a class we have full control of, the tricky thing may be including it in the bootclasspath. For the moment I\u0027d like to have the replacement for Modifier submitted to avoid build failures.",
+      "revId": "1b9a2ae1a78c09cc75230eca56c13f9eadf89035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
