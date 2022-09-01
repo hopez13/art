@@ -22,6 +22,30 @@
       },
       "revId": "c13b91035dff493537801a797c8b9e9887798889",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d66cc04d_356641f6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-01T14:50:05Z",
+      "side": 1,
+      "message": "The problem is that it really depends on the wait parameter, as far as I can tell. The restriction only applies if wait \u003d\u003d true. And I don\u0027t think we can make the annotation conditional on that.\nThat\u0027s the reason for the cryptic added comment in the other file.",
+      "parentUuid": "f0058581_e10608eb",
+      "range": {
+        "startLine": 760,
+        "startChar": 19,
+        "endLine": 760,
+        "endChar": 59
+      },
+      "revId": "c13b91035dff493537801a797c8b9e9887798889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
