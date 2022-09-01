@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7416c1cf_b2daad00",
+        "filename": "dexlayout/dex_ir.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-01T12:48:35Z",
+      "side": 1,
+      "message": "Removed the comment in favour of a different implementation of the method, so this comment is now stale (for the curious: it was a literal translation from Italian).",
+      "parentUuid": "b58ba6e1_b6482a55",
+      "range": {
+        "startLine": 269,
+        "startChar": 91,
+        "endLine": 269,
+        "endChar": 96
+      },
+      "revId": "3babf4ddd99f0de999d5d191380a452d66345113",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a84fd1b4_6236dfef",
