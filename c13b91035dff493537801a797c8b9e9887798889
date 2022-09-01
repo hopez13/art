@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0058581_e10608eb",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-01T13:10:00Z",
+      "side": 1,
+      "message": "Should this be marked as requiring not to hold the mutator lock? I see other calls of MakeInitializedClassesVisiblyInitialized in the code base and I think they are holding the mutator lock (shared).",
+      "range": {
+        "startLine": 760,
+        "startChar": 19,
+        "endLine": 760,
+        "endChar": 59
+      },
+      "revId": "c13b91035dff493537801a797c8b9e9887798889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
