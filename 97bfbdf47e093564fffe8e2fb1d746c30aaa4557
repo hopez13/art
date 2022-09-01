@@ -16,6 +16,24 @@
       "message": "Roland, PTAL. I\u0027d like to get changes like these in to be able to proceed with migration to JDK 17. I\u0027m going to keep the bug open for a proper fix (if one is possible).",
       "revId": "97bfbdf47e093564fffe8e2fb1d746c30aaa4557",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31a8c316_b1bb00c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-09-01T09:03:51Z",
+      "side": 1,
+      "message": "Sorry, copy-paste error. For this fix I won\u0027t keep the bug open as it seems we cannot modify the static final field for `--jvm`, unless OpenJDK change the behavior.",
+      "parentUuid": "662a3f4e_0145ee61",
+      "revId": "97bfbdf47e093564fffe8e2fb1d746c30aaa4557",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
