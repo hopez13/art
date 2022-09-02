@@ -16,6 +16,64 @@
       "message": "Jiakai, I think this will conflict with your CL.",
       "revId": "e15daa71bb8f85a1071dea54df66a947cbc11ceb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e27659e_687a2f23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-02T12:34:47Z",
+      "side": 1,
+      "message": "Thanks, Stefano!",
+      "revId": "e15daa71bb8f85a1071dea54df66a947cbc11ceb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "805d7466_74529404",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-02T12:34:47Z",
+      "side": 1,
+      "message": "Thanks for the reminder. I can rebase if this CL is submitted earlier.",
+      "parentUuid": "19f1d34f_d2129c36",
+      "revId": "e15daa71bb8f85a1071dea54df66a947cbc11ceb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b1a427c_58a1b8e2",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-02T12:34:47Z",
+      "side": 1,
+      "message": "Use \"\u0026\u0026\" like the one in the `ClassLinker` class? This will force callers to pass an rvalue (e.g., use `std::move`), which indicates that the vector will be voided after the call.",
+      "range": {
+        "startLine": 312,
+        "startChar": 76,
+        "endLine": 312,
+        "endChar": 77
+      },
+      "revId": "e15daa71bb8f85a1071dea54df66a947cbc11ceb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
