@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "12d0486b_4353d989",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-02T10:47:28Z",
+      "side": 1,
+      "message": "As far as I could see, we should remove them at the very end of compilation when we free up all the memory. There\u0027s no need to keep them alive though and could lead to bugs later on as the instruction would still point to the block, for example.\n\nI haven\u0027t checked apps manually as memory use metrics tend to be flaky.",
+      "parentUuid": "53b724bd_c9637b59",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 48
+      },
+      "revId": "e8ff5834892b25d9897af1638d0625cef21ebb7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5cb238e5_b05f26fa",
@@ -88,6 +112,30 @@
       "writtenOn": "2022-09-02T09:43:08Z",
       "side": 1,
       "message": "To avoid confusion, should we call this RemoveDeadBlocksWhileBuildingDominatorTree? Or is there a check we could add that this is only used while building the dominator tree?",
+      "range": {
+        "startLine": 185,
+        "startChar": 13,
+        "endLine": 185,
+        "endChar": 29
+      },
+      "revId": "e8ff5834892b25d9897af1638d0625cef21ebb7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6cb6821_5c3d3828",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-02T10:47:28Z",
+      "side": 1,
+      "message": "There is no check but I can add one.",
+      "parentUuid": "e0a7f8a6_b35d245e",
       "range": {
         "startLine": 185,
         "startChar": 13,
