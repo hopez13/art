@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "53b724bd_c9637b59",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-02T09:43:08Z",
+      "side": 1,
+      "message": "This is the only benefit right? Because in the end, we do remove them?\n\nDid you see improvements on a set of apps?",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 48
+      },
+      "revId": "e8ff5834892b25d9897af1638d0625cef21ebb7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5cb238e5_b05f26fa",
@@ -48,6 +71,29 @@
       "writtenOn": "2022-08-30T08:41:19Z",
       "side": 1,
       "message": "Nicolas PTAL",
+      "revId": "e8ff5834892b25d9897af1638d0625cef21ebb7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0a7f8a6_b35d245e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-02T09:43:08Z",
+      "side": 1,
+      "message": "To avoid confusion, should we call this RemoveDeadBlocksWhileBuildingDominatorTree? Or is there a check we could add that this is only used while building the dominator tree?",
+      "range": {
+        "startLine": 185,
+        "startChar": 13,
+        "endLine": 185,
+        "endChar": 29
+      },
       "revId": "e8ff5834892b25d9897af1638d0625cef21ebb7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
