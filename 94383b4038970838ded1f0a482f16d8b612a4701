@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07ee7f4e_e587b16a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-05T16:13:14Z",
+      "side": 0,
+      "message": "In short, we move this method to the previous step so that all blocks connections are severed before we remove any instruction.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 48
+      },
+      "revId": "94383b4038970838ded1f0a482f16d8b612a4701",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
