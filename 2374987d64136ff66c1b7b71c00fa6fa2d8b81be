@@ -179,6 +179,46 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef2fd285_d5f14eac",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1537,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:52:05Z",
+      "side": 1,
+      "message": "nit: extra line",
+      "revId": "2374987d64136ff66c1b7b71c00fa6fa2d8b81be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02344e57_e241f849",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:52:05Z",
+      "side": 1,
+      "message": "nit: inner_most_environment ?",
+      "range": {
+        "startLine": 842,
+        "startChar": 28,
+        "endLine": 842,
+        "endChar": 49
+      },
+      "revId": "2374987d64136ff66c1b7b71c00fa6fa2d8b81be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8353a313_07e80ce0",
