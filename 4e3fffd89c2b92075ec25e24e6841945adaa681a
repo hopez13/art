@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a0e087d_6f0ce3ad",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-05T11:16:08Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with this test, but it seems we are still calling `SetExpectations` in this test case. Is this on purpose?",
+      "range": {
+        "startLine": 388,
+        "startChar": 19,
+        "endLine": 388,
+        "endChar": 58
+      },
+      "revId": "4e3fffd89c2b92075ec25e24e6841945adaa681a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
