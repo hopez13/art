@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c68aa44a_4a97cfe3",
+        "filename": "profman/include/profman/profman_result.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-05T21:03:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "591a7d10_2abba69b",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 39
+      },
+      "revId": "366dd13b06a9f97b28e1c814618cd196f6f92c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "567bb28c_de6be64d",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "570df09c_39c34384",
+        "filename": "profman/include/profman/profman_result.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-05T21:03:44Z",
+      "side": 1,
+      "message": "They are the same. Clarified it.",
+      "parentUuid": "567bb28c_de6be64d",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "366dd13b06a9f97b28e1c814618cd196f6f92c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df0ef5a4_d034aaa1",
@@ -77,6 +125,24 @@
       "writtenOn": "2022-09-05T19:10:16Z",
       "side": 1,
       "message": "Please add `// Generic errors` or something like that here, to avoid the perception that the comment above covers the kError constants below as well.",
+      "revId": "366dd13b06a9f97b28e1c814618cd196f6f92c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e3e817c_f2d25981",
+        "filename": "profman/include/profman/profman_result.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-05T21:03:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df0ef5a4_d034aaa1",
       "revId": "366dd13b06a9f97b28e1c814618cd196f6f92c2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
