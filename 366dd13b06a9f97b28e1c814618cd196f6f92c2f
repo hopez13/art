@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed3dff28_66644385",
+        "filename": "profman/include/profman/profman_result.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-05T23:08:18Z",
+      "side": 1,
+      "message": "Sorry, I was unclear. I meant that a merge implies that the reference profile does change to some extent. I.e. there\u0027s no such thing as a \"null merge\".\n\n(This is the kind of thing that tends to be \"obvious\" for those that are familiar with the code base, but can be tedious to suss out for others. I\u0027m a big fan of stating such \"obvious\" things for the latter crowd, because all too often I\u0027m one of them.)",
+      "parentUuid": "570df09c_39c34384",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "366dd13b06a9f97b28e1c814618cd196f6f92c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df0ef5a4_d034aaa1",
         "filename": "profman/include/profman/profman_result.h",
         "patchSetId": 1
