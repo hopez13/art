@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb389be8_292f53c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-05T14:18:38Z",
+      "side": 1,
+      "message": "FTR, the corresponding fix in AOSP that only accepts the new behaviour is https://r.android.com/2194871.\n\nThis CL is only necessary in `android13-tests-dev`, because this test wasn\u0027t part of CTS before then.",
+      "revId": "43b3caaa018f9dd265ff47f756e07fb2bc7d1f2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6933d453_ed87052d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-05T14:18:38Z",
+      "side": 1,
+      "message": "+svpawar for DrNo.",
+      "revId": "43b3caaa018f9dd265ff47f756e07fb2bc7d1f2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
