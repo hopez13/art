@@ -22,6 +22,30 @@
       },
       "revId": "4e3fffd89c2b92075ec25e24e6841945adaa681a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0759cde4_0065b093",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-05T11:27:56Z",
+      "side": 1,
+      "message": "Yes, it adds a lot of other `EXPECT_CALL`s that are necessary for the test. The only thing we do here is set `expected_link_with_platform_ns \u003d false`, to skip a specific `EXPECT_CALL` inside `SetExpectations`. It\u0027s instead added below with a slight difference. Let me know if you think this should be clarified better in the comment.\n\nMay also point out that https://r.android.com/2194871 adds the extra paths from extended public libs to the end of the list, hence the use of `StartsWith` below.",
+      "parentUuid": "2a0e087d_6f0ce3ad",
+      "range": {
+        "startLine": 388,
+        "startChar": 19,
+        "endLine": 388,
+        "endChar": 58
+      },
+      "revId": "4e3fffd89c2b92075ec25e24e6841945adaa681a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
