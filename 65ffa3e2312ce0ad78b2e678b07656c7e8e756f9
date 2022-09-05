@@ -33,6 +33,557 @@
       "message": "Thanks Hans! Still lgtm.",
       "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "628ff3bb_3684a516",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "Very nice! Just a few cosmetic comments.",
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "893a955f_c52504f6",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: one line",
+      "range": {
+        "startLine": 1071,
+        "startChar": 0,
+        "endLine": 1072,
+        "endChar": 77
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7a8e4e4_270cedb6",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: one line",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 80
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e10e103a_76c64864",
+        "filename": "runtime/native/java_lang_Thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: one line",
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dd9fa56_9a224a75",
+        "filename": "runtime/native/org_apache_harmony_dalvik_ddmc_DdmVmInternal.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: one line",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 84
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce519d93_7c0cc829",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: on new line",
+      "range": {
+        "startLine": 455,
+        "startChar": 26,
+        "endLine": 455,
+        "endChar": 41
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b3c632_d204c57e",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: one line",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 65
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af9cf4f6_a6b368a8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "Do we expect self to always be `this` in this method? If yes, should you remove? If not can you add a comment?",
+      "range": {
+        "startLine": 1461,
+        "startChar": 39,
+        "endLine": 1461,
+        "endChar": 51
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a44670b_e2f321b1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: new line",
+      "range": {
+        "startLine": 1481,
+        "startChar": 23,
+        "endLine": 1481,
+        "endChar": 35
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "064316ca_b3651252",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1675,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "or we fail to install the checkpoint. Can you add a comment on what it means failing to install?",
+      "range": {
+        "startLine": 1675,
+        "startChar": 33,
+        "endLine": 1675,
+        "endChar": 34
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6100ea4_9a2d2432",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "Add a comment why?",
+      "range": {
+        "startLine": 1685,
+        "startChar": 0,
+        "endLine": 1685,
+        "endChar": 28
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e64b1a06_b020a638",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1696,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "I find the use of \u0027we\u0027 confusing here: is it \u0027this\u0027 or \u0027self\u0027 ? Maybe replace \u0027we\u0027 with something like \u0027the thread we want to suspend\u0027 ?",
+      "range": {
+        "startLine": 1696,
+        "startChar": 11,
+        "endLine": 1696,
+        "endChar": 13
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a3da0e7_05c5fc5f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1708,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "Can this check be outside of the lock (ie line 1704) ? If not, can you add a comment?",
+      "range": {
+        "startLine": 1708,
+        "startChar": 0,
+        "endLine": 1708,
+        "endChar": 50
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ad85cd5_9434b96b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2074,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "mention where that struct is stored?",
+      "range": {
+        "startLine": 2074,
+        "startChar": 65,
+        "endLine": 2074,
+        "endChar": 86
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1122d38d_e3408680",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: one line",
+      "range": {
+        "startLine": 657,
+        "startChar": 0,
+        "endLine": 658,
+        "endChar": 59
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6200592_5dab3a82",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "\u003d false",
+      "range": {
+        "startLine": 681,
+        "startChar": 18,
+        "endLine": 681,
+        "endChar": 25
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35e6ca4e_db20b025",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: one condition per line",
+      "range": {
+        "startLine": 688,
+        "startChar": 17,
+        "endLine": 689,
+        "endChar": 32
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8987f093_6faf5595",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "Lines too long",
+      "range": {
+        "startLine": 704,
+        "startChar": 0,
+        "endLine": 705,
+        "endChar": 101
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1378be33_b5ad08ff",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "Can you add a comment why we need to clear it? (what happens to it if it\u0027s not null?)",
+      "range": {
+        "startLine": 710,
+        "startChar": 0,
+        "endLine": 710,
+        "endChar": 66
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e554f14_eb3d212b",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "What does \u0027bad\u0027 mean here? \u0027Incorrect\u0027 ? Or is it just that we\u0027re not in a state where we can initiate a suspend and this can happen from time to time?",
+      "range": {
+        "startLine": 721,
+        "startChar": 18,
+        "endLine": 721,
+        "endChar": 21
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6051566_9e9f0071",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: one line",
+      "range": {
+        "startLine": 852,
+        "startChar": 0,
+        "endLine": 853,
+        "endChar": 63
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95f087d0_53f9c68d",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "Line too long",
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a5d67f9_d33d7d45",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "nit: one line",
+      "range": {
+        "startLine": 939,
+        "startChar": 0,
+        "endLine": 940,
+        "endChar": 67
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0078e3ea_bee7ea49",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "Can the code below be shared with SuspendThreadByPeer ?",
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fbba0a2_fa8954fe",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T09:43:28Z",
+      "side": 1,
+      "message": "Is that the return value? What does it represent?",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 26
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
