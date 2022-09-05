@@ -46,6 +46,30 @@
       },
       "revId": "4e3fffd89c2b92075ec25e24e6841945adaa681a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fd2c5d4_ac9ddd1e",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-05T12:12:42Z",
+      "side": 1,
+      "message": "Thanks for the explanation, Martin – sounds good to me. Perhaps consider renaming `SetExpectations` as `NativeLoaderTest_Create::SetExpectations` in the comment to disambiguate?",
+      "parentUuid": "0759cde4_0065b093",
+      "range": {
+        "startLine": 388,
+        "startChar": 19,
+        "endLine": 388,
+        "endChar": 58
+      },
+      "revId": "4e3fffd89c2b92075ec25e24e6841945adaa681a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
