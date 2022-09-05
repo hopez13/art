@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94abdc51_443be5f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-05T19:10:16Z",
+      "side": 1,
+      "message": "Thank you, that\u0027s quite helpful.",
+      "revId": "366dd13b06a9f97b28e1c814618cd196f6f92c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "591a7d10_2abba69b",
+        "filename": "profman/include/profman/profman_result.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-05T19:10:16Z",
+      "side": 1,
+      "message": "Suggest putting this last and saying `- Otherwise, the return code can be /.../`.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 39
+      },
+      "revId": "366dd13b06a9f97b28e1c814618cd196f6f92c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "567bb28c_de6be64d",
+        "filename": "profman/include/profman/profman_result.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-05T19:10:16Z",
+      "side": 1,
+      "message": "And the output profile is different from the reference profile, right? If so, please mention that too, just for clarity.",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "366dd13b06a9f97b28e1c814618cd196f6f92c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df0ef5a4_d034aaa1",
+        "filename": "profman/include/profman/profman_result.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-05T19:10:16Z",
+      "side": 1,
+      "message": "Please add `// Generic errors` or something like that here, to avoid the perception that the comment above covers the kError constants below as well.",
+      "revId": "366dd13b06a9f97b28e1c814618cd196f6f92c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
