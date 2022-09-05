@@ -39,6 +39,30 @@
       },
       "revId": "00192fc5f0d8487486f07c1a73eeb7d86f6c3da7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d60150f_540cda32",
+        "filename": "runtime/oat_file_assistant_context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-05T13:04:32Z",
+      "side": 1,
+      "message": "Oops. I\u0027ll fix it in a separate CL. This CL is a cherry-pick.",
+      "parentUuid": "4c6fd583_8d667200",
+      "range": {
+        "startLine": 68,
+        "startChar": 64,
+        "endLine": 68,
+        "endChar": 67
+      },
+      "revId": "00192fc5f0d8487486f07c1a73eeb7d86f6c3da7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
