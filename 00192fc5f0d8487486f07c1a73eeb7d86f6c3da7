@@ -16,6 +16,29 @@
       "message": "This is a cherry-pick CL.",
       "revId": "00192fc5f0d8487486f07c1a73eeb7d86f6c3da7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c6fd583_8d667200",
+        "filename": "runtime/oat_file_assistant_context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-05T13:00:49Z",
+      "side": 1,
+      "message": "and",
+      "range": {
+        "startLine": 68,
+        "startChar": 64,
+        "endLine": 68,
+        "endChar": 67
+      },
+      "revId": "00192fc5f0d8487486f07c1a73eeb7d86f6c3da7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
