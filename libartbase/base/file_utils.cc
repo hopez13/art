@@ -280,6 +280,10 @@ std::string GetArtApexData() {
   return GetAndroidDir(kArtApexDataEnvVar, kArtApexDataDefaultPath, /*must_exist=*/false);
 }
 
+std::string GetSystemExtDir() {
+  return GetAndroidDir(kAndroidSystemExtRootEnvVar, kAndroidSystemExtRootDefaultPath, /*must_exist=*/false);
+}
+
 static std::string GetPrebuiltPrimaryBootImageDir(const std::string& android_root) {
   return StringPrintf("%s/framework", android_root.c_str());
 }
@@ -685,8 +689,27 @@ bool LocationIsOnSystem(const std::string& location) {
 #endif
 }
 
+bool LocationIsOnSystemExt(const std::string& location) {
+#ifdef _WIN32
+  UNUSED(location);
+  LOG(FATAL) << "LocationIsOnSystemExt is unsupported on Windows.";
+  return false;
+#else
+  return IsLocationOn(location,
+                      kAndroidSystemExtRootEnvVar,
+                      kAndroidSystemExtRootDefaultPath) ||
+         // When the 'system_ext' partition is not present, builds will create
+         // '/system/system_ext' instead.
+         IsLocationOn(location,
+                      kAndroidRootEnvVar,
+                      kAndroidRootDefaultPath,
+                      /* subdir= */ "system_ext/");
+#endif
+}
+
 bool LocationIsTrusted(const std::string& location, bool trust_art_apex_data_files) {
-  if (LocationIsOnSystem(location) || LocationIsOnArtModule(location)) {
+  if (LocationIsOnSystem(location) || LocationIsOnSystemExt(location)
+        || LocationIsOnArtModule(location)) {
     return true;
   }
   return LocationIsOnArtApexData(location) & trust_art_apex_data_files;
