@@ -39,6 +39,30 @@
       },
       "revId": "badd7a0b90d32b8a6e16e2336bb45090d902bdca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94d38ee4_78ea4b32",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-09-06T14:01:05Z",
+      "side": 1,
+      "message": "Actually we don\u0027t. We just need to update compiler options and that is done on the first line. compiler_ holds a const reference to these options so nothing else needs to be done. I am not quite sure why I added it. I uploaded the fix before my vacation :) Maybe I missed that compiler_options is a reference in Compiler.",
+      "parentUuid": "1c3e2ef6_3eba8ea8",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 100
+      },
+      "revId": "badd7a0b90d32b8a6e16e2336bb45090d902bdca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
