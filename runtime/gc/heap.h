@@ -1034,6 +1034,7 @@ class Heap {
         allocator_type != kAllocatorTypeTLAB &&
         allocator_type != kAllocatorTypeRegion;
   }
+
   static bool IsMovingGc(CollectorType collector_type) {
     return
         collector_type == kCollectorTypeCC ||

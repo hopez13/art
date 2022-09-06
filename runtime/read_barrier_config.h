@@ -41,6 +41,10 @@
 #define USE_READ_BARRIER
 #endif
 
+// Reserve marking register (and its refreshing logic) for all GCs as nterp
+// requires it. In the future if and when nterp is made independent of
+// read-barrier, we can switch back to reserving the register only for CC GC by
+// removing this define and setting kReserveMarkingRegister to false.
 
 // C++-specific configuration part..
 
@@ -49,6 +53,9 @@
 #include "base/globals.h"
 
 namespace art {
+
+// Read comment for RESERVE_MARKING_REGISTER above
+static constexpr bool kReserveMarkingRegister = false;
 
 #ifdef USE_BAKER_READ_BARRIER
 static constexpr bool kUseBakerReadBarrier = true;

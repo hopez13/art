@@ -27,10 +27,9 @@
 // Register holding Thread::Current().
 #define rSELF r9
 
-#if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
+#if defined(RESERVE_MARKING_REGISTER) || \
+    (defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER))
 // Marking Register, holding Thread::Current()->GetIsGcMarking().
-// Only used with the Concurrent Copying (CC) garbage
-// collector, with the Baker read barrier configuration.
 #define rMR r8
 #endif
 
@@ -160,7 +159,8 @@
 // entrypoints that possibly (directly or indirectly) perform a
 // suspend check (before they return).
 .macro REFRESH_MARKING_REGISTER
-#if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
+#if defined(RESERVE_MARKING_REGISTER) || \
+    (defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER))
     ldr rMR, [rSELF, #THREAD_IS_GC_MARKING_OFFSET]
 #endif
 .endm

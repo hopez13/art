@@ -95,7 +95,7 @@ const vixl::aarch64::CPURegList runtime_reserved_core_registers =
         // TODO: We don't need to reserve marking-register for userfaultfd GC. But
         // that would require some work in the assembler code as the right GC is
         // chosen at load-time and not compile time.
-        ((gUseReadBarrier || gUseUserfaultfd) && kUseBakerReadBarrier
+        (kReserveMarkingRegister || (kUseBakerReadBarrier && gUseReadBarrier)
          ? mr : vixl::aarch64::NoCPUReg),
         kImplicitSuspendCheckRegister,
         vixl::aarch64::lr);
