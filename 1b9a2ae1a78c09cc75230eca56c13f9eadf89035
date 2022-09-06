@@ -74,6 +74,30 @@
       },
       "revId": "1b9a2ae1a78c09cc75230eca56c13f9eadf89035",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e4d0e6f_5b17dd6a",
+        "filename": "test/683-clinit-inline-static-invoke/src-multidex/MyCalendarUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-09-06T09:43:15Z",
+      "side": 1,
+      "message": "Oops, forgot it there when I did git mv. Fixed now.",
+      "parentUuid": "1cce10a5_76a381a3",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 67
+      },
+      "revId": "1b9a2ae1a78c09cc75230eca56c13f9eadf89035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
