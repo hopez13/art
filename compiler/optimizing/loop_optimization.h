@@ -184,6 +184,12 @@ class HLoopOptimization : public HOptimization {
   // should be actually applied.
   bool TryFullUnrolling(LoopAnalysisInfo* analysis_info, bool generate_code = true);
 
+  // Tries to perform dynamic loop unrolling for a loop with a trip count known only at runtime, to
+  // eliminate the loop check overhead and to have more opportunities for inter-iteration
+  // optimizations. Returns whether transformation happened. 'generate_code' determines whether the
+  // optimization should be actually applied.
+  bool TryDynamicUnrolling(LoopAnalysisInfo* analysis_info, bool generate_code = true);
+
   // Tries to remove SuspendCheck for plain loops with a low trip count. The
   // SuspendCheck in the codegen makes sure that the thread can be interrupted
   // during execution for GC. Not being able to do so might decrease the
@@ -305,6 +311,12 @@ class HLoopOptimization : public HOptimization {
 
   bool IsInPredicatedVectorizationMode() const { return predicated_vectorization_mode_; }
 
+  // Check if the loop is a candidate for Dynamic Unrolling.
+  bool IsLoopCandidateForDynamicUnrolling(LoopAnalysisInfo* analysis_info);
+
+  // Check if the previous loop (in the traversal order) is an inner loop.
+  static bool HasPreviousInnerLoop(LoopNode* node);
+
   // Compiler options (to query ISA features).
   const CompilerOptions* compiler_options_;
 
@@ -367,6 +379,10 @@ class HLoopOptimization : public HOptimization {
   // Permanent mapping used during vectorization synthesis.
   // Contents reside in phase-local heap memory.
   ScopedArenaSafeMap<HInstruction*, HInstruction*>* vector_permanent_map_;
+
+  // Set of loops (headers) which shouldn't be tried for optimizations.
+  // Used for stopping indefinite attempts to transform the same loop.
+  ScopedArenaSet<HBasicBlock*>* loop_skip_list_;
 
   // Temporary vectorization bookkeeping.
   VectorMode vector_mode_;  // synthesis mode

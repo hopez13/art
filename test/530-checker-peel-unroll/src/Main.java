@@ -900,66 +900,342 @@ public class Main {
     }
   }
 
-  /// CHECK-START: void Main.noUnrollingNotKnownTripCount(int[], int) loop_optimization (before)
-  /// CHECK-DAG: <<Array:l\d+>>   ParameterValue                            loop:none
-  /// CHECK-DAG: <<Limit:i\d+>>   ParameterValue                            loop:none
-  /// CHECK-DAG: <<Const1:i\d+>>  IntConstant 1                             loop:none
-  /// CHECK-DAG: <<Phi:i\d+>>     Phi                                       loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG: <<Check:z\d+>>   GreaterThanOrEqual [<<Phi>>,<<Limit>>]    loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: <<If:v\d+>>      If [<<Check>>]                            loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: <<Get0:i\d+>>    ArrayGet [<<Array>>,<<Phi>>]              loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: <<IndAdd:i\d+>>  Add [<<Phi>>,<<Const1>>]                  loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: <<Get1:i\d+>>    ArrayGet [<<Array>>,<<IndAdd>>]           loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: <<Add:i\d+>>     Add [<<Get0>>,<<Get1>>]                   loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                  ArraySet [<<Array>>,<<Phi>>,<<Add>>]      loop:<<Loop>>      outer_loop:none
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownTripCount(int[], int) loop_optimization (before)
+  /// CHECK-DAG: <<Array:l\d+>>      ParameterValue                                 loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>      ParameterValue                                 loop:none
+  /// CHECK-DAG: <<Const1:i\d+>>     IntConstant 1                                  loop:none
+  /// CHECK-DAG: <<Phi:i\d+>>        Phi                                            loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<Check:z\d+>>      GreaterThanOrEqual [<<Phi>>,<<Limit>>]         loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: {{v\d+}}            If [<<Check>>]                                 loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<Get0:i\d+>>       ArrayGet [<<Array>>,<<Phi>>]                   loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<IndAdd:i\d+>>     Add [<<Phi>>,<<Const1>>]                       loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<Get1:i\d+>>       ArrayGet [<<Array>>,<<IndAdd>>]                loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: <<Add:i\d+>>        Add [<<Get0>>,<<Get1>>]                        loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG:                     ArraySet [<<Array>>,<<Phi>>,<<Add>>]           loop:<<Loop>>      outer_loop:none
 
-  /// CHECK-START: void Main.noUnrollingNotKnownTripCount(int[], int) loop_optimization (before)
-  /// CHECK:                      Phi
-  /// CHECK-NOT:                  Phi
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownTripCount(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi
+  /// CHECK-NOT:                     Phi
 
   // One `if` for the `for` loop, and another one for a deoptimize.
-  /// CHECK-START: void Main.noUnrollingNotKnownTripCount(int[], int) loop_optimization (before)
-  /// CHECK:                      If
-  /// CHECK:                      If
-  /// CHECK-NOT:                  If
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownTripCount(int[], int) loop_optimization (before)
+  /// CHECK:                         If
+  /// CHECK:                         If
+  /// CHECK-NOT:                     If
 
-  /// CHECK-START: void Main.noUnrollingNotKnownTripCount(int[], int) loop_optimization (before)
-  /// CHECK:                      ArrayGet
-  /// CHECK:                      ArrayGet
-  /// CHECK-NOT:                  ArrayGet
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownTripCount(int[], int) loop_optimization (before)
+  /// CHECK:                         ArrayGet
+  /// CHECK:                         ArrayGet
+  /// CHECK-NOT:                     ArrayGet
 
-  /// CHECK-START: void Main.noUnrollingNotKnownTripCount(int[], int) loop_optimization (before)
-  /// CHECK:                      ArraySet
-  /// CHECK-NOT:                  ArraySet
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownTripCount(int[], int) loop_optimization (before)
+  /// CHECK:                         ArraySet
+  /// CHECK-NOT:                     ArraySet
 
-  /// CHECK-START: void Main.noUnrollingNotKnownTripCount(int[], int) loop_optimization (after)
-  /// CHECK-DAG:                  Phi                                       loop:<<Loop:B\d+>> outer_loop:none
-  /// CHECK-DAG:                  If                                        loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                  ArrayGet                                  loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                  ArrayGet                                  loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG:                  ArraySet                                  loop:<<Loop>>      outer_loop:none
-
-  /// CHECK-START: void Main.noUnrollingNotKnownTripCount(int[], int) loop_optimization (after)
-  /// CHECK:                      Phi
-  /// CHECK-NOT:                  Phi
-
-  /// CHECK-START: void Main.noUnrollingNotKnownTripCount(int[], int) loop_optimization (after)
-  /// CHECK:                      If
-  /// CHECK:                      If
-  /// CHECK-NOT:                  If
-
-  /// CHECK-START: void Main.noUnrollingNotKnownTripCount(int[], int) loop_optimization (after)
-  /// CHECK:                      ArrayGet
-  /// CHECK:                      ArrayGet
-  /// CHECK-NOT:                  ArrayGet
-
-  /// CHECK-START: void Main.noUnrollingNotKnownTripCount(int[], int) loop_optimization (after)
-  /// CHECK:                      ArraySet
-  /// CHECK-NOT:                  ArraySet
-  private static final void noUnrollingNotKnownTripCount(int[] a, int n) {
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownTripCount(int[], int) loop_optimization (after)
+  /// CHECK-DAG: <<Array:l\d+>>      ParameterValue                                 loop:none
+  /// CHECK-DAG: <<Limit:i\d+>>      ParameterValue                                 loop:none
+  /// CHECK-DAG: <<Const0:i\d+>>     IntConstant 0                                  loop:none
+  /// CHECK-DAG: <<Const1:i\d+>>     IntConstant 1                                  loop:none
+  /// CHECK-DAG: <<BoundDelta:i\d+>> IntConstant                                    loop:none
+  /// CHECK-DAG: {{z\d+}}            LessThan [<<Const0>>,<<Limit>>]                loop:none
+  //
+  //  Loop bound adjustment calculations.
+  /// CHECK-DAG: <<TakenTest:z\d+>>  LessThan [<<Const0>>,<<Limit>>]                loop:none
+  /// CHECK-DAG: <<NewBound:i\d+>>   Sub [<<Limit>>,<<BoundDelta>>]                 loop:none
+  /// CHECK-DAG: <<UseBound:i\d+>>   Select [<<Limit>>,<<NewBound>>,<<TakenTest>>]  loop:none
+  //
+  //  Unrolled loop version.
+  /// CHECK-DAG: <<PhiA:i\d+>>       Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<CheckA:z\d+>>     GreaterThanOrEqual [<<PhiA>>,<<UseBound>>]     loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: {{v\d+}}            If [<<CheckA>>]                                loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<Get0A:i\d+>>      ArrayGet [<<Array>>,<<PhiA>>]                  loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<IndAddA:i\d+>>    Add [<<PhiA>>,<<Const1>>]                      loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<Get1A:i\d+>>      ArrayGet [<<Array>>,<<IndAddA>>]               loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<AddA:i\d+>>       Add [<<Get0A>>,<<Get1A>>]                      loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG:                     ArraySet [<<Array>>,<<PhiA>>,<<AddA>>]         loop:<<LoopA>>      outer_loop:none
+  //
+  /// CHECK-DAG: <<Get0B:i\d+>>      ArrayGet [<<Array>>,<<IndAddA>>]               loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<IndAddB:i\d+>>    Add [<<IndAddA>>,<<Const1>>]                   loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<Get1B:i\d+>>      ArrayGet [<<Array>>,<<IndAddB>>]               loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<AddB:i\d+>>       Add [<<Get0B>>,<<Get1B>>]                      loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG:                     ArraySet [<<Array>>,<<IndAddA>>,<<AddB>>]      loop:<<LoopA>>      outer_loop:none
+  //
+  /// CHECK-DAG: <<Get0C:i\d+>>      ArrayGet [<<Array>>,<<IndAddB>>]               loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<IndAddC:i\d+>>    Add [<<IndAddB>>,<<Const1>>]                   loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<Get1C:i\d+>>      ArrayGet [<<Array>>,<<IndAddC>>]               loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<AddC:i\d+>>       Add [<<Get0C>>,<<Get1C>>]                      loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG:                     ArraySet [<<Array>>,<<IndAddB>>,<<AddC>>]      loop:<<LoopA>>      outer_loop:none
+  //
+  /// CHECK-DAG: <<Get0D:i\d+>>      ArrayGet [<<Array>>,<<IndAddC>>]               loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<IndAddD:i\d+>>    Add [<<IndAddC>>,<<Const1>>]                   loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<Get1D:i\d+>>      ArrayGet [<<Array>>,<<IndAddD>>]               loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG: <<AddD:i\d+>>       Add [<<Get0D>>,<<Get1D>>]                      loop:<<LoopA>>      outer_loop:none
+  /// CHECK-DAG:                     ArraySet [<<Array>>,<<IndAddC>>,<<AddD>>]      loop:<<LoopA>>      outer_loop:none
+  //
+  //  Scalar loop version.
+  /// CHECK-DAG: <<PhiB:i\d+>>       Phi [<<PhiA>>,<<IndAddE:i\d+>>]                loop:<<LoopB:B\d+>> outer_loop:none
+  /// CHECK-DAG: <<CheckB:z\d+>>     GreaterThanOrEqual [<<PhiB>>,<<Limit>>]        loop:<<LoopB>>      outer_loop:none
+  /// CHECK-DAG: {{v\d+}}            If [<<CheckB>>]                                loop:<<LoopB>>      outer_loop:none
+  /// CHECK-DAG: <<Get0E:i\d+>>      ArrayGet [<<Array>>,<<PhiB>>]                  loop:<<LoopB>>      outer_loop:none
+  /// CHECK-DAG: <<IndAddE>>         Add [<<PhiB>>,<<Const1>>]                      loop:<<LoopB>>      outer_loop:none
+  /// CHECK-DAG: <<Get1E:i\d+>>      ArrayGet [<<Array>>,<<IndAddE>>]               loop:<<LoopB>>      outer_loop:none
+  /// CHECK-DAG: <<AddE:i\d+>>       Add [<<Get0E>>,<<Get1E>>]                      loop:<<LoopB>>      outer_loop:none
+  /// CHECK-DAG:                     ArraySet [<<Array>>,<<PhiB>>,<<AddE>>]         loop:<<LoopB>>      outer_loop:none
+  //
+  // One Phi for unrolled loop, and one for the scalar epilogue.
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownTripCount(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi
+  /// CHECK:                         Phi
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingUnknownTripCount(int[] a, int n) {
     for (int i = 0; i < n; i++) {
       a[i] += a[i + 1];
     }
+  }
+
+  // Check that we produce the correct result with very small values of 'n'.
+  private static final void $noinline$dynamicUnrollingCanHandleMinValue(int[] a) {
+    $noinline$dynamicUnrollingUnknownTripCount(a, Integer.MIN_VALUE);
+    $noinline$dynamicUnrollingUnknownTripCount(a, Integer.MIN_VALUE + 1);
+  }
+
+  /// CHECK-START: int Main.$noinline$dynamicUnrollingMultipleInduction(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<Loop:B\d+>>  outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<Loop>>       outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: int Main.$noinline$dynamicUnrollingMultipleInduction(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopA>>      outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopB:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopB>>      outer_loop:none
+  /// CHECK:                         Phi                                            loop:none
+  /// CHECK-NOT:                     Phi
+  private static final int $noinline$dynamicUnrollingMultipleInduction(int[] a, int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++, sum++) {
+      a[i] += a[i + 1];
+    }
+    return sum;
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingMultipleLoopsSharingInduction(int[], int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopB:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingMultipleLoopsSharingInduction(int[], int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopB:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopC:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingMultipleLoopsSharingInduction(int[] a, int[] b, int n) {
+    int i = 0;
+    for (; i < n; i++) {
+        a[i] = a[i + 1];
+    }
+    for (; i < 2 * n; i++) {
+        b[i] = b[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingNonZeroStart(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingNonZeroStart(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopB:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingNonZeroStart(int[] a, int n) {
+    for (int i = 2; i < n; i++) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingNegativeStrideNotUnrolled(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingNegativeStrideNotUnrolled(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingNegativeStrideNotUnrolled(int[] a, int n) {
+    for (int i = n; i > 1; i--) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingNegativeNonUnitStrideNotUnrolled(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingNegativeNonUnitStrideNotUnrolled(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingNegativeNonUnitStrideNotUnrolled(int[] a, int n) {
+    for (int i = n; i > 1; i -= 3) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownStartNotUnrolled(int[], int, int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownStartNotUnrolled(int[], int, int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingUnknownStartNotUnrolled(int[] a, int lower, int upper) {
+    for (int i = lower; i < upper; i++) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownStartNegativeStrideNotUnrolled(int[], int, int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownStartNegativeStrideNotUnrolled(int[], int, int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingUnknownStartNegativeStrideNotUnrolled(int[] a, int lower, int upper) {
+    for (int i = upper; i > lower; i--) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingNegativeUnknownStrideNotUnrolled(int[], int, int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingNegativeUnknownStrideNotUnrolled(int[], int, int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingNegativeUnknownStrideNotUnrolled(int[] a, int n, int stride) {
+    for (int i = n; i >= 0; i -= stride) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingNonUnitStrideNotUnrolled(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingNonUnitStrideNotUnrolled(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingNonUnitStrideNotUnrolled(int[] a, int n) {
+    for (int i = 7; i < n; i += 7) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownStrideNotUnrolled(int[], int, int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingUnknownStrideNotUnrolled(int[], int, int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingUnknownStrideNotUnrolled(int[] a, int n, int stride) {
+    for (int i = 7; i < n; i += stride) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingEarlyExitNotUnrolled(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingEarlyExitNotUnrolled(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingEarlyExitNotUnrolled(int[] a, int n) {
+    for (int i = 0; i < n; i++) {
+      a[i] += a[i + 1];
+
+      if (a[i] > 10) {
+          break;
+      }
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingVariantBoundNotUnrolled(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopA>>      outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingVariantBoundNotUnrolled(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopA>>      outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingVariantBoundNotUnrolled(int[] a, int n) {
+    for (int i = 0; i < n; i++, n--) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingPolynomialInductionNotUnrolled(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopA>>      outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingPolynomialInductionNotUnrolled(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopA>>      outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingPolynomialInductionNotUnrolled(int[] a, int n) {
+    for (int i = 0, j = 0; j < n; i++, j+=i) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingGeometricInductionNotUnrolled(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingGeometricInductionNotUnrolled(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingGeometricInductionNotUnrolled(int[] a, int n) {
+    for (int i = 1; i < n; i*=2) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingWrapAroundInductionNotUnrolled(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopA>>      outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingWrapAroundInductionNotUnrolled(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK:                         Phi                                            loop:<<LoopA>>      outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingWrapAroundInductionNotUnrolled(int[] a, int n) {
+    int i = n - 1;
+    int j = 0;
+    for (; i < n; i = j, j++) {
+      a[i] += a[i + 1];
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingDoWhileNotUnrolled(int[], int) loop_optimization (before)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  //
+  /// CHECK-START: void Main.$noinline$dynamicUnrollingDoWhileNotUnrolled(int[], int) loop_optimization (after)
+  /// CHECK:                         Phi                                            loop:<<LoopA:B\d+>> outer_loop:none
+  /// CHECK-NOT:                     Phi
+  private static final void $noinline$dynamicUnrollingDoWhileNotUnrolled(int[] a, int n) {
+    int i = 1;
+    do {
+      a[i] = a[i + 1];
+      i++;
+    } while (i <= n);
   }
 
   /// CHECK-START: void Main.peelingSimple(int[], boolean) loop_optimization (before)
@@ -1325,7 +1601,7 @@ public class Main {
     initMatrix(mB);
     initMatrix(mC);
 
-    int expected = 174291515;
+    int expected = -213035659;
     int found = 0;
 
     double[] doubleArray = new double[LENGTH_B];
@@ -1350,7 +1626,43 @@ public class Main {
     unrollingTwoLoopsInTheNest(a, b, RESULT_POS);
 
     noUnrollingOddTripCount(b);
-    noUnrollingNotKnownTripCount(b, 128);
+
+    $noinline$dynamicUnrollingCanHandleMinValue(b);
+    $noinline$dynamicUnrollingUnknownTripCount(b, 128);
+    $noinline$dynamicUnrollingUnknownTripCount(b, 127);
+    $noinline$dynamicUnrollingNonZeroStart(b, 128);
+    $noinline$dynamicUnrollingNonZeroStart(b, 127);
+    expectEquals(128, $noinline$dynamicUnrollingMultipleInduction(b, 128));
+    expectEquals(127, $noinline$dynamicUnrollingMultipleInduction(b, 127));
+    $noinline$dynamicUnrollingMultipleLoopsSharingInduction(a, b, 128);
+    $noinline$dynamicUnrollingMultipleLoopsSharingInduction(a, b, 127);
+
+    $noinline$dynamicUnrollingNonUnitStrideNotUnrolled(b, 128);
+    $noinline$dynamicUnrollingNonUnitStrideNotUnrolled(b, 127);
+    $noinline$dynamicUnrollingUnknownStrideNotUnrolled(b, 128, 3);
+    $noinline$dynamicUnrollingUnknownStrideNotUnrolled(b, 127, 3);
+    $noinline$dynamicUnrollingNegativeStrideNotUnrolled(b, 128);
+    $noinline$dynamicUnrollingNegativeStrideNotUnrolled(b, 127);
+    $noinline$dynamicUnrollingNegativeNonUnitStrideNotUnrolled(b, 128);
+    $noinline$dynamicUnrollingNegativeNonUnitStrideNotUnrolled(b, 127);
+    $noinline$dynamicUnrollingNegativeUnknownStrideNotUnrolled(b, 128, 3);
+    $noinline$dynamicUnrollingNegativeUnknownStrideNotUnrolled(b, 127, 3);
+    $noinline$dynamicUnrollingEarlyExitNotUnrolled(b, 128);
+    $noinline$dynamicUnrollingEarlyExitNotUnrolled(b, 127);
+    $noinline$dynamicUnrollingUnknownStartNotUnrolled(b, 0, 128);
+    $noinline$dynamicUnrollingUnknownStartNotUnrolled(b, 0, 127);
+    $noinline$dynamicUnrollingUnknownStartNegativeStrideNotUnrolled(b, 0, 128);
+    $noinline$dynamicUnrollingUnknownStartNegativeStrideNotUnrolled(b, 0, 127);
+    $noinline$dynamicUnrollingVariantBoundNotUnrolled(b, 128);
+    $noinline$dynamicUnrollingVariantBoundNotUnrolled(b, 127);
+    $noinline$dynamicUnrollingPolynomialInductionNotUnrolled(b, 128);
+    $noinline$dynamicUnrollingPolynomialInductionNotUnrolled(b, 127);
+    $noinline$dynamicUnrollingGeometricInductionNotUnrolled(b, 128);
+    $noinline$dynamicUnrollingGeometricInductionNotUnrolled(b, 127);
+    $noinline$dynamicUnrollingWrapAroundInductionNotUnrolled(b, 128);
+    $noinline$dynamicUnrollingWrapAroundInductionNotUnrolled(b, 127);
+    $noinline$dynamicUnrollingDoWhileNotUnrolled(b, 128);
+    $noinline$dynamicUnrollingDoWhileNotUnrolled(b, 127);
 
     for (int i = 0; i < LENGTH; i++) {
       found += a[i];

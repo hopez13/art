@@ -82,6 +82,8 @@ class ArchDefaultLoopHelper : public ArchNoOptsLoopHelper {
   //
   // Maximum possible unrolling factor.
   static constexpr uint32_t kScalarMaxUnrollFactor = 2;
+  // Maximum possible unrolling factor for dynamic unrolling.
+  static constexpr uint32_t kScalarMaxDynamicUnrollFactor = 4;
   // Loop's maximum instruction count. Loops with higher count will not be peeled/unrolled.
   static constexpr uint32_t kScalarHeuristicMaxBodySizeInstr = 17;
   // Loop's maximum basic block count. Loops with higher count will not be peeled/unrolled.
@@ -108,6 +110,15 @@ class ArchDefaultLoopHelper : public ArchNoOptsLoopHelper {
     }
 
     return desired_unrolling_factor;
+  }
+
+  uint32_t GetScalarDynamicUnrollingFactor(const LoopAnalysisInfo* analysis_info) const override {
+    int64_t trip_count = analysis_info->GetTripCount();
+    // Unroll only loops with unknown trip count.
+    if (trip_count != LoopAnalysisInfo::kUnknownTripCount) {
+      return LoopAnalysisInfo::kNoUnrollingFactor;
+    }
+    return kScalarMaxDynamicUnrollFactor;
   }
 
   bool IsLoopPeelingEnabled() const override { return true; }

@@ -157,6 +157,14 @@ class ArchNoOptsLoopHelper : public ArenaObject<kArenaAllocOptimization> {
     return LoopAnalysisInfo::kNoUnrollingFactor;
   }
 
+  // Returns optimal scalar dynamic unrolling factor for the loop.
+  //
+  // Returns kNoUnrollingFactor by default, should be overridden by particular target loop helper.
+  virtual uint32_t GetScalarDynamicUnrollingFactor(
+      const LoopAnalysisInfo* analysis_info ATTRIBUTE_UNUSED) const {
+    return LoopAnalysisInfo::kNoUnrollingFactor;
+  }
+
   // Returns whether scalar loop peeling is enabled,
   //
   // Returns 'false' by default, should be overridden by particular target loop helper.

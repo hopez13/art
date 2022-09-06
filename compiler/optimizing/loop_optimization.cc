@@ -453,6 +453,193 @@ static DataType::Type GetNarrowerType(HInstruction* a, HInstruction* b) {
   return type;
 }
 
+// Unroll the loop once (by unrolling factor of two). As loop header is also copied during
+// unrolling, adjust the exit check of this duplicate header so that it is unconditionally not
+// taken.
+static void UnrollOnceAndRemoveLoopCheck(HLoopInformation* loop_info,
+                                         InductionVarRange* induction_range) {
+  LoopClonerSimpleHelper helper(loop_info, induction_range);
+  helper.DoUnrolling();
+
+  // Remove the redundant loop check after unrolling.
+  DCHECK(loop_info->GetHeader()->GetLastInstruction()->IsIf());
+  HIf* copy_hif =
+      helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
+  int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
+  copy_hif->ReplaceInput(loop_info->GetHeader()->GetGraph()->GetIntConstant(constant), 0u);
+}
+
+// Try to unroll the loop by the given unrolling factor, whilst the loop remains cloneable.
+// Returns the actual unrolling factor applied to the loop.
+static size_t UnrollByFactor(HLoopInformation* loop_info,
+                             InductionVarRange* induction_range,
+                             size_t unrolling_factor) {
+  DCHECK(IsPowerOfTwo(unrolling_factor));
+
+  // Unroll up to log2(unrolling_factor) times, as each unrolling doubles the loop.
+  size_t target = log2(unrolling_factor);
+  size_t actual = 0;
+  for (; actual < target && LoopClonerHelper::IsLoopClonable(loop_info); actual++) {
+    // Perform unrolling.
+    UnrollOnceAndRemoveLoopCheck(loop_info, induction_range);
+  }
+
+  if (target != actual) {
+    // Return actual unrolling factor applied, based on number of successful iterations.
+    return pow(2, actual);
+  }
+
+  return unrolling_factor;
+}
+
+// Get the Phi input to the loop's condition expression.
+// Returns nullptr if:
+// - the last instruction of the loop header is not: 'if (condition) goto X'.
+// - the condition expression has either multiple Phis, or no Phis, as input.
+static HPhi* GetLoopConditionSinglePhi(HLoopInformation* loop_info) {
+  HInstruction* control = loop_info->GetHeader()->GetLastInstruction();
+  if (!control->IsIf()) {
+    return nullptr;
+  }
+
+  HIf* control_if = control->AsIf();
+  HInstruction* if_expr = control_if->InputAt(0);
+  if (!if_expr->IsCondition()) {
+    return nullptr;
+  }
+
+  HCondition* condition = if_expr->AsCondition();
+  HInstruction* input0 = condition->InputAt(0);
+  HInstruction* input1 = condition->InputAt(1);
+
+  if (input0->IsPhi() == input1->IsPhi()) {
+    // Either both, or neither, inputs are Phis.
+    return nullptr;
+  }
+
+  return input0->IsPhi() ? input0->AsPhi() : input1->AsPhi();
+}
+
+// Adjust the bound of the unrolled loop's exit condition, so that the loop's trip count will be a
+// multiple of the unrolling factor.
+static void AdjustUnrolledLoopConditionForDynamicUnrolling(HBasicBlock* unrolled_header,
+                                                           HInstruction* taken_test,
+                                                           uint32_t unrolling_factor,
+                                                           int64_t known_lower_bound) {
+  DCHECK(unrolled_header->GetLastInstruction()->IsIf());
+  HIf* unrolled_loop_if = unrolled_header->GetLastInstruction()->AsIf();
+  HCondition* unrolled_loop_cond = unrolled_loop_if->InputAt(0)->AsCondition();
+  size_t original_bound_idx = (unrolled_loop_cond->InputAt(0)->IsPhi()) ? 1 : 0;
+  HInstruction* original_bound = unrolled_loop_cond->InputAt(original_bound_idx);
+  DataType::Type data_type = original_bound->GetType();
+  DCHECK(DataType::IsIntegralType(data_type));
+  data_type = DataType::Kind(data_type);
+
+  HBasicBlock* unrolled_preheader = unrolled_header->GetLoopInformation()->GetPreHeader();
+  HGraph* graph = unrolled_preheader->GetGraph();
+  ArenaAllocator* allocator = graph->GetAllocator();
+
+  // new_loop_bound = original_bound - (unrolling_factor - 1).
+  HInstruction* bound_delta = graph->GetConstant(data_type, unrolling_factor - 1);
+  HInstruction* new_loop_bound = new (allocator) HSub(data_type, original_bound, bound_delta);
+  Insert(unrolled_preheader, new_loop_bound);
+
+  // If [original_bound < INT_MIN + bound_delta], then the computed new loop bound will underflow
+  // and wrap around to a value close to INT_MAX. As we currently enforce the constraint
+  // [known_lower_bound >= 0], we can prevent this underflow error by guarding the loop bound
+  // adjustment with a taken test - if the original bound is negative enough to cause underflow, the
+  // loop would not be taken.
+  // TODO: Extend this approach to support negative lower bounds, with the constraint
+  // [known_lower_bound >= INT_MIN + bound_delta].
+  DCHECK_GE(known_lower_bound, 0);
+  HInstruction* loop_bound_select =
+      Insert(unrolled_preheader,
+             new (allocator) HSelect(taken_test, new_loop_bound, original_bound, kNoDexPc));
+
+  // Adjust unrolled loop exit condition.
+  unrolled_loop_cond->ReplaceInput(loop_bound_select, original_bound_idx);
+}
+
+// Adjust the graph so that the two loop versions are connected in the sequence 'unrolled ->
+// scalar', so that unrolled iterations are executed prior to a cleanup scalar loop.
+//
+//       Before                                 After
+//
+//               |B|                                  |B|
+//                |                                    |
+//                v                                    v
+//    -----------|1|                       ---------  |1|
+//    |           |                        |       |   |
+//    v           v                        v       |   v
+//   |2|<---  ---|2A|<---                 |2|<---  ---|2A|<---
+//   / \   |  |   |     |                 / \   |      |     |
+//  |   |  |  |   v     |                |   |  |      v     |
+//  |   v  |  |  |3A|   |                |   v  |     |3A|   |
+//  |  |3|--  |   |     |                |  |3|--      |     |
+//  |         |   v     |                |             v     |
+//  v         |  |2B|   |                v            |2B|   |
+// |4|        |   |     |               |4|            |     |
+//  |         |   v     |                |             v     |
+//  v         |  |3B|----                v            |3B|----
+// |E|<--------                         |E|
+static void AdjustControlFlowForDynamicUnrolling(HLoopInformation* scalar_loop_info,
+                                                 HLoopInformation* unrolled_loop_info,
+                                                 HInstruction* taken_test,
+                                                 uint32_t unrolling_factor,
+                                                 int64_t known_lower_bound) {
+  HBasicBlock* scalar_preheader = scalar_loop_info->GetPreHeader();
+  HBasicBlock* shared_predecessor = scalar_preheader->GetSinglePredecessor();
+  HBasicBlock* unrolled_header = unrolled_loop_info->GetHeader();
+
+  // Remove edge to the epilogue (scalar) loop from the shared predecessor of both loops
+  scalar_preheader->RemovePredecessor(shared_predecessor);
+  shared_predecessor->RemoveSuccessor(scalar_preheader);
+  DCHECK(shared_predecessor->GetSingleSuccessor() == unrolled_loop_info->GetPreHeader());
+
+  // Add edge from unrolled loop to the epilogue (scalar) loop
+  DCHECK_EQ(unrolled_header->GetSuccessors().size(), 2u);
+  size_t unrolled_exit_idx =
+      (unrolled_loop_info->Contains(*unrolled_header->GetSuccessors()[0])) ? 1 : 0u;
+  HBasicBlock* unrolled_exit_1 = unrolled_header->GetSuccessors()[unrolled_exit_idx];
+  HBasicBlock* unrolled_exit_2 = unrolled_exit_1->GetSingleSuccessor();
+  HBasicBlock* shared_loop_successor = unrolled_exit_2->GetSingleSuccessor();
+  unrolled_exit_2->DisconnectFromSuccessors();
+  unrolled_exit_2->AddSuccessor(scalar_preheader);
+
+  // Fix Dominance
+  scalar_preheader->GetDominator()->RemoveDominatedBlock(scalar_preheader);
+  scalar_preheader->SetDominator(unrolled_exit_2);
+  scalar_preheader->GetDominator()->AddDominatedBlock(scalar_preheader);
+  shared_loop_successor->GetDominator()->RemoveDominatedBlock(shared_loop_successor);
+  shared_loop_successor->SetDominator(shared_loop_successor->GetSinglePredecessor());
+  shared_loop_successor->GetDominator()->AddDominatedBlock(shared_loop_successor);
+
+  AdjustUnrolledLoopConditionForDynamicUnrolling(
+      unrolled_header, taken_test, unrolling_factor, known_lower_bound);
+}
+
+// Fix the flow of data between the unrolled and scalar loops created by Dynamic Unrolling, required
+// after graph adjustments placing them in sequence.
+static void AdjustDataFlowForDynamicUnrolling(const HLoopInformation* scalar_loop_info,
+                                              const HLoopInformation* unrolled_loop_info,
+                                              const SuperblockCloner::HInstructionMap* hir_map) {
+  for (HInstructionIterator it(unrolled_loop_info->GetHeader()->GetPhis()); !it.Done();
+       it.Advance()) {
+    HPhi* unrolled_phi = it.Current()->AsPhi();
+    HPhi* scalar_phi = hir_map->Get(unrolled_phi)->AsPhi();
+
+    // Replace Phi input from outside loop with the Phi from the preceding loop,
+    // so that data flows correctly between the two loops.
+    for (size_t i = 0; i < scalar_phi->GetInputs().size(); ++i) {
+      if (scalar_loop_info->IsDefinedOutOfTheLoop(scalar_phi->InputAt(i))) {
+        scalar_phi->ReplaceInput(unrolled_phi, i);
+        // Loop-external Phi input has been found and replaced, so end iteration.
+        break;
+      }
+    }
+  }
+}
+
 //
 // Public methods.
 //
@@ -482,13 +669,13 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       vector_runtime_test_b_(nullptr),
       vector_map_(nullptr),
       vector_permanent_map_(nullptr),
+      loop_skip_list_(nullptr),
       vector_mode_(kSequential),
       vector_preheader_(nullptr),
       vector_header_(nullptr),
       vector_body_(nullptr),
       vector_index_(nullptr),
-      arch_loop_helper_(ArchNoOptsLoopHelper::Create(codegen, global_allocator_)) {
-}
+      arch_loop_helper_(ArchNoOptsLoopHelper::Create(codegen, global_allocator_)) {}
 
 bool HLoopOptimization::Run() {
   // Skip if there is no loop or the graph has irreducible loops.
@@ -547,12 +734,15 @@ bool HLoopOptimization::LocalRun() {
       std::less<HInstruction*>(), loop_allocator_->Adapter(kArenaAllocLoopOptimization));
   ScopedArenaSafeMap<HInstruction*, HInstruction*> perm(
       std::less<HInstruction*>(), loop_allocator_->Adapter(kArenaAllocLoopOptimization));
+  ScopedArenaSet<HBasicBlock*> black_list(std::less<HBasicBlock*>(),
+                                          loop_allocator_->Adapter(kArenaAllocLoopOptimization));
   // Attach.
   iset_ = &iset;
   reductions_ = &reds;
   vector_refs_ = &refs;
   vector_map_ = &map;
   vector_permanent_map_ = &perm;
+  loop_skip_list_ = &black_list;
   // Traverse.
   const bool did_loop_opt = TraverseLoopsInnerToOuter(top_loop_);
   // Detach.
@@ -561,6 +751,7 @@ bool HLoopOptimization::LocalRun() {
   vector_refs_ = nullptr;
   vector_map_ = nullptr;
   vector_permanent_map_ = nullptr;
+  loop_skip_list_ = nullptr;
   return did_loop_opt;
 }
 
@@ -615,8 +806,9 @@ bool HLoopOptimization::TraverseLoopsInnerToOuter(LoopNode* node) {
   bool changed = false;
   for ( ; node != nullptr; node = node->next) {
     // Visit inner loops first. Recompute induction information for this
-    // loop if the induction of any inner loop has changed.
-    if (TraverseLoopsInnerToOuter(node->inner)) {
+    // loop if the induction of any inner loop has changed, including
+    // inner loops at the same depth as this.
+    if (TraverseLoopsInnerToOuter(node->inner) || (HasPreviousInnerLoop(node) && changed)) {
       induction_range_.ReVisit(node->loop_info);
       changed = true;
     }
@@ -891,15 +1083,7 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopAnalysisInfo* 
     DCHECK_EQ(unrolling_factor, 2u);
 
     // Perform unrolling.
-    HLoopInformation* loop_info = analysis_info->GetLoopInfo();
-    LoopClonerSimpleHelper helper(loop_info, &induction_range_);
-    helper.DoUnrolling();
-
-    // Remove the redundant loop check after unrolling.
-    HIf* copy_hif =
-        helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
-    int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
-    copy_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+    UnrollOnceAndRemoveLoopCheck(analysis_info->GetLoopInfo(), &induction_range_);
   }
   return true;
 }
@@ -972,6 +1156,68 @@ bool HLoopOptimization::TryFullUnrolling(LoopAnalysisInfo* analysis_info, bool g
   return true;
 }
 
+bool HLoopOptimization::TryDynamicUnrolling(LoopAnalysisInfo* analysis_info, bool generate_code) {
+  // Performs dynamic loop unrolling for loops with trip count known only at runtime:
+  //  - creates two versions of the loop, unrolls one of them.
+  //  - the unrolled loop is executed first, followed by the scalar loop which handles any cleanup
+  //    iterations.
+
+  if (!IsLoopCandidateForDynamicUnrolling(analysis_info)) {
+    return false;
+  }
+
+  uint32_t unrolling_factor = arch_loop_helper_->GetScalarDynamicUnrollingFactor(analysis_info);
+  if (unrolling_factor == LoopAnalysisInfo::kNoUnrollingFactor) {
+    return false;
+  }
+
+  HLoopInformation* loop_info = analysis_info->GetLoopInfo();
+  HBasicBlock* original_header = loop_info->GetHeader();
+  HBasicBlock* original_preheader = loop_info->GetPreHeader();
+
+  // Only handle Unit Stride, Above-Zero Offset.
+  // TODO: Refactor to remove side effects (IsUnitStride may add Constant to the graph).
+  HInstruction* idx_offset = nullptr;
+  int64_t offset_value = 0;
+  HPhi* loop_control_phi = GetLoopConditionSinglePhi(loop_info);
+  if (loop_control_phi == nullptr ||
+      !induction_range_.IsUnitStride(original_header, loop_control_phi, graph_, &idx_offset) ||
+      !IsInt64AndGet(idx_offset, &offset_value) || offset_value < 0) {
+    return false;
+  }
+
+  if (!generate_code) {
+    return true;
+  }
+
+  // Perform versioning: create a clone of the loop so that one can be unrolled.
+  LoopClonerSimpleHelper helper(loop_info, &induction_range_);
+  helper.DoVersioning();
+  HBasicBlock* cloned_header = helper.GetBasicBlockMap()->Get(original_header);
+
+  // Prevent repeated optimization of loops.
+  loop_skip_list_->insert(cloned_header);
+  loop_skip_list_->insert(original_header);
+
+  HLoopInformation* unrolled_loop_info = original_header->GetLoopInformation();
+  HLoopInformation* scalar_loop_info = cloned_header->GetLoopInformation();
+
+  // Unroll one of the loop versions.
+  unrolling_factor = UnrollByFactor(unrolled_loop_info, &induction_range_, unrolling_factor);
+
+  // Adjust the control flow
+  HInstruction* taken_test = induction_range_.GenerateTakenTest(
+      original_header->GetLastInstruction(), graph_, original_preheader);
+  AdjustControlFlowForDynamicUnrolling(
+      scalar_loop_info, unrolled_loop_info, taken_test, unrolling_factor, offset_value);
+
+  // Adjust the data flow
+  AdjustDataFlowForDynamicUnrolling(
+      scalar_loop_info, unrolled_loop_info, helper.GetInstructionMap());
+
+  return true;
+}
+
 bool HLoopOptimization::TryLoopScalarOpts(LoopNode* node) {
   HLoopInformation* loop_info = node->loop_info;
   int64_t trip_count = LoopAnalysis::GetLoopTripCount(loop_info, &induction_range_);
@@ -986,6 +1232,7 @@ bool HLoopOptimization::TryLoopScalarOpts(LoopNode* node) {
   if (!TryFullUnrolling(&analysis_info, /*generate_code*/ false) &&
       !TryPeelingForLoopInvariantExitsElimination(&analysis_info, /*generate_code*/ false) &&
       !TryUnrollingForBranchPenaltyReduction(&analysis_info, /*generate_code*/ false) &&
+      !TryDynamicUnrolling(&analysis_info, /*generate_code*/ false) &&
       !TryToRemoveSuspendCheckFromLoopHeader(&analysis_info, /*generate_code*/ false)) {
     return false;
   }
@@ -1002,7 +1249,8 @@ bool HLoopOptimization::TryLoopScalarOpts(LoopNode* node) {
 
   return TryFullUnrolling(&analysis_info) ||
          TryPeelingForLoopInvariantExitsElimination(&analysis_info) ||
-         TryUnrollingForBranchPenaltyReduction(&analysis_info) || removed_suspend_check;
+         TryUnrollingForBranchPenaltyReduction(&analysis_info) ||
+         TryDynamicUnrolling(&analysis_info) || removed_suspend_check;
 }
 
 //
@@ -2689,6 +2937,33 @@ bool HLoopOptimization::CanRemoveCycle() {
     }
   }
   return true;
+}
+
+bool HLoopOptimization::IsLoopCandidateForDynamicUnrolling(LoopAnalysisInfo* analysis_info) {
+  HLoopInformation* loop_info = analysis_info->GetLoopInfo();
+
+  if (!induction_range_.HasRunTimeTripCount(loop_info)) {
+    return false;
+  }
+
+  if (analysis_info->GetNumberOfExits() > 1) {
+    return false;
+  }
+
+  HBasicBlock* header = loop_info->GetHeader();
+  if (!header->GetLastInstruction()->IsIf()) {
+    return false;
+  }
+
+  if (loop_skip_list_->find(header) != loop_skip_list_->end()) {
+    return false;
+  }
+
+  return true;
+}
+
+bool HLoopOptimization::HasPreviousInnerLoop(LoopNode* node) {
+  return node->previous != nullptr && node->previous->inner == nullptr;
 }
 
 }  // namespace art

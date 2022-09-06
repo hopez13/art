@@ -167,9 +167,20 @@ class InductionVarRange {
   bool IsFinite(const HLoopInformation* loop, /*out*/ int64_t* trip_count) const;
 
   /**
-   * Checks if a trip count is known for the loop and sets 'trip_count' to its value in this case.
+   * Checks if a trip count is known for the loop at time of compilation, with the additional
+   * requirement that this trip count can be calculated without errors due to overflow.
+   * Sets 'trip_count' to its value on success.
+   *
+   * e.g. `for (i=INT_MIN; i<INT_MAX; i++)` has a constant TC  at compile time but the calculation
+   * would overflow, so we return false and 'trip_count' is not set.
    */
   bool HasKnownTripCount(const HLoopInformation* loop, /*out*/ int64_t* trip_count) const;
+
+  /**
+   * Checks if trip count analysis has been applied successfully to the loop, and that the
+   * trip count expression depends on values known only at runtime.
+   */
+  bool HasRunTimeTripCount(const HLoopInformation* loop) const;
 
   /**
    * Checks if the given instruction is a unit stride induction inside the closest enveloping

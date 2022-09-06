@@ -378,6 +378,38 @@ bool InductionVarRange::HasKnownTripCount(const HLoopInformation* loop,
   return is_constant;
 }
 
+bool InductionVarRange::HasRunTimeTripCount(const HLoopInformation* loop) const {
+  HInstruction* loop_control = GetLoopControl(loop);
+  HInductionVarAnalysis::InductionInfo* trip = induction_analysis_->LookupInfo(loop, loop_control);
+  if (trip == nullptr || IsUnsafeTripCount(trip)) {
+    return false;
+  }
+
+  DCHECK(loop_control->InputAt(0)->IsCondition());
+  HInstruction* loop_condition = loop_control->InputAt(0)->AsCondition();
+  HInductionVarAnalysis::InductionInfo* bound_left =
+      induction_analysis_->LookupInfo(loop, loop_condition->InputAt(0));
+  HInductionVarAnalysis::InductionInfo* bound_right =
+      induction_analysis_->LookupInfo(loop, loop_condition->InputAt(1));
+
+  // Trip Count analysis normalises to induction at left-hand-side: cmp(kLinear, kInvariant).
+  if (bound_left->induction_class != HInductionVarAnalysis::kLinear) {
+    std::swap(bound_left, bound_right);
+  }
+  DCHECK_EQ(bound_left->induction_class, HInductionVarAnalysis::kLinear);
+  DCHECK_EQ(bound_right->induction_class, HInductionVarAnalysis::kInvariant);
+
+  // Initial value of Linear Induction Variable is op_b
+  bound_left = bound_left->op_b;
+
+  int64_t value_unused;
+  HBasicBlock* context = loop_condition->GetBlock();
+  // If either bound is not a known constant at compile time, then the trip count is known only at
+  // run time.
+  return !IsConstant(context, loop, bound_left, kExact, &value_unused) ||
+         !IsConstant(context, loop, bound_right, kExact, &value_unused);
+}
+
 bool InductionVarRange::IsUnitStride(const HBasicBlock* context,
                                      HInstruction* instruction,
                                      HGraph* graph,
