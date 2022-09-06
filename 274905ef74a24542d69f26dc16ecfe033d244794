@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95162eac_9e91c551",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-06T09:59:31Z",
+      "side": 1,
+      "message": "Do you mean you run dex2oat at build time for system server jars and put the compilation artifacts in /system_ext? AFAIK, the build system currently doesn\u0027t support that. Did you modify the build system to support that?\n\nIt will be nice to open a bug about this change and add \"Bug: \u003cbug-number\u003e\" below so that we can track why this change is made in the future.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 39
+      },
+      "revId": "274905ef74a24542d69f26dc16ecfe033d244794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "256f4fd9_a3d4d0c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-06T09:59:31Z",
+      "side": 1,
+      "message": "Thanks for the contribution. I need to understand the context of this change. Please see the comment below.",
+      "revId": "274905ef74a24542d69f26dc16ecfe033d244794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
