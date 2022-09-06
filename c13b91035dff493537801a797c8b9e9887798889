@@ -46,6 +46,30 @@
       },
       "revId": "c13b91035dff493537801a797c8b9e9887798889",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cadd19f7_76795fa6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-06T16:40:47Z",
+      "side": 1,
+      "message": "I see - can we add a DCHECK in MakeInitializedClassesVisiblyInitialized that if wait is true, then the mutator lock should not be held?",
+      "parentUuid": "d66cc04d_356641f6",
+      "range": {
+        "startLine": 760,
+        "startChar": 19,
+        "endLine": 760,
+        "endChar": 59
+      },
+      "revId": "c13b91035dff493537801a797c8b9e9887798889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
