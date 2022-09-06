@@ -38,6 +38,7 @@ art_clang_tidy_errors = [
     "misc-unused-using-decls",
     "modernize-use-bool-literals",
     "modernize-use-nullptr",
+    "modernize-use-using",
     "performance-faster-string-find",
     "performance-for-range-copy",
     "performance-implicit-conversion-in-loop",
@@ -50,7 +51,6 @@ art_clang_tidy_allowed = [
     // Many files have these warnings. Move them to art_clang_tidy_errors
     // when all files are free of these warnings.
     "android-cloexec-dup",
-    "modernize-use-using", // TODO: move to art_clang_tidy_errors after b/236243696 is done
 ]
 
 art_clang_tidy_disabled = [
