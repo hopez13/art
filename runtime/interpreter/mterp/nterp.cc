@@ -33,8 +33,16 @@
 namespace art {
 namespace interpreter {
 
+// Nterp requires read-barriers to be emitted to function correctly. Therefore,
+// even though userfaultfd GC can work with or without read-barriers, we still
+// can't use Nterp if ART_USE_READ_BARRIER effects, like reservation of marking
+// register, aren't available.
 bool IsNterpSupported() {
+#ifdef ART_USE_READ_BARRIER
   return !kPoisonHeapReferences;
+#else
+  return false;
+#endif
 }
 
 bool CanRuntimeUseNterp() REQUIRES_SHARED(Locks::mutator_lock_) {
