@@ -776,6 +776,10 @@ std::string OnDeviceRefresh::GetSystemServerImagePath(bool on_system,
     const std::string jar_name = android::base::Basename(jar_path);
     const std::string image_name = ReplaceFileExtension(jar_name, "art");
     const char* isa_str = GetInstructionSetString(config_.GetSystemServerIsa());
+    if (LocationIsOnSystemExt(jar_path)) {
+        // Typically "/system_ext/framework/oat/<isa>/oem-services.art".
+        return Concatenate({GetSystemExtDir(), "/framework/oat/", isa_str, "/", image_name});
+    }
     // Typically "/system/framework/oat/<isa>/services.art".
     return Concatenate({GetAndroidRoot(), "/framework/oat/", isa_str, "/", image_name});
   } else {
