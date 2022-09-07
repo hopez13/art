@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6e34b66_4799720b",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T15:54:04Z",
+      "side": 1,
+      "message": "AllocatorMayHaveConcurrentGC() does the check. I believe the comment is suggesting to use this with IsGcConcurrent() to avoid load from the heap instance.\n\nFrankly, it seems to be a very small optimization and therefore there\u0027s no harm in getting rid of it. If you and Hans agree, I\u0027ll do that in next patch.",
+      "parentUuid": "09a1f5dc_375e032b",
+      "range": {
+        "startLine": 210,
+        "startChar": 9,
+        "endLine": 211,
+        "endChar": 41
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69e646c6_88ff92a2",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 2
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c268c6fa_7e9dca3f",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T15:54:04Z",
+      "side": 1,
+      "message": "Their meanings have diverged with the userfaultfd GC CLs. Ever since kUseReadBarrier became gUseReadBarrier, it\u0027s possible to have ART_USE_READ_BARRIER defined and still gUseReadBarrier being false.\n\nART_USE_READ_BARRIER ensures that marking register is reserved and that the entrypoints have read-barriers defined. This is essential for nterp to work as it checks marking register directly. With this change we\u0027ll have no nterp with CMS and SS and userfaultfd GC if ART_USE_READ_BARRIER\u003dfalse was used.\n\nMaybe we can rename ART_USE_READ_BARRIER to ART_EMIT_READ_BARRIER?",
+      "parentUuid": "69e646c6_88ff92a2",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad24973d_b13e2300",
         "filename": "runtime/lock_word.h",
         "patchSetId": 2
@@ -60,6 +108,24 @@
       "writtenOn": "2022-09-07T08:37:19Z",
       "side": 1,
       "message": "Is this related to the golem failure? Could it be a CL on its own?",
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76931ca4_a2ea7033",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T15:54:04Z",
+      "side": 1,
+      "message": "No. it\u0027s to make code applicable for SS and CMS as well. As these GCs are chosen at build time, they don\u0027t require marking bit and gray bit in the header. Whereas the choice between userfaultfd GC and CC is done at boot-time, the former has to operate with the bits present (at least in some cases when we use the boot image compiled for CC with userfaultfd GC).",
+      "parentUuid": "ad24973d_b13e2300",
       "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
