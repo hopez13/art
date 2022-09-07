@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b695b0a4_59f73b69",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T21:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb27aebb_1fd14a8c",
+      "range": {
+        "startLine": 210,
+        "startChar": 9,
+        "endLine": 211,
+        "endChar": 41
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69e646c6_88ff92a2",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "\"ENABLE\"? \"PERMIT\"?",
       "parentUuid": "c268c6fa_7e9dca3f",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d62b5f41_39aead46",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T21:39:49Z",
+      "side": 1,
+      "message": "On another thought, modifying ART_USE_READ_BARRIER would result in a very widespread change. There are a lot of places (test infra) where it is used. All of that would require changing.\n\nHow about renaming gUseReadBarrier to gUseCC? Whatever we agree on, I\u0027ll create another CL for that.",
+      "parentUuid": "82263e18_a6c704db",
       "range": {
         "startLine": 41,
         "startChar": 7,

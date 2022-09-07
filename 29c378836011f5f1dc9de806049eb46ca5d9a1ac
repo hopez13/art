@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7f4d8fe_7a652e3c",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T21:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f65c8e07_4daa5a1a",
+      "range": {
+        "startLine": 215,
+        "startChar": 10,
+        "endLine": 215,
+        "endChar": 29
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32b0c070_7d29e560",
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "Agreed.",
       "parentUuid": "cb29673f_679483c7",
+      "range": {
+        "startLine": 1044,
+        "startChar": 6,
+        "endLine": 1045,
+        "endChar": 52
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "960e4258_9c72d52a",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T21:39:49Z",
+      "side": 1,
+      "message": "Removed the related code from here and heap-inl.h PTAL",
+      "parentUuid": "a8c22b61_8a4821fe",
       "range": {
         "startLine": 1044,
         "startChar": 6,
