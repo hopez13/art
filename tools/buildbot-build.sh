@@ -18,14 +18,14 @@ set -e
 
 . "$(dirname $0)/buildbot-utils.sh"
 
-shopt -s failglob
-
 if [ ! -d art ]; then
   msgerror "Script needs to be run at the root of the Android tree"
   exit 1
 fi
 
 TARGET_ARCH=$(source build/envsetup.sh > /dev/null; get_build_var TARGET_ARCH)
+
+shopt -s failglob
 
 # Logic for setting out_dir from build/make/core/envsetup.mk:
 if [[ -z $OUT_DIR ]]; then
