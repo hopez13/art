@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2e84ec7_d723b93a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T05:58:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53b44f6f_69f63d3b",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e8f4094_8bbd6d97",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-07T02:25:50Z",
       "side": 1,
       "message": "Shouldn\u0027t this be checked first to keep the above comment correct? Though it may optimize to the same thing?",
+      "range": {
+        "startLine": 215,
+        "startChar": 10,
+        "endLine": 215,
+        "endChar": 29
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93b75a11_c15e5cc8",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T05:58:45Z",
+      "side": 1,
+      "message": "It seems to be in the order as suggested by the comment. Comment says IsGcConcurrent() isn\u0027t known at compile time. OTOH, AllocatorMayHaveConcurrentGC(), which checks BumpPointer and/or TLAB allocators, is faster and hence should be checked first. Am I reading it wrong?",
+      "parentUuid": "3e8f4094_8bbd6d97",
       "range": {
         "startLine": 215,
         "startChar": 10,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb29673f_679483c7",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T05:58:45Z",
+      "side": 1,
+      "message": "I agree. I just added it back in as it is I took it out. Also, this small optimization doesn\u0027t seem that important anymore, given that this function would return false only for SS GC.\n\nHow about I take back this whole change related to AllocatorMayHaveConcurrentGC()? It certainly isn\u0027t causing any correctness issues.",
+      "parentUuid": "32b0c070_7d29e560",
+      "range": {
+        "startLine": 1044,
+        "startChar": 6,
+        "endLine": 1045,
+        "endChar": 52
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b31d13d_27ffa46b",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 1
@@ -83,6 +155,30 @@
       "writtenOn": "2022-09-07T02:25:50Z",
       "side": 1,
       "message": "Presumably it\u0027s important to fix this before we can ship without ART_USE_READ_BARRIER? Add a bug number here?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfd723eb_198473a6",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T05:58:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b31d13d_27ffa46b",
       "range": {
         "startLine": 36,
         "startChar": 0,
@@ -106,6 +202,30 @@
       "writtenOn": "2022-09-07T02:25:50Z",
       "side": 1,
       "message": "I don\u0027t understand. It looks like we have a couple of fast paths at the beginning here, but we tell the compiler they\u0027re unlikely? Why?",
+      "range": {
+        "startLine": 190,
+        "startChar": 15,
+        "endLine": 190,
+        "endChar": 23
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3335808f_74879bb2",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-07T05:58:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6675fce1_84361d2a",
       "range": {
         "startLine": 190,
         "startChar": 15,
