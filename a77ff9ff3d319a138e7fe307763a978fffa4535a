@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb27aebb_1fd14a8c",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-07T18:29:11Z",
+      "side": 1,
+      "message": "Agreed. Actually, if IsGcConcurrent() is not constant, why do we even need to do it? I think we already set concurrent_start_bytes_ to essentially infinity if it\u0027s false? I haven\u0027t looked at the code generated for IsGcConcurrent(), but unless clang is quite clever, it doesn\u0027t look cheaper than ShouldConcurrentGCForJava. And in production code it will always succeed.",
+      "parentUuid": "e6e34b66_4799720b",
+      "range": {
+        "startLine": 210,
+        "startChar": 9,
+        "endLine": 211,
+        "endChar": 41
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69e646c6_88ff92a2",
         "filename": "runtime/interpreter/mterp/nterp.cc",
         "patchSetId": 2
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Their meanings have diverged with the userfaultfd GC CLs. Ever since kUseReadBarrier became gUseReadBarrier, it\u0027s possible to have ART_USE_READ_BARRIER defined and still gUseReadBarrier being false.\n\nART_USE_READ_BARRIER ensures that marking register is reserved and that the entrypoints have read-barriers defined. This is essential for nterp to work as it checks marking register directly. With this change we\u0027ll have no nterp with CMS and SS and userfaultfd GC if ART_USE_READ_BARRIER\u003dfalse was used.\n\nMaybe we can rename ART_USE_READ_BARRIER to ART_EMIT_READ_BARRIER?",
       "parentUuid": "69e646c6_88ff92a2",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82263e18_a6c704db",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-07T18:29:11Z",
+      "side": 1,
+      "message": "\"ENABLE\"? \"PERMIT\"?",
+      "parentUuid": "c268c6fa_7e9dca3f",
       "range": {
         "startLine": 41,
         "startChar": 7,

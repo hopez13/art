@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f65c8e07_4daa5a1a",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-07T18:29:11Z",
+      "side": 1,
+      "message": "I think I had misread it. Sorry.\nI agree that none of this appears to be worth the trouble to avoid 2 loads and a comparison, especially since we won\u0027t really avoid this in any production setting, AFAICT.",
+      "parentUuid": "93b75a11_c15e5cc8",
+      "range": {
+        "startLine": 215,
+        "startChar": 10,
+        "endLine": 215,
+        "endChar": 29
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "32b0c070_7d29e560",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I agree. I just added it back in as it is I took it out. Also, this small optimization doesn\u0027t seem that important anymore, given that this function would return false only for SS GC.\n\nHow about I take back this whole change related to AllocatorMayHaveConcurrentGC()? It certainly isn\u0027t causing any correctness issues.",
       "parentUuid": "32b0c070_7d29e560",
+      "range": {
+        "startLine": 1044,
+        "startChar": 6,
+        "endLine": 1045,
+        "endChar": 52
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8c22b61_8a4821fe",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-07T18:29:11Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "cb29673f_679483c7",
       "range": {
         "startLine": 1044,
         "startChar": 6,
