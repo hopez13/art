@@ -16,6 +16,52 @@
       "message": "Thanks!",
       "revId": "d3522b1bbb96f0d0bcc2f5f3f154274e7cfcda3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b66b6b4a_7e18edab",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-07T07:50:21Z",
+      "side": 1,
+      "message": "This check is weak, it does not ensure that the entire `uint32_t` we\u0027re reading below is part of the file.\n\nI find the `VdexFile::Contains(const uint8_t*)` API rather lacking. It should take an additional size argument. This would also simplify the checks below.",
+      "range": {
+        "startLine": 473,
+        "startChar": 2,
+        "endLine": 473,
+        "endChar": 62
+      },
+      "revId": "d3522b1bbb96f0d0bcc2f5f3f154274e7cfcda3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d1f6a52_6c7eedf3",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-07T07:50:21Z",
+      "side": 1,
+      "message": "Should this be before the `found_size !\u003d expected_table_size` check?",
+      "range": {
+        "startLine": 494,
+        "startChar": 2,
+        "endLine": 494,
+        "endChar": 22
+      },
+      "revId": "d3522b1bbb96f0d0bcc2f5f3f154274e7cfcda3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
