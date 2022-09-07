@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09a1f5dc_375e032b",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-07T08:37:19Z",
+      "side": 1,
+      "message": "I find this comment confusing? Ins\u0027t it stalled, given we don\u0027t do these checks in the if below?",
+      "range": {
+        "startLine": 210,
+        "startChar": 9,
+        "endLine": 211,
+        "endChar": 41
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69e646c6_88ff92a2",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-07T08:37:19Z",
+      "side": 1,
+      "message": "Could this be gUseReadBarrier? A comment on that effect would be nice.\n\nIf the two are actually different, it\u0027s worth some renaming - as this CL shows, things can be quite confusing.",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad24973d_b13e2300",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-07T08:37:19Z",
+      "side": 1,
+      "message": "Is this related to the golem failure? Could it be a CL on its own?",
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
