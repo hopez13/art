@@ -16,6 +16,29 @@
       "message": "Thanks Ulya.",
       "revId": "a2277aebdcd2e1756dadbd7a927ff5e7d6cb7b25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39b69600_bf1e79f8",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-07T16:40:58Z",
+      "side": 1,
+      "message": "If this is the only reason for using envsetup.sh (which it looks like it is), then a better solution is `build/soong/soong_ui.bash --dumpvar-mode TARGET_ARCH` here. It bypasses the unreliable code intended for interactive use in envsetup.sh.",
+      "range": {
+        "startLine": 26,
+        "startChar": 14,
+        "endLine": 26,
+        "endChar": 77
+      },
+      "revId": "a2277aebdcd2e1756dadbd7a927ff5e7d6cb7b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
