@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d75289a5_f9a284c6",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-07T08:39:31Z",
+      "side": 1,
+      "message": "Good point. I\u0027ll follow-up with another CL.",
+      "parentUuid": "b66b6b4a_7e18edab",
+      "range": {
+        "startLine": 473,
+        "startChar": 2,
+        "endLine": 473,
+        "endChar": 62
+      },
+      "revId": "d3522b1bbb96f0d0bcc2f5f3f154274e7cfcda3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d1f6a52_6c7eedf3",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2022-09-07T07:50:21Z",
       "side": 1,
       "message": "Should this be before the `found_size !\u003d expected_table_size` check?",
+      "range": {
+        "startLine": 494,
+        "startChar": 2,
+        "endLine": 494,
+        "endChar": 22
+      },
+      "revId": "d3522b1bbb96f0d0bcc2f5f3f154274e7cfcda3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f10247d2_f39c7cf5",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-07T08:39:31Z",
+      "side": 1,
+      "message": "I moved it here because the found_size !\u003d expectable_table_size is a validation check. Indeed we could just accept if they don\u0027t match and found_size is 0, but this is unexpected.",
+      "parentUuid": "1d1f6a52_6c7eedf3",
       "range": {
         "startLine": 494,
         "startChar": 2,
