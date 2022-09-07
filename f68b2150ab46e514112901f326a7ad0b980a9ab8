@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07af32a1_24a42c0f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-07T15:55:32Z",
+      "side": 1,
+      "message": "No, I did mean `build/envsetup.sh` (https://cs.android.com/android/platform/superproject/+/master:build/make/envsetup.sh), invoked in `art/tools/buildbot-build.sh` (https://cs.android.com/android/platform/superproject/+/master:art/tools/buildbot-build.sh;l\u003d28;drc\u003d57e81e257bab58e8d3e2982a68d2b31ff306ecd7).",
+      "parentUuid": "7fcb7204_47c59afc",
+      "range": {
+        "startLine": 11,
+        "startChar": 19,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "f68b2150ab46e514112901f326a7ad0b980a9ab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57200e8f_ec06f259",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-07T15:40:39Z",
       "side": 1,
       "message": "Suggest adding a comment to say why it is enabled here and not earlier.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "f68b2150ab46e514112901f326a7ad0b980a9ab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8ad3c55_ca97e713",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-07T15:55:32Z",
+      "side": 1,
+      "message": "Good idea; done in PS2.",
+      "parentUuid": "57200e8f_ec06f259",
       "range": {
         "startLine": 28,
         "startChar": 0,
