@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53b44f6f_69f63d3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-07T02:25:50Z",
+      "side": 1,
+      "message": "barriers",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e8f4094_8bbd6d97",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-07T02:25:50Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be checked first to keep the above comment correct? Though it may optimize to the same thing?",
+      "range": {
+        "startLine": 215,
+        "startChar": 10,
+        "endLine": 215,
+        "endChar": 29
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32b0c070_7d29e560",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-07T02:25:50Z",
+      "side": 1,
+      "message": "IIUC, this is part of a somewhat weird optimization. In the odd case in which we can constant propagate false out of this, we win? It probably needs a comment to explain the motivation here? The name also seems a bit odd, since it doesn\u0027t depend on just allocator_type.",
+      "range": {
+        "startLine": 1044,
+        "startChar": 6,
+        "endLine": 1045,
+        "endChar": 52
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b31d13d_27ffa46b",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-07T02:25:50Z",
+      "side": 1,
+      "message": "Presumably it\u0027s important to fix this before we can ship without ART_USE_READ_BARRIER? Add a bug number here?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6675fce1_84361d2a",
+        "filename": "runtime/lock_word.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-07T02:25:50Z",
+      "side": 1,
+      "message": "I don\u0027t understand. It looks like we have a couple of fast paths at the beginning here, but we tell the compiler they\u0027re unlikely? Why?",
+      "range": {
+        "startLine": 190,
+        "startChar": 15,
+        "endLine": 190,
+        "endChar": 23
+      },
+      "revId": "29c378836011f5f1dc9de806049eb46ca5d9a1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
