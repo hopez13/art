@@ -106,7 +106,11 @@ apexes=(
 make_command="build/soong/soong_ui.bash --make-mode $j_arg $extra_args $showcommands $common_targets"
 if [[ $build_host == "yes" ]]; then
   make_command+=" build-art-host-gtests"
-  test $skip_run_tests_build == "yes" || make_command+=" build-art-host-run-tests"
+  if [[ $skip_run_tests_build == "no" ]]; then
+    make_command+=" build-art-host-run-tests"
+    make_command+=" art-run-test-host-data"
+    make_command+=" art-run-test-jvm-data"
+  fi
   make_command+=" dx-tests junit-host libjdwp-host"
   for LIB in ${specific_targets} ; do
     make_command+=" $LIB-host"
@@ -118,7 +122,10 @@ if [[ $build_target == "yes" ]]; then
     exit 1
   fi
   make_command+=" build-art-target-gtests"
-  test $skip_run_tests_build == "yes" || make_command+=" build-art-target-run-tests"
+  if [[ $skip_run_tests_build == "no" ]]; then
+    make_command+=" build-art-target-run-tests"
+    make_command+=" art-run-test-target-data"
+  fi
   make_command+=" debuggerd sh su toybox"
   # Indirect dependencies in the platform, e.g. through heapprofd_client_api.
   # These are built to go into system/lib(64) to be part of the system linker
