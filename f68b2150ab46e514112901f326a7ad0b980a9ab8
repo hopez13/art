@@ -22,6 +22,29 @@
       },
       "revId": "f68b2150ab46e514112901f326a7ad0b980a9ab8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57200e8f_ec06f259",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-09-07T15:40:39Z",
+      "side": 1,
+      "message": "Suggest adding a comment to say why it is enabled here and not earlier.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "f68b2150ab46e514112901f326a7ad0b980a9ab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
