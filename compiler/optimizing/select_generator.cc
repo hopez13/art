@@ -294,6 +294,22 @@ HBasicBlock* HSelectGenerator::TryFixupDoubleDiamondPattern(HBasicBlock* block) 
   first_merge->AddDominatedBlock(second_merge);
   first_merge->MergeWith(second_merge);
 
+  // Update the revert post order. There's a chance that `merges_into_second_merge` doesn't come
+  // before `first_merge` and we need to fix it. There's no need to do a full dominance
+  // recomputation since this would be the only thing to fix.
+  size_t index_first_merge = IndexOfElement(graph_->reverse_post_order_, first_merge);
+  size_t index_merges_into_second_merge =
+      IndexOfElement(graph_->reverse_post_order_, merges_into_second_merge);
+  DCHECK_NE(index_first_merge, index_merges_into_second_merge) << "Blocks should be different";
+  if (index_merges_into_second_merge > index_first_merge) {
+    // Move everyone one position to the right
+    for (size_t i = index_merges_into_second_merge; i > index_first_merge; --i) {
+      graph_->reverse_post_order_[i] = graph_->reverse_post_order_[i - 1];
+    }
+    // Insert `merges_into_second_merge` right before `first_merge`
+    graph_->reverse_post_order_[index_first_merge] = merges_into_second_merge;
+  }
+
   return inner_if_block;
 }
 

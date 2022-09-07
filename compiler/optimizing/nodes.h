@@ -905,6 +905,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   friend class SsaBuilder;           // For caching constants.
   friend class SsaLivenessAnalysis;  // For the linear order.
   friend class HInliner;             // For the reverse post order.
+  friend class HSelectGenerator;     // For the reverse post order.
   ART_FRIEND_TEST(GraphTest, IfSuccessorSimpleJoinBlock1);
   DISALLOW_COPY_AND_ASSIGN(HGraph);
 };
