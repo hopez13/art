@@ -135,6 +135,24 @@
       "parentUuid": "e05bfa07_13e2ac12",
       "revId": "d2e37c0576e38af669455044e685dae186412c08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65cf8687_37f7746d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T20:28:01Z",
+      "side": 1,
+      "message": "Looking at the C++ standard, I don\u0027t think the \"*start;\" fix is correct; it just evaluates to an lvalue, which is not converted to an rvalue, and hence no load is generated.",
+      "parentUuid": "e05bfa07_13e2ac12",
+      "revId": "d2e37c0576e38af669455044e685dae186412c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
