@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e163f26f_c8852c89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-09-08T16:54:29Z",
+      "side": 1,
+      "message": "No.  You probably shouldn\u0027t assume system_ext always contains something though, as I thought it is meant for OEM customization if they care.  I did a quick code search and see a comment \"For GSI to skip mounting /product and /system_ext...\".",
+      "parentUuid": "24dfd3bc_77095b7e",
+      "revId": "946c9e451956ca2424b37ae1ce9191286e10ca31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d566a391_0e6c0b72",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 3
