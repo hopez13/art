@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be35065d_42f0ec67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2022-09-08T23:06:52Z",
+      "side": 1,
+      "message": "Inverted the order of HWASan and MTE checks, because on HWASan build the MTE check would happen *after* untagging and thus crash.",
+      "revId": "f0aef82c8ebebb7c744dbff8f441c221bdf3b7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
