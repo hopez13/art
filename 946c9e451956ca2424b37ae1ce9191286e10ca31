@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "550dabaf_a835dc40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-08T17:54:10Z",
+      "side": 1,
+      "message": "systemserverclasspath.pb encodes the full jar path, so derive_classpath doesn\u0027t have to know about the partition. They probably have their system server jars added to /system/etc/classpaths/systemserverclasspath.pb.",
+      "parentUuid": "c6863975_4cc5e275",
+      "revId": "946c9e451956ca2424b37ae1ce9191286e10ca31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d566a391_0e6c0b72",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 3
