@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6d11213_a7db7814",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-08T08:18:43Z",
+      "side": 1,
+      "message": "Nicolas PTAL\nIt\u0027s a select generator fix regarding the double diamond pattern that we fixed a couple of weeks back.",
+      "revId": "3f2c7b74e104ef8f12c56e64bc5b4f703ccdae95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fbc9f4c_1df5e50f",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-08T08:18:43Z",
+      "side": 1,
+      "message": "With some drawings: Node 5 here (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/select_generator.h;l\u003d92;drc\u003d6981ef9238ce2d4ea3f7a86d3faf5d720c8c4641) has to be before 6 in RPO.",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 61
+      },
+      "revId": "3f2c7b74e104ef8f12c56e64bc5b4f703ccdae95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
