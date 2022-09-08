@@ -112,6 +112,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fef69462_11031b06",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-08T14:00:07Z",
+      "side": 1,
+      "message": "If we found a non-public abstract method, previously we would have used that slot. Now we shall use an extra vtable index. Usually, this is just an insignificant increase in memory but in an extreme case this can mean running out of vtable index space (max 65536) and throwing a LinkageError.",
+      "range": {
+        "startLine": 8113,
+        "startChar": 6,
+        "endLine": 8113,
+        "endChar": 49
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7cc5553_5cd9b1dc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-08T14:00:07Z",
+      "side": 1,
+      "message": "At first I thought we should delay this error as well but I think this is actually unreachable thanks to DexFileVerifier checks. (Static and private interface methods are in the \"direct\" methods list, interface methods in the \"virtuals\" list must be public, see `DexFileVerifier::CheckMethodAccessFlags()`.)",
+      "range": {
+        "startLine": 8234,
+        "startChar": 10,
+        "endLine": 8234,
+        "endChar": 54
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b49b77e0_e02cda18",
         "filename": "test/840-resolution/jasmin/SubClass2.j",
         "patchSetId": 4
