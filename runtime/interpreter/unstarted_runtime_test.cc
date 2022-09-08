@@ -969,7 +969,7 @@ TEST_F(UnstartedRuntimeTest, ThreadLocalGet) {
     EXPECT_TRUE(result.GetL() != nullptr);
     EXPECT_FALSE(self->IsExceptionPending());
 
-    shadow_frame->SetLink(nullptr);
+    shadow_frame->ClearLink();
   }
 
   // Negative test.
@@ -990,7 +990,7 @@ TEST_F(UnstartedRuntimeTest, ThreadLocalGet) {
     ASSERT_TRUE(self->IsExceptionPending());
     self->ClearException();
 
-    shadow_frame->SetLink(nullptr);
+    shadow_frame->ClearLink();
   }
 }
 
