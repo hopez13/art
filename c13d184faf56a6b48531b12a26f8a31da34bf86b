@@ -62,6 +62,30 @@
       },
       "revId": "c13d184faf56a6b48531b12a26f8a31da34bf86b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39e12e1d_e107ef42",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4517,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-08T09:05:56Z",
+      "side": 1,
+      "message": "If the cache is protected by mutator lock (see line 4515), we don\u0027t need to load atomically right? Maybe there\u0027s a place where that invariant is not held?",
+      "parentUuid": "1e54111a_b8c221d8",
+      "range": {
+        "startLine": 4515,
+        "startChar": 3,
+        "endLine": 4517,
+        "endChar": 5
+      },
+      "revId": "c13d184faf56a6b48531b12a26f8a31da34bf86b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
