@@ -217,6 +217,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd2b865f_5bd36379",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-08T09:18:58Z",
+      "side": 1,
+      "message": "Can we always reserve the marking register for now? This would mean gUseReadBarrier \u003d\u003d ART_USE_READ_BARRIER, no?",
+      "parentUuid": "72ef3ba1_f87fcebe",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad24973d_b13e2300",
         "filename": "runtime/lock_word.h",
         "patchSetId": 2
