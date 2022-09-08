@@ -86,6 +86,30 @@
       },
       "revId": "c13d184faf56a6b48531b12a26f8a31da34bf86b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c1cd7f4_67947854",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4517,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-08T10:39:59Z",
+      "side": 1,
+      "message": "I don\u0027t follow.  The mutator lock is non-exclusive.  Interpreter can still be accessing the cache on other (non-GC) thread.  Or the cache might be concurrently cleared by DexFile_close.\n\nOn the other topic, any CAS/atomic-access here does not help up here without making the interpreter accesses also atomic, which I would like to avoid if we can.",
+      "parentUuid": "39e12e1d_e107ef42",
+      "range": {
+        "startLine": 4515,
+        "startChar": 3,
+        "endLine": 4517,
+        "endChar": 5
+      },
+      "revId": "c13d184faf56a6b48531b12a26f8a31da34bf86b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
