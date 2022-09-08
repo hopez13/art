@@ -193,6 +193,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72ef3ba1_f87fcebe",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:05:13Z",
+      "side": 1,
+      "message": "Agreed about the breakage. Maybe it\u0027s better to add a block comment around the gUseReadBarrier declaration, and explain all the fine distinctions. Leaving this unresolved for Nicolas.",
+      "parentUuid": "d62b5f41_39aead46",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad24973d_b13e2300",
         "filename": "runtime/lock_word.h",
         "patchSetId": 2

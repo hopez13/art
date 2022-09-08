@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9b382d8_0c62b217",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:05:13Z",
+      "side": 1,
+      "message": "I\u0027m fine with submitting as is, and deferring the remaining issues, or going ahead and adding gUseReadBarrier documentation to this CL.\n\nThe other small change I suggested seems a bit riskier, and I would prefer it in a separate CL, if you decide to proceed. It\u0027s also basically unrelated.",
+      "revId": "e36d7ab9cbcff30447fb28f7f5282aa9d7f653c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c66effa3_bbf5c12a",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:05:13Z",
+      "side": 1,
+      "message": "Should we take this out, too? It\u0027s probably better to do that in a separate CL, though.",
+      "range": {
+        "startLine": 213,
+        "startChar": 10,
+        "endLine": 213,
+        "endChar": 30
+      },
+      "revId": "e36d7ab9cbcff30447fb28f7f5282aa9d7f653c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
