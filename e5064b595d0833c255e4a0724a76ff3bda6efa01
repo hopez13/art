@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc0e6538_733300e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-08T09:26:11Z",
+      "side": 1,
+      "message": "Thanks! A few minor comments left.",
+      "revId": "e5064b595d0833c255e4a0724a76ff3bda6efa01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7dc5e6b_b57bec71",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-08T09:26:11Z",
+      "side": 1,
+      "message": "the target thread?",
+      "range": {
+        "startLine": 1687,
+        "startChar": 54,
+        "endLine": 1687,
+        "endChar": 56
+      },
+      "revId": "e5064b595d0833c255e4a0724a76ff3bda6efa01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b044319b_77d10674",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-08T09:26:11Z",
+      "side": 1,
+      "message": "the target thread ?",
+      "range": {
+        "startLine": 1694,
+        "startChar": 39,
+        "endLine": 1694,
+        "endChar": 41
+      },
+      "revId": "e5064b595d0833c255e4a0724a76ff3bda6efa01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b6d9d51_434c309d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-08T09:26:11Z",
+      "side": 1,
+      "message": "... after taking the suspend count lock ?",
+      "range": {
+        "startLine": 1705,
+        "startChar": 72,
+        "endLine": 1705,
+        "endChar": 73
+      },
+      "revId": "e5064b595d0833c255e4a0724a76ff3bda6efa01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

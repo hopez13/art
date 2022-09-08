@@ -888,6 +888,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "622d2200_08a3cfae",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-08T09:26:11Z",
+      "side": 1,
+      "message": "Could we DCHECK the value of the barrier?",
+      "parentUuid": "4e565ff5_be28d4bf",
+      "range": {
+        "startLine": 710,
+        "startChar": 0,
+        "endLine": 710,
+        "endChar": 66
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e554f14_eb3d212b",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 9
@@ -1134,6 +1158,30 @@
       "side": 1,
       "message": "It\u0027s the value of suspend_all_count_. We no longer allow concurrent requests. I revised the comment to clarify.",
       "parentUuid": "9fbba0a2_fa8954fe",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 26
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b702b87b_63dc65dc",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-08T09:26:11Z",
+      "side": 1,
+      "message": "Thanks - I actually misread the code and thought suspend_all_count_ was a method :)",
+      "parentUuid": "5de6a149_16a45ced",
       "range": {
         "startLine": 216,
         "startChar": 2,
