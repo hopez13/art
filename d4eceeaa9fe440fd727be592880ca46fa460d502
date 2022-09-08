@@ -16,6 +16,69 @@
       "message": "Ping, PTAL.",
       "revId": "d4eceeaa9fe440fd727be592880ca46fa460d502",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e37d8fa_5215ed68",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-08T18:02:16Z",
+      "side": 1,
+      "message": "Maybe use `ALOGE` here?",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 9
+      },
+      "revId": "d4eceeaa9fe440fd727be592880ca46fa460d502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a52962a_8c99194b",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-08T18:02:16Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 289,
+        "startChar": 4,
+        "endLine": 289,
+        "endChar": 9
+      },
+      "revId": "d4eceeaa9fe440fd727be592880ca46fa460d502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7787cecf_3787d3cb",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-08T18:02:16Z",
+      "side": 1,
+      "message": "Suggestion: Add\n\n```\nlib_list.reserve(config-\u003esize());\n```\n\nafter line 299.",
+      "revId": "d4eceeaa9fe440fd727be592880ca46fa460d502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
