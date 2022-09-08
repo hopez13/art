@@ -75,8 +75,10 @@ class ShadowFrame {
   }
 
   // Create ShadowFrame in heap for deoptimization.
-  static ShadowFrame* CreateDeoptimizedFrame(uint32_t num_vregs, ShadowFrame* link,
-                                             ArtMethod* method, uint32_t dex_pc) {
+  static ShadowFrame* CreateDeoptimizedFrame(uint32_t num_vregs,
+                                             ShadowFrame* link,
+                                             ArtMethod* method,
+                                             uint32_t dex_pc) {
     uint8_t* memory = new uint8_t[ComputeSize(num_vregs)];
     return CreateShadowFrameImpl(num_vregs, link, method, dex_pc, memory);
   }
@@ -90,11 +92,11 @@ class ShadowFrame {
 
   // Create a shadow frame in a fresh alloca. This needs to be in the context of the caller.
   // Inlining doesn't work, the compiler will still undo the alloca. So this needs to be a macro.
-#define CREATE_SHADOW_FRAME(num_vregs, link, method, dex_pc) ({                              \
+#define CREATE_SHADOW_FRAME(num_vregs, method, dex_pc) ({                                    \
     size_t frame_size = ShadowFrame::ComputeSize(num_vregs);                                 \
     void* alloca_mem = alloca(frame_size);                                                   \
     ShadowFrameAllocaUniquePtr(                                                              \
-        ShadowFrame::CreateShadowFrameImpl((num_vregs), (link), (method), (dex_pc),          \
+        ShadowFrame::CreateShadowFrameImpl((num_vregs), nullptr, (method), (dex_pc),         \
                                            (alloca_mem)));                                   \
     })
 
@@ -135,6 +137,7 @@ class ShadowFrame {
 
   void SetLink(ShadowFrame* frame) {
     DCHECK_NE(this, frame);
+    DCHECK_EQ(link_, nullptr);
     link_ = frame;
   }
 
