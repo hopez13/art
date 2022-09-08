@@ -110,6 +110,30 @@
       },
       "revId": "c13d184faf56a6b48531b12a26f8a31da34bf86b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbbe68ab_359eae01",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4517,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-08T12:14:15Z",
+      "side": 1,
+      "message": "If this code takes the lock exclusively (can it?), then we can make the other places where the cache is updated requiring the mutator lock.",
+      "parentUuid": "8c1cd7f4_67947854",
+      "range": {
+        "startLine": 4515,
+        "startChar": 3,
+        "endLine": 4517,
+        "endChar": 5
+      },
+      "revId": "c13d184faf56a6b48531b12a26f8a31da34bf86b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
