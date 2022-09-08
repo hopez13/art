@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84553eeb_86eacd33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-08T17:25:42Z",
+      "side": 1,
+      "message": "Yes, system_ext is for OEMs. Actually, this CL is created by Xiaomi. They are adding their OEM-specific system server jars to system_ext, which I think is a valid thing to do according to https://source.android.com/docs/core/bootloader/partitions/shared-system-image#sys-ext-partition.\n\nI don\u0027t think they are currently using CompOS, so this isn\u0027t a blocker for now, but it will become a blocker when OEMs start to adopt CompOS in the future.",
+      "parentUuid": "e163f26f_c8852c89",
+      "revId": "946c9e451956ca2424b37ae1ce9191286e10ca31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d566a391_0e6c0b72",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 3
