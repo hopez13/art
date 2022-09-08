@@ -75,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a27d9ea_cb59edc4",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "893a955f_c52504f6",
+      "range": {
+        "startLine": 1071,
+        "startChar": 0,
+        "endLine": 1072,
+        "endChar": 77
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7a8e4e4_270cedb6",
@@ -88,6 +112,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "nit: one line",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 80
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e08f53c2_f64a8ff3",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7a8e4e4_270cedb6",
       "range": {
         "startLine": 60,
         "startChar": 0,
@@ -115,6 +163,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bf60699_d94f6dd1",
+        "filename": "runtime/native/java_lang_Thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e10e103a_76c64864",
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dd9fa56_9a224a75",
@@ -128,6 +194,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "nit: one line",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 84
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af347d54_94a79022",
+        "filename": "runtime/native/org_apache_harmony_dalvik_ddmc_DdmVmInternal.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dd9fa56_9a224a75",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -161,6 +251,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd187848_62bbd4e7",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce519d93_7c0cc829",
+      "range": {
+        "startLine": 455,
+        "startChar": 26,
+        "endLine": 455,
+        "endChar": 41
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12b3c632_d204c57e",
@@ -174,6 +288,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "nit: one line",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 65
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3ca17b6_467f9b17",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12b3c632_d204c57e",
       "range": {
         "startLine": 480,
         "startChar": 0,
@@ -207,6 +345,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a48fb984_8d6214a3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "That is actually a nontrivial question :-(\nI ended up removing it, and adding enough documentation to convince myself that\u0027s correct.",
+      "parentUuid": "af9cf4f6_a6b368a8",
+      "range": {
+        "startLine": 1461,
+        "startChar": 39,
+        "endLine": 1461,
+        "endChar": 51
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a44670b_e2f321b1",
@@ -220,6 +382,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "nit: new line",
+      "range": {
+        "startLine": 1481,
+        "startChar": 23,
+        "endLine": 1481,
+        "endChar": 35
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa8defe7_be27f655",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Actually, it barely fits on one.",
+      "parentUuid": "8a44670b_e2f321b1",
       "range": {
         "startLine": 1481,
         "startChar": 23,
@@ -253,6 +439,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "893adbff_f534bd51",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1675,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Great question. I believe the code assumed, and still does, that !installed implies the thread is no longer runnable. But on closer inspection, I don\u0027t see how RequestCheckpoint() ensures that. That would require a guarantee that the thread state or flags can\u0027t change asynchronously for unrelated reasons, to ensure that CompareAndSet doesn\u0027t fail for other reasons. I don\u0027t think we have that. I\u0027ll fixRequestCheckpoint() so that it looks more convincing. By misidentifying the thread as suspended, we might have introduced some other random failures.",
+      "parentUuid": "064316ca_b3651252",
+      "range": {
+        "startLine": 1675,
+        "startChar": 33,
+        "endLine": 1675,
+        "endChar": 34
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6100ea4_9a2d2432",
@@ -266,6 +476,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "Add a comment why?",
+      "range": {
+        "startLine": 1685,
+        "startChar": 0,
+        "endLine": 1685,
+        "endChar": 28
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a584bfde_5b212bbb",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6100ea4_9a2d2432",
       "range": {
         "startLine": 1685,
         "startChar": 0,
@@ -299,6 +533,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d204c5_dac52f90",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1696,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64b1a06_b020a638",
+      "range": {
+        "startLine": 1696,
+        "startChar": 11,
+        "endLine": 1696,
+        "endChar": 13
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a3da0e7_05c5fc5f",
@@ -312,6 +570,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "Can this check be outside of the lock (ie line 1704) ? If not, can you add a comment?",
+      "range": {
+        "startLine": 1708,
+        "startChar": 0,
+        "endLine": 1708,
+        "endChar": 50
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27bd9a9f_2c7e2f4b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1708,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Yes, it can. But it seems redundant, since it\u0027s the terminating condition of the prior loop. It\u0027s a bit more meaningful after the potentially blocking call. Left it with a comment. Just deleting it would be my second choice.",
+      "parentUuid": "1a3da0e7_05c5fc5f",
       "range": {
         "startLine": 1708,
         "startChar": 0,
@@ -345,6 +627,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "956bce56_6a4f6421",
+        "filename": "runtime/thread.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2074,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ad85cd5_9434b96b",
+      "range": {
+        "startLine": 2074,
+        "startChar": 65,
+        "endLine": 2074,
+        "endChar": 86
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1122d38d_e3408680",
@@ -358,6 +664,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "nit: one line",
+      "range": {
+        "startLine": 657,
+        "startChar": 0,
+        "endLine": 658,
+        "endChar": 59
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc7cd2df_f71d5fc9",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1122d38d_e3408680",
       "range": {
         "startLine": 657,
         "startChar": 0,
@@ -391,6 +721,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef9350e_b855d590",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6200592_5dab3a82",
+      "range": {
+        "startLine": 681,
+        "startChar": 18,
+        "endLine": 681,
+        "endChar": 25
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35e6ca4e_db20b025",
@@ -404,6 +758,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "nit: one condition per line",
+      "range": {
+        "startLine": 688,
+        "startChar": 17,
+        "endLine": 689,
+        "endChar": 32
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c050123a_d8c4cd03",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e6ca4e_db20b025",
       "range": {
         "startLine": 688,
         "startChar": 17,
@@ -437,6 +815,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9958f906_f667f1c2",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8987f093_6faf5595",
+      "range": {
+        "startLine": 704,
+        "startChar": 0,
+        "endLine": 705,
+        "endChar": 101
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1378be33_b5ad08ff",
@@ -450,6 +852,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "Can you add a comment why we need to clear it? (what happens to it if it\u0027s not null?)",
+      "range": {
+        "startLine": 710,
+        "startChar": 0,
+        "endLine": 710,
+        "endChar": 66
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e565ff5_be28d4bf",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "I changed the preceding comment instead. Hopefully that clarifies the issue. We effectively took care of the barrier for this barrier for that thread, so it\u0027s important to note that it no longer needs to be passed. This directly affects HasActiveSuspendBarrier() below.",
+      "parentUuid": "1378be33_b5ad08ff",
       "range": {
         "startLine": 710,
         "startChar": 0,
@@ -483,6 +909,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b254f40_33a92380",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "The latter. I revised the comment to hopefully clarify.",
+      "parentUuid": "1e554f14_eb3d212b",
+      "range": {
+        "startLine": 721,
+        "startChar": 18,
+        "endLine": 721,
+        "endChar": 21
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6051566_9e9f0071",
@@ -496,6 +946,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "nit: one line",
+      "range": {
+        "startLine": 852,
+        "startChar": 0,
+        "endLine": 853,
+        "endChar": 63
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0bef817_e2419714",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6051566_9e9f0071",
       "range": {
         "startLine": 852,
         "startChar": 0,
@@ -523,6 +997,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "915f7310_c0d4ca86",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95f087d0_53f9c68d",
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a5d67f9_d33d7d45",
@@ -536,6 +1028,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "nit: one line",
+      "range": {
+        "startLine": 939,
+        "startChar": 0,
+        "endLine": 940,
+        "endChar": 67
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db1f2347_bd7fd3f7",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a5d67f9_d33d7d45",
       "range": {
         "startLine": 939,
         "startChar": 0,
@@ -563,6 +1079,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02f5da18_c8e9ee79",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "Mythri also asked that question, as did I. It would be nice, but there are a lot of small snippets in the middle that are different, which we would basically need to pass in. I\u0027m sure it could be done, but it seemed to me we would gain brevity at the expense of clarity, which seemed like the wrong trade-off to me, for this particular code.",
+      "parentUuid": "0078e3ea_bee7ea49",
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fbba0a2_fa8954fe",
@@ -576,6 +1110,30 @@
       "writtenOn": "2022-09-05T09:43:28Z",
       "side": 1,
       "message": "Is that the return value? What does it represent?",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 26
+      },
+      "revId": "65ffa3e2312ce0ad78b2e678b07656c7e8e756f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5de6a149_16a45ced",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-08T00:43:22Z",
+      "side": 1,
+      "message": "It\u0027s the value of suspend_all_count_. We no longer allow concurrent requests. I revised the comment to clarify.",
+      "parentUuid": "9fbba0a2_fa8954fe",
       "range": {
         "startLine": 216,
         "startChar": 2,
