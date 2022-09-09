@@ -24,7 +24,7 @@ public class Main {
     testArrayStores();
     testOnlyStoreUses();
     testNoUse();
-    testPhiInput();
+    testSelectInput();
     testVolatileStore();
     testCatchBlock();
     doThrow = true;
@@ -226,29 +226,28 @@ public class Main {
     }
   }
 
-  // Make sure we can move code only used by a phi.
-  /// CHECK-START: void Main.testPhiInput() code_sinking (before)
+  // Make sure we can move code only used by a Select.
+  /// CHECK-START: void Main.testSelectInput() code_sinking (before)
   /// CHECK: <<Null:l\d+>>        NullConstant
   /// CHECK: <<LoadClass:l\d+>>   LoadClass class_name:java.lang.Object
   /// CHECK: <<NewInstance:l\d+>> NewInstance [<<LoadClass>>]
   /// CHECK:                      If
   /// CHECK:                      begin_block
-  /// CHECK:                      Phi [<<Null>>,<<NewInstance>>]
+  /// CHECK:                      Select [<<Null>>,<<NewInstance>>,<<Cond:z\d+>>]
   /// CHECK:                      Throw
 
-  /// CHECK-START: void Main.testPhiInput() code_sinking (after)
+  /// CHECK-START: void Main.testSelectInput() code_sinking (after)
   /// CHECK: <<Null:l\d+>>        NullConstant
   /// CHECK-NOT:                  NewInstance
   /// CHECK:                      If
   /// CHECK:                      begin_block
   /// CHECK: <<LoadClass:l\d+>>   LoadClass class_name:java.lang.Object
   /// CHECK: <<NewInstance:l\d+>> NewInstance [<<LoadClass>>]
-  /// CHECK:                      begin_block
-  /// CHECK:                      Phi [<<Null>>,<<NewInstance>>]
+  /// CHECK:                      Select [<<Null>>,<<NewInstance>>,<<Cond:z\d+>>]
   /// CHECK: <<Error:l\d+>>       LoadClass class_name:java.lang.Error
   /// CHECK:                      NewInstance [<<Error>>]
   /// CHECK:                      Throw
-  public static void testPhiInput() {
+  public static void testSelectInput() {
     Object f = new Object();
     if (doThrow) {
       Object o = null;

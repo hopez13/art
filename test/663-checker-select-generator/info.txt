@@ -21,6 +21,8 @@ It tests:
   * All different values
   * Same value in some cases but not all
 
-For all cases it tests:
+For the above cases it tests:
 * Branches merging with a Phi.
 * Branches returning instead of having a Phi.
+
+It also tests having multiple Phis for simple and double diamond.

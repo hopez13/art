@@ -114,11 +114,14 @@ public class Main {
   /// CHECK-DAG: Phi loop:<<Loop:B\d+>> outer_loop:none
   /// CHECK-DAG: Phi loop:<<Loop>>      outer_loop:none
   /// CHECK-DAG: Phi loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: Phi loop:<<Loop>>      outer_loop:none
-  /// CHECK-DAG: Phi loop:<<Loop>>      outer_loop:none
+  /// CHECK-DAG: Select loop:<<Loop>>   outer_loop:none
+  /// CHECK-DAG: Select loop:<<Loop>>   outer_loop:none
   //
   /// CHECK-START: void Main.deadConditionalCycle(int) loop_optimization (after)
   /// CHECK-NOT: Phi
+  //
+  /// CHECK-START: void Main.deadConditionalCycle(int) loop_optimization (after)
+  /// CHECK-NOT: Select
   public static void deadConditionalCycle(int n) {
     int k = 0;
     int m = 0;
