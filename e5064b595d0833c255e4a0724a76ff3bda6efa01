@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97a60748_aa50574b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-09T00:11:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7dc5e6b_b57bec71",
+      "range": {
+        "startLine": 1687,
+        "startChar": 54,
+        "endLine": 1687,
+        "endChar": 56
+      },
+      "revId": "e5064b595d0833c255e4a0724a76ff3bda6efa01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b044319b_77d10674",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fde930db_b57ca459",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-09T00:11:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b044319b_77d10674",
+      "range": {
+        "startLine": 1694,
+        "startChar": 39,
+        "endLine": 1694,
+        "endChar": 41
+      },
+      "revId": "e5064b595d0833c255e4a0724a76ff3bda6efa01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b6d9d51_434c309d",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-09-08T09:26:11Z",
       "side": 1,
       "message": "... after taking the suspend count lock ?",
+      "range": {
+        "startLine": 1705,
+        "startChar": 72,
+        "endLine": 1705,
+        "endChar": 73
+      },
+      "revId": "e5064b595d0833c255e4a0724a76ff3bda6efa01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c9f1bca_be14fc28",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-09T00:11:49Z",
+      "side": 1,
+      "message": "It doesn\u0027t really have anything to do with the lock. We\u0027re just checking what should be a stable property at the latest possible point. Hopefully the new version of the comment makes that clearer.",
+      "parentUuid": "9b6d9d51_434c309d",
       "range": {
         "startLine": 1705,
         "startChar": 72,
