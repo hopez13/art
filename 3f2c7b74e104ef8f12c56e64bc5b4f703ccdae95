@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ed3df52a_18d4d612",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-09T11:03:46Z",
+      "side": 1,
+      "message": "Done. I added a whole bunch of tests since we didn\u0027t have a robust test suite. The crash was happening when the double diamond pattern had repeated values but weren\u0027t all the same.",
+      "parentUuid": "40d52dde_a10ff9ce",
+      "revId": "3f2c7b74e104ef8f12c56e64bc5b4f703ccdae95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1fbc9f4c_1df5e50f",
         "filename": "compiler/optimizing/select_generator.cc",
         "patchSetId": 1

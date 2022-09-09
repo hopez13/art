@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5cf14b0_754fea87",
+        "filename": "test/463-checker-boolean-simplifier/smali/Main2.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-09T11:03:46Z",
+      "side": 1,
+      "message": "This was generating a select since it had two phis but one of them had duplicated values. This wasn\u0027t something we explicitly supported, and now we don\u0027t support. \n\nAdded a TODO in the code to support it.",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 23
+      },
+      "revId": "9982765f4ad64cab8c14f032b5682be29a66f1ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
