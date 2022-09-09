@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e90d636_1406f6ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-09T15:30:25Z",
+      "side": 1,
+      "message": "Thanks for reverting! The failing stack trace with the original CL is:\n\n\n09-08 20:36:57.719  9557  9557 F art_compiler_tests: mutex.h:387] Check failed: !IsSharedHeld(self) mutator lock level\u003d72 owner\u003d0 state\u003d0 num_contenders\u003d0 \n...\n09-08 20:36:57.753  9557  9557 F art_compiler_tests: runtime.cc:678]   native: #05 pc 0000000000016464  /apex/com.android.art/lib64/libbase.so (android::base::LogMessage::~LogMessage()+588) (BuildId: a0ea83e17c13f6511292c556d1c5405b)\n09-08 20:36:57.753  9557  9557 F art_compiler_tests: runtime.cc:678]   native: #06 pc 00000000001f30ac  /apex/com.android.art/lib64/libartd.so (art::ReaderWriterMutex::AssertNotHeld(art::Thread const*)+316) (BuildId: 5548f01eeb734c0e7b80be9a90aec214)\n09-08 20:36:57.753  9557  9557 F art_compiler_tests: runtime.cc:678]   native: #07 pc 00000000002051e0  /apex/com.android.art/lib64/libartd.so (art::ClassLinker::MakeInitializedClassesVisiblyInitialized(art::Thread*, bool)+84) (BuildId: 5548f01eeb734c0e7b80be9a90aec214)\n09-08 20:36:57.753  9557  9557 F art_compiler_tests: runtime.cc:678]   native: #08 pc 000000000018b3c8  /apex/com.android.art/bin/art/arm64/art_compiler_tests (art::JniCompilerTest::CompileForTest(_jobject*, bool, char const*, char const*)+680) (BuildId: 9527b896fe185cef146c966a05a8371a)\n09-08 20:36:57.753  9557  9557 F art_compiler_tests: runtime.cc:678]   native: #09 pc 000000000014a344  /apex/com.android.art/bin/art/arm64/art_compiler_tests (art::JniCompilerTest::SetUpForTest(bool, char const*, char const*, void*)+548) (Bui...\n",
+      "revId": "f2298b784e3b57905fdc4eb720df54cb2a257a23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
