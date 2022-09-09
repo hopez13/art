@@ -322,6 +322,11 @@ void ClassLinker::MakeInitializedClassesVisiblyInitialized(Thread* self, bool wa
   }
   std::optional<Barrier> maybe_barrier;  // Avoid constructing the Barrier for `wait == false`.
   if (wait) {
+    // TODO(b/253691761): The conditional should probably be removed when possible so that
+    // AssertNotHeld() becomes unconditional. Currently EnterTransaction() violates the assertion.
+    if (kIsDebugBuild && !Runtime::Current()->IsActiveTransaction()) {
+      Locks::mutator_lock_->AssertNotHeld(self);
+    }
     maybe_barrier.emplace(0);
   }
   int wait_count = 0;
