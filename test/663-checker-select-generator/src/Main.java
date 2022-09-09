@@ -346,8 +346,133 @@ public class Main {
     }
   }
 
+  // Check that we generate a select for a simple diamond pattern, with multiple phis.
+
+  /// CHECK-START: int Main.$noinline$testSimpleDiamondMultiplePhiDifferentValue(boolean) select_generator (before)
+  /// CHECK-DAG:   <<Const10:i\d+>> IntConstant 10
+  /// CHECK-DAG:   <<Const20:i\d+>> IntConstant 20
+  /// CHECK-DAG:   <<Const40:i\d+>> IntConstant 40
+  /// CHECK-DAG:   <<Phi1:i\d+>>    Phi [<<Arg1:i\d+>>,<<Arg2:i\d+>>]
+  /// CHECK-DAG:   <<Phi2:i\d+>>    Phi [<<Arg3:i\d+>>,<<Arg4:i\d+>>]
+  /// CHECK-DAG:   <<Add:i\d+>>     Add [<<Phi1>>,<<Phi2>>]
+  /// CHECK-DAG:                    Return [<<Add>>]
+  /// CHECK-EVAL:  set(["<<Arg1>>","<<Arg2>>"]) == set(["<<Const10>>","<<Const20>>"])
+  /// CHECK-EVAL:  set(["<<Arg3>>","<<Arg4>>"]) == set(["<<Const20>>","<<Const40>>"])
+
+  /// CHECK-START: int Main.$noinline$testSimpleDiamondMultiplePhiDifferentValue(boolean) select_generator (after)
+  /// CHECK-DAG:   <<Bool:z\d+>>    ParameterValue
+  /// CHECK-DAG:   <<Const10:i\d+>> IntConstant 10
+  /// CHECK-DAG:   <<Const20:i\d+>> IntConstant 20
+  /// CHECK-DAG:   <<Const40:i\d+>> IntConstant 40
+  /// CHECK-DAG:   <<SelectA:i\d+>> Select [<<Const20>>,<<Const10>>,<<Bool>>]
+  /// CHECK-DAG:   <<SelectB:i\d+>> Select [<<Const40>>,<<Const20>>,<<Bool>>]
+  /// CHECK-DAG:   <<Add:i\d+>>     Add [<<SelectA>>,<<SelectB>>]
+  /// CHECK-DAG:                    Return [<<Add>>]
+  private static int $noinline$testSimpleDiamondMultiplePhiDifferentValue(boolean bool_param) {
+    int a, b;
+    if (bool_param) {
+      a = 10;
+      b = 20;
+    } else {
+      a = 20;
+      b = 40;
+    }
+    return a + b;
+  }
+
+  // Check that we generate a select for a double diamond pattern, with multiple phis.
+
+  /// CHECK-START: int Main.$noinline$testDoubleDiamondMultiplePhiDifferentValue(boolean, boolean) select_generator (before)
+  /// CHECK-DAG:   <<Const10:i\d+>> IntConstant 10
+  /// CHECK-DAG:   <<Const20:i\d+>> IntConstant 20
+  /// CHECK-DAG:   <<Const30:i\d+>> IntConstant 30
+  /// CHECK-DAG:   <<Const40:i\d+>> IntConstant 40
+  /// CHECK-DAG:   <<Const60:i\d+>> IntConstant 60
+  /// CHECK-DAG:   <<Phi1:i\d+>>    Phi [<<Arg1:i\d+>>,<<Arg2:i\d+>>,<<Arg3:i\d+>>]
+  /// CHECK-DAG:   <<Phi2:i\d+>>    Phi [<<Arg4:i\d+>>,<<Arg5:i\d+>>,<<Arg6:i\d+>>]
+  /// CHECK-DAG:   <<Add:i\d+>>     Add [<<Phi1>>,<<Phi2>>]
+  /// CHECK-DAG:                    Return [<<Add>>]
+  /// CHECK-EVAL:  set(["<<Arg1>>","<<Arg2>>","<<Arg3>>"]) == set(["<<Const10>>","<<Const20>>","<<Const30>>"])
+  /// CHECK-EVAL:  set(["<<Arg4>>","<<Arg5>>","<<Arg6>>"]) == set(["<<Const20>>","<<Const40>>","<<Const60>>"])
+
+  /// CHECK-START: int Main.$noinline$testDoubleDiamondMultiplePhiDifferentValue(boolean, boolean) select_generator (after)
+  /// CHECK-DAG:   <<Bool1:z\d+>>    ParameterValue
+  /// CHECK-DAG:   <<Bool2:z\d+>>    ParameterValue
+  /// CHECK-DAG:   <<Const10:i\d+>>  IntConstant 10
+  /// CHECK-DAG:   <<Const20:i\d+>>  IntConstant 20
+  /// CHECK-DAG:   <<Const30:i\d+>>  IntConstant 30
+  /// CHECK-DAG:   <<Const40:i\d+>>  IntConstant 40
+  /// CHECK-DAG:   <<Const60:i\d+>>  IntConstant 60
+  /// CHECK-DAG:   <<SelectA1:i\d+>> Select [<<Const30>>,<<Const20>>,<<Bool2>>]
+  /// CHECK-DAG:   <<SelectA2:i\d+>> Select [<<SelectA1>>,<<Const10>>,<<Bool1>>]
+  /// CHECK-DAG:   <<SelectB1:i\d+>> Select [<<Const60>>,<<Const40>>,<<Bool2>>]
+  /// CHECK-DAG:   <<SelectB2:i\d+>> Select [<<SelectB1>>,<<Const20>>,<<Bool1>>]
+  /// CHECK-DAG:   <<Add:i\d+>>      Add [<<SelectA2>>,<<SelectB2>>]
+  /// CHECK-DAG:                     Return [<<Add>>]
+  private static int $noinline$testDoubleDiamondMultiplePhiDifferentValue(boolean bool_param_1, boolean bool_param_2) {
+    int a, b;
+    if (bool_param_1) {
+      a = 10;
+      b = 20;
+    } else {
+      if (bool_param_2) {
+        a = 20;
+        b = 40;
+      } else {
+        a = 30;
+        b = 60;
+      }
+    }
+    return a + b;
+  }
+
+  // Check that we generate a select for a double diamond pattern, with multiple phis, and repeated values.
+  // `a` repeats in the inner if, and b inner/outer.
+
+  /// CHECK-START: int Main.$noinline$testDoubleDiamondMultiplePhiSameValueButNotAll(boolean, boolean) select_generator (before)
+  /// CHECK-DAG:   <<Const10:i\d+>> IntConstant 10
+  /// CHECK-DAG:   <<Const20:i\d+>> IntConstant 20
+  /// CHECK-DAG:   <<Const40:i\d+>> IntConstant 40
+  /// CHECK-DAG:   <<Const60:i\d+>> IntConstant 60
+  /// CHECK-DAG:   <<Phi1:i\d+>>    Phi [<<Arg1:i\d+>>,<<Arg2:i\d+>>,<<Arg3:i\d+>>]
+  /// CHECK-DAG:   <<Phi2:i\d+>>    Phi [<<Arg4:i\d+>>,<<Arg5:i\d+>>,<<Arg6:i\d+>>]
+  /// CHECK-DAG:   <<Add:i\d+>>     Add [<<Phi1>>,<<Phi2>>]
+  /// CHECK-DAG:                    Return [<<Add>>]
+  /// CHECK-EVAL:  set(["<<Arg1>>","<<Arg2>>","<<Arg3>>"]) == set(["<<Const10>>","<<Const20>>","<<Const20>>"])
+  /// CHECK-EVAL:  set(["<<Arg4>>","<<Arg5>>","<<Arg6>>"]) == set(["<<Const40>>","<<Const40>>","<<Const60>>"])
+
+  /// CHECK-START: int Main.$noinline$testDoubleDiamondMultiplePhiSameValueButNotAll(boolean, boolean) select_generator (after)
+  /// CHECK-DAG:   <<Bool1:z\d+>>    ParameterValue
+  /// CHECK-DAG:   <<Bool2:z\d+>>    ParameterValue
+  /// CHECK-DAG:   <<Const10:i\d+>>  IntConstant 10
+  /// CHECK-DAG:   <<Const20:i\d+>>  IntConstant 20
+  /// CHECK-DAG:   <<Const40:i\d+>>  IntConstant 40
+  /// CHECK-DAG:   <<Const60:i\d+>>  IntConstant 60
+  /// CHECK-DAG:   <<SelectA1:i\d+>> Select [<<Const20>>,<<Const20>>,<<Bool2>>]
+  /// CHECK-DAG:   <<SelectA2:i\d+>> Select [<<SelectA1>>,<<Const10>>,<<Bool1>>]
+  /// CHECK-DAG:   <<SelectB1:i\d+>> Select [<<Const60>>,<<Const40>>,<<Bool2>>]
+  /// CHECK-DAG:   <<SelectB2:i\d+>> Select [<<SelectB1>>,<<Const40>>,<<Bool1>>]
+  /// CHECK-DAG:   <<Add:i\d+>>      Add [<<SelectA2>>,<<SelectB2>>]
+  /// CHECK-DAG:                     Return [<<Add>>]
+  private static int $noinline$testDoubleDiamondMultiplePhiSameValueButNotAll(boolean bool_param_1, boolean bool_param_2) {
+    int a, b;
+    if (bool_param_1) {
+      a = 10;
+      b = 40;
+    } else {
+      if (bool_param_2) {
+        a = 20;
+        b = 40;
+      } else {
+        a = 20;
+        b = 60;
+      }
+    }
+    return a + b;
+  }
+
   public static void main(String[] args) throws Throwable {
-    // With phi
+    // With Phi.
     assertEquals(10, $noinline$testSimpleDiamondSameValue(false));
     assertEquals(20, $noinline$testSimpleDiamondDifferentValue(false));
     assertEquals(10, $noinline$testDoubleDiamondSameValue(false, false));
@@ -355,12 +480,17 @@ public class Main {
     assertEquals(20, $noinline$testDoubleDiamondSameValueButNotAllInner(false, false));
     assertEquals(30, $noinline$testDoubleDiamondDifferentValue(false, false));
 
-    // With return
+    // With Return.
     assertEquals(10, $noinline$testSimpleDiamondSameValueWithReturn(false));
     assertEquals(20, $noinline$testSimpleDiamondDifferentValueWithReturn(false));
     assertEquals(10, $noinline$testDoubleDiamondSameValueWithReturn(false, false));
     assertEquals(20, $noinline$testDoubleDiamondSameValueButNotAllOuterWithReturn(false, false));
     assertEquals(20, $noinline$testDoubleDiamondSameValueButNotAllInnerWithReturn(false, false));
     assertEquals(30, $noinline$testDoubleDiamondDifferentValueWithReturn(false, false));
+
+    // Multiple Phis.
+    assertEquals(60, $noinline$testSimpleDiamondMultiplePhiDifferentValue(false));
+    assertEquals(90, $noinline$testDoubleDiamondMultiplePhiDifferentValue(false, false));
+    assertEquals(80, $noinline$testDoubleDiamondMultiplePhiSameValueButNotAll(false, false));
   }
 }
