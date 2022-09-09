@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff5755ee_45f84b24",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-09T14:17:30Z",
+      "side": 1,
+      "message": "I\u0027d like that for a parse error, but a file not found condition is not an error here. Made it `ALOGI` as a compromise.",
+      "parentUuid": "4e37d8fa_5215ed68",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 9
+      },
+      "revId": "d4eceeaa9fe440fd727be592880ca46fa460d502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a52962a_8c99194b",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef0e464b_cac0498f",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-09T14:17:30Z",
+      "side": 1,
+      "message": "Yes. Changed to `ALOGI` here too.",
+      "parentUuid": "5a52962a_8c99194b",
+      "range": {
+        "startLine": 289,
+        "startChar": 4,
+        "endLine": 289,
+        "endChar": 9
+      },
+      "revId": "d4eceeaa9fe440fd727be592880ca46fa460d502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7787cecf_3787d3cb",
@@ -77,6 +125,24 @@
       "writtenOn": "2022-09-08T18:02:16Z",
       "side": 1,
       "message": "Suggestion: Add\n\n```\nlib_list.reserve(config-\u003esize());\n```\n\nafter line 299.",
+      "revId": "d4eceeaa9fe440fd727be592880ca46fa460d502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2d05668_72939166",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-09T14:17:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7787cecf_3787d3cb",
       "revId": "d4eceeaa9fe440fd727be592880ca46fa460d502",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
