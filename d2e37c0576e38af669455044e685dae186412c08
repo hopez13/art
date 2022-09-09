@@ -153,6 +153,24 @@
       "parentUuid": "e05bfa07_13e2ac12",
       "revId": "d2e37c0576e38af669455044e685dae186412c08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5680629a_55ba3a72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2022-09-09T09:00:33Z",
+      "side": 1,
+      "message": "I originally suggested reading into an unused global variable, but you can cast as `(void)*start;` instead. I believe that this guarantees the rvalue conversion. In any case, the implementation behavior of Clang is to do the load even for the lvalue version of this code, as seen in https://godbolt.org/z/E9dncbrPE (including the AST, which shows the required rvalue conversions).\n\nI wouldn\u0027t rewrite the code to do it this way, though. I would define helpers that do the `READ_ONCE` using volatile, and then have a `DISCARD` helper that casts the result to `(void)`. This makes the program intentions explicit and thus more readable.",
+      "parentUuid": "65cf8687_37f7746d",
+      "revId": "d2e37c0576e38af669455044e685dae186412c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
