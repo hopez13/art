@@ -16,6 +16,24 @@
       "message": "Looks like those test apps still import androidx.test.runner.AndroidJUnit4. Better to keep this rather than relying on the transitive dependency? Or make loadlibrarytest_test_utils a java_defaults instead of a java_library?",
       "revId": "e9bc094b0832f18363ff92fffed4eac09b7141aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17f54462_3211abc5",
+        "filename": "libnativeloader/test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-09T14:19:14Z",
+      "side": 0,
+      "message": "Good catch, thanks. I made it a library because I may want to use it in the shared library, and I was a bit unsure how a defaults would behave wrt package name conflicts (but then maybe this isn\u0027t any better - maybe it\u0027d need jarjar, I don\u0027t know).",
+      "parentUuid": "1260abf5_a2acbccb",
+      "revId": "e9bc094b0832f18363ff92fffed4eac09b7141aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
