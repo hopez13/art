@@ -171,6 +171,24 @@
       "parentUuid": "65cf8687_37f7746d",
       "revId": "d2e37c0576e38af669455044e685dae186412c08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a65061d_1927727f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2022-09-09T09:12:44Z",
+      "side": 1,
+      "message": "\"4) If new-type is the type void (possibly cv-qualified), static_cast discards the value of expression after evaluating it.\" from https://en.cppreference.com/w/cpp/language/static_cast is enough to convince me that the proper solution essentially becomes `(void)*start;` or something nicer looking, but syntactically equivalent.",
+      "parentUuid": "5680629a_55ba3a72",
+      "revId": "d2e37c0576e38af669455044e685dae186412c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
