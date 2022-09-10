@@ -17,6 +17,7 @@
 package android.test.app;
 
 import android.test.lib.TestUtils;
+import android.test.systemsharedlib.SystemSharedLib;
 import androidx.test.filters.SmallTest;
 import androidx.test.runner.AndroidJUnit4;
 import org.junit.Test;
@@ -30,8 +31,25 @@ public class DataAppTest {
         System.loadLibrary("foo.oem1");
         System.loadLibrary("bar.oem1");
         System.loadLibrary("foo.oem2");
-        TestUtils.assertLinkerNamespaceError("bar.oem2"); // Missing <uses-native-library>.
+        TestUtils.assertLinkerNamespaceError(
+                () -> System.loadLibrary("bar.oem2")); // Missing <uses-native-library>.
         System.loadLibrary("foo.product1");
         System.loadLibrary("bar.product1");
+    }
+
+    @Test
+    public void testLoadPrivateLibraries() {
+        TestUtils.assertLinkerNamespaceError(() -> System.loadLibrary("system_private1"));
+        TestUtils.assertLibraryNotFound(() -> System.loadLibrary("product_private1"));
+        TestUtils.assertLibraryNotFound(() -> System.loadLibrary("vendor_private1"));
+    }
+
+    @Test
+    public void testLoadPrivateLibrariesViaSystemSharedLib() {
+        // TODO(b/237577392): Fix this use case.
+        TestUtils.assertLinkerNamespaceError(() -> SystemSharedLib.loadLibrary("system_private2"));
+
+        TestUtils.assertLibraryNotFound(() -> SystemSharedLib.loadLibrary("product_private2"));
+        TestUtils.assertLibraryNotFound(() -> SystemSharedLib.loadLibrary("vendor_private2"));
     }
 }
