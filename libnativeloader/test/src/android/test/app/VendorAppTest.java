@@ -49,9 +49,7 @@ public class VendorAppTest {
 
     @Test
     public void testLoadPrivateLibrariesViaSystemSharedLib() {
-        // TODO(b/237577392): Fix this use case.
-        TestUtils.assertLinkerNamespaceError(() -> SystemSharedLib.loadLibrary("system_private2"));
-
+        SystemSharedLib.loadLibrary("system_private2");
         TestUtils.assertLibraryNotFound(() -> SystemSharedLib.loadLibrary("product_private2"));
         TestUtils.assertLibraryNotFound(() -> SystemSharedLib.loadLibrary("vendor_private2"));
     }
