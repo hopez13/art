@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc254bb3_366597fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T15:35:30Z",
+      "side": 1,
+      "message": "David PTAL. This is the runtime aspect of try catch inlining. There are some compiler/ files but they are the ones related to stack maps.\n\nI added tests for this (see test 2240-), which are included in the compiler part of the topic (https://android-review.googlesource.com/c/platform/art/+/2138475)\n\nVladimir, Nicolas as FYI.",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd62a8bb_0d5edce5",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T15:35:30Z",
+      "side": 1,
+      "message": "Separated `ToNativeQuickPc` into two separate methods: one for catch handler, and the other one for normal handlers.",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1273ecbe_c95b1204",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T15:35:30Z",
+      "side": 1,
+      "message": "For DCHECK_IMPLIES",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 25
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
