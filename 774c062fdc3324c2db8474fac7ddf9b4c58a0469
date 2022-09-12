@@ -69,6 +69,24 @@
       "parentUuid": "fb5dfde3_45252caf",
       "revId": "774c062fdc3324c2db8474fac7ddf9b4c58a0469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d114ca29_51f90ad4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T14:58:11Z",
+      "side": 1,
+      "message": "On host, I ran a loop with 1 million iterations each function I am adding in the `663-` test, using only one thread. I used `time` and added `user`+`sys` for the results. I ran that 10 times for each method and aggregated the results. Results:\n\n```\n        SimpleDiamond | DoubleDiamond | DoubleDiamondSameValueButNotAll\nAVERAGE      -3.84%   |      0.81%    |               -1.29%\nMEDIAN       -3.01%   |      0.57%    |               -2.28%\n```\n\nFrom my runs I got improvements in `SimpleDiamond` and `DoubleDiamondSameValueButNotAll`, and slight regressions in `DoubleDiamond`.\n\nBoth solutions seem roughly similar (i.e. the difference was less than 5% in a micro benchmark so I don\u0027t see this having a huge impact either way on real-world code), but the select offers more possibilities of optimizations (namely `VisitSelect` in instruction simplifier), and removes basic blocks from the graph.",
+      "parentUuid": "8c009b49_28a19695",
+      "revId": "774c062fdc3324c2db8474fac7ddf9b4c58a0469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
