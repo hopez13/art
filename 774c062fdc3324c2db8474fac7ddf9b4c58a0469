@@ -16,6 +16,23 @@
       "message": "Nicolas PTAL. Follow-up to aosp/2209515",
       "revId": "774c062fdc3324c2db8474fac7ddf9b4c58a0469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8608309_caaf168a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-12T09:07:06Z",
+      "side": 1,
+      "message": "Have you looked at performance tradeoff doing a branch versus multiple selects?",
+      "revId": "774c062fdc3324c2db8474fac7ddf9b4c58a0469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
