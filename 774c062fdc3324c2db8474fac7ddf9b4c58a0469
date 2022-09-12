@@ -105,6 +105,24 @@
       "parentUuid": "d114ca29_51f90ad4",
       "revId": "774c062fdc3324c2db8474fac7ddf9b4c58a0469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b471c2_23adc63f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T17:32:18Z",
+      "side": 1,
+      "message": "Same test in target (AOSP pixel 5):\n```\n        SimpleDiamond | DoubleDiamond | DoubleDiamondSameValueButNotAll\nAVERAGE      1.56%    |      -0.82%   |               -1.73%\nMEDIAN       3.57%    |      0.41%    |               -1.23%\n```\n\nIn target the SimpleDiamond appears as a regression and not an improvement, DoubleDiamond shows improvement in the average but not in the median, and DoubleDiamondSameValueButNotAll shows improvements in target as well.\n\nI believe that both the Phi and the Select are similar enough in terms of performance and we shouldn\u0027t see a huge impact either way on real-world code.\n\nCode size in ART benchmark automator is low (\u003c1K https://dashboards.corp.google.com/_b1ef2ce1_8a6a_418f_b821_92c97ab1be2f?fb\u003dBootImageProfileId%3Aeq%3A11063). In the test functions we have in instruction size (using host):\n\n```\n        SimpleDiamond | DoubleDiamond | DoubleDiamondSameValueButNotAll\nBEFORE       84       |      107      |               107\nAFTER        79       |      104      |               89\nSAVINGS    5 (5.95%)  |    3 (2.80%)  |              18 (16.82%)\n```\n\nThe biggest saving is in `DoubleDiamondSameValueButNotAll`, partly because the `VisitSelect` in instruction simplifier could outright eliminate one of the selects (the one where the inner loop had the same value in the `if` and `else` branches). Before this CL we still had a Phi, since the Phi had three values (and therefore not redundant).\n\nCode size in target:\n\n```\n        SimpleDiamond | DoubleDiamond | DoubleDiamondSameValueButNotAll\nBEFORE       76       |      93       |               92\nAFTER        82       |      105      |               92\nSAVINGS   -5 (-6.5%)  |  -12 (-12.9%) |              0 (0%)\n```\n\nCode size increases are due to 1) Defining the constants in registers 2) doing cmp + csel (size 8) or test + cmovnz in host (size 5). In host these increases are offsetted by the fact that we don\u0027t have branches. In target, we don\u0027t offset as much and we end up regressing on code size.\n\nOne of the upsides of this work is no branching paths. However, the branch predictors are becoming better and better so it might not be that big an upside (as evidenced by the similar-ish results of the microbenchmarks).\n\nConclusion: If there aren\u0027t any big improvements and we have code size regressions on target, I\u0027d be partial to abandoning the CL.\n\nMaybe future work?\nI see some avenues for improving the selects on target e.g. for the SimpleDiamond we have\n```\n+      0 1 i18 Select [i6,i9,z0] dex_pc:0 block:B1 loop:none\n+0x0000003c: 7100003f\tcmp w1, #0x0 (0)\n+0x00000040: 1a831000\tcsel w0, w0, w3, ne\n+ \u003c|@\n+      0 1 i19 Select [i7,i6,z0] dex_pc:0 block:B1 loop:none\n+0x00000044: 7100003f\tcmp w1, #0x0 (0)\n+0x00000048: 1a821061\tcsel w1, w3, w2, ne\n```\nWe don\u0027t have to do the same comparison again, saving 4 (that would still leave us with -1 versus the Phis). Similarly, we can save 8 in DoubleDiamond (-4 total), and save 4 in DoubleDiamondSameValueButNotAll (+4 total which would be an improvement). This extra improvement could be done regardless landing the SelectGenerator\u0027s expansion.\n\nSeems like we could add a variable in codegen `last_comparison` that saves which was the last comparison, and we skip emitting code if the comparison we are about to emit is the same as the saved one. That variable should be cleared by any instruction that clears/sets the flags.",
+      "parentUuid": "42200cfb_ce573b37",
+      "revId": "774c062fdc3324c2db8474fac7ddf9b4c58a0469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
