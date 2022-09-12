@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4f01577_9cc5a147",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-12T12:23:46Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of this test? Is it to verify that apps on /data treated differently than apps on /system? If so, what\u0027s the difference?",
+      "revId": "a0d275f3c69f581363a09ad641d4457f1a7b6821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "128d29e2_3ba3c00b",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-12T12:23:46Z",
+      "side": 1,
+      "message": "Nice finding!",
+      "range": {
+        "startLine": 255,
+        "startChar": 53,
+        "endLine": 255,
+        "endChar": 64
+      },
+      "revId": "a0d275f3c69f581363a09ad641d4457f1a7b6821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "364d82d5_6d4ca963",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-12T12:23:46Z",
+      "side": 1,
+      "message": "Please add comment to this argument.",
+      "range": {
+        "startLine": 286,
+        "startChar": 91,
+        "endLine": 286,
+        "endChar": 96
+      },
+      "revId": "a0d275f3c69f581363a09ad641d4457f1a7b6821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e88d9745_303291a4",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-12T12:23:46Z",
+      "side": 1,
+      "message": "Also print the message if not null?",
+      "range": {
+        "startLine": 287,
+        "startChar": 21,
+        "endLine": 287,
+        "endChar": 27
+      },
+      "revId": "a0d275f3c69f581363a09ad641d4457f1a7b6821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
