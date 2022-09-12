@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "46d41539_16263be4",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-12T22:12:07Z",
+      "side": 1,
+      "message": "Nicely spotted, thanks.",
+      "parentUuid": "7886cf7f_707c7ef5",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "07700e273b7b5f31d5e023818c241a1af92d32f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1f10dee3_1d341e35",
         "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-12T12:50:30Z",
       "side": 1,
       "message": "Alternatively, call `runDeviceTests` separately for each test method to have each method run in a separate process. Up to you.",
+      "range": {
+        "startLine": 231,
+        "startChar": 12,
+        "endLine": 232,
+        "endChar": 68
+      },
+      "revId": "07700e273b7b5f31d5e023818c241a1af92d32f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a90261eb_68790d8d",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-12T22:12:07Z",
+      "side": 1,
+      "message": "That\u0027s an option, but it leads to more plumbing here that needs to be in sync with the test apps. For now I think this is simpler, although it admittedly is a bit ugly.",
+      "parentUuid": "1f10dee3_1d341e35",
       "range": {
         "startLine": 231,
         "startChar": 12,
@@ -60,6 +108,24 @@
       "writtenOn": "2022-09-12T12:50:30Z",
       "side": 1,
       "message": "Just curious, how does package manager pick this up? By looking at the xml file below?",
+      "revId": "07700e273b7b5f31d5e023818c241a1af92d32f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8d506e2_e58e3a91",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-12T22:12:07Z",
+      "side": 1,
+      "message": "Yes, exactly. I found it digging through the innards of the PM code, but I\u0027ve lost the link to it now.",
+      "parentUuid": "eb4c7606_deb44c86",
       "revId": "07700e273b7b5f31d5e023818c241a1af92d32f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
