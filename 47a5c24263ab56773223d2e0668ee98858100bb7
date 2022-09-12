@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "644f409f_e8c9bb05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T15:35:27Z",
+      "side": 1,
+      "message": "Vladimir PTAL. Compiler part of enabling try catch inlining. The runtime part is the other CL in the topic (https://android-review.googlesource.com/c/platform/art/+/2135218)\n\nDavid, Nicolas as FYI.",
+      "revId": "47a5c24263ab56773223d2e0668ee98858100bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f40592ed_01b70ac6",
+        "filename": "test/2237-checker-inline-multidex/src/Main.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T15:35:27Z",
+      "side": 1,
+      "message": "Drive-by changes:\n* added `$noinline$` to the tests\n* added comments explaining previous tests",
+      "revId": "47a5c24263ab56773223d2e0668ee98858100bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67a0a0c0_34d899ab",
+        "filename": "test/542-inline-trycatch/src/Main.java",
+        "patchSetId": 20
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T15:35:27Z",
+      "side": 1,
+      "message": "Tests in this file are superseded by the ones in `2240-`. We weren\u0027t even testing it properly as `$noinline$` meant that the inliner would ignore this method.",
+      "revId": "47a5c24263ab56773223d2e0668ee98858100bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
