@@ -210,13 +210,13 @@ void JvmtiWeakTable<T>::SweepImpl(art::IsMarkedVisitor* visitor) {
 template <typename T>
 template <typename Updater, typename JvmtiWeakTable<T>::TableUpdateNullTarget kTargetNull>
 ALWAYS_INLINE inline void JvmtiWeakTable<T>::UpdateTableWith(Updater& updater) {
-  // We optimistically hope that elements will still be well-distributed when re-inserting them.
-  // So play with the map mechanics, and postpone rehashing. This avoids the need of a side
-  // vector and two passes.
-  float original_max_load_factor = tagged_objects_.max_load_factor();
-  tagged_objects_.max_load_factor(std::numeric_limits<float>::max());
-  // For checking that a max load-factor actually does what we expect.
-  size_t original_bucket_count = tagged_objects_.bucket_count();
+  // To store all <K,V> pair where the object reference is updated during map
+  // traversal. This is because we can't emplace within the map as a to-space
+  // reference could be same as some from-space object reference in the map,
+  // causing correctness issues. The problem will not arise if all updated
+  // <K,V> pairs are inserted after the loop as by then such from-space object
+  // reference would also have been taken care of.
+  std::vector<typename TagMap::value_type> obj_updates;
 
   for (auto it = tagged_objects_.begin(); it != tagged_objects_.end();) {
     DCHECK(!it->first.IsNull());
@@ -229,8 +229,7 @@ ALWAYS_INLINE inline void JvmtiWeakTable<T>::UpdateTableWith(Updater& updater) {
         T tag = it->second;
         it = tagged_objects_.erase(it);
         if (target_obj != nullptr) {
-          tagged_objects_.emplace(art::GcRoot<art::mirror::Object>(target_obj), tag);
-          DCHECK_EQ(original_bucket_count, tagged_objects_.bucket_count());
+          obj_updates.emplace_back(art::GcRoot<art::mirror::Object>(target_obj), tag);
         } else if (kTargetNull == kCallHandleNull) {
           HandleNullSweep(tag);
         }
@@ -239,9 +238,7 @@ ALWAYS_INLINE inline void JvmtiWeakTable<T>::UpdateTableWith(Updater& updater) {
     }
     it++;
   }
-
-  tagged_objects_.max_load_factor(original_max_load_factor);
-  // TODO: consider rehash here.
+  tagged_objects_.insert(obj_updates.begin(), obj_updates.end());
 }
 
 template <typename T>
