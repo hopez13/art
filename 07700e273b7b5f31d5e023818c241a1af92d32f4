@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7886cf7f_707c7ef5",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-12T12:50:30Z",
+      "side": 1,
+      "message": "testLoadExtendedPublicLibraries?",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "07700e273b7b5f31d5e023818c241a1af92d32f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f10dee3_1d341e35",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-12T12:50:30Z",
+      "side": 1,
+      "message": "Alternatively, call `runDeviceTests` separately for each test method to have each method run in a separate process. Up to you.",
+      "range": {
+        "startLine": 231,
+        "startChar": 12,
+        "endLine": 232,
+        "endChar": 68
+      },
+      "revId": "07700e273b7b5f31d5e023818c241a1af92d32f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb4c7606_deb44c86",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-12T12:50:30Z",
+      "side": 1,
+      "message": "Just curious, how does package manager pick this up? By looking at the xml file below?",
+      "revId": "07700e273b7b5f31d5e023818c241a1af92d32f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
