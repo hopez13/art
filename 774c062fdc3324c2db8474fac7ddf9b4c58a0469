@@ -33,6 +33,24 @@
       "message": "Have you looked at performance tradeoff doing a branch versus multiple selects?",
       "revId": "774c062fdc3324c2db8474fac7ddf9b4c58a0469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5dfde3_45252caf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T13:01:23Z",
+      "side": 1,
+      "message": "I ran two ART benchmark automators and got inconsistent results.\nRun 1 Friday: startup: -2.28%, boot time: 1.84% (https://dashboards.corp.google.com/_b1ef2ce1_8a6a_418f_b821_92c97ab1be2f?fb\u003dBootImageProfileId%3Aeq%3A11063)\nRun 2 today: startup: 0.32%, boot time: 0.03% (https://dashboards.corp.google.com/_b1ef2ce1_8a6a_418f_b821_92c97ab1be2f?fb\u003dBootImageProfileId:eq:11067)\n\nI can run a third one, or maybe trigger a golem benchmark if you want.",
+      "parentUuid": "e8608309_caaf168a",
+      "revId": "774c062fdc3324c2db8474fac7ddf9b4c58a0469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
