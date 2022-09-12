@@ -39,6 +39,30 @@
       },
       "revId": "da62902d07ab4ccda39d06cecc8ec9f3b63406ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5782e9e1_59927ca8",
+        "filename": "test/Android.run-test.bp.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-12T13:05:27Z",
+      "side": 1,
+      "message": "Hmmm... it is not `classes`.  It is the \"final\" run-test data artifact, containing all the files needed to run the run-test.\n\nExcept the artifact will be generated in some obscure intermediate directory, and needs to be copied to well-known path below.\n\nI struggle to come up with a better than \"temporary\".",
+      "parentUuid": "71b0c315_38140ea8",
+      "range": {
+        "startLine": 38,
+        "startChar": 28,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "da62902d07ab4ccda39d06cecc8ec9f3b63406ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
