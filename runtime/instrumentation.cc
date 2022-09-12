@@ -317,7 +317,8 @@ static bool CanUseAotCode(const void* quick_code)
 static bool CanUseNterp(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
   return interpreter::CanRuntimeUseNterp() &&
       CanMethodUseNterp(method) &&
-      method->GetDeclaringClass()->IsVerified();
+      method->GetDeclaringClass()->IsVerified() &&
+      method->IsInvokable();
 }
 
 static const void* GetOptimizedCodeFor(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -356,7 +357,7 @@ static const void* GetOptimizedCodeFor(ArtMethod* method) REQUIRES_SHARED(Locks:
 void Instrumentation::InitializeMethodsCode(ArtMethod* method, const void* aot_code)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Use instrumentation entrypoints if instrumentation is installed.
-  if (UNLIKELY(EntryExitStubsInstalled()) && !IsProxyInit(method)) {
+  if (UNLIKELY(EntryExitStubsInstalled()) && !IsProxyInit(method) && method->IsInvokable()) {
     if (!method->IsNative() && InterpretOnly(method)) {
       UpdateEntryPoints(method, GetQuickToInterpreterBridge());
     } else {
