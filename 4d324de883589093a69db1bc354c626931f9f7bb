@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13597388_67bddd97",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T08:23:40Z",
+      "side": 0,
+      "message": "Removed as we have no use for it now.",
+      "range": {
+        "startLine": 74,
+        "startChar": 13,
+        "endLine": 74,
+        "endChar": 25
+      },
+      "revId": "4d324de883589093a69db1bc354c626931f9f7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d59669f_df976c41",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T08:23:40Z",
+      "side": 0,
+      "message": "This code I refactored to work with the `if (both_successors_return) {`. I did this change since now we have to loop through the Phis.",
+      "revId": "4d324de883589093a69db1bc354c626931f9f7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa9ac2df_8e01fba2",
+        "filename": "compiler/optimizing/select_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T08:23:40Z",
+      "side": 0,
+      "message": "Extracted to `FindCommonSubexpressions`.",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 3
+      },
+      "revId": "4d324de883589093a69db1bc354c626931f9f7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7031def_a4945c24",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-12T08:23:40Z",
+      "side": 0,
+      "message": "The Phi gets turned into a select (previously it wasn\u0027t since we have two Phis: one for `o` and one for `i`). From what I could see, there\u0027s nothing special about Phis in code sinking. We can have a similar test with a Select.",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 51
+      },
+      "revId": "4d324de883589093a69db1bc354c626931f9f7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
