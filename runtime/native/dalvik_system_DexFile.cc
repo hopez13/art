@@ -17,6 +17,7 @@
 #include "dalvik_system_DexFile.h"
 
 #include <sstream>
+#include <cutils/android_filesystem_config.h>
 
 #include "android-base/file.h"
 #include "android-base/stringprintf.h"
@@ -56,6 +57,9 @@
 #include "well_known_classes.h"
 
 namespace art {
+
+// Should be the same as dalvik.system.DexFile.ENFORCE_READ_ONLY_JAVA_DCL
+static constexpr uint64_t kEnforceReadOnlyJavaDcl = 218865702;
 
 using android::base::StringPrintf;
 
@@ -315,6 +319,30 @@ static jobject DexFile_openDexFileNative(JNIEnv* env,
   if (sourceName.c_str() == nullptr) {
     return nullptr;
   }
+
+#ifdef __ANDROID__
+  const int uid = getuid();
+  if (uid != 0 && uid != AID_SYSTEM) {
+    // Skip RO enforcement on root and system processes:
+    // * Root always has write access to files
+    // * /data/app/**.apk are owned by UID = AID_SYSTEM;
+    //   loading APKs (e.g. instrumentation) in system_server should be allowed.
+    Runtime* const runtime = Runtime::Current();
+    CompatFramework& compatFramework = runtime->GetCompatFramework();
+    if (compatFramework.IsChangeEnabled(kEnforceReadOnlyJavaDcl)) {
+      if (access(sourceName.c_str(), W_OK) == 0) {
+        LOG(ERROR) << "Attempt to load writable dex file: " << sourceName.c_str();
+        ScopedLocalRef<jclass> se(env, env->FindClass("java/lang/SecurityException"));
+        std::string message(
+            StringPrintf("Writable dex file '%s' is not allowed.", sourceName.c_str()));
+        env->ThrowNew(se.get(), message.c_str());
+        return nullptr;
+      }
+    }
+  }
+#else
+  (void) kEnforceReadOnlyJavaDcl;
+#endif
 
   std::vector<std::string> error_msgs;
   const OatFile* oat_file = nullptr;
