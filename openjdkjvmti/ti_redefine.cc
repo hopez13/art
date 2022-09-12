@@ -2127,7 +2127,12 @@ art::ObjPtr<art::mirror::Class> Redefiner::ClassRedefinition::AllocateNewClassOb
   }
   // Finish setting up methods.
   linked_class->VisitMethods([&](art::ArtMethod* m) REQUIRES_SHARED(art::Locks::mutator_lock_) {
-    driver_->runtime_->GetInstrumentation()->InitializeMethodsCode(m, /* aot_code= */ nullptr);
+    if (m->IsInvokable()) {
+      driver_->runtime_->GetInstrumentation()->InitializeMethodsCode(m, /* aot_code= */ nullptr);
+    } else {
+      m->SetEntryPointFromQuickCompiledCodePtrSize(linker->GetQuickToInterpreterBridgeTrampoline(),
+                                                   linker->GetImagePointerSize());
+    }
     m->SetNotIntrinsic();
     DCHECK(m->IsCopied() || m->GetDeclaringClass() == linked_class.Get())
         << m->PrettyMethod()
@@ -2557,7 +2562,12 @@ void Redefiner::ClassRedefinition::UpdateMethods(art::ObjPtr<art::mirror::Class>
     CHECK(method_id != nullptr);
     uint32_t dex_method_idx = dex_file_->GetIndexForMethodId(*method_id);
     method.SetDexMethodIndex(dex_method_idx);
-    driver_->runtime_->GetInstrumentation()->InitializeMethodsCode(&method, /*aot_code=*/ nullptr);
+    if (method.IsInvokable()) {
+      driver_->runtime_->GetInstrumentation()->InitializeMethodsCode(&method, /*aot_code=*/ nullptr);
+    } else {
+      method.SetEntryPointFromQuickCompiledCodePtrSize(linker->GetQuickToInterpreterBridgeTrampoline(),
+                                                       linker->GetImagePointerSize());
+    }
     if (method.HasCodeItem()) {
       method.SetCodeItem(
           dex_file_->GetCodeItem(dex_file_->FindCodeItemOffset(class_def, dex_method_idx)),

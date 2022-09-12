@@ -356,6 +356,7 @@ static const void* GetOptimizedCodeFor(ArtMethod* method) REQUIRES_SHARED(Locks:
 
 void Instrumentation::InitializeMethodsCode(ArtMethod* method, const void* aot_code)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  CHECK(method->IsInvokable()) << method->PrettyMethod();
   // Use instrumentation entrypoints if instrumentation is installed.
   if (UNLIKELY(EntryExitStubsInstalled()) && !IsProxyInit(method)) {
     if (!method->IsNative() && InterpretOnly(method)) {

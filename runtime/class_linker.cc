@@ -216,7 +216,10 @@ static void UpdateClassAfterVerification(Handle<mirror::Class> klass,
   // to methods that currently use the switch interpreter.
   if (interpreter::CanRuntimeUseNterp()) {
     for (ArtMethod& m : klass->GetMethods(pointer_size)) {
-      if (class_linker->IsQuickToInterpreterBridge(m.GetEntryPointFromQuickCompiledCode())) {
+      // If the method isn't invokable we should retain the interpreter bridge
+      // which can correctly handle non invokable methods.
+      if (class_linker->IsQuickToInterpreterBridge(m.GetEntryPointFromQuickCompiledCode()) &&
+          m.IsInvokable()) {
         runtime->GetInstrumentation()->InitializeMethodsCode(&m, /*aot_code=*/nullptr);
       }
     }
