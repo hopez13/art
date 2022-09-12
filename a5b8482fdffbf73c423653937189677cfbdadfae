@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ecd5509_55310c98",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-12T09:01:48Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "49975657_8ed91c06",
+      "revId": "a5b8482fdffbf73c423653937189677cfbdadfae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3aff251_df4f6614",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-09-12T08:15:17Z",
       "side": 1,
       "message": "Maybe a comment about nullptr saying the link will be set when the newly constructed frame is pushed onto the shadow stack when it starts executing.",
+      "revId": "a5b8482fdffbf73c423653937189677cfbdadfae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8c861f0_f9a26ad4",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-12T09:01:48Z",
+      "side": 1,
+      "message": "Now that the parameter is removed, no need to add more comments here.",
+      "parentUuid": "e3aff251_df4f6614",
       "revId": "a5b8482fdffbf73c423653937189677cfbdadfae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
