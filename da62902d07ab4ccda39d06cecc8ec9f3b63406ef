@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5585b73_d94122b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-09-12T13:00:36Z",
+      "side": 1,
+      "message": "Thanks David, lgtm, but I\u0027m not super familiar with the mechanics these days.",
+      "revId": "da62902d07ab4ccda39d06cecc8ec9f3b63406ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71b0c315_38140ea8",
+        "filename": "test/Android.run-test.bp.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-09-12T13:00:36Z",
+      "side": 1,
+      "message": "nit: a more descriptive might be good for others. `classes`?",
+      "range": {
+        "startLine": 38,
+        "startChar": 28,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "da62902d07ab4ccda39d06cecc8ec9f3b63406ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
