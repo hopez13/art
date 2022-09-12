@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db0e1d4b_86e3f656",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-09-12T08:15:17Z",
+      "side": 1,
+      "message": "Thanks Nicolas! lgtm with a couple of suggestions.",
+      "revId": "a5b8482fdffbf73c423653937189677cfbdadfae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49975657_8ed91c06",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-09-12T08:15:17Z",
+      "side": 1,
+      "message": "From a quick code search, this seems to be the only place that passes link to CreateShadowFrameImpl. Though the callers of CreateDeoptimizedFrame pass nullptr as the link. Should we just drop link for CreateShadowFrameImpl? If needed we can always use SetLink to set it explicitly.",
+      "revId": "a5b8482fdffbf73c423653937189677cfbdadfae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3aff251_df4f6614",
+        "filename": "runtime/interpreter/shadow_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-09-12T08:15:17Z",
+      "side": 1,
+      "message": "Maybe a comment about nullptr saying the link will be set when the newly constructed frame is pushed onto the shadow stack when it starts executing.",
+      "revId": "a5b8482fdffbf73c423653937189677cfbdadfae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
