@@ -258,7 +258,10 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   virtual size_t GetCalleePreservedFPWidth() const  = 0;
 
   // Get the size of the target SIMD register in bytes.
-  virtual size_t GetSIMDRegisterWidth() const = 0;
+  virtual size_t GetTraditionalSIMDRegisterWidth() const = 0;
+  virtual size_t GetPredicatedSIMDRegisterWidth() const  { return 0; }
+  virtual size_t GetActualSIMDRegisterWidthFromGraph() const = 0;
+
   virtual uintptr_t GetAddressOf(HBasicBlock* block) = 0;
   void InitializeCodeGeneration(size_t number_of_spill_slots,
                                 size_t maximum_safepoint_spill_size,

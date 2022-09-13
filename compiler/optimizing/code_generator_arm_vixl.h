@@ -540,11 +540,16 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
     return vixl::aarch32::kSRegSizeInBytes;
   }
 
-  size_t GetSIMDRegisterWidth() const override {
+  size_t GetTraditionalSIMDRegisterWidth() const override {
     // ARM 32-bit backend doesn't support Q registers in vectorizer, only D
     // registers (due to register allocator restrictions: overlapping s/d/q
     // registers).
     return vixl::aarch32::kDRegSizeInBytes;
+  }
+
+  size_t GetActualSIMDRegisterWidthFromGraph() const override {
+    DCHECK(!GetGraph()->HasPredicatedSIMD());
+    return GetTraditionalSIMDRegisterWidth();
   }
 
   HGraphVisitor* GetLocationBuilder() override { return &location_builder_; }

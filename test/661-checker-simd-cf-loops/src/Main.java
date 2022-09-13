@@ -45,7 +45,7 @@ public class Main {
   public static final float kMagicFloatAddConst = 99.0f;
 
   /// CHECK-START-ARM64: int Main.$compile$noinline$FullDiamond(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-DAG: <<C0:i\d+>>      IntConstant 0                                         loop:none
   ///     CHECK-DAG: <<C4:i\d+>>      IntConstant 4                                         loop:none
@@ -92,7 +92,7 @@ public class Main {
   //
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleBoolean(boolean[], boolean[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -109,9 +109,13 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleByte(byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-DAG: VecLoad
+  //
+  /// CHECK-ELSE:
+  //
+  ///     CHECK-NOT: VecLoad
   //
   /// CHECK-FI:
   public static void $compile$noinline$SimpleByte(byte[] x) {
@@ -124,9 +128,13 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleUByte(byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-DAG: VecLoad
+  //
+  /// CHECK-ELSE:
+  //
+  ///     CHECK-NOT: VecLoad
   //
   /// CHECK-FI:
   public static void $compile$noinline$SimpleUByte(byte[] x) {
@@ -138,9 +146,13 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleShort(short[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-DAG: VecLoad
+  //
+  /// CHECK-ELSE:
+  //
+  ///     CHECK-NOT: VecLoad
   //
   /// CHECK-FI:
   public static void $compile$noinline$SimpleShort(short[] x) {
@@ -153,9 +165,13 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleChar(char[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-DAG: VecLoad
+  //
+  /// CHECK-ELSE:
+  //
+  ///     CHECK-NOT: VecLoad
   //
   /// CHECK-FI:
   public static void $compile$noinline$SimpleChar(char[] x) {
@@ -168,9 +184,13 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleInt(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-DAG: VecLoad
+  //
+  /// CHECK-ELSE:
+  //
+  ///     CHECK-NOT: VecLoad
   //
   /// CHECK-FI:
   public static void $compile$noinline$SimpleInt(int[] x) {
@@ -183,7 +203,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleLong(long[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -200,7 +220,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleFloat(float[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -217,7 +237,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleDouble(double[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -238,9 +258,13 @@ public class Main {
   //
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$ByteConv(byte[], byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-DAG: VecLoad
+  //
+  /// CHECK-ELSE:
+  //
+  ///     CHECK-NOT: VecLoad
   //
   /// CHECK-FI:
   public static void $compile$noinline$ByteConv(byte[] x, byte[] y) {
@@ -253,7 +277,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$UByteAndWrongConst(byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -269,7 +293,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$ByteNoHiBits(byte[], byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -290,7 +314,7 @@ public class Main {
   //
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleBelow(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -311,7 +335,7 @@ public class Main {
   //
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$Select(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -329,7 +353,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$Phi(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -350,7 +374,7 @@ public class Main {
   // TODO: when Phis are supported, test dotprod and sad idioms.
 
   /// CHECK-START-ARM64: int Main.$compile$noinline$Reduction(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -369,12 +393,15 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: int Main.$compile$noinline$ReductionBackEdge(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-DAG: VecLoad
   //
-  /// CHECK-FI:
+  /// CHECK-ELSE:
   //
+  ///     CHECK-NOT: VecLoad
+  //
+  /// CHECK-FI:
   // Reduction in the back edge block, non-CF-dependent.
   public static int $compile$noinline$ReductionBackEdge(int[] x) {
     int sum = 0;
@@ -395,7 +422,7 @@ public class Main {
   public static final int kStencilArraySize = 130;
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$stencilAlike(int[], int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -416,7 +443,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$NotDiamondCf(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -435,7 +462,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$BrokenInduction(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -447,6 +474,97 @@ public class Main {
         x[i] += kMagicAddConst;
         i++;
       }
+    }
+  }
+
+  //
+  // Mixed vectorization modes: traditional + predicated SIMD.
+  //
+
+  /// CHECK-START-ARM64: void Main.$compile$noinline$JustTraditional(int[]) loop_optimization (after)
+  /// CHECK-DAG: VecLoad
+
+  /// CHECK-START-ARM64: void Main.$compile$noinline$JustTraditional(int[]) disassembly (after)
+  /// CHECK-IF:     os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') != 'true'
+  //
+  ///     CHECK: SuspendCheckSlowPathARM64
+  ///     CHECK:   {{str|stur|}} q{{\d+}}, [sp, #{{\d+}}]
+  //
+  /// CHECK-FI:
+
+  /// CHECK-START-ARM64: void Main.$compile$noinline$JustTraditional(int[]) disassembly (after)
+  /// CHECK-IF:     os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') != 'true'
+  //
+  ///     CHECK-NOT: str z{{\d+}}, [{{x\d+}}]
+  //
+  /// CHECK-FI:
+
+  // Arm64: Checks that NEON instructions are used for parallel moves in graphs with traditional
+  // SIMD loops, not SVE instructions.
+  public static void $compile$noinline$JustTraditional(int[] x) {
+    for (int i = 0; i < x.length; i++) {
+      x[i]++;
+    }
+  }
+
+  /// CHECK-START-ARM64: void Main.$compile$noinline$MixedModePredPlusTrad(int[], int[]) loop_optimization (after)
+  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') != 'true'
+  //
+  ///     CHECK-DAG: <<C0:i\d+>>       IntConstant 0                             loop:none
+  ///     CHECK-DAG: <<C1:i\d+>>       IntConstant 1                             loop:none
+  ///     CHECK-DAG: <<C99:i\d+>>      IntConstant 99                            loop:none
+  //
+  // Loop 1: Vectorized, predicated.
+  //
+  ///     CHECK-DAG:                   VecReplicateScalar [{{i\d+}},{{j\d+}}]    loop:none
+  ///     CHECK-DAG: <<Repl99:d\d+>>   VecReplicateScalar [<<C99>>,{{j\d+}}]     loop:none
+  ///     CHECK-DAG: <<PhiPred:i\d+>>  Phi [<<C0>>,{{i\d+}}]                     loop:<<LoopPred:B\d+>>  outer_loop:none
+  ///     CHECK-DAG: <<LoopP:j\d+>>    VecPredWhile [<<PhiPred>>,{{i\d+}}]       loop:<<LoopPred>>       outer_loop:none
+  ///     CHECK-DAG: <<Load1:d\d+>>    VecLoad [{{l\d+}},<<PhiPred>>,<<LoopP>>]  loop:<<LoopPred>>       outer_loop:none
+  ///     CHECK-DAG:                   VecAdd [<<Load1>>,<<Repl99>>,{{j\d+}}]    loop:<<LoopPred>>       outer_loop:none
+  //
+  // Loop 2: Vectorized, traditional
+  //
+  ///     CHECK-DAG: <<Repl1:d\d+>>    VecReplicateScalar [<<C1>>]               loop:none
+  ///     CHECK-DAG: <<PhiTrad:i\d+>>  Phi [<<C0>>,{{i\d+}}]                     loop:<<LoopTrad:B\d+>>  outer_loop:none
+  ///     CHECK-DAG: <<Load2:d\d+>>    VecLoad [{{l\d+}},<<PhiTrad>>]            loop:<<LoopTrad>>       outer_loop:none
+  ///     CHECK-DAG:                   VecAdd [<<Load2>>,<<Repl1>>]              loop:<<LoopTrad>>       outer_loop:none
+  //
+  // Loop 2: clean up loop, as part of traditional vectorization.
+  //
+  ///     CHECK-DAG: <<PhiClean:i\d+>> Phi [<<PhiTrad>>,{{i\d+}}]                 loop:<<LoopClean:B\d+>> outer_loop:none
+  ///     CHECK-DAG: <<Load3:i\d+>>    ArrayGet [{{l\d+}},<<PhiClean>>]           loop:<<LoopClean>>      outer_loop:none
+  ///     CHECK-DAG:                   Add [<<Load3>>,<<C1>>]                     loop:<<LoopClean>>      outer_loop:none
+  //
+  /// CHECK-FI:
+
+  /// CHECK-START-ARM64: void Main.$compile$noinline$MixedModePredPlusTrad(int[], int[]) disassembly (after)
+  /// CHECK-IF:     hasIsaFeature("sve")
+  //
+  ///     CHECK:       SuspendCheckSlowPathARM64
+  ///     CHECK:         str z{{\d+}}, [{{x\d+}}]
+  //
+  /// CHECK-FI:
+
+  /// CHECK-START-ARM64: void Main.$compile$noinline$MixedModePredPlusTrad(int[], int[]) disassembly (after)
+  /// CHECK-IF:     hasIsaFeature("sve")
+  //
+  ///     CHECK:       SuspendCheckSlowPathARM64
+  ///     CHECK-NOT:     {{str|stur|}} q{{\d+}}, [sp, #{{\d+}}]
+  //
+  /// CHECK-FI:
+
+  // Checks a graph with a predicated and a traditional loops.
+  public static void $compile$noinline$MixedModePredPlusTrad(int[] x, int[] y) {
+    for (int i = 0; i < kArrayLength / 2 - 1; i++) {
+      int val = x[i];
+      if (val != kMagicValueC) {
+        x[i] += kMagicAddConst;
+      }
+    }
+
+    for (int i = 0; i < y.length; i++) {
+      y[i]++;
     }
   }
 
@@ -551,6 +669,15 @@ public class Main {
     initIntArray(intArray);
     $compile$noinline$BrokenInduction(intArray);
     expectIntEquals(18963, IntArraySum(intArray));
+
+    // Mixed vectorization modes.
+    initIntArray(intArray);
+    $compile$noinline$JustTraditional(intArray);
+    expectIntEquals(14834, IntArraySum(intArray));
+
+    initIntArray(intArray);
+    $compile$noinline$MixedModePredPlusTrad(intArray, intArray);
+    expectIntEquals(18992, IntArraySum(intArray));
 
     System.out.println("passed");
   }
