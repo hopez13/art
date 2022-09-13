@@ -1,0 +1,342 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f87599e_a26f77e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "updating",
+      "range": {
+        "startLine": 9,
+        "startChar": 16,
+        "endLine": 9,
+        "endChar": 25
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "386664b9_ae8dbf1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "lgtm, but I\u0027d be interested in having David and Vladimir also look into this CL.",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2b9bade_15285611",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "field",
+      "range": {
+        "startLine": 73,
+        "startChar": 23,
+        "endLine": 73,
+        "endChar": 29
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73f1b69a_736e098a",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "field",
+      "range": {
+        "startLine": 81,
+        "startChar": 45,
+        "endLine": 81,
+        "endChar": 51
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5632bd1d_f6af8d8d",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "fields",
+      "range": {
+        "startLine": 99,
+        "startChar": 19,
+        "endLine": 99,
+        "endChar": 26
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb7f22cb_f79718b3",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "nit: add a kConstant name for this to explain why we do this.",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 13
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4911ccb9_6e5f7f99",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "be visited",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 29,
+        "endChar": 10
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5f8951e_35de976e",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "its allocations ?",
+      "range": {
+        "startLine": 31,
+        "startChar": 25,
+        "endLine": 31,
+        "endChar": 54
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f32b0d8f_cb250824",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "nit: add a high-level comment.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 51
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aaa8953_b6c2c395",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 6963,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "Can we do this in the constructor instead? It\u0027s odd that GetArenaPool would allocated. You can then drop this method to ensure no one calls this code.",
+      "range": {
+        "startLine": 6961,
+        "startChar": 0,
+        "endLine": 6963,
+        "endChar": 16
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "674f90e0_ecfc4a7f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1538,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "Drop all the code instead?",
+      "range": {
+        "startLine": 1538,
+        "startChar": 0,
+        "endLine": 1538,
+        "endChar": 5
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6da0986_d5532384",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1809,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74613c75_e361dc75",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "nit: add high-level comment.",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8231a11d_d63a652d",
+        "filename": "runtime/mirror/class_loader.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "nit: no need for this change",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "243bf7d6_5a8537dd",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "Would it make sense to always allocate a GcVisitedArenaPool (and have other GCs not look at it) ?",
+      "range": {
+        "startLine": 1748,
+        "startChar": 0,
+        "endLine": 1748,
+        "endChar": 68
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab451052_92965094",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 2575,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T09:00:48Z",
+      "side": 1,
+      "message": "nit: no need for this change.",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
