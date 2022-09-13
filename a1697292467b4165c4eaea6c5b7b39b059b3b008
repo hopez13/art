@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "436c01ac_3ec27f99",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T14:30:37Z",
+      "side": 1,
+      "message": "Side note: I always keep thinking that one day we need to add something like SmallVector\u003cT\u003e which stores few elements on stack and resorts to malloc only if there is many elements.\n\nThat would avoid things like this where the cost should in theory be negligible, and yet we have to care now because it is std::vector.",
+      "parentUuid": "8b8d8c5e_8be23c29",
+      "range": {
+        "startLine": 1343,
+        "startChar": 29,
+        "endLine": 1343,
+        "endChar": 83
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "530da4fe_abbca93c",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 14
@@ -95,6 +119,57 @@
       "side": 1,
       "message": "I would be tempted to put the \u0027Catch\u0027 in method name as well, just for clarity.\n\nOtherwise it seems like single-element array should be equivalent to the scalar overload.",
       "parentUuid": "dd62a8bb_0d5edce5",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a6cda6e_632254d1",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T14:30:37Z",
+      "side": 1,
+      "message": "Is the handler method the outermost, and the dex pc the innermost?",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f48029f7_c3a626e2",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T14:30:37Z",
+      "side": 1,
+      "message": "Does this have to be equal to catch_depth?  If so, can we DCHECK it?",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb979f04_20abf1e6",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T14:30:37Z",
+      "side": 1,
+      "message": "Does this do the expensive dex location decoding just to throw it away?",
       "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -210,6 +285,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cea1ab09_4210e5a7",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T14:30:37Z",
+      "side": 1,
+      "message": "This is inconsistent with the other overload.\n\nGetDexRegisterMapOf(stack_map, inline_info) gets you vregs for the inner method,\n\nbut GetDexRegisterMapOf(stack_map, 1) gets you vregs for both the outer and inner.\n\nIt is also code duplication, the other overload should probably just call this one. (or remove the other one)",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1a00a66_c480225d",
         "filename": "runtime/stack_map.h",
         "patchSetId": 14
@@ -227,6 +319,23 @@
         "endLine": 433,
         "endChar": 9
       },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb2de533_f96b3baa",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T14:30:37Z",
+      "side": 1,
+      "message": "GetInlineInfosOf is not cheap, call it just once.",
       "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -267,6 +376,30 @@
       "writtenOn": "2022-09-13T13:20:18Z",
       "side": 1,
       "message": "Nit: how about:\n\n```\nif (... !\u003d ...) {\n   is_found \u003d false;\n   break;\n}\n```",
+      "range": {
+        "startLine": 444,
+        "startChar": 10,
+        "endLine": 444,
+        "endChar": 98
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b02e8ba1_203b9bb2",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T14:30:37Z",
+      "side": 1,
+      "message": "Maybe.  As-is also looks ok to me.\n\nThe lack of `is_valid \u0026\u003d` makes it look like a bug, but I know it is not.",
+      "parentUuid": "c3e92c70_d31f9693",
       "range": {
         "startLine": 444,
         "startChar": 10,
