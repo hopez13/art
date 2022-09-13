@@ -83,6 +83,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e739dce_acb8804c",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T13:31:20Z",
+      "side": 1,
+      "message": "I would be tempted to put the \u0027Catch\u0027 in method name as well, just for clarity.\n\nOtherwise it seems like single-element array should be equivalent to the scalar overload.",
+      "parentUuid": "dd62a8bb_0d5edce5",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b748a3d_015730aa",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T13:31:20Z",
+      "side": 1,
+      "message": "Should this be `\u0026\u0026`?",
+      "range": {
+        "startLine": 111,
+        "startChar": 32,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e35fd1cb_52e66fca",
         "filename": "runtime/stack.cc",
         "patchSetId": 14
