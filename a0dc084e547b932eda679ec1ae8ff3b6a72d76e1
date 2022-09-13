@@ -204,6 +204,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "713cde4c_80f4f665",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T16:04:38Z",
+      "side": 1,
+      "message": "It feels like you could drop most of above if you did\n\naddr \u003d array-\u003eAt(idx++).declaring_class_.AddressWithoutBarrier();\nif (addr \u003e\u003d end_boundary) return;\nvisitor.VisitRoot(addr);",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19a2a311_a93ec431",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 20
@@ -244,6 +261,23 @@
         "endLine": 431,
         "endChar": 41
       },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d0e1634_1d7b5e12",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T16:04:38Z",
+      "side": 1,
+      "message": "Wait, so why do we need 1GB of the address space per each alloc?  That seems excessive.",
       "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -422,6 +456,23 @@
         "endLine": 39,
         "endChar": 38
       },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dbd4cd2_469b4eaf",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T16:04:38Z",
+      "side": 1,
+      "message": "Nit: It might be nice to explicitly comment whether you mean\n`obj_addr \u003c\u003d page_begin` or `obj_addr \u003e\u003d page_begin`.",
       "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -743,6 +794,23 @@
         "endLine": 91,
         "endChar": 26
       },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f1a3a24_0979fe3b",
+        "filename": "runtime/linear_alloc-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T16:04:38Z",
+      "side": 1,
+      "message": "That feels messy.  Can this method be just:\n```\n allocator_.Alloc(padding);\n Alloc(self, sizeof(TrackingHeader) + size, kind):\n```\n\nOk, it realise it not as trivial, but getting the allocation right sounds better than trying to undo it?",
       "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
