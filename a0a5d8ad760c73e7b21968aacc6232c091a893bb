@@ -16,6 +16,75 @@
       "message": "Thanks for reviewing!",
       "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b11195f_eaf923d6",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-13T13:45:41Z",
+      "side": 1,
+      "message": "IIUC, the input is a colon-separated list, and if any element in this list is in /system or /system_ext, we consider the whole list as APK_ORIGIN_SYSTEM? Is this expected? Is there a way what an APK on /data can pretend to be APK_ORIGIN_SYSTEM by appending a jar on /system to the list?",
+      "range": {
+        "startLine": 90,
+        "startChar": 41,
+        "endLine": 90,
+        "endChar": 42
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0930bde_1f4213cc",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-13T13:45:41Z",
+      "side": 1,
+      "message": "What about /system/vendor? I see that as a symlink to /vendor on Cuttlefish.",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 19
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87b998fa_c0e2bea9",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-13T13:45:41Z",
+      "side": 1,
+      "message": "Just curious, how?",
+      "range": {
+        "startLine": 245,
+        "startChar": 30,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
