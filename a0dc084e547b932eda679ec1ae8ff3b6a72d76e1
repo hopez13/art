@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f97ddc28_d193b5aa",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "I don\u0027t like this allocation, it\u0027s essentially leaking memory. I\u0027d prefer to use the class descriptor together with the pointer to the defining class loader\u0027s linear allocator as the linkage name.",
+      "range": {
+        "startLine": 481,
+        "startChar": 33,
+        "endLine": 481,
+        "endChar": 38
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2b9bade_15285611",
         "filename": "runtime/art_field-inl.h",
         "patchSetId": 20
@@ -59,6 +82,75 @@
         "startChar": 23,
         "endLine": 73,
         "endChar": 29
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d524aa_d31e4ea4",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "DCHECK(!array-\u003eempty());",
+      "range": {
+        "startLine": 74,
+        "startChar": 28,
+        "endLine": 74,
+        "endChar": 40
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b44838_4f9d9d23",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "It would simplify the below calculations, if they were based on `first_field-\u003eGetDeclaringClassAddressWithoutBarrier()`. We could simply add a constant before division for correct rounding. (This would not risk arithmetic overflow as the `first_field` cannot point to the page at address 0.)",
+      "range": {
+        "startLine": 75,
+        "startChar": 33,
+        "endLine": 75,
+        "endChar": 44
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46c750a2_33baa2b0",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "`static_cast\u003csize_t\u003e()` before the division.",
+      "range": {
+        "startLine": 79,
+        "startChar": 19,
+        "endLine": 79,
+        "endChar": 75
       },
       "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -112,6 +204,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19a2a311_a93ec431",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Please make this a template argument.",
+      "range": {
+        "startLine": 426,
+        "startChar": 32,
+        "endLine": 426,
+        "endChar": 56
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b09b6e_63a07504",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "All my comments in `art_field-inl.h` apply to the `ArtMethod` as well.",
+      "range": {
+        "startLine": 431,
+        "startChar": 30,
+        "endLine": 431,
+        "endChar": 41
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5737c8a9_84a49d92",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Used only in constructor. Please inline.",
+      "range": {
+        "startLine": 61,
+        "startChar": 19,
+        "endLine": 61,
+        "endChar": 40
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aff7353c_be637e5a",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Since `idx` is not used for loop condition, this should be rewritten for readability. And it can be substantially simplified anyay:\n\n    DCHECK_LE(static_cast\u003cvoid*\u003e(Begin()), static_cast\u003cvoid*\u003e(addr));\n    DCHECK_LT(static_cast\u003cvoid*\u003e(addr), static_cast\u003cvoid*\u003e(end));\n    size_t idx \u003d static_cast\u003csize_t\u003e(addr - Begin()) / kPageSize;\n    size_t last_byte_idx \u003d static_cast\u003csize_t\u003e(end - 1 - Begin()) / kPageSize;\n    while (idx \u003c last_byte_idx) {\n      ++idx;\n      first_obj_array_[idx] \u003d addr;\n    }",
+      "range": {
+        "startLine": 71,
+        "startChar": 50,
+        "endLine": 71,
+        "endChar": 60
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb7f22cb_f79718b3",
         "filename": "runtime/base/gc_visited_arena_pool.cc",
         "patchSetId": 20
@@ -128,6 +312,46 @@
         "startChar": 11,
         "endLine": 82,
         "endChar": 13
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deaea643_16e5fc4b",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "UNREACHABLE();",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "021db10c_a54e3c5e",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "`-\u003d`?",
+      "range": {
+        "startLine": 248,
+        "startChar": 21,
+        "endLine": 248,
+        "endChar": 23
       },
       "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -181,6 +405,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da7114e5_a1fd8550",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Also `DCHECK_ALIGNED(Begin(), kPageSize);`",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 38
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d38209e2_2934a613",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "std::unique_ptr\u003cuint8_t*[]\u003e",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 11
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f32b0d8f_cb250824",
         "filename": "runtime/base/gc_visited_arena_pool.h",
         "patchSetId": 20
@@ -197,6 +467,98 @@
         "startChar": 0,
         "endLine": 59,
         "endChar": 51
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fdab701_3efcdfbf",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "down_cast",
+      "range": {
+        "startLine": 73,
+        "startChar": 29,
+        "endLine": 73,
+        "endChar": 40
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40474b90_b7151611",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Looking at `MemMap`, it seems we can use `GUARDED_BY` with an `std::mutex`.",
+      "range": {
+        "startLine": 114,
+        "startChar": 36,
+        "endLine": 114,
+        "endChar": 52
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92a85c2d_ee503d28",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "One can hold the chunk by value in one of the two sets (see `SwapSpace`) but it complicates things a bit and I\u0027m not sure if it\u0027s worth it. (Boost.Bimap would be ideal if we could use it.)",
+      "range": {
+        "startLine": 115,
+        "startChar": 11,
+        "endLine": 115,
+        "endChar": 17
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24bbe360_c2993a3b",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Maybe `std::unique_ptr\u003cTrackedArena\u003e`?",
+      "range": {
+        "startLine": 121,
+        "startChar": 11,
+        "endLine": 121,
+        "endChar": 17
       },
       "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -221,6 +583,40 @@
         "endLine": 6963,
         "endChar": 16
       },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6f21420_053bb89e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 7638,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "I\u0027m thinking about rewriting the method loading and linking to use local data (on stack or `ScopedArenaAllocator` instead of the `LinearAlloc`) that does not contain the declaring class for the  old_methods . Then we would always copy the data and initialize the class references instead of using `Realloc()` which risks leaking memory if we\u0027re linking classes on more than one thread.\n\nThen this special handling for GC roots would simply disappear.\n\n(But this is out of scope for this CL.)",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df724508_e3a80ca3",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Why do we need an `include` instead of a forward declaration? (Did we depend on `linear_alloc.h` being included indirectly?)",
       "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -250,6 +646,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa6fc202_6bce1ac8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "You need to handle the size adjustment by `kMemoryToolRedZoneBytes` if `UNLIKELY(IsRunningOnMemoryTool())` here if you don\u0027t want to handle it in the `LinearAlloc` member functions.\n\n(And move the `kMemoryToolRedZoneBytes` from `arena_allocator.cc` inside the `ArenaAllocator` class in `arena_allocator.h`.)",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6da0986_d5532384",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 20
@@ -267,6 +680,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e03bc2a6_470320dc",
+        "filename": "runtime/linear_alloc-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "down_cast (#include \"base/casts.h\")",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "281eb316_0ac93827",
+        "filename": "runtime/linear_alloc-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "I would not use \"word\" here. Just remove the \"in the word\".",
+      "range": {
+        "startLine": 49,
+        "startChar": 37,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c79dba0a_34835298",
+        "filename": "runtime/linear_alloc-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "We have 50% chance of hitting this on the same arena if `UNLIKELY(IsRunningOnMemoryTool())`. (Assuming that `kMemoryToolRedZoneBytes` stays 8.)",
+      "range": {
+        "startLine": 91,
+        "startChar": 17,
+        "endLine": 91,
+        "endChar": 26
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "617fc43a_bc9ac8da",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Where do we allocate a single method?",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 12
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "74613c75_e361dc75",
         "filename": "runtime/linear_alloc.h",
         "patchSetId": 20
@@ -278,6 +783,29 @@
       "writtenOn": "2022-09-13T09:00:48Z",
       "side": 1,
       "message": "nit: add high-level comment.",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78b7b7d7_8cd95422",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Move right after the definition of `LinearAllocKind`.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 66
+      },
       "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -335,6 +863,46 @@
       "writtenOn": "2022-09-13T09:00:48Z",
       "side": 1,
       "message": "nit: no need for this change.",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02deea81_5fde8475",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 3125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Add `\u003d`. Same for other parameter name comments.",
+      "range": {
+        "startLine": 3125,
+        "startChar": 57,
+        "endLine": 3125,
+        "endChar": 58
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb64d58_9b164a94",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T15:59:11Z",
+      "side": 1,
+      "message": "Why include instead of forward declaration?",
       "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
