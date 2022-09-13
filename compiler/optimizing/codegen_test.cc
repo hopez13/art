@@ -789,17 +789,8 @@ TEST_F(CodegenTest, ARM64ParallelMoveResolverB34760542) {
   codegen.Finalize(&code_allocator);
 }
 
-// Check that ParallelMoveResolver works fine for ARM64 for both cases when SIMD is on and off.
-TEST_F(CodegenTest, ARM64ParallelMoveResolverSIMD) {
-  std::unique_ptr<CompilerOptions> compiler_options =
-      CommonCompilerTest::CreateCompilerOptions(InstructionSet::kArm64, "default");
-  HGraph* graph = CreateGraph();
-  arm64::CodeGeneratorARM64 codegen(graph, *compiler_options);
 
-  codegen.Initialize();
-
-  graph->SetHasTraditionalSIMD(true);
-  for (int i = 0; i < 2; i++) {
+static void AddAndResolveMoves(HGraph* graph, arm64::CodeGeneratorARM64* codegen) {
     HParallelMove* move = new (graph->GetAllocator()) HParallelMove(graph->GetAllocator());
     move->AddMove(Location::SIMDStackSlot(0),
                   Location::SIMDStackSlot(257),
@@ -817,9 +808,24 @@ TEST_F(CodegenTest, ARM64ParallelMoveResolverSIMD) {
                   Location::FpuRegisterLocation(0),
                   DataType::Type::kFloat64,
                   nullptr);
-    codegen.GetMoveResolver()->EmitNativeCode(move);
-    graph->SetHasTraditionalSIMD(false);
-  }
+    codegen->GetMoveResolver()->EmitNativeCode(move);
+}
+
+// Check that ParallelMoveResolver works fine for ARM64 for both cases when SIMD is on and off -
+// for traditinonal SIMD.
+TEST_F(CodegenTest, ARM64ParallelMoveResolverTraditionalSIMD) {
+  std::unique_ptr<CompilerOptions> compiler_options =
+      CommonCompilerTest::CreateCompilerOptions(InstructionSet::kArm64, "default");
+  HGraph* graph = CreateGraph();
+  arm64::CodeGeneratorARM64 codegen(graph, *compiler_options);
+
+  codegen.Initialize();
+
+  graph->SetHasTraditionalSIMD(true);
+  AddAndResolveMoves(graph, &codegen);
+
+  graph->SetHasTraditionalSIMD(false);
+  AddAndResolveMoves(graph, &codegen);
 
   InternalCodeAllocator code_allocator;
   codegen.Finalize(&code_allocator);

@@ -58,7 +58,7 @@ public class SimdLong {
   //  Not directly supported for longs.
   //
   /// CHECK-START-ARM64: void SimdLong.mul(long) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve")
   //
   ///     CHECK-DAG: VecLoad  loop:<<Loop:B\d+>> outer_loop:none
   ///     CHECK-DAG: VecMul   loop:<<Loop>>      outer_loop:none
@@ -69,6 +69,8 @@ public class SimdLong {
   ///     CHECK-NOT: VecMul
   //
   /// CHECK-FI:
+  //
+  // Note: Arm64 SVE has MUL for long type, NEON doesn't.
   static void mul(long x) {
     for (int i = 0; i < 128; i++)
       a[i] *= x;

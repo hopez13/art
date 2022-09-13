@@ -307,7 +307,7 @@ void RegisterAllocationResolver::ConnectSiblings(LiveInterval* interval) {
     loc = Location::StackSlotByNumOfSlots(num_of_slots, interval->GetParent()->GetSpillSlot());
 
     CHECK_IMPLIES(loc.IsSIMDStackSlot(),
-                  (codegen_->GetSIMDRegisterWidth() / kVRegSize == num_of_slots))
+                  (codegen_->GetActualSIMDRegisterWidthFromGraph() / kVRegSize == num_of_slots))
         << "Unexpected number of spill slots";
     InsertMoveAfter(interval->GetDefinedBy(), interval->ToLocation(), loc);
   }
@@ -469,7 +469,7 @@ void RegisterAllocationResolver::ConnectSplitSiblings(LiveInterval* interval,
       size_t num_of_slots = parent->NumberOfSpillSlotsNeeded();
       location_source = Location::StackSlotByNumOfSlots(num_of_slots, parent->GetSpillSlot());
       CHECK_IMPLIES(location_source.IsSIMDStackSlot(),
-                    (codegen_->GetSIMDRegisterWidth() == num_of_slots * kVRegSize))
+                    (codegen_->GetActualSIMDRegisterWidthFromGraph() == num_of_slots * kVRegSize))
           << "Unexpected number of spill slots";
     }
   } else {
