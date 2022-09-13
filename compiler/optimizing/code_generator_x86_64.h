@@ -379,7 +379,7 @@ class CodeGeneratorX86_64 : public CodeGenerator {
 
   size_t GetSlowPathFPWidth() const override {
     return GetGraph()->HasSIMD()
-        ? GetSIMDRegisterWidth()
+        ? GetTraditionalSIMDRegisterWidth()
         : 1 * kX86_64WordSize;  //  8 bytes == 1 x86_64 words for each spill
   }
 
@@ -387,7 +387,7 @@ class CodeGeneratorX86_64 : public CodeGenerator {
     return 1 * kX86_64WordSize;
   }
 
-  size_t GetSIMDRegisterWidth() const override {
+  size_t GetTraditionalSIMDRegisterWidth() const override {
     return 2 * kX86_64WordSize;
   }
 
