@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17e1ef8c_9202f4c9",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-13T18:09:24Z",
+      "side": 1,
+      "message": "Btw, the logic in `GetApkOriginFromDexPath` is such that if any path is in vendor or product, they get classified as such. So to get APK_ORIGIN_SYSTEM, an app would need to only specify system paths.",
+      "parentUuid": "807d4332_94b2e248",
+      "range": {
+        "startLine": 90,
+        "startChar": 41,
+        "endLine": 90,
+        "endChar": 42
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0930bde_1f4213cc",
@@ -160,6 +184,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d97b7706_6b135c5c",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-13T18:09:24Z",
+      "side": 1,
+      "message": "Sent out https://r.android.com/2216741.",
+      "parentUuid": "e72c951d_e7ce3d6c",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 19
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87b998fa_c0e2bea9",
@@ -221,6 +269,30 @@
       "side": 1,
       "message": "Thanks for pointing out the relevant code. I would phrase this as something like \"System apps commonly get system library paths in the input java_library_path and java_permitted_path and hence ...\" WDYT?",
       "parentUuid": "aec72f4c_72bbe41b",
+      "range": {
+        "startLine": 245,
+        "startChar": 30,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "310de4c5_ec658100",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-13T18:09:24Z",
+      "side": 1,
+      "message": "Well, what `is_shared` actually does is to set `ANDROID_NAMESPACE_TYPE_SHARED` in the `android_create_namespace` call, which makes the new namespace inherit all the paths of the parent one. That should indeed mean they \"commonly\" get those paths anyway, but that\u0027s a significantly longer chain of logic.\n\nIt\u0027d be easier to reason about this code if the `!is_shared` condition above wasn\u0027t present. I don\u0027t know of a situation when that\u0027d be wrong, except that search paths would likely accumulate more unnecessary duplicates.",
+      "parentUuid": "7fbae125_5f33ce84",
       "range": {
         "startLine": 245,
         "startChar": 30,
