@@ -39,6 +39,30 @@
       },
       "revId": "6787355866c3819ca862745b1c806d84fc3cb997",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9cf7a42_ac5c16d2",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-13T17:52:24Z",
+      "side": 1,
+      "message": "See the comment below. I think it\u0027s unnecessary and I\u0027m more inclined to remove it from kProductLibPath instead, but I don\u0027t want to do that for the Mainline c-p.\n\nIn practice I think it means a bit of wasted effort searching two places that is actually one and the same (unless of course my conclusion below is wrong, but even then we\u0027re not regressing kVendorLibPath).",
+      "parentUuid": "08b826e9_6e57ca28",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 54
+      },
+      "revId": "6787355866c3819ca862745b1c806d84fc3cb997",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
