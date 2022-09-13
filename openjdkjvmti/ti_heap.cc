@@ -1852,6 +1852,7 @@ static void ReplaceWeakRoots(art::Thread* self,
   };
   ReplaceWeaksVisitor rwv(map);
   art::Runtime::Current()->SweepSystemWeaks(&rwv);
+  art::Thread::SweepInterpreterCaches(&rwv);
   // Re-add the object tags. At this point all weak-references to the old_obj_ptr are gone.
   event_handler->ForEachEnv(self, [&](ArtJvmTiEnv* env) {
     // Cannot have REQUIRES(art::Locks::mutator_lock_) since ForEachEnv doesn't require it.

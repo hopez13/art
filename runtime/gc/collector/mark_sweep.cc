@@ -1128,6 +1128,7 @@ void MarkSweep::VerifySystemWeaks() {
   // Verify system weaks, uses a special object visitor which returns the input object.
   VerifySystemWeakVisitor visitor(this);
   Runtime::Current()->SweepSystemWeaks(&visitor);
+  Thread::SweepInterpreterCaches(&visitor);
 }
 
 class MarkSweep::CheckpointMarkThreadRoots : public Closure, public RootVisitor {
