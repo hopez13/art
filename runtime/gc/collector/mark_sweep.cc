@@ -1127,7 +1127,7 @@ void MarkSweep::VerifySystemWeaks() {
   TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
   // Verify system weaks, uses a special object visitor which returns the input object.
   VerifySystemWeakVisitor visitor(this);
-  Runtime::Current()->SweepSystemWeaks(&visitor);
+  Runtime::Current()->SweepSystemWeaks(&visitor, /*sweep_interpreter_caches=*/true);
 }
 
 class MarkSweep::CheckpointMarkThreadRoots : public Closure, public RootVisitor {

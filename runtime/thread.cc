@@ -4458,9 +4458,6 @@ void Thread::VisitRoots(RootVisitor* visitor) {
 
 static void SweepCacheEntry(IsMarkedVisitor* visitor, const Instruction* inst, size_t* value)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  // WARNING: The interpreter will not modify the cache while this method is running in GC.
-  //          However, ClearAllInterpreterCaches can still run if any dex file is closed.
-  //          Therefore the cache entry can be nulled at any point through this method.
   if (inst == nullptr) {
     return;
   }
@@ -4509,15 +4506,20 @@ static void SweepCacheEntry(IsMarkedVisitor* visitor, const Instruction* inst, s
       // New opcode is using the cache. We need to explicitly handle it in this method.
       DCHECK(false) << "Unhandled opcode " << inst->Opcode();
   }
-};
+}
+
+void Thread::SweepInterpreterCache(IsMarkedVisitor* visitor) {
+  for (InterpreterCache::Entry& entry : GetInterpreterCache()->GetArray()) {
+    SweepCacheEntry(visitor, reinterpret_cast<const Instruction*>(entry.first), &entry.second);
+  }
+}
 
 void Thread::SweepInterpreterCaches(IsMarkedVisitor* visitor) {
-  MutexLock mu(Thread::Current(), *Locks::thread_list_lock_);
-  Runtime::Current()->GetThreadList()->ForEach([visitor](Thread* thread) {
-    Locks::mutator_lock_->AssertSharedHeld(Thread::Current());
-    for (InterpreterCache::Entry& entry : thread->GetInterpreterCache()->GetArray()) {
-      SweepCacheEntry(visitor, reinterpret_cast<const Instruction*>(entry.first), &entry.second);
-    }
+  Thread* self = Thread::Current();
+  MutexLock mu(self, *Locks::thread_list_lock_);
+  Runtime::Current()->GetThreadList()->ForEach([self, visitor](Thread* thread) {
+    Locks::mutator_lock_->AssertExclusiveHeld(self);
+    thread->SweepInterpreterCache(visitor);
   });
 }
 

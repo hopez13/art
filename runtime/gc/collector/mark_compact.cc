@@ -1688,6 +1688,7 @@ void MarkCompact::PreCompactionPhase() {
     std::list<Thread*> thread_list = runtime->GetThreadList()->GetList();
     for (Thread* thread : thread_list) {
       thread->VisitRoots(this, kVisitRootFlagAllRoots);
+      thread->SweepInterpreterCache(this);
       thread->AdjustTlab(black_objs_slide_diff_);
     }
   }

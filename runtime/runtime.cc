@@ -790,7 +790,7 @@ void Runtime::CallExitHook(jint status) {
   }
 }
 
-void Runtime::SweepSystemWeaks(IsMarkedVisitor* visitor) {
+void Runtime::SweepSystemWeaks(IsMarkedVisitor* visitor, bool sweep_interpreter_caches) {
   GetInternTable()->SweepInternTableWeaks(visitor);
   GetMonitorList()->SweepMonitorList(visitor);
   GetJavaVM()->SweepJniWeakGlobals(visitor);
@@ -803,7 +803,9 @@ void Runtime::SweepSystemWeaks(IsMarkedVisitor* visitor) {
     // from mutators. See b/32167580.
     GetJit()->GetCodeCache()->SweepRootTables(visitor);
   }
-  Thread::SweepInterpreterCaches(visitor);
+  if (sweep_interpreter_caches) {
+    Thread::SweepInterpreterCaches(visitor);
+  }
 
   // All other generic system-weak holders.
   for (gc::AbstractSystemWeakHolder* holder : system_weak_holders_) {

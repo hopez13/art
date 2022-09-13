@@ -500,7 +500,7 @@ void SemiSpace::MarkRoots() {
 
 void SemiSpace::SweepSystemWeaks() {
   TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
-  Runtime::Current()->SweepSystemWeaks(this);
+  Runtime::Current()->SweepSystemWeaks(this, /*sweep_interpreter_caches=*/true);
 }
 
 bool SemiSpace::ShouldSweepSpace(space::ContinuousSpace* space) const {
