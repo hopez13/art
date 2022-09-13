@@ -265,6 +265,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "638b4785_ebdd0227",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T08:37:49Z",
+      "side": 1,
+      "message": "We can introduce another env variable (ART_EMIT_READ_BARRIER like you mention), but having ART_USE_READ_BARRIER \u003d\u003d gUseReadBarrier I think is a requirement to not add confusion.",
+      "parentUuid": "31f655aa_92de3e9e",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad24973d_b13e2300",
         "filename": "runtime/lock_word.h",
         "patchSetId": 2
