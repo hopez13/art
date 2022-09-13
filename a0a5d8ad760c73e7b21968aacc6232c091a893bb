@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "807d4332_94b2e248",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-13T17:00:21Z",
+      "side": 1,
+      "message": "Thanks for the clarification!",
+      "parentUuid": "94f0694c_bf5a1a48",
+      "range": {
+        "startLine": 90,
+        "startChar": 41,
+        "endLine": 90,
+        "endChar": 42
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0930bde_1f4213cc",
@@ -112,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e72c951d_e7ce3d6c",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-13T17:00:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cf826b60_9d2989fe",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 19
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87b998fa_c0e2bea9",
@@ -149,6 +197,30 @@
       "side": 1,
       "message": "That\u0027s a really good question. The java entry point is here: https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/com/android/internal/os/ClassLoaderFactory.java;l\u003d161;drc\u003d24c57c33ea720de04c5e374c34480c751b43d9fc From there it forks into various places and it\u0027s not trivial to find all the origin sites.\n\nAnyway, in the higher Java levels the flag becomes `isBundled`, so I think the gist of it is any app (and system server) in the system partition. This I believe is one of the more important code paths: https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/android/app/LoadedApk.java;l\u003d886;drc\u003dd2ba72bc5861fc75c0103ad514ef05d46e433e3d where it starts off from `ApplicationInfo.isSystemApp` in PackageManager.\n\nI\u0027d love to see less tangled logic there, but atm I\u0027m assuming it works, whatever it is that it does. :\\",
       "parentUuid": "87b998fa_c0e2bea9",
+      "range": {
+        "startLine": 245,
+        "startChar": 30,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fbae125_5f33ce84",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-13T17:00:21Z",
+      "side": 1,
+      "message": "Thanks for pointing out the relevant code. I would phrase this as something like \"System apps commonly get system library paths in the input java_library_path and java_permitted_path and hence ...\" WDYT?",
+      "parentUuid": "aec72f4c_72bbe41b",
       "range": {
         "startLine": 245,
         "startChar": 30,
