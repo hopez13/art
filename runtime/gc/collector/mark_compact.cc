@@ -719,7 +719,7 @@ void MarkCompact::SweepSystemWeaks(Thread* self, Runtime* runtime, const bool pa
   TimingLogger::ScopedTiming t(paused ? "(Paused)SweepSystemWeaks" : "SweepSystemWeaks",
                                GetTimings());
   ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
-  runtime->SweepSystemWeaks(this);
+  runtime->SweepSystemWeaks(this, /*do_interpreter_caches*/false);
 }
 
 void MarkCompact::ProcessReferences(Thread* self) {
@@ -1688,6 +1688,7 @@ void MarkCompact::PreCompactionPhase() {
     std::list<Thread*> thread_list = runtime->GetThreadList()->GetList();
     for (Thread* thread : thread_list) {
       thread->VisitRoots(this, kVisitRootFlagAllRoots);
+      thread->InvalidateInterpreterCache();
       thread->AdjustTlab(black_objs_slide_diff_);
     }
   }

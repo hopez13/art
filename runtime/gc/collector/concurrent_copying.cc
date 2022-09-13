@@ -496,6 +496,7 @@ class ConcurrentCopying::ThreadFlipVisitor : public Closure, public RootVisitor 
     // We can use the non-CAS VisitRoots functions below because we update thread-local GC roots
     // only.
     thread->VisitRoots(this, kVisitRootFlagAllRoots);
+    thread->InvalidateInterpreterCache();
     concurrent_copying_->GetBarrier().Pass(self);
   }
 
@@ -2495,7 +2496,7 @@ void ConcurrentCopying::CheckEmptyMarkStack() {
 void ConcurrentCopying::SweepSystemWeaks(Thread* self) {
   TimingLogger::ScopedTiming split("SweepSystemWeaks", GetTimings());
   ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
-  Runtime::Current()->SweepSystemWeaks(this);
+  Runtime::Current()->SweepSystemWeaks(this, /*do_interpreter_caches*/false);
 }
 
 void ConcurrentCopying::Sweep(bool swap_bitmaps) {
