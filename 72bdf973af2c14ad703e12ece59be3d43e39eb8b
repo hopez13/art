@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29e21339_e3028245",
+        "filename": "openjdkjvmti/jvmti_weak_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-13T05:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "743ee6fc_7b2ba2ed",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 214,
+        "endChar": 16
+      },
+      "revId": "72bdf973af2c14ad703e12ece59be3d43e39eb8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01244a3a_a8571a58",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d5c12e_89e5569b",
+        "filename": "openjdkjvmti/jvmti_weak_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-13T05:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01244a3a_a8571a58",
+      "range": {
+        "startLine": 215,
+        "startChar": 24,
+        "endLine": 215,
+        "endChar": 28
+      },
+      "revId": "72bdf973af2c14ad703e12ece59be3d43e39eb8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd0a9f82_bf734e04",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-09-13T00:29:26Z",
       "side": 1,
       "message": "Since T is a parameter, it feels a bit odd to copy the objects rather than moving them. But I guess everything is really a pointer, so it\u0027s fine?",
+      "range": {
+        "startLine": 241,
+        "startChar": 1,
+        "endLine": 241,
+        "endChar": 5
+      },
+      "revId": "72bdf973af2c14ad703e12ece59be3d43e39eb8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8c73434_2956adbd",
+        "filename": "openjdkjvmti/jvmti_weak_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-13T05:48:53Z",
+      "side": 1,
+      "message": "I have changed the implementation to use node handles. The new version I believe avoids most of the copying. PTAL",
+      "parentUuid": "bd0a9f82_bf734e04",
       "range": {
         "startLine": 241,
         "startChar": 1,
