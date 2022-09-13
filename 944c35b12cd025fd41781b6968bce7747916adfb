@@ -16,6 +16,24 @@
       "message": "Add a test?",
       "revId": "944c35b12cd025fd41781b6968bce7747916adfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be84fd42_8325465c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-13T08:39:15Z",
+      "side": 1,
+      "message": "I could put a handcrafted dex file (no way to express this in smali unortunately), but that will take some time and I\u0027m not convinced there\u0027s value in having that test run continuously versus relying on APK scanner.",
+      "parentUuid": "673cf648_e0297b77",
+      "revId": "944c35b12cd025fd41781b6968bce7747916adfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
