@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b8a875a_46d2c4ae",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-13T16:35:55Z",
+      "side": 1,
+      "message": "We\u0027re using the global allocator even for classes than can be unloaded, so this is a (small) leak.",
+      "parentUuid": "28728ad8_c166baa9",
+      "range": {
+        "startLine": 481,
+        "startChar": 33,
+        "endLine": 481,
+        "endChar": 38
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2b9bade_15285611",
         "filename": "runtime/art_field-inl.h",
         "patchSetId": 20
