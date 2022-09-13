@@ -366,6 +366,30 @@
       },
       "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdd2d53a_61e16135",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-13T22:20:17Z",
+      "side": 1,
+      "message": "That could very well be true. The paths have to come from somewhere after all, and the top level app classloader namespace doesn\u0027t have a parent. However the situation here is that they load a shared library, which means another classloader namespace beneath the app one is being created. If a bundled/shared system app does that it won\u0027t go into this code, and then it works due to the inherited path.\n\n\u003e Something like \"System apps commonly get access to system libs from the  is_shared  flag.\n\nAll right, sent you https://r.android.com/2214689.",
+      "parentUuid": "efdd309d_19cbc403",
+      "range": {
+        "startLine": 245,
+        "startChar": 30,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
