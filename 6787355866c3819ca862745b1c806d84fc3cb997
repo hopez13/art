@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3403ef70_fe886f6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-13T22:25:07Z",
+      "side": 1,
+      "message": "Aha, good thing you pointed that out. Then we need this patch after all, since we target S and later.",
+      "parentUuid": "2b18b1a2_02f601b1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "6787355866c3819ca862745b1c806d84fc3cb997",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0a6b4079_2a545a87",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
