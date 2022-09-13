@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca95eea0_3a754bd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-13T18:42:28Z",
+      "side": 1,
+      "message": "ll",
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b11195f_eaf923d6",
@@ -103,6 +120,30 @@
       "side": 1,
       "message": "Btw, the logic in `GetApkOriginFromDexPath` is such that if any path is in vendor or product, they get classified as such. So to get APK_ORIGIN_SYSTEM, an app would need to only specify system paths.",
       "parentUuid": "807d4332_94b2e248",
+      "range": {
+        "startLine": 90,
+        "startChar": 41,
+        "endLine": 90,
+        "endChar": 42
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5010bbad_651616ec",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-13T18:42:28Z",
+      "side": 1,
+      "message": "Alright... I guess it\u0027s a valid assumption that all dex files come from the same source, otherwise they wouldn\u0027t be loaded together.",
+      "parentUuid": "17e1ef8c_9202f4c9",
       "range": {
         "startLine": 90,
         "startChar": 41,
@@ -293,6 +334,30 @@
       "side": 1,
       "message": "Well, what `is_shared` actually does is to set `ANDROID_NAMESPACE_TYPE_SHARED` in the `android_create_namespace` call, which makes the new namespace inherit all the paths of the parent one. That should indeed mean they \"commonly\" get those paths anyway, but that\u0027s a significantly longer chain of logic.\n\nIt\u0027d be easier to reason about this code if the `!is_shared` condition above wasn\u0027t present. I don\u0027t know of a situation when that\u0027d be wrong, except that search paths would likely accumulate more unnecessary duplicates.",
       "parentUuid": "7fbae125_5f33ce84",
+      "range": {
+        "startLine": 245,
+        "startChar": 30,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efdd309d_19cbc403",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-13T18:42:28Z",
+      "side": 1,
+      "message": "Ughhh... I was misguided by the comment here: https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/android/app/LoadedApk.java;l\u003d933;drc\u003dd2ba72bc5861fc75c0103ad514ef05d46e433e3d. I thought access to system libs comes from there, but it actually comes from `is_shared`? Worth a comment.\n\nSomething like \"System apps commonly get access to system libs from the `is_shared` flag.",
+      "parentUuid": "310de4c5_ec658100",
       "range": {
         "startLine": 245,
         "startChar": 30,
