@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc670c3b_9d751817",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-13T18:09:51Z",
+      "side": 1,
+      "message": "Nit: Boolean",
+      "range": {
+        "startLine": 11,
+        "startChar": 48,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "e0f560804f19aabb74d33a503c2b7cc94e28d35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28f5d3b5_7931ed4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-13T18:09:51Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 143
+      },
+      "revId": "e0f560804f19aabb74d33a503c2b7cc94e28d35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "523bb907_da1a3103",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-13T18:09:51Z",
+      "side": 1,
+      "message": "Sorry for the late review. This looks good to me; only a few nits.",
+      "revId": "e0f560804f19aabb74d33a503c2b7cc94e28d35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b90d002a_68d222ea",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-13T18:09:51Z",
+      "side": 1,
+      "message": "Should this be \"any\", given the documentation of `art::metrics::MetricsReporter::ShouldContinueReporting` (https://cs.android.com/android/platform/superproject/+/master:art/runtime/metrics/reporter.h;l\u003d162-163;drc\u003de22579cc46fc9deab2d2ae2fb78f5e116f54cde2)? (Ditto for other occurrences in this file.)",
+      "range": {
+        "startLine": 244,
+        "startChar": 32,
+        "endLine": 244,
+        "endChar": 34
+      },
+      "revId": "e0f560804f19aabb74d33a503c2b7cc94e28d35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
