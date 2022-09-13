@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94f0694c_bf5a1a48",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-13T16:23:52Z",
+      "side": 1,
+      "message": "Like the `is_shared` flag, it\u0027s not easy to track this path list to its sources either. One important location is `zipPaths` here: https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/android/app/LoadedApk.java;l\u003d915;drc\u003dd2ba72bc5861fc75c0103ad514ef05d46e433e3d where it basically gets set from all the splits in the app, iow they\u0027re all in the same location, aren\u0027t they?\n\n\u003e Is there a way what an APK on /data can pretend to be APK_ORIGIN_SYSTEM by appending a jar on /system to the list?\n\nI don\u0027t see anything stopping apps from doing that sort of thing, but then they can just as well have their own class loader and load whatever they want. This isn\u0027t hard security, only sepolicy can provide that. The goal is just to stop accidental access.",
+      "parentUuid": "4b11195f_eaf923d6",
+      "range": {
+        "startLine": 90,
+        "startChar": 41,
+        "endLine": 90,
+        "endChar": 42
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0930bde_1f4213cc",
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf826b60_9d2989fe",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-13T16:23:52Z",
+      "side": 1,
+      "message": "I don\u0027t know. My understanding was that only product could appear under /system/product on some devices. But I agree, that symlink is a bit worrying with the fallback to APK_ORIGIN_SYSTEM now.\n\nNote that if anyone does use /system/vendor they wouldn\u0027t get APK_ORIGIN_VENDOR treatment since R I think, and I haven\u0027t heard any complaints about that.\n\nI\u0027ll roll a CL to fix it anyway, seems like the least risky option.",
+      "parentUuid": "f0930bde_1f4213cc",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 19
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "87b998fa_c0e2bea9",
         "filename": "libnativeloader/library_namespaces.cpp",
         "patchSetId": 5
@@ -77,6 +125,30 @@
       "writtenOn": "2022-09-13T13:45:41Z",
       "side": 1,
       "message": "Just curious, how?",
+      "range": {
+        "startLine": 245,
+        "startChar": 30,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aec72f4c_72bbe41b",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-13T16:23:52Z",
+      "side": 1,
+      "message": "That\u0027s a really good question. The java entry point is here: https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/com/android/internal/os/ClassLoaderFactory.java;l\u003d161;drc\u003d24c57c33ea720de04c5e374c34480c751b43d9fc From there it forks into various places and it\u0027s not trivial to find all the origin sites.\n\nAnyway, in the higher Java levels the flag becomes `isBundled`, so I think the gist of it is any app (and system server) in the system partition. This I believe is one of the more important code paths: https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/android/app/LoadedApk.java;l\u003d886;drc\u003dd2ba72bc5861fc75c0103ad514ef05d46e433e3d where it starts off from `ApplicationInfo.isSystemApp` in PackageManager.\n\nI\u0027d love to see less tangled logic there, but atm I\u0027m assuming it works, whatever it is that it does. :\\",
+      "parentUuid": "87b998fa_c0e2bea9",
       "range": {
         "startLine": 245,
         "startChar": 30,
