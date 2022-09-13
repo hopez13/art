@@ -241,6 +241,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31f655aa_92de3e9e",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-13T06:11:27Z",
+      "side": 1,
+      "message": "We can do that but I think that will further complicate the variables and their usage.",
+      "parentUuid": "cd2b865f_5bd36379",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "a77ff9ff3d319a138e7fe307763a978fffa4535a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad24973d_b13e2300",
         "filename": "runtime/lock_word.h",
         "patchSetId": 2
