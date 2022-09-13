@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9824709_dd3d7e48",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-13T17:17:53Z",
+      "side": 1,
+      "message": "Oh! Right, we should be using the class\u0027s alloc.\n\nBut given the code runs only when native debugger is used, and the leak is small, I still wouldn\u0027t bother.",
+      "parentUuid": "1b8a875a_46d2c4ae",
+      "range": {
+        "startLine": 481,
+        "startChar": 33,
+        "endLine": 481,
+        "endChar": 38
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2b9bade_15285611",
         "filename": "runtime/art_field-inl.h",
         "patchSetId": 20
