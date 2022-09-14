@@ -140,6 +140,30 @@
       },
       "revId": "72bdf973af2c14ad703e12ece59be3d43e39eb8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e840810a_edf3f704",
+        "filename": "openjdkjvmti/jvmti_weak_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-14T22:08:39Z",
+      "side": 1,
+      "message": "I learned about more C++17 corners, but LGTM.",
+      "parentUuid": "e8c73434_2956adbd",
+      "range": {
+        "startLine": 241,
+        "startChar": 1,
+        "endLine": 241,
+        "endChar": 5
+      },
+      "revId": "72bdf973af2c14ad703e12ece59be3d43e39eb8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
