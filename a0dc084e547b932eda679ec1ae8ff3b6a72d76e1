@@ -227,6 +227,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae406af5_863ae244",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1058713
+      },
+      "writtenOn": "2022-09-14T12:39:19Z",
+      "side": 1,
+      "message": "\u003e Pavel: Do you know if corresponding LLDB side survived over the years, or is it long gone? (I guess \".dynamic_type\" is good thing to grep for)\n\nI think that was removed back in 2018 -\u003e https://reviews.llvm.org/D54059",
+      "parentUuid": "55a858b0_b1aa3704",
+      "range": {
+        "startLine": 481,
+        "startChar": 33,
+        "endLine": 481,
+        "endChar": 38
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2b9bade_15285611",
         "filename": "runtime/art_field-inl.h",
         "patchSetId": 20
