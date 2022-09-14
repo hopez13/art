@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "465120cb_926973a6",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T07:24:46Z",
+      "side": 1,
+      "message": "I\u0027d prefer to remove this hack as it\u0027s getting somewhat convoluted. We\u0027re now adding method arrays with both `kNoGCRoots` and `kArtMethodArray` and while the first requires an empty array, the second requires a non-empty one.\n\nI\u0027d really prefer to remove this dependency.\n\nThe class can be uniquely identified by its descriptor and class loader. As the class loader is movable, we can substitute that for its linear alloc or class table.",
+      "parentUuid": "b9824709_dd3d7e48",
+      "range": {
+        "startLine": 481,
+        "startChar": 33,
+        "endLine": 481,
+        "endChar": 38
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2b9bade_15285611",
         "filename": "runtime/art_field-inl.h",
         "patchSetId": 20
