@@ -251,6 +251,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a00e2446_27998d10",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-14T12:47:50Z",
+      "side": 1,
+      "message": "Thanks!  Then we could also just remove this code.  (but that is better left for other CL)",
+      "parentUuid": "ae406af5_863ae244",
+      "range": {
+        "startLine": 481,
+        "startChar": 33,
+        "endLine": 481,
+        "endChar": 38
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2b9bade_15285611",
         "filename": "runtime/art_field-inl.h",
         "patchSetId": 20
