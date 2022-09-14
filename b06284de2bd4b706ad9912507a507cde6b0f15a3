@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97bfec7b_b3eefca2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-14T11:10:50Z",
+      "side": 1,
+      "message": "Given that this CL establishes the invariant that the thread-local cache is only accessed by it\u0027s owning thread, I am happy either way.\n\nPersonally, I lean towards clearing for simplicity and as defensive programming, but I don\u0027t feel strongly about it.  We can keep try to keep the cache.\n\nNicolas: Clarification: are you asking to update/mutate the cache in the thread-flip?  Or to try to avoid the clear in cases where nothing moves?  (i.e. can we still remove the big switch statement?)",
+      "parentUuid": "cd8003c1_59b574b5",
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9affc31_e3df7bbf",
@@ -117,6 +135,30 @@
       "writtenOn": "2022-09-14T07:43:42Z",
       "side": 1,
       "message": "I think `invalidate_interpreter_caches` would be a better name.",
+      "range": {
+        "startLine": 475,
+        "startChar": 55,
+        "endLine": 475,
+        "endChar": 76
+      },
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be6054d4_ea89f011",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-14T11:10:50Z",
+      "side": 1,
+      "message": "Would `false` be a better default?  Is it ever used with `true`?  I can\u0027t find it.",
+      "parentUuid": "173f654d_e26ab57e",
       "range": {
         "startLine": 475,
         "startChar": 55,
