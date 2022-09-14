@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9affc31_e3df7bbf",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2499,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T07:43:42Z",
+      "side": 1,
+      "message": "Add \u0027\u003d\u0027.",
+      "range": {
+        "startLine": 2499,
+        "startChar": 68,
+        "endLine": 2499,
+        "endChar": 70
+      },
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9da5193_f7fcd92a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T07:43:42Z",
+      "side": 1,
+      "message": "\u003d",
+      "range": {
+        "startLine": 722,
+        "startChar": 57,
+        "endLine": 722,
+        "endChar": 58
+      },
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cb538d4_539ac883",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T07:43:42Z",
+      "side": 1,
+      "message": "\u003d",
+      "range": {
+        "startLine": 1102,
+        "startChar": 68,
+        "endLine": 1102,
+        "endChar": 69
+      },
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0aaad24_6cd5af34",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T07:43:42Z",
+      "side": 1,
+      "message": "Do we need to invalidate the interpreter cache here?",
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "173f654d_e26ab57e",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T07:43:42Z",
+      "side": 1,
+      "message": "I think `invalidate_interpreter_caches` would be a better name.",
+      "range": {
+        "startLine": 475,
+        "startChar": 55,
+        "endLine": 475,
+        "endChar": 76
+      },
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
