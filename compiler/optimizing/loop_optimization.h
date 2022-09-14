@@ -31,6 +31,14 @@ namespace art HIDDEN {
 class CompilerOptions;
 class ArchNoOptsLoopHelper;
 
+// Insert an instruction at the end of the block, with safe checks.
+inline HInstruction* Insert(HBasicBlock* block, HInstruction* instruction) {
+  DCHECK(block != nullptr);
+  DCHECK(instruction != nullptr);
+  block->InsertInstructionBefore(instruction, block->GetLastInstruction());
+  return instruction;
+}
+
 /**
  * Loop optimizations. Builds a loop hierarchy and applies optimizations to
  * the detected nested loops, such as removal of dead induction and empty loops
@@ -203,15 +211,72 @@ class HLoopOptimization : public HOptimization {
   // Vectorization analysis and synthesis.
   //
 
-  bool ShouldVectorize(LoopNode* node, HBasicBlock* block, int64_t trip_count);
-  void Vectorize(LoopNode* node, HBasicBlock* block, HBasicBlock* exit, int64_t trip_count);
-  void GenerateNewLoop(LoopNode* node,
-                       HBasicBlock* block,
-                       HBasicBlock* new_preheader,
-                       HInstruction* lo,
-                       HInstruction* hi,
-                       HInstruction* step,
-                       uint32_t unroll);
+  // Returns whether the data flow requirements are met for vectorization.
+  //
+  //   - checks whether instructions are vectorizable for the target.
+  //   - conducts data dependence analysis for array references.
+  //   - additionally, collects info on peeling and alligment strategy.
+  bool CanVectorizeDataFlow(LoopNode* node, HBasicBlock* block);
+
+
+  // Vectorizes the loop for which all checks have been already done.
+  //
+  // There are two versions/algorithms:
+  //  - Predicated: all the vector operations have governing predicates which control
+  //    which individual vector lanes will be active (see HVecPredSetOperation for more details).
+  //    Example: vectorization using AArch64 SVE.
+  //  - Traditional: a regular mode when all vector operations lanes are unconditionally active.
+  //    Example: vectoriation using AArch64 NEON.
+  void VectorizePredicated(LoopNode* node,
+                           HBasicBlock* block,
+                           HBasicBlock* exit);
+  void VectorizeTraditional(LoopNode* node,
+                            HBasicBlock* block,
+                            HBasicBlock* exit,
+                            int64_t trip_count);
+
+  // Performs final steps for whole vectorization process: links reduction, removes the original
+  // scalar loop, updates loop info.
+  void FinalizeVectorization(LoopNode* node, HBasicBlock* block);
+
+  // Does the vector instruction synthesis for the previously created loop; creates and fills
+  // the loop body with instructions.
+  //
+  // Two versions for traditional and predicated vectorization modes.
+  void GenerateNewLoopTraditional(LoopNode* node,
+                                  HBasicBlock* block,
+                                  HBasicBlock* new_preheader,
+                                  HInstruction* lo,
+                                  HInstruction* hi,
+                                  HInstruction* step,
+                                  uint32_t unroll);
+  void GenerateNewLoopPredicated(LoopNode* node,
+                                 HBasicBlock* block,
+                                 HBasicBlock* new_preheader,
+                                 HInstruction* lo,
+                                 HInstruction* hi,
+                                 HInstruction* step);
+
+  //
+  // Helpers for GenerateNewLoop*.
+  //
+
+  // Updates vectorization bookkeeping date for the new loop, creates and returns
+  // its main induction Phi.
+  HPhi* InitializeForNewLoop(HBasicBlock* new_preheader, HInstruction* lo);
+
+  // Finalizes reduction and induction phis' inputs for the newly created loop.
+  void FinalizePhisForNewLoop(HPhi* phi, HInstruction* lo);
+
+  // Performs instruction synthesis for the loop body.
+  void GenerateNewLoopBodyOnce(LoopNode* node,
+                               HBasicBlock* body,
+                               DataType::Type induc_type,
+                               HInstruction* step);
+
+  // Returns whether the vector loop needs runtime disambiguation test for array refs.
+  bool NeedsArrayRefsDisambiguationTest() const { return vector_runtime_test_a_ != nullptr; }
+
   bool VectorizeDef(LoopNode* node, HInstruction* instruction, bool generate_code);
   bool VectorizeUse(LoopNode* node,
                     HInstruction* instruction,
@@ -274,7 +339,7 @@ class HLoopOptimization : public HOptimization {
   void SetAlignmentStrategy(const ScopedArenaVector<uint32_t>& peeling_votes,
                             const ArrayReference* peeling_candidate);
   uint32_t MaxNumberPeeled();
-  bool IsVectorizationProfitable(int64_t trip_count);
+  bool IsVectorizationProfitable(int64_t trip_count, bool try_peeling);
 
   //
   // Helpers.
@@ -380,6 +445,7 @@ class HLoopOptimization : public HOptimization {
   HBasicBlock* vector_header_;  // header of the new loop
   HBasicBlock* vector_body_;  // body of the new loop
   HInstruction* vector_index_;  // normalized index of the new loop
+  HInstruction* loop_main_pred_;  // Loop main predicate - for predicated mode.
 
   // Helper for target-specific behaviour for loop optimizations.
   ArchNoOptsLoopHelper* arch_loop_helper_;
