@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b21c3054_23982120",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-14T19:25:22Z",
+      "side": 1,
+      "message": "From last week\u0027s discussion I got the impression that invalidating the cache has some benefits, so was trying to do that.\n\nAnyways, in the latest patch, I have removed the concept of invalidating. Instead, made sure that the cache is swept either by the owning thread itself (in a checkpoint) or in a stop the world pause. With this we can still remove the weak-access disable check in the interpreter.\n\nPTAL",
+      "parentUuid": "b5c354eb_4b5e318d",
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9affc31_e3df7bbf",
@@ -67,6 +85,30 @@
       "writtenOn": "2022-09-14T07:43:42Z",
       "side": 1,
       "message": "Add \u0027\u003d\u0027.",
+      "range": {
+        "startLine": 2499,
+        "startChar": 68,
+        "endLine": 2499,
+        "endChar": 70
+      },
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e9cd8e5_60956d38",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2499,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-14T19:25:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9affc31_e3df7bbf",
       "range": {
         "startLine": 2499,
         "startChar": 68,
@@ -100,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "287b0f16_cc156a5e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-14T19:25:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9da5193_f7fcd92a",
+      "range": {
+        "startLine": 722,
+        "startChar": 57,
+        "endLine": 722,
+        "endChar": 58
+      },
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cb538d4_539ac883",
@@ -123,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e3c5163_2409e501",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-14T19:25:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cb538d4_539ac883",
+      "range": {
+        "startLine": 1102,
+        "startChar": 68,
+        "endLine": 1102,
+        "endChar": 69
+      },
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0aaad24_6cd5af34",
@@ -136,6 +226,24 @@
       "writtenOn": "2022-09-14T07:43:42Z",
       "side": 1,
       "message": "Do we need to invalidate the interpreter cache here?",
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cda7410_b8041b17",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-14T19:25:22Z",
+      "side": 1,
+      "message": "This GC doesn\u0027t move objects so sweeping interpreter caches is a nop.",
+      "parentUuid": "b0aaad24_6cd5af34",
       "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -177,6 +285,30 @@
       "side": 1,
       "message": "Would `false` be a better default?  Is it ever used with `true`?  I can\u0027t find it.",
       "parentUuid": "173f654d_e26ab57e",
+      "range": {
+        "startLine": 475,
+        "startChar": 55,
+        "endLine": 475,
+        "endChar": 76
+      },
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80a8f25c_8bb3b71d",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-14T19:25:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be6054d4_ea89f011",
       "range": {
         "startLine": 475,
         "startChar": 55,
