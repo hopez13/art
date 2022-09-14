@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e8517ea_29627a34",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Changed it to be saved only for `kIsDebugBuild`.",
+      "parentUuid": "436c01ac_3ec27f99",
+      "range": {
+        "startLine": 1343,
+        "startChar": 29,
+        "endLine": 1343,
+        "endChar": 83
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "530da4fe_abbca93c",
@@ -78,6 +102,30 @@
       "writtenOn": "2022-09-13T13:20:18Z",
       "side": 1,
       "message": "drop?",
+      "range": {
+        "startLine": 1356,
+        "startChar": 36,
+        "endLine": 1356,
+        "endChar": 42
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "516a007a_84341020",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1356,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "530da4fe_abbca93c",
       "range": {
         "startLine": 1356,
         "startChar": 36,
@@ -123,6 +171,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae2ecbf7_643006a4",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Renamed to `ToNativeQuickPcForCatchHandlers`.",
+      "parentUuid": "6e739dce_acb8804c",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a6cda6e_632254d1",
@@ -136,6 +202,24 @@
       "writtenOn": "2022-09-13T14:30:37Z",
       "side": 1,
       "message": "Is the handler method the outermost, and the dex pc the innermost?",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0279b57c_33fbe262",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Changed to `.front()`",
+      "parentUuid": "6a6cda6e_632254d1",
       "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -157,6 +241,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1502ad36_901c9c96",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f48029f7_c3a626e2",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb979f04_20abf1e6",
@@ -170,6 +272,24 @@
       "writtenOn": "2022-09-13T14:30:37Z",
       "side": 1,
       "message": "Does this do the expensive dex location decoding just to throw it away?",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "146a74f8_2469827e",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Updated to use `GetNumberOfDexRegisters` from the inline info.",
+      "parentUuid": "bb979f04_20abf1e6",
       "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -197,6 +317,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f957f0ac_525c3e4e",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b748a3d_015730aa",
+      "range": {
+        "startLine": 111,
+        "startChar": 32,
+        "endLine": 111,
+        "endChar": 38
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e35fd1cb_52e66fca",
@@ -210,6 +354,30 @@
       "writtenOn": "2022-09-13T13:20:18Z",
       "side": 1,
       "message": "a vector",
+      "range": {
+        "startLine": 143,
+        "startChar": 11,
+        "endLine": 143,
+        "endChar": 17
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38d1739f_8374aac7",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e35fd1cb_52e66fca",
       "range": {
         "startLine": 143,
         "startChar": 11,
@@ -262,6 +430,48 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "47e4fe10_02cc13f0",
+        "filename": "runtime/stack.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57150704_048b7e02",
+      "range": {
+        "startLine": 194,
+        "startChar": 24,
+        "endLine": 194,
+        "endChar": 36
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "121d90f0_9bef830e",
+        "filename": "runtime/stack.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Moved the comment from the .cc to the .h",
+      "parentUuid": "7ad07c3f_3cdc019c",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1273ecbe_c95b1204",
         "filename": "runtime/stack_map.h",
         "patchSetId": 14
@@ -300,6 +510,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e63ffff_17f16dbd",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Created a third method that does the computation and returns the registers in [`first`, `last`). The other two methods are used to compute `first` and `last`",
+      "parentUuid": "cea1ab09_4210e5a7",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1a00a66_c480225d",
@@ -313,6 +541,30 @@
       "writtenOn": "2022-09-13T13:20:18Z",
       "side": 1,
       "message": "Add kIsDebugBuild check.",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 433,
+        "endChar": 9
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd4791dd_1e6407ea",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1a00a66_c480225d",
       "range": {
         "startLine": 431,
         "startChar": 0,
@@ -340,6 +592,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33c51f61_a7d14428",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb2de533_f96b3baa",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82297775_da7b7ebd",
@@ -353,6 +623,30 @@
       "writtenOn": "2022-09-13T13:20:18Z",
       "side": 1,
       "message": "is_found?",
+      "range": {
+        "startLine": 441,
+        "startChar": 13,
+        "endLine": 441,
+        "endChar": 21
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de2433c7_215d331a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Renamed to `matching_dex_pcs`.",
+      "parentUuid": "82297775_da7b7ebd",
       "range": {
         "startLine": 441,
         "startChar": 13,
@@ -400,6 +694,30 @@
       "side": 1,
       "message": "Maybe.  As-is also looks ok to me.\n\nThe lack of `is_valid \u0026\u003d` makes it look like a bug, but I know it is not.",
       "parentUuid": "c3e92c70_d31f9693",
+      "range": {
+        "startLine": 444,
+        "startChar": 10,
+        "endLine": 444,
+        "endChar": 98
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccaf7b73_03411955",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T12:58:30Z",
+      "side": 1,
+      "message": "Updated to do the `!\u003d` check.",
+      "parentUuid": "b02e8ba1_203b9bb2",
       "range": {
         "startLine": 444,
         "startChar": 10,
