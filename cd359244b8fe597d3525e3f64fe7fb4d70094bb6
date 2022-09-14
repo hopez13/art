@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "568cceb6_9a560cd8",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:50:49Z",
+      "side": 1,
+      "message": "Move inside `if (kIsDebugBuild)`.",
+      "range": {
+        "startLine": 1361,
+        "startChar": 4,
+        "endLine": 1363,
+        "endChar": 91
+      },
+      "revId": "cd359244b8fe597d3525e3f64fe7fb4d70094bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "821a007f_f6350201",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:50:49Z",
+      "side": 1,
+      "message": "This log is now misleading. If we want to print the outer method and line number, we should at least indicate that there may be an inlined frame. Otherwise, we can get the actual method as `visitor.GetMethod()` (this is not cheap for inlined frames).",
+      "range": {
+        "startLine": 222,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 40
+      },
+      "revId": "cd359244b8fe597d3525e3f64fe7fb4d70094bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a85b0e36_002c43e4",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:50:49Z",
+      "side": 1,
+      "message": "This should be the same as from `stack_visitor-\u003ecurrent_inline_frames_`. And shouldn\u0027t the adjustment be `-2` instead of `-1`?",
+      "range": {
+        "startLine": 322,
+        "startChar": 8,
+        "endLine": 322,
+        "endChar": 94
+      },
+      "revId": "cd359244b8fe597d3525e3f64fe7fb4d70094bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c447996_9d44b405",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:50:49Z",
+      "side": 1,
+      "message": "Do this only after checking `stack_map.GetDexPc() \u003d\u003d dex_pcs.front()`.",
+      "range": {
+        "startLine": 445,
+        "startChar": 54,
+        "endLine": 445,
+        "endChar": 70
+      },
+      "revId": "cd359244b8fe597d3525e3f64fe7fb4d70094bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca93cbf0_af1c90e7",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:50:49Z",
+      "side": 1,
+      "message": "`inline_infos`",
+      "range": {
+        "startLine": 447,
+        "startChar": 10,
+        "endLine": 447,
+        "endChar": 37
+      },
+      "revId": "cd359244b8fe597d3525e3f64fe7fb4d70094bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
