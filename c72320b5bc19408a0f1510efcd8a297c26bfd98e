@@ -46,6 +46,30 @@
       },
       "revId": "c72320b5bc19408a0f1510efcd8a297c26bfd98e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83aca28d_bf8c427f",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T16:10:58Z",
+      "side": 1,
+      "message": "We also don\u0027t want to include a header from cutils - could you just take what you\u0027re using from it?",
+      "parentUuid": "79e43fd7_b58d8115",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "c72320b5bc19408a0f1510efcd8a297c26bfd98e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
