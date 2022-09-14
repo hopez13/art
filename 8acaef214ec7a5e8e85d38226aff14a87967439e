@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04400512_9cff7a88",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T16:19:37Z",
+      "side": 1,
+      "message": "Maybe add what the integers are, eg: Root (0): ... System (1000): ...",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 39
+      },
+      "revId": "8acaef214ec7a5e8e85d38226aff14a87967439e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
