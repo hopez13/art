@@ -191,6 +191,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "99c2d7f9_a7307ddc",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:27:31Z",
+      "side": 1,
+      "message": "This function is only for catch handlers, so the comment is unnecessary.",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 87,
+        "endChar": 80
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "131acc1f_e79b671c",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:27:31Z",
+      "side": 1,
+      "message": "Note: This overload shall be used only for test code.",
+      "range": {
+        "startLine": 165,
+        "startChar": 12,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7e36ba4_ab2f8445",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:27:31Z",
+      "side": 1,
+      "message": "Please adjust the function name to indicate this.",
+      "range": {
+        "startLine": 169,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 24
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c641743d_b3ff1f49",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:27:31Z",
+      "side": 1,
+      "message": "This internally performs `code_info.GetCatchStackMapForDexPc(dex_pc_list)` and then we repeat it in `SetCatchEnvironmentForOptimizedHandler()`. Maybe we should cache it or delay the native PC calculation.",
+      "range": {
+        "startLine": 139,
+        "startChar": 46,
+        "endLine": 139,
+        "endChar": 61
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a6cda6e_632254d1",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 14
@@ -296,6 +388,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38f4790c_b656ca7e",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:27:31Z",
+      "side": 1,
+      "message": "Why? I don\u0027t think the register allocator is required to select the same locations for parent environments at throw location and catch location.",
+      "range": {
+        "startLine": 314,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 64
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b748a3d_015730aa",
         "filename": "runtime/quick_exception_handler.h",
         "patchSetId": 14
@@ -383,6 +498,29 @@
         "startChar": 11,
         "endLine": 143,
         "endChar": 17
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c75dfb55_74f2e3b1",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:27:31Z",
+      "side": 1,
+      "message": "This DCHECK() is now useless. (Previously the `number_of_dex_registers` came from a different source.)",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 316,
+        "endChar": 62
       },
       "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -524,6 +662,52 @@
       "side": 1,
       "message": "Created a third method that does the computation and returns the registers in [`first`, `last`). The other two methods are used to compute `first` and `last`",
       "parentUuid": "cea1ab09_4210e5a7",
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e4791e_042e11da",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:27:31Z",
+      "side": 1,
+      "message": "To quote Roland, \"GetInlineInfosOf is not cheap\".\n\nThe inline info we need here for the throw location is already known in the caller as `stack_visitor-\u003ecurrent_inline_frames_.back()` (though the `current_inline_frames_` is private). And for the catch location the number of dex registers should be the same as can be seen from the `DCHECK()` in the caller.\n\nMaybe we should pass the number of registers as an argument. In debug build we can check that it matches `number_of_dex_registers_` or `GetNumberOfDexRegisters()` from one of the inline infos.",
+      "range": {
+        "startLine": 376,
+        "startChar": 12,
+        "endLine": 376,
+        "endChar": 50
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98916627_6ab418f8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T14:27:31Z",
+      "side": 1,
+      "message": "I\u0027m wondering whether it\u0027s better to pass the outer dex pc, `StackVisitor::current_inline_frames_` and catch dex pc instead. We would avoid allocating heap memory for the vector but we would repeatedly decode the inline info dex pcs if there are multiple catch handlers for the same outer dex pc.",
+      "range": {
+        "startLine": 425,
+        "startChar": 36,
+        "endLine": 425,
+        "endChar": 68
+      },
       "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
