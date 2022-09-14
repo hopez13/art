@@ -41,6 +41,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "913c13a8_c960651f",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-14T11:33:57Z",
+      "side": 1,
+      "message": "(this is the other side of the \"object to DWARF type\" lookup)",
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f97ddc28_d193b5aa",
@@ -150,6 +167,30 @@
       "side": 1,
       "message": "I\u0027d prefer to remove this hack as it\u0027s getting somewhat convoluted. We\u0027re now adding method arrays with both `kNoGCRoots` and `kArtMethodArray` and while the first requires an empty array, the second requires a non-empty one.\n\nI\u0027d really prefer to remove this dependency.\n\nThe class can be uniquely identified by its descriptor and class loader. As the class loader is movable, we can substitute that for its linear alloc or class table.",
       "parentUuid": "b9824709_dd3d7e48",
+      "range": {
+        "startLine": 481,
+        "startChar": 33,
+        "endLine": 481,
+        "endChar": 38
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15181cd9_d9499f28",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-14T11:33:57Z",
+      "side": 1,
+      "message": "We can just use `kArtMethodArray` here as well to be consistent, right?  (I understand that Lokesh marked it as `kNoGCRoots` as performance optimization, but again, this is debugging code, so the mirco-optimization isn\u0027t needed)\n\nIs it easy to use the right Alloc here?  So that the theoretical class unloading leak is removed?\n\nI don\u0027t want to pull in a lot of off-topic work into this CL.\n\n---\n\nFor a bit more context, this code generates unique non-movable identifier for a DWARF class, yes.  However, the important part is that given a heap object, the native debugger should be able to find it\u0027s DWARF class.\n\nAt the moment we have DWARF expression that does \"\u0026object-\u003etype-\u003emethods_ptr\" (see above) and then the native debugger can use that to get the dynamic type of the object. (This isn\u0027t really DWARF/LLDB standard... it just something I made up to be able to type ART objects)\n\n---\n\nPavel: Do you know if corresponding LLDB side survived over the years, or is it long gone? (I guess \".dynamic_type\" is good thing to grep for)",
+      "parentUuid": "465120cb_926973a6",
       "range": {
         "startLine": 481,
         "startChar": 33,
