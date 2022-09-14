@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d3384f9_5acfd6aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-14T08:24:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc670c3b_9d751817",
+      "range": {
+        "startLine": 11,
+        "startChar": 48,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "e0f560804f19aabb74d33a503c2b7cc94e28d35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28f5d3b5_7931ed4e",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-13T18:09:51Z",
       "side": 1,
       "message": "Nit: Long line.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 143
+      },
+      "revId": "e0f560804f19aabb74d33a503c2b7cc94e28d35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "820754cf_d8f61cbd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-14T08:24:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28f5d3b5_7931ed4e",
       "range": {
         "startLine": 12,
         "startChar": 0,
@@ -77,6 +125,30 @@
       "writtenOn": "2022-09-13T18:09:51Z",
       "side": 1,
       "message": "Should this be \"any\", given the documentation of `art::metrics::MetricsReporter::ShouldContinueReporting` (https://cs.android.com/android/platform/superproject/+/master:art/runtime/metrics/reporter.h;l\u003d162-163;drc\u003de22579cc46fc9deab2d2ae2fb78f5e116f54cde2)? (Ditto for other occurrences in this file.)",
+      "range": {
+        "startLine": 244,
+        "startChar": 32,
+        "endLine": 244,
+        "endChar": 34
+      },
+      "revId": "e0f560804f19aabb74d33a503c2b7cc94e28d35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef98f713_86940eac",
+        "filename": "runtime/metrics/reporter_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-14T08:24:05Z",
+      "side": 1,
+      "message": "I think originally \"at period\" was supposed to mean \"periodically\" (i.e., when the period strikes, we will keep reporting) - to avoid any confusion I have reworded the comments.",
+      "parentUuid": "b90d002a_68d222ea",
       "range": {
         "startLine": 244,
         "startChar": 32,
