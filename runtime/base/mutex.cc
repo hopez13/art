@@ -245,55 +245,55 @@ void BaseMutex::DumpAll(std::ostream& os) {
 }
 
 void BaseMutex::CheckSafeToWait(Thread* self) {
-  if (self == nullptr) {
-    CheckUnattachedThread(level_);
-    return;
-  }
   if (kDebugLocking) {
-    CHECK(self->GetHeldMutex(level_) == this || level_ == kMonitorLock)
-        << "Waiting on unacquired mutex: " << name_;
-    bool bad_mutexes_held = false;
-    std::string error_msg;
-    for (int i = kLockLevelCount - 1; i >= 0; --i) {
-      if (i != level_) {
-        BaseMutex* held_mutex = self->GetHeldMutex(static_cast<LockLevel>(i));
-        // We allow the thread to wait even if the user_code_suspension_lock_ is held so long. This
-        // just means that gc or some other internal process is suspending the thread while it is
-        // trying to suspend some other thread. So long as the current thread is not being suspended
-        // by a SuspendReason::kForUserCode (which needs the user_code_suspension_lock_ to clear)
-        // this is fine. This is needed due to user_code_suspension_lock_ being the way untrusted
-        // code interacts with suspension. One holds the lock to prevent user-code-suspension from
-        // occurring. Since this is only initiated from user-supplied native-code this is safe.
-        if (held_mutex == Locks::user_code_suspension_lock_) {
-          // No thread safety analysis is fine since we have both the user_code_suspension_lock_
-          // from the line above and the ThreadSuspendCountLock since it is our level_. We use this
-          // lambda to avoid having to annotate the whole function as NO_THREAD_SAFETY_ANALYSIS.
-          auto is_suspending_for_user_code = [self]() NO_THREAD_SAFETY_ANALYSIS {
-            return self->GetUserCodeSuspendCount() != 0;
-          };
-          if (is_suspending_for_user_code()) {
+    if (self == nullptr) {
+      CheckUnattachedThread(level_);
+    } else {
+      CHECK(self->GetHeldMutex(level_) == this || level_ == kMonitorLock)
+          << "Waiting on unacquired mutex: " << name_;
+      bool bad_mutexes_held = false;
+      std::string error_msg;
+      for (int i = kLockLevelCount - 1; i >= 0; --i) {
+        if (i != level_) {
+          BaseMutex* held_mutex = self->GetHeldMutex(static_cast<LockLevel>(i));
+          // We allow the thread to wait even if the user_code_suspension_lock_ is held so long. This
+          // just means that gc or some other internal process is suspending the thread while it is
+          // trying to suspend some other thread. So long as the current thread is not being suspended
+          // by a SuspendReason::kForUserCode (which needs the user_code_suspension_lock_ to clear)
+          // this is fine. This is needed due to user_code_suspension_lock_ being the way untrusted
+          // code interacts with suspension. One holds the lock to prevent user-code-suspension from
+          // occurring. Since this is only initiated from user-supplied native-code this is safe.
+          if (held_mutex == Locks::user_code_suspension_lock_) {
+            // No thread safety analysis is fine since we have both the user_code_suspension_lock_
+            // from the line above and the ThreadSuspendCountLock since it is our level_. We use this
+            // lambda to avoid having to annotate the whole function as NO_THREAD_SAFETY_ANALYSIS.
+            auto is_suspending_for_user_code = [self]() NO_THREAD_SAFETY_ANALYSIS {
+              return self->GetUserCodeSuspendCount() != 0;
+            };
+            if (is_suspending_for_user_code()) {
+              std::ostringstream oss;
+              oss << "Holding \"" << held_mutex->name_ << "\" "
+                  << "(level " << LockLevel(i) << ") while performing wait on "
+                  << "\"" << name_ << "\" (level " << level_ << ") "
+                  << "with SuspendReason::kForUserCode pending suspensions";
+              error_msg = oss.str();
+              LOG(ERROR) << error_msg;
+              bad_mutexes_held = true;
+            }
+          } else if (held_mutex != nullptr) {
             std::ostringstream oss;
             oss << "Holding \"" << held_mutex->name_ << "\" "
                 << "(level " << LockLevel(i) << ") while performing wait on "
-                << "\"" << name_ << "\" (level " << level_ << ") "
-                << "with SuspendReason::kForUserCode pending suspensions";
+                << "\"" << name_ << "\" (level " << level_ << ")";
             error_msg = oss.str();
             LOG(ERROR) << error_msg;
             bad_mutexes_held = true;
           }
-        } else if (held_mutex != nullptr) {
-          std::ostringstream oss;
-          oss << "Holding \"" << held_mutex->name_ << "\" "
-              << "(level " << LockLevel(i) << ") while performing wait on "
-              << "\"" << name_ << "\" (level " << level_ << ")";
-          error_msg = oss.str();
-          LOG(ERROR) << error_msg;
-          bad_mutexes_held = true;
         }
       }
-    }
-    if (gAborting == 0) {  // Avoid recursive aborts.
-      CHECK(!bad_mutexes_held) << error_msg;
+      if (gAborting == 0) {  // Avoid recursive aborts.
+        CHECK(!bad_mutexes_held) << error_msg;
+      }
     }
   }
 }
@@ -565,6 +565,7 @@ bool Mutex::IsDumpFrequent(Thread* thread, uint64_t try_times) {
   }
 }
 
+template<bool check>
 bool Mutex::ExclusiveTryLock(Thread* self) {
   DCHECK(self == nullptr || self == Thread::Current());
   if (kDebugLocking && !recursive_) {
@@ -595,7 +596,7 @@ bool Mutex::ExclusiveTryLock(Thread* self) {
 #endif
     DCHECK_EQ(GetExclusiveOwnerTid(), 0);
     exclusive_owner_.store(SafeGetTid(self), std::memory_order_relaxed);
-    RegisterAsLocked(self);
+    RegisterAsLocked(self, check);
   }
   recursion_count_++;
   if (kDebugLocking) {
@@ -605,6 +606,9 @@ bool Mutex::ExclusiveTryLock(Thread* self) {
   }
   return true;
 }
+
+template bool Mutex::ExclusiveTryLock<false>(Thread* self);
+template bool Mutex::ExclusiveTryLock<true>(Thread* self);
 
 bool Mutex::ExclusiveTryLockWithSpinning(Thread* self) {
   // Spin a small number of times, since this affects our ability to respond to suspension
