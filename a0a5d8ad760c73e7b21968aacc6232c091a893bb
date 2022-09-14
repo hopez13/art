@@ -390,6 +390,30 @@
       },
       "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ace13e8_a87192a4",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-14T09:54:15Z",
+      "side": 1,
+      "message": "The comment on line 72 says:\n\n```\nA shared namespace (cf. ANDROID_NAMESPACE_TYPE_SHARED) has\ninherited all the libraries of the parent classloader namespace, or the\nsystem namespace for the main app classloader.\"\n```\n\nI found relevant code here: https://cs.android.com/android/platform/superproject/+/master:art/libnativeloader/native_loader_namespace.cpp;l\u003d103?q\u003dNativeLoaderNamespace::Create\n\nSo it\u0027s very likely that the shared namespace that system apps get system libs from is the \"system namespace\".",
+      "parentUuid": "fdd2d53a_61e16135",
+      "range": {
+        "startLine": 245,
+        "startChar": 30,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "a0a5d8ad760c73e7b21968aacc6232c091a893bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
