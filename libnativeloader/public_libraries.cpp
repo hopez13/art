@@ -212,6 +212,9 @@ static std::string InitExtendedPublicLibraries() {
 }
 
 static std::string InitLlndkLibrariesVendor() {
+  if (!is_vendor_vndk_version_defined()) {
+    return "";
+  }
   std::string config_file = kLlndkLibrariesFile;
   InsertVndkVersionStr(&config_file, false);
   auto sonames = ReadConfig(config_file, always_true);
@@ -237,6 +240,9 @@ static std::string InitLlndkLibrariesProduct() {
 }
 
 static std::string InitVndkspLibrariesVendor() {
+  if (!is_vendor_vndk_version_defined()) {
+    return "";
+  }
   std::string config_file = kVndkLibrariesFile;
   InsertVndkVersionStr(&config_file, false);
   auto sonames = ReadConfig(config_file, always_true);
@@ -361,6 +367,14 @@ const std::map<std::string, std::string>& apex_public_libraries() {
 bool is_product_vndk_version_defined() {
 #if defined(ART_TARGET_ANDROID)
   return android::sysprop::VndkProperties::product_vndk_version().has_value();
+#else
+  return false;
+#endif
+}
+
+bool is_vendor_vndk_version_defined() {
+#if defined(ART_TARGET_ANDROID)
+  return android::sysprop::VndkProperties::vendor_vndk_version().has_value();
 #else
   return false;
 #endif
