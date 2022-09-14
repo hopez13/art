@@ -203,6 +203,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55a858b0_b1aa3704",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-14T12:26:27Z",
+      "side": 1,
+      "message": "Use\n\n    ClassLinker* class_linker \u003d Runtime::Current()-\u003eGetClassLinker();\n    LinearAlloc* allocator \u003d class_linker-\u003eGetAllocatorForClassLoader(type-\u003eGetClassLoader());\n\nThis also internally DCHECK()s that the allocator is not null but feel free to add an explicit DCHECK().",
+      "parentUuid": "15181cd9_d9499f28",
+      "range": {
+        "startLine": 481,
+        "startChar": 33,
+        "endLine": 481,
+        "endChar": 38
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2b9bade_15285611",
         "filename": "runtime/art_field-inl.h",
         "patchSetId": 20
