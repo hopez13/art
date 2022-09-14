@@ -16,6 +16,29 @@
       "message": "Folks, PTAL.",
       "revId": "8766e8ef0decfad09d2b8c0580b4f4b293839c84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5085936f_f4358a5c",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1613,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-14T09:24:07Z",
+      "side": 1,
+      "message": "Why is this at the bottom of the method? Is this not expected to happen often?\n\nI would have expected something like:\n```\n    cmp ip2, #MIRROR_CLASS_IS_INITIALIZED_VALUE\n    b.lo .Linitializing_check\n    dmb ish\n    b ExecuteNterpImpl\n.Linitializing_check:\n    cmp ip2, #MIRROR_CLASS_IS_INITIALIZING_VALUE\n    ...\n```",
+      "range": {
+        "startLine": 1611,
+        "startChar": 0,
+        "endLine": 1613,
+        "endChar": 22
+      },
+      "revId": "8766e8ef0decfad09d2b8c0580b4f4b293839c84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
