@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1df7a8f_afdfc69b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1691,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T20:01:46Z",
+      "side": 1,
+      "message": "Add a comment why now?",
+      "revId": "68b575c696e4979a605047d00aca000abd6c81e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d00a7853_12e323df",
+        "filename": "runtime/interpreter/interpreter_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T20:01:46Z",
+      "side": 1,
+      "message": "Can you add a comment in the code why this is safe?",
+      "revId": "68b575c696e4979a605047d00aca000abd6c81e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60130307_0d46f6c3",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T20:01:46Z",
+      "side": 1,
+      "message": "Instead of this boolean, could we have the callers of SweepSystemWeaks(visitor, true), explicitly call SweepInterpreterCaches ?",
+      "range": {
+        "startLine": 475,
+        "startChar": 50,
+        "endLine": 475,
+        "endChar": 87
+      },
+      "revId": "68b575c696e4979a605047d00aca000abd6c81e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5def5f75_20d38b20",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4521,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T20:01:46Z",
+      "side": 1,
+      "message": "nit: add a comment",
+      "range": {
+        "startLine": 4521,
+        "startChar": 0,
+        "endLine": 4521,
+        "endChar": 52
+      },
+      "revId": "68b575c696e4979a605047d00aca000abd6c81e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
