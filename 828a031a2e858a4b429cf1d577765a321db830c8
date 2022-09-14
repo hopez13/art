@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f361e35f_2e81ae6c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T08:09:19Z",
+      "side": 1,
+      "message": "Can we have a helper for this?",
+      "range": {
+        "startLine": 2107,
+        "startChar": 5,
+        "endLine": 2107,
+        "endChar": 74
+      },
+      "revId": "828a031a2e858a4b429cf1d577765a321db830c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c344dcf_61d6423b",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T08:09:19Z",
+      "side": 1,
+      "message": "ditto about a helper",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 66
+      },
+      "revId": "828a031a2e858a4b429cf1d577765a321db830c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "932eeaa3_f802d1ee",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T08:09:19Z",
+      "side": 1,
+      "message": "No need for this change",
+      "revId": "828a031a2e858a4b429cf1d577765a321db830c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ee9f53_d62e332a",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T08:09:19Z",
+      "side": 1,
+      "message": "Can we make this imply kReserveMarkingRegister ?",
+      "range": {
+        "startLine": 37,
+        "startChar": 63,
+        "endLine": 37,
+        "endChar": 83
+      },
+      "revId": "828a031a2e858a4b429cf1d577765a321db830c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f472e4_c39502f1",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-14T08:09:19Z",
+      "side": 1,
+      "message": "Which define?",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 23
+      },
+      "revId": "828a031a2e858a4b429cf1d577765a321db830c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
