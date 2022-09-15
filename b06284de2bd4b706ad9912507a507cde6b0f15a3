@@ -266,6 +266,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a53c39ae_87772dd6",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-15T01:37:25Z",
+      "side": 1,
+      "message": "Added a comment next to invocation of SweepSystemWeaks().",
+      "parentUuid": "64e935aa_40506e52",
+      "revId": "b06284de2bd4b706ad9912507a507cde6b0f15a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "173f654d_e26ab57e",
