@@ -1535,6 +1535,10 @@ bool HInliner::TryBuildAndInline(HInvoke* invoke_instruction,
     return false;
   }
 
+  if (method->PrettyMethod() == "java.lang.Throwable java.lang.Throwable.fillInStackTrace()") {
+    return false;
+  }
+
   if (!IsInliningSupported(invoke_instruction, method, accessor)) {
     return false;
   }
@@ -1549,6 +1553,15 @@ bool HInliner::TryBuildAndInline(HInvoke* invoke_instruction,
 
   LOG_SUCCESS() << method->PrettyMethod();
   MaybeRecordStat(stats_, MethodCompilationStat::kInlinedInvoke);
+  if (accessor.TriesSize() != 0 && codegen_->GetCompilerOptions().GetDumpStats()) {
+    std::stringstream ss;
+    if (outermost_graph_ != nullptr && outermost_graph_->GetArtMethod() != nullptr) {
+      ss << outermost_graph_->GetArtMethod()->PrettyMethod();
+    }
+
+    LOG(INFO) << "Inlined method " << method->PrettyMethod() << " into " << graph_->GetArtMethod()->PrettyMethod() << ". The outermost method is: " << ss.str();
+  }
+
   if (outermost_graph_ == graph_) {
     MaybeRecordStat(stats_, MethodCompilationStat::kInlinedLastInvoke);
   }
