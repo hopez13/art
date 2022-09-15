@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37e4fca8_c1115e28",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568cceb6_9a560cd8",
+      "range": {
+        "startLine": 1361,
+        "startChar": 4,
+        "endLine": 1363,
+        "endChar": 91
+      },
+      "revId": "cd359244b8fe597d3525e3f64fe7fb4d70094bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "821a007f_f6350201",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-14T14:50:49Z",
       "side": 1,
       "message": "This log is now misleading. If we want to print the outer method and line number, we should at least indicate that there may be an inlined frame. Otherwise, we can get the actual method as `visitor.GetMethod()` (this is not cheap for inlined frames).",
+      "range": {
+        "startLine": 222,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 40
+      },
+      "revId": "cd359244b8fe597d3525e3f64fe7fb4d70094bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0848e1eb_e1959765",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "This LOG should only be hit in `kDebugExceptionDelivery` so I guess we can pay the cost of calling `visitor.GetMethod()`. WDYT?",
+      "parentUuid": "821a007f_f6350201",
       "range": {
         "startLine": 222,
         "startChar": 8,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19c4865a_a9e01c41",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "Done on both fronts through an auxiliary method `GetNumberOfRegisters`. This can be used also to avoid a `GetInlineInfosOf` call inside of the old `GetDexRegisterMapOf` method.",
+      "parentUuid": "a85b0e36_002c43e4",
+      "range": {
+        "startLine": 322,
+        "startChar": 8,
+        "endLine": 322,
+        "endChar": 94
+      },
+      "revId": "cd359244b8fe597d3525e3f64fe7fb4d70094bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c447996_9d44b405",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1949098_2123fe9d",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c447996_9d44b405",
+      "range": {
+        "startLine": 445,
+        "startChar": 54,
+        "endLine": 445,
+        "endChar": 70
+      },
+      "revId": "cd359244b8fe597d3525e3f64fe7fb4d70094bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca93cbf0_af1c90e7",
@@ -106,6 +202,30 @@
       "writtenOn": "2022-09-14T14:50:49Z",
       "side": 1,
       "message": "`inline_infos`",
+      "range": {
+        "startLine": 447,
+        "startChar": 10,
+        "endLine": 447,
+        "endChar": 37
+      },
+      "revId": "cd359244b8fe597d3525e3f64fe7fb4d70094bb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "063a397d_e2af5930",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca93cbf0_af1c90e7",
       "range": {
         "startLine": 447,
         "startChar": 10,

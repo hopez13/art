@@ -212,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bd55aa2_d4f599bf",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "Ack, removed.",
+      "parentUuid": "99c2d7f9_a7307ddc",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 87,
+        "endChar": 80
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "131acc1f_e79b671c",
@@ -225,6 +249,30 @@
       "writtenOn": "2022-09-14T14:27:31Z",
       "side": 1,
       "message": "Note: This overload shall be used only for test code.",
+      "range": {
+        "startLine": 165,
+        "startChar": 12,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5292d38_33973c72",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "Added a comment to reflect this.",
+      "parentUuid": "131acc1f_e79b671c",
       "range": {
         "startLine": 165,
         "startChar": 12,
@@ -295,6 +343,30 @@
       "writtenOn": "2022-09-14T14:27:31Z",
       "side": 1,
       "message": "This internally performs `code_info.GetCatchStackMapForDexPc(dex_pc_list)` and then we repeat it in `SetCatchEnvironmentForOptimizedHandler()`. Maybe we should cache it or delay the native PC calculation.",
+      "range": {
+        "startLine": 139,
+        "startChar": 46,
+        "endLine": 139,
+        "endChar": 61
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ef42bd9_e7d9d3dd",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "Sure, cached it in `QuickExceptionHandler`",
+      "parentUuid": "c641743d_b3ff1f49",
       "range": {
         "startLine": 139,
         "startChar": 46,
@@ -433,6 +505,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da3bf3e3_1a35c9cf",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "The parent environment doesn\u0027t appear in the catch phis, only the catch\u0027s environment. We don\u0027t have to restore them here (and we get a slight performance increase by skipping the calls below e.g. `GetVReg`)",
+      "parentUuid": "38f4790c_b656ca7e",
+      "range": {
+        "startLine": 314,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 64
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b748a3d_015730aa",
@@ -540,6 +636,30 @@
       "writtenOn": "2022-09-14T14:27:31Z",
       "side": 1,
       "message": "This DCHECK() is now useless. (Previously the `number_of_dex_registers` came from a different source.)",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 316,
+        "endChar": 62
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ed5924e_530a8906",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "Ack, removed.",
+      "parentUuid": "c75dfb55_74f2e3b1",
       "range": {
         "startLine": 316,
         "startChar": 2,
@@ -713,6 +833,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f5956c7_53a34916",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "Ack, removed this method, created an auxiliary method in quick_exception_handler.cc, and refactored its uses.",
+      "parentUuid": "d2e4791e_042e11da",
+      "range": {
+        "startLine": 376,
+        "startChar": 12,
+        "endLine": 376,
+        "endChar": 50
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98916627_6ab418f8",
@@ -726,6 +870,30 @@
       "writtenOn": "2022-09-14T14:27:31Z",
       "side": 1,
       "message": "I\u0027m wondering whether it\u0027s better to pass the outer dex pc, `StackVisitor::current_inline_frames_` and catch dex pc instead. We would avoid allocating heap memory for the vector but we would repeatedly decode the inline info dex pcs if there are multiple catch handlers for the same outer dex pc.",
+      "range": {
+        "startLine": 425,
+        "startChar": 36,
+        "endLine": 425,
+        "endChar": 68
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "070907b5_3a55f9da",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-15T14:31:55Z",
+      "side": 1,
+      "message": "I don\u0027t the heap memory would be a lot as we don\u0027t inline that deep.",
+      "parentUuid": "98916627_6ab418f8",
       "range": {
         "startLine": 425,
         "startChar": 36,
