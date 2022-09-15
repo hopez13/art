@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fc23b60_5026990f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-15T16:26:46Z",
+      "side": 1,
+      "message": "Unfortunately this is not respected in the merge path from android13-tests-dev to master: https://android-build.googleplex.com/builds/automerger/graph/project/android/platform/art\n\nI suggest `Merged-In` with an ID of a recent ART CL to avoid merging into master. You can use e.g. `I1400a701a622f9f35b3ce0781575134faca679ae` for it (it\u0027s a change that definitely cannot be in a T tree). But picking a \"weird\" merge-id like that also bears an explanation in the commit message.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "0598dae5197b221f55c16b434feff5fd0218980f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
