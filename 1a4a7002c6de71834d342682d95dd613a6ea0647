@@ -34,6 +34,24 @@
       "parentUuid": "29ac2a2f_9eb691a0",
       "revId": "1a4a7002c6de71834d342682d95dd613a6ea0647",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33c3e02a_908eb1a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-15T22:39:19Z",
+      "side": 1,
+      "message": "Removed autosubmit. I didn\u0027t get your question. This CL only affects what system properties odrefresh checks on boot. It doesn\u0027t affect what system properties odrefresh/dex2oat uses. I don\u0027t think it changes boot time.",
+      "parentUuid": "91708c42_5035eb51",
+      "revId": "1a4a7002c6de71834d342682d95dd613a6ea0647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
