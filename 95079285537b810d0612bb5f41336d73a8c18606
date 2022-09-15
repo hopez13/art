@@ -16,6 +16,24 @@
       "message": "Hi folks, this is Harry from the CrystalBall team. Our system process memory test found that this change causes a ~4.5MB regression on pinner total size (please see go/pinner-guide) for more details. Could you proceed with caution on this change? Thank you!",
       "revId": "95079285537b810d0612bb5f41336d73a8c18606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aecdafcf_47a0aeeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-09-15T17:56:56Z",
+      "side": 1,
+      "message": "Yep, we\u0027ve been discussing offline and it looks like with a few uses of @NeverInline we should be able to prevent a lot of the size growth but retain most of the runtime benefits.",
+      "parentUuid": "b93d5f8e_3b1ad4db",
+      "revId": "95079285537b810d0612bb5f41336d73a8c18606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
