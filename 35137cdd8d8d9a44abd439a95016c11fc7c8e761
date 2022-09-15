@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c91553e1_999f7283",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-15T00:23:31Z",
+      "side": 1,
+      "message": "LGTM. A couple of minor issues below.",
+      "revId": "35137cdd8d8d9a44abd439a95016c11fc7c8e761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cba8ab4f_f8a3233e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-15T00:23:31Z",
+      "side": 1,
+      "message": "Doesn\u0027t this really belong in ThreadList?",
+      "range": {
+        "startLine": 742,
+        "startChar": 2,
+        "endLine": 742,
+        "endChar": 94
+      },
+      "revId": "35137cdd8d8d9a44abd439a95016c11fc7c8e761",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
