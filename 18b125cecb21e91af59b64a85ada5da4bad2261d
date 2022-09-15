@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c28e7d5_1414da06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-09-15T10:35:22Z",
+      "side": 1,
+      "message": "Theoretically there could be some behavioral change as we now post-process parsed arguments, while previously we processed them as they were parsed. I can\u0027t point at some particular place where post-processing would rely on other options\u0027 state, and since you have verified that the normal art test run is unaffected, I think it should be ok.",
+      "revId": "18b125cecb21e91af59b64a85ada5da4bad2261d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "892a3adb_7a5fc0ba",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-09-15T10:35:22Z",
+      "side": 1,
+      "message": "Nit: add back the comments \"5 min\" and \"6 min\".",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 61
+      },
+      "revId": "18b125cecb21e91af59b64a85ada5da4bad2261d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "204f9811_31e33417",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-09-15T10:35:22Z",
+      "side": 1,
+      "message": "Nit: extend the comment with an example of arguments before/after rewriting.",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 83
+      },
+      "revId": "18b125cecb21e91af59b64a85ada5da4bad2261d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
