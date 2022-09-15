@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4c8c433_1723bc25",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2107,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-15T02:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f361e35f_2e81ae6c",
+      "range": {
+        "startLine": 2107,
+        "startChar": 5,
+        "endLine": 2107,
+        "endChar": 74
+      },
+      "revId": "828a031a2e858a4b429cf1d577765a321db830c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c344dcf_61d6423b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-14T08:09:19Z",
       "side": 1,
       "message": "ditto about a helper",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 66
+      },
+      "revId": "828a031a2e858a4b429cf1d577765a321db830c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdcf0e4c_26ebe867",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-15T02:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c344dcf_61d6423b",
       "range": {
         "startLine": 30,
         "startChar": 0,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "750e73c1_a9064427",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-15T02:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "932eeaa3_f802d1ee",
+      "revId": "828a031a2e858a4b429cf1d577765a321db830c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35ee9f53_d62e332a",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ae45ea5_d1bfc318",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-15T02:34:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35ee9f53_d62e332a",
+      "range": {
+        "startLine": 37,
+        "startChar": 63,
+        "endLine": 37,
+        "endChar": 83
+      },
+      "revId": "828a031a2e858a4b429cf1d577765a321db830c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69f472e4_c39502f1",
@@ -100,6 +190,30 @@
       "writtenOn": "2022-09-14T08:09:19Z",
       "side": 1,
       "message": "Which define?",
+      "range": {
+        "startLine": 47,
+        "startChar": 12,
+        "endLine": 47,
+        "endChar": 23
+      },
+      "revId": "828a031a2e858a4b429cf1d577765a321db830c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b411ee1_ec0e985c",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-15T02:34:36Z",
+      "side": 1,
+      "message": "So sorry about this. I mistakenly uploaded a patch with some temporary changes that I was testing. Fixed in latest PS.",
+      "parentUuid": "69f472e4_c39502f1",
       "range": {
         "startLine": 47,
         "startChar": 12,
