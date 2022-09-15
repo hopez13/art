@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29ac2a2f_9eb691a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2022-09-15T22:31:47Z",
+      "side": 1,
+      "message": "Do we need to care about the possible boot time change for some devices (e.g. they could avoid using the little cores)?  I hope not, given the low frequency this can happen...",
+      "revId": "1a4a7002c6de71834d342682d95dd613a6ea0647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
