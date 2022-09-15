@@ -22,6 +22,30 @@
       },
       "revId": "4e4ad0a8dd02145a1d692401b4e18d8203d6329a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cd4890e_b161458a",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-15T11:03:03Z",
+      "side": 0,
+      "message": "Hmmm... it is unused, but I don\u0027t know if I removed it on purpose...\n\nMaybe that is a cleanup the belongs to other CL.",
+      "parentUuid": "80c659f2_8159e424",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 17
+      },
+      "revId": "4e4ad0a8dd02145a1d692401b4e18d8203d6329a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
