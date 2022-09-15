@@ -29,6 +29,7 @@
 
 namespace art {
 
+
 // Enables vectorization (SIMDization) in the loop optimizer.
 static constexpr bool kEnableVectorization = true;
 
