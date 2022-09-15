@@ -16,6 +16,9 @@
 
 #include "block_builder.h"
 
+#include <ios>
+#include <sstream>
+
 #include "base/logging.h"  // FOR VLOG.
 #include "dex/bytecode_utils.h"
 #include "dex/code_item_accessors-inl.h"
@@ -110,7 +113,24 @@ bool HBasicBlockBuilder::CreateBranchTargets() {
       number_of_branches_++;  // count as at least one branch (b/77652521)
       DexSwitchTable table(instruction, dex_pc);
       for (DexSwitchTableIterator s_it(table); !s_it.Done(); s_it.Advance()) {
-        MaybeCreateBlockAt(dex_pc + s_it.CurrentTargetOffset());
+        // Added information to be able to debug b/246253893.
+        const uint32_t dex_pc_plus_offset = dex_pc + s_it.CurrentTargetOffset();
+        if (UNLIKELY(dex_pc_plus_offset >= branch_targets_.size())) {
+          std::stringstream ss;
+          ss << "code_item_accessor_.HasCodeItem(): " << std::boolalpha
+             << code_item_accessor_.HasCodeItem() << std::noboolalpha;
+          if (code_item_accessor_.HasCodeItem()) {
+            ss << ", code_item_accessor_.InsnsSizeInCodeUnits(): "
+               << code_item_accessor_.InsnsSizeInCodeUnits();
+          }
+          ss << ", dex_pc: " << dex_pc
+             << ", s_it.CurrentTargetOffset(): " << s_it.CurrentTargetOffset()
+             << ", dex_pc_plus_offset: " << dex_pc_plus_offset
+             << ", branch_targets_.size(): " << branch_targets_.size();
+          CHECK(false) << ss.str();
+        }
+
+        MaybeCreateBlockAt(dex_pc_plus_offset);
 
         // Create N-1 blocks where we will insert comparisons of the input value
         // against the Switch's case keys.
