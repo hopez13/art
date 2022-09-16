@@ -1,0 +1,314 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "201b9beb_a93e4ef8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "This is misleading for those cases where we prevent inlining for other reasons.",
+      "range": {
+        "startLine": 1435,
+        "startChar": 61,
+        "endLine": 1436,
+        "endChar": 24
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab6dd2cc_64dc75de",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1876,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "Do exit try boundaries always have just a single predecessor?",
+      "range": {
+        "startLine": 1876,
+        "startChar": 33,
+        "endLine": 1876,
+        "endChar": 53
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd33b9f8_8748320b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 2878,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "Please update.",
+      "range": {
+        "startLine": 2877,
+        "startChar": 59,
+        "endLine": 2878,
+        "endChar": 65
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6193118b_52a6e946",
+        "filename": "test/2237-checker-inline-multidex/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "Missing checker statements for this method? Maybe simply `CHECK-NOT: TryBoundary` before inlining and `CHECK: TryBoundary` after inlining?",
+      "range": {
+        "startLine": 79,
+        "startChar": 21,
+        "endLine": 79,
+        "endChar": 45
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc3437c_2519d6ab",
+        "filename": "test/2240-checker-inline-try-catch/info.txt",
+        "patchSetId": 23
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "Please add a newline at the end.",
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b404dc0_35066322",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "We could change the second call to `$inline$OOBTryCatch(new int[]{42})` to test the non-exceptional path. (Or add a separate test method.)",
+      "range": {
+        "startLine": 48,
+        "startChar": 30,
+        "endLine": 48,
+        "endChar": 58
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46cc89ef_e272db55",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "Also test other paths in the inlined method?",
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "010652bf_50e56654",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "Why isn\u0027t this call inlined? Is it because after we process `unreachable()`, the inliner knows that this is unreachable and does not bother inlining?",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 38
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e66488c_12660f42",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "Requires `array !\u003d null \u0026\u0026 array.length \u003d\u003d 0`.",
+      "range": {
+        "startLine": 165,
+        "startChar": 6,
+        "endLine": 165,
+        "endChar": 37
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efa2e890_7e3b1f0d",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "`$inline$`?",
+      "range": {
+        "startLine": 227,
+        "startChar": 21,
+        "endLine": 227,
+        "endChar": 35
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b4db20e_03ca66d6",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 1951,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "Why do we need to change this test?",
+      "range": {
+        "startLine": 1951,
+        "startChar": 6,
+        "endLine": 1951,
+        "endChar": 34
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1006bec_0cdd0ba0",
+        "filename": "test/593-checker-long-2-float-regression/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "Why do we need to change this test?\n\nWe should probably remove the obsolete `if (doThrow) { throw new Error(); }` code which was superceded by `$noinline$`.",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca50ace4_f2eca455",
+        "filename": "test/608-checker-unresolved-lse/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "Please revert this unrelated \"fix\". (The correct fix would be to cache the result of the `sf.iField` load before the `if`.)",
+      "range": {
+        "startLine": 43,
+        "startChar": 44,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "719113f8_2008d78b",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T05:59:16Z",
+      "side": 1,
+      "message": "I think this change essentially invalidates this entire test.\n\nMaybe we should rethink how we test this. We could just collect block numbers from LoadClass+NewInstance and InvokeVirtual/Object.toString() and check that they differ before the pass but match after the pass.",
+      "range": {
+        "startLine": 75,
+        "startChar": 12,
+        "endLine": 75,
+        "endChar": 30
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
