@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e369724_19af24d0",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T13:03:46Z",
+      "side": 1,
+      "message": "These should have been `kStatusLsbPosition` even in function scope. Now, in the global scope, they really should follow the ART naming convention. And they are a bit out of context here, so I\u0027d stress \"Class\" in the name.\n\nAnd maybe move all these constants to a `protected:` section in `CodeGenerator`.",
+      "range": {
+        "startLine": 64,
+        "startChar": 17,
+        "endLine": 64,
+        "endChar": 36
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b6a6a22_8d66407e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 7674,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T13:03:46Z",
+      "side": 1,
+      "message": "Note: Reading an atomic variable at a different granularity as we write it is generally discouraged (because it\u0027s essentially undefined). We do that to save code size but we should probably stop doing that. ARM was the only architecture where we previously didn\u0027t use that hack and now we do. But that\u0027s understandable if we\u0027re optimizing for space with R4 above.",
+      "range": {
+        "startLine": 7674,
+        "startChar": 5,
+        "endLine": 7674,
+        "endChar": 9
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62bcdad8_cf5a2bab",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1272,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T13:03:46Z",
+      "side": 1,
+      "message": "Isn\u0027t EAX available as a temp?",
+      "range": {
+        "startLine": 1272,
+        "startChar": 17,
+        "endLine": 1272,
+        "endChar": 20
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0180fc4c_31e78c2d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T13:03:46Z",
+      "side": 1,
+      "message": "Adjust CFA? (Just in case we crash somewhere in this code.)",
+      "range": {
+        "startLine": 1273,
+        "startChar": 4,
+        "endLine": 1273,
+        "endChar": 18
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bab79d4_00ba1e9d",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2239,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T13:03:46Z",
+      "side": 1,
+      "message": "Please change `CompilerOptions::IsPreloadedClass()` to take `const std::string\u0026` or `std::string_view`. We already have a `std::string` from the `PrettyDescriptor()` and we\u0027re dropping the length information here and recalculating it with a hidden `strlen()` when constructing `std::string_view`.",
+      "range": {
+        "startLine": 2239,
+        "startChar": 26,
+        "endLine": 2239,
+        "endChar": 42
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "210d4359_3fc35b52",
+        "filename": "libdexfile/dex/modifiers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T13:03:46Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 60,
+        "startChar": 30,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
