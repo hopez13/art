@@ -3137,7 +3137,7 @@ bool ImageSpace::BootImageLoader::LoadFromSystem(
                          boot_class_path_image_fds_,
                          boot_class_path_vdex_fds_,
                          boot_class_path_oat_fds_);
-  if (!layout.LoadFromSystem(image_isa_, /*allow_in_memory_compilation=*/true, error_msg)) {
+  if (!layout.LoadFromSystem(image_isa_, Runtime::Current()->IsZygote(), error_msg)) {
     return false;
   }
 
