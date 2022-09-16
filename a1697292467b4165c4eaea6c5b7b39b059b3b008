@@ -906,6 +906,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2018a98c_239c86c2",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-16T06:16:15Z",
+      "side": 1,
+      "message": "My comment is not about using a lot of memory. but rather about the underlying `malloc()` and `free()` being quite slow.\n\nBut maybe this is OK in the context of throwing an exception, so feel free to \"Ack\" and move on.",
+      "parentUuid": "070907b5_3a55f9da",
+      "range": {
+        "startLine": 425,
+        "startChar": 36,
+        "endLine": 425,
+        "endChar": 68
+      },
+      "revId": "a1697292467b4165c4eaea6c5b7b39b059b3b008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1a00a66_c480225d",
         "filename": "runtime/stack_map.h",
         "patchSetId": 14
