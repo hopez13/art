@@ -34,6 +34,24 @@
       "parentUuid": "68290147_369a27b8",
       "revId": "d7c1576a948908a69bd8c3d7a34918ba59dff24e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc6ce91b_1c4e7fbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-18T15:46:02Z",
+      "side": 1,
+      "message": "Thanks for bringing this to my attention, Rolan. I think it should be ok to re-enable it now since the reason for revert is fixed. I\u0027m adding Nicolas to confirm as he fixed the issue.",
+      "parentUuid": "a0e79cad_1374edbf",
+      "revId": "d7c1576a948908a69bd8c3d7a34918ba59dff24e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
