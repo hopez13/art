@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92caf4d9_42b54998",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-19T18:02:02Z",
+      "side": 1,
+      "message": "Comment below can be addressed later.",
+      "revId": "58a12f175571555c6b3645e1ad91ee4d2bc14585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c7fcd23_b143e58e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-19T18:02:02Z",
+      "side": 1,
+      "message": "We already do this elsewhere, but why do we do this separately for the GC and the space here? The comments in the corresponding .h files don\u0027t seem very informative about the difference.",
+      "range": {
+        "startLine": 1768,
+        "startChar": 4,
+        "endLine": 1769,
+        "endChar": 60
+      },
+      "revId": "58a12f175571555c6b3645e1ad91ee4d2bc14585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
