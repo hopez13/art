@@ -16,6 +16,24 @@
       "message": "It looks like this could also have been a Fuchsia issue? This CL changes the behavior there, but I\u0027m not quite sure whether it\u0027s for the better. If we don\u0027t know, the new version seems safer.",
       "revId": "2d144ea343019b86e41f9ddf3b011ca139ab0ce3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f70d84b9_42e44e9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-19T20:43:12Z",
+      "side": 1,
+      "message": "To be honest, I\u0027m not sure how will this GC behave if run on Fuchsia. One thing I have done is that first we bail out if __linux__ isn\u0027t defined, hoping that would address that angle.",
+      "parentUuid": "c810c9f0_5c59a5db",
+      "revId": "2d144ea343019b86e41f9ddf3b011ca139ab0ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
