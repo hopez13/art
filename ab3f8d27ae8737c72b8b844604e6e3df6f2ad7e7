@@ -70,6 +70,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc00356d_f13765f5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1272,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-19T10:11:53Z",
+      "side": 1,
+      "message": "No, it\u0027s used as `kMethodRegisterArgument`.",
+      "parentUuid": "62bcdad8_cf5a2bab",
+      "range": {
+        "startLine": 1272,
+        "startChar": 17,
+        "endLine": 1272,
+        "endChar": 20
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0180fc4c_31e78c2d",
