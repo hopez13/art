@@ -39,6 +39,30 @@
       },
       "revId": "58a12f175571555c6b3645e1ad91ee4d2bc14585",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30ff7d20_4439971d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-09-19T18:16:18Z",
+      "side": 1,
+      "message": "I didn\u0027t fully understand what you mean. For every other space, which is Swept, the Sweep() function takes care of the space, and so we only call RecordFree() for adjusting the entire heap.\n\nIn case of bump-pointer space, we have to do RecordFree() as there is no Sweep() for it.",
+      "parentUuid": "4c7fcd23_b143e58e",
+      "range": {
+        "startLine": 1768,
+        "startChar": 4,
+        "endLine": 1769,
+        "endChar": 60
+      },
+      "revId": "58a12f175571555c6b3645e1ad91ee4d2bc14585",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
