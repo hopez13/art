@@ -176,7 +176,7 @@ art_cc_defaults {
     ],
 
     export_include_dirs: ["."],
-    version_script: "libart-compiler.map",
+    // version_script: "libart-compiler.map",
 }
 
 cc_defaults {
