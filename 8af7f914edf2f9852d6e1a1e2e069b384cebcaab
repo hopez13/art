@@ -1,0 +1,227 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2be1bb92_65e2790e",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "Add checks for \"initialized\" and \"initializing\" on this thread.",
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d43a162a_63571755",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1615,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "Add checks for \"initialized\" and \"initializing\" on this thread.",
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3117a4cb_d880394c",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "Add a comment that on x86-64 we skip \"initialized\" and set status directly to \"visibly initialized\".",
+      "range": {
+        "startLine": 1699,
+        "startChar": 29,
+        "endLine": 1699,
+        "endChar": 48
+      },
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a347bc64_313248c0",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1700,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "Add check for \"initializing\" on this thread.",
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68009a62_31527107",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "Adjust CFA. (Use `PUSH` and `POP`.)",
+      "range": {
+        "startLine": 1761,
+        "startChar": 4,
+        "endLine": 1761,
+        "endChar": 13
+      },
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af2444c7_c11b6752",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1763,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "Add a comment that on x86 we skip \"initialized\" and set status directly to \"visibly initialized\".",
+      "range": {
+        "startLine": 1763,
+        "startChar": 28,
+        "endLine": 1763,
+        "endChar": 47
+      },
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1288c448_ec43d63b",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1765,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "Add check for \"initializing\" on this thread.",
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e89a68a_6d1abc3d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "228ab428_5ef75ba1",
+        "filename": "tools/cpp-define-generator/mirror_class.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "Rename to \"STATUS_BYTE\"?",
+      "range": {
+        "startLine": 53,
+        "startChar": 24,
+        "endLine": 53,
+        "endChar": 46
+      },
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1ba2549_8f31f2f1",
+        "filename": "tools/cpp-define-generator/mirror_class.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "\"SHIFTED_BYTE_VALUE\"?",
+      "range": {
+        "startLine": 56,
+        "startChar": 47,
+        "endLine": 56,
+        "endChar": 52
+      },
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1621e1d_59ae5d2f",
+        "filename": "tools/cpp-define-generator/mirror_class.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T08:38:48Z",
+      "side": 1,
+      "message": "We should expose the `kBitOffset` parameter of `BitStructField\u003c\u003e` and extract that from `SubtypeCheckBitsAndStatus::status_`.",
+      "range": {
+        "startLine": 58,
+        "startChar": 21,
+        "endLine": 58,
+        "endChar": 56
+      },
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
