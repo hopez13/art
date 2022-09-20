@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf3fe362_6719ee53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-20T13:55:21Z",
+      "side": 1,
+      "message": "Yes, while trying locally I have surrounded _all_ the `#include` directives (including the ones in tests) - the interesting/strange thing is that I have tried to run `m tidy-art` multiple times during the process (so when not all the directives had been \"framed\", but with different percentages at different times) and the number of violations for each `typedef` were always around a hundred (sometimes in the 90s, some other times in the 110s) but _not_ always decreasing - one could think that having more directives being enclosed in the comments would result automatically in a decrease of violations, but that\u0027s not what I have seen (unfortunately).",
+      "parentUuid": "cabc4e46_cf1b52b4",
+      "revId": "f2df8a0578291290c9efdbc33645f45d2e598404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fdab65fc_7bc6dc02",
