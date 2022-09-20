@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88fd65c1_e3ff6471",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T13:44:01Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/2203779 .",
+      "parentUuid": "2be1bb92_65e2790e",
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d43a162a_63571755",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-20T08:38:48Z",
       "side": 1,
       "message": "Add checks for \"initialized\" and \"initializing\" on this thread.",
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b43badb3_b3563196",
+        "filename": "runtime/interpreter/mterp/armng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1615,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T13:44:01Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/2203779 .",
+      "parentUuid": "d43a162a_63571755",
       "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -71,6 +107,24 @@
       "writtenOn": "2022-09-20T08:38:48Z",
       "side": 1,
       "message": "Add check for \"initializing\" on this thread.",
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc387cd7_9dbd84eb",
+        "filename": "runtime/interpreter/mterp/x86_64ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1700,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T13:44:01Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/2203779 .",
+      "parentUuid": "a347bc64_313248c0",
       "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -134,6 +188,24 @@
       "writtenOn": "2022-09-20T08:38:48Z",
       "side": 1,
       "message": "Add check for \"initializing\" on this thread.",
+      "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69e4ec1e_f9c01f61",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1765,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-20T13:44:01Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/2203779 .",
+      "parentUuid": "1288c448_ec43d63b",
       "revId": "8af7f914edf2f9852d6e1a1e2e069b384cebcaab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
