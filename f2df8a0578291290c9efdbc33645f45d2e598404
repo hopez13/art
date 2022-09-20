@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e386b6f3_4760ce37",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-20T14:28:50Z",
+      "side": 1,
+      "message": "Strange. (Btw, my query missed libcore/ - there are a bunch more there.) I\u0027d try `m out/soong/.intermediates/...` on some specific compilation units and see if the directives work in those cases. If they do, I suspect there\u0027s some missing include path. It could be that those headers are included indirectly also through headers outside ART. It shouldn\u0027t be too hard to tell from the \"include backtrace\" in the errors.\n\n(If it indeed doesn\u0027t work, I\u0027d prefer that the defaults only allowed this in the compilation units where those headers are actually used, but that may also get unwieldy since they\u0027re included in a lot of places. And even worse it\u0027d need to be a negative constraint, i.e. not included in `art_defaults` but instead added to some new defaults that is used everywhere _except_ for those modules. So, well, although I\u0027d like that I don\u0027t think it can be done in a reasonable way without adding some new Soong functionality, which is probably taking it too far.)",
+      "parentUuid": "bf3fe362_6719ee53",
+      "revId": "f2df8a0578291290c9efdbc33645f45d2e598404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fdab65fc_7bc6dc02",
