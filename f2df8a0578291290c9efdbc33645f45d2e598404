@@ -16,6 +16,24 @@
       "message": "Isn\u0027t it possible to put NOLINTBEGIN and NOLINTEND around the `#include`s of those headers?",
       "revId": "f2df8a0578291290c9efdbc33645f45d2e598404",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b8ddafb_7d5769eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-20T12:57:17Z",
+      "side": 1,
+      "message": "I have indeed tried that: in theory, I don\u0027t see any (obvious) reasons why that would not work, but in practice it doesn\u0027t - I can see around a hundred errors for each line in `jvmti.h` and 16 for each line in `jvm.h` where the `typedef` statement is used.\n\nAn alternative solution (which I have already verified would be good for clang-tidy as well) would be to modify the two headers file to have the `// NOLINTBEGIN` and `// NOLINTEND` comments there - although I am not totally sold on the idea because:\n1. both files are external (in fact, both coming from Oracle) and I wonder whether there could be updates to these files in the future that would cause a merge conflict because of this change;\n2. the jvmti.h header file has an explicit `/* AUTOMATICALLY GENERATED FILE - DO NOT EDIT */` comment which I would be inclined to respect.\n\nDo you see any other solutions I\u0027m not seeing?",
+      "parentUuid": "ea489527_b8505036",
+      "revId": "f2df8a0578291290c9efdbc33645f45d2e598404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
