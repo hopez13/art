@@ -34,6 +34,24 @@
       "parentUuid": "ea489527_b8505036",
       "revId": "f2df8a0578291290c9efdbc33645f45d2e598404",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdab65fc_7bc6dc02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-09-20T13:06:50Z",
+      "side": 1,
+      "message": "In libcore, we have a lot of upstream code and there is a pattern of change markers to outline changes and make the intent clear.\n\nThe files here aren\u0027t actively updated so having a change-marker comment may help the next person to update them.",
+      "tag": "mailMessageId\u003d\u003cCAAttue35vKsHCB-zo\u003d0n6CNYkEEKWbnvTi59ucGXAArnSwCPLg@mail.gmail.com\u003e",
+      "revId": "f2df8a0578291290c9efdbc33645f45d2e598404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
