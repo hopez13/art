@@ -77,6 +77,9 @@ int32_t TranslateStatus(int32_t art_metrics_status) {
       return metrics::statsd::ODREFRESH_REPORTED__STATUS__STATUS_STAGING_FAILED;
     case OdrMetrics::Status::kInstallFailed:
       return metrics::statsd::ODREFRESH_REPORTED__STATUS__STATUS_INSTALL_FAILED;
+    case OdrMetrics::Status::kDalvikCachePermissionDenied:
+      // TODO(b/246534524): Add a corresponding value to statsd.
+      return metrics::statsd::ODREFRESH_REPORTED__STATUS__STATUS_UNKNOWN;
   }
 
   LOG(ERROR) << "Unknown status value: " << art_metrics_status;

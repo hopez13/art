@@ -1241,7 +1241,7 @@ bool OnDeviceRefresh::CheckSystemServerArtifactsAreUpToDate(
 }
 
 Result<void> OnDeviceRefresh::CleanupArtifactDirectory(
-    const std::vector<std::string>& artifacts_to_keep) const {
+    OdrMetrics& metrics, const std::vector<std::string>& artifacts_to_keep) const {
   const std::string& artifact_dir = config_.GetArtifactDirectory();
   std::unordered_set<std::string> artifact_set{artifacts_to_keep.begin(), artifacts_to_keep.end()};
 
@@ -1259,7 +1259,10 @@ Result<void> OnDeviceRefresh::CleanupArtifactDirectory(
     // undefined behavior;
     entries.push_back(entry);
   }
-  if (ec) {
+  if (ec && ec.value() != ENOENT) {
+    if (ec.value() == EPERM) {
+      metrics.SetStatus(OdrMetrics::Status::kDalvikCachePermissionDenied);
+    }
     return Errorf("Failed to iterate over entries in the artifact directory: {}", ec.message());
   }
 
@@ -1410,7 +1413,7 @@ OnDeviceRefresh::CheckArtifactsAreUpToDate(OdrMetrics& metrics,
     checked_artifacts.push_back(cache_info_filename_);
   }
 
-  Result<void> result = CleanupArtifactDirectory(checked_artifacts);
+  Result<void> result = CleanupArtifactDirectory(metrics, checked_artifacts);
   if (!result.ok()) {
     LOG(ERROR) << result.error();
     return ExitCode::kCleanupFailed;
@@ -1728,6 +1731,12 @@ WARN_UNUSED ExitCode OnDeviceRefresh::Compile(OdrMetrics& metrics,
                                               const CompilationOptions& compilation_options) const {
   const char* staging_dir = nullptr;
   metrics.SetStage(OdrMetrics::Stage::kPreparation);
+
+  if (!EnsureDirectoryExists(config_.GetArtifactDirectory())) {
+    metrics.SetStatus(OdrMetrics::Status::kDalvikCachePermissionDenied);
+    LOG(ERROR) << "Failed to prepare artifact directory";
+    return ExitCode::kCleanupFailed;
+  }
 
   if (config_.GetRefresh()) {
     Result<void> result = RefreshExistingArtifacts();

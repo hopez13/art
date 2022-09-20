@@ -274,15 +274,27 @@ int main(int argc, char** argv) {
   CompilationOptions compilation_options;
   if (action == "--check") {
     // Fast determination of whether artifacts are up to date.
-    return odr.CheckArtifactsAreUpToDate(metrics, &compilation_options);
+    ExitCode exit_code = odr.CheckArtifactsAreUpToDate(metrics, &compilation_options);
+    // Normally, `--check` should not write metrics. If compilation is not required, there's no need
+    // to write metrics; if compilation is required, `--compile` will write metrics. Therefore,
+    // `--check` should only write metrics when things went wrong.
+    if (exit_code != ExitCode::kOkay && exit_code != ExitCode::kCompilationRequired) {
+      metrics.SetEnabled(true);
+    }
+    return exit_code;
   } else if (action == "--compile") {
-    const ExitCode exit_code = odr.CheckArtifactsAreUpToDate(metrics, &compilation_options);
+    metrics.SetEnabled(true);
+    ExitCode exit_code = odr.CheckArtifactsAreUpToDate(metrics, &compilation_options);
     if (exit_code != ExitCode::kCompilationRequired) {
+      if (exit_code == ExitCode::kOkay) {
+        metrics.SetEnabled(false);
+      }
       return exit_code;
     }
     OdrCompilationLog compilation_log;
     if (!compilation_log.ShouldAttemptCompile(metrics.GetTrigger())) {
       LOG(INFO) << "Compilation skipped because it was attempted recently";
+      metrics.SetEnabled(false);
       return ExitCode::kOkay;
     }
     ExitCode compile_result = odr.Compile(metrics, compilation_options);
@@ -290,6 +302,9 @@ int main(int argc, char** argv) {
                         metrics.GetArtApexLastUpdateMillis(),
                         metrics.GetTrigger(),
                         compile_result);
+    if (compile_result == ExitCode::kCompilationSuccess) {
+      metrics.SetStatus(OdrMetrics::Status::kOK);
+    }
     return compile_result;
   } else if (action == "--force-compile") {
     // Clean-up existing files.
