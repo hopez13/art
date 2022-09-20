@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2974729_4d980370",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-20T12:37:19Z",
+      "side": 1,
+      "message": "Please use the `TODO(b/xxx)` syntax to make it easier to find.",
+      "range": {
+        "startLine": 306,
+        "startChar": 60,
+        "endLine": 306,
+        "endChar": 73
+      },
+      "revId": "dba21d26ec3e17a20d29f44a7c31e968726cfb6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4ee305a_666b3c8d",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-20T12:37:19Z",
+      "side": 1,
+      "message": "Nit: There are no formatters in these strings, so I suggest dropping the `f` prefixes.",
+      "range": {
+        "startLine": 732,
+        "startChar": 37,
+        "endLine": 732,
+        "endChar": 38
+      },
+      "revId": "dba21d26ec3e17a20d29f44a7c31e968726cfb6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
