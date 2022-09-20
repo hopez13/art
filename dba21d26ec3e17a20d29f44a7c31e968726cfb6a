@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9623e322_21163092",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-20T13:24:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2974729_4d980370",
+      "range": {
+        "startLine": 306,
+        "startChar": 60,
+        "endLine": 306,
+        "endChar": 73
+      },
+      "revId": "dba21d26ec3e17a20d29f44a7c31e968726cfb6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4ee305a_666b3c8d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-20T12:37:19Z",
       "side": 1,
       "message": "Nit: There are no formatters in these strings, so I suggest dropping the `f` prefixes.",
+      "range": {
+        "startLine": 732,
+        "startChar": 37,
+        "endLine": 732,
+        "endChar": 38
+      },
+      "revId": "dba21d26ec3e17a20d29f44a7c31e968726cfb6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "674e96cc_2b84549e",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-20T13:24:37Z",
+      "side": 1,
+      "message": "Good call; done in PS2.",
+      "parentUuid": "d4ee305a_666b3c8d",
       "range": {
         "startLine": 732,
         "startChar": 37,
