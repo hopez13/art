@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef3db003_78a8e703",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-21T16:21:43Z",
+      "side": 1,
+      "message": "Well, I thought we\u0027d want the opposite of this, once we can trust the clang demangling syntax to be consistent. But at least there\u0027s a bug reference.",
+      "range": {
+        "startLine": 6,
+        "startChar": 33,
+        "endLine": 6,
+        "endChar": 92
+      },
+      "revId": "34b4f82aedbb9081122942318ca8f3eeb7e547ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
