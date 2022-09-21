@@ -22,6 +22,30 @@
       },
       "revId": "34b4f82aedbb9081122942318ca8f3eeb7e547ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c3d2eb7_cde26ef2",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-09-21T16:26:50Z",
+      "side": 1,
+      "message": "Sticking to full symbol names here makes sense if we have to provide stable ABI in libart-compiler. Do we really need this?",
+      "parentUuid": "ef3db003_78a8e703",
+      "range": {
+        "startLine": 6,
+        "startChar": 33,
+        "endLine": 6,
+        "endChar": 92
+      },
+      "revId": "34b4f82aedbb9081122942318ca8f3eeb7e547ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
