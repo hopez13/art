@@ -70,9 +70,6 @@ art_cc_binary {
                 "libdexfile",
                 "libprofile",
             ],
-            static_libs: [
-                "libelffile",
-            ],
         },
         host: {
             // Make the host binary static, except for system libraries.
@@ -126,9 +123,6 @@ art_cc_binary {
                 "libbase",
                 "libdexfiled",
                 "libprofiled",
-            ],
-            static_libs: [
-                "libelffiled",
             ],
         },
         host: {
