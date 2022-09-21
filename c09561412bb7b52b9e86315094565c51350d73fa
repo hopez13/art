@@ -33,6 +33,75 @@
       "message": "May we have a Code-Owners approval? Thanks.",
       "revId": "c09561412bb7b52b9e86315094565c51350d73fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab19752_48ce36d7",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-21T07:03:35Z",
+      "side": 1,
+      "message": "Please remove these comments.",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 134
+      },
+      "revId": "c09561412bb7b52b9e86315094565c51350d73fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0efcc017_dd24c6e9",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-21T07:03:35Z",
+      "side": 1,
+      "message": "art::linker::operator\u003c\u003c*",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "c09561412bb7b52b9e86315094565c51350d73fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b96dd0a8_620bf1f3",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-21T07:03:35Z",
+      "side": 1,
+      "message": "art::operator\u003c\u003c*",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 26
+      },
+      "revId": "c09561412bb7b52b9e86315094565c51350d73fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
