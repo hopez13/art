@@ -110,6 +110,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "58336c14_572ca8ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-21T18:40:46Z",
+      "side": 1,
+      "message": "You\u0027re right. I tested it a bit myself and afaict it simply ignores NOLINT comments if they\u0027re not in the same file. How annoying.",
+      "parentUuid": "82067688_618f7eff",
+      "revId": "f2df8a0578291290c9efdbc33645f45d2e598404",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fdab65fc_7bc6dc02",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
