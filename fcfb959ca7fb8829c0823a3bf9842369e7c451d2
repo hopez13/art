@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0397bd1_e0b630fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-21T09:41:35Z",
+      "side": 1,
+      "message": "Could you also add\n\n```\nBug: 204649079\n```\n\nhere, for tracking?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "fcfb959ca7fb8829c0823a3bf9842369e7c451d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6220238_02d1fddf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-21T09:41:35Z",
+      "side": 1,
+      "message": "Could you also add:\n\n```\nTest: atest -a art_standalone_runtime_tests\n```\n\n(to provide more precise reproduction steps)?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 15
+      },
+      "revId": "fcfb959ca7fb8829c0823a3bf9842369e7c451d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ee7a16e_1fba8d94",
+        "filename": "runtime/art_standalone_runtime_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-21T09:41:35Z",
+      "side": 1,
+      "message": "Nit: Please keep this list sorted.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 79
+      },
+      "revId": "fcfb959ca7fb8829c0823a3bf9842369e7c451d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
