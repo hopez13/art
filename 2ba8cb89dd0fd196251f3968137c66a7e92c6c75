@@ -16,6 +16,40 @@
       "message": "Thanks for the review!",
       "revId": "2ba8cb89dd0fd196251f3968137c66a7e92c6c75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2612d801_ec4dbcfe",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T12:02:13Z",
+      "side": 1,
+      "message": "[nit] Shall we reformat this snippet as\n\n```\nmetrics.SetStatus(ec.value() \u003d\u003d EPERM\n    ? OdrMetrics::Status::kDalvikCachePermissionDenied\n    : OdrMetrics::Status::kIoError);\n```\n\nto make it more evident what are the true and false values?",
+      "revId": "2ba8cb89dd0fd196251f3968137c66a7e92c6c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf6f4d78_56c3c699",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T12:02:13Z",
+      "side": 1,
+      "message": "[nit] Shall we reformat this snippet as\n\n```\nmetrics.SetStatus(ec.value() \u003d\u003d EPERM\n    ? OdrMetrics::Status::kDalvikCachePermissionDenied\n    : OdrMetrics::Status::kIoError);\n```\n\nto make it more evident what are the true and false values?",
+      "revId": "2ba8cb89dd0fd196251f3968137c66a7e92c6c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

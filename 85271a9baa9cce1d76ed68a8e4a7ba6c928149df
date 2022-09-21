@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a83ed77_307811d8",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T12:02:13Z",
+      "side": 1,
+      "message": "Sorry, I didn\u0027t see it was called also in the tests - it makes sense to have such a method, then.",
+      "parentUuid": "01c1214e_ac873ac2",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e87cbf0_fafcd885",
@@ -231,6 +249,24 @@
       "side": 1,
       "message": "Did you forget to put things here?",
       "parentUuid": "94be7d42_2a3127ee",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3b8c71_3df876b4",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1736,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T12:02:13Z",
+      "side": 1,
+      "message": "That\u0027s likely what happened here :) but given I don\u0027t remember what comment I was intending to leave, and it was marked as [minor] anyway, let\u0027s just discard this comment.",
+      "parentUuid": "0562cc7f_1366b05f",
       "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
