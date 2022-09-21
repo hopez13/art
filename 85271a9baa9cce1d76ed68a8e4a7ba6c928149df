@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01c1214e_ac873ac2",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "I\u0027m also calling it in odrefresh/odr_metrics_test.cc. Without this method, `cache_space_free_end_mib_` is only updated in the destructor, and we have to use OdrMetricsRecord to read the value from disk. With this method, OdrMetricsTest can be more self-contained and doesn\u0027t have to rely on OdrMetricsRecord.",
+      "parentUuid": "9c8b77bc_e584e2aa",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e87cbf0_fafcd885",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-09-21T08:44:13Z",
       "side": 1,
       "message": "[minor] Would it make sense to inline this object creation? I thinking something along the lines of:\n\n```\nOdrMetricsRecord OdrMetrics::ToRecord() const {\n  return {\n     .odrefresh_metrics_version \u003d kOdrefreshMetricsVersion,\n     .art_apex_version \u003d art_apex_version,\n     [...]\n  };\n}\n```",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d31e66ec_890957e5",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "Good idea! It doesn\u0027t change the performance but it makes the code cleaner!",
+      "parentUuid": "4e87cbf0_fafcd885",
       "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2fd5abb_bf12cd79",
+        "filename": "odrefresh/odr_metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. I intentionally kept this generic. Only permission errors on dalvik-cache goes into kDalvikCachePermissionDenied. Other permission errors and other types of IO errors still all go into kIoError.",
+      "parentUuid": "3c4279d0_869ae2ec",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7545bbe_33444779",
@@ -65,6 +119,30 @@
       "writtenOn": "2022-09-21T08:45:08Z",
       "side": 1,
       "message": "Why not as a topic for this CL?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 64
+      },
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99ff91be_b836e3ca",
+        "filename": "odrefresh/odr_statslog_android.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "I thought there was more work to do, but it seems like I actually just need to change the proto. Done.",
+      "parentUuid": "e7545bbe_33444779",
       "range": {
         "startLine": 81,
         "startChar": 0,
@@ -115,6 +193,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "485b14a8_30680a2d",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1736,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "Added a check on errno.",
+      "parentUuid": "3107aa35_e9d360c4",
+      "range": {
+        "startLine": 1736,
+        "startChar": 42,
+        "endLine": 1736,
+        "endChar": 70
+      },
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0562cc7f_1366b05f",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1736,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "Did you forget to put things here?",
+      "parentUuid": "94be7d42_2a3127ee",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c28224a8_6a72fae5",
@@ -128,6 +248,30 @@
       "writtenOn": "2022-09-21T08:45:08Z",
       "side": 1,
       "message": "Is that the right exit code? Shouldn\u0027t it be more explicit about the directory not existing?",
+      "range": {
+        "startLine": 1738,
+        "startChar": 21,
+        "endLine": 1738,
+        "endChar": 35
+      },
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e967922e_b6691549",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1738,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "This code tells odsign not to sign anything and also to set a sysprop to tell the runtime not to load anything from /data/misc/apexdata/com.android.art/dalvik-cache, so I think it\u0027s most appropriate. We can\u0027t add a new exit code and we don\u0027t have to. The exit codes are used by odsign and are only used to determine odsign\u0027s behavior.",
+      "parentUuid": "c28224a8_6a72fae5",
       "range": {
         "startLine": 1738,
         "startChar": 21,
@@ -155,6 +299,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e087553e_f8ec7c0c",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "I prefer not to add a value unless the error can commonly happen in production. However, thank you for pointing out that we are missing a status here. I set the status to kIoError here and in many other places.",
+      "parentUuid": "00dbfac8_52708a29",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27cc6fc5_7b478333",
@@ -168,6 +330,24 @@
       "writtenOn": "2022-09-21T08:44:13Z",
       "side": 1,
       "message": "[minor] Shall we make it a `const` reference?",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce8b2f90_96a8cd74",
+        "filename": "odrefresh/odrefresh.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "This cannot be const because the function mutates it.",
+      "parentUuid": "27cc6fc5_7b478333",
       "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -212,6 +392,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c811eb69_e9ce4d10",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "Done. Thanks for the suggestion.",
+      "parentUuid": "4008a442_4246f34b",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e1bddad_79e523fc",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84a0d340_f5f0e1e0",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 29
+      },
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fb08c16_889b8799",
@@ -235,6 +457,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3aabdab_9a50ea64",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fb08c16_889b8799",
+      "range": {
+        "startLine": 289,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 7
+      },
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "514fd186_1d8af1e7",
@@ -248,6 +494,30 @@
       "writtenOn": "2022-09-21T08:45:08Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 32
+      },
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53f548d4_057161c0",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T11:47:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "514fd186_1d8af1e7",
       "range": {
         "startLine": 297,
         "startChar": 0,
