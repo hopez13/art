@@ -102,6 +102,30 @@
       },
       "revId": "c09561412bb7b52b9e86315094565c51350d73fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bceb3d09_db278126",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-09-21T12:59:03Z",
+      "side": 1,
+      "message": "Unfortunately, this syntax is not supported:\n```\nld.lld: error: art/compiler/libart-compiler.map.txt:48: ; expected, but got \u003c\u003c    \n\u003e\u003e\u003e             art::operator\u003c\u003c*;                                                 \n\u003e\u003e\u003e                          ^                                                    \nclang-15: error: linker command failed with exit code 1 (use -v to see invocation)\n```",
+      "parentUuid": "b96dd0a8_620bf1f3",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 26
+      },
+      "revId": "c09561412bb7b52b9e86315094565c51350d73fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
