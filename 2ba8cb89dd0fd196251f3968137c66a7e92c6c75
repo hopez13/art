@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1cde962_87be7e9a",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T12:59:07Z",
+      "side": 1,
+      "message": "The code is formatted by clang-format. I think it looks okay as it aligns the true and false values.",
+      "parentUuid": "2612d801_ec4dbcfe",
+      "revId": "2ba8cb89dd0fd196251f3968137c66a7e92c6c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf6f4d78_56c3c699",
@@ -48,6 +66,24 @@
       "writtenOn": "2022-09-21T12:02:13Z",
       "side": 1,
       "message": "[nit] Shall we reformat this snippet as\n\n```\nmetrics.SetStatus(ec.value() \u003d\u003d EPERM\n    ? OdrMetrics::Status::kDalvikCachePermissionDenied\n    : OdrMetrics::Status::kIoError);\n```\n\nto make it more evident what are the true and false values?",
+      "revId": "2ba8cb89dd0fd196251f3968137c66a7e92c6c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad32daaa_5e21682a",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-21T12:59:07Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "cf6f4d78_56c3c699",
       "revId": "2ba8cb89dd0fd196251f3968137c66a7e92c6c75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
