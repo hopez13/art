@@ -54,6 +54,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7545bbe_33444779",
+        "filename": "odrefresh/odr_statslog_android.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-21T08:45:08Z",
+      "side": 1,
+      "message": "Why not as a topic for this CL?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 64
+      },
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94be7d42_2a3127ee",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 2
@@ -65,6 +88,52 @@
       "writtenOn": "2022-09-21T08:44:13Z",
       "side": 1,
       "message": "[minor]",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3107aa35_e9d360c4",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1736,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-21T08:45:08Z",
+      "side": 1,
+      "message": "Is that the only reason the directory doesn\u0027t exist?",
+      "range": {
+        "startLine": 1736,
+        "startChar": 42,
+        "endLine": 1736,
+        "endChar": 70
+      },
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c28224a8_6a72fae5",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1738,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-21T08:45:08Z",
+      "side": 1,
+      "message": "Is that the right exit code? Shouldn\u0027t it be more explicit about the directory not existing?",
+      "range": {
+        "startLine": 1738,
+        "startChar": 21,
+        "endLine": 1738,
+        "endChar": 35
+      },
       "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -116,6 +185,75 @@
       "writtenOn": "2022-09-21T08:44:13Z",
       "side": 1,
       "message": "[minor] Shall we move these line between lines 299 and 300 (or further down), and replace lines 289~291 with be:\n\n```\nmetrics.SetEnabled(exit_code !\u003d ExitCode::kOkay);\n```\n\nIt\u0027s a bit strange that we set `enabled` to `true` and immediately after we have two exception for that; maybe it would make more sense to leave `enabled` defaulted to `false` initially and set it to `true` only when the check phase is completed?",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84a0d340_f5f0e1e0",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-21T08:45:08Z",
+      "side": 1,
+      "message": "nit: add a comment.",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 29
+      },
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fb08c16_889b8799",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-21T08:45:08Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 289,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 7
+      },
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "514fd186_1d8af1e7",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-21T08:45:08Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 32
+      },
       "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
