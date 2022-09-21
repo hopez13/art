@@ -111,6 +111,7 @@
         <option name="exclude-filter" value="*ExecUtilsTest.ExecNoTimeout*" />
         <option name="exclude-filter" value="*ExecUtilsTest.ExecSuccess*" />
         <option name="exclude-filter" value="*ExecUtilsTest.ExecTimeout*" />
+        <option name="exclude-filter" value="*ExecUtilsTest.ExecStatFailed*" />
     </test>
 
     <!-- When this test is run in a Mainline context (e.g. with `mts-tradefed`), only enable it if
