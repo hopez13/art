@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c8b77bc_e584e2aa",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T08:44:13Z",
+      "side": 1,
+      "message": "[minor] What\u0027s the reason for having a specific method rather than having the code inlined here, given it is called only from here? (I\u0027m not against the idea, just curious)",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e87cbf0_fafcd885",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T08:44:13Z",
+      "side": 1,
+      "message": "[minor] Would it make sense to inline this object creation? I thinking something along the lines of:\n\n```\nOdrMetricsRecord OdrMetrics::ToRecord() const {\n  return {\n     .odrefresh_metrics_version \u003d kOdrefreshMetricsVersion,\n     .art_apex_version \u003d art_apex_version,\n     [...]\n  };\n}\n```",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c4279d0_869ae2ec",
+        "filename": "odrefresh/odr_metrics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T08:44:13Z",
+      "side": 1,
+      "message": "[minor] Now that we have a more specific status for the failures caused by lack in permissions in the Dalvik cache, would it make sense to rename this (generic) `kIoError` into something more specific?",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94be7d42_2a3127ee",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1736,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T08:44:13Z",
+      "side": 1,
+      "message": "[minor]",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00dbfac8_52708a29",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T08:44:13Z",
+      "side": 1,
+      "message": "[minor] Would there be any value in adding some more values for the `OdrMetrics::Status` enum and setting them from these exceptional cases, too?",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27cc6fc5_7b478333",
+        "filename": "odrefresh/odrefresh.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T08:44:13Z",
+      "side": 1,
+      "message": "[minor] Shall we make it a `const` reference?",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4008a442_4246f34b",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-21T08:44:13Z",
+      "side": 1,
+      "message": "[minor] Shall we move these line between lines 299 and 300 (or further down), and replace lines 289~291 with be:\n\n```\nmetrics.SetEnabled(exit_code !\u003d ExitCode::kOkay);\n```\n\nIt\u0027s a bit strange that we set `enabled` to `true` and immediately after we have two exception for that; maybe it would make more sense to leave `enabled` defaulted to `false` initially and set it to `true` only when the check phase is completed?",
+      "revId": "85271a9baa9cce1d76ed68a8e4a7ba6c928149df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
