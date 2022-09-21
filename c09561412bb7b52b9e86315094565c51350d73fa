@@ -130,6 +130,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d36bcfa_b484e19e",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2022-09-21T16:01:18Z",
+      "side": 1,
+      "message": "Done. I added TODO for replacing more full demangled signatures with simpler glob patterns. The owners may prefer a different syntax and style, as long as it works with both current and newer clang tools.\nWhat I care most is to have this fixed soon for the broken Android clang/llvm test builds.",
+      "parentUuid": "019eb006_2718cb89",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 134
+      },
+      "revId": "c09561412bb7b52b9e86315094565c51350d73fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0efcc017_dd24c6e9",
