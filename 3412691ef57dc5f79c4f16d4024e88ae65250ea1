@@ -16,6 +16,46 @@
       "message": "Nicolas, do you mind taking a look at this CL?\n\nThis workaround is needed to build Android P on a Linux workstation running kernel 5.18.",
       "revId": "3412691ef57dc5f79c4f16d4024e88ae65250ea1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6ab9e3c_15a0fb18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-09-22T08:16:46Z",
+      "side": 1,
+      "message": "It looks like this is probably an mm issue: if there\u0027s a bug or any reference that would be good to mention in the commit message.",
+      "revId": "3412691ef57dc5f79c4f16d4024e88ae65250ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db710cae_a10416d8",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-09-22T08:16:46Z",
+      "side": 1,
+      "message": "Can we guard this with a linux kernel version version? `libartbase/base/utils.h` has `IsKernelVersionAtLeast()` for `__linux__`. The expected fallback behaviour for older kernels for MAP_FIXED_NOREPLACE in the man page isn\u0027t desirable.",
+      "range": {
+        "startLine": 509,
+        "startChar": 8,
+        "endLine": 509,
+        "endChar": 27
+      },
+      "revId": "3412691ef57dc5f79c4f16d4024e88ae65250ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
