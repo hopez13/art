@@ -55,6 +55,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f145c89a_823132ce",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-22T12:43:24Z",
+      "side": 1,
+      "message": "To not miss on those random errors: do we have a check higher-up in the call stack that the metrics have a status when odrefresh returns an error?",
+      "revId": "2ba8cb89dd0fd196251f3968137c66a7e92c6c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf6f4d78_56c3c699",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 3
