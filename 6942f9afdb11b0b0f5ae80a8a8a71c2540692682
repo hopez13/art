@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f444d3d_2a782d57",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-22T15:32:59Z",
+      "side": 1,
+      "message": "This means libelffile is being linked in repeatedly, both here and in dex2oat and others. What\u0027s the trade-off between extra bloat and extra exported symbols?",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 32
+      },
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15e2ae72_a0231189",
         "filename": "compiler/libart-compiler.map.txt",
         "patchSetId": 2
@@ -49,6 +72,24 @@
       "side": 1,
       "message": "Those are templates, so it would look something like this (note the leading *): \n```\n*art::debug::WriteDebugInfo*;\n```\nI\u0027m not sure which option is better",
       "parentUuid": "15e2ae72_a0231189",
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7ea1aea_01e9ad1e",
+        "filename": "compiler/libart-compiler.map.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-22T15:32:59Z",
+      "side": 1,
+      "message": "\u003e (note the leading *)\n\nSo the signatures matched by patterns are different than those matched by the quoted strings? What\u0027s in front of \"art::debug\" in that case?",
+      "parentUuid": "a7ff42ca_23ed8c00",
       "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
