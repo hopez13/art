@@ -729,7 +729,7 @@ int DupCloexec(int fd) {
 #if defined(__linux__)
   return fcntl(fd, F_DUPFD_CLOEXEC, 0);
 #else
-  return dup(fd);
+  return dup(fd); // NOLINT
 #endif
 }
 
