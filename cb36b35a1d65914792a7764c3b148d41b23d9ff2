@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04e7a687_cc45934f",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-22T20:57:48Z",
+      "side": 1,
+      "message": "In which builds and architectures does clang-tidy end up here? Is it only darwin and windows?",
+      "range": {
+        "startLine": 732,
+        "startChar": 2,
+        "endLine": 732,
+        "endChar": 27
+      },
+      "revId": "cb36b35a1d65914792a7764c3b148d41b23d9ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
