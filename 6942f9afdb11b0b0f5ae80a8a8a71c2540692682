@@ -92,6 +92,24 @@
       "parentUuid": "a7ff42ca_23ed8c00",
       "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ddd586f_f0f0b921",
+        "filename": "compiler/libart-compiler.map.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-22T16:49:33Z",
+      "side": 1,
+      "message": "Or is the return type included only for templates?\n\nAnyway, I would prefer the shorter version, even with the leading `*`.",
+      "parentUuid": "b7ea1aea_01e9ad1e",
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
