@@ -33,6 +33,24 @@
       "message": "We can not omit parameters for those as well?",
       "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7ff42ca_23ed8c00",
+        "filename": "compiler/libart-compiler.map.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-09-22T15:26:26Z",
+      "side": 1,
+      "message": "Those are templates, so it would look something like this (note the leading *): \n```\n*art::debug::WriteDebugInfo*;\n```\nI\u0027m not sure which option is better",
+      "parentUuid": "15e2ae72_a0231189",
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
