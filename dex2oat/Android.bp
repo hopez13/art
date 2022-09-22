@@ -296,7 +296,6 @@ art_cc_binary {
             ],
             static_libs: [
                 "libart-dex2oat",
-                "libelffile",
             ],
             lto: {
                 thin: true,
@@ -356,7 +355,6 @@ art_cc_binary {
             ],
             static_libs: [
                 "libartd-dex2oat",
-                "libelffiled",
             ],
         },
         host: {

@@ -176,6 +176,7 @@ art_cc_defaults {
     ],
 
     export_include_dirs: ["."],
+    // Not using .map.txt because this is an internal API
     version_script: "libart-compiler.map",
 }
 
@@ -518,8 +519,8 @@ art_cc_test {
         // TODO(b/192070541): Consider linking `libart-simulator-container`
         // dynamically.
         "libart-simulator-container",
-        "libvixl",
         "libart-compiler",
+        "libvixl",
     ],
     test_config: "art_standalone_compiler_tests.xml",
 }
