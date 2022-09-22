@@ -110,6 +110,24 @@
       "parentUuid": "b7ea1aea_01e9ad1e",
       "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dd69395_8adb0452",
+        "filename": "compiler/libart-compiler.map.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-09-22T16:54:39Z",
+      "side": 1,
+      "message": "My understanding is as follows:\nWhen linker processes version_script entries in `extern \"C++\"` section it takes a mangled name:\n```\n_ZN3art5debug14WriteDebugInfoINS_10ElfTypes64EEEvPNS_10ElfBuilderIT_EERKNS0_9DebugInfoE\n```\nDemangles it:\n```\nvoid art::debug::WriteDebugInfo\u003cart::ElfTypes64\u003e(art::ElfBuilder\u003cart::ElfTypes64\u003e*, art::debug::DebugInfo const\u0026)\n```\nAnd matches against the entry, e.g.\n```\n*art::debug::WriteDebugInfo*;\n```\nThe leading `*` catches the return type.\n\nUsing `*` is only possible without quotes \"\". Using whitespace is not possible without quotes \"\".",
+      "parentUuid": "8ddd586f_f0f0b921",
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
