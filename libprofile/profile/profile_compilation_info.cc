@@ -25,6 +25,7 @@
 #include <algorithm>
 #include <cerrno>
 #include <climits>
+#include <cstdio>
 #include <cstdlib>
 #include <iostream>
 #include <numeric>
@@ -33,7 +34,8 @@
 #include <vector>
 
 #include "android-base/file.h"
-
+#include "android-base/scopeguard.h"
+#include "android-base/unique_fd.h"
 #include "base/arena_allocator.h"
 #include "base/bit_utils.h"
 #include "base/dumpable.h"
@@ -806,33 +808,26 @@ bool ProfileCompilationInfo::Load(const std::string& filename, bool clear_if_inv
 
 bool ProfileCompilationInfo::Save(const std::string& filename, uint64_t* bytes_written) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
-  std::string error;
-#ifdef _WIN32
-  int flags = O_WRONLY;
-#else
-  int flags = O_WRONLY | O_NOFOLLOW | O_CLOEXEC;
-#endif
-  // There's no need to fsync profile data right away. We get many chances
-  // to write it again in case something goes wrong. We can rely on a simple
-  // close(), no sync, and let to the kernel decide when to write to disk.
-  ScopedFlock profile_file =
-      LockedFile::Open(filename.c_str(), flags, /*block=*/false, &error);
-  if (profile_file.get() == nullptr) {
-    LOG(WARNING) << "Couldn't lock the profile file " << filename << ": " << error;
+
+  std::string tmp_filename = filename + ".XXXXXX.tmp";
+  // mkstemps creates the file with permissions 0600, which is the desired permissions, so there's
+  // no need to chmod.
+  android::base::unique_fd fd(mkstemps(tmp_filename.data(), /*suffixlen=*/4));
+  if (fd.get() < 0) {
+    PLOG(WARNING) << "Failed to create temp profile file for " << filename;
     return false;
   }
 
-  int fd = profile_file->Fd();
-
-  // We need to clear the data because we don't support appending to the profiles yet.
-  if (!profile_file->ClearContent()) {
-    PLOG(WARNING) << "Could not clear profile file: " << filename;
-    return false;
-  }
+  // In case anything goes wrong.
+  auto remove_tmp_file = android::base::make_scope_guard([&]() {
+    if (unlink(tmp_filename.c_str()) != 0) {
+      PLOG(WARNING) << "Failed to remove temp profile file " << tmp_filename;
+    }
+  });
 
   // This doesn't need locking because we are trying to lock the file for exclusive
   // access and fail immediately if we can't.
-  bool result = Save(fd);
+  bool result = Save(fd.get());
   if (result) {
     int64_t size = OS::GetFileSizeBytes(filename.c_str());
     if (size != -1) {
@@ -845,8 +840,19 @@ bool ProfileCompilationInfo::Save(const std::string& filename, uint64_t* bytes_w
     }
   } else {
     VLOG(profiler) << "Failed to save profile info to " << filename;
+    return false;
   }
-  return result;
+
+  fd.reset();
+
+  // Move the temp profile file to the final location.
+  if (rename(tmp_filename.c_str(), filename.c_str()) != 0) {
+    PLOG(WARNING) << "Failed to commit profile file " << filename;
+    return false;
+  }
+
+  remove_tmp_file.Disable();
+  return true;
 }
 
 // Returns true if all the bytes were successfully written to the file descriptor.
