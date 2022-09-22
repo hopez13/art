@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57192892_eeb78eb9",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-22T16:58:24Z",
+      "side": 1,
+      "message": "Sigh, is this making us require an NDK review mast@ ?",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 46
+      },
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f444d3d_2a782d57",
         "filename": "compiler/Android.bp",
         "patchSetId": 2
