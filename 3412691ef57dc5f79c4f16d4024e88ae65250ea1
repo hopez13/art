@@ -80,6 +80,30 @@
       },
       "revId": "3412691ef57dc5f79c4f16d4024e88ae65250ea1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e474be2a_2ae2baff",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-09-22T08:36:41Z",
+      "side": 1,
+      "message": "`IsKernelVersionAtLeast` doesn\u0027t exist until android11-dev (rvc-dev).\n\nIt would still be good to have a version check here (or mark this CL as DO NOT MERGE).",
+      "parentUuid": "b31506a2_603f487e",
+      "range": {
+        "startLine": 509,
+        "startChar": 8,
+        "endLine": 509,
+        "endChar": 27
+      },
+      "revId": "3412691ef57dc5f79c4f16d4024e88ae65250ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
