@@ -135,6 +135,30 @@
       },
       "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35b1c62f_76f723ea",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-22T12:54:18Z",
+      "side": 1,
+      "message": "[Sorry, this got lost in my inbox for a while.]\n\nI don\u0027t see any particular reasons why we can\u0027t, and I think it would make more sense than building in bundled mode for a \"device\" that actually isn\u0027t a device. However I haven\u0027t tried.",
+      "parentUuid": "4ada99ed_5452cb19",
+      "range": {
+        "startLine": 440,
+        "startChar": 36,
+        "endLine": 441,
+        "endChar": 44
+      },
+      "revId": "0507e2cd2a06e454b20317d56c2a4d4801452eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
