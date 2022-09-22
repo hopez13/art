@@ -104,6 +104,30 @@
       },
       "revId": "3412691ef57dc5f79c4f16d4024e88ae65250ea1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c702df8_160deff9",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1069219
+      },
+      "writtenOn": "2022-09-22T11:21:55Z",
+      "side": 1,
+      "message": "\u003e The expected fallback behaviour for older kernels for MAP_FIXED_NOREPLACE in the man page isn\u0027t desirable.\n\nIIUC the fallback behavior mentioned in the man page is what the existing code does (i.e. the same behavior as when calling mmap() without MAP_FIXED or MAP_FIXED_NOREPLACE).\n\nUntil Linux 5.18, this was OK because mmap() still returned `expected_ptr` even without MAP_FIXED, but this is no longer true on Linux 5.18. This CL addresses this issue by adding MAP_FIXED_NOREPLACE.\n\nI think it\u0027s not necessary to check the kernel version because adding MAP_FIXED_NOREPLACE doesn\u0027t change the behavior on older Linux versions. WDYT?\n\n\u003e It would still be good to have a version check here (or mark this CL as DO NOT MERGE).\n\nI thought DO NOT MERGE was not necessary becuase there is no active automerger for P, but I agree adding DO NOT MERGE makes sense. Done.",
+      "parentUuid": "e474be2a_2ae2baff",
+      "range": {
+        "startLine": 509,
+        "startChar": 8,
+        "endLine": 509,
+        "endChar": 27
+      },
+      "revId": "3412691ef57dc5f79c4f16d4024e88ae65250ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
