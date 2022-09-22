@@ -151,6 +151,24 @@
       "parentUuid": "8ddd586f_f0f0b921",
       "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfcde225_fcebbbea",
+        "filename": "compiler/libart-compiler.map.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-09-22T16:59:53Z",
+      "side": 1,
+      "message": "\u003eOr is the return type included only for templates?\n\nYes, it\u0027s a part of function signature for templates",
+      "parentUuid": "3dd69395_8adb0452",
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
