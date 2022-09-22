@@ -30,6 +30,9 @@
     <test class="com.android.tradefed.testtype.GTest" >
         <option name="native-test-device-path" value="/data/local/tmp/{MODULE}" />
         <option name="module-name" value="{MODULE}" />
+        <!-- TODO(b/247108425): The following mixes up the system and APEX namespaces and may fail
+             to load dependencies properly. LD_CONFIG_FILE can solve that, but it isn't supported on
+             user builds so cannot be used in CTS. -->
         <option name="ld-library-path-32" value="/apex/com.android.art/lib" />
         <option name="ld-library-path-64" value="/apex/com.android.art/lib64" />
     </test>

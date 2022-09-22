@@ -23,11 +23,18 @@
         <option name="append-bitness" value="true" />
     </target_preparer>
 
+    <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
+        <option name="throw-if-cmd-fail" value="true" />
+        <option name="run-command" value="echo 'dir.com.android.art = /data/local/tmp/{MODULE}' > /data/local/tmp/{MODULE}/ld.config.txt" />
+        <option name="run-command" value="cat /linkerconfig/com.android.art/ld.config.txt >> /data/local/tmp/{MODULE}/ld.config.txt" />
+        <option name="teardown-command" value="rm /data/local/tmp/{MODULE}/ld.config.txt" />
+    </target_preparer>
+
     <test class="com.android.tradefed.testtype.GTest" >
         <option name="native-test-device-path" value="/data/local/tmp/{MODULE}" />
         <option name="module-name" value="{MODULE}" />
-        <option name="ld-library-path-32" value="/apex/com.android.art/lib" />
-        <option name="ld-library-path-64" value="/apex/com.android.art/lib64" />
+        <!-- NB: The linker supports LD_CONFIG_FILE only in debug builds. -->
+        <option name="gtest-env" value="LD_CONFIG_FILE=/data/local/tmp/{MODULE}/ld.config.txt" />
     </test>
 
     <!-- When this test is run in a Mainline context (e.g. with `mts-tradefed`), only enable it if
