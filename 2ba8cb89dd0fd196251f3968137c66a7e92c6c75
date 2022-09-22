@@ -106,6 +106,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e27d6fb7_b1fef863",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-09-22T13:27:55Z",
+      "side": 1,
+      "message": "We report kUnknown. I think that\u0027s to play safe. I don\u0027t want odrefresh to crash just because a wrong status in metrics. If odrefresh crashes, odsign will remove all artifacts, but there can be some artifacts that are usable.",
+      "parentUuid": "157194fd_b772c921",
+      "revId": "2ba8cb89dd0fd196251f3968137c66a7e92c6c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf6f4d78_56c3c699",
