@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de0865c8_d66fa99c",
+        "filename": "artd/artd.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-23T15:12:08Z",
+      "side": 1,
+      "message": "There are `log.tag.*` properties that are intended to control this. What about setting it in `PRODUCT_SYSTEM_PROPERTIES` in `build/make/target/product/default_art_config.mk` instead?",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 33
+      },
+      "revId": "9a44641ff604f5eacbd43d99e85d6d4e96b86439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
