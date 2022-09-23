@@ -21,3 +21,4 @@ service artd /apex/com.android.art/bin/artd
     user artd
     group artd
     capabilities DAC_OVERRIDE DAC_READ_SEARCH FOWNER CHOWN
+    setenv ANDROID_LOG_TAGS "*:d"
