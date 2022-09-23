@@ -109,6 +109,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b282cf7_6f70f9c8",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-23T13:36:26Z",
+      "side": 1,
+      "message": "As you can see in Submit Requirements for this patch set there\u0027s now an NDK-API-Review condition blocking submit. That means the CL has to follow go/android-ndk-api-guidelines and get reviewed by a member of the NDK API Council. The logic in Gerrit for detecting that trigger on the .map.txt extension.\n\nHowever that\u0027s intended for APIs that need to stay stable across versions, and this is not. Hence we shouldn\u0027t involve the NDK API Council. In fact, it\u0027s noted in item #8 under go/android-ndk-api-guidelines#compatibilty-export-map that .map.txt should only be used for NDK/LLNDK/APEX APIs.\n\nSo bottom line, please point out that this isn\u0027t an external API, and that\u0027s why it isn\u0027t .map.txt.",
+      "parentUuid": "5cbb50b7_8388dd50",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 46
+      },
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f444d3d_2a782d57",
         "filename": "compiler/Android.bp",
         "patchSetId": 2
