@@ -70,6 +70,30 @@
       },
       "revId": "cb36b35a1d65914792a7764c3b148d41b23d9ff2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06206ffd_d24669aa",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-23T11:01:24Z",
+      "side": 1,
+      "message": "On one hand, I agree it\u0027s a little surprising and unexpected for me, too; on the other hand, though, if the tidy checks were run after the pre-processing phase, we would have platform-dependent results (in this case, having the warning come up on non-Linux platforms and no warnings at all under Linux), which are probably not desirable.",
+      "parentUuid": "92a4b681_a52633c6",
+      "range": {
+        "startLine": 732,
+        "startChar": 2,
+        "endLine": 732,
+        "endChar": 27
+      },
+      "revId": "cb36b35a1d65914792a7764c3b148d41b23d9ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
