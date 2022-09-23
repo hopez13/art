@@ -22,6 +22,30 @@
       },
       "revId": "beef8a09d715cffec519be301b213fbd8412d657",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31cbd178_f1f0f968",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-23T16:00:53Z",
+      "side": 1,
+      "message": "If we still need this tip (i.e. if this change is not merged or is later reverted), I suggest moving it to one of the (public) `test/README*.md` files.",
+      "parentUuid": "2a912423_3874996a",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "beef8a09d715cffec519be301b213fbd8412d657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
