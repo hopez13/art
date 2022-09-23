@@ -46,6 +46,30 @@
       },
       "revId": "cb36b35a1d65914792a7764c3b148d41b23d9ff2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92a4b681_a52633c6",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-23T10:40:40Z",
+      "side": 1,
+      "message": "That\u0027s weird. It ought to lead to all sorts of false alarms if it didn\u0027t do the analysis after the cpp phase. E.g. people may very well address this issue with\n\n```\n#define dup(x) fcntl((x), F_DUPFD_CLOEXEC, 0)\n```\n\ninstead.\n\nNot that it blocks this CL, I\u0027m just curious.",
+      "parentUuid": "5b30d90a_27ae57e4",
+      "range": {
+        "startLine": 732,
+        "startChar": 2,
+        "endLine": 732,
+        "endChar": 27
+      },
+      "revId": "cb36b35a1d65914792a7764c3b148d41b23d9ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
