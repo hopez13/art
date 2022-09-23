@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdd6e8fa_341773c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-23T10:57:32Z",
+      "side": 1,
+      "message": "Ok, can we do that?\n\nI think we only got lucky that libunwindstack.so and hence only art_standalone_compiler_tests broke. There may just as well be an incompatible change in libbase.so at any moment and then probably all the gtests will break, so as a stopgap this is more predictable.\n\nI filed b/248485109 about this issue, but it probably won\u0027t help us with T-on-{S,T} tests, of course.",
+      "parentUuid": "d0e8b59b_c1cd9501",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 68
+      },
+      "revId": "9d439bcdb0648d1c22d9e02b2578b66e75d48f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a2026d58_a557243f",
