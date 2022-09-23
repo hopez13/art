@@ -16,6 +16,24 @@
       "message": "Thanks!\nI finally got around to trying some of this on godbolt.org. Oddly enough, the load seems to actually be generated even without the cast. But since I still haven\u0027t found a justification for that in the standard, I suggest we go with the cast, as you suggest.\nsrhines@ and I also talked about this. I agree with him that it would be better to do something functionally equivalent, but along the following lines, with ForceRead() defined in e.g. libartbase/base/utils.h.\nI still think the warning is a clang bug. But this seems to result in a code improvement, so I\u0027m fine with just doing this for now.\nThis also allows the remaining volatile declarations in EnsureObjectUserFaulted() to be removed.\n\n[ Test snippet I tried on godbolt: ]\n\n#include \u003cmemory\u003e\n\n// Ensure that the argument is really read, in spite of the fact that the result\n// is not used.\ntemplate\u003ctypename T\u003e\ninline void ForceRead(T\u0026 x) {\n  static_cast\u003cvoid\u003e(*const_cast\u003cvolatile T*\u003e(std::addressof(x)));\n}\n\nvoid f(int* x) {\n  ForceRead(*x);\n}",
       "revId": "e56444d780eb93161279d0bc3d59e8734ff890d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f85a385_734ac329",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2022-09-23T08:53:05Z",
+      "side": 1,
+      "message": "Makes sense, I added the utility function to base/utils.h.",
+      "parentUuid": "8d814a14_a8902cb2",
+      "revId": "e56444d780eb93161279d0bc3d59e8734ff890d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
