@@ -16,6 +16,24 @@
       "message": "This CL has been languishing for a while, sorry about that. I know there\u0027s been some water under the bridge on this issue, so before reviewing I just wanted to check, is this still up-to-date?",
       "revId": "865c0f53a092d090fa73ac365b2ffae69cf59fa5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3ba71fc_fd4b57e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-23T17:55:36Z",
+      "side": 1,
+      "message": "No worries, Martin. I\u0027ve kept this CL open just in case, but hopefully we should not need it, as it seems we should eventually have test suite builds whose ABIs would match the ones of the tested platform/product build.\n\nI will update this CL if/when there are updates regarding ABIs and test suite artifacts.",
+      "parentUuid": "8dd19589_8986788d",
+      "revId": "865c0f53a092d090fa73ac365b2ffae69cf59fa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
