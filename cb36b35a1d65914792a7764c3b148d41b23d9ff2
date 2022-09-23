@@ -22,6 +22,30 @@
       },
       "revId": "cb36b35a1d65914792a7764c3b148d41b23d9ff2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b30d90a_27ae57e4",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-09-23T09:36:06Z",
+      "side": 1,
+      "message": "I\u0027m under the impression the clang-tidy does not honour the pre-processor directives as part of its analysis - when I moved `android-cloexec-dup` into the `art_clang_tidy_errors` list and ran clang-tidy on my gLinux cloudtop, this line triggered an error, even if it would disappear when pre-processor directives are applied (I have verified `__linux__` is defined in gLinux with the following commands:\n\n```\n~ ❯ cat test.c \n#include \u003cstdio.h\u003e\n\nint main() {\n#if defined(__linux__)\nprintf(\"Hello!\\n\");\n#endif\n}\n~ ❯ clang test.c\n~ ❯ ./a.out\nHello!\n~ ❯\n```\n)",
+      "parentUuid": "04e7a687_cc45934f",
+      "range": {
+        "startLine": 732,
+        "startChar": 2,
+        "endLine": 732,
+        "endChar": 27
+      },
+      "revId": "cb36b35a1d65914792a7764c3b148d41b23d9ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
