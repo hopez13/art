@@ -131,6 +131,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94a84af4_0bc8d364",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-09-23T18:53:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b282cf7_6f70f9c8",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 46
+      },
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f444d3d_2a782d57",
@@ -144,6 +168,30 @@
       "writtenOn": "2022-09-22T15:32:59Z",
       "side": 1,
       "message": "This means libelffile is being linked in repeatedly, both here and in dex2oat and others. What\u0027s the trade-off between extra bloat and extra exported symbols?",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 32
+      },
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "178cbea4_34523ecd",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-09-23T18:53:23Z",
+      "side": 1,
+      "message": "For x86_64\nstatic libelffile: 4184960\nwhole_static + export symbols: 4187056 (+2096 B)\n\nYes, seems to be negligible. I\u0027ve removed redundant libelffile linking",
+      "parentUuid": "3f444d3d_2a782d57",
       "range": {
         "startLine": 232,
         "startChar": 4,
