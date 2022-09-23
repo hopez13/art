@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d73deab_c199cde5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-09-23T12:37:06Z",
+      "side": 1,
+      "message": "Turns out there\u0027s almost no difference: 4197224 -\u003e 4197152\nI guess the linker with version script removes unused code from whole_static_libs after all.",
+      "parentUuid": "09330646_503157c3",
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57192892_eeb78eb9",
@@ -55,6 +73,30 @@
       "side": 1,
       "message": "Yeah, that\u0027s a drag. Then let\u0027s go with the .map extension instead, and add a comment here explaining why.",
       "parentUuid": "57192892_eeb78eb9",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 46
+      },
+      "revId": "6942f9afdb11b0b0f5ae80a8a8a71c2540692682",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cbb50b7_8388dd50",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-09-23T12:37:06Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t know the implications of file extension for NDK.\nWhat would the comment look like?",
+      "parentUuid": "fbf9a541_45ac1bb3",
       "range": {
         "startLine": 179,
         "startChar": 0,
