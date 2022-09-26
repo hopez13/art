@@ -271,19 +271,20 @@ class Thread {
   void ShortDump(std::ostream& os) const;
 
   // Dumps the detailed thread state and the thread stack (used for SIGQUIT).
-  void Dump(std::ostream& os,
-            bool dump_native_stack = true,
-            bool force_dump_stack = false) const
+  // Returns print order of the thread for ANRs.
+  int Dump(std::ostream& os,
+           bool dump_native_stack = true,
+           bool force_dump_stack = false) const
       REQUIRES_SHARED(Locks::mutator_lock_);
-  void Dump(std::ostream& os,
-            unwindstack::AndroidLocalUnwinder& unwinder,
-            bool dump_native_stack = true,
-            bool force_dump_stack = false) const
+  int Dump(std::ostream& os,
+           unwindstack::AndroidLocalUnwinder& unwinder,
+           bool dump_native_stack = true,
+           bool force_dump_stack = false) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void DumpJavaStack(std::ostream& os,
-                     bool check_suspended = true,
-                     bool dump_locks = true) const
+  int DumpJavaStack(std::ostream& os,
+                    bool check_suspended = true,
+                    bool dump_locks = true) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Dumps the SIGQUIT per-thread header. 'thread' can be null for a non-attached thread, in which
@@ -1524,14 +1525,14 @@ class Thread {
   void VerifyStackImpl() REQUIRES_SHARED(Locks::mutator_lock_);
 
   void DumpState(std::ostream& os) const REQUIRES_SHARED(Locks::mutator_lock_);
-  void DumpStack(std::ostream& os,
-                 bool dump_native_stack = true,
-                 bool force_dump_stack = false) const
+  int DumpStack(std::ostream& os,
+                bool dump_native_stack = true,
+                bool force_dump_stack = false) const
       REQUIRES_SHARED(Locks::mutator_lock_);
-  void DumpStack(std::ostream& os,
-                 unwindstack::AndroidLocalUnwinder& unwinder,
-                 bool dump_native_stack = true,
-                 bool force_dump_stack = false) const
+  int DumpStack(std::ostream& os,
+                unwindstack::AndroidLocalUnwinder& unwinder,
+                bool dump_native_stack = true,
+                bool force_dump_stack = false) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Out-of-line conveniences for debugging in gdb.
