@@ -20,7 +20,9 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include <map>
 #include <sstream>
+#include <tuple>
 #include <vector>
 
 #include "android-base/stringprintf.h"
@@ -189,8 +191,9 @@ static constexpr uint32_t kDumpWaitTimeout = kIsTargetBuild ? 100000 : 20000;
 // A closure used by Thread::Dump.
 class DumpCheckpoint final : public Closure {
  public:
-  DumpCheckpoint(std::ostream* os, bool dump_native_stack)
-      : os_(os),
+  DumpCheckpoint(bool dump_native_stack)
+      : os_lock_("Output stream lock"),
+        os_(),
         // Avoid verifying count in case a thread doesn't end up passing through the barrier.
         // This avoids a SIGABRT that would otherwise happen in the destructor.
         barrier_(0, /*verify_count_on_shutdown=*/false),
@@ -204,16 +207,26 @@ class DumpCheckpoint final : public Closure {
     Thread* self = Thread::Current();
     CHECK(self != nullptr);
     std::ostringstream local_os;
+    int priority;
     {
       ScopedObjectAccess soa(self);
-      thread->Dump(local_os, unwinder_, dump_native_stack_);
+      priority = thread->Dump(local_os, unwinder_, dump_native_stack_);
     }
     {
-      // Use the logging lock to ensure serialization when writing to the common ostream.
-      MutexLock mu(self, *Locks::logging_lock_);
-      *os_ << local_os.str() << std::endl;
+      MutexLock mu(self, os_lock_);
+      std::pair<int, uint32_t> print_order(-priority, thread->GetThreadId());
+      bool ok = os_.emplace(print_order, std::move(local_os)).second;
+      CHECK(ok);
     }
     barrier_.Pass(self);
+  }
+
+  // Called at the end to print all the dumps in sequential prioritized order.
+  void Dump(Thread* self, std::ostream& os) {
+    MutexLock mu(self, os_lock_);
+    for (const auto& it : os_) {
+      os << it.second.str() << std::endl;
+    }
   }
 
   void WaitForThreadsToRunThroughCheckpoint(size_t threads_running_checkpoint) {
@@ -228,8 +241,9 @@ class DumpCheckpoint final : public Closure {
   }
 
  private:
-  // The common stream that will accumulate all the dumps.
-  std::ostream* const os_;
+  // Storage for the per-thread dumps (guarded by lock since they are generated in parallel).
+  Mutex os_lock_;
+  std::map<std::pair<int, uint32_t>, std::ostringstream> os_ GUARDED_BY(os_lock_);
   // The barrier to be passed through and for the requestor to wait upon.
   Barrier barrier_;
   // A backtrace map, so that all threads use a shared info and don't reacquire/parse separately.
@@ -245,7 +259,7 @@ void ThreadList::Dump(std::ostream& os, bool dump_native_stack) {
     os << "DALVIK THREADS (" << list_.size() << "):\n";
   }
   if (self != nullptr) {
-    DumpCheckpoint checkpoint(&os, dump_native_stack);
+    DumpCheckpoint checkpoint(dump_native_stack);
     size_t threads_running_checkpoint;
     {
       // Use SOA to prevent deadlocks if multiple threads are calling Dump() at the same time.
@@ -255,6 +269,7 @@ void ThreadList::Dump(std::ostream& os, bool dump_native_stack) {
     if (threads_running_checkpoint != 0) {
       checkpoint.WaitForThreadsToRunThroughCheckpoint(threads_running_checkpoint);
     }
+    checkpoint.Dump(self, os);
   } else {
     DumpUnattachedThreads(os, dump_native_stack);
   }
