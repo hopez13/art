@@ -135,6 +135,30 @@
       },
       "revId": "8e830b7edff2c5ee982a49f941983ef7b0b295c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e97a0950_02fbc747",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T15:44:54Z",
+      "side": 1,
+      "message": "I don\u0027t understand what Soong limitation you\u0027re talking about. Right now `dex2oat`, `libart-compiler` and `libart` list `libelffile` as a static libary.",
+      "parentUuid": "261353f2_343d5974",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 56
+      },
+      "revId": "8e830b7edff2c5ee982a49f941983ef7b0b295c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
