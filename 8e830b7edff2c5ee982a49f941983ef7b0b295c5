@@ -111,6 +111,30 @@
       },
       "revId": "8e830b7edff2c5ee982a49f941983ef7b0b295c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "261353f2_343d5974",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-26T15:15:28Z",
+      "side": 1,
+      "message": "This list here is quite explicit, I think. That we cannot register direct dependencies (i.e. from dex2oat and oatdump) on libraries statically linked into other dependencies is an old Soong limitation. We already have that problem in various places, and the only way to discover them (besides comments in the build files that may or may not be stale and/or incomplete) is to try to sever the exports. At least with map files like this one it gets spelled out in a way that\u0027s actually checked at build time.\n\nMaybe open a ticket to track moving libelffile to libart (or possibly libartbase?), and add a TODO comment about that here?",
+      "parentUuid": "6da06dab_61c989d7",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 56
+      },
+      "revId": "8e830b7edff2c5ee982a49f941983ef7b0b295c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
