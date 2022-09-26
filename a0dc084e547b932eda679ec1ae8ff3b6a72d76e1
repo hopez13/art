@@ -321,6 +321,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ea7a4d3_485074a3",
+        "filename": "libartbase/base/arena_allocator.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T13:57:24Z",
+      "side": 1,
+      "message": "Thanks for fixing this bug.",
+      "range": {
+        "startLine": 250,
+        "startChar": 51,
+        "endLine": 250,
+        "endChar": 54
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2b9bade_15285611",
@@ -1022,6 +1045,30 @@
       "side": 1,
       "message": "No, it\u0027s increment only. Looking at other implementations of `ArenaPool`, `GetBytesAllocated()` returns bytes allocated in all the freed arenas. In those cases, arenas are not destructed immediately and instead a list is maintained (most likely for reuse purposes) and so this is calculated in `GetBytesAllocated()` itself.\n\nHowever, in this pool, we destroy the arenas as soon as freed, so calculating bytes allocated here.",
       "parentUuid": "021db10c_a54e3c5e",
+      "range": {
+        "startLine": 248,
+        "startChar": 21,
+        "endLine": 248,
+        "endChar": 23
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2fcb032_c59e9d96",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T13:57:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3c7e306d_df5e24e5",
       "range": {
         "startLine": 248,
         "startChar": 21,

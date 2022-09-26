@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "215443c3_48a59757",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T13:57:24Z",
+      "side": 1,
+      "message": "`static constexpr size_t kFieldSize`",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 29
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a108339d_a2b0ef9b",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T13:57:24Z",
+      "side": 1,
+      "message": "Without branching:\n\n    static_assert(IsPowerOf2(field_size));\n    declaring_class +\u003d RoundUp(start_boundary - declaring_class, field_size);",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 21
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e58271a_fc91a42c",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T13:57:24Z",
+      "side": 1,
+      "message": "We need to limit this to the end of the fields.\n\n    end_boundary \u003d std::min(end_boundary, reinterpret_cast\u003cuint8_t*\u003e(first_field + array-\u003esize()));",
+      "range": {
+        "startLine": 86,
+        "startChar": 27,
+        "endLine": 86,
+        "endChar": 39
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "471d48d4_c906c76e",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T13:57:24Z",
+      "side": 1,
+      "message": "`static constexpr size_t kMethodSize`",
+      "range": {
+        "startLine": 428,
+        "startChar": 2,
+        "endLine": 428,
+        "endChar": 30
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de6966b4_a8a18c74",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T13:57:24Z",
+      "side": 1,
+      "message": "Limit to the end of methods.",
+      "range": {
+        "startLine": 440,
+        "startChar": 27,
+        "endLine": 440,
+        "endChar": 39
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "199e84c2_0c46d151",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T13:57:24Z",
+      "side": 1,
+      "message": "Why not a member of `GcVisitedArenaPool`?",
+      "range": {
+        "startLine": 108,
+        "startChar": 14,
+        "endLine": 108,
+        "endChar": 26
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88cddb8c_761cd29d",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T13:57:24Z",
+      "side": 1,
+      "message": "Do not create a `std::unique_ptr\u003c\u003e` here. This code does not own the arena (see `release()` below).",
+      "range": {
+        "startLine": 244,
+        "startChar": 4,
+        "endLine": 244,
+        "endChar": 19
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c017c53e_05ecb2fb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 6931,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T13:57:24Z",
+      "side": 1,
+      "message": "Memory leak. (And performance regression.)\n\nYou can define a member variable `MemMapArenaPool arena_pool_` if necessary. But is there any reason why we cannot use `runtime-\u003eGetArenaPool()`? That one is also nicely trimmed from `Heap::Trim()` which would be good.\n\nThe use of arena pool from the `LinearAlloc` seems to date back to https://android-review.googlesource.com/148090 (2015) and it has simply been preserved (and moved around) by subsequent changes.",
+      "range": {
+        "startLine": 6931,
+        "startChar": 15,
+        "endLine": 6931,
+        "endChar": 18
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
