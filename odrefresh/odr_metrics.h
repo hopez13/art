@@ -55,7 +55,6 @@ class OdrMetrics final {
     kNoSpace = 2,
     kIoError = 3,
     kDex2OatError = 4,
-    kTimeLimitExceeded = 5,
     kStagingFailed = 6,
     kInstallFailed = 7,
     // Failed to access the dalvik-cache directory due to lack of permission.
