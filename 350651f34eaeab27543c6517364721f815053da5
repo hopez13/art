@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf6032d3_e1ea159f",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T15:53:59Z",
+      "side": 1,
+      "message": "`| speed-profile` (We cannot guarantee AOT compilation of a particular method in this configuration.)",
+      "range": {
+        "startLine": 84,
+        "startChar": 63,
+        "endLine": 84,
+        "endChar": 64
+      },
+      "revId": "350651f34eaeab27543c6517364721f815053da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
