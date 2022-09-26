@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0deed181_900944bd",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2788,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-26T10:41:58Z",
+      "side": 1,
+      "message": "Why is this still here after LSE?\n\nHow is the loop unrolled? Do we have two iterations in the new loop body and an early exit in between? Do we fail to use the fact that the trip count is even?",
+      "range": {
+        "startLine": 2788,
+        "startChar": 36,
+        "endLine": 2788,
+        "endChar": 44
+      },
+      "revId": "cfdbba72af6f2ce7b208e7de4de4de096cf52c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
