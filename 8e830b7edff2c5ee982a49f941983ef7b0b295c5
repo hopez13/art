@@ -159,6 +159,30 @@
       },
       "revId": "8e830b7edff2c5ee982a49f941983ef7b0b295c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42dea04f_09ede326",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-26T17:36:24Z",
+      "side": 1,
+      "message": "dex2oat and oatdump didn\u0027t do that before https://r.android.com/2202495, which I commented on there. This CL is to address those comments since it was submitted before I got the chance to review it.\n\nThe Soong limitation is that `shared_libs`/`static_libs` are just technical directives that mean \"link with this dynamically/statically\", nothing else. In particular they don\u0027t necessarily model code dependencies between modules (e.g. that dex2oat depends on elffile). For dynamic dependencies `shared_libs` is usually close enough, but `static_libs` is not and we need to do shenanigans with `whole_static_libs` etc, which we already do in several places in ART, not just for libelffile. b/169779783 is related.\n\nBottom line, we shouldn\u0027t pay with unnecessary bloat coming from linking the same code statically multiple times, just to use `static_libs` for tracking code dependencies.",
+      "parentUuid": "e97a0950_02fbc747",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 56
+      },
+      "revId": "8e830b7edff2c5ee982a49f941983ef7b0b295c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
