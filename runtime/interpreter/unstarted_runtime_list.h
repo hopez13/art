@@ -67,6 +67,7 @@
   V(StringGetCharsNoCheck, "Ljava/lang/String;", "getCharsNoCheck", "(II[CI)V") \
   V(StringCharAt, "Ljava/lang/String;", "charAt", "(I)C") \
   V(StringDoReplace, "Ljava/lang/String;", "doReplace", "(CC)Ljava/lang/String;") \
+  V(StringFactoryNewStringFromBytes, "Ljava/lang/StringFactory;", "newStringFromBytes", "([BIII)Ljava/lang/String;") \
   V(StringFactoryNewStringFromChars, "Ljava/lang/StringFactory;", "newStringFromChars", "(II[C)Ljava/lang/String;") \
   V(StringFactoryNewStringFromString, "Ljava/lang/StringFactory;", "newStringFromString", "(Ljava/lang/String;)Ljava/lang/String;") \
   V(StringFastSubstring, "Ljava/lang/String;", "fastSubstring", "(II)Ljava/lang/String;") \

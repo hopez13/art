@@ -1367,6 +1367,22 @@ void UnstartedRuntime::UnstartedStringDoReplace(
 }
 
 // This allows creating the new style of String objects during compilation.
+void UnstartedRuntime::UnstartedStringFactoryNewStringFromBytes(
+    Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
+  jint high = shadow_frame->GetVReg(arg_offset + 1);
+  jint offset = shadow_frame->GetVReg(arg_offset + 2);
+  jint byte_count = shadow_frame->GetVReg(arg_offset + 3);
+  DCHECK_GE(byte_count, 0);
+  StackHandleScope<1> hs(self);
+  Handle<mirror::ByteArray> h_byte_array(
+      hs.NewHandle(shadow_frame->GetVRegReference(arg_offset)->AsByteArray()));
+  Runtime* runtime = Runtime::Current();
+  gc::AllocatorType allocator = runtime->GetHeap()->GetCurrentAllocator();
+  result->SetL(
+      mirror::String::AllocFromByteArray(self, byte_count, h_byte_array, offset, high, allocator));
+}
+
+// This allows creating the new style of String objects during compilation.
 void UnstartedRuntime::UnstartedStringFactoryNewStringFromChars(
     Thread* self, ShadowFrame* shadow_frame, JValue* result, size_t arg_offset) {
   jint offset = shadow_frame->GetVReg(arg_offset);
