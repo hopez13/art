@@ -49,6 +49,7 @@ class ProfileCompilationInfo;
 class TimingLogger;
 class TypeLookupTable;
 class VdexFile;
+class VerificationResults;
 class ZipEntry;
 
 namespace debug {
@@ -117,6 +118,7 @@ class OatWriter {
   OatWriter(const CompilerOptions& compiler_options,
             TimingLogger* timings,
             ProfileCompilationInfo* info,
+            const VerificationResults* verification_results,
             CompactDexLevel compact_dex_level);
 
   // To produce a valid oat file, the user must first add sources with any combination of
@@ -586,6 +588,9 @@ class OatWriter {
 
   // Profile info used to generate new layout of files.
   ProfileCompilationInfo* profile_compilation_info_;
+
+  // Information about erroneous classes and methods that cannot be compiled.
+  const VerificationResults* verification_results_;
 
   // Compact dex level that is generated.
   CompactDexLevel compact_dex_level_;
