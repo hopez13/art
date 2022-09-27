@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a910c23_322b751e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T13:38:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf624e74_636c6055",
+      "range": {
+        "startLine": 9,
+        "startChar": 18,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "5e2836fba2534eeaf62d64a8b7c138580fd1ec53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c155b80_f16b975b",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cea4818_f546f7bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T13:38:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c155b80_f16b975b",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "5e2836fba2534eeaf62d64a8b7c138580fd1ec53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79d9ed95_e6d6ebba",
@@ -60,6 +108,24 @@
       "writtenOn": "2022-09-27T13:08:44Z",
       "side": 1,
       "message": "Could you also regenerate the ART MTS definition using `art/test/utils/regen-test-files -m` and upload a CL in the Android Git project `platform/test/mts`?",
+      "revId": "5e2836fba2534eeaf62d64a8b7c138580fd1ec53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed2aebb3_9af4f2ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T13:38:33Z",
+      "side": 1,
+      "message": "Does it need to go in a single topic?\n\n(Note: There\u0027s no test/mts/ in master-art, so I\u0027ll need to switch to a different checkout.)",
+      "parentUuid": "79d9ed95_e6d6ebba",
       "revId": "5e2836fba2534eeaf62d64a8b7c138580fd1ec53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
