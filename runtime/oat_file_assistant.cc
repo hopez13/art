@@ -1307,7 +1307,7 @@ void OatFileAssistant::GetOptimizationStatus(
   // If the oat file is invalid, the vdex file will be picked, so the status is `kOatUpToDate`. If
   // the vdex file is also invalid, then either `oat_file` is nullptr, or `status` is
   // `kOatDexOutOfDate`.
-  DCHECK(status == kOatUpToDate || status == kOatDexOutOfDate);
+  DCHECK(status == kOatUpToDate || status == kOatDexOutOfDate) << status;
 
   switch (status) {
     case kOatUpToDate:

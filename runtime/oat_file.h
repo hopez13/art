@@ -34,6 +34,7 @@
 #include "dex/utf.h"
 #include "index_bss_mapping.h"
 #include "mirror/object.h"
+#include "vdex_file.h"
 
 namespace art {
 
@@ -568,6 +569,10 @@ class OatDexFile final {
     return lookup_table_;
   }
 
+  const DexMembersCache& GetDexMembersCache() const {
+    return dex_members_cache_;
+  }
+
   ~OatDexFile();
 
   // Create only with a type lookup table, used by the compiler to speed up compilation.
@@ -585,6 +590,7 @@ class OatDexFile final {
              uint32_t dex_file_checksum,
              const uint8_t* dex_file_pointer,
              const uint8_t* lookup_table_data,
+             const uint8_t* dex_members_cache,
              const IndexBssMapping* method_bss_mapping,
              const IndexBssMapping* type_bss_mapping,
              const IndexBssMapping* public_type_bss_mapping,
@@ -600,7 +606,8 @@ class OatDexFile final {
              uint32_t dex_file_checksum,
              const std::string& dex_file_location,
              const std::string& canonical_dex_file_location,
-             const uint8_t* lookup_table_data);
+             const uint8_t* lookup_table_data,
+             const uint8_t* dex_members_cache);
 
   bool IsBackedByVdexOnly() const;
   void InitializeTypeLookupTable();
@@ -620,6 +627,7 @@ class OatDexFile final {
   const IndexBssMapping* const string_bss_mapping_ = nullptr;
   const uint32_t* const oat_class_offsets_pointer_ = nullptr;
   TypeLookupTable lookup_table_;
+  DexMembersCache dex_members_cache_;
   const DexLayoutSections* const dex_layout_sections_ = nullptr;
 
   friend class OatFile;

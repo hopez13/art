@@ -2110,12 +2110,13 @@ size_t Class::GetInstanceFieldIdOffset(ArtField* field) {
 }
 
 size_t Class::GetMethodIdOffset(ArtMethod* method, PointerSize pointer_size) {
-  DCHECK(GetMethodsSlice(kRuntimePointerSize).Contains(method))
-      << "method not part of the current class. " << method->PrettyMethod() << "( " << reinterpret_cast<void*>(method) << ")" << " class is "
+  DCHECK(GetMethodsSlice(pointer_size).Contains(method))
+      << "method not part of the current class. " << method->PrettyMethod()
+      << "( " << reinterpret_cast<void*>(method) << ")" << " class is "
       << PrettyClass() << [&]() REQUIRES_SHARED(Locks::mutator_lock_) {
         std::ostringstream os;
         os << " Methods are [";
-        for (ArtMethod& m : GetMethodsSlice(kRuntimePointerSize)) {
+        for (ArtMethod& m : GetMethodsSlice(pointer_size)) {
           os << m.PrettyMethod() << "( " << reinterpret_cast<void*>(&m) << "), ";
         }
         os << "]";

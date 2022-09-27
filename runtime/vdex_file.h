@@ -82,7 +82,62 @@ enum VdexSection : uint32_t {
   kDexFileSection = 1,
   kVerifierDepsSection = 2,
   kTypeLookupTableSection = 3,
-  kNumberOfSections = 4,
+  kDexMembersCacheSection = 4,
+  kNumberOfSections = 5,
+};
+
+enum class DexMembersCacheKind : uint8_t {
+  kUninitialized = 0,
+  kUnresolvedMember = 1,
+  kSdkMember = 2,
+  kLocalMember = 3,
+};
+
+class ArtField;
+class ArtMethod;
+
+class DexMembersCache {
+ public:
+  DexMembersCache(const uint8_t* dex_data_begin, const uint8_t* dex_file_pointer)
+      : dex_data_begin_(dex_data_begin),
+        field_ids_size_(reinterpret_cast<const DexFile::Header*>(dex_file_pointer)->field_ids_size_),
+        method_ids_size_(reinterpret_cast<const DexFile::Header*>(dex_file_pointer)->method_ids_size_) {}
+
+  DexMembersCache() : dex_data_begin_(nullptr), field_ids_size_(0u), method_ids_size_(0u) {}
+
+  ArtField* FindField(Thread* self, ArtMethod* referrer, uint32_t field_id, bool is_static) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  ArtMethod* FindMethod(Thread* self, ArtMethod* referrer, uint32_t method_id) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+ private:
+  DexMembersCacheKind GetFieldKind(uint32_t field_id) const {
+    return static_cast<DexMembersCacheKind>(dex_data_begin_[field_id]);
+  }
+
+  uint32_t GetFieldData(uint32_t field_id) const {
+    size_t kinds_size = RoundUp(field_ids_size_ + method_ids_size_, 4);
+    const uint8_t* offset = dex_data_begin_ + kinds_size * sizeof(uint8_t);
+    return reinterpret_cast<const uint32_t*>(offset)[field_id];
+  }
+
+  DexMembersCacheKind GetMethodKind(uint32_t method_id) const {
+    const uint8_t* offset = dex_data_begin_ +
+        field_ids_size_ * sizeof(uint8_t);
+    return static_cast<DexMembersCacheKind>(offset[method_id]);
+  }
+
+  uint32_t GetMethodData(uint32_t method_id) const {
+    size_t kinds_size = RoundUp(field_ids_size_ + method_ids_size_, 4);
+    const uint8_t* offset = dex_data_begin_ +
+        kinds_size * sizeof(uint8_t) +
+        field_ids_size_ * sizeof(uint32_t);
+    return reinterpret_cast<const uint32_t*>(offset)[method_id];
+  }
+
+  const uint8_t* dex_data_begin_;
+  const uint32_t field_ids_size_;
+  const uint32_t method_ids_size_;
 };
 
 class VdexFile {
@@ -169,6 +224,11 @@ class VdexFile {
 
   bool HasTypeLookupTableSection() const {
     return GetVdexFileHeader().GetNumberOfSections() >= (kTypeLookupTableSection + 1);
+  }
+
+  bool HasDexMembersCacheSection() const {
+    return GetVdexFileHeader().GetNumberOfSections() >= (kDexMembersCacheSection + 1) &&
+      GetSectionHeader(VdexSection::kDexMembersCacheSection).section_size != 0u;
   }
 
   const VdexChecksum* GetDexChecksumsArray() const {
@@ -271,6 +331,7 @@ class VdexFile {
   const uint8_t* GetNextDexFileData(const uint8_t* cursor, uint32_t dex_file_index) const;
 
   const uint8_t* GetNextTypeLookupTableData(const uint8_t* cursor, uint32_t dex_file_index) const;
+  const uint8_t* GetNextDexMembersCacheData(const uint8_t* cursor, const uint8_t* dex_file) const;
 
   // Get the location checksum of the dex file number `dex_file_index`.
   uint32_t GetLocationChecksum(uint32_t dex_file_index) const {
@@ -316,6 +377,11 @@ class VdexFile {
   const uint8_t* TypeLookupTableDataBegin() const {
     DCHECK(HasTypeLookupTableSection());
     return Begin() + GetSectionHeader(VdexSection::kTypeLookupTableSection).section_offset;
+  }
+
+  const uint8_t* DexMembersCacheDataBegin() const {
+    DCHECK(HasDexMembersCacheSection());
+    return Begin() + GetSectionHeader(VdexSection::kDexMembersCacheSection).section_offset;
   }
 
   MemMap mmap_;

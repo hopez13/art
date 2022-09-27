@@ -41,6 +41,7 @@
 #include "mirror/class.h"
 #include "mirror/object.h"
 #include "oat_file.h"
+#include "sdk_members_cache.h"
 #include "verifier/verifier_enums.h"
 
 namespace art {
@@ -863,6 +864,8 @@ class ClassLinker {
   // Enable or disable public sdk checks.
   virtual void SetEnablePublicSdkChecks(bool enabled);
 
+  const SdkMembersCache& GetSdkMembersCache() { return sdk_members_cache_; }
+
  protected:
   virtual bool InitializeClass(Thread* self,
                                Handle<mirror::Class> klass,
@@ -1374,6 +1377,8 @@ class ClassLinker {
       GUARDED_BY(critical_native_code_with_clinit_check_lock_);
 
   std::unique_ptr<ClassHierarchyAnalysis> cha_;
+
+  SdkMembersCache sdk_members_cache_;
 
   class FindVirtualMethodHolderVisitor;
 

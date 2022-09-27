@@ -301,6 +301,8 @@ class OatWriter {
   void WriteTypeLookupTables(/*out*/std::vector<uint8_t>* buffer);
   void WriteVerifierDeps(verifier::VerifierDeps* verifier_deps,
                          /*out*/std::vector<uint8_t>* buffer);
+  void WriteDexMembersCache(verifier::VerifierDeps* verifier_deps,
+                            /*out*/std::vector<uint8_t>* buffer);
 
   size_t InitOatHeader(uint32_t num_dex_files, SafeMap<std::string, std::string>* key_value_store);
   size_t InitClassOffsets(size_t offset);
@@ -421,6 +423,9 @@ class OatWriter {
   // Offset of type lookup tables inside Vdex.
   size_t vdex_lookup_tables_offset_;
 
+  // Offset of dex members caches inside Vdex.
+  size_t vdex_dex_members_cache_offset_;
+
   // OAT checksum.
   uint32_t oat_checksum_;
 
@@ -523,6 +528,7 @@ class OatWriter {
   uint32_t size_oat_header_;
   uint32_t size_oat_header_key_value_store_;
   uint32_t size_dex_file_;
+  uint32_t size_dex_members_cache_;
   uint32_t size_verifier_deps_;
   uint32_t size_verifier_deps_alignment_;
   uint32_t size_quickening_info_;

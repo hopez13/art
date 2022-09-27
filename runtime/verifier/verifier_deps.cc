@@ -34,6 +34,7 @@
 #include "reg_type.h"
 #include "reg_type_cache-inl.h"
 #include "runtime.h"
+#include "sdk_members_cache.h"
 
 namespace art {
 namespace verifier {
@@ -42,7 +43,9 @@ VerifierDeps::VerifierDeps(const std::vector<const DexFile*>& dex_files, bool ou
     : output_only_(output_only) {
   for (const DexFile* dex_file : dex_files) {
     DCHECK(GetDexFileDeps(*dex_file) == nullptr);
-    std::unique_ptr<DexFileDeps> deps(new DexFileDeps(dex_file->NumClassDefs()));
+    std::unique_ptr<DexFileDeps> deps(new DexFileDeps(dex_file->NumClassDefs(),
+                                                      dex_file->NumMethodIds(),
+                                                      dex_file->NumFieldIds()));
     dex_deps_.emplace(dex_file, std::move(deps));
   }
 }
@@ -335,6 +338,182 @@ void VerifierDeps::MaybeRecordAssignability(VerifierDeps* verifier_deps,
   }
 }
 
+void VerifierDeps::MaybeRecordMethodResolution(VerifierDeps* verifier_deps,
+                                               const DexFile& dex_file,
+                                               uint16_t method_index,
+                                               ArtMethod* method) {
+  if (verifier_deps != nullptr) {
+    GetMainVerifierDeps(verifier_deps)->RecordMethodResolution(dex_file, method_index, method);
+  }
+}
+
+void VerifierDeps::MaybeRecordFieldResolution(VerifierDeps* verifier_deps,
+                                              const DexFile& dex_file,
+                                              uint16_t field_index,
+                                              ArtField* field) {
+  if (verifier_deps != nullptr) {
+    GetMainVerifierDeps(verifier_deps)->RecordFieldResolution(dex_file, field_index, field);
+  }
+}
+
+void VerifierDeps::RecordMethodResolution(const DexFile& dex_file,
+                                          uint16_t method_index,
+                                          ArtMethod* method) {
+  DexFileDeps* dex_deps = GetDexFileDeps(dex_file);
+
+  if (dex_deps == nullptr) {
+    // This invocation is from verification of a DEX file which is not being compiled.
+    return;
+  }
+
+  if (method == nullptr) {
+    dex_deps->methods_kind_[method_index] = DexMembersCacheKind::kUnresolvedMember;
+    dex_deps->methods_unresolved_[method_index] = true;
+    return;
+  }
+
+  if (method->IsCopied()) {
+    // TODO" Support copied method.
+    dex_deps->methods_kind_[method_index] = DexMembersCacheKind::kUnresolvedMember;
+    dex_deps->methods_unresolved_[method_index] = true;
+    return;
+  }
+
+  if (dex_deps->methods_unresolved_[method_index]) {
+    // One use of the method considered it as unresolved. Don't update.
+    return;
+  }
+
+  if (dex_deps->methods_kind_[method_index] != DexMembersCacheKind::kUninitialized) {
+    // This entry has already been initialized.
+    return;
+  }
+
+  DexMembersCacheKind kind = DexMembersCacheKind::kUninitialized;
+  uint32_t entry = 0u;
+  const DexFile& method_dex_file = *method->GetDexFile();
+  if (method->GetDeclaringClass()->GetClassLoader() == nullptr) {
+    if ((hiddenapi::GetRuntimeFlags(method) & kAccPublicApi) != 0) {
+      const dex::MethodId& method_id = dex_file.GetMethodId(method_index);
+      const dex::TypeId& type_id = dex_file.GetTypeId(method_id.class_idx_);
+      const DexFile& sdk_dex_file = *method->GetDexFile();
+      const dex::TypeId& sdk_type_id = sdk_dex_file.GetTypeId(method->GetDeclaringClass()->GetDexTypeIndex());
+      if (dex_file.GetTypeDescriptorView(type_id) == sdk_dex_file.GetTypeDescriptorView(sdk_type_id)) {
+        kind = DexMembersCacheKind::kSdkMember;
+        entry = SdkMembersCache::ComputeSdkMethodHash(method);
+      } else {
+        kind = DexMembersCacheKind::kUnresolvedMember;
+      }
+    } else {
+      // TODO: UnsupportedAppUsage
+      kind = DexMembersCacheKind::kUnresolvedMember;
+    }
+  } else {
+    uint32_t type_index = 0u;
+    if (&method_dex_file == &dex_file) {
+      type_index = method->GetDeclaringClass()->GetClassDef()->class_idx_.index_;
+      kind = DexMembersCacheKind::kLocalMember;
+    } else if (GetDexFileDeps(method_dex_file) != nullptr) {
+      std::string descriptor_storage;
+      const dex::TypeId* declaring_class_type_id =
+          dex_file.FindTypeId(method->GetDeclaringClass()->GetDescriptor(&descriptor_storage));
+      if (declaring_class_type_id == nullptr) {
+        kind = DexMembersCacheKind::kUnresolvedMember;
+      } else {
+        type_index = dex_file.GetIndexForTypeId(*declaring_class_type_id).index_;
+        kind = DexMembersCacheKind::kLocalMember;
+      }
+    } else {
+      kind = DexMembersCacheKind::kUnresolvedMember;
+    }
+    ClassLinker* linker = Runtime::Current()->GetClassLinker();
+    size_t offset = method->GetDeclaringClass()->GetMethodIdOffset(method, linker->GetImagePointerSize());
+    DCHECK_LE(offset, std::numeric_limits<uint16_t>::max());
+    DCHECK_LE(type_index, std::numeric_limits<uint16_t>::max());
+    entry = static_cast<uint16_t>(offset) | (type_index << 16);
+  }
+
+  dex_deps->methods_kind_[method_index] = kind;
+  dex_deps->methods_[method_index] = entry;
+}
+
+void VerifierDeps::RecordFieldResolution(const DexFile& dex_file,
+                                         uint16_t field_index,
+                                         ArtField* field) {
+  DexFileDeps* dex_deps = GetDexFileDeps(dex_file);
+
+  if (dex_deps == nullptr) {
+    // This invocation is from verification of a DEX file which is not being compiled.
+    return;
+  }
+
+  if (field == nullptr) {
+    dex_deps->fields_kind_[field_index] = DexMembersCacheKind::kUnresolvedMember;
+    dex_deps->fields_unresolved_[field_index] = true;
+    return;
+  }
+
+  if (dex_deps->fields_unresolved_[field_index]) {
+    // One use of the field considered it as unresolved. Don't update.
+    return;
+  }
+
+  if (dex_deps->fields_kind_[field_index] != DexMembersCacheKind::kUninitialized) {
+    // This entry has already been initialized.
+    return;
+  }
+
+  DexMembersCacheKind kind = DexMembersCacheKind::kUninitialized;
+  uint32_t entry = 0u;
+  const DexFile& field_dex_file = *field->GetDexFile();
+  if (field->GetDeclaringClass()->GetClassLoader() == nullptr) {
+    if ((hiddenapi::GetRuntimeFlags(field) & kAccPublicApi) != 0) {
+      const dex::FieldId& field_id = dex_file.GetFieldId(field_index);
+      const dex::TypeId& type_id = dex_file.GetTypeId(field_id.class_idx_);
+      const DexFile& sdk_dex_file = *field->GetDexFile();
+      const dex::TypeId& sdk_type_id = sdk_dex_file.GetTypeId(field->GetDeclaringClass()->GetDexTypeIndex());
+      if (dex_file.GetTypeDescriptorView(type_id) == sdk_dex_file.GetTypeDescriptorView(sdk_type_id)) {
+        kind = DexMembersCacheKind::kSdkMember;
+        entry = SdkMembersCache::ComputeSdkFieldHash(field);
+      } else {
+        kind = DexMembersCacheKind::kUnresolvedMember;
+      }
+    } else {
+      // TODO: UnsupportedAppUsage
+      kind = DexMembersCacheKind::kUnresolvedMember;
+    }
+  } else {
+    uint32_t type_index = 0u;
+    if (&field->GetDeclaringClass()->GetDexFile() == &dex_file) {
+      kind = DexMembersCacheKind::kLocalMember;
+      type_index = field->GetDeclaringClass()->GetClassDef()->class_idx_.index_;
+    } else if (GetDexFileDeps(field_dex_file) != nullptr) {
+      std::string descriptor_storage;
+      const dex::TypeId* declaring_class_type_id =
+          dex_file.FindTypeId(field->GetDeclaringClass()->GetDescriptor(&descriptor_storage));
+      if (declaring_class_type_id == nullptr) {
+        kind = DexMembersCacheKind::kUnresolvedMember;
+      } else {
+        kind = DexMembersCacheKind::kLocalMember;
+        type_index = dex_file.GetIndexForTypeId(*declaring_class_type_id).index_;
+      }
+    } else {
+      kind = DexMembersCacheKind::kUnresolvedMember;
+    }
+    DCHECK_LE(type_index, std::numeric_limits<uint16_t>::max());
+    if (kind != DexMembersCacheKind::kUnresolvedMember) {
+      size_t offset = field->IsStatic()
+          ? field->GetDeclaringClass()->GetStaticFieldIdOffset(field)
+          : field->GetDeclaringClass()->GetInstanceFieldIdOffset(field);
+      DCHECK_LE(offset, std::numeric_limits<uint16_t>::max());
+      entry = static_cast<uint16_t>(offset) | (type_index << 16);
+    }
+  }
+
+  dex_deps->fields_kind_[field_index] = kind;
+  dex_deps->fields_[field_index] = entry;
+}
+
 namespace {
 
 template<typename T> inline uint32_t Encode(T in);
@@ -531,6 +710,36 @@ void VerifierDeps::Encode(const std::vector<const DexFile*>& dex_files,
   }
 }
 
+void VerifierDeps::EncodeDexMembersCache(const std::vector<const DexFile*>& dex_files,
+                                         std::vector<uint8_t>* buffer) const {
+  for (const DexFile* dex_file : dex_files) {
+    const DexFileDeps& deps = *GetDexFileDeps(*dex_file);
+    uint32_t field_kind_offset = buffer->size();
+    DCHECK_EQ(RoundUp(buffer->size(), sizeof(uint32_t)), field_kind_offset);
+    uint32_t method_kind_offset = field_kind_offset + deps.fields_.size() * sizeof(uint8_t);
+    uint32_t field_offset = RoundUp(method_kind_offset + deps.methods_.size() * sizeof(uint8_t), sizeof(uint32_t));
+    uint32_t method_offset = field_offset + deps.fields_.size() * sizeof(uint32_t);
+    buffer->resize(method_offset + deps.methods_.size() * sizeof(uint32_t));
+    for (uint32_t i = 0; i < deps.fields_.size(); ++i) {
+      if (deps.fields_unresolved_[i]) {
+        buffer->data()[field_kind_offset + i] = static_cast<uint8_t>(DexMembersCacheKind::kUnresolvedMember);
+      } else {
+        buffer->data()[field_kind_offset + i] = static_cast<uint8_t>(deps.fields_kind_[i]);
+        SetUint32InUint8Array(buffer, field_offset, i, deps.fields_[i]);
+      }
+    }
+
+    for (uint32_t i = 0; i < deps.methods_.size(); ++i) {
+      if (deps.methods_unresolved_[i]) {
+        buffer->data()[method_kind_offset + i] = static_cast<uint8_t>(DexMembersCacheKind::kUnresolvedMember);
+      } else {
+        buffer->data()[method_kind_offset + i] = static_cast<uint8_t>(deps.methods_kind_[i]);
+        SetUint32InUint8Array(buffer, method_offset, i, deps.methods_[i]);
+      }
+    }
+  }
+}
+
 template <bool kOnlyVerifiedClasses>
 bool VerifierDeps::DecodeDexFileDeps(DexFileDeps& deps,
                                      const uint8_t** cursor,
@@ -594,7 +803,7 @@ bool VerifierDeps::ParseVerifiedClasses(
   const uint8_t* cursor = data_start;
   uint32_t dex_file_index = 0;
   for (const DexFile* dex_file : dex_files) {
-    DexFileDeps deps(/*num_class_defs=*/ 0u);  // Do not initialize vectors.
+    DexFileDeps deps(/*num_class_defs=*/ 0u, 0u, 0u);  // Do not initialize vectors.
     // Fetch the offset of this dex file's verifier data.
     cursor = data_start + reinterpret_cast<const uint32_t*>(data_start)[dex_file_index++];
     size_t num_class_defs = dex_file->NumClassDefs();

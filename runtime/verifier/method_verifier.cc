@@ -3752,6 +3752,9 @@ ArtMethod* MethodVerifier<kVerifierDebug>::ResolveMethodAndCheckAccess(
   if (klass_type.IsUnresolvedTypes()) {
     return nullptr;  // Can't resolve Class so no more to do here
   }
+  if (!GetDeclaringClass().CanAccess(klass_type)) {
+    return nullptr;
+  }
   ObjPtr<mirror::Class> klass = klass_type.GetClass();
   const RegType& referrer = GetDeclaringClass();
   ClassLinker* class_linker = GetClassLinker();
@@ -3844,7 +3847,7 @@ ArtMethod* MethodVerifier<kVerifierDebug>::ResolveMethodAndCheckAccess(
     Fail(VERIFY_ERROR_ACCESS_METHOD) << "illegal method access (call "
                                      << res_method->PrettyMethod()
                                      << " from " << referrer << ")";
-    return res_method;
+    return nullptr;
   }
   // Check that invoke-virtual and invoke-super are not used on private methods of the same class.
   if (res_method->IsPrivate() && (method_type == METHOD_VIRTUAL || method_type == METHOD_SUPER)) {
@@ -4127,6 +4130,7 @@ ArtMethod* MethodVerifier<kVerifierDebug>::VerifyInvocationArgs(
   // we're making.
   const uint32_t method_idx = GetMethodIdxOfInvoke(inst);
   ArtMethod* res_method = ResolveMethodAndCheckAccess(method_idx, method_type);
+  VerifierDeps::MaybeRecordMethodResolution(GetVerifierDeps(), *dex_file_, method_idx, res_method);
   if (res_method == nullptr) {  // error or class is unresolved
     // Check what we can statically.
     if (!flags_.have_pending_hard_failure_) {
@@ -4534,6 +4538,11 @@ ArtField* MethodVerifier<kVerifierDebug>::GetStaticField(int field_idx) {
 
     return nullptr;  // Can't resolve Class so no more to do here, will do checking at runtime.
   }
+
+  if (!GetDeclaringClass().CanAccess(klass_type)) {
+    return nullptr;
+  }
+
   ClassLinker* class_linker = GetClassLinker();
   ArtField* field = class_linker->ResolveFieldJLS(field_idx, dex_cache_, class_loader_);
 
@@ -4580,6 +4589,9 @@ ArtField* MethodVerifier<kVerifierDebug>::GetInstanceField(const RegType& obj_ty
            IsSdkVersionSetAndLessThan(api_level_, SdkVersion::kP));
 
     return nullptr;  // Can't resolve Class so no more to do here
+  }
+  if (!GetDeclaringClass().CanAccess(klass_type)) {
+    return nullptr;
   }
   ClassLinker* class_linker = GetClassLinker();
   ArtField* field = class_linker->ResolveFieldJLS(field_idx, dex_cache_, class_loader_);
@@ -4657,6 +4669,7 @@ void MethodVerifier<kVerifierDebug>::VerifyISFieldAccess(const Instruction* inst
   ArtField* field;
   if (is_static) {
     field = GetStaticField(field_idx);
+    VerifierDeps::MaybeRecordFieldResolution(GetVerifierDeps(), *dex_file_, field_idx, field);
   } else {
     const RegType& object_type = work_line_->GetRegisterType(this, inst->VRegB_22c());
 
@@ -4672,6 +4685,7 @@ void MethodVerifier<kVerifierDebug>::VerifyISFieldAccess(const Instruction* inst
                                        ? GetRegTypeCache()->FromUninitialized(object_type)
                                        : object_type;
     field = GetInstanceField(adjusted_type, field_idx);
+    VerifierDeps::MaybeRecordFieldResolution(GetVerifierDeps(), *dex_file_, field_idx, field);
     if (UNLIKELY(flags_.have_pending_hard_failure_)) {
       return;
     }

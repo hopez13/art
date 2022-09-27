@@ -372,6 +372,19 @@ inline ArtMethod* ClassLinker::ResolveMethod(Thread* self,
   DCHECK(resolved_method == nullptr || !resolved_method->IsRuntimeMethod());
   if (UNLIKELY(resolved_method == nullptr)) {
     referrer = referrer->GetInterfaceMethodIfProxy(image_pointer_size_);
+    if (referrer->GetDexFile()->GetOatDexFile() != nullptr) {
+      resolved_method = referrer->GetDexFile()->GetOatDexFile()->GetDexMembersCache().FindMethod(self, referrer, method_idx);
+      if (resolved_method != nullptr) {
+        referrer->GetDexCache()->SetResolvedMethod(method_idx, resolved_method);
+        return resolved_method;
+      }
+      if (self->IsExceptionPending()) {
+        return nullptr;
+      }
+    }
+  }
+
+  if (UNLIKELY(resolved_method == nullptr)) {
     ObjPtr<mirror::Class> declaring_class = referrer->GetDeclaringClass();
     StackHandleScope<2> hs(self);
     Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(referrer->GetDexCache()));
@@ -554,6 +567,16 @@ inline ArtField* ClassLinker::ResolveField(uint32_t field_idx,
   if (UNLIKELY(resolved_field == nullptr)) {
     StackHandleScope<2> hs(Thread::Current());
     referrer = referrer->GetInterfaceMethodIfProxy(image_pointer_size_);
+    if (referrer->GetDexFile()->GetOatDexFile() != nullptr) {
+      resolved_field = referrer->GetDexFile()->GetOatDexFile()->GetDexMembersCache().FindField(hs.Self(), referrer, field_idx, is_static);
+      if (resolved_field != nullptr) {
+        referrer->GetDexCache()->SetResolvedField(field_idx, resolved_field);
+        return resolved_field;
+      }
+      if (hs.Self()->IsExceptionPending()) {
+        return nullptr;
+      }
+    }
     ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
     Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referring_class->GetClassLoader()));

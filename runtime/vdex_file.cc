@@ -26,6 +26,7 @@
 #include <android-base/stringprintf.h>
 #include <log/log.h>
 
+#include "art_method-inl.h"
 #include "base/bit_utils.h"
 #include "base/leb128.h"
 #include "base/stl_util.h"
@@ -213,6 +214,22 @@ const uint8_t* VdexFile::GetNextTypeLookupTableData(const uint8_t* cursor,
     // TypeLookupTables are required to be 4 byte aligned. the OatWriter makes sure they are.
     // We don't check this here to be defensive against corrupted vdex files.
     // Callers should check the returned value matches their expectations.
+    return data;
+  }
+}
+
+const uint8_t* VdexFile::GetNextDexMembersCacheData(const uint8_t* cursor,
+                                                    const uint8_t* previous_dex_file) const {
+  if (cursor == nullptr) {
+    // Beginning of the iteration, return the first cache if there is one.
+    return HasDexMembersCacheSection() ? DexMembersCacheDataBegin() : nullptr;
+  } else {
+    const DexFile::Header* header = reinterpret_cast<const DexFile::Header*>(previous_dex_file);
+    size_t kind_size = RoundUp(header->field_ids_size_ + header->method_ids_size_, 4);
+    const uint8_t* data = cursor +
+        sizeof(uint8_t) * kind_size +
+        sizeof(uint32_t) * header->field_ids_size_ +
+        sizeof(uint32_t) * header->method_ids_size_;
     return data;
   }
 }
@@ -535,6 +552,100 @@ ClassStatus VdexFile::ComputeClassStatus(Thread* self, Handle<mirror::Class> cls
   }
 
   return ClassStatus::kVerifiedNeedsAccessChecks;
+}
+
+ArtField* DexMembersCache::FindField(Thread* self, ArtMethod* referrer, uint32_t field_id, bool is_static) const {
+  if (dex_data_begin_ == nullptr || Runtime::Current()->IsJavaDebuggable()) {
+    return nullptr;
+  }
+  DCHECK_NE(referrer->GetDexFile()->GetOatDexFile(), nullptr);
+  DCHECK_EQ(&referrer->GetDexFile()->GetOatDexFile()->GetDexMembersCache(), this);
+  switch (GetFieldKind(field_id)) {
+    case DexMembersCacheKind::kUnresolvedMember : {
+      return nullptr;
+    }
+    case DexMembersCacheKind::kSdkMember : {
+      uint32_t hash = GetFieldData(field_id);
+      ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+      DexFileReference ref(referrer->GetDexFile(), field_id);
+      //ArtField* f = class_linker->GetSdkMembersCache().FindField(ref, hash);
+      //LOG(ERROR) << "YES " << referrer->PrettyMethod() << " " << hash << " " << (f == nullptr ? "nullptr" : f->PrettyField());
+      return class_linker->GetSdkMembersCache().FindField(ref, hash);
+    }
+    case DexMembersCacheKind::kLocalMember : {
+      uint32_t data = GetFieldData(field_id);
+      uint16_t index = data & 0xffff;
+      uint16_t type_id = data >> 16;
+      if (type_id == referrer->GetDeclaringClass()->GetClassDef()->class_idx_.index_) {
+        return is_static
+            ? referrer->GetDeclaringClass()->GetStaticField(index)
+            : referrer->GetDeclaringClass()->GetInstanceField(index);
+      } else {
+        StackHandleScope<2> hs(self);
+        Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
+        Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referrer->GetDeclaringClass()->GetClassLoader()));
+        ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+        ObjPtr<mirror::Class> cls = class_linker->ResolveType(dex::TypeIndex(type_id), dex_cache, class_loader);
+        if (cls == nullptr) {
+          DCHECK(self->IsExceptionPending());
+          return nullptr;
+        }
+        if (cls->GetDexFile().GetOatDexFile() == nullptr || cls->GetDexFile().GetOatDexFile()->GetOatFile() != referrer->GetDexFile()->GetOatDexFile()->GetOatFile()) {
+          return nullptr;
+        }
+        return is_static ? cls->GetStaticField(index) : cls->GetInstanceField(index);
+      }
+    }
+    default: {
+      return nullptr;
+    }
+  }
+}
+
+ArtMethod* DexMembersCache::FindMethod(Thread* self, ArtMethod* referrer, uint32_t method_id) const {
+  if (dex_data_begin_ == nullptr || Runtime::Current()->IsJavaDebuggable()) {
+    return nullptr;
+  }
+  DCHECK_NE(referrer->GetDexFile()->GetOatDexFile(), nullptr);
+  DCHECK_EQ(&referrer->GetDexFile()->GetOatDexFile()->GetDexMembersCache(), this);
+  switch (GetMethodKind(method_id)) {
+    case DexMembersCacheKind::kUnresolvedMember : {
+      return nullptr;
+    }
+    case DexMembersCacheKind::kSdkMember : {
+      uint32_t hash = GetMethodData(method_id);
+      ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+      MethodReference ref(referrer->GetDexFile(), method_id);
+      //ArtMethod* f = class_linker->GetSdkMembersCache().FindMethod(ref, hash);
+      //LOG(ERROR) << "YES " << referrer->PrettyMethod() << " " << hash << " " << (f == nullptr ? "nullptr" : f->PrettyMethod());
+      return class_linker->GetSdkMembersCache().FindMethod(ref, hash);
+    }
+    case DexMembersCacheKind::kLocalMember : {
+      uint32_t data = GetMethodData(method_id);
+      uint16_t index = data & 0xffff;
+      uint16_t type_id = data >> 16;
+      if (type_id == referrer->GetDeclaringClass()->GetClassDef()->class_idx_.index_) {
+        return &referrer->GetDeclaringClass()->GetMethodsPtr()->At(index);
+      } else {
+        StackHandleScope<2> hs(self);
+        Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
+        Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referrer->GetDeclaringClass()->GetClassLoader()));
+        ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+        ObjPtr<mirror::Class> cls = class_linker->ResolveType(dex::TypeIndex(type_id), dex_cache, class_loader);
+        if (cls == nullptr) {
+          DCHECK(self->IsExceptionPending());
+          return nullptr;
+        }
+        if (cls->GetDexFile().GetOatDexFile() == nullptr || cls->GetDexFile().GetOatDexFile()->GetOatFile() != referrer->GetDexFile()->GetOatDexFile()->GetOatFile()) {
+          return nullptr;
+        }
+        return &cls->GetMethodsPtr()->At(index);
+      }
+    }
+    default: {
+      return nullptr;
+    }
+  }
 }
 
 }  // namespace art

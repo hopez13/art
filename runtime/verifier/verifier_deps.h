@@ -36,6 +36,7 @@ class ArtField;
 class ArtMethod;
 class DexFile;
 class VariableIndentationOutputStream;
+enum class DexMembersCacheKind : uint8_t;
 
 namespace mirror {
 class Class;
@@ -107,10 +108,25 @@ class VerifierDeps {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::verifier_deps_lock_);
 
+  static void MaybeRecordMethodResolution(VerifierDeps* verifier_deps,
+                                          const DexFile& dex_file,
+                                          uint16_t method_index,
+                                          ArtMethod* method)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::verifier_deps_lock_);
+
+  static void MaybeRecordFieldResolution(VerifierDeps* verifier_deps,
+                                          const DexFile& dex_file,
+                                          uint16_t field_index,
+                                          ArtField* field)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::verifier_deps_lock_);
+
   // Serialize the recorded dependencies and store the data into `buffer`.
   // `dex_files` provides the order of the dex files in which the dependencies
   // should be emitted.
   void Encode(const std::vector<const DexFile*>& dex_files, std::vector<uint8_t>* buffer) const;
+  void EncodeDexMembersCache(const std::vector<const DexFile*>& dex_files, std::vector<uint8_t>* buffer) const;
 
   void Dump(VariableIndentationOutputStream* vios) const;
 
@@ -160,9 +176,15 @@ class VerifierDeps {
   // Data structure representing dependencies collected during verification of
   // methods inside one DexFile.
   struct DexFileDeps {
-    explicit DexFileDeps(size_t num_class_defs)
+    explicit DexFileDeps(size_t num_class_defs, size_t num_methods, size_t num_fields)
         : assignable_types_(num_class_defs),
-          verified_classes_(num_class_defs) {}
+          verified_classes_(num_class_defs),
+          methods_unresolved_(num_methods),
+          methods_kind_(num_methods),
+          methods_(num_methods),
+          fields_unresolved_(num_fields),
+          fields_kind_(num_fields),
+          fields_(num_fields) {}
 
     // Vector of strings which are not present in the corresponding DEX file.
     // These are referred to with ids starting with `NumStringIds()` of that DexFile.
@@ -175,6 +197,13 @@ class VerifierDeps {
     // Bit vector indexed by class def indices indicating whether the corresponding
     // class was successfully verified.
     std::vector<bool> verified_classes_;
+
+    std::vector<bool> methods_unresolved_;
+    std::vector<DexMembersCacheKind> methods_kind_;
+    std::vector<uint32_t> methods_;
+    std::vector<bool> fields_unresolved_;
+    std::vector<DexMembersCacheKind> fields_kind_;
+    std::vector<uint32_t> fields_;
 
     bool Equals(const DexFileDeps& rhs) const;
   };
@@ -219,6 +248,16 @@ class VerifierDeps {
                         const dex::ClassDef& class_def,
                         const RegType& destination,
                         const RegType& source)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void RecordMethodResolution(const DexFile& dex_file,
+                              uint16_t method_index,
+                              ArtMethod* method)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void RecordFieldResolution(const DexFile& dex_file,
+                             uint16_t field_index,
+                             ArtField* field)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool Equals(const VerifierDeps& rhs) const;

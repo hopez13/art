@@ -406,6 +406,7 @@ OatWriter::OatWriter(const CompilerOptions& compiler_options,
     vdex_verifier_deps_offset_(0u),
     vdex_quickening_info_offset_(0u),
     vdex_lookup_tables_offset_(0u),
+    vdex_dex_members_cache_offset_(0u),
     oat_checksum_(adler32(0L, Z_NULL, 0)),
     code_size_(0u),
     oat_size_(0u),
@@ -432,6 +433,7 @@ OatWriter::OatWriter(const CompilerOptions& compiler_options,
     size_oat_header_(0),
     size_oat_header_key_value_store_(0),
     size_dex_file_(0),
+    size_dex_members_cache_(0),
     size_verifier_deps_(0),
     size_verifier_deps_alignment_(0),
     size_quickening_info_(0),
@@ -2666,6 +2668,26 @@ void OatWriter::WriteVerifierDeps(verifier::VerifierDeps* verifier_deps,
   vdex_size_ += size_verifier_deps_;
 }
 
+void OatWriter::WriteDexMembersCache(verifier::VerifierDeps* verifier_deps,
+                                    /*out*/std::vector<uint8_t>* buffer) {
+  if (verifier_deps == nullptr) {
+    // Nothing to write. Record the offset, but no need
+    // for alignment.
+    vdex_dex_members_cache_offset_ = vdex_size_;
+    return;
+  }
+
+  TimingLogger::ScopedTiming split("VDEX dex members cache", timings_);
+
+  size_t old_size = buffer->size();
+  verifier_deps->EncodeDexMembersCache(*dex_files_, buffer);
+  size_dex_members_cache_ = buffer->size() - old_size;
+  DCHECK_EQ(RoundUp(buffer->size(), 4u), buffer->size());
+
+  vdex_dex_members_cache_offset_ = vdex_size_;
+  vdex_size_ += size_dex_members_cache_;
+}
+
 bool OatWriter::WriteCode(OutputStream* out) {
   CHECK(write_state_ == WriteState::kWriteText);
 
@@ -2754,6 +2776,7 @@ bool OatWriter::CheckOatSize(OutputStream* out, size_t file_offset, size_t relat
     DO_STAT(size_oat_header_);
     DO_STAT(size_oat_header_key_value_store_);
     DO_STAT(size_dex_file_);
+    DO_STAT(size_dex_members_cache_);
     DO_STAT(size_verifier_deps_);
     DO_STAT(size_verifier_deps_alignment_);
     DO_STAT(size_vdex_lookup_table_);
@@ -3910,6 +3933,7 @@ bool OatWriter::FinishVdexFile(File* vdex_file, verifier::VerifierDeps* verifier
   buffer.reserve(64 * KB);
   WriteVerifierDeps(verifier_deps, &buffer);
   WriteTypeLookupTables(&buffer);
+  WriteDexMembersCache(verifier_deps, &buffer);
   DCHECK_EQ(vdex_size_, old_vdex_size + buffer.size());
 
   // Resize the vdex file.
@@ -4001,7 +4025,13 @@ bool OatWriter::FinishVdexFile(File* vdex_file, verifier::VerifierDeps* verifier
   // TypeLookupTable section.
   new (ptr) VdexFile::VdexSectionHeader(VdexSection::kTypeLookupTableSection,
                                         vdex_lookup_tables_offset_,
-                                        vdex_size_ - vdex_lookup_tables_offset_);
+                                        size_vdex_lookup_table_);
+  ptr += sizeof(VdexFile::VdexSectionHeader);
+
+  // DexMemberCaches section.
+  new (ptr) VdexFile::VdexSectionHeader(VdexSection::kDexMembersCacheSection,
+                                        vdex_dex_members_cache_offset_,
+                                        vdex_size_ - vdex_dex_members_cache_offset_);
 
   // All the contents (except the header) of the vdex file has been emitted in memory. Flush it
   // to disk.

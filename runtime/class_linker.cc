@@ -2105,6 +2105,21 @@ bool ClassLinker::AddImageSpace(
     VerifyAppImage(header, class_loader, class_table, space);
   }
 
+  if (!app_image && !Runtime::Current()->IsAotCompiler()) {
+    header.VisitPackedArtFields([&](ArtField& field) REQUIRES_SHARED(Locks::mutator_lock_) {
+      if ((hiddenapi::GetRuntimeFlags(&field) & kAccPublicApi) != 0) {
+        sdk_members_cache_.InsertField(&field);
+      }
+    }, space->Begin());
+
+    header.VisitPackedArtMethods([&](ArtMethod& method) REQUIRES_SHARED(Locks::mutator_lock_) {
+      if ((hiddenapi::GetRuntimeFlags(&method) & kAccPublicApi) != 0 && !method->IsCopied()) {
+        sdk_members_cache_.InsertMethod(&method);
+      }
+    }, space->Begin(), image_pointer_size_);
+    sdk_members_cache_.Dump();
+  }
+
   VLOG(class_linker) << "Adding image space took " << PrettyDuration(NanoTime() - start_time);
   return true;
 }
