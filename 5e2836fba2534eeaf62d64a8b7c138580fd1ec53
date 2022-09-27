@@ -146,6 +146,24 @@
       "parentUuid": "ed2aebb3_9af4f2ee",
       "revId": "5e2836fba2534eeaf62d64a8b7c138580fd1ec53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13fe5cd4_8d100e59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-27T17:33:09Z",
+      "side": 1,
+      "message": "I may be wrong, but I recall that test/mts adds dependencies that we don\u0027t want in master-art, i.e. it ended up depending on framework/base. At least if one wants to be able to build the MTS (even just mts-art). Just for this use case I guess it\u0027d work though, since we always build with `SOONG_ALLOW_MISSING_DEPENDENCIES`.",
+      "parentUuid": "030d2ad0_ae7bba7e",
+      "revId": "5e2836fba2534eeaf62d64a8b7c138580fd1ec53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
