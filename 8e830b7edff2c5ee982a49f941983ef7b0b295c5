@@ -207,6 +207,30 @@
       },
       "revId": "8e830b7edff2c5ee982a49f941983ef7b0b295c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11385a5a_d977b233",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-09-27T11:07:44Z",
+      "side": 1,
+      "message": "\u003e As I see it, shared_libs/static_libs describe dependencies similarly to #include. I prefer explicit #include even though transitive includes work just fine.\n\nI\u0027d like that too, but the difference from #include is that in particular `static_libs` has side effects as I\u0027ve mentioned, so it cannot simply be used that way.\n\n\u003e The libart-compiler is essentially always in RAM while code bloat in dex2oat (and oatdump) is mostly just taking disk space\n\nThat\u0027s a good argument. It\u0027s also a factor that BufferedOutputStream and FileOutputStream are small compared to the rest of libelffile (judging from the .o files, which admittedly is noisy since they aren\u0027t stripped), so ideally from that perspective only they should be linked into the binaries while the rest is referenced in the .so file. However that\u0027s probably too fiddly for the gain.\n\nThen I don\u0027t have a strong opinion, so feel free to keep this as-is (i.e. before this CL).",
+      "parentUuid": "f91a7815_2843bd44",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 56
+      },
+      "revId": "8e830b7edff2c5ee982a49f941983ef7b0b295c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
