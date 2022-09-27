@@ -33,6 +33,24 @@
       "message": "Can you add a regression test for this?",
       "revId": "2d0c2ca60a8717133be9c0a5b3f51eeb7bdca6f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad13765c_56000a7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-09-27T09:08:08Z",
+      "side": 1,
+      "message": "My initial understanding wasn\u0027t correct. We already do correct thing when initializing method\u0027s code. We have a check here: https://cs.android.com/android/platform/superproject/+/master:art/runtime/nterp_helpers.cc;l\u003d210;\n\nThis is a problem only when updating entrypoints for tracing. I added a test for instrumentation.",
+      "parentUuid": "71a1356d_2fb50e8f",
+      "revId": "2d0c2ca60a8717133be9c0a5b3f51eeb7bdca6f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
