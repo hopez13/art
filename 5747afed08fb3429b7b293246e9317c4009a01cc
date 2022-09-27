@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c50afc7_c98e7706",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1401,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T13:29:47Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 1400,
+        "startChar": 31,
+        "endLine": 1401,
+        "endChar": 61
+      },
+      "revId": "5747afed08fb3429b7b293246e9317c4009a01cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abd3bbbc_7f88217d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T13:29:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1406,
+        "startChar": 31,
+        "endLine": 1407,
+        "endChar": 82
+      },
+      "revId": "5747afed08fb3429b7b293246e9317c4009a01cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b9c911_6b39a9d5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2285,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T13:29:47Z",
+      "side": 1,
+      "message": "nit: one per line.",
+      "range": {
+        "startLine": 2284,
+        "startChar": 40,
+        "endLine": 2285,
+        "endChar": 64
+      },
+      "revId": "5747afed08fb3429b7b293246e9317c4009a01cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00058e10_4f763d67",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T13:29:47Z",
+      "side": 1,
+      "message": "Could this be enum class DumpOrder: uint8_t ?",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 18
+      },
+      "revId": "5747afed08fb3429b7b293246e9317c4009a01cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9acca45e_cb9c4608",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T13:29:47Z",
+      "side": 1,
+      "message": "Why going with negative values instead of reversing and using positive values?",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 86
+      },
+      "revId": "5747afed08fb3429b7b293246e9317c4009a01cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "158b5db6_c902a3f4",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T13:29:47Z",
+      "side": 1,
+      "message": "Add a comment that the map is there only for sorting.",
+      "range": {
+        "startLine": 246,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 87
+      },
+      "revId": "5747afed08fb3429b7b293246e9317c4009a01cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

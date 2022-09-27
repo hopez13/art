@@ -80,6 +80,24 @@
       "message": "(using the default mutex level... I think that is ok, but I am never 100% sure with lock levels)",
       "revId": "3fa10e7cea42973c307dd50ab7e4aa473c803277",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8635642_0ed3c504",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T13:29:47Z",
+      "side": 1,
+      "message": "If default is bottom, then yeah that\u0027s OK.",
+      "parentUuid": "6f2e71c2_2c981c67",
+      "revId": "3fa10e7cea42973c307dd50ab7e4aa473c803277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
