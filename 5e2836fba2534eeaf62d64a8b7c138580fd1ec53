@@ -128,6 +128,24 @@
       "parentUuid": "79d9ed95_e6d6ebba",
       "revId": "5e2836fba2534eeaf62d64a8b7c138580fd1ec53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "030d2ad0_ae7bba7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-09-27T13:42:49Z",
+      "side": 1,
+      "message": "\u003e Does it need to go in a single topic?\n\nIdeally yes, as I think the build changes in this CL would break MTS builds (on `test_suites_*` build targets) in the Android Build otherwise.\n\n\u003e (Note: There\u0027s no test/mts/ in master-art, so I\u0027ll need to switch to a different checkout.)\n\nRight; Martin, maybe we should discuss this.",
+      "parentUuid": "ed2aebb3_9af4f2ee",
+      "revId": "5e2836fba2534eeaf62d64a8b7c138580fd1ec53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
