@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a53d80b_73475220",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T09:47:10Z",
+      "side": 1,
+      "message": "Add an enum for the three priorities?",
+      "range": {
+        "startLine": 2295,
+        "startChar": 34,
+        "endLine": 2295,
+        "endChar": 89
+      },
+      "revId": "4b7b31a0c46b65ed7b75b7664965716cae0310f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07467559_8b1f587f",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T09:47:10Z",
+      "side": 1,
+      "message": "why the negative? add a comment.",
+      "range": {
+        "startLine": 217,
+        "startChar": 43,
+        "endLine": 217,
+        "endChar": 44
+      },
+      "revId": "4b7b31a0c46b65ed7b75b7664965716cae0310f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
