@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "320e5544_f70766cf",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2302,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T14:38:57Z",
+      "side": 1,
+      "message": "Maybe for easier readability you could just do ifs?",
+      "range": {
+        "startLine": 2300,
+        "startChar": 0,
+        "endLine": 2302,
+        "endChar": 67
+      },
+      "revId": "19812be55300dd7662abfca5798f37ace0bdf9d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
