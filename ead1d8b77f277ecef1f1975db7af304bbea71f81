@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e9a4085_957d966c",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T07:20:02Z",
+      "side": 1,
+      "message": "Cast to `void*`. A failing `DCHECK_LE()` shall try to print `uint8_t*` arguments as null-terminated C strings which is likely to crash on its own.\n\nSame for `end_boundary`.",
+      "range": {
+        "startLine": 75,
+        "startChar": 43,
+        "endLine": 75,
+        "endChar": 51
+      },
+      "revId": "ead1d8b77f277ecef1f1975db7af304bbea71f81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "570adee3_6f4830d3",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T07:20:02Z",
+      "side": 1,
+      "message": "`void*`",
+      "range": {
+        "startLine": 430,
+        "startChar": 43,
+        "endLine": 430,
+        "endChar": 51
+      },
+      "revId": "ead1d8b77f277ecef1f1975db7af304bbea71f81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

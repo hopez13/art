@@ -323,6 +323,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "28811ec2_ebe380ad",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T07:20:02Z",
+      "side": 1,
+      "message": "I think we shall leave the cleanup for a later CL. (Though I would have preferred the cleanup to be done first.)",
+      "parentUuid": "386316b1_684d495b",
+      "range": {
+        "startLine": 481,
+        "startChar": 33,
+        "endLine": 481,
+        "endChar": 38
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5ea7a4d3_485074a3",
         "filename": "libartbase/base/arena_allocator.cc",
         "patchSetId": 20
@@ -1884,6 +1908,30 @@
       "side": 1,
       "message": "Thanks for pointing it out. Clearly if memory tool is in use then we can\u0027t expect contiguous allocations to be next to each other.\n\nRewrote the whole function. PTAL.",
       "parentUuid": "c79dba0a_34835298",
+      "range": {
+        "startLine": 91,
+        "startChar": 17,
+        "endLine": 91,
+        "endChar": 26
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c8fd3e2_a0640f2c",
+        "filename": "runtime/linear_alloc-inl.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T07:20:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2a05fe5a_59a33a96",
       "range": {
         "startLine": 91,
         "startChar": 17,

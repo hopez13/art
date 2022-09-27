@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50ac7f34_8785a987",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T07:20:02Z",
+      "side": 1,
+      "message": "I see, that\u0027s the `min()` in `MarkCompact::NativeRootsUpdateVisitor::operator()`.",
+      "parentUuid": "1527626b_1664b034",
+      "range": {
+        "startLine": 86,
+        "startChar": 27,
+        "endLine": 86,
+        "endChar": 39
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "471d48d4_c906c76e",
@@ -236,6 +260,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b3619e4_63d0819d",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T07:20:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c5110bbf_53d4b352",
+      "range": {
+        "startLine": 440,
+        "startChar": 27,
+        "endLine": 440,
+        "endChar": 39
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "199e84c2_0c46d151",
@@ -320,6 +368,30 @@
       "side": 1,
       "message": "I know, and that\u0027s why added release. But without that erase wasn\u0027t possible.\n\nAnyways, I have changed the set to `std::set\u003cTrackedArena,...\u003e`",
       "parentUuid": "88cddb8c_761cd29d",
+      "range": {
+        "startLine": 244,
+        "startChar": 4,
+        "endLine": 244,
+        "endChar": 19
+      },
+      "revId": "f4916fba1caf84dc170e6f39eec4e9e22cef8d3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb87048b_4c080f1e",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T07:20:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2fd92550_cb78ed7e",
       "range": {
         "startLine": 244,
         "startChar": 4,
