@@ -3804,6 +3804,7 @@ void Thread::DumpThreadOffset(std::ostream& os, uint32_t offset) {
   QUICK_ENTRY_POINT_INFO(pA64Store)
   QUICK_ENTRY_POINT_INFO(pNewEmptyString)
   QUICK_ENTRY_POINT_INFO(pNewStringFromBytes_B)
+  QUICK_ENTRY_POINT_INFO(pNewStringFromBytes_BB)
   QUICK_ENTRY_POINT_INFO(pNewStringFromBytes_BI)
   QUICK_ENTRY_POINT_INFO(pNewStringFromBytes_BII)
   QUICK_ENTRY_POINT_INFO(pNewStringFromBytes_BIII)
