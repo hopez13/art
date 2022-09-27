@@ -183,6 +183,30 @@
       },
       "revId": "8e830b7edff2c5ee982a49f941983ef7b0b295c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f91a7815_2843bd44",
+        "filename": "compiler/libart-compiler.map",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-27T07:43:49Z",
+      "side": 1,
+      "message": "As I see it, `shared_libs`/`static_libs` describe dependencies similarly to `#include`. I prefer explicit `#include` even though transitive includes work just fine.\n\nThere are different consequences for bloat in different places. The `libart-compiler` is essentially always in RAM while code bloat in `dex2oat` (and `oatdump`) is mostly just taking disk space. That\u0027s why I prefer moving code to `dex2oat`.\n\n(But the amount of code is small, so I\u0027m fine with this if you still want to export these symbols here after I\u0027ve laid out my arguments.)",
+      "parentUuid": "42dea04f_09ede326",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 56
+      },
+      "revId": "8e830b7edff2c5ee982a49f941983ef7b0b295c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
