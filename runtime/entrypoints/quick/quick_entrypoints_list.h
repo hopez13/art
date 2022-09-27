@@ -151,6 +151,7 @@
 \
   V(NewEmptyString, void, void) \
   V(NewStringFromBytes_B, void, void) \
+  V(NewStringFromBytes_BB, void, void) \
   V(NewStringFromBytes_BI, void, void) \
   V(NewStringFromBytes_BII, void, void) \
   V(NewStringFromBytes_BIII, void, void) \
