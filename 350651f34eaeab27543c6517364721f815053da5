@@ -22,6 +22,30 @@
       },
       "revId": "350651f34eaeab27543c6517364721f815053da5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b72d2f24_b08f197c",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T09:12:27Z",
+      "side": 1,
+      "message": "629-vdex-speed forces the compilation to be speed, so speed-profile is fine. Only interpreter configuations, which pass `-Xint` won\u0027t support the test.",
+      "parentUuid": "bf6032d3_e1ea159f",
+      "range": {
+        "startLine": 84,
+        "startChar": 63,
+        "endLine": 84,
+        "endChar": 64
+      },
+      "revId": "350651f34eaeab27543c6517364721f815053da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
