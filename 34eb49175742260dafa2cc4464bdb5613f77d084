@@ -16,6 +16,29 @@
       "message": "Sorry for the delay. I got context switched to other tasks. PTAL. Thanks!",
       "revId": "34eb49175742260dafa2cc4464bdb5613f77d084",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63bde4d3_e9d25dce",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-27T09:26:29Z",
+      "side": 1,
+      "message": "The code below can still update the entrypoint with stubs. Could we avoid calling InitializeMethodsCode on non-invokable methods alltogether?",
+      "range": {
+        "startLine": 360,
+        "startChar": 66,
+        "endLine": 360,
+        "endChar": 90
+      },
+      "revId": "34eb49175742260dafa2cc4464bdb5613f77d084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
