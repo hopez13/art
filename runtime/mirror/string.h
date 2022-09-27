@@ -209,6 +209,12 @@ class MANAGED String final : public Object {
   void GetChars(int32_t start, int32_t end, Handle<CharArray> array, int32_t index)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void FillBytesLatin1(Handle<ByteArray> array, int32_t index)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void FillBytesUTF16(Handle<ByteArray> array, int32_t index)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool IsCompressed() REQUIRES_SHARED(Locks::mutator_lock_) {
     return kUseStringCompression && IsCompressed(GetCount());
