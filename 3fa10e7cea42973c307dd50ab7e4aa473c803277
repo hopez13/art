@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "228ec9bb_81d0cfa1",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-27T11:53:44Z",
+      "side": 1,
+      "message": "I am using ThreadId here as tie-break (that is our lock thread id rather than the system one).\n\nThat is nice as it keeps the output deterministic, the threads are not in random order, and they are somewhat in creation order.\n\nHowever, I assume the thread id is unique ... which I think is fair assumption..",
+      "revId": "3fa10e7cea42973c307dd50ab7e4aa473c803277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f2e71c2_2c981c67",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-27T11:53:44Z",
+      "side": 1,
+      "message": "(using the default mutex level... I think that is ok, but I am never 100% sure with lock levels)",
+      "revId": "3fa10e7cea42973c307dd50ab7e4aa473c803277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
