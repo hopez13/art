@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d233320_c42f7742",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T02:41:30Z",
+      "side": 1,
+      "message": "Not quite done, but getting there. Nothing major, so far.",
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d69f15c_60753852",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T02:41:30Z",
+      "side": 1,
+      "message": "This seems quite confusing to me, particularly calling a member function on an object you can\u0027t really access. But I think it is inherently messy. I might have added a static member function return the declaring class offset, defined in terms of offsetof() instead of using GetDeclaringClassAddressWithoutBarrier. But I\u0027m OK with either option.",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 3
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6800d2b6_d2bac550",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T02:41:30Z",
+      "side": 1,
+      "message": "It seems to me it would be clearer if you deleted this, or replaced it with \"that reside\". As it stands, it could be read as \"Check if they\u0027re all in this range; if so, visit them\". Same for methods.",
+      "range": {
+        "startLine": 43,
+        "startChar": 61,
+        "endLine": 43,
+        "endChar": 74
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f0b112a_2afaca6a",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T02:41:30Z",
+      "side": 1,
+      "message": "Is there a reason this has to look different from the field case?",
+      "range": {
+        "startLine": 436,
+        "startChar": 2,
+        "endLine": 441,
+        "endChar": 5
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b21f61fe_50001b24",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T02:41:30Z",
+      "side": 1,
+      "message": "Could use a summary comment that defines what addr and end are. Does it make sense to pass in more meaningful pointer types here and cast them later?",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 51
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db39e58a_5e694d5f",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T02:41:30Z",
+      "side": 1,
+      "message": "Is there a reason this \"GCVisited\", while the above is \"Tracked\"?",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c1d6934_92306ad6",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T02:41:30Z",
+      "side": 1,
+      "message": "I would have called this something like LessByChunkAddr, etc., making it more consistent with std::less vs std::sort.",
+      "range": {
+        "startLine": 90,
+        "startChar": 8,
+        "endLine": 90,
+        "endChar": 12
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9450c56b_34b3c540",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T02:41:30Z",
+      "side": 1,
+      "message": "std::less seems more correct here. I don\u0027t think these are always addresses in the same array, which is required for pointer \u003c .",
+      "range": {
+        "startLine": 93,
+        "startChar": 22,
+        "endLine": 93,
+        "endChar": 23
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f37d49_baa9ac08",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T02:41:30Z",
+      "side": 1,
+      "message": "Same here and for the address comparison above.",
+      "range": {
+        "startLine": 108,
+        "startChar": 23,
+        "endLine": 108,
+        "endChar": 24
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
