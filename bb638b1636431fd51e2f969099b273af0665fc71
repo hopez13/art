@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55696b31_9536b4c0",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-09-28T14:10:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7cc188b0_58d7bbb0",
+      "revId": "bb638b1636431fd51e2f969099b273af0665fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d83e4f42_d005b96e",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-09-28T10:14:46Z",
       "side": 1,
       "message": "2022 (here and other files)",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "bb638b1636431fd51e2f969099b273af0665fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9f9de7b_7378de43",
+        "filename": "test/2240-tracing-non-invokable-method/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-09-28T14:10:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d83e4f42_d005b96e",
       "range": {
         "startLine": 2,
         "startChar": 17,
