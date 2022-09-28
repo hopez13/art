@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a05ea48_4b45f83d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T22:02:30Z",
+      "side": 1,
+      "message": "Finished a pass. There were a couple of places I didn\u0027t understand the correctness argument, and a few more minor suggestions. Otherwise it looks fine to me.\n\nI guess we decided to postpone indirect reference tables, possibly indefinitely, since they\u0027re typically relatively small.",
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d69f15c_60753852",
@@ -82,6 +99,75 @@
         "startChar": 2,
         "endLine": 441,
         "endChar": 5
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b19c232_a6673101",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T22:02:30Z",
+      "side": 1,
+      "message": "Since this describes the condition in the next if, I would phrase it as a question. Otherwise I tend to read such statements as assertions that hold at that hold at that point in the code.\n\nAlso applies to the next comment, and possibly others.",
+      "range": {
+        "startLine": 184,
+        "startChar": 7,
+        "endLine": 184,
+        "endChar": 47
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddefd4bb_8aaf5e59",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T22:02:30Z",
+      "side": 1,
+      "message": "I think this would be a bit clearer (and slightly cheaper), if we just kept a local \"already added to freelist\" flag.\n\nAlternatively, I suspect this code could be much simpler, though perhaps slightly slower, if we merged by unconditionally removing the mergeable blocks, while adjusting range_begin and range_end, and then unconditionally inserted at the end. Is this performance-critical enough to not just do that?",
+      "range": {
+        "startLine": 189,
+        "startChar": 10,
+        "endLine": 189,
+        "endChar": 93
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e90c33ab_03341a08",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T22:02:30Z",
+      "side": 1,
+      "message": "Can you explain?",
+      "range": {
+        "startLine": 241,
+        "startChar": 4,
+        "endLine": 241,
+        "endChar": 24
       },
       "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -197,6 +283,144 @@
         "startChar": 23,
         "endLine": 108,
         "endChar": 24
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32224c29_aca8d562",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T22:02:30Z",
+      "side": 1,
+      "message": "std::max?",
+      "range": {
+        "startLine": 1562,
+        "startChar": 29,
+        "endLine": 1562,
+        "endChar": 64
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a78da8c_b9ddf03a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T22:02:30Z",
+      "side": 1,
+      "message": "Please merge the 2 lines, since obj_size is dead.",
+      "range": {
+        "startLine": 1566,
+        "startChar": 6,
+        "endLine": 1567,
+        "endChar": 23
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de08667d_9650449b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1613,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T22:02:30Z",
+      "side": 1,
+      "message": "So how do we do that here?",
+      "range": {
+        "startLine": 1613,
+        "startChar": 55,
+        "endLine": 1613,
+        "endChar": 87
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98776cb4_a4561b98",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T22:02:30Z",
+      "side": 1,
+      "message": "...Helper::Clobber...",
+      "range": {
+        "startLine": 1614,
+        "startChar": 68,
+        "endLine": 1614,
+        "endChar": 81
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab0c1912_dcb4f608",
+        "filename": "runtime/linear_alloc-inl.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T22:02:30Z",
+      "side": 1,
+      "message": "Why not AllocAlign16?",
+      "range": {
+        "startLine": 99,
+        "startChar": 43,
+        "endLine": 99,
+        "endChar": 48
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c8ac1fd_6ee66bfe",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-09-28T22:02:30Z",
+      "side": 1,
+      "message": "You might consider making this and the GetSize result a size_t, which seems more expected, and then doing an explicit overflow check in the constructor. I don\u0027t have a strong opinion about this.",
+      "range": {
+        "startLine": 41,
+        "startChar": 17,
+        "endLine": 41,
+        "endChar": 25
       },
       "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
