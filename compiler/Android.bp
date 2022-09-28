@@ -176,7 +176,6 @@ art_cc_defaults {
     ],
 
     export_include_dirs: ["."],
-    // Not using .map.txt because this is an internal API
     version_script: "libart-compiler.map",
 }
 
@@ -230,7 +229,7 @@ art_cc_library {
         "libprofile",
         "libdexfile",
     ],
-    static_libs: ["libelffile"],
+    whole_static_libs: ["libelffile"],
     runtime_libs: [
         // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
         // `libart-disassembler.so`.
@@ -298,7 +297,7 @@ art_cc_library {
         "libprofiled",
         "libdexfiled",
     ],
-    static_libs: ["libelffiled"],
+    whole_static_libs: ["libelffiled"],
     runtime_libs: [
         // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
         // `libartd-disassembler.so`.
@@ -496,9 +495,8 @@ art_cc_test {
         "liblzma",
     ],
     static_libs: [
-        "libartd-compiler",
-        "libelffiled",
         "libvixld",
+        "libartd-compiler",
     ],
 }
 
@@ -522,9 +520,8 @@ art_cc_test {
         // TODO(b/192070541): Consider linking `libart-simulator-container`
         // dynamically.
         "libart-simulator-container",
-        "libart-compiler",
-        "libelffile",
         "libvixl",
+        "libart-compiler",
     ],
     test_config: "art_standalone_compiler_tests.xml",
 }
@@ -561,7 +558,6 @@ art_cc_test {
     ],
     static_libs: [
         "libartd-compiler",
-        "libelffiled",
         "libvixld",
     ],
 }
