@@ -84,6 +84,10 @@ func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 		cflags = append(cflags, "-DART_USE_TLAB=1")
 	}
 
+	if ctx.Config().IsEnvTrue("ART_FORCE_TRY_PREDICATED_SIMD") {
+		cflags = append(cflags, "-DART_FORCE_TRY_PREDICATED_SIMD=1")
+	}
+
 	cdexLevel := ctx.Config().GetenvWithDefault("ART_DEFAULT_COMPACT_DEX_LEVEL", "fast")
 	cflags = append(cflags, "-DART_DEFAULT_COMPACT_DEX_LEVEL="+cdexLevel)
 
