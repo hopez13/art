@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a3e5ff6_802e2793",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-09-28T10:12:27Z",
+      "side": 1,
+      "message": "PTAL. Thanks!",
+      "revId": "bb638b1636431fd51e2f969099b273af0665fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc188b0_58d7bbb0",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-09-28T10:12:27Z",
+      "side": 1,
+      "message": "This change and the one in runtime.cc aren\u0027t strictly required but kept them for consistency since we already check for other cases.",
+      "revId": "bb638b1636431fd51e2f969099b273af0665fc71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
