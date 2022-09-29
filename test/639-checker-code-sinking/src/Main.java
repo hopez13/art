@@ -60,25 +60,19 @@ public class Main {
   /// CHECK: <<New:l\d+>>       NewInstance [<<LoadClass>>]
   /// CHECK:                    ConstructorFence [<<New>>]
   /// CHECK:                    If
-  /// CHECK:                    begin_block
   /// CHECK:                    Throw
 
   /// CHECK-START: void Main.testSimpleUse() code_sinking (after)
   /// CHECK-NOT:                NewInstance
   /// CHECK:                    If
-  /// CHECK:                    begin_block
-  /// CHECK: <<Error:l\d+>>     LoadClass class_name:java.lang.Error
   /// CHECK: <<LoadClass:l\d+>> LoadClass class_name:java.lang.Object
-  /// CHECK-NOT:                begin_block
   /// CHECK: <<New:l\d+>>       NewInstance [<<LoadClass>>]
   /// CHECK:                    ConstructorFence [<<New>>]
-  /// CHECK-NOT:                begin_block
-  /// CHECK:                    NewInstance [<<Error>>]
   /// CHECK:                    Throw
   public static void testSimpleUse() {
     Object o = new Object();
     if (doThrow) {
-      throw new Error(o.toString());
+      throw $noinline$GetError(o.toString());
     }
   }
 
