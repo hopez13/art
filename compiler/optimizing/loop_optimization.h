@@ -113,10 +113,10 @@ class HLoopOptimization : public HOptimization {
   };
 
   /*
-   * Vectorization mode during synthesis
+   * Loop synthesis mode during vectorization
    * (sequential peeling/cleanup loop or vector loop).
    */
-  enum VectorMode {
+  enum class LoopSynthesisMode {
     kSequential,
     kVector
   };
@@ -566,7 +566,7 @@ class HLoopOptimization : public HOptimization {
   ScopedArenaSafeMap<HBasicBlock*, BlockPredicateInfo*>* predicate_info_map_;
 
   // Temporary vectorization bookkeeping.
-  VectorMode vector_mode_;  // synthesis mode
+  LoopSynthesisMode synthesis_mode_;  // synthesis mode
   HBasicBlock* vector_preheader_;  // preheader of the new loop
   HBasicBlock* vector_header_;  // header of the new loop
   HBasicBlock* vector_body_;  // body of the new loop

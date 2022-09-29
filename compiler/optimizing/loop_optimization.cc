@@ -525,7 +525,7 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       vector_permanent_map_(nullptr),
       vector_external_set_(nullptr),
       predicate_info_map_(nullptr),
-      vector_mode_(kSequential),
+      synthesis_mode_(LoopSynthesisMode::kSequential),
       vector_preheader_(nullptr),
       vector_header_(nullptr),
       vector_body_(nullptr),
@@ -964,10 +964,10 @@ bool HLoopOptimization::TryVectorizePredicated(LoopNode* node,
 }
 
 bool HLoopOptimization::TryVectorizedTraditional(LoopNode* node,
-                                                HBasicBlock* body,
-                                                HBasicBlock* exit,
-                                                HPhi* main_phi,
-                                                int64_t trip_count) {
+                                                 HBasicBlock* body,
+                                                 HBasicBlock* exit,
+                                                 HPhi* main_phi,
+                                                 int64_t trip_count) {
   HBasicBlock* header = node->loop_info->GetHeader();
   size_t num_of_blocks = header->GetLoopInformation()->GetBlocks().NumSetBits();
 
@@ -1312,7 +1312,7 @@ void HLoopOptimization::VectorizePredicated(LoopNode* node,
   //    <vectorized-loop-body>
   HBasicBlock* new_preheader =
       graph_->TransformLoopForVectorization(vector_header_, vector_body_, exit);
-  vector_mode_ = kVector;
+  synthesis_mode_ = LoopSynthesisMode::kVector;
   GenerateNewLoopPredicated(node,
                             new_preheader,
                             vector_index_,
@@ -1323,7 +1323,7 @@ void HLoopOptimization::VectorizePredicated(LoopNode* node,
   // for ( ; i < stc; i += 1)
   //    <loop-body>
   if (needs_disambiguation_test) {
-    vector_mode_ = kSequential;
+    synthesis_mode_ = LoopSynthesisMode::kSequential;
     new_preheader =
         graph_->TransformLoopForVectorization(vector_header_, vector_body_, exit);
     // Use "Traditional" version for the sequential loop.
@@ -1461,7 +1461,7 @@ void HLoopOptimization::VectorizeTraditional(LoopNode* node,
   //       nothing more than the Android runtime alignment conventions.
   HBasicBlock* new_preheader = nullptr;
   if (ptc != nullptr) {
-    vector_mode_ = kSequential;
+    synthesis_mode_ = LoopSynthesisMode::kSequential;
     new_preheader =
         graph_->TransformLoopForVectorization(vector_header_, vector_body_, exit);
     GenerateNewLoopTraditional(node,
@@ -1475,7 +1475,7 @@ void HLoopOptimization::VectorizeTraditional(LoopNode* node,
   // Generate vector loop, possibly further unrolled:
   // for ( ; i < vtc; i += chunk)
   //    <vectorized-loop-body>
-  vector_mode_ = kVector;
+  synthesis_mode_ = LoopSynthesisMode::kVector;
   new_preheader =
       graph_->TransformLoopForVectorization(vector_header_, vector_body_, exit);
   GenerateNewLoopTraditional(node,
@@ -1489,7 +1489,7 @@ void HLoopOptimization::VectorizeTraditional(LoopNode* node,
   // for ( ; i < stc; i += 1)
   //    <loop-body>
   if (needs_cleanup) {
-    vector_mode_ = kSequential;
+    synthesis_mode_ = LoopSynthesisMode::kSequential;
     new_preheader =
         graph_->TransformLoopForVectorization(vector_header_, vector_body_, exit);
     GenerateNewLoopTraditional(node,
@@ -1567,7 +1567,7 @@ void HLoopOptimization::GenerateNewLoopTraditional(LoopNode* node,
                                                    HInstruction* hi,
                                                    HInstruction* step,
                                                    uint32_t unroll) {
-  DCHECK(unroll == 1 || vector_mode_ == kVector);
+  DCHECK(unroll == 1 || synthesis_mode_ == LoopSynthesisMode::kVector);
   DataType::Type induc_type = lo->GetType();
   HPhi* phi = InitializeForNewLoop(new_preheader, lo);
 
@@ -1588,7 +1588,7 @@ void HLoopOptimization::GenerateNewLoopPredicated(LoopNode* node,
                                                   HInstruction* lo,
                                                   HInstruction* hi,
                                                   HInstruction* step) {
-  DCHECK_EQ(vector_mode_, kVector);
+  DCHECK(synthesis_mode_ == LoopSynthesisMode::kVector);
   DataType::Type induc_type = lo->GetType();
   HPhi* phi = InitializeForNewLoop(new_preheader, lo);
 
@@ -1863,7 +1863,7 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
            size_from >= size_vec &&
            VectorizeUse(node, opa, generate_code, type, restrictions))) {
         if (generate_code) {
-          if (vector_mode_ == kVector) {
+          if (synthesis_mode_ == LoopSynthesisMode::kVector) {
             vector_map_->Put(instruction, vector_map_->Get(opa));  // operand pass-through
           } else {
             GenerateVecOp(instruction, vector_map_->Get(opa), nullptr, type);
@@ -1939,7 +1939,7 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
     // Accept shift operator for vectorizable/invariant operands.
     // TODO: accept symbolic, albeit loop invariant shift factors.
     DCHECK(r != nullptr);
-    if (generate_code && vector_mode_ != kVector) {  // de-idiom
+    if (generate_code && synthesis_mode_ != LoopSynthesisMode::kVector) {  // de-idiom
       r = opa;
     }
     int64_t distance = 0;
@@ -1967,7 +1967,7 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
     }
     // Accept ABS(x) for vectorizable operand.
     DCHECK(r != nullptr);
-    if (generate_code && vector_mode_ != kVector) {  // de-idiom
+    if (generate_code && synthesis_mode_ != LoopSynthesisMode::kVector) {  // de-idiom
       r = opa;
     }
     if (VectorizeUse(node, r, generate_code, type, restrictions)) {
@@ -2163,7 +2163,7 @@ void HLoopOptimization::GenerateVecInv(HInstruction* org, DataType::Type type) {
   if (vector_map_->find(org) == vector_map_->end()) {
     // In scalar code, just use a self pass-through for scalar invariants
     // (viz. expression remains itself).
-    if (vector_mode_ == kSequential) {
+    if (synthesis_mode_ == LoopSynthesisMode::kSequential) {
       vector_map_->Put(org, org);
       return;
     }
@@ -2211,7 +2211,7 @@ void HLoopOptimization::GenerateVecMem(HInstruction* org,
                                        DataType::Type type) {
   uint32_t dex_pc = org->GetDexPc();
   HInstruction* vector = nullptr;
-  if (vector_mode_ == kVector) {
+  if (synthesis_mode_ == LoopSynthesisMode::kVector) {
     // Vector store or load.
     bool is_string_char_at = false;
     HInstruction* base = org->InputAt(0);
@@ -2243,7 +2243,7 @@ void HLoopOptimization::GenerateVecMem(HInstruction* org,
     }
   } else {
     // Scalar store or load.
-    DCHECK(vector_mode_ == kSequential);
+    DCHECK(synthesis_mode_ == LoopSynthesisMode::kSequential);
     if (opb != nullptr) {
       DataType::Type component_type = org->AsArraySet()->GetComponentType();
       vector = new (global_allocator_) HArraySet(
@@ -2261,7 +2261,7 @@ void HLoopOptimization::GenerateVecReductionPhi(HPhi* orig_phi) {
   DCHECK(reductions_->find(orig_phi) != reductions_->end());
   DCHECK(reductions_->Get(orig_phi->InputAt(1)) == orig_phi);
   HInstruction* vector = nullptr;
-  if (vector_mode_ == kSequential) {
+  if (synthesis_mode_ == LoopSynthesisMode::kSequential) {
     HPhi* new_phi = new (global_allocator_) HPhi(
         global_allocator_, kNoRegNumber, 0, orig_phi->GetType());
     vector_header_->AddPhi(new_phi);
@@ -2290,7 +2290,7 @@ void HLoopOptimization::GenerateVecReductionPhiInputs(HPhi* phi, HInstruction* r
     DCHECK(new_phi->IsVecOperation());
   }
   // Prepare the new initialization.
-  if (vector_mode_ == kVector) {
+  if (synthesis_mode_ == LoopSynthesisMode::kVector) {
     // Generate a [initial, 0, .., 0] vector for add or
     // a [initial, initial, .., initial] vector for min/max.
     HVecOperation* red_vector = new_red->AsVecOperation();
@@ -2354,10 +2354,10 @@ HInstruction* HLoopOptimization::ReduceAndExtractIfNeeded(HInstruction* instruct
 }
 
 #define GENERATE_VEC(x, y) \
-  if (vector_mode_ == kVector) { \
+  if (synthesis_mode_ == LoopSynthesisMode::kVector) { \
     vector = (x); \
   } else { \
-    DCHECK(vector_mode_ == kSequential); \
+    DCHECK(synthesis_mode_ == LoopSynthesisMode::kSequential); \
     vector = (y); \
   } \
   break;
@@ -2437,11 +2437,11 @@ HInstruction* HLoopOptimization::GenerateVecOp(HInstruction* org,
         new (global_allocator_) HAbs(org_type, opa, dex_pc));
     case HInstruction::kEqual: {
         // Special case.
-        if (vector_mode_ == kVector) {
+        if (synthesis_mode_ == LoopSynthesisMode::kVector) {
           vector = new (global_allocator_) HVecCondition(
               global_allocator_, opa, opb, type, vector_length_, dex_pc);
         } else {
-          DCHECK(vector_mode_ == kSequential);
+          DCHECK(synthesis_mode_ == LoopSynthesisMode::kSequential);
           UNREACHABLE();
         }
       }
@@ -2507,14 +2507,14 @@ bool HLoopOptimization::VectorizeHalvingAddIdiom(LoopNode* node,
       // Accept recognized halving add for vectorizable operands. Vectorized code uses the
       // shorthand idiomatic operation. Sequential code uses the original scalar expressions.
       DCHECK(r != nullptr && s != nullptr);
-      if (generate_code && vector_mode_ != kVector) {  // de-idiom
+      if (generate_code && synthesis_mode_ != LoopSynthesisMode::kVector) {  // de-idiom
         r = instruction->InputAt(0);
         s = instruction->InputAt(1);
       }
       if (VectorizeUse(node, r, generate_code, type, restrictions) &&
           VectorizeUse(node, s, generate_code, type, restrictions)) {
         if (generate_code) {
-          if (vector_mode_ == kVector) {
+          if (synthesis_mode_ == LoopSynthesisMode::kVector) {
             vector_map_->Put(instruction, new (global_allocator_) HVecHalvingAdd(
                 global_allocator_,
                 vector_map_->Get(r),
@@ -2583,14 +2583,14 @@ bool HLoopOptimization::VectorizeSADIdiom(LoopNode* node,
   // Accept SAD idiom for vectorizable operands. Vectorized code uses the shorthand
   // idiomatic operation. Sequential code uses the original scalar expressions.
   DCHECK(r != nullptr && s != nullptr);
-  if (generate_code && vector_mode_ != kVector) {  // de-idiom
+  if (generate_code && synthesis_mode_ != LoopSynthesisMode::kVector) {  // de-idiom
     r = s = abs->InputAt(0);
   }
   if (VectorizeUse(node, acc, generate_code, sub_type, restrictions) &&
       VectorizeUse(node, r, generate_code, sub_type, restrictions) &&
       VectorizeUse(node, s, generate_code, sub_type, restrictions)) {
     if (generate_code) {
-      if (vector_mode_ == kVector) {
+      if (synthesis_mode_ == LoopSynthesisMode::kVector) {
         vector_map_->Put(instruction, new (global_allocator_) HVecSADAccumulate(
             global_allocator_,
             vector_map_->Get(acc),
@@ -2656,7 +2656,7 @@ bool HLoopOptimization::VectorizeDotProdIdiom(LoopNode* node,
   DCHECK(r != nullptr && s != nullptr);
   // Accept dot product idiom for vectorizable operands. Vectorized code uses the shorthand
   // idiomatic operation. Sequential code uses the original scalar expressions.
-  if (generate_code && vector_mode_ != kVector) {  // de-idiom
+  if (generate_code && synthesis_mode_ != LoopSynthesisMode::kVector) {  // de-idiom
     r = mul_left;
     s = mul_right;
   }
@@ -2664,7 +2664,7 @@ bool HLoopOptimization::VectorizeDotProdIdiom(LoopNode* node,
       VectorizeUse(node, r, generate_code, op_type, restrictions) &&
       VectorizeUse(node, s, generate_code, op_type, restrictions)) {
     if (generate_code) {
-      if (vector_mode_ == kVector) {
+      if (synthesis_mode_ == LoopSynthesisMode::kVector) {
         vector_map_->Put(instruction, new (global_allocator_) HVecDotProd(
             global_allocator_,
             vector_map_->Get(acc),
@@ -2742,7 +2742,7 @@ bool HLoopOptimization::VectorizeIfCondition(LoopNode* node,
     return false;
   }
 
-  if (generate_code && vector_mode_ != kVector) {  // de-idiom
+  if (generate_code && synthesis_mode_ != LoopSynthesisMode::kVector) {  // de-idiom
     opa_promoted = opa;
     opb_promoted = opb;
   }
@@ -2755,7 +2755,7 @@ bool HLoopOptimization::VectorizeIfCondition(LoopNode* node,
                                              vector_map_->Get(opb_promoted),
                                              type);
 
-      if (vector_mode_ == kVector) {
+      if (synthesis_mode_ == LoopSynthesisMode::kVector) {
           HInstruction* vec_pred_not = new (global_allocator_) HVecPredNot(
               global_allocator_, vec_cond, type, vector_length_, hif->GetDexPc());
 
@@ -2764,7 +2764,7 @@ bool HLoopOptimization::VectorizeIfCondition(LoopNode* node,
           pred_info->SetControlFlowInfo(vec_cond->AsVecPredSetOperation(),
                                         vec_pred_not->AsVecPredSetOperation());
         } else {
-          DCHECK(vector_mode_ == kSequential);
+          DCHECK(synthesis_mode_ == LoopSynthesisMode::kSequential);
           UNREACHABLE();
       }
     }
