@@ -1399,6 +1399,15 @@ bool HInliner::IsInliningAllowed(ArtMethod* method, const CodeItemDataAccessor& 
     return false;
   }
 
+  if (annotations::MethodIsNeverInline(*method->GetDexFile(),
+                                       method->GetClassDef(),
+                                       method->GetDexMethodIndex())) {
+    LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedNeverInlineAnnotation)
+        << "Method " << method->PrettyMethod()
+        << " has the @NeverInline annotation so it won't be inlined";
+    return false;
+  }
+
   return true;
 }
 
