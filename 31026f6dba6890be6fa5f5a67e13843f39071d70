@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b7ba54f_ff78e285",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2512,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-29T07:05:45Z",
+      "side": 1,
+      "message": "Added a `DCHECK()`.",
+      "parentUuid": "c4e5a51e_78e1e083",
+      "range": {
+        "startLine": 2512,
+        "startChar": 16,
+        "endLine": 2512,
+        "endChar": 38
+      },
+      "revId": "31026f6dba6890be6fa5f5a67e13843f39071d70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e53daf45_b1e4d0cf",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-28T14:16:39Z",
       "side": 1,
       "message": "Why not const\u0026 like `compiler_options_`?",
+      "range": {
+        "startLine": 396,
+        "startChar": 2,
+        "endLine": 396,
+        "endChar": 34
+      },
+      "revId": "31026f6dba6890be6fa5f5a67e13843f39071d70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d6631fe_3ea22c3e",
+        "filename": "dex2oat/linker/oat_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-09-29T07:05:45Z",
+      "side": 1,
+      "message": "dex2oat creates it only if `IsAnyCompilationEnabled(...) || IsImage()`, so it can actually be null.",
+      "parentUuid": "e53daf45_b1e4d0cf",
       "range": {
         "startLine": 396,
         "startChar": 2,
