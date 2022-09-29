@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4692e10_01f56e31",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "How is this misleading? If we prevent inlining for other reasons, we wouldn\u0027t reach this point.",
+      "parentUuid": "201b9beb_a93e4ef8",
+      "range": {
+        "startLine": 1435,
+        "startChar": 61,
+        "endLine": 1436,
+        "endChar": 24
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab6dd2cc_64dc75de",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 23
@@ -37,6 +61,30 @@
       "writtenOn": "2022-09-16T05:59:16Z",
       "side": 1,
       "message": "Do exit try boundaries always have just a single predecessor?",
+      "range": {
+        "startLine": 1876,
+        "startChar": 33,
+        "endLine": 1876,
+        "endChar": 53
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6969ea63_daa2ceb5",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1876,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "As far as I could tell, yes. Otherwise we risk a critical edge. The smallest try catch we can have is two blocks: B1-\u003eB2 with B1 having a TryBoundary of kind entry, and B2 one of kind exit. B1 will have two successors (B2 as normal, and the xhandler). If B2 can have multiple predecessors, we risk a critical edge right there.\n\nThere\u0027s something that looks like an exception to this rule (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/graph_checker.cc;l\u003d246;drc\u003d3fcfd7303a7a0683e334d0509b17d65d773b3d71) but in reality we check that it has only one predecessor (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/graph_checker.cc;l\u003d57;drc\u003d77814cc58467280625ba3c9769fd6ed69abdda4c) so the rule still stands.\n\nIf we have an `if/else`, we insert multiple `TryBoundary`s",
+      "parentUuid": "ab6dd2cc_64dc75de",
       "range": {
         "startLine": 1876,
         "startChar": 33,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71417fd0_abc2ed54",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 2878,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd33b9f8_8748320b",
+      "range": {
+        "startLine": 2877,
+        "startChar": 59,
+        "endLine": 2878,
+        "endChar": 65
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6193118b_52a6e946",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-09-16T05:59:16Z",
       "side": 1,
       "message": "Missing checker statements for this method? Maybe simply `CHECK-NOT: TryBoundary` before inlining and `CHECK: TryBoundary` after inlining?",
+      "range": {
+        "startLine": 79,
+        "startChar": 21,
+        "endLine": 79,
+        "endChar": 45
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eb45c74_8da08598",
+        "filename": "test/2237-checker-inline-multidex/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6193118b_52a6e946",
       "range": {
         "startLine": 79,
         "startChar": 21,
@@ -110,6 +206,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd78776b_9a981f52",
+        "filename": "test/2240-checker-inline-try-catch/info.txt",
+        "patchSetId": 23
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adc3437c_2519d6ab",
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b404dc0_35066322",
@@ -123,6 +237,30 @@
       "writtenOn": "2022-09-16T05:59:16Z",
       "side": 1,
       "message": "We could change the second call to `$inline$OOBTryCatch(new int[]{42})` to test the non-exceptional path. (Or add a separate test method.)",
+      "range": {
+        "startLine": 48,
+        "startChar": 30,
+        "endLine": 48,
+        "endChar": 58
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60e23a93_be174eb7",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b404dc0_35066322",
       "range": {
         "startLine": 48,
         "startChar": 30,
@@ -150,6 +288,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54563071_20d08f30",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46cc89ef_e272db55",
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "010652bf_50e56654",
@@ -163,6 +319,30 @@
       "writtenOn": "2022-09-16T05:59:16Z",
       "side": 1,
       "message": "Why isn\u0027t this call inlined? Is it because after we process `unreachable()`, the inliner knows that this is unreachable and does not bother inlining?",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 38
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6daf8227_d9cce181",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "We don\u0027t inline because we don\u0027t inline try catches inside of other try or catches. That has a try catch and it would be inlined inside of a catch.\n\nIt is unrelated to the `unreachable`",
+      "parentUuid": "010652bf_50e56654",
       "range": {
         "startLine": 87,
         "startChar": 6,
@@ -196,6 +376,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98144aed_2f071e6d",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "I wanted to test that we were only going try-\u003ecatch-\u003eFinally and not try-\u003eFinally. This doesn\u0027t make sense if we are also testing the normal path so I am removing this assert.",
+      "parentUuid": "3e66488c_12660f42",
+      "range": {
+        "startLine": 165,
+        "startChar": 6,
+        "endLine": 165,
+        "endChar": 37
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efa2e890_7e3b1f0d",
@@ -209,6 +413,30 @@
       "writtenOn": "2022-09-16T05:59:16Z",
       "side": 1,
       "message": "`$inline$`?",
+      "range": {
+        "startLine": 227,
+        "startChar": 21,
+        "endLine": 227,
+        "endChar": 35
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3270d6e_20fd1416",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "I\u0027d do `$noinline$` as what I wanted to test was throwing from an inner method and catching it in an outer method.",
+      "parentUuid": "efa2e890_7e3b1f0d",
       "range": {
         "startLine": 227,
         "startChar": 21,
@@ -242,6 +470,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8901075c_f5d1fd76",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 1951,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "Not needed after the LSE fix in aosp/2219242. Reverting these changes.",
+      "parentUuid": "2b4db20e_03ca66d6",
+      "range": {
+        "startLine": 1951,
+        "startChar": 6,
+        "endLine": 1951,
+        "endChar": 34
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1006bec_0cdd0ba0",
@@ -255,6 +507,30 @@
       "writtenOn": "2022-09-16T05:59:16Z",
       "side": 1,
       "message": "Why do we need to change this test?\n\nWe should probably remove the obsolete `if (doThrow) { throw new Error(); }` code which was superceded by `$noinline$`.",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdb7eb94_b80ea872",
+        "filename": "test/593-checker-long-2-float-regression/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "It was messing with the CHECKer on target. I can remove the `if` and the throw",
+      "parentUuid": "d1006bec_0cdd0ba0",
       "range": {
         "startLine": 43,
         "startChar": 6,
@@ -325,6 +601,30 @@
       "writtenOn": "2022-09-16T05:59:16Z",
       "side": 1,
       "message": "I think this change essentially invalidates this entire test.\n\nMaybe we should rethink how we test this. We could just collect block numbers from LoadClass+NewInstance and InvokeVirtual/Object.toString() and check that they differ before the pass but match after the pass.",
+      "range": {
+        "startLine": 75,
+        "startChar": 12,
+        "endLine": 75,
+        "endChar": 30
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "802326b7_756c3e03",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-29T20:02:39Z",
+      "side": 1,
+      "message": "I double checked this test. If I keep the `throw new Error` we inline a try catch and the NewInstance cannot be sunk because its block is no longer post dominating the uncommon branch according to our rules. Therefore, it is not considered for code sinking.\n\nIt is no longer post dominating since we have:\nNewInstance\nthe uses of the NewInstance\ntry{...} catch() { throw }\nthrow\n\nThe blocks in the try do not post dominate the throw outside of the catch (since one of their successors is the catch block), and they also don\u0027t post dominate the throw inside of the catch block (since one of their successors is the normal path). Since those blocks do not post dominate either of the uncommon branches, the chain is broken and doesn\u0027t get propagated to the uses of the NewInstance.",
+      "parentUuid": "719113f8_2008d78b",
       "range": {
         "startLine": 75,
         "startChar": 12,
