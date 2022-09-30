@@ -1,0 +1,64 @@
+// Copyright (C) 2022 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "art_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["art_license"],
+}
+
+filegroup {
+    name: "framework-art-sources",
+    srcs: [
+        "java/**/*.java",
+    ],
+    path: "java",
+    visibility: [
+        "//frameworks/base",
+        "//art:__subpackages__",
+    ],
+}
+
+java_sdk_library {
+    name: "framework-art",
+    defaults: ["framework-module-defaults"],
+    // The list of ART bootclasspath jars is hardcoded in more than 10 places
+    // across multiple projects. To avoid updating the hardcoded list, this
+    // library is statically linked into "core-libart" instead of being a
+    // standalone jar in bootclasspath.
+    installable: false,
+    srcs: [":framework-art-sources"],
+    permitted_packages: ["android.art"],
+    impl_library_visibility: [
+        "//art:__subpackages__",
+        "//libcore:__subpackages__",
+    ],
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+    // Must match the min_sdk_version of "core-libart", which is inherited from
+    // "libcore_java_defaults"`.
+    min_sdk_version: "31",
+    libs: [
+        "auto_value_annotations",
+    ],
+    plugins: [
+        "auto_value_plugin",
+        "java_api_finder",
+    ],
+}

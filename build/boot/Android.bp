@@ -36,9 +36,10 @@ bootclasspath_fragment {
 
     api: {
         stub_libs: [
-            // Stubs for the core-oj and core-libart. The other modules do not
-            // have any public API.
+            // Stubs for the core-oj, core-libart and framework-art. The other
+            // modules do not have any public API.
             "art.module.public.api",
+            "framework-art",
         ],
     },
     core_platform_api: {
@@ -104,6 +105,7 @@ bootclasspath_fragment {
         // classes into an API surface, e.g. public, system, etc.. Doing so will
         // result in a build failure due to inconsistent flags.
         package_prefixes: [
+            "android.art",
             "android.compat",
             "com.android.okhttp",
             "com.android.org.bouncycastle",
@@ -130,6 +132,12 @@ bootclasspath_fragment {
             "sun",
         ],
     },
+
+    // Additional stubs libraries that this fragment's contents use which are
+    // not provided by another bootclasspath_fragment.
+    additional_stubs: [
+        "android-non-updatable",
+    ],
 }
 
 // Encapsulate the contributions made by the com.android.art to the systemserverclasspath.
