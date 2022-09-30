@@ -36,6 +36,10 @@ JIT_DEBUG_REGISTER_CODE_LDFLAGS = [
 // in stack traces often.
 libart_cc_defaults {
     name: "libart_nativeunwind_defaults",
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     target: {
         android_arm: {
             // Arm 32 bit does not produce complete exidx unwind information
@@ -441,6 +445,10 @@ libart_cc_defaults {
                 "runtime_linux.cc",
                 "thread_linux.cc",
             ],
+            cflags: [
+                "-fsanitize-address-use-after-return=never",
+                "-Wno-unused-command-line-argument",
+            ],
             shared_libs: [
                 "libz", // For adler32.
             ],
@@ -499,6 +507,10 @@ libart_cc_defaults {
 
 libart_static_cc_defaults {
     name: "libart_static_base_defaults",
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     whole_static_libs: [
         "libartpalette",
         "libbase",
@@ -523,6 +535,10 @@ libart_static_cc_defaults {
 
 cc_defaults {
     name: "libart_static_defaults",
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     defaults: [
         "libart_static_base_defaults",
         "libartbase_static_defaults",
@@ -538,6 +554,10 @@ cc_defaults {
 
 cc_defaults {
     name: "libartd_static_defaults",
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     defaults: [
         "libart_static_base_defaults",
         "libartbased_static_defaults",
@@ -593,6 +613,10 @@ gensrcs {
 // Properties common to `libart` and `libart-broken`.
 art_cc_defaults {
     name: "libart_common_defaults",
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     defaults: [
         "libart_defaults",
         "libart_nativeunwind_defaults",
@@ -674,6 +698,10 @@ art_cc_library {
 
 art_cc_defaults {
     name: "libart-runtime-gtest-defaults",
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     tidy_timeout_srcs: [
         "common_runtime_test.cc",
     ],
@@ -719,6 +747,10 @@ art_cc_library {
 
 art_cc_defaults {
     name: "art_runtime_tests_defaults",
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     data: [
         ":art-gtest-jars-AllFields",
         ":art-gtest-jars-ErroneousA",

@@ -45,6 +45,8 @@ art_module_cc_defaults {
         "-Wno-sign-compare",
         // gtest.h includes cxxabi.h which fails on this check.
         "-Wno-deprecated-dynamic-exception-spec",
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
     ],
 
     target: {
@@ -67,6 +69,10 @@ art_module_cc_defaults {
     name: "art_test_defaults",
     defaults: [
         "art_test_common_defaults",
+    ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
     ],
     host_supported: true,
     soong_config_variables: {
@@ -114,6 +120,10 @@ art_module_cc_defaults {
 art_cc_defaults {
     name: "art_test_internal_library_defaults",
     defaults: ["art_test_defaults"],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     target: {
         android_arm: {
             relative_install_path: "com.android.art/lib",
@@ -162,6 +172,10 @@ art_cc_defaults {
     defaults: [
         "art_test_common_defaults",
     ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     // Standalone ART gtests are only supported on device for now.
     // TODO: Add support for host standalone ART gtests. Note that they should not differ much
     // from the original ("non-standalone") host gtests, as the latter are not really bundled with
@@ -198,6 +212,10 @@ art_cc_defaults {
         "liblog",
         "libz",
     ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
 
     target: {
         linux: {
@@ -230,6 +248,10 @@ art_cc_defaults {
         "art_test_defaults",
         "art_gtest_common_defaults",
         "art_debug_defaults",
+    ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
     ],
 
     test_suites: ["art-host-tests"],
@@ -270,6 +292,10 @@ art_cc_defaults {
         // (including the Release ART APEX).
         "art_standalone_test_defaults",
         "art_gtest_common_defaults",
+    ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
     ],
 
     test_suites: [
@@ -335,6 +361,10 @@ art_cc_defaults {
     defaults: [
         "art_defaults",
     ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     host_supported: true,
     shared_libs: [
         "liblog",
@@ -375,6 +405,10 @@ art_cc_defaults {
     defaults: [
         "libart-gtest-common-defaults",
     ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     shared_libs: [
         "libart",
         "libart-compiler",
@@ -390,6 +424,10 @@ art_cc_defaults {
         "art_debug_defaults",
         "libart-gtest-common-defaults",
     ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     shared_libs: [
         "libartd",
         "libartd-compiler",
@@ -404,6 +442,10 @@ art_cc_defaults {
     name: "libart-gtest-common",
     defaults: [
         "art_defaults",
+    ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
     ],
     host_supported: true,
     srcs: [
@@ -570,6 +612,10 @@ art_cc_defaults {
     defaults: ["art_test_defaults"],
     header_libs: ["libnativebridge-headers"],
     srcs: ["115-native-bridge/nativebridge.cc"],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
 }
 
 art_cc_test_library {
@@ -594,6 +640,10 @@ art_cc_test_library {
 cc_defaults {
     name: "libartagent-defaults",
     defaults: ["art_test_internal_library_defaults"],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     shared_libs: [
         "libbase",
         "liblog",
@@ -631,6 +681,10 @@ art_cc_test_library {
 art_cc_defaults {
     name: "libtiagent-base-defaults",
     defaults: ["art_test_internal_library_defaults"],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     srcs: [
         // These are the ART-independent parts.
         "ti-agent/agent_common.cc",
@@ -737,6 +791,10 @@ art_cc_defaults {
         "libtiagent-base-defaults",
         "libartagent-defaults",
     ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     srcs: [
         // This is to get the IsInterpreted native method.
         "common/stack_inspect.cc",
@@ -821,11 +879,19 @@ cc_library_static {
     stl: "c++_static",
     header_libs: ["jni_headers"],
     export_include_dirs: ["ti-agent"],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
 }
 
 art_cc_defaults {
     name: "libtistress-srcs",
     defaults: ["libartagent-defaults"],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     srcs: [
         "ti-stress/stress.cc",
     ],
@@ -835,6 +901,10 @@ art_cc_defaults {
 art_cc_defaults {
     name: "libtistress-defaults",
     defaults: ["libtistress-srcs"],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     shared_libs: [
         "slicer_no_rtti",
         "libz", // for slicer (using adler32).
@@ -867,6 +937,10 @@ art_cc_defaults {
     defaults: [
         "libtistress-srcs",
     ],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     static_libs: ["slicer_no_rtti"],
 }
 
@@ -893,6 +967,10 @@ art_cc_test_library {
 cc_defaults {
     name: "libarttest-defaults",
     defaults: ["art_test_internal_library_defaults"],
+    cflags: [
+        "-fsanitize-address-use-after-return=never",
+        "-Wno-unused-command-line-argument",
+    ],
     srcs: [
         "004-JniTest/jni_test.cc",
         "004-ReferenceMap/stack_walk_refmap_jni.cc",
