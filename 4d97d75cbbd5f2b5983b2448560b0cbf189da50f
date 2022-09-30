@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d2c54be_4eec4fb3",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-30T09:51:14Z",
+      "side": 1,
+      "message": "Worth having unit tests for this method?",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 47
+      },
+      "revId": "4d97d75cbbd5f2b5983b2448560b0cbf189da50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94121802_b47ca07a",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-09-30T09:51:14Z",
+      "side": 1,
+      "message": "Taking a string and returning a string looks inefficient :)",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 47
+      },
+      "revId": "4d97d75cbbd5f2b5983b2448560b0cbf189da50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
