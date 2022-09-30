@@ -203,7 +203,8 @@ class MonitorPool {
   static constexpr size_t kInitialChunkStorage = kIsDebugBuild ? 8U : 256U;
   static_assert(IsPowerOfTwo(kInitialChunkStorage), "kInitialChunkStorage must be power of 2");
   // The number of lists, each containing pointers to storage chunks.
-  static constexpr size_t kMaxChunkLists = 8;  //  Dictated by 3 bit index. Don't increase above 8.
+  // The chunks are 4 times bigger on 16k system, so we only have 1 bit left.
+  static constexpr size_t kMaxChunkLists = 2;
   static_assert(IsPowerOfTwo(kMaxChunkLists), "kMaxChunkLists must be power of 2");
   static constexpr size_t kMaxListSize = kInitialChunkStorage << (kMaxChunkLists - 1);
   // We lose 3 bits in monitor id due to 3 bit monitor_chunks_ index, and gain it back from
