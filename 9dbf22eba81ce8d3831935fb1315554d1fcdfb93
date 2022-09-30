@@ -34,6 +34,24 @@
       "parentUuid": "12ee14c4_1105458c",
       "revId": "9dbf22eba81ce8d3831935fb1315554d1fcdfb93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43036c22_d3e4514c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-09-30T18:19:06Z",
+      "side": 1,
+      "message": "The ART benchmark service (owner Islam) runs every week and generates new candidate profiles, for both T and U. If the profiles are better than the current one, we merge them. Note that if a new profile is generated with the ART benchmark service the methods added in this CL might be removed.\n\nI\u0027d wait until Monday\u0027s profiles and see if the new profile candidates include the methods you want to add. It\u0027d be better if the generated profiles already include them, so as not to extra special work. There\u0027s a bit of a turnaround between landing your CL and the profiles picking it up, but maybe two weeks is enough.\n\nAs an extra comment, we commit the boot profile changes in ag/ and not in oag/.",
+      "parentUuid": "38b2032e_71728315",
+      "revId": "9dbf22eba81ce8d3831935fb1315554d1fcdfb93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
