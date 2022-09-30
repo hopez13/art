@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aed4abc_3f31ac49",
+        "filename": "libartservice/framework/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2022-09-30T18:48:06Z",
+      "side": 1,
+      "message": "I don\u0027t think this in itself is a good reason to statically link it into core-libart.\n\nNic said on the other CL you didn\u0027t want to load this code prior to android 14, for one.\n\nI\u0027d also say: if you\u0027re going to add it to an existing jar... why do you need a new java_sdk_library rather than using an existing one?\n\nRewinding a little bit: I think this feature should get an eng review from our team, where considerations like these can be discussed",
+      "range": {
+        "startLine": 38,
+        "startChar": 44,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "eae15a635dfb0affb27807a5ee7d36733c0d1b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
