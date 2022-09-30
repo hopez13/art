@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6406283_0686545d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-09-30T21:32:12Z",
+      "side": 1,
+      "message": "Vladimir, I fixed some tests but there is one checker test failure. `art-run-test-697-checker-string-append` Does it mean that this CL broke the inlining and thus the optimizing compiler fails to recognize the StringBuilder append pattern?\n\nhttps://fusion2.corp.google.com/invocations/04c17c4b-e932-43e1-b7fa-1756c79a90d7/targets/x86_64%20art-run-test-697-checker-string-append;config\u003ddefault/tests",
+      "revId": "24e25a0b8c1c552702c5569425f554efd96488c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
