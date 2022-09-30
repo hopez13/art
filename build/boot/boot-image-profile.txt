@@ -7493,8 +7493,10 @@ HSPLjava/util/logging/StreamHandler;->setEncoding(Ljava/lang/String;)V
 HSPLjava/util/logging/StreamHandler;->setOutputStream(Ljava/io/OutputStream;)V
 HSPLjava/util/logging/XMLFormatter;-><init>()V
 HSPLjava/util/regex/Matcher;-><init>(Ljava/util/regex/Pattern;Ljava/lang/CharSequence;)V
-HSPLjava/util/regex/Matcher;->appendEvaluated(Ljava/lang/StringBuffer;Ljava/lang/String;)V
+HSPLjava/util/regex/Matcher;->appendEvaluated(Ljava/lang/StringBuilder;Ljava/lang/String;)V
+HSPLjava/util/regex/Matcher;->appendExpandedReplacement(Ljava/lang/String;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
 HSPLjava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;+]Ljava/lang/String;Ljava/lang/String;]Ljava/lang/StringBuffer;Ljava/lang/StringBuffer;]Ljava/util/regex/Matcher;Ljava/util/regex/Matcher;
+HSPLjava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/util/regex/Matcher;
 HSPLjava/util/regex/Matcher;->appendTail(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 HSPLjava/util/regex/Matcher;->end()I
 HSPLjava/util/regex/Matcher;->end(I)I+]Ljava/util/regex/Matcher;Ljava/util/regex/Matcher;
