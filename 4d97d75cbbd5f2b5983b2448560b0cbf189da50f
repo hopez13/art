@@ -45,6 +45,54 @@
       },
       "revId": "4d97d75cbbd5f2b5983b2448560b0cbf189da50f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66069003_31c7652d",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-30T14:33:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d2c54be_4eec4fb3",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 47
+      },
+      "revId": "4d97d75cbbd5f2b5983b2448560b0cbf189da50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1ded50f_a4aa3b32",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-09-30T14:33:29Z",
+      "side": 1,
+      "message": "Since we might need to cut middle of the string, copy is sometimes unavoidable.\n\nI trust the compiler that it will not make two copies, and in fact, if I do `return std::move(name);` the compiler complains that it is unnecessary.",
+      "parentUuid": "94121802_b47ca07a",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 47
+      },
+      "revId": "4d97d75cbbd5f2b5983b2448560b0cbf189da50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
