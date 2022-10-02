@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c45669e2_36a1636d",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-02T19:30:21Z",
+      "side": 1,
+      "message": "I\u0027m a bit surprised that all apps are allowed to load `ProductSharedLib` in /product/framework and `VendorSharedLib` in /vendor/framework, and only the system apps are then restricted from loading the respective native libs through them. Jiyong, is this WAI?\n\nIt could be that the fixture setup in `pushSharedLib` in LibnativeloaderTest.java is wonky.\n\nIt\u0027s not the goal of this test to check access from apps to shared libraries in different partitions, so I may just delete these variants, but I thought it warranted a question.\n\nI should note that the hostside test does `setenforce 0`, but that only enables loading of `/vendor/lib(64)/libvendor_private*.so`. It has no other effects.",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 36
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
