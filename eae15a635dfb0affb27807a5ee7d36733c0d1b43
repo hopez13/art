@@ -46,6 +46,30 @@
       },
       "revId": "eae15a635dfb0affb27807a5ee7d36733c0d1b43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90c2f3b6_5007ad2c",
+        "filename": "libartservice/framework/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-03T16:00:46Z",
+      "side": 1,
+      "message": "Thank you for bringing this up, Anton. This indeed needs more discussion. There are some complexities in the ART module which makes it hard for framework-art to follow the approach that other mainline modules are using. We are having discussions within our team first. Let\u0027s hold on this CL.",
+      "parentUuid": "f363ff8d_4ea7d568",
+      "range": {
+        "startLine": 38,
+        "startChar": 44,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "eae15a635dfb0affb27807a5ee7d36733c0d1b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
