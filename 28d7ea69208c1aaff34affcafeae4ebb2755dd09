@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d64fa04a_007e7480",
+        "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-03T15:54:03Z",
+      "side": 1,
+      "message": "Yes. The setup with the soft reboot takes a lot of time in itself, but even disregarding that, each test is well over half a sec:\n\n```\nandroid.test.hostside.LibnativeloaderTest (6 Tests)\n[1/6] android.test.hostside.LibnativeloaderTest#testSystemPrivApp: PASSED (663ms)\n[2/6] android.test.hostside.LibnativeloaderTest#testVendorApp: PASSED (626ms)\n[3/6] android.test.hostside.LibnativeloaderTest#testSystemExtApp: PASSED (631ms)\n[4/6] android.test.hostside.LibnativeloaderTest#testProductApp: PASSED (575ms)\n[5/6] android.test.hostside.LibnativeloaderTest#testDataApp: PASSED (523ms)\n[6/6] android.test.hostside.LibnativeloaderTest#testSystemApp: PASSED (621ms)\n```",
+      "parentUuid": "eb508b33_70bc647c",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc2bf155_501cec30",
@@ -64,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b848cf2_74e16326",
+        "filename": "libnativeloader/test/src/android/test/app/SystemAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-03T15:54:03Z",
+      "side": 1,
+      "message": "The reason for both this and the behaviour below is that the app process gets a shared namespace, and so do the shared libs that it depends on, because the `is_shared` flag overrides the origin check: https://cs.android.com/android/platform/superproject/+/master:art/libnativeloader/library_namespaces.cpp;l\u003d246;drc\u003d81b3f56cab037577dfa1c53024145a4385df5ca1\n\n```\nnativeloader: Configuring classloader-namespace-shared for other apk /product/framework/android.test.productsharedlib.jar. target_sdk_version\u003d10000, uses_libraries\u003dALL, library_path\u003d/system/app/loadlibrarytest_system_app/lib/x86_64:/system/lib64:/system_ext/lib64, permitted_path\u003d/data:/mnt/expand:/data/user/0/android.test.app.system:/system/app/loadlibrarytest_system_app:/system/lib64:/system_ext/lib64\nnativeloader: Configuring classloader-namespace-shared for other apk /vendor/framework/android.test.vendorsharedlib.jar. target_sdk_version\u003d10000, uses_libraries\u003dALL, library_path\u003d/system/app/loadlibrarytest_system_app/lib/x86_64:/system/lib64:/system_ext/lib64, permitted_path\u003d/data:/mnt/expand:/data/user/0/android.test.app.system:/system/app/loadlibrarytest_system_app:/system/lib64:/system_ext/lib64\nnativeloader: Configuring classloader-namespace-shared for other apk /system/app/loadlibrarytest_system_app/loadlibrarytest_system_app.apk. target_sdk_version\u003d10000, uses_libraries\u003dlibfoo.product1.so:libbar.product1.so, library_path\u003d/system/app/loadlibrarytest_system_app/lib/x86_64:/system/lib64:/system_ext/lib64, permitted_path\u003d/data:/mnt/expand:/data/user/0/android.test.app.system:/system/app/loadlibrarytest_system_app:/system/lib64:/system_ext/lib64\n```\n\n(The namespaces for the shared libs are indeed set up before the one for the app itself. I think it\u0027s because they\u0027re instantiated first by the class loader.)\n\nI don\u0027t think that\u0027s a problem in itself. However, as mentioned for DataAppTest.java above I find it suspicious that this app can load the shared libs at all, but let\u0027s discuss that there.",
+      "parentUuid": "fc2bf155_501cec30",
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d4a762d_b2de3592",
@@ -77,6 +119,24 @@
       "writtenOn": "2022-10-03T12:42:25Z",
       "side": 1,
       "message": "This also sounds a bit unnatural to me.",
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d0c2f59_e3cfda57",
+        "filename": "libnativeloader/test/src/android/test/app/SystemAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-03T15:54:03Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "9d4a762d_b2de3592",
       "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -104,6 +164,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0051b831_f4753bad",
+        "filename": "libnativeloader/test/src/android/test/app/SystemAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-03T15:54:03Z",
+      "side": 1,
+      "message": "Same here. I don\u0027t think the loading of the system native libs is the problem, but that it can call `VendorSharedLib.loadLibrary` is suspicious.",
+      "parentUuid": "3a943f31_1cc1ab07",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 94
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "489ad093_0664450c",
@@ -121,6 +205,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd90de90_44a5de24",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-03T15:54:03Z",
+      "side": 1,
+      "message": "Thanks for the tip. Done.",
+      "parentUuid": "489ad093_0664450c",
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a65f377f_8f6b52c1",
@@ -134,6 +236,30 @@
       "writtenOn": "2022-10-03T12:42:25Z",
       "side": 1,
       "message": "It looks like a sign that `DeviceContext` should take `TestInformation` as a whole.",
+      "range": {
+        "startLine": 118,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 0
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01c04127_f82f8a05",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-03T15:54:03Z",
+      "side": 1,
+      "message": "`TestInformation` isn\u0027t available in the tests themselves. Currently there\u0027s no instantiation of `DeviceContext` from a test, but that may change so I\u0027d like to keep it this way (and earlier while working on this I indeed had it for a while). There\u0027s a comment about it below (which I now amended slightly).",
+      "parentUuid": "a65f377f_8f6b52c1",
       "range": {
         "startLine": 118,
         "startChar": 8,
