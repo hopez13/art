@@ -27,31 +27,67 @@
 namespace art {
 namespace odrefresh {
 
-class OdrMetricsRecordTest : public CommonArtTest {};
+class OdrMetricsRecordTest : public CommonArtTest {
+ protected:
+  void WriteFile(std::string file_path) {
+    std::ofstream ofs(file_path);
 
-using android::base::testing::Ok;
+    ofs << "<odrefresh_metrics>";
+    ofs << metrics_version_;
+    ofs << "<art_apex_version>81966764218039518</art_apex_version>";
+    ofs << "<trigger>16909060</trigger>";
+    ofs << "<stage_reached>286397204</stage_reached>";
+    ofs << status_;
+    ofs << "<cache_space_free_start_mib>1633837924</cache_space_free_start_mib>";
+    ofs << "<cache_space_free_end_mib>1903326068</cache_space_free_end_mib>";
+    ofs << "<primary_bcp_compilation_millis>825373492</primary_bcp_compilation_millis>";
+    ofs << "<secondary_bcp_compilation_millis>1094861636</secondary_bcp_compilation_millis>";
+    ofs << "<system_server_compilation_millis>1364349780</system_server_compilation_millis>";
+    ofs << primary_bcp_dex2oat_result_;
+    ofs << secondary_bcp_dex2oat_result_;
+    ofs << system_server_dex2oat_result_;
+    ofs << "</odrefresh_metrics>";
+
+    ofs.close();
+  }
+
+  std::string metrics_version_ = android::base::StringPrintf(
+      "<odrefresh_metrics_version>%d</odrefresh_metrics_version>", kOdrefreshMetricsVersion);
+  std::string status_ = "<status>30</status>";
+  std::string primary_bcp_dex2oat_result_ =
+      R"(<primary_bcp_dex2oat_result status="1" exit-code="-1" signal="0" />)";
+  std::string secondary_bcp_dex2oat_result_ =
+      R"(<secondary_bcp_dex2oat_result status="2" exit-code="15" signal="0" />)";
+  std::string system_server_dex2oat_result_ =
+      R"(<system_server_dex2oat_result status="3" exit-code="-1" signal="9" />)";
+};
+
 using android::base::testing::HasError;
+using android::base::testing::Ok;
 using android::base::testing::WithMessage;
 
 TEST_F(OdrMetricsRecordTest, HappyPath) {
-  const OdrMetricsRecord expected{
-    .odrefresh_metrics_version = art::odrefresh::kOdrefreshMetricsVersion,
-    .art_apex_version = 0x01233456'789abcde,
-    .trigger = 0x01020304,
-    .stage_reached = 0x11121314,
-    .status = 0x21222324,
-    .cache_space_free_start_mib = 0x61626364,
-    .cache_space_free_end_mib = 0x71727374,
-    .primary_bcp_compilation_millis = 0x31323334,
-    .secondary_bcp_compilation_millis = 0x41424344,
-    .system_server_compilation_millis = 0x51525354
-  };
-
-  ScratchDir dir(/*keep_files=*/false);
+  ScratchDir dir{/*keep_files=*/false};
   std::string file_path = dir.GetPath() + "/metrics-record.xml";
+
+  OdrMetricsRecord expected{};
+  expected.odrefresh_metrics_version = art::odrefresh::kOdrefreshMetricsVersion;
+  expected.art_apex_version = 0x01233456'789abcde;
+  expected.trigger = 0x01020304;
+  expected.stage_reached = 0x11121314;
+  expected.status = 0x21222324;
+  expected.cache_space_free_start_mib = 0x61626364;
+  expected.cache_space_free_end_mib = 0x71727374;
+  expected.primary_bcp_compilation_millis = 0x31323334;
+  expected.secondary_bcp_compilation_millis = 0x41424344;
+  expected.system_server_compilation_millis = 0x51525354;
+  expected.primary_bcp_dex2oat_result = OdrMetricsRecord::Dex2OatExecResult(1, -1, 0);
+  expected.secondary_bcp_dex2oat_result = OdrMetricsRecord::Dex2OatExecResult(2, 15, 0);
+  expected.system_server_dex2oat_result = OdrMetricsRecord::Dex2OatExecResult(3, -1, 9);
+
   ASSERT_THAT(expected.WriteToFile(file_path), Ok());
 
-  OdrMetricsRecord actual {};
+  OdrMetricsRecord actual{};
   ASSERT_THAT(actual.ReadFromFile(file_path), Ok());
 
   ASSERT_EQ(expected.odrefresh_metrics_version, actual.odrefresh_metrics_version);
@@ -64,11 +100,27 @@ TEST_F(OdrMetricsRecordTest, HappyPath) {
   ASSERT_EQ(expected.primary_bcp_compilation_millis, actual.primary_bcp_compilation_millis);
   ASSERT_EQ(expected.secondary_bcp_compilation_millis, actual.secondary_bcp_compilation_millis);
   ASSERT_EQ(expected.system_server_compilation_millis, actual.system_server_compilation_millis);
+  ASSERT_EQ(expected.primary_bcp_dex2oat_result.status, actual.primary_bcp_dex2oat_result.status);
+  ASSERT_EQ(expected.primary_bcp_dex2oat_result.exit_code,
+            actual.primary_bcp_dex2oat_result.exit_code);
+  ASSERT_EQ(expected.primary_bcp_dex2oat_result.signal, actual.primary_bcp_dex2oat_result.signal);
+  ASSERT_EQ(expected.secondary_bcp_dex2oat_result.status,
+            actual.secondary_bcp_dex2oat_result.status);
+  ASSERT_EQ(expected.secondary_bcp_dex2oat_result.exit_code,
+            actual.secondary_bcp_dex2oat_result.exit_code);
+  ASSERT_EQ(expected.secondary_bcp_dex2oat_result.signal,
+            actual.secondary_bcp_dex2oat_result.signal);
+  ASSERT_EQ(expected.system_server_dex2oat_result.status,
+            actual.system_server_dex2oat_result.status);
+  ASSERT_EQ(expected.system_server_dex2oat_result.exit_code,
+            actual.system_server_dex2oat_result.exit_code);
+  ASSERT_EQ(expected.system_server_dex2oat_result.signal,
+            actual.system_server_dex2oat_result.signal);
   ASSERT_EQ(0, memcmp(&expected, &actual, sizeof(expected)));
 }
 
 TEST_F(OdrMetricsRecordTest, EmptyInput) {
-  ScratchDir dir(/*keep_files=*/false);
+  ScratchDir dir{/*keep_files=*/false};
   std::string file_path = dir.GetPath() + "/metrics-record.xml";
 
   OdrMetricsRecord record{};
@@ -76,7 +128,7 @@ TEST_F(OdrMetricsRecordTest, EmptyInput) {
 }
 
 TEST_F(OdrMetricsRecordTest, UnexpectedInput) {
-  ScratchDir dir(/*keep_files=*/false);
+  ScratchDir dir{/*keep_files=*/false};
   std::string file_path = dir.GetPath() + "/metrics-record.xml";
 
   std::ofstream ofs(file_path);
@@ -84,20 +136,16 @@ TEST_F(OdrMetricsRecordTest, UnexpectedInput) {
   ofs.close();
 
   OdrMetricsRecord record{};
-  ASSERT_THAT(
-      record.ReadFromFile(file_path),
-      HasError(WithMessage("odrefresh_metrics element not found in " + file_path)));
+  ASSERT_THAT(record.ReadFromFile(file_path),
+              HasError(WithMessage("odrefresh_metrics element not found in " + file_path)));
 }
 
 TEST_F(OdrMetricsRecordTest, ExpectedElementNotFound) {
-  ScratchDir dir(/*keep_files=*/false);
+  ScratchDir dir{/*keep_files=*/false};
   std::string file_path = dir.GetPath() + "/metrics-record.xml";
 
-  std::ofstream ofs(file_path);
-  ofs << "<odrefresh_metrics>";
-  ofs << "<not_valid_metric>25</not_valid_metric>";
-  ofs << "</odrefresh_metrics>";
-  ofs.close();
+  metrics_version_ = "<not_valid_metric>25</not_valid_metric>";
+  WriteFile(file_path);
 
   OdrMetricsRecord record{};
   ASSERT_THAT(
@@ -105,48 +153,120 @@ TEST_F(OdrMetricsRecordTest, ExpectedElementNotFound) {
       HasError(WithMessage("Expected Odrefresh metric odrefresh_metrics_version not found")));
 }
 
-TEST_F(OdrMetricsRecordTest, UnexpectedOdrefreshMetricsVersion) {
-  ScratchDir dir(/*keep_files=*/false);
+TEST_F(OdrMetricsRecordTest, ExpectedAttributeNotFound) {
+  ScratchDir dir{/*keep_files=*/false};
   std::string file_path = dir.GetPath() + "/metrics-record.xml";
 
-  std::ofstream ofs(file_path);
-  ofs << "<odrefresh_metrics>";
-  ofs << "<odrefresh_metrics_version>0</odrefresh_metrics_version>";
-  ofs << "</odrefresh_metrics>";
-  ofs.close();
+  // Missing "status".
+  primary_bcp_dex2oat_result_ = R"(<primary_bcp_dex2oat_result exit-code="17" signal="18" />)";
+  WriteFile(file_path);
+
+  OdrMetricsRecord record{};
+  ASSERT_THAT(record.ReadFromFile(file_path),
+              HasError(WithMessage(
+                  "Expected Odrefresh metric primary_bcp_dex2oat_result.status is not an int32")));
+}
+
+TEST_F(OdrMetricsRecordTest, UnexpectedOdrefreshMetricsVersion) {
+  ScratchDir dir{/*keep_files=*/false};
+  std::string file_path = dir.GetPath() + "/metrics-record.xml";
+
+  metrics_version_ = "<odrefresh_metrics_version>0</odrefresh_metrics_version>";
+  WriteFile(file_path);
 
   OdrMetricsRecord record{};
   std::string expected_error = android::base::StringPrintf(
-      "odrefresh_metrics_version 0 is different than expected (%d)",
-      kOdrefreshMetricsVersion);
-  ASSERT_THAT(record.ReadFromFile(file_path),
-              HasError(WithMessage(expected_error)));
+      "odrefresh_metrics_version 0 is different than expected (%d)", kOdrefreshMetricsVersion);
+  ASSERT_THAT(record.ReadFromFile(file_path), HasError(WithMessage(expected_error)));
 }
 
 TEST_F(OdrMetricsRecordTest, UnexpectedType) {
-  ScratchDir dir(/*keep_files=*/false);
+  ScratchDir dir{/*keep_files=*/false};
   std::string file_path = dir.GetPath() + "/metrics-record.xml";
 
-  std::ofstream ofs(file_path);
-  ofs << "<odrefresh_metrics>";
-  ofs << "<odrefresh_metrics_version>" << kOdrefreshMetricsVersion
-      << "</odrefresh_metrics_version>";
-  ofs << "<art_apex_version>81966764218039518</art_apex_version>";
-  ofs << "<trigger>16909060</trigger>";
-  ofs << "<stage_reached>286397204</stage_reached>";
-  ofs << "<status>abcd</status>";  // It should be an int32.
-  ofs << "<cache_space_free_start_mib>1633837924</cache_space_free_start_mib>";
-  ofs << "<cache_space_free_end_mib>1903326068</cache_space_free_end_mib>";
-  ofs << "<primary_bcp_compilation_millis>825373492</primary_bcp_compilation_millis>";
-  ofs << "<secondary_bcp_compilation_millis>1094861636</secondary_bcp_compilation_millis>";
-  ofs << "<system_server_compilation_millis>1364349780</system_server_compilation_millis>";
-  ofs << "</odrefresh_metrics>";
-  ofs.close();
+  status_ = "<status>abcd</status>";  // It should be an int32.
+  WriteFile(file_path);
+
+  OdrMetricsRecord record{};
+  ASSERT_THAT(record.ReadFromFile(file_path),
+              HasError(WithMessage("Odrefresh metric status is not an int32")));
+}
+
+TEST_F(OdrMetricsRecordTest, ResultStatusOutsideOfRange) {
+  ScratchDir dir{/*keep_files=*/false};
+  std::string file_path = dir.GetPath() + "/metrics-record.xml";
+
+  // Status is valid between 0 and 5 (5 being NOT_RUN)
+  primary_bcp_dex2oat_result_ =
+      R"(<primary_bcp_dex2oat_result status="-1" exit-code="-1" signal="0" />)";
+  WriteFile(file_path);
 
   OdrMetricsRecord record{};
   ASSERT_THAT(
       record.ReadFromFile(file_path),
-      HasError(WithMessage("Odrefresh metric status is not an int32")));
+      HasError(WithMessage("Odrefresh metric primary_bcp_dex2oat_result.status has a value (-1) "
+                           "outside of the expected range ([0, 5])")));
+
+  primary_bcp_dex2oat_result_ =
+      R"(<primary_bcp_dex2oat_result status="9" exit-code="-1" signal="0" />)";
+  WriteFile(file_path);
+
+  ASSERT_THAT(
+      record.ReadFromFile(file_path),
+      HasError(WithMessage("Odrefresh metric primary_bcp_dex2oat_result.status has a value (9) "
+                           "outside of the expected range ([0, 5])")));
+}
+
+TEST_F(OdrMetricsRecordTest, ResultExitCodeOutsideOfRange) {
+  ScratchDir dir{/*keep_files=*/false};
+  std::string file_path = dir.GetPath() + "/metrics-record.xml";
+
+  // Exit Code is valid between -1 and 255
+  secondary_bcp_dex2oat_result_ =
+      R"(<secondary_bcp_dex2oat_result status="2" exit-code="-2" signal="0" />)";
+  WriteFile(file_path);
+
+  OdrMetricsRecord record{};
+  ASSERT_THAT(record.ReadFromFile(file_path),
+              HasError(WithMessage(
+                  "Odrefresh metric secondary_bcp_dex2oat_result.exit-code has a value (-2) "
+                  "outside of the expected range ([-1, 255])")));
+
+  secondary_bcp_dex2oat_result_ =
+      R"(<secondary_bcp_dex2oat_result status="2" exit-code="258" signal="0" />)";
+  WriteFile(file_path);
+
+  ASSERT_THAT(record.ReadFromFile(file_path),
+              HasError(WithMessage(
+                  "Odrefresh metric secondary_bcp_dex2oat_result.exit-code has a value (258) "
+                  "outside of the expected range ([-1, 255])")));
+}
+
+TEST_F(OdrMetricsRecordTest, ResultSignalOutsideOfRange) {
+  ScratchDir dir{/*keep_files=*/false};
+  std::string file_path = dir.GetPath() + "/metrics-record.xml";
+
+  // Signal is valid between 0 and SIGRTMAX
+  system_server_dex2oat_result_ =
+      R"(<system_server_dex2oat_result status="3" exit-code="0" signal="-6" />)";
+  WriteFile(file_path);
+
+  OdrMetricsRecord record{};
+  ASSERT_THAT(record.ReadFromFile(file_path),
+              HasError(WithMessage(android::base::StringPrintf(
+                  "Odrefresh metric system_server_dex2oat_result.signal has a value (-6) "
+                  "outside of the expected range ([0, %d])",
+                  SIGRTMAX))));
+
+  system_server_dex2oat_result_ =
+      R"(<system_server_dex2oat_result status="3" exit-code="0" signal="65" />)";
+  WriteFile(file_path);
+
+  ASSERT_THAT(record.ReadFromFile(file_path),
+              HasError(WithMessage(android::base::StringPrintf(
+                  "Odrefresh metric system_server_dex2oat_result.signal has a value (65) "
+                  "outside of the expected range ([0, %d])",
+                  SIGRTMAX))));
 }
 
 }  // namespace odrefresh
