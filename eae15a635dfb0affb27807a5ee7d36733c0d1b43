@@ -22,6 +22,30 @@
       },
       "revId": "eae15a635dfb0affb27807a5ee7d36733c0d1b43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f363ff8d_4ea7d568",
+        "filename": "libartservice/framework/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-03T07:17:38Z",
+      "side": 1,
+      "message": "I also don\u0027t understand why this would be a reason. Given this bcp jar is platform-related and has dependencies on platform, it\u0027s fine if it\u0027s only mentioned when building a system image.",
+      "parentUuid": "0aed4abc_3f31ac49",
+      "range": {
+        "startLine": 38,
+        "startChar": 44,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "eae15a635dfb0affb27807a5ee7d36733c0d1b43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
