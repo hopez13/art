@@ -93,6 +93,30 @@
       },
       "revId": "7d4aaccd82db61d0a941750e717cbcd152118001",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9a881e8_8ff073c5",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-03T19:18:23Z",
+      "side": 1,
+      "message": "Did you intend to change this line too?",
+      "parentUuid": "c5da19ee_c2b62133",
+      "range": {
+        "startLine": 83,
+        "startChar": 14,
+        "endLine": 83,
+        "endChar": 29
+      },
+      "revId": "7d4aaccd82db61d0a941750e717cbcd152118001",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
