@@ -16,6 +16,75 @@
       "message": "Vladimir, I fixed some tests but there is one checker test failure. `art-run-test-697-checker-string-append` Does it mean that this CL broke the inlining and thus the optimizing compiler fails to recognize the StringBuilder append pattern?\n\nhttps://fusion2.corp.google.com/invocations/04c17c4b-e932-43e1-b7fa-1756c79a90d7/targets/x86_64%20art-run-test-697-checker-string-append;config\u003ddefault/tests",
       "revId": "24e25a0b8c1c552702c5569425f554efd96488c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e117afd1_2767ba63",
+        "filename": "dex2oat/linker/oat_writer_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-03T12:54:29Z",
+      "side": 1,
+      "message": "Update oat version.",
+      "range": {
+        "startLine": 504,
+        "startChar": 26,
+        "endLine": 504,
+        "endChar": 48
+      },
+      "revId": "24e25a0b8c1c552702c5569425f554efd96488c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd806b2a_5d29c8df",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-03T12:54:29Z",
+      "side": 1,
+      "message": "\"that all dropped high bytes are zero\"",
+      "range": {
+        "startLine": 407,
+        "startChar": 31,
+        "endLine": 407,
+        "endChar": 60
+      },
+      "revId": "24e25a0b8c1c552702c5569425f554efd96488c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d00f35ca_64d31cb5",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-03T12:54:29Z",
+      "side": 1,
+      "message": "Use `dchecked_integral_cast\u003cuint8_t\u003e` from \"base/casts.h\" to verify in debug builds that the value fits to `uint8_t`.",
+      "range": {
+        "startLine": 410,
+        "startChar": 36,
+        "endLine": 410,
+        "endChar": 56
+      },
+      "revId": "24e25a0b8c1c552702c5569425f554efd96488c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
