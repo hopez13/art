@@ -44,7 +44,22 @@ TEST_F(OdrMetricsRecordTest, HappyPath) {
     .cache_space_free_end_mib = 0x71727374,
     .primary_bcp_compilation_millis = 0x31323334,
     .secondary_bcp_compilation_millis = 0x41424344,
-    .system_server_compilation_millis = 0x51525354
+    .system_server_compilation_millis = 0x51525354,
+    .primary_bcp_dex2oat_result = {
+      .status = 0x10,
+      .exit_code = 0x11,
+      .signal = 0x12
+    },
+    .secondary_bcp_dex2oat_result = {
+      .status = 0x20,
+      .exit_code = 0x21,
+      .signal = 0x22
+    },
+    .system_server_dex2oat_result = {
+      .status = 0x30,
+      .exit_code = 0x31,
+      .signal = 0x32
+    }
   };
 
   ScratchDir dir(/*keep_files=*/false);
@@ -64,6 +79,15 @@ TEST_F(OdrMetricsRecordTest, HappyPath) {
   ASSERT_EQ(expected.primary_bcp_compilation_millis, actual.primary_bcp_compilation_millis);
   ASSERT_EQ(expected.secondary_bcp_compilation_millis, actual.secondary_bcp_compilation_millis);
   ASSERT_EQ(expected.system_server_compilation_millis, actual.system_server_compilation_millis);
+  ASSERT_EQ(expected.primary_bcp_dex2oat_result.status, actual.primary_bcp_dex2oat_result.status);
+  ASSERT_EQ(expected.primary_bcp_dex2oat_result.exit_code, actual.primary_bcp_dex2oat_result.exit_code);
+  ASSERT_EQ(expected.primary_bcp_dex2oat_result.signal, actual.primary_bcp_dex2oat_result.signal);
+  ASSERT_EQ(expected.secondary_bcp_dex2oat_result.status, actual.secondary_bcp_dex2oat_result.status);
+  ASSERT_EQ(expected.secondary_bcp_dex2oat_result.exit_code, actual.secondary_bcp_dex2oat_result.exit_code);
+  ASSERT_EQ(expected.secondary_bcp_dex2oat_result.signal, actual.secondary_bcp_dex2oat_result.signal);
+  ASSERT_EQ(expected.system_server_dex2oat_result.status, actual.system_server_dex2oat_result.status);
+  ASSERT_EQ(expected.system_server_dex2oat_result.exit_code, actual.system_server_dex2oat_result.exit_code);
+  ASSERT_EQ(expected.system_server_dex2oat_result.signal, actual.system_server_dex2oat_result.signal);
   ASSERT_EQ(0, memcmp(&expected, &actual, sizeof(expected)));
 }
 
@@ -105,6 +129,36 @@ TEST_F(OdrMetricsRecordTest, ExpectedElementNotFound) {
       HasError(WithMessage("Expected Odrefresh metric odrefresh_metrics_version not found")));
 }
 
+TEST_F(OdrMetricsRecordTest, ExpectedAttributeNotFound) {
+  ScratchDir dir(/*keep_files=*/false);
+  std::string file_path = dir.GetPath() + "/metrics-record.xml";
+
+  std::ofstream ofs(file_path);
+  ofs << "<odrefresh_metrics>";
+  ofs << "<odrefresh_metrics_version>" << kOdrefreshMetricsVersion
+      << "</odrefresh_metrics_version>";
+  ofs << "<art_apex_version>81966764218039518</art_apex_version>";
+  ofs << "<trigger>16909060</trigger>";
+  ofs << "<stage_reached>286397204</stage_reached>";
+  ofs << "<status>555885348</status>";
+  ofs << "<cache_space_free_start_mib>1633837924</cache_space_free_start_mib>";
+  ofs << "<cache_space_free_end_mib>1903326068</cache_space_free_end_mib>";
+  ofs << "<primary_bcp_compilation_millis>825373492</primary_bcp_compilation_millis>";
+  ofs << "<secondary_bcp_compilation_millis>1094861636</secondary_bcp_compilation_millis>";
+  ofs << "<system_server_compilation_millis>1364349780</system_server_compilation_millis>";
+  ofs << R"(<primary_bcp_dex2oat_result exit-code="17" signal="18" />)";  // missing "status".
+  ofs << R"(<secondary_bcp_dex2oat_result status="32" exit-code="33" signal="34" />)";
+  ofs << R"(<system_server_dex2oat_result status="48" exit-code="49" signal="50" />)";
+  ofs << "</odrefresh_metrics>";
+  ofs.close();
+
+  OdrMetricsRecord record{};
+  ASSERT_THAT(
+      record.ReadFromFile(file_path),
+      HasError(WithMessage(
+          "Expected Odrefresh metric primary_bcp_dex2oat_result.status is not an int32")));
+}
+
 TEST_F(OdrMetricsRecordTest, UnexpectedOdrefreshMetricsVersion) {
   ScratchDir dir(/*keep_files=*/false);
   std::string file_path = dir.GetPath() + "/metrics-record.xml";
@@ -140,6 +194,9 @@ TEST_F(OdrMetricsRecordTest, UnexpectedType) {
   ofs << "<primary_bcp_compilation_millis>825373492</primary_bcp_compilation_millis>";
   ofs << "<secondary_bcp_compilation_millis>1094861636</secondary_bcp_compilation_millis>";
   ofs << "<system_server_compilation_millis>1364349780</system_server_compilation_millis>";
+  ofs << R"(<primary_bcp_dex2oat_result status="16" exit-code="17" signal="18" />)";
+  ofs << R"(<secondary_bcp_dex2oat_result status="32" exit-code="33" signal="34" />)";
+  ofs << R"(<system_server_dex2oat_result status="48" exit-code="49" signal="50" />)";
   ofs << "</odrefresh_metrics>";
   ofs.close();
 

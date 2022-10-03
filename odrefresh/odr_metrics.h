@@ -127,6 +127,7 @@ class OdrMetrics final {
   static void WriteToFile(const std::string& path, const OdrMetrics* metrics);
 
   void SetCompilationTime(int32_t millis);
+  OdrMetricsRecord::ExecResult ConvertExecResult(const std::optional<ExecResult>& result) const;
 
   const std::string cache_directory_;
   const std::string metrics_file_;
