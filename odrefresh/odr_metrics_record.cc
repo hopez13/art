@@ -55,10 +55,51 @@ android::base::Result<int32_t> ReadInt32(tinyxml2::XMLElement* parent, const cha
   }
 }
 
+android::base::Result<OdrMetricsRecord::ExecResult> ReadExecResult(tinyxml2::XMLElement* parent,
+                                                                   const char* nodeName) {
+  tinyxml2::XMLElement* element = parent->FirstChildElement(nodeName);
+  if (element == nullptr) {
+    return Errorf("Expected Odrefresh metric {} not found", nodeName);
+  }
+
+  int32_t status;
+  tinyxml2::XMLError result = element->QueryAttribute("status", &status);
+  if (result != tinyxml2::XML_SUCCESS) {
+    return Errorf("Expected Odrefresh metric {}.status is not an int32", nodeName);
+  }
+
+  int32_t exitCode;
+  result = element->QueryAttribute("exit-code", &exitCode);
+  if (result != tinyxml2::XML_SUCCESS) {
+    return Errorf("Expected Odrefresh metric {}.exitCode is not an int32", nodeName);
+  }
+
+  int32_t signal;
+  result = element->QueryAttribute("signal", &signal);
+  if (result != tinyxml2::XML_SUCCESS) {
+    return Errorf("Expected Odrefresh metric {}.signal is not an int32", nodeName);
+  }
+
+  return OdrMetricsRecord::ExecResult {
+    .status = status,
+    .exit_code = exitCode,
+    .signal = signal
+  };
+}
+
 template <typename T>
 void AddMetric(tinyxml2::XMLElement* parent, const char* name, const T& value) {
   parent->InsertNewChildElement(name)->SetText(value);
 }
+
+void AddResult(tinyxml2::XMLElement* parent,
+               const char* name,
+               const OdrMetricsRecord::ExecResult& execResult) {
+    tinyxml2::XMLElement* result = parent->InsertNewChildElement(name);
+    result->SetAttribute("status", execResult.status);
+    result->SetAttribute("exit-code", execResult.exit_code);
+    result->SetAttribute("signal", execResult.signal);
+  }
 }  // namespace
 
 android::base::Result<void> OdrMetricsRecord::ReadFromFile(const std::string& filename) {
@@ -86,12 +127,15 @@ android::base::Result<void> OdrMetricsRecord::ReadFromFile(const std::string& fi
   status = OR_RETURN(ReadInt32(metrics, "status"));
   cache_space_free_start_mib = OR_RETURN(ReadInt32(metrics, "cache_space_free_start_mib"));
   cache_space_free_end_mib = OR_RETURN(ReadInt32(metrics, "cache_space_free_end_mib"));
-  primary_bcp_compilation_millis = OR_RETURN(
-      ReadInt32(metrics, "primary_bcp_compilation_millis"));
+  primary_bcp_compilation_millis = OR_RETURN(ReadInt32(metrics, "primary_bcp_compilation_millis"));
   secondary_bcp_compilation_millis = OR_RETURN(
       ReadInt32(metrics, "secondary_bcp_compilation_millis"));
   system_server_compilation_millis = OR_RETURN(
       ReadInt32(metrics, "system_server_compilation_millis"));
+  primary_bcp_dex2oat_result = OR_RETURN(ReadExecResult(metrics, "primary_bcp_dex2oat_result"));
+  secondary_bcp_dex2oat_result = OR_RETURN(ReadExecResult(metrics, "secondary_bcp_dex2oat_result"));
+  system_server_dex2oat_result = OR_RETURN(ReadExecResult(metrics, "system_server_dex2oat_result"));
+
   return {};
 }
 
@@ -111,6 +155,9 @@ android::base::Result<void> OdrMetricsRecord::WriteToFile(const std::string& fil
   AddMetric(metrics, "primary_bcp_compilation_millis", primary_bcp_compilation_millis);
   AddMetric(metrics, "secondary_bcp_compilation_millis", secondary_bcp_compilation_millis);
   AddMetric(metrics, "system_server_compilation_millis", system_server_compilation_millis);
+  AddResult(metrics, "primary_bcp_dex2oat_result", primary_bcp_dex2oat_result);
+  AddResult(metrics, "secondary_bcp_dex2oat_result", secondary_bcp_dex2oat_result);
+  AddResult(metrics, "system_server_dex2oat_result", system_server_dex2oat_result);
 
   tinyxml2::XMLError result = xml_document.SaveFile(filename.data(), /*compact=*/true);
   if (result == tinyxml2::XML_SUCCESS) {
