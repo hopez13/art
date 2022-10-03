@@ -134,7 +134,7 @@ int32_t OdrMetrics::GetFreeSpaceMiB(const std::string& path) {
 }
 
 OdrMetricsRecord OdrMetrics::ToRecord() const {
-  return {
+  OdrMetricsRecord record = {
       .odrefresh_metrics_version = kOdrefreshMetricsVersion,
       .art_apex_version = art_apex_version_,
       .trigger = static_cast<int32_t>(trigger_),
@@ -146,6 +146,41 @@ OdrMetricsRecord OdrMetrics::ToRecord() const {
       .secondary_bcp_compilation_millis = secondary_bcp_compilation_millis_,
       .system_server_compilation_millis = system_server_compilation_millis_,
   };
+
+  if (primary_bcp_dex2oat_result_.has_value()) {
+    ExecResult primary_result = primary_bcp_dex2oat_result_.value();
+    record.primary_bcp_dex2oat_result_status = primary_result.status;
+    record.primary_bcp_dex2oat_result_exit_code = primary_result.exit_code;
+    record.primary_bcp_dex2oat_result_signal = primary_result.signal;
+  } else {
+    record.primary_bcp_dex2oat_result_status = 5;  // EXEC_RESULT_STATUS_NOT_RUN in atoms.proto
+    record.primary_bcp_dex2oat_result_exit_code = -1;
+    record.primary_bcp_dex2oat_result_signal = 0;
+  }
+
+  if (secondary_bcp_dex2oat_result_.has_value()) {
+    ExecResult secondary_result = secondary_bcp_dex2oat_result_.value();
+    record.secondary_bcp_dex2oat_result_status = secondary_result.status;
+    record.secondary_bcp_dex2oat_result_exit_code = secondary_result.exit_code;
+    record.secondary_bcp_dex2oat_result_signal = secondary_result.signal;
+  } else {
+    record.secondary_bcp_dex2oat_result_status = 5;  // EXEC_RESULT_STATUS_NOT_RUN in atoms.proto
+    record.secondary_bcp_dex2oat_result_exit_code = -1;
+    record.secondary_bcp_dex2oat_result_signal = 0;
+  }
+
+  if (system_server_dex2oat_result_.has_value()) {
+    ExecResult system_server_result = system_server_dex2oat_result_.value();
+    record.system_server_dex2oat_result_status = system_server_result.status;
+    record.system_server_dex2oat_result_exit_code = system_server_result.exit_code;
+    record.system_server_dex2oat_result_signal = system_server_result.signal;
+  } else {
+    record.system_server_dex2oat_result_status = 5;  // EXEC_RESULT_STATUS_NOT_RUN in atoms.proto
+    record.system_server_dex2oat_result_exit_code = -1;
+    record.system_server_dex2oat_result_signal = 0;
+  }
+
+  return record;
 }
 
 void OdrMetrics::WriteToFile(const std::string& path, const OdrMetrics* metrics) {

@@ -92,6 +92,25 @@ android::base::Result<void> OdrMetricsRecord::ReadFromFile(const std::string& fi
       ReadInt32(metrics, "secondary_bcp_compilation_millis"));
   system_server_compilation_millis = OR_RETURN(
       ReadInt32(metrics, "system_server_compilation_millis"));
+  primary_bcp_dex2oat_result_status = OR_RETURN(
+      ReadInt32(metrics, "primary_bcp_dex2oat_result_status"));
+  primary_bcp_dex2oat_result_exit_code = OR_RETURN(
+      ReadInt32(metrics, "primary_bcp_dex2oat_result_exit_code"));
+  primary_bcp_dex2oat_result_signal = OR_RETURN(
+      ReadInt32(metrics, "primary_bcp_dex2oat_result_signal"));
+  secondary_bcp_dex2oat_result_status = OR_RETURN(
+      ReadInt32(metrics, "secondary_bcp_dex2oat_result_status"));
+  secondary_bcp_dex2oat_result_exit_code = OR_RETURN(
+      ReadInt32(metrics, "secondary_bcp_dex2oat_result_exit_code"));
+  secondary_bcp_dex2oat_result_signal = OR_RETURN(
+      ReadInt32(metrics, "secondary_bcp_dex2oat_result_signal"));
+  system_server_dex2oat_result_status = OR_RETURN(
+      ReadInt32(metrics, "system_server_dex2oat_result_status"));
+  system_server_dex2oat_result_exit_code = OR_RETURN(
+      ReadInt32(metrics, "system_server_dex2oat_result_exit_code"));
+  system_server_dex2oat_result_signal = OR_RETURN(
+      ReadInt32(metrics, "system_server_dex2oat_result_signal"));
+
   return {};
 }
 
@@ -111,6 +130,17 @@ android::base::Result<void> OdrMetricsRecord::WriteToFile(const std::string& fil
   AddMetric(metrics, "primary_bcp_compilation_millis", primary_bcp_compilation_millis);
   AddMetric(metrics, "secondary_bcp_compilation_millis", secondary_bcp_compilation_millis);
   AddMetric(metrics, "system_server_compilation_millis", system_server_compilation_millis);
+  AddMetric(metrics, "primary_bcp_dex2oat_result_status", primary_bcp_dex2oat_result_status);
+  AddMetric(metrics, "primary_bcp_dex2oat_result_exit_code", primary_bcp_dex2oat_result_exit_code);
+  AddMetric(metrics, "primary_bcp_dex2oat_result_signal", primary_bcp_dex2oat_result_signal);
+  AddMetric(metrics, "secondary_bcp_dex2oat_result_status", secondary_bcp_dex2oat_result_status);
+  AddMetric(metrics, "secondary_bcp_dex2oat_result_exit_code",
+            secondary_bcp_dex2oat_result_exit_code);
+  AddMetric(metrics, "secondary_bcp_dex2oat_result_signal", secondary_bcp_dex2oat_result_signal);
+  AddMetric(metrics, "system_server_dex2oat_result_status", system_server_dex2oat_result_status);
+  AddMetric(metrics, "system_server_dex2oat_result_exit_code",
+            system_server_dex2oat_result_exit_code);
+  AddMetric(metrics, "system_server_dex2oat_result_signal", system_server_dex2oat_result_signal);
 
   tinyxml2::XMLError result = xml_document.SaveFile(filename.data(), /*compact=*/true);
   if (result == tinyxml2::XML_SUCCESS) {
