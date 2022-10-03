@@ -148,6 +148,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6cebe31_b38601a0",
+        "filename": "libnativeloader/test/src/android/test/app/SystemAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-03T17:56:37Z",
+      "side": 1,
+      "message": "That\u0027s a different case though. It\u0027s tested by `testLoadPrivateLibrariesViaProductSharedLib` in ProductAppTest.java, and it fails (given the system native library isn\u0027t in public.libraries.txt, of course).",
+      "parentUuid": "749e61c8_c4e55c5d",
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d4a762d_b2de3592",
@@ -326,6 +344,30 @@
       "side": 1,
       "message": "Tests can get TestInformation from `getTestInformation()` http://cs/android-internal/tools/tradefederation/core/test_framework/com/android/tradefed/testtype/junit4/BaseHostJUnit4Test.java;l\u003d88;rcl\u003d7c80c284148e951597431c3dfe05a372e4cbfd78",
       "parentUuid": "01c04127_f82f8a05",
+      "range": {
+        "startLine": 118,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 0
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9464eacf_2d1b1c11",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-03T17:56:37Z",
+      "side": 1,
+      "message": "Weird I\u0027ve missed that. It\u0027s not in scope here so I\u0027ll do that in a follow-up CL.",
+      "parentUuid": "52a0be32_116b894c",
       "range": {
         "startLine": 118,
         "startChar": 8,
