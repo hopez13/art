@@ -471,6 +471,8 @@ void HDeadCodeElimination::ConnectSuccessiveBlocks() {
   for (size_t i = 1u, size = graph_->GetReversePostOrder().size(); i != size; ++i) {
     HBasicBlock* block  = graph_->GetReversePostOrder()[i];
     DCHECK(!block->IsEntryBlock());
+
+    // Try to connect with successor.
     while (block->GetLastInstruction()->IsGoto()) {
       HBasicBlock* successor = block->GetSingleSuccessor();
       if (successor->IsExitBlock() || successor->GetPredecessors().size() != 1u) {
@@ -482,6 +484,22 @@ void HDeadCodeElimination::ConnectSuccessiveBlocks() {
       DCHECK_EQ(size, graph_->GetReversePostOrder().size());
       DCHECK_EQ(block, graph_->GetReversePostOrder()[i]);
       // Reiterate on this block in case it can be merged with its new successor.
+    }
+
+    // Try to connect with predecessor. We don't have to do a `while` loop here since the
+    // predecessor was processed before and can't be merged with its predecessor.
+    if (block->IsSingleGoto()) {
+      const ArenaVector<HBasicBlock*> preds = block->GetPredecessors();
+      if (preds.size() == 1) {
+        HBasicBlock* pred = preds[0];
+        if (!pred->IsEntryBlock() && pred->GetSuccessors().size() == 1) {
+          pred->MergeWith(block);
+          --size;
+          // We also decrement `i` since we are removing the block we were iterating on.
+          --i;
+          DCHECK_EQ(size, graph_->GetReversePostOrder().size());
+        }
+      }
     }
   }
 }
