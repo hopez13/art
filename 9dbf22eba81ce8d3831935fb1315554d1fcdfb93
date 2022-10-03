@@ -106,6 +106,24 @@
       "parentUuid": "b6c5e3b1_25d08231",
       "revId": "9dbf22eba81ce8d3831935fb1315554d1fcdfb93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "826c4325_0bbc84d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-10-03T15:43:05Z",
+      "side": 1,
+      "message": "I think that appendExpandedReplacement isn\u0027t used until the VersionCodes.UPSIDE_DOWN_CAKE constant in libcore is finalized. So I think it\u0027s fine, because `appendEvaluated` is still there.\n\nBut go/ag/20094643 is for udc-release, but my bug http://b/249424113 was found in the internal master. Do you know if it will get merged into internal master? go/ag/20094643 is for the project frameworks/base. Is an update for art/build/boot/boot-image-profile.txt also needed?",
+      "parentUuid": "4392d8ea_06d29c9c",
+      "revId": "9dbf22eba81ce8d3831935fb1315554d1fcdfb93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
