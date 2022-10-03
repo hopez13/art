@@ -518,6 +518,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c91c4833_90d3da2f",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 1951,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-03T18:29:25Z",
+      "side": 1,
+      "message": "The cuttlefish build inlines fillInStackTrace which makes the simple exit merge not be a simple merge (it grows from 4 blocks to 17 blocks). We are planning on marking that method as @NeverInline as it adds too much code size anyway. Presubmit passes with that change (aosp/2239114 / https://android-review.googlesource.com/q/topic:never-inline)",
+      "parentUuid": "675448e8_9b814c62",
+      "range": {
+        "startLine": 1951,
+        "startChar": 6,
+        "endLine": 1951,
+        "endChar": 34
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1006bec_0cdd0ba0",
