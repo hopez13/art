@@ -124,21 +124,16 @@ TEST_F(CompilerDriverTest, DISABLED_LARGE_CompileDexLibCore) {
   ASSERT_TRUE(java_lang_dex_file_ != nullptr);
   const DexFile& dex = *java_lang_dex_file_;
   ObjPtr<mirror::DexCache> dex_cache = class_linker_->FindDexCache(soa.Self(), dex);
-  EXPECT_EQ(dex.NumStringIds(), dex_cache->NumStrings());
-  for (size_t i = 0; i < dex_cache->NumStrings(); i++) {
+  for (size_t i = 0; i < dex.NumStringIds(); i++) {
     const ObjPtr<mirror::String> string = dex_cache->GetResolvedString(dex::StringIndex(i));
     EXPECT_TRUE(string != nullptr) << "string_idx=" << i;
   }
-  EXPECT_EQ(dex.NumTypeIds(), dex_cache->NumResolvedTypes());
-  for (size_t i = 0; i < dex_cache->NumResolvedTypes(); i++) {
+  for (size_t i = 0; i < dex.NumTypeIds(); i++) {
     const ObjPtr<mirror::Class> type = dex_cache->GetResolvedType(dex::TypeIndex(i));
     EXPECT_TRUE(type != nullptr)
         << "type_idx=" << i << " " << dex.GetTypeDescriptor(dex.GetTypeId(dex::TypeIndex(i)));
   }
-  EXPECT_TRUE(dex_cache->StaticMethodSize() == dex_cache->NumResolvedMethods()
-      || dex.NumMethodIds() ==  dex_cache->NumResolvedMethods());
-  for (size_t i = 0; i < dex_cache->NumResolvedMethods(); i++) {
-    // FIXME: This is outdated for hash-based method array.
+  for (size_t i = 0; i < dex.NumMethodIds(); i++) {
     ArtMethod* method = dex_cache->GetResolvedMethod(i);
     EXPECT_TRUE(method != nullptr) << "method_idx=" << i
                                 << " " << dex.GetMethodDeclaringClassDescriptor(dex.GetMethodId(i))
@@ -147,10 +142,7 @@ TEST_F(CompilerDriverTest, DISABLED_LARGE_CompileDexLibCore) {
         << " " << dex.GetMethodDeclaringClassDescriptor(dex.GetMethodId(i)) << " "
         << dex.GetMethodName(dex.GetMethodId(i));
   }
-  EXPECT_TRUE(dex_cache->StaticArtFieldSize() == dex_cache->NumResolvedFields()
-      || dex.NumFieldIds() ==  dex_cache->NumResolvedFields());
-  for (size_t i = 0; i < dex_cache->NumResolvedFields(); i++) {
-    // FIXME: This is outdated for hash-based field array.
+  for (size_t i = 0; i < dex.NumFieldIds(); i++) {
     ArtField* field = dex_cache->GetResolvedField(i);
     EXPECT_TRUE(field != nullptr) << "field_idx=" << i
                                << " " << dex.GetFieldDeclaringClassDescriptor(dex.GetFieldId(i))

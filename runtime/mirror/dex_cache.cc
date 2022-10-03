@@ -37,27 +37,33 @@ namespace mirror {
 
 void DexCache::Initialize(const DexFile* dex_file, ObjPtr<ClassLoader> class_loader) {
   DCHECK(GetDexFile() == nullptr);
-  DCHECK(GetStrings() == nullptr);
-  DCHECK(GetResolvedTypes() == nullptr);
-  DCHECK(GetResolvedMethods() == nullptr);
-  DCHECK(GetResolvedFields() == nullptr);
-  DCHECK(GetResolvedMethodTypes() == nullptr);
-  DCHECK(GetResolvedCallSites() == nullptr);
+  DCHECK(ResolvedStrings().Data() == nullptr);
+  DCHECK(ResolvedTypes().Data() == nullptr);
+  DCHECK(ResolvedMethods().Data() == nullptr);
+  DCHECK(ResolvedFields().Data() == nullptr);
+  DCHECK(ResolvedMethodTypes().Data() == nullptr);
+  DCHECK(ResolvedCallSites().Data() == nullptr);
 
   ScopedAssertNoThreadSuspension sants(__FUNCTION__);
 
   SetDexFile(dex_file);
   SetClassLoader(class_loader);
+  ResolvedStrings().Reset(nullptr, dex_file->NumStringIds());
+  ResolvedTypes().Reset(nullptr, dex_file->NumTypeIds());
+  ResolvedMethods().Reset(nullptr, dex_file->NumProtoIds());
+  ResolvedFields().Reset(nullptr, dex_file->NumFieldIds());
+  ResolvedMethodTypes().Reset(nullptr, dex_file->NumMethodIds());
+  ResolvedCallSites().Reset(nullptr, dex_file->NumCallSiteIds());
 }
 
 void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor) {
   bool wrote = false;
-  FieldDexCacheType* fields = GetResolvedFields();
-  size_t num_fields = NumResolvedFields();
+  FieldDexCacheType* fields = ResolvedFields().Data();
+  size_t num_fields = ResolvedFields().Size();
   // Check both the data pointer and count since the array might be initialized
   // concurrently on other thread, and we might observe just one of the values.
   for (size_t i = 0; fields != nullptr && i < num_fields; i++) {
-    auto pair(GetNativePair(fields, i));
+    auto pair(FieldDexCachePair::Load(fields, i));
     if (pair.index == FieldDexCachePair::InvalidIndexForSlot(i)) {
       continue;
     }
@@ -69,16 +75,16 @@ void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor) {
       } else {
         pair.object = new_val;
       }
-      SetNativePair(fields, i, pair);
+      FieldDexCachePair::Store(fields, i, pair);
       wrote = true;
     }
   }
-  MethodDexCacheType* methods = GetResolvedMethods();
-  size_t num_methods = NumResolvedMethods();
+  MethodDexCacheType* methods = ResolvedMethods().Data();
+  size_t num_methods = ResolvedMethods().Size();
   // Check both the data pointer and count since the array might be initialized
   // concurrently on other thread, and we might observe just one of the values.
   for (size_t i = 0; methods != nullptr && i < num_methods; i++) {
-    auto pair(GetNativePair(methods, i));
+    auto pair(MethodDexCachePair::Load(methods, i));
     if (pair.index == MethodDexCachePair::InvalidIndexForSlot(i)) {
       continue;
     }
@@ -90,7 +96,7 @@ void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor) {
       } else {
         pair.object = new_val;
       }
-      SetNativePair(methods, i, pair);
+      MethodDexCachePair::Store(methods, i, pair);
       wrote = true;
     }
   }
@@ -100,18 +106,12 @@ void DexCache::VisitReflectiveTargets(ReflectiveValueVisitor* visitor) {
 }
 
 void DexCache::ResetNativeArrays() {
-  SetStrings(nullptr);
-  SetResolvedTypes(nullptr);
-  SetResolvedMethods(nullptr);
-  SetResolvedFields(nullptr);
-  SetResolvedMethodTypes(nullptr);
-  SetResolvedCallSites(nullptr);
-  SetField32<false>(NumStringsOffset(), 0);
-  SetField32<false>(NumResolvedTypesOffset(), 0);
-  SetField32<false>(NumResolvedMethodsOffset(), 0);
-  SetField32<false>(NumResolvedFieldsOffset(), 0);
-  SetField32<false>(NumResolvedMethodTypesOffset(), 0);
-  SetField32<false>(NumResolvedCallSitesOffset(), 0);
+  ResolvedStrings().Reset();
+  ResolvedTypes().Reset();
+  ResolvedMethods().Reset();
+  ResolvedFields().Reset();
+  ResolvedMethodTypes().Reset();
+  ResolvedCallSites().Reset();
 }
 
 void DexCache::SetLocation(ObjPtr<mirror::String> location) {

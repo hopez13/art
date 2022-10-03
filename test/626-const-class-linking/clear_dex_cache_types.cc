@@ -27,9 +27,8 @@ namespace art {
 extern "C" JNIEXPORT void JNICALL Java_Main_nativeClearResolvedTypes(JNIEnv*, jclass, jclass cls) {
   ScopedObjectAccess soa(Thread::Current());
   ObjPtr<mirror::DexCache> dex_cache = soa.Decode<mirror::Class>(cls)->GetDexCache();
-  for (size_t i = 0, num_types = dex_cache->NumResolvedTypes(); i != num_types; ++i) {
-    mirror::TypeDexCachePair cleared(nullptr, mirror::TypeDexCachePair::InvalidIndexForSlot(i));
-    dex_cache->GetResolvedTypes()[i].store(cleared, std::memory_order_relaxed);
+  for (size_t i = 0, e = dex_cache->GetDexFile()->NumTypeIds(); i < e; i++) {
+    dex_cache->ResolvedTypes().Clear(i);
   }
 }
 
