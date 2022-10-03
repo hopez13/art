@@ -22,6 +22,126 @@
       },
       "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb508b33_70bc647c",
+        "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-03T12:42:25Z",
+      "side": 1,
+      "message": "Does this test exceed 200ms?",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc2bf155_501cec30",
+        "filename": "libnativeloader/test/src/android/test/app/SystemAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-03T12:42:25Z",
+      "side": 1,
+      "message": "Is it WAI that ProductSharedLib can load system native library? It sounds a bit unnatural to me.\n\nCan the product partition be built separately? If so, there can be a compatibility problem then.",
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d4a762d_b2de3592",
+        "filename": "libnativeloader/test/src/android/test/app/SystemAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-03T12:42:25Z",
+      "side": 1,
+      "message": "This also sounds a bit unnatural to me.",
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a943f31_1cc1ab07",
+        "filename": "libnativeloader/test/src/android/test/app/SystemAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-03T12:42:25Z",
+      "side": 1,
+      "message": "I\u0027m sure the vendor partition can be built separately. It\u0027s worrying that it can load system native libraries.",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 94
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "489ad093_0664450c",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-03T12:42:25Z",
+      "side": 1,
+      "message": "Can we use DisableSELinuxTargetPreparer?",
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a65f377f_8f6b52c1",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-03T12:42:25Z",
+      "side": 1,
+      "message": "It looks like a sign that `DeviceContext` should take `TestInformation` as a whole.",
+      "range": {
+        "startLine": 118,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 0
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
