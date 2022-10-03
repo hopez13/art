@@ -30,12 +30,22 @@ namespace odrefresh {
 constexpr const char* kOdrefreshMetricsFile = "/data/misc/odrefresh/odrefresh-metrics.xml";
 
 // Initial OdrefreshMetrics version
-static constexpr int32_t kOdrefreshMetricsVersion = 2;
+static constexpr int32_t kOdrefreshMetricsVersion = 3;
+
+// Constant value used in ExecResult when the process was not run at all.
+// Mirrors EXEC_RESULT_STATUS_NOT_RUN contained in frameworks/proto_logging/atoms.proto.
+static constexpr int32_t kExecResultNotRun = 5;
 
 // MetricsRecord is a simpler container for Odrefresh metric values reported to statsd. The order
 // and types of fields here mirror definition of `OdrefreshReported` in
 // frameworks/proto_logging/stats/atoms.proto.
 struct OdrMetricsRecord {
+  struct ExecResult {
+    int32_t status;
+    int32_t exit_code;
+    int32_t signal;
+  };
+
   int32_t odrefresh_metrics_version;
   int64_t art_apex_version;
   int32_t trigger;
@@ -46,6 +56,9 @@ struct OdrMetricsRecord {
   int32_t primary_bcp_compilation_millis;
   int32_t secondary_bcp_compilation_millis;
   int32_t system_server_compilation_millis;
+  ExecResult primary_bcp_dex2oat_result;
+  ExecResult secondary_bcp_dex2oat_result;
+  ExecResult system_server_dex2oat_result;
 
   // Reads a `MetricsRecord` from an XML file.
   // Returns an error if the XML document was not found or parsed correctly.

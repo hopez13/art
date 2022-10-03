@@ -145,7 +145,27 @@ OdrMetricsRecord OdrMetrics::ToRecord() const {
       .primary_bcp_compilation_millis = primary_bcp_compilation_millis_,
       .secondary_bcp_compilation_millis = secondary_bcp_compilation_millis_,
       .system_server_compilation_millis = system_server_compilation_millis_,
+      .primary_bcp_dex2oat_result = ConvertExecResult(primary_bcp_dex2oat_result_),
+      .secondary_bcp_dex2oat_result = ConvertExecResult(secondary_bcp_dex2oat_result_),
+      .system_server_dex2oat_result = ConvertExecResult(system_server_dex2oat_result_)
   };
+}
+
+OdrMetricsRecord::ExecResult OdrMetrics::ConvertExecResult(
+    const std::optional<ExecResult>& result) const {
+  if (result.has_value()) {
+    return {
+      .status = result->status,
+      .exit_code = result->exit_code,
+      .signal = result->signal
+    };
+  } else {
+    return {
+      .status = kExecResultNotRun,
+      .exit_code = -1,
+      .signal = 0
+    };
+  }
 }
 
 void OdrMetrics::WriteToFile(const std::string& path, const OdrMetrics* metrics) {
