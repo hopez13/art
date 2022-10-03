@@ -44,7 +44,16 @@ TEST_F(OdrMetricsRecordTest, HappyPath) {
     .cache_space_free_end_mib = 0x71727374,
     .primary_bcp_compilation_millis = 0x31323334,
     .secondary_bcp_compilation_millis = 0x41424344,
-    .system_server_compilation_millis = 0x51525354
+    .system_server_compilation_millis = 0x51525354,
+    .primary_bcp_dex2oat_result_status = 0x10,
+    .primary_bcp_dex2oat_result_exit_code = 0x11,
+    .primary_bcp_dex2oat_result_signal = 0x12,
+    .secondary_bcp_dex2oat_result_status = 0x20,
+    .secondary_bcp_dex2oat_result_exit_code = 0x21,
+    .secondary_bcp_dex2oat_result_signal = 0x22,
+    .system_server_dex2oat_result_status = 0x30,
+    .system_server_dex2oat_result_exit_code = 0x31,
+    .system_server_dex2oat_result_signal = 0x32
   };
 
   ScratchDir dir(/*keep_files=*/false);
@@ -64,6 +73,15 @@ TEST_F(OdrMetricsRecordTest, HappyPath) {
   ASSERT_EQ(expected.primary_bcp_compilation_millis, actual.primary_bcp_compilation_millis);
   ASSERT_EQ(expected.secondary_bcp_compilation_millis, actual.secondary_bcp_compilation_millis);
   ASSERT_EQ(expected.system_server_compilation_millis, actual.system_server_compilation_millis);
+  ASSERT_EQ(expected.primary_bcp_dex2oat_result_status, actual.primary_bcp_dex2oat_result_status);
+  ASSERT_EQ(expected.primary_bcp_dex2oat_result_exit_code, actual.primary_bcp_dex2oat_result_exit_code);
+  ASSERT_EQ(expected.primary_bcp_dex2oat_result_signal, actual.primary_bcp_dex2oat_result_signal);
+  ASSERT_EQ(expected.secondary_bcp_dex2oat_result_status, actual.secondary_bcp_dex2oat_result_status);
+  ASSERT_EQ(expected.secondary_bcp_dex2oat_result_exit_code, actual.secondary_bcp_dex2oat_result_exit_code);
+  ASSERT_EQ(expected.secondary_bcp_dex2oat_result_signal, actual.secondary_bcp_dex2oat_result_signal);
+  ASSERT_EQ(expected.system_server_dex2oat_result_status, actual.system_server_dex2oat_result_status);
+  ASSERT_EQ(expected.system_server_dex2oat_result_exit_code, actual.system_server_dex2oat_result_exit_code);
+  ASSERT_EQ(expected.system_server_dex2oat_result_signal, actual.system_server_dex2oat_result_signal);
   ASSERT_EQ(0, memcmp(&expected, &actual, sizeof(expected)));
 }
 
@@ -140,6 +158,15 @@ TEST_F(OdrMetricsRecordTest, UnexpectedType) {
   ofs << "<primary_bcp_compilation_millis>825373492</primary_bcp_compilation_millis>";
   ofs << "<secondary_bcp_compilation_millis>1094861636</secondary_bcp_compilation_millis>";
   ofs << "<system_server_compilation_millis>1364349780</system_server_compilation_millis>";
+  ofs << "<primary_bcp_dex2oat_result_status>16</primary_bcp_dex2oat_result_status>";
+  ofs << "<primary_bcp_dex2oat_result_exit_code>17</primary_bcp_dex2oat_result_exit_code>";
+  ofs << "<primary_bcp_dex2oat_result_signal>18</primary_bcp_dex2oat_result_signal>";
+  ofs << "<secondary_bcp_dex2oat_result_status>32</secondary_bcp_dex2oat_result_status>";
+  ofs << "<secondary_bcp_dex2oat_result_exit_code>33</secondary_bcp_dex2oat_result_exit_code>";
+  ofs << "<secondary_bcp_dex2oat_result_signal>34</secondary_bcp_dex2oat_result_signal>";
+  ofs << "<system_server_dex2oat_result_status>48</system_server_dex2oat_result_status>";
+  ofs << "<system_server_dex2oat_result_exit_code>49</system_server_dex2oat_result_exit_code>";
+  ofs << "<system_server_dex2oat_result_signal>50</system_server_dex2oat_result_signal>";
   ofs << "</odrefresh_metrics>";
   ofs.close();
 
