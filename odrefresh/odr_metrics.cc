@@ -134,7 +134,7 @@ int32_t OdrMetrics::GetFreeSpaceMiB(const std::string& path) {
 }
 
 OdrMetricsRecord OdrMetrics::ToRecord() const {
-  return {
+  OdrMetricsRecord record {
       .odrefresh_metrics_version = kOdrefreshMetricsVersion,
       .art_apex_version = art_apex_version_,
       .trigger = static_cast<int32_t>(trigger_),
@@ -146,6 +146,50 @@ OdrMetricsRecord OdrMetrics::ToRecord() const {
       .secondary_bcp_compilation_millis = secondary_bcp_compilation_millis_,
       .system_server_compilation_millis = system_server_compilation_millis_,
   };
+
+  if (primary_bcp_dex2oat_result_.has_value()) {
+    record.primary_bcp_dex2oat_result = {
+        .status = primary_bcp_dex2oat_result_->status,
+        .exit_code = primary_bcp_dex2oat_result_->exit_code,
+        .signal = primary_bcp_dex2oat_result_->signal
+    };
+  } else {
+    record.primary_bcp_dex2oat_result = {
+        .status = ExecResult::Status::kNotRun,
+        .exit_code = -1,
+        .signal = 0
+    };
+  }
+
+  if (secondary_bcp_dex2oat_result_.has_value()) {
+    record.secondary_bcp_dex2oat_result = {
+        .status = secondary_bcp_dex2oat_result_->status,
+        .exit_code = secondary_bcp_dex2oat_result_->exit_code,
+        .signal = secondary_bcp_dex2oat_result_->signal
+    };
+  } else {
+    record.secondary_bcp_dex2oat_result = {
+        .status = ExecResult::Status::kNotRun,
+        .exit_code = -1,
+        .signal = 0
+    };
+  }
+
+  if (system_server_dex2oat_result_.has_value()) {
+    record.system_server_dex2oat_result = {
+        .status = system_server_dex2oat_result_->status,
+        .exit_code = system_server_dex2oat_result_->exit_code,
+        .signal = system_server_dex2oat_result_->signal,
+    };
+  } else {
+    record.system_server_dex2oat_result = {
+        .status = ExecResult::Status::kNotRun,
+        .exit_code = -1,
+        .signal = 0
+    };
+  }
+
+  return record;
 }
 
 void OdrMetrics::WriteToFile(const std::string& path, const OdrMetrics* metrics) {

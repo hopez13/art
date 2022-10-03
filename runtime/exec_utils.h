@@ -44,6 +44,8 @@ struct ExecCallbacks {
 };
 
 struct ExecResult {
+  // This struct needs to be in sync with the ExecResultStatus enum contained within
+  // the OdrefreshReported atom in frameworks/proto_logging/atoms.proto.
   enum Status {
     // Unable to get the status.
     kUnknown = 0,
@@ -55,6 +57,8 @@ struct ExecResult {
     kTimedOut = 3,
     // Failed to start the process.
     kStartFailed = 4,
+    // Process was not run.
+    kNotRun = 5,
   };
 
   Status status = kUnknown;
