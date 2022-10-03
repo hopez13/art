@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d94a927_7a4ef7e1",
+        "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-03T16:42:49Z",
+      "side": 1,
+      "message": "I see. Thanks.",
+      "parentUuid": "d64fa04a_007e7480",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc2bf155_501cec30",
@@ -102,6 +126,24 @@
       "side": 1,
       "message": "The reason for both this and the behaviour below is that the app process gets a shared namespace, and so do the shared libs that it depends on, because the `is_shared` flag overrides the origin check: https://cs.android.com/android/platform/superproject/+/master:art/libnativeloader/library_namespaces.cpp;l\u003d246;drc\u003d81b3f56cab037577dfa1c53024145a4385df5ca1\n\n```\nnativeloader: Configuring classloader-namespace-shared for other apk /product/framework/android.test.productsharedlib.jar. target_sdk_version\u003d10000, uses_libraries\u003dALL, library_path\u003d/system/app/loadlibrarytest_system_app/lib/x86_64:/system/lib64:/system_ext/lib64, permitted_path\u003d/data:/mnt/expand:/data/user/0/android.test.app.system:/system/app/loadlibrarytest_system_app:/system/lib64:/system_ext/lib64\nnativeloader: Configuring classloader-namespace-shared for other apk /vendor/framework/android.test.vendorsharedlib.jar. target_sdk_version\u003d10000, uses_libraries\u003dALL, library_path\u003d/system/app/loadlibrarytest_system_app/lib/x86_64:/system/lib64:/system_ext/lib64, permitted_path\u003d/data:/mnt/expand:/data/user/0/android.test.app.system:/system/app/loadlibrarytest_system_app:/system/lib64:/system_ext/lib64\nnativeloader: Configuring classloader-namespace-shared for other apk /system/app/loadlibrarytest_system_app/loadlibrarytest_system_app.apk. target_sdk_version\u003d10000, uses_libraries\u003dlibfoo.product1.so:libbar.product1.so, library_path\u003d/system/app/loadlibrarytest_system_app/lib/x86_64:/system/lib64:/system_ext/lib64, permitted_path\u003d/data:/mnt/expand:/data/user/0/android.test.app.system:/system/app/loadlibrarytest_system_app:/system/lib64:/system_ext/lib64\n```\n\n(The namespaces for the shared libs are indeed set up before the one for the app itself. I think it\u0027s because they\u0027re instantiated first by the class loader.)\n\nI don\u0027t think that\u0027s a problem in itself. However, as mentioned for DataAppTest.java above I find it suspicious that this app can load the shared libs at all, but let\u0027s discuss that there.",
       "parentUuid": "fc2bf155_501cec30",
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "749e61c8_c4e55c5d",
+        "filename": "libnativeloader/test/src/android/test/app/SystemAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-03T16:42:49Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t think that\u0027s a problem in itself.\n\nI\u0027m not sure. If there\u0027s an app on /product that depends on a shared library on /product that depends on a native library on /system, will it be a problem?",
+      "parentUuid": "2b848cf2_74e16326",
       "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -260,6 +302,30 @@
       "side": 1,
       "message": "`TestInformation` isn\u0027t available in the tests themselves. Currently there\u0027s no instantiation of `DeviceContext` from a test, but that may change so I\u0027d like to keep it this way (and earlier while working on this I indeed had it for a while). There\u0027s a comment about it below (which I now amended slightly).",
       "parentUuid": "a65f377f_8f6b52c1",
+      "range": {
+        "startLine": 118,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 0
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52a0be32_116b894c",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-03T16:42:49Z",
+      "side": 1,
+      "message": "Tests can get TestInformation from `getTestInformation()` http://cs/android-internal/tools/tradefederation/core/test_framework/com/android/tradefed/testtype/junit4/BaseHostJUnit4Test.java;l\u003d88;rcl\u003d7c80c284148e951597431c3dfe05a372e4cbfd78",
+      "parentUuid": "01c04127_f82f8a05",
       "range": {
         "startLine": 118,
         "startChar": 8,
