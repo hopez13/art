@@ -134,18 +134,32 @@ int32_t OdrMetrics::GetFreeSpaceMiB(const std::string& path) {
 }
 
 OdrMetricsRecord OdrMetrics::ToRecord() const {
-  return {
-      .odrefresh_metrics_version = kOdrefreshMetricsVersion,
-      .art_apex_version = art_apex_version_,
-      .trigger = static_cast<int32_t>(trigger_),
-      .stage_reached = static_cast<int32_t>(stage_),
-      .status = static_cast<int32_t>(status_),
-      .cache_space_free_start_mib = cache_space_free_start_mib_,
-      .cache_space_free_end_mib = cache_space_free_end_mib_,
-      .primary_bcp_compilation_millis = primary_bcp_compilation_millis_,
-      .secondary_bcp_compilation_millis = secondary_bcp_compilation_millis_,
-      .system_server_compilation_millis = system_server_compilation_millis_,
-  };
+  OdrMetricsRecord record {};
+  record.odrefresh_metrics_version = kOdrefreshMetricsVersion;
+  record.art_apex_version = art_apex_version_;
+  record.trigger = static_cast<int32_t>(trigger_);
+  record.stage_reached = static_cast<int32_t>(stage_);
+  record.status = static_cast<int32_t>(status_);
+  record.cache_space_free_start_mib = cache_space_free_start_mib_;
+  record.cache_space_free_end_mib = cache_space_free_end_mib_;
+  record.primary_bcp_compilation_millis = primary_bcp_compilation_millis_;
+  record.secondary_bcp_compilation_millis = secondary_bcp_compilation_millis_;
+  record.system_server_compilation_millis = system_server_compilation_millis_;
+  record.primary_bcp_dex2oat_result = ConvertExecResult(primary_bcp_dex2oat_result_);
+  record.secondary_bcp_dex2oat_result = ConvertExecResult(secondary_bcp_dex2oat_result_);
+  record.system_server_dex2oat_result = ConvertExecResult(system_server_dex2oat_result_);
+
+
+  return record;
+}
+
+OdrMetricsRecord::Dex2OatExecResult OdrMetrics::ConvertExecResult(
+    const std::optional<ExecResult>& result) const {
+  if (result.has_value()) {
+    return OdrMetricsRecord::Dex2OatExecResult(result.value());
+  } else {
+    return OdrMetricsRecord::Dex2OatExecResult();
+  }
 }
 
 void OdrMetrics::WriteToFile(const std::string& path, const OdrMetrics* metrics) {
