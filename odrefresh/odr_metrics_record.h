@@ -30,7 +30,7 @@ namespace odrefresh {
 constexpr const char* kOdrefreshMetricsFile = "/data/misc/odrefresh/odrefresh-metrics.xml";
 
 // Initial OdrefreshMetrics version
-static constexpr int32_t kOdrefreshMetricsVersion = 2;
+static constexpr int32_t kOdrefreshMetricsVersion = 3;
 
 // MetricsRecord is a simpler container for Odrefresh metric values reported to statsd. The order
 // and types of fields here mirror definition of `OdrefreshReported` in
@@ -46,6 +46,15 @@ struct OdrMetricsRecord {
   int32_t primary_bcp_compilation_millis;
   int32_t secondary_bcp_compilation_millis;
   int32_t system_server_compilation_millis;
+  int32_t primary_bcp_dex2oat_result_status;
+  int32_t primary_bcp_dex2oat_result_exit_code;
+  int32_t primary_bcp_dex2oat_result_signal;
+  int32_t secondary_bcp_dex2oat_result_status;
+  int32_t secondary_bcp_dex2oat_result_exit_code;
+  int32_t secondary_bcp_dex2oat_result_signal;
+  int32_t system_server_dex2oat_result_status;
+  int32_t system_server_dex2oat_result_exit_code;
+  int32_t system_server_dex2oat_result_signal;
 
   // Reads a `MetricsRecord` from an XML file.
   // Returns an error if the XML document was not found or parsed correctly.
