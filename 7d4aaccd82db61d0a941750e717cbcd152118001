@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf1829db_122a39fd",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-03T17:35:15Z",
+      "side": 1,
+      "message": "All the intermediate bits have to be set, so mask isn\u0027t required here. Added a comment to clarify.",
+      "parentUuid": "7577f96e_7f87680d",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 98
+      },
+      "revId": "7d4aaccd82db61d0a941750e717cbcd152118001",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74ecbd15_429221db",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-03T07:21:57Z",
       "side": 1,
       "message": "personal preference, but to avoid having to remember precedence, I tend to prefer adding parens.",
+      "range": {
+        "startLine": 83,
+        "startChar": 14,
+        "endLine": 83,
+        "endChar": 29
+      },
+      "revId": "7d4aaccd82db61d0a941750e717cbcd152118001",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5da19ee_c2b62133",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-03T17:35:15Z",
+      "side": 1,
+      "message": "Somehow I assumed the reverse and so took away the parens 😊 Sorry about that.",
+      "parentUuid": "74ecbd15_429221db",
       "range": {
         "startLine": 83,
         "startChar": 14,
