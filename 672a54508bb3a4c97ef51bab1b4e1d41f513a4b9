@@ -681,6 +681,30 @@
       },
       "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "447ff9b0_1a79bb04",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-04T20:31:36Z",
+      "side": 1,
+      "message": "This was also fixed by @NeverInline in fillInStackTrace.",
+      "parentUuid": "802326b7_756c3e03",
+      "range": {
+        "startLine": 75,
+        "startChar": 12,
+        "endLine": 75,
+        "endChar": 30
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
