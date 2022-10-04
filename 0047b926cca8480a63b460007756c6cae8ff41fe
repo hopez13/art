@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "913bd4e5_ca3728c2",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-04T19:19:55Z",
+      "side": 1,
+      "message": "Nit: I don\u0027t think it\u0027s a convention in ART codebase to add `const` to primitive types.",
+      "range": {
+        "startLine": 81,
+        "startChar": 15,
+        "endLine": 81,
+        "endChar": 20
+      },
+      "revId": "0047b926cca8480a63b460007756c6cae8ff41fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7c4e127_9dc8db9d",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-04T19:19:55Z",
+      "side": 1,
+      "message": "I would just use `std::optional\u003cExecResult\u003e` here to make things cleaner. I guess the existing enum fields have to be in primitive types because the enums are defined in odr_metrics.h, which this file doesn\u0027t have access to. In contrast, this file shouldn\u0027t have any problem with accessing exec_utils.h.\n\nHowever, this is just my personal preference, so it\u0027s totally optional.",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 44
+      },
+      "revId": "0047b926cca8480a63b460007756c6cae8ff41fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
