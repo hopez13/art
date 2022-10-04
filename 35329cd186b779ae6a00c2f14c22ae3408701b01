@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e02ad79a_3dc1a4fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Other than incorporating the comments/suggestions, I have also added logic to handle the rare possibility of running out of space on 32-bit (as we start with only 32MB) by adding another space to the pool.",
+      "revId": "35329cd186b779ae6a00c2f14c22ae3408701b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

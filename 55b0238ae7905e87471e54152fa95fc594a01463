@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00b394f8_e7f6f01b",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Actually, it\u0027s not that first_field will not be accessible even if it\u0027s outside the given range. It\u0027s just that the thread accessing should not update it.\n\nAnyways, I have replaced `GetDeclaringClassAddressWithoutBarrier` with already existing `DeclaringClassOffset` here and in ArtMethod case. PTAL.",
+      "parentUuid": "3d69f15c_60753852",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 3
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6800d2b6_d2bac550",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-09-28T02:41:30Z",
       "side": 1,
       "message": "It seems to me it would be clearer if you deleted this, or replaced it with \"that reside\". As it stands, it could be read as \"Check if they\u0027re all in this range; if so, visit them\". Same for methods.",
+      "range": {
+        "startLine": 43,
+        "startChar": 61,
+        "endLine": 43,
+        "endChar": 74
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92180f96_d385f92a",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6800d2b6_d2bac550",
       "range": {
         "startLine": 43,
         "startChar": 61,
@@ -104,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44581cec_067ed4d2",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Yeah. ArtField size is in power of two so RoundUp works nicely. ArtMethod is not and also has some alignment/padding requirements.",
+      "parentUuid": "3f0b112a_2afaca6a",
+      "range": {
+        "startLine": 436,
+        "startChar": 2,
+        "endLine": 441,
+        "endChar": 5
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b19c232_a6673101",
@@ -117,6 +189,30 @@
       "writtenOn": "2022-09-28T22:02:30Z",
       "side": 1,
       "message": "Since this describes the condition in the next if, I would phrase it as a question. Otherwise I tend to read such statements as assertions that hold at that hold at that point in the code.\n\nAlso applies to the next comment, and possibly others.",
+      "range": {
+        "startLine": 184,
+        "startChar": 7,
+        "endLine": 184,
+        "endChar": 47
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f47b8fee_12aa2094",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b19c232_a6673101",
       "range": {
         "startLine": 184,
         "startChar": 7,
@@ -152,6 +248,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc18702f_9df7502c",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. I rewrote the function, which seems much simpler than before, without performance penalty. PTAL",
+      "parentUuid": "ddefd4bb_8aaf5e59",
+      "range": {
+        "startLine": 189,
+        "startChar": 10,
+        "endLine": 189,
+        "endChar": 93
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e90c33ab_03341a08",
         "filename": "runtime/base/gc_visited_arena_pool.cc",
         "patchSetId": 24
@@ -163,6 +283,30 @@
       "writtenOn": "2022-09-28T22:02:30Z",
       "side": 1,
       "message": "Can you explain?",
+      "range": {
+        "startLine": 241,
+        "startChar": 4,
+        "endLine": 241,
+        "endChar": 24
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d59de181_2dfbde98",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e90c33ab_03341a08",
       "range": {
         "startLine": 241,
         "startChar": 4,
@@ -186,6 +330,30 @@
       "writtenOn": "2022-09-28T02:41:30Z",
       "side": 1,
       "message": "Could use a summary comment that defines what addr and end are. Does it make sense to pass in more meaningful pointer types here and cast them later?",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 51
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eaf733f_08645f67",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b21f61fe_50001b24",
       "range": {
         "startLine": 48,
         "startChar": 2,
@@ -221,6 +389,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4432ab42_f2e79b44",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "I named the ArenaPool as GCVisited, to differentiate it from other ArenaPool implementations in the sense that it is visited by GC.\n\nThe Arena is called TrackedArena because it keeps the required information for tracking all the allocations in it. I could name it GcVisitedArena, if you prefer.\n\nI\u0027m not good at choosing good names, unless it is obvious 😊",
+      "parentUuid": "db39e58a_5e694d5f",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c1d6934_92306ad6",
         "filename": "runtime/base/gc_visited_arena_pool.h",
         "patchSetId": 24
@@ -232,6 +424,30 @@
       "writtenOn": "2022-09-28T02:41:30Z",
       "side": 1,
       "message": "I would have called this something like LessByChunkAddr, etc., making it more consistent with std::less vs std::sort.",
+      "range": {
+        "startLine": 90,
+        "startChar": 8,
+        "endLine": 90,
+        "endChar": 12
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85ad2de6_c7caa173",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c1d6934_92306ad6",
       "range": {
         "startLine": 90,
         "startChar": 8,
@@ -265,6 +481,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8310df22_b669ace6",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9450c56b_34b3c540",
+      "range": {
+        "startLine": 93,
+        "startChar": 22,
+        "endLine": 93,
+        "endChar": 23
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85f37d49_baa9ac08",
@@ -278,6 +518,30 @@
       "writtenOn": "2022-09-28T02:41:30Z",
       "side": 1,
       "message": "Same here and for the address comparison above.",
+      "range": {
+        "startLine": 108,
+        "startChar": 23,
+        "endLine": 108,
+        "endChar": 24
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c369f97d_4665e414",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85f37d49_baa9ac08",
       "range": {
         "startLine": 108,
         "startChar": 23,
@@ -311,6 +575,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9eba3cc_98f96290",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32224c29_aca8d562",
+      "range": {
+        "startLine": 1562,
+        "startChar": 29,
+        "endLine": 1562,
+        "endChar": 64
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a78da8c_b9ddf03a",
@@ -324,6 +612,30 @@
       "writtenOn": "2022-09-28T22:02:30Z",
       "side": 1,
       "message": "Please merge the 2 lines, since obj_size is dead.",
+      "range": {
+        "startLine": 1566,
+        "startChar": 6,
+        "endLine": 1567,
+        "endChar": 23
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6092500_0a705fb1",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a78da8c_b9ddf03a",
       "range": {
         "startLine": 1566,
         "startChar": 6,
@@ -357,6 +669,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a665efc8_f1c486b3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1613,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de08667d_9650449b",
+      "range": {
+        "startLine": 1613,
+        "startChar": 55,
+        "endLine": 1613,
+        "endChar": 87
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98776cb4_a4561b98",
@@ -370,6 +706,30 @@
       "writtenOn": "2022-09-28T22:02:30Z",
       "side": 1,
       "message": "...Helper::Clobber...",
+      "range": {
+        "startLine": 1614,
+        "startChar": 68,
+        "endLine": 1614,
+        "endChar": 81
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "709eb8ba_c0e938c1",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98776cb4_a4561b98",
       "range": {
         "startLine": 1614,
         "startChar": 68,
@@ -403,6 +763,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "505f2487_9a58e288",
+        "filename": "runtime/linear_alloc-inl.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "The alignment is being already taken care of in this function. So there\u0027s no need to do that same in ArenaAllocator. Also, we don\u0027t need header to be 16-byte aligned, but the what we return from here. AllocAlign16 would disturb all that by making header 16-byte aligned.\n\nAdded a comment to clarify.",
+      "parentUuid": "ab0c1912_dcb4f608",
+      "range": {
+        "startLine": 99,
+        "startChar": 43,
+        "endLine": 99,
+        "endChar": 48
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c8ac1fd_6ee66bfe",
@@ -416,6 +800,30 @@
       "writtenOn": "2022-09-28T22:02:30Z",
       "side": 1,
       "message": "You might consider making this and the GetSize result a size_t, which seems more expected, and then doing an explicit overflow check in the constructor. I don\u0027t have a strong opinion about this.",
+      "range": {
+        "startLine": 41,
+        "startChar": 17,
+        "endLine": 41,
+        "endChar": 25
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b305550b_f40b3915",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-04T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c8ac1fd_6ee66bfe",
       "range": {
         "startLine": 41,
         "startChar": 17,
