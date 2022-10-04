@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1291733_7a2a78c2",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-04T02:08:19Z",
+      "side": 1,
+      "message": "I constructed the test that way for simplicity, but that\u0027s not what I\u0027m worried about. Please disregard what the call does - it\u0027s that the call itself is possible to do that I wonder about (i.e. this call from the app to the shared library, not the `System.loadLibrary` call in the shared library).\n\nIow it seems an app in any partition can seemingly freely use a shared library in any other partition. Isn\u0027t that in itself a problem?",
+      "parentUuid": "8c2a9310_b5b88c8f",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 36
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb508b33_70bc647c",
         "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
         "patchSetId": 2
