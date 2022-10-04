@@ -192,6 +192,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcc93753_17cd838f",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-04T14:48:26Z",
+      "side": 1,
+      "message": "Thanks for your help, Jiyong. I think I\u0027ll keep the test as-is then, even though making the shared libs public wasn\u0027t the intention. I just added a comment about the effect of the permissions xml files.",
+      "parentUuid": "8cc9b8d1_65ef8890",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 36
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb508b33_70bc647c",
