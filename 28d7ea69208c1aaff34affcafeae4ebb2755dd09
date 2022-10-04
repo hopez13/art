@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cc052fc_d2730f35",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-10-04T02:31:39Z",
+      "side": 1,
+      "message": "When you say shared library, do you mean \"java\" shared library, or \"native\" shared library?\n\nAs long as the app has \u003cuses-library\u003e tag for the java shared library in its manifest, it can load the shared lib, right?\n\nSorry, I think I don\u0027t understand what you meant.",
+      "parentUuid": "a1291733_7a2a78c2",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 36
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb508b33_70bc647c",
         "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
         "patchSetId": 2
