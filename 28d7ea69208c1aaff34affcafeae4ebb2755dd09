@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c2a9310_b5b88c8f",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2022-10-04T01:58:38Z",
+      "side": 1,
+      "message": "I can\u0027t say it\u0027s WAI, because this in theory makes it possible to load private native libs via java shared libs. However, I don\u0027t think this needs to be fixed because that is possible only if the java shared lib provides a power mechanism for loading \"any\" library like loadLibrary(name), which is very unlikely to happen.",
+      "parentUuid": "c45669e2_36a1636d",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 36
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb508b33_70bc647c",
         "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
         "patchSetId": 2
