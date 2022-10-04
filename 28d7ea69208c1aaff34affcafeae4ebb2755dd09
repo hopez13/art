@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30c6364e_db690e16",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-04T03:19:29Z",
+      "side": 1,
+      "message": "\u003e (2) exported via the /\u003cpartition\u003e/etc/permissions/*.xml file.\n\u003e (2) is an act of making a java shared lib public.\n\nI see, thanks. It was the approach I figured out just to make the java shared lib work even within the same partition, so I didn\u0027t get that impression. Is there another way I ought to use to make the library available as a private API to apps only in the same partition? Or would that require a custom classloader?\n\nAlso, we make some effort to hide extended public libraries from unbundled vendor apps, but it doesn\u0027t appear to cover shared java libs that are made public through permissions xml files. However there may very well be CTS tests that I\u0027m unaware of that block such things.",
+      "parentUuid": "2f60553a_d410feab",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 36
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb508b33_70bc647c",
         "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
         "patchSetId": 2
