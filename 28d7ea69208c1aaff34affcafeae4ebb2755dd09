@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cfbf8c5d_8343807b",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-04T02:46:45Z",
+      "side": 1,
+      "message": "Sorry, I mean a java shared library.\n\nI was expecting similar restrictions for those across partitions as there are for native libs, e.g. that vendor or normal /data apps cannot load arbitrary java shared libs in /system, just by declaring them in their own manifests. I thought there may be java shared libs there that aren\u0027t part of the SDK.",
+      "parentUuid": "3cc052fc_d2730f35",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 36
+      },
+      "revId": "28d7ea69208c1aaff34affcafeae4ebb2755dd09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb508b33_70bc647c",
         "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
         "patchSetId": 2
