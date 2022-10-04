@@ -495,6 +495,78 @@ libart_cc_defaults {
         //   manifest-art.json.
         "libjavacore",
     ],
+    // Not using .map.txt because this is an internal API
+    version_script: "libart.map",
+}
+
+libart_cc_defaults {
+    name: "libart_common_dependencies",
+    target: {
+        android: {
+            header_libs: [
+                "libnativeloader-headers", // For dlext_namespaces.h
+            ],
+            shared_libs: [
+                "libdl_android",
+                "libstatssocket",
+                "heapprofd_client_api",
+            ],
+            static_libs: [
+                "libstatslog_art",
+            ],
+        },
+    },
+
+    header_libs: [
+        "art_cmdlineparser_headers",
+        "cpp-define-generator-definitions",
+        "dlmalloc",
+        "jni_platform_headers",
+        "libart_headers",
+        "libnativehelper_header_only",
+    ],
+    shared_libs: [
+        "libartpalette",
+        "libbase", // For common macros.
+        "liblog",
+        "liblz4",
+        "liblzma", // libelffile(d) dependency; must be repeated here since it's a static lib.
+        "libnativebridge",
+        "libnativeloader",
+        "libsigchain",
+        "libunwindstack",
+        "libz", // For adler32.
+    ],
+    static_libs: [
+        "libodrstatslog",
+    ],
+
+}
+
+libart_cc_defaults {
+    name: "libart_dependencies",
+    defaults: ["libart_common_dependencies"],
+    shared_libs: [
+        "libdexfile",
+        "libprofile",
+    ],
+    static_libs: [
+        "libelffile",
+        "libvixl",
+    ],
+}
+
+libart_cc_defaults {
+    name: "libartd_dependencies",
+    defaults: ["libart_common_dependencies"],
+    shared_libs: [
+        "libdexfiled",
+        "libprofiled",
+    ],
+    static_libs: [
+        "libelffiled",
+        "libvixld",
+    ],
 }
 
 libart_static_cc_defaults {
@@ -693,25 +765,25 @@ art_cc_defaults {
     ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libart-runtime-gtest",
     defaults: [
         "libart-runtime-gtest-defaults",
         "libart-gtest-defaults",
     ],
-    shared_libs: [
+    static_libs: [
         "libart",
         "libartbase-art-gtest",
     ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libartd-runtime-gtest",
     defaults: [
         "libart-runtime-gtest-defaults",
         "libartd-gtest-defaults",
     ],
-    shared_libs: [
+    static_libs: [
         "libartd",
         "libartbased-art-gtest",
     ],

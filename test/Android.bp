@@ -230,6 +230,7 @@ art_cc_defaults {
         "art_test_defaults",
         "art_gtest_common_defaults",
         "art_debug_defaults",
+        "libartd_dependencies",
     ],
 
     test_suites: ["art-host-tests"],
@@ -238,9 +239,7 @@ art_cc_defaults {
     },
 
     shared_libs: [
-        "libartd",
         "libartd-disassembler",
-        "libartd-gtest",
         "libdexfiled",
         "libprofiled",
         "libartbased",
@@ -259,6 +258,11 @@ art_cc_defaults {
         // - JavaVmExtTest#AttachCurrentThread_SmallStack
         "libnativehelper",
     ],
+    static_libs: [
+        "libartd",
+        "libartd-compiler",
+        "libartd-gtest",
+    ],
 }
 
 art_cc_defaults {
@@ -270,6 +274,7 @@ art_cc_defaults {
         // (including the Release ART APEX).
         "art_standalone_test_defaults",
         "art_gtest_common_defaults",
+        "libart_dependencies",
     ],
 
     test_suites: [
@@ -293,8 +298,6 @@ art_cc_defaults {
     // We use the "non-d" variants of libraries, as the Release ART APEX does
     // not contain the "d" (debug) variants.
     shared_libs: [
-        "libart",
-        "libart-compiler",
         "libart-disassembler",
         "libdexfile",
         "libprofile",
@@ -321,6 +324,9 @@ art_cc_defaults {
         // TODO(b/192070541): Consider linking `libart-gtest` dynamically.
         "libart-gtest",
         "libartbase-testing",
+
+        "libart",
+        "libart-compiler",
     ],
 
     test_for: [
@@ -374,13 +380,16 @@ art_cc_defaults {
     name: "libart-gtest-defaults",
     defaults: [
         "libart-gtest-common-defaults",
+        "libart_dependencies",
     ],
     shared_libs: [
-        "libart",
-        "libart-compiler",
         "libdexfile",
         "libprofile",
         "libartbase",
+    ],
+    static_libs: [
+        "libart",
+        "libart-compiler",
     ],
 }
 
@@ -389,13 +398,16 @@ art_cc_defaults {
     defaults: [
         "art_debug_defaults",
         "libart-gtest-common-defaults",
+        "libartd_dependencies",
     ],
     shared_libs: [
-        "libartd",
-        "libartd-compiler",
         "libdexfiled",
         "libprofiled",
         "libartbased",
+    ],
+    static_libs: [
+        "libartd",
+        "libartd-compiler",
     ],
 }
 
@@ -430,7 +442,7 @@ art_cc_defaults {
     ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libart-gtest",
     defaults: [
         "libart-gtest-common",
@@ -441,16 +453,18 @@ art_cc_library {
         "libartbase-art-gtest",
     ],
     shared_libs: [
-        "libart",
-        "libart-compiler",
         "libdexfile",
         "libprofile",
         "libartbase",
         "libartbase-testing",
     ],
+    static_libs: [
+        "libart",
+        "libart-compiler",
+    ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libartd-gtest",
     defaults: [
         "art_debug_defaults",
@@ -462,12 +476,14 @@ art_cc_library {
         "libartbased-art-gtest",
     ],
     shared_libs: [
-        "libartd",
-        "libartd-compiler",
         "libdexfiled",
         "libprofiled",
         "libartbased",
         "libartbased-testing",
+    ],
+    static_libs: [
+        "libartd",
+        "libartd-compiler",
     ],
 }
 
@@ -542,12 +558,17 @@ java_defaults {
 
 art_cc_test_library {
     name: "libarttest",
-    defaults: ["libarttest-defaults"],
+    defaults: [
+        "libarttest-defaults",
+        "libart_dependencies",
+    ],
     shared_libs: [
-        "libart",
         "libdexfile",
         "libprofile",
         "libartbase",
+    ],
+    static_libs: [
+        "libart",
     ],
 }
 
@@ -556,12 +577,15 @@ art_cc_test_library {
     defaults: [
         "art_debug_defaults",
         "libarttest-defaults",
+        "libartd_dependencies",
     ],
     shared_libs: [
-        "libartd",
         "libdexfiled",
         "libprofiled",
         "libartbased",
+    ],
+    static_libs: [
+        "libartd",
     ],
 }
 
@@ -604,12 +628,17 @@ cc_defaults {
 art_cc_test_library {
     name: "libartagent",
     srcs: ["900-hello-plugin/load_unload.cc"],
-    defaults: ["libartagent-defaults"],
+    defaults: [
+        "libartagent-defaults",
+        "libart_dependencies",
+    ],
     shared_libs: [
-        "libart",
         "libdexfile",
         "libprofile",
         "libartbase",
+    ],
+    static_libs: [
+        "libart",
     ],
 }
 
@@ -619,12 +648,15 @@ art_cc_test_library {
     defaults: [
         "art_debug_defaults",
         "libartagent-defaults",
+        "libartd_dependencies",
     ],
     shared_libs: [
-        "libartd",
         "libdexfiled",
         "libprofiled",
         "libartbased",
+    ],
+    static_libs: [
+        "libartd",
     ],
 }
 
@@ -767,12 +799,17 @@ art_cc_defaults {
 
 art_cc_test_library {
     name: "libtiagent",
-    defaults: ["libtiagent-defaults"],
+    defaults: [
+        "libtiagent-defaults",
+        "libart_dependencies",
+    ],
     shared_libs: [
-        "libart",
         "libdexfile",
         "libprofile",
         "libartbase",
+    ],
+    static_libs: [
+        "libart",
     ],
 }
 
@@ -781,12 +818,15 @@ art_cc_test_library {
     defaults: [
         "art_debug_defaults",
         "libtiagent-defaults",
+        "libartd_dependencies",
     ],
     shared_libs: [
-        "libartd",
         "libdexfiled",
         "libprofiled",
         "libartbased",
+    ],
+    static_libs: [
+        "libartd",
     ],
 }
 

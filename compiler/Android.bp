@@ -344,23 +344,27 @@ art_cc_library {
         "libart-compiler-gtest-common",
     ],
     shared_libs: [
-        "libart-compiler",
         "libart-disassembler",
-        "libartbase-art-gtest",
+    ],
+    static_libs: [
+        "libart-compiler",
         "libart-runtime-gtest",
+        "libartbase-art-gtest",
     ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libartd-compiler-gtest",
     defaults: [
         "libartd-gtest-defaults",
         "libart-compiler-gtest-common",
     ],
     shared_libs: [
-        "libartd-compiler",
         "libartd-disassembler",
+    ],
+    static_libs: [
         "libartbased-art-gtest",
+        "libartd-compiler",
         "libartd-runtime-gtest",
     ],
 }
