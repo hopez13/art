@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acdccf85_c9d53967",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-04T08:05:20Z",
+      "side": 1,
+      "message": "`maps_` is `GUARDED_BY(lock_)`. This is not enforced in constructor but we should respect it here anyway and move the reservation after locking the mutex.",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 19
+      },
+      "revId": "2497c775c8e6cef62a2722745ba3dfbb71890a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51ef11bb_4eb9796a",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-04T08:05:20Z",
+      "side": 1,
+      "message": "Use `dchecked_integral_cast` and drop the `DCHECK_LE()` below.",
+      "range": {
+        "startLine": 42,
+        "startChar": 27,
+        "endLine": 42,
+        "endChar": 38
+      },
+      "revId": "2497c775c8e6cef62a2722745ba3dfbb71890a1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
