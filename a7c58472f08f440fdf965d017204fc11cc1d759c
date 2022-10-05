@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "586ec21c_2224f6ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-05T23:45:10Z",
+      "side": 1,
+      "message": "Thanks so much for the reviews.",
+      "revId": "a7c58472f08f440fdf965d017204fc11cc1d759c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fcb6d90_06560396",
@@ -62,6 +79,30 @@
       "side": 1,
       "message": "It looks weird, but if it\u0027s going to be replaced soon, sure. Functionally, it\u0027s entirely fine.",
       "parentUuid": "fb88f42b_d991b011",
+      "range": {
+        "startLine": 106,
+        "startChar": 17,
+        "endLine": 106,
+        "endChar": 60
+      },
+      "revId": "a7c58472f08f440fdf965d017204fc11cc1d759c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf9778c6_0e8ee58e",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-05T23:45:10Z",
+      "side": 1,
+      "message": "I\u0027ll do that in the next CL itself.",
+      "parentUuid": "bef64ea7_cd844f95",
       "range": {
         "startLine": 106,
         "startChar": 17,

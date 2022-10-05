@@ -461,6 +461,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73d20da4_8cbb9632",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-05T23:45:10Z",
+      "side": 1,
+      "message": "I\u0027ll add a comment to the GetBytesAllocated() declaration in ArenaPool.",
+      "parentUuid": "87ee3aeb_85118a93",
+      "range": {
+        "startLine": 241,
+        "startChar": 4,
+        "endLine": 241,
+        "endChar": 24
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b21f61fe_50001b24",
