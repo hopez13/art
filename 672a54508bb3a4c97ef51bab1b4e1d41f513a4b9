@@ -72,6 +72,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8ca0b9d_f94bb876",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-05T17:40:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4692e10_01f56e31",
+      "range": {
+        "startLine": 1435,
+        "startChar": 61,
+        "endLine": 1436,
+        "endChar": 24
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0e17b64_ded23fbc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-05T17:40:56Z",
+      "side": 1,
+      "message": "Updated message and stat name to reflect this.",
+      "parentUuid": "3473429b_27a1a1cf",
+      "range": {
+        "startLine": 1435,
+        "startChar": 61,
+        "endLine": 1436,
+        "endChar": 24
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab6dd2cc_64dc75de",
@@ -401,6 +449,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c59d18e_1ea79018",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-05T17:40:56Z",
+      "side": 1,
+      "message": "We could change it to allow try catches to be inlined into catch blocks, but it would require extra work in the compiler side. Catch blocks have TryCatchInformation, and blocks can have at most one TryCatchInformation. If we allow to inline methods with a try catch inside of catch blocks we should make sure we are not clobbering the outer catch TryCatchInformation with the inner one.\n\nA possibility to do so would be to split the original catch block providing a first \"landing pad\" basic block with the outer catch information and flowing to the inner try catch. We would need to make sure we are doing this at the right time though. If we do it too early, DeadCodeElimination might remove that \"landing pad\" before inlining the method. If we do it too late, there are checks that forbid us to modify the inlinee graph.\n\nIn short, I think it is doable but it is not a quick change like the CL you mentioned.",
+      "parentUuid": "2fc96662_a672f3fa",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 38
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e66488c_12660f42",
@@ -509,6 +581,30 @@
       "side": 1,
       "message": "So, this tests\n\n    A() -\u003einline-\u003e B()/try -no-inline-\u003e C()/throw\n\nwhere B() catches the exception thrown in C().\n\nBut we do not have any test for\n\n    A() -\u003einline-\u003e B()/try -inline-\u003e C()/throw\n\nwhere B() catches the exception thrown in C().",
       "parentUuid": "c3270d6e_20fd1416",
+      "range": {
+        "startLine": 227,
+        "startChar": 21,
+        "endLine": 227,
+        "endChar": 35
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a68351b_edee67dc",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-05T17:40:56Z",
+      "side": 1,
+      "message": "Added the $inline$ version too.",
+      "parentUuid": "7b81f353_6ef03a99",
       "range": {
         "startLine": 227,
         "startChar": 21,
@@ -675,6 +771,30 @@
       "side": 1,
       "message": "Let\u0027s merge https://android-review.googlesource.com/2239620 and undo all changes here.",
       "parentUuid": "fdb7eb94_b80ea872",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fa12663_f8e1ed55",
+        "filename": "test/593-checker-long-2-float-regression/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-05T17:40:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3260c73_4887aaeb",
       "range": {
         "startLine": 43,
         "startChar": 6,
