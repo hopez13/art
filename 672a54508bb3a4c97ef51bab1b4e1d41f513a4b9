@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3473429b_27a1a1cf",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-05T12:27:30Z",
+      "side": 1,
+      "message": "`try_catch_inlining_allowed_` is false also for `TryInlineFromCHA()` and `TryInlineFromInlineCache()` even if the invoke is not covered by an outer try-catch.",
+      "parentUuid": "f4692e10_01f56e31",
+      "range": {
+        "startLine": 1435,
+        "startChar": 61,
+        "endLine": 1436,
+        "endChar": 24
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab6dd2cc_64dc75de",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 23
@@ -355,6 +379,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2fc96662_a672f3fa",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-05T12:27:30Z",
+      "side": 1,
+      "message": "This would be inlined if we were checking only for try-blocks similar to https://android-review.googlesource.com/2219242 . Right?",
+      "parentUuid": "6daf8227_d9cce181",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 38
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e66488c_12660f42",
         "filename": "test/2240-checker-inline-try-catch/src/Main.java",
         "patchSetId": 23
@@ -437,6 +485,30 @@
       "side": 1,
       "message": "I\u0027d do `$noinline$` as what I wanted to test was throwing from an inner method and catching it in an outer method.",
       "parentUuid": "efa2e890_7e3b1f0d",
+      "range": {
+        "startLine": 227,
+        "startChar": 21,
+        "endLine": 227,
+        "endChar": 35
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b81f353_6ef03a99",
+        "filename": "test/2240-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-05T12:27:30Z",
+      "side": 1,
+      "message": "So, this tests\n\n    A() -\u003einline-\u003e B()/try -no-inline-\u003e C()/throw\n\nwhere B() catches the exception thrown in C().\n\nBut we do not have any test for\n\n    A() -\u003einline-\u003e B()/try -inline-\u003e C()/throw\n\nwhere B() catches the exception thrown in C().",
+      "parentUuid": "c3270d6e_20fd1416",
       "range": {
         "startLine": 227,
         "startChar": 21,
@@ -579,6 +651,30 @@
       "side": 1,
       "message": "It was messing with the CHECKer on target. I can remove the `if` and the throw",
       "parentUuid": "d1006bec_0cdd0ba0",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "672a54508bb3a4c97ef51bab1b4e1d41f513a4b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3260c73_4887aaeb",
+        "filename": "test/593-checker-long-2-float-regression/src/Main.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-05T12:27:30Z",
+      "side": 1,
+      "message": "Let\u0027s merge https://android-review.googlesource.com/2239620 and undo all changes here.",
+      "parentUuid": "fdb7eb94_b80ea872",
       "range": {
         "startLine": 43,
         "startChar": 6,
