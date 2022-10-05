@@ -46,6 +46,30 @@
       },
       "revId": "a7c58472f08f440fdf965d017204fc11cc1d759c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bef64ea7_cd844f95",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-05T23:17:25Z",
+      "side": 1,
+      "message": "It looks weird, but if it\u0027s going to be replaced soon, sure. Functionally, it\u0027s entirely fine.",
+      "parentUuid": "fb88f42b_d991b011",
+      "range": {
+        "startLine": 106,
+        "startChar": 17,
+        "endLine": 106,
+        "endChar": 60
+      },
+      "revId": "a7c58472f08f440fdf965d017204fc11cc1d759c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
