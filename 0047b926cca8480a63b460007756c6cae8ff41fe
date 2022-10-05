@@ -45,6 +45,30 @@
       },
       "revId": "0047b926cca8480a63b460007756c6cae8ff41fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "053725e8_51b8906a",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-05T10:17:03Z",
+      "side": 1,
+      "message": "It might make things cleaner here, but it would change the code that invokes statsd to something like this:\n\n```\n// Write values to statsd. The order of values passed is the same as the order of the\n  // fields in OdrMetricsRecord.\n  int bytes_written \u003d art::metrics::statsd::stats_write(\n      metrics::statsd::ODREFRESH_REPORTED,\n      [...]\n      record.primary_bcp_dex2oat_result.has_value()\n        ? record.primary_bcp_dex2oat_result-\u003estatus\n        : -1,\n      record.primary_bcp_dex2oat_result.has_value()\n        ? record.primary_bcp_dex2oat_result-\u003eexit_code\n        : -1,\n      record.primary_bcp_dex2oat_result.has_value()\n        ? record.primary_bcp_dex2oat_result-\u003esignal\n        : 0,\n```\n\nI think having the conversion between std::optional\u003cExecResult\u003e and some integer values is inevitable, it\u0027s just a matter of where and how many times we want this conversion to happen - with these changes we will have:\n 1. a conversion from std::optional\u003cExecResult\u003e to ints while writing to file\n 2. a conversion from ints to std::optional\u003cExecResult\u003e while reading from file\n 3. a conversion from std::optional\u003cExecResult\u003e to ints while reporting to statsd\n \nwhile with the current implementation we would only have one, at the time of creating the OdrMetricsRecord objects - any thoughts?",
+      "parentUuid": "a7c4e127_9dc8db9d",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 44
+      },
+      "revId": "0047b926cca8480a63b460007756c6cae8ff41fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
