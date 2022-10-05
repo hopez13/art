@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fcb6d90_06560396",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-05T19:39:15Z",
+      "side": 1,
+      "message": "Sorry for not being clear enough. I think size_t comparisons should stay as \u003c and \u003d\u003d. The problem is that pointer \u003c and \u003e comparisons are only valid if both pointers point to within the same C++ object. Std::less, on the other hand, imposes a total order on pointers of a given type that is consistent with \u003c. They are commonly implemented the same way, but they officially do have significantly different semantics. I think pointer \u003d\u003d is also fine, so I don\u0027t know of a reason to use std::equal_to except as a parameter.",
+      "range": {
+        "startLine": 106,
+        "startChar": 17,
+        "endLine": 106,
+        "endChar": 60
+      },
+      "revId": "a7c58472f08f440fdf965d017204fc11cc1d759c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -82,6 +82,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e1baa48_83c97c92",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-05T19:39:15Z",
+      "side": 1,
+      "message": "LGTM",
+      "parentUuid": "00b394f8_e7f6f01b",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 3
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6800d2b6_d2bac550",
@@ -166,6 +190,30 @@
       "side": 1,
       "message": "Yeah. ArtField size is in power of two so RoundUp works nicely. ArtMethod is not and also has some alignment/padding requirements.",
       "parentUuid": "3f0b112a_2afaca6a",
+      "range": {
+        "startLine": 436,
+        "startChar": 2,
+        "endLine": 441,
+        "endChar": 5
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2a7eae8_5870d3f3",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-05T19:39:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "44581cec_067ed4d2",
       "range": {
         "startLine": 436,
         "startChar": 2,
@@ -270,6 +318,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5815e873_032338fa",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-05T19:39:15Z",
+      "side": 1,
+      "message": "LGTM",
+      "parentUuid": "cc18702f_9df7502c",
+      "range": {
+        "startLine": 189,
+        "startChar": 10,
+        "endLine": 189,
+        "endChar": 93
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e90c33ab_03341a08",
@@ -307,6 +379,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "e90c33ab_03341a08",
+      "range": {
+        "startLine": 241,
+        "startChar": 4,
+        "endLine": 241,
+        "endChar": 24
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d54056f_5e161532",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-05T19:39:15Z",
+      "side": 1,
+      "message": "I actually had more of a big picture question here. Why are we incrementing bytes_allocated when we are \"free\"ing something? That may be because I don\u0027t understand abstractly what this function is doing. OTOH, I couldn\u0027t find documentation for that, so I may not be the only one.",
+      "parentUuid": "d59de181_2dfbde98",
       "range": {
         "startLine": 241,
         "startChar": 4,
@@ -401,6 +497,30 @@
       "side": 1,
       "message": "I named the ArenaPool as GCVisited, to differentiate it from other ArenaPool implementations in the sense that it is visited by GC.\n\nThe Arena is called TrackedArena because it keeps the required information for tracking all the allocations in it. I could name it GcVisitedArena, if you prefer.\n\nI\u0027m not good at choosing good names, unless it is obvious 😊",
       "parentUuid": "db39e58a_5e694d5f",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a632189_7665c7db",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-05T19:39:15Z",
+      "side": 1,
+      "message": "That makes sense, so I\u0027m OK with the way it is.",
+      "parentUuid": "4432ab42_f2e79b44",
       "range": {
         "startLine": 61,
         "startChar": 6,
