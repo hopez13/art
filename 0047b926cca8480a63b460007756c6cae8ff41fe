@@ -69,6 +69,30 @@
       },
       "revId": "0047b926cca8480a63b460007756c6cae8ff41fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6278a9db_fec355e0",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-05T10:29:39Z",
+      "side": 1,
+      "message": "I see what you mean. Alternatively, can we define a struct that contains\n\n```\n  int32_t status;\n  int32_t exit_code;\n  int32_t signal;\n```\n\nso that we can process them in odrefresh/odr_metrics.cc and odrefresh/odr_metrics_record.cc as a whole instead of having too many duplicate code?",
+      "parentUuid": "053725e8_51b8906a",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 44
+      },
+      "revId": "0047b926cca8480a63b460007756c6cae8ff41fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
