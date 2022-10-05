@@ -34,6 +34,24 @@
       "parentUuid": "b93d5f8e_3b1ad4db",
       "revId": "95079285537b810d0612bb5f41336d73a8c18606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ebf5d69_dd28ea4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-05T08:09:17Z",
+      "side": 1,
+      "message": "I assume that this increase was measured when including the CL named \"Compiler implementation of try catch inlining\". This CL could be submitted without causing the regression.\n\nWe could just rebase this CL away from \"Add compiler support for @NeverInline\", remove the topic and submit on its own.",
+      "parentUuid": "aecdafcf_47a0aeeb",
+      "revId": "95079285537b810d0612bb5f41336d73a8c18606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
