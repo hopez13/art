@@ -327,6 +327,17 @@ class ScopedDeoptimizationContext : public art::ValueObject {
     // Use performing_deoptimization_ to keep track of the lock.
     deopt_->performing_deoptimization_ = true;
     deopt_->deoptimization_status_lock_.Unlock(self_);
+    // Enter GC critical section so we can ensure there is no GC happening in
+    // parallel. We hold mutator lock exclusively and visit class loaders to
+    // update entry points of methods in this context. Visiting class loaders
+    // involves decoding weak global objects which requires GC to be at specific
+    // points where it is safe to do so. Holding an exclusive lock could prevent
+    // GC reaching this point hence causing a deadlock. However, this could
+    // cause deadlocks if GC is waiting for any callbacks (ObjectFree /
+    // kGarbageCollectionFinish / kGarbageCollectionStart) then this could lead
+    // to a dedlock See b/113777552.
+    // TODO(b/113777552): Avoid using GCCriticalSection but instead use a
+    // different scope where it is safe to decode weak globals.
     uninterruptible_cause_ = critical_section_.Enter(art::gc::kGcCauseInstrumentation,
                                                      art::gc::kCollectorTypeCriticalSection);
     art::Runtime::Current()->GetThreadList()->SuspendAll("JMVTI Deoptimizing methods",
