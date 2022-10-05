@@ -22,6 +22,30 @@
       },
       "revId": "a7c58472f08f440fdf965d017204fc11cc1d759c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb88f42b_d991b011",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-05T21:39:01Z",
+      "side": 1,
+      "message": "Would you like me to switch to \u0027\u003d\u003d\u0027 before merging this CL, or can be done in a separate CL, if not functionally harmless? I was hoping to merge this CL ASAP and move to the next one: making it concurrent.",
+      "parentUuid": "1fcb6d90_06560396",
+      "range": {
+        "startLine": 106,
+        "startChar": 17,
+        "endLine": 106,
+        "endChar": 60
+      },
+      "revId": "a7c58472f08f440fdf965d017204fc11cc1d759c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

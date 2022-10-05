@@ -415,6 +415,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b64a62b4_10a6b3d6",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-05T21:39:01Z",
+      "side": 1,
+      "message": "I think the context where it is used we need to know how many bytes are allocated in the ArenaPool, and the best way to calculate it is by iterating over freed arena list as all arenas are freed by then.",
+      "parentUuid": "2d54056f_5e161532",
+      "range": {
+        "startLine": 241,
+        "startChar": 4,
+        "endLine": 241,
+        "endChar": 24
+      },
+      "revId": "55b0238ae7905e87471e54152fa95fc594a01463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b21f61fe_50001b24",
         "filename": "runtime/base/gc_visited_arena_pool.h",
         "patchSetId": 24
