@@ -93,6 +93,30 @@
       },
       "revId": "da0f34588ddd2042cdfa3893efc091254e61b00e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbee607a_72366479",
+        "filename": "runtime/exec_utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-05T18:04:45Z",
+      "side": 1,
+      "message": "I mean, you can define something like `constexpr int32_t kExecResultNotRun \u003d -1` in odrefresh/odr_metrics_record.h, or directly use \"-1\" in the code, instead of putting the constant here. A constant here is confusing to readers because it\u0027s not a valid value that `ExecUtils` can actually produce.",
+      "parentUuid": "b953173d_d9a5ae52",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "da0f34588ddd2042cdfa3893efc091254e61b00e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
