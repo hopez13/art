@@ -52,6 +52,24 @@
       "parentUuid": "aecdafcf_47a0aeeb",
       "revId": "95079285537b810d0612bb5f41336d73a8c18606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07d33f73_96a7a8be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-05T17:40:43Z",
+      "side": 1,
+      "message": "Yes, the regression was considering all CLs in the topic. After the inliner.cc heuristics change, we are not seeing the warning anymore.\n\nAlready landed the @NeverInline change separately but that is only for on-device compiles (and wouldn\u0027t change the warnings we were getting).",
+      "parentUuid": "5ebf5d69_dd28ea4e",
+      "revId": "95079285537b810d0612bb5f41336d73a8c18606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
