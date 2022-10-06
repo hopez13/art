@@ -16,6 +16,7 @@
 
 #include "fault_handler.h"
 
+#include <atomic>
 #include <string.h>
 #include <sys/mman.h>
 #include <sys/ucontext.h>
@@ -51,82 +52,16 @@ static bool art_fault_handler(int sig, siginfo_t* info, void* context) {
   return fault_manager.HandleFault(sig, info, context);
 }
 
-#if defined(__linux__)
+struct FaultManager::GeneratedCodeRange {
+  std::atomic<GeneratedCodeRange*> next;
+  const void* start;
+  size_t size;
+};
 
-// Change to verify the safe implementations against the original ones.
-constexpr bool kVerifySafeImpls = false;
-
-// Provide implementations of ArtMethod::GetDeclaringClass and VerifyClassClass that use SafeCopy
-// to safely dereference pointers which are potentially garbage.
-// Only available on Linux due to availability of SafeCopy.
-
-static mirror::Class* SafeGetDeclaringClass(ArtMethod* method)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  char* method_declaring_class =
-      reinterpret_cast<char*>(method) + ArtMethod::DeclaringClassOffset().SizeValue();
-
-  // ArtMethod::declaring_class_ is a GcRoot<mirror::Class>.
-  // Read it out into as a CompressedReference directly for simplicity's sake.
-  mirror::CompressedReference<mirror::Class> cls;
-  ssize_t rc = SafeCopy(&cls, method_declaring_class, sizeof(cls));
-  CHECK_NE(-1, rc);
-
-  if (kVerifySafeImpls) {
-    ObjPtr<mirror::Class> actual_class = method->GetDeclaringClassUnchecked<kWithoutReadBarrier>();
-    CHECK_EQ(actual_class, cls.AsMirrorPtr());
-  }
-
-  if (rc != sizeof(cls)) {
-    return nullptr;
-  }
-
-  return cls.AsMirrorPtr();
-}
-
-static mirror::Class* SafeGetClass(mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
-  char* obj_cls = reinterpret_cast<char*>(obj) + mirror::Object::ClassOffset().SizeValue();
-
-  mirror::HeapReference<mirror::Class> cls;
-  ssize_t rc = SafeCopy(&cls, obj_cls, sizeof(cls));
-  CHECK_NE(-1, rc);
-
-  if (kVerifySafeImpls) {
-    mirror::Class* actual_class = obj->GetClass<kVerifyNone>();
-    CHECK_EQ(actual_class, cls.AsMirrorPtr());
-  }
-
-  if (rc != sizeof(cls)) {
-    return nullptr;
-  }
-
-  return cls.AsMirrorPtr();
-}
-
-static bool SafeVerifyClassClass(mirror::Class* cls) REQUIRES_SHARED(Locks::mutator_lock_) {
-  mirror::Class* c_c = SafeGetClass(cls);
-  bool result = c_c != nullptr && c_c == SafeGetClass(c_c);
-
-  if (kVerifySafeImpls) {
-    CHECK_EQ(VerifyClassClass(cls), result);
-  }
-
-  return result;
-}
-
-#else
-
-static mirror::Class* SafeGetDeclaringClass(ArtMethod* method_obj)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  return method_obj->GetDeclaringClassUnchecked<kWithoutReadBarrier>().Ptr();
-}
-
-static bool SafeVerifyClassClass(mirror::Class* cls) REQUIRES_SHARED(Locks::mutator_lock_) {
-  return VerifyClassClass(cls);
-}
-#endif
-
-
-FaultManager::FaultManager() : initialized_(false) {
+FaultManager::FaultManager()
+    : generated_code_ranges_lock_("FaultHandler generated code ranges lock",
+                                  LockLevel::kGenericBottomLock),
+      initialized_(false) {
   sigaction(SIGSEGV, nullptr, &oldaction_);
 }
 
@@ -167,6 +102,20 @@ void FaultManager::Shutdown() {
     // Free all handlers.
     STLDeleteElements(&generated_code_handlers_);
     STLDeleteElements(&other_handlers_);
+
+    // Delete remaining code ranges if any (such as nterp code or oat code from
+    // oat files that have not been unloaded, including boot image oat files).
+    GeneratedCodeRange* range;
+    {
+      MutexLock lock(Thread::Current(), generated_code_ranges_lock_);
+      range = generated_code_ranges_.load(std::memory_order_acquire);
+      generated_code_ranges_.store(nullptr, std::memory_order_release);
+    }
+    while (range != nullptr) {
+      GeneratedCodeRange* next_range = range->next.load(std::memory_order_relaxed);
+      delete range;
+      range = next_range;
+    }
   }
 }
 
@@ -268,32 +217,77 @@ void FaultManager::RemoveHandler(FaultHandler* handler) {
   LOG(FATAL) << "Attempted to remove non existent handler " << handler;
 }
 
-static bool IsKnownPc(uintptr_t pc, ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
-  // Check whether the pc is within nterp range.
-  if (OatQuickMethodHeader::IsNterpPc(pc)) {
-    return true;
+void FaultManager::AddGeneratedCodeRange(const void* start, size_t size) {
+  GeneratedCodeRange* new_range = new GeneratedCodeRange{nullptr, start, size};
+  bool success;
+  {
+    MutexLock lock(Thread::Current(), generated_code_ranges_lock_);
+    GeneratedCodeRange* old_head = generated_code_ranges_.load(std::memory_order_relaxed);
+    new_range->next.store(old_head, std::memory_order_relaxed);
+    success = generated_code_ranges_.compare_exchange_strong(
+        old_head, new_range, std::memory_order_release, std::memory_order_relaxed);
   }
+  CHECK(success);
 
-  // Check whether the pc is in the JIT code cache.
-  jit::Jit* jit = Runtime::Current()->GetJit();
-  if (jit != nullptr && jit->GetCodeCache()->ContainsPc(reinterpret_cast<const void*>(pc))) {
-    return true;
+  // The above release operation on `generated_code_ranges_` with an acquire operation
+  // on the same atomic object in `IsInGeneratedCode()` ensures the correct memory
+  // visibility for the contents of `*new_range` for any thread that loads the value
+  // written above (or a value written by a release sequence headed by that write).
+  //
+  // However, we also need to ensure that any thread that encounters a segmentation
+  // fault in the provided range shall actually see the written value. For JIT code
+  // cache and nterp, the registration happens while the process is single-threaded
+  // but the synchronization is more complicated for code in oat files.
+  //
+  // Threads that load classes register dex files under the `Locks::dex_lock_` and
+  // the first one to register a dex file with a given oat file shall add the oat
+  // code range; the memory visibility for these threads is guaranteed by the lock.
+  // However a thread that did not try to load a class with oat code can execute the
+  // code if a direct or indirect reference to such class escapes from one of the
+  // threads that loaded it. Given that Java reference stores and loads are relaxed
+  // atomic operations, we can use the `std::atomic_thread_fence()` to ensure proper
+  // memory visibility for an arbitrary chain of reference stores and loads that led
+  // the execution of the oat code by using a release fence here and an acquire
+  // fence in `IsInGeneratedCode()`.
+  std::atomic_thread_fence(std::memory_order_release);
+}
+
+void FaultManager::RemoveGeneratedCodeRange(const void* start, size_t size) {
+  Thread* self = Thread::Current();
+  GeneratedCodeRange* range = nullptr;
+  bool success = false;
+  {
+    MutexLock lock(self, generated_code_ranges_lock_);
+    std::atomic<GeneratedCodeRange*>* before = &generated_code_ranges_;
+    range = before->load(std::memory_order_acquire);
+    while (range != nullptr && range->start != start) {
+      before = &range->next;
+      range = before->load(std::memory_order_relaxed);
+    }
+    if (range != nullptr) {
+      GeneratedCodeRange* old_value = range;
+      GeneratedCodeRange* new_value = range->next.load(std::memory_order_relaxed);
+      success = before->compare_exchange_strong(
+          old_value, new_value, std::memory_order_release, std::memory_order_relaxed);
+    }
   }
+  CHECK(range != nullptr);
+  DCHECK_EQ(range->start, start);
+  CHECK_EQ(range->size, size);
+  CHECK(success);
 
-  if (method->IsObsolete()) {
-    // Obsolete methods never happen on AOT code.
-    return false;
+  Runtime* runtime = Runtime::Current();
+  CHECK(runtime != nullptr);
+  if (runtime->IsStarted() && runtime->GetThreadList() != nullptr) {
+    // Run a checkpoint before deleting the range to ensure that no thread holds a
+    // pointer to the removed range while walking the list in `IsInGeneratedCode()`.
+    // That walk is guarded by checking that the thread is `Runnable`, so any walk
+    // started before the removal shall be done when running the checkpoint and the
+    // checkpoint also ensures the correct memory visibility, so the thread shall
+    // not see the pointer during future walks.
+    runtime->GetThreadList()->RunEmptyCheckpoint();
   }
-
-  // Note: at this point, we trust it's truly an ArtMethod we found at the bottom of the stack,
-  // and we can find its oat file through it.
-  const OatDexFile* oat_dex_file = method->GetDeclaringClass()->GetDexFile().GetOatDexFile();
-  if (oat_dex_file != nullptr &&
-      oat_dex_file->GetOatFile()->Contains(reinterpret_cast<const void*>(pc))) {
-    return true;
-  }
-
-  return false;
+  delete range;
 }
 
 // This function is called within the signal handler.  It checks that
@@ -330,6 +324,22 @@ bool FaultManager::IsInGeneratedCode(siginfo_t* siginfo, void* context, bool che
   // are in architecture specific files in arch/<arch>/fault_handler_<arch>.
   GetMethodAndReturnPcAndSp(siginfo, context, &method_obj, &return_pc, &sp, &is_stack_overflow);
 
+  // Ensure proper memory visibility of registered code ranges.
+  // See `AddGeneratedCodeRange()` for details.
+  std::atomic_thread_fence(std::memory_order_acquire);
+
+  // Walk over the list of registered code ranges.
+  GeneratedCodeRange* range = generated_code_ranges_.load(std::memory_order_acquire);
+  while (range != nullptr &&
+         // Note: For all implicit checks we expect the return PC to be within
+         // the code range. Implicit check cannot be the last instruction.
+         return_pc - reinterpret_cast<uintptr_t>(range->start) >= range->size) {
+    range = range->next.load(std::memory_order_relaxed);
+  }
+  if (range == nullptr) {
+    return false;
+  }
+
   // If we don't have a potential method, we're outta here.
   VLOG(signals) << "potential method: " << method_obj;
   // TODO: Check linear alloc and image.
@@ -340,56 +350,26 @@ bool FaultManager::IsInGeneratedCode(siginfo_t* siginfo, void* context, bool che
     return false;
   }
 
-  // Verify that the potential method is indeed a method.
-  // TODO: check the GC maps to make sure it's an object.
-  // Check that the class pointer inside the object is not null and is aligned.
-  // No read barrier because method_obj may not be a real object.
-  mirror::Class* cls = SafeGetDeclaringClass(method_obj);
-  if (cls == nullptr) {
-    VLOG(signals) << "not a class";
-    return false;
-  }
-
-  if (!IsAligned<kObjectAlignment>(cls)) {
-    VLOG(signals) << "not aligned";
-    return false;
-  }
-
-  if (!SafeVerifyClassClass(cls)) {
-    VLOG(signals) << "not a class class";
-    return false;
-  }
-
-  if (!IsKnownPc(return_pc, method_obj)) {
-    VLOG(signals) << "PC not in Java code";
-    return false;
-  }
-
-  const OatQuickMethodHeader* method_header = method_obj->GetOatQuickMethodHeader(return_pc);
-
-  if (method_header == nullptr) {
-    VLOG(signals) << "no compiled code";
-    return false;
-  }
-
-  // We can be certain that this is a method now.  Check if we have a GC map
-  // at the return PC address.
-  if (true || kIsDebugBuild) {
-    VLOG(signals) << "looking for dex pc for return pc " << std::hex << return_pc;
-    uint32_t sought_offset = return_pc -
-        reinterpret_cast<uintptr_t>(method_header->GetEntryPoint());
-    VLOG(signals) << "pc offset: " << std::hex << sought_offset;
+  // Check if we have a GC map at the return PC address.
+  const OatQuickMethodHeader* method_header = nullptr;
+  if (kIsDebugBuild || (check_dex_pc && !is_stack_overflow)) {
+    method_header = method_obj->GetOatQuickMethodHeader(return_pc);
+    CHECK(method_header != nullptr);
+    VLOG(signals) << "looking for dex pc for return pc 0x" << std::hex << return_pc
+                  << " pc offset: 0x" << std::hex
+                  << (return_pc - reinterpret_cast<uintptr_t>(method_header->GetEntryPoint()));
   }
   uint32_t dexpc = dex::kDexNoIndex;
   if (is_stack_overflow) {
     // If it's an implicit stack overflow check, the frame is not setup, so we
     // just infer the dex PC as zero.
     dexpc = 0;
-  } else {
+    VLOG(signals) << "dexpc = 0 for stack overflow";
+  } else if (check_dex_pc || kIsDebugBuild) {
     CHECK_EQ(*reinterpret_cast<ArtMethod**>(sp), method_obj);
     dexpc = method_header->ToDexPc(reinterpret_cast<ArtMethod**>(sp), return_pc, false);
+    VLOG(signals) << "dexpc: " << dexpc;
   }
-  VLOG(signals) << "dexpc: " << dexpc;
   return !check_dex_pc || dexpc != dex::kDexNoIndex;
 }
 
