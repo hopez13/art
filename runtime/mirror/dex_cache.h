@@ -19,8 +19,10 @@
 
 #include "array.h"
 #include "base/array_ref.h"
+#include "base/atomic_pair.h"
 #include "base/bit_utils.h"
 #include "base/locks.h"
+#include "dex/dex_file.h"
 #include "dex/dex_file_types.h"
 #include "gc_root.h"  // Note: must not use -inl here to avoid circular dependency.
 #include "object.h"
@@ -46,6 +48,7 @@ namespace mirror {
 class CallSite;
 class Class;
 class ClassLoader;
+class DexCache;
 class MethodType;
 class String;
 
@@ -115,6 +118,97 @@ template <typename T> struct PACKED(2 * __SIZEOF_POINTER__) NativeDexCachePair {
   }
 };
 
+template <typename T, size_t size> class NativeDexCachePairArray {
+ public:
+  NativeDexCachePairArray() {}
+
+  T* Get(uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_) {
+    auto pair = GetNativePair(entries_, SlotIndex(index));
+    return pair.GetObjectForIndex(index);
+  }
+
+  void Set(uint32_t index, T* value) {
+    NativeDexCachePair<T> pair(value, index);
+    SetNativePair(entries_, SlotIndex(index), pair);
+  }
+
+  NativeDexCachePair<T> GetNativePair(uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetNativePair(entries_, SlotIndex(index));
+  }
+
+  void SetNativePair(uint32_t index, NativeDexCachePair<T> value) {
+    SetNativePair(entries_, SlotIndex(index), value);
+  }
+
+  void Clear(uint32_t index) {
+    Set(index, nullptr);
+  }
+
+ private:
+  NativeDexCachePair<T> GetNativePair(std::atomic<NativeDexCachePair<T>>* pair_array, size_t idx) {
+    auto* array = reinterpret_cast<std::atomic<AtomicPair<uintptr_t>>*>(pair_array);
+    AtomicPair<uintptr_t> value = AtomicPairLoadAcquire(&array[idx]);
+    return NativeDexCachePair<T>(reinterpret_cast<T*>(value.first), value.second);
+  }
+
+  void SetNativePair(std::atomic<NativeDexCachePair<T>>* pair_array,
+                     size_t idx,
+                     NativeDexCachePair<T> pair) {
+    auto* array = reinterpret_cast<std::atomic<AtomicPair<uintptr_t>>*>(pair_array);
+    AtomicPair<uintptr_t> v(reinterpret_cast<size_t>(pair.object), pair.index);
+    AtomicPairStoreRelease(&array[idx], v);
+  }
+
+  uint32_t SlotIndex(uint32_t index) {
+    return index % size;
+  }
+
+  std::atomic<NativeDexCachePair<T>> entries_[0];
+
+  NativeDexCachePairArray(const NativeDexCachePairArray<T, size>&) = delete;
+  void operator=(const NativeDexCachePairArray<T, size>&) = delete;
+};
+
+template <typename T, size_t size> class DexCachePairArray {
+ public:
+  DexCachePairArray() {}
+
+  T* Get(uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_) {
+    return GetPair(index).GetObjectForIndex(index);
+  }
+
+  void Set(uint32_t index, T* value) {
+    SetPair(index, DexCachePair<T>(value, index));
+  }
+
+  DexCachePair<T> GetPair(uint32_t index) {
+    return entries_[SlotIndex(index)].load(std::memory_order_relaxed);
+  }
+
+  void SetPair(uint32_t index, DexCachePair<T> value) {
+    entries_[SlotIndex(index)].store(value, std::memory_order_relaxed);
+  }
+
+  void Clear(uint32_t index) {
+    uint32_t slot = SlotIndex(index);
+    // This is racy but should only be called from the transactional interpreter.
+    if (entries_[slot].load(std::memory_order_relaxed).index == index) {
+      DexCachePair<T> cleared(nullptr, DexCachePair<T>::InvalidIndexForSlot(slot));
+      entries_[slot].store(cleared, std::memory_order_relaxed);
+    }
+  }
+
+ private:
+  uint32_t SlotIndex(uint32_t index) {
+    return index % size;
+  }
+
+  std::atomic<DexCachePair<T>> entries_[0];
+
+  DexCachePairArray(const DexCachePairArray<T, size>&) = delete;
+  void operator=(const DexCachePairArray<T, size>&) = delete;
+};
+
 using TypeDexCachePair = DexCachePair<Class>;
 using TypeDexCacheType = std::atomic<TypeDexCachePair>;
 
@@ -164,26 +258,6 @@ class MANAGED DexCache final : public Object {
   static_assert(IsPowerOfTwo(kDexCacheMethodTypeCacheSize),
                 "MethodType dex cache size is not a power of 2.");
 
-  static constexpr size_t StaticTypeSize() {
-    return kDexCacheTypeCacheSize;
-  }
-
-  static constexpr size_t StaticStringSize() {
-    return kDexCacheStringCacheSize;
-  }
-
-  static constexpr size_t StaticArtFieldSize() {
-    return kDexCacheFieldCacheSize;
-  }
-
-  static constexpr size_t StaticMethodSize() {
-    return kDexCacheMethodCacheSize;
-  }
-
-  static constexpr size_t StaticMethodTypeSize() {
-    return kDexCacheMethodTypeCacheSize;
-  }
-
   // Size of an instance of java.lang.DexCache not including referenced values.
   static constexpr uint32_t InstanceSize() {
     return sizeof(DexCache);
@@ -201,24 +275,8 @@ class MANAGED DexCache final : public Object {
            ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ObjPtr<String> GetLocation() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  static constexpr MemberOffset StringsOffset() {
-    return OFFSET_OF_OBJECT_MEMBER(DexCache, strings_);
-  }
-
   static constexpr MemberOffset PreResolvedStringsOffset() {
     return OFFSET_OF_OBJECT_MEMBER(DexCache, preresolved_strings_);
-  }
-
-  static constexpr MemberOffset ResolvedTypesOffset() {
-    return OFFSET_OF_OBJECT_MEMBER(DexCache, resolved_types_);
-  }
-
-  static constexpr MemberOffset ResolvedFieldsOffset() {
-    return OFFSET_OF_OBJECT_MEMBER(DexCache, resolved_fields_);
-  }
-
-  static constexpr MemberOffset ResolvedMethodsOffset() {
-    return OFFSET_OF_OBJECT_MEMBER(DexCache, resolved_methods_);
   }
 
   static constexpr MemberOffset ResolvedMethodTypesOffset() {
@@ -229,24 +287,8 @@ class MANAGED DexCache final : public Object {
     return OFFSET_OF_OBJECT_MEMBER(DexCache, resolved_call_sites_);
   }
 
-  static constexpr MemberOffset NumStringsOffset() {
-    return OFFSET_OF_OBJECT_MEMBER(DexCache, num_strings_);
-  }
-
   static constexpr MemberOffset NumPreResolvedStringsOffset() {
     return OFFSET_OF_OBJECT_MEMBER(DexCache, num_preresolved_strings_);
-  }
-
-  static constexpr MemberOffset NumResolvedTypesOffset() {
-    return OFFSET_OF_OBJECT_MEMBER(DexCache, num_resolved_types_);
-  }
-
-  static constexpr MemberOffset NumResolvedFieldsOffset() {
-    return OFFSET_OF_OBJECT_MEMBER(DexCache, num_resolved_fields_);
-  }
-
-  static constexpr MemberOffset NumResolvedMethodsOffset() {
-    return OFFSET_OF_OBJECT_MEMBER(DexCache, num_resolved_methods_);
   }
 
   static constexpr MemberOffset NumResolvedMethodTypesOffset() {
@@ -255,10 +297,6 @@ class MANAGED DexCache final : public Object {
 
   static constexpr MemberOffset NumResolvedCallSitesOffset() {
     return OFFSET_OF_OBJECT_MEMBER(DexCache, num_resolved_call_sites_);
-  }
-
-  static constexpr size_t PreResolvedStringsAlignment() {
-    return alignof(GcRoot<mirror::String>);
   }
 
   String* GetResolvedString(dex::StringIndex string_idx) ALWAYS_INLINE
@@ -310,46 +348,6 @@ class MANAGED DexCache final : public Object {
       REQUIRES_SHARED(Locks::mutator_lock_) WARN_UNUSED;
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
-  StringDexCacheType* GetStrings() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldPtr64<StringDexCacheType*, kVerifyFlags>(StringsOffset());
-  }
-
-  void SetStrings(StringDexCacheType* strings) ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
-    SetFieldPtr<false>(StringsOffset(), strings);
-  }
-
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
-  TypeDexCacheType* GetResolvedTypes() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldPtr<TypeDexCacheType*, kVerifyFlags>(ResolvedTypesOffset());
-  }
-
-  void SetResolvedTypes(TypeDexCacheType* resolved_types)
-      ALWAYS_INLINE
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    SetFieldPtr<false>(ResolvedTypesOffset(), resolved_types);
-  }
-
-  MethodDexCacheType* GetResolvedMethods() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldPtr<MethodDexCacheType*>(ResolvedMethodsOffset());
-  }
-
-  void SetResolvedMethods(MethodDexCacheType* resolved_methods)
-      ALWAYS_INLINE
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    SetFieldPtr<false>(ResolvedMethodsOffset(), resolved_methods);
-  }
-
-  FieldDexCacheType* GetResolvedFields() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetFieldPtr<FieldDexCacheType*>(ResolvedFieldsOffset());
-  }
-
-  void SetResolvedFields(FieldDexCacheType* resolved_fields)
-      ALWAYS_INLINE
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-    SetFieldPtr<false>(ResolvedFieldsOffset(), resolved_fields);
-  }
-
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   MethodTypeDexCacheType* GetResolvedMethodTypes()
       ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_) {
     return GetFieldPtr64<MethodTypeDexCacheType*, kVerifyFlags>(ResolvedMethodTypesOffset());
@@ -375,28 +373,8 @@ class MANAGED DexCache final : public Object {
   }
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
-  size_t NumStrings() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetField32<kVerifyFlags>(NumStringsOffset());
-  }
-
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   size_t NumPreResolvedStrings() REQUIRES_SHARED(Locks::mutator_lock_) {
     return GetField32<kVerifyFlags>(NumPreResolvedStringsOffset());
-  }
-
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
-  size_t NumResolvedTypes() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetField32<kVerifyFlags>(NumResolvedTypesOffset());
-  }
-
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
-  size_t NumResolvedMethods() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetField32<kVerifyFlags>(NumResolvedMethodsOffset());
-  }
-
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
-  size_t NumResolvedFields() REQUIRES_SHARED(Locks::mutator_lock_) {
-    return GetField32<kVerifyFlags>(NumResolvedFieldsOffset());
   }
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
@@ -434,8 +412,6 @@ class MANAGED DexCache final : public Object {
 
   uint32_t StringSlotIndex(dex::StringIndex string_idx) REQUIRES_SHARED(Locks::mutator_lock_);
   uint32_t TypeSlotIndex(dex::TypeIndex type_idx) REQUIRES_SHARED(Locks::mutator_lock_);
-  uint32_t FieldSlotIndex(uint32_t field_idx) REQUIRES_SHARED(Locks::mutator_lock_);
-  uint32_t MethodSlotIndex(uint32_t method_idx) REQUIRES_SHARED(Locks::mutator_lock_);
   uint32_t MethodTypeSlotIndex(dex::ProtoIndex proto_idx) REQUIRES_SHARED(Locks::mutator_lock_);
 
   void VisitReflectiveTargets(ReflectiveValueVisitor* visitor) REQUIRES(Locks::mutator_lock_);
@@ -450,7 +426,6 @@ class MANAGED DexCache final : public Object {
   void VisitNativeRoots(const Visitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_);
 
- private:
   // Allocate new array in linear alloc and save it in the given fields.
   template<typename T, size_t kMaxCacheSize>
   T* AllocArray(MemberOffset obj_offset, MemberOffset num_offset, size_t num)
@@ -467,19 +442,69 @@ class MANAGED DexCache final : public Object {
   HeapReference<ClassLoader> class_loader_;
   HeapReference<String> location_;
 
+#define DEFINE_PAIR_ARRAY(PairKind, name, getter_setter, type, size, ids) \
+  uint64_t name; \
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags> \
+  PairKind ##Array<type, size>* Get ##getter_setter() \
+      ALWAYS_INLINE \
+      REQUIRES_SHARED(Locks::mutator_lock_) { \
+    return GetFieldPtr<PairKind ##Array<type, size>*, kVerifyFlags>(getter_setter ##Offset()); \
+  } \
+  void Set ##getter_setter(PairKind ##Array<type, size>* value) \
+      REQUIRES_SHARED(Locks::mutator_lock_) { \
+    SetFieldPtr<false>(getter_setter ##Offset(), value); \
+  } \
+  static constexpr MemberOffset getter_setter ##Offset() { \
+    return OFFSET_OF_OBJECT_MEMBER(DexCache, name); \
+  } \
+  PairKind ##Array<type, size>* Allocate ##getter_setter() \
+      REQUIRES_SHARED(Locks::mutator_lock_) { \
+    return reinterpret_cast<PairKind ##Array<type, size>*>(AllocArray<std::atomic<PairKind<type>>, size>( \
+        getter_setter ##Offset(), Num ##getter_setter ##Offset(), GetDexFile()->ids())); \
+  } \
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags> \
+  size_t Num ##getter_setter() REQUIRES_SHARED(Locks::mutator_lock_) { \
+    return GetField32<kVerifyFlags>(Num ##getter_setter ##Offset()); \
+  } \
+  static constexpr MemberOffset Num ##getter_setter ##Offset() { \
+    return OFFSET_OF_OBJECT_MEMBER(DexCache, num_ ##name); \
+  }
+
   uint64_t dex_file_;                // const DexFile*
   uint64_t preresolved_strings_;     // GcRoot<mirror::String*> array with num_preresolved_strings
                                      // elements.
   uint64_t resolved_call_sites_;     // GcRoot<CallSite>* array with num_resolved_call_sites_
                                      // elements.
-  uint64_t resolved_fields_;         // std::atomic<FieldDexCachePair>*, array with
-                                     // num_resolved_fields_ elements.
+  DEFINE_PAIR_ARRAY(NativeDexCachePair,
+                              resolved_fields_,
+                              ResolvedFields,
+                              ArtField,
+                              kDexCacheFieldCacheSize,
+                              NumFieldIds)
+
+
   uint64_t resolved_method_types_;   // std::atomic<MethodTypeDexCachePair>* array with
                                      // num_resolved_method_types_ elements.
-  uint64_t resolved_methods_;        // ArtMethod*, array with num_resolved_methods_ elements.
-  uint64_t resolved_types_;          // TypeDexCacheType*, array with num_resolved_types_ elements.
-  uint64_t strings_;                 // std::atomic<StringDexCachePair>*, array with num_strings_
-                                     // elements.
+  DEFINE_PAIR_ARRAY(NativeDexCachePair,
+                              resolved_methods_,
+                              ResolvedMethods,
+                              ArtMethod,
+                              kDexCacheMethodCacheSize,
+                              NumMethodIds)
+
+  DEFINE_PAIR_ARRAY(DexCachePair,
+                       resolved_types_,
+                       ResolvedTypes,
+                       mirror::Class,
+                       kDexCacheTypeCacheSize,
+                       NumTypeIds)
+
+  DEFINE_PAIR_ARRAY(DexCachePair,
+                    strings_,
+                    Strings,
+                    mirror::String,
+                    kDexCacheStringCacheSize,
+                    NumStringIds)
 
   uint32_t num_preresolved_strings_;    // Number of elements in the preresolved_strings_ array.
   uint32_t num_resolved_call_sites_;    // Number of elements in the call_sites_ array.
