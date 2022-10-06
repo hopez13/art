@@ -405,6 +405,7 @@ void Trace::Start(std::unique_ptr<File>&& trace_file_in,
   // Create Trace object.
   {
     // Required since EnableMethodTracing calls ConfigureStubs which visits class linker classes.
+    jit::ScopedJitSuspend suspend_jit;
     gc::ScopedGCCriticalSection gcs(self,
                                     gc::kGcCauseInstrumentation,
                                     gc::kCollectorTypeInstrumentation);
@@ -421,6 +422,15 @@ void Trace::Start(std::unique_ptr<File>&& trace_file_in,
                                             "Sampling profiler thread");
         the_trace_->interval_us_ = interval_us;
       } else {
+        if (!runtime->IsJavaDebuggable()) {
+          art::jit::Jit* jit = runtime->GetJit();
+          if (jit != nullptr) {
+            jit->GetCodeCache()->InvalidateAllCompiledCode();
+            jit->GetCodeCache()->TransitionToDebuggable();
+            jit->GetJitCompiler()->SetDebuggableCompilerOption(true);
+          }
+          runtime->SetRuntimeDebugState(art::Runtime::RuntimeDebugState::kJavaDebuggable);
+        }
         runtime->GetInstrumentation()->AddListener(
             the_trace_,
             instrumentation::Instrumentation::kMethodEntered |
@@ -431,8 +441,8 @@ void Trace::Start(std::unique_ptr<File>&& trace_file_in,
         // we know that inlining and other problematic optimizations are disabled. We might just
         // want to use the trampolines anyway since it is faster. It makes the story with disabling
         // jit-gc more complex though.
-        runtime->GetInstrumentation()->EnableMethodTracing(
-            kTracerInstrumentationKey, /*needs_interpreter=*/!runtime->IsJavaDebuggable());
+        runtime->GetInstrumentation()->EnableMethodTracing(kTracerInstrumentationKey,
+                                                           /*needs_interpreter=*/false);
       }
     }
   }
@@ -474,6 +484,7 @@ void Trace::StopTracing(bool finish_tracing, bool flush_file) {
       gc::ScopedGCCriticalSection gcs(self,
                                       gc::kGcCauseInstrumentation,
                                       gc::kCollectorTypeInstrumentation);
+      jit::ScopedJitSuspend suspend_jit;
       ScopedSuspendAll ssa(__FUNCTION__);
 
       if (the_trace->trace_mode_ == TraceMode::kSampling) {
@@ -486,6 +497,14 @@ void Trace::StopTracing(bool finish_tracing, bool flush_file) {
                 instrumentation::Instrumentation::kMethodExited |
                 instrumentation::Instrumentation::kMethodUnwind);
         runtime->GetInstrumentation()->DisableMethodTracing(kTracerInstrumentationKey);
+        if (!runtime->IsJavaDebuggableAtInit() && !runtime->IsShuttingDown(self)) {
+          art::jit::Jit* jit = runtime->GetJit();
+          if (jit != nullptr) {
+            jit->GetCodeCache()->InvalidateAllCompiledCode();
+            jit->GetJitCompiler()->SetDebuggableCompilerOption(false);
+          }
+          runtime->SetRuntimeDebugState(art::Runtime::RuntimeDebugState::kNonJavaDebuggable);
+        }
       }
     }
     // At this point, code may read buf_ as it's writers are shutdown
