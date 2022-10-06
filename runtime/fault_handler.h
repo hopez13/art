@@ -21,9 +21,11 @@
 #include <signal.h>
 #include <stdint.h>
 
+#include <atomic>
 #include <vector>
 
 #include "base/locks.h"  // For annotalysis.
+#include "base/mutex.h"
 #include "runtime_globals.h"  // For CanDoImplicitNullCheckOn.
 
 namespace art {
@@ -51,6 +53,9 @@ class FaultManager {
   void AddHandler(FaultHandler* handler, bool generated_code);
   void RemoveHandler(FaultHandler* handler);
 
+  void AddGeneratedCodeRange(const void* start, size_t size);
+  void RemoveGeneratedCodeRange(const void* start, size_t size) REQUIRES(!Locks::mutator_lock_);
+
   // Note that the following two functions are called in the context of a signal handler.
   // The IsInGeneratedCode() function checks that the mutator lock is held before it
   // calls GetMethodAndReturnPCAndSP().
@@ -66,9 +71,16 @@ class FaultManager {
                          NO_THREAD_SAFETY_ANALYSIS;
 
  private:
+  struct GeneratedCodeRange;
+
   // The HandleFaultByOtherHandlers function is only called by HandleFault function for generated code.
   bool HandleFaultByOtherHandlers(int sig, siginfo_t* info, void* context)
                                   NO_THREAD_SAFETY_ANALYSIS;
+
+  // Note: The lock guards modifications of the ranges but the function `IsInGeneratedCode()`
+  // walks the list in the context of a signal handler without holding the lock.
+  Mutex generated_code_ranges_lock_;
+  std::atomic<GeneratedCodeRange*> generated_code_ranges_ GUARDED_BY(generated_code_ranges_lock_);
 
   std::vector<FaultHandler*> generated_code_handlers_;
   std::vector<FaultHandler*> other_handlers_;
