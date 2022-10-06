@@ -504,10 +504,16 @@ bool HInliner::TryInline(HInvoke* invoke_instruction) {
 
   DCHECK(!invoke_instruction->IsInvokeStaticOrDirect());
 
+  const bool previous_value = speculative_inline_;
+  speculative_inline_ = true;
+
   if (TryInlineFromCHA(invoke_instruction)) {
+    speculative_inline_ = previous_value;
     return true;
   }
-  return TryInlineFromInlineCache(invoke_instruction);
+  const bool result = TryInlineFromInlineCache(invoke_instruction);
+  speculative_inline_ = previous_value;
+  return result;
 }
 
 bool HInliner::TryInlineFromCHA(HInvoke* invoke_instruction) {
@@ -1873,11 +1879,16 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
   }
 
   if (!has_one_return) {
-    // If we know that the method always throws with the particular parameters, set it as such. This
-    // is better than using the dex instructions as we have more information about this particular
-    // call.
-    invoke->SetAlwaysThrows(/* always_throws= */ true);
-    graph_->SetHasAlwaysThrowingInvokes(/* value= */ true);
+
+    if (!speculative_inline_) {
+      // If we know that the method always throws with the particular parameters, set it as such.
+      // This is better than using the dex instructions as we have more information about this
+      // particular call. We don't mark speculative inlines (e.g. the ones from the inline cache) as
+      // always throwing since they might not throw when executed.
+      invoke->SetAlwaysThrows(/* always_throws= */ true);
+      graph_->SetHasAlwaysThrowingInvokes(/* value= */ true);
+    }
+
     LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedAlwaysThrows)
         << "Method " << resolved_method->PrettyMethod()
         << " could not be inlined because it always throws";

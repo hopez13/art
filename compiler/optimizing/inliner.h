@@ -54,6 +54,7 @@ class HInliner : public HOptimization {
         parent_(parent),
         depth_(depth),
         inlining_budget_(0),
+        speculative_inline_(false),
         inline_stats_(nullptr) {}
 
   bool Run() override;
@@ -317,6 +318,10 @@ class HInliner : public HOptimization {
 
   // The budget left for inlining, in number of instructions.
   size_t inlining_budget_;
+
+  // States if we are currently trying to inline through speculative inlines (e.g. from the inline
+  // cache)
+  bool speculative_inline_;
 
   // Used to record stats about optimizations on the inlined graph.
   // If the inlining is successful, these stats are merged to the caller graph's stats.
