@@ -16,6 +16,24 @@
       "message": "PTAL. This fixes a build failure that started happening on latest linux kernels.",
       "revId": "55e95a6dd75698ba4e03413ef6cedadb3373b395",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "363dd210_3d914a90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1077006
+      },
+      "writtenOn": "2022-10-06T09:19:46Z",
+      "side": 1,
+      "message": "Friendly ping -- although this is not a CTS test fix, it helps us avoid issues when building tests from source. Would you approve?",
+      "parentUuid": "5a66cf8d_b68d9e77",
+      "revId": "55e95a6dd75698ba4e03413ef6cedadb3373b395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
