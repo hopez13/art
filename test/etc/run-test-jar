@@ -23,6 +23,110 @@ from typing import List
 from subprocess import DEVNULL, PIPE, STDOUT
 from tempfile import NamedTemporaryFile
 
+if True:
+  argp, opt_bool = ArgumentParser(), BooleanOptionalAction
+  argp.add_argument("--64", dest="is64", action="store_true")
+  argp.add_argument("--O", action="store_true")
+  argp.add_argument("--Xcompiler-option", default=[], action="append")
+  argp.add_argument("--add-libdir-argument", action="store_true")
+  argp.add_argument("--android-art-root", default="/apex/com.android.art")
+  argp.add_argument("--android-i18n-root", default="/apex/com.android.i18n")
+  argp.add_argument("--android-root", default="/system")
+  argp.add_argument("--android-runtime-option", default=[], action="append")
+  argp.add_argument("--android-tzdata-root", default="/apex/com.android.tzdata")
+  argp.add_argument("--app-image", default=True, action=opt_bool)
+  argp.add_argument("--args", default=[], action="append")
+  argp.add_argument("--baseline", action="store_true")
+  argp.add_argument("--bionic", action="store_true")
+  argp.add_argument("--boot", default="")
+  argp.add_argument("--chroot", default="")
+  argp.add_argument("--compact-dex-level")
+  argp.add_argument("--compiler-only-option", default=[], action="append")
+  argp.add_argument("--create-runner", action="store_true")
+  argp.add_argument("--debug", action="store_true")
+  argp.add_argument("--debug-agent")
+  argp.add_argument("--debug-wrap-agent", action="store_true")
+  argp.add_argument("--dex2oat-dm", action="store_true")
+  argp.add_argument(
+      "--dex2oat-rt-timeout", type=int,
+      default=360)  # The *hard* timeout.  6 min.
+  argp.add_argument(
+      "--dex2oat-timeout", type=int, default=300)  # The "soft" timeout.  5 min.
+  argp.add_argument("--dry-run", action="store_true")
+  argp.add_argument("--experimental", default=[], action="append")
+  argp.add_argument("--external-log-tags", action="store_true")
+  argp.add_argument("--gc-stress", action="store_true")
+  argp.add_argument("--gdb", action="store_true")
+  argp.add_argument("--gdb-arg", default=[], action="append")
+  argp.add_argument("--gdb-dex2oat", action="store_true")
+  argp.add_argument("--gdb-dex2oat-args", default=[], action="append")
+  argp.add_argument("--gdbserver", action="store_true")
+  argp.add_argument("--gdbserver-bin")
+  argp.add_argument("--gdbserver-port", default=":5039")
+  argp.add_argument("--host", action="store_true")
+  argp.add_argument("--image", default=True, action=opt_bool)
+  argp.add_argument("--instruction-set-features", default="")
+  argp.add_argument("--interpreter", action="store_true")
+  argp.add_argument("--invoke-with", default=[], action="append")
+  argp.add_argument("--jit", action="store_true")
+  argp.add_argument("--jvm", action="store_true")
+  argp.add_argument("--jvmti", action="store_true")
+  argp.add_argument("--jvmti-field-stress", action="store_true")
+  argp.add_argument("--jvmti-redefine-stress", action="store_true")
+  argp.add_argument("--jvmti-step-stress", action="store_true")
+  argp.add_argument("--jvmti-trace-stress", action="store_true")
+  argp.add_argument("--lib", default="")
+  argp.add_argument("--optimize", default=True, action=opt_bool)
+  argp.add_argument("--prebuild", default=True, action=opt_bool)
+  argp.add_argument("--profile", action="store_true")
+  argp.add_argument("--random-profile", action="store_true")
+  argp.add_argument("--relocate", default=False, action=opt_bool)
+  argp.add_argument("--runtime-dm", action="store_true")
+  argp.add_argument("--runtime-extracted-zipapex", default="")
+  argp.add_argument("--runtime-option", default=[], action="append")
+  argp.add_argument("--runtime-zipapex", default="")
+  argp.add_argument("--secondary", action="store_true")
+  argp.add_argument("--secondary-app-image", default=True, action=opt_bool)
+  argp.add_argument("--secondary-class-loader-context", default="")
+  argp.add_argument("--secondary-compilation", default=True, action=opt_bool)
+  argp.add_argument("--simpleperf", action="store_true")
+  argp.add_argument("--sync", action="store_true")
+  argp.add_argument("--testlib", default=[], action="append")
+  argp.add_argument("--timeout", default=0, type=int)
+  argp.add_argument("--vdex", action="store_true")
+  argp.add_argument("--vdex-arg", default=[], action="append")
+  argp.add_argument("--vdex-filter")
+  argp.add_argument("--verbose", action="store_true")
+  argp.add_argument("--verify", default=True, action=opt_bool)
+  argp.add_argument("--verify-soft-fail", action="store_true")
+  argp.add_argument("--with-agent", default=[], action="append")
+  argp.add_argument("--zygote", action="store_true")
+  argp.add_argument("test_args", nargs="*", default=["Main"])
+
+  argv = list(sys.argv[1:])
+  # Python parser requires the format --key=--value, since without the equals symbol
+  # it looks like the required value has been omitted and there is just another flag.
+  # For example, '--args --foo --host --64' will become '--arg=--foo --host --64'
+  # because otherwise the --args is missing its value and --foo is unknown argument.
+  for i, arg in reversed(list(enumerate(argv))):
+    if arg in [
+        "--args", "--runtime-option", "--android-runtime-option",
+        "-Xcompiler-option", "--compiler-only-option"
+    ]:
+      argv[i] += "=" + argv.pop(i + 1)
+
+  # Accept single-dash arguments as if they were double-dash arguments.
+  # For exmpample, '-Xcompiler-option' becomes '--Xcompiler-option'
+  # became single-dash can be used only with single-letter arguments.
+  for i, arg in list(enumerate(argv)):
+    if arg.startswith("-") and not arg.startswith("--"):
+      argv[i] = "-" + arg
+    if arg == "--":
+      break
+
+  args = argp.parse_args(argv)
+
+
 # TODO: Replace with 'def main():' (which might change variables from globals to locals)
 if True:
   # Script debugging: Record executed commands into the given directory.
@@ -133,107 +237,6 @@ if True:
   def msg(msg: str):
     if VERBOSE:
       print(msg)
-
-  argp, opt_bool = ArgumentParser(), BooleanOptionalAction
-  argp.add_argument("--64", dest="is64", action="store_true")
-  argp.add_argument("--O", action="store_true")
-  argp.add_argument("--Xcompiler-option", default=[], action="append")
-  argp.add_argument("--add-libdir-argument", action="store_true")
-  argp.add_argument("--android-art-root", default="/apex/com.android.art")
-  argp.add_argument("--android-i18n-root", default="/apex/com.android.i18n")
-  argp.add_argument("--android-root", default="/system")
-  argp.add_argument("--android-runtime-option", default=[], action="append")
-  argp.add_argument("--android-tzdata-root", default="/apex/com.android.tzdata")
-  argp.add_argument("--app-image", default=True, action=opt_bool)
-  argp.add_argument("--args", default=[], action="append")
-  argp.add_argument("--baseline", action="store_true")
-  argp.add_argument("--bionic", action="store_true")
-  argp.add_argument("--boot", default="")
-  argp.add_argument("--chroot", default="")
-  argp.add_argument("--compact-dex-level")
-  argp.add_argument("--compiler-only-option", default=[], action="append")
-  argp.add_argument("--create-runner", action="store_true")
-  argp.add_argument("--debug", action="store_true")
-  argp.add_argument("--debug-agent")
-  argp.add_argument("--debug-wrap-agent", action="store_true")
-  argp.add_argument("--dex2oat-dm", action="store_true")
-  argp.add_argument(
-      "--dex2oat-rt-timeout", type=int,
-      default=360)  # The *hard* timeout.  6 min.
-  argp.add_argument(
-      "--dex2oat-timeout", type=int, default=300)  # The "soft" timeout.  5 min.
-  argp.add_argument("--dry-run", action="store_true")
-  argp.add_argument("--experimental", default=[], action="append")
-  argp.add_argument("--external-log-tags", action="store_true")
-  argp.add_argument("--gc-stress", action="store_true")
-  argp.add_argument("--gdb", action="store_true")
-  argp.add_argument("--gdb-arg", default=[], action="append")
-  argp.add_argument("--gdb-dex2oat", action="store_true")
-  argp.add_argument("--gdb-dex2oat-args", default=[], action="append")
-  argp.add_argument("--gdbserver", action="store_true")
-  argp.add_argument("--gdbserver-bin")
-  argp.add_argument("--gdbserver-port", default=":5039")
-  argp.add_argument("--host", action="store_true")
-  argp.add_argument("--image", default=True, action=opt_bool)
-  argp.add_argument("--instruction-set-features", default="")
-  argp.add_argument("--interpreter", action="store_true")
-  argp.add_argument("--invoke-with", default=[], action="append")
-  argp.add_argument("--jit", action="store_true")
-  argp.add_argument("--jvm", action="store_true")
-  argp.add_argument("--jvmti", action="store_true")
-  argp.add_argument("--jvmti-field-stress", action="store_true")
-  argp.add_argument("--jvmti-redefine-stress", action="store_true")
-  argp.add_argument("--jvmti-step-stress", action="store_true")
-  argp.add_argument("--jvmti-trace-stress", action="store_true")
-  argp.add_argument("--lib", default="")
-  argp.add_argument("--optimize", default=True, action=opt_bool)
-  argp.add_argument("--prebuild", default=True, action=opt_bool)
-  argp.add_argument("--profile", action="store_true")
-  argp.add_argument("--random-profile", action="store_true")
-  argp.add_argument("--relocate", default=False, action=opt_bool)
-  argp.add_argument("--runtime-dm", action="store_true")
-  argp.add_argument("--runtime-extracted-zipapex", default="")
-  argp.add_argument("--runtime-option", default=[], action="append")
-  argp.add_argument("--runtime-zipapex", default="")
-  argp.add_argument("--secondary", action="store_true")
-  argp.add_argument("--secondary-app-image", default=True, action=opt_bool)
-  argp.add_argument("--secondary-class-loader-context", default="")
-  argp.add_argument("--secondary-compilation", default=True, action=opt_bool)
-  argp.add_argument("--simpleperf", action="store_true")
-  argp.add_argument("--sync", action="store_true")
-  argp.add_argument("--testlib", default=[], action="append")
-  argp.add_argument("--timeout", default=0, type=int)
-  argp.add_argument("--vdex", action="store_true")
-  argp.add_argument("--vdex-arg", default=[], action="append")
-  argp.add_argument("--vdex-filter")
-  argp.add_argument("--verbose", action="store_true")
-  argp.add_argument("--verify", default=True, action=opt_bool)
-  argp.add_argument("--verify-soft-fail", action="store_true")
-  argp.add_argument("--with-agent", default=[], action="append")
-  argp.add_argument("--zygote", action="store_true")
-  argp.add_argument("test_args", nargs="*", default=["Main"])
-
-  argv = list(sys.argv[1:])
-  # Python parser requires the format --key=--value, since without the equals symbol
-  # it looks like the required value has been omitted and there is just another flag.
-  # For example, '--args --foo --host --64' will become '--arg=--foo --host --64'
-  # because otherwise the --args is missing its value and --foo is unknown argument.
-  for i, arg in reversed(list(enumerate(argv))):
-    if arg in [
-        "--args", "--runtime-option", "--android-runtime-option",
-        "-Xcompiler-option", "--compiler-only-option"
-    ]:
-      argv[i] += "=" + argv.pop(i + 1)
-# Accept single-dash arguments as if they were double-dash arguments.
-# For exmpample, '-Xcompiler-option' becomes '--Xcompiler-option'
-# became single-dash can be used only with single-letter arguments.
-  for i, arg in list(enumerate(argv)):
-    if arg.startswith("-") and not arg.startswith("--"):
-      argv[i] = "-" + arg
-    if arg == "--":
-      break
-
-  args = argp.parse_args(argv)
 
   ANDROID_ROOT = args.android_root
   ANDROID_ART_ROOT = args.android_art_root
