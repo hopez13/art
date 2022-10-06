@@ -478,7 +478,8 @@ bool HInliner::TryInline(HInvoke* invoke_instruction) {
     bool result = TryInlineAndReplace(invoke_instruction,
                                       actual_method,
                                       ReferenceTypeInfo::CreateInvalid(),
-                                      /* do_rtp= */ true);
+                                      /* do_rtp= */ true,
+                                      /* is_speculative= */ false);
     if (result) {
       MaybeRecordStat(stats_, MethodCompilationStat::kInlinedInvokeVirtualOrInterface);
       if (outermost_graph_ == graph_) {
@@ -523,7 +524,8 @@ bool HInliner::TryInlineFromCHA(HInvoke* invoke_instruction) {
   if (!TryInlineAndReplace(invoke_instruction,
                            method,
                            ReferenceTypeInfo::CreateInvalid(),
-                           /* do_rtp= */ true)) {
+                           /* do_rtp= */ true,
+                           /* is_speculative= */ true)) {
     return false;
   }
   AddCHAGuard(invoke_instruction, dex_pc, cursor, bb_cursor);
@@ -791,7 +793,8 @@ bool HInliner::TryInlineMonomorphicCall(
   if (!TryInlineAndReplace(invoke_instruction,
                            resolved_method,
                            ReferenceTypeInfo::Create(monomorphic_type, /* is_exact= */ true),
-                           /* do_rtp= */ false)) {
+                           /* do_rtp= */ false,
+                           /* is_speculative= */ true)) {
     return false;
   }
 
@@ -986,7 +989,8 @@ bool HInliner::TryInlinePolymorphicCall(
         !TryBuildAndInline(invoke_instruction,
                            method,
                            ReferenceTypeInfo::Create(handle, /* is_exact= */ true),
-                           &return_replacement)) {
+                           &return_replacement,
+                           /* is_speculative= */ true)) {
       all_targets_inlined = false;
     } else {
       one_target_inlined = true;
@@ -1163,7 +1167,8 @@ bool HInliner::TryInlinePolymorphicCallToSameTarget(
   if (!TryBuildAndInline(invoke_instruction,
                          actual_method,
                          ReferenceTypeInfo::CreateInvalid(),
-                         &return_replacement)) {
+                         &return_replacement,
+                         /* is_speculative= */ true)) {
     return false;
   }
 
@@ -1317,11 +1322,13 @@ bool HInliner::TryDevirtualize(HInvoke* invoke_instruction,
 bool HInliner::TryInlineAndReplace(HInvoke* invoke_instruction,
                                    ArtMethod* method,
                                    ReferenceTypeInfo receiver_type,
-                                   bool do_rtp) {
+                                   bool do_rtp,
+                                   bool is_speculative) {
   DCHECK(!invoke_instruction->IsIntrinsic());
   HInstruction* return_replacement = nullptr;
 
-  if (!TryBuildAndInline(invoke_instruction, method, receiver_type, &return_replacement)) {
+  if (!TryBuildAndInline(
+          invoke_instruction, method, receiver_type, &return_replacement, is_speculative)) {
     return false;
   }
 
@@ -1454,7 +1461,8 @@ bool HInliner::IsInliningBudgetAvailable(ArtMethod* method,
 bool HInliner::TryBuildAndInline(HInvoke* invoke_instruction,
                                  ArtMethod* method,
                                  ReferenceTypeInfo receiver_type,
-                                 HInstruction** return_replacement) {
+                                 HInstruction** return_replacement,
+                                 bool is_speculative) {
   // If invoke_instruction is devirtualized to a different method, give intrinsics
   // another chance before we try to inline it.
   if (invoke_instruction->GetResolvedMethod() != method && method->IsIntrinsic()) {
@@ -1518,7 +1526,7 @@ bool HInliner::TryBuildAndInline(HInvoke* invoke_instruction,
   }
 
   if (!TryBuildAndInlineHelper(
-          invoke_instruction, method, receiver_type, return_replacement)) {
+          invoke_instruction, method, receiver_type, return_replacement, is_speculative)) {
     return false;
   }
 
@@ -1830,7 +1838,8 @@ void HInliner::SubstituteArguments(HGraph* callee_graph,
 // the number of instructions in the inlined body.
 bool HInliner::CanInlineBody(const HGraph* callee_graph,
                              HInvoke* invoke,
-                             size_t* out_number_of_instructions) const {
+                             size_t* out_number_of_instructions,
+                             bool is_speculative) const {
   const HBasicBlock* target_block = invoke->GetBlock();
   ArtMethod* const resolved_method = callee_graph->GetArtMethod();
 
@@ -1873,11 +1882,15 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
   }
 
   if (!has_one_return) {
-    // If we know that the method always throws with the particular parameters, set it as such. This
-    // is better than using the dex instructions as we have more information about this particular
-    // call.
-    invoke->SetAlwaysThrows(/* always_throws= */ true);
-    graph_->SetHasAlwaysThrowingInvokes(/* value= */ true);
+    if (!is_speculative) {
+      // If we know that the method always throws with the particular parameters, set it as such.
+      // This is better than using the dex instructions as we have more information about this
+      // particular call. We don't mark speculative inlines (e.g. the ones from the inline cache) as
+      // always throwing since they might not throw when executed.
+      invoke->SetAlwaysThrows(/* always_throws= */ true);
+      graph_->SetHasAlwaysThrowingInvokes(/* value= */ true);
+    }
+
     LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedAlwaysThrows)
         << "Method " << resolved_method->PrettyMethod()
         << " could not be inlined because it always throws";
@@ -1978,7 +1991,8 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
 bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
                                        ArtMethod* resolved_method,
                                        ReferenceTypeInfo receiver_type,
-                                       HInstruction** return_replacement) {
+                                       HInstruction** return_replacement,
+                                       bool is_speculative) {
   DCHECK(!(resolved_method->IsStatic() && receiver_type.IsValid()));
   const dex::CodeItem* code_item = resolved_method->GetCodeItem();
   const DexFile& callee_dex_file = *resolved_method->GetDexFile();
@@ -2074,7 +2088,7 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
   RunOptimizations(callee_graph, code_item, dex_compilation_unit);
 
   size_t number_of_instructions = 0;
-  if (!CanInlineBody(callee_graph, invoke_instruction, &number_of_instructions)) {
+  if (!CanInlineBody(callee_graph, invoke_instruction, &number_of_instructions, is_speculative)) {
     return false;
   }
 
