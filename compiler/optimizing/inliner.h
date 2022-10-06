@@ -78,19 +78,22 @@ class HInliner : public HOptimization {
   bool TryInlineAndReplace(HInvoke* invoke_instruction,
                            ArtMethod* resolved_method,
                            ReferenceTypeInfo receiver_type,
-                           bool do_rtp)
+                           bool do_rtp,
+                           bool speculative_inline)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool TryBuildAndInline(HInvoke* invoke_instruction,
                          ArtMethod* resolved_method,
                          ReferenceTypeInfo receiver_type,
-                         HInstruction** return_replacement)
+                         HInstruction** return_replacement,
+                         bool speculative_inline)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool TryBuildAndInlineHelper(HInvoke* invoke_instruction,
                                ArtMethod* resolved_method,
                                ReferenceTypeInfo receiver_type,
-                               HInstruction** return_replacement)
+                               HInstruction** return_replacement,
+                               bool speculative_inline)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Substitutes parameters in the callee graph with their values from the caller.
@@ -141,7 +144,8 @@ class HInliner : public HOptimization {
   // inlining, such as inlining a throw instruction into a try block.
   bool CanInlineBody(const HGraph* callee_graph,
                      HInvoke* invoke,
-                     size_t* out_number_of_instructions) const
+                     size_t* out_number_of_instructions,
+                     bool speculative_inline) const
     REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Create a new HInstanceFieldGet.
