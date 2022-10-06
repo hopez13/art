@@ -1891,8 +1891,6 @@ genrule_defaults {
         "buildfailures.json",
         "etc/default-build.py",
         "etc/default-check",
-        "etc/default-run",
-        "etc/run-test-jar",
         ":art-run-test-bootclasspath",
     ],
     tools: [
