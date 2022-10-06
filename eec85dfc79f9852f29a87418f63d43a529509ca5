@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "eec85dfc79f9852f29a87418f63d43a529509ca5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "945bc18a_05caef80",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-06T07:32:56Z",
+      "side": 1,
+      "message": "Add a new line and say \"However, this approach is incorrect, because holding the exclusive lock could prevent... \"?",
+      "range": {
+        "startLine": 334,
+        "startChar": 41,
+        "endLine": 335,
+        "endChar": 72
+      },
+      "revId": "eec85dfc79f9852f29a87418f63d43a529509ca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
