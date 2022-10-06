@@ -14,7 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-flags="$@"
-# We need the dex files pre-verified to avoid running the verifier
-# at runtime which will update the dex cache.
-exec ${RUN} ${flags/verify-at-runtime/interpret-only}
+
+def run(ctx, args):
+  # We need the dex files pre-verified to avoid running the verifier
+  # at runtime which will update the dex cache.
+  # TODO
+  # args = args.replace("verify-at-runtime", "interpret-only")
+  ctx.default_run(args)
