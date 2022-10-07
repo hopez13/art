@@ -38,7 +38,7 @@ class MockMetricsReporter : public MetricsReporter {
       MetricsReporter(config, runtime),
       art_metrics_(new ArtMetrics()) {}
 
-  const ArtMetrics* GetMetrics() override {
+  ArtMetrics* GetMetrics() override {
     return art_metrics_.get();
   }
 
