@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "155edafc_1022efef",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-07T19:59:44Z",
+      "side": 1,
+      "message": "Does this happen as part of SuspendAll below? This itself guarantees that a GC cannot happen concurrently. So I\u0027m not sure why is GC critical section required here.",
+      "range": {
+        "startLine": 331,
+        "startChar": 16,
+        "endLine": 331,
+        "endChar": 50
+      },
+      "revId": "52683971729b038dcda912ed2c2d226c9dededf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
