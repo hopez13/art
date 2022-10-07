@@ -30,10 +30,19 @@ else:
 checker=f"{progdir}/../tools/checker/checker.py"
 
 def run(cmdline: str, check=True) -> subprocess.CompletedProcess:
-  proc = subprocess.run([cmdline],
-                        shell=True,
-                        encoding="utf8",
-                        capture_output=True)
+  kwargs = {
+    "shell": True,
+    "encoding": "utf8",
+  }
+  if dev_mode == "yes":
+    # redirect stdout to terminal without capturing
+    # otherwise gdb(server) doesn't output anything
+    kwargs["stdout"] = sys.stdout
+    kwargs["stderr"] = sys.stderr
+  else:
+    kwargs["capture_output"] = True
+
+  proc = subprocess.run([cmdline], **kwargs)
   if (check and proc.returncode != 0) or (quiet == "no"):
     print("$ " + cmdline)
     print(proc.stdout or "", file=sys.stdout, end='', flush=True)
@@ -487,6 +496,9 @@ while True:
         break
 
 export("DEX_LOCATION", DEX_LOCATION)
+if dev_mode == "yes":
+    # for colour print and gdb
+    export("TERM", os.environ.get("TERM"))
 
 if usage == "no" and not arg:
   error("missing test to run")
