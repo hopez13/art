@@ -16,6 +16,41 @@
       "message": "LGTM but presubmit shows two broken tests.",
       "revId": "69480b30d0fa341128d0e7bc5914fa06119795b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c22a5e38_8db6ba8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-07T12:59:18Z",
+      "side": 1,
+      "message": "It passed locally and on the re-run in ABTD (https://android-build.googleplex.com/builds/abtd/run/L39700000956707596). Will rebase and retry once the runtime CL gets merged",
+      "parentUuid": "8c2e9aa2_26c765d8",
+      "revId": "69480b30d0fa341128d0e7bc5914fa06119795b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f5f390c_74421c56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 32
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-07T12:59:18Z",
+      "side": 1,
+      "message": "FYI I am testing new heuristics in another WIP CL. Since it is in the CL chain, when I run presubmit on the WIP CL it may show some \"bloat buster\" warnings in every CL in the chain including this one (showing warnings in all CLs is WAI)",
+      "revId": "69480b30d0fa341128d0e7bc5914fa06119795b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
