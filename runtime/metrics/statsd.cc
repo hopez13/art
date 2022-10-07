@@ -108,28 +108,46 @@ constexpr std::optional<int32_t> EncodeDatumId(DatumId datum_id) {
           statsd::ART_DATUM_REPORTED__KIND__ART_DATUM_GC_FULL_HEAP_TRACING_THROUGHPUT_AVG_MB_PER_SEC);
     case DatumId::kGcWorldStopTime:
       return std::make_optional(
-          statsd::ART_DATUM_REPORTED__KIND__ART_DATUM_GC_WORLD_STOP_TIME_US);
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_GC_WORLD_STOP_TIME_US);
     case DatumId::kGcWorldStopCount:
       return std::make_optional(
-          statsd::ART_DATUM_REPORTED__KIND__ART_DATUM_GC_WORLD_STOP_COUNT);
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_GC_WORLD_STOP_COUNT);
     case DatumId::kYoungGcScannedBytes:
       return std::make_optional(
-          statsd::ART_DATUM_REPORTED__KIND__ART_DATUM_GC_YOUNG_GENERATION_COLLECTION_SCANNED_BYTES);
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_GC_YOUNG_GENERATION_COLLECTION_SCANNED_BYTES);
     case DatumId::kYoungGcFreedBytes:
       return std::make_optional(
-          statsd::ART_DATUM_REPORTED__KIND__ART_DATUM_GC_YOUNG_GENERATION_COLLECTION_FREED_BYTES);
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_GC_YOUNG_GENERATION_COLLECTION_FREED_BYTES);
     case DatumId::kYoungGcDuration:
       return std::make_optional(
-          statsd::ART_DATUM_REPORTED__KIND__ART_DATUM_GC_YOUNG_GENERATION_COLLECTION_DURATION_MS);
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_GC_YOUNG_GENERATION_COLLECTION_DURATION_MS);
     case DatumId::kFullGcScannedBytes:
       return std::make_optional(
-          statsd::ART_DATUM_REPORTED__KIND__ART_DATUM_GC_FULL_HEAP_COLLECTION_SCANNED_BYTES);
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_GC_FULL_HEAP_COLLECTION_SCANNED_BYTES);
     case DatumId::kFullGcFreedBytes:
       return std::make_optional(
-          statsd::ART_DATUM_REPORTED__KIND__ART_DATUM_GC_FULL_HEAP_COLLECTION_FREED_BYTES);
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_GC_FULL_HEAP_COLLECTION_FREED_BYTES);
     case DatumId::kFullGcDuration:
       return std::make_optional(
-          statsd::ART_DATUM_REPORTED__KIND__ART_DATUM_GC_FULL_HEAP_COLLECTION_DURATION_MS);
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_GC_FULL_HEAP_COLLECTION_DURATION_MS);
+    case DatumId::kJitMethodCompileTotalTimeDelta:
+      return std::make_optional(
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_JIT_METHOD_COMPILE_TIME_DELTA_MICROS);
+    case DatumId::kJitMethodCompileCountDelta:
+      return std::make_optional(
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_JIT_METHOD_COMPILE_COUNT_DELTA);
+    case DatumId::kClassVerificationTotalTimeDelta:
+      return std::make_optional(
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_CLASS_VERIFICATION_TIME_DELTA_MICROS);
+    case DatumId::kClassVerificationCountDelta:
+      return std::make_optional(
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_CLASS_VERIFICATION_COUNT_DELTA);
+    case DatumId::kClassLoadingTotalTimeDelta:
+      return std::make_optional(
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_CLASS_LOADING_TIME_DELTA_MICROS);
+    case DatumId::kTotalBytesAllocatedDelta:
+      return std::make_optional(
+          statsd::ART_DATUM_DELTA_REPORTED__KIND__ART_DATUM_GC_TOTAL_BYTES_ALLOCATED_DELTA);
   }
 }
 
@@ -242,21 +260,47 @@ class StatsdBackend : public MetricsBackend {
 
   void ReportCounter(DatumId counter_type, uint64_t value) override {
     std::optional<int32_t> datum_id = EncodeDatumId(counter_type);
-    if (datum_id.has_value()) {
-      statsd::stats_write(
-          statsd::ART_DATUM_REPORTED,
-          session_data_.session_id,
-          session_data_.uid,
-          EncodeCompileFilter(session_data_.compiler_filter),
-          EncodeCompilationReason(session_data_.compilation_reason),
-          current_timestamp_,
-          0,  // TODO: collect and report thread type (0 means UNKNOWN, but that
-              // constant is not present in all branches)
-          datum_id.value(),
-          static_cast<int64_t>(value),
-          statsd::ART_DATUM_REPORTED__DEX_METADATA_TYPE__ART_DEX_METADATA_TYPE_UNKNOWN,
-          statsd::ART_DATUM_REPORTED__APK_TYPE__ART_APK_TYPE_UNKNOWN,
-          EncodeInstructionSet(kRuntimeISA));
+    if (!datum_id.has_value()) {
+      return;
+    }
+
+    switch (counter_type) {
+#define EVENT_METRIC_CASE(name, ...) \
+      case DatumId::k##name:
+      ART_EVENT_METRICS(EVENT_METRIC_CASE)
+#undef EVENT_METRIC_CASE
+        statsd::stats_write(
+            statsd::ART_DATUM_REPORTED,
+            session_data_.session_id,
+            session_data_.uid,
+            EncodeCompileFilter(session_data_.compiler_filter),
+            EncodeCompilationReason(session_data_.compilation_reason),
+            current_timestamp_,
+            0,  // TODO: collect and report thread type (0 means UNKNOWN, but that
+                // constant is not present in all branches)
+            datum_id.value(),
+            static_cast<int64_t>(value),
+            statsd::ART_DATUM_REPORTED__DEX_METADATA_TYPE__ART_DEX_METADATA_TYPE_UNKNOWN,
+            statsd::ART_DATUM_REPORTED__APK_TYPE__ART_APK_TYPE_UNKNOWN,
+            EncodeInstructionSet(kRuntimeISA));
+        break;
+
+#define VALUE_METRIC_CASE(name, type, ...) \
+      case DatumId::k##name:
+      ART_VALUE_METRICS(VALUE_METRIC_CASE)
+#undef VALUE_METRIC_CASE
+        statsd::stats_write(
+            statsd::ART_DATUM_DELTA_REPORTED,
+            EncodeCompileFilter(session_data_.compiler_filter),
+            EncodeCompilationReason(session_data_.compilation_reason),
+            0,  // TODO: collect and report thread type (0 means UNKNOWN, but that
+                // constant is not present in all branches)
+            datum_id.value(),
+            static_cast<int64_t>(value),
+            statsd::ART_DATUM_REPORTED__DEX_METADATA_TYPE__ART_DEX_METADATA_TYPE_UNKNOWN,
+            statsd::ART_DATUM_REPORTED__APK_TYPE__ART_APK_TYPE_UNKNOWN,
+            EncodeInstructionSet(kRuntimeISA));
+        break;
     }
   }
 

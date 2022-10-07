@@ -88,6 +88,12 @@ void ArtMetrics::Reset() {
 #undef ART_METRIC
 }
 
+void ArtMetrics::ResetValueMetrics() {
+#define RESET_METRIC(name, ...) name##_.Reset();
+  ART_VALUE_METRICS(RESET_METRIC)
+#undef RESET_METRIC
+}
+
 StringBackend::StringBackend(std::unique_ptr<MetricsFormatter> formatter)
   : formatter_(std::move(formatter))
 {}
