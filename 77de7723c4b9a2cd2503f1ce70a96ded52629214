@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2b57fe8_4ab31784",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-07T14:53:46Z",
+      "side": 1,
+      "message": "`run` expects some variables like `PATH` and `VERBOSE` to be set\nI could move `bold_red` initialization further down the file, but that would mean some of the `error_msg` calls wouldn\u0027t have colour",
+      "parentUuid": "6f225c31_45be26a8",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 0
+      },
+      "revId": "77de7723c4b9a2cd2503f1ce70a96ded52629214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dd86303_d3cc0d3a",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "...maybe let\u0027s just have two `subprocess.run(...)` calls? \n\nBut wouldn\u0027t `capture_output\u003dFalse` be sufficient? (either here or in the caller)\n\nIt would be more conservative to depend on gdb mode being enabled rather then `dev_mode`, since not capturing the output will break the tests because they will not verify.  `dev_mode` breaks them anyway since the logging is more verbose so the output does not match, but it is lesser evil.",
       "parentUuid": "2dd86303_d3cc0d3a",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 8
+      },
+      "revId": "77de7723c4b9a2cd2503f1ce70a96ded52629214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5701d7d_46b79cc6",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-07T14:53:46Z",
+      "side": 1,
+      "message": "Yes, `capture_output\u003dFalse` works too.\n\nI\u0027ve moved the check outside the `run` function. I still left the assumption that gdb can only be enabled in `dev_mode` (as it seems from the way args are parsed), so not to duplicate the code before every `run(f\"{run_cmd} ...` call",
+      "parentUuid": "5d1ac127_639185d4",
       "range": {
         "startLine": 33,
         "startChar": 2,
