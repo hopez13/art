@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f225c31_45be26a8",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-07T13:19:47Z",
+      "side": 1,
+      "message": "(That part isn\u0027t important as `save_cmd\u003dFalse` excludes it from the logging anyway)\n\nSo I am ok with it, but I am just curious what went wrong.",
+      "parentUuid": "0676a79e_fac6d05e",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 0
+      },
+      "revId": "77de7723c4b9a2cd2503f1ce70a96ded52629214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2dd86303_d3cc0d3a",
         "filename": "test/run-test",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2022-10-07T13:13:04Z",
       "side": 1,
       "message": "Would it be possible to rewrite it in a way that is easier to understand for python noobs (like myself) who don\u0027t know about kwargs? I should of course educate myself, but David is rewriting these scripts in python exactly to avoid any \"clever stuff\" and be very easy to understand.",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 8
+      },
+      "revId": "77de7723c4b9a2cd2503f1ce70a96ded52629214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d1ac127_639185d4",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-07T13:19:47Z",
+      "side": 1,
+      "message": "...maybe let\u0027s just have two `subprocess.run(...)` calls? \n\nBut wouldn\u0027t `capture_output\u003dFalse` be sufficient? (either here or in the caller)\n\nIt would be more conservative to depend on gdb mode being enabled rather then `dev_mode`, since not capturing the output will break the tests because they will not verify.  `dev_mode` breaks them anyway since the logging is more verbose so the output does not match, but it is lesser evil.",
+      "parentUuid": "2dd86303_d3cc0d3a",
       "range": {
         "startLine": 33,
         "startChar": 2,
