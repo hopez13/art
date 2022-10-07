@@ -196,12 +196,12 @@ void MetricsReporter::MaybeResetTimeout() {
   }
 }
 
-const ArtMetrics* MetricsReporter::GetMetrics() {
+ArtMetrics* MetricsReporter::GetMetrics() {
   return runtime_->GetMetrics();
 }
 
 void MetricsReporter::ReportMetrics() {
-  const ArtMetrics* metrics = GetMetrics();
+  ArtMetrics* metrics = GetMetrics();
 
   if (!session_started_) {
     for (auto& backend : backends_) {
@@ -213,6 +213,10 @@ void MetricsReporter::ReportMetrics() {
   for (auto& backend : backends_) {
     metrics->ReportAllMetrics(backend.get());
   }
+
+  // Value Metrics are reported as increments / deltas,
+  // so they need to be reset after being reported.
+  metrics->ResetValueMetrics();
 }
 
 void MetricsReporter::UpdateSessionInBackends() {
