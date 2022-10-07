@@ -39,6 +39,30 @@
       },
       "revId": "2c3019c6fc06921e80e9dcdabbe042a38a15ba5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e558d88_89891e99",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3063,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-07T16:34:02Z",
+      "side": 1,
+      "message": "My reading was that it\u0027s not redundant, but I don\u0027t fully understand the static analysis, and I think the documentation could be improved. I believe the static analysis only checks for local inconsistencies, i.e. it makes optimistic assumptions if there are no annotations. This code is very incompletely annotated, so it\u0027s more documentation than anything else. The dynamic check, on the other hand is authoritative (in debug builds), but requires code to execute.\n\nThreadList::RunCheckpoint is similarly redundant. There are probably other instances.\n\nI should write up and check in a .md file on lock checking. I\u0027ve been hesitant because there are some basics I haven\u0027t understood yet. Notably, I don\u0027t understand why REQUIRES sometimes seems to take the object, and sometimes a pointer to it.\n\nIf it\u0027s OK with you, I will leave this as is, rather than trying to address a general issue on a point-wise basis.",
+      "parentUuid": "d60bf2d5_85238741",
+      "range": {
+        "startLine": 3062,
+        "startChar": 59,
+        "endLine": 3063,
+        "endChar": 57
+      },
+      "revId": "2c3019c6fc06921e80e9dcdabbe042a38a15ba5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
