@@ -107,7 +107,6 @@ class OatTest : public CommonCompilerDriverTest {
     TimingLogger timings("WriteElf", false, false);
     ClearBootImageOption();
     OatWriter oat_writer(*compiler_options_,
-                         verification_results_.get(),
                          &timings,
                          /*profile_compilation_info*/nullptr,
                          CompactDexLevel::kCompactDexLevelNone);
@@ -135,7 +134,6 @@ class OatTest : public CommonCompilerDriverTest {
     TimingLogger timings("WriteElf", false, false);
     ClearBootImageOption();
     OatWriter oat_writer(*compiler_options_,
-                         verification_results_.get(),
                          &timings,
                          profile_compilation_info,
                          CompactDexLevel::kCompactDexLevelNone);
@@ -158,7 +156,6 @@ class OatTest : public CommonCompilerDriverTest {
     TimingLogger timings("WriteElf", false, false);
     ClearBootImageOption();
     OatWriter oat_writer(*compiler_options_,
-                         verification_results_.get(),
                          &timings,
                          profile_compilation_info,
                          CompactDexLevel::kCompactDexLevelNone);

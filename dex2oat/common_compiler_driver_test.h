@@ -31,7 +31,6 @@ class CompilerDriver;
 class DexFile;
 class ProfileCompilationInfo;
 class TimingLogger;
-class VerificationResults;
 
 class CommonCompilerDriverTest : public CommonCompilerTest {
  public:
@@ -63,7 +62,6 @@ class CommonCompilerDriverTest : public CommonCompilerTest {
 
   size_t number_of_threads_ = 2u;
 
-  std::unique_ptr<VerificationResults> verification_results_;
   std::unique_ptr<CompilerDriver> compiler_driver_;
 
  private:

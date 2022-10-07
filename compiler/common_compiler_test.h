@@ -38,6 +38,7 @@ class CompilerOptions;
 class CumulativeLogger;
 class DexFile;
 class TimingLogger;
+class VerificationResults;
 
 template<class T> class Handle;
 
@@ -87,6 +88,7 @@ class CommonCompilerTestImpl {
       = InstructionSetFeatures::FromCppDefines();
 
   std::unique_ptr<CompilerOptions> compiler_options_;
+  std::unique_ptr<VerificationResults> verification_results_;
 
  protected:
   virtual ClassLinker* GetClassLinker() = 0;
