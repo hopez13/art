@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0379c6c2_df995b85",
+        "filename": "dex2oat/linker/oat_writer_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-10-07T14:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e117afd1_2767ba63",
+      "range": {
+        "startLine": 504,
+        "startChar": 26,
+        "endLine": 504,
+        "endChar": 48
+      },
+      "revId": "24e25a0b8c1c552702c5569425f554efd96488c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd806b2a_5d29c8df",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4700a9e4_bdf56c2e",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-10-07T14:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd806b2a_5d29c8df",
+      "range": {
+        "startLine": 407,
+        "startChar": 31,
+        "endLine": 407,
+        "endChar": 60
+      },
+      "revId": "24e25a0b8c1c552702c5569425f554efd96488c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d00f35ca_64d31cb5",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-10-03T12:54:29Z",
       "side": 1,
       "message": "Use `dchecked_integral_cast\u003cuint8_t\u003e` from \"base/casts.h\" to verify in debug builds that the value fits to `uint8_t`.",
+      "range": {
+        "startLine": 410,
+        "startChar": 36,
+        "endLine": 410,
+        "endChar": 56
+      },
+      "revId": "24e25a0b8c1c552702c5569425f554efd96488c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f335540d_8c882019",
+        "filename": "runtime/mirror/string.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-10-07T14:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d00f35ca_64d31cb5",
       "range": {
         "startLine": 410,
         "startChar": 36,
