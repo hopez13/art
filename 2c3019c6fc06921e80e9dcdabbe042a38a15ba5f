@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7e3eac0_1395be78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-07T17:00:20Z",
+      "side": 1,
+      "message": "Thanks!\nThis still has higher risk of test breakage somewhere than most CLs, so I will submit later in the day when possible breakage + revert is likely to do less damage.",
+      "revId": "2c3019c6fc06921e80e9dcdabbe042a38a15ba5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d60bf2d5_85238741",
@@ -103,6 +120,30 @@
       "side": 1,
       "message": "sgtm.",
       "parentUuid": "92c58d14_bd4171c3",
+      "range": {
+        "startLine": 3062,
+        "startChar": 59,
+        "endLine": 3063,
+        "endChar": 57
+      },
+      "revId": "2c3019c6fc06921e80e9dcdabbe042a38a15ba5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "126a5ddc_c8c37ef0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3063,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-07T17:00:20Z",
+      "side": 1,
+      "message": "AssertNotHeld implies ASSERT_CAPABILITY, which impacts the assumptions the analysis makes further down in the code. It\u0027s unclear to me whether it allows the same checking in calling contexts as REQUIRES. So I\u0027m unsure whether REQUIRES is redundant.\n\nIn any case, I\u0027ll leave this as is for now.",
+      "parentUuid": "bc29ebd7_825ffbe8",
       "range": {
         "startLine": 3062,
         "startChar": 59,
