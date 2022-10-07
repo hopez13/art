@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a647163e_190ef2ad",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-07T12:34:52Z",
+      "side": 1,
+      "message": "Is there a better way of detecting that we are speculatively inlining? This marks it recursively too, and not just for this particular inline.",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 1
+      },
+      "revId": "da7bc64acf81d55114c2d8576243f594c6e99759",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
