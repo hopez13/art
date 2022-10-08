@@ -247,12 +247,8 @@ jvmtiError SearchUtil::AddToBootstrapClassLoaderSearch(jvmtiEnv* env,
     return ERR(ILLEGAL_ARGUMENT);
   }
 
-  art::ScopedObjectAccess soa(art::Thread::Current());
-  for (std::unique_ptr<const art::DexFile>& dex_file : dex_files) {
-    current->GetClassLinker()->AppendToBootClassPath(art::Thread::Current(), dex_file.release());
-  }
-
-  return ERR(NONE);
+  current->AddExtraBootDexFiles(segment, segment, std::move(dex_files));
+  return OK;
 }
 
 jvmtiError SearchUtil::AddToDexClassLoaderInMemory(jvmtiEnv* jvmti_env,

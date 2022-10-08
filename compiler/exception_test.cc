@@ -91,7 +91,7 @@ class ExceptionTest : public CommonRuntimeTest {
 
     const size_t stack_maps_size = stack_map.size();
     const size_t header_size = sizeof(OatQuickMethodHeader);
-    const size_t code_alignment = GetInstructionSetAlignment(kRuntimeISA);
+    const size_t code_alignment = GetInstructionSetCodeAlignment(kRuntimeISA);
 
     fake_header_code_and_maps_.resize(stack_maps_size + header_size + code_size + code_alignment);
     // NB: The start of the vector might not have been allocated the desired alignment.
@@ -194,15 +194,13 @@ TEST_F(ExceptionTest, StackTraceElement) {
 
   OatQuickMethodHeader* header = OatQuickMethodHeader::FromEntryPoint(
       method_g_->GetEntryPointFromQuickCompiledCode());
-  fake_stack.push_back(header->ToNativeQuickPc(
-      method_g_, kDexPc, /* is_for_catch_handler= */ false));  // return pc
+  fake_stack.push_back(header->ToNativeQuickPc(method_g_, kDexPc));  // return pc
 
   // Create/push fake 16byte stack frame for method g
   fake_stack.push_back(reinterpret_cast<uintptr_t>(method_g_));
   fake_stack.push_back(0);
   fake_stack.push_back(0);
-  fake_stack.push_back(header->ToNativeQuickPc(
-      method_g_, kDexPc, /* is_for_catch_handler= */ false));  // return pc
+  fake_stack.push_back(header->ToNativeQuickPc(method_g_, kDexPc));  // return pc
 
   // Create/push fake 16byte stack frame for method f
   fake_stack.push_back(reinterpret_cast<uintptr_t>(method_f_));
