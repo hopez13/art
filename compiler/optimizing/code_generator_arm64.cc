@@ -27,7 +27,6 @@
 #include "class_root-inl.h"
 #include "class_table.h"
 #include "code_generator_utils.h"
-#include "compiled_method.h"
 #include "entrypoints/quick/quick_entrypoints.h"
 #include "entrypoints/quick/quick_entrypoints_enum.h"
 #include "gc/accounting/card_table.h"
@@ -1242,6 +1241,7 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
   if (GetCompilerOptions().ShouldCompileWithClinitCheck(GetGraph()->GetArtMethod())) {
     UseScratchRegisterScope temps(masm);
     vixl::aarch64::Label resolution;
+    vixl::aarch64::Label memory_barrier;
 
     Register temp1 = temps.AcquireW();
     Register temp2 = temps.AcquireW();
@@ -1254,6 +1254,11 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
     __ Ldrb(temp2, HeapOperand(temp1, status_byte_offset));
     __ Cmp(temp2, shifted_visibly_initialized_value);
     __ B(hs, &frame_entry_label_);
+
+    // Check if we're initialized and jump to code that does a memory barrier if
+    // so.
+    __ Cmp(temp2, shifted_initialized_value);
+    __ B(hs, &memory_barrier);
 
     // Check if we're initializing and the thread initializing is the one
     // executing the code.
@@ -1271,6 +1276,9 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
         GetThreadOffset<kArm64PointerSize>(kQuickQuickResolutionTrampoline);
     __ Ldr(temp1.X(), MemOperand(tr, entrypoint_offset.Int32Value()));
     __ Br(temp1.X());
+
+    __ Bind(&memory_barrier);
+    GenerateMemoryBarrier(MemBarrierKind::kAnyAny);
   }
   __ Bind(&frame_entry_label_);
 

@@ -89,7 +89,7 @@
 #include "jni/jni_id_manager.h"
 #include "jvmti.h"
 #include "jvmti_allocator.h"
-#include "linear_alloc.h"
+#include "linear_alloc-inl.h"
 #include "mirror/array-alloc-inl.h"
 #include "mirror/array.h"
 #include "mirror/class-alloc-inl.h"
@@ -310,7 +310,9 @@ class ObsoleteMethodStackVisitor : public art::StackVisitor {
         art::ClassLinker* cl = runtime->GetClassLinker();
         auto ptr_size = cl->GetImagePointerSize();
         const size_t method_size = art::ArtMethod::Size(ptr_size);
-        auto* method_storage = allocator_->Alloc(art::Thread::Current(), method_size);
+        auto* method_storage = allocator_->Alloc(art::Thread::Current(),
+                                                 method_size,
+                                                 art::LinearAllocKind::kArtMethod);
         CHECK(method_storage != nullptr) << "Unable to allocate storage for obsolete version of '"
                                          << old_method->PrettyMethod() << "'";
         new_obsolete_method = new (method_storage) art::ArtMethod();
@@ -512,8 +514,15 @@ template jvmtiError Redefiner::GetClassRedefinitionError<RedefinitionType::kStru
 art::MemMap Redefiner::MoveDataToMemMap(const std::string& original_location,
                                         art::ArrayRef<const unsigned char> data,
                                         std::string* error_msg) {
+  std::string modified_location = StringPrintf("%s-transformed", original_location.c_str());
+  // A dangling multi-dex location appended to bootclasspath can cause inaccuracy in oat file
+  // validation. For simplicity, just convert it to a normal location.
+  size_t pos = modified_location.find(art::DexFileLoader::kMultiDexSeparator);
+  if (pos != std::string::npos) {
+    modified_location[pos] = '-';
+  }
   art::MemMap map = art::MemMap::MapAnonymous(
-      StringPrintf("%s-transformed", original_location.c_str()).c_str(),
+      modified_location.c_str(),
       data.size(),
       PROT_READ|PROT_WRITE,
       /*low_4gb=*/ false,
@@ -1423,8 +1432,9 @@ class RedefinitionDataIter {
 
   RedefinitionDataIter(const RedefinitionDataIter&) = default;
   RedefinitionDataIter(RedefinitionDataIter&&) = default;
-  RedefinitionDataIter& operator=(const RedefinitionDataIter&) = default;
-  RedefinitionDataIter& operator=(RedefinitionDataIter&&) = default;
+  // Assignments are deleted because holder_ is a reference.
+  RedefinitionDataIter& operator=(const RedefinitionDataIter&) = delete;
+  RedefinitionDataIter& operator=(RedefinitionDataIter&&) = delete;
 
   bool operator==(const RedefinitionDataIter& other) const
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
@@ -1651,10 +1661,12 @@ bool Redefiner::ClassRedefinition::AllocateAndRememberNewDexFileCookie(
   art::MutableHandle<art::mirror::LongArray> old_cookie(
       hs.NewHandle<art::mirror::LongArray>(nullptr));
   bool has_older_cookie = false;
-  // See if we already have a cookie that a previous redefinition got from the same classloader.
+  // See if we already have a cookie that a previous redefinition got from the same classloader
+  // and the same JavaDex file.
   for (auto old_data = cur_data->GetHolder().begin(); old_data != *cur_data; ++old_data) {
-    if (old_data.GetSourceClassLoader() == source_class_loader.Get()) {
-      // Since every instance of this classloader should have the same cookie associated with it we
+    if (old_data.GetSourceClassLoader() == source_class_loader.Get() &&
+        old_data.GetJavaDexFile() == dex_file_obj.Get()) {
+      // Since every instance of this JavaDex file should have the same cookie associated with it we
       // can stop looking here.
       has_older_cookie = true;
       old_cookie.Assign(old_data.GetNewDexFileCookie());
@@ -1679,12 +1691,13 @@ bool Redefiner::ClassRedefinition::AllocateAndRememberNewDexFileCookie(
 
   // Save the cookie.
   cur_data->SetNewDexFileCookie(new_cookie.Get());
-  // If there are other copies of this same classloader we need to make sure that we all have the
-  // same cookie.
+  // If there are other copies of the same classloader and the same JavaDex file we need to
+  // make sure that we all have the same cookie.
   if (has_older_cookie) {
     for (auto old_data = cur_data->GetHolder().begin(); old_data != *cur_data; ++old_data) {
       // We will let the GC take care of the cookie we allocated for this one.
-      if (old_data.GetSourceClassLoader() == source_class_loader.Get()) {
+      if (old_data.GetSourceClassLoader() == source_class_loader.Get() &&
+          old_data.GetJavaDexFile() == dex_file_obj.Get()) {
         old_data.SetNewDexFileCookie(new_cookie.Get());
       }
     }
@@ -2477,7 +2490,9 @@ jvmtiError Redefiner::Run() {
     art::ClassLinker* cl = runtime_->GetClassLinker();
     if (data.GetSourceClassLoader() == nullptr) {
       // AppendToBootClassPath includes dex file registration.
-      cl->AppendToBootClassPath(&data.GetRedefinition().GetDexFile(), data.GetNewDexCache());
+      const art::DexFile& dex_file = data.GetRedefinition().GetDexFile();
+      runtime_->AppendToBootClassPath(
+          dex_file.GetLocation(), dex_file.GetLocation(), {{&dex_file, data.GetNewDexCache()}});
     } else {
       cl->RegisterExistingDexCache(data.GetNewDexCache(), data.GetSourceClassLoader());
     }

@@ -19,6 +19,7 @@
 
 #include <iosfwd>
 #include <string>
+#include <vector>
 
 #include "base/enums.h"
 #include "base/macros.h"
@@ -54,20 +55,18 @@ static constexpr PointerSize kArm64PointerSize = PointerSize::k64;
 static constexpr PointerSize kX86PointerSize = PointerSize::k32;
 static constexpr PointerSize kX86_64PointerSize = PointerSize::k64;
 
-// ARM instruction alignment. ARM processors require code to be 4-byte aligned,
-// but ARM ELF requires 8..
-static constexpr size_t kArmAlignment = 8;
-
-// ARM64 instruction alignment. This is the recommended alignment for maximum performance.
-static constexpr size_t kArm64Alignment = 16;
-
 // ARM64 default SVE vector length.
 static constexpr size_t kArm64DefaultSVEVectorLength = 256;
 
-// X86 instruction alignment. This is the recommended alignment for maximum performance.
-static constexpr size_t kX86Alignment = 16;
+// Code alignment (used for the first instruction of a subroutine, such as an entrypoint).
+// This is the recommended alignment for maximum performance.
+// ARM processors require code to be 4-byte aligned, but ARM ELF requires 8.
+static constexpr size_t kArmCodeAlignment = 8;
+static constexpr size_t kArm64CodeAlignment = 16;
+static constexpr size_t kX86CodeAlignment = 16;
 
-// Different than code alignment since code alignment is only first instruction of method.
+// Instruction alignment (every instruction must be aligned at this boundary). This differs from
+// code alignment, which applies only to the first instruction of a subroutine.
 static constexpr size_t kThumb2InstructionAlignment = 2;
 static constexpr size_t kArm64InstructionAlignment = 4;
 static constexpr size_t kX86InstructionAlignment = 1;
@@ -100,6 +99,21 @@ constexpr PointerSize GetInstructionSetPointerSize(InstructionSet isa) {
   InstructionSetAbort(isa);
 }
 
+constexpr bool IsValidInstructionSet(InstructionSet isa) {
+  switch (isa) {
+    case InstructionSet::kArm:
+    case InstructionSet::kThumb2:
+    case InstructionSet::kArm64:
+    case InstructionSet::kX86:
+    case InstructionSet::kX86_64:
+      return true;
+
+    case InstructionSet::kNone:
+      return false;
+  }
+  return false;
+}
+
 constexpr size_t GetInstructionSetInstructionAlignment(InstructionSet isa) {
   switch (isa) {
     case InstructionSet::kArm:
@@ -119,22 +133,44 @@ constexpr size_t GetInstructionSetInstructionAlignment(InstructionSet isa) {
   InstructionSetAbort(isa);
 }
 
-constexpr bool IsValidInstructionSet(InstructionSet isa) {
+constexpr size_t GetInstructionSetCodeAlignment(InstructionSet isa) {
   switch (isa) {
     case InstructionSet::kArm:
+      // Fall-through.
     case InstructionSet::kThumb2:
+      return kArmCodeAlignment;
+    case InstructionSet::kArm64:
+      return kArm64CodeAlignment;
+    case InstructionSet::kX86:
+      // Fall-through.
+    case InstructionSet::kX86_64:
+      return kX86CodeAlignment;
+
+    case InstructionSet::kNone:
+      break;
+  }
+  InstructionSetAbort(isa);
+}
+
+// Returns the difference between the code address and a usable PC.
+// Mainly to cope with `kThumb2` where the lower bit must be set.
+constexpr size_t GetInstructionSetEntryPointAdjustment(InstructionSet isa) {
+  switch (isa) {
+    case InstructionSet::kArm:
     case InstructionSet::kArm64:
     case InstructionSet::kX86:
     case InstructionSet::kX86_64:
-      return true;
+      return 0;
+    case InstructionSet::kThumb2: {
+      // +1 to set the low-order bit so a BLX will switch to Thumb mode
+      return 1;
+    }
 
     case InstructionSet::kNone:
-      return false;
+      break;
   }
-  return false;
+  InstructionSetAbort(isa);
 }
-
-size_t GetInstructionSetAlignment(InstructionSet isa);
 
 constexpr bool Is64BitInstructionSet(InstructionSet isa) {
   switch (isa) {
@@ -194,6 +230,9 @@ constexpr size_t GetBytesPerFprSpillLocation(InstructionSet isa) {
   }
   InstructionSetAbort(isa);
 }
+
+// Returns the instruction sets supported by the device, or an empty list on failure.
+std::vector<InstructionSet> GetSupportedInstructionSets(std::string* error_msg);
 
 namespace instruction_set_details {
 

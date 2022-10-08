@@ -16,6 +16,8 @@
 
 #include "runtime.h"
 
+#include <utility>
+
 #ifdef __linux__
 #include <sys/prctl.h>
 #endif
@@ -517,7 +519,7 @@ Runtime::~Runtime() {
   // Destroy allocators before shutting down the MemMap because they may use it.
   java_vm_.reset();
   linear_alloc_.reset();
-  low_4gb_arena_pool_.reset();
+  linear_alloc_arena_pool_.reset();
   arena_pool_.reset();
   jit_arena_pool_.reset();
   protected_fault_page_.Reset();
@@ -801,7 +803,6 @@ void Runtime::SweepSystemWeaks(IsMarkedVisitor* visitor) {
     // from mutators. See b/32167580.
     GetJit()->GetCodeCache()->SweepRootTables(visitor);
   }
-  Thread::SweepInterpreterCaches(visitor);
 
   // All other generic system-weak holders.
   for (gc::AbstractSystemWeakHolder* holder : system_weak_holders_) {
@@ -1526,6 +1527,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   is_explicit_gc_disabled_ = runtime_options.Exists(Opt::DisableExplicitGC);
   image_dex2oat_enabled_ = runtime_options.GetOrDefault(Opt::ImageDex2Oat);
   dump_native_stack_on_sig_quit_ = runtime_options.GetOrDefault(Opt::DumpNativeStackOnSigQuit);
+  allow_in_memory_compilation_ = runtime_options.Exists(Opt::AllowInMemoryCompilation);
 
   if (is_zygote_ || runtime_options.Exists(Opt::OnlyUseTrustedOatFiles)) {
     oat_file_manager_->SetOnlyUseTrustedOatFiles();
@@ -1637,6 +1639,11 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   // Cache the apex versions.
   InitializeApexVersions();
 
+  BackgroundGcOption background_gc =
+      gUseReadBarrier ? BackgroundGcOption(gc::kCollectorTypeCCBackground)
+                      : (gUseUserfaultfd ? BackgroundGcOption(xgc_option.collector_type_)
+                                         : runtime_options.GetOrDefault(Opt::BackgroundGc));
+
   heap_ = new gc::Heap(runtime_options.GetOrDefault(Opt::MemoryInitialSize),
                        runtime_options.GetOrDefault(Opt::HeapGrowthLimit),
                        runtime_options.GetOrDefault(Opt::HeapMinFree),
@@ -1656,8 +1663,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
                        instruction_set_,
                        // Override the collector type to CC if the read barrier config.
                        gUseReadBarrier ? gc::kCollectorTypeCC : xgc_option.collector_type_,
-                       gUseReadBarrier ? BackgroundGcOption(gc::kCollectorTypeCCBackground)
-                                       : BackgroundGcOption(xgc_option.collector_type_),
+                       background_gc,
                        runtime_options.GetOrDefault(Opt::LargeObjectSpace),
                        runtime_options.GetOrDefault(Opt::LargeObjectThreshold),
                        runtime_options.GetOrDefault(Opt::ParallelGCThreads),
@@ -1738,9 +1744,14 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
     jit_arena_pool_.reset(new MemMapArenaPool(/* low_4gb= */ false, "CompilerMetadata"));
   }
 
-  if (IsAotCompiler() && Is64BitInstructionSet(kRuntimeISA)) {
-    // 4gb, no malloc. Explanation in header.
-    low_4gb_arena_pool_.reset(new MemMapArenaPool(/* low_4gb= */ true));
+  // For 64 bit compilers, it needs to be in low 4GB in the case where we are cross compiling for a
+  // 32 bit target. In this case, we have 32 bit pointers in the dex cache arrays which can't hold
+  // when we have 64 bit ArtMethod pointers.
+  const bool low_4gb = IsAotCompiler() && Is64BitInstructionSet(kRuntimeISA);
+  if (gUseUserfaultfd) {
+    linear_alloc_arena_pool_.reset(new GcVisitedArenaPool(low_4gb));
+  } else if (low_4gb) {
+    linear_alloc_arena_pool_.reset(new MemMapArenaPool(low_4gb));
   }
   linear_alloc_.reset(CreateLinearAlloc());
 
@@ -2309,6 +2320,9 @@ void Runtime::DumpDeoptimizations(std::ostream& os) {
 }
 
 void Runtime::DumpForSigQuit(std::ostream& os) {
+  // Print backtraces first since they are important do diagnose ANRs,
+  // and ANRs can often be trimmed to limit upload size.
+  thread_list_->DumpForSigQuit(os);
   GetClassLinker()->DumpForSigQuit(os);
   GetInternTable()->DumpForSigQuit(os);
   GetJavaVM()->DumpForSigQuit(os);
@@ -2324,7 +2338,6 @@ void Runtime::DumpForSigQuit(std::ostream& os) {
   GetMetrics()->DumpForSigQuit(os);
   os << "\n";
 
-  thread_list_->DumpForSigQuit(os);
   BaseMutex::DumpAll(os);
 
   // Inform anyone else who is interested in SigQuit.
@@ -2335,11 +2348,11 @@ void Runtime::DumpForSigQuit(std::ostream& os) {
 }
 
 void Runtime::DumpLockHolders(std::ostream& os) {
-  uint64_t mutator_lock_owner = Locks::mutator_lock_->GetExclusiveOwnerTid();
+  pid_t mutator_lock_owner = Locks::mutator_lock_->GetExclusiveOwnerTid();
   pid_t thread_list_lock_owner = GetThreadList()->GetLockOwner();
   pid_t classes_lock_owner = GetClassLinker()->GetClassesLockOwner();
   pid_t dex_lock_owner = GetClassLinker()->GetDexLockOwner();
-  if ((thread_list_lock_owner | classes_lock_owner | dex_lock_owner) != 0) {
+  if ((mutator_lock_owner | thread_list_lock_owner | classes_lock_owner | dex_lock_owner) != 0) {
     os << "Mutator lock exclusive owner tid: " << mutator_lock_owner << "\n"
        << "ThreadList lock owner tid: " << thread_list_lock_owner << "\n"
        << "ClassLinker classes lock owner tid: " << classes_lock_owner << "\n"
@@ -3109,13 +3122,12 @@ bool Runtime::IsAsyncDeoptimizeable(ArtMethod* method, uintptr_t code) const {
   return false;
 }
 
+
 LinearAlloc* Runtime::CreateLinearAlloc() {
-  // For 64 bit compilers, it needs to be in low 4GB in the case where we are cross compiling for a
-  // 32 bit target. In this case, we have 32 bit pointers in the dex cache arrays which can't hold
-  // when we have 64 bit ArtMethod pointers.
-  return (IsAotCompiler() && Is64BitInstructionSet(kRuntimeISA))
-      ? new LinearAlloc(low_4gb_arena_pool_.get())
-      : new LinearAlloc(arena_pool_.get());
+  ArenaPool* pool = linear_alloc_arena_pool_.get();
+  return pool != nullptr
+      ? new LinearAlloc(pool, gUseUserfaultfd)
+      : new LinearAlloc(arena_pool_.get(), /*track_allocs=*/ false);
 }
 
 double Runtime::GetHashTableMinLoadFactor() const {
@@ -3193,6 +3205,9 @@ class UpdateEntryPointsClassVisitor : public ClassVisitor {
     auto pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
     for (auto& m : klass->GetMethods(pointer_size)) {
       const void* code = m.GetEntryPointFromQuickCompiledCode();
+      if (!m.IsInvokable()) {
+        continue;
+      }
       // For java debuggable runtimes we also deoptimize native methods. For other cases (boot
       // image profiling) we don't need to deoptimize native methods. If this changes also
       // update Instrumentation::CanUseAotCode.
@@ -3475,6 +3490,72 @@ bool Runtime::HasImageWithProfile() const {
     }
   }
   return false;
+}
+
+void Runtime::AppendToBootClassPath(const std::string& filename, const std::string& location) {
+  DCHECK(!DexFileLoader::IsMultiDexLocation(filename.c_str()));
+  boot_class_path_.push_back(filename);
+  if (!boot_class_path_locations_.empty()) {
+    DCHECK(!DexFileLoader::IsMultiDexLocation(location.c_str()));
+    boot_class_path_locations_.push_back(location);
+  }
+}
+
+void Runtime::AppendToBootClassPath(
+    const std::string& filename,
+    const std::string& location,
+    const std::vector<std::unique_ptr<const art::DexFile>>& dex_files) {
+  AppendToBootClassPath(filename, location);
+  ScopedObjectAccess soa(Thread::Current());
+  for (const std::unique_ptr<const art::DexFile>& dex_file : dex_files) {
+    // The first element must not be at a multi-dex location, while other elements must be.
+    DCHECK_NE(DexFileLoader::IsMultiDexLocation(dex_file->GetLocation().c_str()),
+              dex_file.get() == dex_files.begin()->get());
+    GetClassLinker()->AppendToBootClassPath(Thread::Current(), dex_file.get());
+  }
+}
+
+void Runtime::AppendToBootClassPath(const std::string& filename,
+                                    const std::string& location,
+                                    const std::vector<const art::DexFile*>& dex_files) {
+  AppendToBootClassPath(filename, location);
+  ScopedObjectAccess soa(Thread::Current());
+  for (const art::DexFile* dex_file : dex_files) {
+    // The first element must not be at a multi-dex location, while other elements must be.
+    DCHECK_NE(DexFileLoader::IsMultiDexLocation(dex_file->GetLocation().c_str()),
+              dex_file == *dex_files.begin());
+    GetClassLinker()->AppendToBootClassPath(Thread::Current(), dex_file);
+  }
+}
+
+void Runtime::AppendToBootClassPath(
+    const std::string& filename,
+    const std::string& location,
+    const std::vector<std::pair<const art::DexFile*, ObjPtr<mirror::DexCache>>>&
+        dex_files_and_cache) {
+  AppendToBootClassPath(filename, location);
+  ScopedObjectAccess soa(Thread::Current());
+  for (const auto& [dex_file, dex_cache] : dex_files_and_cache) {
+    // The first element must not be at a multi-dex location, while other elements must be.
+    DCHECK_NE(DexFileLoader::IsMultiDexLocation(dex_file->GetLocation().c_str()),
+              dex_file == dex_files_and_cache.begin()->first);
+    GetClassLinker()->AppendToBootClassPath(dex_file, dex_cache);
+  }
+}
+
+void Runtime::AddExtraBootDexFiles(const std::string& filename,
+                                   const std::string& location,
+                                   std::vector<std::unique_ptr<const art::DexFile>>&& dex_files) {
+  AppendToBootClassPath(filename, location);
+  ScopedObjectAccess soa(Thread::Current());
+  if (kIsDebugBuild) {
+    for (const std::unique_ptr<const art::DexFile>& dex_file : dex_files) {
+      // The first element must not be at a multi-dex location, while other elements must be.
+      DCHECK_NE(DexFileLoader::IsMultiDexLocation(dex_file->GetLocation().c_str()),
+                dex_file.get() == dex_files.begin()->get());
+    }
+  }
+  GetClassLinker()->AddExtraBootDexFiles(Thread::Current(), std::move(dex_files));
 }
 
 }  // namespace art
