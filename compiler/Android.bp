@@ -36,7 +36,6 @@ art_cc_defaults {
         "compiled_method.cc",
         "debug/elf_debug_writer.cc",
         "dex/inline_method_analyser.cc",
-        "dex/verification_results.cc",
         "driver/compiled_method_storage.cc",
         "driver/compiler_options.cc",
         "driver/dex_compilation_unit.cc",
@@ -176,6 +175,8 @@ art_cc_defaults {
     ],
 
     export_include_dirs: ["."],
+    // Not using .map.txt because this is an internal API
+    version_script: "libart-compiler.map",
 }
 
 cc_defaults {
@@ -228,7 +229,7 @@ art_cc_library {
         "libprofile",
         "libdexfile",
     ],
-    whole_static_libs: ["libelffile"],
+    static_libs: ["libelffile"],
     runtime_libs: [
         // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
         // `libart-disassembler.so`.
@@ -296,7 +297,7 @@ art_cc_library {
         "libprofiled",
         "libdexfiled",
     ],
-    whole_static_libs: ["libelffiled"],
+    static_libs: ["libelffiled"],
     runtime_libs: [
         // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
         // `libartd-disassembler.so`.
@@ -369,6 +370,7 @@ art_cc_defaults {
     data: [
         ":art-gtest-jars-ExceptionHandle",
         ":art-gtest-jars-Interfaces",
+        ":art-gtest-jars-Main",
         ":art-gtest-jars-MyClassNatives",
     ],
     tidy_timeout_srcs: [
@@ -381,6 +383,7 @@ art_cc_defaults {
         "optimizing/ssa_test.cc",
     ],
     srcs: [
+        "compiler_reflection_test.cc",
         "debug/dwarf/dwarf_test.cc",
         "debug/src_map_elem_test.cc",
         "driver/compiled_method_storage_test.cc",
@@ -488,10 +491,12 @@ art_cc_test {
     ],
     shared_libs: [
         "libprofiled",
-        "libartd-compiler",
         "libartd-simulator-container",
+        "liblzma",
     ],
     static_libs: [
+        "libartd-compiler",
+        "libelffiled",
         "libvixld",
     ],
 }
@@ -506,7 +511,8 @@ art_cc_test {
     data: [":generate-boot-image"],
     shared_libs: [
         "libprofile",
-        "libart-compiler",
+        "liblzma",
+        "libartpalette",
     ],
     static_libs: [
         // For now, link `libart-simulator-container` statically for simplicity,
@@ -515,6 +521,8 @@ art_cc_test {
         // TODO(b/192070541): Consider linking `libart-simulator-container`
         // dynamically.
         "libart-simulator-container",
+        "libart-compiler",
+        "libelffile",
         "libvixl",
     ],
     test_config: "art_standalone_compiler_tests.xml",
@@ -548,9 +556,11 @@ art_cc_test {
         },
     },
     shared_libs: [
-        "libartd-compiler",
+        "liblzma",
     ],
     static_libs: [
+        "libartd-compiler",
+        "libelffiled",
         "libvixld",
     ],
 }

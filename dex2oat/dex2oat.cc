@@ -1192,7 +1192,7 @@ class Dex2Oat final {
       if (!parser_options->boot_image_filename.empty()) {
         Usage("Option --boot-image and --force-jit-zygote cannot be specified together");
       }
-      parser_options->boot_image_filename = "boot.art:/nonx/boot-framework.art";
+      parser_options->boot_image_filename = GetJitZygoteBootImageLocation();
     }
 
     // If we have a profile, change the default compiler filter to speed-profile
@@ -1884,6 +1884,7 @@ class Dex2Oat final {
     compiler_options_->profile_compilation_info_ = profile_compilation_info_.get();
 
     driver_.reset(new CompilerDriver(compiler_options_.get(),
+                                     verification_results_.get(),
                                      compiler_kind_,
                                      thread_count_,
                                      swap_fd_));
@@ -1969,7 +1970,6 @@ class Dex2Oat final {
                         timings_,
                         &compiler_options_->image_classes_);
     callbacks_->SetVerificationResults(nullptr);  // Should not be needed anymore.
-    compiler_options_->verification_results_ = verification_results_.get();
     driver_->CompileAll(class_loader, dex_files, timings_);
     driver_->FreeThreadPools();
     return class_loader;
@@ -2638,6 +2638,7 @@ class Dex2Oat final {
       bool do_oat_writer_layout = DoDexLayoutOptimizations() || DoOatLayoutOptimizations();
       oat_writers_.emplace_back(new linker::OatWriter(
           *compiler_options_,
+          verification_results_.get(),
           timings_,
           do_oat_writer_layout ? profile_compilation_info_.get() : nullptr,
           compact_dex_level_));
