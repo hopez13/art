@@ -356,6 +356,14 @@ static const void* GetOptimizedCodeFor(ArtMethod* method) REQUIRES_SHARED(Locks:
 
 void Instrumentation::InitializeMethodsCode(ArtMethod* method, const void* aot_code)
     REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (!method->IsInvokable()) {
+    DCHECK(method->GetEntryPointFromQuickCompiledCode() == nullptr ||
+           Runtime::Current()->GetClassLinker()->IsQuickToInterpreterBridge(
+               method->GetEntryPointFromQuickCompiledCode()));
+    UpdateEntryPoints(method, GetQuickToInterpreterBridge());
+    return;
+  }
+
   // Use instrumentation entrypoints if instrumentation is installed.
   if (UNLIKELY(EntryExitStubsInstalled()) && !IsProxyInit(method)) {
     if (!method->IsNative() && InterpretOnly(method)) {
@@ -524,6 +532,14 @@ void InstrumentationInstallStack(Thread* thread, void* arg, bool deopt_all_frame
           LOG(INFO) << "Ignoring already instrumented " << frame.Dump();
         }
       } else {
+        if (!m->IsRuntimeMethod()) {
+          // Record the method so we can call method entry callbacks for all non-runtime methods on
+          // the stack. Runtime methods don't need method entry callbacks.
+          // TODO(232212577): Add tests to check the validity of the tracefiles generated.
+          // Currently the tracing tests only check a trace file is generated.
+          stack_methods_.push_back(m);
+        }
+
         if (m->IsNative() && Runtime::Current()->IsJavaDebuggable()) {
           // Native methods in debuggable runtimes don't use instrumentation stubs.
           return true;
@@ -559,10 +575,6 @@ void InstrumentationInstallStack(Thread* thread, void* arg, bool deopt_all_frame
           LOG(INFO) << "Pushing frame " << instrumentation_frame.Dump();
         }
 
-        if (!m->IsRuntimeMethod()) {
-          // Runtime methods don't need to run method entry callbacks.
-          stack_methods_.push_back(m);
-        }
         instrumentation_stack_->insert({GetReturnPcAddr(), instrumentation_frame});
         SetReturnPc(instrumentation_exit_pc_);
       }
@@ -1308,14 +1320,10 @@ const void* Instrumentation::GetCodeForInvoke(ArtMethod* method) {
   DCHECK(!method->IsProxyMethod()) << method->PrettyMethod();
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   const void* code = method->GetEntryPointFromQuickCompiledCodePtrSize(kRuntimePointerSize);
-  // If we don't have the instrumentation, the resolution stub, the
-  // interpreter, or the nterp with clinit as entrypoint, just return the current entrypoint,
+  // If we don't have the instrumentation, the resolution stub, or the
+  // interpreter, just return the current entrypoint,
   // assuming it's the most optimized.
-  // We don't want to return the nterp with clinit entrypoint as it calls the
-  // resolution stub, and the resolution stub will call `GetCodeForInvoke` to know the actual
-  // code to invoke.
   if (code != GetQuickInstrumentationEntryPoint() &&
-      code != interpreter::GetNterpWithClinitEntryPoint() &&
       !class_linker->IsQuickResolutionStub(code) &&
       !class_linker->IsQuickToInterpreterBridge(code)) {
     return code;

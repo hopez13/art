@@ -437,15 +437,18 @@ void Thread::PushStackedShadowFrame(ShadowFrame* sf, StackedShadowFrameType type
   tlsPtr_.stacked_shadow_frame_record = record;
 }
 
-ShadowFrame* Thread::PopStackedShadowFrame(StackedShadowFrameType type, bool must_be_present) {
+ShadowFrame* Thread::MaybePopDeoptimizedStackedShadowFrame() {
   StackedShadowFrameRecord* record = tlsPtr_.stacked_shadow_frame_record;
-  if (must_be_present) {
-    DCHECK(record != nullptr);
-  } else {
-    if (record == nullptr || record->GetType() != type) {
-      return nullptr;
-    }
+  if (record == nullptr ||
+      record->GetType() != StackedShadowFrameType::kDeoptimizationShadowFrame) {
+    return nullptr;
   }
+  return PopStackedShadowFrame();
+}
+
+ShadowFrame* Thread::PopStackedShadowFrame() {
+  StackedShadowFrameRecord* record = tlsPtr_.stacked_shadow_frame_record;
+  DCHECK_NE(record, nullptr);
   tlsPtr_.stacked_shadow_frame_record = record->GetLink();
   ShadowFrame* shadow_frame = record->GetShadowFrame();
   delete record;
@@ -535,7 +538,7 @@ ShadowFrame* Thread::FindOrCreateDebuggerShadowFrame(size_t frame_id,
     return shadow_frame;
   }
   VLOG(deopt) << "Create pre-deopted ShadowFrame for " << ArtMethod::PrettyMethod(method);
-  shadow_frame = ShadowFrame::CreateDeoptimizedFrame(num_vregs, nullptr, method, dex_pc);
+  shadow_frame = ShadowFrame::CreateDeoptimizedFrame(num_vregs, method, dex_pc);
   FrameIdToShadowFrame* record = FrameIdToShadowFrame::Create(frame_id,
                                                               shadow_frame,
                                                               tlsPtr_.frame_id_to_shadow_frame,
@@ -790,7 +793,7 @@ void Thread::InstallImplicitProtection() {
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wframe-larger-than="
     NO_INLINE
-    static void Touch(uintptr_t target) {
+    __attribute__((no_sanitize("memtag"))) static void Touch(uintptr_t target) {
       volatile size_t zero = 0;
       // Use a large local volatile array to ensure a large frame size. Do not use anything close
       // to a full page for ASAN. It would be nice to ensure the frame size is at most a page, but
@@ -1394,15 +1397,19 @@ void Thread::ShortDump(std::ostream& os) const {
   tls32_.num_name_readers.fetch_sub(1 /* at least memory_order_release */);
 }
 
-void Thread::Dump(std::ostream& os, bool dump_native_stack, bool force_dump_stack) const {
+Thread::DumpOrder Thread::Dump(std::ostream& os,
+                               bool dump_native_stack,
+                               bool force_dump_stack) const {
   DumpState(os);
-  DumpStack(os, dump_native_stack, force_dump_stack);
+  return DumpStack(os, dump_native_stack, force_dump_stack);
 }
 
-void Thread::Dump(std::ostream& os, unwindstack::AndroidLocalUnwinder& unwinder,
-                  bool dump_native_stack, bool force_dump_stack) const {
+Thread::DumpOrder Thread::Dump(std::ostream& os,
+                               unwindstack::AndroidLocalUnwinder& unwinder,
+                               bool dump_native_stack,
+                               bool force_dump_stack) const {
   DumpState(os);
-  DumpStack(os, unwinder, dump_native_stack, force_dump_stack);
+  return DumpStack(os, unwinder, dump_native_stack, force_dump_stack);
 }
 
 ObjPtr<mirror::String> Thread::GetThreadName() const {
@@ -2204,11 +2211,13 @@ struct StackDumpVisitor : public MonitorObjectsStackVisitor {
         UNREACHABLE();
     }
     PrintObject(obj, msg, owner_tid);
+    num_blocked++;
   }
   void VisitLockedObject(ObjPtr<mirror::Object> obj)
       override
       REQUIRES_SHARED(Locks::mutator_lock_) {
     PrintObject(obj, "  - locked ", ThreadList::kInvalidThreadId);
+    num_locked++;
   }
 
   void PrintObject(ObjPtr<mirror::Object> obj,
@@ -2242,6 +2251,8 @@ struct StackDumpVisitor : public MonitorObjectsStackVisitor {
   ArtMethod* last_method;
   int last_line_number;
   size_t repetition_count;
+  size_t num_blocked = 0;
+  size_t num_locked = 0;
 };
 
 static bool ShouldShowNativeStack(const Thread* thread)
@@ -2273,7 +2284,9 @@ static bool ShouldShowNativeStack(const Thread* thread)
   return current_method != nullptr && current_method->IsNative();
 }
 
-void Thread::DumpJavaStack(std::ostream& os, bool check_suspended, bool dump_locks) const {
+Thread::DumpOrder Thread::DumpJavaStack(std::ostream& os,
+                                        bool check_suspended,
+                                        bool dump_locks) const {
   // Dumping the Java stack involves the verifier for locks. The verifier operates under the
   // assumption that there is no exception pending on entry. Thus, stash any pending exception.
   // Thread::Current() instead of this in case a thread is dumping the stack of another suspended
@@ -2284,19 +2297,28 @@ void Thread::DumpJavaStack(std::ostream& os, bool check_suspended, bool dump_loc
   StackDumpVisitor dumper(os, const_cast<Thread*>(this), context.get(),
                           !tls32_.throwing_OutOfMemoryError, check_suspended, dump_locks);
   dumper.WalkStack();
+  if (IsJitSensitiveThread()) {
+    return DumpOrder::kMain;
+  } else if (dumper.num_blocked > 0) {
+    return DumpOrder::kBlocked;
+  } else if (dumper.num_locked > 0) {
+    return DumpOrder::kLocked;
+  } else {
+    return DumpOrder::kDefault;
+  }
 }
 
-void Thread::DumpStack(std::ostream& os,
-                       bool dump_native_stack,
-                       bool force_dump_stack) const {
+Thread::DumpOrder Thread::DumpStack(std::ostream& os,
+                                    bool dump_native_stack,
+                                    bool force_dump_stack) const {
   unwindstack::AndroidLocalUnwinder unwinder;
-  DumpStack(os, unwinder, dump_native_stack, force_dump_stack);
+  return DumpStack(os, unwinder, dump_native_stack, force_dump_stack);
 }
 
-void Thread::DumpStack(std::ostream& os,
-                       unwindstack::AndroidLocalUnwinder& unwinder,
-                       bool dump_native_stack,
-                       bool force_dump_stack) const {
+Thread::DumpOrder Thread::DumpStack(std::ostream& os,
+                                    unwindstack::AndroidLocalUnwinder& unwinder,
+                                    bool dump_native_stack,
+                                    bool force_dump_stack) const {
   // TODO: we call this code when dying but may not have suspended the thread ourself. The
   //       IsSuspended check is therefore racy with the use for dumping (normally we inhibit
   //       the race with the thread_suspend_count_lock_).
@@ -2307,6 +2329,7 @@ void Thread::DumpStack(std::ostream& os,
     // thread's stack in debug builds where we'll hit the not suspended check in the stack walk.
     safe_to_dump = (safe_to_dump || dump_for_abort);
   }
+  DumpOrder dump_order = DumpOrder::kDefault;
   if (safe_to_dump || force_dump_stack) {
     // If we're currently in native code, dump that stack before dumping the managed stack.
     if (dump_native_stack && (dump_for_abort || force_dump_stack || ShouldShowNativeStack(this))) {
@@ -2316,12 +2339,13 @@ void Thread::DumpStack(std::ostream& os,
                            /*abort_on_error=*/ !(dump_for_abort || force_dump_stack));
       DumpNativeStack(os, unwinder, GetTid(), "  native: ", method);
     }
-    DumpJavaStack(os,
-                  /*check_suspended=*/ !force_dump_stack,
-                  /*dump_locks=*/ !force_dump_stack);
+    dump_order = DumpJavaStack(os,
+                               /*check_suspended=*/ !force_dump_stack,
+                               /*dump_locks=*/ !force_dump_stack);
   } else {
     os << "Not able to dump stack of thread that isn't suspended";
   }
+  return dump_order;
 }
 
 void Thread::ThreadExitCallback(void* arg) {
@@ -4480,6 +4504,9 @@ static void SweepCacheEntry(IsMarkedVisitor* visitor, const Instruction* inst, s
     case Opcode::CONST_STRING:
     case Opcode::CONST_STRING_JUMBO: {
       mirror::Object* object = reinterpret_cast<mirror::Object*>(*value);
+      if (object == nullptr) {
+        return;
+      }
       mirror::Object* new_object = visitor->IsMarked(object);
       // We know the string is marked because it's a strongly-interned string that
       // is always alive (see b/117621117 for trying to make those strings weak).
@@ -4500,16 +4527,12 @@ static void SweepCacheEntry(IsMarkedVisitor* visitor, const Instruction* inst, s
       // New opcode is using the cache. We need to explicitly handle it in this method.
       DCHECK(false) << "Unhandled opcode " << inst->Opcode();
   }
-};
+}
 
-void Thread::SweepInterpreterCaches(IsMarkedVisitor* visitor) {
-  MutexLock mu(Thread::Current(), *Locks::thread_list_lock_);
-  Runtime::Current()->GetThreadList()->ForEach([visitor](Thread* thread) {
-    Locks::mutator_lock_->AssertSharedHeld(Thread::Current());
-    for (InterpreterCache::Entry& entry : thread->GetInterpreterCache()->GetArray()) {
-      SweepCacheEntry(visitor, reinterpret_cast<const Instruction*>(entry.first), &entry.second);
-    }
-  });
+void Thread::SweepInterpreterCache(IsMarkedVisitor* visitor) {
+  for (InterpreterCache::Entry& entry : GetInterpreterCache()->GetArray()) {
+    SweepCacheEntry(visitor, reinterpret_cast<const Instruction*>(entry.first), &entry.second);
+  }
 }
 
 // FIXME: clang-r433403 reports the below function exceeds frame size limit.
@@ -4653,8 +4676,8 @@ size_t Thread::NumberOfHeldMutexes() const {
 void Thread::DeoptimizeWithDeoptimizationException(JValue* result) {
   DCHECK_EQ(GetException(), Thread::GetDeoptimizationException());
   ClearException();
-  ShadowFrame* shadow_frame =
-      PopStackedShadowFrame(StackedShadowFrameType::kDeoptimizationShadowFrame);
+  ShadowFrame* shadow_frame = MaybePopDeoptimizedStackedShadowFrame();
+  DCHECK_NE(shadow_frame, nullptr);
   ObjPtr<mirror::Throwable> pending_exception;
   bool from_code = false;
   DeoptimizationMethodType method_type;
