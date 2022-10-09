@@ -2190,6 +2190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e084d84a_376a48e4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-09T20:44:04Z",
+      "side": 1,
+      "message": "Is that performance overhead? It\u0027s likely minor no, given userfaultfd GC uses it? Would it be better/simpler to have the same behavior?",
+      "parentUuid": "ee7f7a5c_4eea536c",
+      "range": {
+        "startLine": 1748,
+        "startChar": 0,
+        "endLine": 1748,
+        "endChar": 68
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab451052_92965094",
         "filename": "runtime/runtime.cc",
         "patchSetId": 20

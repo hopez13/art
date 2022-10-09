@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bef1ff7c_d016f88b",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-09T20:44:04Z",
+      "side": 1,
+      "message": "Why is this required?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 42
+      },
+      "revId": "606bd949a021edc3a5cb2f3adf650956fb3f32d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36da4359_8e14f489",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-09T20:44:04Z",
+      "side": 1,
+      "message": "These are still here for the other GCs, right? Could we move the other GCs to visit the linear alloc spaces like userfaultfd?",
+      "range": {
+        "startLine": 429,
+        "startChar": 0,
+        "endLine": 460,
+        "endChar": 1
+      },
+      "revId": "606bd949a021edc3a5cb2f3adf650956fb3f32d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
