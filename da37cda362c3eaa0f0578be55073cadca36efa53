@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27b21168_2f8c77f7",
+        "filename": "runtime/native/java_lang_StringFactory.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-10T16:03:59Z",
+      "side": 1,
+      "message": "Comparing unsigned and signed values. This should not compile with our warning settings and `-Werror`.\n\nWithout the `offset \u003e data_size` check, RHS is in range [1-2^31, 2^31-1] and LHS is in range [0, 2^32-2]. So, this cannot be fixed with a single cast to a 32-bit type and we would need to promote to 64-bit values. My suggestion with from PS9 avoids this issue.",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 37
+      },
+      "revId": "da37cda362c3eaa0f0578be55073cadca36efa53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
