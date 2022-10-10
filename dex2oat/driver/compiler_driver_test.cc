@@ -141,8 +141,6 @@ TEST_F(CompilerDriverTest, DISABLED_LARGE_CompileDexLibCore) {
     EXPECT_TRUE(type != nullptr)
         << "type_idx=" << i << " " << dex.GetTypeDescriptor(dex.GetTypeId(dex::TypeIndex(i)));
   }
-  EXPECT_TRUE(dex_cache->StaticMethodSize() == dex_cache->NumResolvedMethods()
-      || dex.NumMethodIds() ==  dex_cache->NumResolvedMethods());
   for (size_t i = 0; i < dex_cache->NumResolvedMethods(); i++) {
     // FIXME: This is outdated for hash-based method array.
     ArtMethod* method = dex_cache->GetResolvedMethod(i);
@@ -153,8 +151,6 @@ TEST_F(CompilerDriverTest, DISABLED_LARGE_CompileDexLibCore) {
         << " " << dex.GetMethodDeclaringClassDescriptor(dex.GetMethodId(i)) << " "
         << dex.GetMethodName(dex.GetMethodId(i));
   }
-  EXPECT_TRUE(dex_cache->StaticArtFieldSize() == dex_cache->NumResolvedFields()
-      || dex.NumFieldIds() ==  dex_cache->NumResolvedFields());
   for (size_t i = 0; i < dex_cache->NumResolvedFields(); i++) {
     // FIXME: This is outdated for hash-based field array.
     ArtField* field = dex_cache->GetResolvedField(i);
