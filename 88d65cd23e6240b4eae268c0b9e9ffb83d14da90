@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caa12b4a_ed2e0294",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-10-10T15:45:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0087535f_c14b8dd6",
+      "range": {
+        "startLine": 265,
+        "startChar": 49,
+        "endLine": 265,
+        "endChar": 56
+      },
+      "revId": "88d65cd23e6240b4eae268c0b9e9ffb83d14da90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2092af7_e361566a",
@@ -60,6 +84,30 @@
       "writtenOn": "2022-10-10T09:12:55Z",
       "side": 1,
       "message": "Unlike in Java, shifts in C++ are a bit tricky. Shifting negative value left results in undefined behavior. The potential overflow from the shift is also a problem.\n\nJust rewrite the check:\n\n    DCHECK_GE(data_size, 0);\n    if (offset \u003c 0 ||\n        offset \u003e data_size ||\n        static_cast\u003cuint32_t\u003e(char_count) \u003e (static_cast\u003cuint32_t\u003e(data_size - offset) \u003e\u003e 1)) {\n\n(Those `static_cast\u003cuint32_t\u003e`s make sure a negative `char_count` fails the check.)",
+      "range": {
+        "startLine": 69,
+        "startChar": 23,
+        "endLine": 69,
+        "endChar": 38
+      },
+      "revId": "88d65cd23e6240b4eae268c0b9e9ffb83d14da90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "165368e6_50072f0d",
+        "filename": "runtime/native/java_lang_StringFactory.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-10-10T15:45:59Z",
+      "side": 1,
+      "message": "I changed the code and check if charCount \u003e 0 and cast to uint32_t before shifting and so sign bit can be used after shifting. PTAL.",
+      "parentUuid": "c2092af7_e361566a",
       "range": {
         "startLine": 69,
         "startChar": 23,
@@ -93,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "127043a0_42a02d06",
+        "filename": "runtime/native/java_lang_StringFactory.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-10-10T15:45:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f6e787c_c9b9b5ff",
+      "range": {
+        "startLine": 72,
+        "startChar": 35,
+        "endLine": 73,
+        "endChar": 53
+      },
+      "revId": "88d65cd23e6240b4eae268c0b9e9ffb83d14da90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b975dacb_23ea677c",
@@ -106,6 +178,30 @@
       "writtenOn": "2022-10-10T09:12:55Z",
       "side": 1,
       "message": "Wrong indentation.",
+      "range": {
+        "startLine": 78,
+        "startChar": 69,
+        "endLine": 78,
+        "endChar": 70
+      },
+      "revId": "88d65cd23e6240b4eae268c0b9e9ffb83d14da90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6811529_bc7fd585",
+        "filename": "runtime/native/java_lang_StringFactory.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-10-10T15:45:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b975dacb_23ea677c",
       "range": {
         "startLine": 78,
         "startChar": 69,
