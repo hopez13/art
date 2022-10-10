@@ -122,6 +122,30 @@
       },
       "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df6a04dc_d44b1b0d",
+        "filename": "runtime/runtime_callbacks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-10T11:47:05Z",
+      "side": 1,
+      "message": "Yes, you are right. Shutdown thread is the main thread. \n\nI was actually thinking of a different solution. Maybe once the Shutdown starts, we don\u0027t expect any callbacks other than phase_callbacks_ (for VMDeath) and sigquit_callbacks_ (for dumping when aborting). So maybe we can simply clear the callbacks related to other things like thread callbacks, method callbacks etc., Though I am not quite sure I understand what the standard says. Standard is clear that we don\u0027t need to send any events after VMDeath event. VMDeath event is sent in ~Runtime after attaching the GC thread and waiting for any GC to finish. I will think a bit more about this.",
+      "parentUuid": "b66690f3_3d8dd659",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 42
+      },
+      "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
