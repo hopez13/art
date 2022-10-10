@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8ab699f5_a385278c",
+        "filename": "runtime/runtime_callbacks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-10T18:03:01Z",
+      "side": 1,
+      "message": "I doubt that this would work, at least not for thread-pool workers. The ThreadStart callback (below) gets called as part of `Thread::Attach`, but in case of thread-pool `is_runtime_thread_` is set after `AttachCurrentThread()` (see `ThreadPoolWorker::Callback()` in runtime/thread_pool.cc",
+      "range": {
+        "startLine": 189,
+        "startChar": 12,
+        "endLine": 189,
+        "endChar": 27
+      },
+      "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37dd32b0_034598f9",
         "filename": "runtime/runtime_callbacks.cc",
         "patchSetId": 1
