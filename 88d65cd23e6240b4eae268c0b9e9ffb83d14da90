@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f1883dd_16f975b7",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-10T09:12:55Z",
+      "side": 1,
+      "message": "Unnecessary (but present also in the old `SetStringCountAndBytesVisitor`).",
+      "range": {
+        "startLine": 110,
+        "startChar": 42,
+        "endLine": 110,
+        "endChar": 48
+      },
+      "revId": "88d65cd23e6240b4eae268c0b9e9ffb83d14da90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0087535f_c14b8dd6",
+        "filename": "runtime/mirror/string-alloc-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-10T09:12:55Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "range": {
+        "startLine": 265,
+        "startChar": 49,
+        "endLine": 265,
+        "endChar": 56
+      },
+      "revId": "88d65cd23e6240b4eae268c0b9e9ffb83d14da90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2092af7_e361566a",
+        "filename": "runtime/native/java_lang_StringFactory.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-10T09:12:55Z",
+      "side": 1,
+      "message": "Unlike in Java, shifts in C++ are a bit tricky. Shifting negative value left results in undefined behavior. The potential overflow from the shift is also a problem.\n\nJust rewrite the check:\n\n    DCHECK_GE(data_size, 0);\n    if (offset \u003c 0 ||\n        offset \u003e data_size ||\n        static_cast\u003cuint32_t\u003e(char_count) \u003e (static_cast\u003cuint32_t\u003e(data_size - offset) \u003e\u003e 1)) {\n\n(Those `static_cast\u003cuint32_t\u003e`s make sure a negative `char_count` fails the check.)",
+      "range": {
+        "startLine": 69,
+        "startChar": 23,
+        "endLine": 69,
+        "endChar": 38
+      },
+      "revId": "88d65cd23e6240b4eae268c0b9e9ffb83d14da90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f6e787c_c9b9b5ff",
+        "filename": "runtime/native/java_lang_StringFactory.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-10T09:12:55Z",
+      "side": 1,
+      "message": "Style: One arg per line.",
+      "range": {
+        "startLine": 72,
+        "startChar": 35,
+        "endLine": 73,
+        "endChar": 53
+      },
+      "revId": "88d65cd23e6240b4eae268c0b9e9ffb83d14da90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b975dacb_23ea677c",
+        "filename": "runtime/native/java_lang_StringFactory.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-10T09:12:55Z",
+      "side": 1,
+      "message": "Wrong indentation.",
+      "range": {
+        "startLine": 78,
+        "startChar": 69,
+        "endLine": 78,
+        "endChar": 70
+      },
+      "revId": "88d65cd23e6240b4eae268c0b9e9ffb83d14da90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
