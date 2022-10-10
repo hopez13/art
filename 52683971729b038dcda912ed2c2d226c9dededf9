@@ -70,6 +70,30 @@
       },
       "revId": "52683971729b038dcda912ed2c2d226c9dededf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47531dc4_5f806c99",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-10T22:31:31Z",
+      "side": 1,
+      "message": "My current CL doesn\u0027t specify whether RunCheckpoint holds the mmutator lock because it appears there is an easier way to solve my problems by making sure Run methods don\u0027t suspend. (Which seems to be almost true.) That change also seems a little tricky because there is at least one non-GC caller that doesn\u0027t specify whether it holds the mutator lock. Independently, that may still be a good change, though.\n\nI looked a little bit at adding lock downgrades. I think it would be more painful to provide that facility than I thought. I still think that our futex-based implementation could provide it. But on some non-Android platforms, we rely on pthread_rwlock, which doesn\u0027t. And I believe it\u0027s specified as writer-preference, which may make the semantics slightly controversial, though I don\u0027t see any showstopper issues.\n\nI wonder whether that old deadlock is still real. Some of this code has changed. HeapTaskDaemon was trying to run an empty checkpoint. Whenever we wait for weak globals, we first wait for empty checkpoint requests. And the theory is that if there aren\u0027t any, and we\u0027re processing references, then we will issue no more such requests before finishing reference processing.\n\nDo we have something like a deopt stress test? Can we try removing the GC critical section? If nothing else, a more recent set of stack traces for the deadlock would be helpful.",
+      "parentUuid": "892a5f26_a7b1048d",
+      "range": {
+        "startLine": 331,
+        "startChar": 16,
+        "endLine": 331,
+        "endChar": 50
+      },
+      "revId": "52683971729b038dcda912ed2c2d226c9dededf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
