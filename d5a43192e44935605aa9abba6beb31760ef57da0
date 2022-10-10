@@ -16,6 +16,24 @@
       "message": "Needs fixing:\n\n```\nart/compiler/common_compiler_test.cc:161:  Missing space before {  [whitespace/braces] [5]\n```",
       "revId": "d5a43192e44935605aa9abba6beb31760ef57da0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ba54cd_e0e577ba",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-10T08:43:29Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/2240550",
+      "parentUuid": "7606edd6_01d1e508",
+      "revId": "d5a43192e44935605aa9abba6beb31760ef57da0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
