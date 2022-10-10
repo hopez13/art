@@ -98,6 +98,30 @@
       },
       "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b66690f3_3d8dd659",
+        "filename": "runtime/runtime_callbacks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-10T11:10:58Z",
+      "side": 1,
+      "message": "\u003e Do we need this on a Shutdown thread or can I just set it as a Runtime thread?\n\nUnfortunately, I think the shutdown thread is just the main thread no?",
+      "parentUuid": "10b9dbc5_282e5374",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 42
+      },
+      "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
