@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ART_DEX2OAT_DRIVER_COMPILED_METHOD_STORAGE_H_
-#define ART_DEX2OAT_DRIVER_COMPILED_METHOD_STORAGE_H_
+#ifndef ART_COMPILER_DRIVER_COMPILED_METHOD_STORAGE_H_
+#define ART_COMPILER_DRIVER_COMPILED_METHOD_STORAGE_H_
 
 #include <iosfwd>
 #include <map>
@@ -24,7 +24,6 @@
 #include "base/array_ref.h"
 #include "base/length_prefixed_array.h"
 #include "base/macros.h"
-#include "driver/compiled_code_storage.h"
 #include "utils/dedupe_set.h"
 #include "utils/swap_space.h"
 
@@ -34,8 +33,7 @@ namespace linker {
 class LinkerPatch;
 }  // namespace linker
 
-// TODO: Find a better name. This stores both method and non-method (thunks) code.
-class CompiledMethodStorage final : public CompiledCodeStorage {
+class CompiledMethodStorage {
  public:
   explicit CompiledMethodStorage(int swap_fd);
   ~CompiledMethodStorage();
@@ -70,23 +68,16 @@ class CompiledMethodStorage final : public CompiledCodeStorage {
   void ReleaseLinkerPatches(const LengthPrefixedArray<linker::LinkerPatch>* linker_patches);
   size_t UniqueLinkerPatchesEntries() const;
 
-  CompiledMethod* CreateCompiledMethod(InstructionSet instruction_set,
-                                       ArrayRef<const uint8_t> code,
-                                       ArrayRef<const uint8_t> stack_map,
-                                       ArrayRef<const uint8_t> cfi,
-                                       ArrayRef<const linker::LinkerPatch> patches,
-                                       bool is_intrinsic) override;
-
   // Returns the code associated with the given patch.
   // If the code has not been set, returns empty data.
   // If `debug_name` is not null, stores the associated debug name in `*debug_name`.
   ArrayRef<const uint8_t> GetThunkCode(const linker::LinkerPatch& linker_patch,
-                                       /*out*/ std::string* debug_name = nullptr) override;
+                                       /*out*/ std::string* debug_name = nullptr);
 
   // Sets the code and debug name associated with the given patch.
   void SetThunkCode(const linker::LinkerPatch& linker_patch,
                     ArrayRef<const uint8_t> code,
-                    const std::string& debug_name) override;
+                    const std::string& debug_name);
 
  private:
   class ThunkMapKey;
@@ -141,4 +132,4 @@ class CompiledMethodStorage final : public CompiledCodeStorage {
 
 }  // namespace art
 
-#endif  // ART_DEX2OAT_DRIVER_COMPILED_METHOD_STORAGE_H_
+#endif  // ART_COMPILER_DRIVER_COMPILED_METHOD_STORAGE_H_

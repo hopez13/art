@@ -23,13 +23,13 @@
 namespace art {
 
 class ArtMethod;
-class CompiledCodeStorage;
 class Compiler;
+class CompiledMethodStorage;
 class CompilerOptions;
 class DexFile;
 
 Compiler* CreateOptimizingCompiler(const CompilerOptions& compiler_options,
-                                   CompiledCodeStorage* storage);
+                                   CompiledMethodStorage* storage);
 
 bool EncodeArtMethodInInlineInfo(ArtMethod* method);
 

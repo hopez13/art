@@ -33,11 +33,12 @@
 #include "base/timing_logger.h"
 #include "builder.h"
 #include "code_generator.h"
+#include "compiled_method.h"
 #include "compiler.h"
 #include "debug/elf_debug_writer.h"
 #include "debug/method_debug_info.h"
 #include "dex/dex_file_types.h"
-#include "driver/compiled_code_storage.h"
+#include "driver/compiled_method_storage.h"
 #include "driver/compiler_options.h"
 #include "driver/dex_compilation_unit.h"
 #include "graph_checker.h"
@@ -268,7 +269,7 @@ class PassScope : public ValueObject {
 class OptimizingCompiler final : public Compiler {
  public:
   explicit OptimizingCompiler(const CompilerOptions& compiler_options,
-                              CompiledCodeStorage* storage);
+                              CompiledMethodStorage* storage);
   ~OptimizingCompiler() override;
 
   bool CanCompileMethod(uint32_t method_idx, const DexFile& dex_file) const override;
@@ -362,7 +363,6 @@ class OptimizingCompiler final : public Compiler {
   CompiledMethod* Emit(ArenaAllocator* allocator,
                        CodeVectorAllocator* code_allocator,
                        CodeGenerator* codegen,
-                       bool is_intrinsic,
                        const dex::CodeItem* item) const;
 
   // Try compiling a method and return the code generator used for
@@ -412,7 +412,7 @@ class OptimizingCompiler final : public Compiler {
 static const int kMaximumCompilationTimeBeforeWarning = 100; /* ms */
 
 OptimizingCompiler::OptimizingCompiler(const CompilerOptions& compiler_options,
-                                       CompiledCodeStorage* storage)
+                                       CompiledMethodStorage* storage)
     : Compiler(compiler_options, storage, kMaximumCompilationTimeBeforeWarning) {
   // Enable C1visualizer output.
   const std::string& cfg_file_name = compiler_options.GetDumpCfgFileName();
@@ -710,19 +710,18 @@ static ArenaVector<linker::LinkerPatch> EmitAndSortLinkerPatches(CodeGenerator* 
 CompiledMethod* OptimizingCompiler::Emit(ArenaAllocator* allocator,
                                          CodeVectorAllocator* code_allocator,
                                          CodeGenerator* codegen,
-                                         bool is_intrinsic,
                                          const dex::CodeItem* code_item_for_osr_check) const {
   ArenaVector<linker::LinkerPatch> linker_patches = EmitAndSortLinkerPatches(codegen);
   ScopedArenaVector<uint8_t> stack_map = codegen->BuildStackMaps(code_item_for_osr_check);
 
-  CompiledCodeStorage* storage = GetCompiledCodeStorage();
-  CompiledMethod* compiled_method = storage->CreateCompiledMethod(
+  CompiledMethodStorage* storage = GetCompiledMethodStorage();
+  CompiledMethod* compiled_method = CompiledMethod::SwapAllocCompiledMethod(
+      storage,
       codegen->GetInstructionSet(),
       code_allocator->GetMemory(),
       ArrayRef<const uint8_t>(stack_map),
       ArrayRef<const uint8_t>(*codegen->GetAssembler()->cfi().data()),
-      ArrayRef<const linker::LinkerPatch>(linker_patches),
-      is_intrinsic);
+      ArrayRef<const linker::LinkerPatch>(linker_patches));
 
   for (const linker::LinkerPatch& patch : linker_patches) {
     if (codegen->NeedsThunkCode(patch) && storage->GetThunkCode(patch).empty()) {
@@ -1079,8 +1078,10 @@ CompiledMethod* OptimizingCompiler::Compile(const dex::CodeItem* code_item,
     compiled_method = Emit(&allocator,
                            &code_allocator,
                            codegen.get(),
-                           compiled_intrinsic,
                            compiled_intrinsic ? nullptr : code_item);
+    if (compiled_intrinsic) {
+      compiled_method->MarkAsIntrinsic();
+    }
 
     if (kArenaAllocatorCountAllocations) {
       codegen.reset();  // Release codegen's ScopedArenaAllocator for memory accounting.
@@ -1171,11 +1172,12 @@ CompiledMethod* OptimizingCompiler::JniCompile(uint32_t access_flags,
                               method,
                               &handles));
       if (codegen != nullptr) {
-        return Emit(&allocator,
-                    &code_allocator,
-                    codegen.get(),
-                    /*is_intrinsic=*/ true,
-                    /*item=*/ nullptr);
+        CompiledMethod* compiled_method = Emit(&allocator,
+                                               &code_allocator,
+                                               codegen.get(),
+                                               /* item= */ nullptr);
+        compiled_method->MarkAsIntrinsic();
+        return compiled_method;
       }
     }
   }
@@ -1190,17 +1192,17 @@ CompiledMethod* OptimizingCompiler::JniCompile(uint32_t access_flags,
                         jni_compiled_method,
                         jni_compiled_method.GetCode().size(),
                         compiler_options.GetDebuggable() && compiler_options.IsJitCompiler());
-  return GetCompiledCodeStorage()->CreateCompiledMethod(
+  return CompiledMethod::SwapAllocCompiledMethod(
+      GetCompiledMethodStorage(),
       jni_compiled_method.GetInstructionSet(),
       jni_compiled_method.GetCode(),
       ArrayRef<const uint8_t>(stack_map),
       jni_compiled_method.GetCfi(),
-      /*patches=*/ ArrayRef<const linker::LinkerPatch>(),
-      /*is_intrinsic=*/ false);
+      /* patches= */ ArrayRef<const linker::LinkerPatch>());
 }
 
 Compiler* CreateOptimizingCompiler(const CompilerOptions& compiler_options,
-                                   CompiledCodeStorage* storage) {
+                                   CompiledMethodStorage* storage) {
   return new OptimizingCompiler(compiler_options, storage);
 }
 
