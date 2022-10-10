@@ -74,6 +74,30 @@
       "parentUuid": "37dd32b0_034598f9",
       "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10b9dbc5_282e5374",
+        "filename": "runtime/runtime_callbacks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-10T10:26:01Z",
+      "side": 1,
+      "message": "\u003e Can\u0027t the name of a thread be defined at the user level?\n\nYes, you are right about thread name. I think thread name isn\u0027t a good fix. \n\n\u003e Don\u0027t we have something in the runtime that can do this check instead?\n\nI couldn\u0027t find anything else to identify the Shutdown thread. Maybe we could consider adding a \"InternalThreadGroup\" to identify such threads but since it\u0027s a temporary fix it might not be a good idea. Though, I could potentially set the Shutdown thread as a runtime thread and the callbacks won\u0027t be called.  We don\u0027t allow class loading on runtime threads. Do we need this on a Shutdown thread or can I just set it as a Runtime thread?\n\n\u003e Would IsShuttingDown be good enough to avoid sending events?\n\nIsShuttingDown is set much later in the shutdown process. The very first thing we do in ~Runtime is to attach a thread which is where this callback is being called. IsShuttingDown is set after we shutdown JIT and wait for any ongoing GC to complete. I don\u0027t think I can set the shutting_down_ earlier because we disallow many things once that is set including Attaching threads. I could introduce a new variable to indicate that shutdown was initiated and prevent any Thread attach callbacks. I will try this if setting it as a Runtime thread isn\u0027t an option.",
+      "parentUuid": "4a3ce850_6aa10378",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 42
+      },
+      "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
