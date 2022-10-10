@@ -119,6 +119,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "906f2892_ad4f3822",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-10T07:15:58Z",
+      "side": 1,
+      "message": "gerrit is confusing, I also suggested to add \"`\" around the check word.",
+      "parentUuid": "abe40aba_86e2565f",
+      "range": {
+        "startLine": 187,
+        "startChar": 66,
+        "endLine": 187,
+        "endChar": 71
+      },
+      "revId": "dc7d2fdf0ef779db9ea49705a5c0f453b4d86c9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b37ca299_9e028fbd",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 4
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "That\u0027s already in use at object.cc:170. Changed it to \"Generic\"",
       "parentUuid": "b37ca299_9e028fbd",
+      "range": {
+        "startLine": 730,
+        "startChar": 10,
+        "endLine": 730,
+        "endChar": 17
+      },
+      "revId": "dc7d2fdf0ef779db9ea49705a5c0f453b4d86c9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a8ba3f4_3e9dcbf8",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-10T07:15:58Z",
+      "side": 1,
+      "message": "Ah too bad - I think an informal convention has been to name these methods `IdentityHashCodeHelper`.",
+      "parentUuid": "329cd42e_1a2abff9",
       "range": {
         "startLine": 730,
         "startChar": 10,
