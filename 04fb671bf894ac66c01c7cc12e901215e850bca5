@@ -33,6 +33,47 @@
       "message": "This is only a temporary hack to check if this fixes libjdwp timeouts. I can also do it as a separate CL and revert it once we have a proper fix in place.",
       "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a3ce850_6aa10378",
+        "filename": "runtime/runtime_callbacks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-10T08:54:08Z",
+      "side": 1,
+      "message": "Can\u0027t the name of a thread be defined at the user level? Don\u0027t we have something in the runtime that can do this check instead? Would IsShuttingDown be good enough to avoid sending events?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 42
+      },
+      "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70f3fa6b_7a9ccb7a",
+        "filename": "runtime/runtime_callbacks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-10T08:54:08Z",
+      "side": 1,
+      "message": "Up to you what will be the easiest, both work for me.",
+      "parentUuid": "37dd32b0_034598f9",
+      "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
