@@ -141,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "370b18e1_f8903035",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-10T16:39:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "906f2892_ad4f3822",
+      "range": {
+        "startLine": 187,
+        "startChar": 66,
+        "endLine": 187,
+        "endChar": 71
+      },
+      "revId": "dc7d2fdf0ef779db9ea49705a5c0f453b4d86c9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b37ca299_9e028fbd",
@@ -202,6 +226,30 @@
       "side": 1,
       "message": "Ah too bad - I think an informal convention has been to name these methods `IdentityHashCodeHelper`.",
       "parentUuid": "329cd42e_1a2abff9",
+      "range": {
+        "startLine": 730,
+        "startChar": 10,
+        "endLine": 730,
+        "endChar": 17
+      },
+      "revId": "dc7d2fdf0ef779db9ea49705a5c0f453b4d86c9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e756e5eb_2b417f06",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-10T16:39:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a8ba3f4_3e9dcbf8",
       "range": {
         "startLine": 730,
         "startChar": 10,
