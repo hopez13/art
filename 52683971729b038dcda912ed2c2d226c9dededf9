@@ -22,6 +22,30 @@
       },
       "revId": "52683971729b038dcda912ed2c2d226c9dededf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ae9a161_c6f2a34f",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-10T08:37:43Z",
+      "side": 1,
+      "message": "Yes, that\u0027s a part of SuspendAll. Visiting class loaders is also in SuspendAll scope. From the original bug that introduced this GCCriticalSection (CL: aosp/836451, bug: b/113777552) it appears that there could be a GC in progress and still succeed in SuspendAll. It was a while back though (from 2018).  From the original bug:\n\n* HeapTaskDaemon waits for mutator_lock_: which exclusive held by\nAndroidJUnitRunner.\n*       AndroidJUnitRunner WaitHoldingLocks on\nConditionVariable(weak_globals_add_condition_) which HeapTaskDaemon\nwill do a broadcast.\n\nHeapTaskDaemon:\n\n#0  syscall () at bionic/libc/arch-arm/bionic/syscall.S:44\n#1  0xa59a8606 in art::futex (uaddr\u003d\u003coptimized out\u003e, op\u003d0, val\u003d-1,\ntimeout\u003d\u003coptimized out\u003e, uaddr2\u003d\u003coptimized out\u003e, val3\u003d0)\n   at art/runtime/base/mutex-inl.h:43\n#2  art::ReaderWriterMutex::HandleSharedLockContention\n(this\u003d0xa580e000, self\u003d0x9fe33000, cur_state\u003d-1)\n    at art/runtime/base/mutex.cc:771\n#3  0xa5a5a500 in art::ReaderWriterMutex::SharedLock (this\u003d0xa580e000,\nself\u003d\u003coptimized out\u003e)\n    at art/runtime/base/mutex-inl.h:169\n#4  art::gc::collector::ConcurrentCopying::IssueEmptyCheckpoint\n(this\u003d\u003coptimized out\u003e)\n    at art/runtime/gc/collector/concurrent_copying.cc:1056\n#5  0xa5a5d644 in\nart::gc::collector::ConcurrentCopying::ProcessMarkStackOnce\n(this\u003d0xa5db6a80)\n    at art/runtime/gc/collector/concurrent_copying.cc:1430\n#6  0xa5a5d5d8 in\nart::gc::collector::ConcurrentCopying::ProcessMarkStack\n(this\u003d0xa5db6a80)\n\nAndroidJUnitRunner:\n#2  art::ConditionVariable::WaitHoldingLocks (this\u003d0xa5dcb1ac,\nself\u003d0x9fe3e000) at art/runtime/base/mutex.cc:953\n#3  0xa5b35ae4 in art::JavaVMExt::DecodeWeakGlobalLocked\n(this\u003d0xa5dcb140, self\u003d0x9fe3e000, ref\u003d\u003coptimized out\u003e)\n    at art/runtime/java_vm_ext.cc:799\n#4  0xa5b35a56 in art::JavaVMExt::DecodeWeakGlobal (this\u003d0xa5dcb140,\nself\u003d0x9fe3e000, ref\u003d\u003coptimized out\u003e)\n    at art/runtime/java_vm_ext.cc:788\n#5  0xa5c753a0 in art::Thread::DecodeJObject (this\u003d0x9fe3e000,\nobj\u003d0x187) at art/runtime/thread.cc:2387\n#6  0xa59db902 in art::ClassLinker::VisitClassLoaders (this\u003d\u003coptimized\nout\u003e, visitor\u003d\u003coptimized out\u003e)\n\n\n\nIf things have changed and we do guarantee there is no GC in progress then we can drop this.",
+      "parentUuid": "155edafc_1022efef",
+      "range": {
+        "startLine": 331,
+        "startChar": 16,
+        "endLine": 331,
+        "endChar": 50
+      },
+      "revId": "52683971729b038dcda912ed2c2d226c9dededf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
