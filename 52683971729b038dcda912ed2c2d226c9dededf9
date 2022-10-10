@@ -46,6 +46,30 @@
       },
       "revId": "52683971729b038dcda912ed2c2d226c9dededf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "892a5f26_a7b1048d",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-10T17:26:35Z",
+      "side": 1,
+      "message": "Now I recall that there are a bunch of places where the GC has to release the muator_lock_, notably when wanting to issue a checkpoint, which gives an opportunity to other threads to suspend-all, if needed.\n\n@hboehm@google.com, this is why I was saying that it would be actually good if we could make it mandatory for issuing checkpoints to require mutator_lock_ being held in shared mode.\n\nAnother thing that will help would if we could allow lowering mutator_lock_ from exclusive to shared mode, without releasing it.",
+      "parentUuid": "2ae9a161_c6f2a34f",
+      "range": {
+        "startLine": 331,
+        "startChar": 16,
+        "endLine": 331,
+        "endChar": 50
+      },
+      "revId": "52683971729b038dcda912ed2c2d226c9dededf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
