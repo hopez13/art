@@ -94,6 +94,30 @@
       },
       "revId": "52683971729b038dcda912ed2c2d226c9dededf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db2e2a84_e46e6f7a",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-11T13:21:36Z",
+      "side": 1,
+      "message": "Thanks Lokesh and Hans! \n\nI am not sure I understand it fully. Why don\u0027t we expect a deadlock now? Is it because when GC releases the mutator_lock_ and thereby allowing us to enter SuspendAll scope with exclusive mutator_lock we should be able to decode weak reference and not block on GC anymore? \n\nI tried to look for a stress test for this case. I think deopt stress test maynot stress this part because this is only for jvmti. There are some jvmti-stress options for field access and field modification but they just enable the feature once, so we will hit this path only once. We should constantly enable / disable these feature or keep setting breakpoints to stress this. I couldn\u0027t find such a test but happy to look into this and add a test and remove this critical section to see if we have any failures.",
+      "parentUuid": "47531dc4_5f806c99",
+      "range": {
+        "startLine": 331,
+        "startChar": 16,
+        "endLine": 331,
+        "endChar": 50
+      },
+      "revId": "52683971729b038dcda912ed2c2d226c9dededf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
