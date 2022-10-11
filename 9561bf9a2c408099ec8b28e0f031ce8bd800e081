@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01e6bf14_fc0dcf37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-11T09:07:00Z",
+      "side": 1,
+      "message": "I left some comments to make the CL have smaller impact on the codebase. I\u0027m okay with resolving them in follow-up CLs once we see that the build is green, too.",
+      "revId": "9561bf9a2c408099ec8b28e0f031ce8bd800e081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f18512c0_4e50f500",
+        "filename": "build/art.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-11T09:07:00Z",
+      "side": 1,
+      "message": "Not sure if this comment was meant to be merged.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 73
+      },
+      "revId": "9561bf9a2c408099ec8b28e0f031ce8bd800e081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6acbf5dd_86c28cc9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4648,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-11T09:07:00Z",
+      "side": 1,
+      "message": "Same for these changes. I\u0027d have expected this to be a temporary fix to debug.",
+      "range": {
+        "startLine": 4643,
+        "startChar": 0,
+        "endLine": 4648,
+        "endChar": 5
+      },
+      "revId": "9561bf9a2c408099ec8b28e0f031ce8bd800e081",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
