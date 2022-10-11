@@ -169,6 +169,7 @@ art_cc_library {
         // Allow libdexfile_support users to list this as a runtime_libs
         // dependency - see comment for libdexfile_support. It shouldn't be used
         // for any other purpose.
+        "//bionic/libfdtrack",
         "//external/perfetto",
         "//system/core/debuggerd",
         "//system/extras/simpleperf",
