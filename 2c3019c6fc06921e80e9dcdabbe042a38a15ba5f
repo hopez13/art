@@ -52,6 +52,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2945290c_8d72c51b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-11T21:43:54Z",
+      "side": 1,
+      "message": "An attempt to rerun the failing presubmit test points out that there is still a problem with EnterTransactionMode calling MakeInitializedClassesVisiblyInitialized with wait\u003dtrue, while holding the mutator lock. Investigating.",
+      "revId": "2c3019c6fc06921e80e9dcdabbe042a38a15ba5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d60bf2d5_85238741",
