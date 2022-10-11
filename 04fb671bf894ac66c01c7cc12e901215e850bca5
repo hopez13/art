@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "676c0407_6b236d26",
+        "filename": "runtime/runtime_callbacks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-11T11:27:30Z",
+      "side": 1,
+      "message": "Thanks! You are right. I missed this entirely. I guess we could make it work by passing an extra argument to Thread::Attach but not sure if it\u0027s worth it. I think clearing callbacks on Shutdown might be a better fix. Also we may not need GCCriticalSection in deopt manager. Let\u0027s discuss this in Today\u0027s meeting and update the CL depending on it.",
+      "parentUuid": "8ab699f5_a385278c",
+      "range": {
+        "startLine": 189,
+        "startChar": 12,
+        "endLine": 189,
+        "endChar": 27
+      },
+      "revId": "04fb671bf894ac66c01c7cc12e901215e850bca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37dd32b0_034598f9",
         "filename": "runtime/runtime_callbacks.cc",
         "patchSetId": 1
