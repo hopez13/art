@@ -173,6 +173,7 @@ art_cc_library {
         "//system/core/debuggerd",
         "//system/extras/simpleperf",
         "//system/unwinding/libunwindstack",
+        "//bionic/libfdtrack",
     ],
     defaults: [
         "libdexfile_defaults",
