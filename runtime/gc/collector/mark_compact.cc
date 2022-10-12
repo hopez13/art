@@ -128,9 +128,16 @@ bool MarkCompact::CreateUserfaultfd(bool post_fork) {
       } else {
         DCHECK_GE(uffd_, 0);
         // Get/update the features that we want in userfaultfd
-        struct uffdio_api api = {.api = UFFD_API, .features = 0};
+        struct uffdio_api api = {.api = UFFD_API,
+                                 .features = UFFD_FEATURE_MISSING_SHMEM
+                                             | UFFD_FEATURE_MINOR_SHMEM};
         CHECK_EQ(ioctl(uffd_, UFFDIO_API, &api), 0)
               << "ioctl_userfaultfd: API: " << strerror(errno);
+        // Missing userfaults on shmem should always be available.
+        DCHECK_NE(api.features & UFFD_FEATURE_MISSING_SHMEM, 0);
+        uffd_minor_fault_supported_ = (api.features & UFFD_FEATURE_MINOR_SHMEM) != 0;
+        // TODO: Assert that minor-fault support isn't available only on 32-bit
+        // kernel.
       }
     } else {
       // Without fault-retry feature in the kernel we can't terminate concurrent
@@ -157,7 +164,8 @@ MarkCompact::MarkCompact(Heap* heap)
           uffd_(-1),
           thread_pool_counter_(0),
           compacting_(false),
-          uffd_initialized_(false) {
+          uffd_initialized_(false),
+          uffd_minor_fault_supported_(false) {
   // TODO: Depending on how the bump-pointer space move is implemented. If we
   // switch between two virtual memories each time, then we will have to
   // initialize live_words_bitmap_ accordingly.
@@ -226,6 +234,8 @@ MarkCompact::MarkCompact(Heap* heap)
     // CompactionPhase() before using it to terminate concurrent compaction.
     CHECK_EQ(*conc_compaction_termination_page_, 0);
   }
+  // In most of the cases, we don't expect more than one LinearAlloc space.
+  linear_alloc_pages_status_.reserve(1);
 }
 
 void MarkCompact::BindAndResetBitmaps() {
@@ -1733,7 +1743,11 @@ void MarkCompact::PreCompactionPhase() {
     }
     GcVisitedArenaPool *arena_pool =
         static_cast<GcVisitedArenaPool*>(runtime->GetLinearAllocArenaPool());
-    arena_pool->VisitRoots(visitor);
+    if (uffd_ == kFallbackMode) {
+      arena_pool->VisitRoots(visitor);
+    } else {
+      arena_pool->GetAllocatedArenaList(linear_alloc_arenas_);
+    }
   }
 
   SweepSystemWeaks(thread_running_gc_, runtime, /*paused*/true);
@@ -1791,8 +1805,7 @@ void MarkCompact::PreCompactionPhase() {
   stack_end_ = nullptr;
 }
 
-void MarkCompact::KernelPreparation() {
-  TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
+void MarkCompact::KernelPrepareRange(uint8_t* mremap_src, uint8_t* mremp_dst, size_t size) {
   // TODO: Create mapping's at 2MB aligned addresses to benefit from optimized
   // mremap.
   size_t size = bump_pointer_space_->Capacity();
@@ -1802,31 +1815,44 @@ void MarkCompact::KernelPreparation() {
     flags |= MREMAP_DONTUNMAP;
   }
 
-  void* ret = mremap(begin, size, size, flags, from_space_begin_);
-  CHECK_EQ(ret, static_cast<void*>(from_space_begin_))
-        << "mremap to move pages from moving space to from-space failed: " << strerror(errno)
+  void* ret = mremap(mremap_src, size, size, flags, mremap_dst);
+  CHECK_EQ(ret, static_cast<void*>(mremap_dst))
+        << "mremap to move pages failed: " << strerror(errno)
         << ". moving-space-addr=" << reinterpret_cast<void*>(begin)
         << " size=" << size;
 
   // Without MREMAP_DONTUNMAP the source mapping is unmapped by mremap. So mmap
   // the moving space again.
   if (!gHaveMremapDontunmap) {
-    ret = mmap(begin, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON | MAP_FIXED, -1, 0);
-    CHECK_EQ(ret, static_cast<void*>(begin)) << "mmap for moving space failed: " << strerror(errno);
+    ret = mmap(mremap_src, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON | MAP_FIXED, -1, 0);
+    CHECK_EQ(ret, static_cast<void*>(mremap_src))
+          << "mmap for moving space failed: " << strerror(errno);
   }
-
-  DCHECK_EQ(mprotect(from_space_begin_, size, PROT_READ), 0)
-         << "mprotect failed: " << strerror(errno);
-
   if (uffd_ >= 0) {
     // Userfaultfd registration
     struct uffdio_register uffd_register;
-    uffd_register.range.start = reinterpret_cast<uintptr_t>(begin);
+    uffd_register.range.start = reinterpret_cast<uintptr_t>(mremap_src);
     uffd_register.range.len = size;
-    uffd_register.mode = UFFDIO_REGISTER_MODE_MISSING;
+    uffd_register.mode = UFFDIO_REGISTER_MODE_MISSING | UFFDIO_REGISTER_MODE_MINOR;
     CHECK_EQ(ioctl(uffd_, UFFDIO_REGISTER, &uffd_register), 0)
           << "ioctl_userfaultfd: register moving-space: " << strerror(errno);
   }
+}
+
+void MarkCompact::KernelPreparation() {
+  TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
+  KernelPrepareRange(bump_pointer_space_->Begin(),
+                     from_space_begin_,
+                     bump_pointer_space_->Capacity());
+  DCHECK_EQ(mprotect(from_space_begin_, bump_pointer_space_->Capacity(), PROT_READ), 0)
+         << "mprotect failed: " << strerror(errno);
+
+  GcVisitedArenaPool *arena_pool =
+      static_cast<GcVisitedArenaPool*>(runtime->GetLinearAllocArenaPool());
+  arena_pool->ForEach([this](MemMap& map, MemMap& shadow) {
+    DCHECK_EQ(map.Size(), shadow.Size());
+    KernelPrepareRange(map.Begin(), shadow.Begin(), map.Size());
+  });
 }
 
 void MarkCompact::ConcurrentCompaction(uint8_t* page) {
@@ -1843,7 +1869,9 @@ void MarkCompact::ConcurrentCompaction(uint8_t* page) {
                           int ret = ioctl(uffd_, UFFDIO_ZEROPAGE, &uffd_zeropage);
                           CHECK(ret == 0 || (tolerate_eexist && ret == -1 && errno == EEXIST))
                               << "ioctl: zeropage: " << strerror(errno);
-                          DCHECK_EQ(uffd_zeropage.zeropage, static_cast<ssize_t>(kPageSize));
+                          if (ret == 0) {
+                            DCHECK_EQ(uffd_zeropage.zeropage, static_cast<ssize_t>(kPageSize));
+                          }
                         };
 
   auto copy_ioctl = [this] (void* fault_page, void* src) {
@@ -2594,6 +2622,7 @@ void MarkCompact::FinishPhase() {
   mark_stack_->Reset();
   updated_roots_.clear();
   delete[] moving_pages_status_;
+  linear_alloc_arenas_.clear();
   DCHECK_EQ(thread_running_gc_, Thread::Current());
   ReaderMutexLock mu(thread_running_gc_, *Locks::mutator_lock_);
   WriterMutexLock mu2(thread_running_gc_, *Locks::heap_bitmap_lock_);

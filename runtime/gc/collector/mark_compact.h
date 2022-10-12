@@ -130,6 +130,10 @@ class MarkCompact : public GarbageCollector {
   // created or was already done.
   bool CreateUserfaultfd(bool post_fork);
 
+  bool IsUffdMinorFaultSupported() const {
+    return uffd_minor_fault_supported_;
+  }
+
  private:
   using ObjReference = mirror::ObjectReference</*kPoisonReferences*/ false, mirror::Object>;
   // Number of bits (live-words) covered by a single chunk-info (below)
@@ -403,14 +407,6 @@ class MarkCompact : public GarbageCollector {
   void SweepLargeObjects(bool swap_bitmaps) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(Locks::heap_bitmap_lock_);
 
-  // Store all the dex-cache objects visited during marking phase.
-  // This is required during compaction phase to ensure that we don't miss any
-  // of them from visiting (to update references). Somehow, iterating over
-  // class-tables to fetch these misses some of them, leading to memory
-  // corruption.
-  // TODO: once we implement concurrent compaction of classes and dex-caches,
-  // which will visit all of them, we should remove this.
-  void RememberDexCaches(mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_);
   // Perform all kernel operations required for concurrent compaction. Includes
   // mremap to move pre-compact pages to from-space, followed by userfaultfd
   // registration on the moving space.
@@ -420,7 +416,7 @@ class MarkCompact : public GarbageCollector {
 
   enum PageState : uint8_t {
     kUncompacted = 0,  // The page has not been compacted yet
-    kCompacting       // Some thread (GC or mutator) is compacting the page
+    kCompacting        // Some thread (GC or mutator) is compacting the page
   };
 
   // Buffers, one per worker thread + gc-thread, to be used when
@@ -450,13 +446,18 @@ class MarkCompact : public GarbageCollector {
   // TODO: Must be replaced with an efficient mechanism eventually. Or ensure
   // that double updation doesn't happen in the first place.
   std::unordered_set<void*> updated_roots_;
-  // Set of dex-caches visited during marking. See comment above
-  // RememberDexCaches() for the explanation.
-  std::unordered_set<uint32_t> dex_caches_;
   MemMap from_space_map_;
   // Any array of live-bytes in logical chunks of kOffsetChunkSize size
   // in the 'to-be-compacted' space.
   MemMap info_map_;
+
+  // List of arenas allocated in LinearAlloc arena-pool, captured during
+  // compaction pause for concurrent updates.
+  std::vector<Arena*> linear_alloc_arenas_;
+  // Set of PageStatus arrays, one per arena-pool space. It's extremely rare to
+  // have more than one, but this is to be ready for the worst case.
+  std::vector<std::pair<MemMap*, Atomic<PageState>*> linear_alloc_pages_status_;
+
   // The main space bitmap
   accounting::ContinuousSpaceBitmap* moving_space_bitmap_;
   accounting::ContinuousSpaceBitmap* non_moving_space_bitmap_;
@@ -525,6 +526,8 @@ class MarkCompact : public GarbageCollector {
   // in MarkingPause(). It reaches the correct count only once the marking phase
   // is completed.
   int32_t freed_objects_;
+
+  int moving_space_fds_[2];
   // Userfault file descriptor, accessed only by the GC itself.
   // kFallbackMode value indicates that we are in the fallback mode.
   int uffd_;
@@ -538,6 +541,9 @@ class MarkCompact : public GarbageCollector {
   // Heap::PostForkChildAction() as it's invoked in app startup path. With
   // this, we register the compaction-termination page on the first GC.
   bool uffd_initialized_;
+  // Flag indicating if userfaultfd supports minor-faults. Set appropriately in
+  // CreateUserfaultfd(), where we get this information from the kernel.
+  bool uffd_minor_fault_supported_;
 
   class VerifyRootMarkedVisitor;
   class ScanObjectVisitor;

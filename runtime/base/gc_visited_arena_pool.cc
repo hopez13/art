@@ -18,21 +18,13 @@
 
 #include "base/arena_allocator-inl.h"
 #include "base/utils.h"
+#include "gc/collector/mark_compact-inl.h"
 
 #include <sys/mman.h>
 #include <sys/types.h>
 #include <unistd.h>
 
 namespace art {
-
-#if defined(__LP64__)
-// Use a size in multiples of 1GB as that can utilize the optimized mremap
-// page-table move.
-static constexpr size_t kLinearAllocPoolSize = 1 * GB;
-static constexpr size_t kLow4GBLinearAllocPoolSize = 32 * MB;
-#else
-static constexpr size_t kLinearAllocPoolSize = 32 * MB;
-#endif
 
 TrackedArena::TrackedArena(uint8_t* start, size_t size) : Arena(), first_obj_array_(nullptr) {
   static_assert(ArenaAllocator::kArenaAlignment <= kPageSize,
@@ -76,16 +68,52 @@ void GcVisitedArenaPool::AddMap(size_t min_size) {
     size = std::max(min_size, kLow4GBLinearAllocPoolSize);
   }
 #endif
+  bool create_memfd = false;
   std::string err_msg;
-  maps_.emplace_back(MemMap::MapAnonymous(name_,
-                                          size,
-                                          PROT_READ | PROT_WRITE,
-                                          low_4gb_,
-                                          &err_msg));
+  if (gUseUserfaultfd) {
+    Runtime* runtime = Runtime::Current();
+    // We use shmem on non-zygote processes for leveraging userfaultfd's
+    // minor-fault feature.
+    create_memfd = !runtime->IsZygote()
+                   && runtime->GetHeap()->GetMarkCompact()->IsUffdMinorFaultSupported();
+    // Create a shadow-map for the map being added for userfaultfd GC
+    shadow_maps_.emplace_back(MemMap::MapAnonymous(name_ + " shadow map",
+                                                   size,
+                                                   PROT_NONE,
+                                                   low_4gb_,
+                                                   &err_msg));
+    MemMap& map = shadow_maps_.back();
+    if (!map.IsValid()) {
+      LOG(FATAL) << "Failed to allocate " << name_ << " shadow map: " << err_msg;
+      UNREACHABLE();
+    }
+  }
+
+  if (create_memfd) {
+    int fd = memfd_create(name_, MFD_CLOEXEC);
+    CHECK_NE(fd, -1) << "memfd_create: failed for " << name_ << ": " << strerror(errno);
+    int ret = ftrunate(fd, size);
+    CHECK_EQ(ret, 0) << "ftruncate: failed for " << name_ << ": " << strerror(errno);
+    maps_.emplace_back(MemMap::MapFile(size,
+                                       PROT_READ | PROT_WRITE,
+                                       MAP_SHARED,
+                                       fd,
+                                       /*start=*/0,
+                                       low_4gb_,
+                                       name_,
+                                       &err_msg));
+    close(fd);
+  } else {
+    maps_.emplace_back(MemMap::MapAnonymous(name_,
+                                            size,
+                                            PROT_READ | PROT_WRITE,
+                                            low_4gb_,
+                                            &err_msg));
+  }
+
   MemMap& map = maps_.back();
   if (!map.IsValid()) {
-    LOG(FATAL) << "Failed to allocate " << name_
-               << ": " << err_msg;
+    LOG(FATAL) << "Failed to allocate " << name_ << ": " << err_msg;
     UNREACHABLE();
   }
   Chunk* chunk = new Chunk(map.Begin(), map.Size());
@@ -98,6 +126,9 @@ GcVisitedArenaPool::GcVisitedArenaPool(bool low_4gb, const char* name)
   std::lock_guard<std::mutex> lock(lock_);
   // It's extremely rare to have more than one map.
   maps_.reserve(1);
+  if (gUseUserfaultfd) {
+    shadow_maps_.reserve(1);
+  }
   AddMap(/*min_size=*/0);
 }
 
