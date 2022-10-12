@@ -1027,10 +1027,6 @@ def default_run(ctx, args, **kwargs):
     DALVIKVM_CLASSPATH = f"{DALVIKVM_CLASSPATH}:{DEX_LOCATION}/{TEST_NAME}-aotex.jar"
   DALVIKVM_CLASSPATH = f"{DALVIKVM_CLASSPATH}{SECONDARY_DEX}"
 
-  # We set DumpNativeStackOnSigQuit to false to avoid stressing libunwind.
-  # b/27185632
-  # b/24664297
-
   dalvikvm_cmdline = f"{INVOKE_WITH} {GDB} {ANDROID_ART_BIN_DIR}/{DALVIKVM} \
                     {GDB_ARGS} \
                     {FLAGS} \
@@ -1044,7 +1040,6 @@ def default_run(ctx, args, **kwargs):
                     {DEBUGGER_OPTS} \
                     {QUOTED_DALVIKVM_BOOT_OPT} \
                     {TMP_DIR_OPTION} \
-                    -XX:DumpNativeStackOnSigQuit:false \
                     -cp {DALVIKVM_CLASSPATH} {MAIN} {ARGS}"
 
   if SIMPLEPERF:

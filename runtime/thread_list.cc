@@ -72,10 +72,6 @@ static constexpr useconds_t kThreadSuspendInitialSleepUs = 0;
 static constexpr useconds_t kThreadSuspendMaxYieldUs = 3000;
 static constexpr useconds_t kThreadSuspendMaxSleepUs = 5000;
 
-// Whether we should try to dump the native stack of unattached threads. See commit ed8b723 for
-// some history.
-static constexpr bool kDumpUnattachedThreadNativeStackForSigQuit = true;
-
 ThreadList::ThreadList(uint64_t thread_suspend_timeout_ns)
     : suspend_all_count_(0),
       unregistering_count_(0),
@@ -146,23 +142,20 @@ void ThreadList::DumpForSigQuit(std::ostream& os) {
       suspend_all_historam_.PrintConfidenceIntervals(os, 0.99, data);  // Dump time to suspend.
     }
   }
-  bool dump_native_stack = Runtime::Current()->GetDumpNativeStackOnSigQuit();
-  Dump(os, dump_native_stack);
-  DumpUnattachedThreads(os, dump_native_stack && kDumpUnattachedThreadNativeStackForSigQuit);
+  Dump(os);
+  DumpUnattachedThreads(os);
 }
 
-static void DumpUnattachedThread(std::ostream& os, pid_t tid, bool dump_native_stack)
+static void DumpUnattachedThread(std::ostream& os, pid_t tid)
     NO_THREAD_SAFETY_ANALYSIS {
   // TODO: No thread safety analysis as DumpState with a null thread won't access fields, should
   // refactor DumpState to avoid skipping analysis.
   Thread::DumpState(os, nullptr, tid);
-  if (dump_native_stack) {
-    DumpNativeStack(os, tid, "  native: ");
-  }
+  DumpNativeStack(os, tid, "  native: ");
   os << std::endl;
 }
 
-void ThreadList::DumpUnattachedThreads(std::ostream& os, bool dump_native_stack) {
+void ThreadList::DumpUnattachedThreads(std::ostream& os) {
   DIR* d = opendir("/proc/self/task");
   if (!d) {
     return;
@@ -180,7 +173,7 @@ void ThreadList::DumpUnattachedThreads(std::ostream& os, bool dump_native_stack)
         thread = FindThreadByTid(tid);
       }
       if (thread == nullptr) {
-        DumpUnattachedThread(os, tid, dump_native_stack);
+        DumpUnattachedThread(os, tid);
       }
     }
   }
@@ -194,14 +187,13 @@ static constexpr uint32_t kDumpWaitTimeout = kIsTargetBuild ? 100000 : 20000;
 // A closure used by Thread::Dump.
 class DumpCheckpoint final : public Closure {
  public:
-  DumpCheckpoint(bool dump_native_stack)
+  DumpCheckpoint()
       : lock_("Dump checkpoint lock", kGenericBottomLock),
         os_(),
         // Avoid verifying count in case a thread doesn't end up passing through the barrier.
         // This avoids a SIGABRT that would otherwise happen in the destructor.
         barrier_(0, /*verify_count_on_shutdown=*/false),
-        unwinder_(std::vector<std::string>{}, std::vector<std::string> {"oat", "odex"}),
-        dump_native_stack_(dump_native_stack) {
+        unwinder_(std::vector<std::string>{}, std::vector<std::string> {"oat", "odex"}) {
   }
 
   void Run(Thread* thread) override {
@@ -213,7 +205,7 @@ class DumpCheckpoint final : public Closure {
     Thread::DumpOrder dump_order;
     {
       ScopedObjectAccess soa(self);
-      dump_order = thread->Dump(local_os, unwinder_, dump_native_stack_);
+      dump_order = thread->Dump(local_os, unwinder_);
     }
     {
       MutexLock mu(self, lock_);
@@ -252,18 +244,16 @@ class DumpCheckpoint final : public Closure {
   Barrier barrier_;
   // A backtrace map, so that all threads use a shared info and don't reacquire/parse separately.
   unwindstack::AndroidLocalUnwinder unwinder_;
-  // Whether we should dump the native stack.
-  const bool dump_native_stack_;
 };
 
-void ThreadList::Dump(std::ostream& os, bool dump_native_stack) {
+void ThreadList::Dump(std::ostream& os) {
   Thread* self = Thread::Current();
   {
     MutexLock mu(self, *Locks::thread_list_lock_);
     os << "DALVIK THREADS (" << list_.size() << "):\n";
   }
   if (self != nullptr) {
-    DumpCheckpoint checkpoint(dump_native_stack);
+    DumpCheckpoint checkpoint;
     size_t threads_running_checkpoint;
     {
       // Use SOA to prevent deadlocks if multiple threads are calling Dump() at the same time.
@@ -275,7 +265,7 @@ void ThreadList::Dump(std::ostream& os, bool dump_native_stack) {
     }
     checkpoint.Dump(self, os);
   } else {
-    DumpUnattachedThreads(os, dump_native_stack);
+    DumpUnattachedThreads(os);
   }
 }
 
@@ -499,9 +489,7 @@ void ThreadList::RunEmptyCheckpoint() {
                 thread->ReadFlag(ThreadFlag::kEmptyCheckpointRequest)) {
               // Found a runnable thread that hasn't responded to the empty checkpoint request.
               // Assume it's stuck and safe to dump its stack.
-              thread->Dump(LOG_STREAM(FATAL_WITHOUT_ABORT),
-                           /*dump_native_stack=*/ true,
-                           /*force_dump_stack=*/ true);
+              thread->Dump(LOG_STREAM(FATAL_WITHOUT_ABORT), /*force_dump_stack=*/ true);
             }
           }
         }

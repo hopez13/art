@@ -283,12 +283,10 @@ class Thread {
 
   // Dumps the detailed thread state and the thread stack (used for SIGQUIT).
   DumpOrder Dump(std::ostream& os,
-                 bool dump_native_stack = true,
                  bool force_dump_stack = false) const
       REQUIRES_SHARED(Locks::mutator_lock_);
   DumpOrder Dump(std::ostream& os,
                  unwindstack::AndroidLocalUnwinder& unwinder,
-                 bool dump_native_stack = true,
                  bool force_dump_stack = false) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -1537,12 +1535,10 @@ class Thread {
 
   void DumpState(std::ostream& os) const REQUIRES_SHARED(Locks::mutator_lock_);
   DumpOrder DumpStack(std::ostream& os,
-                      bool dump_native_stack = true,
                       bool force_dump_stack = false) const
       REQUIRES_SHARED(Locks::mutator_lock_);
   DumpOrder DumpStack(std::ostream& os,
                       unwindstack::AndroidLocalUnwinder& unwinder,
-                      bool dump_native_stack = true,
                       bool force_dump_stack = false) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 

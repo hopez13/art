@@ -304,7 +304,6 @@ Runtime::Runtime()
       test_api_policy_(hiddenapi::EnforcementPolicy::kDisabled),
       dedupe_hidden_api_warnings_(true),
       hidden_api_access_event_log_rate_(0),
-      dump_native_stack_on_sig_quit_(true),
       // Initially assume we perceive jank in case the process state is never updated.
       process_state_(kProcessStateJankPerceptible),
       zygote_no_threads_(false),
@@ -1520,7 +1519,6 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   is_primary_zygote_ = runtime_options.Exists(Opt::PrimaryZygote);
   is_explicit_gc_disabled_ = runtime_options.Exists(Opt::DisableExplicitGC);
   image_dex2oat_enabled_ = runtime_options.GetOrDefault(Opt::ImageDex2Oat);
-  dump_native_stack_on_sig_quit_ = runtime_options.GetOrDefault(Opt::DumpNativeStackOnSigQuit);
   allow_in_memory_compilation_ = runtime_options.Exists(Opt::AllowInMemoryCompilation);
 
   if (is_zygote_ || runtime_options.Exists(Opt::OnlyUseTrustedOatFiles)) {
