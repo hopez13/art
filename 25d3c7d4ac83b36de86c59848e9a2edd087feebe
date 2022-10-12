@@ -16,6 +16,24 @@
       "message": "Hi, Islam, I prepared this in case I receive any boot time / app startup regression bugs. I hope that I don\u0027t need to submit this. Ideally, I will wait for the benchmark service to update the profile in the internal master.",
       "revId": "25d3c7d4ac83b36de86c59848e9a2edd087feebe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9bbdd39_50bc086d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2022-10-12T09:20:49Z",
+      "side": 1,
+      "message": "Hi Victor, actually I received two regression bugs after updating the boot image profile b/252043215 and b/251224884 do you know if they are related to this change?",
+      "parentUuid": "4bde7e1c_63ed361f",
+      "revId": "25d3c7d4ac83b36de86c59848e9a2edd087feebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
