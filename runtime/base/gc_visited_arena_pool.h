@@ -32,6 +32,11 @@ namespace art {
 // An Arena which tracks its allocations.
 class TrackedArena final : public Arena {
  public:
+  // Mainly used for searches in GcVisitedArenaPool::allocated_arenas_.
+  explicit TrackedArena(uint8_t* addr) {
+    memory_ = addr;
+    size_ = 0;
+  }
   TrackedArena(uint8_t* start, size_t size);
 
   template <typename PageVisitor>
@@ -43,6 +48,15 @@ class TrackedArena final : public Arena {
     for (int i = 0; i < nr_pages && first_obj_array_[i] != nullptr; i++, page_begin += kPageSize) {
       visitor(page_begin, first_obj_array_[i]);
     }
+  }
+
+  template <typename PageVisitor>
+  void VisitPageByAddr(PageVisitor& visitor, uint8_t* addr) const
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK_LT(addr, End());
+    addr = AlignDown(addr, kPageSize);
+    size_t idx = (addr - Begin()) / kPageSize;
+    visitor(addr, first_obj_array_[idx]);
   }
 
   // Set 'obj_begin' in first_obj_array_ in every element for which it's the
@@ -62,6 +76,15 @@ class TrackedArena final : public Arena {
 // range to avoid multiple calls to mremapped/mprotected syscalls.
 class GcVisitedArenaPool final : public ArenaPool {
  public:
+#if defined(__LP64__)
+  // Use a size in multiples of 1GB as that can utilize the optimized mremap
+  // page-table move.
+  static constexpr size_t kLinearAllocPoolSize = 1 * GB;
+  static constexpr size_t kLow4GBLinearAllocPoolSize = 32 * MB;
+#else
+  static constexpr size_t kLinearAllocPoolSize = 32 * MB;
+#endif
+
   explicit GcVisitedArenaPool(bool low_4gb = false, const char* name = "LinearAlloc");
   virtual ~GcVisitedArenaPool();
   Arena* AllocArena(size_t size) override;
@@ -77,6 +100,43 @@ class GcVisitedArenaPool final : public ArenaPool {
     for (auto& arena : allocated_arenas_) {
       arena.VisitRoots(visitor);
     }
+  }
+
+  template <typename Callback>
+  void ForEach(Callback cb) REQUIRES_SHARED(Locks::mutator_lock_) {
+    std::lock_guard<std::mutex> lock(lock_);
+    for (auto& map : maps_) {
+      cb(map);
+    }
+  }
+
+  // Populate vector 'vec', which is expected to be empty, with
+  // pointers to all the allocated arenas.
+  void GetAllocatedArenaList(std::vector<Arena*>& vec) const
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(vec.empty);
+    std::lock_guard<std::mutex> lock(lock_);
+    vec.reserve(allocated_arenas_.size());
+    for (auto& arena : allocated_arenas_) {
+      vec.push_back(&arena);
+    }
+  }
+
+  template <typename PageVisitor>
+  bool FindArenaFromAddr(PageVisitor& visitor, uint8_t* addr) const
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    TrackedArena* arena;
+    {
+      std::lock_guard<std::mutex> lock(lock_);
+      auto search = allocated_arenas_.find(TrackedArena(addr));
+      if (search == allocated_arenas_.end()) {
+        return false;
+      } else {
+        arena = &(*search);
+      }
+    }
+    arena->VisitPageByAddr(visitor, addr);
+    return true;
   }
 
  private:
@@ -102,9 +162,8 @@ class GcVisitedArenaPool final : public ArenaPool {
    public:
     // Since two chunks could have the same size, use addr when that happens.
     bool operator()(const Chunk* a, const Chunk* b) const {
-      return std::less<size_t>{}(a->size_, b->size_)
-             || (std::equal_to<size_t>{}(a->size_, b->size_)
-                 && std::less<uint8_t*>{}(a->addr_, b->addr_));
+      return a->size_ < b->size_
+             || (a->size_ == b->size_ && std::less<uint8_t*>{}(a->addr_, b->addr_));
     }
   };
 
