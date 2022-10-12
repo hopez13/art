@@ -18,21 +18,13 @@
 
 #include "base/arena_allocator-inl.h"
 #include "base/utils.h"
+#include "gc/collector/mark_compact-inl.h"
 
 #include <sys/mman.h>
 #include <sys/types.h>
 #include <unistd.h>
 
 namespace art {
-
-#if defined(__LP64__)
-// Use a size in multiples of 1GB as that can utilize the optimized mremap
-// page-table move.
-static constexpr size_t kLinearAllocPoolSize = 1 * GB;
-static constexpr size_t kLow4GBLinearAllocPoolSize = 32 * MB;
-#else
-static constexpr size_t kLinearAllocPoolSize = 32 * MB;
-#endif
 
 TrackedArena::TrackedArena(uint8_t* start, size_t size) : Arena(), first_obj_array_(nullptr) {
   static_assert(ArenaAllocator::kArenaAlignment <= kPageSize,
@@ -76,17 +68,45 @@ void GcVisitedArenaPool::AddMap(size_t min_size) {
     size = std::max(min_size, kLow4GBLinearAllocPoolSize);
   }
 #endif
+  Runtime* runtime = Runtime::Current();
+  MarkCompact* mark_compact = runtime->GetHeap()->GetMarkCompact();
   std::string err_msg;
-  maps_.emplace_back(MemMap::MapAnonymous(name_,
-                                          size,
-                                          PROT_READ | PROT_WRITE,
-                                          low_4gb_,
-                                          &err_msg));
+  int fd;
+  // We use shmem on non-zygote processes for leveraging userfaultfd's
+  // minor-fault feature.
+  if (gUseUserfaultfd && !runtime->IsZygote() && mark_compact->IsUffdMinorFaultSupported()) {
+    int fd = memfd_create(name_, MFD_CLOEXEC);
+    CHECK_NE(fd, -1) << "memfd_create: failed for " << name_ << ": " << strerror(errno);
+    int ret = ftrunate(fd, size);
+    CHECK_EQ(ret, 0) << "ftruncate: failed for " << name_ << ": " << strerror(errno);
+    maps_.emplace_back(MemMap::MapFile(size,
+                                       PROT_READ | PROT_WRITE,
+                                       MAP_SHARED,
+                                       fd,
+                                       /*start=*/0,
+                                       low_4gb_,
+                                       name_,
+                                       &err_msg));
+  } else {
+    // Pass -1 to userfaultfd GC indicating that on first GC in non-zygote
+    // process relocate the space to a shmem file to leverage userfaultfd's
+    // minor fault feature.
+    fd = -1;
+    maps_.emplace_back(MemMap::MapAnonymous(name_,
+                                            size,
+                                            PROT_READ | PROT_WRITE,
+                                            low_4gb_,
+                                            &err_msg));
+  }
+
   MemMap& map = maps_.back();
   if (!map.IsValid()) {
-    LOG(FATAL) << "Failed to allocate " << name_
-               << ": " << err_msg;
+    LOG(FATAL) << "Failed to allocate " << name_ << ": " << err_msg;
     UNREACHABLE();
+  }
+  if (gUseUserfaultfd) {
+    // Create a shadow-map for the map being added for userfaultfd GC
+    mark_compact->AddLinearAllocSpaceData(map.Begin(), map.Size(), fd);
   }
   Chunk* chunk = new Chunk(map.Begin(), map.Size());
   best_fit_allocs_.insert(chunk);
