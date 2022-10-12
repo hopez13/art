@@ -411,7 +411,6 @@ LOCAL_REQUIRED_MODULES := \
     $(call art_module_lib,dex2oat) \
     $(call art_module_lib,dexoptanalyzer) \
     $(call art_module_lib,libart) \
-    $(call art_module_lib,libart-compiler) \
     $(call art_module_lib,libopenjdkjvm) \
     $(call art_module_lib,libopenjdkjvmti) \
     $(call art_module_lib,odrefresh) \
