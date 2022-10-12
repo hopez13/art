@@ -290,8 +290,9 @@ class MemMap {
   // exceed the size of this reservation.
   //
   // Returns a mapping owning `byte_count` bytes rounded up to entire pages
-  // with size set to the passed `byte_count`.
-  MemMap TakeReservedMemory(size_t byte_count);
+  // with size set to the passed `byte_count`. If reuse is true then the caller
+  // is responsible for releasing the taken pages.
+  MemMap TakeReservedMemory(size_t byte_count, bool reuse = false);
 
   static bool CheckNoGaps(MemMap& begin_map, MemMap& end_map)
       REQUIRES(!MemMap::mem_maps_lock_);
