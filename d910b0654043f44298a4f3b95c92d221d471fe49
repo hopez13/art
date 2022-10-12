@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d82e4c89_00d2c94e",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-12T15:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "695ff02f_8f13129d",
+      "range": {
+        "startLine": 157,
+        "startChar": 11,
+        "endLine": 161,
+        "endChar": 5
+      },
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04226111_c8c87fdf",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-10-12T11:09:44Z",
       "side": 1,
       "message": "Likewise, this could be encoded as a default constructor.",
+      "range": {
+        "startLine": 163,
+        "startChar": 11,
+        "endLine": 167,
+        "endChar": 5
+      },
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91df2477_b47530b4",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-12T15:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04226111_c8c87fdf",
       "range": {
         "startLine": 163,
         "startChar": 11,
@@ -81,6 +129,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc411987_d75acd31",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-12T15:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2678a215_2cfdf30f",
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2009c19c_1ee7880c",
@@ -94,6 +160,24 @@
       "writtenOn": "2022-10-12T11:09:44Z",
       "side": 1,
       "message": "Should we also check the range of admissible values for `exitCode`?",
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e282961c_5592c2dd",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-12T15:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2009c19c_1ee7880c",
       "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -115,6 +199,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89949378_805ab625",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-12T15:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "087f1de6_4e85e36e",
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8924df3_5239c8a8",
@@ -128,6 +230,30 @@
       "writtenOn": "2022-10-12T11:09:44Z",
       "side": 1,
       "message": "Same comment regarding the introduction of an explicit constructor.",
+      "range": {
+        "startLine": 83,
+        "startChar": 38,
+        "endLine": 87,
+        "endChar": 3
+      },
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f45c5407_093b1fd8",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-12T15:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8924df3_5239c8a8",
       "range": {
         "startLine": 83,
         "startChar": 38,
@@ -161,6 +287,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f121027_d319deb4",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-12T15:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d93e47a_35cd0dbd",
+      "range": {
+        "startLine": 43,
+        "startChar": 9,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e3d0a23_ad7c8a2b",
@@ -174,6 +324,30 @@
       "writtenOn": "2022-10-12T11:09:44Z",
       "side": 1,
       "message": "Style: Long lines.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 102
+      },
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "187608a3_8eb29a43",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-12T15:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e3d0a23_ad7c8a2b",
       "range": {
         "startLine": 83,
         "startChar": 0,
