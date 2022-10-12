@@ -258,6 +258,9 @@ class RuntimeCallbacks {
   void RemoveReflectiveValueVisitCallback(ReflectiveValueVisitCallback* cb)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void SetShutdownStarting();
+  bool IsShutdownStarting();
+
  private:
   std::unique_ptr<ReaderWriterMutex> callback_lock_ BOTTOM_MUTEX_ACQUIRED_AFTER;
 
@@ -283,6 +286,15 @@ class RuntimeCallbacks {
       GUARDED_BY(callback_lock_);
   std::vector<ReflectiveValueVisitCallback*> reflective_value_visit_callbacks_
       GUARDED_BY(callback_lock_);
+
+  // This flag is needed to avoid calling thread start / end callbacks once shutdown has started.
+  // Running callbacks is prone to deadlocks in libjdwp tests that need an event handler lock to
+  // process any event. We also need to enter a GCCriticalSection when processing certain events
+  // (for ex: removing the last breakpoint). These two restrictions together make the tear down
+  // of the jdwp tests deadlock prone if we fail to finish Thread::Attach callback. So use this
+  // flag to avoid calling thread related callbacks.
+  // (TODO:b/251163712) Remove this once we update deopt manager to not use GCCriticalSection.
+  bool shutdown_starting_ GUARDED_BY(Locks::runtime_shutdown_lock_);
 };
 
 }  // namespace art
