@@ -2669,12 +2669,7 @@ extern "C" void artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** 
     REQUIRES_SHARED(Locks::mutator_lock_) {
   instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
   instr->MethodEnterEvent(self, method);
-  if (instr->IsDeoptimized(method)) {
-    // Instrumentation can request deoptimizing only a particular method (for
-    // ex: when there are break points on the method). In such cases deoptimize
-    // only this method. FullFrame deoptimizations are handled on method exits.
-    artDeoptimizeFromCompiledCode(DeoptimizationKind::kDebugging, self);
-  }
+  DCHECK(!instr->IsDeoptimized(method));
 }
 
 extern "C" void artMethodExitHook(Thread* self,
