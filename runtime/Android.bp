@@ -82,8 +82,14 @@ cc_library_headers {
     // ART's macros.h depends on libbase's macros.h.
     // Note: runtime_options.h depends on cmdline. But we don't really want to export this
     //       generically. dex2oat takes care of it itself.
-    header_libs: ["art_libartbase_headers"],
-    export_header_lib_headers: ["art_libartbase_headers"],
+    header_libs: [
+        "art_libartbase_headers",
+        "dlmalloc",
+    ],
+    export_header_lib_headers: [
+        "art_libartbase_headers",
+        "dlmalloc",
+    ],
 
     // We optimize Thread::Current() with a direct TLS access. This requires
     // access to a platform specific Bionic header.
@@ -97,6 +103,24 @@ cc_library_headers {
             export_header_lib_headers: ["bionic_libc_platform_headers"],
         },
     },
+
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+}
+
+// cpp-define-generator-asm-support depends on libart_headers
+// This is a separate header lib to avoid circular dependency
+cc_library_headers {
+    name: "libart_generated_headers",
+    defaults: ["art_defaults"],
+    host_supported: true,
+
+    // asm_support_gen.h (used by asm_support.h) is generated with cpp-define-generator
+    generated_headers: ["cpp-define-generator-asm-support"],
+    // export our headers so the libart(d)-gtest targets can use it as well.
+    export_generated_headers: ["cpp-define-generator-asm-support"],
 
     apex_available: [
         "com.android.art",
@@ -460,21 +484,19 @@ libart_cc_defaults {
     generated_sources: [
         "art_operator_srcs",
     ],
-    // asm_support_gen.h (used by asm_support.h) is generated with cpp-define-generator
-    generated_headers: ["cpp-define-generator-asm-support"],
-    // export our headers so the libart(d)-gtest targets can use it as well.
-    export_generated_headers: ["cpp-define-generator-asm-support"],
 
     header_libs: [
         "art_cmdlineparser_headers",
         "cpp-define-generator-definitions",
         "dlmalloc",
         "jni_platform_headers",
+        "libart_generated_headers",
         "libart_headers",
         "libnativehelper_header_only",
     ],
     export_header_lib_headers: [
         "dlmalloc",
+        "libart_generated_headers",
         "libart_headers",
     ],
     whole_static_libs: [
@@ -540,6 +562,7 @@ libart_static_cc_defaults {
 cc_defaults {
     name: "libart_static_defaults",
     defaults: [
+        "libart-compiler_static_defaults",
         "libart_static_base_defaults",
         "libartbase_static_defaults",
         "libdexfile_static_defaults",
@@ -557,6 +580,7 @@ cc_defaults {
     defaults: [
         "libart_static_base_defaults",
         "libartbased_static_defaults",
+        "libartd-compiler_static_defaults",
         "libdexfiled_static_defaults",
         "libdexfiled_support_static_defaults",
         "libprofiled_static_defaults",
@@ -611,11 +635,13 @@ gensrcs {
 art_cc_defaults {
     name: "libart_common_defaults",
     defaults: [
+        "art_hugepage_defaults",
+        "libart-compiler_dependencies",
         "libart_defaults",
         "libart_nativeunwind_defaults",
-        "art_hugepage_defaults",
     ],
     whole_static_libs: [
+        "libart-compiler",
     ],
     static_libs: [
         "libelffile",
@@ -666,8 +692,10 @@ art_cc_library {
     defaults: [
         "art_debug_defaults",
         "libart_defaults",
+        "libartd-compiler_dependencies",
     ],
     whole_static_libs: [
+        "libartd-compiler",
     ],
     static_libs: [
         "libelffiled",
