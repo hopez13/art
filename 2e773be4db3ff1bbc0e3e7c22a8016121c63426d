@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7407d914_f69a2681",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884576
+      },
+      "writtenOn": "2022-10-12T20:17:46Z",
+      "side": 1,
+      "message": "FYI, Chromium builds this code downstream and is trying to switch our build to C++20. Since this also has to support previous versions of C++, it\u0027s not appropriate to unilaterally switch to the C++20 forms of things, hence the #ifdefs.",
+      "revId": "2e773be4db3ff1bbc0e3e7c22a8016121c63426d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
