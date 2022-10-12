@@ -16,6 +16,172 @@
       "message": "Sorry, I probably missed this CL.",
       "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "695ff02f_8f13129d",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-12T11:09:44Z",
+      "side": 1,
+      "message": "Can we introduce a proper constructor for `OdrMetricsRecord::ExecResult`?",
+      "range": {
+        "startLine": 157,
+        "startChar": 11,
+        "endLine": 161,
+        "endChar": 5
+      },
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04226111_c8c87fdf",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-12T11:09:44Z",
+      "side": 1,
+      "message": "Likewise, this could be encoded as a default constructor.",
+      "range": {
+        "startLine": 163,
+        "startChar": 11,
+        "endLine": 167,
+        "endChar": 5
+      },
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2678a215_2cfdf30f",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-12T11:09:44Z",
+      "side": 1,
+      "message": "Should we also check the range of admissible values for `status`?",
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2009c19c_1ee7880c",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-12T11:09:44Z",
+      "side": 1,
+      "message": "Should we also check the range of admissible values for `exitCode`?",
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "087f1de6_4e85e36e",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-12T11:09:44Z",
+      "side": 1,
+      "message": "Should we also check the range of admissible values for `signal`?",
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8924df3_5239c8a8",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-12T11:09:44Z",
+      "side": 1,
+      "message": "Same comment regarding the introduction of an explicit constructor.",
+      "range": {
+        "startLine": 83,
+        "startChar": 38,
+        "endLine": 87,
+        "endChar": 3
+      },
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d93e47a_35cd0dbd",
+        "filename": "odrefresh/odr_metrics_record.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-12T11:09:44Z",
+      "side": 1,
+      "message": "Could this be renamed to `Dex2OatExecResult`, to disambiguate between the execution result of `dex2oat` and `odrefresh`?",
+      "range": {
+        "startLine": 43,
+        "startChar": 9,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e3d0a23_ad7c8a2b",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-12T11:09:44Z",
+      "side": 1,
+      "message": "Style: Long lines.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 102
+      },
+      "revId": "d910b0654043f44298a4f3b95c92d221d471fe49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
