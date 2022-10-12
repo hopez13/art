@@ -924,10 +924,6 @@ class Runtime {
     safe_mode_ = mode;
   }
 
-  bool GetDumpNativeStackOnSigQuit() const {
-    return dump_native_stack_on_sig_quit_;
-  }
-
   void UpdateProcessState(ProcessState process_state);
 
   // Returns true if we currently care about long mutator pause.
@@ -1486,9 +1482,6 @@ class Runtime {
 
   // The data directory of the app running in this process.
   std::string process_data_directory_;
-
-  // Whether threads should dump their native stack on SIGQUIT.
-  bool dump_native_stack_on_sig_quit_;
 
   // Whether or not we currently care about pause times.
   ProcessState process_state_;

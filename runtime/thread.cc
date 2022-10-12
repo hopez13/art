@@ -1410,18 +1410,16 @@ void Thread::ShortDump(std::ostream& os) const {
 }
 
 Thread::DumpOrder Thread::Dump(std::ostream& os,
-                               bool dump_native_stack,
                                bool force_dump_stack) const {
   DumpState(os);
-  return DumpStack(os, dump_native_stack, force_dump_stack);
+  return DumpStack(os, force_dump_stack);
 }
 
 Thread::DumpOrder Thread::Dump(std::ostream& os,
                                unwindstack::AndroidLocalUnwinder& unwinder,
-                               bool dump_native_stack,
                                bool force_dump_stack) const {
   DumpState(os);
-  return DumpStack(os, unwinder, dump_native_stack, force_dump_stack);
+  return DumpStack(os, unwinder, force_dump_stack);
 }
 
 ObjPtr<mirror::String> Thread::GetThreadName() const {
@@ -2315,15 +2313,13 @@ Thread::DumpOrder Thread::DumpJavaStack(std::ostream& os,
 }
 
 Thread::DumpOrder Thread::DumpStack(std::ostream& os,
-                                    bool dump_native_stack,
                                     bool force_dump_stack) const {
   unwindstack::AndroidLocalUnwinder unwinder;
-  return DumpStack(os, unwinder, dump_native_stack, force_dump_stack);
+  return DumpStack(os, unwinder, force_dump_stack);
 }
 
 Thread::DumpOrder Thread::DumpStack(std::ostream& os,
                                     unwindstack::AndroidLocalUnwinder& unwinder,
-                                    bool dump_native_stack,
                                     bool force_dump_stack) const {
   // TODO: we call this code when dying but may not have suspended the thread ourself. The
   //       IsSuspended check is therefore racy with the use for dumping (normally we inhibit
@@ -2338,7 +2334,7 @@ Thread::DumpOrder Thread::DumpStack(std::ostream& os,
   DumpOrder dump_order = DumpOrder::kDefault;
   if (safe_to_dump || force_dump_stack) {
     // If we're currently in native code, dump that stack before dumping the managed stack.
-    if (dump_native_stack && (dump_for_abort || force_dump_stack || ShouldShowNativeStack(this))) {
+    if (dump_for_abort || force_dump_stack || ShouldShowNativeStack(this)) {
       ArtMethod* method =
           GetCurrentMethod(nullptr,
                            /*check_suspended=*/ !force_dump_stack,
