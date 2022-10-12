@@ -896,6 +896,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad4c662d_cd6e7d47",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-12T15:06:23Z",
+      "side": 1,
+      "message": "Yes, but you can also move the `DEFINE_PAIR_ARRAY_ACCESS` up to the section where we\u0027ve previously had `GetStrings()`, `SetStrings()` etc. And we may want to keep old comments on the fields, though they shall need to be updated.",
+      "parentUuid": "468d5cb1_f6cd85f7",
+      "range": {
+        "startLine": 361,
+        "startChar": 2,
+        "endLine": 361,
+        "endChar": 16
+      },
+      "revId": "ce5cf64ba66db78cdfe536ccad7c2168922e6197",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "148d82b5_27f4c826",
         "filename": "runtime/mirror/dex_cache_test.cc",
         "patchSetId": 5
