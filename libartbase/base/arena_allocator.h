@@ -178,7 +178,8 @@ class ArenaAllocatorMemoryTool {
 
 class Arena {
  public:
-  Arena();
+  Arena() : bytes_allocated_(0), memory_(nullptr), size_(0), next_(nullptr) {}
+
   virtual ~Arena() { }
   // Reset is for pre-use and uses memset for performance.
   void Reset();
@@ -188,7 +189,7 @@ class Arena {
     return memory_;
   }
 
-  uint8_t* End() {
+  uint8_t* End() const {
     return memory_ + size_;
   }
 
