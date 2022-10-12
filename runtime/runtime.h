@@ -292,12 +292,12 @@ class Runtime {
 
   // Attaches the calling native thread to the runtime.
   bool AttachCurrentThread(const char* thread_name, bool as_daemon, jobject thread_group,
-                           bool create_peer);
+                           bool create_peer, bool should_run_callbacks = true);
 
   void CallExitHook(jint status);
 
   // Detaches the current native thread from the runtime.
-  void DetachCurrentThread() REQUIRES(!Locks::mutator_lock_);
+  void DetachCurrentThread(bool should_run_callbacks = true) REQUIRES(!Locks::mutator_lock_);
 
   void DumpDeoptimizations(std::ostream& os);
   void DumpForSigQuit(std::ostream& os);
