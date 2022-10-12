@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "726734f3_da99780e",
+        "filename": "build/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-12T13:59:03Z",
+      "side": 0,
+      "message": "Can we keep this and use some `NOLINT` instead?",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "87525601096731d08e399a9ca922ac84a6ab9583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac34f41_d30661f8",
+        "filename": "dex2oat/driver/compiler_driver_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-12T13:59:03Z",
+      "side": 0,
+      "message": "Remove? (You\u0027re removing the similar but updated checks for methods and fields.)",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 57
+      },
+      "revId": "87525601096731d08e399a9ca922ac84a6ab9583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a5fe0a0_654cec4a",
+        "filename": "dex2oat/driver/compiler_driver_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-12T13:59:03Z",
+      "side": 0,
+      "message": "Remove?",
+      "range": {
+        "startLine": 138,
+        "startChar": 2,
+        "endLine": 138,
+        "endChar": 61
+      },
+      "revId": "87525601096731d08e399a9ca922ac84a6ab9583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
