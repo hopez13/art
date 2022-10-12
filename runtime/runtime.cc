@@ -330,6 +330,10 @@ Runtime::~Runtime() {
     UnloadNativeBridge();
   }
 
+  // Inform that we are preparing for shutdown, so we don't run thread related
+  // callbacks to avoid deadlocks in libjdwp tests.
+  callbacks_->SetShutdownStarting();
+
   Thread* self = Thread::Current();
   const bool attach_shutdown_thread = self == nullptr;
   if (attach_shutdown_thread) {

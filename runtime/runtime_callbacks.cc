@@ -29,7 +29,8 @@ namespace art {
 
 RuntimeCallbacks::RuntimeCallbacks()
     : callback_lock_(new ReaderWriterMutex("Runtime callbacks lock",
-                                           LockLevel::kGenericBottomLock)) {}
+                                           LockLevel::kGenericBottomLock)),
+      shutdown_starting_(false) {}
 
 // We don't want to be holding any locks when the actual event is called so we use this to define a
 // helper that gets a copy of the current event list and returns it.
@@ -181,12 +182,23 @@ void RuntimeCallbacks::RemoveThreadLifecycleCallback(ThreadLifecycleCallback* cb
 }
 
 void RuntimeCallbacks::ThreadStart(Thread* self) {
+  // Running callbacks is prone to deadlocks in libjdwp tests that need an event handler lock to
+  // process any event. We also need to enter a GCCriticalSection when processing certain events
+  // (for ex: removing the last breakpoint). These two restrictions together make the tear down
+  // of the jdwp tests deadlock prone if we fail to finish Thread::Attach callback.
+  // (TODO:b/251163712) Remove this once we update deopt manager to not use GCCriticalSection.
+  if (IsShutdownStarting()) {
+    return;
+  }
   for (ThreadLifecycleCallback* cb : COPY(thread_callbacks_)) {
     cb->ThreadStart(self);
   }
 }
 
 void RuntimeCallbacks::ThreadDeath(Thread* self) {
+  if (IsShutdownStarting()) {
+    return;
+  }
   for (ThreadLifecycleCallback* cb : COPY(thread_callbacks_)) {
     cb->ThreadDeath(self);
   }
@@ -326,6 +338,16 @@ void RuntimeCallbacks::VisitReflectiveTargets(ReflectiveValueVisitor *visitor) {
   for (ReflectiveValueVisitCallback* cb : COPY(reflective_value_visit_callbacks_)) {
     cb->VisitReflectiveTargets(visitor);
   }
+}
+
+void RuntimeCallbacks::SetShutdownStarting() {
+  MutexLock mu(Thread::Current(), *Locks::runtime_shutdown_lock_);
+  shutdown_starting_ = true;
+}
+
+bool RuntimeCallbacks::IsShutdownStarting() {
+  MutexLock mu(Thread::Current(), *Locks::runtime_shutdown_lock_);
+  return shutdown_starting_;
 }
 
 }  // namespace art
