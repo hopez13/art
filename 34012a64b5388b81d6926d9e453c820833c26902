@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "34012a64b5388b81d6926d9e453c820833c26902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "122f0360_2a695093",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2671,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-13T11:47:01Z",
+      "side": 1,
+      "message": "What if it\u0027s the method enter event that requests deoptimization?",
+      "range": {
+        "startLine": 2671,
+        "startChar": 9,
+        "endLine": 2671,
+        "endChar": 25
+      },
+      "revId": "34012a64b5388b81d6926d9e453c820833c26902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
