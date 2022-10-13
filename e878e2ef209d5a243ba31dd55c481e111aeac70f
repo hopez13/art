@@ -16,6 +16,46 @@
       "message": "PTAL. Thanks!",
       "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14542cfc_9a8b773f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-13T15:30:40Z",
+      "side": 1,
+      "message": "If this solves the userfaultfd GC\u0027s timeout issue as well, then can you please remove the test that I had added to the ignore list? You can find them in art/tools/external_oj_libjdwp_art_no_read_barrier_failures.txt",
+      "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7298a876_504bb699",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-13T15:30:40Z",
+      "side": 1,
+      "message": "How does this take care of the heap\u0027s thread pool creation when doing userfaultfd GC? Wouldn\u0027t those thread creations still block?",
+      "range": {
+        "startLine": 335,
+        "startChar": 1,
+        "endLine": 335,
+        "endChar": 36
+      },
+      "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
