@@ -63,6 +63,30 @@
       },
       "revId": "bcabbacbd7f7b18f18bf1766daffb9648c160a94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5b1545d_8d26d362",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-13T13:39:50Z",
+      "side": 1,
+      "message": "To provide more context:\n`clear` says `A reallocation is not guaranteed to happen, and the vector capacity is not guaranteed to change due to calling this function.` (https://cplusplus.com/reference/vector/vector/clear/)\n`shrink_to_fit_` says `The request is non-binding, and the container implementation is free to optimize otherwise and leave the vector with a capacity greater than its size`. (https://cplusplus.com/reference/vector/vector/shrink_to_fit/)\n`resize` (https://cplusplus.com/reference/vector/vector/resize/) looked like a good alternative but after doing `.resize(0)` the memory was still leaked.\nI could guarantee deletion with the `std::optional` approach so I used that one.\n\nOpen to other alternatives if I missed a method in std::vector.",
+      "parentUuid": "2247bfa0_bc99e15c",
+      "range": {
+        "startLine": 169,
+        "startChar": 5,
+        "endLine": 169,
+        "endChar": 88
+      },
+      "revId": "bcabbacbd7f7b18f18bf1766daffb9648c160a94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
