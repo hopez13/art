@@ -87,6 +87,30 @@
       },
       "revId": "34012a64b5388b81d6926d9e453c820833c26902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c95818e6_e0c79287",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2671,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-13T14:46:42Z",
+      "side": 1,
+      "message": "Sorry I wasn\u0027t clear. Currently we use instrumentation_stubs_installed_ to check if we need to call entry / exit hooks. This is set whenever we instrument the stack or install instrumentation / interpreter entry points.\n\nWhen setting a breakpoint we instrument the stack, update the entry point of the method that has breakpoint so that any necessary code is deoptimized. In those cases instrumentation_stubs_installed_ is set. For method exit this is required since we need to check if we need a deopt before returning. However, for method entry we don\u0027t need to. We just need to call method entry listeners and nothing else, so we can check for have_method_entry_listeners_ instead. For most debugging scenarios this won\u0027t be set so we can save on some calls.",
+      "parentUuid": "8a9b12f7_9ee9f94c",
+      "range": {
+        "startLine": 2671,
+        "startChar": 9,
+        "endLine": 2671,
+        "endChar": 25
+      },
+      "revId": "34012a64b5388b81d6926d9e453c820833c26902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
