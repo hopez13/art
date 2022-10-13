@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12e90855_101727d1",
+        "filename": "test/559-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-13T13:24:30Z",
+      "side": 1,
+      "message": "Ideally we would like to check that we have Return-\u003eTryBoundary kind:exit-\u003eExit but with the current printer we don\u0027t have that. We can potentially do something with block name, using successor and predecessor but that looks like it could be flaky to me due to block reordering.",
+      "range": {
+        "startLine": 576,
+        "startChar": 0,
+        "endLine": 577,
+        "endChar": 31
+      },
+      "revId": "c8b674b101f566d5c3d591870bad4a83caa7d6cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
