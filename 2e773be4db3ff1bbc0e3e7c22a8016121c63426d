@@ -16,6 +16,29 @@
       "message": "FYI, Chromium builds this code downstream and is trying to switch our build to C++20. Since this also has to support previous versions of C++, it\u0027s not appropriate to unilaterally switch to the C++20 forms of things, hence the #ifdefs.",
       "revId": "2e773be4db3ff1bbc0e3e7c22a8016121c63426d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb9793e1_e57c8129",
+        "filename": "libartbase/base/safe_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-13T06:54:59Z",
+      "side": 1,
+      "message": "This is available in C++17 and Android has been using C++17 for some time now. Can you remove the `#if` and the `std::result_of_t` bits, please?",
+      "range": {
+        "startLine": 156,
+        "startChar": 36,
+        "endLine": 156,
+        "endChar": 67
+      },
+      "revId": "2e773be4db3ff1bbc0e3e7c22a8016121c63426d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
