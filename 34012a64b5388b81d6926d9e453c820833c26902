@@ -63,6 +63,30 @@
       },
       "revId": "34012a64b5388b81d6926d9e453c820833c26902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a9b12f7_9ee9f94c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2671,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-13T14:19:56Z",
+      "side": 1,
+      "message": "What\u0027s the difference between having \"method entry listeners\" and \"any entry/exit stubs\"?",
+      "parentUuid": "e41bdc97_137381e7",
+      "range": {
+        "startLine": 2671,
+        "startChar": 9,
+        "endLine": 2671,
+        "endChar": 25
+      },
+      "revId": "34012a64b5388b81d6926d9e453c820833c26902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
