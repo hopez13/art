@@ -16,6 +16,108 @@
       "message": "(It might be more reasonable to review BASE..PS1 and PS1..HEAD separately)",
       "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e99da4c0_56f5b617",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-13T13:13:05Z",
+      "side": 1,
+      "message": "I have couple of TODOs left, but 99% of the CL is ready for review.",
+      "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19af1e55_b7d08436",
+        "filename": "test/030-bad-finalizer/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-13T13:13:05Z",
+      "side": 1,
+      "message": "...on the other hand if test is expected to fail, we pass that exit code as arg, and then the test must return that specific exit code to pass.",
+      "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfca27fa_110f98ce",
+        "filename": "test/613-inlining-dex-cache/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-13T13:13:05Z",
+      "side": 1,
+      "message": "TODO: I need to figure out when this is actually used (if at all)",
+      "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97362d9a_7696dc9e",
+        "filename": "test/900-hello-plugin/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-13T13:13:05Z",
+      "side": 1,
+      "message": "TODO",
+      "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49d1f805_d4b2f387",
+        "filename": "test/909-attach-agent/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-13T13:13:05Z",
+      "side": 1,
+      "message": "TODO",
+      "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e736759_066d117c",
+        "filename": "test/etc/default_run.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-13T13:13:05Z",
+      "side": 1,
+      "message": "we can no longer use `sys.exit` as that would exit the main python script\n(we are not running this function in dedicated sub-process anymore)",
+      "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

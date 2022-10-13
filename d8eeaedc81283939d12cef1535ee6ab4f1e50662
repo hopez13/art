@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "435dc873_ab22b61b",
+        "filename": "test/004-ThreadStress/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-13T13:13:05Z",
+      "side": 1,
+      "message": "If tests unexpectedly fail, they cause python exception, so there is no need to check exit codes anymore.",
+      "revId": "d8eeaedc81283939d12cef1535ee6ab4f1e50662",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
