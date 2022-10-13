@@ -39,6 +39,30 @@
       },
       "revId": "34012a64b5388b81d6926d9e453c820833c26902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41bdc97_137381e7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2671,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-13T14:12:58Z",
+      "side": 1,
+      "message": "Yes, you are right. I updated this. The reason I am looking at this is so I can change the check in JITed code to just check for method entry listeners instead of checking if there are any entry/exit stubs. I think if we don\u0027t have method entry listeners then there is no reason we need to call method entry hooks. Atleast on ArrayListStress benchmark avoiding these hooks can improve the performance by 2x. I haven\u0027t yet updated JIT check but I want to land this first to see if something breaks.",
+      "parentUuid": "122f0360_2a695093",
+      "range": {
+        "startLine": 2671,
+        "startChar": 9,
+        "endLine": 2671,
+        "endChar": 25
+      },
+      "revId": "34012a64b5388b81d6926d9e453c820833c26902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
