@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d5a47e0_541022b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-13T08:56:26Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "3558f687200efe9eba19d6d4e088cbb2f02a7fea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e936f085_134f529d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-13T08:56:26Z",
+      "side": 1,
+      "message": "I think that keeping these two ifs separate is better for readability, but I can combine them if you want",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 37
+      },
+      "revId": "3558f687200efe9eba19d6d4e088cbb2f02a7fea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
