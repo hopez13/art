@@ -39,6 +39,30 @@
       },
       "revId": "bcabbacbd7f7b18f18bf1766daffb9648c160a94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d931b494_1dcd51a4",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-13T13:37:02Z",
+      "side": 1,
+      "message": "Not really... there are hints, but no guaranteed ways to do the release.\n\nMaybe you could std::swap it with empty array, but it very ugly.",
+      "parentUuid": "2247bfa0_bc99e15c",
+      "range": {
+        "startLine": 169,
+        "startChar": 5,
+        "endLine": 169,
+        "endChar": 88
+      },
+      "revId": "bcabbacbd7f7b18f18bf1766daffb9648c160a94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
