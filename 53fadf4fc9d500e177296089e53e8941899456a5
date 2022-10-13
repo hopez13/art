@@ -39,6 +39,30 @@
       },
       "revId": "53fadf4fc9d500e177296089e53e8941899456a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "656fb9d6_0a09373e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2736,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-13T13:48:38Z",
+      "side": 1,
+      "message": "SGTM. It could be easier to just copy the source code of `TryReplaceStringBuilderAppend` directly from https://android.googlesource.com/platform/art/+/808d8cc8114e0c5ee3116639fe9d31be5a70403a/compiler/optimizing/instruction_simplifier.cc",
+      "parentUuid": "e7e1484b_354e05cb",
+      "range": {
+        "startLine": 2736,
+        "startChar": 11,
+        "endLine": 2736,
+        "endChar": 33
+      },
+      "revId": "53fadf4fc9d500e177296089e53e8941899456a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
