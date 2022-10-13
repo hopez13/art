@@ -16,6 +16,29 @@
       "message": "David PTAL",
       "revId": "bcabbacbd7f7b18f18bf1766daffb9648c160a94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2247bfa0_bc99e15c",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-13T13:21:29Z",
+      "side": 1,
+      "message": "The optional is more an optimization, but you could still do the release without it, no?",
+      "range": {
+        "startLine": 169,
+        "startChar": 5,
+        "endLine": 169,
+        "endChar": 88
+      },
+      "revId": "bcabbacbd7f7b18f18bf1766daffb9648c160a94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
