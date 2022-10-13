@@ -16,6 +16,29 @@
       "message": "The failure is due to b/251840211",
       "revId": "53fadf4fc9d500e177296089e53e8941899456a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7e1484b_354e05cb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2736,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-13T13:43:02Z",
+      "side": 1,
+      "message": "I\u0027d prefer to revert the code to the state before https://android-review.googlesource.com/c/platform/art/+/1875675/4/compiler/optimizing/instruction_simplifier.cc where `seen_constructor` and `seen_constructor_fence` were used exclusively for debug mode checks.",
+      "range": {
+        "startLine": 2736,
+        "startChar": 11,
+        "endLine": 2736,
+        "endChar": 33
+      },
+      "revId": "53fadf4fc9d500e177296089e53e8941899456a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
