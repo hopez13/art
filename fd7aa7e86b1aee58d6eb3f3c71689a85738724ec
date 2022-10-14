@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb6fca2e_1d6e435e",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T13:34:32Z",
+      "side": 1,
+      "message": "A constructor ensures that _all_ fields are initialized to an explicit value, which is a good property for `OdrMetricsRecord`. With designated initializers, it\u0027s possible to have an object \"partly initialized\"; the non-initialized fields will implicitly be default/empty-list initialized.\n\nIn addition, designated initializers are officially only valid since C++20, while Android is currently using C++17 as far as I know. My understanding is that the compiler is accepting this construct because it\u0027s implemented as an extension to C++17, possibly because the default C++ language standard is set with `-std\u003dgnu++17` in Soong.",
+      "parentUuid": "389ffe50_a56a312d",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 89
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8dbec533_74db48fa",
         "filename": "odrefresh/odr_metrics_record.cc",
         "patchSetId": 13
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "5 here is a particular value - it\u0027s not included in ExecResult::Status (where the last value is 4) but it\u0027s the value for the ExecResultStatus enum in the proto (https://android-review.googlesource.com/c/platform/frameworks/proto_logging/+/2237759/stats/atoms.proto#18671) corresponding to the case where the process was not run in the first place.",
       "parentUuid": "914788d1_70c597a8",
+      "range": {
+        "startLine": 88,
+        "startChar": 67,
+        "endLine": 88,
+        "endChar": 68
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94d20168_b8b6e88d",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T13:34:32Z",
+      "side": 1,
+      "message": "I see; in that case, can you replace this with `kExecResultNotRun`?\n\nIn addition, could you also add the following check after the definition of `kExecResultNotRun` (https://android-review.googlesource.com/c/platform/art/+/2239214/13/odrefresh/odr_metrics_record.h#39):\n\n```\nstatic_assert(kExecResultNotRun \u003e ExecResult::Status::kLast,\n              \"`art::odrefresh::kExecResultNotRun` value should not overlap with\"\n              \" values of enum `art::ExecResult::Status`\");\n```\n\n?",
+      "parentUuid": "817ea1f6_6a1e6487",
       "range": {
         "startLine": 88,
         "startChar": 67,
