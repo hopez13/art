@@ -1831,14 +1831,14 @@ class Dex2Oat final {
 
     // For now, on the host always have core-oj removed.
     const std::string core_oj = "core-oj";
-    if (!kIsTargetBuild && !ContainsElement(no_inline_filters, core_oj)) {
-      if (force_allow_oj_inlines_) {
-        LOG(ERROR) << "Inlines allowed from core-oj! FOR TESTING USE ONLY! DO NOT DISTRIBUTE"
-                   << " BINARIES BUILT WITH THIS OPTION!";
-      } else {
+    // if (!kIsTargetBuild && !ContainsElement(no_inline_filters, core_oj)) {
+    //   if (force_allow_oj_inlines_) {
+    //     LOG(ERROR) << "Inlines allowed from core-oj! FOR TESTING USE ONLY! DO NOT DISTRIBUTE"
+    //                << " BINARIES BUILT WITH THIS OPTION!";
+    //   } else {
         no_inline_filters.push_back(core_oj);
-      }
-    }
+    //   }
+    // }
 
     if (!no_inline_filters.empty()) {
       std::vector<const DexFile*> class_path_files;

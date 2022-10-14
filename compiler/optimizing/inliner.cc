@@ -58,7 +58,7 @@ static constexpr size_t kMaximumNumberOfInstructionsForSmallMethod = 3;
 
 // Limit the number of dex registers that we accumulate while inlining
 // to avoid creating large amount of nested environments.
-static constexpr size_t kMaximumNumberOfCumulatedDexRegisters = 20;
+static constexpr size_t kMaximumNumberOfCumulatedDexRegisters = 32;
 
 // Limit recursive call inlining, which do not benefit from too
 // much inlining compared to code locality.
@@ -73,7 +73,7 @@ static constexpr size_t kMaximumNumberOfPolymorphicRecursiveCalls = 0;
 static constexpr bool kUseAOTInlineCaches = true;
 
 // Controls the use of inlining try catches.
-static constexpr bool kInlineTryCatches = true;
+static constexpr bool kInlineTryCatches = false;
 
 // We check for line numbers to make sure the DepthString implementation
 // aligns the output nicely.
