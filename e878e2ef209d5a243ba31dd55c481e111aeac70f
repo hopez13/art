@@ -96,6 +96,30 @@
       },
       "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b74a355_d3cbf1a8",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-14T10:03:40Z",
+      "side": 1,
+      "message": "I checked the tests, they aren\u0027t running as zygote but the first time the thread_pool is created is during the shutdown. We call a System.Gc in that test which I think triggers a concurrent GC. No GCs happen before calling System.gc/ I somehow assumed System.gc would be a synchronous one, but AFAICT it is triggering a concurrent GC. During the concurrent GC we have a long sleep for testing [1] which makes which pauses GC for some time and we create the thread pool during shutdown. Even without the sleep, these cases might happen, it\u0027s just that sleep makes it happen more often.\n\nAs you rightly pointed this won\u0027t fix other races that could happen with GC + deopt manager updating  entrypoints but those are rare in libjdwp tests. These tests usually install breakpoints at the start and removing them during tear down. If we find any timeouts we can extend the fix to also avoid callbacks for runtime threads. If it\u0027s safer I can work on a CL to also avoid for runtime threads. We would still need this fix because \"Shutdown thread\" shouldn\u0027t call any callbacks too.\n\n[1] https://cs.android.com/android/platform/superproject/+/master:art/runtime/gc/collector/mark_compact.cc;l\u003d316",
+      "parentUuid": "7298a876_504bb699",
+      "range": {
+        "startLine": 335,
+        "startChar": 1,
+        "endLine": 335,
+        "endChar": 36
+      },
+      "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
