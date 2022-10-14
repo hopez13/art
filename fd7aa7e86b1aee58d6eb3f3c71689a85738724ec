@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca3240b_e2189a29",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T10:05:16Z",
+      "side": 1,
+      "message": "Could you also introduce a constructor initializing all the fields of an `OdrMetricsRecord`?",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 89
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dbec533_74db48fa",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T10:05:16Z",
+      "side": 1,
+      "message": "I\u0027d be more precise here, for the sake of debugging:\n\n```\n  Errorf(\"Odrefresh metric {}.{} has a value ({}) outside of the expected range ([{}, {}])\",\n         element_name, attribute_name, value, min_value, max_value)\n```",
+      "range": {
+        "startLine": 71,
+        "startChar": 11,
+        "endLine": 72,
+        "endChar": 47
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19d25f49_b1e07666",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T10:05:16Z",
+      "side": 1,
+      "message": "You can simplify the control flow a bit here:\n\n```\n  if (result !\u003d tinyxml2::XML_SUCCESS) {\n    return Errorf(\"Expected Odrefresh metric {}.{} is not an int32\",\n                  element_name, attribute_name);\n  }\n\n  if (value \u003c min_value || value \u003e max_value) {\n    return Errorf(\"Odrefresh metric {}.{} has a value ({}) outside of the expected range ([{}, {}])\",\n         element_name, attribute_name, value, min_value, max_value);\n  }\n  \n  return value;\n```",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "914788d1_70c597a8",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T10:05:16Z",
+      "side": 1,
+      "message": "Could you use `ExecResult::Status::kLast` here instead (see my other comment in https://android-review.googlesource.com/c/platform/art/+/2239214/13/runtime/exec_utils.h#59)?",
+      "range": {
+        "startLine": 88,
+        "startChar": 67,
+        "endLine": 88,
+        "endChar": 68
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ac5db31_f294e87a",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T10:05:16Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `-1` (according to https://cs.android.com/android/platform/superproject/+/master:art/runtime/exec_utils.h;l\u003d62-63;drc\u003d1a8cc460546a3bf5f55acf46efb5073d5ed412d3)?",
+      "range": {
+        "startLine": 89,
+        "startChar": 67,
+        "endLine": 89,
+        "endChar": 68
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8092b01e_ad0d22d7",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T10:05:16Z",
+      "side": 1,
+      "message": "Can you replace this with `SIGRTMAX`?",
+      "range": {
+        "startLine": 90,
+        "startChar": 68,
+        "endLine": 90,
+        "endChar": 70
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7de9dfb5_314b0105",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T10:05:16Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `0` (according to https://cs.android.com/android/platform/superproject/+/master:art/runtime/exec_utils.h;l\u003d65-66;drc\u003d1a8cc460546a3bf5f55acf46efb5073d5ed412d3)?",
+      "range": {
+        "startLine": 90,
+        "startChar": 64,
+        "endLine": 90,
+        "endChar": 66
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6730f2e9_142ee8ec",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T10:05:16Z",
+      "side": 1,
+      "message": "This part seems common to all the test fixtures used in this test case; could you refactor it?",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 91
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "455e7d7b_7e28f6fe",
+        "filename": "runtime/exec_utils.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-14T10:05:16Z",
+      "side": 1,
+      "message": "Could you introduce a `kLast \u003d kStartFailed` enum value here (as we do in some enum types, see e.g. https://cs.android.com/android/platform/superproject/+/master:art/runtime/class_status.h;l\u003d99;drc\u003d90d1b88b331b52e9f2abd3418fd50b3b46970393)?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 21
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
