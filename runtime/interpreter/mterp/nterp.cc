@@ -380,7 +380,7 @@ extern "C" size_t NterpGetMethod(Thread* self, ArtMethod* caller, const uint16_t
 }
 
 FLATTEN
-static ArtField* ResolveFieldWithAccessChecks(Thread* self,
+extern "C" ArtField* ResolveFieldWithAccessChecks(Thread* self,
                                               ClassLinker* class_linker,
                                               uint16_t field_index,
                                               ArtMethod* caller,
@@ -392,7 +392,7 @@ static ArtField* ResolveFieldWithAccessChecks(Thread* self,
     return class_linker->ResolveField(field_index, caller, is_static);
   }
 
-  caller = caller->GetInterfaceMethodIfProxy(kRuntimePointerSize);
+  caller = caller->GetInterfaceMethodIfProxy(class_linker->GetImagePointerSize());
 
   StackHandleScope<2> hs(self);
   Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(caller->GetDexCache()));
@@ -430,7 +430,7 @@ static ArtField* ResolveFieldWithAccessChecks(Thread* self,
 
 extern "C" size_t NterpGetStaticField(Thread* self,
                                       ArtMethod* caller,
-                                      uint16_t* dex_pc_ptr,
+                                      const uint16_t* dex_pc_ptr,
                                       size_t resolve_field_type)  // Resolve if not zero
     REQUIRES_SHARED(Locks::mutator_lock_) {
   UpdateHotness(caller);
@@ -483,7 +483,7 @@ extern "C" size_t NterpGetStaticField(Thread* self,
 
 extern "C" uint32_t NterpGetInstanceFieldOffset(Thread* self,
                                                 ArtMethod* caller,
-                                                uint16_t* dex_pc_ptr,
+                                                const uint16_t* dex_pc_ptr,
                                                 size_t resolve_field_type)  // Resolve if not zero
     REQUIRES_SHARED(Locks::mutator_lock_) {
   UpdateHotness(caller);
