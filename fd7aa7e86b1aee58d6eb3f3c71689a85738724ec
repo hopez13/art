@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7eea3636_709cbf6e",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-14T13:58:20Z",
+      "side": 1,
+      "message": "I see. If the intention is to prevent \"partly initialized\" instances, then we also need to change `OdrMetricsRecord::ReadFromFile` (http://cs/android-internal/art/odrefresh/odr_metrics_record.h;l\u003d52;rcl\u003db3370acc279c39e98823a2dbb9835fe0db615579) to be a static method that returns `android::base::Result\u003cOdrMetricsRecord\u003e`.\n\nI\u0027m not sure if such refactoring should be in the scope of this CL, so I didn\u0027t bring it up. To me, it makes more sense to do such refactoring separately.\n\nBTW, another thing I don\u0027t like about `OdrMetricsRecord` is that some of its fields can hold multiple types of values (http://cs/android-internal/art/odrefresh/odr_statslog_android.cc;l\u003d118-134;rcl\u003db3370acc279c39e98823a2dbb9835fe0db615579). This should also be improved, but again, I think it\u0027s out of scope and can be done later.",
+      "parentUuid": "eb6fca2e_1d6e435e",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 89
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8dbec533_74db48fa",
         "filename": "odrefresh/odr_metrics_record.cc",
         "patchSetId": 13
