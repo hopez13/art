@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb254ce7_54f893f5",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-14T15:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dbec533_74db48fa",
+      "range": {
+        "startLine": 71,
+        "startChar": 11,
+        "endLine": 72,
+        "endChar": 47
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19d25f49_b1e07666",
@@ -132,6 +156,30 @@
       "writtenOn": "2022-10-14T10:05:16Z",
       "side": 1,
       "message": "You can simplify the control flow a bit here:\n\n```\n  if (result !\u003d tinyxml2::XML_SUCCESS) {\n    return Errorf(\"Expected Odrefresh metric {}.{} is not an int32\",\n                  element_name, attribute_name);\n  }\n\n  if (value \u003c min_value || value \u003e max_value) {\n    return Errorf(\"Odrefresh metric {}.{} has a value ({}) outside of the expected range ([{}, {}])\",\n         element_name, attribute_name, value, min_value, max_value);\n  }\n  \n  return value;\n```",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55b2e40f_d3f1f0a0",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-14T15:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19d25f49_b1e07666",
       "range": {
         "startLine": 67,
         "startChar": 0,
@@ -213,6 +261,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56a2dffc_6245b7f4",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-14T15:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94d20168_b8b6e88d",
+      "range": {
+        "startLine": 88,
+        "startChar": 67,
+        "endLine": 88,
+        "endChar": 68
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ac5db31_f294e87a",
@@ -226,6 +298,30 @@
       "writtenOn": "2022-10-14T10:05:16Z",
       "side": 1,
       "message": "Shouldn\u0027t this be `-1` (according to https://cs.android.com/android/platform/superproject/+/master:art/runtime/exec_utils.h;l\u003d62-63;drc\u003d1a8cc460546a3bf5f55acf46efb5073d5ed412d3)?",
+      "range": {
+        "startLine": 89,
+        "startChar": 67,
+        "endLine": 89,
+        "endChar": 68
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7698c961_07598850",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-14T15:19:15Z",
+      "side": 1,
+      "message": "Thanks for noticing this, I have swapped the min values for exitCode and signal.",
+      "parentUuid": "6ac5db31_f294e87a",
       "range": {
         "startLine": 89,
         "startChar": 67,
@@ -282,6 +378,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16c4f351_4f04f1c1",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-14T15:19:15Z",
+      "side": 1,
+      "message": "Thanks for noticing this, I have swapped the min values for exitCode and signal.",
+      "parentUuid": "7de9dfb5_314b0105",
+      "range": {
+        "startLine": 90,
+        "startChar": 64,
+        "endLine": 90,
+        "endChar": 66
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17c75cd8_68201f0b",
+        "filename": "odrefresh/odr_metrics_record.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-14T15:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8092b01e_ad0d22d7",
+      "range": {
+        "startLine": 90,
+        "startChar": 68,
+        "endLine": 90,
+        "endChar": 70
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6730f2e9_142ee8ec",
@@ -305,6 +449,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc40e17c_ae440d68",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-14T15:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6730f2e9_142ee8ec",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 91
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "455e7d7b_7e28f6fe",
@@ -318,6 +486,30 @@
       "writtenOn": "2022-10-14T10:05:16Z",
       "side": 1,
       "message": "Could you introduce a `kLast \u003d kStartFailed` enum value here (as we do in some enum types, see e.g. https://cs.android.com/android/platform/superproject/+/master:art/runtime/class_status.h;l\u003d99;drc\u003d90d1b88b331b52e9f2abd3418fd50b3b46970393)?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 21
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66596b61_e698ee45",
+        "filename": "runtime/exec_utils.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-14T15:19:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "455e7d7b_7e28f6fe",
       "range": {
         "startLine": 59,
         "startChar": 0,
