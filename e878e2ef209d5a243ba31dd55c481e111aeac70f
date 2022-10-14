@@ -120,6 +120,30 @@
       },
       "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35d87b8_5aa96871",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-14T17:25:08Z",
+      "side": 1,
+      "message": "Thanks for digging into this! But, your assumption was (partially) right about System.gc() being synchronous. It is concurrent for other application threads, but the thread which calls System.gc() is the one that performs GC and therefore is synchronous for that thread. Also, in such scenarios, when some thread other than HeapTaskDaemon is performing GC, the sleep (from [1]) doesn\u0027t take place.\n\nOTOH, @hboehm@google.com suggested few days back that in some cases System.gc() may be a nop. So if that is what is happening here, then probably we are triggering GC directly in the shutdown, leading to the observed deadlocks.\n\nIf this theory is correct, then I\u0027d say we are lucky that this CL would fix the userfaultfd GC case, which is far from ideal. If others agree, I would strongly recommend making the runtime thread exclusion part of this CL.",
+      "parentUuid": "9b74a355_d3cbf1a8",
+      "range": {
+        "startLine": 335,
+        "startChar": 1,
+        "endLine": 335,
+        "endChar": 36
+      },
+      "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
