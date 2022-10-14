@@ -69,6 +69,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24dea2be_9b58e0c1",
+        "filename": "test/613-inlining-dex-cache/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-14T17:08:27Z",
+      "side": 1,
+      "message": "Apparently \"verify-at-runtime\" was removed over 5 years ago.\n\nWe run one test permutation with \"extract\" and one with \"verify\" filter, and the tests pass... so I guess we are ok.",
+      "parentUuid": "cfca27fa_110f98ce",
+      "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97362d9a_7696dc9e",
@@ -86,6 +104,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dce24964_f0c7041d",
+        "filename": "test/900-hello-plugin/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-14T17:08:27Z",
+      "side": 1,
+      "message": "Done (although this test is disabled anyway)",
+      "parentUuid": "97362d9a_7696dc9e",
+      "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49d1f805_d4b2f387",
@@ -99,6 +135,24 @@
       "writtenOn": "2022-10-13T13:13:05Z",
       "side": 1,
       "message": "TODO",
+      "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c658a1c_e764beac",
+        "filename": "test/909-attach-agent/run",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-14T17:08:27Z",
+      "side": 1,
+      "message": "Done (although this test is disabled anyway)",
+      "parentUuid": "49d1f805_d4b2f387",
       "revId": "c4309d86521dae87ec42a5b8c32978864bb5b8b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
