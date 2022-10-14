@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "389ffe50_a56a312d",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-14T10:42:13Z",
+      "side": 1,
+      "message": "Alternatively, keep the original pattern? I.e.,\n\n```\nreturn {\n  .odrefresh_metrics_version \u003d ...\n  .art_apex_version \u003d ...\n};\n```\n\nWDYT, Roland?",
+      "parentUuid": "7ca3240b_e2189a29",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 89
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8dbec533_74db48fa",
         "filename": "odrefresh/odr_metrics_record.cc",
         "patchSetId": 13
