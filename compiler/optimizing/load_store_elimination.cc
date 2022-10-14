@@ -1153,8 +1153,17 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   }
 
   void VisitMonitorOperation(HMonitorOperation* monitor_op) override {
-    if (monitor_op->CanThrow()) {
-      HandleThrowingInstruction(monitor_op);
+    // Acquire operations e.g. MONITOR_ENTER change the thread's view of the memory, so we must
+    // invalidate all current values.
+    if (monitor_op->IsEnter()) {
+      ScopedArenaVector<ValueRecord>& heap_values =
+          heap_values_for_[monitor_op->GetBlock()->GetBlockId()];
+      for (size_t i = 0u, size = heap_values.size(); i != size; ++i) {
+        // Kill heap locations that may alias and keep previous stores to these locations.
+        KeepStores(heap_values[i].stored_by);
+        heap_values[i].stored_by = Value::PureUnknown();
+        heap_values[i].value = Value::PartialUnknown(heap_values[i].value);
+      }
     }
   }
 
