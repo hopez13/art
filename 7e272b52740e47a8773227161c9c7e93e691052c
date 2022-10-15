@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1313263_acd7e513",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-15T16:36:49Z",
+      "side": 1,
+      "message": "One of the failures in the first presubmit, the one at\n\nhttps://android-build.googleplex.com/builds/pending/P42283705/art-test/latest/view/logs/build_error.log\n\nis actually a bit troubling. The complaint is:\n\n+dalvikvm64 F 10-14 22:39:39 550365 550520 monitor.cc:1527] Check failed: success Failed to find/read reference for monitor-enter at dex pc 0 in method boolean java.lang.Daemons$FinalizerWatchdogDaemon.sleepUntilNeeded()\n\nHave we seen something like this before?",
+      "revId": "7e272b52740e47a8773227161c9c7e93e691052c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
