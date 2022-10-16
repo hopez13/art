@@ -1683,6 +1683,11 @@ java_library {
     name: "art-gtest-jars-Dex2oatVdexTestDex",
     srcs: ["Dex2oatVdexTestDex/**/*.java"],
     defaults: ["art-gtest-jars-defaults"],
+    errorprone: {
+        javacflags: [
+            "-Xep:LockOnBoxedPrimitive:WARN",
+        ],
+    },
 }
 
 // The following cases are non-trivial.
