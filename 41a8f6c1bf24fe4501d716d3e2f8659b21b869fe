@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9b9d958_571f0f0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-16T17:49:27Z",
+      "side": 1,
+      "message": "PS7 didn\u0027t work, since EnterTransactionMode hasn\u0027t completed yet when the check fails. Work around the problem by passing in a parameter instead. Still not very appealing, but a full fix here seems nontrivial.",
+      "revId": "41a8f6c1bf24fe4501d716d3e2f8659b21b869fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
