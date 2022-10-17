@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "932f9aac_8a1dc315",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-17T15:10:55Z",
+      "side": 1,
+      "message": "I noticed the difference between the tests before and after the failure is that earlier the ScratchDir was created in the test body, while with these changes in place the ScratchDir is created within the base test definition - I have uploaded a new CL with (only) this change reverted to see if it helps.",
+      "parentUuid": "2d55d54a_45d8c50e",
+      "revId": "5a3f5941c7b2c3cf49cdcceee293cc8b73d8f820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5eeb1ce4_1a70992a",
         "filename": "odrefresh/odr_metrics_record_test.cc",
         "patchSetId": 14
