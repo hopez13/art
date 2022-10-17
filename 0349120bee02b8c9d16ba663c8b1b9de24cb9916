@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e2f2420_9b8841e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-17T00:46:31Z",
+      "side": 1,
+      "message": "Treehugger found another call to MakeInitializedClassesVisiblyInitialized in runnable state. Used the PS8 facility to temporarily disable checking for that one as well.",
+      "revId": "0349120bee02b8c9d16ba663c8b1b9de24cb9916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
