@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "429cc60d_37b019a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-17T11:01:51Z",
+      "side": 1,
+      "message": "Thanks for the refactoring efforts, Stefano.\n\nI also noticed that some `art_standalone_odrefresh_tests` test cases are now failing presubmits; please take a look. Thanks!",
+      "revId": "5a3f5941c7b2c3cf49cdcceee293cc8b73d8f820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eeb1ce4_1a70992a",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-17T11:01:51Z",
+      "side": 1,
+      "message": "Style:\n\n```\n  ScratchDir dir(/*keep_files\u003d*/false);\n```",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 52
+      },
+      "revId": "5a3f5941c7b2c3cf49cdcceee293cc8b73d8f820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b3061d7_493af53e",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-17T11:01:51Z",
+      "side": 1,
+      "message": "Style: Can you append a `_` to the names of these protected members?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 40
+      },
+      "revId": "5a3f5941c7b2c3cf49cdcceee293cc8b73d8f820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77ed3244_e6749002",
+        "filename": "odrefresh/odr_metrics_record_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-17T11:01:51Z",
+      "side": 1,
+      "message": "Can you introduce constants for these offsets?",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 17
+      },
+      "revId": "5a3f5941c7b2c3cf49cdcceee293cc8b73d8f820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
