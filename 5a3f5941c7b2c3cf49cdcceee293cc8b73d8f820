@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d55d54a_45d8c50e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-17T14:49:34Z",
+      "side": 1,
+      "message": "I can see these messages in a logcat output:\n\n```\n10-17 14:06:33.388 shell  2657  2657 I art_standalone_odrefresh_tests: Running main() from common_runtime_test.cc...\n10-17 14:06:33.402 shell  2659  2659 I art_standalone_odrefresh_tests: Running main() from common_runtime_test.cc...\n10-17 14:06:33.408 shell  2663  2663 F art_standalone_odrefresh_tests: common_art_test.cc:70] Check failed: ok Permission denied for /data/tmp-vh5r4j\n10-17 14:06:33.412 shell  2664  2664 F art_standalone_odrefresh_tests: common_art_test.cc:70] Check failed: ok Permission denied for /data/tmp-9SWybP\n```\n\nI guess some paths need to be adjusted to read from / write to a more permissive directory (e.g. `/data/local/tmp`).",
+      "parentUuid": "2bf9525a_d6ae8d77",
+      "revId": "5a3f5941c7b2c3cf49cdcceee293cc8b73d8f820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5eeb1ce4_1a70992a",
         "filename": "odrefresh/odr_metrics_record_test.cc",
         "patchSetId": 14
