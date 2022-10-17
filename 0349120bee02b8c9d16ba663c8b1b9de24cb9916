@@ -16,6 +16,29 @@
       "message": "Treehugger found another call to MakeInitializedClassesVisiblyInitialized in runnable state. Used the PS8 facility to temporarily disable checking for that one as well.",
       "revId": "0349120bee02b8c9d16ba663c8b1b9de24cb9916",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69d93f3d_5b94a09e",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-17T07:12:40Z",
+      "side": 1,
+      "message": "In a follow-up CL: allow_lock_cheking",
+      "range": {
+        "startLine": 812,
+        "startChar": 53,
+        "endLine": 812,
+        "endChar": 71
+      },
+      "revId": "0349120bee02b8c9d16ba663c8b1b9de24cb9916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
