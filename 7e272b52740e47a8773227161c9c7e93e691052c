@@ -34,6 +34,24 @@
       "parentUuid": "f1313263_acd7e513",
       "revId": "7e272b52740e47a8773227161c9c7e93e691052c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ff3ba8_2521a219",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-17T09:55:16Z",
+      "side": 1,
+      "message": "I don\u0027t think my changes would have gotten rid of an existing `DexRegisterMap`. Given that the error says `in method boolean java.lang.Daemons$FinalizerWatchdogDaemon.sleepUntilNeeded()`, we are looking for a vreg in that method (as opposed to using an outer method). Even if the method is inlined, we should be looking in the right frame (https://cs.android.com/android/platform/superproject/+/master:art/runtime/stack.cc;l\u003d310;drc\u003dab1d559aee05873f70494514922ad4b767c6a709)\n\nA couple of thoughts:\n1) The failure says `at dex pc 0 `. Is that an expected dex_pc? It could be because it is a synchronized method (https://cs.android.com/android/platform/superproject/+/master:libcore/libart/src/main/java/java/lang/Daemons.java;l\u003d382;drc\u003dfb706ffb9948d3df81dee63d12696744b6904510). Does that mean that the DEX code starts with a monitor enter operation?\n2) Is this a flaky failure? I don\u0027t see it now failing on presubmit.\n2)b) Is this happening tip of tree? Or only with this CL added on top?\n3) If we can repro consistently, we could set `kInlineTryCatches` to false to forbid try catch inlining (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/inliner.cc;l\u003d76;drc\u003d629c065a416260a2a1e87c034ca0b42fbda0fe44). If it still reproes without try catch inlining, we can discard the theory.\n4) The path that I changed regarding DEX pcs was about finding the correct catch. In order to do so, we need to have the exact dex_pc list that we are looking for (to avoid duplicates). It shouldn\u0027t have affected other paths like this one.\n\n---\n\nSligthly related: Do we need to perform this write barrier too if `result` is false? http://cs/android/art/runtime/stack.cc;l\u003d268;rcl\u003df51cae898e81a8bad0ee4dab12fd00e0c9dc6e1f",
+      "parentUuid": "275b29d0_9bd6e13a",
+      "revId": "7e272b52740e47a8773227161c9c7e93e691052c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
