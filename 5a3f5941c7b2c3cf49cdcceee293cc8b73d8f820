@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c2ea4ef_275e8786",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-17T15:15:53Z",
+      "side": 1,
+      "message": "Ah, right. To add a ScratchDir to a test fixture, you need to initialize it in SetUp and destory it in tearDown. E.g., http://cs/android-internal/art/artd/file_utils_test.cc;l\u003d79;rcl\u003d0bdefeba792bd8ea0373a9904daa2c8323514489",
+      "parentUuid": "932f9aac_8a1dc315",
+      "revId": "5a3f5941c7b2c3cf49cdcceee293cc8b73d8f820",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5eeb1ce4_1a70992a",
         "filename": "odrefresh/odr_metrics_record_test.cc",
         "patchSetId": 14
