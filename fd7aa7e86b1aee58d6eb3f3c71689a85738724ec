@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ea9188d_75dc9895",
+        "filename": "odrefresh/odr_metrics.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2022-10-17T12:35:10Z",
+      "side": 1,
+      "message": "I agree that it would be better to handle this refactoring as part of a separate CL - for now I have gone back to the original pattern as suggested by Jiakai.",
+      "parentUuid": "7ad2582a_58da2192",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 89
+      },
+      "revId": "fd7aa7e86b1aee58d6eb3f3c71689a85738724ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dbec533_74db48fa",
