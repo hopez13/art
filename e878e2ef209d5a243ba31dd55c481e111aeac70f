@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "96eb2909_8ff41c01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-17T13:55:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1f3b496_982e7ee9",
+      "range": {
+        "startLine": 12,
+        "startChar": 55,
+        "endLine": 12,
+        "endChar": 63
+      },
+      "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b6ff187b_e3d48c9e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -71,6 +95,24 @@
       "writtenOn": "2022-10-13T18:25:19Z",
       "side": 1,
       "message": "Awesome. That bug was one I never made real progress on! Great that it\u0027s finally being fixed.",
+      "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a72e05b_ee6b12bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-17T13:55:06Z",
+      "side": 1,
+      "message": "Should I just remove this file? It is now empty and I tested it locally and all tests pass with ART_USE_READ_BARRIER\u003dfalse.",
+      "parentUuid": "14542cfc_9a8b773f",
       "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -136,6 +178,30 @@
       "side": 1,
       "message": "Thanks for digging into this! But, your assumption was (partially) right about System.gc() being synchronous. It is concurrent for other application threads, but the thread which calls System.gc() is the one that performs GC and therefore is synchronous for that thread. Also, in such scenarios, when some thread other than HeapTaskDaemon is performing GC, the sleep (from [1]) doesn\u0027t take place.\n\nOTOH, @hboehm@google.com suggested few days back that in some cases System.gc() may be a nop. So if that is what is happening here, then probably we are triggering GC directly in the shutdown, leading to the observed deadlocks.\n\nIf this theory is correct, then I\u0027d say we are lucky that this CL would fix the userfaultfd GC case, which is far from ideal. If others agree, I would strongly recommend making the runtime thread exclusion part of this CL.",
       "parentUuid": "9b74a355_d3cbf1a8",
+      "range": {
+        "startLine": 335,
+        "startChar": 1,
+        "endLine": 335,
+        "endChar": 36
+      },
+      "revId": "e878e2ef209d5a243ba31dd55c481e111aeac70f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7516e869_21e0b290",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-17T13:55:06Z",
+      "side": 1,
+      "message": "Thanks Lokesh! I think System.gc being a nop explains it better here. Since the System.gc is called on the testrunner thread which proceeds. So likely the GC we are seeing is the GC on shutdown. \n\nI think this fix works because for these tests since adding / removing breakpoints only happen at the start (when a GC doesn\u0027t happen) or during a Shutdown. Though, I agree that it isn\u0027t a complete still fix.  I updated the CL to stop calling callbacks for runtime threads and Shutdown thread. This meant that the earlier fix is no longer required. So the implementation changed. PTAL. Thanks!",
+      "parentUuid": "d35d87b8_5aa96871",
       "range": {
         "startLine": 335,
         "startChar": 1,
