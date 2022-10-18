@@ -1153,6 +1153,36 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   }
 
   void VisitMonitorOperation(HMonitorOperation* monitor_op) override {
+    HInstruction* obj = monitor_op->InputAt(0);
+    ReferenceInfo* ref_info = heap_location_collector_.FindReferenceInfoOf(obj);
+    if (ref_info->IsSingletonAndRemovable()) {
+      // If the object is a removable singleton, we can ensure that no other threads will have
+      // access to it. Therefore, we can remove the MonitorOperation.
+
+      DCHECK_EQ(monitor_op->CanThrow(), monitor_op->IsEnter());
+      if (monitor_op->IsEnter() && obj->CanBeNull()) {
+        // We replace the monitor enter with a NullCheck since the instruction throws when
+        // encountering a null object.
+        HNullCheck* null_check =
+            new (monitor_op->GetBlock()->GetGraph()->GetAllocator()) HNullCheck(obj, 0);
+        if (null_check->GetId() == -1) {
+          // If the NullCheck doesn't exist yet, insert it into this block and copy the environment
+          // from the monitor itself.
+          monitor_op->GetBlock()->InsertInstructionBefore(null_check, monitor_op);
+          null_check->CopyEnvironmentFrom(monitor_op->GetEnvironment());
+          null_check->SetReferenceTypeInfo(obj->GetReferenceTypeInfo());
+        }
+        monitor_op->ReplaceWith(null_check);
+        monitor_op->GetBlock()->RemoveInstruction(monitor_op);
+      } else {
+        monitor_op->ReplaceWith(obj);
+        monitor_op->GetBlock()->RemoveInstruction(monitor_op);
+      }
+      return;
+    }
+
+    monitor_op->GetBlock()->GetGraph()->SetHasMonitorOperations(true);
+
     ScopedArenaVector<ValueRecord>& heap_values =
         heap_values_for_[monitor_op->GetBlock()->GetBlockId()];
     for (size_t i = 0u, size = heap_values.size(); i != size; ++i) {
@@ -2960,6 +2990,10 @@ void LSEVisitor::FindStoresWritingOldValues() {
 }
 
 void LSEVisitor::Run() {
+  // 0. Set HasMonitorOperations to false. If we encounter some MonitorOperations that we can't
+  // remove, we will set it to true in VisitMonitorOperation.
+  GetGraph()->SetHasMonitorOperations(false);
+
   // 1. Process blocks and instructions in reverse post order.
   for (HBasicBlock* block : GetGraph()->GetReversePostOrder()) {
     VisitBasicBlock(block);
