@@ -1063,6 +1063,19 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   }
 
   void VisitMonitorOperation(HMonitorOperation* monitor_op) override {
+    HInstruction* obj = monitor_op->InputAt(0);
+    ReferenceInfo* ref_info = heap_location_collector_.FindReferenceInfoOf(obj);
+    // If the object is a removable singleton, we can ensure that no other threads will have access
+    // to it, and we can remove the MonitorOperation.
+    if (ref_info->IsSingletonAndRemovable()) {
+      // MONITOR_ENTER throws when encountering a null object. If `obj` is a removable singleton, it
+      // is guaranteed to be non-null so we don't have to worry about the NullCheck.
+      DCHECK(!obj->CanBeNull());
+      monitor_op->GetBlock()->RemoveInstruction(monitor_op);
+      return;
+    }
+
+    monitor_op->GetBlock()->GetGraph()->SetHasMonitorOperations(true);
     if (monitor_op->IsEnter()) {
       HandleAcquireLoad(monitor_op);
     } else {
@@ -3009,6 +3022,10 @@ void LSEVisitor::FindStoresWritingOldValues() {
 }
 
 void LSEVisitor::Run() {
+  // 0. Set HasMonitorOperations to false. If we encounter some MonitorOperations that we can't
+  // remove, we will set it to true in VisitMonitorOperation.
+  GetGraph()->SetHasMonitorOperations(false);
+
   // 1. Process blocks and instructions in reverse post order.
   for (HBasicBlock* block : GetGraph()->GetReversePostOrder()) {
     VisitBasicBlock(block);
