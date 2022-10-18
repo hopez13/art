@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2589d18b_fc4ba516",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 1,
+      "message": "`DCHECK(self-\u003eIsExceptionPending());`\n\n(From the old `FindFieldFromCode()`.)",
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f874b87b_1bef44e2",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 4
@@ -43,6 +60,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7081446_3836eba7",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 1,
+      "message": "Do we need to wrap the field in a `ReflectiveHandle\u003cArtField\u003e`? (You have removed that from `artSet ## Kind ## StaticFromCode()`.",
+      "range": {
+        "startLine": 421,
+        "startChar": 34,
+        "endLine": 421,
+        "endChar": 63
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e06d2a46_72f5dcdb",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 1,
+      "message": "Is it OK to use implicit conversion from `bool` to `size_t`? (We avoid implicit conversion to `bool`.)",
+      "range": {
+        "startLine": 437,
+        "startChar": 66,
+        "endLine": 437,
+        "endChar": 85
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a756195a_33b4f525",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 4
@@ -54,6 +117,132 @@
       "writtenOn": "2022-10-18T09:24:18Z",
       "side": 1,
       "message": "Do we expect more types here? Otherwise may be we can directly inline EXPLICIT_FIND_FIELD_FROM_CODE_TEMPLATE_DECL here.",
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c245c7b_bbc0463b",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 1,
+      "message": "Always false here.",
+      "range": {
+        "startLine": 177,
+        "startChar": 12,
+        "endLine": 177,
+        "endChar": 31
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71fa0ba0_143156d7",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 1,
+      "message": "Always false here.",
+      "range": {
+        "startLine": 219,
+        "startChar": 16,
+        "endLine": 219,
+        "endChar": 35
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a1cfee5_6521fdac",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f65a387_18a6de7c",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 1,
+      "message": "~static_cast\u003csize_t\u003e(1u)\n\nWe do not want the `~` to accidentally work on a smaller type.",
+      "range": {
+        "startLine": 384,
+        "startChar": 53,
+        "endLine": 384,
+        "endChar": 57
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3310fb8e_53c69cf7",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9ceaf36_f7d95dac",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 1,
+      "message": "This was not here before. I don\u0027t understand why you\u0027re adding this.",
+      "range": {
+        "startLine": 526,
+        "startChar": 2,
+        "endLine": 526,
+        "endChar": 90
+      },
       "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

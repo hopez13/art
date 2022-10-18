@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e58bc91f_8c025f14",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 0,
+      "message": "You\u0027re removing this check.\n\nHowever, I think it should never fail anyway because of the checks we do in `MethodVerifier`. Right?",
+      "range": {
+        "startLine": 434,
+        "startChar": 19,
+        "endLine": 435,
+        "endChar": 63
+      },
+      "revId": "a691e34c57ce0c67ad69a549cc98a6e432ee8ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e28133f0_cf6add2b",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-18T15:46:38Z",
+      "side": 0,
+      "message": "Why are we resolving the type if we\u0027re not doing assignability check?",
+      "range": {
+        "startLine": 181,
+        "startChar": 10,
+        "endLine": 181,
+        "endChar": 30
+      },
+      "revId": "a691e34c57ce0c67ad69a549cc98a6e432ee8ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
