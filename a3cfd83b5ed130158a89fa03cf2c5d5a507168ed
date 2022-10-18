@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5555e019_bdbabe27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-18T15:43:22Z",
+      "side": 1,
+      "message": "From my perspective, it would be good to discuss, possibly in documentation someplace, possibly in a meeting, exactly what optimizations this now allows and does not allow. IIRC, some of this code was originally based on a paper that proposed including monitor optimizations that at least Vladimir and I had concerns about. I\u0027m also mildly concerned that the monitor entry-exit code is not shored with volatile load-store code.\n\nUnfortunately, I\u0027m not familiar enough with this code to infer exactly what this does. Vladimir might be.",
+      "revId": "a3cfd83b5ed130158a89fa03cf2c5d5a507168ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
