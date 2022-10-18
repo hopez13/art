@@ -135,6 +135,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4bce3d4_c8ce5fa0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-18T08:39:45Z",
+      "side": 1,
+      "message": "But isn\u0027t using the same slot problematic?",
+      "parentUuid": "fef69462_11031b06",
+      "range": {
+        "startLine": 8113,
+        "startChar": 6,
+        "endLine": 8113,
+        "endChar": 49
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7cc5553_5cd9b1dc",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -146,6 +170,30 @@
       "writtenOn": "2022-09-08T14:00:07Z",
       "side": 1,
       "message": "At first I thought we should delay this error as well but I think this is actually unreachable thanks to DexFileVerifier checks. (Static and private interface methods are in the \"direct\" methods list, interface methods in the \"virtuals\" list must be public, see `DexFileVerifier::CheckMethodAccessFlags()`.)",
+      "range": {
+        "startLine": 8234,
+        "startChar": 10,
+        "endLine": 8234,
+        "endChar": 54
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09ee0208_d0b03adc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8234,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-18T08:39:45Z",
+      "side": 1,
+      "message": "We\u0027re checking the virtual method of the implementing class here. The dex file verifier doesn\u0027t know about that method overriding a default method. So I think this still holds, or am I missing something?",
+      "parentUuid": "e7cc5553_5cd9b1dc",
       "range": {
         "startLine": 8234,
         "startChar": 10,
