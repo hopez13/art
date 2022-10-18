@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad5dd793_fb2f8971",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-18T09:42:41Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "5eb01fc0c3d266f719728ed2533da1d331120895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21f52376_50a7f5d9",
+        "filename": "compiler/optimizing/load_store_analysis.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-18T09:42:41Z",
+      "side": 1,
+      "message": "Haven\u0027t checked but we might be able to do something similar for volatile.",
+      "range": {
+        "startLine": 286,
+        "startChar": 31,
+        "endLine": 286,
+        "endChar": 42
+      },
+      "revId": "5eb01fc0c3d266f719728ed2533da1d331120895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03cfdf74_1fd358dd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-18T09:42:41Z",
+      "side": 1,
+      "message": "Considering further operations to do here e.g. eliminate the monitor operation as a whole if the synchronization happens on a non-null singleton that doesn\u0027t escape (as other threads wouldn\u0027t have access to it anyway).",
+      "range": {
+        "startLine": 1155,
+        "startChar": 7,
+        "endLine": 1155,
+        "endChar": 28
+      },
+      "revId": "5eb01fc0c3d266f719728ed2533da1d331120895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
