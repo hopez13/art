@@ -2502,7 +2502,17 @@ void HBasicBlock::DisconnectAndDelete() {
   }
   predecessors_.clear();
 
-  // (5) Remove the block from all loops it is included in. Skip the inner-most
+  // (5) Update the try catch information of blocks which are no longer part of a try. 
+  if (IsCatchBlock()) {
+    for (HBasicBlock* block : GetGraph()->GetPostOrder()) {
+      if (block->IsTryBlock() &&
+          block->GetTryCatchInformation()->GetTryEntry().GetBlock() == nullptr) {
+        block->SetTryCatchInformation(nullptr);
+      }
+    }
+  }
+
+  // (6) Remove the block from all loops it is included in. Skip the inner-most
   //     loop if this is the loop header (see definition of `loop_update_start`)
   //     because the loop header's predecessor list has been destroyed in step (4).
   for (HLoopInformationOutwardIterator it(*loop_update_start); !it.Done(); it.Advance()) {
@@ -2516,11 +2526,11 @@ void HBasicBlock::DisconnectAndDelete() {
     }
   }
 
-  // (6) Disconnect from the dominator.
+  // (7) Disconnect from the dominator.
   dominator_->RemoveDominatedBlock(this);
   SetDominator(nullptr);
 
-  // (7) Delete from the graph, update reverse post order.
+  // (8) Delete from the graph, update reverse post order.
   graph_->DeleteDeadEmptyBlock(this);
   SetGraph(nullptr);
 }
