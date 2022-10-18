@@ -2493,6 +2493,13 @@ void HBasicBlock::DisconnectAndDelete() {
   }
   predecessors_.clear();
 
+  for (HBasicBlock* block : GetGraph()->GetPostOrder()) {
+    if (block->IsTryBlock() &&
+        block->GetTryCatchInformation()->GetTryEntry().GetBlock() == nullptr) {
+      block->SetTryCatchInformation(nullptr);
+    }
+  }
+
   // (5) Remove the block from all loops it is included in. Skip the inner-most
   //     loop if this is the loop header (see definition of `loop_update_start`)
   //     because the loop header's predecessor list has been destroyed in step (4).
