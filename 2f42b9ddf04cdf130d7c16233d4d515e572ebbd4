@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "161973b6_6062d8da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-18T09:24:18Z",
+      "side": 1,
+      "message": "Thanks! lgtm but I don\u0027t know this code too well.",
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f874b87b_1bef44e2",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-18T09:24:18Z",
+      "side": 1,
+      "message": "When we used CanBeChangedBy (in FindFieldFromCode) we allowed updating fields when \nreferring_class-\u003eIsObsoleteVersionOf(declaring_class). Why don\u0027t we want to allow them anymore?\n\nI guess we didn\u0027t have this check for nterp because we didn\u0027t expect to be using nterp when instrumentation is enabled. I guess I might have broken this when I enabled nterp with instrumentation.",
+      "range": {
+        "startLine": 417,
+        "startChar": 25,
+        "endLine": 417,
+        "endChar": 87
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a756195a_33b4f525",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-18T09:24:18Z",
+      "side": 1,
+      "message": "Do we expect more types here? Otherwise may be we can directly inline EXPLICIT_FIND_FIELD_FROM_CODE_TEMPLATE_DECL here.",
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
