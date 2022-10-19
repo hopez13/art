@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "308602d3_9f7f6196",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-19T16:28:26Z",
+      "side": 1,
+      "message": "I remember that we had some code that would search virtual methods first and then, if none was found, it would search direct methods to distinguish between NSME and IAE. I cannot find it, so I guess it was rewritten. We\u0027d need something similar here.\n\nToday we have a slightly different approach in `Class::FindClassMethod()` with uninherited methods but the initial lookup in the class itself does not match what we need here.",
+      "parentUuid": "c178589d_63aad309",
+      "range": {
+        "startLine": 164,
+        "startChar": 40,
+        "endLine": 164,
+        "endChar": 63
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f726b4b3_468f8b88",
         "filename": "runtime/art_method.cc",
         "patchSetId": 4
@@ -243,6 +267,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "569f185f_365e05a0",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-19T16:28:26Z",
+      "side": 1,
+      "message": "Looking at https://android-review.googlesource.com/c/platform/art/+/2261306/2/test/844-resolution/src/Main.java#27 , I think this is reachable for `invoke-super` which I did not previously think about. Right?",
+      "parentUuid": "f563ce15_70be1667",
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fef69462_11031b06",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -290,6 +332,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2df1252c_afc9342e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-19T16:28:26Z",
+      "side": 1,
+      "message": "It would be problematic for a non-public concrete method.\n\nHowever, it\u0027s perfectly OK for non-public abstract methods. If we invoke the abstract method, we\u0027ll go to `ArtMethod::ThrowInvocationTimeError()` and the only question is whether we want to throw IAE (this CL) or AME (with https://android-review.googlesource.com/\n2261306).",
+      "parentUuid": "b4bce3d4_c8ce5fa0",
+      "range": {
+        "startLine": 8113,
+        "startChar": 6,
+        "endLine": 8113,
+        "endChar": 49
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7cc5553_5cd9b1dc",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -325,6 +391,30 @@
       "side": 1,
       "message": "We\u0027re checking the virtual method of the implementing class here. The dex file verifier doesn\u0027t know about that method overriding a default method. So I think this still holds, or am I missing something?",
       "parentUuid": "e7cc5553_5cd9b1dc",
+      "range": {
+        "startLine": 8234,
+        "startChar": 10,
+        "endLine": 8234,
+        "endChar": 54
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e4c52c_8ce94ab2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8234,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-19T16:28:26Z",
+      "side": 1,
+      "message": "This function is called `FindCopiedMethodsForInterface()`, so the \"implementing class\" (`klass`) is really an interface here. And `DexFileVerifier` makes sure that there are no protected or \"package-private\" methods in interfaces and private methods are in the \"direct\" methods. So, for a declared virtual method in an interface `virtual_method-\u003eIsPublic()` must be true. Right?",
+      "parentUuid": "09ee0208_d0b03adc",
       "range": {
         "startLine": 8234,
         "startChar": 10,
