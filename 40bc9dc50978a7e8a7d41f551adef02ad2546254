@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0823c958_d52f0f6c",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-19T17:58:53Z",
+      "side": 0,
+      "message": "Wouldn\u0027t it be less intrusive to keep these, but adapt them to the new linking instead? The idea with them is to keep the dependencies that Soong don\u0027t track well near the sources, so we e.g. avoid having to add `libart-disassembler_static_defaults` to `libdex2oat_static`, where it is a transitive dependency.\n\nIn practice, all you need to do here is to replace the `whole_static_libs` line with a `libart-compiler_dependencies` dependency, isn\u0027t it?",
+      "range": {
+        "startLine": 250,
+        "startChar": 4,
+        "endLine": 250,
+        "endChar": 44
+      },
+      "revId": "40bc9dc50978a7e8a7d41f551adef02ad2546254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

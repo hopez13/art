@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74f4d2dc_8e1cae52",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-19T17:58:53Z",
+      "side": 1,
+      "message": "I think the custom is to line break commit messages at 72 columns.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 109
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4edfb152_00c12851",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-19T17:58:53Z",
+      "side": 1,
+      "message": "Please test art/build/apex/runtests.sh as well. I suspect you\u0027ll need to update art/build/apex/art_apex_test.py.",
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2869f00_d81f6817",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-19T17:58:53Z",
+      "side": 1,
+      "message": "Why do dependent libs need these headers?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 6
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "283d02f6_499bd474",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-19T17:58:53Z",
+      "side": 1,
+      "message": "Please document the purpose of these dependencies defaults.",
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d05a78_643b4b6a",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-19T17:58:53Z",
+      "side": 1,
+      "message": "There\u0027s already an `ART_TARGET` define that can be used instead of this.",
+      "range": {
+        "startLine": 253,
+        "startChar": 8,
+        "endLine": 254,
+        "endChar": 41
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50c9bfff_b1974c2c",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-19T17:58:53Z",
+      "side": 1,
+      "message": "What\u0027s the reason for this? Isn\u0027t it a dependency inversion?",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 25
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27c00712_11e3de93",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-19T17:58:53Z",
+      "side": 1,
+      "message": "This isn\u0027t a host-vs-target issue. I think it was excluded because in completely static builds where the binary doesn\u0027t have a runtime linker, `dlopen` doesn\u0027t work.\n\nWe shouldn\u0027t need to do that anywhere, but unfortunately there are still dex2oats and dexdumps. They\u0027re legacy things that should be removed (b/172063604).\n\nThe problem with your change here is that it affects all host builds, not just dex2oats and dexdumps, so they\u0027ll regress in this regard. I don\u0027t know how significant that is. If it isn\u0027t, then it\u0027s ok to do this and leave a TODO(b/172063604) about it. Otherwise I don\u0027t see any solution without addressing that ticket first, although that shouldn\u0027t be too hard, given that hansson@ recently got rid of the external dependencies on dex2oats.",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 80
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a86b848_563150f2",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-19T17:58:53Z",
+      "side": 1,
+      "message": "Doesn\u0027t this comment still belong on `libart`?",
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
