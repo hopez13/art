@@ -33,7 +33,7 @@ class Object;
 
 // Classes shared with the managed side of the world need to be packed so that they don't have
 // extra platform specific padding.
-#define MANAGED PACKED(4)
+#define MANAGED PACKED(4) __attribute__((standalone_debug))
 #define MIRROR_CLASS(desc) \
   static_assert(::art::mirror::IsMirroredDescriptor(desc), \
                 desc " is not a known mirror class. Please update" \

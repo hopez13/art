@@ -148,7 +148,7 @@ struct TypeItem {
 };
 
 // Raw type_list.
-class TypeList {
+class __attribute__((standalone_debug)) TypeList {
  public:
   uint32_t Size() const {
     return size_;
