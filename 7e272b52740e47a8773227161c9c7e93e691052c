@@ -124,6 +124,24 @@
       "parentUuid": "2958ab45_790f1b60",
       "revId": "7e272b52740e47a8773227161c9c7e93e691052c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7532dcd7_7db5b889",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-19T14:17:59Z",
+      "side": 1,
+      "message": "The easiest way is to run dex2oat with `--verbose-methods\u003d\u0027FinalizerWatchdogDaemon.runInternal\"` and with `--dump-cfg\u003dgraph.cfg`. This would create a small cfg with the only method in which `sleepUntilNeeded` is called. You can then load the cfg with the tool of your choice (e.g. https://mrale.ph/irhydra/1/#graph) and take a look at `inliner (before)` and `inliner (after)`.\n\nAlternatively, you can temporarily modify inliner.cc (https://android-review.googlesource.com/c/platform/art/+/2260489) to dump `sleepUntilNeeded` to console which might a bit harder to understand but it could be fine for such a small method.",
+      "parentUuid": "1a1bc127_33821eb1",
+      "revId": "7e272b52740e47a8773227161c9c7e93e691052c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
