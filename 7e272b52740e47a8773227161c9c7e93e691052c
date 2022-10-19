@@ -88,6 +88,24 @@
       "parentUuid": "b73f586c_a7f6d70c",
       "revId": "7e272b52740e47a8773227161c9c7e93e691052c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2958ab45_790f1b60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-19T01:16:20Z",
+      "side": 1,
+      "message": "I was confused. Class files leave MonitorEnter/Exit for synchronized methods implicit, but in dex files they\u0027re explicit. On the other hand, I think the dex monitor-enter will end up at dex pc 0.",
+      "parentUuid": "6be9fcdd_88bf0985",
+      "revId": "7e272b52740e47a8773227161c9c7e93e691052c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
