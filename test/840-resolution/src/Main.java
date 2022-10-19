@@ -61,100 +61,86 @@ public class Main {
     try {
       s.foo();
       throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError ie) {
-      // expected
+    } catch (IllegalAccessError expected) {
     }
 
     assertEquals(null, ((SuperClass) s2).foo());
     try {
       s2.foo();
       throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError ie) {
-      // expected
+    } catch (IllegalAccessError expected) {
     }
 
     try {
       ((pkg.PkgSuperClass) s3).foo();
       throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError ie) {
-      // expected
+    } catch (IllegalAccessError expected) {
     }
 
     try {
       ((SubClassFromPkg) s3).foo();
       throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError ie) {
-      // expected
+    } catch (IllegalAccessError expected) {
     }
 
     try {
       s3.foo();
       throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError ie) {
-      // expected
+    } catch (IllegalAccessError expected) {
     }
 
     try {
       ((SuperClassNoFoo) s4).foo();
       throw new Error("Expected NoSuchMethodError");
-    } catch (NoSuchMethodError e) {
-      // expected
+    } catch (NoSuchMethodError expected) {
     }
 
     try {
       ((SubClassNoFoo) s4).foo();
       throw new Error("Expected AbstractMethodError");
-    } catch (AbstractMethodError e) {
-      // expected
+    } catch (AbstractMethodError expected) {
     }
 
     try {
       s4.foo();
       throw new Error("Expected AbstractMethodError");
-    } catch (AbstractMethodError e) {
-      // expected
+    } catch (AbstractMethodError expected) {
     }
 
     try {
       ((SuperClassPrivateFoo) s5).foo();
       throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError e) {
-      // expected
+    } catch (IllegalAccessError expected) {
     }
 
     try {
       ((SubClassPrivateFoo) s5).foo();
       throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError e) {
-      // expected
+    } catch (IllegalAccessError expected) {
     }
 
     try {
       s5.foo();
       throw new Error("Expected AbstractMethodError on RI, IllegalAccessError on ART");
-    } catch (AbstractMethodError | IllegalAccessError e) {
-      // expected
+    } catch (AbstractMethodError | IllegalAccessError expected) {
     }
 
     try {
       ((SuperClassStaticFoo) s6).foo();
       throw new Error("Expected IncompatibleClassChangeError");
-    } catch (IncompatibleClassChangeError e) {
-      // expected
+    } catch (IncompatibleClassChangeError expected) {
     }
 
     try {
       ((SubClassStaticFoo) s6).foo();
       throw new Error("Expected IncompatibleClassChangeError");
-    } catch (IncompatibleClassChangeError e) {
-      // expected
+    } catch (IncompatibleClassChangeError expected) {
     }
 
     try {
       s6.foo();
       throw new Error("Expected AbstractMethodError");
-    } catch (AbstractMethodError e) {
-      // expected
+    } catch (AbstractMethodError expected) {
     }
   }
 }
