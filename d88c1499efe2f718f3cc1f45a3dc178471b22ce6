@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f3b8f95_e7b6af78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-19T09:28:54Z",
+      "side": 1,
+      "message": "Thanks Vladimir, some review comments addressed here:\nhttps://android-review.googlesource.com/c/platform/art/+/2261306",
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33d0de10_2ad48597",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-07-14T23:01:35Z",
       "side": 1,
       "message": "Change to `GetDeclaredVirtualMethodsSlice` to change the `s5.foo()` test behavior to match the RI. (Then drop the `!np_method-\u003eIsStatic()` check.)",
+      "range": {
+        "startLine": 164,
+        "startChar": 40,
+        "endLine": 164,
+        "endChar": 63
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c178589d_63aad309",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-19T09:28:54Z",
+      "side": 1,
+      "message": "Moving to only looking at GetDeclaredVirtualMethodsSlice will make us throw AbstractMethodError for the ((SubClassPrivateFoo) s5).foo();\n\nIt looks like RI is either looking at the static type or is resolving differently.",
+      "parentUuid": "33d0de10_2ad48597",
       "range": {
         "startLine": 164,
         "startChar": 40,
@@ -47,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad5f7ac2_ca519575",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-19T09:28:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f726b4b3_468f8b88",
+      "range": {
+        "startLine": 167,
+        "startChar": 40,
+        "endLine": 167,
+        "endChar": 53
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8af77946_823b4078",
@@ -60,6 +125,30 @@
       "writtenOn": "2022-07-14T23:01:35Z",
       "side": 1,
       "message": "This may not be executed but maybe we should pull it out of the loops anyway?",
+      "range": {
+        "startLine": 168,
+        "startChar": 41,
+        "endLine": 168,
+        "endChar": 55
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a411352e_ec995fc3",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-19T09:28:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8af77946_823b4078",
       "range": {
         "startLine": 168,
         "startChar": 41,
@@ -93,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b61b7424_2ffb8680",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-19T09:28:54Z",
+      "side": 1,
+      "message": "Good catch, I\u0027ve reordered the checks and added a regression test.",
+      "parentUuid": "339ea792_30652427",
+      "range": {
+        "startLine": 170,
+        "startChar": 12,
+        "endLine": 170,
+        "endChar": 56
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62d5d936_eb139974",
@@ -106,6 +219,24 @@
       "writtenOn": "2022-07-14T23:01:35Z",
       "side": 1,
       "message": "else UNREACHABLE (the method would be a valid target and should have been called)\n\nMaybe replace the second `if` with a `DCHECK()` and the `ThrowAbstractMethodError()` with `break`.",
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f563ce15_70be1667",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-19T09:28:54Z",
+      "side": 1,
+      "message": "Actually, np_method may not be abstract if the interface method being called could not be called because of a default conflicting method. So I need to keep the if.",
+      "parentUuid": "62d5d936_eb139974",
       "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -221,6 +352,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69148c48_8a224fab",
+        "filename": "test/840-resolution/jasmin/SubClass2.j",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-19T09:28:54Z",
+      "side": 1,
+      "message": "Yeah, I actually prefer less files and the jasmin code is small enough that I find it acceptable.\n\nI\u0027ve added a comment though in the jasmin file to explain what\u0027s special here.",
+      "parentUuid": "b49b77e0_e02cda18",
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04d7c241_dbae5170",
@@ -234,6 +383,30 @@
       "writtenOn": "2022-07-14T23:01:35Z",
       "side": 1,
       "message": "Change to `expected`, same below.",
+      "range": {
+        "startLine": 64,
+        "startChar": 32,
+        "endLine": 64,
+        "endChar": 34
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "524bce88_4f5aa1f0",
+        "filename": "test/840-resolution/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-19T09:28:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04d7c241_dbae5170",
       "range": {
         "startLine": 64,
         "startChar": 32,
