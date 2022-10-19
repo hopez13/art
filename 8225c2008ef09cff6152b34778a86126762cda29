@@ -127,6 +127,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d23b32fb_9b07a536",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-19T19:05:21Z",
+      "side": 1,
+      "message": "There\u0027s no inversion here. \nPreviously `libart-compiler` was linking to `libart` dynamically.\nAfter the name change `libart` -\u003e `libart-runtime` this dependency still holds.\nThe only thing I\u0027ve changed is the type of linking from dynamic to static.\nSince `libart-compiler` will always be built as a static library it shouldn\u0027t matter much, but leaving `libart-runtime` in `shared_libs` would force the build of dynamic `libart-runtime`, which is not used anywhere.",
+      "parentUuid": "50c9bfff_b1974c2c",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 25
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27c00712_11e3de93",
@@ -140,6 +164,30 @@
       "writtenOn": "2022-10-19T17:58:53Z",
       "side": 1,
       "message": "This isn\u0027t a host-vs-target issue. I think it was excluded because in completely static builds where the binary doesn\u0027t have a runtime linker, `dlopen` doesn\u0027t work.\n\nWe shouldn\u0027t need to do that anywhere, but unfortunately there are still dex2oats and dexdumps. They\u0027re legacy things that should be removed (b/172063604).\n\nThe problem with your change here is that it affects all host builds, not just dex2oats and dexdumps, so they\u0027ll regress in this regard. I don\u0027t know how significant that is. If it isn\u0027t, then it\u0027s ok to do this and leave a TODO(b/172063604) about it. Otherwise I don\u0027t see any solution without addressing that ticket first, although that shouldn\u0027t be too hard, given that hansson@ recently got rid of the external dependencies on dex2oats.",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 80
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f9cc44a_3724ab09",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-19T19:05:21Z",
+      "side": 1,
+      "message": "My understanding is this issue indeed is host-vs-target.\nWe don\u0027t need to use `dlopen` in static builds because functions from `libart-disassembler` are accessible directly.\nFor target builds we don\u0027t want to pay the price of linking to `libart-disassembler` until we actually need it.\n\nWhat kind of regression this would introduce? From what I\u0027ve found:\n`dex2oat` -\u003e (host) static_libs: `libdex2oat_static` -\u003e `libart-compiler_static_defaults` -\u003e `libart-disassembler_static_defaults`\n`oatdump` -\u003e (host) static_libs: `liboatdump_static` -\u003e `libart-disassembler_static_defaults`\n\nAnd in `libart-disassembler_static_defaults`:\n```\nwhole_static_libs: [\n    \"libart-disassembler\",\n```\nSame goes for dex2oatd and oatdumpd.\nThis means that host builds of dex2oat(d) and oatdump(d) don\u0027t need to use `dlopen`, since `libart-disassembler` should be available anyway.",
+      "parentUuid": "27c00712_11e3de93",
       "range": {
         "startLine": 128,
         "startChar": 0,
