@@ -24,6 +24,7 @@
    return
 .end method
 
+; Method is package-private, while SuperClass.foo is public.
 .method                  foo()Ljava/lang/Class;
    .limit stack          1
    .limit locals         1
