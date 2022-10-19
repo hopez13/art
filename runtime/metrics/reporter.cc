@@ -95,6 +95,10 @@ void MetricsReporter::NotifyAppInfoUpdated(AppInfo* app_info) {
   SetCompilationInfo(
       CompilationReasonFromName(compilation_reason),
       CompilerFilterReportingFromName(compiler_filter));
+
+  LOG(WARNING) << "NotifyAppInfoUpdated package_name=" << app_info->package_name()
+               << ", compilation_reason=" << compilation_reason
+               << ", compiler_filter=" << compiler_filter;
 }
 
 void MetricsReporter::RequestMetricsReport(bool synchronous) {

@@ -17,10 +17,12 @@
 #ifndef ART_RUNTIME_APP_INFO_H_
 #define ART_RUNTIME_APP_INFO_H_
 
+#include <base/safe_map.h>
+
 #include <vector>
 
 #include "base/mutex.h"
-#include <base/safe_map.h>
+#include "thread.h"
 
 namespace art {
 
@@ -83,6 +85,11 @@ class AppInfo {
   // The registered code type for a given code path. Note that this will
   // be kUnknown until an explicit registration for that path has been made.
   CodeType GetRegisteredCodeType(const std::string& code_path);
+
+  std::string package_name() {
+    MutexLock mu(Thread::Current(), update_mutex_);
+    return package_name_.value_or("nullopt");
+  }
 
  private:
   // Encapsulates optimization information about a particular code location.
