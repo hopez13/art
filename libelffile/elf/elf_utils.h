@@ -71,6 +71,16 @@ struct ElfTypes64 {
 
 #define EM_AARCH64 183
 
+#define EM_RISCV        243     /* RISC-V */
+
+/* According to RISC-V psabi.
+ * https://github.com/riscv-non-isa/riscv-elf-psabi-doc
+ * */
+#define EF_RISCV_RVC 0x1
+#define EF_RISCV_FLOAT_ABI_SINGLE 0x2
+#define EF_RISCV_FLOAT_ABI_DOUBLE 0x4
+#define EF_RISCV_FLOAT_ABI_QUAD 0x6
+
 #define DT_BIND_NOW 24
 #define DT_INIT_ARRAY 25
 #define DT_FINI_ARRAY 26

@@ -31,6 +31,7 @@ enum class InstructionSet {
   kArm,
   kArm64,
   kThumb2,
+  kRiscv64,
   kX86,
   kX86_64,
   kLast = kX86_64
@@ -45,6 +46,8 @@ static constexpr InstructionSet kRuntimeISA = InstructionSet::kArm64;
 static constexpr InstructionSet kRuntimeISA = InstructionSet::kX86;
 #elif defined(__x86_64__)
 static constexpr InstructionSet kRuntimeISA = InstructionSet::kX86_64;
+#elif defined(__riscv) && (__riscv_xlen == 64)
+static constexpr InstructionSet kRuntimeISA = InstructionSet::kRiscv64;
 #else
 static constexpr InstructionSet kRuntimeISA = InstructionSet::kNone;
 #endif
@@ -54,6 +57,7 @@ static constexpr PointerSize kArmPointerSize = PointerSize::k32;
 static constexpr PointerSize kArm64PointerSize = PointerSize::k64;
 static constexpr PointerSize kX86PointerSize = PointerSize::k32;
 static constexpr PointerSize kX86_64PointerSize = PointerSize::k64;
+static constexpr PointerSize kRiscv64PointerSize = PointerSize::k64;
 
 // ARM64 default SVE vector length.
 static constexpr size_t kArm64DefaultSVEVectorLength = 256;
@@ -64,6 +68,8 @@ static constexpr size_t kArm64DefaultSVEVectorLength = 256;
 static constexpr size_t kArmCodeAlignment = 8;
 static constexpr size_t kArm64CodeAlignment = 16;
 static constexpr size_t kX86CodeAlignment = 16;
+// RISCV64 instruction alignment. This is the recommended alignment for maximum performance.
+static constexpr size_t kRiscv64CodeAlignment = 16;
 
 // Instruction alignment (every instruction must be aligned at this boundary). This differs from
 // code alignment, which applies only to the first instruction of a subroutine.
@@ -71,6 +77,7 @@ static constexpr size_t kThumb2InstructionAlignment = 2;
 static constexpr size_t kArm64InstructionAlignment = 4;
 static constexpr size_t kX86InstructionAlignment = 1;
 static constexpr size_t kX86_64InstructionAlignment = 1;
+static constexpr size_t kRiscv64InstructionAlignment = 2;
 
 const char* GetInstructionSetString(InstructionSet isa);
 
@@ -92,6 +99,8 @@ constexpr PointerSize GetInstructionSetPointerSize(InstructionSet isa) {
       return kX86PointerSize;
     case InstructionSet::kX86_64:
       return kX86_64PointerSize;
+    case InstructionSet::kRiscv64:
+      return kRiscv64PointerSize;
 
     case InstructionSet::kNone:
       break;
@@ -106,6 +115,7 @@ constexpr bool IsValidInstructionSet(InstructionSet isa) {
     case InstructionSet::kArm64:
     case InstructionSet::kX86:
     case InstructionSet::kX86_64:
+    case InstructionSet::kRiscv64:
       return true;
 
     case InstructionSet::kNone:
@@ -126,6 +136,8 @@ constexpr size_t GetInstructionSetInstructionAlignment(InstructionSet isa) {
       return kX86InstructionAlignment;
     case InstructionSet::kX86_64:
       return kX86_64InstructionAlignment;
+    case InstructionSet::kRiscv64:
+      return kRiscv64InstructionAlignment;
 
     case InstructionSet::kNone:
       break;
@@ -145,7 +157,8 @@ constexpr size_t GetInstructionSetCodeAlignment(InstructionSet isa) {
       // Fall-through.
     case InstructionSet::kX86_64:
       return kX86CodeAlignment;
-
+    case InstructionSet::kRiscv64:
+      return kRiscv64CodeAlignment;
     case InstructionSet::kNone:
       break;
   }
@@ -160,6 +173,7 @@ constexpr size_t GetInstructionSetEntryPointAdjustment(InstructionSet isa) {
     case InstructionSet::kArm64:
     case InstructionSet::kX86:
     case InstructionSet::kX86_64:
+    case InstructionSet::kRiscv64:
       return 0;
     case InstructionSet::kThumb2: {
       // +1 to set the low-order bit so a BLX will switch to Thumb mode
@@ -181,6 +195,7 @@ constexpr bool Is64BitInstructionSet(InstructionSet isa) {
 
     case InstructionSet::kArm64:
     case InstructionSet::kX86_64:
+    case InstructionSet::kRiscv64:
       return true;
 
     case InstructionSet::kNone:
@@ -205,6 +220,8 @@ constexpr size_t GetBytesPerGprSpillLocation(InstructionSet isa) {
       return 4;
     case InstructionSet::kX86_64:
       return 8;
+    case InstructionSet::kRiscv64:
+      return 8;
 
     case InstructionSet::kNone:
       break;
@@ -224,6 +241,8 @@ constexpr size_t GetBytesPerFprSpillLocation(InstructionSet isa) {
       return 8;
     case InstructionSet::kX86_64:
       return 8;
+    case InstructionSet::kRiscv64:
+      return 8;
 
     case InstructionSet::kNone:
       break;
@@ -236,8 +255,9 @@ std::vector<InstructionSet> GetSupportedInstructionSets(std::string* error_msg);
 
 namespace instruction_set_details {
 
-#if !defined(ART_STACK_OVERFLOW_GAP_arm) || !defined(ART_STACK_OVERFLOW_GAP_arm64) || \
-    !defined(ART_STACK_OVERFLOW_GAP_x86) || !defined(ART_STACK_OVERFLOW_GAP_x86_64)
+#if !defined(ART_STACK_OVERFLOW_GAP_arm) || !defined(ART_STACK_OVERFLOW_GAP_arm64)  || \
+    !defined(ART_STACK_OVERFLOW_GAP_x86) || !defined(ART_STACK_OVERFLOW_GAP_x86_64) || \
+    !defined(ART_STACK_OVERFLOW_GAP_riscv64)
 #error "Missing defines for stack overflow gap"
 #endif
 
@@ -245,6 +265,7 @@ static constexpr size_t kArmStackOverflowReservedBytes    = ART_STACK_OVERFLOW_G
 static constexpr size_t kArm64StackOverflowReservedBytes  = ART_STACK_OVERFLOW_GAP_arm64;
 static constexpr size_t kX86StackOverflowReservedBytes    = ART_STACK_OVERFLOW_GAP_x86;
 static constexpr size_t kX86_64StackOverflowReservedBytes = ART_STACK_OVERFLOW_GAP_x86_64;
+static constexpr size_t kRiscv64StackOverflowReservedBytes  = ART_STACK_OVERFLOW_GAP_riscv64;
 
 NO_RETURN void GetStackOverflowReservedBytesFailure(const char* error_msg);
 
@@ -265,6 +286,9 @@ constexpr size_t GetStackOverflowReservedBytes(InstructionSet isa) {
 
     case InstructionSet::kX86_64:
       return instruction_set_details::kX86_64StackOverflowReservedBytes;
+
+    case InstructionSet::kRiscv64:
+      return instruction_set_details::kRiscv64StackOverflowReservedBytes;
 
     case InstructionSet::kNone:
       instruction_set_details::GetStackOverflowReservedBytesFailure(
@@ -312,7 +336,7 @@ static inline constexpr TwoWordReturn GetTwoWordSuccessValue(uintptr_t hi, uintp
   return ((hi64 << 32) | lo32);
 }
 
-#elif defined(__x86_64__) || defined(__aarch64__)
+#elif defined(__x86_64__) || defined(__aarch64__) || (defined(__riscv) && (__riscv_xlen == 64))
 
 // Note: TwoWordReturn can't be constexpr for 64-bit targets. We'd need a constexpr constructor,
 //       which would violate C-linkage in the entrypoint functions.

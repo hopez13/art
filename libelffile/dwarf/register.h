@@ -48,6 +48,14 @@ class Reg {
   }
   static Reg X86_64Fp(int num) { return Reg(17 + num); }
 
+
+  // According to psabi:
+  // 0-31: x0-x31
+  // 32-63: f0-f31
+  // TODO: vector register.
+  static Reg Riscv64Core(int num) { return Reg(num); }
+  static Reg Riscv64Fp(int num) { return Reg(32 + num); }
+
  private:
   int num_;
 };

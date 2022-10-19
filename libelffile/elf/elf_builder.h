@@ -818,6 +818,8 @@ class ElfBuilder final {
         return InstructionSet::kX86;
       case EM_X86_64:
         return InstructionSet::kX86_64;
+      case EM_RISCV:
+        return InstructionSet::kRiscv64;
     }
     LOG(FATAL) << "Unknown architecture: " << header.e_machine;
     UNREACHABLE();
@@ -847,6 +849,11 @@ class ElfBuilder final {
       case InstructionSet::kX86_64: {
         elf_header.e_machine = EM_X86_64;
         elf_header.e_flags = 0;
+        break;
+      }
+      case InstructionSet::kRiscv64: {
+        elf_header.e_machine = EM_RISCV;
+        elf_header.e_flags = (EF_RISCV_RVC | EF_RISCV_FLOAT_ABI_DOUBLE);
         break;
       }
       case InstructionSet::kNone: {
