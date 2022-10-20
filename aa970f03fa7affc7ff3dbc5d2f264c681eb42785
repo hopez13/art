@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed03f300_fa9a60cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T13:19:25Z",
+      "side": 1,
+      "message": "Did you observe any speedup with your change? Please put it in commit message with a description how you ran the tests. It\u0027s not obvious that this change speeds up the build (although it generally makes sense).\n\nHow/when are the tests sharded? Is it decided ahead of time or just before the build? If the latter, then why not adjust shard count / the number of tests in each in case we have only a few tests to rebuild (and then make them always single-threaded)?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 51
+      },
+      "revId": "aa970f03fa7affc7ff3dbc5d2f264c681eb42785",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
