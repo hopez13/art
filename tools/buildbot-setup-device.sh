@@ -36,7 +36,11 @@ msginfo "Date on device"
 adb shell date
 
 host_seconds_since_epoch=$(date -u +%s)
-device_seconds_since_epoch=$(adb shell date -u +%s)
+
+# Get the device time seconds, but filter the output as some devices
+# emit CRLF at the end of the command which then breaks the time
+# comparisons in this script (Hammerhead, MRA59G 2457013).
+device_seconds_since_epoch=$(adb shell date -u +%s | sed -e 's/[^0-9]//g')
 
 abs_time_difference_in_seconds=$(expr $host_seconds_since_epoch - $device_seconds_since_epoch)
 if [ $abs_time_difference_in_seconds -lt 0 ]; then
