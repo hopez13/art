@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d54649_bb91451f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-20T10:09:51Z",
+      "side": 1,
+      "message": "This took me a while to figure out ... it looks like the test is checking for tags but the attribute is disabling them.\n\nCan you add a comment to explain things?  Maybe something like:\n\n// The test intentionally dereferences (tagged) null to trigger SIGSEGV.\n// We need to disable HWASAN since it would catch the dereference first.",
+      "revId": "e56555b85e24a50e95c2f8feaff3b2aa51655fb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
