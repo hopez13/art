@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3403e63_64c69b5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-20T15:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74f4d2dc_8e1cae52",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 109
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4edfb152_00c12851",
@@ -81,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6897b5f_eb2eef5b",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-20T15:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2869f00_d81f6817",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 6
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "283d02f6_499bd474",
@@ -98,6 +146,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c22a32a6_26e22eda",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-20T15:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "283d02f6_499bd474",
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9d05a78_643b4b6a",
@@ -111,6 +177,30 @@
       "writtenOn": "2022-10-19T17:58:53Z",
       "side": 1,
       "message": "There\u0027s already an `ART_TARGET` define that can be used instead of this.",
+      "range": {
+        "startLine": 253,
+        "startChar": 8,
+        "endLine": 254,
+        "endChar": 41
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d356a3aa_3bfd2a4c",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-20T15:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9d05a78_643b4b6a",
       "range": {
         "startLine": 253,
         "startChar": 8,
@@ -276,6 +366,24 @@
       "writtenOn": "2022-10-19T17:58:53Z",
       "side": 1,
       "message": "Doesn\u0027t this comment still belong on `libart`?",
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a38ba605_83809da5",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-20T15:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a86b848_563150f2",
       "revId": "8225c2008ef09cff6152b34778a86126762cda29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
