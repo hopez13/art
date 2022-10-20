@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a575abd2_ccdeabf3",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2589d18b_fc4ba516",
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f874b87b_1bef44e2",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-10-18T09:24:18Z",
       "side": 1,
       "message": "When we used CanBeChangedBy (in FindFieldFromCode) we allowed updating fields when \nreferring_class-\u003eIsObsoleteVersionOf(declaring_class). Why don\u0027t we want to allow them anymore?\n\nI guess we didn\u0027t have this check for nterp because we didn\u0027t expect to be using nterp when instrumentation is enabled. I guess I might have broken this when I enabled nterp with instrumentation.",
+      "range": {
+        "startLine": 417,
+        "startChar": 25,
+        "endLine": 417,
+        "endChar": 87
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09cbc7fd_c99b632a",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "Indeed, good catch! The obsolete check was actually stale, so I\u0027ve removed it:\nhttps://android-review.googlesource.com/c/platform/art/+/2261305",
+      "parentUuid": "f874b87b_1bef44e2",
       "range": {
         "startLine": 417,
         "startChar": 25,
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da6608a_6e16a8e3",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "Hmm, maybe - I\u0027ll put it as it\u0027s been there before.",
+      "parentUuid": "e7081446_3836eba7",
+      "range": {
+        "startLine": 421,
+        "startChar": 34,
+        "endLine": 421,
+        "endChar": 63
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e06d2a46_72f5dcdb",
@@ -94,6 +160,30 @@
       "writtenOn": "2022-10-18T15:46:38Z",
       "side": 1,
       "message": "Is it OK to use implicit conversion from `bool` to `size_t`? (We avoid implicit conversion to `bool`.)",
+      "range": {
+        "startLine": 437,
+        "startChar": 66,
+        "endLine": 437,
+        "endChar": 85
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "792d823d_853f1fda",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e06d2a46_72f5dcdb",
       "range": {
         "startLine": 437,
         "startChar": 66,
@@ -121,6 +211,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed6c0bc9_565b863a",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a756195a_33b4f525",
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c245c7b_bbc0463b",
@@ -134,6 +242,30 @@
       "writtenOn": "2022-10-18T15:46:38Z",
       "side": 1,
       "message": "Always false here.",
+      "range": {
+        "startLine": 177,
+        "startChar": 12,
+        "endLine": 177,
+        "endChar": 31
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99e70f55_b408582b",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c245c7b_bbc0463b",
       "range": {
         "startLine": 177,
         "startChar": 12,
@@ -167,6 +299,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e101e16_1c3fe48e",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71fa0ba0_143156d7",
+      "range": {
+        "startLine": 219,
+        "startChar": 16,
+        "endLine": 219,
+        "endChar": 35
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a1cfee5_6521fdac",
@@ -180,6 +336,24 @@
       "writtenOn": "2022-10-18T15:46:38Z",
       "side": 1,
       "message": "Remove blank line.",
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3366a5ac_3ab7db5e",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a1cfee5_6521fdac",
       "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -207,6 +381,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8c0853c_85b72497",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f65a387_18a6de7c",
+      "range": {
+        "startLine": 384,
+        "startChar": 53,
+        "endLine": 384,
+        "endChar": 57
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3310fb8e_53c69cf7",
@@ -224,6 +422,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b09fc00_0927c599",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3310fb8e_53c69cf7",
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9ceaf36_f7d95dac",
@@ -237,6 +453,30 @@
       "writtenOn": "2022-10-18T15:46:38Z",
       "side": 1,
       "message": "This was not here before. I don\u0027t understand why you\u0027re adding this.",
+      "range": {
+        "startLine": 526,
+        "startChar": 2,
+        "endLine": 526,
+        "endChar": 90
+      },
+      "revId": "2f42b9ddf04cdf130d7c16233d4d515e572ebbd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84b4d018_78e74881",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 1,
+      "message": "It\u0027s in `DoFieldPutCommon`. I fetch this here to avoid calling `DoFieldPutCommon`.",
+      "parentUuid": "a9ceaf36_f7d95dac",
       "range": {
         "startLine": 526,
         "startChar": 2,

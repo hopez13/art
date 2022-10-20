@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40bdc19a_436bb635",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 0,
+      "message": "Yes, I think this dates back when folks thought we could run without a verifier.",
+      "parentUuid": "e58bc91f_8c025f14",
+      "range": {
+        "startLine": 434,
+        "startChar": 19,
+        "endLine": 435,
+        "endChar": 63
+      },
+      "revId": "a691e34c57ce0c67ad69a549cc98a6e432ee8ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e28133f0_cf6add2b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-18T15:46:38Z",
       "side": 0,
       "message": "Why are we resolving the type if we\u0027re not doing assignability check?",
+      "range": {
+        "startLine": 181,
+        "startChar": 10,
+        "endLine": 181,
+        "endChar": 30
+      },
+      "revId": "a691e34c57ce0c67ad69a549cc98a6e432ee8ea3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c415c1a2_83895c55",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-20T17:11:11Z",
+      "side": 0,
+      "message": "The type of a field may not be resolvable, and we need to throw an exception in that case (only when `null` is assigned we don\u0027t need to do the resolution).",
+      "parentUuid": "e28133f0_cf6add2b",
       "range": {
         "startLine": 181,
         "startChar": 10,
