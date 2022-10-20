@@ -46,6 +46,30 @@
       },
       "revId": "aa970f03fa7affc7ff3dbc5d2f264c681eb42785",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce7d24c1_0afb0fe8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T14:02:50Z",
+      "side": 1,
+      "message": "For the record.\n\nAfter an offline discussion we think that the best way would be to write Go code in Soong that would process one Android.bp module containing all art tests and generate individual Ninja rule for each test. This way Soong build graph would not be bloated, but it would be possible to rebuild precisely what\u0027s needed (not more) when modifying individual tests.\n\nWhile we don\u0027t have it, next best thing is sharding.\n\nThis patch has an observable effect of making the workstation more responsive while building all art tests at once, so it makes sense to accept it.",
+      "parentUuid": "9fbdbe3b_5c8f824b",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 51
+      },
+      "revId": "aa970f03fa7affc7ff3dbc5d2f264c681eb42785",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
