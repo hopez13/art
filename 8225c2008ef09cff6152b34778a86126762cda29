@@ -82,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c39fd9bd_244da5a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-20T18:03:02Z",
+      "side": 1,
+      "message": "Thanks for catching that, fixed",
+      "parentUuid": "4edfb152_00c12851",
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2869f00_d81f6817",
@@ -284,6 +302,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6cf37bd7_8d9f793f",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-20T18:03:02Z",
+      "side": 1,
+      "message": "\u003eHowever, doesn\u0027t this mean the code from libart-runtime that gets linked into libart-compiler also gets linked in again directly into libart? \n\nThis shouldn\u0027t be the case. Static library is just a collection of object files, it doesn\u0027t pull any symbols from other static libraries it depends on.\nThis is the reason we have to manually specify transitive dependencies of static libraries everywhere.\n\n\u003eit\u0027s better to avoid this static library altogether and instead put it all into a defaults that\u0027s used in libart so that it all gets linked together in one pass\n\nYes, it is an option. But after discussing that with the team we\u0027ve decided that it would be nice to have a clear separation between `libart-runtime` and `libart-compiler`.\nAt the moment `libart-runtime` doesn\u0027t have access to any of `libart-compiler` functions (except for `jit_load`). If they\u0027re going to be built together it would be much easier to introduce dependencies between them",
+      "parentUuid": "01f8c539_242b750b",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 25
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27c00712_11e3de93",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 8
@@ -343,6 +385,30 @@
       "side": 1,
       "message": "There\u0027s also dalvikvm, which doesn\u0027t link ART libs statically. It\u0027s also a fragile assumption that we continue to link dex2oat and oatdump on host this way.\n\nYou bring up a good point though - we need to account for that `libart-disassembler` is linked either statically or not, and that depends on the final binary linkage. Best would be if it can be done at runtime here, so that `dlopen` is only called if `libart-disassembler` hasn\u0027t been linked statically. One possibility is to check a symbol in it with `dlsym` first, but then that symbol needs to exported to the symbol table even when it\u0027s linked statically. Hopefully there\u0027s a better way.\n\nThen on top of that the calls to both `dlsym` and `dlopen` need to be #ifdef\u0027ed out if the build is fully static, which is the messy bit discussed earlier.",
       "parentUuid": "6f9cc44a_3724ab09",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 80
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04011aae_dfe41091",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-20T18:03:02Z",
+      "side": 1,
+      "message": "\u003eIt\u0027s also a fragile assumption that we continue to link dex2oat and oatdump on host this way.\n\nI might be missing something - why is that so?\nThe way this code works on the host seems to be solid: it will work whether `libart-disassembler` linkage is static or dynamic.\nIf I forget to link `libart-disassembler` at all - the build will fail, so there is no possibility of a hidden mistake.",
+      "parentUuid": "796f8582_09cdb1c1",
       "range": {
         "startLine": 128,
         "startChar": 0,
