@@ -43,6 +43,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acd7710b_a5ccccff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-20T14:08:25Z",
+      "side": 1,
+      "message": "Please verify that tests work in the chroot setup following https://cs.android.com/android/platform/superproject/+/master:art/test/README.chroot.md on host and target on master-art, including gtests, run tests, libcore tests and JDWP tests.",
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2869f00_d81f6817",
         "filename": "compiler/Android.bp",
         "patchSetId": 8
@@ -153,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01f8c539_242b750b",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-20T14:08:25Z",
+      "side": 1,
+      "message": "So it\u0027s a cyclic dependency - one at compile time and the opposite at runtime. But it\u0027s not surprising and probably not something we feasibly can avoid.\n\nHowever, doesn\u0027t this mean the code from `libart-runtime` that gets linked into `libart-compiler` also gets linked in again directly into `libart`? Symbols aren\u0027t deduped in static linking as nicely as they are for shared libs.\n\nSo to avoid that it seems necessary to both make this `whole_static_libs` and drop `libart-runtime` as a direct `libart` dependency. However, that still seems error prone to me. I think it\u0027s better to avoid this static library altogether and instead put it all into a defaults that\u0027s used in `libart` so that it all gets linked together in one pass.\n\nThat defaults could be the `libart-compiler_dependencies` you introduced above, couldn\u0027t it? I.e. it would only go into `libart` and `libart-compiler_static_defaults`, assuming it gets reinstated as I suggested elsewhere.",
+      "parentUuid": "d23b32fb_9b07a536",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 25
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27c00712_11e3de93",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 8
@@ -188,6 +229,30 @@
       "side": 1,
       "message": "My understanding is this issue indeed is host-vs-target.\nWe don\u0027t need to use `dlopen` in static builds because functions from `libart-disassembler` are accessible directly.\nFor target builds we don\u0027t want to pay the price of linking to `libart-disassembler` until we actually need it.\n\nWhat kind of regression this would introduce? From what I\u0027ve found:\n`dex2oat` -\u003e (host) static_libs: `libdex2oat_static` -\u003e `libart-compiler_static_defaults` -\u003e `libart-disassembler_static_defaults`\n`oatdump` -\u003e (host) static_libs: `liboatdump_static` -\u003e `libart-disassembler_static_defaults`\n\nAnd in `libart-disassembler_static_defaults`:\n```\nwhole_static_libs: [\n    \"libart-disassembler\",\n```\nSame goes for dex2oatd and oatdumpd.\nThis means that host builds of dex2oat(d) and oatdump(d) don\u0027t need to use `dlopen`, since `libart-disassembler` should be available anyway.",
       "parentUuid": "27c00712_11e3de93",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 80
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "796f8582_09cdb1c1",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-20T14:08:25Z",
+      "side": 1,
+      "message": "There\u0027s also dalvikvm, which doesn\u0027t link ART libs statically. It\u0027s also a fragile assumption that we continue to link dex2oat and oatdump on host this way.\n\nYou bring up a good point though - we need to account for that `libart-disassembler` is linked either statically or not, and that depends on the final binary linkage. Best would be if it can be done at runtime here, so that `dlopen` is only called if `libart-disassembler` hasn\u0027t been linked statically. One possibility is to check a symbol in it with `dlsym` first, but then that symbol needs to exported to the symbol table even when it\u0027s linked statically. Hopefully there\u0027s a better way.\n\nThen on top of that the calls to both `dlsym` and `dlopen` need to be #ifdef\u0027ed out if the build is fully static, which is the messy bit discussed earlier.",
+      "parentUuid": "6f9cc44a_3724ab09",
       "range": {
         "startLine": 128,
         "startChar": 0,
