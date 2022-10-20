@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e46cb7ed_22ee7e3f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T12:11:22Z",
+      "side": 1,
+      "message": "Did you also ensure that the emitted test commands didn\u0027t change?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dc93cdf_60037f82",
+        "filename": "test/115-native-bridge/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T12:11:22Z",
+      "side": 1,
+      "message": "Isn\u0027t it a bit short? Or do you intend to refactor later?",
+      "range": {
+        "startLine": 21,
+        "startChar": 47,
+        "endLine": 21,
+        "endChar": 48
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f341dcd9_7f3b0d2e",
+        "filename": "test/115-native-bridge/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T12:11:22Z",
+      "side": 1,
+      "message": "From the diff it seems that `pwd` is the same as `ctx.env.DEX_LOCATION`, right?",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09bac0de_0a008975",
+        "filename": "test/116-nodex2oat/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T12:11:22Z",
+      "side": 1,
+      "message": "There is no assertion that there is `--no-prebuild` flag. I assume this relies that both `--prebuild` and `--no-prebuild` modify the same `args.prebuild` variable.",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73de4eb3_a3bd4e55",
+        "filename": "test/116-nodex2oat/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T12:11:22Z",
+      "side": 1,
+      "message": "Assert does run in python by default, right? Asking because if you insert `assert` in java code, it is a no-op by default.",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 8
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edd974bc_f9d63858",
+        "filename": "test/1336-short-finalizer-timeout/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T12:11:22Z",
+      "side": 1,
+      "message": "Why do you need to save it in a local variable? How can it be used?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 14
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "397b11d6_d8027996",
+        "filename": "test/2031-zygote-compiled-frame-deopt/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T12:11:22Z",
+      "side": 1,
+      "message": "Aren\u0027t you overriding `runtime_option` argument instead of providing a list?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 46
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b53ea83f_9ebc2d3f",
+        "filename": "test/304-method-tracing/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T12:11:22Z",
+      "side": 1,
+      "message": "Aren\u0027t you overriding `runtime_option` argument instead of providing a list?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 71
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4fe0907_2d4920c9",
+        "filename": "test/595-profile-saving/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-20T12:11:22Z",
+      "side": 1,
+      "message": "Not sure about python formatting, but I\u0027d prefer either all on the same line or each on a new line.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 40
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
