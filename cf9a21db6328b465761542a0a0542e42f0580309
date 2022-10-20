@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07e2537c_d453e6e7",
+        "filename": "tools/buildbot-setup-device.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-20T14:37:37Z",
+      "side": 1,
+      "message": "Suggestion: `tr -d [^0-9]`",
+      "range": {
+        "startLine": 43,
+        "startChar": 53,
+        "endLine": 43,
+        "endChar": 73
+      },
+      "revId": "cf9a21db6328b465761542a0a0542e42f0580309",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
