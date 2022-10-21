@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d23b2da_651fbc8d",
+        "filename": "test/118-noimage-dex2oat/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 0,
+      "message": "Correct.",
+      "parentUuid": "27040dc7_a3ea775a",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 54
+      },
+      "revId": "5c769533d04343895e1eae83fee5eb1d1d8db2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ee96c26_cf8eb9c3",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-20T12:11:22Z",
       "side": 0,
       "message": "I don\u0027t see this ported to python.",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 20,
+        "endChar": 53
+      },
+      "revId": "5c769533d04343895e1eae83fee5eb1d1d8db2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06977e43_04eac3de",
+        "filename": "test/613-inlining-dex-cache/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 0,
+      "message": "It is obsolete.  The string would never match.",
+      "parentUuid": "7ee96c26_cf8eb9c3",
       "range": {
         "startLine": 20,
         "startChar": 12,

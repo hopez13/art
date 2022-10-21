@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8445c78_fb3e7d76",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 1,
+      "message": "I did, yes.",
+      "parentUuid": "e46cb7ed_22ee7e3f",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dc93cdf_60037f82",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5edf059d_1da78fbe",
+        "filename": "test/115-native-bridge/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 1,
+      "message": "Yes, but that is the name of the command line argument.\n\nI would rather refactor that separately (e.g. if I managed to remove the parser altogether)",
+      "parentUuid": "3dc93cdf_60037f82",
+      "range": {
+        "startLine": 21,
+        "startChar": 47,
+        "endLine": 21,
+        "endChar": 48
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f341dcd9_7f3b0d2e",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-10-20T12:11:22Z",
       "side": 1,
       "message": "From the diff it seems that `pwd` is the same as `ctx.env.DEX_LOCATION`, right?",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86df78c0_2146c9bd",
+        "filename": "test/115-native-bridge/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 1,
+      "message": "Yes on the host, but I don\u0027t think it is on the target (`pwd` is the host temp dir, whereas `DEX_LOCATION` is the device temp dir)\n\nBut this test is disablted on target and jvm, so I guess it does not matter.",
+      "parentUuid": "f341dcd9_7f3b0d2e",
       "range": {
         "startLine": 22,
         "startChar": 13,
@@ -116,6 +188,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd81b5ad_eeef020c",
+        "filename": "test/116-nodex2oat/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 1,
+      "message": "Yes.  There is `--prebuild` flag only.  Python understands what `--no-*` means for boolean flag.",
+      "parentUuid": "09bac0de_0a008975",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc3de8db_748642e2",
+        "filename": "test/116-nodex2oat/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 1,
+      "message": "Yes.\n\n\"In the current implementation, the built-in variable __debug__ is True under normal circumstances, False when optimization is requested (command line option -O).\"",
+      "parentUuid": "73de4eb3_a3bd4e55",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 8
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edd974bc_f9d63858",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-10-20T12:11:22Z",
       "side": 1,
       "message": "Why do you need to save it in a local variable? How can it be used?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 14
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4b444e8_6910dd54",
+        "filename": "test/1336-short-finalizer-timeout/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 1,
+      "message": "Ups.  Leftover.  Removed.",
+      "parentUuid": "edd974bc_f9d63858",
       "range": {
         "startLine": 22,
         "startChar": 2,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a740ebb_5ca58cd0",
+        "filename": "test/2031-zygote-compiled-frame-deopt/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 1,
+      "message": "Good catch.  It is python error to specify named argument more than once, so I guess the test never runs.",
+      "parentUuid": "397b11d6_d8027996",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 46
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b53ea83f_9ebc2d3f",
@@ -185,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62138cb1_c55590f0",
+        "filename": "test/304-method-tracing/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "b53ea83f_9ebc2d3f",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 71
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4fe0907_2d4920c9",
@@ -198,6 +390,30 @@
       "writtenOn": "2022-10-20T12:11:22Z",
       "side": 1,
       "message": "Not sure about python formatting, but I\u0027d prefer either all on the same line or each on a new line.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 40
+      },
+      "revId": "44cb564c76ce7c854899207c0555fed71be67e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33731a32_fa72980d",
+        "filename": "test/595-profile-saving/run",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-21T16:30:34Z",
+      "side": 1,
+      "message": "That is what the automated formatted did.",
+      "parentUuid": "a4fe0907_2d4920c9",
       "range": {
         "startLine": 29,
         "startChar": 0,
