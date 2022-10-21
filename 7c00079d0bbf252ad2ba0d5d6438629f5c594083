@@ -16,6 +16,24 @@
       "message": "Line too long",
       "revId": "7c00079d0bbf252ad2ba0d5d6438629f5c594083",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bafc7ec_1baf95d5",
+        "filename": "compiler/optimizing/critical_native_abi_fixup_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-21T07:42:14Z",
+      "side": 1,
+      "message": "Addressed in a follow-up CL: https://android-review.googlesource.com/2263510 .",
+      "parentUuid": "38fdbe90_af1a8361",
+      "revId": "7c00079d0bbf252ad2ba0d5d6438629f5c594083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
