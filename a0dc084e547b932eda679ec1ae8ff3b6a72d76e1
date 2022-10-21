@@ -2214,6 +2214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe34c1ce_8680e934",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-21T18:09:45Z",
+      "side": 1,
+      "message": "There is a memory overhead, right? Luckily it shouldn\u0027t be much as most of the allocations in this pool are large arrays.\n\nIt would be simpler, I think. But maybe do this once we are stable with userfaultfd GC?",
+      "parentUuid": "e084d84a_376a48e4",
+      "range": {
+        "startLine": 1748,
+        "startChar": 0,
+        "endLine": 1748,
+        "endChar": 68
+      },
+      "revId": "a0dc084e547b932eda679ec1ae8ff3b6a72d76e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab451052_92965094",
         "filename": "runtime/runtime.cc",
         "patchSetId": 20

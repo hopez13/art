@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9129141_f9acb067",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-21T18:09:45Z",
+      "side": 1,
+      "message": "So sorry about that. Somehow I thought I already replied.",
+      "parentUuid": "d3d6812e_605e037c",
+      "revId": "606bd949a021edc3a5cb2f3adf650956fb3f32d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bef1ff7c_d016f88b",
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "25a62b0f_d312d48d",
+        "filename": "runtime/art_field-inl.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-21T18:09:45Z",
+      "side": 1,
+      "message": "The calculation below assumes ArtField size is power of two so that we can use RoundUp. If in future we decide to change ArtField, then this would warn us at build time and avoid crashes in unexpected ways.",
+      "parentUuid": "bef1ff7c_d016f88b",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 42
+      },
+      "revId": "606bd949a021edc3a5cb2f3adf650956fb3f32d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "36da4359_8e14f489",
         "filename": "runtime/mirror/dex_cache-inl.h",
         "patchSetId": 29
@@ -54,6 +96,30 @@
       "writtenOn": "2022-10-09T20:44:04Z",
       "side": 1,
       "message": "These are still here for the other GCs, right? Could we move the other GCs to visit the linear alloc spaces like userfaultfd?",
+      "range": {
+        "startLine": 429,
+        "startChar": 0,
+        "endLine": 460,
+        "endChar": 1
+      },
+      "revId": "606bd949a021edc3a5cb2f3adf650956fb3f32d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac029d46_98e072f4",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-21T18:09:45Z",
+      "side": 1,
+      "message": "Actually we need them even in this GC (during marking and when visiting DexCache in immune spaces). And that is necessary as this is the right way to follow during marking to correctly know what is reachable.",
+      "parentUuid": "36da4359_8e14f489",
       "range": {
         "startLine": 429,
         "startChar": 0,
