@@ -16,6 +16,29 @@
       "message": "Thank you both, PTAL.",
       "revId": "15232838be1209ccb4823651312e000c70239173",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4859e179_3cecad20",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-21T09:15:58Z",
+      "side": 1,
+      "message": "This is the default argument, so it can be omitted (and the other arguments put on a single line). Same below.\n\nBut it\u0027s OK to keep if you want it here.",
+      "range": {
+        "startLine": 177,
+        "startChar": 12,
+        "endLine": 177,
+        "endChar": 41
+      },
+      "revId": "15232838be1209ccb4823651312e000c70239173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
