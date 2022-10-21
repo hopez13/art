@@ -973,6 +973,14 @@ class MethodEntryExitHooksSlowPathARMVIXL : public SlowPathCodeARMVIXL {
         (instruction_->IsMethodEntryHook()) ? kQuickMethodEntryHook : kQuickMethodExitHook;
     __ Bind(GetEntryLabel());
     SaveLiveRegisters(codegen, locations);
+    if (instruction_->IsMethodExitHook()) {
+      // Load frame size and should_deopt_flag to pass to the exit hooks
+      __ Mov(vixl::aarch32::Register(R2), arm_codegen->GetFrameSize());
+      arm_codegen->GetAssembler()->LoadFromOffset(kLoadWord,
+                                 vixl::aarch32::Register(R3),
+                                 sp,
+                                 arm_codegen->GetStackOffsetOfShouldDeoptimizeFlag());
+    }
     arm_codegen->InvokeRuntime(entry_point, instruction_, instruction_->GetDexPc(), this);
     RestoreLiveRegisters(codegen, locations);
     __ B(GetExitLabel());

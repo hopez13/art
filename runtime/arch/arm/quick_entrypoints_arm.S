@@ -1543,7 +1543,7 @@ ENTRY art_quick_generic_jni_trampoline
     bx lr      // ret
 
 .Lcall_method_exit_hook:
-    bl art_quick_method_exit_hook
+    bl art_jni_method_exit_hook
     b .Lcall_method_exit_hook_done
 
     // Undo the unwinding information from above since it doesn't apply below.
@@ -2572,6 +2572,23 @@ ENTRY art_quick_method_entry_hook
 END art_quick_method_entry_hook
 
 ENTRY art_quick_method_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME r5
+
+    push {r2-r3}                              @ pass frame_size and should_deopt_flag on stack
+    add r3, sp, #(8 + 8)                      @ store fpr_res pointer, in kSaveEverything frame
+    add r2, sp, #(136 + 8)                    @ store gpr_res pointer, in kSaveEverything frame
+    add r1, sp, #(FRAME_SIZE_SAVE_EVERYTHING + 8)   @ pass ArtMethod**
+    mov r0, rSELF                             @ pass Thread::Current
+    blx artMethodExitHookJIT                  @ (Thread*, ArtMethod**, gpr_res*, fpr_res*,
+                                              @ frame_size, should_deopt_flag)
+
+    add sp, #8                                @ pop arguments on stack
+    RESTORE_SAVE_EVERYTHING_FRAME
+    REFRESH_MARKING_REGISTER
+    blx lr
+END art_quick_method_exit_hook
+
+ENTRY art_jni_method_exit_hook
     SETUP_SAVE_EVERYTHING_FRAME r2
 
     add r3, sp, #8                            @ store fpr_res pointer, in kSaveEverything frame
@@ -2584,4 +2601,4 @@ ENTRY art_quick_method_exit_hook
     RESTORE_SAVE_EVERYTHING_FRAME
     REFRESH_MARKING_REGISTER
     blx lr
-END art_quick_method_exit_hook
+END art_jni_method_exit_hook

@@ -1915,7 +1915,7 @@ ENTRY art_quick_generic_jni_trampoline
 
 .Lcall_method_exit_hook:
     fmov d0, x0
-    bl art_quick_method_exit_hook
+    bl art_jni_method_exit_hook
     b .Lcall_method_exit_hook_done
 
     // Undo the unwinding information from above since it doesn't apply below.
@@ -2673,8 +2673,26 @@ ENTRY art_quick_method_entry_hook
     ret
 END art_quick_method_entry_hook
 
-    .extern artMethodExitHook
+    .extern artMethodExitHookJIT
 ENTRY art_quick_method_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME
+
+    // frame_size and should_deopt_flag are passed from JITed code in x4 and x5
+    add x3, sp, #16                           // floating-point result ptr in kSaveEverything frame
+    add x2, sp, #272                          // integer result ptr in kSaveEverything frame
+    add x1, sp, #FRAME_SIZE_SAVE_EVERYTHING   // ArtMethod**
+    mov x0, xSELF                             // Thread::Current
+    bl  artMethodExitHookJIT                  // (Thread*, ArtMethod**, gpr_res*, fpr_res*,
+                                              // frame_size, should_deopt_flag)
+
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    REFRESH_MARKING_REGISTER
+    ret
+END art_quick_method_exit_hook
+
+    .extern artMethodExitHook
+ENTRY art_jni_method_exit_hook
     SETUP_SAVE_EVERYTHING_FRAME
 
     add x3, sp, #16                           // floating-point result ptr in kSaveEverything frame
@@ -2687,5 +2705,4 @@ ENTRY art_quick_method_exit_hook
     RESTORE_SAVE_EVERYTHING_FRAME
     REFRESH_MARKING_REGISTER
     ret
-END art_quick_method_exit_hook
-
+END art_jni_method_exit_hook

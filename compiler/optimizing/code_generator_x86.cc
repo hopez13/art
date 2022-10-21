@@ -966,6 +966,10 @@ class MethodEntryExitHooksSlowPathX86 : public SlowPathCode {
         (instruction_->IsMethodEntryHook()) ? kQuickMethodEntryHook : kQuickMethodExitHook;
     __ Bind(GetEntryLabel());
     SaveLiveRegisters(codegen, locations);
+    if (instruction_->IsMethodExitHook()) {
+      __ movl(EBX, Immediate(codegen->GetFrameSize()));
+      __ movl(ECX, Address(ESP, codegen->GetStackOffsetOfShouldDeoptimizeFlag()));
+    }
     x86_codegen->InvokeRuntime(entry_point, instruction_, instruction_->GetDexPc(), this);
     RestoreLiveRegisters(codegen, locations);
     __ jmp(GetExitLabel());
