@@ -2776,9 +2776,25 @@ class JNI {
     jlong address_arg = reinterpret_cast<jlong>(address);
     jint capacity_arg = static_cast<jint>(capacity);
 
-    jobject result = env->NewObject(WellKnownClasses::java_nio_DirectByteBuffer,
-                                    WellKnownClasses::java_nio_DirectByteBuffer_init,
-                                    address_arg, capacity_arg);
+    ScopedObjectAccess soa(env);
+    ObjPtr<mirror::Class> j_n_dbb =
+        EnsureInitialized(self, java_nio_DirectByteBuffer_init->GetDeclaringClass());
+    if (j_n_dbb == nullptr) {
+      return nullptr;
+    }
+    StackHandleScope<1u> hs(soa.Self());
+    Handle<mirror::Object> result = hs.NewHandle(j_n_dbb->AllocObject(soa.Self()));
+    uint32_t args[] = {
+        StackReference<mirror::Object>::FromMirrorPtr(result.Get()).AsVRegValue(),
+        static_cast<uint32_t>(address_arg),
+        static_cast<uint32_t>(static_cast<uint64_t>(address_arg) >> 32),
+        dchecked_intergral_cast<uint32_t>(capacity_arg)
+    };
+    static constexpr char kShorty[] = "VJI";
+    DCHECK_EQ(strcmp(WellKnownClasses::java_nio_DirectByteBuffer_init->GetShorty(), kShorty), 0);
+    JValue result;
+    WellKnownClasses::java_nio_DirectByteBuffer_init->Invoke(
+        soa.Self(), args, sizeof(args), &result, kShorty);
     return static_cast<JNIEnvExt*>(env)->self_->IsExceptionPending() ? nullptr : result;
   }
 
@@ -2791,7 +2807,7 @@ class JNI {
     ScopedObjectAccess soa(env);
     ObjPtr<mirror::Object> buffer = soa.Decode<mirror::Object>(java_buffer);
     ObjPtr<mirror::Class> java_nio_Buffer =
-       soa.Decode<mirror::Class>(WellKnownClasses::java_nio_Buffer);
+        soa.Decode<mirror::Class>(WellKnownClasses::java_nio_Buffer);
     DCHECK(java_nio_Buffer != nullptr);
 
     // Return null if |java_buffer| is not a java.nio.Buffer instance.
@@ -2800,8 +2816,7 @@ class JNI {
     }
 
     // Buffer.address is non-null when the |java_buffer| is direct.
-    return reinterpret_cast<void*>(
-        WellKnownClasses::java_nio_Buffer_address->GetLong(buffer));
+    return reinterpret_cast<void*>(WellKnownClasses::java_nio_Buffer_address->GetLong(buffer));
   }
 
   static jlong GetDirectBufferCapacity(JNIEnv* env, jobject java_buffer) {

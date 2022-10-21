@@ -126,13 +126,13 @@ jmethodID WellKnownClasses::java_lang_Thread_init;
 jmethodID WellKnownClasses::java_lang_Thread_run;
 jmethodID WellKnownClasses::java_lang_ThreadGroup_add;
 jmethodID WellKnownClasses::java_lang_ThreadGroup_removeThread;
-jmethodID WellKnownClasses::java_nio_Buffer_isDirect;
-jmethodID WellKnownClasses::java_nio_DirectByteBuffer_init;
-jmethodID WellKnownClasses::java_util_function_Consumer_accept;
-jmethodID WellKnownClasses::libcore_reflect_AnnotationFactory_createAnnotation;
-jmethodID WellKnownClasses::libcore_reflect_AnnotationMember_init;
-jmethodID WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer_broadcast;
-jmethodID WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer_dispatch;
+ArtMethod* WellKnownClasses::java_nio_Buffer_isDirect;
+ArtMethod* WellKnownClasses::java_nio_DirectByteBuffer_init;
+ArtMethod* WellKnownClasses::java_util_function_Consumer_accept;
+ArtMethod* WellKnownClasses::libcore_reflect_AnnotationFactory_createAnnotation;
+ArtMethod* WellKnownClasses::libcore_reflect_AnnotationMember_init;
+ArtMethod* WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer_broadcast;
+ArtMethod* WellKnownClasses::org_apache_harmony_dalvik_ddmc_DdmServer_dispatch;
 
 ArtField* WellKnownClasses::dalvik_system_BaseDexClassLoader_pathList;
 ArtField* WellKnownClasses::dalvik_system_BaseDexClassLoader_sharedLibraryLoaders;
@@ -470,13 +470,6 @@ void WellKnownClasses::InitFieldsAndMethodsOnly(JNIEnv* env) {
   java_lang_Thread_run = CacheMethod(env, java_lang_Thread, false, "run", "()V");
   java_lang_ThreadGroup_add = CacheMethod(env, java_lang_ThreadGroup, false, "add", "(Ljava/lang/Thread;)V");
   java_lang_ThreadGroup_removeThread = CacheMethod(env, java_lang_ThreadGroup, false, "threadTerminated", "(Ljava/lang/Thread;)V");
-  java_nio_Buffer_isDirect = CacheMethod(env, java_nio_Buffer, false, "isDirect", "()Z");
-  java_nio_DirectByteBuffer_init = CacheMethod(env, java_nio_DirectByteBuffer, false, "<init>", "(JI)V");
-  java_util_function_Consumer_accept = CacheMethod(env, java_util_function_Consumer, false, "accept", "(Ljava/lang/Object;)V");
-  libcore_reflect_AnnotationFactory_createAnnotation = CacheMethod(env, libcore_reflect_AnnotationFactory, true, "createAnnotation", "(Ljava/lang/Class;[Llibcore/reflect/AnnotationMember;)Ljava/lang/annotation/Annotation;");
-  libcore_reflect_AnnotationMember_init = CacheMethod(env, libcore_reflect_AnnotationMember, false, "<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/reflect/Method;)V");
-  org_apache_harmony_dalvik_ddmc_DdmServer_broadcast = CacheMethod(env, org_apache_harmony_dalvik_ddmc_DdmServer, true, "broadcast", "(I)V");
-  org_apache_harmony_dalvik_ddmc_DdmServer_dispatch = CacheMethod(env, org_apache_harmony_dalvik_ddmc_DdmServer, true, "dispatch", "(I[BII)Lorg/apache/harmony/dalvik/ddmc/Chunk;");
 
   StackHandleScope<1u> hs(self);
   Handle<mirror::Class> j_i_fd =
@@ -484,6 +477,32 @@ void WellKnownClasses::InitFieldsAndMethodsOnly(JNIEnv* env) {
 
   ScopedAssertNoThreadSuspension sants(__FUNCTION__);
   PointerSize pointer_size = class_linker->GetImagePointerSize();
+
+  ObjPtr<mirror::Class> j_n_b = soa.Decode<mirror::Class>(java_nio_Buffer);
+  java_nio_Buffer_isDirect =
+      CacheMethod(j_n_b, /*is_static=*/ false, "isDirect", "()Z", pointer_size);
+  java_nio_DirectByteBuffer_init =
+      CacheMethod(env, java_nio_DirectByteBuffer, /*is_static=*/ false, "<init>", "(JI)V", pointer_size);
+  java_util_function_Consumer_accept =
+      CacheMethod(env, java_util_function_Consumer, false, "accept", "(Ljava/lang/Object;)V");
+  libcore_reflect_AnnotationFactory_createAnnotation = CacheMethod(
+      env, libcore_reflect_AnnotationFactory, true, "createAnnotation",
+      "(Ljava/lang/Class;[Llibcore/reflect/AnnotationMember;)Ljava/lang/annotation/Annotation;");
+  libcore_reflect_AnnotationMember_init = CacheMethod(
+      env, libcore_reflect_AnnotationMember, false, "<init>",
+      "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/reflect/Method;)V");
+
+  ObjPtr<mirror::Class> o_a_h_d_d_ds =
+      soa.Decode<mirror::Class>(org_apache_harmony_dalvik_ddmc_DdmServer);
+  org_apache_harmony_dalvik_ddmc_DdmServer_broadcast =
+      CacheMethod(o_a_h_d_d_ds, /*is_static=*/ true, "broadcast", "(I)V", pointer_size);
+  org_apache_harmony_dalvik_ddmc_DdmServer_dispatch =
+      CacheMethod(env,
+                  o_a_h_d_d_ds,
+                  /*is_static=*/ true,
+                  "dispatch",
+                  "(I[BII)Lorg/apache/harmony/dalvik/ddmc/Chunk;",
+                  pointer_size);
 
   ObjPtr<mirror::Class> j_l_Double = java_lang_Double_valueOf->GetDeclaringClass();
   java_lang_Double_doubleToRawLongBits =
@@ -564,7 +583,6 @@ void WellKnownClasses::InitFieldsAndMethodsOnly(JNIEnv* env) {
   java_lang_Throwable_suppressedExceptions = CacheField(
       j_l_Throwable, /*is_static=*/ false, "suppressedExceptions", "Ljava/util/List;");
 
-  ObjPtr<mirror::Class> j_n_b = soa.Decode<mirror::Class>(java_nio_Buffer);
   java_nio_Buffer_address = CacheField(j_n_b, /*is_static=*/ false, "address", "J");
   java_nio_Buffer_capacity = CacheField(j_n_b, /*is_static=*/ false, "capacity", "I");
   java_nio_Buffer_elementSizeShift =
@@ -707,7 +725,7 @@ void WellKnownClasses::Clear() {
   java_lang_ThreadGroup_add = nullptr;
   java_lang_ThreadGroup_removeThread = nullptr;
   java_nio_Buffer_isDirect = nullptr;
-  java_nio_DirectByteBuffer_init = nullptr;
+  java_nio_DirectByte = nullptr;
   libcore_reflect_AnnotationFactory_createAnnotation = nullptr;
   libcore_reflect_AnnotationMember_init = nullptr;
   org_apache_harmony_dalvik_ddmc_DdmServer_broadcast = nullptr;

@@ -138,13 +138,13 @@ struct WellKnownClasses {
   static jmethodID java_lang_Thread_run;
   static jmethodID java_lang_ThreadGroup_add;
   static jmethodID java_lang_ThreadGroup_removeThread;
-  static jmethodID java_nio_Buffer_isDirect;
-  static jmethodID java_nio_DirectByteBuffer_init;
-  static jmethodID java_util_function_Consumer_accept;
-  static jmethodID libcore_reflect_AnnotationFactory_createAnnotation;
-  static jmethodID libcore_reflect_AnnotationMember_init;
-  static jmethodID org_apache_harmony_dalvik_ddmc_DdmServer_broadcast;
-  static jmethodID org_apache_harmony_dalvik_ddmc_DdmServer_dispatch;
+  static ArtMethod* java_nio_Buffer_isDirect;
+  static ArtMethod* java_nio_DirectByteBuffer_init;
+  static ArtMethod* java_util_function_Consumer_accept;
+  static ArtMethod* libcore_reflect_AnnotationFactory_createAnnotation;
+  static ArtMethod* libcore_reflect_AnnotationMember_init;
+  static ArtMethod* org_apache_harmony_dalvik_ddmc_DdmServer_broadcast;
+  static ArtMethod* org_apache_harmony_dalvik_ddmc_DdmServer_dispatch;
 
   static ArtField* dalvik_system_BaseDexClassLoader_pathList;
   static ArtField* dalvik_system_BaseDexClassLoader_sharedLibraryLoaders;
