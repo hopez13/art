@@ -8261,6 +8261,12 @@ size_t ClassLinker::LinkMethodsHelper<kPointerSize>::AssignVTableIndexes(
     return 0u;
   }
 
+  if (klass_->DescriptorEquals("LXSuper;") ||
+      klass_->DescriptorEquals("LXSub1;") ||
+      klass_->DescriptorEquals("LXSub2;")) {
+    LOG(ERROR) << "vtable_length=" << vtable_length << " for " << klass_->PrettyDescriptor();
+  }
+
   return vtable_length;
 }
 

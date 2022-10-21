@@ -16,6 +16,7 @@
 
 public class Main {
 
+  /*
   // Testcase 1: the superclass has a package private version in the same package.
   static Interface s = new SubClass();
 
@@ -41,6 +42,7 @@ public class Main {
       throw new Error(e);
     }
   }
+  */
 
   public static void assertEquals(Object expected, Object actual) {
     if (expected != actual) {
@@ -55,6 +57,7 @@ public class Main {
   }
 
   public static void main(String[] args) throws Exception {
+    /*
     assertEquals(SuperClass.class, ((SubClass) s).foo());
     assertEquals(SuperClass.class, ((SuperClass) s).foo());
 
@@ -152,6 +155,23 @@ public class Main {
 
     try {
       s6.foo();
+      throw new Error("Expected AbstractMethodError");
+    } catch (AbstractMethodError e) {
+      // expected
+    }
+    */
+
+    try {
+      XIface i = new XSub1();
+      i.foo();
+      throw new Error("Expected AbstractMethodError");
+    } catch (AbstractMethodError e) {
+      // expected
+    }
+
+    try {
+      XIface i = new XSub2();
+      i.foo();
       throw new Error("Expected AbstractMethodError");
     } catch (AbstractMethodError e) {
       // expected
