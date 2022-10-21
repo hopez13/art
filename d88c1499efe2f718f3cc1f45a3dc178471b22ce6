@@ -422,6 +422,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae7a4674_d7c17ff1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-21T12:13:40Z",
+      "side": 1,
+      "message": "Cherry-pick https://android-review.googlesource.com/2265148 and test:\n\n    art/test/testrunner/testrunner.py -b --host --optimizing -t 840-resolution\n\nWithout https://android-review.googlesource.com/2261306 the test shall crash but it shall also print `vtable_length\u003d14 for XSub1` before crashing. With that CL applied, it shall not crash anymore but it shall still fail because of the extra `vtable_length` output.\n\nYou can also see the results before this CL after partial reverts (keeping the tests) in art/:\n\n    git log -n1 -p b63552e673ea546d947a4e689484c90763f72aa7 runtime/ | patch -p1 -R\n    git log -n1 -p ef0b9c465a24f1ff1c3442c9ae45ae0e0456e09e runtime/ | patch -p1 -R \n    git log -n1 -p e22aa32240589cf31d341e0f59bf0bf522b4a239 runtime/ | patch -p1 -R\n    git log -n1 -p d88c1499efe2f718f3cc1f45a3dc178471b22ce6 runtime/ | patch -p1 -R\n    sed -es/kUseReadBarrier/gUseReadBarrier/ --in-place runtime/interpreter/mterp/nterp.cc\n\nThe test shall fail only because of the extra `vtable_length` output but that output says `vtable_length\u003d13 for XSub1`. So, we can have the same AME thrown even if we reuse the vtable index and point to the existing non-public abstract method.",
+      "parentUuid": "2291f4da_5ac35509",
+      "range": {
+        "startLine": 8113,
+        "startChar": 6,
+        "endLine": 8113,
+        "endChar": 49
+      },
+      "revId": "d88c1499efe2f718f3cc1f45a3dc178471b22ce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7cc5553_5cd9b1dc",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
