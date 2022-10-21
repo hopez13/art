@@ -2683,19 +2683,12 @@ extern "C" void artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** 
   }
 }
 
-extern "C" void artMethodExitHook(Thread* self,
-                                 ArtMethod* method,
-                                 uint64_t* gpr_result,
-                                 uint64_t* fpr_result)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  // For GenericJniTrampolines we call artMethodExitHook even for non debuggable runtimes though we
-  // still install instrumentation stubs. So just return early here so we don't call method exit
-  // twice. In all other cases (JITed JNI stubs / JITed code) we only call this for debuggable
-  // runtimes.
-  if (!Runtime::Current()->IsJavaDebuggable()) {
-    return;
-  }
-
+void artMethodExitHookHelper(Thread* self,
+                             ArtMethod* method,
+                             uint64_t* gpr_result,
+                             uint64_t* fpr_result,
+                             std::function<bool()> should_deoptimize)
+  REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK_EQ(reinterpret_cast<uintptr_t>(self), reinterpret_cast<uintptr_t>(Thread::Current()));
   CHECK(gpr_result != nullptr);
   CHECK(fpr_result != nullptr);
@@ -2717,12 +2710,7 @@ extern "C" void artMethodExitHook(Thread* self,
     }
     DCHECK(!method->IsRuntimeMethod());
 
-    // Deoptimize if the caller needs to continue execution in the interpreter. Do nothing if we get
-    // back to an upcall.
-    NthCallerVisitor visitor(self, 1, /*include_runtime_and_upcalls=*/false);
-    visitor.WalkStack(true);
-    deoptimize = instr->ShouldDeoptimizeCaller(self, visitor);
-
+    deoptimize = should_deoptimize();
     // If we need a deoptimization MethodExitEvent will be called by the interpreter when it
     // re-executes the return instruction. For native methods we have to process method exit
     // events here since deoptimization just removes the native frame.
@@ -2757,6 +2745,61 @@ extern "C" void artMethodExitHook(Thread* self,
     artDeoptimize(self);
     UNREACHABLE();
   }
+}
+
+extern "C" void artMethodExitHookJIT(Thread* self,
+                                 ArtMethod** sp,
+                                 uint64_t* gpr_result,
+                                 uint64_t* fpr_result,
+                                 uint32_t frame_size,
+                                 uint32_t should_deoptimize_flag)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  auto should_deoptimize = [=]() REQUIRES_SHARED(Locks::mutator_lock_) {
+    instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+    bool deoptimize = false;
+    uintptr_t caller_sp = reinterpret_cast<uintptr_t>(sp) + frame_size;
+    ArtMethod* caller = *(reinterpret_cast<ArtMethod**>(caller_sp));
+    uintptr_t caller_pc_addr = reinterpret_cast<uintptr_t>(sp) + (frame_size - sizeof(void*));
+    uintptr_t caller_pc = *reinterpret_cast<uintptr_t*>(caller_pc_addr);
+    if (caller != nullptr && !caller->IsRuntimeMethod() && !caller->IsNative()) {
+      deoptimize = instr->NeedsSlowInterpreterForMethod(self, caller) || should_deoptimize_flag;
+    }
+
+    if (deoptimize && !Runtime::Current()->IsAsyncDeoptimizeable(caller, caller_pc)) {
+      LOG(WARNING) << "Got a deoptimization request on un-deoptimizable method "
+                   << caller->PrettyMethod();
+      return false;
+    }
+
+    return deoptimize;
+  };
+
+  artMethodExitHookHelper(self, *sp, gpr_result, fpr_result, should_deoptimize);
+}
+
+extern "C" void artMethodExitHook(Thread* self,
+                                 ArtMethod* method,
+                                 uint64_t* gpr_result,
+                                 uint64_t* fpr_result)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // For GenericJniTrampolines we call artMethodExitHook even for non debuggable runtimes though we
+  // still install instrumentation stubs. So just return early here so we don't call method exit
+  // twice. In all other cases (JITed JNI stubs / JITed code) we only call this for debuggable
+  // runtimes.
+  if (!Runtime::Current()->IsJavaDebuggable()) {
+    return;
+  }
+
+  auto should_deoptimize = [=]() REQUIRES_SHARED(Locks::mutator_lock_) {
+    // Deoptimize if the caller needs to continue execution in the interpreter. Do nothing if we get
+    // back to an upcall.
+    NthCallerVisitor visitor(self, 1, /*include_runtime_and_upcalls=*/false);
+    visitor.WalkStack(true);
+    instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
+    return instr->ShouldDeoptimizeCaller(self, visitor);
+  };
+
+  artMethodExitHookHelper(self, method, gpr_result, fpr_result, should_deoptimize);
 }
 
 }  // namespace art
