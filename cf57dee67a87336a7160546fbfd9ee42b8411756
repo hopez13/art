@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1575e336_98ab5c62",
+        "filename": "test/370-dex-v37/build.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1373934
+      },
+      "writtenOn": "2022-10-21T12:57:13Z",
+      "side": 1,
+      "message": "Shall this be outside `with` block? If I\u0027m not mistaken there\u0027s a slight chance that `write` on line 27 would not be flushed and/or written to disk.",
+      "revId": "cf57dee67a87336a7160546fbfd9ee42b8411756",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
