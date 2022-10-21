@@ -244,6 +244,11 @@ class ManagedRuntimeCallingConvention : public CallingConvention {
   // Register that holds the incoming method argument
   virtual ManagedRegister MethodRegister() = 0;
 
+  // Register that is used to pass frame size for method exit call. This
+  // shouldn't be the same as the return register since method exit also expects
+  // return values in the return register.
+  virtual ManagedRegister ArgumentRegisterForMethodExit() = 0;
+
   // Iterator interface
   bool HasNext();
   virtual void Next();
