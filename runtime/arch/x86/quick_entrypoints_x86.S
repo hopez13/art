@@ -2391,5 +2391,35 @@ DEFINE_FUNCTION art_quick_method_exit_hook
     ret
 END_FUNCTION art_quick_method_exit_hook
 
+DEFINE_FUNCTION art_jni_method_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME ebx
+
+    mov FRAME_SIZE_SAVE_EVERYTHING(%esp), %ebx // Remember ArtMethod*
+    subl LITERAL(8), %esp                      // Align stack.
+    CFI_ADJUST_CFA_OFFSET(8)
+    PUSH_ARG edx                   // Save gpr return value. edx and eax need to be together
+                                   // which isn't the case in kSaveEverything frame.
+    PUSH_ARG eax
+    movl %esp, %edx                // Get pointer to gpr_result
+    leal 32(%esp), %eax            // Get pointer to fpr_result, in kSaveEverything frame
+    PUSH_ARG eax                   // Pass fpr_result
+    PUSH_ARG edx                   // Pass gpr_result
+    PUSH_ARG ebx                   // Pass ArtMethod*
+    pushl %fs:THREAD_SELF_OFFSET   // Pass Thread::Current.
+    CFI_ADJUST_CFA_OFFSET(4)
+    call SYMBOL(artMethodExitHook) // (Thread*, ArtMethod*, gpr_result*, fpr_result*)
+
+    // Return result could have been changed if it's a reference.
+    movl 16(%esp), %ecx
+    movl %ecx, (80+32)(%esp)
+    addl LITERAL(32), %esp         // Pop arguments and grp_result.
+    CFI_ADJUST_CFA_OFFSET(-32)
+
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+END_FUNCTION art_jni_method_exit_hook
+
+
 
 

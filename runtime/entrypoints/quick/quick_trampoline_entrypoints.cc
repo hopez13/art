@@ -2683,19 +2683,12 @@ extern "C" void artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** 
   }
 }
 
-extern "C" void artMethodExitHook(Thread* self,
+extern "C" void artMethodExitHookHelper(Thread* self,
                                  ArtMethod* method,
                                  uint64_t* gpr_result,
-                                 uint64_t* fpr_result)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  // For GenericJniTrampolines we call artMethodExitHook even for non debuggable runtimes though we
-  // still install instrumentation stubs. So just return early here so we don't call method exit
-  // twice. In all other cases (JITed JNI stubs / JITed code) we only call this for debuggable
-  // runtimes.
-  if (!Runtime::Current()->IsJavaDebuggable()) {
-    return;
-  }
-
+                                 uint64_t* fpr_result,
+                                 bool deoptimize)
+  REQUIRES_SHARED(Locks::mutator_lock_) {
   DCHECK_EQ(reinterpret_cast<uintptr_t>(self), reinterpret_cast<uintptr_t>(Thread::Current()));
   CHECK(gpr_result != nullptr);
   CHECK(fpr_result != nullptr);
@@ -2707,7 +2700,6 @@ extern "C" void artMethodExitHook(Thread* self,
   DCHECK(instr->AreExitStubsInstalled());
   bool is_ref;
   JValue return_value = instr->GetReturnValue(method, &is_ref, gpr_result, fpr_result);
-  bool deoptimize = false;
   {
     StackHandleScope<1> hs(self);
     MutableHandle<mirror::Object> res(hs.NewHandle<mirror::Object>(nullptr));
@@ -2716,12 +2708,6 @@ extern "C" void artMethodExitHook(Thread* self,
       res.Assign(return_value.GetL());
     }
     DCHECK(!method->IsRuntimeMethod());
-
-    // Deoptimize if the caller needs to continue execution in the interpreter. Do nothing if we get
-    // back to an upcall.
-    NthCallerVisitor visitor(self, 1, /*include_runtime_and_upcalls=*/false);
-    visitor.WalkStack(true);
-    deoptimize = instr->ShouldDeoptimizeCaller(self, visitor);
 
     // If we need a deoptimization MethodExitEvent will be called by the interpreter when it
     // re-executes the return instruction. For native methods we have to process method exit
@@ -2757,6 +2743,43 @@ extern "C" void artMethodExitHook(Thread* self,
     artDeoptimize(self);
     UNREACHABLE();
   }
+}
+
+extern "C" void artMethodExitHookJIT(Thread* self,
+                                 ArtMethod** sp,
+                                 uint64_t* gpr_result,
+                                 uint64_t* fpr_result,
+                                 uint32_t frame_size,
+                                 uint32_t should_deoptimize)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  bool deoptimize = false;
+  uintptr_t caller_sp = reinterpret_cast<uintptr_t>(sp) + frame_size;
+  ArtMethod* caller = *(reinterpret_cast<ArtMethod**>(caller_sp));
+  if (caller != nullptr && !caller->IsRuntimeMethod() && !caller->IsNative()) {
+    deoptimize = instr->NeedsSlowInterpreterForMethod(self, caller) || should_deoptimize;
+  }
+  artMethodExitHookHelper(self, method, gpr_result, fpr_result, deoptimize);
+}
+
+extern "C" void artMethodExitHook(Thread* self,
+                                 ArtMethod* method,
+                                 uint64_t* gpr_result,
+                                 uint64_t* fpr_result)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // For GenericJniTrampolines we call artMethodExitHook even for non debuggable runtimes though we
+  // still install instrumentation stubs. So just return early here so we don't call method exit
+  // twice. In all other cases (JITed JNI stubs / JITed code) we only call this for debuggable
+  // runtimes.
+  if (!Runtime::Current()->IsJavaDebuggable()) {
+    return;
+  }
+
+  // Deoptimize if the caller needs to continue execution in the interpreter. Do nothing if we get
+  // back to an upcall.
+  NthCallerVisitor visitor(self, 1, /*include_runtime_and_upcalls=*/false);
+  visitor.WalkStack(true);
+  bool deoptimize = instr->ShouldDeoptimizeCaller(self, visitor);
+  artMethodExitHookHelper(self, method, gpr_result, fpr_result, deoptimize);
 }
 
 }  // namespace art

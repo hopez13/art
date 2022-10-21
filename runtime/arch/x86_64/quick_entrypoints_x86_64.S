@@ -1614,7 +1614,7 @@ DEFINE_FUNCTION art_quick_generic_jni_trampoline
     ret
 
 .Lcall_method_exit_hook:
-   call art_quick_method_exit_hook
+   call art_jni_method_exit_hook
    jmp .Lcall_method_exit_hook_done
 
     // Undo the unwinding information from above since it doesn't apply below.
@@ -2177,14 +2177,31 @@ END_FUNCTION art_quick_method_entry_hook
 DEFINE_FUNCTION art_quick_method_exit_hook
     SETUP_SAVE_EVERYTHING_FRAME
 
+    // R9 passed from JITed code
+    // R8 passed from JITed code
     leaq 16(%rsp), %rcx                         // floating-point result pointer in kSaveEverything
                                                 // frame
     leaq 144(%rsp), %rdx                        // integer result pointer in kSaveEverything frame
-    movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rsi // ArtMethod
+    leaq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rsi // ArtMethod**
     movq %gs:THREAD_SELF_OFFSET, %rdi           // Thread::Current
-    call SYMBOL(artMethodExitHook)              // (Thread*, SP, gpr_res*, fpr_res*)
+    call SYMBOL(artMethodExitHookJIT)              // (Thread*, ArtMethod**, gpr_res*, fpr_res*, frame_size, should_deopt_flag)
 
     // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
-END_FUNCTION art_quick_method_entry_hook
+END_FUNCTION art_quick_method_exit_hook
+
+DEFINE_FUNCTION art_jni_method_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME
+
+    leaq 16(%rsp), %rcx                         // floating-point result pointer in kSaveEverything
+                                                // frame
+    leaq 144(%rsp), %rdx                        // integer result pointer in kSaveEverything frame
+    movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rsi // ArtMethod**
+    movq %gs:THREAD_SELF_OFFSET, %rdi           // Thread::Current
+    call SYMBOL(artMethodExitHook)              // (Thread*, ArtMethod**, gpr_res*, fpr_res*, frame_size, should_deopt_flag)
+
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+END_FUNCTION art_jni_method_exit_hook

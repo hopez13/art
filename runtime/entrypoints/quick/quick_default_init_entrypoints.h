@@ -80,6 +80,7 @@ static void DefaultInitEntryPoints(JniEntryPoints* jpoints,
   qpoints->SetJniDecodeReferenceResult(JniDecodeReferenceResult);
   qpoints->SetJniReadBarrier(art_jni_read_barrier);
   qpoints->SetJniMethodEntryHook(art_jni_method_entry_hook);
+  qpoints->SetJniMethodExitHook(art_jni_method_exit_hook);
 
   // Locks
   if (UNLIKELY(VLOG_IS_ON(systrace_lock_logging))) {
