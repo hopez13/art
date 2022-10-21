@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9476eb97_b845631f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-21T08:19:45Z",
+      "side": 1,
+      "message": "Move this inside the `DCHECK()`.",
+      "range": {
+        "startLine": 8284,
+        "startChar": 36,
+        "endLine": 8284,
+        "endChar": 92
+      },
+      "revId": "9043396ecadebf763d3b477e9874095d30cfef8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2285a10c_2beda43c",
+        "filename": "test/844-resolution/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-21T08:19:45Z",
+      "side": 1,
+      "message": "The test seems too complicated. Why not\n\n    public interface Itf {\n      public int foo();\n    }\n    public abstract class Super {\n      // In src/:\n      // public int foo() {...}\n      // In src2/:\n      abstract int foo();\n    }\n    public class Bar extends Super implements Itf {}\n\n    Itf asItf \u003d new Bar();\n    asItf.foo();\n\n?\n\nOr do we actually want to test both cases because one is an `invoke-interface` and the other is `invoke-super`?",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "9043396ecadebf763d3b477e9874095d30cfef8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
