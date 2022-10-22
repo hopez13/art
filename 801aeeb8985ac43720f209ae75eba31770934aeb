@@ -16,6 +16,24 @@
       "message": "Running presubmit to have revert ready. If this is the only new problem, we may want to temporarily disable the test instead. It looks to me like this is caused by waiting for the GC during shutdown. I need to investigate whether that\u0027s intended to work. Details in https://logs.chromium.org/logs/art/buildbucket/cr-buildbucket/8799651203540529777/+/u/test_libjdwp_interpreter:_adb_logcat/stdout, search for WaitForGcToCompleteLocked .",
       "revId": "801aeeb8985ac43720f209ae75eba31770934aeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0c3a212_0e5cb662",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-22T04:56:43Z",
+      "side": 1,
+      "message": "There seem to be additional failures, e.g. at https://android-build.googleplex.com/builds/submitted/9206864/art-interpreter-gcstress-gcverify/latest/view/logs/build.log (also WaitForGcToCompleteLocked). We should submit this.",
+      "parentUuid": "83a48c3c_c7e3dcca",
+      "revId": "801aeeb8985ac43720f209ae75eba31770934aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
