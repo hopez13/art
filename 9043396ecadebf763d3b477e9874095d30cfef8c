@@ -141,6 +141,30 @@
       },
       "revId": "9043396ecadebf763d3b477e9874095d30cfef8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be2c800a_51996caa",
+        "filename": "test/844-resolution/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-24T09:58:13Z",
+      "side": 1,
+      "message": "I\u0027m not sure that\u0027s the best approach.\n\nLooking at `Class::FindVirtualMethodForInterfaceSuper()` and how it\u0027s called on the referenced class by `FindMethodToCall()`, namely on `Itf.class` in this test, I think it shall find the abstract `Itf.foo()`. And then the `ArtMethod::ThrowInvocationTimeError()` finds the `Bar.foo()` instead.\n\nSo, your test is actually testing something that still remains broken because the `ArtMethod::ThrowInvocationTimeError()` does not get enough information to determine the right method. (Try to change `Bar.foo()` to a concrete method and see the IAE.)\n\nIn the end, I think the fixes in this CL should be submitted together with my simple test. And your test should be submitted with an additional fix that shall pass more information to `ArtMethod::ThrowInvocationTimeError()`.",
+      "parentUuid": "70680c0f_c5d67015",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "9043396ecadebf763d3b477e9874095d30cfef8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
