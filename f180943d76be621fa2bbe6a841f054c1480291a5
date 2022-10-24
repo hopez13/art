@@ -16,6 +16,24 @@
       "message": "I am not sure I understand the issue still. This throw should still see a qucik frame on the stack right? When we are processing throw we would want to deoptimize this method but that should be handled right.",
       "revId": "f180943d76be621fa2bbe6a841f054c1480291a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "368c20f1_06c27465",
+        "filename": "test/844-exception/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-24T14:14:36Z",
+      "side": 1,
+      "message": "With interpreter-only, it wouldn\u0027t see a quick frame on the stack as everything is run with the switch interpreter.\n\nEven if compiled, the exception gets re-delivered as we cross interpreter/compiled transitions. And we would again see a switch interpreter frame.\n\nThere\u0027s also the second use case of not having frames at all, if we reach the top of the call stack.",
+      "parentUuid": "91b4f9e8_cb9f498a",
+      "revId": "f180943d76be621fa2bbe6a841f054c1480291a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
