@@ -16,6 +16,24 @@
       "message": "(i\u0027ve added an entry to my to-do list to find a canonical answer to this question, not just for here...)",
       "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65b85952_8aa56558",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-10-24T21:32:40Z",
+      "side": 1,
+      "message": "I measured this empirically by looking at the alignment of functions in libc.so for now.",
+      "parentUuid": "fb3a33a5_bedbcd81",
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
