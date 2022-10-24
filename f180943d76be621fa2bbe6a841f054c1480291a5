@@ -52,6 +52,24 @@
       "parentUuid": "368c20f1_06c27465",
       "revId": "f180943d76be621fa2bbe6a841f054c1480291a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc2efaa7_4ef68465",
+        "filename": "test/844-exception/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-24T15:35:40Z",
+      "side": 1,
+      "message": "We will if there is a runtime frame in between:\n\n- switch interpreter frame\n- ArtMethod::Invoke \u003c--- that\u0027s the runtime frame which will look at the caller\n- Quick frame.",
+      "parentUuid": "2e2f0efe_6fd66429",
+      "revId": "f180943d76be621fa2bbe6a841f054c1480291a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
