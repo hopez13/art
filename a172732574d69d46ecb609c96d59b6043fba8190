@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "108e892c_35dd8c01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-24T12:33:47Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 10,
+        "startChar": 57,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "a172732574d69d46ecb609c96d59b6043fba8190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04d0d359_ec6cb336",
+        "filename": "test/2242-checker-lse-acquire-release-operations/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-24T12:33:47Z",
+      "side": 1,
+      "message": "There are no volatile loads in this test.",
+      "range": {
+        "startLine": 311,
+        "startChar": 24,
+        "endLine": 311,
+        "endChar": 29
+      },
+      "revId": "a172732574d69d46ecb609c96d59b6043fba8190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f28f4ddf_b9e64d5a",
+        "filename": "test/2242-checker-lse-acquire-release-operations/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-24T12:33:47Z",
+      "side": 1,
+      "message": "The `monitor-enter` prevents the load elimination, so the loads could be moved inside the synchronized block and they would still be kept.",
+      "range": {
+        "startLine": 520,
+        "startChar": 4,
+        "endLine": 522,
+        "endChar": 27
+      },
+      "revId": "a172732574d69d46ecb609c96d59b6043fba8190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8e2581a_4d36ef0a",
+        "filename": "test/2242-checker-lse-acquire-release-operations/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-24T12:33:47Z",
+      "side": 1,
+      "message": "Move inside the synchronized block.\n\n(As it is, this test is just a weaker variant of `$noinline$testMonitorOperationDifferentFields()` and we don\u0027t need to test the same thing again.)",
+      "range": {
+        "startLine": 545,
+        "startChar": 4,
+        "endLine": 546,
+        "endChar": 14
+      },
+      "revId": "a172732574d69d46ecb609c96d59b6043fba8190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
