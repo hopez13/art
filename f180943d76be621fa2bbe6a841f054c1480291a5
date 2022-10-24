@@ -34,6 +34,24 @@
       "parentUuid": "91b4f9e8_cb9f498a",
       "revId": "f180943d76be621fa2bbe6a841f054c1480291a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e2f0efe_6fd66429",
+        "filename": "test/844-exception/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-24T14:30:40Z",
+      "side": 1,
+      "message": "AFAIU, exceptions from switch interpreter don\u0027t go through QuickDeliverException right? They are handled by MoveToExceptionHandler. So in interpreter-only we shouldn\u0027t see calls to QuickDeliverException at all.\n\nEven when we deoptimize on an exception, we let the switch interpreter handle a pending exception. I think that\u0027s done here: https://cs.android.com/android/platform/superproject/+/master:art/runtime/interpreter/interpreter.cc;l\u003d479;\n\nSo, we shouldn\u0027t see a shadow frame as the top frame in QucikDeliverException right?",
+      "parentUuid": "368c20f1_06c27465",
+      "revId": "f180943d76be621fa2bbe6a841f054c1480291a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
