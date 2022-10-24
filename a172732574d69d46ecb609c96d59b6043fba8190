@@ -187,6 +187,30 @@
       },
       "revId": "a172732574d69d46ecb609c96d59b6043fba8190",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62a341b8_39e16496",
+        "filename": "test/2242-checker-lse-acquire-release-operations/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-24T14:13:24Z",
+      "side": 1,
+      "message": "True, the two tests wrote different fields. But they were close enough for me, so I don\u0027t think we need the PS12 version of `$noinline$testMonitorOperationRedundantStore()`.",
+      "parentUuid": "3a9e2068_07747bc4",
+      "range": {
+        "startLine": 545,
+        "startChar": 4,
+        "endLine": 546,
+        "endChar": 14
+      },
+      "revId": "a172732574d69d46ecb609c96d59b6043fba8190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
