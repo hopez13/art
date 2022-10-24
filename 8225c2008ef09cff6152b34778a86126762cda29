@@ -368,6 +368,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e383bf55_cac4de73",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-24T20:08:15Z",
+      "side": 1,
+      "message": "\u003ePlease use the header lib libart_headers instead, and hopefully you won\u0027t need to do the libart/libart-runtime split at all.\n\nGood point, done.\n\n\u003eInteresting, how is that enforced? There\u0027s nothing like version scripts for static libraries.\n\nI meant a source-level separation. `libart` doesn\u0027t include any headers from `libart-compiler`, so it can\u0027t use its classes/functions.",
+      "parentUuid": "7be2ccff_9a4e5c6d",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 25
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27c00712_11e3de93",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 8
@@ -475,6 +499,30 @@
       "side": 1,
       "message": "With this approach, how will it access `libart-disassembler` when it\u0027s dynamically linked on host? Afaics it relies on the assumption that it\u0027s always statically linked on host, which isn\u0027t safe for the reasons given.",
       "parentUuid": "04011aae_dfe41091",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 80
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d484cea_e37c49b9",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-10-24T20:08:15Z",
+      "side": 1,
+      "message": "Just like a regular dynamic library. \nThe assumption is rather about target: it\u0027s always \"not linked\" directly, but used with `dlopen`. Host can use the library directly, same as all other libraries specified in `static_libs`/`shared_libs`",
+      "parentUuid": "e67d4916_b557b07b",
       "range": {
         "startLine": 128,
         "startChar": 0,
