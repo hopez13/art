@@ -344,6 +344,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7be2ccff_9a4e5c6d",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-24T12:20:05Z",
+      "side": 1,
+      "message": "\u003e This shouldn\u0027t be the case. Static library is just a collection of object files, it doesn\u0027t pull any symbols from other static libraries it depends on.\n\nSort of. There\u0027s indeed no (compile time) linking involved here. However, that means you shouldn\u0027t need this library dependency either. Please use the header lib `libart_headers` instead, and hopefully you won\u0027t need to do the `libart`/`libart-runtime` split at all. The header library will need some small adjustments to work, but they are right to do anyway.\n\n\u003e This is the reason we have to manually specify transitive dependencies of static libraries everywhere.\n\nNo, the reason we have to do that is because the AR file format doesn\u0027t record dependent libraries, unlike ELF with its `DT_NEEDED` entries (and Soong doesn\u0027t provide any tools to help with it either - b/169779783).\n\n\u003e At the moment libart-runtime doesn\u0027t have access to any of libart-compiler functions (except for jit_load).\n\nInteresting, how is that enforced? There\u0027s nothing like version scripts for static libraries.",
+      "parentUuid": "6cf37bd7_8d9f793f",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 25
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27c00712_11e3de93",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 8
@@ -427,6 +451,30 @@
       "side": 1,
       "message": "\u003eIt\u0027s also a fragile assumption that we continue to link dex2oat and oatdump on host this way.\n\nI might be missing something - why is that so?\nThe way this code works on the host seems to be solid: it will work whether `libart-disassembler` linkage is static or dynamic.\nIf I forget to link `libart-disassembler` at all - the build will fail, so there is no possibility of a hidden mistake.",
       "parentUuid": "796f8582_09cdb1c1",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 80
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e67d4916_b557b07b",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-24T12:20:05Z",
+      "side": 1,
+      "message": "With this approach, how will it access `libart-disassembler` when it\u0027s dynamically linked on host? Afaics it relies on the assumption that it\u0027s always statically linked on host, which isn\u0027t safe for the reasons given.",
+      "parentUuid": "04011aae_dfe41091",
       "range": {
         "startLine": 128,
         "startChar": 0,
