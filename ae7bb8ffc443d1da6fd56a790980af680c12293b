@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd4f487_8cebf8ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-24T08:04:16Z",
+      "side": 1,
+      "message": "You should avoid this - if you\u0027re getting merge conflicts (does android12-dev merge into aosp master?), you can add a:\n\n```\nMerged-In: Id67cd47a9fe31b4c6b154db20f632015238016d2\n```",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "ae7bb8ffc443d1da6fd56a790980af680c12293b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "31cab6ea_bbcc6753",
@@ -14,6 +37,24 @@
       "writtenOn": "2022-10-21T22:00:14Z",
       "side": 1,
       "message": "@Nicolas: I have no idea if we are allowed to merge fixes for older versions of Android, but trying anyway with this CL. We can follow-up in the bug if this needs to be addressed differently.",
+      "revId": "ae7bb8ffc443d1da6fd56a790980af680c12293b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a1f2914_cf083649",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-24T08:04:16Z",
+      "side": 1,
+      "message": "It\u0027s OK to land fixes there - it will make sure partners taking the trees will have the fix.",
+      "parentUuid": "31cab6ea_bbcc6753",
       "revId": "ae7bb8ffc443d1da6fd56a790980af680c12293b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
