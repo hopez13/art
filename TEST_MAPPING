@@ -215,9 +215,6 @@
       "name": "art-run-test-096-array-copy-concurrent-gc[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-099-vmdebug[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-100-reflect2[com.google.android.art.apex]"
     },
     {
@@ -269,9 +266,6 @@
       "name": "art-run-test-121-simple-suspend-check[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-122-npe[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-123-compiler-regressions-mt[com.google.android.art.apex]"
     },
     {
@@ -302,9 +296,6 @@
       "name": "art-run-test-140-field-packing[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-143-string-value[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-144-static-field-sigquit[com.google.android.art.apex]"
     },
     {
@@ -324,9 +315,6 @@
     },
     {
       "name": "art-run-test-159-app-image-fields[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-160-read-barrier-stress[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-163-app-image-methods[com.google.android.art.apex]"
@@ -423,6 +411,9 @@
     },
     {
       "name": "art-run-test-2241-checker-inline-try-catch[com.google.android.art.apex]"
+    },
+    {
+      "name": "art-run-test-2242-checker-lse-acquire-release-operations[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-300-package-override[com.google.android.art.apex]"
@@ -1187,13 +1178,7 @@
       "name": "art-run-test-711-checker-type-conversion[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-713-varhandle-invokers[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-718-zipfile-finalizer[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-719-varhandle-concurrency[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-721-osr[com.google.android.art.apex]"
@@ -1546,9 +1531,6 @@
       "name": "art-run-test-096-array-copy-concurrent-gc"
     },
     {
-      "name": "art-run-test-099-vmdebug"
-    },
-    {
       "name": "art-run-test-100-reflect2"
     },
     {
@@ -1600,9 +1582,6 @@
       "name": "art-run-test-121-simple-suspend-check"
     },
     {
-      "name": "art-run-test-122-npe"
-    },
-    {
       "name": "art-run-test-123-compiler-regressions-mt"
     },
     {
@@ -1633,9 +1612,6 @@
       "name": "art-run-test-140-field-packing"
     },
     {
-      "name": "art-run-test-143-string-value"
-    },
-    {
       "name": "art-run-test-144-static-field-sigquit"
     },
     {
@@ -1655,9 +1631,6 @@
     },
     {
       "name": "art-run-test-159-app-image-fields"
-    },
-    {
-      "name": "art-run-test-160-read-barrier-stress"
     },
     {
       "name": "art-run-test-163-app-image-methods"
@@ -1754,6 +1727,9 @@
     },
     {
       "name": "art-run-test-2241-checker-inline-try-catch"
+    },
+    {
+      "name": "art-run-test-2242-checker-lse-acquire-release-operations"
     },
     {
       "name": "art-run-test-300-package-override"
@@ -2518,13 +2494,7 @@
       "name": "art-run-test-711-checker-type-conversion"
     },
     {
-      "name": "art-run-test-713-varhandle-invokers"
-    },
-    {
       "name": "art-run-test-718-zipfile-finalizer"
-    },
-    {
-      "name": "art-run-test-719-varhandle-concurrency"
     },
     {
       "name": "art-run-test-721-osr"
@@ -2871,9 +2841,6 @@
       "name": "art-run-test-096-array-copy-concurrent-gc"
     },
     {
-      "name": "art-run-test-099-vmdebug"
-    },
-    {
       "name": "art-run-test-100-reflect2"
     },
     {
@@ -2925,9 +2892,6 @@
       "name": "art-run-test-121-simple-suspend-check"
     },
     {
-      "name": "art-run-test-122-npe"
-    },
-    {
       "name": "art-run-test-123-compiler-regressions-mt"
     },
     {
@@ -2958,9 +2922,6 @@
       "name": "art-run-test-140-field-packing"
     },
     {
-      "name": "art-run-test-143-string-value"
-    },
-    {
       "name": "art-run-test-144-static-field-sigquit"
     },
     {
@@ -2980,9 +2941,6 @@
     },
     {
       "name": "art-run-test-159-app-image-fields"
-    },
-    {
-      "name": "art-run-test-160-read-barrier-stress"
     },
     {
       "name": "art-run-test-163-app-image-methods"
@@ -3079,6 +3037,9 @@
     },
     {
       "name": "art-run-test-2241-checker-inline-try-catch"
+    },
+    {
+      "name": "art-run-test-2242-checker-lse-acquire-release-operations"
     },
     {
       "name": "art-run-test-300-package-override"
@@ -3843,13 +3804,7 @@
       "name": "art-run-test-711-checker-type-conversion"
     },
     {
-      "name": "art-run-test-713-varhandle-invokers"
-    },
-    {
       "name": "art-run-test-718-zipfile-finalizer"
-    },
-    {
-      "name": "art-run-test-719-varhandle-concurrency"
     },
     {
       "name": "art-run-test-721-osr"
