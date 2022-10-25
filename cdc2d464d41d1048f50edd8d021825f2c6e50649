@@ -56,6 +56,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50756b96_9a249f0e",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-25T10:47:12Z",
+      "side": 1,
+      "message": "Can you add a comment that we use 2 bytes not 4 due to targeting RVGC that includes the compressed extension?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 57
+      },
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a343db84_7684ed4c",
         "filename": "libartbase/arch/instruction_set.h",
         "patchSetId": 1
