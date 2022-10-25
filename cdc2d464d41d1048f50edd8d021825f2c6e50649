@@ -34,6 +34,47 @@
       "parentUuid": "fb3a33a5_bedbcd81",
       "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41338b03_46e11b46",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-25T10:18:51Z",
+      "side": 1,
+      "message": "My understanding is that the stack alignment for procedures (and ART entrypoints) should be 16: https://github.com/riscv-non-isa/riscv-elf-psabi-doc/issues/21, resolved as https://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/7fb442b039d1cfc70d0dcd4f03dfa9b6f942d80b/riscv-elf.md.\n```\nThe stack grows downwards and the stack pointer shall be aligned to a 128-bit\nboundary upon procedure entry, except for the RV32E ABI, where it need only be \naligned to 32 bits.\n```",
+      "parentUuid": "65b85952_8aa56558",
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a343db84_7684ed4c",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-25T10:18:51Z",
+      "side": 1,
+      "message": "Please fix formatting (the other lines are aligned at `\u003d`, only riscv64 is not).",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 93
+      },
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
