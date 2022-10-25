@@ -83,19 +83,23 @@ ART_RUN_TEST_MODULE_NAME_PREFIX = "art-run-test-"
 # Number of shards used to declare ART run-tests in the sharded ART MTS test plan.
 NUM_MTS_ART_RUN_TEST_SHARDS = 1
 
-# Curated list of tests that have a custom `run` script, but that are
+# List of tests that have a custom build/run script, but that are
 # known to work fine with the default test execution strategy (i.e.
-# when ignoring their `run` script), even if not exactly as they would
+# when ignoring their scripts), even if not exactly as they would
 # with the original ART run-test harness.
-runnable_test_exceptions = frozenset([
+known_passing_tests = frozenset([
   "055-enum-performance",
   "059-finalizer-throw",
   "080-oom-throw",
+  "099-vmdebug",
   "1004-checker-volatile-ref-load",
+  "122-npe",
   "133-static-invoke-super",
   "1338-gc-no-los",
+  "143-string-value",
   "151-OpenFileLimit",
   "159-app-image-fields",
+  "160-read-barrier-stress",
   "160-read-barrier-stress",
   "163-app-image-methods",
   "165-lock-owner-proxy",
@@ -107,6 +111,8 @@ runnable_test_exceptions = frozenset([
   "676-proxy-jit-at-first-use",
   "677-fsi2",
   "678-quickening",
+  "713-varhandle-invokers",
+  "719-varhandle-concurrency",
   "818-clinit-nterp",
   "821-madvise-willneed",
 ])
@@ -148,6 +154,8 @@ known_failing_tests = frozenset([
   "2033-shutdown-mechanics",
   "2036-jni-filechannel",
   "2037-thread-name-inherit",
+  # 2232-write-metrics-to-log: Modifies stdout.
+  "2232-write-metrics-to-log",
   "2235-JdkUnsafeTest",
   "305-other-fault-handler",
   # 449-checker-bce: Dependency on `libarttest`.
@@ -205,6 +213,8 @@ known_failing_tests = frozenset([
   # 837-deopt: Dependency on `libarttest`.
   "837-deopt",
   # 993-breakpoints-non-debuggable: This test needs native code.
+  # 844-exception: Non-zero exit code.
+  "844-exception",
   "993-breakpoints-non-debuggable",
 ])
 
@@ -320,42 +330,13 @@ class Generator:
                    for run_test in os.listdir(self.art_test_dir)
                    if re.match("^[0-9]{3,}-", run_test)])
 
-  # Read build file (Bash script) and return a canonized version of it
-  # (without comments, blank lines, "debugging" statements, etc.).
-  def canonize_build_script(self, build_file):
-
-    def is_comment(line):
-      return re.match("^\\s*#", line)
-
-    def is_blank(line):
-      return re.match("^\\s*$", line)
-
-    def is_import(line):
-      return re.match("^\\s*from .* import .*", line)
-
-    # Should `line` be kept in the canonized build script?
-    def keep_line(line):
-      return not (is_comment(line) or is_blank(line) or is_import(line))
-
-    with open(build_file, "r") as f:
-      lines = f.readlines()
-    return list(filter(keep_line, lines))
-
-  # Can the build script in `build_file` be safely ignored?
-  def can_ignore_build_script(self, build_file):
-    build_script = self.canonize_build_script(build_file)
-    if len(build_script) == 1:
-      if build_script[0] == 'build_run_test(experimental="var-handles")\n':
-        # Soong builds JARs with VarHandle support by default (i.e. by
-        # using an API level greater or equal to 28), so we can ignore
-        # build scripts that just request support for this feature.
-        return True
-    return False
-
   # Is building `run_test` supported?
   # TODO(b/147814778): Add build support for more tests.
   def is_buildable(self, run_test):
     run_test_path = os.path.join(self.art_test_dir, run_test)
+
+    if run_test in known_passing_tests:
+      return True
 
     # Skip tests with non-default build rules, unless these build
     # rules can be safely ignored.
@@ -363,8 +344,7 @@ class Generator:
         os.path.isfile(os.path.join(run_test_path, "javac_wrapper.sh"))):
       return False
     if os.path.isfile(os.path.join(run_test_path, "build.py")):
-      if not self.can_ignore_build_script(os.path.join(run_test_path, "build.py")):
-        return False
+      return False
     # Skip tests with sources outside the `src` directory.
     for subdir in ["jasmin",
                    "jasmin-multidex",
@@ -404,7 +384,7 @@ class Generator:
     # (not-yet-handled) custom `run` script as runnable.
     # TODO(rpl): Get rid of this exception mechanism by supporting
     # these tests' `run` scripts properly.
-    if run_test in runnable_test_exceptions:
+    if run_test in known_passing_tests:
       return True
     # Skip tests with a custom `run` script.
     if os.path.isfile(os.path.join(run_test_path, "run")):
