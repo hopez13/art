@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8de07b14_1e11e4e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-25T12:09:56Z",
+      "side": 1,
+      "message": "I changed the check so that I don\u0027t need to modify the stdout\n(and use more complex inverted condition instead, which is the simpler fix).",
+      "revId": "cfdfb6b8cd6f64bc6461b2576fad59bb73fc27d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
