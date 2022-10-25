@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ffeca4a_2658b429",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-25T16:32:27Z",
+      "side": 1,
+      "message": "Right, that is irrelevant.\n\nI got confused because ART methods headers that DCHECK this alignment are both code and data (although not on stack). Theoretically one can generate a function, put it on stack and jump to it (if stack was executable). But then \"stack alignment on procedure entry\" would still mean a different thing (the value of stack pointer when jumping to that generated function).",
+      "parentUuid": "db2135ef_79c4d07d",
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50756b96_9a249f0e",
