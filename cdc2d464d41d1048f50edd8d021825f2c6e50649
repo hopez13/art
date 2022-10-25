@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db2135ef_79c4d07d",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-25T15:40:55Z",
+      "side": 1,
+      "message": "that\u0027s the *stack* alignment.\n\nccross (and this variable) is talking about what alignment the first instruction of a function should have (usually for maximum performance rather than correctness; anything will work, but on some cpus, some alignments will perform better; see also the head of a loop).",
+      "parentUuid": "41338b03_46e11b46",
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50756b96_9a249f0e",
         "filename": "libartbase/arch/instruction_set.h",
         "patchSetId": 1
