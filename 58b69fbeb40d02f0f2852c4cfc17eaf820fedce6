@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "22229988_48338d6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-25T15:10:31Z",
+      "side": 1,
+      "message": "The others are result of running regen-test-files.\n\nI think since I added some \"run\" files, the heuristic conservatively disables them.\n\nLet me see if I can force the script to keep them...",
+      "parentUuid": "6a586340_a7975a2f",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "58b69fbeb40d02f0f2852c4cfc17eaf820fedce6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fc871c55_ab86cbea",
