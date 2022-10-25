@@ -269,9 +269,6 @@
       "name": "art-run-test-121-simple-suspend-check[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-122-npe[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-123-compiler-regressions-mt[com.google.android.art.apex]"
     },
     {
@@ -324,9 +321,6 @@
     },
     {
       "name": "art-run-test-159-app-image-fields[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-160-read-barrier-stress[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-163-app-image-methods[com.google.android.art.apex]"
@@ -423,6 +417,9 @@
     },
     {
       "name": "art-run-test-2241-checker-inline-try-catch[com.google.android.art.apex]"
+    },
+    {
+      "name": "art-run-test-2242-checker-lse-acquire-release-operations[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-300-package-override[com.google.android.art.apex]"
@@ -1187,13 +1184,7 @@
       "name": "art-run-test-711-checker-type-conversion[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-713-varhandle-invokers[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-718-zipfile-finalizer[com.google.android.art.apex]"
-    },
-    {
-      "name": "art-run-test-719-varhandle-concurrency[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-721-osr[com.google.android.art.apex]"
@@ -1245,6 +1236,9 @@
     },
     {
       "name": "art-run-test-841-defaults[com.google.android.art.apex]"
+    },
+    {
+      "name": "art-run-test-844-exception[com.google.android.art.apex]"
     },
     {
       "name": "art-run-test-963-default-range-smali[com.google.android.art.apex]"
@@ -1600,9 +1594,6 @@
       "name": "art-run-test-121-simple-suspend-check"
     },
     {
-      "name": "art-run-test-122-npe"
-    },
-    {
       "name": "art-run-test-123-compiler-regressions-mt"
     },
     {
@@ -1655,9 +1646,6 @@
     },
     {
       "name": "art-run-test-159-app-image-fields"
-    },
-    {
-      "name": "art-run-test-160-read-barrier-stress"
     },
     {
       "name": "art-run-test-163-app-image-methods"
@@ -1754,6 +1742,9 @@
     },
     {
       "name": "art-run-test-2241-checker-inline-try-catch"
+    },
+    {
+      "name": "art-run-test-2242-checker-lse-acquire-release-operations"
     },
     {
       "name": "art-run-test-300-package-override"
@@ -2518,13 +2509,7 @@
       "name": "art-run-test-711-checker-type-conversion"
     },
     {
-      "name": "art-run-test-713-varhandle-invokers"
-    },
-    {
       "name": "art-run-test-718-zipfile-finalizer"
-    },
-    {
-      "name": "art-run-test-719-varhandle-concurrency"
     },
     {
       "name": "art-run-test-721-osr"
@@ -2576,6 +2561,9 @@
     },
     {
       "name": "art-run-test-841-defaults"
+    },
+    {
+      "name": "art-run-test-844-exception"
     },
     {
       "name": "art-run-test-963-default-range-smali"
@@ -2925,9 +2913,6 @@
       "name": "art-run-test-121-simple-suspend-check"
     },
     {
-      "name": "art-run-test-122-npe"
-    },
-    {
       "name": "art-run-test-123-compiler-regressions-mt"
     },
     {
@@ -2980,9 +2965,6 @@
     },
     {
       "name": "art-run-test-159-app-image-fields"
-    },
-    {
-      "name": "art-run-test-160-read-barrier-stress"
     },
     {
       "name": "art-run-test-163-app-image-methods"
@@ -3079,6 +3061,9 @@
     },
     {
       "name": "art-run-test-2241-checker-inline-try-catch"
+    },
+    {
+      "name": "art-run-test-2242-checker-lse-acquire-release-operations"
     },
     {
       "name": "art-run-test-300-package-override"
@@ -3843,13 +3828,7 @@
       "name": "art-run-test-711-checker-type-conversion"
     },
     {
-      "name": "art-run-test-713-varhandle-invokers"
-    },
-    {
       "name": "art-run-test-718-zipfile-finalizer"
-    },
-    {
-      "name": "art-run-test-719-varhandle-concurrency"
     },
     {
       "name": "art-run-test-721-osr"
@@ -3901,6 +3880,9 @@
     },
     {
       "name": "art-run-test-841-defaults"
+    },
+    {
+      "name": "art-run-test-844-exception"
     },
     {
       "name": "art-run-test-963-default-range-smali"
