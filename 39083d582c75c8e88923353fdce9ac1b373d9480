@@ -22,6 +22,30 @@
       },
       "revId": "39083d582c75c8e88923353fdce9ac1b373d9480",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ba7a1f2_cebff825",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 6
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-26T10:10:32Z",
+      "side": 0,
+      "message": "It was harder to adjust for some of the corner cases (specifically when the test only builds on host/target, but skips jvm).  Keeping it would require making more and more complex.\n\nIt seemed easier and more consistent with the `run` file check, to just add an explicit pass-list.",
+      "parentUuid": "646b446d_9b50bd48",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 16
+      },
+      "revId": "39083d582c75c8e88923353fdce9ac1b373d9480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
