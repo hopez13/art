@@ -17,14 +17,6 @@
 public class Main {
   static Main empty;
 
-  static class MyThread extends Thread {
-    public void run() {
-      // This will throw at `callMethodThatThrows` and trigger deoptimization checks which we used
-      // to crash on.
-      new Inner();
-    }
-  }
-
   public static class Inner {
     // Have a <clinit> method invoke another <clinit> method to ensure we execute in the
     // interpreter.
@@ -44,11 +36,11 @@ public class Main {
     // Disables use of nterp.
     Main.setAsyncExceptionsThrown();
 
-    // Execute the test in a different thread, to ensure we still
-    // return a 0 exit status.
-    Thread t = new MyThread();
-    t.start();
-    t.join();
+    Thread.currentThread().setUncaughtExceptionHandler((th, e) -> {
+      System.out.println("Caught exception");
+      System.exit(0);
+    });
+    new Inner();
   }
 
   public static void callMethodThatThrows() {
