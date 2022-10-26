@@ -2318,6 +2318,11 @@ class Dex2Oat final {
     return is_host_;
   }
 
+  CompilerFilter::Filter GetCompilerFilter() const {
+    return compiler_options_->GetCompilerFilter();
+  }
+
+
   bool HasProfileInput() const { return !profile_file_fds_.empty() || !profile_files_.empty(); }
 
   // Must be called after the profile is loaded.
@@ -3124,6 +3129,10 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
   dex2oat->ParseArgs(argc, argv);
 
   art::MemMap::Init();  // For ZipEntry::ExtractToMemMap, vdex and profiles.
+
+  if(dex2oat->GetCompilerFilter() == CompilerFilter::kSpeed) {
+      return dex2oat::ReturnCode::kOther;
+  }
 
   // If needed, process profile information for profile guided compilation.
   // This operation involves I/O.
