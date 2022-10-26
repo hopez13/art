@@ -392,6 +392,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f341443c_bba8954e",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-26T15:52:16Z",
+      "side": 1,
+      "message": "\u003e I meant a source-level separation. libart doesn\u0027t include any headers from libart-compiler, so it can\u0027t use its classes/functions.\n\nOk, that\u0027s better than nothing. However with the `export_include_dirs: [\".\"],` in `libart-compiler-defaults`, isn\u0027t it easy for a runtime file to include other compiler headers? I think you\u0027d have to move the header to a separate directory and then export that instead. But better to do in a follow-up CL in that case.",
+      "parentUuid": "e383bf55_cac4de73",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 25
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27c00712_11e3de93",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 8
@@ -523,6 +547,30 @@
       "side": 1,
       "message": "Just like a regular dynamic library. \nThe assumption is rather about target: it\u0027s always \"not linked\" directly, but used with `dlopen`. Host can use the library directly, same as all other libraries specified in `static_libs`/`shared_libs`",
       "parentUuid": "e67d4916_b557b07b",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 80
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f6ba332_4b23d3b2",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-26T15:52:16Z",
+      "side": 1,
+      "message": "Aha, you\u0027re adding it to `shared_libs` for host only. Ok, that\u0027s also a solution. It\u0027s not without its downsides since it means more differences between host and target - we\u0027ll e.g. won\u0027t discover `dlopen` problems in host testing. But considering the options here it\u0027s a reasonable approach.\n\nBut please add comments both here and in the bp file to make it clear that there are these two different loading strategies at work.",
+      "parentUuid": "8d484cea_e37c49b9",
       "range": {
         "startLine": 128,
         "startChar": 0,

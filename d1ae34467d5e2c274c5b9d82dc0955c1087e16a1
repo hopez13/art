@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "612272bd_d502f10b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-26T15:52:16Z",
+      "side": 1,
+      "message": "Looking at the presubmit errors I think you need a patch in internal before this can land. If that cannot go in before this change then you\u0027ll need to land them in one topic in internal, and then with same Change-Id (and Merged-In) here afterwards.",
+      "revId": "d1ae34467d5e2c274c5b9d82dc0955c1087e16a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9036e592_58721d56",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-26T15:52:16Z",
+      "side": 1,
+      "message": "Mostly for clarity, can this be `android`-only target? (It works for some properties but not all - I\u0027m not sure about this one.)",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 6
+      },
+      "revId": "d1ae34467d5e2c274c5b9d82dc0955c1087e16a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aec6b51_c00d850c",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-26T15:52:16Z",
+      "side": 1,
+      "message": "I look at the `libart_headers` dependencies but I don\u0027t see the cycle. Can you please be more detailed about where it occurs?",
+      "range": {
+        "startLine": 114,
+        "startChar": 3,
+        "endLine": 114,
+        "endChar": 61
+      },
+      "revId": "d1ae34467d5e2c274c5b9d82dc0955c1087e16a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
