@@ -50,6 +50,24 @@
       "message": "Ack - I\u0027ll let Roland take a look as well to confirm.",
       "revId": "dc1b00e29c64fbe283d2ad6271c6d3e71c2874a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "910ef115_d5a89c19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-26T09:51:30Z",
+      "side": 1,
+      "message": "I purposefully made sure we generate as many `Android.bp` files as possible for ART run-tests, even we cannot execute the tests, in order to catch regressions w.r.t. the build logic. This is incremental work – please don\u0027t break it.",
+      "parentUuid": "5e123bb1_61d9fe23",
+      "revId": "dc1b00e29c64fbe283d2ad6271c6d3e71c2874a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
