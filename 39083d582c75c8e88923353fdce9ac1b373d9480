@@ -94,6 +94,30 @@
       },
       "revId": "39083d582c75c8e88923353fdce9ac1b373d9480",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68e83327_1dbb74c0",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 6
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-26T10:24:40Z",
+      "side": 0,
+      "message": "Or we can generalize it a bit more and create a list of regexs... I think that is getting mess, but it would work.",
+      "parentUuid": "e69a1f50_28ffa3ad",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 16
+      },
+      "revId": "39083d582c75c8e88923353fdce9ac1b373d9480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
