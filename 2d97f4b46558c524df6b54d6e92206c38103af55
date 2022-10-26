@@ -33,6 +33,23 @@
       "message": "I\u0027m not sure how it is related to a flaky crash: wouldn\u0027t it always crash if it needed a runtime and there wasn\u0027t one?",
       "revId": "2d97f4b46558c524df6b54d6e92206c38103af55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b1176f4_9d7aa0c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-26T15:55:42Z",
+      "side": 1,
+      "message": "Was there some kind of race? Why did we not see the crashes on luci?\n\nVladimir, is that a regression after your recent changes?",
+      "revId": "2d97f4b46558c524df6b54d6e92206c38103af55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
