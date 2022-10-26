@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "5dd30b07f7ff0213a7ed2630b8dadfcff83d5a9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d626e7b_3dd2b38d",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1483,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-26T23:33:42Z",
+      "side": 1,
+      "message": "Does this introduce leaks if we shut down and restart the runtime? Do the Unregister and Shutdown calls deallocate stuff?\n\nWe already leak a bit when we shut down and restart the runtime, since we can\u0027t really reclaim user-created daemon threads. But we otherwise seem to try to avoid such leaks. I don\u0027t know whether this is viewed as important.",
+      "range": {
+        "startLine": 1483,
+        "startChar": 4,
+        "endLine": 1483,
+        "endChar": 16
+      },
+      "revId": "5dd30b07f7ff0213a7ed2630b8dadfcff83d5a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
