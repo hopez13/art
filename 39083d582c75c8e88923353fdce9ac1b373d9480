@@ -70,6 +70,30 @@
       },
       "revId": "39083d582c75c8e88923353fdce9ac1b373d9480",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e69a1f50_28ffa3ad",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 6
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-26T10:17:54Z",
+      "side": 0,
+      "message": "I mean, I can explicitly add more tests to the list so that the Android.bp files are not removed despite not being used.",
+      "parentUuid": "4ae5c501_8458570f",
+      "range": {
+        "startLine": 323,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 16
+      },
+      "revId": "39083d582c75c8e88923353fdce9ac1b373d9480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
