@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d966524_193c785b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1358301
+      },
+      "writtenOn": "2022-10-26T19:01:37Z",
+      "side": 1,
+      "message": "Hi Santiago, it seems that this change introduced a ~3MB regression in pinner total size (https://crystalball-presubmit.corp.google.com/dashboard/I94100010101957673). I understand that this was to fix another regression but just want to bring this to your attention. Thanks!",
+      "revId": "88a01c77476a63578320661dbd5dd24a86dc0117",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
