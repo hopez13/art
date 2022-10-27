@@ -69,6 +69,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8ee0175_ee6e4304",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-27T11:18:43Z",
+      "side": 1,
+      "message": "Done (the race was based on getting past the spin lock)",
+      "parentUuid": "9b1176f4_9d7aa0c2",
+      "revId": "2d97f4b46558c524df6b54d6e92206c38103af55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d28e0815_a3ea4ef7",
@@ -82,6 +100,30 @@
       "writtenOn": "2022-10-27T07:43:37Z",
       "side": 1,
       "message": "Please add a constructor with\n\n    use_boot_image_ \u003d true;  // Make the Runtime creation cheaper.",
+      "range": {
+        "startLine": 27,
+        "startChar": 6,
+        "endLine": 27,
+        "endChar": 22
+      },
+      "revId": "2d97f4b46558c524df6b54d6e92206c38103af55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc9a7e7e_df715372",
+        "filename": "runtime/base/message_queue_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-27T11:18:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d28e0815_a3ea4ef7",
       "range": {
         "startLine": 27,
         "startChar": 6,
@@ -177,6 +219,30 @@
       "side": 1,
       "message": "Please add a comment.",
       "parentUuid": "935c0f0d_e99d4694",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 26
+      },
+      "revId": "2d97f4b46558c524df6b54d6e92206c38103af55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86120ba9_7e9c6eac",
+        "filename": "runtime/base/message_queue_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-27T11:18:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37294ddd_5e3177de",
       "range": {
         "startLine": 85,
         "startChar": 8,
