@@ -46,6 +46,17 @@ static bool IsSafeDiv(int32_t c1, int32_t c2) {
   return c2 != 0 && CanLongValueFitIntoInt(static_cast<int64_t>(c1) / static_cast<int64_t>(c2));
 }
 
+/** Returns true if (32-bit) trip count expression can be computed safely. */
+static bool IsSafeTripCountExpression(int64_t lower,
+                                      int64_t upper,
+                                      int64_t stride,
+                                      int64_t correction) {
+  // Allow overflow in intermediate result of addition/subtraction.
+  int64_t numerator = upper + correction + stride - lower;
+  // Check that final result of addition/subtraction and result after division are safe.
+  return CanLongValueFitIntoInt(numerator) && CanLongValueFitIntoInt(numerator / stride);
+}
+
 /** Computes a * b for a,b > 0 (at least until first overflow happens). */
 static int64_t SafeMul(int64_t a, int64_t b, /*out*/ bool* overflow) {
   if (a > 0 && b > 0 && a > (std::numeric_limits<int64_t>::max() / b)) {
@@ -154,6 +165,14 @@ static HInstruction* Insert(HBasicBlock* block, HInstruction* instruction) {
 static HInstruction* GetLoopControl(const HLoopInformation* loop) {
   DCHECK(loop != nullptr);
   return loop->GetHeader()->GetLastInstruction();
+}
+
+/** Obtains loop control's conditional input instruction. */
+static HCondition* GetLoopCondition(const HLoopInformation* loop) {
+  HInstruction* loop_control = GetLoopControl(loop);
+  HInstruction* loop_condition = loop_control->InputAt(0);
+  DCHECK(loop_condition->IsCondition());
+  return loop_condition->AsCondition();
 }
 
 /** Determines whether the `context` is in the body of the `loop`. */
@@ -378,6 +397,74 @@ bool InductionVarRange::HasKnownTripCount(const HLoopInformation* loop,
   return is_constant;
 }
 
+bool InductionVarRange::HasOverflowSafeTripCount(const HLoopInformation* loop) const {
+  const HBasicBlock* context = loop->GetHeader();
+  HInstruction* loop_control = GetLoopControl(loop);
+  HInductionVarAnalysis::InductionInfo* trip_count =
+      induction_analysis_->LookupInfo(loop, loop_control);
+  DCHECK(trip_count != nullptr);
+
+  int64_t value_unused = 0;
+  if (IsConstant(context, loop, trip_count->op_a, kExact, &value_unused)) {
+    // TC expression is known and is overflow safe.
+    return true;
+  }
+
+  HCondition* loop_condition = GetLoopCondition(loop);
+  HInductionVarAnalysis::InductionInfo* lower_bound =
+      induction_analysis_->LookupInfo(loop, loop_condition->InputAt(0));
+  HInductionVarAnalysis::InductionInfo* upper_bound =
+      induction_analysis_->LookupInfo(loop, loop_condition->InputAt(1));
+
+  // Trip Count analysis normalises to induction at left-hand-side (e.g. i < U).
+  if (upper_bound->induction_class == HInductionVarAnalysis::kLinear) {
+    std::swap(lower_bound, upper_bound);
+  }
+  // Stride of linear induction variable is op_a
+  int64_t stride_value = 0;
+  IsConstant(context, loop, lower_bound->op_a, kExact, &stride_value);
+  // Initial value of linear induction variable is op_b
+  lower_bound = lower_bound->op_b;
+  int64_t lower_value;
+  bool is_known_lower = IsConstant(context, loop, lower_bound, kExact, &lower_value);
+  int64_t upper_value;
+  bool is_known_upper = IsConstant(context, loop, upper_bound, kExact, &upper_value);
+
+  if (is_known_lower && is_known_upper) {
+    // TC expression is known but may overflow.
+    return false;
+  }
+
+  // Determine correction (if needed) to convert into inclusive integral inequality,
+  int64_t correction = 0;
+  HInductionVarAnalysis::InductionOp cmp = trip_count->op_b->operation;
+  if (cmp == HInductionVarAnalysis::kLT) {
+    correction = -1;
+  } else if (cmp == HInductionVarAnalysis::kGT) {
+    correction = 1;
+  }
+
+  int64_t min_unknown = 0;
+  int64_t max_unknown = 0;
+  if (is_known_lower) {
+    bool taken_if_ge = (stride_value > 0);
+    GetUnknownBounds(
+        context, loop, upper_bound, lower_value, taken_if_ge, &min_unknown, &max_unknown);
+    return
+        IsSafeTripCountExpression(lower_value, min_unknown, stride_value, correction) &&
+        IsSafeTripCountExpression(lower_value, max_unknown, stride_value, correction);
+  } else if (is_known_upper) {
+    bool taken_if_ge = (stride_value < 0);
+    GetUnknownBounds(
+        context, loop, lower_bound, upper_value, taken_if_ge, &min_unknown, &max_unknown);
+    return
+        IsSafeTripCountExpression(min_unknown, upper_value, stride_value, correction) &&
+        IsSafeTripCountExpression(max_unknown, upper_value, stride_value, correction);
+  } else {
+    return false;
+  }
+}
+
 bool InductionVarRange::IsUnitStride(const HBasicBlock* context,
                                      HInstruction* instruction,
                                      HGraph* graph,
@@ -443,6 +530,32 @@ HInstruction* InductionVarRange::GenerateTripCount(const HLoopInformation* loop,
     }
   }
   return nullptr;
+}
+
+void InductionVarRange::GetUnknownBounds(const HBasicBlock* context,
+                                         const HLoopInformation* loop,
+                                         HInductionVarAnalysis::InductionInfo* unknown_bound,
+                                         int64_t known_value,
+                                         bool taken_if_ge,
+                                         /*out*/ int64_t* min,
+                                         /*out*/ int64_t* max) const {
+  // Worst case range for 32-bit integer.
+  *min = std::numeric_limits<int32_t>::min();
+  *max = std::numeric_limits<int32_t>::max();
+  // See if we can improve the bounds through range analysis.
+  IsConstant(context, loop, unknown_bound, kAtLeast, min);
+  IsConstant(context, loop, unknown_bound, kAtMost, max);
+  // Trip count is only valid for loops that are taken, so we can refine the range of the unknown
+  // bound using the value of the known bound.
+  // e.g `for (int i = 0; i <= n; i++)` we can truncate the range of n to [0, INT_MAX], because
+  // loop is only taken for n >= 0.
+  if (taken_if_ge) {
+    *min = std::max(*min, known_value);
+    *max = std::max(*max, known_value);
+  } else {
+    *min = std::min(*min, known_value);
+    *max = std::min(*max, known_value);
+  }
 }
 
 //
@@ -1336,6 +1449,9 @@ bool InductionVarRange::GenerateLastValuePeriodic(const HBasicBlock* context,
   }
   // Handle periodic(x, y) using even/odd-select on trip count. Enter trip count expression
   // directly to obtain the maximum index value t even if taken test is needed.
+  if (!HasOverflowSafeTripCount(loop)) {
+    return false;
+  }
   HInstruction* x = nullptr;
   HInstruction* y = nullptr;
   HInstruction* t = nullptr;

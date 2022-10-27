@@ -172,6 +172,13 @@ class InductionVarRange {
   bool HasKnownTripCount(const HLoopInformation* loop, /*out*/ int64_t* trip_count) const;
 
   /**
+   * Checks if a loop's trip count expression may overflow. Trip counts that are overflow safe are
+   * guaranteed not to overflow whereas trip counts that are not overflow safe may or may not
+   * overflow.
+   */
+  bool HasOverflowSafeTripCount(const HLoopInformation* loop) const;
+
+  /**
    * Checks if the given instruction is a unit stride induction inside the closest enveloping
    * loop of the context that is defined by the first parameter (e.g. pass an array reference
    * as context and the index as instruction to make sure the stride is tested against the
@@ -188,6 +195,18 @@ class InductionVarRange {
    * expression on success or null otherwise.
    */
   HInstruction* GenerateTripCount(const HLoopInformation* loop, HGraph* graph, HBasicBlock* block);
+
+  /**
+   * Determines the range (min, max) of values a given unknown loop bound can take, using the known
+   * (constant) value of the other loop bound.
+   */
+  void GetUnknownBounds(const HBasicBlock* context,
+                        const HLoopInformation* loop,
+                        HInductionVarAnalysis::InductionInfo* unknown_bound,
+                        int64_t known_value,
+                        bool taken_if_ge,
+                        /*out*/ int64_t* min,
+                        /*out*/ int64_t* max) const;
 
  private:
   /*
