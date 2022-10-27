@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0dd3ab_461e555b",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-27T18:42:45Z",
+      "side": 1,
+      "message": "https://source.corp.google.com/android/art/runtime/metrics/statsd.cc;l\u003d215?q\u003dArtDatumReported%20case:yes\u0026sq\u003dpackage:%5Eandroid$ says it doesn\u0027t matter, but we will want to add riscv to that code at some point after the proto change is merged.",
+      "parentUuid": "6e3747f3_c6a709c8",
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fb3a33a5_bedbcd81",
