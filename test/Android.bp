@@ -744,6 +744,7 @@ art_cc_defaults {
         "2005-pause-all-redefine-multithreaded/pause-all.cc",
         "2009-structural-local-ref/local-ref.cc",
         "2035-structural-native-method/structural-native.cc",
+	"2243-single-step-default/single_step_helper.cc"
     ],
     // Use NDK-compatible headers for ctstiagent.
     header_libs: [
