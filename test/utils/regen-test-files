@@ -205,6 +205,9 @@ known_failing_tests = frozenset([
   "832-cha-recursive",
   # 837-deopt: Dependency on `libarttest`.
   "837-deopt",
+<<<<<<< PATCH SET (d017a3 Canonicalize methods when in jni::EncodeArtMethod)
+  # These tests need native code.
+=======
   # 844-exception: Dependency on `libarttest`.
   "844-exception",
   # 844-exception2: Dependency on `libarttest`.
@@ -212,7 +215,9 @@ known_failing_tests = frozenset([
   # 966-default-conflict: Dependency on `libarttest`.
   "966-default-conflict",
   # 993-breakpoints-non-debuggable: This test needs native code.
+>>>>>>> BASE      (1ba83b Fix test to not expect ordering of events across threads)
   "993-breakpoints-non-debuggable",
+  "2243-single-step-default"
 ])
 
 known_failing_on_hwasan_tests = frozenset([
