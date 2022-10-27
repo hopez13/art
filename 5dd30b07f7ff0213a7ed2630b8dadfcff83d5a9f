@@ -39,6 +39,30 @@
       },
       "revId": "5dd30b07f7ff0213a7ed2630b8dadfcff83d5a9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ac0cd32_df42236a",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1483,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-27T08:23:40Z",
+      "side": 1,
+      "message": "Thanks Hans! I don\u0027t think we leak anything more because of this change. We already leak gEventHandler and gDeoptManager. There\u0027s a related comment here: https://android-review.googlesource.com/c/platform/art/+/2270949/2/openjdkjvmti/OpenjdkJvmTi.cc#1498\n\nI am not sure I understand the reasoning fully, but as of now gEventHandler and gDeoptManager aren\u0027t deleted. They are global pointers which are Allocated in ArtPlugin_Initialize but aren\u0027t deleted in Deinitialize. Unregistering the callbacks just removes the handler pointer from the list of runtime callbacks (which is a std::vector of pointers). So that doesn\u0027t deallocate. We should really delete gDeoptManager and gEventHandler. If we were deleting them we need to ensure that the callbacks won\u0027t be called after the delete (since all the handlers are unique pointers held by either gDeoptManager / gEventHandler) and therefore we may want to unregister them. Though on a shutdown, we can simply clear the runtime_callbacks list on the ART side and avoid unregistering the callbacks individually which requires a GCCriticalSection in some cases.\n\nI am happy to move this check to individual Shutdown / Unregister if that makes it clear (for future) that we are only unregistering but not deallocating.",
+      "parentUuid": "8d626e7b_3dd2b38d",
+      "range": {
+        "startLine": 1483,
+        "startChar": 4,
+        "endLine": 1483,
+        "endChar": 16
+      },
+      "revId": "5dd30b07f7ff0213a7ed2630b8dadfcff83d5a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
