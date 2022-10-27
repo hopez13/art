@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e3747f3_c6a709c8",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-27T18:09:46Z",
+      "side": 1,
+      "message": "can we actually renumber these like this? i see we also have https://android-review.googlesource.com/c/platform/frameworks/proto_logging/+/2252333 and i don\u0027t know whether these numbers need to correspond? (also note that they have mips and mips64 still, so do we need to leave a _gap_ here?)",
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fb3a33a5_bedbcd81",
@@ -86,6 +103,24 @@
       "side": 1,
       "message": "Right, that is irrelevant.\n\nI got confused because ART methods headers that DCHECK this alignment are both code and data (although not on stack). Theoretically one can generate a function, put it on stack and jump to it (if stack was executable). But then \"stack alignment on procedure entry\" would still mean a different thing (the value of stack pointer when jumping to that generated function).",
       "parentUuid": "db2135ef_79c4d07d",
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b72ee9cd_80be0e9a",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-27T18:09:46Z",
+      "side": 1,
+      "message": "seems like we already have at least one SoC that prefers 16 byte alignment [https://lists.riscv.org/g/sig-android/message/99], so assume that we\u0027re going to end up the same as arm64/x86-64 sooner or later and go straight there?",
+      "parentUuid": "4ffeca4a_2658b429",
       "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
