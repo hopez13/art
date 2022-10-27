@@ -63,6 +63,30 @@
       },
       "revId": "5dd30b07f7ff0213a7ed2630b8dadfcff83d5a9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7a2efd5_39a58760",
+        "filename": "openjdkjvmti/OpenjdkJvmTi.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1483,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-10-27T23:21:37Z",
+      "side": 1,
+      "message": "Thanks! I had missed the comment. It actually does kind of make sense to me. We can\u0027t really get rid of daemon threads. By definition, we don\u0027t wait for them to shut down. We do wait for them to be quiescent, as much as possible. But they can wake up. The expected places where they are likely to wake up check whether they\u0027ve been shut down, and just go back to sleep indefinitely. We may have gotten more aggressive about this since that comment was written, so it\u0027s not 100% clear it still applies. But this is all kind of hacky. We can\u0027t really safely shut down a runtime without shutting down all its threads first.\n\nBut it would be nice to clean up properly in the case in which there are no user-created daemons. That should actually be known at this point, but we probably have no good way of testing it here?",
+      "parentUuid": "7ac0cd32_df42236a",
+      "range": {
+        "startLine": 1483,
+        "startChar": 4,
+        "endLine": 1483,
+        "endChar": 16
+      },
+      "revId": "5dd30b07f7ff0213a7ed2630b8dadfcff83d5a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
