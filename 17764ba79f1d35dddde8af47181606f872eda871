@@ -16,6 +16,155 @@
       "message": "PTAL. Thanks!",
       "revId": "17764ba79f1d35dddde8af47181606f872eda871",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ad58052_e08650dc",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-27T08:32:28Z",
+      "side": 1,
+      "message": "Would it work to pass frame size here too and call",
+      "revId": "17764ba79f1d35dddde8af47181606f872eda871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "440a1857_40b9c509",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-27T08:32:28Z",
+      "side": 1,
+      "message": "Would it work to pass frame size here too and call the JIT exit hook?",
+      "revId": "17764ba79f1d35dddde8af47181606f872eda871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb70d71c_9f96f263",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2690,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-27T08:32:28Z",
+      "side": 1,
+      "message": "I\u0027m not a big fan of passing closures around (I find the readability harder compared to straightline code) - could there be a way for generic JNI to use the same logic as for JItted methods? If not, pass a boolean?",
+      "range": {
+        "startLine": 2690,
+        "startChar": 0,
+        "endLine": 2690,
+        "endChar": 69
+      },
+      "revId": "17764ba79f1d35dddde8af47181606f872eda871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c62be439_bcbf06f4",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2755,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-27T08:32:28Z",
+      "side": 1,
+      "message": "Alignment is off",
+      "range": {
+        "startLine": 2750,
+        "startChar": 37,
+        "endLine": 2755,
+        "endChar": 65
+      },
+      "revId": "17764ba79f1d35dddde8af47181606f872eda871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2c6238f_8f916e05",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2763,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-27T08:32:28Z",
+      "side": 1,
+      "message": "Given this is also in instrumentation.cc, move the logic there?\n\nAlso, aren\u0027t making parts of Instrumentation::ShouldDeoptimizeCaller obsolete by having a fast path logic here?",
+      "range": {
+        "startLine": 2760,
+        "startChar": 0,
+        "endLine": 2763,
+        "endChar": 72
+      },
+      "revId": "17764ba79f1d35dddde8af47181606f872eda871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec6d59a7_6019f596",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2765,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-27T08:32:28Z",
+      "side": 1,
+      "message": "move the conditions around?",
+      "range": {
+        "startLine": 2765,
+        "startChar": 19,
+        "endLine": 2765,
+        "endChar": 95
+      },
+      "revId": "17764ba79f1d35dddde8af47181606f872eda871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecdf8c0c_4ca25824",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2780,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-27T08:32:28Z",
+      "side": 1,
+      "message": "If you make JNI call artMethodExitHookJIT, is that being called only by generic JNI now?",
+      "range": {
+        "startLine": 2780,
+        "startChar": 16,
+        "endLine": 2780,
+        "endChar": 33
+      },
+      "revId": "17764ba79f1d35dddde8af47181606f872eda871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
