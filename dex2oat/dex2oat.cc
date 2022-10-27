@@ -3130,7 +3130,7 @@ static dex2oat::ReturnCode Dex2oat(int argc, char** argv) {
 
   art::MemMap::Init();  // For ZipEntry::ExtractToMemMap, vdex and profiles.
 
-  if(dex2oat->GetCompilerFilter() == CompilerFilter::kSpeed) {
+  if(dex2oat->GetCompilerFilter() == CompilerFilter::kSpeed && kIsTargetBuild) {
       return dex2oat::ReturnCode::kOther;
   }
 
