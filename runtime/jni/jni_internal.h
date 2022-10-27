@@ -116,7 +116,7 @@ static inline jmethodID EncodeArtMethod(ReflectiveHandle<ArtMethod> art_method)
   if (kEnableIndexIds && Runtime::Current()->GetJniIdType() != JniIdType::kPointer) {
     return Runtime::Current()->GetJniIdManager()->EncodeMethodId(art_method);
   } else {
-    return reinterpret_cast<jmethodID>(art_method.Get());
+    return reinterpret_cast<jmethodID>(art_method->GetCanonicalMethod());
   }
 }
 
@@ -127,7 +127,7 @@ static inline jmethodID EncodeArtMethod(ArtMethod* art_method)
   if (kEnableIndexIds && Runtime::Current()->GetJniIdType() != JniIdType::kPointer) {
     return Runtime::Current()->GetJniIdManager()->EncodeMethodId(art_method);
   } else {
-    return reinterpret_cast<jmethodID>(art_method);
+    return reinterpret_cast<jmethodID>(art_method->GetCanonicalMethod());
   }
 }
 
