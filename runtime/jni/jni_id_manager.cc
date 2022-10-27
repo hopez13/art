@@ -204,6 +204,20 @@ bool IsObsolete(ReflectiveHandle<ArtMethod> t) {
   return t->IsObsolete();
 }
 
+// Specifies if we should just use pointer without canonicalizing. For default conflict methods
+// canonicalizing would return a method from one of the interface classes and invoking via the
+// CallNonVirtual JNI interface wouldn't throw ICCE as expected.
+template <typename ArtType>
+bool CanUseJniIdIndices(ReflectiveHandle<ArtType> t) REQUIRES_SHARED(Locks::mutator_lock_);
+template <>
+bool CanUseJniIdIndices(ReflectiveHandle<ArtMethod> t) {
+  return !t->IsDefaultConflicting();
+}
+template <>
+bool CanUseJniIdIndices(ReflectiveHandle<ArtField> t ATTRIBUTE_UNUSED) {
+  return true;
+}
+
 // Get the canonical (non-copied) version of the field or method. Only relevant for methods.
 template <typename ArtType>
 ArtType* Canonicalize(ReflectiveHandle<ArtType> t) REQUIRES_SHARED(Locks::mutator_lock_);
@@ -272,7 +286,7 @@ uintptr_t JniIdManager::EncodeGenericId(ReflectiveHandle<ArtType> t) {
                 "Expected ArtField or ArtMethod");
   Runtime* runtime = Runtime::Current();
   JniIdType id_type = runtime->GetJniIdType();
-  if (id_type == JniIdType::kPointer || t == nullptr) {
+  if (id_type == JniIdType::kPointer || t == nullptr || !CanUseJniIdIndices(t)) {
     return reinterpret_cast<uintptr_t>(t.Get());
   }
   Thread* self = Thread::Current();
