@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "071bda30_89d9f618",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-28T17:26:05Z",
+      "side": 1,
+      "message": "Thank you.",
+      "revId": "8ee8e2fc23e3719e1c379aa9848a557ffbaa48ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d1e9f59_0ae17f9a",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-28T17:26:05Z",
+      "side": 1,
+      "message": "A small detail I noticed here is that comment lines are removed completely, so if there are error messages with line numbers (which I don\u0027t know), they may be confusing.",
+      "range": {
+        "startLine": 55,
+        "startChar": 18,
+        "endLine": 55,
+        "endChar": 80
+      },
+      "revId": "8ee8e2fc23e3719e1c379aa9848a557ffbaa48ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
