@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cce1f8ab_eefffd42",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-28T22:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b0dd3ab_461e555b",
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fb3a33a5_bedbcd81",
         "filename": "libartbase/arch/instruction_set.h",
         "patchSetId": 1
@@ -160,6 +178,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a50b31e0_4e09bddd",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-28T22:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b72ee9cd_80be0e9a",
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50756b96_9a249f0e",
@@ -183,6 +219,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37f507e7_1a7640ec",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-28T22:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50756b96_9a249f0e",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 57
+      },
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a343db84_7684ed4c",
@@ -196,6 +256,30 @@
       "writtenOn": "2022-10-25T10:18:51Z",
       "side": 1,
       "message": "Please fix formatting (the other lines are aligned at `\u003d`, only riscv64 is not).",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 93
+      },
+      "revId": "cdc2d464d41d1048f50edd8d021825f2c6e50649",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3713885a_9b1fc809",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2022-10-28T22:46:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a343db84_7684ed4c",
       "range": {
         "startLine": 266,
         "startChar": 0,
