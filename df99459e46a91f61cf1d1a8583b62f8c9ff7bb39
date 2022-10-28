@@ -22,6 +22,30 @@
       },
       "revId": "df99459e46a91f61cf1d1a8583b62f8c9ff7bb39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d20a09c4_6d39402c",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-28T14:53:11Z",
+      "side": 1,
+      "message": "I agree - the logic here seems broken. This is really just fixing how things were intended before Calin introduced the force_early_first_save flag.",
+      "parentUuid": "64c8a605_c98e7130",
+      "range": {
+        "startLine": 150,
+        "startChar": 26,
+        "endLine": 150,
+        "endChar": 36
+      },
+      "revId": "df99459e46a91f61cf1d1a8583b62f8c9ff7bb39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
