@@ -46,6 +46,30 @@
       },
       "revId": "4681d71a191eb5875fa0c4b33c667cd22b5c2d7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "999420d3_14797810",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-28T13:10:52Z",
+      "side": 1,
+      "message": "Right, but when you say `it can crash`, the crash will happen in the runtime code (libart.so, libart-compiler.so, etc), so we\u0027re really protecting against our own crashes here, no?",
+      "parentUuid": "6bc38ca5_c3ae8910",
+      "range": {
+        "startLine": 294,
+        "startChar": 18,
+        "endLine": 295,
+        "endChar": 43
+      },
+      "revId": "4681d71a191eb5875fa0c4b33c667cd22b5c2d7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
