@@ -160,17 +160,21 @@ void ArtMethod::ThrowInvocationTimeError(ObjPtr<mirror::Object> receiver) {
     // IllegalAccessError.
     DCHECK(IsAbstract());
     ObjPtr<mirror::Class> current = receiver->GetClass();
+    std::string_view name = GetNameView();
+    Signature signature = GetSignature();
     while (current != nullptr) {
       for (ArtMethod& method : current->GetDeclaredMethodsSlice(kRuntimePointerSize)) {
         ArtMethod* np_method = method.GetInterfaceMethodIfProxy(kRuntimePointerSize);
         if (!np_method->IsStatic() &&
-            np_method->GetNameView() == GetNameView() &&
-            np_method->GetSignature() == GetSignature()) {
-          if (!np_method->IsPublic()) {
-            ThrowIllegalAccessErrorForImplementingMethod(receiver->GetClass(), np_method, this);
-            return;
-          } else if (np_method->IsAbstract()) {
+            np_method->GetNameView() == name &&
+            np_method->GetSignature() == signature) {
+          // Check if the method is abstract first. `ThrowIllegalAccessErrorForImplementingMethod`
+          // is for non-abstract methods.
+          if (np_method->IsAbstract()) {
             ThrowAbstractMethodError(this);
+            return;
+          } else if (!np_method->IsPublic()) {
+            ThrowIllegalAccessErrorForImplementingMethod(receiver->GetClass(), np_method, this);
             return;
           }
         }
