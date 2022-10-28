@@ -33,6 +33,69 @@
       "message": "PTAL.",
       "revId": "937428ad6646ac72dacee92811c679fbc14f8926",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99629b22_f2f39a2c",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-28T15:07:18Z",
+      "side": 1,
+      "message": "Suggestion: Move this part of the comment above the method\u0027s defintion.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 46
+      },
+      "revId": "937428ad6646ac72dacee92811c679fbc14f8926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b035570_7c5f7d42",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-28T15:07:18Z",
+      "side": 1,
+      "message": "Suggestion: Remove blank line.",
+      "revId": "937428ad6646ac72dacee92811c679fbc14f8926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be96b8cc_47871ea7",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-28T15:07:18Z",
+      "side": 1,
+      "message": "Suggestion: Use constant(s) for this path or consider using `art::kAndroidArtApexDefaultPath` (https://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/file_utils.h;l\u003d31;drc\u003d0a964610ebf1cf059c647182e53b860e8dfe756f).",
+      "range": {
+        "startLine": 41,
+        "startChar": 37,
+        "endLine": 41,
+        "endChar": 72
+      },
+      "revId": "937428ad6646ac72dacee92811c679fbc14f8926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
