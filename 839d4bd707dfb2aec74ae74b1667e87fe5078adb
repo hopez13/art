@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3390d45c_9d55bebd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-10-28T09:55:25Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t have one. It is hard to run in ABTD with a staged config as you need to add the presubmit build as a parameter, but you don\u0027t have one before you trigger an ABTD run. I think that for a small change like this one it would be fine to merge and we can revert if necessary. WDYT?\n\nCould it be possible to do a 2-step check with Forrest? I.e. first trigger a Forrest build to create P builds for the product and test suites artifacts; then tigger a Forrest test with those builds?",
+      "parentUuid": "9854ccc4_928fe9dc",
+      "revId": "839d4bd707dfb2aec74ae74b1667e87fe5078adb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4f40dc9b_8b6a76da",
