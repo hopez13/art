@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86492265_499e9b94",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-28T19:18:52Z",
+      "side": 0,
+      "message": "In that case we should set kPageSize differently for host/target and keep this check.\n\nThe reason I insist on keeping these checks is that there are numerous places in the code where things are done with the assumption that kPageSize is the page_size as per kernel.",
+      "parentUuid": "dbb19acc_3a08e89a",
+      "range": {
+        "startLine": 1440,
+        "startChar": 2,
+        "endLine": 1440,
+        "endChar": 67
+      },
+      "revId": "9e97a8d783d04eede57686e2ab398e62d5ae385c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b58b7486_3caaa33f",
         "filename": "runtime/thread_pool.cc",
         "patchSetId": 1
@@ -85,6 +109,30 @@
       "side": 0,
       "message": "Same as above. (Host uses 4kb pages)",
       "parentUuid": "b58b7486_3caaa33f",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 45
+      },
+      "revId": "9e97a8d783d04eede57686e2ab398e62d5ae385c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac1fa94c_9ce1e352",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-28T19:18:52Z",
+      "side": 0,
+      "message": "We can keep this check after making the changes to kPageSize as suggested above.",
+      "parentUuid": "05ec4f94_a7b067d6",
       "range": {
         "startLine": 65,
         "startChar": 4,

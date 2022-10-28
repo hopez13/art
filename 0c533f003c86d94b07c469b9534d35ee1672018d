@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4044c02f_6ebfdca6",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-28T19:18:52Z",
+      "side": 1,
+      "message": "keep x86 stack size as 8k",
+      "range": {
+        "startLine": 104,
+        "startChar": 3,
+        "endLine": 105,
+        "endChar": 43
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79b043ba_027090cc",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-28T19:18:52Z",
+      "side": 1,
+      "message": "change it to `kIsTargetAndroid ? 16384 : 4096`",
+      "range": {
+        "startLine": 39,
+        "startChar": 36,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4177aa5_57d6b6d6",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 1
@@ -38,6 +84,30 @@
       "side": 1,
       "message": "There is an issue. Because this value is later divided by 2 and checked for page alignment. (So needs to be some multiple of 2 * page size)",
       "parentUuid": "b4177aa5_57d6b6d6",
+      "range": {
+        "startLine": 186,
+        "startChar": 60,
+        "endLine": 186,
+        "endChar": 64
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86195ffb_b76f78b0",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-28T19:18:52Z",
+      "side": 1,
+      "message": "In that case, let\u0027s set it with `2 * kPageSize`",
+      "parentUuid": "14fdc32a_5a1dc987",
       "range": {
         "startLine": 186,
         "startChar": 60,
