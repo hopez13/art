@@ -46,6 +46,30 @@
       },
       "revId": "df99459e46a91f61cf1d1a8583b62f8c9ff7bb39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46bfcd68_4dc31797",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-28T14:59:46Z",
+      "side": 1,
+      "message": "The logic looks very weird. We\u0027re waiting here for startup completion but if we do not get that event, we actually generate it below.\n\nThis is not directly related to this CL, so feel free to Ack and submit.",
+      "parentUuid": "d20a09c4_6d39402c",
+      "range": {
+        "startLine": 150,
+        "startChar": 26,
+        "endLine": 150,
+        "endChar": 36
+      },
+      "revId": "df99459e46a91f61cf1d1a8583b62f8c9ff7bb39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
