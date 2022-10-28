@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2573ede7_2193ed9d",
+        "filename": "test/160-read-barrier-stress/test-metadata.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-28T16:49:06Z",
+      "side": 1,
+      "message": "I see there is a mix of flags in these files. FTR I haven\u0027t verified that all these are correct.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 28
+      },
+      "revId": "20b77d648cad4d7d73d022f78d65e2552cb8dc55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be46561a_8e457825",
@@ -38,6 +61,30 @@
       "side": 1,
       "message": "Thanks for the suggestion! I\u0027ll implement this in a follow-up CL, if that\u0027s fine with you.",
       "parentUuid": "be46561a_8e457825",
+      "range": {
+        "startLine": 330,
+        "startChar": 21,
+        "endLine": 330,
+        "endChar": 33
+      },
+      "revId": "20b77d648cad4d7d73d022f78d65e2552cb8dc55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eb5a1b7_3fc9bdde",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-28T16:49:06Z",
+      "side": 1,
+      "message": "All right.",
+      "parentUuid": "ba373328_a9e38134",
       "range": {
         "startLine": 330,
         "startChar": 21,
