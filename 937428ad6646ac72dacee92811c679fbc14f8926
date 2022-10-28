@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8ae591d_b66a044f",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-28T16:28:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99629b22_f2f39a2c",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 46
+      },
+      "revId": "937428ad6646ac72dacee92811c679fbc14f8926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b035570_7c5f7d42",
@@ -75,6 +99,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27b82f4b_22765aaf",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-28T16:28:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b035570_7c5f7d42",
+      "revId": "937428ad6646ac72dacee92811c679fbc14f8926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be96b8cc_47871ea7",
@@ -88,6 +130,30 @@
       "writtenOn": "2022-10-28T15:07:18Z",
       "side": 1,
       "message": "Suggestion: Use constant(s) for this path or consider using `art::kAndroidArtApexDefaultPath` (https://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/file_utils.h;l\u003d31;drc\u003d0a964610ebf1cf059c647182e53b860e8dfe756f).",
+      "range": {
+        "startLine": 41,
+        "startChar": 37,
+        "endLine": 41,
+        "endChar": 72
+      },
+      "revId": "937428ad6646ac72dacee92811c679fbc14f8926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c21a33e5_a689819d",
+        "filename": "dex2oat/dex2oat_cts_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-28T16:28:15Z",
+      "side": 1,
+      "message": "In general I\u0027d like to see some amount of reuse of a constant to warrant the extra indirection. However, reusing `kAndroidArtApexDefaultPath` is a good idea.",
+      "parentUuid": "be96b8cc_47871ea7",
       "range": {
         "startLine": 41,
         "startChar": 37,
