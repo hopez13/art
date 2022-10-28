@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbb19acc_3a08e89a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2022-10-28T18:32:31Z",
+      "side": 0,
+      "message": "When dexpreopt at build time this is executed in the host context where the page size is 4Kb",
+      "parentUuid": "0153fb31_1248a217",
+      "range": {
+        "startLine": 1440,
+        "startChar": 2,
+        "endLine": 1440,
+        "endChar": 67
+      },
+      "revId": "9e97a8d783d04eede57686e2ab398e62d5ae385c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b58b7486_3caaa33f",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-28T18:25:17Z",
       "side": 0,
       "message": "ditto, why is this a problem?",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 45
+      },
+      "revId": "9e97a8d783d04eede57686e2ab398e62d5ae385c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ec4f94_a7b067d6",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2022-10-28T18:32:31Z",
+      "side": 0,
+      "message": "Same as above. (Host uses 4kb pages)",
+      "parentUuid": "b58b7486_3caaa33f",
       "range": {
         "startLine": 65,
         "startChar": 4,
