@@ -204,6 +204,8 @@ known_failing_tests = frozenset([
   "832-cha-recursive",
   # 837-deopt: Dependency on `libarttest`.
   "837-deopt",
+  # 844-exception: Dependency on `libarttest`.
+  "844-exception",
   # 993-breakpoints-non-debuggable: This test needs native code.
   "993-breakpoints-non-debuggable",
 ])
