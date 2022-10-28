@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3e8295a_66e4e37f",
+        "filename": "runtime/jni/jni_internal.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-28T09:41:21Z",
+      "side": 0,
+      "message": "Sigh for the duplicated code between the two EncodeArtMethod (and same for EncodeArtField).",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 3
+      },
+      "revId": "39083d582c75c8e88923353fdce9ac1b373d9480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
