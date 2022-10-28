@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b494f6fe_9e5a9ba2",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-10-28T09:55:57Z",
+      "side": 1,
+      "message": "This about this a little more: if we check the mutator lock is held, don\u0027t we know it\u0027s happening in our code (either in the runtime or in generated code)? If that\u0027s the case, then the pc check becomes more of a debugging check again that we don\u0027t crash in the runtime?",
+      "range": {
+        "startLine": 294,
+        "startChar": 18,
+        "endLine": 295,
+        "endChar": 43
+      },
+      "revId": "4681d71a191eb5875fa0c4b33c667cd22b5c2d7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
