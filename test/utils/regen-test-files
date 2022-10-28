@@ -44,6 +44,18 @@ INDENT = "  "
 # Indentation unit for XML files.
 XML_INDENT = "    "
 
+
+# A JSONDecoder that supports line comments that start with //.
+# Imported from `build/soong/scripts/jsonmodify.py`.
+class JSONWithCommentsDecoder(json.JSONDecoder):
+  def __init__(self, **kw):
+    super().__init__(**kw)
+
+  def decode(self, s: str):
+    s = '\n'.join(l for l in s.split('\n') if not l.lstrip(' ').startswith('//'))
+    return super().decode(s)
+
+
 def reindent(str, indent = ""):
   """Reindent literal string while removing common leading spaces."""
   return textwrap.indent(textwrap.dedent(str), indent)
@@ -331,7 +343,7 @@ class Generator:
     if os.path.exists(metadata_file):
       with open(metadata_file, "r") as f:
         try:
-          metadata = json.load(f)
+          metadata = json.load(f, cls = JSONWithCommentsDecoder)
         except json.decoder.JSONDecodeError:
           logging.error(f"Unable to parse test metadata file `{metadata_file}`")
           raise
