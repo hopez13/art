@@ -404,6 +404,7 @@ static jboolean DexFile_closeDexFile(JNIEnv* env, jclass, jobject cookie) {
         if (!class_linker->IsDexFileRegistered(soa.Self(), *dex_file)) {
           // Clear the element in the array so that we can call close again.
           long_dex_files->Set(i, 0);
+          class_linker->RemoveDexFromCaches(*dex_file);
           delete dex_file;
         } else {
           all_deleted = false;
@@ -616,6 +617,8 @@ static jstring DexFile_getDexFileStatus(JNIEnv* env,
     return nullptr;
   }
 
+  // The API doesn't support passing a class loader context, so skip the class loader context check
+  // and assume that it's OK.
   OatFileAssistant oat_file_assistant(filename.c_str(),
                                       target_instruction_set,
                                       /* context= */ nullptr,
