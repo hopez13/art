@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d4f9575_8f2fa3f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-28T10:13:11Z",
+      "side": 1,
+      "message": "I tried doing that for Vali\u0027s CL but selecting \"Run tests\" triggers a build and even after selecting a specific build (i.e. not git_master) and checking `Reuse existing builds from other runs` I still got a new build triggered. So a test would take ~4 hours (2 builds + test run) to get any results.\n\nI think it could be worth it for bigger changes to the config but I am not sure it\u0027s worth it for this particular change.",
+      "parentUuid": "3390d45c_9d55bebd",
+      "revId": "839d4bd707dfb2aec74ae74b1667e87fe5078adb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4f40dc9b_8b6a76da",
