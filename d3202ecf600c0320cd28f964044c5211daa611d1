@@ -16,6 +16,23 @@
       "message": "ps2 addresses the nits, and also adds the minimum necessary extra bits for us to be able to commit this without breaking the regular build...",
       "revId": "d3202ecf600c0320cd28f964044c5211daa611d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73f064c6_5abd7183",
+        "filename": "libelffile/dwarf/register.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1971751
+      },
+      "writtenOn": "2022-10-29T02:49:11Z",
+      "side": 1,
+      "message": "According to psabi, The dwarf regno of FP should be 32-63.\nhttps://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/master/riscv-dwarf.adoc",
+      "revId": "d3202ecf600c0320cd28f964044c5211daa611d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
