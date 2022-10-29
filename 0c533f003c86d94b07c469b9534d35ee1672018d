@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70b80eea_cbdeb5b2",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-10-29T00:16:30Z",
+      "side": 1,
+      "message": "If the x86 stack size is set to 8k, these assertions failed:\n\nhttps://cs.android.com/android/platform/superproject/+/master:art/libartbase/arch/instruction_set.cc;l\u003d119?q\u003dart%2Flibartbase%2Farch%2Finstruction_set.c\n\n```\nart/libartbase/arch/instruction_set.cc:119:1: error: static assertion failed due to requirement \u0027IsAligned\u003ckPageSize\u003e(kX86StackOverflowRes\nervedBytes)\u0027: X86 gap not page aligned\nstatic_assert(IsAligned\u003ckPageSize\u003e(kX86StackOverflowReservedBytes), \"X86 gap not page aligned\");\n^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nart/libartbase/arch/instruction_set.cc:120:1: error: static assertion failed due to requirement \u0027IsAligned\u003ckPageSize\u003e(kX86_64StackOverflow\nReservedBytes)\u0027: X86_64 gap not page aligned\nstatic_assert(IsAligned\u003ckPageSize\u003e(kX86_64StackOverflowReservedBytes),\n^             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n2 errors generated.\n[ 66% 8784/13179] //art/libartbase:libartbase clang++ arch/instruction_set.cc [linux_bionic]\n```",
+      "parentUuid": "4044c02f_6ebfdca6",
+      "range": {
+        "startLine": 104,
+        "startChar": 3,
+        "endLine": 105,
+        "endChar": 43
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "79b043ba_027090cc",
         "filename": "libartbase/base/globals.h",
         "patchSetId": 1
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "In that case, let\u0027s set it with `2 * kPageSize`",
       "parentUuid": "14fdc32a_5a1dc987",
+      "range": {
+        "startLine": 186,
+        "startChar": 60,
+        "endLine": 186,
+        "endChar": 64
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd012aa9_4c69c4b6",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-10-29T00:16:30Z",
+      "side": 1,
+      "message": "After applying the changes suggested, I found compiler and runtime errors. See b/254108567#comment7",
+      "parentUuid": "86195ffb_b76f78b0",
       "range": {
         "startLine": 186,
         "startChar": 60,
