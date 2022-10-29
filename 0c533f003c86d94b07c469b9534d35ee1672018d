@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ed15927_bfe5ea2e",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-10-29T00:29:00Z",
+      "side": 1,
+      "message": "From the kind of errors you are getting it seems like checking this flag isn\u0027t WAI.\n\nCan you instead make it conditional on arch? For arm set it to 16k, and otherwise 4k and see what happens.",
+      "parentUuid": "79b043ba_027090cc",
+      "range": {
+        "startLine": 39,
+        "startChar": 36,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4177aa5_57d6b6d6",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 1
