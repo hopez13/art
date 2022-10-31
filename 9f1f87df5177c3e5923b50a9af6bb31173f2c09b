@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "648047a8_aad2e852",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-10-31T16:05:53Z",
+      "side": 1,
+      "message": "This doesn\u0027t support a comment that is not at the start of a line, such as:\n\n```\n\"key\": \"value\" // some comment\n```\n\nBut supporting that is too complicated because it would need to handle \"//\" in the value and so on, so I guess we probably don\u0027t want that.",
+      "revId": "9f1f87df5177c3e5923b50a9af6bb31173f2c09b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
