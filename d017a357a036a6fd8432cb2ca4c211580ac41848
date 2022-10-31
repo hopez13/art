@@ -22,6 +22,29 @@
       },
       "revId": "d017a357a036a6fd8432cb2ca4c211580ac41848",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ba5589_35d8f1af",
+        "filename": "runtime/jni/jni_internal.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-31T13:29:12Z",
+      "side": 1,
+      "message": "I just found out that there are `CallNonvirtual\u003ctype\u003eMethod{,A,V}()` methods in the JNI interface. If we find a default conflict method, the canonical method is simply one of the conflicting methods. So, `CallNonvirtual\u003ctype\u003eMethod{,A,V}()` with the canonicalization shall simply execute that method, without the canonicalization it would throw ICCE.",
+      "range": {
+        "startLine": 134,
+        "startChar": 51,
+        "endLine": 134,
+        "endChar": 69
+      },
+      "revId": "d017a357a036a6fd8432cb2ca4c211580ac41848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
