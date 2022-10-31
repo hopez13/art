@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f20bb138_29865a12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1952265
+      },
+      "writtenOn": "2022-10-31T16:49:43Z",
+      "side": 1,
+      "message": "Hari will no longer be working on this patch so I have taken over development. Gerrit would not let me upload onto this patch so I have uploaded to https://android-review.googlesource.com/c/platform/art/+/2278397 instead.\n\nReviews on that new patch would be appreciated and this patch could be marked as inactive.",
+      "revId": "cfdbba72af6f2ce7b208e7de4de4de096cf52c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0deed181_900944bd",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-09-26T10:41:58Z",
       "side": 1,
       "message": "Why is this still here after LSE?\n\nHow is the loop unrolled? Do we have two iterations in the new loop body and an early exit in between? Do we fail to use the fact that the trip count is even?",
+      "range": {
+        "startLine": 2788,
+        "startChar": 36,
+        "endLine": 2788,
+        "endChar": 44
+      },
+      "revId": "cfdbba72af6f2ce7b208e7de4de4de096cf52c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d7627a8_ecda7bab",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2788,
+      "author": {
+        "id": 1952265
+      },
+      "writtenOn": "2022-10-31T16:49:43Z",
+      "side": 1,
+      "message": "The loop is unrolled once (by a factor of two) in loop_optimization.cc::TryUnrollingForBranchPenaltyReduction() only if the trip count is even. This means we don\u0027t need an early exit and can remove the loop check for the second part of the loop body.\n\nThe reason LSE does not optimize this is because there is no DCE pass between loop optimization (unrolling) and LSE so LSE is not able to remove the second ArraySet because it is still used by the dead add.\n\nI have added another DCE pass after loop optimization to remove this ArraySet as well as providing LSE with more opportunities for optimization in other situations.",
+      "parentUuid": "0deed181_900944bd",
       "range": {
         "startLine": 2788,
         "startChar": 36,
