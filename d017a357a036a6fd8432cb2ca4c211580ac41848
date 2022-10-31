@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f3bbbe6_1ac0e8d1",
+        "filename": "runtime/jni/jni_internal.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-31T09:40:03Z",
+      "side": 1,
+      "message": "Maybe we should add `|| LIKELY(!art_method-\u003eIsCopied())` here for performance because `ArtMethod::GetCanonicalMethod()` is not `inline`. See also `Canonicalize(ReflectiveHandle\u003cArtMethod\u003e t)` in `jni_id_manager.cc`.",
+      "range": {
+        "startLine": 131,
+        "startChar": 34,
+        "endLine": 131,
+        "endChar": 35
+      },
+      "revId": "d017a357a036a6fd8432cb2ca4c211580ac41848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
