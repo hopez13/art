@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "058a83e2b9e527f7b743ed03c98a0026a55dafdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d5e3397_bd227948",
+        "filename": "test/2243-single-step-default/single_step_helper.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-31T08:04:57Z",
+      "side": 1,
+      "message": "Use\n\n    if (JvmtiErrorToException(env, jvmti_env, err)) {\n      return;\n    }\n\nExecuting the code below with a pending exception shall most likely crash.",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 44
+      },
+      "revId": "058a83e2b9e527f7b743ed03c98a0026a55dafdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
