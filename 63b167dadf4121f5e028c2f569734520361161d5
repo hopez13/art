@@ -33,6 +33,24 @@
       "message": "Hi Lifang, I\u0027m considering using a slightly different internal register enumeration scheme where all callee-saves will occupy consecutive numbers (and possibly a few more reorderings). This will make it easier to implement things like `Riscv64Context::FillCalleeSaves` that will be able to handle different frame types uniformly.\n\nTherefore, I need some more time to finish my experiment before I proceed to reviewing your patch. Apologies for the delay!",
       "revId": "63b167dadf4121f5e028c2f569734520361161d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daa8adf4_94982d3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1971751
+      },
+      "writtenOn": "2022-10-31T12:51:18Z",
+      "side": 1,
+      "message": "But it is not easier to implement art_quick_do_long_jump.\nFrom a maintainer\u0027s point of view, I think it would be better to keep the registers in order.\nAnyway, I\u0027m waiting for you conclusion.",
+      "parentUuid": "c0219ea6_3a4f8d8d",
+      "revId": "63b167dadf4121f5e028c2f569734520361161d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
