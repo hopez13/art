@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f347a21b_637b2bb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-31T15:48:20Z",
+      "side": 1,
+      "message": "For host compiles, this number is lower (~0.2%) but still worth doing.",
+      "revId": "717951b48f157e19959b62bfb7eeea211f2c1fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "471e1ca8_e39eae39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-31T15:48:20Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "717951b48f157e19959b62bfb7eeea211f2c1fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07ea1b95_fc5ea3fd",
+        "filename": "test/536-checker-needs-access-check/src2/other/InaccessibleClass.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-31T15:48:20Z",
+      "side": 1,
+      "message": "Changed to print so that we still $inline$. Same in 979-",
+      "range": {
+        "startLine": 34,
+        "startChar": 17,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "717951b48f157e19959b62bfb7eeea211f2c1fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3889370b_ea679a05",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-10-31T15:48:20Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure to keep this test or not. It is now blocked by two heuristics, but both of those heuristics could be eliminated at some point. In the end, I decided to keep it with the added comment and checker test.",
+      "range": {
+        "startLine": 725,
+        "startChar": 32,
+        "endLine": 725,
+        "endChar": 70
+      },
+      "revId": "717951b48f157e19959b62bfb7eeea211f2c1fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
