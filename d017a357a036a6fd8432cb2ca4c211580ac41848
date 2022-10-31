@@ -69,6 +69,30 @@
       },
       "revId": "d017a357a036a6fd8432cb2ca4c211580ac41848",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5978cc0_138b7f82",
+        "filename": "runtime/jni/jni_internal.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-31T16:39:01Z",
+      "side": 1,
+      "message": "I don\u0027t know. The JNI spec is not exactly detailed. We could check the RI behavior if we try to find and call a conflict method via JNI.",
+      "parentUuid": "4833875d_3c3a2e2a",
+      "range": {
+        "startLine": 134,
+        "startChar": 51,
+        "endLine": 134,
+        "endChar": 69
+      },
+      "revId": "d017a357a036a6fd8432cb2ca4c211580ac41848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
