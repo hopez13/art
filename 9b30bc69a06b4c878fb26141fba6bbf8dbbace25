@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaaa8edb_259d2d06",
+        "filename": "test/099-vmdebug/test-metadata.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-31T14:07:40Z",
+      "side": 1,
+      "message": "Since dsrbecky@ has the context on the particular tests I\u0027ll leave +2 on these two files to him.",
+      "revId": "9b30bc69a06b4c878fb26141fba6bbf8dbbace25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "241174cf_504a5a4f",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-10-31T14:07:40Z",
+      "side": 1,
+      "message": "These metadata properties should be documented in one place, so that people don\u0027t need to dive deep into the code to learn what the metadata files contain.\n\nI suggest adding it as a comment on or in `get_test_metadata`, because that\u0027s a location that shows up in a search for \"test-metadata.json\". Also consider a simple check of valid parameter names in there, mainly to get some code to anchor the comments to (lest it\u0027s easy to forget to add docs there when new parameters are added).\n\nThis is fine to do in a separate CL.",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 17
+      },
+      "revId": "9b30bc69a06b4c878fb26141fba6bbf8dbbace25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
