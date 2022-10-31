@@ -22,6 +22,30 @@
       },
       "revId": "39083d582c75c8e88923353fdce9ac1b373d9480",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28ab00e3_28e2f916",
+        "filename": "runtime/jni/jni_internal.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-31T07:44:08Z",
+      "side": 0,
+      "message": "Ya, couldn\u0027t think of a nice way to share them. We could convert ArtMethod* -\u003e Handle\u003cArtMethod\u003e but possibly unnecessary. The other way round I am not sure it\u0027s safe with EncodeMethodId.",
+      "parentUuid": "c3e8295a_66e4e37f",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 3
+      },
+      "revId": "39083d582c75c8e88923353fdce9ac1b373d9480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
