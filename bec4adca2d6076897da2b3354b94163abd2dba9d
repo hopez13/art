@@ -70,6 +70,30 @@
       },
       "revId": "bec4adca2d6076897da2b3354b94163abd2dba9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02312a6d_4e89c1e9",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-31T15:00:39Z",
+      "side": 1,
+      "message": "Fair enough.  I added explicit check so that we get a useful error message if this is problem.",
+      "parentUuid": "d528ab5c_00ae2afe",
+      "range": {
+        "startLine": 520,
+        "startChar": 18,
+        "endLine": 520,
+        "endChar": 36
+      },
+      "revId": "bec4adca2d6076897da2b3354b94163abd2dba9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

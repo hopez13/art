@@ -22,6 +22,30 @@
       },
       "revId": "f00adad04e90c09471600e547ef3cc5bf24be970",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cb46712_5dae94f0",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-10-31T15:00:39Z",
+      "side": 1,
+      "message": "True, but I guess we should file separate bug for that.\n\nI am trying to avoid the crashes with misterious sigsegv.",
+      "parentUuid": "f1776463_a1faf09c",
+      "range": {
+        "startLine": 481,
+        "startChar": 20,
+        "endLine": 481,
+        "endChar": 29
+      },
+      "revId": "f00adad04e90c09471600e547ef3cc5bf24be970",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
