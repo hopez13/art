@@ -28,6 +28,7 @@
 #include "base/systrace.h"
 #include "base/time_utils.h"
 #include "base/value_object.h"
+#include "monitor.h"
 #include "mutex-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
@@ -463,7 +464,10 @@ void Mutex::ExclusiveLock(Thread* self) {
           do {
             timespec timeout_ts;
             timeout_ts.tv_sec = 0;
-            timeout_ts.tv_nsec = Runtime::Current()->GetMonitorTimeoutNs();
+            // NB: Some tests use the mutex without the runtime.
+            timeout_ts.tv_nsec = Runtime::Current() != nullptr
+                ? Runtime::Current()->GetMonitorTimeoutNs()
+                : Monitor::kDefaultMonitorTimeoutMs;
             if (futex(state_and_contenders_.Address(), FUTEX_WAIT_PRIVATE, cur_state,
                       enable_monitor_timeout_ ? &timeout_ts : nullptr , nullptr, 0) != 0) {
               // We only went to sleep after incrementing and contenders and checking that the
