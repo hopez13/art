@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1776463_a1faf09c",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-31T11:01:46Z",
+      "side": 1,
+      "message": "We fail to acquire some mutex (exclusively), so we try to dump the stack which in turn acquires the `mutator_lock_` (shared) and the `thread_list_lock_` (exclusively). This is so wrong.",
+      "range": {
+        "startLine": 481,
+        "startChar": 20,
+        "endLine": 481,
+        "endChar": 29
+      },
+      "revId": "f00adad04e90c09471600e547ef3cc5bf24be970",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

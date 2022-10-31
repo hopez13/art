@@ -46,6 +46,30 @@
       },
       "revId": "bec4adca2d6076897da2b3354b94163abd2dba9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d528ab5c_00ae2afe",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-10-31T11:01:46Z",
+      "side": 1,
+      "message": "Well, is timeout \"normal\"?\n\n(For tests, this does not matter so much as timeout means that the test shall fail anyway.)",
+      "parentUuid": "70865cb3_72ca6be1",
+      "range": {
+        "startLine": 520,
+        "startChar": 18,
+        "endLine": 520,
+        "endChar": 36
+      },
+      "revId": "bec4adca2d6076897da2b3354b94163abd2dba9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
