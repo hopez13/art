@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16512c8e_936ed3a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-31T17:08:11Z",
+      "side": 1,
+      "message": "Sorry it took some time to come back to this. I will have a follow up CL where we would check for should_deoptimize_flag only when is_deopt_check_required flag is set. This should be only set when we redefine methods, so we shouldn\u0027t see performance hit in regular cases.",
+      "revId": "14ef772244c738f1b906e9ec3bebf1b30569622e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
