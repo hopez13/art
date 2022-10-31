@@ -45,6 +45,30 @@
       },
       "revId": "d017a357a036a6fd8432cb2ca4c211580ac41848",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4833875d_3c3a2e2a",
+        "filename": "runtime/jni/jni_internal.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-10-31T14:43:49Z",
+      "side": 1,
+      "message": "So, should we check for such cases and not canonicalize in such cases? Though we already canonicalize if we use --opaque-jni-ids. So I guess this is already a problem there? Should we also fix that one?",
+      "parentUuid": "16ba5589_35d8f1af",
+      "range": {
+        "startLine": 134,
+        "startChar": 51,
+        "endLine": 134,
+        "endChar": 69
+      },
+      "revId": "d017a357a036a6fd8432cb2ca4c211580ac41848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
