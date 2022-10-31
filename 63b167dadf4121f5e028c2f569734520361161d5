@@ -16,6 +16,23 @@
       "message": "This is a patch which define the registers for riscv64.",
       "revId": "63b167dadf4121f5e028c2f569734520361161d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0219ea6_3a4f8d8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-10-31T11:14:06Z",
+      "side": 1,
+      "message": "Hi Lifang, I\u0027m considering using a slightly different internal register enumeration scheme where all callee-saves will occupy consecutive numbers (and possibly a few more reorderings). This will make it easier to implement things like `Riscv64Context::FillCalleeSaves` that will be able to handle different frame types uniformly.\n\nTherefore, I need some more time to finish my experiment before I proceed to reviewing your patch. Apologies for the delay!",
+      "revId": "63b167dadf4121f5e028c2f569734520361161d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
