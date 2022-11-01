@@ -2698,43 +2698,48 @@ extern "C" void artMethodExitHook(Thread* self,
   }
 
   DCHECK_EQ(reinterpret_cast<uintptr_t>(self), reinterpret_cast<uintptr_t>(Thread::Current()));
-  CHECK(gpr_result != nullptr);
-  CHECK(fpr_result != nullptr);
   // Instrumentation exit stub must not be entered with a pending exception.
   CHECK(!self->IsExceptionPending())
       << "Enter instrumentation exit stub with pending exception " << self->GetException()->Dump();
 
   instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
-  DCHECK(instr->AreExitStubsInstalled());
-  bool is_ref;
+  JValue return_value;
+  bool is_ref = false;
   ArtMethod* method = *sp;
-  JValue return_value = instr->GetReturnValue(method, &is_ref, gpr_result, fpr_result);
-  bool deoptimize = false;
-  {
-    StackHandleScope<1> hs(self);
-    MutableHandle<mirror::Object> res(hs.NewHandle<mirror::Object>(nullptr));
-    if (is_ref) {
-      // Take a handle to the return value so we won't lose it if we suspend.
-      res.Assign(return_value.GetL());
-    }
-    DCHECK(!method->IsRuntimeMethod());
+  bool deoptimize = instr->ShouldDeoptimizeCaller(self, sp, frame_size);
+  if (instr->HasMethodExitListeners()) {
+    CHECK(gpr_result != nullptr);
+    CHECK(fpr_result != nullptr);
 
-    deoptimize = instr->ShouldDeoptimizeCaller(self, sp, frame_size);
-    // If we need a deoptimization MethodExitEvent will be called by the interpreter when it
-    // re-executes the return instruction. For native methods we have to process method exit
-    // events here since deoptimization just removes the native frame.
-    if (!deoptimize || method->IsNative()) {
-      instr->MethodExitEvent(self,
-                             method,
-                             /* frame= */ {},
-                             return_value);
-    }
+    DCHECK(instr->AreExitStubsInstalled());
+    return_value = instr->GetReturnValue(method, &is_ref, gpr_result, fpr_result);
+    {
+      StackHandleScope<1> hs(self);
+      MutableHandle<mirror::Object> res(hs.NewHandle<mirror::Object>(nullptr));
+      if (is_ref) {
+        // Take a handle to the return value so we won't lose it if we suspend.
+        res.Assign(return_value.GetL());
+      }
+      DCHECK(!method->IsRuntimeMethod());
 
-    if (is_ref) {
-      // Restore the return value if it's a reference since it might have moved.
-      *reinterpret_cast<mirror::Object**>(gpr_result) = res.Get();
-      return_value.SetL(res.Get());
+      // If we need a deoptimization MethodExitEvent will be called by the interpreter when it
+      // re-executes the return instruction. For native methods we have to process method exit
+      // events here since deoptimization just removes the native frame.
+      if (!deoptimize || method->IsNative()) {
+        instr->MethodExitEvent(self,
+                               method,
+                               /* frame= */ {},
+                               return_value);
+      }
+
+      if (is_ref) {
+        // Restore the return value if it's a reference since it might have moved.
+        *reinterpret_cast<mirror::Object**>(gpr_result) = res.Get();
+        return_value.SetL(res.Get());
+      }
     }
+  } else if (deoptimize) {
+    return_value = instr->GetReturnValue(method, &is_ref, gpr_result, fpr_result);
   }
 
   if (self->IsExceptionPending() || self->ObserveAsyncException()) {
