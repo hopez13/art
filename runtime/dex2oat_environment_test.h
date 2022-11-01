@@ -243,6 +243,7 @@ class Dex2oatEnvironmentTest : public Dex2oatScratchDirs, public CommonRuntimeTe
 
     return res.status_code;
   }
+<<<<<<< HEAD   (e51dcb Remove "exit status" from run-test stdout.)
 
   void CreateDexMetadata(const std::string& vdex, const std::string& out_dm) {
     // Read the vdex bytes.
@@ -260,6 +261,8 @@ class Dex2oatEnvironmentTest : public Dex2oatScratchDirs, public CommonRuntimeTe
     fflush(file);
     fclose(file);
   }
+=======
+>>>>>>> BRANCH (d31ec3 Don't spin up the ART runtime in art_standalone_dex2oat_cts_)
 };
 
 }  // namespace art
