@@ -620,7 +620,7 @@ bool OatFileBase::Setup(int zip_fd,
   }
 
   DCHECK_GE(static_cast<size_t>(pointer_size), alignof(GcRoot<mirror::Object>));
-  if (!IsAligned<kPageSize>(bss_begin_) ||
+  if (!IsAlignedParam(bss_begin_, kPageSize) ||
       !IsAlignedParam(bss_methods_, static_cast<size_t>(pointer_size)) ||
       !IsAlignedParam(bss_roots_, static_cast<size_t>(pointer_size)) ||
       !IsAligned<alignof(GcRoot<mirror::Object>)>(bss_end_)) {
@@ -1417,7 +1417,8 @@ bool DlOpenOatFile::Dlopen(const std::string& elf_filename,
       // Take ownership of the memory used by the shared object. dlopen() does not assume
       // full ownership of this memory and dlclose() shall just remap it as zero pages with
       // PROT_NONE. We need to unmap the memory when destroying this oat file.
-      dlopen_mmaps_.push_back(reservation->TakeReservedMemory(context.max_size));
+      dlopen_mmaps_.push_back(reservation->TakeReservedMemory(
+          CondRoundUp<kPageSizeAgnostic>(context.max_size, kElfSegmentAlignment)));
     }
 #else
     static_assert(!kIsTargetBuild || kIsTargetLinux || kIsTargetFuchsia,

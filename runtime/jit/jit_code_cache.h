@@ -181,12 +181,20 @@ class ZygoteMap {
 class JitCodeCache {
  public:
   static constexpr size_t kMaxCapacity = 64 * MB;
-  // Put the default to a very low amount for debug builds to stress the code cache
-  // collection.
-  static constexpr size_t kInitialCapacity = kIsDebugBuild ? 8 * KB : 64 * KB;
 
+  // Default initial capacity of the JIT code cache.
+  static size_t GetInitialCapacity() {
+    // Put the default to a very low amount for debug builds
+    // to stress the code cache collection. There is, however,
+    // a lower limit for the value - 2 pages of memory.
+    return kIsDebugBuild ?  2 * kPageSize : 64 * KB;
+  }
+
+  // Reserved capacity of the JIT code cache.
   // By default, do not GC until reaching 256KB.
-  static constexpr size_t kReservedCapacity = kInitialCapacity * 4;
+  static size_t GetReservedCapacity() {
+    return GetInitialCapacity() * 4;
+  }
 
   // Create the code cache with a code + data capacity equal to "capacity", error message is passed
   // in the out arg error_msg.

@@ -19,6 +19,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <unistd.h>
 
 namespace art {
 
@@ -36,17 +37,38 @@ static constexpr size_t kStackAlignment = 16;
 
 // System page size. We check this against sysconf(_SC_PAGE_SIZE) at runtime, but use a simple
 // compile-time constant so the compiler can generate better code.
+#if defined(PAGE_SIZE_AGNOSTIC) && (defined(__aarch64__) || defined(__arm__))
+static const size_t kPageSize = getpagesize();
+#else
 static constexpr size_t kPageSize = 4096;
+#endif
+
+// Minimum supported page size.
+static constexpr size_t kMinPageSize = 4096;
+
+// Maximum supported page size.
+static constexpr size_t kMaxPageSize = 16384;
+
+// Targets can have different page size (eg. 4kB or 16kB). Because Art can crosscompile, it needs
+// to be able to generate OAT (ELF) files with alignment other than the host page size.
+// kElfSegmentAlignment needs to be equal to the largest page size supported.
+#if defined(PAGE_SIZE_AGNOSTIC)
+static constexpr size_t kElfSegmentAlignment = 16384;
+static constexpr bool kPageSizeAgnostic = true;
+#else
+static constexpr size_t kElfSegmentAlignment = kPageSize;
+static constexpr bool kPageSizeAgnostic = false;
+#endif
 
 // TODO: Kernels for arm and x86 in both, 32-bit and 64-bit modes use 512 entries per page-table
 // page. Find a way to confirm that in userspace.
 // Address range covered by 1 Page Middle Directory (PMD) entry in the page table
-static constexpr size_t kPMDSize = (kPageSize / sizeof(uint64_t)) * kPageSize;
+static const size_t kPMDSize = (kPageSize / sizeof(uint64_t)) * kPageSize;
 // Address range covered by 1 Page Upper Directory (PUD) entry in the page table
-static constexpr size_t kPUDSize = (kPageSize / sizeof(uint64_t)) * kPMDSize;
+static const size_t kPUDSize = (kPageSize / sizeof(uint64_t)) * kPMDSize;
 // Returns the ideal alignment corresponding to page-table levels for the
 // given size.
-static constexpr size_t BestPageTableAlignment(size_t size) {
+static inline size_t BestPageTableAlignment(size_t size) {
   return size < kPUDSize ? kPMDSize : kPUDSize;
 }
 // Clion, clang analyzer, etc can falsely believe that "if (kIsDebugBuild)" always

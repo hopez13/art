@@ -29,10 +29,10 @@ namespace art {
 
 TrackedArena::TrackedArena(uint8_t* start, size_t size, bool pre_zygote_fork)
     : Arena(), first_obj_array_(nullptr), pre_zygote_fork_(pre_zygote_fork) {
-  static_assert(ArenaAllocator::kArenaAlignment <= kPageSize,
-                "Arena should not need stronger alignment than kPageSize.");
-  DCHECK_ALIGNED(size, kPageSize);
-  DCHECK_ALIGNED(start, kPageSize);
+  CHECK_LE(ArenaAllocator::kArenaAlignment, kPageSize)
+      << "Arena should not need stronger alignment than kPageSize.";
+  DCHECK_ALIGNED_PARAM(size, kPageSize);
+  DCHECK_ALIGNED_PARAM(start, kPageSize);
   memory_ = start;
   size_ = size;
   size_t arr_size = size / kPageSize;
@@ -65,7 +65,7 @@ void TrackedArena::SetFirstObject(uint8_t* obj_begin, uint8_t* obj_end) {
   size_t idx = static_cast<size_t>(obj_begin - Begin()) / kPageSize;
   size_t last_byte_idx = static_cast<size_t>(obj_end - 1 - Begin()) / kPageSize;
   // If the addr is at the beginning of a page, then we set it for that page too.
-  if (IsAligned<kPageSize>(obj_begin)) {
+  if (IsAlignedParam(obj_begin, kPageSize)) {
     first_obj_array_[idx] = obj_begin;
   }
   while (idx < last_byte_idx) {

@@ -247,7 +247,7 @@ static void VerifyBootImagesContiguity(const std::vector<gc::space::ImageSpace*>
       const ImageHeader& current_header = image_spaces[i + j]->GetImageHeader();
       CHECK_EQ(current_heap, image_spaces[i + j]->Begin());
       CHECK_EQ(current_oat, current_header.GetOatFileBegin());
-      current_heap += RoundUp(current_header.GetImageSize(), kPageSize);
+      current_heap += RoundUp(current_header.GetImageSize(), kElfSegmentAlignment);
       CHECK_GT(current_header.GetOatFileEnd(), current_header.GetOatFileBegin());
       current_oat = current_header.GetOatFileEnd();
     }
@@ -621,7 +621,7 @@ Heap::Heap(size_t initial_size,
     const void* non_moving_space_mem_map_begin = non_moving_space_mem_map.Begin();
     non_moving_space_ = space::DlMallocSpace::CreateFromMemMap(std::move(non_moving_space_mem_map),
                                                                "zygote / non moving space",
-                                                               kDefaultStartingSize,
+                                                               GetDefaultStartingSize(),
                                                                initial_size,
                                                                size,
                                                                size,
@@ -892,7 +892,7 @@ space::MallocSpace* Heap::CreateMallocSpaceFromMemMap(MemMap&& mem_map,
     // Create rosalloc space.
     malloc_space = space::RosAllocSpace::CreateFromMemMap(std::move(mem_map),
                                                           name,
-                                                          kDefaultStartingSize,
+                                                          GetDefaultStartingSize(),
                                                           initial_size,
                                                           growth_limit,
                                                           capacity,
@@ -901,7 +901,7 @@ space::MallocSpace* Heap::CreateMallocSpaceFromMemMap(MemMap&& mem_map,
   } else {
     malloc_space = space::DlMallocSpace::CreateFromMemMap(std::move(mem_map),
                                                           name,
-                                                          kDefaultStartingSize,
+                                                          GetDefaultStartingSize(),
                                                           initial_size,
                                                           growth_limit,
                                                           capacity,

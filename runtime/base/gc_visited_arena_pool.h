@@ -38,8 +38,8 @@ class TrackedArena final : public Arena {
 
   template <typename PageVisitor>
   void VisitRoots(PageVisitor& visitor) const REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK_ALIGNED(Size(), kPageSize);
-    DCHECK_ALIGNED(Begin(), kPageSize);
+    DCHECK_ALIGNED_PARAM(Size(), kPageSize);
+    DCHECK_ALIGNED_PARAM(Begin(), kPageSize);
     int nr_pages = Size() / kPageSize;
     uint8_t* page_begin = Begin();
     for (int i = 0; i < nr_pages && first_obj_array_[i] != nullptr; i++, page_begin += kPageSize) {
@@ -49,8 +49,8 @@ class TrackedArena final : public Arena {
 
   // Return the page addr of the first page with first_obj set to nullptr.
   uint8_t* GetLastUsedByte() const REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK_ALIGNED(Begin(), kPageSize);
-    DCHECK_ALIGNED(End(), kPageSize);
+    DCHECK_ALIGNED_PARAM(Begin(), kPageSize);
+    DCHECK_ALIGNED_PARAM(End(), kPageSize);
     // Jump past bytes-allocated for arenas which are not currently being used
     // by arena-allocator. This helps in reducing loop iterations below.
     uint8_t* last_byte = AlignUp(Begin() + GetBytesAllocated(), kPageSize);
