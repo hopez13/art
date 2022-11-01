@@ -197,13 +197,17 @@ TEST_F(ExceptionTest, StackTraceElement) {
 
   OatQuickMethodHeader* header = OatQuickMethodHeader::FromEntryPoint(
       method_g_->GetEntryPointFromQuickCompiledCode());
-  fake_stack.push_back(header->ToNativeQuickPc(method_g_, kDexPc));  // return pc
+  // Untag native pc since the pcs on the stack aren't tagged and we use this to
+  // create a fake stack. See OatQuickMethodHeader::Contains where we untag code
+  // pointers before comparing it with the PC from the stack.
+  uintptr_t native_pc = HWASanUntag(header->ToNativeQuickPc(method_g_, kDexPc));
+  fake_stack.push_back(native_pc);  // return pc
 
   // Create/push fake 16byte stack frame for method g
   fake_stack.push_back(reinterpret_cast<uintptr_t>(method_g_));
   fake_stack.push_back(0);
   fake_stack.push_back(0);
-  fake_stack.push_back(header->ToNativeQuickPc(method_g_, kDexPc));  // return pc
+  fake_stack.push_back(native_pc);  // return pc.
 
   // Create/push fake 16byte stack frame for method f
   fake_stack.push_back(reinterpret_cast<uintptr_t>(method_f_));
