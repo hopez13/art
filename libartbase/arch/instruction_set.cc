@@ -121,13 +121,22 @@ std::vector<InstructionSet> GetSupportedInstructionSets(std::string* error_msg) 
 
 namespace instruction_set_details {
 
-static_assert(IsAligned<kPageSize>(kArmStackOverflowReservedBytes), "ARM gap not page aligned");
-static_assert(IsAligned<kPageSize>(kArm64StackOverflowReservedBytes), "ARM64 gap not page aligned");
-static_assert(IsAligned<kPageSize>(kRiscv64StackOverflowReservedBytes),
-              "RISCV64 gap not page aligned");
-static_assert(IsAligned<kPageSize>(kX86StackOverflowReservedBytes), "X86 gap not page aligned");
-static_assert(IsAligned<kPageSize>(kX86_64StackOverflowReservedBytes),
-              "X86_64 gap not page aligned");
+static struct InitAssertions {
+  InitAssertions() {
+    CHECK(IsAlignedParam(kArmStackOverflowReservedBytes, kPageSize))
+        << "ARM gap not page aligned";
+    CHECK(IsAlignedParam(kArm64StackOverflowReservedBytes, kPageSize))
+        << "ARM64 gap not page aligned";
+#if !defined(__arm__) && !defined(__aarch64__)
+    CHECK(IsAlignedParam(kRiscv64StackOverflowReservedBytes, kPageSize))
+        << "RISCV64 gap not page aligned";
+    CHECK(IsAlignedParam(kX86StackOverflowReservedBytes, kPageSize))
+        << "X86 gap not page aligned";
+    CHECK(IsAlignedParam(kX86_64StackOverflowReservedBytes, kPageSize))
+        << "X86_64 gap not page aligned";
+#endif
+  }
+} init_assertions;
 
 #if !defined(ART_FRAME_SIZE_LIMIT)
 #error "ART frame size limit missing"
