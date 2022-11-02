@@ -16,6 +16,29 @@
       "message": "Thanks!",
       "revId": "eeaebdb5ddb4ed8ce558d4a76aceee4454e1a58e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ea629d0_3d1249b2",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2716,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-02T16:28:58Z",
+      "side": 1,
+      "message": "I think you can remove this block and move the StachHandleScope line 2711?",
+      "range": {
+        "startLine": 2716,
+        "startChar": 0,
+        "endLine": 2716,
+        "endChar": 5
+      },
+      "revId": "eeaebdb5ddb4ed8ce558d4a76aceee4454e1a58e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
