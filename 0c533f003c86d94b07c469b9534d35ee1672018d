@@ -241,6 +241,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d0f6fd9_c45e578d",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-02T23:43:00Z",
+      "side": 1,
+      "message": "As per stackoverflow, `__arm__` is defined for 32-bit ARM and `__aarch64__` for 64-bit ARM. So use these two to set 16k pages.",
+      "parentUuid": "a6a3985a_d6c8bd3c",
+      "range": {
+        "startLine": 39,
+        "startChar": 36,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4177aa5_57d6b6d6",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 1
