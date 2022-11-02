@@ -1334,13 +1334,19 @@ bool InductionVarRange::GenerateLastValuePeriodic(const HBasicBlock* context,
     return GenerateCode(
         context, loop, info, /*trip=*/ nullptr, graph, block, /*is_min=*/ false, result);
   }
+
+  if (period != 2) {
+    return false;
+  }
+
+  // We require `trips` to be a constant value that didn't overflow.
+  Value trips = GetVal(context, loop, trip, trip, /*is_min=*/ false);
+
   // Handle periodic(x, y) using even/odd-select on trip count. Enter trip count expression
   // directly to obtain the maximum index value t even if taken test is needed.
   HInstruction* x = nullptr;
   HInstruction* y = nullptr;
-  HInstruction* t = nullptr;
-  if (period == 2 &&
-      GenerateCode(context,
+  if (GenerateCode(context,
                    loop,
                    info->op_a,
                    /*trip=*/ nullptr,
@@ -1356,20 +1362,15 @@ bool InductionVarRange::GenerateLastValuePeriodic(const HBasicBlock* context,
                    block,
                    /*is_min=*/ false,
                    graph ? &y : nullptr) &&
-      GenerateCode(context,
-                   loop,
-                   trip->op_a,
-                   /*trip=*/ nullptr,
-                   graph,
-                   block,
-                   /*is_min=*/ false,
-                   graph ? &t : nullptr)) {
+      IsConstantValue(trips)) {
     // During actual code generation (graph != nullptr), generate is_even ? x : y.
     if (graph != nullptr) {
       DataType::Type type = trip->type;
       ArenaAllocator* allocator = graph->GetAllocator();
-      HInstruction* msk =
-          Insert(block, new (allocator) HAnd(type, t, graph->GetConstant(type, 1)));
+      HInstruction* msk = Insert(
+          block,
+          new (allocator)
+              HAnd(type, graph->GetConstant(type, trips.b_constant), graph->GetConstant(type, 1)));
       HInstruction* is_even =
           Insert(block, new (allocator) HEqual(msk, graph->GetConstant(type, 0), kNoDexPc));
       *result = Insert(block, new (graph->GetAllocator()) HSelect(is_even, x, y, kNoDexPc));

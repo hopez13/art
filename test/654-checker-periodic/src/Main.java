@@ -17,6 +17,8 @@
 /**
  * Tests for last value of a few periodic sequences
  * (found by fuzz testing).
+ * Currently we don't optimize the loops that might overflow so they
+ * are regression tests.
  */
 public class Main {
 
@@ -25,9 +27,11 @@ public class Main {
   /// CHECK-DAG:              Phi  loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-START: int Main.doitUpInt(int) loop_optimization (after)
-  /// CHECK-NOT: Phi
+  /// CHECK-DAG: <<Phi:i\d+>> Phi  loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:              Phi  loop:<<Loop>>      outer_loop:none
   static int doitUpInt(int n) {
-    // Complete loop is replaced by last-value.
+    // We cannot guarantee we won't overflow.
+    // The loop remains.
     int lI = 1;
     for (int i1 = 0; i1  < n; i1++) {
       lI = (1486662021 - lI);
@@ -40,9 +44,11 @@ public class Main {
   /// CHECK-DAG:              Phi  loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-START: int Main.doitDownInt(int) loop_optimization (after)
-  /// CHECK-NOT: Phi
+  /// CHECK-DAG: <<Phi:i\d+>> Phi  loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:              Phi  loop:<<Loop>>      outer_loop:none
   static int doitDownInt(int n) {
-    // Complete loop is replaced by last-value.
+    // We cannot guarantee we won't overflow.
+    // The loop remains.
     int lI = 1;
     for (int i1 = n - 1; i1 >= 0; i1--) {
       lI = (1486662021 - lI);
@@ -89,10 +95,11 @@ public class Main {
   /// CHECK-DAG:              Phi  loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-START: float Main.doitUpFloatAlt(int) loop_optimization (after)
-  /// CHECK-NOT: Phi
+  /// CHECK-DAG: <<Phi:i\d+>> Phi  loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:              Phi  loop:<<Loop>>      outer_loop:none
   static float doitUpFloatAlt(int n) {
-    // Complete loop is replaced by last-value
-    // since the values are now precise.
+    // We cannot guarantee we won't overflow.
+    // The loop remains.
     float lF = 1.0f;
     float l2 = 1486662020.0f;
     for (int i1 = 0; i1  < n; i1++) {
@@ -108,10 +115,11 @@ public class Main {
   /// CHECK-DAG:              Phi  loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-START: float Main.doitDownFloatAlt(int) loop_optimization (after)
-  /// CHECK-NOT: Phi
+  /// CHECK-DAG: <<Phi:i\d+>> Phi  loop:<<Loop:B\d+>> outer_loop:none
+  /// CHECK-DAG:              Phi  loop:<<Loop>>      outer_loop:none
   static float doitDownFloatAlt(int n) {
-    // Complete loop is replaced by last-value
-    // since the values are now precise.
+    // We cannot guarantee we won't overflow.
+    // The loop remains.
     float lF = 1.0f;
     float l2 = 1486662020.0f;
     for (int i1 = n - 1; i1 >= 0; i1--) {
