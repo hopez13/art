@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef7fd09_789b2e61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "Looks good overall, but still a few things to fix.",
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b573187_b3e4cf53",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "Couldn\u0027t this go away?",
+      "range": {
+        "startLine": 279,
+        "startChar": 4,
+        "endLine": 279,
+        "endChar": 31
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2caca6a5_24a3e924",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "This doesn\u0027t make sense for a static lib. Please add a TODO about it moving.",
+      "range": {
+        "startLine": 286,
+        "startChar": 4,
+        "endLine": 286,
+        "endChar": 42
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7eadff3_85aa7d84",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "art/compiler/jit/jit_compiler.cc should include this to check its function signature.",
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1012a15d_4f41125f",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "This gives the impression it\u0027s defaults for libart only, which isn\u0027t the case. Please rename it to (the recently vacated name) libart_common_defaults and add a comment saying it\u0027s common defaults for libart-runtime and libart.",
+      "range": {
+        "startLine": 132,
+        "startChar": 10,
+        "endLine": 132,
+        "endChar": 27
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7efd8e51_1dbae49e",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "libart-runtime doesn\u0027t call ld, so these shouldn\u0027t be necessary there. Following the suggestion with libart_defaults below, please move this too into it.",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 10
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e540400_cc7f5fbb",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "This is gone now.",
+      "range": {
+        "startLine": 198,
+        "startChar": 13,
+        "endLine": 198,
+        "endChar": 34
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4895f12_aa8be07a",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "Is this necessary for libart-runtime? If not, please break it out to a separate defaults to share between libart, libart-broken and libartd. Following the name change above it can appropriately be called libart_defaults.\n\nI\u0027d prefer if that defaults is put just above libart below.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 6
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50c8f41e_c50f1f71",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "Dup.",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 10
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c34438c_aad2000b",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "Please add a comment to describe what separates this from libart.",
+      "range": {
+        "startLine": 691,
+        "startChar": 10,
+        "endLine": 691,
+        "endChar": 26
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46b72b1_b90a47c3",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "Nit: Uppercase",
+      "range": {
+        "startLine": 784,
+        "startChar": 11,
+        "endLine": 784,
+        "endChar": 15
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8d39792_f4a37eda",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-02T23:20:43Z",
+      "side": 1,
+      "message": "Looking at `jit_load` in jit_compiler.cc I don\u0027t think this can happen. Please clean it up, and also check if nullptr error handling can be cleaned up at call sites too.\n\nActually, I wonder if `Jit::Create` can return a unique_ptr instead of a bare pointer, but that\u0027s perhaps a separate cleanup.",
+      "range": {
+        "startLine": 191,
+        "startChar": 6,
+        "endLine": 191,
+        "endChar": 30
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
