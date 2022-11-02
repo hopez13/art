@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7f68730_1ec85f15",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-11-02T00:16:51Z",
+      "side": 1,
+      "message": "Using the __arch64__ flag works. See results and logs here: b/254108567#comment11",
+      "parentUuid": "c12a80b1_294b64a7",
+      "range": {
+        "startLine": 39,
+        "startChar": 36,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4177aa5_57d6b6d6",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 1
