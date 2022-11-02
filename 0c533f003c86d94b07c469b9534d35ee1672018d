@@ -217,6 +217,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6a3985a_d6c8bd3c",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1157738
+      },
+      "writtenOn": "2022-11-02T23:11:35Z",
+      "side": 1,
+      "message": "However we will need to merge proper fixes at later time, so please do discuss the proper way of fixing this.",
+      "parentUuid": "b5443db8_3a6565f1",
+      "range": {
+        "startLine": 39,
+        "startChar": 36,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4177aa5_57d6b6d6",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 1
