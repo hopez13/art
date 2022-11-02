@@ -174,6 +174,27 @@ inline void DexCache::SetResolvedType(dex::TypeIndex type_idx, ObjPtr<Class> res
   SetResolvedTypesEntry(type_idx.index_, resolved.Ptr());
   // TODO: Fine-grained marking, so that we don't need to go through all arrays in full.
   WriteBarrier::ForEveryFieldWrite(this);
+
+  if (this == resolved->GetDexCache()) {
+    // If we're updating the dex cache of the class, optimistically update the cache for methods and
+    // fields if the caches are full arrays.
+    auto* resolved_methods = GetResolvedMethodsArray();
+    if (resolved_methods != nullptr) {
+      PointerSize pointer_size = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+      for (ArtMethod& current_method : resolved->GetDeclaredMethods(pointer_size)) {
+        resolved_methods->Set(current_method.GetDexMethodIndex(), &current_method);
+      }
+    }
+    auto* resolved_fields = GetResolvedFieldsArray();
+    if (resolved_fields != nullptr) {
+      for (ArtField& current_field : resolved->GetSFields()) {
+        resolved_fields->Set(current_field.GetDexFieldIndex(), &current_field);
+      }
+      for (ArtField& current_field : resolved->GetIFields()) {
+        resolved_fields->Set(current_field.GetDexFieldIndex(), &current_field);
+      }
+    }
+  }
 }
 
 inline void DexCache::ClearResolvedType(dex::TypeIndex type_idx) {
