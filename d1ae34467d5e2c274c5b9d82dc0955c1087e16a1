@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c56cd17_875b45b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-02T18:55:16Z",
+      "side": 1,
+      "message": "Fixed on internal",
+      "parentUuid": "612272bd_d502f10b",
+      "revId": "d1ae34467d5e2c274c5b9d82dc0955c1087e16a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9036e592_58721d56",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe860bde_c038fde5",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-02T18:55:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9036e592_58721d56",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 6
+      },
+      "revId": "d1ae34467d5e2c274c5b9d82dc0955c1087e16a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4aec6b51_c00d850c",
@@ -54,6 +96,30 @@
       "writtenOn": "2022-10-26T15:52:16Z",
       "side": 1,
       "message": "I look at the `libart_headers` dependencies but I don\u0027t see the cycle. Can you please be more detailed about where it occurs?",
+      "range": {
+        "startLine": 114,
+        "startChar": 3,
+        "endLine": 114,
+        "endChar": 61
+      },
+      "revId": "d1ae34467d5e2c274c5b9d82dc0955c1087e16a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6781b2c_048ee6d7",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-02T18:55:16Z",
+      "side": 1,
+      "message": "It\u0027s in `tools/cpp-define-generator/Android.bp`\n`cpp-define-generator-asm-support` depends on `asm_defines.s`, which in turn requires `libart_headers`",
+      "parentUuid": "4aec6b51_c00d850c",
       "range": {
         "startLine": 114,
         "startChar": 3,

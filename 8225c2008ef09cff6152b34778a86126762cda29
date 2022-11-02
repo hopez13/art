@@ -414,6 +414,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d0c1c6_ac3fea27",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-02T18:55:16Z",
+      "side": 1,
+      "message": "Thanks, I missed that.\nI\u0027ve updated the CL to support AFDO/PGO separation in libart-runtime/libart-compiler and added a header lib for `libart-compiler` jit creation.\nNow `libart-runtime` uses a header lib instead of including `libart-compiler`, so the case of accidental inclusion should not be possible",
+      "parentUuid": "f341443c_bba8954e",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 25
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27c00712_11e3de93",
@@ -571,6 +595,30 @@
       "side": 1,
       "message": "Aha, you\u0027re adding it to `shared_libs` for host only. Ok, that\u0027s also a solution. It\u0027s not without its downsides since it means more differences between host and target - we\u0027ll e.g. won\u0027t discover `dlopen` problems in host testing. But considering the options here it\u0027s a reasonable approach.\n\nBut please add comments both here and in the bp file to make it clear that there are these two different loading strategies at work.",
       "parentUuid": "8d484cea_e37c49b9",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 80
+      },
+      "revId": "8225c2008ef09cff6152b34778a86126762cda29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41b8b8e_8d221b79",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-02T18:55:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f6ba332_4b23d3b2",
       "range": {
         "startLine": 128,
         "startChar": 0,
