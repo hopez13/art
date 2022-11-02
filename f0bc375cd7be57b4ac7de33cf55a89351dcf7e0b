@@ -16,6 +16,29 @@
       "message": "PTAL. This one and the CL to pass frame_size take the golem score from 17-\u003e42.",
       "revId": "f0bc375cd7be57b4ac7de33cf55a89351dcf7e0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f61cd786_42be5ab7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2711,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-02T12:45:51Z",
+      "side": 1,
+      "message": "Given this is also called in the else, maybe rewrite in this form:\n\n```\n    deoptimize \u003d instr-\u003eShouldDeoptimizeCaller(self, sp, frame_size);\n    if (instr-\u003eHasMethodExitListeners()) {\n       ...\n    }\n```",
+      "range": {
+        "startLine": 2711,
+        "startChar": 0,
+        "endLine": 2711,
+        "endChar": 69
+      },
+      "revId": "f0bc375cd7be57b4ac7de33cf55a89351dcf7e0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
