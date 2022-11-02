@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc19aa3a_6546208c",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-02T09:31:12Z",
+      "side": 1,
+      "message": "ArgumentRegisterForMethodExitHook ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 47
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4f74394_2628df68",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-02T09:31:12Z",
+      "side": 1,
+      "message": "hook",
+      "range": {
+        "startLine": 247,
+        "startChar": 62,
+        "endLine": 247,
+        "endChar": 66
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26de226c_bb83dc21",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-02T09:31:12Z",
+      "side": 1,
+      "message": "hook",
+      "range": {
+        "startLine": 248,
+        "startChar": 68,
+        "endLine": 248,
+        "endChar": 72
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2d08e46_65d0ecef",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2584,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-02T09:31:12Z",
+      "side": 1,
+      "message": "Why not changing artMethodExitHook signature to take the frame_size as first argument? That should make it easier for callers of art_quick_method_exit_hook and remove the need for `ArgumentRegisterForMethodExit`.",
+      "range": {
+        "startLine": 2584,
+        "startChar": 8,
+        "endLine": 2584,
+        "endChar": 25
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eefd761_987bd7ff",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-02T09:31:12Z",
+      "side": 1,
+      "message": "Nice that we can keep this logic only here.",
+      "range": {
+        "startLine": 1675,
+        "startChar": 1,
+        "endLine": 1678,
+        "endChar": 70
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
