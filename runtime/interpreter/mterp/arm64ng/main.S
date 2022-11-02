@@ -273,7 +273,9 @@ ENTRY \name
   bl \helper
   RESTORE_SAVE_REFS_ONLY_FRAME
   REFRESH_MARKING_REGISTER
-  RETURN_OR_DELIVER_PENDING_EXCEPTION
+  ldr xIP0, [xSELF, # THREAD_EXCEPTION_OFFSET]   // Get exception field.
+  cbnz xIP0, nterp_deliver_pending_exception
+  ret
 END \name
 .endm
 
@@ -1896,6 +1898,11 @@ nterp_to_nterp_string_init_range:
     SETUP_RANGE_ARGUMENTS_AND_EXECUTE is_static=0, is_string_init=1
     .cfi_endproc
 
+nterp_deliver_pending_exception:
+    .cfi_startproc
+    DELIVER_PENDING_EXCEPTION
+    .cfi_endproc
+
 NAME_END nterp_helper
 
 // This is the end of PCs contained by the OatQuickMethodHeader created for the interpreter
@@ -1910,7 +1917,8 @@ NTERP_TRAMPOLINE nterp_get_static_field, NterpGetStaticField
 NTERP_TRAMPOLINE nterp_get_instance_field_offset, NterpGetInstanceFieldOffset
 NTERP_TRAMPOLINE nterp_filled_new_array, NterpFilledNewArray
 NTERP_TRAMPOLINE nterp_filled_new_array_range, NterpFilledNewArrayRange
-NTERP_TRAMPOLINE nterp_get_class_or_allocate_object, NterpGetClassOrAllocateObject
+NTERP_TRAMPOLINE nterp_get_class, NterpGetClass
+NTERP_TRAMPOLINE nterp_allocate_object, NterpAllocateObject
 NTERP_TRAMPOLINE nterp_get_method, NterpGetMethod
 NTERP_TRAMPOLINE nterp_hot_method, NterpHotMethod
 NTERP_TRAMPOLINE nterp_load_object, NterpLoadObject

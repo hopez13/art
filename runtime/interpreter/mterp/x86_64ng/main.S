@@ -237,7 +237,9 @@ DEFINE_FUNCTION \name
   SETUP_SAVE_REFS_ONLY_FRAME
   call \helper
   RESTORE_SAVE_REFS_ONLY_FRAME
-  RETURN_OR_DELIVER_PENDING_EXCEPTION
+  cmpq LITERAL(0), %gs:THREAD_EXCEPTION_OFFSET
+  jne nterp_deliver_pending_exception
+  ret
 END_FUNCTION \name
 .endm
 
@@ -1938,7 +1940,7 @@ NterpNewInstance:
    movq rSELF:THREAD_SELF_OFFSET, %rdi
    movq 0(%rsp), %rsi
    movq rPC, %rdx
-   call nterp_get_class_or_allocate_object
+   call nterp_allocate_object
    jmp 1b
 3:
    // 07 is %rdi
@@ -1964,7 +1966,7 @@ NterpNewArray:
    movq rSELF:THREAD_SELF_OFFSET, %rdi
    movq 0(%rsp), %rsi
    movq rPC, %rdx
-   call nterp_get_class_or_allocate_object
+   call nterp_get_class
    movq %rax, %rdi
    jmp 1b
 3:
@@ -2296,6 +2298,12 @@ nterp_to_nterp_string_init_range:
     SETUP_RANGE_ARGUMENTS_AND_EXECUTE is_static=0, is_string_init=1
     .cfi_endproc
 
+nterp_deliver_pending_exception:
+    .cfi_startproc
+    .cfi_def_cfa rsp, 8
+    DELIVER_PENDING_EXCEPTION
+    .cfi_endproc
+
 END nterp_helper
 
 // This is the end of PCs contained by the OatQuickMethodHeader created for the interpreter
@@ -2310,7 +2318,8 @@ NTERP_TRAMPOLINE nterp_get_static_field, NterpGetStaticField
 NTERP_TRAMPOLINE nterp_get_instance_field_offset, NterpGetInstanceFieldOffset
 NTERP_TRAMPOLINE nterp_filled_new_array, NterpFilledNewArray
 NTERP_TRAMPOLINE nterp_filled_new_array_range, NterpFilledNewArrayRange
-NTERP_TRAMPOLINE nterp_get_class_or_allocate_object, NterpGetClassOrAllocateObject
+NTERP_TRAMPOLINE nterp_get_class, NterpGetClass
+NTERP_TRAMPOLINE nterp_allocate_object, NterpAllocateObject
 NTERP_TRAMPOLINE nterp_get_method, NterpGetMethod
 NTERP_TRAMPOLINE nterp_hot_method, NterpHotMethod
 NTERP_TRAMPOLINE nterp_load_object, NterpLoadObject
