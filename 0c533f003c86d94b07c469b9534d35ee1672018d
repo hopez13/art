@@ -169,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e2260546_cdd28a06",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-02T18:25:38Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s what we intended to do. We want to make kPageSize setting to be dependent on this flag. Also, using just `__aarch64__` won\u0027t be sufficient as that only covers ARM 64-bit. I\u0027m not sure though. If it covers 32-bit as well, then it\u0027s fine.\n\nIt would be simpler if you uploaded the patch here as then I can look at the diff from the base patch, rather than in the bug.",
+      "parentUuid": "b7f68730_1ec85f15",
+      "range": {
+        "startLine": 39,
+        "startChar": 36,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4177aa5_57d6b6d6",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 1
