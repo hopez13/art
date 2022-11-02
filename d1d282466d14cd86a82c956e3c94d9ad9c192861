@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c1ac946_5b5783f5",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-11-02T11:07:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc19aa3a_6546208c",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 47
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4f74394_2628df68",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-02T09:31:12Z",
       "side": 1,
       "message": "hook",
+      "range": {
+        "startLine": 247,
+        "startChar": 62,
+        "endLine": 247,
+        "endChar": 66
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "046291a9_989f003f",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-11-02T11:07:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4f74394_2628df68",
       "range": {
         "startLine": 247,
         "startChar": 62,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcee9225_e7a2f711",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-11-02T11:07:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26de226c_bb83dc21",
+      "range": {
+        "startLine": 248,
+        "startChar": 68,
+        "endLine": 248,
+        "endChar": 72
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2d08e46_65d0ecef",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-02T09:31:12Z",
       "side": 1,
       "message": "Why not changing artMethodExitHook signature to take the frame_size as first argument? That should make it easier for callers of art_quick_method_exit_hook and remove the need for `ArgumentRegisterForMethodExit`.",
+      "range": {
+        "startLine": 2584,
+        "startChar": 8,
+        "endLine": 2584,
+        "endChar": 25
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2518fc3f_f16186ae",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2584,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-11-02T11:07:19Z",
+      "side": 1,
+      "message": "We already use the first argument register for sending in the return value. So, I won\u0027t be able to use r0. I could use r1. I considered adding something on the lines of ArgumentRegisterNotIncludingReturnRegister instead of ArgumentRegisterForMethodExitHook. Since I had to add a new method anyway I just added one specific for method exit hook. If it\u0027s better I can change it to use r1 instead of r2 in this case.",
+      "parentUuid": "e2d08e46_65d0ecef",
       "range": {
         "startLine": 2584,
         "startChar": 8,
