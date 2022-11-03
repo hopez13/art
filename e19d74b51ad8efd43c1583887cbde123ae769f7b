@@ -22,6 +22,30 @@
       },
       "revId": "e19d74b51ad8efd43c1583887cbde123ae769f7b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "641f1f8d_a09dc692",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-03T11:32:45Z",
+      "side": 1,
+      "message": "If the stdout changes, I guess we have to check the both versions have the expected changes.  However, I assume that the stdout changes are very rare.\n\nFurthermore, changing the stdout was fairly hard before: You would need to produce the different version, and then create the patch manually.  The new approach is the just run --update and verify the git diff.\n\nI am not too worried.  If anything, we should probably try to reduce the number of tests that need different stdouts",
+      "parentUuid": "93c4bc74_3c9e19de",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 55
+      },
+      "revId": "e19d74b51ad8efd43c1583887cbde123ae769f7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
