@@ -83,6 +83,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "efddd3a2_200c444d",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-03T09:33:20Z",
+      "side": 1,
+      "message": "Forward declaration of `JitCompilerInterface` should be enough. (This requires opening and closing namespaces; you can avoid the `art::jit::` below if you close the namespaces after `jit_load()`.)",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 20
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "719a1936_9881467e",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-03T09:33:20Z",
+      "side": 1,
+      "message": "How does this work now? Does the `libart-runtime` linked to `libart.so` create a PLT entry and resolve the symbol dynamically on first call?",
+      "range": {
+        "startLine": 23,
+        "startChar": 43,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1012a15d_4f41125f",
         "filename": "runtime/Android.bp",
         "patchSetId": 18

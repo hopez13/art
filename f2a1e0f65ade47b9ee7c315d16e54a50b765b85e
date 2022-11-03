@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2371b00_7a4c4db8",
+        "filename": "openjdkjvmti/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-03T09:33:20Z",
+      "side": 0,
+      "message": "This should not have been here regardless of the `libart + libart-compiler` merge, `libopenjdkjvmti` does not depend on `libart-compiler`.",
+      "range": {
+        "startLine": 113,
+        "startChar": 8,
+        "endLine": 113,
+        "endChar": 25
+      },
+      "revId": "f2a1e0f65ade47b9ee7c315d16e54a50b765b85e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
