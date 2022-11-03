@@ -22,6 +22,30 @@
       },
       "revId": "d71482e310cf944155a4f9f51372508873dd52f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c39c003_d94a8512",
+        "filename": "test/Android.run-test.bp.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-03T12:31:58Z",
+      "side": 1,
+      "message": "Previously it was a star, so that matched both and some more (e.g. 636-arm64-veneer-pool matched \"*64-*\").  That was ok since the srcs only triggered build dependency redundantly, but with the current version with would also redundantly build it.",
+      "parentUuid": "1f86b397_7830ea36",
+      "range": {
+        "startLine": 40,
+        "startChar": 40,
+        "endLine": 40,
+        "endChar": 58
+      },
+      "revId": "d71482e310cf944155a4f9f51372508873dd52f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
