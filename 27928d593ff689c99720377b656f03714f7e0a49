@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67cf9ee4_82dd657e",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-03T16:46:55Z",
+      "side": 1,
+      "message": "Do we have test coverage for this code? When I changed the shorty for `dispatch`, I observed the shorty DCHECK failure in `ArtMethod::Invoke()` while running the\n\n    art/tools/run-libjdwp-tests.sh --mode\u003ddevice --variant\u003dX32 --debug\n\nHowever, I did not see the failing DCHECK if I changed the shorty for `broadcast` here.",
+      "range": {
+        "startLine": 273,
+        "startChar": 25,
+        "endLine": 273,
+        "endChar": 35
+      },
+      "revId": "27928d593ff689c99720377b656f03714f7e0a49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
