@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "194eb8af_3efe5167",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-03T16:59:05Z",
+      "side": 1,
+      "message": "Thanks! Could you also add the following stanza:\n\n```\nTest: art/build/apex/runtests.sh\n```\n\nto the commit message (see go/commit-change#footers-and-machine-parsable-text)?",
+      "parentUuid": "c31dcbe8_be21a2a2",
+      "revId": "4165be24103ed4af5fc0599a8142537e8a55c72b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86be0f49_710ac586",
         "filename": "build/apex/runtests.sh",
         "patchSetId": 2
