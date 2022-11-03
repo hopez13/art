@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "024aa224_d767eb8f",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-11-03T01:21:37Z",
+      "side": 0,
+      "message": "Done, I didn\u0027t see anymore the stack corruption error anymore.",
+      "parentUuid": "20444d45_f30628ce",
+      "range": {
+        "startLine": 1440,
+        "startChar": 2,
+        "endLine": 1440,
+        "endChar": 67
+      },
+      "revId": "9e97a8d783d04eede57686e2ab398e62d5ae385c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b58b7486_3caaa33f",
@@ -181,6 +205,30 @@
       "side": 0,
       "message": "ditto. please revert this change.",
       "parentUuid": "ac1fa94c_9ce1e352",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 45
+      },
+      "revId": "9e97a8d783d04eede57686e2ab398e62d5ae385c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ee1a661_2e5be847",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-11-03T01:21:37Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "2673065d_7f8b5cbf",
       "range": {
         "startLine": 65,
         "startChar": 4,

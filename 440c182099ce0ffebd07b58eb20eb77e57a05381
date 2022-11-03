@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "686b5556_c4afd889",
+        "filename": "build/art.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-11-03T01:21:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "205b39ee_610b35d4",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 105,
+        "endChar": 46
+      },
+      "revId": "440c182099ce0ffebd07b58eb20eb77e57a05381",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b39ca8a_d26cab0a",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-02T23:43:00Z",
       "side": 1,
       "message": "Don\u0027t comment them out. Instead use the preprocessor flags to decide which static_assert is kept on which arch.",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 0
+      },
+      "revId": "440c182099ce0ffebd07b58eb20eb77e57a05381",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c175eb0b_7e856b61",
+        "filename": "libartbase/arch/instruction_set.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-11-03T01:21:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b39ca8a_d26cab0a",
       "range": {
         "startLine": 126,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce10c3a6_59904d7a",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-11-03T01:21:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0b868c2_51b6e1be",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 24
+      },
+      "revId": "440c182099ce0ffebd07b58eb20eb77e57a05381",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcba73bd_31bf5823",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-11-02T23:43:00Z",
       "side": 1,
       "message": "Would this change be required once page-size is set according to the arch? Try removing this change.",
+      "range": {
+        "startLine": 614,
+        "startChar": 4,
+        "endLine": 615,
+        "endChar": 29
+      },
+      "revId": "440c182099ce0ffebd07b58eb20eb77e57a05381",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc3452e9_f3e4716e",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-11-03T01:21:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcba73bd_31bf5823",
       "range": {
         "startLine": 614,
         "startChar": 4,

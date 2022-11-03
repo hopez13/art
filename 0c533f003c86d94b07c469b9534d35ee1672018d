@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0b06369_f72c9563",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-11-03T01:21:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70b80eea_cbdeb5b2",
+      "range": {
+        "startLine": 104,
+        "startChar": 3,
+        "endLine": 105,
+        "endChar": 43
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79b043ba_027090cc",
@@ -263,6 +287,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c155c827_7c5aa79b",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-11-03T01:21:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d0f6fd9_c45e578d",
+      "range": {
+        "startLine": 39,
+        "startChar": 36,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4177aa5_57d6b6d6",
@@ -348,6 +396,30 @@
       "side": 1,
       "message": "After applying the changes suggested, I found compiler and runtime errors. See b/254108567#comment7",
       "parentUuid": "86195ffb_b76f78b0",
+      "range": {
+        "startLine": 186,
+        "startChar": 60,
+        "endLine": 186,
+        "endChar": 64
+      },
+      "revId": "0c533f003c86d94b07c469b9534d35ee1672018d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "077e8d69_e15ab1bb",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2022-11-03T01:21:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd012aa9_4c69c4b6",
       "range": {
         "startLine": 186,
         "startChar": 60,
