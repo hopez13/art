@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8b7c26d_f9fdd3f6",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Sorry, forgot to mention. `libart-compiler` headers are required for gtests and `dex2oat`/`oatdump`",
+      "parentUuid": "8b573187_b3e4cf53",
+      "range": {
+        "startLine": 279,
+        "startChar": 4,
+        "endLine": 279,
+        "endChar": 31
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2caca6a5_24a3e924",
         "filename": "compiler/Android.bp",
         "patchSetId": 18
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-02T23:20:43Z",
       "side": 1,
       "message": "This doesn\u0027t make sense for a static lib. Please add a TODO about it moving.",
+      "range": {
+        "startLine": 286,
+        "startChar": 4,
+        "endLine": 286,
+        "endChar": 42
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f62670a_ae88361c",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2caca6a5_24a3e924",
       "range": {
         "startLine": 286,
         "startChar": 4,
@@ -81,6 +129,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f161c589_09e4e22b",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7eadff3_85aa7d84",
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efddd3a2_200c444d",
@@ -94,6 +160,30 @@
       "writtenOn": "2022-11-03T09:33:20Z",
       "side": 1,
       "message": "Forward declaration of `JitCompilerInterface` should be enough. (This requires opening and closing namespaces; you can avoid the `art::jit::` below if you close the namespaces after `jit_load()`.)",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 20
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e4ad2fa_7404cc8c",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efddd3a2_200c444d",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -129,6 +219,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f86e44d5_40f31913",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Yes. I\u0027ll add `HIDDEN/EXPORT` attributes for `libart-compiler` in the next CL",
+      "parentUuid": "719a1936_9881467e",
+      "range": {
+        "startLine": 23,
+        "startChar": 43,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1012a15d_4f41125f",
         "filename": "runtime/Android.bp",
         "patchSetId": 18
@@ -140,6 +254,30 @@
       "writtenOn": "2022-11-02T23:20:43Z",
       "side": 1,
       "message": "This gives the impression it\u0027s defaults for libart only, which isn\u0027t the case. Please rename it to (the recently vacated name) libart_common_defaults and add a comment saying it\u0027s common defaults for libart-runtime and libart.",
+      "range": {
+        "startLine": 132,
+        "startChar": 10,
+        "endLine": 132,
+        "endChar": 27
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "553254b3_5405020e",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1012a15d_4f41125f",
       "range": {
         "startLine": 132,
         "startChar": 10,
@@ -173,6 +311,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c14adc3a_5a6792ed",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7efd8e51_1dbae49e",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 10
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e540400_cc7f5fbb",
@@ -186,6 +348,30 @@
       "writtenOn": "2022-11-02T23:20:43Z",
       "side": 1,
       "message": "This is gone now.",
+      "range": {
+        "startLine": 198,
+        "startChar": 13,
+        "endLine": 198,
+        "endChar": 34
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a3f1ad_71024a5d",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e540400_cc7f5fbb",
       "range": {
         "startLine": 198,
         "startChar": 13,
@@ -219,6 +405,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "603049d0_5eb092a6",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4895f12_aa8be07a",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 6
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50c8f41e_c50f1f71",
@@ -232,6 +442,30 @@
       "writtenOn": "2022-11-02T23:20:43Z",
       "side": 1,
       "message": "Dup.",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 10
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed0ff6aa_690ebf49",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50c8f41e_c50f1f71",
       "range": {
         "startLine": 526,
         "startChar": 0,
@@ -265,6 +499,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c680489_688289f0",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c34438c_aad2000b",
+      "range": {
+        "startLine": 691,
+        "startChar": 10,
+        "endLine": 691,
+        "endChar": 26
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a46b72b1_b90a47c3",
@@ -288,6 +546,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53aaf5df_682b786c",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 784,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a46b72b1_b90a47c3",
+      "range": {
+        "startLine": 784,
+        "startChar": 11,
+        "endLine": 784,
+        "endChar": 15
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8d39792_f4a37eda",
@@ -301,6 +583,30 @@
       "writtenOn": "2022-11-02T23:20:43Z",
       "side": 1,
       "message": "Looking at `jit_load` in jit_compiler.cc I don\u0027t think this can happen. Please clean it up, and also check if nullptr error handling can be cleaned up at call sites too.\n\nActually, I wonder if `Jit::Create` can return a unique_ptr instead of a bare pointer, but that\u0027s perhaps a separate cleanup.",
+      "range": {
+        "startLine": 191,
+        "startChar": 6,
+        "endLine": 191,
+        "endChar": 30
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cdb5a0e_6209dfcf",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-03T19:15:42Z",
+      "side": 1,
+      "message": "Done\n\nGood point, I\u0027ll address the unique_ptr improvement outside of this CL",
+      "parentUuid": "e8d39792_f4a37eda",
       "range": {
         "startLine": 191,
         "startChar": 6,
