@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "767aa047_26f257aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-03T09:36:56Z",
+      "side": 1,
+      "message": "That CL was for Linear. I think the other types are safe:\n* Polynomial checks for constant values (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/induction_var_range.cc;l\u003d1181;drc\u003db45a2ea782074944f79fc388df20b06e01f265f7).\n* Geometric too (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/induction_var_range.cc;l\u003d1223;drc\u003db45a2ea782074944f79fc388df20b06e01f265f7) and it has overflow checks (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/induction_var_range.cc;l\u003d1236;drc\u003db45a2ea782074944f79fc388df20b06e01f265f7).\n* Wraparound also checks for constants (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/induction_var_range.cc;l\u003d1287;drc\u003db45a2ea782074944f79fc388df20b06e01f265f7).",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 23
+      },
+      "revId": "6622977dff38d569727726ff8668db18d498271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96b2e2ba_0d36d785",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-03T09:36:56Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "6622977dff38d569727726ff8668db18d498271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
