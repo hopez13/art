@@ -263,6 +263,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "658b6fd4_8ff7ffcc",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2584,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-11-03T13:24:28Z",
+      "side": 1,
+      "message": "Thanks! I updated the code to use the first register in the argument registers that\u0027s not used for return values. Here we still need to use r2 since r0-r1 are used for return values that are 64-bit. On x86 it would be ebx since eax-edx are used for return values. On x86-64 it is %rdi since %rax is used for return and %rax is not in the list of registers that pass arguments. On arm64 it is x1.",
+      "parentUuid": "c4ce5219_9f3da2d8",
+      "range": {
+        "startLine": 2584,
+        "startChar": 8,
+        "endLine": 2584,
+        "endChar": 25
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8eefd761_987bd7ff",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 6
