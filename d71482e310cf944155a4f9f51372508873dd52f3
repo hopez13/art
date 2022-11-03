@@ -46,6 +46,30 @@
       },
       "revId": "d71482e310cf944155a4f9f51372508873dd52f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af865ebf_3508eba8",
+        "filename": "test/Android.run-test.bp.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-11-03T12:36:27Z",
+      "side": 1,
+      "message": "Ah, right, silly question. Somehow I thought it was a question mark not a star. Good that we now get rid of the redundant dependencies.",
+      "parentUuid": "6c39c003_d94a8512",
+      "range": {
+        "startLine": 40,
+        "startChar": 40,
+        "endLine": 40,
+        "endChar": 58
+      },
+      "revId": "d71482e310cf944155a4f9f51372508873dd52f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
