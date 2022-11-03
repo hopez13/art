@@ -285,6 +285,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "48d0d8ed_ef73f6d5",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2584,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-03T13:33:11Z",
+      "side": 1,
+      "message": "Oh right :( Sorry, then you can scratch my comment, I was hoping you could just pass the frame_size directly to artMethodExitHook by moving it to the second argument of artMethodExitHook.\n\nSo I think you can go back to your previous patch set :)",
+      "parentUuid": "658b6fd4_8ff7ffcc",
+      "range": {
+        "startLine": 2584,
+        "startChar": 8,
+        "endLine": 2584,
+        "endChar": 25
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8eefd761_987bd7ff",
