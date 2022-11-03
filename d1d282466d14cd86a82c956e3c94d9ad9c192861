@@ -311,6 +311,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "684349a9_c959ec8e",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2584,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-11-03T13:44:39Z",
+      "side": 1,
+      "message": "I didn\u0027t realize till I started implementing too. Done.",
+      "parentUuid": "48d0d8ed_ef73f6d5",
+      "range": {
+        "startLine": 2584,
+        "startChar": 8,
+        "endLine": 2584,
+        "endChar": 25
+      },
+      "revId": "d1d282466d14cd86a82c956e3c94d9ad9c192861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8eefd761_987bd7ff",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 6
