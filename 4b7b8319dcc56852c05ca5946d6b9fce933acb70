@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7911de8_09aa7705",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-03T09:48:48Z",
+      "side": 1,
+      "message": "MAP_SHARED?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 2
+      },
+      "revId": "4b7b8319dcc56852c05ca5946d6b9fce933acb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a53210_e59c556e",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-03T09:48:48Z",
+      "side": 1,
+      "message": "The code below also executes in the case of !gUserfaultfd. I suppose that\u0027s ok, but the comment could be misleading. Can you expand the comment to mention the case we\u0027re not using userfaultfd?",
+      "range": {
+        "startLine": 101,
+        "startChar": 50,
+        "endLine": 102,
+        "endChar": 27
+      },
+      "revId": "4b7b8319dcc56852c05ca5946d6b9fce933acb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f5b7f1_46f4ef8f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-03T09:48:48Z",
+      "side": 1,
+      "message": "nit: add comment about the difference in number of workers.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 67
+      },
+      "revId": "4b7b8319dcc56852c05ca5946d6b9fce933acb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cea2700e_9f49f8bb",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-03T09:48:48Z",
+      "side": 1,
+      "message": "Getting the pointer size from the class linker is only required for dex2oat. Do we expect mark_compact to be used with dex2oat?",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 362,
+        "endChar": 78
+      },
+      "revId": "4b7b8319dcc56852c05ca5946d6b9fce933acb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66e1ce1e_a45f53d8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2331,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-03T09:48:48Z",
+      "side": 1,
+      "message": "line too long",
+      "revId": "4b7b8319dcc56852c05ca5946d6b9fce933acb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ff6f54_2b08b278",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-03T09:48:48Z",
+      "side": 1,
+      "message": "relocate",
+      "range": {
+        "startLine": 540,
+        "startChar": 65,
+        "endLine": 540,
+        "endChar": 74
+      },
+      "revId": "4b7b8319dcc56852c05ca5946d6b9fce933acb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a69516e_7f4ba5c5",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-03T09:48:48Z",
+      "side": 1,
+      "message": "MAP_SHARED ?",
+      "range": {
+        "startLine": 541,
+        "startChar": 7,
+        "endLine": 541,
+        "endChar": 12
+      },
+      "revId": "4b7b8319dcc56852c05ca5946d6b9fce933acb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
