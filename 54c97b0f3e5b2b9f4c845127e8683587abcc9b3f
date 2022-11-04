@@ -64,6 +64,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4913047_2081ba63",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-04T14:37:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20f489da_5ab1d0b6",
+      "range": {
+        "startLine": 189,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 24
+      },
+      "revId": "54c97b0f3e5b2b9f4c845127e8683587abcc9b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ee737b6_b8e05a2a",
@@ -87,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1d3e0aa_15abb887",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-04T14:37:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ee737b6_b8e05a2a",
+      "range": {
+        "startLine": 667,
+        "startChar": 4,
+        "endLine": 667,
+        "endChar": 25
+      },
+      "revId": "54c97b0f3e5b2b9f4c845127e8683587abcc9b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "177d0b20_bcd5d358",
@@ -100,6 +148,30 @@
       "writtenOn": "2022-11-04T13:26:09Z",
       "side": 1,
       "message": "Better drop this. Using `stem` can lead to name conflicts in the build so it shouldn\u0027t be used unless really necessary. I don\u0027t think it\u0027s necessary for this intermediate lib, only for the final .so below.",
+      "range": {
+        "startLine": 717,
+        "startChar": 4,
+        "endLine": 717,
+        "endChar": 27
+      },
+      "revId": "54c97b0f3e5b2b9f4c845127e8683587abcc9b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da598efb_3ec80ff1",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-04T14:37:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "177d0b20_bcd5d358",
       "range": {
         "startLine": 717,
         "startChar": 4,

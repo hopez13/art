@@ -291,6 +291,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b78d091_59080121",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-04T14:37:52Z",
+      "side": 1,
+      "message": "Vladimir is referring to a discussion we had about version script vs symbol visibility attributes in the code.\nAt the moment all `libart-compiler` symbols don\u0027t have explicitly specified visibility in the source, so the compiler has to assume `default` visibility when emitting calls to `libart-compiler` functions. Symbols with `default` visibility can be preempted (overridden by a definition with the same name in a different component), so such calls have to use PLT indirection, something like this:\n`call  jit_load@PLT`\n\nBy the way, since linker version script is applied only after compile - it doesn\u0027t change the situation.\nThat\u0027s why the further plan here is to use `HIDDEN/EXPORT` in the source. This way it\u0027s possible to both hide the symbols and avoid PLT.",
+      "parentUuid": "8b99afc6_9a26cb88",
+      "range": {
+        "startLine": 23,
+        "startChar": 43,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1012a15d_4f41125f",
         "filename": "runtime/Android.bp",
         "patchSetId": 18
