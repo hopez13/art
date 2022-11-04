@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d83cf58a_d7d506d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T18:13:51Z",
+      "side": 1,
+      "message": "art-runtime isn\u0027t unused - it\u0027s used for our internal microbenchmarks on go/lem.\n\nCan you please explain a bit more what these files are and why you want to remove them?",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e990fd14_2df0eace",
@@ -48,6 +71,47 @@
       "writtenOn": "2022-11-04T13:42:03Z",
       "side": 1,
       "message": "Martin, I don\u0027t know much about this. Could you please have a look? Do we even use the Android.mk file anymore?",
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a389be99_1aa95d43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T18:13:51Z",
+      "side": 1,
+      "message": "Yes, we still use this and other mk files in art/, mostly for our internal tests on LUCI and Golem, and also locally.",
+      "parentUuid": "4dd5af46_65c70347",
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b896bed_2cc9673a",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T18:13:51Z",
+      "side": 1,
+      "message": "I think this will break.",
+      "range": {
+        "startLine": 664,
+        "startChar": 27,
+        "endLine": 664,
+        "endChar": 38
+      },
       "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
