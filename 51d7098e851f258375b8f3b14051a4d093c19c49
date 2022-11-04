@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e484ebaf_f18e505c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-04T10:24:09Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 8
+      },
+      "revId": "51d7098e851f258375b8f3b14051a4d093c19c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "453e1998_f7a396e6",
@@ -36,6 +59,29 @@
         "startChar": 31,
         "endLine": 307,
         "endChar": 61
+      },
+      "revId": "51d7098e851f258375b8f3b14051a4d093c19c49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "009a5f0b_b6f8ff53",
+        "filename": "test/530-checker-lse-try-catch/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-04T10:24:09Z",
+      "side": 1,
+      "message": "Why is the second store kept? Is it because we don\u0027t track heap values precisely at catch handlers (where we could have incoming values from within blocks)?",
+      "range": {
+        "startLine": 332,
+        "startChar": 6,
+        "endLine": 332,
+        "endChar": 79
       },
       "revId": "51d7098e851f258375b8f3b14051a4d093c19c49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
