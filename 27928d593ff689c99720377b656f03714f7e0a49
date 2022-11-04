@@ -80,6 +80,30 @@
       },
       "revId": "27928d593ff689c99720377b656f03714f7e0a49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b684c10e_c7921c1c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-04T10:02:16Z",
+      "side": 1,
+      "message": "If it\u0027s deprecated, than I\u0027m not concerned about the lack of coverage.",
+      "parentUuid": "d8449210_1bcaf02d",
+      "range": {
+        "startLine": 273,
+        "startChar": 25,
+        "endLine": 273,
+        "endChar": 35
+      },
+      "revId": "27928d593ff689c99720377b656f03714f7e0a49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
