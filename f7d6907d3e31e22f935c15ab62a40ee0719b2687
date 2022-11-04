@@ -97,6 +97,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4b3e1789_a7f3d93f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-04T14:57:24Z",
+      "side": 1,
+      "message": "Sorry, I think I looked at the wrong tab (I was probably looking at b/137356719, referenced from https://android-review.googlesource.com/c/platform/art/+/2166783).",
+      "parentUuid": "8262096a_7c6b811d",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 14
+      },
+      "revId": "f7d6907d3e31e22f935c15ab62a40ee0719b2687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0781bd57_44f1ef45",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "I\u0027d consider that if this was code that\u0027s going into AOSP master, but it\u0027s not. Here I prefer to reduce the risk of merge conflicts as much as possible.",
       "parentUuid": "6a886f92_e17e5f4c",
+      "range": {
+        "startLine": 379,
+        "startChar": 4,
+        "endLine": 379,
+        "endChar": 27
+      },
+      "revId": "f7d6907d3e31e22f935c15ab62a40ee0719b2687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e34da648_733e3496",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-04T14:57:24Z",
+      "side": 1,
+      "message": "Fair enough.",
+      "parentUuid": "10f774cb_524313da",
       "range": {
         "startLine": 379,
         "startChar": 4,
