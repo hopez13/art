@@ -363,6 +363,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2a29fe72_ea51db83",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-04T20:26:36Z",
+      "side": 1,
+      "message": "I\u0027ve tried `-Bsymbolic(-functions)` on a small example and it seems to remove PLT indirection on calls to functions with any visibility types (provided they are in the same library). Pretty useful.\n\n\n\u003eWe\u0027re using the very unusual -fvisibility\u003dprotected and maybe that\u0027s enough to eliminate these indirections within a single .so file at link time.\n\nLooking at `libart.so` disassembly, `Jit::Create` code that calls `jit_load`:\n`jit_load` with `EXPORT`: `call   c917f0 \u003cjit_load@plt\u003e`\n`jit_load` without attributes: `call   8fa830 \u003cjit_load@@Base\u003e`  (no plt probably because of `-fvisibility\u003dprotected`)\n`jit_load` with `HIDDEN`: no `jit_load` in disassembly at all",
+      "parentUuid": "98160fdd_4ad00ae7",
+      "range": {
+        "startLine": 23,
+        "startChar": 43,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1012a15d_4f41125f",
         "filename": "runtime/Android.bp",
         "patchSetId": 18
