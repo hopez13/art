@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4af4d3fd_16c80661",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T13:26:09Z",
+      "side": 1,
+      "message": "Ok. Header access is still limited for libart-runtime, so there\u0027s that.",
+      "parentUuid": "d8b7c26d_f9fdd3f6",
+      "range": {
+        "startLine": 279,
+        "startChar": 4,
+        "endLine": 279,
+        "endChar": 31
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2caca6a5_24a3e924",
@@ -231,6 +255,30 @@
       "side": 1,
       "message": "Yes. I\u0027ll add `HIDDEN/EXPORT` attributes for `libart-compiler` in the next CL",
       "parentUuid": "719a1936_9881467e",
+      "range": {
+        "startLine": 23,
+        "startChar": 43,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b99afc6_9a26cb88",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T13:26:09Z",
+      "side": 1,
+      "message": "No linking is taking place when the static `libart-runtime` and `libart-compiler` are built, so I thought all symbol references within and between them are resolved when libart.so is linked together. Is this symbol different from any other?",
+      "parentUuid": "f86e44d5_40f31913",
       "range": {
         "startLine": 23,
         "startChar": 43,

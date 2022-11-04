@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c9981de_2d65e434",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T13:26:09Z",
+      "side": 1,
+      "message": "Sorry, I missed a few details in the previous round.",
+      "revId": "54c97b0f3e5b2b9f4c845127e8683587abcc9b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "830d8edd_07df84dd",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T13:26:09Z",
+      "side": 1,
+      "message": "Oh, I thought you\u0027d put a version script on libart.so instead. Guess I\u0027ll see what this entails.",
+      "range": {
+        "startLine": 286,
+        "startChar": 7,
+        "endLine": 286,
+        "endChar": 59
+      },
+      "revId": "54c97b0f3e5b2b9f4c845127e8683587abcc9b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20f489da_5ab1d0b6",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T13:26:09Z",
+      "side": 1,
+      "message": "Nit: This gets imported from the defaults, it doesn\u0027t need to be repeated.",
+      "range": {
+        "startLine": 189,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 24
+      },
+      "revId": "54c97b0f3e5b2b9f4c845127e8683587abcc9b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ee737b6_b8e05a2a",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T13:26:09Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 667,
+        "startChar": 4,
+        "endLine": 667,
+        "endChar": 25
+      },
+      "revId": "54c97b0f3e5b2b9f4c845127e8683587abcc9b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "177d0b20_bcd5d358",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 19
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T13:26:09Z",
+      "side": 1,
+      "message": "Better drop this. Using `stem` can lead to name conflicts in the build so it shouldn\u0027t be used unless really necessary. I don\u0027t think it\u0027s necessary for this intermediate lib, only for the final .so below.",
+      "range": {
+        "startLine": 717,
+        "startChar": 4,
+        "endLine": 717,
+        "endChar": 27
+      },
+      "revId": "54c97b0f3e5b2b9f4c845127e8683587abcc9b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
