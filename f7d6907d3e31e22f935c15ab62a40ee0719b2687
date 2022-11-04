@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "865c139a_7e84bf2b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-04T14:24:17Z",
+      "side": 1,
+      "message": "Suggestion:\n\n```\nTest: atest -a libnativeloader_test\n````\n\n(if this is relevant).",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 32
+      },
+      "revId": "f7d6907d3e31e22f935c15ab62a40ee0719b2687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cd99701_9bd63731",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-04T14:24:17Z",
+      "side": 1,
+      "message": "This is a (currently) closed P2 bug; is there any other bug worth mentioning here?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 14
+      },
+      "revId": "f7d6907d3e31e22f935c15ab62a40ee0719b2687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0781bd57_44f1ef45",
@@ -14,6 +60,29 @@
       "writtenOn": "2022-11-04T01:05:15Z",
       "side": 1,
       "message": "Roland, PTAL.",
+      "revId": "f7d6907d3e31e22f935c15ab62a40ee0719b2687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a886f92_e17e5f4c",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-04T14:24:17Z",
+      "side": 1,
+      "message": "Suggestion: Rename this as `expected_namespace_pattern` or `expected_namespace_regex` to reflect the nature of this string.",
+      "range": {
+        "startLine": 379,
+        "startChar": 4,
+        "endLine": 379,
+        "endChar": 27
+      },
       "revId": "f7d6907d3e31e22f935c15ab62a40ee0719b2687",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
