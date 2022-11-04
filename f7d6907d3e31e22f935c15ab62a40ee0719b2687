@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b52f2af_456b5d05",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T14:46:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "865c139a_7e84bf2b",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 32
+      },
+      "revId": "f7d6907d3e31e22f935c15ab62a40ee0719b2687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cd99701_9bd63731",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-04T14:24:17Z",
       "side": 1,
       "message": "This is a (currently) closed P2 bug; is there any other bug worth mentioning here?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 14
+      },
+      "revId": "f7d6907d3e31e22f935c15ab62a40ee0719b2687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8262096a_7c6b811d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T14:46:44Z",
+      "side": 1,
+      "message": "No, it\u0027s open and it\u0027s P1. I\u0027ve double-checked the number and it looks right to me. Can you please try again?",
+      "parentUuid": "7cd99701_9bd63731",
       "range": {
         "startLine": 41,
         "startChar": 0,
@@ -77,6 +125,30 @@
       "writtenOn": "2022-11-04T14:24:17Z",
       "side": 1,
       "message": "Suggestion: Rename this as `expected_namespace_pattern` or `expected_namespace_regex` to reflect the nature of this string.",
+      "range": {
+        "startLine": 379,
+        "startChar": 4,
+        "endLine": 379,
+        "endChar": 27
+      },
+      "revId": "f7d6907d3e31e22f935c15ab62a40ee0719b2687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10f774cb_524313da",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T14:46:44Z",
+      "side": 1,
+      "message": "I\u0027d consider that if this was code that\u0027s going into AOSP master, but it\u0027s not. Here I prefer to reduce the risk of merge conflicts as much as possible.",
+      "parentUuid": "6a886f92_e17e5f4c",
       "range": {
         "startLine": 379,
         "startChar": 4,
