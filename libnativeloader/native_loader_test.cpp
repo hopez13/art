@@ -31,6 +31,7 @@ namespace android {
 namespace nativeloader {
 
 using ::testing::Eq;
+using ::testing::MatchesRegex;
 using ::testing::NotNull;
 using ::testing::StrEq;
 using internal::ConfigEntry;  // NOLINT - ConfigEntry is actually used
@@ -227,7 +228,7 @@ class NativeLoaderTest_Create : public NativeLoaderTest {
     EXPECT_CALL(*mock, NativeBridgeInitialized()).Times(testing::AnyNumber());
 
     EXPECT_CALL(*mock, mock_create_namespace(
-                           Eq(IsBridged()), StrEq(expected_namespace_name), nullptr,
+                           Eq(IsBridged()), MatchesRegex(expected_namespace_name), nullptr,
                            StrEq(expected_library_path), expected_namespace_flags,
                            StrEq(expected_permitted_path), NsEq(expected_parent_namespace.c_str())))
         .WillOnce(Return(TO_MOCK_NAMESPACE(TO_ANDROID_NAMESPACE(dex_path.c_str()))));
@@ -378,13 +379,27 @@ TEST_P(NativeLoaderTest_Create, UnbundledProductApp) {
   is_shared = false;
 
   if (is_product_vndk_version_defined()) {
+<<<<<<< HEAD   (6fd7de Fix art-debug-gc tests)
     expected_namespace_name = "product-classloader-namespace";
+=======
+    expected_namespace_name = "(vendor|product)-classloader-namespace";
+>>>>>>> BRANCH (daa9be Fix UnbundledProductApp CTS test to work with extended publi)
     expected_library_path = expected_library_path + ":/product/" LIB_DIR ":/system/product/" LIB_DIR;
     expected_permitted_path =
         expected_permitted_path + ":/product/" LIB_DIR ":/system/product/" LIB_DIR;
     expected_shared_libs_to_platform_ns =
+<<<<<<< HEAD   (6fd7de Fix art-debug-gc tests)
         append_extended_libraries(default_public_libraries() + ":" + llndk_libraries_product());
     expected_link_with_vndk_product_ns = true;
+=======
+        default_public_libraries() + ":" + llndk_libraries_product();
+    EXPECT_CALL(*mock,
+                mock_link_namespaces(Eq(IsBridged()),
+                                     _,
+                                     NsEq("system"),
+                                     ::testing::StartsWith(expected_shared_libs_to_platform_ns)))
+        .WillOnce(Return(true));
+>>>>>>> BRANCH (daa9be Fix UnbundledProductApp CTS test to work with extended publi)
   }
   SetExpectations();
   RunTest();
