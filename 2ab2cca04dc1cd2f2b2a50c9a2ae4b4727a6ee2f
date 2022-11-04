@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6767f8d_e3984ead",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-04T13:20:01Z",
+      "side": 1,
+      "message": "Rephrased. (I used A32 to refer to both the instruction set and CPU state.)",
+      "parentUuid": "b55b5342_bc5d27c7",
+      "range": {
+        "startLine": 83,
+        "startChar": 37,
+        "endLine": 83,
+        "endChar": 41
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32eb4e5e_c4f97f02",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-04T01:24:45Z",
       "side": 1,
       "message": "Is this safe here? This runs in a signal handler, right? Is GetOatQuickMethodHeader async-signal-safe? It doesn\u0027t allocate or acquire locks? It seems rather involved. I think if it is, that should be documented. (I\u0027m willing to overlook CHECKs, which I\u0027m pretty sure are not async-signal-safe on failure, but should otherwise be.)",
+      "range": {
+        "startLine": 297,
+        "startChar": 54,
+        "endLine": 297,
+        "endChar": 77
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51ad19fa_94a4c8f8",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-04T13:20:01Z",
+      "side": 1,
+      "message": "I don\u0027t think this allocates memory or acquires any locks.\n\nThis CL is just moving the call from old `FaultManager::IsInGeneratedCode()` to NPE handlers (both the generic `NullPointerHandler::IsValidReturnPc()` and the x86-specific here).",
+      "parentUuid": "32eb4e5e_c4f97f02",
       "range": {
         "startLine": 297,
         "startChar": 54,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86f78be2_6871c705",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 10364,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-04T13:20:01Z",
+      "side": 1,
+      "message": "This is called from GC in some odd state when the thread is not `Runnable` but holds the mutator lock anyway. Maybe Lokesh can provide more information.",
+      "parentUuid": "f7265c36_071aeecf",
+      "range": {
+        "startLine": 10363,
+        "startChar": 4,
+        "endLine": 10364,
+        "endChar": 76
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f610755_14cb77c6",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 9
@@ -100,6 +172,30 @@
       "writtenOn": "2022-11-04T01:24:45Z",
       "side": 1,
       "message": "Why do you need a compare_exchange here? Shouldn\u0027t concurrent modifications be impossible?",
+      "range": {
+        "startLine": 227,
+        "startChar": 37,
+        "endLine": 227,
+        "endChar": 60
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a96d976_a6e5e11b",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-04T13:20:01Z",
+      "side": 1,
+      "message": "Replaced with store. (I started without a lock and failed to correctly simplify this after adding the lock.)",
+      "parentUuid": "4f610755_14cb77c6",
       "range": {
         "startLine": 227,
         "startChar": 37,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12424d7b_34047f7b",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-04T13:20:01Z",
+      "side": 1,
+      "message": "Changed to relaxed. (Another case that I failed to adjust after introducing the lock.)",
+      "parentUuid": "4056926b_9ea32d6f",
+      "range": {
+        "startLine": 262,
+        "startChar": 25,
+        "endLine": 262,
+        "endChar": 51
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9426f089_02db6e9e",
@@ -146,6 +266,30 @@
       "writtenOn": "2022-11-04T01:24:45Z",
       "side": 1,
       "message": "I\u0027m suspicious of this. I\u0027ll revisit after the other questions. My immediate take on this should be that all updates should be release stores, and this should use acquire operations. But I need to think about this more, particularly in light of the fences.",
+      "range": {
+        "startLine": 335,
+        "startChar": 29,
+        "endLine": 335,
+        "endChar": 54
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "905a2184_a5816ed4",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-04T13:20:01Z",
+      "side": 1,
+      "message": "Anything we add to the list uses \"release\" on `generated_code_ranges_` and the \"acquire\" above should ensure memory visibility for all the range data (start, size) that the fault handler can see during the walk.\n\nIf any elements are removed while we\u0027re walking the list here, depending on whether we see the writes of the `next` links, we can either visit or not visit those removed ranges but we shall certainly visit those that were not removed and there is on problem with the visibility of their (start, size) data.\n\nAdded comments.",
+      "parentUuid": "9426f089_02db6e9e",
       "range": {
         "startLine": 335,
         "startChar": 29,
