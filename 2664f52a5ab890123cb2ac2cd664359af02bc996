@@ -315,6 +315,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "48ebcfa0_075ff46e",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T17:14:18Z",
+      "side": 1,
+      "message": "Interesting, I wasn\u0027t aware that functions by default have that indirection. I take it that applies to all symbols, not just this one, so the cost of those indirections is likely to be significant.\n\nWouldn\u0027t `-Bsymbolic(-functions)` help with this too? I don\u0027t think we\u0027re interested in this kind of overriding anywhere in ART (except in libsigchain, but there it\u0027s libc symbols we\u0027re overriding, not anything in ART itself).",
+      "parentUuid": "2b78d091_59080121",
+      "range": {
+        "startLine": 23,
+        "startChar": 43,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1012a15d_4f41125f",
         "filename": "runtime/Android.bp",
         "patchSetId": 18
