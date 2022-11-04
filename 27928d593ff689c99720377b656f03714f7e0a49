@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43028572_bbc7b68e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-11-04T08:10:29Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "27928d593ff689c99720377b656f03714f7e0a49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67cf9ee4_82dd657e",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-11-03T16:46:55Z",
       "side": 1,
       "message": "Do we have test coverage for this code? When I changed the shorty for `dispatch`, I observed the shorty DCHECK failure in `ArtMethod::Invoke()` while running the\n\n    art/tools/run-libjdwp-tests.sh --mode\u003ddevice --variant\u003dX32 --debug\n\nHowever, I did not see the failing DCHECK if I changed the shorty for `broadcast` here.",
+      "range": {
+        "startLine": 273,
+        "startChar": 25,
+        "endLine": 273,
+        "endChar": 35
+      },
+      "revId": "27928d593ff689c99720377b656f03714f7e0a49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8449210_1bcaf02d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-11-04T08:10:29Z",
+      "side": 1,
+      "message": "I don\u0027t know how much coverage we have for ddms in our run-tests. Ddms is deprecated in Android Studio (I think it\u0027s no longer supported) so jvmti has limited support and most of our tests test other jvmti features.\n\nlibjdwp uses broadcast but I am not sure how often that\u0027s used. AFAIU, this is used to broadcast that it is either connected / disconnected. libjdwp tests aren\u0027t great at checking error conditions. If it only happens on a disconnect it might have ignored the failure. It uses broadcast here: https://cs.android.com/android/platform/superproject/+/master:external/oj-libjdwp/src/share/back/DDMImpl.c;l\u003d149\n\nI don\u0027t know much about libjdwp timeouts. So not sure really. I can take a look later.",
+      "parentUuid": "67cf9ee4_82dd657e",
       "range": {
         "startLine": 273,
         "startChar": 25,
