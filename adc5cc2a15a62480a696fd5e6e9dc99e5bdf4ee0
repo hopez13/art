@@ -114,6 +114,30 @@
       },
       "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c676693_c407d199",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-04T18:39:01Z",
+      "side": 1,
+      "message": "I\u0027m starting to wonder if we can drop build-art-unbundled-golem too. Afaics it isn\u0027t used by art/tools/golem/build-target.sh. Roland, WDYT?",
+      "parentUuid": "4b896bed_2cc9673a",
+      "range": {
+        "startLine": 664,
+        "startChar": 27,
+        "endLine": 664,
+        "endChar": 38
+      },
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
