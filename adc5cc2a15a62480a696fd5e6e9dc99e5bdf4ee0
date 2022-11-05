@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7f4edea_0ca7339b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2022-11-05T01:53:48Z",
+      "side": 1,
+      "message": "I\u0027m on the roboleaf team, working on converting the soong build to bazel. We have basic support for apexes, but not support for flattened apexes. We\u0027re considering removing flattened apexes if possible.\n\nThe art-module-lib function used by art-runtime references flattened apex files. These flattened apex files are produced even when the product is supposed to be using image apexes. I have a cl, aosp/2285522, to make the image apexes not rely on these files, but this art-runtime usage blocks that cl.",
+      "parentUuid": "d83cf58a_d7d506d3",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e990fd14_2df0eace",
@@ -130,6 +154,30 @@
       "side": 1,
       "message": "I\u0027m starting to wonder if we can drop build-art-unbundled-golem too. Afaics it isn\u0027t used by art/tools/golem/build-target.sh. Roland, WDYT?",
       "parentUuid": "4b896bed_2cc9673a",
+      "range": {
+        "startLine": 664,
+        "startChar": 27,
+        "endLine": 664,
+        "endChar": 38
+      },
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afa4396a_a914f55d",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2022-11-05T01:53:48Z",
+      "side": 1,
+      "message": "Oh sorry, removed this too now.\n\nI ran the golem tests with this cl, it seems to work: https://golem.corp.goog/Revision?repository\u003dart\u0026revision\u003d18972\u0026patch\u003d17531",
+      "parentUuid": "3c676693_c407d199",
       "range": {
         "startLine": 664,
         "startChar": 27,
