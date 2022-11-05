@@ -35,6 +35,6 @@ fi
 # Build the initial class files.
 (cd "${SRC_PATH}" && ${JAVAC} ${JAVAC_ARGS} -source 8 -target 8 -cp "${ASM_CLASSPATH}" -d "${BUILD_PATH}" Main.java art/*.java art/constmethodhandle/*.java) || fail "javac error"
 # Modify the class files using ASM
-(cd "${SCRIPT_PATH}" && ${JAVA} -cp "${ASM_CLASSPATH}:${BUILD_PATH}" art.constmethodhandle.TestGenerator "${BUILD_PATH}" "$D8") || fail "generator failure"
+(cd "${SCRIPT_PATH}" && ${JAVA} -cp "${ASM_CLASSPATH}:${BUILD_PATH}" art.constmethodhandle.TestGenerator "${BUILD_PATH}" "../wrap_d8") || fail "generator failure"
 # Remove the modification classes. We don't need nor want them for the actual test.
 (cd ${BUILD_PATH} && find . -name "TestGenerator*.class" | xargs rm) || fail "Cleanup failure"

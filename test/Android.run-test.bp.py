@@ -34,10 +34,17 @@ def main():
         name = "art-run-test-{mode}-data-shard{shard}".format(mode=mode, shard=shard)
         names.append(name)
         f.write(textwrap.dedent("""
-          java_genrule {{
+          java_genrule_host {{
               name: "{name}-tmp",
               out: ["{name}.zip"],
-              srcs: ["?{shard}-*/**/*", "??{shard}-*/**/*"],
+              srcs: [
+                  "?{shard}-*/**/*",
+                  "??{shard}-*/**/*",
+                  ":art-run-test-bootclasspath",
+                  ":d8",
+                  ":jasmin",
+                  ":smali",
+              ],
               defaults: ["art-run-test-{mode}-data-defaults"],
           }}
 
@@ -59,18 +66,15 @@ def main():
                 // available.
                 "art_module_source_build_genrule_defaults",
             ],
-            tool_files: [
-                "run_test_build.py",
-                ":art-run-test-bootclasspath",
-            ],
-            tools: [
-                "d8",
-                "hiddenapi",
-                "jasmin",
-                "smali",
-            ],
+            tool_files: ["run_test_build.py"],
+            tools: ["hiddenapi"],
             cmd: "$(location run_test_build.py) --out $(out) --mode {mode} " +
-                "--bootclasspath $(location :art-run-test-bootclasspath) $(in)",
+                 "--bootclasspath $(location :art-run-test-bootclasspath) " +
+                 "--d8 $(location :d8) " +
+                 "--jasmin $(location :jasmin) " +
+                 "--smali $(location :smali) " +
+                 "--hiddenapi $(location hiddenapi) " +
+                 "$(in)",
         }}
         """).format(mode=mode))
 
@@ -78,7 +82,7 @@ def main():
       srcs = ("\n"+" "*8).join('":{}-tmp",'.format(n) for n in names)
       deps = ("\n"+" "*8).join('"{}",'.format(n) for n in names)
       f.write(textwrap.dedent("""
-        java_genrule {{
+        java_genrule_host {{
             name: "{name}-tmp",
             defaults: ["art_module_source_build_genrule_defaults"],
             out: ["{name}.zip"],
@@ -107,7 +111,7 @@ def main():
       deps = ("\n"+" "*8).join('"{}",'.format(n) for n in names)
       f.write(textwrap.dedent("""
         // Phony target used to build all shards
-        java_genrule {{
+        java_genrule_host {{
             name: "{name}-tmp",
             defaults: ["art-run-test-data-defaults"],
             out: ["{name}.txt"],
