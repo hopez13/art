@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "43e3ecda_ec9984b6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 10364,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-05T01:05:58Z",
+      "side": 1,
+      "message": "I\u0027m also not sure. All places where we call CleanupClassLoaders seem to hold mutator lock but there is no obvious/explicit state change to non-runnable that I can find.\n\nIs this with ConcurrentCopying that you observed it?",
+      "parentUuid": "86f78be2_6871c705",
+      "range": {
+        "startLine": 10363,
+        "startChar": 4,
+        "endLine": 10364,
+        "endChar": 76
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f610755_14cb77c6",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 9

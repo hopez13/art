@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d30bf70c_070a2de9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-05T01:05:58Z",
+      "side": 1,
+      "message": "V",
+      "revId": "e9eeaed5ec9e4c585727d8a0ee51c6b78cb7bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03a0c94b_4772e5f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-05T01:05:58Z",
+      "side": 1,
+      "message": "Vladimir, this CL seems to get rid of Safecopy use that was discussed to be a problem with userfaultfd-GC sometime back. Would it be fine, once merged here, to CP this CL to mainline branch?",
+      "revId": "e9eeaed5ec9e4c585727d8a0ee51c6b78cb7bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
