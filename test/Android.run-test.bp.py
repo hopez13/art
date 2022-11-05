@@ -37,7 +37,14 @@ def main():
           java_genrule_host {{
               name: "{name}-tmp",
               out: ["{name}.zip"],
-              srcs: ["?{shard}-*/**/*", "??{shard}-*/**/*"],
+              srcs: [
+                  "?{shard}-*/**/*",
+                  "??{shard}-*/**/*",
+                  ":art-run-test-bootclasspath",
+                  ":d8",
+                  ":jasmin",
+                  ":smali",
+              ],
               defaults: ["art-run-test-{mode}-data-defaults"],
           }}
 
@@ -59,22 +66,14 @@ def main():
                 // available.
                 "art_module_source_build_genrule_defaults",
             ],
-            tool_files: [
-                "run_test_build.py",
-                ":art-run-test-bootclasspath",
-            ],
-            tools: [
-                "d8",
-                "hiddenapi",
-                "jasmin",
-                "smali",
-            ],
+            tool_files: ["run_test_build.py"],
+            tools: ["hiddenapi"],
             cmd: "$(location run_test_build.py) --out $(out) --mode {mode} " +
                  "--bootclasspath $(location :art-run-test-bootclasspath) " +
-                 "--d8 $(location d8) " +
+                 "--d8 $(location :d8) " +
+                 "--jasmin $(location :jasmin) " +
+                 "--smali $(location :smali) " +
                  "--hiddenapi $(location hiddenapi) " +
-                 "--jasmin $(location jasmin) " +
-                 "--smali $(location smali) " +
                  "$(in)",
         }}
         """).format(mode=mode))

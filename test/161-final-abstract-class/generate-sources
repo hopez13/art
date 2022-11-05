@@ -15,5 +15,5 @@
 # limitations under the License.
 
 # Avoid D8 merge in the default script since we intentionally generate invalid dex.
-${SMALI} -JXmx512m assemble --api 26 --output classes.dex `find smali -name '*.smali'`
+${SMALI} assemble --api 26 --output classes.dex `find smali -name '*.smali'`
 ${SOONG_ZIP} -o $TEST_NAME.jar -f classes.dex

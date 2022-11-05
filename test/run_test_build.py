@@ -81,14 +81,14 @@ class BuildTestContext:
     # Minimal environment needed for bash commands that we execute.
     self.bash_env = {
       "ANDROID_BUILD_TOP": self.android_build_top,
-      "D8": self.d8,
+      "D8": f"{self.java} -jar {args.d8.absolute()}",
       "JAVA": self.java,
       "JAVAC": self.javac,
       "JAVAC_ARGS": self.javac_args,
       "JAVA_HOME": self.java_home,
       "PATH": os.environ["PATH"],
       "PYTHONDONTWRITEBYTECODE": "1",
-      "SMALI": self.smali,
+      "SMALI": f"{self.java} -Xmx512m -jar {args.smali.absolute()}",
       "SOONG_ZIP": self.soong_zip,
       "TEST_NAME": self.test_name,
     }
@@ -183,6 +183,8 @@ def default_build(
     cmd: List[Union[Path, str]] = []
     if executable.suffix == ".sh":
       cmd += ["/bin/bash"]
+    if executable.suffix == ".jar":
+      cmd += [ctx.java, "-Xmx512m", "-jar"]
     cmd += [executable]
     cmd += args
     env = ctx.bash_env
@@ -212,9 +214,9 @@ def default_build(
     assert version, "Could not parse RBE version"
     assert tuple(map(int, version.groups())) >= (0, 76, 0), "Please update " + RBE_rewrapper
 
-    def rbe_wrap(args, inputs=None):
-      inputs = inputs or set()
+    def rbe_wrap(args):
       with tempfile.NamedTemporaryFile(mode="w+t", dir=ctx.tmp_dir) as input_list:
+        inputs = set()
         for arg in args:
           inputs.update(filter(path.exists, arg.split(":")))
         input_list.writelines([path.relpath(i, RBE_exec_root)+"\n" for i in inputs])
@@ -234,12 +236,13 @@ def default_build(
 
     if USE_RBE_FOR_D8 > (hash(TEST_NAME) % 100):  # Use for given percentage of tests.
       def d8(args):
-        inputs = set([ctx.d8.parent.parent / "framework/d8.jar"])
         output = path.relpath(path.join(CWD, args[args.index("--output") + 1]), RBE_exec_root)
         return rbe_wrap([
           "--output_files" if output.endswith(".jar") else "--output_directories", output,
           "--toolchain_inputs=prebuilts/jdk/jdk11/linux-x86/bin/java",
-          os.path.relpath(ctx.d8, CWD)] + args, inputs)
+          os.path.relpath(ctx.java, CWD), "-jar",
+          os.path.relpath(ctx.d8, CWD)
+        ] + args)
 
   # If wrapper script exists, use it instead of the default javac.
   javac_wrapper = ctx.test_dir / "javac_wrapper.sh"
@@ -440,7 +443,7 @@ def default_build(
 
   if HAS_SMALI and NEED_DEX:
     # Compile Smali classes
-    smali(["-JXmx512m", "assemble"] + SMALI_ARGS +
+    smali(["assemble"] + SMALI_ARGS +
           ["--output", "smali_classes.dex"] + find("smali", "*.smali"))
     assert path.exists("smali_classes.dex")
     # Merge smali files into classes.dex,
@@ -462,7 +465,7 @@ def default_build(
 
   if HAS_SMALI_MULTIDEX and NEED_DEX:
     # Compile Smali classes
-    smali(["-JXmx512m", "assemble"] + SMALI_ARGS +
+    smali(["assemble"] + SMALI_ARGS +
           ["--output", "smali_classes2.dex"] + find("smali-multidex", "*.smali"))
 
     # Merge smali_classes2.dex into classes2.dex
@@ -483,7 +486,7 @@ def default_build(
 
   if HAS_SMALI_EX and NEED_DEX:
     # Compile Smali classes
-    smali(["-JXmx512m", "assemble"] + SMALI_ARGS +
+    smali(["assemble"] + SMALI_ARGS +
           ["--output", "smali_classes-ex.dex"] + find("smali-ex", "*.smali"))
     assert path.exists("smali_classes-ex.dex")
     # Merge smali files into classes-ex.dex.
@@ -561,11 +564,11 @@ def main() -> None:
   parser.add_argument("--hiddenapi", type=Path)
   parser.add_argument("--jasmin", type=Path)
   parser.add_argument("--smali", type=Path)
-  parser.add_argument("srcs", nargs="+", type=Path)
+  parser.add_argument("deps", nargs="+", type=Path)
   args = parser.parse_args()
 
   ziproot = Path(args.out).parent / "zip"
-  srcdirs = set(s.parents[-4] for s in args.srcs if s.is_relative_to("art/test/"))
+  srcdirs = set(s.parents[-4] for s in args.deps if s.is_relative_to("art/test/"))
   dstdirs = [copy_sources(args, ziproot, args.mode, s) for s in srcdirs]
 
   # Use multiprocessing (i.e. forking) since tests modify their current working directory.
