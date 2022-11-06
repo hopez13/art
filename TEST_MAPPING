@@ -311,9 +311,6 @@
       "name": "art-run-test-145-alloc-tracking-stress[com.google.android.art.apex]"
     },
     {
-      "name": "art-run-test-151-OpenFileLimit[com.google.android.art.apex]"
-    },
-    {
       "name": "art-run-test-152-dead-large-object[com.google.android.art.apex]"
     },
     {
@@ -1253,6 +1250,9 @@
       "name": "art-run-test-841-defaults[com.google.android.art.apex]"
     },
     {
+      "name": "art-run-test-844-exception2[com.google.android.art.apex]"
+    },
+    {
       "name": "art-run-test-963-default-range-smali[com.google.android.art.apex]"
     },
     {
@@ -1648,9 +1648,6 @@
       "name": "art-run-test-145-alloc-tracking-stress"
     },
     {
-      "name": "art-run-test-151-OpenFileLimit"
-    },
-    {
       "name": "art-run-test-152-dead-large-object"
     },
     {
@@ -2588,6 +2585,9 @@
     },
     {
       "name": "art-run-test-841-defaults"
+    },
+    {
+      "name": "art-run-test-844-exception2"
     },
     {
       "name": "art-run-test-963-default-range-smali"
@@ -2979,9 +2979,6 @@
       "name": "art-run-test-145-alloc-tracking-stress"
     },
     {
-      "name": "art-run-test-151-OpenFileLimit"
-    },
-    {
       "name": "art-run-test-152-dead-large-object"
     },
     {
@@ -3919,6 +3916,9 @@
     },
     {
       "name": "art-run-test-841-defaults"
+    },
+    {
+      "name": "art-run-test-844-exception2"
     },
     {
       "name": "art-run-test-963-default-range-smali"
