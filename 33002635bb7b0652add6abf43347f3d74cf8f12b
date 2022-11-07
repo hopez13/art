@@ -22,6 +22,30 @@
       },
       "revId": "33002635bb7b0652add6abf43347f3d74cf8f12b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee1aa0b7_4cf2b350",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-07T16:04:24Z",
+      "side": 1,
+      "message": "Changed to `Handle\u003c\u003e`. (I guess you worry that it\u0027s not obvious to a reader that `ObjPtr\u003c\u003e` remains valid across `FindVirtualMethodForInterface()`.)",
+      "parentUuid": "3403d3a3_1b08aef0",
+      "range": {
+        "startLine": 429,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 38
+      },
+      "revId": "33002635bb7b0652add6abf43347f3d74cf8f12b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
