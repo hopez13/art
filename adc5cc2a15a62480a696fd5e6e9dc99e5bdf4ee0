@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9ec6fd52_a278a90a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2022-11-07T19:11:08Z",
+      "side": 1,
+      "message": "Yeah, the `\u003cxxx\u003e.com.android.art` modules are for flattened apex files, built to `$ANDROID_PRODUCT_OUT/apex/...` these files are not actually installed on the device unless `TARGET_FLATTEN_APEX` is set, but are still built even if it\u0027s not. These changes I\u0027m making are trying make it so that these files are not built unless `TARGET_FLATTEN_APEX` is set.",
+      "parentUuid": "27e6ad3d_e0bf0713",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e990fd14_2df0eace",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -202,6 +226,30 @@
       "side": 1,
       "message": "Oh sorry, removed this too now.\n\nI ran the golem tests with this cl, it seems to work: https://golem.corp.goog/Revision?repository\u003dart\u0026revision\u003d18972\u0026patch\u003d17531",
       "parentUuid": "3c676693_c407d199",
+      "range": {
+        "startLine": 664,
+        "startChar": 27,
+        "endLine": 664,
+        "endChar": 38
+      },
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46e31e09_4c4b4f3e",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2022-11-07T19:11:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "afa4396a_a914f55d",
       "range": {
         "startLine": 664,
         "startChar": 27,
