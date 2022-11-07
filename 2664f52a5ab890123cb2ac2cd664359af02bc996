@@ -457,6 +457,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6767ffa1_be309e71",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-07T17:12:31Z",
+      "side": 1,
+      "message": "\u003e Disassembling .so with objdump -d libart.so, searching for PLT calls with \u003c.*@plt\u003e regex\n\nHad a look myself. In the libart.so I had in my build tree I found 633 unique functions, but almost 61k calls, and they go to libc, libbase, libartbase, etc. Nothing strange there, but I expected `-Bsymbolic` to get rid of PLT indirections for practically all of those. Why doesn\u0027t it?\n\nBtw, I don\u0027t think this discussion, although interesting, needs to hold up this CL. Feel free to submit.",
+      "parentUuid": "dfa98291_b440330b",
+      "range": {
+        "startLine": 23,
+        "startChar": 43,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1012a15d_4f41125f",
