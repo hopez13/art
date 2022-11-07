@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64f5c3b3_67d27ddf",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2022-11-07T15:11:03Z",
+      "side": 1,
+      "message": "Naive drive-by: It looks like this is doing the exact same test regardless of the `has_swap` state.  Perhaps that\u0027s intentional, and not a copy/paste bug.  If it\u0027s intentional, we might want to consider getting rid of the conditional to be more clear.",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 5
+      },
+      "revId": "ad4450e5c3ffaa9566216cc6fafbf5c11186c467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
