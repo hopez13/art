@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3403d3a3_1b08aef0",
+        "filename": "runtime/hidden_api.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-07T10:41:45Z",
+      "side": 1,
+      "message": "nit: move this closer to its use (line 437) ? Alternatively, for consistency with `consumer_object`, move it to a handle.",
+      "range": {
+        "startLine": 429,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 38
+      },
+      "revId": "33002635bb7b0652add6abf43347f3d74cf8f12b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
