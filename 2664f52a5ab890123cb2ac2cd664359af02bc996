@@ -435,6 +435,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfa98291_b440330b",
+        "filename": "compiler/export/jit_load.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-11-07T10:17:59Z",
+      "side": 1,
+      "message": "Testing on top of this CL with x86_64 `libart.so`.\nUsing `-Bsymbolic` by adding the following in `art_defaults`:\n```\nldflags: [      \n    \"-Wl,-Bsymbolic\",\n    \"-Wl,-Bsymbolic-functions\",\n],\n```\nDisassembling .so with `objdump -d libart.so`, searching for PLT calls with `\u003c.*@plt\u003e` regex\n\n1) Only `-fvisibility\u003dprotected`\n`libart.so` size: 13514536\nUnique PLT calls: 656\n\n2) `-fvisibility\u003dprotected` and `-Bsymbolic`\n`libart.so` size: 13514408 (-128)\nUnique PLT calls: 651 (-5)\n\nThe 5 removed PLT calls:\nCpuFeatures_StringView_GetAttributeKeyValue\nGetX86Info\nStackLineReader_NextLine\nCpuFeatures_StringView_HasWord\nart_sigsegv_fault\nFirst 4 are from `libcpu_features`, which is linked as a whole-static lib\n`art_sigsegv_fault` is defined in `libart-runtime` and has `default` visibility\n\n\u003eReading the description of -Bsymbolic, I think it would make the -fvisibility\u003dprotected unnecessary.\n\nSo yes, it looks like it can. The only caveat I see is that it also removes PLT from calls to functions with explicitly set `default` visibility.\nBut if there are no cases where we need symbol preemption, it should be fine.\n\nOn the other hand, if we decide to stick with `-fvisibility\u003dhidden` only, we should also consider changing `libartbase` `EXPORT` macro to have `protected` visibility instead of `default`",
+      "parentUuid": "79def305_b9cfa560",
+      "range": {
+        "startLine": 23,
+        "startChar": 43,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "2664f52a5ab890123cb2ac2cd664359af02bc996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1012a15d_4f41125f",
         "filename": "runtime/Android.bp",
         "patchSetId": 18
