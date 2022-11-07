@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "27e6ad3d_e0bf0713",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-07T15:41:19Z",
+      "side": 1,
+      "message": "We used to depend on flattened APEXes in our internal tests, but we got rid of that a good while ago. We should deapex them wherever we need them.\n\n\u003e The art-module-lib function used by art-runtime references flattened apex files.\n\nOh, I wasn\u0027t aware that the `\u003cxxx\u003e.com.android.art` module references depended on flattened APEXes. Do you mean that `art-runtime` only works if `TARGET_FLATTEN_APEX` is set? I could swear we\u0027ve stopped doing that.\n\nIn any case, I\u0027m happy to see this go if it doesn\u0027t break our tests, and I cannot see that it does. Roland should confirm though.",
+      "parentUuid": "b7f4edea_0ca7339b",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e990fd14_2df0eace",
