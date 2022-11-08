@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb25aeba_fdf9d75d",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-08T17:51:37Z",
+      "side": 1,
+      "message": "Actually, `ArtMethod::GetOatQuickMethodHeader()` can call `JitCodeCache::LookupMethodHeader()` where we take a lock, namely `Locks::jit_lock_`.",
+      "parentUuid": "045152c6_18bf5e63",
+      "range": {
+        "startLine": 297,
+        "startChar": 54,
+        "endLine": 297,
+        "endChar": 77
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7265c36_071aeecf",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 9
