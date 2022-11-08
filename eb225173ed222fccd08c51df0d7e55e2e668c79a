@@ -22,6 +22,30 @@
       },
       "revId": "eb225173ed222fccd08c51df0d7e55e2e668c79a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c8a928a_c2383a4d",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2022-11-08T15:27:18Z",
+      "side": 1,
+      "message": "DISABLED_FUGU_TESTS doesn\u0027t do prefix match, but requires exact match.\n\nSee line 394 how we skip the tests for gcstress. I am just following the current pattern.",
+      "parentUuid": "de07db85_d9d0ed04",
+      "range": {
+        "startLine": 401,
+        "startChar": 57,
+        "endLine": 401,
+        "endChar": 79
+      },
+      "revId": "eb225173ed222fccd08c51df0d7e55e2e668c79a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
