@@ -146,6 +146,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2ffd7a26_cfda3ffd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2022-11-08T17:50:48Z",
+      "side": 1,
+      "message": "Thanks!\n\nAndroid Go is no longer using flattened apexes, but wear and tv are. There\u0027s an email thread going on about removing flattened apexes from those devices.",
+      "parentUuid": "40a1c009_451d9bb6",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e990fd14_2df0eace",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -322,6 +346,30 @@
       "side": 1,
       "message": "\u003e I ran the golem tests with this cl, it seems to work: https://golem.corp.goog/Revision?repository\u003dart\u0026revision\u003d18972\u0026patch\u003d17531\n\nCould you also mention this in a `Test:` stanza in the commit message?",
       "parentUuid": "46e31e09_4c4b4f3e",
+      "range": {
+        "startLine": 664,
+        "startChar": 27,
+        "endLine": 664,
+        "endChar": 38
+      },
+      "revId": "adc5cc2a15a62480a696fd5e6e9dc99e5bdf4ee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af73c844_2d3fa03b",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2022-11-08T17:50:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "419aa4cf_3c86ed62",
       "range": {
         "startLine": 664,
         "startChar": 27,
