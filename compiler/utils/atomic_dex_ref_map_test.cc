@@ -23,7 +23,7 @@
 #include "dex/method_reference.h"
 #include "scoped_thread_state_change-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class AtomicDexRefMapTest : public CommonRuntimeTest {};
 

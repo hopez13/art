@@ -25,7 +25,7 @@
 #include "gtest/gtest.h"
 #include "thread-current-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class DedupeSetTestHashFunc {
  public:

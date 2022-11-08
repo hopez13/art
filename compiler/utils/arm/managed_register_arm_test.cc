@@ -18,7 +18,7 @@
 #include "base/globals.h"
 #include "gtest/gtest.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace arm {
 
 TEST(ArmManagedRegister, NoRegister) {

@@ -18,7 +18,7 @@
 #include "base/globals.h"
 #include "gtest/gtest.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace x86_64 {
 
 TEST(X86_64ManagedRegister, NoRegister) {

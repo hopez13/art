@@ -21,7 +21,7 @@
 #include "base/stl_util.h"
 #include "utils/assembler_test.h"
 
-namespace art {
+namespace art HIDDEN {
 
 TEST(AssemblerX86, CreateBuffer) {
   MallocArenaPool pool;

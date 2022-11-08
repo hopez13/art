@@ -20,7 +20,7 @@
 #include "base/globals.h"
 #include "gtest/gtest.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace arm64 {
 
 TEST(Arm64ManagedRegister, NoRegister) {
