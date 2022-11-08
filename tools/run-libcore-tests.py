@@ -264,6 +264,7 @@ DISABLED_GCSTRESS_DEBUG_TESTS = {
 }
 
 DISABLED_FUGU_TESTS = {
+  "org.apache.harmony.luni",
   "test.java.awt",
   "test.java.io.ByteArrayInputStream",
   "test.java.io.ByteArrayOutputStream",
