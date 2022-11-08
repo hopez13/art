@@ -446,7 +446,7 @@ class ImageSpaceLoadingMultipleComponentsWithProfilesTest
  protected:
   std::string PrepareImageLocation() override {
     std::vector<std::string> dex_files(GetLibCoreDexFileNames());
-    CHECK_GE(dex_files.size(), 2);
+    CHECK_GE(dex_files.size(), 2u);
     std::string image_location_1 = missing_image_base_->GetFilename() + ".art";
     std::string image_location_2 =
         missing_image_base_->GetFilename() + "-" + Stem(dex_files[dex_files.size() - 1]) + ".art";
