@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b8ad0e10_dc67dba3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2022-11-09T16:08:21Z",
+      "side": 1,
+      "message": "Oh it was just because the link was via android-review.git.corp.google.com which I guess is non public-facing. I didn\u0027t think to use the same CL number on android-review.googlesource.com - this should be fixed now, thanks!",
+      "parentUuid": "780efbcd_a2d7a1f5",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "bc134e66ce24e896b9033d483233b703c490e5d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d32557db_12e02878",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
