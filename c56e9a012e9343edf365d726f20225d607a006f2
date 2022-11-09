@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8c0b1f2_551568ce",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-11-09T14:18:21Z",
+      "side": 1,
+      "message": "Linter complains that this should be all uppercase: `ARRAY_SIZE`.",
+      "range": {
+        "startLine": 24,
+        "startChar": 26,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "c56e9a012e9343edf365d726f20225d607a006f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
