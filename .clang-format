@@ -32,9 +32,21 @@ AlignOperands: false
 AllowShortFunctionsOnASingleLine: Inline
 AlwaysBreakBeforeMultilineStrings: false
 ColumnLimit: 100
-CommentPragmas: NOLINT:.*
+CommentPragmas: (NOLINT|CHECK[^ ]*):.*
 ConstructorInitializerIndentWidth: 6
 ContinuationIndentWidth: 8
 IndentWidth: 4
+JavaImportGroups:
+- android
+- androidx
+- com.android
+- dalvik
+- libcore
+- com
+- junit
+- net
+- org
+- java
+- javax
 PenaltyBreakBeforeFirstCallParameter: 100000
 SpacesBeforeTrailingComments: 1
