@@ -287,9 +287,9 @@ void VerifierDeps::MaybeRecordVerificationStatus(VerifierDeps* verifier_deps,
       case verifier::FailureKind::kHardFailure:
       case verifier::FailureKind::kSoftFailure: {
         // Class will be verified at runtime.
-        DexFileDeps* dex_deps = verifier_deps->GetDexFileDeps(dex_file);
-        uint16_t index = dex_file.GetIndexForClassDef(class_def);
-        dex_deps->assignable_types_[index].clear();
+        // Note: we used to clear the dependencies here but that conflicts with
+        // how dex2oat runs fast verification. Because this case is rare, it's
+        // OK to keep some extra metadata which won't be useful.
         break;
       }
       case verifier::FailureKind::kAccessChecksFailure:
