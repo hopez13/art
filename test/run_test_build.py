@@ -335,6 +335,10 @@ def default_build(
     zip(TEST_NAME + ".jar", "classes.dex")
     return
 
+  if path.exists("classes.dm"):
+    zip(TEST_NAME + ".jar", "classes.dm")
+    return
+
 
   def has_multidex():
     return HAS_SRC_MULTIDEX or HAS_JASMIN_MULTIDEX or HAS_SMALI_MULTIDEX
@@ -372,6 +376,19 @@ def default_build(
                              find("src-aotex", "*.java") +
                              find("src-bcpex", "*.java") +
                              find("src-ex", "*.java"))
+    src_tmp_all = add_to_cp_args(src_tmp_all, "classes-tmp-all")
+
+  if HAS_SRC_ART and not HAS_SRC and HAS_SRC_MULTIDEX:
+    # To allow circular references, compile src/, src-multidex/, src-aotex/,
+    # src-bcpex/, src-ex/ together and pass the output as class path argument.
+    # Replacement sources in src-art/, src2/ and src-ex2/ can replace symbols
+    # used by the other src-* sources we compile here but everything needed to
+    # compile the other src-* sources should be present in src/ (and jasmin*/).
+    os.makedirs("classes-tmp-all")
+    javac_with_bootclasspath(["-implicit:none"] + src_tmp_all +
+                             ["-d", "classes-tmp-all"] +
+                             find("src-art", "*.java") +
+                             find("src-multidex", "*.java"))
     src_tmp_all = add_to_cp_args(src_tmp_all, "classes-tmp-all")
 
   if HAS_SRC_AOTEX:
