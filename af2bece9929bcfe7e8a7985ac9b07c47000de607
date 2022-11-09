@@ -34,6 +34,24 @@
       "parentUuid": "972efa73_5351e636",
       "revId": "af2bece9929bcfe7e8a7985ac9b07c47000de607",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5fb53fc_24a6e3a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-11-09T17:07:25Z",
+      "side": 1,
+      "message": "Yeah, there\u0027s no way this CL should impact any perf tests. Digging into those links doesn\u0027t seem to offer any additional details? https://screenshot.googleplex.com/4S7EZr4ugRYGL3w In any case none of that should block this CL.",
+      "parentUuid": "40a3a981_b1263838",
+      "revId": "af2bece9929bcfe7e8a7985ac9b07c47000de607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
