@@ -1764,8 +1764,10 @@ bool CompilerDriver::FastVerify(jobject jclass_loader,
         // the type.
         ClassReference ref(dex_file, accessor.GetClassDefIndex());
         const ClassStatus existing = ClassStatus::kNotReady;
-        ClassStateTable::InsertResult result = compiled_classes_.Insert(ref, existing, status);
-        CHECK_EQ(result, ClassStateTable::kInsertResultSuccess) << ref.dex_file->GetLocation();
+        // Note: when dex files are compiled inidividually, the class may have
+        // been verified in a previous stage. This means this insertion can
+        // fail, but that's OK.
+        compiled_classes_.Insert(ref, existing, status);
       } else {
         // Update the class status, so later compilation stages know they don't need to verify
         // the class.
