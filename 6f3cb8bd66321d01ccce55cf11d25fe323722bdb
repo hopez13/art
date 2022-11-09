@@ -22,6 +22,30 @@
       },
       "revId": "6f3cb8bd66321d01ccce55cf11d25fe323722bdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9862964c_cad1000d",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-09T23:55:30Z",
+      "side": 1,
+      "message": "I\u0027m not sure this bit of the configuration is actually required to run Mainline Presubmits via Test Mapping (in AOSP or elsewhere) – I think this is only necessary for Atest to be able to run tests declared in the `mainline-presubmit` test group of a `TEST_MAPPING` file (with the `atest --test-mapping art:mainline-presubmit` syntax), where the module(s) to install prior to running the tests are listed in bracket (see e.g. https://cs.android.com/android/platform/superproject/+/master:art/TEST_MAPPING;l\u003d8;drc\u003d9c686f5ce600b00f1cf8da118cec4d21f9a21d38).\n\nAs for AOSP, I never managed to use Atest to run tests from the `mainline-presubmit` test group with ART\u0027s `TEST_MAPPING` file in an AOSP tree. I\u0027ll file a feature request to the Atest team, as a follow-up to b/183523684.",
+      "parentUuid": "b6c083c6_25fb48c6",
+      "range": {
+        "startLine": 17,
+        "startChar": 78,
+        "endLine": 17,
+        "endChar": 84
+      },
+      "revId": "6f3cb8bd66321d01ccce55cf11d25fe323722bdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
