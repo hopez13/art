@@ -122,6 +122,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "333f1fc9_e47d3503",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-09T16:56:39Z",
+      "side": 1,
+      "message": "Sorry, I did not realize gerrit started to redirect me from https://android-review.googlesource.com/ to the internal review site. That makes linking AOSP CLs difficult for me as I\u0027ll have to manually rewrite the domain name. I\u0027m going to report that as a bug.",
+      "parentUuid": "5c783a3c_21a5407b",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "bc134e66ce24e896b9033d483233b703c490e5d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d32557db_12e02878",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
