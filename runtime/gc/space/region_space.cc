@@ -612,6 +612,11 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
   }
   // Update non_free_region_index_limit_.
   SetNonFreeRegionLimit(new_non_free_region_index_limit);
+  size_t evac_bytes = EvacBytes();
+  if (evac_region_ != nullptr) {
+    evac_bytes -= kRegionSize - evac_region_->BytesAllocated();
+  }
+  LOG(INFO) << "ConcurrentCopying GC extra memory consumed for evacuation: " << evac_bytes;
   evac_region_ = nullptr;
   num_non_free_regions_ += num_evac_regions_;
   num_evac_regions_ = 0;
