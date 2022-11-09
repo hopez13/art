@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1255fb87_95d3345d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-11-09T14:40:42Z",
+      "side": 1,
+      "message": "Can you spell the actual commands here, like `m ...`?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 37
+      },
+      "revId": "47cbd9d3771386ed00a861c12a71f7bd307f4817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af293989_a380e2e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2022-11-09T14:40:42Z",
+      "side": 1,
+      "message": "A few years ago you added art/test/README.arm_fvp.md with instructions how to test on fast model. It would be great if you could reference it here, if you test on fast model. If you test on QEMU, it would be good to add a README with instructions how to run an ARM VM, possibly even a script that creates/sets up/connects to/reboots the VM.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 40
+      },
+      "revId": "47cbd9d3771386ed00a861c12a71f7bd307f4817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
