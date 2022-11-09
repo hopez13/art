@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4595e13_9ed5b2a2",
+        "filename": "test/Android.run-test.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2022-11-09T05:41:06Z",
+      "side": 1,
+      "message": "What were these switches for?  The aosp-build-tools builds are all broken with:\n```\nerror: art/test/Android.run-test.bp:756:1: module \"art-run-test-host-data-shard47-tmp\" variant \"linux_glibc_common\": cmd: label \":art-run-test-bootclasspath\" has no files\n```\n\nI\u0027m not sure why switching to `java_genrule_host` would cause that, but switching it back to `java_genrule` fixes the aosp-bulid-tools build.",
+      "revId": "6bd1cd18d4d3949a73f3f1cd6868ac98ade63e55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
