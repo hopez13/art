@@ -75,7 +75,7 @@ static bool LoadDexFiles(const std::string& path,
   ClassLinker* const linker = Runtime::Current()->GetClassLinker();
 
   StackHandleScope<2> hs(soa.Self());
-  Handle<mirror::Class> h_class = hs.NewHandle(soa.Decode<mirror::Class>(
+  Handle<mirror::Class> h_class = hs.NewHandle(WellKnownClasses::ToClass(
       WellKnownClasses::dalvik_system_PathClassLoader));
   Handle<mirror::ClassLoader> h_loader = hs.NewHandle(linker->CreateWellKnownClassLoader(
       soa.Self(),
