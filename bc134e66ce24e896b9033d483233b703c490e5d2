@@ -98,6 +98,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5c783a3c_21a5407b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-09T16:10:45Z",
+      "side": 1,
+      "message": "Sounds reasonable. As an FYI you can also use aosp/2238842 for links like these.\n\nAlso, if you wait until the presubmit is done you don\u0027t have to trigger it again for commit message changes. The presubmit verified +2 should remain in that case.",
+      "parentUuid": "b8ad0e10_dc67dba3",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "bc134e66ce24e896b9033d483233b703c490e5d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d32557db_12e02878",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
