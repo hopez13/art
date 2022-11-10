@@ -218,6 +218,12 @@ def default_run(ctx, args, **kwargs):
   # (the commands are appended so the directory needs to be cleared before run)
   ART_TEST_CMD_DIR = os.environ.get("ART_TEST_CMD_DIR")
 
+  VM = os.environ.get("ART_TEST_VM")
+  SSH_CMD = os.environ.get("SSH_CMD")
+  ART_TEST_SSH_USER = os.environ.get("ART_TEST_SSH_USER")
+  ART_TEST_SSH_HOST = os.environ.get("ART_TEST_SSH_HOST")
+  ART_TEST_SSH_PORT = os.environ.get("ART_TEST_SSH_PORT")
+
   # Script debugging: Record executed commands, but don't actually run the main test.
   # This makes it possible the extract the test commands without waiting for days.
   # This will make tests fail since there is no stdout.  Use with large -j value.
@@ -300,20 +306,32 @@ def default_run(ctx, args, **kwargs):
       }
 
     def root(self) -> None:
-      run("adb root", self.env)
+      if not VM:
+        run("adb root", self.env)
 
     def wait_for_device(self) -> None:
-      run("adb wait-for-device", self.env)
+      if not VM:
+        run("adb wait-for-device", self.env)
 
     def shell(self, cmdline: str, **kwargs) -> subprocess.CompletedProcess:
-      return run(f"adb shell '{cmdline}; echo exit_code=$?'", self.env,
-                 parse_exit_code_from_stdout=True, **kwargs)
+      if VM:
+        return run(f"{SSH_CMD} '{cmdline}; echo exit_code=$?'", self.env,
+                   parse_exit_code_from_stdout=True, **kwargs)
+      else:
+        return run(f"adb shell '{cmdline}; echo exit_code=$?'", self.env,
+                   parse_exit_code_from_stdout=True, **kwargs)
 
     def push(self, src: str, dst: str, **kwargs) -> None:
-      run(f"adb push {src} {dst}", self.env, **kwargs)
+      if VM:
+        run(f"scp -P {ART_TEST_SSH_PORT} {src} {ART_TEST_SSH_USER}@{ART_TEST_SSH_HOST}:{dst}", self.env, **kwargs)
+      else:
+        run(f"adb push {src} {dst}", self.env, **kwargs)
 
     def pull(self, src: str, dst: str, **kwargs) -> None:
-      run(f"adb pull {src} {dst}", self.env, **kwargs)
+      if VM:
+        run(f"scp -P {ART_TEST_SSH_PORT} {ART_TEST_SSH_USER}@{ART_TEST_SSH_HOST}:{src} {dst}", self.env, **kwargs)
+      else:
+        run(f"adb pull {src} {dst}", self.env, **kwargs)
 
   adb = Adb()
 
@@ -353,7 +371,7 @@ def default_run(ctx, args, **kwargs):
   ANDROID_I18N_ROOT = args.android_i18n_root
   ANDROID_TZDATA_ROOT = args.android_tzdata_root
   ARCHITECTURES_32 = "(arm|x86|none)"
-  ARCHITECTURES_64 = "(arm64|x86_64|none)"
+  ARCHITECTURES_64 = "(arm64|x86_64|riscv64|none)"
   ARCHITECTURES_PATTERN = ARCHITECTURES_32
   GET_DEVICE_ISA_BITNESS_FLAG = "--32"
   BOOT_IMAGE = args.boot
@@ -564,7 +582,7 @@ def default_run(ctx, args, **kwargs):
     VDEX_ARGS += f" {arg}"
 
 # HACK: Force the use of `signal_dumper` on host.
-  if HOST:
+  if HOST or VM:
     TIME_OUT = "timeout"
 
 # If you change this, update the timeout in testrunner.py as well.
@@ -832,7 +850,7 @@ def default_run(ctx, args, **kwargs):
   else:
     FLAGS += " -Xnorelocate"
 
-  if BIONIC:
+  if BIONIC and not VM:
     # This is the location that soong drops linux_bionic builds. Despite being
     # called linux_bionic-x86 the build is actually amd64 (x86_64) only.
     assert path.exists(f"{OUT_DIR}/soong/host/linux_bionic-x86"), (
@@ -1112,6 +1130,9 @@ def default_run(ctx, args, **kwargs):
   # b/27185632
   # b/24664297
 
+  if VM:
+    dalvikvm_logger = "-Xuse-stderr-logger"
+
   dalvikvm_cmdline = f"{INVOKE_WITH} {GDB} {ANDROID_ART_BIN_DIR}/{DALVIKVM} \
                        {GDB_ARGS} \
                        {FLAGS} \
@@ -1125,6 +1146,7 @@ def default_run(ctx, args, **kwargs):
                        {DEBUGGER_OPTS} \
                        {QUOTED_DALVIKVM_BOOT_OPT} \
                        {TMP_DIR_OPTION} \
+                       {dalvikvm_logger} \
                        -XX:DumpNativeStackOnSigQuit:false \
                        -cp {DALVIKVM_CLASSPATH} {MAIN} {ARGS}"
 
@@ -1159,6 +1181,27 @@ def default_run(ctx, args, **kwargs):
 
   ANDROID_LOG_TAGS = args.android_log_tags
 
+  def filter_output():
+    # Remove unwanted log messages from stderr before diffing with the expected output.
+    # NB: The unwanted log line can be interleaved in the middle of wanted stderr printf.
+    #     In particular, unhandled exception is printed using several unterminated printfs.
+    ALL_LOG_TAGS = ["V", "D", "I", "W", "E", "F", "S"]
+    skip_tag_set = "|".join(ALL_LOG_TAGS[:ALL_LOG_TAGS.index(args.diff_min_log_tag.upper())])
+    skip_reg_exp = fr'[[:alnum:]]+ ({skip_tag_set}) #-# #:#:# [^\n]*\n'.replace('#', '[0-9]+')
+    stderr_file = (f"{CHROOT}/" if VM else "") + args.stderr_file
+    def do_run(cmd):
+      if VM:
+        run(f'{SSH_CMD} "{cmd}"')
+      else:
+        run(cmd)
+
+    do_run(fr"sed -i -z -E 's/{skip_reg_exp}//g' '{stderr_file}'")
+    if not HAVE_IMAGE:
+      message = "(Unable to open file|Could not create image space)"
+      do_run(fr"sed -i -E '/^dalvikvm(|32|64) E .* {message}/d' '{stderr_file}'")
+    if ANDROID_LOG_TAGS != "*:i" and "D" in skip_tag_set:
+      do_run(fr"sed -i -E '/^(Time zone|I18n) APEX ICU file found/d' '{stderr_file}'")
+
   if not HOST:
     # Populate LD_LIBRARY_PATH.
     LD_LIBRARY_PATH = ""
@@ -1184,8 +1227,9 @@ def default_run(ctx, args, **kwargs):
     dlib = ""
     art_test_internal_libraries = []
 
-    # Needed to access the test's Odex files.
-    LD_LIBRARY_PATH = f"{DEX_LOCATION}/oat/{ISA}:{LD_LIBRARY_PATH}"
+    if not VM:
+      # Needed to access the test's Odex files.
+      LD_LIBRARY_PATH = f"{DEX_LOCATION}/oat/{ISA}:{LD_LIBRARY_PATH}"
     # Needed to access the test's native libraries (see e.g. 674-hiddenapi,
     # which generates `libhiddenapitest_*.so` libraries in `{DEX_LOCATION}`).
     LD_LIBRARY_PATH = f"{DEX_LOCATION}:{LD_LIBRARY_PATH}"
@@ -1197,13 +1241,16 @@ def default_run(ctx, args, **kwargs):
 
     timeout_dumper_cmd = ""
 
+    if VM:
+      TIMEOUT_DUMPER = ""
+
     if TIMEOUT_DUMPER:
       # Use "-l" to dump to logcat. That is convenience for the build bot crash symbolization.
       # Use exit code 124 for toybox timeout (b/141007616).
       timeout_dumper_cmd = f"{TIMEOUT_DUMPER} -l -s 15 -e 124"
 
     timeout_prefix = ""
-    if TIME_OUT == "timeout":
+    if TIME_OUT == "timeout" and not VM:
       # Add timeout command if time out is desired.
       #
       # Note: We first send SIGTERM (the timeout default, signal 15) to the signal dumper, which
@@ -1212,6 +1259,15 @@ def default_run(ctx, args, **kwargs):
       #       child.
       # Note: Using "--foreground" to not propagate the signal to children, i.e., the runtime.
       timeout_prefix = f"timeout --foreground -k 120s {TIME_OUT_VALUE}s {timeout_dumper_cmd} {cmdline}"
+    if TIME_OUT == "timeout" and VM:
+      # Add timeout command if time out is desired.
+      #
+      # Note: We first send SIGTERM (the timeout default, signal 15) to the signal dumper, which
+      #       will induce a full thread dump before killing the process. To ensure any issues in
+      #       dumping do not lead to a deadlock, we also use the "-k" option to definitely kill the
+      #       child.
+      # Note: Using "--foreground" to not propagate the signal to children, i.e., the runtime.
+      timeout_prefix = f"timeout -k 120s {TIME_OUT_VALUE}s"
 
     env = {
       "ASAN_OPTIONS": RUN_TEST_ASAN_OPTIONS,
@@ -1242,7 +1298,11 @@ def default_run(ctx, args, **kwargs):
         adb.push(
             cmdfile.name, f"{CHROOT_DEX_LOCATION}/cmdline.sh", save_cmd=False)
       chroot_prefix = f"chroot {CHROOT}" if CHROOT else ""
-      return adb.shell(f"{chroot_prefix} sh {DEX_LOCATION}/cmdline.sh", **kwargs)
+      shell = "sh"
+      if VM:
+        chroot_prefix = "unshare --user --map-root-user chroot art-test-chroot"
+        shell = "bash"
+      return adb.shell(f"{chroot_prefix} {shell} {DEX_LOCATION}/cmdline.sh", **kwargs)
 
     if USE_GDB or USE_GDBSERVER:
       print(f"Forward {GDBSERVER_PORT} to local port and connect GDB")
@@ -1257,6 +1317,9 @@ def default_run(ctx, args, **kwargs):
     run_cmd(tee(f"{timeout_prefix} {dalvikvm_cmdline}"),
             env,
             expected_exit_code=args.expected_exit_code)
+
+    if VM:
+      filter_output()
   else:
     # Host run.
     if USE_ZIPAPEX or USE_EXRACTED_ZIPAPEX:
@@ -1357,19 +1420,7 @@ def default_run(ctx, args, **kwargs):
         run(tee(cmdline),
             env,
             expected_exit_code=args.expected_exit_code)
-
-        # Remove unwanted log messages from stderr before diffing with the expected output.
-        # NB: The unwanted log line can be interleaved in the middle of wanted stderr printf.
-        #     In particular, unhandled exception is printed using several unterminated printfs.
-        ALL_LOG_TAGS = ["V", "D", "I", "W", "E", "F", "S"]
-        skip_tag_set = "|".join(ALL_LOG_TAGS[:ALL_LOG_TAGS.index(args.diff_min_log_tag.upper())])
-        skip_reg_exp = fr'[[:alnum:]]+ ({skip_tag_set}) #-# #:#:# [^\n]*\n'.replace('#', '[0-9]+')
-        run(fr"sed -i -z -E 's/{skip_reg_exp}//g' '{args.stderr_file}'")
-        if not HAVE_IMAGE:
-          message = "(Unable to open file|Could not create image space)"
-          run(fr"sed -i -E '/^dalvikvm(|32|64) E .* {message}/d' '{args.stderr_file}'")
-        if ANDROID_LOG_TAGS != "*:i" and "D" in skip_tag_set:
-          run(fr"sed -i -E '/^(Time zone|I18n) APEX ICU file found/d' '{args.stderr_file}'")
+        filter_output()
       else:
         # With a thread dump that uses gdb if a timeout.
         proc = run(cmdline, check=False)
@@ -1385,3 +1436,4 @@ def default_run(ctx, args, **kwargs):
         if proc.returncode == 124 and TIME_OUT == "timeout":
           print("\e[91mTEST TIMED OUT!\e[0m", file=sys.stderr)
         assert proc.returncode == args.expected_exit_code, f"exit code: {proc.returncode}"
+
