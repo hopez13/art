@@ -28,6 +28,7 @@
 
 #include "arm/instruction_set_features_arm.h"
 #include "arm64/instruction_set_features_arm64.h"
+#include "riscv64/instruction_set_features_riscv64.h"
 #include "x86/instruction_set_features_x86.h"
 #include "x86_64/instruction_set_features_x86_64.h"
 
@@ -41,6 +42,8 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromVarian
       return ArmInstructionSetFeatures::FromVariant(variant, error_msg);
     case InstructionSet::kArm64:
       return Arm64InstructionSetFeatures::FromVariant(variant, error_msg);
+    case InstructionSet::kRiscv64:
+      return Riscv64InstructionSetFeatures::FromVariant(variant, error_msg);
     case InstructionSet::kX86:
       return X86InstructionSetFeatures::FromVariant(variant, error_msg);
     case InstructionSet::kX86_64:
@@ -113,6 +116,8 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromCppDef
       return ArmInstructionSetFeatures::FromCppDefines();
     case InstructionSet::kArm64:
       return Arm64InstructionSetFeatures::FromCppDefines();
+    case InstructionSet::kRiscv64:
+      return Riscv64InstructionSetFeatures::FromCppDefines();
     case InstructionSet::kX86:
       return X86InstructionSetFeatures::FromCppDefines();
     case InstructionSet::kX86_64:
