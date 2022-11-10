@@ -200,6 +200,13 @@ def default_run(ctx, args, **kwargs):
   # (the commands are appended so the directory needs to be cleared before run)
   ART_TEST_CMD_DIR = os.environ.get("ART_TEST_CMD_DIR")
 
+  VM = os.environ.get("ART_TEST_VM")
+  SSH_CMD = os.environ.get("SSH_CMD")
+  RSYNC_CMD = os.environ.get("RSYNC_CMD")
+  ART_TEST_SSH_USER = os.environ.get("ART_TEST_SSH_USER")
+  ART_TEST_SSH_HOST = os.environ.get("ART_TEST_SSH_HOST")
+  ART_TEST_CHROOT = os.environ.get("ART_TEST_CHROOT")
+
   # Script debugging: Record executed commands, but don't actually run the main test.
   # This makes it possible the extract the test commands without waiting for days.
   # This will make tests fail since there is no stdout.  Use with large -j value.
@@ -217,7 +224,7 @@ def default_run(ctx, args, **kwargs):
       tmp = os.environ["DEX_LOCATION"]
       with open(
           os.path.join(ART_TEST_CMD_DIR, os.environ["FULL_TEST_NAME"]),
-          "a") as f:
+          "a+") as f:
         # Replace DEX_LOCATION (which is randomly generated temporary directory),
         # with a deterministic placeholder so that we can do a diff from run to run.
         f.write("\n".join(
@@ -265,23 +272,39 @@ def default_run(ctx, args, **kwargs):
           "ADB_VENDOR_KEYS": os.environ.get("ADB_VENDOR_KEYS"),
           "ANDROID_SERIAL": os.environ.get("ANDROID_SERIAL"),
           "PATH": os.environ.get("PATH"),
+#          "RSYNC_RSH": "ssh -p 10001",
       }
 
     def root(self) -> None:
-      run("adb root", self.env)
+      if not VM:
+        run("adb root", self.env)
 
     def wait_for_device(self) -> None:
-      run("adb wait-for-device", self.env)
+      if not VM:
+        run("adb wait-for-device", self.env)
 
     def shell(self, cmdline: str, **kwargs) -> subprocess.CompletedProcess:
-      return run(f"adb shell '{cmdline}; echo exit_code=$?'", self.env,
-                 parse_exit_code_from_stdout=True, **kwargs)
+      if VM:
+        return run(f"{SSH_CMD} '{cmdline}; echo exit_code=$?'", self.env,
+                   parse_exit_code_from_stdout=True, **kwargs)
+      else:
+        return run(f"adb shell '{cmdline}; echo exit_code=$?'", self.env,
+                   parse_exit_code_from_stdout=True, **kwargs)
 
     def push(self, src: str, dst: str, **kwargs) -> None:
-      run(f"adb push {src} {dst}", self.env, **kwargs)
+      if VM:
+        #run(f'{SSH_CMD} "mkdir -p {dst}"', self.env, **kwargs)
+        #run(f"{RSYNC_CMD} {src} {ART_TEST_SSH_USER}@{ART_TEST_SSH_HOST}:{dst}", self.env, **kwargs)
+        run(f"scp -P 10001 {src} {ART_TEST_SSH_USER}@{ART_TEST_SSH_HOST}:{dst}", self.env, **kwargs)
+      else:
+        run(f"adb push {src} {dst}", self.env, **kwargs)
 
     def pull(self, src: str, dst: str, **kwargs) -> None:
-      run(f"adb pull {src} {dst}", self.env, **kwargs)
+      if VM:
+        #run(f"{RSYNC_CMD} {ART_TEST_SSH_USER}@{ART_TEST_SSH_HOST}:{src} {dst}", self.env, **kwargs)
+        run(f"scp -P 10001 {ART_TEST_SSH_USER}@{ART_TEST_SSH_HOST}:{src} {dst}", self.env, **kwargs)
+      else:
+        run(f"adb pull {src} {dst}", self.env, **kwargs)
 
   adb = Adb()
 
@@ -325,7 +348,7 @@ def default_run(ctx, args, **kwargs):
   ANDROID_I18N_ROOT = args.android_i18n_root
   ANDROID_TZDATA_ROOT = args.android_tzdata_root
   ARCHITECTURES_32 = "(arm|x86|none)"
-  ARCHITECTURES_64 = "(arm64|x86_64|none)"
+  ARCHITECTURES_64 = "(arm64|x86_64|riscv64|none)"
   ARCHITECTURES_PATTERN = ARCHITECTURES_32
   GET_DEVICE_ISA_BITNESS_FLAG = "--32"
   BOOT_IMAGE = args.boot
@@ -539,7 +562,7 @@ def default_run(ctx, args, **kwargs):
     VDEX_ARGS += f" {arg}"
 
 # HACK: Force the use of `signal_dumper` on host.
-  if HOST:
+  if HOST or VM:
     TIME_OUT = "timeout"
 
 # If you change this, update the timeout in testrunner.py as well.
@@ -804,7 +827,7 @@ def default_run(ctx, args, **kwargs):
   else:
     FLAGS += " -Xnorelocate"
 
-  if BIONIC:
+  if BIONIC and not VM:
     # This is the location that soong drops linux_bionic builds. Despite being
     # called linux_bionic-x86 the build is actually amd64 (x86_64) only.
     assert path.exists(f"{OUT_DIR}/soong/host/linux_bionic-x86"), (
@@ -1084,6 +1107,9 @@ def default_run(ctx, args, **kwargs):
   # b/27185632
   # b/24664297
 
+  if VM:
+    dalvikvm_logger = "-Xuse-stderr-logger"
+
   dalvikvm_cmdline = f"{INVOKE_WITH} {GDB} {ANDROID_ART_BIN_DIR}/{DALVIKVM} \
                        {GDB_ARGS} \
                        {FLAGS} \
@@ -1097,6 +1123,7 @@ def default_run(ctx, args, **kwargs):
                        {DEBUGGER_OPTS} \
                        {QUOTED_DALVIKVM_BOOT_OPT} \
                        {TMP_DIR_OPTION} \
+                       {dalvikvm_logger} \
                        -XX:DumpNativeStackOnSigQuit:false \
                        -cp {DALVIKVM_CLASSPATH} {MAIN} {ARGS} \
                        1>> {DEX_LOCATION}/{basename(args.stdout_file)} \
@@ -1183,8 +1210,9 @@ def default_run(ctx, args, **kwargs):
     dlib = ""
     art_test_internal_libraries = []
 
-    # Needed to access the test's Odex files.
-    LD_LIBRARY_PATH = f"{DEX_LOCATION}/oat/{ISA}:{LD_LIBRARY_PATH}"
+    if not VM:
+      # Needed to access the test's Odex files.
+      LD_LIBRARY_PATH = f"{DEX_LOCATION}/oat/{ISA}:{LD_LIBRARY_PATH}"
     # Needed to access the test's native libraries (see e.g. 674-hiddenapi,
     # which generates `libhiddenapitest_*.so` libraries in `{DEX_LOCATION}`).
     LD_LIBRARY_PATH = f"{DEX_LOCATION}:{LD_LIBRARY_PATH}"
@@ -1197,7 +1225,7 @@ def default_run(ctx, args, **kwargs):
     timeout_dumper_cmd = ""
 
     # Check whether signal_dumper is available.
-    if TIMEOUT_DUMPER == "signal_dumper":
+    if TIMEOUT_DUMPER == "signal_dumper" and not VM:
       # Chroot? Use as prefix for tests.
       TIMEOUT_DUMPER_PATH_PREFIX = ""
       if CHROOT:
@@ -1226,7 +1254,7 @@ def default_run(ctx, args, **kwargs):
       timeout_dumper_cmd = f"{TIMEOUT_DUMPER} -l -s 15 -e 124"
 
     timeout_prefix = ""
-    if TIME_OUT == "timeout":
+    if TIME_OUT == "timeout" and not VM:
       # Add timeout command if time out is desired.
       #
       # Note: We first send SIGTERM (the timeout default, signal 15) to the signal dumper, which
@@ -1235,6 +1263,15 @@ def default_run(ctx, args, **kwargs):
       #       child.
       # Note: Using "--foreground" to not propagate the signal to children, i.e., the runtime.
       timeout_prefix = f"timeout --foreground -k 120s {TIME_OUT_VALUE}s {timeout_dumper_cmd} {cmdline}"
+    if TIME_OUT == "timeout" and VM:
+      # Add timeout command if time out is desired.
+      #
+      # Note: We first send SIGTERM (the timeout default, signal 15) to the signal dumper, which
+      #       will induce a full thread dump before killing the process. To ensure any issues in
+      #       dumping do not lead to a deadlock, we also use the "-k" option to definitely kill the
+      #       child.
+      # Note: Using "--foreground" to not propagate the signal to children, i.e., the runtime.
+      timeout_prefix = f"timeout -k 120s {TIME_OUT_VALUE}s"
 
     env = {
       "ASAN_OPTIONS": RUN_TEST_ASAN_OPTIONS,
@@ -1248,6 +1285,7 @@ def default_run(ctx, args, **kwargs):
       "LD_LIBRARY_PATH": LD_LIBRARY_PATH,
       "NATIVELOADER_DEFAULT_NAMESPACE_LIBS": NATIVELOADER_DEFAULT_NAMESPACE_LIBS,
       "PATH": f"{PREPEND_TARGET_PATH}:$PATH",
+#      "RSYNC_RSH": "ssh -p 10001",
     }  # pyformat: disable
 
     def run_cmd(cmdline: str, env={}, **kwargs) -> subprocess.CompletedProcess:
@@ -1266,6 +1304,8 @@ def default_run(ctx, args, **kwargs):
             cmdfile.name, f"{CHROOT_DEX_LOCATION}/cmdline.sh", save_cmd=False)
         run('echo cmdline.sh "' + cmdline.replace('"', '\\"') + '"')
       chroot_prefix = f"chroot {CHROOT}" if CHROOT else ""
+      if VM:
+        chroot_prefix = "unshare --user --map-root-user chroot art-test-chroot"
       return adb.shell(f"{chroot_prefix} sh {DEX_LOCATION}/cmdline.sh", **kwargs)
 
     if VERBOSE and (USE_GDB or USE_GDBSERVER):
@@ -1274,8 +1314,8 @@ def default_run(ctx, args, **kwargs):
     run_cmd(f"rm -rf {DEX_LOCATION}/dalvik-cache/")
     run_cmd(f"mkdir -p {mkdir_locations}")
     # Restore stdout/stderr from previous run (the directory might have been cleared).
-    adb.push(args.stdout_file, f"{CHROOT}{DEX_LOCATION}/{basename(args.stdout_file)}")
-    adb.push(args.stderr_file, f"{CHROOT}{DEX_LOCATION}/{basename(args.stderr_file)}")
+    adb.push(args.stdout_file, f"{CHROOT_DEX_LOCATION}/{basename(args.stdout_file)}")
+    adb.push(args.stderr_file, f"{CHROOT_DEX_LOCATION}/{basename(args.stderr_file)}")
     run_cmd(f"{profman_cmdline}", env)
     run_cmd(f"{dex2oat_cmdline}", env)
     run_cmd(f"{dm_cmdline}", env)

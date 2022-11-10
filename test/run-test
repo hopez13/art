@@ -76,6 +76,14 @@ if True:
     tmp_dir = f"{TMPDIR}/{test_dir}"
   checker = f"{progdir}/../tools/checker/checker.py"
 
+  VM = os.environ.get("ART_TEST_VM")
+  SSH_CMD = os.environ.get("SSH_CMD")
+  RSYNC_CMD = os.environ.get("RSYNC_CMD")
+  ART_TEST_SSH_USER = os.environ.get("ART_TEST_SSH_USER")
+  ART_TEST_SSH_HOST = os.environ.get("ART_TEST_SSH_HOST")
+  ART_TEST_SSH_PORT = os.environ.get("ART_TEST_SSH_PORT")
+  ART_TEST_CHROOT = os.environ.get("ART_TEST_CHROOT")
+
   def fail(message: str, caller:Optional[FrameInfo]=None):
     caller = caller or getframeinfo(currentframe().f_back)  # type: ignore
     source = "{}:{}".format(Path(caller.filename).relative_to(oldwd), caller.lineno)
@@ -117,6 +125,8 @@ if True:
   ANDROID_BUILD_TOP = os.environ.get("ANDROID_BUILD_TOP")
   if not ANDROID_BUILD_TOP:
     export("ANDROID_BUILD_TOP", oldwd)
+
+  export("RSYNC_RSH", f"ssh -p {ART_TEST_SSH_PORT}")
 
   export("JAVA", "java")
   export("JAVAC", "javac -g -Xlint:-options -source 1.8 -target 1.8")
@@ -629,6 +639,8 @@ if True:
   def guess_target_arch_name():
     # Check whether this is a device with native bridge. Currently this is hardcoded
     # to x86 + arm.
+    if VM:
+      return "riscv64"
     guess_path = f"{chroot}/system/framework/art_boot_images"
     # Use check=False because if grep does not match anything, it returns exit code 1.
     x86_arm = run(
@@ -994,7 +1006,10 @@ if True:
 
   if run_checker == "yes":
     if target_mode == "yes":
-      run(f'adb pull "{chroot}/{cfg_output_dir}/{cfg_output}"')
+      if VM:
+        run(f'{RSYNC_CMD} "{ART_TEST_SSH_USER}@${ART_TEST_SSH_HOST}:{ART_TEST_CHROOT}/{cfg_output_dir}/{cfg_output}"')
+      else:
+        run(f'adb pull "{chroot}/{cfg_output_dir}/{cfg_output}"')
     run(f'"{checker}" -q {checker_args} "{cfg_output}" "{tmp_dir}"',
         fail_message="CFG checker failed")
 
@@ -1002,7 +1017,10 @@ if True:
   if dump_cfg == "true":
     assert run_optimizing == "true", "The CFG can be dumped only in optimizing mode"
     if target_mode == "yes":
-      run(f"adb pull {chroot}/{cfg_output_dir}/{cfg_output} {dump_cfg_path}")
+      if VM:
+        run(f'{RSYNC_CMD} "{ART_TEST_SSH_USER}@${ART_TEST_SSH_HOST}:{ART_TEST_CHROOT}/{cfg_output_dir}/{cfg_output} {dump_cfg_output}"')
+      else:
+        run(f"adb pull {chroot}/{cfg_output_dir}/{cfg_output} {dump_cfg_path}")
     else:
       run(f"cp {cfg_output_dir}/{cfg_output} {dump_cfg_path}")
 
@@ -1011,7 +1029,10 @@ if True:
     os.chdir(oldwd)
     shutil.rmtree(tmp_dir)
     if target_mode == "yes":
-      run(f"adb shell rm -rf {chroot_dex_location}")
+      if VM:
+        run(f'{SSH_CMD} "rm -rf {chroot_dex_location}"')
+      else:
+        run(f"adb shell rm -rf {chroot_dex_location}")
     verbose(f"{TEST_NAME} files deleted from host ")
     if target_mode == "yes":
       verbose("and from target")
