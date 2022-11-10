@@ -243,8 +243,14 @@ bool Jit::LoadSymbol(T* address, const char* name, std::string* error_msg) {
 }
 
 bool Jit::LoadCompilerLibrary(std::string* error_msg) {
+  // TODO: remove after libart+libart-compiler merge
+#ifdef ART_STATIC_LIBART_COMPILER
+  // `libart-compiler` is statically linked, load from current executable
+  jit_library_handle_ = dlopen(nullptr, RTLD_LAZY);
+#else
   jit_library_handle_ = dlopen(
       kIsDebugBuild ? "libartd-compiler.so" : "libart-compiler.so", RTLD_NOW);
+#endif
   if (jit_library_handle_ == nullptr) {
     std::ostringstream oss;
     oss << "JIT could not load libart-compiler.so: " << dlerror();
