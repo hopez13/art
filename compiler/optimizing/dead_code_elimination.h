@@ -40,6 +40,11 @@ class HDeadCodeElimination : public HOptimization {
  private:
   void MaybeRecordDeadBlock(HBasicBlock* block);
   void MaybeRecordSimplifyIf();
+  // TODO(solanes): EXPLAIN.
+  bool CanPerformTryBoundaryRemoval(HBasicBlock* try_entry,
+                                    const std::set<HBasicBlock*>& blocks_in_try);
+  void RemoveTry(HBasicBlock* try_entry, const std::set<HBasicBlock*>& blocks_in_try, bool* any_catch_in_loop);
+  bool RemoveUnneededTryBoundary();
   bool RemoveDeadBlocks();
   void RemoveDeadInstructions();
   bool SimplifyAlwaysThrows();
