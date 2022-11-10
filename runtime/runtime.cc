@@ -2698,6 +2698,7 @@ void Runtime::SetInstructionSet(InstructionSet instruction_set) {
       break;
     case InstructionSet::kArm:
     case InstructionSet::kArm64:
+    case InstructionSet::kRiscv64:
     case InstructionSet::kX86:
     case InstructionSet::kX86_64:
       break;
