@@ -46,6 +46,30 @@
       },
       "revId": "6f3cb8bd66321d01ccce55cf11d25fe323722bdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afc7746b_6d42c6fa",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1330217
+      },
+      "writtenOn": "2022-11-10T07:56:44Z",
+      "side": 1,
+      "message": "Mainline module was aimed to run on Google devices from the previous requirement. To run in AOSP, there was another requirement to automatically map the google version apk/apex to AOSP version, but the requirement was not clear enough, so we only support running google version mainline modules for now.\n\nTo clarify this, it\u0027s not used for ATest locally only, but used in presubmit as well.",
+      "parentUuid": "9862964c_cad1000d",
+      "range": {
+        "startLine": 17,
+        "startChar": 78,
+        "endLine": 17,
+        "endChar": 84
+      },
+      "revId": "6f3cb8bd66321d01ccce55cf11d25fe323722bdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
