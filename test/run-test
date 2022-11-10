@@ -413,7 +413,6 @@ if True:
       create_runner = "yes"
       shift()
     elif arg == "--dev":
-      run_args += ["--verbose"]
       dev_mode = "yes"
       shift()
     elif arg == "--temp-path":
