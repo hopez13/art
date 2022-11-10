@@ -36,7 +36,11 @@ if [[ $# -ne 1 ]]; then
   usage
 fi
 
-uname_m="$(adb shell uname -m)"
+if [ -n "$ART_TEST_VM" ]; then
+  uname_m="$($SSH_CMD uname -m)"
+else
+  uname_m="$(adb shell uname -m)"
+fi
 
 case "$1" in
   (--32)
@@ -64,6 +68,9 @@ case "$1" in
     case $uname_m in
       (aarch64)
         echo arm64
+        ;;
+      (riscv64)
+        echo riscv64
         ;;
       (x86_64)
         echo x86_64
