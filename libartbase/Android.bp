@@ -273,7 +273,7 @@ art_cc_defaults {
     },
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libartbase-art-gtest",
     defaults: [
         "libart-gtest-defaults",
