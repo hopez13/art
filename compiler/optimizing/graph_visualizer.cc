@@ -909,6 +909,13 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
       PrintEmptyProperty("flags");
     }
 
+    if (block->IsTryBlock()) {
+      PrintProperty("try start", block->GetTryCatchInformation()->GetTryEntry().GetBlock());
+    } else {
+      // Don't print useless information to logcat
+      PrintEmptyProperty("try start");
+    }
+
     if (block->GetDominator() != nullptr) {
       PrintProperty("dominator", block->GetDominator());
     }
