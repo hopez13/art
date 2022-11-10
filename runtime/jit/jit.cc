@@ -242,6 +242,17 @@ bool Jit::LoadSymbol(T* address, const char* name, std::string* error_msg) {
   return true;
 }
 
+// TODO: remove after libart+libart-compiler merge
+#ifdef ART_STATIC_LIBART_COMPILER
+extern "C" JitCompilerInterface* jit_load(void);
+
+bool Jit::LoadCompilerLibrary(std::string*) {
+  jit_load_ = &jit_load;
+  return true;
+}
+
+#else
+
 bool Jit::LoadCompilerLibrary(std::string* error_msg) {
   jit_library_handle_ = dlopen(
       kIsDebugBuild ? "libartd-compiler.so" : "libart-compiler.so", RTLD_NOW);
@@ -257,6 +268,7 @@ bool Jit::LoadCompilerLibrary(std::string* error_msg) {
   }
   return true;
 }
+#endif
 
 bool Jit::CompileMethodInternal(ArtMethod* method,
                                 Thread* self,
