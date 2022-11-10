@@ -1740,6 +1740,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       implicit_suspend_checks_ = false;
       FALLTHROUGH_INTENDED;
     case InstructionSet::kArm:
+    case InstructionSet::kRiscv64: // TODO: disable 305-other-fault-handler for switch interpreter?
     case InstructionSet::kThumb2:
     case InstructionSet::kX86:
     case InstructionSet::kX86_64:
@@ -2688,6 +2689,7 @@ void Runtime::SetInstructionSet(InstructionSet instruction_set) {
       break;
     case InstructionSet::kArm:
     case InstructionSet::kArm64:
+    case InstructionSet::kRiscv64:
     case InstructionSet::kX86:
     case InstructionSet::kX86_64:
       break;
