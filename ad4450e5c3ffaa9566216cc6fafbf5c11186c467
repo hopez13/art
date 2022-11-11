@@ -22,6 +22,30 @@
       },
       "revId": "ad4450e5c3ffaa9566216cc6fafbf5c11186c467",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b2dbc14_6e381793",
+        "filename": "compiler/optimizing/parallel_move_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2022-11-11T03:40:11Z",
+      "side": 1,
+      "message": "Yes, the results are the same with or without swap capability in the backend. The conditional can be removed.\n\nThe patch is quite long time ago. I cannot remember the reason I added this conditional test. Maybe it is just to align the format with other tests.",
+      "parentUuid": "64f5c3b3_67d27ddf",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 5
+      },
+      "revId": "ad4450e5c3ffaa9566216cc6fafbf5c11186c467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
