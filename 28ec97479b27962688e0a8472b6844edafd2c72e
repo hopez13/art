@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a429da9c_c493301a",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-11T14:34:05Z",
+      "side": 1,
+      "message": "The error message is only set when `oat_bcp_size \u003d\u003d static_cast\u003csize_t\u003e(-1)`, in which case the error message is supposed to be returned to the caller by the `if` block below. This `DCHECK_LE` is not supposed to fail on error. It was a mistake to put the `DCHECK_LE` here. Thank you for spotting this bug. Please move the `DCHECK_LE` below the `if` block, rather than logging the error message.",
+      "revId": "28ec97479b27962688e0a8472b6844edafd2c72e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
