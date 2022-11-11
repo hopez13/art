@@ -70,6 +70,30 @@
       },
       "revId": "6f3cb8bd66321d01ccce55cf11d25fe323722bdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f34c451_030bb2fd",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-11T10:50:15Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not sure this bit of the configuration is actually required to run Mainline Presubmits via Test Mapping (in AOSP or elsewhere) – I think this is only necessary for Atest to be able to run tests declared in the mainline-presubmit test group of a TEST_MAPPING file\n\nThe way I read it, that only leaves local atest use, but Chun-Yi\u0027s comment says differently then?",
+      "parentUuid": "afc7746b_6d42c6fa",
+      "range": {
+        "startLine": 17,
+        "startChar": 78,
+        "endLine": 17,
+        "endChar": 84
+      },
+      "revId": "6f3cb8bd66321d01ccce55cf11d25fe323722bdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
