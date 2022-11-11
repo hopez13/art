@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b00159d_23e1f34b",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-11T13:09:18Z",
+      "side": 1,
+      "message": "Added comments here and in `NullPointerHandler::IsValidReturnPc()`. Please review.",
+      "parentUuid": "cb25aeba_fdf9d75d",
+      "range": {
+        "startLine": 297,
+        "startChar": 54,
+        "endLine": 297,
+        "endChar": 77
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7265c36_071aeecf",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 9
@@ -269,6 +293,30 @@
       "side": 1,
       "message": "So CopyingPhase is somehow not called in Runnable state? Looking more closely, we do have a bunch of mutator_lock_-\u003eSharedLock() calls there. I previously thought that those somehow resulted in a state change. But I think they do not. Those seem like they\u0027re just a bug? I suspect we should replace them with state changes, or MutatorLock::SharedLock() should force a state change? MutatorLock conventions still don\u0027t seem quite consistent.",
       "parentUuid": "4d1c0dfd_a96db109",
+      "range": {
+        "startLine": 10363,
+        "startChar": 4,
+        "endLine": 10364,
+        "endChar": 76
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "629ad924_261b9e03",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 10364,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-11T13:09:18Z",
+      "side": 1,
+      "message": "Added a TODO to clean up state transitions. Is that enough or now?",
+      "parentUuid": "bd9e584d_399baece",
       "range": {
         "startLine": 10363,
         "startChar": 4,
