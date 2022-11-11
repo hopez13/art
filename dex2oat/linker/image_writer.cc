@@ -3351,7 +3351,7 @@ const uint8_t* ImageWriter::GetQuickCode(ArtMethod* method, const ImageInfo& ima
     if (method->IsNative()) {
       // The generic JNI trampolines performs class initialization check if needed.
       quick_code = GetOatAddress(StubType::kQuickGenericJNITrampoline);
-    } else if (CanMethodUseNterp(method, compiler_options_.GetInstructionSet())) {
+    } else if (CanMethodUseNterp(method)) {
       // The nterp trampoline doesn't do initialization checks, so install the
       // resolution stub if needed.
       if (needs_clinit_check) {

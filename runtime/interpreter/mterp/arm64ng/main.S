@@ -390,6 +390,8 @@ END \name
     add x14, x14, ip2
     lsl x14, x14, #2
     add x14, x14, #24
+    cmp x14, #NTERP_MAX_FRAME
+    b.gt NterpCallInterpreterBridge
 
     // Compute new stack pointer in x14
     sub x14, sp, x14
@@ -1856,6 +1858,10 @@ NterpHandleHotnessOverflow:
 5:
     DO_SUSPEND_CHECK continue_label=2b
     b 2b
+
+NterpCallInterpreterBridge:
+    RESTORE_ALL_CALLEE_SAVES
+    b art_quick_to_interpreter_bridge
 
 // This is the logical end of ExecuteNterpImpl, where the frame info applies.
 // EndExecuteNterpImpl includes the methods below as we want the runtime to

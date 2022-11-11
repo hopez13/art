@@ -67,6 +67,8 @@ ASM_DEFINE(NTERP_HANDLER_SIZE_LOG2,
            art::WhichPowerOf2(art::interpreter::kNterpHandlerSize))
 ASM_DEFINE(NTERP_HOTNESS_VALUE,
            art::interpreter::kNterpHotnessValue)
+ASM_DEFINE(NTERP_MAX_FRAME,
+           art::interpreter::kNterpMaxFrame)
 ASM_DEFINE(OBJECT_ALIGNMENT_MASK,
            art::kObjectAlignment - 1)
 ASM_DEFINE(OBJECT_ALIGNMENT_MASK_TOGGLED,

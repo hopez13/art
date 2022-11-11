@@ -412,6 +412,8 @@ END \name
     // Compute required frame size: ((2 * rINST) + \refs) * 4 + 12
     // 12 is for saving the previous frame, pc, and method being executed.
     add ip, \refs, rINST, lsl #1
+    cmp ip, #(NTERP_MAX_FRAME / 4)
+    bgt NterpCallInterpreterBridge
 
     // Compute new stack pointer in lr
     sub lr, sp, #12
@@ -1876,6 +1878,10 @@ NterpHandleHotnessOverflow:
 5:
     DO_SUSPEND_CHECK continue_label=2b
     b 2b
+
+NterpCallInterpreterBridge:
+    RESTORE_ALL_CALLEE_SAVES
+    b art_quick_to_interpreter_bridge
 
 // This is the logical end of ExecuteNterpImpl, where the frame info applies.
 // EndExecuteNterpImpl includes the methods below as we want the runtime to
