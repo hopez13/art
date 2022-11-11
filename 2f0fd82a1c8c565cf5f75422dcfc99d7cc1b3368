@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "455bf2c8_3412b78d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-11T14:48:53Z",
+      "side": 1,
+      "message": "If I run `art/test/testrunner/testrunner.py --host --64 --optimizing -b -t 2243- --run-test-option\u003d\"--external-log-tags\"` I get `assert not args.external_log_tags, \"Deprecated: use --android-log-tags\u003d*:v\"`\n\nbut then if I run `art/test/testrunner/testrunner.py --host --64 --optimizing -b -t 2243- --run-test-option\u003d\"--android-log-tags\u003d*:i\"` I get `unknown option: --android-log-tags\u003d*:i`. What am I supposed to be running to get the LOG(INFO) printed?\n\nI also tried using `--run-test-option\u003d\"--dev\"` but then I got no LOG(INFO) output whatsoever, and I don\u0027t get the information we used to get when we ran with `--dev` before this CL.",
+      "revId": "2f0fd82a1c8c565cf5f75422dcfc99d7cc1b3368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
