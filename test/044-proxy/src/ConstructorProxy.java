@@ -23,31 +23,28 @@ import java.lang.reflect.Proxy;
  * Tests proxies when used with constructor methods.
  */
 class ConstructorProxy implements InvocationHandler {
-  public static void main() {
-    try {
-      new ConstructorProxy().runTest();
-    } catch (Exception e) {
-      System.out.println("Unexpected failure occured");
-      e.printStackTrace(System.out);
+    public static void main() {
+        try {
+            new ConstructorProxy().runTest();
+        } catch (Exception e) {
+            System.out.println("Unexpected failure occured");
+            e.printStackTrace(System.out);
+        }
     }
-  }
 
-  public void runTest() throws Exception {
-    Class<?> proxyClass = Proxy.getProxyClass(
-            getClass().getClassLoader(),
-            new Class<?>[] { Runnable.class }
-    );
-    Constructor<?> constructor = proxyClass.getConstructor(InvocationHandler.class);
-    System.out.println("Found constructor.");
-    // We used to crash when asking the exception types of the constructor, because the runtime was
-    // not using the non-proxy ArtMethod
-    Object[] exceptions = constructor.getExceptionTypes();
-    System.out.println("Found constructors with " + exceptions.length + " exceptions");
-  }
+    public void runTest() throws Exception {
+        Class<?> proxyClass =
+                Proxy.getProxyClass(getClass().getClassLoader(), new Class<?>[] {Runnable.class});
+        Constructor<?> constructor = proxyClass.getConstructor(InvocationHandler.class);
+        System.out.println("Found constructor.");
+        // We used to crash when asking the exception types of the constructor, because the runtime
+        // was not using the non-proxy ArtMethod
+        Object[] exceptions = constructor.getExceptionTypes();
+        System.out.println("Found constructors with " + exceptions.length + " exceptions");
+    }
 
-  @Override
-  public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-    return args[0];
-  }
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        return args[0];
+    }
 }
-

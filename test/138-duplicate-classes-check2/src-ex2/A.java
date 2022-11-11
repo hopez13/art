@@ -17,7 +17,5 @@
 public class A {
     public volatile int i;
 
-    public A() {
-      i = 10;
-    }
+    public A() { i = 10; }
 }

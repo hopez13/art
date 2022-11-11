@@ -15,7 +15,6 @@
  */
 
 class Test {
-
     public long simplemethodMul(long jj, long ii) {
         jj = ii * jj;
         return jj;
@@ -36,5 +35,4 @@ class Test {
         jj = ~kk;
         return jj;
     }
-
 }

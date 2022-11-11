@@ -14,28 +14,14 @@
  * limitations under the License.
  */
 class Main {
-  public static void main(String[] args) {
-    A a = new A();
-    System.out.println(a.SayHi("a string 0",
-                               "a string 1",
-                               "a string 2",
-                               "a string 3",
-                               "a string 4",
-                               "a string 5",
-                               "a string 6",
-                               "a string 7",
-                               "a string 8",
-                               "a string 9"));
-    Iface b = a;
-    System.out.println(b.SayHi("a string 0",
-                               "a string 1",
-                               "a string 2",
-                               "a string 3",
-                               "a string 4",
-                               "a string 5",
-                               "a string 6",
-                               "a string 7",
-                               "a string 8",
-                               "a string 9"));
-  }
+    public static void main(String[] args) {
+        A a = new A();
+        System.out.println(
+                a.SayHi("a string 0", "a string 1", "a string 2", "a string 3", "a string 4",
+                        "a string 5", "a string 6", "a string 7", "a string 8", "a string 9"));
+        Iface b = a;
+        System.out.println(
+                b.SayHi("a string 0", "a string 1", "a string 2", "a string 3", "a string 4",
+                        "a string 5", "a string 6", "a string 7", "a string 8", "a string 9"));
+    }
 }

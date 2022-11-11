@@ -15,17 +15,19 @@
  */
 
 import dalvik.system.PathClassLoader;
+
 import java.io.File;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    ClassLoader parentLoader = Main.class.getClassLoader();
-    ClassLoader childLoader = new PathClassLoader(DEX_CHILD, parentLoader);
-    Class.forName("ChildClass", true, childLoader).getDeclaredMethod("runTest").invoke(null);
-  }
+    public static void main(String[] args) throws Exception {
+        ClassLoader parentLoader = Main.class.getClassLoader();
+        ClassLoader childLoader = new PathClassLoader(DEX_CHILD, parentLoader);
+        Class.forName("ChildClass", true, childLoader).getDeclaredMethod("runTest").invoke(null);
+    }
 
-  private static final String DEX_CHILD =
-      new File(System.getenv("DEX_LOCATION"), "676-resolve-field-type-ex.jar").getAbsolutePath();
+    private static final String DEX_CHILD =
+            new File(System.getenv("DEX_LOCATION"), "676-resolve-field-type-ex.jar")
+                    .getAbsolutePath();
 
-  public static void staticMethod() {}
+    public static void staticMethod() {}
 }

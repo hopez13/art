@@ -17,7 +17,5 @@
 package pkg;
 
 public class PkgSuperClass {
-  Class<?> foo() {
-    return PkgSuperClass.class;
-  }
+    Class<?> foo() { return PkgSuperClass.class; }
 }

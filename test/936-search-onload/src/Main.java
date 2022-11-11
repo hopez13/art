@@ -17,31 +17,29 @@
 import java.util.Arrays;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    doTest();
-  }
+    public static void main(String[] args) throws Exception { doTest(); }
 
-  private static void doTest() throws Exception {
-    doTest(true, "B");
-    doTest(false, "A");
-    System.out.println("Done");
-  }
-
-  private static void doTest(boolean boot, String className) throws Exception {
-    ClassLoader expectedClassLoader;
-    if (boot) {
-      expectedClassLoader = Object.class.getClassLoader();
-    } else {
-      expectedClassLoader = ClassLoader.getSystemClassLoader();
+    private static void doTest() throws Exception {
+        doTest(true, "B");
+        doTest(false, "A");
+        System.out.println("Done");
     }
 
-    Class<?> c = Class.forName(className, false, ClassLoader.getSystemClassLoader());
-    if (c.getClassLoader() != expectedClassLoader) {
-      throw new RuntimeException(className + "(" + boot + "): " +
-          c.getClassLoader() + " vs " + expectedClassLoader);
-    } else {
-      System.out.println(className + " was loaded with " + (boot ? "boot" : "system") +
-          " classloader");
+    private static void doTest(boolean boot, String className) throws Exception {
+        ClassLoader expectedClassLoader;
+        if (boot) {
+            expectedClassLoader = Object.class.getClassLoader();
+        } else {
+            expectedClassLoader = ClassLoader.getSystemClassLoader();
+        }
+
+        Class<?> c = Class.forName(className, false, ClassLoader.getSystemClassLoader());
+        if (c.getClassLoader() != expectedClassLoader) {
+            throw new RuntimeException(className + "(" + boot + "): " + c.getClassLoader() + " vs "
+                    + expectedClassLoader);
+        } else {
+            System.out.println(
+                    className + " was loaded with " + (boot ? "boot" : "system") + " classloader");
+        }
     }
-  }
 }

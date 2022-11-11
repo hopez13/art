@@ -16,7 +16,5 @@
 
 // This class is caught during loading.
 public class Transform {
-  public String toString() {
-    return "NON Transformed Object";
-  }
+    public String toString() { return "NON Transformed Object"; }
 }

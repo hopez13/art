@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
+import dalvik.system.VMDebug;
+
 import java.lang.reflect.Method;
 import java.util.Map;
-
-import dalvik.system.VMDebug;
 
 public class Main implements Runnable {
     static final int numberOfThreads = 4;
@@ -29,30 +29,28 @@ public class Main implements Runnable {
     static volatile boolean trackingThreadDone = false;
     int threadIndex;
 
-    Main(int index) {
-        threadIndex = index;
-    }
+    Main(int index) { threadIndex = index; }
 
     public static void main(String[] args) throws Exception {
-      Class<?> klass = Class.forName("org.apache.harmony.dalvik.ddmc.DdmVmInternal");
-      if (klass == null) {
-          throw new AssertionError("Couldn't find DdmVmInternal class");
-      }
-      enableAllocTrackingMethod = klass.getDeclaredMethod("setRecentAllocationsTrackingEnabled",
-          boolean.class);
-      if (enableAllocTrackingMethod == null) {
-          throw new AssertionError("Couldn't find setRecentAllocationsTrackingEnabled method");
-      }
+        Class<?> klass = Class.forName("org.apache.harmony.dalvik.ddmc.DdmVmInternal");
+        if (klass == null) {
+            throw new AssertionError("Couldn't find DdmVmInternal class");
+        }
+        enableAllocTrackingMethod =
+                klass.getDeclaredMethod("setRecentAllocationsTrackingEnabled", boolean.class);
+        if (enableAllocTrackingMethod == null) {
+            throw new AssertionError("Couldn't find setRecentAllocationsTrackingEnabled method");
+        }
 
-      final Thread[] threads = new Thread[numberOfThreads];
-      for (int t = 0; t < threads.length; t++) {
-          threads[t] = new Thread(new Main(t));
-          threads[t].start();
-      }
-      for (Thread t : threads) {
-          t.join();
-      }
-      System.out.println("Finishing");
+        final Thread[] threads = new Thread[numberOfThreads];
+        for (int t = 0; t < threads.length; t++) {
+            threads[t] = new Thread(new Main(t));
+            threads[t].start();
+        }
+        for (Thread t : threads) {
+            t.join();
+        }
+        System.out.println("Finishing");
     }
 
     public void run() {

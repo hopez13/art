@@ -15,17 +15,13 @@
  */
 
 public class Main extends UnresolvedSuperClass {
-  public static String inlineMonomorphicUnresolvedSuper(Object o) {
-    return o.toString();
-  }
+    public static String inlineMonomorphicUnresolvedSuper(Object o) { return o.toString(); }
 
-  public static void main(String[] args) {
-    System.out.println(inlineMonomorphicUnresolvedSuper(new Subclass()));
-  }
+    public static void main(String[] args) {
+        System.out.println(inlineMonomorphicUnresolvedSuper(new Subclass()));
+    }
 }
 
 class Subclass {
-  public String toString() {
-    return "Subclass";
-  }
+    public String toString() { return "Subclass"; }
 }

@@ -15,7 +15,6 @@
  */
 
 public class Main {
-
     public static void main(String[] args) {
         int t7q = 0;
         long q = 1L;
@@ -26,12 +25,10 @@ public class Main {
                 TestClass f = null;
                 t7q = f.field;
             }
-        }
-        catch (NullPointerException wpw) {
+        } catch (NullPointerException wpw) {
             q++;
-        }
-        finally {
-            t7q += (int)(1 - ((q - q) - 2));
+        } finally {
+            t7q += (int) (1 - ((q - q) - 2));
         }
 
         System.out.println("t7q = " + t7q);
@@ -40,5 +37,5 @@ public class Main {
 
 class TestClass {
     public int field;
-    public void meth() {field = 1;}
+    public void meth() { field = 1; }
 }

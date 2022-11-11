@@ -23,25 +23,23 @@ import java.util.ArrayList;
  * Ensure that one can dispatch without aborting when the heap is full.
  */
 public class OOMEOnDispatch implements InvocationHandler {
-
     static ArrayList<Object> storage = new ArrayList<>(100000);
 
     private static void exhaustJavaHeap(int size) {
-      Runtime.getRuntime().gc();
-      while (size > 0) {
-        try {
-          storage.add(new byte[size]);
-        } catch (OutOfMemoryError e) {
-          size = size/2;
+        Runtime.getRuntime().gc();
+        while (size > 0) {
+            try {
+                storage.add(new byte[size]);
+            } catch (OutOfMemoryError e) {
+                size = size / 2;
+            }
         }
-      }
     }
 
     public static void main(String[] args) {
         InvocationHandler handler = new OOMEOnDispatch();
-        OOMEInterface inf = (OOMEInterface)Proxy.newProxyInstance(
-                OOMEInterface.class.getClassLoader(), new Class[] { OOMEInterface.class },
-                handler);
+        OOMEInterface inf = (OOMEInterface) Proxy.newProxyInstance(
+                OOMEInterface.class.getClassLoader(), new Class[] {OOMEInterface.class}, handler);
 
         // Stop the JIT to be sure nothing is running that could be resolving classes or causing
         // verification.

@@ -16,9 +16,7 @@
 
 // An error class.
 class BadError extends Error {
-    public BadError(String s) {
-        super("This is bad by convention: " + s);
-    }
+    public BadError(String s) { super("This is bad by convention: " + s); }
 }
 
 // A class that throws BadError during static initialization.
@@ -34,9 +32,7 @@ class BadInit {
 
 // An error that doesn't have a <init>(String) method.
 class BadErrorNoStringInit extends Error {
-    public BadErrorNoStringInit() {
-        super("This is bad by convention");
-    }
+    public BadErrorNoStringInit() { super("This is bad by convention"); }
 }
 
 // A class that throws BadErrorNoStringInit during static initialization.
@@ -52,18 +48,17 @@ class BadInitNoStringInit {
 
 // A class that throws BadError during static initialization, serving as a super class.
 class BadSuperClass {
- static int intField;
- static {
-     System.out.println("BadSuperClass Static Init");
-     if (true) {
-         throw new BadError("BadInit");
-     }
- }
+    static int intField;
+    static {
+        System.out.println("BadSuperClass Static Init");
+        if (true) {
+            throw new BadError("BadInit");
+        }
+    }
 }
 
 // A class that derives from BadSuperClass.
-class DerivedFromBadSuperClass extends BadSuperClass {
-}
+class DerivedFromBadSuperClass extends BadSuperClass {}
 
 /**
  * Exceptions across method calls

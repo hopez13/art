@@ -68,8 +68,8 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
         Set<String> systemServerArtifacts = testUtils.getSystemServerLoadedArtifacts();
 
         testInfo.properties().put(ZYGOTE_ARTIFACTS_KEY, String.join(":", zygoteArtifacts));
-        testInfo.properties()
-                .put(SYSTEM_SERVER_ARTIFACTS_KEY, String.join(":", systemServerArtifacts));
+        testInfo.properties().put(
+                SYSTEM_SERVER_ARTIFACTS_KEY, String.join(":", systemServerArtifacts));
     }
 
     @AfterClassWithInfo
@@ -329,7 +329,7 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
     public void verifyMinimalCompilation() throws Exception {
         mTestUtils.removeCompilationLogToAvoidBackoff();
         getDevice().executeShellV2Command(
-            "rm -rf " + OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME);
+                "rm -rf " + OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME);
         runOdrefresh("--minimal");
 
         mTestUtils.restartZygote();
@@ -351,9 +351,8 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
         runOdrefresh();
 
         for (String artifact : minimalZygoteArtifacts) {
-            assertFalse(
-                    String.format(
-                            "Artifact %s should be cleaned up while it still exists", artifact),
+            assertFalse(String.format(
+                                "Artifact %s should be cleaned up while it still exists", artifact),
                     getDevice().doesFileExist(artifact));
         }
 
@@ -385,10 +384,8 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
     private void simulateBootClasspathOta() throws Exception {
         String cacheInfo = getDevice().pullFileContents(CACHE_INFO_FILE);
         // Replace the cached checksum of /system/framework/framework.jar with "aaaaaaaa".
-        cacheInfo = replaceLine(
-                cacheInfo,
-                "(.*/system/framework/framework\\.jar.*checksums=\").*?(\".*)",
-                "$1aaaaaaaa$2");
+        cacheInfo = replaceLine(cacheInfo,
+                "(.*/system/framework/framework\\.jar.*checksums=\").*?(\".*)", "$1aaaaaaaa$2");
         getDevice().pushString(cacheInfo, CACHE_INFO_FILE);
     }
 
@@ -398,10 +395,8 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
     private void simulateSystemServerOta() throws Exception {
         String cacheInfo = getDevice().pullFileContents(CACHE_INFO_FILE);
         // Replace the cached checksum of /system/framework/services.jar with "aaaaaaaa".
-        cacheInfo = replaceLine(
-                cacheInfo,
-                "(.*/system/framework/services\\.jar.*checksums=\").*?(\".*)",
-                "$1aaaaaaaa$2");
+        cacheInfo = replaceLine(cacheInfo,
+                "(.*/system/framework/services\\.jar.*checksums=\").*?(\".*)", "$1aaaaaaaa$2");
         getDevice().pushString(cacheInfo, CACHE_INFO_FILE);
     }
 
@@ -412,9 +407,7 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
         String apexInfo = getDevice().pullFileContents(CACHE_INFO_FILE);
         // Replace the lastUpdateMillis of com.android.art with "1".
         apexInfo = replaceLine(
-                apexInfo,
-                "(.*com\\.android\\.art.*lastUpdateMillis=\").*?(\".*)",
-                "$11$2");
+                apexInfo, "(.*com\\.android\\.art.*lastUpdateMillis=\").*?(\".*)", "$11$2");
         getDevice().pushString(apexInfo, CACHE_INFO_FILE);
     }
 
@@ -426,9 +419,7 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
         String apexInfo = getDevice().pullFileContents(CACHE_INFO_FILE);
         // Replace the lastUpdateMillis of com.android.wifi with "1".
         apexInfo = replaceLine(
-                apexInfo,
-                "(.*com\\.android\\.wifi.*lastUpdateMillis=\").*?(\".*)",
-                "$11$2");
+                apexInfo, "(.*com\\.android\\.wifi.*lastUpdateMillis=\").*?(\".*)", "$11$2");
         getDevice().pushString(apexInfo, CACHE_INFO_FILE);
     }
 
@@ -449,9 +440,7 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
             assertTrue(
                     String.format(
                             "Artifact %s is not re-compiled. Modified time: %d, Reference time: %d",
-                            artifact,
-                            modifiedTime,
-                            timeMs),
+                            artifact, modifiedTime, timeMs),
                     modifiedTime > timeMs);
         }
     }
@@ -460,13 +449,9 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
             throws Exception {
         for (String artifact : artifacts) {
             long modifiedTime = mTestUtils.getModifiedTimeMs(artifact);
-            assertTrue(
-                    String.format(
-                            "Artifact %s is unexpectedly re-compiled. " +
-                                    "Modified time: %d, Reference time: %d",
-                            artifact,
-                            modifiedTime,
-                            timeMs),
+            assertTrue(String.format("Artifact %s is unexpectedly re-compiled. "
+                                       + "Modified time: %d, Reference time: %d",
+                               artifact, modifiedTime, timeMs),
                     modifiedTime < timeMs);
         }
     }
@@ -485,17 +470,13 @@ public class OdrefreshHostTest extends BaseHostJUnit4Test {
         return new HashSet<>(Arrays.asList(value.split(":")));
     }
 
-    private Set<String> getZygoteArtifacts() {
-        return getColonSeparatedSet(ZYGOTE_ARTIFACTS_KEY);
-    }
+    private Set<String> getZygoteArtifacts() { return getColonSeparatedSet(ZYGOTE_ARTIFACTS_KEY); }
 
     private Set<String> getSystemServerArtifacts() {
         return getColonSeparatedSet(SYSTEM_SERVER_ARTIFACTS_KEY);
     }
 
-    private void runOdrefresh() throws Exception {
-        runOdrefresh("" /* extraArgs */);
-    }
+    private void runOdrefresh() throws Exception { runOdrefresh("" /* extraArgs */); }
 
     private void runOdrefresh(String extraArgs) throws Exception {
         getDevice().executeShellV2Command(ODREFRESH_BIN + " --check");

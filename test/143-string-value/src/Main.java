@@ -15,12 +15,12 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    try {
-      String.class.getDeclaredField("value");
-      throw new Error("Expected to fail");
-    } catch (ReflectiveOperationException e) {
-      // Ignore...
+    public static void main(String[] args) {
+        try {
+            String.class.getDeclaredField("value");
+            throw new Error("Expected to fail");
+        } catch (ReflectiveOperationException e) {
+            // Ignore...
+        }
     }
-  }
 }

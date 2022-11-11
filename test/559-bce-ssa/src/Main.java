@@ -15,18 +15,17 @@
  */
 
 class Main {
-
-  public static void foo(int[] array, int[] array2, int start, int end) {
-    for (int i = start; i < end; ++i) {
-      array[i] = array2[array.length] + 1;
+    public static void foo(int[] array, int[] array2, int start, int end) {
+        for (int i = start; i < end; ++i) {
+            array[i] = array2[array.length] + 1;
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    int[]a = new int[1];
-    foo(a, new int[2], 0, 1);
-    if (a[0] != 1) {
-      throw new Error("test failed");
+    public static void main(String[] args) {
+        int[] a = new int[1];
+        foo(a, new int[2], 0, 1);
+        if (a[0] != 1) {
+            throw new Error("test failed");
+        }
     }
-  }
 }

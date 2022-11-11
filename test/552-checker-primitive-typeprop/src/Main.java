@@ -17,23 +17,23 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  private static void assertEquals(int expected, int actual) {
-    if (expected != actual) {
-      throw new Error("Wrong result, expected=" + expected + ", actual=" + actual);
+    private static void assertEquals(int expected, int actual) {
+        if (expected != actual) {
+            throw new Error("Wrong result, expected=" + expected + ", actual=" + actual);
+        }
     }
-  }
 
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("SsaBuilder");
-    Method m = c.getMethod("environmentPhi", boolean.class, int[].class);
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("SsaBuilder");
+        Method m = c.getMethod("environmentPhi", boolean.class, int[].class);
 
-    int[] array = new int[3];
-    int result;
+        int[] array = new int[3];
+        int result;
 
-    result = (Integer) m.invoke(null, true, array);
-    assertEquals(2, result);
+        result = (Integer) m.invoke(null, true, array);
+        assertEquals(2, result);
 
-    result = (Integer) m.invoke(null, false, array);
-    assertEquals(0, result);
-  }
+        result = (Integer) m.invoke(null, false, array);
+        assertEquals(0, result);
+    }
 }

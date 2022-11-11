@@ -15,84 +15,81 @@
  */
 
 import dalvik.system.VMRuntime;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void $noinline$hotnessCount() {}
+    public static void $noinline$hotnessCount() {}
 
-  public static void $noinline$hotnessCountWithLoop(int count) {
-    for (int i = 0; i < count; i++) {
-      $noinline$hotnessCount();
-    }
-  }
-
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    if (!isAotCompiled(Main.class, "main")) {
-      return;
+    public static void $noinline$hotnessCountWithLoop(int count) {
+        for (int i = 0; i < count; i++) {
+            $noinline$hotnessCount();
+        }
     }
 
-    String methodName = "$noinline$hotnessCount";
-    int initialValue = getHotnessCounter(Main.class, methodName);
-    File file = null;
-    try {
-      file = createTempFile();
-      String codePath = System.getenv("DEX_LOCATION") + "/2230-profile-save-hotness.jar";
-      VMRuntime.registerAppInfo(
-          "test.app",
-          file.getPath(),
-          file.getPath(),
-          new String[] {codePath},
-          VMRuntime.CODE_PATH_TYPE_PRIMARY_APK);
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        if (!isAotCompiled(Main.class, "main")) {
+            return;
+        }
 
-      // Test that the profile saves an app method with a profiling info.
-      $noinline$hotnessCountWithLoop(100000);
-      ensureProfileProcessing();
-      Method appMethod = Main.class.getDeclaredMethod(methodName);
-      if (!presentInProfile(file.getPath(), appMethod)) {
-        System.out.println("App method not hot in profile " +
-                getHotnessCounter(Main.class, methodName));
-      }
-      // Hardcoded assumption that the hotness value is zero.
-      if (getHotnessCounter(Main.class, methodName) != 0) {
-        System.out.println("Hotness should be zero " +
-                getHotnessCounter(Main.class, methodName));
-      }
-      VMRuntime.resetJitCounters();
-      if (getHotnessCounter(Main.class, methodName) != initialValue) {
-        System.out.println(
-            "Expected " + initialValue +", got " + + getHotnessCounter(Main.class, methodName));
-      }
-    } finally {
-      if (file != null) {
-        file.delete();
-      }
+        String methodName = "$noinline$hotnessCount";
+        int initialValue = getHotnessCounter(Main.class, methodName);
+        File file = null;
+        try {
+            file = createTempFile();
+            String codePath = System.getenv("DEX_LOCATION") + "/2230-profile-save-hotness.jar";
+            VMRuntime.registerAppInfo("test.app", file.getPath(), file.getPath(),
+                    new String[] {codePath}, VMRuntime.CODE_PATH_TYPE_PRIMARY_APK);
+
+            // Test that the profile saves an app method with a profiling info.
+            $noinline$hotnessCountWithLoop(100000);
+            ensureProfileProcessing();
+            Method appMethod = Main.class.getDeclaredMethod(methodName);
+            if (!presentInProfile(file.getPath(), appMethod)) {
+                System.out.println("App method not hot in profile "
+                        + getHotnessCounter(Main.class, methodName));
+            }
+            // Hardcoded assumption that the hotness value is zero.
+            if (getHotnessCounter(Main.class, methodName) != 0) {
+                System.out.println(
+                        "Hotness should be zero " + getHotnessCounter(Main.class, methodName));
+            }
+            VMRuntime.resetJitCounters();
+            if (getHotnessCounter(Main.class, methodName) != initialValue) {
+                System.out.println("Expected " + initialValue + ", got "
+                        + +getHotnessCounter(Main.class, methodName));
+            }
+        } finally {
+            if (file != null) {
+                file.delete();
+            }
+        }
     }
-  }
 
-  // Checks if the profiles saver has the method as hot/warm.
-  public static native boolean presentInProfile(String profile, Method method);
-  // Ensures the profile saver does its usual processing.
-  public static native void ensureProfileProcessing();
-  public static native boolean isAotCompiled(Class<?> cls, String methodName);
-  public static native int getHotnessCounter(Class<?> cls, String methodName);
+    // Checks if the profiles saver has the method as hot/warm.
+    public static native boolean presentInProfile(String profile, Method method);
+    // Ensures the profile saver does its usual processing.
+    public static native void ensureProfileProcessing();
+    public static native boolean isAotCompiled(Class<?> cls, String methodName);
+    public static native int getHotnessCounter(Class<?> cls, String methodName);
 
-  private static final String TEMP_FILE_NAME_PREFIX = "temp";
-  private static final String TEMP_FILE_NAME_SUFFIX = "-file";
+    private static final String TEMP_FILE_NAME_PREFIX = "temp";
+    private static final String TEMP_FILE_NAME_SUFFIX = "-file";
 
-  private static File createTempFile() throws Exception {
-    try {
-      return File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
-    } catch (IOException e) {
-      System.setProperty("java.io.tmpdir", "/data/local/tmp");
-      try {
-        return File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
-      } catch (IOException e2) {
-        System.setProperty("java.io.tmpdir", "/sdcard");
-        return File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
-      }
+    private static File createTempFile() throws Exception {
+        try {
+            return File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
+        } catch (IOException e) {
+            System.setProperty("java.io.tmpdir", "/data/local/tmp");
+            try {
+                return File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
+            } catch (IOException e2) {
+                System.setProperty("java.io.tmpdir", "/sdcard");
+                return File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
+            }
+        }
     }
-  }
 }

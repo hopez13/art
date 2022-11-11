@@ -15,13 +15,9 @@
  */
 
 interface Iface {
-    default void defaultMethod() {
-    }
+    default void defaultMethod() {}
 }
 
-class Impl implements Iface {
-}
+class Impl implements Iface {}
 
-abstract class IterableBase implements Iterable {
-}
-
+abstract class IterableBase implements Iterable {}

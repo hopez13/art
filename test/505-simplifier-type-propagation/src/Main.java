@@ -15,24 +15,22 @@
  */
 
 class Main {
-  public static void main(String[] args) {
-    byte result = bar((byte)2);
-    if (result != 2) {
-      throw new Error("Expected 2, got " + result);
+    public static void main(String[] args) {
+        byte result = bar((byte) 2);
+        if (result != 2) {
+            throw new Error("Expected 2, got " + result);
+        }
     }
-  }
 
-  public static byte bar(byte myByte) {
-    int a = 0;
-    // The following call will be inlined, which will make
-    // the type conversion below from byte to byte.
-    if ($inline$foo()) {
-      a = myByte;
+    public static byte bar(byte myByte) {
+        int a = 0;
+        // The following call will be inlined, which will make
+        // the type conversion below from byte to byte.
+        if ($inline$foo()) {
+            a = myByte;
+        }
+        return (byte) a;
     }
-    return (byte)a;
-  }
 
-  public static boolean $inline$foo() {
-    return true;
-  }
+    public static boolean $inline$foo() { return true; }
 }

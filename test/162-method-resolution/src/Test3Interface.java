@@ -15,7 +15,5 @@
  */
 
 public interface Test3Interface {
-    default void foo() {
-        System.out.println("Test3Interface.foo()");
-    }
+    default void foo() { System.out.println("Test3Interface.foo()"); }
 }

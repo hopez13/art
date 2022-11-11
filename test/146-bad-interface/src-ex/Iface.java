@@ -15,15 +15,13 @@
  */
 
 public interface Iface {
-  public default void aPadding() {}
-  public default void bPadding() {}
-  public default void cPadding() {}
-  public default void dPadding() {}
-  public default void invoke() {
-    System.out.println("running invoke");
-  }
-  public default void wPadding() {}
-  public default void xPadding() {}
-  public default void yPadding() {}
-  public default void zPadding() {}
+    public default void aPadding() {}
+    public default void bPadding() {}
+    public default void cPadding() {}
+    public default void dPadding() {}
+    public default void invoke() { System.out.println("running invoke"); }
+    public default void wPadding() {}
+    public default void xPadding() {}
+    public default void yPadding() {}
+    public default void zPadding() {}
 }

@@ -15,31 +15,29 @@
  */
 
 public class Main {
-  public static boolean alwaysThrows() {
-    throw new Error("");
-  }
+    public static boolean alwaysThrows() { throw new Error(""); }
 
-  public static void test() {
-    alwaysThrows();
-    while (condition) {
-      int a = 2;
-      while (otherCondition) {
-        a = 3;
-      }
-      staticField = a;
+    public static void test() {
+        alwaysThrows();
+        while (condition) {
+            int a = 2;
+            while (otherCondition) {
+                a = 3;
+            }
+            staticField = a;
+        }
     }
-  }
 
-  public static void main(String[] args) throws Exception {
-    try {
-      test();
-      throw new Exception("Unexpected exception");
-    } catch (Error e) {
-      // Expected.
+    public static void main(String[] args) throws Exception {
+        try {
+            test();
+            throw new Exception("Unexpected exception");
+        } catch (Error e) {
+            // Expected.
+        }
     }
-  }
 
-  static boolean condition = false;
-  static boolean otherCondition = false;
-  static int staticField = 1;
+    static boolean condition = false;
+    static boolean otherCondition = false;
+    static int staticField = 1;
 }

@@ -15,24 +15,22 @@
  */
 
 public class Foo {
-  public static void doTest() {
-    // Execute foo once to make sure the dex cache will be updated.
-    try {
-      foo();
-      throw new Error("Expected IncompatibleClassChangeError");
-    } catch (IncompatibleClassChangeError e) {
-      // Expected.
+    public static void doTest() {
+        // Execute foo once to make sure the dex cache will be updated.
+        try {
+            foo();
+            throw new Error("Expected IncompatibleClassChangeError");
+        } catch (IncompatibleClassChangeError e) {
+            // Expected.
+        }
+        Main.ensureJitCompiled(Foo.class, "foo");
+        try {
+            foo();
+            throw new Error("Expected IncompatibleClassChangeError");
+        } catch (IncompatibleClassChangeError e) {
+            // Expected.
+        }
     }
-    Main.ensureJitCompiled(Foo.class, "foo");
-    try {
-      foo();
-      throw new Error("Expected IncompatibleClassChangeError");
-    } catch (IncompatibleClassChangeError e) {
-      // Expected.
-    }
-  }
 
-  public static void foo() {
-    System.out.println(Holder.field);
-  }
+    public static void foo() { System.out.println(Holder.field); }
 }

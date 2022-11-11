@@ -19,7 +19,5 @@ import java.util.HashMap;
 class MyClass {
     public static String string = "ASDF_UNIQUE_STRING";
     public static HashMap<String, String> map = new HashMap<String, String>();
-    static {
-        map.put("KEY_FOR_HASH_MAP", "VALUE_FOR_HASH_MAP");
-    }
+    static { map.put("KEY_FOR_HASH_MAP", "VALUE_FOR_HASH_MAP"); }
 }

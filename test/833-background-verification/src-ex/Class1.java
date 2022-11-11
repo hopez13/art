@@ -15,7 +15,7 @@
  */
 
 public class Class1 {
-  // Put the j.l.Integer class in the class loader table. Note that j.l.Number doesn't get put in
-  // the table at this point.
-  static Class<?> cls = Integer.class;
+    // Put the j.l.Integer class in the class loader table. Note that j.l.Number doesn't get put in
+    // the table at this point.
+    static Class<?> cls = Integer.class;
 }

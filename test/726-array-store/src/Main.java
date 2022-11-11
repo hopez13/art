@@ -15,50 +15,48 @@
  */
 
 public class Main {
-
-  public static void main(String[] args) {
-    try {
-      $noinline$doTest(args);
-      throw new Error("Expected ArrayStoreException");
-    } catch (ArrayStoreException e) {
-      // expected
-      check(e, mainLine, methodLine, "$noinline$doTest");
+    public static void main(String[] args) {
+        try {
+            $noinline$doTest(args);
+            throw new Error("Expected ArrayStoreException");
+        } catch (ArrayStoreException e) {
+            // expected
+            check(e, mainLine, methodLine, "$noinline$doTest");
+        }
     }
-  }
 
-  public static void $noinline$doTest(String[] args) {
-    Object[] o = new String[2];
-    o[0] = args;
-  }
-
-  public static int mainLine = 21;
-  public static int methodLine = 31;
-
-  static void check(ArrayStoreException ase, int mainLine, int methodLine, String methodName) {
-    StackTraceElement[] trace = ase.getStackTrace();
-    checkElement(trace[0], "Main", methodName, "Main.java", methodLine);
-    checkElement(trace[1], "Main", "main", "Main.java", mainLine);
-  }
-
-  static void checkElement(StackTraceElement element,
-                           String declaringClass, String methodName,
-                           String fileName, int lineNumber) {
-    assertEquals(declaringClass, element.getClassName());
-    assertEquals(methodName, element.getMethodName());
-    assertEquals(fileName, element.getFileName());
-    assertEquals(lineNumber, element.getLineNumber());
-  }
-
-  static void assertEquals(Object expected, Object actual) {
-    if (!expected.equals(actual)) {
-      String msg = "Expected \"" + expected + "\" but got \"" + actual + "\"";
-      throw new AssertionError(msg);
+    public static void $noinline$doTest(String[] args) {
+        Object[] o = new String[2];
+        o[0] = args;
     }
-  }
 
-  static void assertEquals(int expected, int actual) {
-    if (expected != actual) {
-      throw new AssertionError("Expected " + expected + " got " + actual);
+    public static int mainLine = 21;
+    public static int methodLine = 31;
+
+    static void check(ArrayStoreException ase, int mainLine, int methodLine, String methodName) {
+        StackTraceElement[] trace = ase.getStackTrace();
+        checkElement(trace[0], "Main", methodName, "Main.java", methodLine);
+        checkElement(trace[1], "Main", "main", "Main.java", mainLine);
     }
-  }
+
+    static void checkElement(StackTraceElement element, String declaringClass, String methodName,
+            String fileName, int lineNumber) {
+        assertEquals(declaringClass, element.getClassName());
+        assertEquals(methodName, element.getMethodName());
+        assertEquals(fileName, element.getFileName());
+        assertEquals(lineNumber, element.getLineNumber());
+    }
+
+    static void assertEquals(Object expected, Object actual) {
+        if (!expected.equals(actual)) {
+            String msg = "Expected \"" + expected + "\" but got \"" + actual + "\"";
+            throw new AssertionError(msg);
+        }
+    }
+
+    static void assertEquals(int expected, int actual) {
+        if (expected != actual) {
+            throw new AssertionError("Expected " + expected + " got " + actual);
+        }
+    }
 }

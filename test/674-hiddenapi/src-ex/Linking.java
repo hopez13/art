@@ -17,287 +17,242 @@
 import java.lang.reflect.InvocationTargetException;
 
 public class Linking {
-  public static boolean canAccess(String className, boolean takesParameter) throws Exception {
-    try {
-      Class<?> c = Class.forName(className);
-      if (takesParameter) {
-        c.getDeclaredMethod("access", Integer.TYPE).invoke(null, 42);
-      } else {
-        c.getDeclaredMethod("access").invoke(null);
-      }
-      return true;
-    } catch (InvocationTargetException ex) {
-      if (ex.getCause() instanceof NoSuchFieldError || ex.getCause() instanceof NoSuchMethodError) {
-        return false;
-      } else {
-        throw ex;
-      }
+    public static boolean canAccess(String className, boolean takesParameter) throws Exception {
+        try {
+            Class<?> c = Class.forName(className);
+            if (takesParameter) {
+                c.getDeclaredMethod("access", Integer.TYPE).invoke(null, 42);
+            } else {
+                c.getDeclaredMethod("access").invoke(null);
+            }
+            return true;
+        } catch (InvocationTargetException ex) {
+            if (ex.getCause() instanceof NoSuchFieldError
+                    || ex.getCause() instanceof NoSuchMethodError) {
+                return false;
+            } else {
+                throw ex;
+            }
+        }
     }
-  }
 }
 
 // INSTANCE FIELD GET
 
 class LinkFieldGetSdk {
-  public static int access() {
-    return new ParentClass().fieldPublicSdk;
-  }
+    public static int access() { return new ParentClass().fieldPublicSdk; }
 }
 
 class LinkFieldGetUnsupported {
-  public static int access() {
-    return new ParentClass().fieldPublicUnsupported;
-  }
+    public static int access() { return new ParentClass().fieldPublicUnsupported; }
 }
 
 class LinkFieldGetConditionallyBlocked {
-  public static int access() {
-    return new ParentClass().fieldPublicConditionallyBlocked;
-  }
+    public static int access() { return new ParentClass().fieldPublicConditionallyBlocked; }
 }
 
 class LinkFieldGetBlocklist {
-  public static int access() {
-    return new ParentClass().fieldPublicBlocklist;
-  }
+    public static int access() { return new ParentClass().fieldPublicBlocklist; }
 }
 
 class LinkFieldGetBlocklistAndCorePlatformApi {
-  public static int access() {
-    return new ParentClass().fieldPublicBlocklistAndCorePlatformApi;
-  }
+    public static int access() { return new ParentClass().fieldPublicBlocklistAndCorePlatformApi; }
 }
 
 // INSTANCE FIELD SET
 
 class LinkFieldSetSdk {
-  public static void access(int x) {
-    // Need to use a different field from the getter to bypass DexCache.
-    new ParentClass().fieldPublicSdkB = x;
-  }
+    public static void access(int x) {
+        // Need to use a different field from the getter to bypass DexCache.
+        new ParentClass().fieldPublicSdkB = x;
+    }
 }
 
 class LinkFieldSetUnsupported {
-  public static void access(int x) {
-    // Need to use a different field from the getter to bypass DexCache.
-    new ParentClass().fieldPublicUnsupportedB = x;
-  }
+    public static void access(int x) {
+        // Need to use a different field from the getter to bypass DexCache.
+        new ParentClass().fieldPublicUnsupportedB = x;
+    }
 }
 
 class LinkFieldSetConditionallyBlocked {
-  public static void access(int x) {
-    // Need to use a different field from the getter to bypass DexCache.
-    new ParentClass().fieldPublicConditionallyBlockedB = x;
-  }
+    public static void access(int x) {
+        // Need to use a different field from the getter to bypass DexCache.
+        new ParentClass().fieldPublicConditionallyBlockedB = x;
+    }
 }
 
 class LinkFieldSetBlocklist {
-  public static void access(int x) {
-    // Need to use a different field from the getter to bypass DexCache.
-    new ParentClass().fieldPublicBlocklistB = x;
-  }
+    public static void access(int x) {
+        // Need to use a different field from the getter to bypass DexCache.
+        new ParentClass().fieldPublicBlocklistB = x;
+    }
 }
 
 class LinkFieldSetBlocklistAndCorePlatformApi {
-  public static void access(int x) {
-    // Need to use a different field from the getter to bypass DexCache.
-    new ParentClass().fieldPublicBlocklistAndCorePlatformApiB = x;
-  }
+    public static void access(int x) {
+        // Need to use a different field from the getter to bypass DexCache.
+        new ParentClass().fieldPublicBlocklistAndCorePlatformApiB = x;
+    }
 }
 
 // STATIC FIELD GET
 
 class LinkFieldGetStaticSdk {
-  public static int access() {
-    return ParentClass.fieldPublicStaticSdk;
-  }
+    public static int access() { return ParentClass.fieldPublicStaticSdk; }
 }
 
 class LinkFieldGetStaticUnsupported {
-  public static int access() {
-    return ParentClass.fieldPublicStaticUnsupported;
-  }
+    public static int access() { return ParentClass.fieldPublicStaticUnsupported; }
 }
 
 class LinkFieldGetStaticConditionallyBlocked {
-  public static int access() {
-    return ParentClass.fieldPublicStaticConditionallyBlocked;
-  }
+    public static int access() { return ParentClass.fieldPublicStaticConditionallyBlocked; }
 }
 
 class LinkFieldGetStaticBlocklist {
-  public static int access() {
-    return ParentClass.fieldPublicStaticBlocklist;
-  }
+    public static int access() { return ParentClass.fieldPublicStaticBlocklist; }
 }
 
 class LinkFieldGetStaticBlocklistAndCorePlatformApi {
-  public static int access() {
-    return ParentClass.fieldPublicStaticBlocklistAndCorePlatformApi;
-  }
+    public static int access() { return ParentClass.fieldPublicStaticBlocklistAndCorePlatformApi; }
 }
 
 // STATIC FIELD SET
 
 class LinkFieldSetStaticSdk {
-  public static void access(int x) {
-    // Need to use a different field from the getter to bypass DexCache.
-    ParentClass.fieldPublicStaticSdkB = x;
-  }
+    public static void access(int x) {
+        // Need to use a different field from the getter to bypass DexCache.
+        ParentClass.fieldPublicStaticSdkB = x;
+    }
 }
 
 class LinkFieldSetStaticUnsupported {
-  public static void access(int x) {
-    // Need to use a different field from the getter to bypass DexCache.
-    ParentClass.fieldPublicStaticUnsupportedB = x;
-  }
+    public static void access(int x) {
+        // Need to use a different field from the getter to bypass DexCache.
+        ParentClass.fieldPublicStaticUnsupportedB = x;
+    }
 }
 
 class LinkFieldSetStaticConditionallyBlocked {
-  public static void access(int x) {
-    // Need to use a different field from the getter to bypass DexCache.
-    ParentClass.fieldPublicStaticConditionallyBlockedB = x;
-  }
+    public static void access(int x) {
+        // Need to use a different field from the getter to bypass DexCache.
+        ParentClass.fieldPublicStaticConditionallyBlockedB = x;
+    }
 }
 
 class LinkFieldSetStaticBlocklist {
-  public static void access(int x) {
-    // Need to use a different field from the getter to bypass DexCache.
-    ParentClass.fieldPublicStaticBlocklistB = x;
-  }
+    public static void access(int x) {
+        // Need to use a different field from the getter to bypass DexCache.
+        ParentClass.fieldPublicStaticBlocklistB = x;
+    }
 }
 
 class LinkFieldSetStaticBlocklistAndCorePlatformApi {
-  public static void access(int x) {
-    // Need to use a different field from the getter to bypass DexCache.
-    ParentClass.fieldPublicStaticBlocklistAndCorePlatformApiB = x;
-  }
+    public static void access(int x) {
+        // Need to use a different field from the getter to bypass DexCache.
+        ParentClass.fieldPublicStaticBlocklistAndCorePlatformApiB = x;
+    }
 }
 
 // INVOKE INSTANCE METHOD
 
 class LinkMethodSdk {
-  public static int access() {
-    return new ParentClass().methodPublicSdk();
-  }
+    public static int access() { return new ParentClass().methodPublicSdk(); }
 }
 
 class LinkMethodUnsupported {
-  public static int access() {
-    return new ParentClass().methodPublicUnsupported();
-  }
+    public static int access() { return new ParentClass().methodPublicUnsupported(); }
 }
 
 class LinkMethodConditionallyBlocked {
-  public static int access() {
-    return new ParentClass().methodPublicConditionallyBlocked();
-  }
+    public static int access() { return new ParentClass().methodPublicConditionallyBlocked(); }
 }
 
 class LinkMethodBlocklist {
-  public static int access() {
-    return new ParentClass().methodPublicBlocklist();
-  }
+    public static int access() { return new ParentClass().methodPublicBlocklist(); }
 }
 
 class LinkMethodBlocklistAndCorePlatformApi {
-  public static int access() {
-    return new ParentClass().methodPublicBlocklistAndCorePlatformApi();
-  }
+    public static int access() {
+        return new ParentClass().methodPublicBlocklistAndCorePlatformApi();
+    }
 }
 
 // INVOKE INSTANCE INTERFACE METHOD
 
 class LinkMethodInterfaceSdk {
-  public static int access() {
-    return SampleClass.getInterfaceInstance().methodPublicSdk();
-  }
+    public static int access() { return SampleClass.getInterfaceInstance().methodPublicSdk(); }
 }
 
 class LinkMethodInterfaceUnsupported {
-  public static int access() {
-    return SampleClass.getInterfaceInstance().methodPublicUnsupported();
-  }
+    public static int access() {
+        return SampleClass.getInterfaceInstance().methodPublicUnsupported();
+    }
 }
 
 class LinkMethodInterfaceConditionallyBlocked {
-  public static int access() {
-    return SampleClass.getInterfaceInstance().methodPublicConditionallyBlocked();
-  }
+    public static int access() {
+        return SampleClass.getInterfaceInstance().methodPublicConditionallyBlocked();
+    }
 }
 
 class LinkMethodInterfaceBlocklist {
-  public static int access() {
-    return SampleClass.getInterfaceInstance().methodPublicBlocklist();
-  }
+    public static int access() {
+        return SampleClass.getInterfaceInstance().methodPublicBlocklist();
+    }
 }
 
 class LinkMethodInterfaceBlocklistAndCorePlatformApi {
-  public static int access() {
-    return SampleClass.getInterfaceInstance().methodPublicBlocklistAndCorePlatformApi();
-  }
+    public static int access() {
+        return SampleClass.getInterfaceInstance().methodPublicBlocklistAndCorePlatformApi();
+    }
 }
 
 // INVOKE STATIC METHOD
 
 class LinkMethodStaticSdk {
-  public static int access() {
-    return ParentClass.methodPublicStaticSdk();
-  }
+    public static int access() { return ParentClass.methodPublicStaticSdk(); }
 }
 
 class LinkMethodStaticUnsupported {
-  public static int access() {
-    return ParentClass.methodPublicStaticUnsupported();
-  }
+    public static int access() { return ParentClass.methodPublicStaticUnsupported(); }
 }
 
 class LinkMethodStaticConditionallyBlocked {
-  public static int access() {
-    return ParentClass.methodPublicStaticConditionallyBlocked();
-  }
+    public static int access() { return ParentClass.methodPublicStaticConditionallyBlocked(); }
 }
 
 class LinkMethodStaticBlocklist {
-  public static int access() {
-    return ParentClass.methodPublicStaticBlocklist();
-  }
+    public static int access() { return ParentClass.methodPublicStaticBlocklist(); }
 }
 
 class LinkMethodStaticBlocklistAndCorePlatformApi {
-  public static int access() {
-    return ParentClass.methodPublicStaticBlocklistAndCorePlatformApi();
-  }
+    public static int access() {
+        return ParentClass.methodPublicStaticBlocklistAndCorePlatformApi();
+    }
 }
 
 // INVOKE INTERFACE STATIC METHOD
 
 class LinkMethodInterfaceStaticSdk {
-  public static int access() {
-    return ParentInterface.methodPublicStaticSdk();
-  }
+    public static int access() { return ParentInterface.methodPublicStaticSdk(); }
 }
 
 class LinkMethodInterfaceStaticUnsupported {
-  public static int access() {
-    return ParentInterface.methodPublicStaticUnsupported();
-  }
+    public static int access() { return ParentInterface.methodPublicStaticUnsupported(); }
 }
 
 class LinkMethodInterfaceStaticConditionallyBlocked {
-  public static int access() {
-    return ParentInterface.methodPublicStaticConditionallyBlocked();
-  }
+    public static int access() { return ParentInterface.methodPublicStaticConditionallyBlocked(); }
 }
 
 class LinkMethodInterfaceStaticBlocklist {
-  public static int access() {
-    return ParentInterface.methodPublicStaticBlocklist();
-  }
+    public static int access() { return ParentInterface.methodPublicStaticBlocklist(); }
 }
 
 class LinkMethodInterfaceStaticBlocklistAndCorePlatformApi {
-  public static int access() {
-    return ParentInterface.methodPublicStaticBlocklistAndCorePlatformApi();
-  }
+    public static int access() {
+        return ParentInterface.methodPublicStaticBlocklistAndCorePlatformApi();
+    }
 }

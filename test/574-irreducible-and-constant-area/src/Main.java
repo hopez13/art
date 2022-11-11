@@ -17,22 +17,22 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("IrreducibleLoop");
-    Method m = c.getMethod("simpleLoop", int.class);
-    Object[] arguments = { 42 };
-    m.invoke(null, arguments);
-  }
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("IrreducibleLoop");
+        Method m = c.getMethod("simpleLoop", int.class);
+        Object[] arguments = {42};
+        m.invoke(null, arguments);
+    }
 
-  public static void $inline$foo(float a, float b) {
-    Math.abs(a);
-    Math.max(a, b);
-    Math.min(a, b);
-  }
+    public static void $inline$foo(float a, float b) {
+        Math.abs(a);
+        Math.max(a, b);
+        Math.min(a, b);
+    }
 
-  public static void $inline$foo(double a, double b) {
-    Math.abs(a);
-    Math.max(a, b);
-    Math.min(a, b);
-  }
+    public static void $inline$foo(double a, double b) {
+        Math.abs(a);
+        Math.max(a, b);
+        Math.min(a, b);
+    }
 }

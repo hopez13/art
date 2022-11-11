@@ -18,19 +18,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    double[] array = new double[5];
-    try {
-      Class<?> c = Class.forName("TestCase");
-      Method m = c.getMethod("run", double[].class, int.class);
-      m.invoke(null, array, 42);
-    } catch (InvocationTargetException e) {
-      // expected
-      if (!(e.getCause() instanceof ArrayIndexOutOfBoundsException)) {
-        throw new Error("Expected ArrayIndexOutOfBoundsException, got " + e.getCause());
-      }
-      return;
+    public static void main(String[] args) throws Exception {
+        double[] array = new double[5];
+        try {
+            Class<?> c = Class.forName("TestCase");
+            Method m = c.getMethod("run", double[].class, int.class);
+            m.invoke(null, array, 42);
+        } catch (InvocationTargetException e) {
+            // expected
+            if (!(e.getCause() instanceof ArrayIndexOutOfBoundsException)) {
+                throw new Error("Expected ArrayIndexOutOfBoundsException, got " + e.getCause());
+            }
+            return;
+        }
+        throw new Error("Expected InvocationTargetException");
     }
-    throw new Error("Expected InvocationTargetException");
-  }
 }

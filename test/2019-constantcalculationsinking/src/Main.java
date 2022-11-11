@@ -24,7 +24,6 @@
  **/
 
 public class Main {
-
     final int iterations = 1100;
 
     public static void assertIntEquals(int expected, int result) {
@@ -39,20 +38,19 @@ public class Main {
         }
     }
 
-
     public int testLoopAddInt() {
         int testVar = 10000;
         int additionalVar = 10;
 
-        outer:
-            for (int i = 0; i < iterations; i++) {
-                additionalVar += i;
-                for (int k = 0; k < iterations; k++) {
-                    additionalVar += k;
-                    testVar += 5;
-                    continue outer;
-                }
+    outer:
+        for (int i = 0; i < iterations; i++) {
+            additionalVar += i;
+            for (int k = 0; k < iterations; k++) {
+                additionalVar += k;
+                testVar += 5;
+                continue outer;
             }
+        }
         assertIntEquals(testVar + additionalVar, 619960);
         return testVar + additionalVar;
     }
@@ -61,15 +59,15 @@ public class Main {
         int testVar = 10000;
         int additionalVar = 10;
 
-        outer:
-            for (int i = 0; i < iterations; i++) {
-                additionalVar += i;
-                for (int k = 0; k < iterations; k++) {
-                    additionalVar += k;
-                    testVar -= 5;
-                    continue outer;
-                }
+    outer:
+        for (int i = 0; i < iterations; i++) {
+            additionalVar += i;
+            for (int k = 0; k < iterations; k++) {
+                additionalVar += k;
+                testVar -= 5;
+                continue outer;
             }
+        }
         assertIntEquals(testVar + additionalVar, 608960);
         return testVar + additionalVar;
     }
@@ -78,15 +76,15 @@ public class Main {
         long testVar = 10000;
         long additionalVar = 10;
 
-        outer:
-            for (long i = 0; i < iterations; i++) {
-                additionalVar += i;
-                for (long k = 0; k < iterations; k++) {
-                    additionalVar += k;
-                    testVar -= 5;
-                    continue outer;
-                }
+    outer:
+        for (long i = 0; i < iterations; i++) {
+            additionalVar += i;
+            for (long k = 0; k < iterations; k++) {
+                additionalVar += k;
+                testVar -= 5;
+                continue outer;
             }
+        }
         assertLongEquals(testVar + additionalVar, 608960);
         return testVar + additionalVar;
     }
@@ -95,16 +93,16 @@ public class Main {
         int testVar = 1;
         int additionalVar = 10;
 
-        outer:
-            for (int i = 0; i < 3; i++) {
-                additionalVar += i + n * 2;
-                for (int k = 0; k < 5; k++) {
-                    additionalVar += k + n + k % 3 - i % 2 + n % 4 - i % 5
-                                     + (k + 2) / 7 - (i - 5) / 3 + k * 3 - k / 2;
-                    testVar *= 6;
-                    continue outer;
-                }
+    outer:
+        for (int i = 0; i < 3; i++) {
+            additionalVar += i + n * 2;
+            for (int k = 0; k < 5; k++) {
+                additionalVar += k + n + k % 3 - i % 2 + n % 4 - i % 5 + (k + 2) / 7 - (i - 5) / 3
+                        + k * 3 - k / 2;
+                testVar *= 6;
+                continue outer;
             }
+        }
         assertIntEquals(testVar + additionalVar, 324);
         return testVar + additionalVar;
     }
@@ -113,16 +111,16 @@ public class Main {
         long testVar = 1;
         long additionalVar = 10;
 
-        outer:
-            for (long i = 0; i < 5; i++) {
-                additionalVar += i + n;
-                for (long k = 0; k < 5; k++) {
-                    additionalVar += k + n + k % 3 - i % 2 + n % 4 - i % 5
-                                     + (k + 2) / 7 - (i - 5) / 3 + k * 3 - k / 2;
-                    testVar *= 6L;
-                    continue outer;
-                }
+    outer:
+        for (long i = 0; i < 5; i++) {
+            additionalVar += i + n;
+            for (long k = 0; k < 5; k++) {
+                additionalVar += k + n + k % 3 - i % 2 + n % 4 - i % 5 + (k + 2) / 7 - (i - 5) / 3
+                        + k * 3 - k / 2;
+                testVar *= 6L;
+                continue outer;
             }
+        }
         assertLongEquals(testVar + additionalVar, 7897);
         return testVar + additionalVar;
     }
@@ -131,15 +129,15 @@ public class Main {
         int testVar = 10000;
         int additionalVar = 10;
 
-        outer:
-            for (int i = 0; i < iterations; i++) {
-                additionalVar += i;
-                for (int k = 0; k < iterations; k++) {
-                    additionalVar += k;
-                    testVar /= 5;
-                    continue outer;
-                }
+    outer:
+        for (int i = 0; i < iterations; i++) {
+            additionalVar += i;
+            for (int k = 0; k < iterations; k++) {
+                additionalVar += k;
+                testVar /= 5;
+                continue outer;
             }
+        }
         assertIntEquals(testVar + additionalVar, 604460);
         return testVar + additionalVar;
     }
@@ -148,15 +146,15 @@ public class Main {
         long testVar = 10000;
         long additionalVar = 10;
 
-        outer:
-            for (long i = 0; i < iterations; i++) {
-                additionalVar += i;
-                for (long k = 0; k < iterations; k++) {
-                    additionalVar += k;
-                    testVar /= 5;
-                    continue outer;
-                }
+    outer:
+        for (long i = 0; i < iterations; i++) {
+            additionalVar += i;
+            for (long k = 0; k < iterations; k++) {
+                additionalVar += k;
+                testVar /= 5;
+                continue outer;
             }
+        }
         assertLongEquals(testVar + additionalVar, 604460);
         return testVar + additionalVar;
     }
@@ -165,15 +163,15 @@ public class Main {
         int testVar = 10000;
         int additionalVar = 10;
 
-        outer:
-            for (int i = 0; i < iterations; i++) {
-                additionalVar += i;
-                for (int k = 0; k < iterations; k++) {
-                    additionalVar += k;
-                    testVar %= 5;
-                    continue outer;
-                }
+    outer:
+        for (int i = 0; i < iterations; i++) {
+            additionalVar += i;
+            for (int k = 0; k < iterations; k++) {
+                additionalVar += k;
+                testVar %= 5;
+                continue outer;
             }
+        }
         assertIntEquals(testVar + additionalVar, 604460);
         return testVar + additionalVar;
     }
@@ -182,15 +180,15 @@ public class Main {
         long testVar = 10000;
         long additionalVar = 10;
 
-        outer:
-            for (long i = 0; i < iterations; i++) {
-                additionalVar += i;
-                for (long k = 0; k < iterations; k++) {
-                    additionalVar += k;
-                    testVar %= 5;
-                    continue outer;
-                }
+    outer:
+        for (long i = 0; i < iterations; i++) {
+            additionalVar += i;
+            for (long k = 0; k < iterations; k++) {
+                additionalVar += k;
+                testVar %= 5;
+                continue outer;
             }
+        }
         assertLongEquals(testVar + additionalVar, 604460);
         return testVar + additionalVar;
     }
@@ -199,15 +197,15 @@ public class Main {
         long testVar = 10000;
         long additionalVar = 10;
 
-        outer:
-            for (long i = 0; i < iterations; i++) {
-                additionalVar += i;
-                for (long k = 0; k < iterations; k++) {
-                    additionalVar += k;
-                    testVar += 5;
-                    continue outer;
-                }
+    outer:
+        for (long i = 0; i < iterations; i++) {
+            additionalVar += i;
+            for (long k = 0; k < iterations; k++) {
+                additionalVar += k;
+                testVar += 5;
+                continue outer;
             }
+        }
         assertLongEquals(testVar + additionalVar, 619960);
         return testVar + additionalVar;
     }
@@ -225,5 +223,4 @@ public class Main {
         obj.testLoopSubLong();
         obj.testLoopSubInt();
     }
-
 }

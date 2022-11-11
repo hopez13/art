@@ -15,7 +15,5 @@
  */
 
 class M extends L implements Fooer {
-  public String bar() {
-    return "BAZ!";
-  }
+    public String bar() { return "BAZ!"; }
 }

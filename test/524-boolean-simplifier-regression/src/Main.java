@@ -15,12 +15,9 @@
  */
 
 public class Main {
+    public static boolean test2() { throw new NullPointerException(); }
 
-    public static boolean test2() {
-        throw new NullPointerException();
-    }
-
-    public static boolean test1()  {
+    public static boolean test1() {
         System.out.println("Passed");
         try {
             test2();
@@ -30,8 +27,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-      boolean b=false;
+        boolean b = false;
 
-      b = (test1() || (b = b)) & b;
+        b = (test1() || (b = b)) & b;
     }
 }

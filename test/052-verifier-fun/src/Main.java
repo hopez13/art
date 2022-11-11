@@ -39,9 +39,12 @@ public class Main {
         arrayTwo = new Integer[1];
 
         switch (wanted) {
-            case 0:     return arrayOne;
-            case 1:     return arrayTwo;
-            default:    return null;
+            case 0:
+                return arrayOne;
+            case 1:
+                return arrayTwo;
+            default:
+                return null;
         }
     }
 
@@ -55,10 +58,14 @@ public class Main {
         arrayThree = new int[1];
 
         switch (wanted) {
-            case 0:     return arrayOne;
-            case 1:     return arrayTwo;
-            case 2:     return arrayThree;
-            default:    return null;
+            case 0:
+                return arrayOne;
+            case 1:
+                return arrayTwo;
+            case 2:
+                return arrayThree;
+            default:
+                return null;
         }
     }
 
@@ -72,10 +79,14 @@ public class Main {
         arrayThree = new Integer[1][];
 
         switch (wanted) {
-            case 0:     return arrayOne;
-            case 1:     return arrayTwo;
-            case 2:     return arrayThree;
-            default:    return null;
+            case 0:
+                return arrayOne;
+            case 1:
+                return arrayTwo;
+            case 2:
+                return arrayThree;
+            default:
+                return null;
         }
     }
 
@@ -87,9 +98,12 @@ public class Main {
         arrayFour = new String[1][][][];
 
         switch (wanted) {
-            case 0:     return arrayTwo;
-            case 1:     return arrayFour;
-            default:    return null;
+            case 0:
+                return arrayTwo;
+            case 1:
+                return arrayFour;
+            default:
+                return null;
         }
     }
 
@@ -97,18 +111,17 @@ public class Main {
      * Check return type merge.
      */
     private Type[] typeTest() {
-        if(this == null) {
-            return (Class<?>[])null;
+        if (this == null) {
+            return (Class<?>[]) null;
         }
-        return (Type[])null;
+        return (Type[]) null;
     }
-
 
     /*
      * Exercise the blahs.
      */
     static void tryBlah(int num) {
-        BlahFeature feature = null;     // interface ref
+        BlahFeature feature = null; // interface ref
 
         switch (num) {
             case 1:
@@ -123,13 +136,13 @@ public class Main {
     }
 
     static int instanceOfTest(Integer x) {
-      Object y = x;
-      if (y instanceof String) {
-        // Bug: 15808277
-        // Non-sensical instance-of to check merging after the branch doesn't result in a verifier
-        // error.
-        ((String)y).charAt(0);
-      }
-      return x.intValue();
+        Object y = x;
+        if (y instanceof String) {
+            // Bug: 15808277
+            // Non-sensical instance-of to check merging after the branch doesn't result in a
+            // verifier error.
+            ((String) y).charAt(0);
+        }
+        return x.intValue();
     }
 }

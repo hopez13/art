@@ -15,39 +15,35 @@
  */
 
 public class Main {
-  int mainField = 42;
+    int mainField = 42;
 
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    ensureJitCompiled(Main.class, "$noinline$callRecursiveMethod");
-    $noinline$callRecursiveMethod(true);
-  }
-
-  public static void expectEquals(int expected, int actual) {
-    if (expected != actual) {
-      throw new Error("Expected " + expected + ", got " + actual);
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        ensureJitCompiled(Main.class, "$noinline$callRecursiveMethod");
+        $noinline$callRecursiveMethod(true);
     }
-  }
 
-  public static void $noinline$callRecursiveMethod(boolean firstEntry) throws Exception {
-    Class<?> cls = Class.forName("LoadedLater");
-    Main m = (Main)cls.newInstance();
-    if (firstEntry) {
-      $noinline$callRecursiveMethod(false);
-    } else {
-      expectEquals(0, m.getField());
+    public static void expectEquals(int expected, int actual) {
+        if (expected != actual) {
+            throw new Error("Expected " + expected + ", got " + actual);
+        }
     }
-  }
 
-  public int getField() {
-    return mainField;
-  }
+    public static void $noinline$callRecursiveMethod(boolean firstEntry) throws Exception {
+        Class<?> cls = Class.forName("LoadedLater");
+        Main m = (Main) cls.newInstance();
+        if (firstEntry) {
+            $noinline$callRecursiveMethod(false);
+        } else {
+            expectEquals(0, m.getField());
+        }
+    }
 
-  public static native void ensureJitCompiled(Class<?> cls, String methodName);
+    public int getField() { return mainField; }
+
+    public static native void ensureJitCompiled(Class<?> cls, String methodName);
 }
 
 class LoadedLater extends Main {
-  public int getField() {
-    return 0;
-  }
+    public int getField() { return 0; }
 }

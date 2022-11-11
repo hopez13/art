@@ -17,80 +17,80 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  static long smallLong = 42L;
-  static long smallLongShlOne = 84L;
-  static long smallLongShrOne = 21L;
-  static long smallLongUShrOne = 21L;
-  static long longLong = 123456789123456789L;
-  static long longLongShlOne = 246913578246913578L;
-  static long longLongShrOne = 61728394561728394L;
-  static long longLongUShrOne = 61728394561728394L;
+    static long smallLong = 42L;
+    static long smallLongShlOne = 84L;
+    static long smallLongShrOne = 21L;
+    static long smallLongUShrOne = 21L;
+    static long longLong = 123456789123456789L;
+    static long longLongShlOne = 246913578246913578L;
+    static long longLongShrOne = 61728394561728394L;
+    static long longLongUShrOne = 61728394561728394L;
 
-  static long negativeSmallLong = -42L;
-  static long negativeSmallLongShlOne = -84L;
-  static long negativeSmallLongShrOne = -21L;
-  static long negativeSmallLongUShrOne = 9223372036854775787L;
-  static long negativeLongLong = -123456789123456789L;
-  static long negativeLongLongShlOne = -246913578246913578L;
-  static long negativeLongLongShrOne = -61728394561728395L;
-  static long negativeLongLongUShrOne = 9161643642293047413L;
+    static long negativeSmallLong = -42L;
+    static long negativeSmallLongShlOne = -84L;
+    static long negativeSmallLongShrOne = -21L;
+    static long negativeSmallLongUShrOne = 9223372036854775787L;
+    static long negativeLongLong = -123456789123456789L;
+    static long negativeLongLongShlOne = -246913578246913578L;
+    static long negativeLongLongShrOne = -61728394561728395L;
+    static long negativeLongLongUShrOne = 9161643642293047413L;
 
-  private static void assertEquals(long expected, long actual) {
-    if (expected != actual) {
-      throw new Error("Expected " + expected + ", got " + actual);
+    private static void assertEquals(long expected, long actual) {
+        if (expected != actual) {
+            throw new Error("Expected " + expected + ", got " + actual);
+        }
     }
-  }
 
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("Test");
-    Method m = c.getMethod("shlZero", long.class);
-    assertEquals(smallLong, (Long)m.invoke(null, smallLong));
-    assertEquals(longLong, (Long)m.invoke(null, longLong));
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("Test");
+        Method m = c.getMethod("shlZero", long.class);
+        assertEquals(smallLong, (Long) m.invoke(null, smallLong));
+        assertEquals(longLong, (Long) m.invoke(null, longLong));
 
-    m = c.getMethod("shrZero", long.class);
-    assertEquals(smallLong, (Long)m.invoke(null, smallLong));
-    assertEquals(longLong, (Long)m.invoke(null, longLong));
+        m = c.getMethod("shrZero", long.class);
+        assertEquals(smallLong, (Long) m.invoke(null, smallLong));
+        assertEquals(longLong, (Long) m.invoke(null, longLong));
 
-    m = c.getMethod("ushrZero", long.class);
-    assertEquals(smallLong, (Long)m.invoke(null, smallLong));
-    assertEquals(longLong, (Long)m.invoke(null, longLong));
+        m = c.getMethod("ushrZero", long.class);
+        assertEquals(smallLong, (Long) m.invoke(null, smallLong));
+        assertEquals(longLong, (Long) m.invoke(null, longLong));
 
-    m = c.getMethod("shlOne", long.class);
-    assertEquals(smallLongShlOne, (Long)m.invoke(null, smallLong));
-    assertEquals(longLongShlOne, (Long)m.invoke(null, longLong));
+        m = c.getMethod("shlOne", long.class);
+        assertEquals(smallLongShlOne, (Long) m.invoke(null, smallLong));
+        assertEquals(longLongShlOne, (Long) m.invoke(null, longLong));
 
-    m = c.getMethod("shrOne", long.class);
-    assertEquals(smallLongShrOne, (Long)m.invoke(null, smallLong));
-    assertEquals(longLongShrOne, (Long)m.invoke(null, longLong));
+        m = c.getMethod("shrOne", long.class);
+        assertEquals(smallLongShrOne, (Long) m.invoke(null, smallLong));
+        assertEquals(longLongShrOne, (Long) m.invoke(null, longLong));
 
-    m = c.getMethod("ushrOne", long.class);
-    assertEquals(smallLongUShrOne, (Long)m.invoke(null, smallLong));
-    assertEquals(longLongUShrOne, (Long)m.invoke(null, longLong));
+        m = c.getMethod("ushrOne", long.class);
+        assertEquals(smallLongUShrOne, (Long) m.invoke(null, smallLong));
+        assertEquals(longLongUShrOne, (Long) m.invoke(null, longLong));
 
-    // Test with negative numbers.
+        // Test with negative numbers.
 
-    m = c.getMethod("shlZero", long.class);
-    assertEquals(negativeSmallLong, (Long)m.invoke(null, negativeSmallLong));
-    assertEquals(negativeLongLong, (Long)m.invoke(null, negativeLongLong));
+        m = c.getMethod("shlZero", long.class);
+        assertEquals(negativeSmallLong, (Long) m.invoke(null, negativeSmallLong));
+        assertEquals(negativeLongLong, (Long) m.invoke(null, negativeLongLong));
 
-    m = c.getMethod("shrZero", long.class);
-    assertEquals(negativeSmallLong, (Long)m.invoke(null, negativeSmallLong));
-    assertEquals(negativeLongLong, (Long)m.invoke(null, negativeLongLong));
+        m = c.getMethod("shrZero", long.class);
+        assertEquals(negativeSmallLong, (Long) m.invoke(null, negativeSmallLong));
+        assertEquals(negativeLongLong, (Long) m.invoke(null, negativeLongLong));
 
-    m = c.getMethod("ushrZero", long.class);
-    assertEquals(negativeSmallLong, (Long)m.invoke(null, negativeSmallLong));
-    assertEquals(negativeLongLong, (Long)m.invoke(null, negativeLongLong));
+        m = c.getMethod("ushrZero", long.class);
+        assertEquals(negativeSmallLong, (Long) m.invoke(null, negativeSmallLong));
+        assertEquals(negativeLongLong, (Long) m.invoke(null, negativeLongLong));
 
-    m = c.getMethod("shlOne", long.class);
-    assertEquals(negativeSmallLongShlOne, (Long)m.invoke(null, negativeSmallLong));
-    assertEquals(negativeLongLongShlOne, (Long)m.invoke(null, negativeLongLong));
+        m = c.getMethod("shlOne", long.class);
+        assertEquals(negativeSmallLongShlOne, (Long) m.invoke(null, negativeSmallLong));
+        assertEquals(negativeLongLongShlOne, (Long) m.invoke(null, negativeLongLong));
 
-    m = c.getMethod("shrOne", long.class);
-    assertEquals(negativeSmallLongShrOne, (Long)m.invoke(null, negativeSmallLong));
-    assertEquals(negativeLongLongShrOne, (Long)m.invoke(null, negativeLongLong));
+        m = c.getMethod("shrOne", long.class);
+        assertEquals(negativeSmallLongShrOne, (Long) m.invoke(null, negativeSmallLong));
+        assertEquals(negativeLongLongShrOne, (Long) m.invoke(null, negativeLongLong));
 
-    m = c.getMethod("ushrOne", long.class);
-    assertEquals(negativeSmallLongUShrOne, (Long)m.invoke(null, negativeSmallLong));
-    assertEquals(negativeLongLongUShrOne, (Long)m.invoke(null, negativeLongLong));
-  }
+        m = c.getMethod("ushrOne", long.class);
+        assertEquals(negativeSmallLongUShrOne, (Long) m.invoke(null, negativeSmallLong));
+        assertEquals(negativeLongLongUShrOne, (Long) m.invoke(null, negativeLongLong));
+    }
 }

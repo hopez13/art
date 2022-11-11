@@ -15,7 +15,5 @@
  */
 
 public class A {
-    public static void run(String lib) {
-        System.loadLibrary(lib);
-    }
+    public static void run(String lib) { System.loadLibrary(lib); }
 }

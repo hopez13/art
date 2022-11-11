@@ -16,40 +16,40 @@
 
 import java.lang.reflect.*;
 public class Main {
-  public static void main(String[] args) {
-    Class<?> c = null;
-    try {
-      c = Class.forName("ConcreteClass");
-    } catch (Exception e) {
-      System.out.println("Could not load class");
-      e.printStackTrace(System.out);
-      return;
+    public static void main(String[] args) {
+        Class<?> c = null;
+        try {
+            c = Class.forName("ConcreteClass");
+        } catch (Exception e) {
+            System.out.println("Could not load class");
+            e.printStackTrace(System.out);
+            return;
+        }
+        try {
+            Method m = c.getMethod("runReal");
+            System.out.println((String) m.invoke(c.newInstance(), new Object[0]));
+        } catch (Exception e) {
+            System.out.println("Unknown exception occurred");
+            e.printStackTrace(System.out);
+        }
+        try {
+            Method m = c.getMethod("runConflict");
+            try {
+                System.out.println((String) m.invoke(c.newInstance(), new Object[0]));
+            } catch (InvocationTargetException e) {
+                throw e.getCause();
+            }
+        } catch (AbstractMethodError e) {
+            System.out.println("Unexpected AME caught");
+            e.printStackTrace(System.out);
+        } catch (NoSuchMethodError e) {
+            System.out.println("Unexpected NSME caught");
+            e.printStackTrace(System.out);
+        } catch (IncompatibleClassChangeError e) {
+            System.out.println("Expected ICCE caught");
+        } catch (Throwable e) {
+            System.out.println("Unknown exception caught!");
+            e.printStackTrace(System.out);
+        }
     }
-    try {
-      Method m = c.getMethod("runReal");
-      System.out.println((String)m.invoke(c.newInstance(), new Object[0]));
-    } catch (Exception e) {
-      System.out.println("Unknown exception occurred");
-      e.printStackTrace(System.out);
-    }
-    try {
-      Method m = c.getMethod("runConflict");
-      try {
-        System.out.println((String)m.invoke(c.newInstance(), new Object[0]));
-      } catch (InvocationTargetException e) {
-        throw e.getCause();
-      }
-    } catch (AbstractMethodError e) {
-      System.out.println("Unexpected AME caught");
-      e.printStackTrace(System.out);
-    } catch (NoSuchMethodError e) {
-      System.out.println("Unexpected NSME caught");
-      e.printStackTrace(System.out);
-    } catch (IncompatibleClassChangeError e) {
-      System.out.println("Expected ICCE caught");
-    } catch (Throwable e) {
-      System.out.println("Unknown exception caught!");
-      e.printStackTrace(System.out);
-    }
-  }
 }

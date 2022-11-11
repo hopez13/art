@@ -15,55 +15,50 @@
  */
 
 public class Main {
+    static class NoPreloadHolder {
+        static Object o = null;
 
-  static class NoPreloadHolder {
-    static Object o = null;
+        static { o.toString(); }
 
-    static {
-      o.toString();
+        static void $noinline$doCall() {}
     }
 
-    static void $noinline$doCall() {
+    public static void main(String[] args) {
+        try {
+            NoPreloadHolder.$noinline$doCall();
+            throw new Error("Expected ExceptionInInitializerError");
+        } catch (ExceptionInInitializerError e) {
+            // expected
+            check(e, mainLine);
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    try {
-      NoPreloadHolder.$noinline$doCall();
-      throw new Error("Expected ExceptionInInitializerError");
-    } catch (ExceptionInInitializerError e) {
-      // expected
-      check(e, mainLine);
+    public static int mainLine = 32;
+
+    static void check(ExceptionInInitializerError ie, int mainLine) {
+        StackTraceElement[] trace = ie.getStackTrace();
+        assertEquals(trace.length, 1);
+        checkElement(trace[0], "Main", "main", "Main.java", mainLine);
     }
-  }
 
-  public static int mainLine = 32;
-
-  static void check(ExceptionInInitializerError ie, int mainLine) {
-    StackTraceElement[] trace = ie.getStackTrace();
-    assertEquals(trace.length, 1);
-    checkElement(trace[0], "Main", "main", "Main.java", mainLine);
-  }
-
-  static void checkElement(StackTraceElement element,
-                           String declaringClass, String methodName,
-                           String fileName, int lineNumber) {
-    assertEquals(declaringClass, element.getClassName());
-    assertEquals(methodName, element.getMethodName());
-    assertEquals(fileName, element.getFileName());
-    assertEquals(lineNumber, element.getLineNumber());
-  }
-
-  static void assertEquals(Object expected, Object actual) {
-    if (!expected.equals(actual)) {
-      String msg = "Expected \"" + expected + "\" but got \"" + actual + "\"";
-      throw new AssertionError(msg);
+    static void checkElement(StackTraceElement element, String declaringClass, String methodName,
+            String fileName, int lineNumber) {
+        assertEquals(declaringClass, element.getClassName());
+        assertEquals(methodName, element.getMethodName());
+        assertEquals(fileName, element.getFileName());
+        assertEquals(lineNumber, element.getLineNumber());
     }
-  }
 
-  static void assertEquals(int expected, int actual) {
-    if (expected != actual) {
-      throw new AssertionError("Expected " + expected + " got " + actual);
+    static void assertEquals(Object expected, Object actual) {
+        if (!expected.equals(actual)) {
+            String msg = "Expected \"" + expected + "\" but got \"" + actual + "\"";
+            throw new AssertionError(msg);
+        }
     }
-  }
+
+    static void assertEquals(int expected, int actual) {
+        if (expected != actual) {
+            throw new AssertionError("Expected " + expected + " got " + actual);
+        }
+    }
 }

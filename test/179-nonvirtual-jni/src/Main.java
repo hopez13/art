@@ -15,43 +15,40 @@
  */
 
 public class Main {
-  public static class Base {
-    public void sayHi() {
-      System.out.println("Hello from Base");
+    public static class Base {
+        public void sayHi() { System.out.println("Hello from Base"); }
     }
-  }
-  public static class Ext extends Base{
-    public void sayHi() {
-      System.out.println("Hello from Ext");
+    public static class Ext extends Base {
+        public void sayHi() { System.out.println("Hello from Ext"); }
     }
-  }
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    try {
-      System.out.println("Call lookup: Base, caller: Base, Obj: Base");
-      callSayHiMethodNonvirtualWith(Base.class, Base.class, new Base());
-    } catch (Exception e) {
-      System.out.println("Caught exception " + e);
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        try {
+            System.out.println("Call lookup: Base, caller: Base, Obj: Base");
+            callSayHiMethodNonvirtualWith(Base.class, Base.class, new Base());
+        } catch (Exception e) {
+            System.out.println("Caught exception " + e);
+        }
+        try {
+            System.out.println("Call lookup: Base, caller: Base, Obj: Ext");
+            callSayHiMethodNonvirtualWith(Base.class, Base.class, new Ext());
+        } catch (Exception e) {
+            System.out.println("Caught exception " + e);
+        }
+        try {
+            System.out.println("Call lookup: Base, caller: Ext, Obj: Ext");
+            callSayHiMethodNonvirtualWith(Base.class, Ext.class, new Ext());
+        } catch (Exception e) {
+            System.out.println("Caught exception " + e);
+        }
+        try {
+            System.out.println("Call lookup: Ext, caller: Ext, Obj: Ext");
+            callSayHiMethodNonvirtualWith(Ext.class, Ext.class, new Ext());
+        } catch (Exception e) {
+            System.out.println("Caught exception " + e);
+        }
     }
-    try {
-      System.out.println("Call lookup: Base, caller: Base, Obj: Ext");
-      callSayHiMethodNonvirtualWith(Base.class, Base.class, new Ext());
-    } catch (Exception e) {
-      System.out.println("Caught exception " + e);
-    }
-    try {
-      System.out.println("Call lookup: Base, caller: Ext, Obj: Ext");
-      callSayHiMethodNonvirtualWith(Base.class, Ext.class, new Ext());
-    } catch (Exception e) {
-      System.out.println("Caught exception " + e);
-    }
-    try {
-      System.out.println("Call lookup: Ext, caller: Ext, Obj: Ext");
-      callSayHiMethodNonvirtualWith(Ext.class, Ext.class, new Ext());
-    } catch (Exception e) {
-      System.out.println("Caught exception " + e);
-    }
-  }
 
-  private static native void callSayHiMethodNonvirtualWith(Class<?> lookup, Class<?> caller, Object recv);
+    private static native void callSayHiMethodNonvirtualWith(
+            Class<?> lookup, Class<?> caller, Object recv);
 }

@@ -15,7 +15,5 @@
  */
 
 public interface Itf {
-  public default String bar() {
-    return "Itf";
-  }
+    public default String bar() { return "Itf"; }
 }

@@ -15,9 +15,14 @@
  */
 package transformer;
 
-import annotations.BootstrapMethod;
-import annotations.CalledByIndy;
-import annotations.Constant;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.Handle;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.invoke.MethodType;
@@ -30,13 +35,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.Handle;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.Type;
+
+import annotations.BootstrapMethod;
+import annotations.CalledByIndy;
+import annotations.Constant;
 
 /**
  * Class for inserting invoke-dynamic instructions in annotated Java class files.
@@ -70,9 +72,7 @@ import org.objectweb.asm.Type;
  * <p>In the example above, this results in add() being replaced by invocations of magicAdd().
  */
 public class IndyTransformer {
-
     static class BootstrapBuilder extends ClassVisitor {
-
         private final Map<String, CalledByIndy> callsiteMap;
         private final Map<String, Handle> bsmMap = new HashMap<>();
 
@@ -113,16 +113,11 @@ public class IndyTransformer {
                 private Handle buildBootstrapMethodHandle(BootstrapMethod bootstrapMethod) {
                     String className = Type.getInternalName(bootstrapMethod.enclosingType());
                     String methodName = bootstrapMethod.name();
-                    String methodType =
-                            MethodType.methodType(
-                                            bootstrapMethod.returnType(),
-                                            bootstrapMethod.parameterTypes())
-                                    .toMethodDescriptorString();
-                    return new Handle(
-                            Opcodes.H_INVOKESTATIC,
-                            className,
-                            methodName,
-                            methodType,
+                    String methodType = MethodType
+                                                .methodType(bootstrapMethod.returnType(),
+                                                        bootstrapMethod.parameterTypes())
+                                                .toMethodDescriptorString();
+                    return new Handle(Opcodes.H_INVOKESTATIC, className, methodName, methodType,
                             false /* itf */);
                 }
 

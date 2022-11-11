@@ -15,15 +15,15 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Class<?> cls = Class.forName("VerifiedSubClass");
-    cls.newInstance();
+    public static void main(String[] args) throws Exception {
+        Class<?> cls = Class.forName("VerifiedSubClass");
+        cls.newInstance();
 
-    try {
-      Class.forName("NonVerifiedSubClass");
-      throw new Error("Expected VerifyError");
-    } catch (VerifyError e) {
-      // expected
+        try {
+            Class.forName("NonVerifiedSubClass");
+            throw new Error("Expected VerifyError");
+        } catch (VerifyError e) {
+            // expected
+        }
     }
-  }
 }

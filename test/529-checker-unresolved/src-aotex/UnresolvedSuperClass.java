@@ -15,7 +15,5 @@
  */
 
 public class UnresolvedSuperClass {
-  public void superMethod() {
-    System.out.println("UnresolvedClass.superMethod()");
-  }
+    public void superMethod() { System.out.println("UnresolvedClass.superMethod()"); }
 }

@@ -15,11 +15,7 @@
  */
 
 class Transform4 {
-  private String greeting;
-  public Transform4(String hi) {
-    greeting = hi;
-  }
-  public void sayHi(String name) {
-    System.out.println("hello " + greeting + " - " + name);
-  }
+    private String greeting;
+    public Transform4(String hi) { greeting = hi; }
+    public void sayHi(String name) { System.out.println("hello " + greeting + " - " + name); }
 }

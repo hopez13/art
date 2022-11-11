@@ -18,32 +18,24 @@
  * Test arithmetic operations.
  */
 public class IntMath {
-
     static void shiftTest1() {
         System.out.println("IntMath.shiftTest1");
 
-        final int[] mBytes = {
-            0x11, 0x22, 0x33, 0x44, 0x88, 0x99, 0xaa, 0xbb
-        };
+        final int[] mBytes = {0x11, 0x22, 0x33, 0x44, 0x88, 0x99, 0xaa, 0xbb};
         long l;
         int i1, i2;
 
         i1 = mBytes[0] | mBytes[1] << 8 | mBytes[2] << 16 | mBytes[3] << 24;
         i2 = mBytes[4] | mBytes[5] << 8 | mBytes[6] << 16 | mBytes[7] << 24;
-        l = i1 | ((long)i2 << 32);
+        l = i1 | ((long) i2 << 32);
 
         Main.assertTrue(i1 == 0x44332211);
         Main.assertTrue(i2 == 0xbbaa9988);
         Main.assertTrue(l == 0xbbaa998844332211L);
 
-        l = (long)mBytes[0]
-            | (long)mBytes[1] << 8
-            | (long)mBytes[2] << 16
-            | (long)mBytes[3] << 24
-            | (long)mBytes[4] << 32
-            | (long)mBytes[5] << 40
-            | (long)mBytes[6] << 48
-            | (long)mBytes[7] << 56;
+        l = (long) mBytes[0] | (long) mBytes[1] << 8 | (long) mBytes[2] << 16
+                | (long) mBytes[3] << 24 | (long) mBytes[4] << 32 | (long) mBytes[5] << 40
+                | (long) mBytes[6] << 48 | (long) mBytes[7] << 56;
 
         Main.assertTrue(l == 0xbbaa998844332211L);
     }
@@ -51,17 +43,17 @@ public class IntMath {
     static void shiftTest2() {
         System.out.println("IntMath.shiftTest2");
 
-        long    a = 0x11;
-        long    b = 0x22;
-        long    c = 0x33;
-        long    d = 0x44;
-        long    e = 0x55;
-        long    f = 0x66;
-        long    g = 0x77;
-        long    h = 0x88;
+        long a = 0x11;
+        long b = 0x22;
+        long c = 0x33;
+        long d = 0x44;
+        long e = 0x55;
+        long f = 0x66;
+        long g = 0x77;
+        long h = 0x88;
 
-        long    result = ((a << 56) | (b << 48) | (c << 40) | (d << 32) |
-                         (e << 24) | (f << 16) | (g <<  8) | h);
+        long result = ((a << 56) | (b << 48) | (c << 40) | (d << 32) | (e << 24) | (f << 16)
+                | (g << 8) | h);
 
         Main.assertTrue(result == 0x1122334455667788L);
     }
@@ -195,7 +187,7 @@ public class IntMath {
         Main.assertTrue(results[0] == 69997);
         Main.assertTrue(results[1] == 70003);
         Main.assertTrue(results[2] == -210000);
-        Main.assertTrue(results[3] == 605032704);    // overflow / truncate
+        Main.assertTrue(results[3] == 605032704); // overflow / truncate
         Main.assertTrue(results[4] == -23333);
         Main.assertTrue(results[5] == 1);
         Main.assertTrue(results[6] == 70000);
@@ -254,8 +246,8 @@ public class IntMath {
         return results;
     }
     static void lit8Check(int[] results) {
-        //for (int i = 0; i < results.length; i++)
-        //    System.out.println(" " + i + ": " + results[i]);
+        // for (int i = 0; i < results.length; i++)
+        //     System.out.println(" " + i + ": " + results[i]);
 
         /* check this edge case while we're here (div-int/lit8) */
         int minInt = -2147483648;
@@ -277,74 +269,74 @@ public class IntMath {
      * normal division.
      */
     static void divLiteralTestBody(int start, int count) {
-       int normal = 0;
-       int special = 0;
-       for (int i = 0; i < count; i++) {
-           for (int j = 3; j < 16; j++) {
-               switch(j) {
-                   case 3:
-                       normal = (start+i) / j;
-                       special = (start+i) / 3;
-                       break;
-                   case 4:
-                       normal = (start+i) / j;
-                       special = (start+i) / 4;
-                       break;
-                   case 5:
-                       normal = (start+i) / j;
-                       special = (start+i) / 5;
-                       break;
-                   case 6:
-                       normal = (start+i) / j;
-                       special = (start+i) / 6;
-                       break;
-                   case 7:
-                       normal = (start+i) / j;
-                       special = (start+i) / 7;
-                       break;
-                   case 8:
-                       normal = (start+i) / j;
-                       special = (start+i) / 8;
-                       break;
-                   case 9:
-                       normal = (start+i) / j;
-                       special = (start+i) / 9;
-                       break;
-                   case 10:
-                       normal = (start+i) / j;
-                       special = (start+i) / 10;
-                       break;
-                   case 11:
-                       normal = (start+i) / j;
-                       special = (start+i) / 11;
-                       break;
-                   case 12:
-                       normal = (start+i) / j;
-                       special = (start+i) / 12;
-                       break;
-                   case 13:
-                       normal = (start+i) / j;
-                       special = (start+i) / 13;
-                       break;
-                   case 14:
-                       normal = (start+i) / j;
-                       special = (start+i) / 14;
-                       break;
-                   case 15:
-                       normal = (start+i) / j;
-                       special = (start+i) / 15;
-                       break;
-               }
-               Main.assertTrue(normal == special);
-           }
-       }
+        int normal = 0;
+        int special = 0;
+        for (int i = 0; i < count; i++) {
+            for (int j = 3; j < 16; j++) {
+                switch (j) {
+                    case 3:
+                        normal = (start + i) / j;
+                        special = (start + i) / 3;
+                        break;
+                    case 4:
+                        normal = (start + i) / j;
+                        special = (start + i) / 4;
+                        break;
+                    case 5:
+                        normal = (start + i) / j;
+                        special = (start + i) / 5;
+                        break;
+                    case 6:
+                        normal = (start + i) / j;
+                        special = (start + i) / 6;
+                        break;
+                    case 7:
+                        normal = (start + i) / j;
+                        special = (start + i) / 7;
+                        break;
+                    case 8:
+                        normal = (start + i) / j;
+                        special = (start + i) / 8;
+                        break;
+                    case 9:
+                        normal = (start + i) / j;
+                        special = (start + i) / 9;
+                        break;
+                    case 10:
+                        normal = (start + i) / j;
+                        special = (start + i) / 10;
+                        break;
+                    case 11:
+                        normal = (start + i) / j;
+                        special = (start + i) / 11;
+                        break;
+                    case 12:
+                        normal = (start + i) / j;
+                        special = (start + i) / 12;
+                        break;
+                    case 13:
+                        normal = (start + i) / j;
+                        special = (start + i) / 13;
+                        break;
+                    case 14:
+                        normal = (start + i) / j;
+                        special = (start + i) / 14;
+                        break;
+                    case 15:
+                        normal = (start + i) / j;
+                        special = (start + i) / 15;
+                        break;
+                }
+                Main.assertTrue(normal == special);
+            }
+        }
     }
 
     static void divLiteralTest() {
-       System.out.println("IntMath.divLiteralTest");
-       divLiteralTestBody(-1000, 2000);
-       divLiteralTestBody(0x7fffffff-2000, 2000);
-       divLiteralTestBody(0xfff0ffff, 2000);
+        System.out.println("IntMath.divLiteralTest");
+        divLiteralTestBody(-1000, 2000);
+        divLiteralTestBody(0x7fffffff - 2000, 2000);
+        divLiteralTestBody(0xfff0ffff, 2000);
     }
 
     /*
@@ -409,7 +401,7 @@ public class IntMath {
         Main.assertTrue(results[0] == 69999999997L);
         Main.assertTrue(results[1] == 70000000003L);
         Main.assertTrue(results[2] == -210000000000L);
-        Main.assertTrue(results[3] == -6833923606740729856L);    // overflow
+        Main.assertTrue(results[3] == -6833923606740729856L); // overflow
         Main.assertTrue(results[4] == -23333333333L);
         Main.assertTrue(results[5] == 1);
         Main.assertTrue(results[6] == 70000000000L);
@@ -445,9 +437,8 @@ public class IntMath {
 
         Main.assertTrue(results.length == 4);
 
-        return results[0];      // test return-long
+        return results[0]; // test return-long
     }
-
 
     /*
      * Try to cause some unary operations.
@@ -457,9 +448,7 @@ public class IntMath {
         x ^= 0xffffffff;
         return x;
     }
-    static void unopCheck(int result) {
-        Main.assertTrue(result == 37);
-    }
+    static void unopCheck(int result) { Main.assertTrue(result == 37); }
 
     static class Shorty {
         public short mShort;
@@ -480,9 +469,9 @@ public class IntMath {
         return shorts;
     }
     static void truncateCheck(Shorty shorts) {
-        Main.assertTrue(shorts.mShort == -5597);     // 0xea23
-        Main.assertTrue(shorts.mChar == 59939);      // 0xea23
-        Main.assertTrue(shorts.mByte == 35);         // 0x23
+        Main.assertTrue(shorts.mShort == -5597); // 0xea23
+        Main.assertTrue(shorts.mChar == 59939); // 0xea23
+        Main.assertTrue(shorts.mByte == 35); // 0x23
     }
 
     /*
@@ -545,12 +534,12 @@ public class IntMath {
     static void checkConsts(byte small, short medium, int large, long huge) {
         System.out.println("IntMath.checkConsts");
 
-        Main.assertTrue(small == 1);                     // const/4
-        Main.assertTrue(medium == -256);                 // const/16
-        Main.assertTrue(medium == -256L);                // const-wide/16
-        Main.assertTrue(large == -88888);                // const
-        Main.assertTrue(large == -88888L);               // const-wide/32
-        Main.assertTrue(huge == 0x9922334455667788L);    // const-wide
+        Main.assertTrue(small == 1); // const/4
+        Main.assertTrue(medium == -256); // const/16
+        Main.assertTrue(medium == -256L); // const-wide/16
+        Main.assertTrue(large == -88888); // const
+        Main.assertTrue(large == -88888L); // const-wide/32
+        Main.assertTrue(huge == 0x9922334455667788L); // const-wide
     }
 
     /*
@@ -600,7 +589,7 @@ public class IntMath {
         long longRet = longShiftCheck(longResults);
         Main.assertTrue(longRet == 0x96deff00aa010000L);
 
-        Shorty shorts = truncateTest(-16717277);    // 0xff00ea23
+        Shorty shorts = truncateTest(-16717277); // 0xff00ea23
         truncateCheck(shorts);
 
         divideByZero(0);

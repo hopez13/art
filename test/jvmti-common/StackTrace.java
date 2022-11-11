@@ -16,53 +16,46 @@
 
 package art;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Executable;
+import java.lang.reflect.Field;
 
 public class StackTrace {
-  public static class StackFrameData {
-    public final Thread thr;
-    public final Executable method;
-    public final long current_location;
-    public final int depth;
+    public static class StackFrameData {
+        public final Thread thr;
+        public final Executable method;
+        public final long current_location;
+        public final int depth;
 
-    public StackFrameData(Thread thr, Executable e, long loc, int depth) {
-      this.thr = thr;
-      this.method = e;
-      this.current_location = loc;
-      this.depth = depth;
+        public StackFrameData(Thread thr, Executable e, long loc, int depth) {
+            this.thr = thr;
+            this.method = e;
+            this.current_location = loc;
+            this.depth = depth;
+        }
+        @Override
+        public String toString() {
+            return String.format("StackFrameData { thr: '%s', method: '%s', loc: %d, depth: %d }",
+                    this.thr, this.method, this.current_location, this.depth);
+        }
     }
-    @Override
-    public String toString() {
-      return String.format(
-          "StackFrameData { thr: '%s', method: '%s', loc: %d, depth: %d }",
-          this.thr,
-          this.method,
-          this.current_location,
-          this.depth);
-    }
-  }
 
-  public static native int GetStackDepth(Thread thr);
+    public static native int GetStackDepth(Thread thr);
 
-  private static native StackFrameData[] nativeGetStackTrace(Thread thr);
+    private static native StackFrameData[] nativeGetStackTrace(Thread thr);
 
-  public static StackFrameData[] GetStackTrace(Thread thr) {
-    // The RI seems to give inconsistent (and sometimes nonsensical) results if the thread is not
-    // suspended. The spec says that not being suspended is fine but since we want this to be
-    // consistent we will suspend for the RI.
-    boolean suspend_thread =
-        !System.getProperty("java.vm.name").equals("Dalvik") &&
-        !thr.equals(Thread.currentThread()) &&
-        !Suspension.isSuspended(thr);
-    if (suspend_thread) {
-      Suspension.suspend(thr);
+    public static StackFrameData[] GetStackTrace(Thread thr) {
+        // The RI seems to give inconsistent (and sometimes nonsensical) results if the thread is
+        // not suspended. The spec says that not being suspended is fine but since we want this to
+        // be consistent we will suspend for the RI.
+        boolean suspend_thread = !System.getProperty("java.vm.name").equals("Dalvik")
+                && !thr.equals(Thread.currentThread()) && !Suspension.isSuspended(thr);
+        if (suspend_thread) {
+            Suspension.suspend(thr);
+        }
+        StackFrameData[] out = nativeGetStackTrace(thr);
+        if (suspend_thread) {
+            Suspension.resume(thr);
+        }
+        return out;
     }
-    StackFrameData[] out = nativeGetStackTrace(thr);
-    if (suspend_thread) {
-      Suspension.resume(thr);
-    }
-    return out;
-  }
 }
-

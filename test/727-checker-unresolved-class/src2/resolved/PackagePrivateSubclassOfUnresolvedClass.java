@@ -20,34 +20,35 @@ import getters.GetPackagePrivateSubclassOfUnresolvedClass;
 import unresolved.UnresolvedPublicClass;
 
 class PackagePrivateSubclassOfUnresolvedClass extends UnresolvedPublicClass {
-  public static void $noinline$main() {
-    $noinline$testReferrersClass();
-    $noinline$testInlinedReferrersClass();
-    $noinline$testInlinedReferrersClassFromSamePackage();
+    public static void $noinline$main() {
+        $noinline$testReferrersClass();
+        $noinline$testInlinedReferrersClass();
+        $noinline$testInlinedReferrersClassFromSamePackage();
 
-    System.out.println("PackagePrivateSubclassOfUnresolvedClass passed");
-  }
+        System.out.println("PackagePrivateSubclassOfUnresolvedClass passed");
+    }
 
-  /// CHECK-START: void resolved.PackagePrivateSubclassOfUnresolvedClass.$noinline$testReferrersClass() builder (after)
-  /// CHECK: LoadClass class_name:resolved.PackagePrivateSubclassOfUnresolvedClass needs_access_check:false
-  static void $noinline$testReferrersClass() {
-    Class<?> c = PackagePrivateSubclassOfUnresolvedClass.class;
-  }
+    /// CHECK-START: void resolved.PackagePrivateSubclassOfUnresolvedClass.$noinline$testReferrersClass() builder (after)
+    /// CHECK: LoadClass class_name:resolved.PackagePrivateSubclassOfUnresolvedClass needs_access_check:false
+    static void $noinline$testReferrersClass() {
+        Class<?> c = PackagePrivateSubclassOfUnresolvedClass.class;
+    }
 
-  /// CHECK-START: void resolved.PackagePrivateSubclassOfUnresolvedClass.$noinline$testInlinedReferrersClass() inliner (after)
-  // CHECK: LoadClass class_name:resolved.PackagePrivateSubclassOfUnresolvedClass needs_access_check:true
-  static void $noinline$testInlinedReferrersClass() {
-    try {
-      // TODO: Make $inline$ and enable CHECK above when we relax the verifier. b/28313047
-      Class<?> c = GetPackagePrivateSubclassOfUnresolvedClass.get();
-      throw new Error("Unreachable");
-    } catch (IllegalAccessError expected) {}
-  }
+    /// CHECK-START: void resolved.PackagePrivateSubclassOfUnresolvedClass.$noinline$testInlinedReferrersClass() inliner (after)
+    // CHECK: LoadClass class_name:resolved.PackagePrivateSubclassOfUnresolvedClass needs_access_check:true
+    static void $noinline$testInlinedReferrersClass() {
+        try {
+            // TODO: Make $inline$ and enable CHECK above when we relax the verifier. b/28313047
+            Class<?> c = GetPackagePrivateSubclassOfUnresolvedClass.get();
+            throw new Error("Unreachable");
+        } catch (IllegalAccessError expected) {
+        }
+    }
 
-  /// CHECK-START: void resolved.PackagePrivateSubclassOfUnresolvedClass.$noinline$testInlinedReferrersClassFromSamePackage() inliner (after)
-  // CHECK: LoadClass class_name:resolved.PackagePrivateSubclassOfUnresolvedClass needs_access_check:false
-  static void $noinline$testInlinedReferrersClassFromSamePackage() {
-    // TODO: Make $inline$ and enable CHECK above when we relax the verifier. b/28313047
-    Class<?> c = GetPackagePrivateSubclassOfUnresolvedClassFromSamePackage.get();
-  }
+    /// CHECK-START: void resolved.PackagePrivateSubclassOfUnresolvedClass.$noinline$testInlinedReferrersClassFromSamePackage() inliner (after)
+    // CHECK: LoadClass class_name:resolved.PackagePrivateSubclassOfUnresolvedClass needs_access_check:false
+    static void $noinline$testInlinedReferrersClassFromSamePackage() {
+        // TODO: Make $inline$ and enable CHECK above when we relax the verifier. b/28313047
+        Class<?> c = GetPackagePrivateSubclassOfUnresolvedClassFromSamePackage.get();
+    }
 }

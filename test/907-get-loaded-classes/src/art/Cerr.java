@@ -17,11 +17,7 @@
 package art;
 
 public class Cerr {
-  static {
-    throwError();
-  }
+    static { throwError(); }
 
-  public static void throwError() {
-    throw new Error("Error!");
-  }
+    public static void throwError() { throw new Error("Error!"); }
 }

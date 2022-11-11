@@ -15,7 +15,7 @@
  */
 
 class NotLoaded {
-  public void foo() {}
+    public void foo() {}
 }
 
 public class Main {
@@ -24,9 +24,7 @@ public class Main {
         TestSync.run();
     }
 
-    public static void run() {
-        testVisitLocks();
-    }
+    public static void run() { testVisitLocks(); }
 
     static Object myStatic;
 
@@ -36,15 +34,15 @@ public class Main {
 
 // 167-visit-locks/visit-locks.cc looks at the locks held in TestSync.run().
 class TestSync {
-  public static void run() {
-    Object o = Main.myStatic;
-    if (o != null) {
-      if (o instanceof NotLoaded) {
-        ((NotLoaded)o).foo();
-      }
+    public static void run() {
+        Object o = Main.myStatic;
+        if (o != null) {
+            if (o instanceof NotLoaded) {
+                ((NotLoaded) o).foo();
+            }
+        }
+        synchronized ("MyString") {
+            Main.testVisitLocks();
+        }
     }
-    synchronized ("MyString") {
-      Main.testVisitLocks();
-    }
-  }
 }

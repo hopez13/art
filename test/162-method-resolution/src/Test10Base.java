@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-public class Test10Base implements Test10Interface { }
+public class Test10Base implements Test10Interface {}

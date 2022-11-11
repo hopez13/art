@@ -22,7 +22,5 @@ public final class Other {
     public static final String string5 = "ABCDEFG5";
     public static final int int1 = 12;
 
-    public static void print() {
-        System.out.println(string2);
-    }
+    public static void print() { System.out.println(string2); }
 }

@@ -15,7 +15,5 @@
  */
 
 public class MyClass {
-  public static int futureHidden() {
-    return 42;
-  }
+    public static int futureHidden() { return 42; }
 }

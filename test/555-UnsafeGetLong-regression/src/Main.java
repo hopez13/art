@@ -15,38 +15,39 @@
  */
 
 import java.lang.reflect.Field;
+
 import sun.misc.Unsafe;
 
 public class Main {
-  private static void assertLongEquals(long expected, long result) {
-    if (expected != result) {
-      throw new Error("Expected: " + expected + ", found: " + result);
+    private static void assertLongEquals(long expected, long result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
     }
-  }
 
-  private static Unsafe getUnsafe() throws Exception {
-    Class<?> unsafeClass = Class.forName("sun.misc.Unsafe");
-    Field f = unsafeClass.getDeclaredField("theUnsafe");
-    f.setAccessible(true);
-    return (Unsafe) f.get(null);
-  }
+    private static Unsafe getUnsafe() throws Exception {
+        Class<?> unsafeClass = Class.forName("sun.misc.Unsafe");
+        Field f = unsafeClass.getDeclaredField("theUnsafe");
+        f.setAccessible(true);
+        return (Unsafe) f.get(null);
+    }
 
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    Unsafe unsafe = getUnsafe();
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        Unsafe unsafe = getUnsafe();
 
-    testUnsafeGetLong(unsafe);
-  }
+        testUnsafeGetLong(unsafe);
+    }
 
-  public static void testUnsafeGetLong(Unsafe unsafe) throws Exception {
-    TestClass test = new TestClass();
-    Field longField = TestClass.class.getDeclaredField("longVar");
-    long lvar = unsafe.objectFieldOffset(longField);
-    lvar = unsafe.getLong(test, lvar);
-    assertLongEquals(1122334455667788L, lvar);
-  }
+    public static void testUnsafeGetLong(Unsafe unsafe) throws Exception {
+        TestClass test = new TestClass();
+        Field longField = TestClass.class.getDeclaredField("longVar");
+        long lvar = unsafe.objectFieldOffset(longField);
+        lvar = unsafe.getLong(test, lvar);
+        assertLongEquals(1122334455667788L, lvar);
+    }
 
-  private static class TestClass {
-    public long longVar = 1122334455667788L;
-  }
+    private static class TestClass {
+        public long longVar = 1122334455667788L;
+    }
 }

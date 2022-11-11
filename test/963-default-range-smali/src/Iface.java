@@ -14,16 +14,8 @@
  * limitations under the License.
  */
 public interface Iface {
-  public default String SayHi(String n1,
-                              String n2,
-                              String n3,
-                              String n4,
-                              String n5,
-                              String n6,
-                              String n7,
-                              String n8,
-                              String n9,
-                              String n0) {
-    return "Hello";
-  }
+    public default String SayHi(String n1, String n2, String n3, String n4, String n5, String n6,
+            String n7, String n8, String n9, String n0) {
+        return "Hello";
+    }
 }

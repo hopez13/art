@@ -14,17 +14,12 @@
  * limitations under the License.
  */
 
-class DefinedInC {
-}
+class DefinedInC {}
 
-class DefinedInAC {
-}
+class DefinedInAC {}
 
-class DefinedInABC {
-}
+class DefinedInABC {}
 
-class DefinedInBC {
-}
+class DefinedInBC {}
 
-class DefinedInCD {
-}
+class DefinedInCD {}

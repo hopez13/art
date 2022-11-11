@@ -15,10 +15,10 @@
  */
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
@@ -27,7 +27,6 @@ import java.util.Arrays;
  * Do some basic tests.
  */
 public class BasicTest {
-
     public static void main(String[] args) {
         Mix proxyMe = new Mix();
         Object proxy = createProxy(proxyMe);
@@ -54,9 +53,9 @@ public class BasicTest {
         trace.getTrace();
 
         // Test the proxy spec: These Object functions are supposed to be given to the handler.
-        int unusedHashCode = ((Object)trace).hashCode();
-        boolean unusedEquals = ((Object)trace).equals(trace);
-        String unusedString = ((Object)trace).toString();
+        int unusedHashCode = ((Object) trace).hashCode();
+        boolean unusedEquals = ((Object) trace).equals(trace);
+        String unusedString = ((Object) trace).toString();
 
         try {
             shapes.upChuck();
@@ -78,15 +77,15 @@ public class BasicTest {
         System.out.println("");
         Method[] methods = proxy.getClass().getDeclaredMethods();
         Arrays.sort(methods, new MethodComparator());
-        System.out.println("Proxy interfaces: " +
-            Arrays.deepToString(proxy.getClass().getInterfaces()));
-        System.out.println("Proxy methods: " +
-            Main.replaceProxyClassNamesForOutput(Arrays.deepToString(methods)));
-        Method meth = methods[methods.length -1];
+        System.out.println(
+                "Proxy interfaces: " + Arrays.deepToString(proxy.getClass().getInterfaces()));
+        System.out.println("Proxy methods: "
+                + Main.replaceProxyClassNamesForOutput(Arrays.deepToString(methods)));
+        Method meth = methods[methods.length - 1];
         System.out.println("Decl annos: " + Arrays.deepToString(meth.getDeclaredAnnotations()));
         Annotation[][] paramAnnos = meth.getParameterAnnotations();
-        System.out.println("Param annos (" + paramAnnos.length + ") : "
-            + Arrays.deepToString(paramAnnos));
+        System.out.println(
+                "Param annos (" + paramAnnos.length + ") : " + Arrays.deepToString(paramAnnos));
         System.out.println("Modifiers: " + meth.getModifiers());
     }
 
@@ -95,15 +94,15 @@ public class BasicTest {
         InvocationHandler handler = new MyInvocationHandler(proxyMe);
 
         /* create the proxy class */
-        Class<?> proxyClass = Proxy.getProxyClass(Shapes.class.getClassLoader(),
-                Quads.class, Colors.class, Trace.class);
+        Class<?> proxyClass = Proxy.getProxyClass(
+                Shapes.class.getClassLoader(), Quads.class, Colors.class, Trace.class);
         Main.registerProxyClassName(proxyClass.getCanonicalName());
 
         /* create a proxy object, passing the handler object in */
         Object proxy = null;
         try {
             Constructor<?> cons = proxyClass.getConstructor(InvocationHandler.class);
-            //System.out.println("Constructor is " + cons);
+            // System.out.println("Constructor is " + cons);
             proxy = cons.newInstance(handler);
         } catch (NoSuchMethodException nsme) {
             System.out.println("failed: " + nsme);
@@ -162,18 +161,21 @@ interface Trace {
 /*
  * Some return types.
  */
-class R0base { int mBlah;  }
-class R0a extends R0base { int mBlah_a;  }
-class R0aa extends R0a { int mBlah_aa;  }
-
+class R0base {
+    int mBlah;
+}
+class R0a extends R0base {
+    int mBlah_a;
+}
+class R0aa extends R0a {
+    int mBlah_aa;
+}
 
 /*
  * A class that implements them all.
  */
 class Mix implements Quads, Colors {
-    public void circle(int r) {
-        System.out.println("--- circle " + r);
-    }
+    public void circle(int r) { System.out.println("--- circle " + r); }
     public int rectangle(int x, int y) {
         System.out.println("--- rectangle " + x + "," + y);
         return 4;
@@ -208,15 +210,9 @@ class Mix implements Quads, Colors {
         return 3;
     }
 
-    public R0aa checkMe() {
-        return null;
-    }
-    public void upChuck() {
-        throw new IndexOutOfBoundsException("upchuck");
-    }
-    public void upCheck() throws InterruptedException {
-        throw new InterruptedException("upcheck");
-    }
+    public R0aa checkMe() { return null; }
+    public void upChuck() { throw new IndexOutOfBoundsException("upchuck"); }
+    public void upCheck() throws InterruptedException { throw new InterruptedException("upcheck"); }
 }
 
 /*
@@ -225,16 +221,12 @@ class Mix implements Quads, Colors {
 class MyInvocationHandler implements InvocationHandler {
     Object mObj;
 
-    public MyInvocationHandler(Object obj) {
-        mObj = obj;
-    }
+    public MyInvocationHandler(Object obj) { mObj = obj; }
 
     /*
      * This is called when anything gets invoked in the proxy object.
      */
-    public Object invoke(Object proxy, Method method, Object[] args)
-        throws Throwable {
-
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("Invoke " + method);
 
         Object result = null;
@@ -242,7 +234,7 @@ class MyInvocationHandler implements InvocationHandler {
         // Trap Object calls.  This is important here to avoid a recursive
         // invocation of toString() in the print statements below.
         if (method.getDeclaringClass() == java.lang.Object.class) {
-            //System.out.println("!!! object " + method.getName());
+            // System.out.println("!!! object " + method.getName());
             if (method.getName().equals("toString")) {
                 return super.toString();
             } else if (method.getName().equals("hashCode")) {
@@ -255,40 +247,41 @@ class MyInvocationHandler implements InvocationHandler {
         }
 
         if (method.getDeclaringClass() == Trace.class) {
-          if (method.getName().equals("getTrace")) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            for (int i = 0; i < stackTrace.length; i++) {
-                StackTraceElement ste = stackTrace[i];
-                if (ste.getMethodName().equals("getTrace")) {
-                  String outputClassName = Main.replaceProxyClassNamesForOutput(ste.getClassName());
-                  System.out.println(outputClassName + "." + ste.getMethodName() + " " +
-                                     ste.getFileName() + ":" + ste.getLineNumber());
+            if (method.getName().equals("getTrace")) {
+                StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+                for (int i = 0; i < stackTrace.length; i++) {
+                    StackTraceElement ste = stackTrace[i];
+                    if (ste.getMethodName().equals("getTrace")) {
+                        String outputClassName =
+                                Main.replaceProxyClassNamesForOutput(ste.getClassName());
+                        System.out.println(outputClassName + "." + ste.getMethodName() + " "
+                                + ste.getFileName() + ":" + ste.getLineNumber());
+                    }
                 }
+                return null;
             }
-            return null;
-          }
         }
 
         if (method.getDeclaringClass() == Trace.class) {
-          if (method.getName().equals("getTrace")) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            for (int i = 0; i < stackTrace.length; i++) {
-                StackTraceElement ste = stackTrace[i];
-                if (ste.getMethodName().equals("getTrace")) {
-                  String outputClassName = Main.replaceProxyClassNamesForOutput(ste.getClassName());
-                  System.out.println(outputClassName + "." + ste.getMethodName() + " " +
-                                     ste.getFileName() + ":" + ste.getLineNumber());
+            if (method.getName().equals("getTrace")) {
+                StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+                for (int i = 0; i < stackTrace.length; i++) {
+                    StackTraceElement ste = stackTrace[i];
+                    if (ste.getMethodName().equals("getTrace")) {
+                        String outputClassName =
+                                Main.replaceProxyClassNamesForOutput(ste.getClassName());
+                        System.out.println(outputClassName + "." + ste.getMethodName() + " "
+                                + ste.getFileName() + ":" + ste.getLineNumber());
+                    }
                 }
+                return null;
             }
-            return null;
-          }
         }
 
         if (args == null || args.length == 0) {
             System.out.println(" (no args)");
         } else {
-            for (int i = 0; i < args.length; i++)
-                System.out.println(" " + i + ": " + args[i]);
+            for (int i = 0; i < args.length; i++) System.out.println(" " + i + ": " + args[i]);
         }
 
         try {
@@ -297,8 +290,7 @@ class MyInvocationHandler implements InvocationHandler {
             } else {
                 result = -1;
             }
-            System.out.println("Success: method " + method.getName()
-                + " res=" + result);
+            System.out.println("Success: method " + method.getName() + " res=" + result);
         } catch (InvocationTargetException ite) {
             throw ite.getTargetException();
         } catch (IllegalAccessException iae) {

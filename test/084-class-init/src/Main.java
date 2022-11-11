@@ -15,9 +15,7 @@
  */
 
 public class Main {
-    static {
-        staticMethodCalledByClinit();
-    }
+    static { staticMethodCalledByClinit(); }
 
     private static void staticMethodCalledByClinit() {
         // Test that DeliverException works when we need to unwind to a handler -- this method --
@@ -30,9 +28,7 @@ public class Main {
         }
     }
 
-    private static void throwDuringClinit() {
-        throw new NullPointerException();
-    }
+    private static void throwDuringClinit() { throw new NullPointerException(); }
 
     public static void main(String[] args) {
         checkExceptions();
@@ -96,9 +92,9 @@ public class Main {
         }
 
         /* print all values */
-        System.out.println("Fields (main thread): " +
-            SlowInit.FIELD0.getValue() + SlowInit.FIELD1.getValue() +
-            SlowInit.FIELD2.getValue() + SlowInit.FIELD3.getValue());
+        System.out.println("Fields (main thread): " + SlowInit.FIELD0.getValue()
+                + SlowInit.FIELD1.getValue() + SlowInit.FIELD2.getValue()
+                + SlowInit.FIELD3.getValue());
     }
 
     static class FieldThread extends Thread {
@@ -115,8 +111,7 @@ public class Main {
 
             /* let MethodThread print first */
             Main.sleep(5000);
-            System.out.println("Fields (child thread): " +
-                field0 + field1 + field2 + field3);
+            System.out.println("Fields (child thread): " + field0 + field1 + field2 + field3);
         }
     }
 
@@ -137,7 +132,7 @@ public class Main {
         try {
             ClassWithThrowingClinit.staticMethod();
             System.out.println("checkStaticMethodInvokeAfterFailedClinit FAILED"
-                               + " due to missing ExceptionInInitializerError");
+                    + " due to missing ExceptionInInitializerError");
         } catch (ExceptionInInitializerError expected) {
         }
 
@@ -145,17 +140,14 @@ public class Main {
         try {
             ClassWithThrowingClinit.staticMethod();
             System.out.println("checkStaticMethodInvokeAfterFailedClinit FAILED"
-                               + " due to missing NoClassDefFoundError");
+                    + " due to missing NoClassDefFoundError");
         } catch (NoClassDefFoundError expected) {
         }
         System.out.println("checkStaticMethodInvokeAfterFailedClinit PASSED");
     }
 
     static class ClassWithThrowingClinit {
-        static {
-            throwDuringClinit();
-        }
-        static void staticMethod() {
-        }
+        static { throwDuringClinit(); }
+        static void staticMethod() {}
     }
 }

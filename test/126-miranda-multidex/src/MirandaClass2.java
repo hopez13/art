@@ -15,28 +15,14 @@
  */
 
 class MirandaClass2 extends MirandaAbstract {
-    public boolean inInterface() {
-        return true;
-    }
+    public boolean inInterface() { return true; }
 
-    public int inInterface2() {
-        return 28;
-    }
+    public int inInterface2() { return 28; }
 
     // Better not hit any of these...
-    public void inInterfaceUnused1() {
-        System.out.println("inInterfaceUnused1");
-    }
-    public void inInterfaceUnused2() {
-        System.out.println("inInterfaceUnused2");
-    }
-    public void inInterfaceUnused3() {
-        System.out.println("inInterfaceUnused3");
-    }
-    public void inInterfaceUnused4() {
-        System.out.println("inInterfaceUnused4");
-    }
-    public void inInterfaceUnused5() {
-        System.out.println("inInterfaceUnused5");
-    }
+    public void inInterfaceUnused1() { System.out.println("inInterfaceUnused1"); }
+    public void inInterfaceUnused2() { System.out.println("inInterfaceUnused2"); }
+    public void inInterfaceUnused3() { System.out.println("inInterfaceUnused3"); }
+    public void inInterfaceUnused4() { System.out.println("inInterfaceUnused4"); }
+    public void inInterfaceUnused5() { System.out.println("inInterfaceUnused5"); }
 }

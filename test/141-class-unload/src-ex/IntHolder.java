@@ -19,25 +19,15 @@
 public class IntHolder {
     private static int value = 1;
 
-    public static void setValue(int newValue) {
-        value = newValue;
-    }
+    public static void setValue(int newValue) { value = newValue; }
 
-    public static int getValue() {
-        return value;
-    }
+    public static int getValue() { return value; }
 
-    public static void runGC() {
-        Runtime.getRuntime().gc();
-    }
+    public static void runGC() { Runtime.getRuntime().gc(); }
 
-    public static void loadLibrary(String name) {
-        System.loadLibrary(name);
-    }
+    public static void loadLibrary(String name) { System.loadLibrary(name); }
 
     public static native void waitForCompilation();
 
-    public static Throwable generateStackTrace() {
-      return new Exception("test");
-    }
+    public static Throwable generateStackTrace() { return new Exception("test"); }
 }

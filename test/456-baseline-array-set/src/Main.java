@@ -15,19 +15,17 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    doArrayAccess(new Integer(1), 0);
-  }
+    public static void main(String[] args) { doArrayAccess(new Integer(1), 0); }
 
-  public static void doArrayAccess(Integer value, int index) {
-    try {
-      Integer[] array = new Integer[2];
-      // If we were to do optimization on the baseline register
-      // allocator, generating code for the array set would fail on x86.
-      array[index] = array[index + 1];
-      array[index] = value;
-    } catch (ArrayStoreException e) {
-      throw e;
+    public static void doArrayAccess(Integer value, int index) {
+        try {
+            Integer[] array = new Integer[2];
+            // If we were to do optimization on the baseline register
+            // allocator, generating code for the array set would fail on x86.
+            array[index] = array[index + 1];
+            array[index] = value;
+        } catch (ArrayStoreException e) {
+            throw e;
+        }
     }
-  }
 }

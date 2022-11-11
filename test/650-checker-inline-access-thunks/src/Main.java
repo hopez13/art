@@ -37,9 +37,7 @@ public class Main {
         /// CHECK-START: void Main$Nested.$noinline$setPrivateIntField(Main, int) inliner (after)
         /// CHECK:                  InstanceFieldSet
 
-        public void $noinline$setPrivateIntField(Main m, int value) {
-            m.privateIntField = value;
-        }
+        public void $noinline$setPrivateIntField(Main m, int value) { m.privateIntField = value; }
 
         /// CHECK-START: int Main$Nested.$noinline$getPrivateIntField(Main) inliner (before)
         /// CHECK:                  InvokeStaticOrDirect
@@ -53,8 +51,6 @@ public class Main {
         /// CHECK-START: int Main$Nested.$noinline$getPrivateIntField(Main) inliner (after)
         /// CHECK:                  InstanceFieldGet
 
-        public int $noinline$getPrivateIntField(Main m) {
-            return m.privateIntField;
-        }
+        public int $noinline$getPrivateIntField(Main m) { return m.privateIntField; }
     }
 }

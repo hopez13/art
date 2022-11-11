@@ -16,5 +16,4 @@
 
 package resolved;
 
-public class ResolvedPublicSubclassOfPackagePrivateClass extends ResolvedPackagePrivateClass {
-}
+public class ResolvedPublicSubclassOfPackagePrivateClass extends ResolvedPackagePrivateClass {}

@@ -23,12 +23,10 @@ class TestObject {
     public static boolean sHashCodeInvoked = false;
     private int i;
 
-    public TestObject(int i) {
-        this.i = i;
-    }
+    public TestObject(int i) { this.i = i; }
 
     public boolean equals(Object obj) {
-        return (obj instanceof TestObject) && (i == ((TestObject)obj).i);
+        return (obj instanceof TestObject) && (i == ((TestObject) obj).i);
     }
 
     public int hashCode() {
@@ -45,9 +43,9 @@ public class Main {
     public static native void undeoptimizeAll();
 
     public static void execute(Runnable runnable) throws Exception {
-      Thread t = new Thread(runnable);
-      t.start();
-      t.join();
+        Thread t = new Thread(runnable);
+        t.start();
+        t.join();
     }
 
     public static void main(String[] args) throws Exception {
@@ -75,7 +73,7 @@ public class Main {
                     // full-fragment deoptimization since that is an upcall.
                     Class<?> cls = Class.forName("Main");
                     Method method = cls.getDeclaredMethod("$noinline$run2", int[].class);
-                    double res = (double)method.invoke(Main.class, arr);
+                    double res = (double) method.invoke(Main.class, arr);
                     if (res != 79.3d) {
                         System.out.println("Failure 2!");
                         System.exit(0);
@@ -97,7 +95,7 @@ public class Main {
             }
         });
 
-        undeoptimizeAll();  // Make compiled code useable again.
+        undeoptimizeAll(); // Make compiled code useable again.
 
         // Partial-fragment deoptimization.
         execute(new Runnable() {
@@ -113,7 +111,7 @@ public class Main {
             }
         });
 
-        undeoptimizeAll();  // Make compiled code useable again.
+        undeoptimizeAll(); // Make compiled code useable again.
 
         if (!TestObject.sHashCodeInvoked) {
             System.out.println("hashCode() method not invoked!");

@@ -25,13 +25,15 @@ public class Main {
         float f = 0.0f;
         double d = 0.0;
 
-        try { i = 10 / 0; }
-        catch (ArithmeticException ae) {
+        try {
+            i = 10 / 0;
+        } catch (ArithmeticException ae) {
             expectedThrows--;
         }
 
-        try { j = 10L / 0L; }
-        catch (ArithmeticException ae) {
+        try {
+            j = 10L / 0L;
+        } catch (ArithmeticException ae) {
             expectedThrows--;
         }
 
@@ -39,13 +41,15 @@ public class Main {
          * Floating point divide by zero doesn't throw an exception -- the
          * result is just NaN.
          */
-        try { f = 10.0f / f; }
-        catch (ArithmeticException ae) {
+        try {
+            f = 10.0f / f;
+        } catch (ArithmeticException ae) {
             expectedThrows--;
         }
 
-        try { d = 10.0 / d; }
-        catch (ArithmeticException ae) {
+        try {
+            d = 10.0 / d;
+        } catch (ArithmeticException ae) {
             expectedThrows--;
         }
 
@@ -54,7 +58,5 @@ public class Main {
         else
             System.out.println("testMath3 success");
     }
-    public static void main(String args[]) {
-        math_014();
-    }
+    public static void main(String args[]) { math_014(); }
 }

@@ -18,7 +18,6 @@
  * Miranda testing.
  */
 public interface MirandaInterface {
-
     public boolean inInterface();
 
     // Otherwise unused methods to fill the method table.
@@ -27,5 +26,4 @@ public interface MirandaInterface {
     public void inInterfaceUnused3();
     public void inInterfaceUnused4();
     public void inInterfaceUnused5();
-
 }

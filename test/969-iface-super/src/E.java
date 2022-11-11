@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 public class E implements Iface3 {
-  public String SayHi() {
-    return Iface3.super.SayHi() + " there!";
-  }
+    public String SayHi() { return Iface3.super.SayHi() + " there!"; }
 }

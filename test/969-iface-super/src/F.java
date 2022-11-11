@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 public class F extends E {
-  public String SaySurprisedHi() {
-    return super.SayHi() + "!";
-  }
+    public String SaySurprisedHi() { return super.SayHi() + "!"; }
 }

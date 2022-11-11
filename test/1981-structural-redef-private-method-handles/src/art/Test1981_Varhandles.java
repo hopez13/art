@@ -22,28 +22,18 @@ import java.lang.reflect.*;
 import java.util.*;
 
 public class Test1981_Varhandles implements Test1981.VarHandler {
-  public Test1981_Varhandles() {}
+    public Test1981_Varhandles() {}
 
-  public boolean doVarHandleTests() {
-    return true;
-  }
+    public boolean doVarHandleTests() { return true; }
 
-  public Object findStaticVarHandle(MethodHandles.Lookup l, Class c, String n, Class t)
-      throws Throwable {
-    return l.findStaticVarHandle(c, n, t);
-  }
+    public Object findStaticVarHandle(MethodHandles.Lookup l, Class c, String n, Class t)
+            throws Throwable {
+        return l.findStaticVarHandle(c, n, t);
+    }
 
-  public Object get(Object vh) throws Throwable {
-    return ((VarHandle) vh).get();
-  }
+    public Object get(Object vh) throws Throwable { return ((VarHandle) vh).get(); }
 
-  public void set(Object vh, Object v) throws Throwable {
-    ((VarHandle) vh).set(v);
-  }
-  public boolean instanceofVarHandle(Object v) {
-    return v instanceof VarHandle;
-  }
-  public Object getVarTypeName(Object v) {
-    return ((VarHandle)v).varType().getName();
-  }
+    public void set(Object vh, Object v) throws Throwable { ((VarHandle) vh).set(v); }
+    public boolean instanceofVarHandle(Object v) { return v instanceof VarHandle; }
+    public Object getVarTypeName(Object v) { return ((VarHandle) v).varType().getName(); }
 }

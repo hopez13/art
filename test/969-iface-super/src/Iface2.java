@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 public interface Iface2 extends Iface {
-  public default String SayHi() {
-    return Iface.super.SayHi() + Iface.super.SayHi();
-  }
+    public default String SayHi() { return Iface.super.SayHi() + Iface.super.SayHi(); }
 }

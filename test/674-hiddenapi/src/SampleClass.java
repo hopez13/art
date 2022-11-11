@@ -15,13 +15,11 @@
  */
 
 public class SampleClass implements ParentInterface {
-  public int methodPublicSdk() { return 1; }
-  public int methodPublicUnsupported() { return 2; }
-  public int methodPublicConditionallyBlocked() { return 3; }
-  public int methodPublicBlocklist() { return 4; }
-  public int methodPublicBlocklistAndCorePlatformApi() { return 5; }
+    public int methodPublicSdk() { return 1; }
+    public int methodPublicUnsupported() { return 2; }
+    public int methodPublicConditionallyBlocked() { return 3; }
+    public int methodPublicBlocklist() { return 4; }
+    public int methodPublicBlocklistAndCorePlatformApi() { return 5; }
 
-  public static ParentInterface getInterfaceInstance() {
-    return new SampleClass();
-  }
+    public static ParentInterface getInterfaceInstance() { return new SampleClass(); }
 }

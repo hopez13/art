@@ -15,58 +15,47 @@
  */
 
 public class Main {
+    /// CHECK-START: int Main.inlineInstanceCall(Main) inliner (before)
+    /// CHECK-DAG:     <<Invoke:i\d+>>  InvokeStaticOrDirect
+    /// CHECK-DAG:                      Return [<<Invoke>>]
 
-  /// CHECK-START: int Main.inlineInstanceCall(Main) inliner (before)
-  /// CHECK-DAG:     <<Invoke:i\d+>>  InvokeStaticOrDirect
-  /// CHECK-DAG:                      Return [<<Invoke>>]
+    /// CHECK-START: int Main.inlineInstanceCall(Main) inliner (after)
+    /// CHECK-NOT:                      InvokeStaticOrDirect
 
-  /// CHECK-START: int Main.inlineInstanceCall(Main) inliner (after)
-  /// CHECK-NOT:                      InvokeStaticOrDirect
+    /// CHECK-START: int Main.inlineInstanceCall(Main) inliner (after)
+    /// CHECK-DAG:     <<Field:i\d+>>   InstanceFieldGet
+    /// CHECK-DAG:                      Return [<<Field>>]
 
-  /// CHECK-START: int Main.inlineInstanceCall(Main) inliner (after)
-  /// CHECK-DAG:     <<Field:i\d+>>   InstanceFieldGet
-  /// CHECK-DAG:                      Return [<<Field>>]
+    public static int inlineInstanceCall(Main m) { return m.foo(); }
 
-  public static int inlineInstanceCall(Main m) {
-    return m.foo();
-  }
+    private int foo() { return field; }
 
-  private int foo() {
-    return field;
-  }
+    int field = 42;
 
-  int field = 42;
+    /// CHECK-START: int Main.inlineNestedCall() inliner (before)
+    /// CHECK-DAG:     <<Invoke:i\d+>>  InvokeStaticOrDirect
+    /// CHECK-DAG:                      Return [<<Invoke>>]
 
-  /// CHECK-START: int Main.inlineNestedCall() inliner (before)
-  /// CHECK-DAG:     <<Invoke:i\d+>>  InvokeStaticOrDirect
-  /// CHECK-DAG:                      Return [<<Invoke>>]
+    /// CHECK-START: int Main.inlineNestedCall() inliner (after)
+    /// CHECK-NOT:                      InvokeStaticOrDirect
 
-  /// CHECK-START: int Main.inlineNestedCall() inliner (after)
-  /// CHECK-NOT:                      InvokeStaticOrDirect
+    /// CHECK-START: int Main.inlineNestedCall() inliner (after)
+    /// CHECK-DAG:     <<Const38:i\d+>> IntConstant 38
+    /// CHECK-DAG:                      Return [<<Const38>>]
 
-  /// CHECK-START: int Main.inlineNestedCall() inliner (after)
-  /// CHECK-DAG:     <<Const38:i\d+>> IntConstant 38
-  /// CHECK-DAG:                      Return [<<Const38>>]
+    public static int inlineNestedCall() { return nestedCall(); }
 
-  public static int inlineNestedCall() {
-    return nestedCall();
-  }
+    public static int nestedCall() { return bar(); }
 
-  public static int nestedCall() {
-    return bar();
-  }
+    public static int bar() { return 38; }
 
-  public static int bar() {
-    return 38;
-  }
+    public static void main(String[] args) {
+        if (inlineInstanceCall(new Main()) != 42) {
+            throw new Error("Expected 42");
+        }
 
-  public static void main(String[] args) {
-    if (inlineInstanceCall(new Main()) != 42) {
-      throw new Error("Expected 42");
+        if (inlineNestedCall() != 38) {
+            throw new Error("Expected 38");
+        }
     }
-
-    if (inlineNestedCall() != 38) {
-      throw new Error("Expected 38");
-    }
-  }
 }

@@ -15,14 +15,11 @@
  */
 
 public class Test {
+    public static void initialize(String libname) {
+        // Load test native library to get access to the implementation of
+        // Test.nativeMethodWithAnnotation.
+        System.loadLibrary(libname);
+    }
 
-  public static void initialize(String libname) {
-    // Load test native library to get access to the implementation of
-    // Test.nativeMethodWithAnnotation.
-    System.loadLibrary(libname);
-  }
-
-  @SampleAnnotation
-  public static native void nativeMethodWithAnnotation();
-
+    @SampleAnnotation public static native void nativeMethodWithAnnotation();
 }

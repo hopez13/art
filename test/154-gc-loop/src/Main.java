@@ -17,29 +17,30 @@
 import java.lang.ref.WeakReference;
 
 public class Main {
-  static final class GcWatcher {
-    protected void finalize() throws Throwable {
-        watcher = new WeakReference<GcWatcher>(new GcWatcher());
-        ++finalizeCounter;
-    }
-  }
-  static WeakReference<GcWatcher> watcher = new WeakReference<GcWatcher>(new GcWatcher());
-  static Object o = new Object();
-  static int finalizeCounter = 0;
-
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
-    backgroundProcessState();
-    try {
-        Runtime.getRuntime().gc();
-        for (int i = 0; i < 10; ++i) {
-            o = new Object();
-            Thread.sleep(1000);
+    static final class GcWatcher {
+        protected void finalize() throws Throwable {
+            watcher = new WeakReference<GcWatcher>(new GcWatcher());
+            ++finalizeCounter;
         }
-    } catch (Exception e) {}
-    System.out.println("Finalize count too large: " +
-            ((finalizeCounter >= 15) ? Integer.toString(finalizeCounter) : "false"));
-  }
+    }
+    static WeakReference<GcWatcher> watcher = new WeakReference<GcWatcher>(new GcWatcher());
+    static Object o = new Object();
+    static int finalizeCounter = 0;
 
-  private static native void backgroundProcessState();
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
+        backgroundProcessState();
+        try {
+            Runtime.getRuntime().gc();
+            for (int i = 0; i < 10; ++i) {
+                o = new Object();
+                Thread.sleep(1000);
+            }
+        } catch (Exception e) {
+        }
+        System.out.println("Finalize count too large: "
+                + ((finalizeCounter >= 15) ? Integer.toString(finalizeCounter) : "false"));
+    }
+
+    private static native void backgroundProcessState();
 }

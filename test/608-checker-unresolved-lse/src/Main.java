@@ -15,87 +15,85 @@
  */
 
 public class Main {
-
-  public static void main(String[] args) {
-    instanceFieldTest();
-    staticFieldTest();
-    instanceFieldTest2();
-  }
-
-  /// CHECK-START: void Main.instanceFieldTest() load_store_elimination (before)
-  /// CHECK:        InstanceFieldSet
-  /// CHECK:        UnresolvedInstanceFieldGet
-
-  // Load store elimination used to remove the InstanceFieldSet, thinking
-  // that the UnresolvedInstanceFieldGet was not related. However inlining
-  // can put you in a situation where the UnresolvedInstanceFieldGet resolves
-  // to the same field as the one in InstanceFieldSet. So the InstanceFieldSet
-  // must be preserved.
-
-  /// CHECK-START: void Main.instanceFieldTest() load_store_elimination (after)
-  /// CHECK:        InstanceFieldSet
-  /// CHECK:        UnresolvedInstanceFieldGet
-  public static void instanceFieldTest() {
-    SubFoo sf = new SubFoo();
-    Foo f = sf;
-    f.iField = 42;
-    if (sf.iField != 42) {
-      throw new Error("Expected 42, got " + f.iField);
+    public static void main(String[] args) {
+        instanceFieldTest();
+        staticFieldTest();
+        instanceFieldTest2();
     }
-  }
 
-  /// CHECK-START: void Main.instanceFieldTest2() load_store_elimination (before)
-  /// CHECK:        InstanceFieldSet
-  /// CHECK:        InstanceFieldGet
-  /// CHECK:        UnresolvedInstanceFieldSet
-  /// CHECK:        InstanceFieldGet
+    /// CHECK-START: void Main.instanceFieldTest() load_store_elimination (before)
+    /// CHECK:        InstanceFieldSet
+    /// CHECK:        UnresolvedInstanceFieldGet
 
-  // Load store elimination will eliminate the first InstanceFieldGet because
-  // it simply follows an InstanceFieldSet. It must however not eliminate the second
-  // InstanceFieldGet, as the UnresolvedInstanceFieldSet might resolve to the same
-  // field.
+    // Load store elimination used to remove the InstanceFieldSet, thinking
+    // that the UnresolvedInstanceFieldGet was not related. However inlining
+    // can put you in a situation where the UnresolvedInstanceFieldGet resolves
+    // to the same field as the one in InstanceFieldSet. So the InstanceFieldSet
+    // must be preserved.
 
-  /// CHECK-START: void Main.instanceFieldTest2() load_store_elimination (after)
-  /// CHECK:        InstanceFieldSet
-  /// CHECK-NOT:    InstanceFieldGet
-  /// CHECK:        UnresolvedInstanceFieldSet
-  /// CHECK:        InstanceFieldGet
-  public static void instanceFieldTest2() {
-    SubFoo sf = new SubFoo();
-    Foo f = sf;
-    f.iField = 42;
-    int a = f.iField;
-    sf.iField = 43;
-    a = f.iField;
-    if (a != 43) {
-      throw new Error("Expected 43, got " + a);
+    /// CHECK-START: void Main.instanceFieldTest() load_store_elimination (after)
+    /// CHECK:        InstanceFieldSet
+    /// CHECK:        UnresolvedInstanceFieldGet
+    public static void instanceFieldTest() {
+        SubFoo sf = new SubFoo();
+        Foo f = sf;
+        f.iField = 42;
+        if (sf.iField != 42) {
+            throw new Error("Expected 42, got " + f.iField);
+        }
     }
-  }
 
-  /// CHECK-START: void Main.staticFieldTest() load_store_elimination (before)
-  /// CHECK:        StaticFieldSet
-  /// CHECK:        StaticFieldSet
-  /// CHECK:        UnresolvedStaticFieldGet
+    /// CHECK-START: void Main.instanceFieldTest2() load_store_elimination (before)
+    /// CHECK:        InstanceFieldSet
+    /// CHECK:        InstanceFieldGet
+    /// CHECK:        UnresolvedInstanceFieldSet
+    /// CHECK:        InstanceFieldGet
 
-  /// CHECK-START: void Main.staticFieldTest() load_store_elimination (after)
-  /// CHECK:        StaticFieldSet
-  /// CHECK:        UnresolvedStaticFieldGet
-  public static void staticFieldTest() {
-    Foo.sField = 42;
-    Foo.sField = 43;
-    if (SubFoo.sField != 43) {
-      throw new Error("Expected 43, got " + SubFoo.sField);
+    // Load store elimination will eliminate the first InstanceFieldGet because
+    // it simply follows an InstanceFieldSet. It must however not eliminate the second
+    // InstanceFieldGet, as the UnresolvedInstanceFieldSet might resolve to the same
+    // field.
+
+    /// CHECK-START: void Main.instanceFieldTest2() load_store_elimination (after)
+    /// CHECK:        InstanceFieldSet
+    /// CHECK-NOT:    InstanceFieldGet
+    /// CHECK:        UnresolvedInstanceFieldSet
+    /// CHECK:        InstanceFieldGet
+    public static void instanceFieldTest2() {
+        SubFoo sf = new SubFoo();
+        Foo f = sf;
+        f.iField = 42;
+        int a = f.iField;
+        sf.iField = 43;
+        a = f.iField;
+        if (a != 43) {
+            throw new Error("Expected 43, got " + a);
+        }
     }
-  }
+
+    /// CHECK-START: void Main.staticFieldTest() load_store_elimination (before)
+    /// CHECK:        StaticFieldSet
+    /// CHECK:        StaticFieldSet
+    /// CHECK:        UnresolvedStaticFieldGet
+
+    /// CHECK-START: void Main.staticFieldTest() load_store_elimination (after)
+    /// CHECK:        StaticFieldSet
+    /// CHECK:        UnresolvedStaticFieldGet
+    public static void staticFieldTest() {
+        Foo.sField = 42;
+        Foo.sField = 43;
+        if (SubFoo.sField != 43) {
+            throw new Error("Expected 43, got " + SubFoo.sField);
+        }
+    }
 }
 
 class Foo {
-  public int iField;
-  public static int sField;
+    public int iField;
+    public static int sField;
 }
 
 // We make SubFoo implement an unresolved interface, so the SubFoo
 // shall be unresolved and all field accesses through SubFoo shall
 // yield unresolved field access HIR.
-class SubFoo extends Foo implements MissingInterface {
-}
+class SubFoo extends Foo implements MissingInterface {}

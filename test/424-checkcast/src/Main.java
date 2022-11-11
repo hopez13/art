@@ -15,59 +15,58 @@
  */
 
 public class Main {
-  public static Object a;
+    public static Object a;
 
-  public static Object $opt$CheckCastMain() {
-    return (Main)a;
-  }
+    public static Object $opt$CheckCastMain() { return (Main) a; }
 
-  public static Object $opt$CheckCastFinalClass() {
-    return (FinalClass)a;
-  }
+    public static Object $opt$CheckCastFinalClass() { return (FinalClass) a; }
 
-  public static void main(String[] args) {
-    $opt$TestMain();
-    $opt$TestFinalClass();
-  }
+    public static void main(String[] args) {
+        $opt$TestMain();
+        $opt$TestFinalClass();
+    }
 
-  public static void $opt$TestMain() {
-    a = new Main();
-    $opt$CheckCastMain();
+    public static void $opt$TestMain() {
+        a = new Main();
+        $opt$CheckCastMain();
 
-    a = null;
-    $opt$CheckCastMain();
+        a = null;
+        $opt$CheckCastMain();
 
-    a = new MainChild();
-    $opt$CheckCastMain();
+        a = new MainChild();
+        $opt$CheckCastMain();
 
-    a = new Object();
-    try {
-      $opt$CheckCastMain();
-      throw new Error("Should have gotten a ClassCastException");
-    } catch (ClassCastException ex) {}
-  }
+        a = new Object();
+        try {
+            $opt$CheckCastMain();
+            throw new Error("Should have gotten a ClassCastException");
+        } catch (ClassCastException ex) {
+        }
+    }
 
-  public static void $opt$TestFinalClass() {
-    a = new FinalClass();
-    $opt$CheckCastFinalClass();
+    public static void $opt$TestFinalClass() {
+        a = new FinalClass();
+        $opt$CheckCastFinalClass();
 
-    a = null;
-    $opt$CheckCastFinalClass();
+        a = null;
+        $opt$CheckCastFinalClass();
 
-    a = new Main();
-    try {
-      $opt$CheckCastFinalClass();
-      throw new Error("Should have gotten a ClassCastException");
-    } catch (ClassCastException ex) {}
+        a = new Main();
+        try {
+            $opt$CheckCastFinalClass();
+            throw new Error("Should have gotten a ClassCastException");
+        } catch (ClassCastException ex) {
+        }
 
-    a = new Object();
-    try {
-      $opt$CheckCastFinalClass();
-      throw new Error("Should have gotten a ClassCastException");
-    } catch (ClassCastException ex) {}
-  }
+        a = new Object();
+        try {
+            $opt$CheckCastFinalClass();
+            throw new Error("Should have gotten a ClassCastException");
+        } catch (ClassCastException ex) {
+        }
+    }
 
-  static class MainChild extends Main {}
+    static class MainChild extends Main {}
 
-  static final class FinalClass {}
+    static final class FinalClass {}
 }

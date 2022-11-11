@@ -16,5 +16,4 @@
 
 package pkg;
 
-class ProtectedClass {
-}
+class ProtectedClass {}

@@ -15,47 +15,45 @@
  */
 
 public class Main {
+    /// CHECK-START: int Main.inlineLoop() inliner (before)
+    /// CHECK-DAG:     <<Invoke:i\d+>>  InvokeStaticOrDirect
+    /// CHECK-DAG:                      Return [<<Invoke>>]
 
-  /// CHECK-START: int Main.inlineLoop() inliner (before)
-  /// CHECK-DAG:     <<Invoke:i\d+>>  InvokeStaticOrDirect
-  /// CHECK-DAG:                      Return [<<Invoke>>]
+    /// CHECK-START: int Main.inlineLoop() inliner (after)
+    /// CHECK-DAG:     <<Constant:i\d+>>   IntConstant 42
+    /// CHECK-DAG:                         Return [<<Constant>>]
 
-  /// CHECK-START: int Main.inlineLoop() inliner (after)
-  /// CHECK-DAG:     <<Constant:i\d+>>   IntConstant 42
-  /// CHECK-DAG:                         Return [<<Constant>>]
+    /// CHECK-START: int Main.inlineLoop() licm (after)
+    /// CHECK:                         Goto loop:{{B\d+}}
 
-  /// CHECK-START: int Main.inlineLoop() licm (after)
-  /// CHECK:                         Goto loop:{{B\d+}}
+    public static int inlineLoop() { return $inline$loopMethod(); }
 
-  public static int inlineLoop() {
-    return $inline$loopMethod();
-  }
+    /// CHECK-START: void Main.inlineWithinLoop() inliner (before)
+    /// CHECK:      InvokeStaticOrDirect
 
-  /// CHECK-START: void Main.inlineWithinLoop() inliner (before)
-  /// CHECK:      InvokeStaticOrDirect
+    /// CHECK-START: void Main.inlineWithinLoop() licm (after)
+    /// CHECK-DAG:  Goto loop:<<OuterLoop:B\d+>> outer_loop:none
+    /// CHECK-DAG:  Goto outer_loop:<<OuterLoop>>
 
-  /// CHECK-START: void Main.inlineWithinLoop() licm (after)
-  /// CHECK-DAG:  Goto loop:<<OuterLoop:B\d+>> outer_loop:none
-  /// CHECK-DAG:  Goto outer_loop:<<OuterLoop>>
-
-  public static void inlineWithinLoop() {
-    while (doLoop) {
-      $inline$loopMethod();
+    public static void inlineWithinLoop() {
+        while (doLoop) {
+            $inline$loopMethod();
+        }
     }
-  }
 
-  public static int $inline$loopMethod() {
-    // We use `otherDoLoop` here so we don't propagate the knowledge that `doLoop` is true when
-    // inlining from `inlineWithinLoop`.
-    while (otherDoLoop) {}
-    return 42;
-  }
+    public static int $inline$loopMethod() {
+        // We use `otherDoLoop` here so we don't propagate the knowledge that `doLoop` is true when
+        // inlining from `inlineWithinLoop`.
+        while (otherDoLoop) {
+        }
+        return 42;
+    }
 
-  public static boolean doLoop = false;
-  public static boolean otherDoLoop = false;
+    public static boolean doLoop = false;
+    public static boolean otherDoLoop = false;
 
-  public static void main(String[] args) {
-    inlineLoop();
-    inlineWithinLoop();
-  }
+    public static void main(String[] args) {
+        inlineLoop();
+        inlineWithinLoop();
+    }
 }

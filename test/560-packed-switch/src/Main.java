@@ -15,17 +15,17 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    switch (staticField) {
-      case -1:
-        return;
-      case -4:
-        // We add this case to make it an odd number of case/default.
-        // The code generation for it used to be bogus.
-        throw new Error("Cannot happen");
-      default:
-        throw new Error("Cannot happen");
+    public static void main(String[] args) {
+        switch (staticField) {
+            case -1:
+                return;
+            case -4:
+                // We add this case to make it an odd number of case/default.
+                // The code generation for it used to be bogus.
+                throw new Error("Cannot happen");
+            default:
+                throw new Error("Cannot happen");
+        }
     }
-  }
-  static int staticField = -1;
+    static int staticField = -1;
 }

@@ -15,17 +15,15 @@
  */
 
 public final class DerivedInSecondDex extends BaseInMainDex {
-  DerivedInSecondDex() {
-    super();
-  }
+    DerivedInSecondDex() { super(); }
 
-  DerivedInSecondDex(int intValue) {
-    // Not matched: Superclass in a different dex file has an IPUT.
-    super(intValue);
-  }
+    DerivedInSecondDex(int intValue) {
+        // Not matched: Superclass in a different dex file has an IPUT.
+        super(intValue);
+    }
 
-  DerivedInSecondDex(long unused) {
-    // Matched: Superclass in a different dex file has an IPUT that's pruned because we store 0.
-    super(0);
-  }
+    DerivedInSecondDex(long unused) {
+        // Matched: Superclass in a different dex file has an IPUT that's pruned because we store 0.
+        super(0);
+    }
 }

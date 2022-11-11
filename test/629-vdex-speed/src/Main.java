@@ -15,13 +15,12 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
-    if (!isAotCompiled(Main.class, "main")) {
-      throw new Error("Expected Main.main to be AOT compiled");
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
+        if (!isAotCompiled(Main.class, "main")) {
+            throw new Error("Expected Main.main to be AOT compiled");
+        }
     }
-  }
 
-  private native static boolean isAotCompiled(Class<?> cls, String methodName);
+    private native static boolean isAotCompiled(Class<?> cls, String methodName);
 }
-

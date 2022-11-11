@@ -15,18 +15,16 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    try {
-      willThrow();
-    } catch (IllegalStateException | NullPointerException e) {
-      if (e instanceof NullPointerException) {
-        return;
-      }
-      throw new Error("Expected NullPointerException");
+    public static void main(String[] args) {
+        try {
+            willThrow();
+        } catch (IllegalStateException | NullPointerException e) {
+            if (e instanceof NullPointerException) {
+                return;
+            }
+            throw new Error("Expected NullPointerException");
+        }
     }
-  }
 
-  public static void willThrow() {
-    throw new NullPointerException();
-  }
+    public static void willThrow() { throw new NullPointerException(); }
 }

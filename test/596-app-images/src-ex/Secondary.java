@@ -15,7 +15,5 @@
  */
 
 public class Secondary {
-  public static void go() {
-    System.out.println("Secondary went");
-  }
+    public static void go() { System.out.println("Secondary went"); }
 }

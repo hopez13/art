@@ -16,5 +16,4 @@
 
 package other;
 
-public class InaccessibleClass {
-}
+public class InaccessibleClass {}

@@ -15,25 +15,23 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-   $opt$TestSlowPath();
-  }
+    public static void main(String[] args) { $opt$TestSlowPath(); }
 
-  public static void $opt$TestSlowPath() {
-    Object[] o = bar();
-    assertEquals(0, o.length);
-    // The slowpath of the instanceof requires the live register
-    // holding `o` to be saved before going into runtime. The linear
-    // scan register allocator used to miscompute the number of
-    // live registers at a safepoint, so the place at which the register
-    // was saved was wrong.
-    doCall(o instanceof Interface[], o);
-  }
+    public static void $opt$TestSlowPath() {
+        Object[] o = bar();
+        assertEquals(0, o.length);
+        // The slowpath of the instanceof requires the live register
+        // holding `o` to be saved before going into runtime. The linear
+        // scan register allocator used to miscompute the number of
+        // live registers at a safepoint, so the place at which the register
+        // was saved was wrong.
+        doCall(o instanceof Interface[], o);
+    }
 
-  public static void assertEquals(int a, int b) {}
-  public static boolean doCall(boolean val, Object o) { return val; }
+    public static void assertEquals(int a, int b) {}
+    public static boolean doCall(boolean val, Object o) { return val; }
 
-  static Object[] bar() { return new Object[0]; }
+    static Object[] bar() { return new Object[0]; }
 
-  static interface Interface {}
+    static interface Interface {}
 }

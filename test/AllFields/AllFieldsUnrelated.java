@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-public class AllFieldsUnrelated { }
+public class AllFieldsUnrelated {}

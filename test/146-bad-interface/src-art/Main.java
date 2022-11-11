@@ -14,30 +14,31 @@
  * limitations under the License.
  */
 
-import java.lang.reflect.Method;
 import dalvik.system.PathClassLoader;
+
+import java.lang.reflect.Method;
 
 /**
  * Structural hazard test.
  */
 public class Main {
-  static final String DEX_LOCATION = System.getenv("DEX_LOCATION");
-  static final String DEX_FILES =
-      DEX_LOCATION + "/146-bad-interface.jar" + ":" +
-      DEX_LOCATION + "/146-bad-interface-ex.jar";
-  public static void main(String[] args) {
-    try {
-      PathClassLoader p = new PathClassLoader(DEX_FILES, Main.class.getClassLoader().getParent());
-      Class<?> c = Class.forName("A", true, p);
-      Object o = c.newInstance();
-      Class<?> runner = Class.forName("InvokeInf", true, p);
-      Class<?> arg = Class.forName("Iface", true, p);
-      Method r = runner.getDeclaredMethod("doInvoke", arg);
-      r.invoke(null, o);
-    } catch (Throwable t) {
-      System.out.println("Error occurred");
-      System.out.println(t);
-      t.printStackTrace(System.out);
+    static final String DEX_LOCATION = System.getenv("DEX_LOCATION");
+    static final String DEX_FILES = DEX_LOCATION + "/146-bad-interface.jar"
+            + ":" + DEX_LOCATION + "/146-bad-interface-ex.jar";
+    public static void main(String[] args) {
+        try {
+            PathClassLoader p =
+                    new PathClassLoader(DEX_FILES, Main.class.getClassLoader().getParent());
+            Class<?> c = Class.forName("A", true, p);
+            Object o = c.newInstance();
+            Class<?> runner = Class.forName("InvokeInf", true, p);
+            Class<?> arg = Class.forName("Iface", true, p);
+            Method r = runner.getDeclaredMethod("doInvoke", arg);
+            r.invoke(null, o);
+        } catch (Throwable t) {
+            System.out.println("Error occurred");
+            System.out.println(t);
+            t.printStackTrace(System.out);
+        }
     }
-  }
 }

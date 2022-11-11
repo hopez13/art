@@ -27,8 +27,8 @@ public class Main {
     static volatile boolean finish = false;
 
     public static void main(String[] args) throws Exception {
-        inf = (SimpleInterface)Proxy.newProxyInstance(SimpleInterface.class.getClassLoader(),
-            new Class[] { SimpleInterface.class }, new EmptyInvocationHandler());
+        inf = (SimpleInterface) Proxy.newProxyInstance(SimpleInterface.class.getClassLoader(),
+                new Class[] {SimpleInterface.class}, new EmptyInvocationHandler());
 
         Thread garbageThread = new Thread(new GarbageRunner());
         garbageThread.start();
@@ -72,8 +72,8 @@ public class Main {
                         // Ignore errors. This is the test for b/69121347 - see an exception
                         // instead of native abort.
                     }
-              }
-              count--;
+                }
+                count--;
             }
         }
     }
@@ -85,10 +85,10 @@ public class Main {
                 synchronized (lockObject) {
                     // "Wait" a small amount of time.
                     long start = System.nanoTime();
-                    long delta = 10 * 1000;  // 10 us.
+                    long delta = 10 * 1000; // 10 us.
                     long elapsed;
                     do {
-                      elapsed = System.nanoTime();
+                        elapsed = System.nanoTime();
                     } while (elapsed - start < delta);
                 }
                 count--;

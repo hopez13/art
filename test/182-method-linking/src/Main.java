@@ -46,33 +46,33 @@ public class Main {
         // define it as public, so that we can test different cases of overriding.
 
         A a = new A();
-        a.callAFoo();  // pkg1.A.foo
+        a.callAFoo(); // pkg1.A.foo
 
         B b = new B();
-        b.callAFoo();  // pkg1.A.foo (not overridden by pkg2.B.foo)
-        b.callBFoo();  // pkg2.B.foo
+        b.callAFoo(); // pkg1.A.foo (not overridden by pkg2.B.foo)
+        b.callBFoo(); // pkg2.B.foo
 
         C c = new C();
-        c.callAFoo();  // pkg1.C.foo (overriddes pkg1.A.foo)
-        c.callBFoo();  // pkg2.B.foo (not overridden by pkg1.C.foo)
-        c.callCFoo();  // pkg1.C.foo
+        c.callAFoo(); // pkg1.C.foo (overriddes pkg1.A.foo)
+        c.callBFoo(); // pkg2.B.foo (not overridden by pkg1.C.foo)
+        c.callCFoo(); // pkg1.C.foo
 
         D d = new D();
-        d.callAFoo();  // pkg1.C.foo (not overridden by pkg2.D.foo)
-        d.callBFoo();  // pkg2.D.foo (overrides pkg2.B.foo)
-        d.callCFoo();  // pkg1.C.foo (not overridden by pkg2.D.foo)
-        d.callDFoo();  // pkg2.D.foo
+        d.callAFoo(); // pkg1.C.foo (not overridden by pkg2.D.foo)
+        d.callBFoo(); // pkg2.D.foo (overrides pkg2.B.foo)
+        d.callCFoo(); // pkg1.C.foo (not overridden by pkg2.D.foo)
+        d.callDFoo(); // pkg2.D.foo
 
         C2 c2 = new C2();
-        c2.callAFoo();  // pkg1.C2.foo (overriddes pkg1.A.foo)
-        c2.callBFoo();  // pkg2.B.foo (not overridden by pkg1.C2.foo)
-        c2.callC2Foo();  // pkg1.C2.foo
+        c2.callAFoo(); // pkg1.C2.foo (overriddes pkg1.A.foo)
+        c2.callBFoo(); // pkg2.B.foo (not overridden by pkg1.C2.foo)
+        c2.callC2Foo(); // pkg1.C2.foo
 
         D2 d2 = new D2();
-        d2.callAFoo();  // pkg2.D2.foo (overrides public pkg2.C2.foo which overrides pkg1.A.foo)
-        d2.callBFoo();  // pkg2.D2.foo (overrides package-private pkg2.B.foo in the same package)
-        d2.callC2Foo();  // pkg2.D2.foo (overrides public pkg2.C2.foo)
-        d2.callD2Foo();  // pkg2.D2.foo
+        d2.callAFoo(); // pkg2.D2.foo (overrides public pkg2.C2.foo which overrides pkg1.A.foo)
+        d2.callBFoo(); // pkg2.D2.foo (overrides package-private pkg2.B.foo in the same package)
+        d2.callC2Foo(); // pkg2.D2.foo (overrides public pkg2.C2.foo)
+        d2.callD2Foo(); // pkg2.D2.foo
 
         // Interface methods always target the method in the most-derived class with implementation
         // even when package-private methods from different packages are involved.
@@ -99,16 +99,16 @@ public class Main {
         // src/ for compiling other classes and in src2/ for their run-time definition.
 
         C2I1 c2i1 = new C2I1();
-        I1.callI1Foo(c2i1);  // pkg1.C2.foo
+        I1.callI1Foo(c2i1); // pkg1.C2.foo
 
         C2I2 c2i2 = new C2I2();
-        I2.callI2Foo(c2i2);  // pkg1.C2.foo
+        I2.callI2Foo(c2i2); // pkg1.C2.foo
 
         D2I1 d2i1 = new D2I1();
-        I1.callI1Foo(d2i1);  // pkg1.D2.foo
+        I1.callI1Foo(d2i1); // pkg1.D2.foo
 
         D2I2 d2i2 = new D2I2();
-        I2.callI2Foo(d2i2);  // pkg1.D2.foo
+        I2.callI2Foo(d2i2); // pkg1.D2.foo
 
         try {
             CXI1 cxi1 = new CXI1();

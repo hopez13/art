@@ -15,6 +15,6 @@
  */
 
 public interface PublicInterface {
-  void publicMethod1();
-  void publicMethod2();
+    void publicMethod1();
+    void publicMethod2();
 }

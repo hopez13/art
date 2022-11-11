@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-public class Test6Derived implements Test6Interface {
-}
+public class Test6Derived implements Test6Interface {}

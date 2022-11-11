@@ -15,44 +15,40 @@
  */
 
 public class Main {
-  public static void foo(Object o, int a) {
-    Object result = null;
-    if (o instanceof Main) {
-      // The compiler optimizes the type of `o` by introducing
-      // a `HBoundType` in this block.
-      while (a != 3) {
-        if (a == 2) {
-          a++;
-          result = o;
-          continue;
-        } else if (willInline()) {
-          // This block will be detected as dead after inlining.
-          result = new Object();
-          continue;
+    public static void foo(Object o, int a) {
+        Object result = null;
+        if (o instanceof Main) {
+            // The compiler optimizes the type of `o` by introducing
+            // a `HBoundType` in this block.
+            while (a != 3) {
+                if (a == 2) {
+                    a++;
+                    result = o;
+                    continue;
+                } else if (willInline()) {
+                    // This block will be detected as dead after inlining.
+                    result = new Object();
+                    continue;
+                }
+                result = new Object();
+            }
+            // The compiler produces a phi at the back edge for `result`.
+            // Before dead block elimination, the phi has three inputs:
+            // result = (new Object(), new Object(), HBoundType)
+            //
+            // After dead block elimination, the phi has now two inputs:
+            // result = (new Object(), HBoundType)
+            //
+            // Our internal data structure for linking users and inputs expect
+            // the input index stored in that data structure to be the index
+            // in the inputs array. So the index before dead block elimination
+            // of the `HBoundType` would be 2. Dead block elimination must update
+            // that index to be 1.
         }
-        result = new Object();
-      }
-      // The compiler produces a phi at the back edge for `result`.
-      // Before dead block elimination, the phi has three inputs:
-      // result = (new Object(), new Object(), HBoundType)
-      //
-      // After dead block elimination, the phi has now two inputs:
-      // result = (new Object(), HBoundType)
-      //
-      // Our internal data structure for linking users and inputs expect
-      // the input index stored in that data structure to be the index
-      // in the inputs array. So the index before dead block elimination
-      // of the `HBoundType` would be 2. Dead block elimination must update
-      // that index to be 1.
+        System.out.println(result.getClass());
     }
-    System.out.println(result.getClass());
-  }
 
-  public static boolean willInline() {
-    return false;
-  }
+    public static boolean willInline() { return false; }
 
-  public static void main(String[] args) {
-    foo(new Main(), 2);
-  }
+    public static void main(String[] args) { foo(new Main(), 2); }
 }

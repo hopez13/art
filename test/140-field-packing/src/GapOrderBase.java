@@ -20,5 +20,5 @@
 
 // This class has a size of 9 bytes: 8 for object plus 1 for the field 'b'.
 class GapOrderBase {
-  public byte b;
+    public byte b;
 }

@@ -17,92 +17,91 @@
 import java.util.Base64;
 
 class MultiRetrans {
+    // class NotTransform {
+    //   public void sayHi(String name) {
+    //     throw new Error("Should not be called!");
+    //   }
+    // }
+    private static CommonClassDefinition INVALID_DEFINITION_T1 = new CommonClassDefinition(
+            Transform.class,
+            Base64.getDecoder().decode(
+                    "yv66vgAAADQAFQoABgAPBwAQCAARCgACABIHABMHABQBAAY8aW5pdD4BAAMoKVYBAARDb2RlAQAP"
+                    + "TGluZU51bWJlclRhYmxlAQAFc2F5SGkBABUoTGphdmEvbGFuZy9TdHJpbmc7KVYBAApTb3VyY2VG"
+                    + "aWxlAQARTm90VHJhbnNmb3JtLmphdmEMAAcACAEAD2phdmEvbGFuZy9FcnJvcgEAFVNob3VsZCBu"
+                    + "b3QgYmUgY2FsbGVkIQwABwAMAQAMTm90VHJhbnNmb3JtAQAQamF2YS9sYW5nL09iamVjdAAgAAUA"
+                    + "BgAAAAAAAgAAAAcACAABAAkAAAAdAAEAAQAAAAUqtwABsQAAAAEACgAAAAYAAQAAAAEAAQALAAwA"
+                    + "AQAJAAAAIgADAAIAAAAKuwACWRIDtwAEvwAAAAEACgAAAAYAAQAAAAMAAQANAAAAAgAO"),
+            Base64.getDecoder().decode(
+                    "ZGV4CjAzNQDLV95i5xnv6iUi6uIeDoY5jP5Xe9NP1AiYAgAAcAAAAHhWNBIAAAAAAAAAAAQCAAAL"
+                    + "AAAAcAAAAAUAAACcAAAAAgAAALAAAAAAAAAAAAAAAAQAAADIAAAAAQAAAOgAAACQAQAACAEAAEoB"
+                    + "AABSAQAAYgEAAHUBAACJAQAAnQEAALABAADHAQAAygEAAM4BAADiAQAAAQAAAAIAAAADAAAABAAA"
+                    + "AAcAAAAHAAAABAAAAAAAAAAIAAAABAAAAEQBAAAAAAAAAAAAAAAAAQAKAAAAAQABAAAAAAACAAAA"
+                    + "AAAAAAAAAAAAAAAAAgAAAAAAAAAFAAAAAAAAAPQBAAAAAAAAAQABAAEAAADpAQAABAAAAHAQAwAA"
+                    + "AA4ABAACAAIAAADuAQAACQAAACIAAQAbAQYAAABwIAIAEAAnAAAAAQAAAAMABjxpbml0PgAOTE5v"
+                    + "dFRyYW5zZm9ybTsAEUxqYXZhL2xhbmcvRXJyb3I7ABJMamF2YS9sYW5nL09iamVjdDsAEkxqYXZh"
+                    + "L2xhbmcvU3RyaW5nOwARTm90VHJhbnNmb3JtLmphdmEAFVNob3VsZCBub3QgYmUgY2FsbGVkIQAB"
+                    + "VgACVkwAEmVtaXR0ZXI6IGphY2stNC4yMAAFc2F5SGkAAQAHDgADAQAHDgAAAAEBAICABIgCAQGg"
+                    + "AgAADAAAAAAAAAABAAAAAAAAAAEAAAALAAAAcAAAAAIAAAAFAAAAnAAAAAMAAAACAAAAsAAAAAUA"
+                    + "AAAEAAAAyAAAAAYAAAABAAAA6AAAAAEgAAACAAAACAEAAAEQAAABAAAARAEAAAIgAAALAAAASgEA"
+                    + "AAMgAAACAAAA6QEAAAAgAAABAAAA9AEAAAAQAAABAAAABAIAAA=="));
 
-  // class NotTransform {
-  //   public void sayHi(String name) {
-  //     throw new Error("Should not be called!");
-  //   }
-  // }
-  private static CommonClassDefinition INVALID_DEFINITION_T1 = new CommonClassDefinition(
-      Transform.class,
-      Base64.getDecoder().decode(
-          "yv66vgAAADQAFQoABgAPBwAQCAARCgACABIHABMHABQBAAY8aW5pdD4BAAMoKVYBAARDb2RlAQAP" +
-          "TGluZU51bWJlclRhYmxlAQAFc2F5SGkBABUoTGphdmEvbGFuZy9TdHJpbmc7KVYBAApTb3VyY2VG" +
-          "aWxlAQARTm90VHJhbnNmb3JtLmphdmEMAAcACAEAD2phdmEvbGFuZy9FcnJvcgEAFVNob3VsZCBu" +
-          "b3QgYmUgY2FsbGVkIQwABwAMAQAMTm90VHJhbnNmb3JtAQAQamF2YS9sYW5nL09iamVjdAAgAAUA" +
-          "BgAAAAAAAgAAAAcACAABAAkAAAAdAAEAAQAAAAUqtwABsQAAAAEACgAAAAYAAQAAAAEAAQALAAwA" +
-          "AQAJAAAAIgADAAIAAAAKuwACWRIDtwAEvwAAAAEACgAAAAYAAQAAAAMAAQANAAAAAgAO"),
-      Base64.getDecoder().decode(
-          "ZGV4CjAzNQDLV95i5xnv6iUi6uIeDoY5jP5Xe9NP1AiYAgAAcAAAAHhWNBIAAAAAAAAAAAQCAAAL" +
-          "AAAAcAAAAAUAAACcAAAAAgAAALAAAAAAAAAAAAAAAAQAAADIAAAAAQAAAOgAAACQAQAACAEAAEoB" +
-          "AABSAQAAYgEAAHUBAACJAQAAnQEAALABAADHAQAAygEAAM4BAADiAQAAAQAAAAIAAAADAAAABAAA" +
-          "AAcAAAAHAAAABAAAAAAAAAAIAAAABAAAAEQBAAAAAAAAAAAAAAAAAQAKAAAAAQABAAAAAAACAAAA" +
-          "AAAAAAAAAAAAAAAAAgAAAAAAAAAFAAAAAAAAAPQBAAAAAAAAAQABAAEAAADpAQAABAAAAHAQAwAA" +
-          "AA4ABAACAAIAAADuAQAACQAAACIAAQAbAQYAAABwIAIAEAAnAAAAAQAAAAMABjxpbml0PgAOTE5v" +
-          "dFRyYW5zZm9ybTsAEUxqYXZhL2xhbmcvRXJyb3I7ABJMamF2YS9sYW5nL09iamVjdDsAEkxqYXZh" +
-          "L2xhbmcvU3RyaW5nOwARTm90VHJhbnNmb3JtLmphdmEAFVNob3VsZCBub3QgYmUgY2FsbGVkIQAB" +
-          "VgACVkwAEmVtaXR0ZXI6IGphY2stNC4yMAAFc2F5SGkAAQAHDgADAQAHDgAAAAEBAICABIgCAQGg" +
-          "AgAADAAAAAAAAAABAAAAAAAAAAEAAAALAAAAcAAAAAIAAAAFAAAAnAAAAAMAAAACAAAAsAAAAAUA" +
-          "AAAEAAAAyAAAAAYAAAABAAAA6AAAAAEgAAACAAAACAEAAAEQAAABAAAARAEAAAIgAAALAAAASgEA" +
-          "AAMgAAACAAAA6QEAAAAgAAABAAAA9AEAAAAQAAABAAAABAIAAA=="));
+    // Valid redefinition of Transform2
+    // class Transform2 implements Iface1, Iface2 {
+    //   public void sayHi(String name) {
+    //     throw new Error("Should not be called!");
+    //   }
+    // }
+    private static CommonClassDefinition VALID_DEFINITION_T2 = new CommonClassDefinition(
+            Transform2.class,
+            Base64.getDecoder().decode(
+                    "yv66vgAAADQAGQoABgARBwASCAATCgACABQHABUHABYHABcHABgBAAY8aW5pdD4BAAMoKVYBAARD"
+                    + "b2RlAQAPTGluZU51bWJlclRhYmxlAQAFc2F5SGkBABUoTGphdmEvbGFuZy9TdHJpbmc7KVYBAApT"
+                    + "b3VyY2VGaWxlAQAPVHJhbnNmb3JtMi5qYXZhDAAJAAoBAA9qYXZhL2xhbmcvRXJyb3IBABVTaG91"
+                    + "bGQgbm90IGJlIGNhbGxlZCEMAAkADgEAClRyYW5zZm9ybTIBABBqYXZhL2xhbmcvT2JqZWN0AQAG"
+                    + "SWZhY2UxAQAGSWZhY2UyACAABQAGAAIABwAIAAAAAgAAAAkACgABAAsAAAAdAAEAAQAAAAUqtwAB"
+                    + "sQAAAAEADAAAAAYAAQAAAAEAAQANAA4AAQALAAAAIgADAAIAAAAKuwACWRIDtwAEvwAAAAEADAAA"
+                    + "AAYAAQAAAAMAAQAPAAAAAgAQ"),
+            Base64.getDecoder().decode(
+                    "ZGV4CjAzNQDSWls05CPkX+gbTGMVRvx9dc9vozzVbu7AAgAAcAAAAHhWNBIAAAAAAAAAACwCAAAN"
+                    + "AAAAcAAAAAcAAACkAAAAAgAAAMAAAAAAAAAAAAAAAAQAAADYAAAAAQAAAPgAAACoAQAAGAEAAGIB"
+                    + "AABqAQAAdAEAAH4BAACMAQAAnwEAALMBAADHAQAA3gEAAO8BAADyAQAA9gEAAAoCAAABAAAAAgAA"
+                    + "AAMAAAAEAAAABQAAAAYAAAAJAAAACQAAAAYAAAAAAAAACgAAAAYAAABcAQAAAgAAAAAAAAACAAEA"
+                    + "DAAAAAMAAQAAAAAABAAAAAAAAAACAAAAAAAAAAQAAABUAQAACAAAAAAAAAAcAgAAAAAAAAEAAQAB"
+                    + "AAAAEQIAAAQAAABwEAMAAAAOAAQAAgACAAAAFgIAAAkAAAAiAAMAGwEHAAAAcCACABAAJwAAAAIA"
+                    + "AAAAAAEAAQAAAAUABjxpbml0PgAITElmYWNlMTsACExJZmFjZTI7AAxMVHJhbnNmb3JtMjsAEUxq"
+                    + "YXZhL2xhbmcvRXJyb3I7ABJMamF2YS9sYW5nL09iamVjdDsAEkxqYXZhL2xhbmcvU3RyaW5nOwAV"
+                    + "U2hvdWxkIG5vdCBiZSBjYWxsZWQhAA9UcmFuc2Zvcm0yLmphdmEAAVYAAlZMABJlbWl0dGVyOiBq"
+                    + "YWNrLTQuMjAABXNheUhpAAEABw4AAwEABw4AAAABAQCAgASYAgEBsAIAAAwAAAAAAAAAAQAAAAAA"
+                    + "AAABAAAADQAAAHAAAAACAAAABwAAAKQAAAADAAAAAgAAAMAAAAAFAAAABAAAANgAAAAGAAAAAQAA"
+                    + "APgAAAABIAAAAgAAABgBAAABEAAAAgAAAFQBAAACIAAADQAAAGIBAAADIAAAAgAAABECAAAAIAAA"
+                    + "AQAAABwCAAAAEAAAAQAAACwCAAA="));
 
-  // Valid redefinition of Transform2
-  // class Transform2 implements Iface1, Iface2 {
-  //   public void sayHi(String name) {
-  //     throw new Error("Should not be called!");
-  //   }
-  // }
-  private static CommonClassDefinition VALID_DEFINITION_T2 = new CommonClassDefinition(
-      Transform2.class,
-      Base64.getDecoder().decode(
-          "yv66vgAAADQAGQoABgARBwASCAATCgACABQHABUHABYHABcHABgBAAY8aW5pdD4BAAMoKVYBAARD" +
-          "b2RlAQAPTGluZU51bWJlclRhYmxlAQAFc2F5SGkBABUoTGphdmEvbGFuZy9TdHJpbmc7KVYBAApT" +
-          "b3VyY2VGaWxlAQAPVHJhbnNmb3JtMi5qYXZhDAAJAAoBAA9qYXZhL2xhbmcvRXJyb3IBABVTaG91" +
-          "bGQgbm90IGJlIGNhbGxlZCEMAAkADgEAClRyYW5zZm9ybTIBABBqYXZhL2xhbmcvT2JqZWN0AQAG" +
-          "SWZhY2UxAQAGSWZhY2UyACAABQAGAAIABwAIAAAAAgAAAAkACgABAAsAAAAdAAEAAQAAAAUqtwAB" +
-          "sQAAAAEADAAAAAYAAQAAAAEAAQANAA4AAQALAAAAIgADAAIAAAAKuwACWRIDtwAEvwAAAAEADAAA" +
-          "AAYAAQAAAAMAAQAPAAAAAgAQ"),
-      Base64.getDecoder().decode(
-          "ZGV4CjAzNQDSWls05CPkX+gbTGMVRvx9dc9vozzVbu7AAgAAcAAAAHhWNBIAAAAAAAAAACwCAAAN" +
-          "AAAAcAAAAAcAAACkAAAAAgAAAMAAAAAAAAAAAAAAAAQAAADYAAAAAQAAAPgAAACoAQAAGAEAAGIB" +
-          "AABqAQAAdAEAAH4BAACMAQAAnwEAALMBAADHAQAA3gEAAO8BAADyAQAA9gEAAAoCAAABAAAAAgAA" +
-          "AAMAAAAEAAAABQAAAAYAAAAJAAAACQAAAAYAAAAAAAAACgAAAAYAAABcAQAAAgAAAAAAAAACAAEA" +
-          "DAAAAAMAAQAAAAAABAAAAAAAAAACAAAAAAAAAAQAAABUAQAACAAAAAAAAAAcAgAAAAAAAAEAAQAB" +
-          "AAAAEQIAAAQAAABwEAMAAAAOAAQAAgACAAAAFgIAAAkAAAAiAAMAGwEHAAAAcCACABAAJwAAAAIA" +
-          "AAAAAAEAAQAAAAUABjxpbml0PgAITElmYWNlMTsACExJZmFjZTI7AAxMVHJhbnNmb3JtMjsAEUxq" +
-          "YXZhL2xhbmcvRXJyb3I7ABJMamF2YS9sYW5nL09iamVjdDsAEkxqYXZhL2xhbmcvU3RyaW5nOwAV" +
-          "U2hvdWxkIG5vdCBiZSBjYWxsZWQhAA9UcmFuc2Zvcm0yLmphdmEAAVYAAlZMABJlbWl0dGVyOiBq" +
-          "YWNrLTQuMjAABXNheUhpAAEABw4AAwEABw4AAAABAQCAgASYAgEBsAIAAAwAAAAAAAAAAQAAAAAA" +
-          "AAABAAAADQAAAHAAAAACAAAABwAAAKQAAAADAAAAAgAAAMAAAAAFAAAABAAAANgAAAAGAAAAAQAA" +
-          "APgAAAABIAAAAgAAABgBAAABEAAAAgAAAFQBAAACIAAADQAAAGIBAAADIAAAAgAAABECAAAAIAAA" +
-          "AQAAABwCAAAAEAAAAQAAACwCAAA="));
-
-  public static void doTest(Transform t1, Transform2 t2) {
-    t1.sayHi("MultiRetrans");
-    t2.sayHi("MultiRetrans");
-    try {
-      Main.addMultiTransformationResults(VALID_DEFINITION_T2, INVALID_DEFINITION_T1);
-      Main.enableCommonRetransformation(true);
-      Main.doCommonClassRetransformation(Transform2.class, Transform.class);
-    } catch (Exception e) {
-      System.out.println(
-          "Transformation error : " + e.getClass().getName() + "(" + e.getMessage() + ")");
-    } finally {
-      Main.enableCommonRetransformation(false);
+    public static void doTest(Transform t1, Transform2 t2) {
+        t1.sayHi("MultiRetrans");
+        t2.sayHi("MultiRetrans");
+        try {
+            Main.addMultiTransformationResults(VALID_DEFINITION_T2, INVALID_DEFINITION_T1);
+            Main.enableCommonRetransformation(true);
+            Main.doCommonClassRetransformation(Transform2.class, Transform.class);
+        } catch (Exception e) {
+            System.out.println("Transformation error : " + e.getClass().getName() + "("
+                    + e.getMessage() + ")");
+        } finally {
+            Main.enableCommonRetransformation(false);
+        }
+        t1.sayHi("MultiRetrans");
+        t2.sayHi("MultiRetrans");
+        try {
+            Main.addMultiTransformationResults(VALID_DEFINITION_T2, INVALID_DEFINITION_T1);
+            Main.enableCommonRetransformation(true);
+            Main.doCommonClassRetransformation(Transform.class, Transform2.class);
+        } catch (Exception e) {
+            System.out.println("Transformation error : " + e.getClass().getName() + "("
+                    + e.getMessage() + ")");
+        } finally {
+            Main.enableCommonRetransformation(false);
+        }
+        t1.sayHi("MultiRetrans");
+        t2.sayHi("MultiRetrans");
     }
-    t1.sayHi("MultiRetrans");
-    t2.sayHi("MultiRetrans");
-    try {
-      Main.addMultiTransformationResults(VALID_DEFINITION_T2, INVALID_DEFINITION_T1);
-      Main.enableCommonRetransformation(true);
-      Main.doCommonClassRetransformation(Transform.class, Transform2.class);
-    } catch (Exception e) {
-      System.out.println(
-          "Transformation error : " + e.getClass().getName() + "(" + e.getMessage() + ")");
-    } finally {
-      Main.enableCommonRetransformation(false);
-    }
-    t1.sayHi("MultiRetrans");
-    t2.sayHi("MultiRetrans");
-  }
 }

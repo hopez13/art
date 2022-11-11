@@ -15,7 +15,5 @@
  */
 
 public class TestMain {
-  public static void runTest() {
-    new Transform().sayHi();
-  }
+    public static void runTest() { new Transform().sayHi(); }
 }

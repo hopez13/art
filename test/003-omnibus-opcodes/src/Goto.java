@@ -18,9 +18,7 @@
  * Try to cause some gotos.
  */
 class Goto {
-    static int filler(int i) {
-        return i+1;
-    }
+    static int filler(int i) { return i + 1; }
 
     static int smallGoto(boolean which) {
         System.out.println("Goto.smallGoto");

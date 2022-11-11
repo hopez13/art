@@ -17,38 +17,34 @@
 import java.io.PrintStream;
 
 class MicroBenchmark extends BenchmarkBase {
-  private static final int EXERCISE_ITERATIONS = 1000;
+    private static final int EXERCISE_ITERATIONS = 1000;
 
-  MicroBenchmark() {
-    super(null);
-  }
+    MicroBenchmark() { super(null); }
 
-  @Override
-  public String getName() {
-    return getClass().getSimpleName();
-  }
-
-  @Override
-  public void exercise() throws Throwable {
-    for (int i = 0; i < EXERCISE_ITERATIONS; ++i) {
-      run();
+    @Override
+    public String getName() {
+        return getClass().getSimpleName();
     }
-  }
 
-  public int innerIterations() {
-      return 1;
-  }
-
-  @Override
-  public void report() {
-    try {
-      double microseconds = measure() / (EXERCISE_ITERATIONS * innerIterations());
-      System.out.println(getName() + "(RunTimeRaw): " + microseconds + " us.");
-    } catch (Throwable t) {
-      System.err.println("Exception during the execution of " + getName());
-      System.err.println(t);
-      t.printStackTrace(new PrintStream(System.err));
-      System.exit(1);
+    @Override
+    public void exercise() throws Throwable {
+        for (int i = 0; i < EXERCISE_ITERATIONS; ++i) {
+            run();
+        }
     }
-  }
+
+    public int innerIterations() { return 1; }
+
+    @Override
+    public void report() {
+        try {
+            double microseconds = measure() / (EXERCISE_ITERATIONS * innerIterations());
+            System.out.println(getName() + "(RunTimeRaw): " + microseconds + " us.");
+        } catch (Throwable t) {
+            System.err.println("Exception during the execution of " + getName());
+            System.err.println(t);
+            t.printStackTrace(new PrintStream(System.err));
+            System.exit(1);
+        }
+    }
 }

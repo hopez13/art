@@ -19,9 +19,7 @@
  */
 public class Main {
     /* delays, in milliseconds */
-    private final static long[] DELAYS = {
-        200, 500, 1000, 2000, 3500, 8000
-    };
+    private final static long[] DELAYS = {200, 500, 1000, 2000, 3500, 8000};
     // This test is inherently prone to failures through scheduling delays and spurious wakeups.
     // We try it repeatedly, and check that failures are "rare enough".
     // Currently we go for success on the first try or 2 out of 3.
@@ -75,7 +73,7 @@ public class Main {
                         elapsed_to_report = elapsed;
                     } else {
                         if (elapsed < min || elapsed > max) {
-                            ++ num_failures;
+                            ++num_failures;
                             elapsed_to_report = elapsed;
                         } else if (i == 0) {
                             // Save time if we immediately succeeded.
@@ -84,8 +82,8 @@ public class Main {
                     }
                 }
                 if (num_failures > MAX_FAILURES) {
-                    System.out.println("Failed " + num_failures + " times out of "
-                            + NUM_TRIES + " tries.");
+                    System.out.println(
+                            "Failed " + num_failures + " times out of " + NUM_TRIES + " tries.");
                     showTime = true;
                     if (elapsed_to_report < min) {
                         // This can legitimately happen due to premature wake-ups.
@@ -94,12 +92,11 @@ public class Main {
                         System.out.println("  Elapsed time was too short");
                     } else if (elapsed_to_report > max) {
                         System.out.println("  Elapsed time was too long: "
-                             + "elapsed = " + elapsed_to_report + " max = " + max);
+                                + "elapsed = " + elapsed_to_report + " max = " + max);
                     }
                 }
                 if (showTime) {
-                    System.out.println("  Wall clock elapsed "
-                            + elapsed_to_report + "ms");
+                    System.out.println("  Wall clock elapsed " + elapsed_to_report + "ms");
                 }
             }
         }

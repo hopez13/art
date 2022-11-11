@@ -17,49 +17,37 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) {
-    System.out.println($noinline$runSmaliTest("$opt$noinline$foo", new Main()));
-    System.out.println($noinline$runSmaliTest("$opt$noinline$foo", new SubMain()));
-    System.out.println($noinline$runSmaliTest("$opt$noinline$foo", new SubSubMain()));
-  }
-
-  public int bar() {
-    return 1;
-  }
-
-  public int foo() {
-    return 2;
-  }
-
-  public static boolean doThrow = false;
-
-  public static int $noinline$runSmaliTest(String name, Main input) {
-    try {
-      Class<?> c = Class.forName("SmaliTests");
-      Method m = c.getMethod(name, Main.class);
-      return (Integer) m.invoke(null, input);
-    } catch (Exception ex) {
-      throw new Error(ex);
+    public static void main(String[] args) {
+        System.out.println($noinline$runSmaliTest("$opt$noinline$foo", new Main()));
+        System.out.println($noinline$runSmaliTest("$opt$noinline$foo", new SubMain()));
+        System.out.println($noinline$runSmaliTest("$opt$noinline$foo", new SubSubMain()));
     }
-  }
+
+    public int bar() { return 1; }
+
+    public int foo() { return 2; }
+
+    public static boolean doThrow = false;
+
+    public static int $noinline$runSmaliTest(String name, Main input) {
+        try {
+            Class<?> c = Class.forName("SmaliTests");
+            Method m = c.getMethod(name, Main.class);
+            return (Integer) m.invoke(null, input);
+        } catch (Exception ex) {
+            throw new Error(ex);
+        }
+    }
 }
 
 class SubMain extends Main {
-  public int bar() {
-    return 3;
-  }
+    public int bar() { return 3; }
 
-  public int foo() {
-    return 4;
-  }
+    public int foo() { return 4; }
 }
 
 class SubSubMain extends SubMain {
-  public int bar() {
-    return 5;
-  }
+    public int bar() { return 5; }
 
-  public int foo() {
-    return 6;
-  }
+    public int foo() { return 6; }
 }

@@ -17,7 +17,5 @@
 package pkg1;
 
 public class PublicFoo extends pkg2.PublicFoo {
-  public Class<?> foo() {
-    return PublicFoo.class;
-  }
+    public Class<?> foo() { return PublicFoo.class; }
 }

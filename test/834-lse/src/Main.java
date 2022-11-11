@@ -15,26 +15,26 @@
  */
 
 class Main {
-  int myField;
-  static boolean test;
+    int myField;
+    static boolean test;
 
-  static void $noinline$assertEquals(int expected, int actual) {
-    if (expected != actual) {
-      throw new Error("Expected " + expected + ", got " + actual);
+    static void $noinline$assertEquals(int expected, int actual) {
+        if (expected != actual) {
+            throw new Error("Expected " + expected + ", got " + actual);
+        }
     }
-  }
 
-  static void $noinline$empty() {}
-  static void $noinline$escape(Object m) {}
+    static void $noinline$empty() {}
+    static void $noinline$escape(Object m) {}
 
-  public static void main(String[] args) {
-    Main m = new Main();
-    if (test) {
-      $noinline$escape(m);
-    } else {
-      m.myField = 42;
+    public static void main(String[] args) {
+        Main m = new Main();
+        if (test) {
+            $noinline$escape(m);
+        } else {
+            m.myField = 42;
+        }
+        $noinline$empty();
+        $noinline$assertEquals(42, m.myField);
     }
-    $noinline$empty();
-    $noinline$assertEquals(42, m.myField);
-  }
 }

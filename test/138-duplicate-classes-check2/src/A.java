@@ -22,7 +22,5 @@ public class A {
     // Use volatile to defeat inlining of the constructor + load-elimination.
     public volatile int i;
 
-    public A() {
-      i = 10;
-    }
+    public A() { i = 10; }
 }

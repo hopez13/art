@@ -23,12 +23,10 @@ class SampleObject {
     public static boolean sHashCodeInvoked = false;
     private int i;
 
-    public SampleObject(int i) {
-        this.i = i;
-    }
+    public SampleObject(int i) { this.i = i; }
 
     public boolean equals(Object obj) {
-        return (obj instanceof SampleObject) && (i == ((SampleObject)obj).i);
+        return (obj instanceof SampleObject) && (i == ((SampleObject) obj).i);
     }
 
     public int hashCode() {
@@ -53,9 +51,9 @@ public class Main {
     private static native void ensureJitCompiled(Class<?> itf, String method_name);
 
     public static void execute(Runnable runnable) throws Exception {
-      Thread t = new Thread(runnable);
-      t.start();
-      t.join();
+        Thread t = new Thread(runnable);
+        t.start();
+        t.join();
     }
 
     public static void ensureAllJitCompiled() {
@@ -71,7 +69,7 @@ public class Main {
         System.loadLibrary(args[0]);
         // Only test stack frames in compiled mode.
         if (!hasJit()) {
-          disableStackFrameAsserts();
+            disableStackFrameAsserts();
         }
 
         ensureAllJitCompiled();
@@ -89,7 +87,7 @@ public class Main {
                 int[] arr = new int[3];
                 assertIsManaged();
                 int res = $noinline$run1(arr);
-                assertIsManaged();  // Only single frame is deoptimized.
+                assertIsManaged(); // Only single frame is deoptimized.
                 if (res != 79) {
                     System.out.println("Failure 1!");
                     System.exit(0);
@@ -112,8 +110,8 @@ public class Main {
                     // full-fragment deoptimization since that is an upcall.
                     Class<?> cls = Class.forName("Main");
                     Method method = cls.getDeclaredMethod("$noinline$run2", int[].class);
-                    double res = (double)method.invoke(Main.class, arr);
-                    assertIsManaged();  // Only single frame is deoptimized.
+                    double res = (double) method.invoke(Main.class, arr);
+                    assertIsManaged(); // Only single frame is deoptimized.
                     if (res != 79.3d) {
                         System.out.println("Failure 2!");
                         System.exit(0);
@@ -134,7 +132,7 @@ public class Main {
             public void runInternal() {
                 assertIsManaged();
                 float res = $noinline$run3B();
-                assertIsInterpreted();  // Every deoptimizeable method is deoptimized.
+                assertIsInterpreted(); // Every deoptimizeable method is deoptimized.
                 if (res != 0.034f) {
                     System.out.println("Failure 3!");
                     System.exit(0);
@@ -142,7 +140,7 @@ public class Main {
             }
         });
 
-        undeoptimizeAll();  // Make compiled code useable again.
+        undeoptimizeAll(); // Make compiled code useable again.
         ensureAllJitCompiled();
 
         // Partial-fragment deoptimization.
@@ -157,14 +155,14 @@ public class Main {
                 try {
                     assertIsManaged();
                     map.put(new SampleObject(10), Long.valueOf(100));
-                    assertIsInterpreted();  // Every deoptimizeable method is deoptimized.
+                    assertIsInterpreted(); // Every deoptimizeable method is deoptimized.
                 } catch (Exception e) {
                     e.printStackTrace(System.out);
                 }
             }
         });
 
-        undeoptimizeAll();  // Make compiled code useable again.
+        undeoptimizeAll(); // Make compiled code useable again.
         ensureAllJitCompiled();
 
         if (!SampleObject.sHashCodeInvoked) {
@@ -216,7 +214,7 @@ public class Main {
             // This causes AIOOBE and triggers deoptimization from compiled code.
             arr[3] = 1;
         } catch (ArrayIndexOutOfBoundsException e) {
-            assertIsInterpreted();  // Single-frame deoptimization triggered.
+            assertIsInterpreted(); // Single-frame deoptimization triggered.
             caught = true;
         }
         if (!caught) {
@@ -235,7 +233,7 @@ public class Main {
         // Deoptimize callers.
         deoptimizeAll();
         assertIsInterpreted();
-        assertCallerIsInterpreted();  // $noinline$run3B is deoptimizeable.
+        assertCallerIsInterpreted(); // $noinline$run3B is deoptimizeable.
         return 0.034f;
     }
 

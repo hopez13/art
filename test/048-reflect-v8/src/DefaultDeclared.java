@@ -17,55 +17,49 @@
 import java.lang.reflect.Method;
 
 public class DefaultDeclared {
-  interface DefaultInterface {
-    default void sayHi() {
-      System.out.println("hi default");
+    interface DefaultInterface {
+        default void sayHi() { System.out.println("hi default"); }
     }
-  }
 
-  interface RegularInterface {
-    void sayHi();
-  }
-
-  class ImplementsWithDefault implements DefaultInterface {}
-
-  class ImplementsWithDeclared implements DefaultInterface {
-    public void sayHi() {
-      System.out.println("hello specific from default");
+    interface RegularInterface {
+        void sayHi();
     }
-  }
 
-  abstract class UnimplementedWithRegular implements RegularInterface { }
+    class ImplementsWithDefault implements DefaultInterface {}
 
-  class ImplementsWithRegular implements RegularInterface {
-    public void sayHi() {
-      System.out.println("hello specific");
+    class ImplementsWithDeclared implements DefaultInterface {
+        public void sayHi() { System.out.println("hello specific from default"); }
     }
-  }
 
-  private static void printGetMethod(Class<?> klass) {
-    Method m;
-    try {
-      m = klass.getDeclaredMethod("sayHi");
-      System.out.println("No error thrown for class " + klass.toString());
-    } catch (NoSuchMethodException e) {
-      System.out.println("NoSuchMethodException thrown for class " + klass.toString());
-    } catch (Throwable t) {
-      System.out.println("Unknown error thrown for class " + klass.toString());
-      t.printStackTrace(System.out);
+    abstract class UnimplementedWithRegular implements RegularInterface {}
+
+    class ImplementsWithRegular implements RegularInterface {
+        public void sayHi() { System.out.println("hello specific"); }
     }
-  }
 
-  public static void test() {
-    System.out.println("==============================");
-    System.out.println("Are These Methods found by getDeclaredMethod:");
-    System.out.println("==============================");
+    private static void printGetMethod(Class<?> klass) {
+        Method m;
+        try {
+            m = klass.getDeclaredMethod("sayHi");
+            System.out.println("No error thrown for class " + klass.toString());
+        } catch (NoSuchMethodException e) {
+            System.out.println("NoSuchMethodException thrown for class " + klass.toString());
+        } catch (Throwable t) {
+            System.out.println("Unknown error thrown for class " + klass.toString());
+            t.printStackTrace(System.out);
+        }
+    }
 
-    printGetMethod(DefaultInterface.class);
-    printGetMethod(RegularInterface.class);
-    printGetMethod(ImplementsWithDefault.class);
-    printGetMethod(ImplementsWithDeclared.class);
-    printGetMethod(ImplementsWithRegular.class);
-    printGetMethod(UnimplementedWithRegular.class);
-  }
+    public static void test() {
+        System.out.println("==============================");
+        System.out.println("Are These Methods found by getDeclaredMethod:");
+        System.out.println("==============================");
+
+        printGetMethod(DefaultInterface.class);
+        printGetMethod(RegularInterface.class);
+        printGetMethod(ImplementsWithDefault.class);
+        printGetMethod(ImplementsWithDeclared.class);
+        printGetMethod(ImplementsWithRegular.class);
+        printGetMethod(UnimplementedWithRegular.class);
+    }
 }

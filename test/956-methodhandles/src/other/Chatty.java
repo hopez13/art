@@ -17,7 +17,5 @@
 package other;
 
 public interface Chatty {
-  public default void chatter() {
-    System.out.println("Chatty.chatter()");
-  }
+    public default void chatter() { System.out.println("Chatty.chatter()"); }
 }

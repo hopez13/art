@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-public interface Test10Interface { }
-
+public interface Test10Interface {}

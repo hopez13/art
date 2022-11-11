@@ -18,21 +18,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Main {
+    public static void testMethod(String method) throws Exception {
+        Class<?> c = Class.forName("TestCase");
+        Method m = c.getMethod(method);
 
-  public static void testMethod(String method) throws Exception {
-    Class<?> c = Class.forName("TestCase");
-    Method m = c.getMethod(method);
-
-    Object[] arguments = new Object[] { };
-    try {
-      m.invoke(null, arguments);
-      throw new Error();
-    } catch (InvocationTargetException e) {
-      // expected
+        Object[] arguments = new Object[] {};
+        try {
+            m.invoke(null, arguments);
+            throw new Error();
+        } catch (InvocationTargetException e) {
+            // expected
+        }
     }
-  }
 
-  public static void main(String[] args) throws Exception {
-    testMethod("foo");
-  }
+    public static void main(String[] args) throws Exception { testMethod("foo"); }
 }

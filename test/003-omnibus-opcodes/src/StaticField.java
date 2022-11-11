@@ -43,11 +43,11 @@ public class StaticField {
         mInt1 = 65537;
         mInt2 = -65537;
         mFloat1 = 3.1415f;
-        mFloat2 = -1.0f / 0.0f;                // -inf
-        mLong1 = 1234605616436508552L;     // 0x1122334455667788
+        mFloat2 = -1.0f / 0.0f; // -inf
+        mLong1 = 1234605616436508552L; // 0x1122334455667788
         mLong2 = -1234605616436508552L;
         mDouble1 = 3.1415926535;
-        mDouble2 = 1.0 / 0.0;               // +inf
+        mDouble2 = 1.0 / 0.0; // +inf
         mVolatileLong1 = mLong1 - 1;
         mVolatileLong2 = mLong2 + 1;
     }

@@ -18,23 +18,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Main {
+    public static void main(String[] args) throws Throwable { $opt$InvokeDirect(); }
 
-  public static void main(String[] args) throws Throwable {
-    $opt$InvokeDirect();
-  }
-
-  private static void $opt$InvokeDirect() throws Throwable {
-    try {
-      Class<?> c = Class.forName("InvokeDirect");
-      Method m = c.getMethod("run");
-      m.invoke(c.newInstance());
-      throw new RuntimeException("Failed to throw IllegalAccessError");
-    } catch (InvocationTargetException e) {
-      if (!(e.getCause() instanceof IllegalAccessError)) {
-        throw new RuntimeException("Failed to throw IllegalAccessError");
-      }
+    private static void $opt$InvokeDirect() throws Throwable {
+        try {
+            Class<?> c = Class.forName("InvokeDirect");
+            Method m = c.getMethod("run");
+            m.invoke(c.newInstance());
+            throw new RuntimeException("Failed to throw IllegalAccessError");
+        } catch (InvocationTargetException e) {
+            if (!(e.getCause() instanceof IllegalAccessError)) {
+                throw new RuntimeException("Failed to throw IllegalAccessError");
+            }
+        }
     }
-  }
-
 }
-

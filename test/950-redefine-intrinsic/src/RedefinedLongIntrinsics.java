@@ -18,53 +18,33 @@
  * The methods that are intrinsified in Long and their expected redefined implementations.
  */
 class RedefinedLongIntrinsics {
-  // Intrinsic! Do something cool. Return i + 1
-  public static long highestOneBit(long i) {
-    return i + 1;
-  }
+    // Intrinsic! Do something cool. Return i + 1
+    public static long highestOneBit(long i) { return i + 1; }
 
-  // Intrinsic! Do something cool. Return i - 1
-  public static long lowestOneBit(long i) {
-    return i - 1;
-  }
+    // Intrinsic! Do something cool. Return i - 1
+    public static long lowestOneBit(long i) { return i - 1; }
 
-  // Intrinsic! Do something cool. Return i + i
-  public static int numberOfLeadingZeros(long i) {
-    return (int)(i + i);
-  }
+    // Intrinsic! Do something cool. Return i + i
+    public static int numberOfLeadingZeros(long i) { return (int) (i + i); }
 
-  // Intrinsic! Do something cool. Return i & (i >>> 1);
-  public static int numberOfTrailingZeros(long i) {
-    return (int)(i & (i >>> 1));
-  }
+    // Intrinsic! Do something cool. Return i & (i >>> 1);
+    public static int numberOfTrailingZeros(long i) { return (int) (i & (i >>> 1)); }
 
-  // Intrinsic! Do something cool. Return 5
-  public static int bitCount(long i) {
-    return 5;
-  }
+    // Intrinsic! Do something cool. Return 5
+    public static int bitCount(long i) { return 5; }
 
-  // Intrinsic! Do something cool. Return i
-  public static long rotateLeft(long i, int distance) {
-    return i;
-  }
+    // Intrinsic! Do something cool. Return i
+    public static long rotateLeft(long i, int distance) { return i; }
 
-  // Intrinsic! Do something cool. Return 10 * i
-  public static long rotateRight(long i, int distance) {
-    return 10 * i;
-  }
+    // Intrinsic! Do something cool. Return 10 * i
+    public static long rotateRight(long i, int distance) { return 10 * i; }
 
-  // Intrinsic! Do something cool. Return -i
-  public static long reverse(long i) {
-    return -i;
-  }
+    // Intrinsic! Do something cool. Return -i
+    public static long reverse(long i) { return -i; }
 
-  // Intrinsic! Do something cool. Return 0
-  public static int signum(long i) {
-    return 0;
-  }
+    // Intrinsic! Do something cool. Return 0
+    public static int signum(long i) { return 0; }
 
-  // Intrinsic! Do something cool. Return 0
-  public static long reverseBytes(long i) {
-    return 0;
-  }
+    // Intrinsic! Do something cool. Return 0
+    public static long reverseBytes(long i) { return 0; }
 }

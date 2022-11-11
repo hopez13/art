@@ -29,8 +29,7 @@ public class Clash2 {
 
         try {
             Proxy.newProxyInstance(Clash.class.getClassLoader(),
-                new Class<?>[] { Interface2A.class, Interface2B.class },
-                handler);
+                    new Class<?>[] {Interface2A.class, Interface2B.class}, handler);
             System.out.println("Clash2 did not throw expected exception");
         } catch (IllegalArgumentException iae) {
             System.out.println("Clash2 threw expected exception");
@@ -52,9 +51,7 @@ interface Interface2B {
 
 class Clash2InvocationHandler implements InvocationHandler {
     /* don't really need to do anything -- should never get this far */
-    public Object invoke(Object proxy, Method method, Object[] args)
-        throws Throwable {
-
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         return null;
     }
 }

@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-class Super extends Base implements Abstract {
-}
+class Super extends Base implements Abstract {}

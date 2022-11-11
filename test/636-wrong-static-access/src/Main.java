@@ -18,7 +18,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 public class Main {
-    static final String DEX_FILE = System.getenv("DEX_LOCATION") + "/636-wrong-static-access-ex.jar";
+    static final String DEX_FILE =
+            System.getenv("DEX_LOCATION") + "/636-wrong-static-access-ex.jar";
 
     public static void main(String[] args) throws Exception {
         System.loadLibrary(args[0]);
@@ -27,9 +28,9 @@ public class Main {
             throw new AssertionError("Couldn't find path class loader class");
         }
         Constructor<?> constructor =
-            pathClassLoader.getDeclaredConstructor(String.class, ClassLoader.class);
-        ClassLoader loader = (ClassLoader) constructor.newInstance(
-            DEX_FILE, ClassLoader.getSystemClassLoader());
+                pathClassLoader.getDeclaredConstructor(String.class, ClassLoader.class);
+        ClassLoader loader =
+                (ClassLoader) constructor.newInstance(DEX_FILE, ClassLoader.getSystemClassLoader());
         Class<?> foo = loader.loadClass("Foo");
         Method doTest = foo.getDeclaredMethod("doTest");
         doTest.invoke(null);

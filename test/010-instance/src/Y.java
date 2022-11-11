@@ -1,8 +1,5 @@
 class Y extends X {
-    public Y() {
-    }
+    public Y() {}
 
-    int bar() {
-        return 1;
-    }
+    int bar() { return 1; }
 }

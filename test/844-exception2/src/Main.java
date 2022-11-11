@@ -15,36 +15,33 @@
  */
 
 public class Main {
-  public static class Inner {
-    // Use a <clinit> method to ensure we execute in the
-    // interpreter.
-    static {
-      Main.callMethodThatThrows();
+    public static class Inner {
+        // Use a <clinit> method to ensure we execute in the
+        // interpreter.
+        static { Main.callMethodThatThrows(); }
     }
-  }
 
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    // Disables use of nterp.
-    Main.setAsyncExceptionsThrown();
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        // Disables use of nterp.
+        Main.setAsyncExceptionsThrown();
 
-    Thread.currentThread().setUncaughtExceptionHandler((th, e) -> {
-      System.out.println("Caught exception");
-      // Exit the test gracefully.
-      System.exit(0);
-    });
-    // This will throw at `callMethodThatThrows` and trigger deoptimization checks which we used
-    // to crash on.
-    new Inner();
-  }
+        Thread.currentThread().setUncaughtExceptionHandler((th, e) -> {
+            System.out.println("Caught exception");
+            // Exit the test gracefully.
+            System.exit(0);
+        });
+        // This will throw at `callMethodThatThrows` and trigger deoptimization checks which we used
+        // to crash on.
+        new Inner();
+    }
 
-  public static void callMethodThatThrows() {
-    // Ensures we get deoptimization requests.
-    Main.forceInterpreterOnThread();
-    throw new Error("");
-  }
+    public static void callMethodThatThrows() {
+        // Ensures we get deoptimization requests.
+        Main.forceInterpreterOnThread();
+        throw new Error("");
+    }
 
-  public static native void forceInterpreterOnThread();
-  public static native void setAsyncExceptionsThrown();
-
+    public static native void forceInterpreterOnThread();
+    public static native void setAsyncExceptionsThrown();
 }

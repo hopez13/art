@@ -24,33 +24,33 @@ public class Main {
     }
 
     public static void expectDefault(Super target) {
-        String output = target.testMethod();  // invoke-virtual Super.testMethod()
+        String output = target.testMethod(); // invoke-virtual Super.testMethod()
         Abstract abstractTarget = target;
-        String output2 = abstractTarget.testMethod();  // invoke-interface Abstract.testMethod()
+        String output2 = abstractTarget.testMethod(); // invoke-interface Abstract.testMethod()
         expectSameString(output, output2);
         System.out.println("Output from " + target.getClass().getName() + ": " + output);
     }
 
     public static void expectConflict(Super target) {
         try {
-            String output = target.testMethod();  // invoke-virtual Super.testMethod()
-            throw new Error("Unexpected success for " + target.getClass().getName() +
-                            " output: " + output);
+            String output = target.testMethod(); // invoke-virtual Super.testMethod()
+            throw new Error(
+                    "Unexpected success for " + target.getClass().getName() + " output: " + output);
         } catch (AbstractMethodError ame) {
             if (usingDalvik) {
                 throw new Error("Unexpected AbstractMethodError", ame);
-            }  // else the AME is expected on RI.
+            } // else the AME is expected on RI.
         } catch (IncompatibleClassChangeError expected) {
         }
         try {
             Abstract abstractTarget = target;
-            String output = abstractTarget.testMethod();  // invoke-interface Abstract.testMethod()
-            throw new Error("Unexpected success for " + target.getClass().getName() +
-                            " output: " + output);
+            String output = abstractTarget.testMethod(); // invoke-interface Abstract.testMethod()
+            throw new Error(
+                    "Unexpected success for " + target.getClass().getName() + " output: " + output);
         } catch (AbstractMethodError ame) {
             if (usingDalvik) {
                 throw new Error("Unexpected AbstractMethodError", ame);
-            }  // else the AME is expected on RI.
+            } // else the AME is expected on RI.
         } catch (IncompatibleClassChangeError expected) {
         }
         System.out.println("Conflict in class " + target.getClass().getName());
@@ -58,16 +58,16 @@ public class Main {
 
     public static void expectMiranda(Super target) {
         try {
-            String output = target.testMethod();  // invoke-virtual Super.testMethod()
-            throw new Error("Unexpected success for " + target.getClass().getName() +
-                            " output: " + output);
+            String output = target.testMethod(); // invoke-virtual Super.testMethod()
+            throw new Error(
+                    "Unexpected success for " + target.getClass().getName() + " output: " + output);
         } catch (AbstractMethodError expected) {
         }
         try {
             Abstract abstractTarget = target;
-            String output = abstractTarget.testMethod();  // invoke-interface Abstract.testMethod()
-            throw new Error("Unexpected success for " + target.getClass().getName() +
-                            " output: " + output);
+            String output = abstractTarget.testMethod(); // invoke-interface Abstract.testMethod()
+            throw new Error(
+                    "Unexpected success for " + target.getClass().getName() + " output: " + output);
         } catch (AbstractMethodError expected) {
         }
         System.out.println("Miranda in class " + target.getClass().getName());
@@ -348,4 +348,4 @@ abstract class B215510819Base extends Default_D1 implements B215510819Iface {
 // methods via an IMT conflict resolution trampoline would just end up in unrelated
 // concrete method when called from compiled code or from interpreter in release mode.
 // In debug mode, interpreter would fail a debug check.
-class B215510819Test extends B215510819Base {}  // No new interfaces or virtuals.
+class B215510819Test extends B215510819Base {} // No new interfaces or virtuals.

@@ -17,7 +17,7 @@
 import java.util.Vector;
 
 public class Main {
-    static char [][] holder;
+    static char[][] holder;
 
     static class ArrayMemEater {
         static boolean sawOome;

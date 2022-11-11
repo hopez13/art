@@ -15,41 +15,38 @@
  */
 
 public class Main {
-
-  public static void run() {
-    // Loop enough to get JIT compilation.
-    for (int i = 0; i < 10000; ++i) {
-      doCall(new int[0]);
+    public static void run() {
+        // Loop enough to get JIT compilation.
+        for (int i = 0; i < 10000; ++i) {
+            doCall(new int[0]);
+        }
     }
-  }
 
-  public static void main(String[] args) throws Exception {
-    run();
-  }
+    public static void main(String[] args) throws Exception { run(); }
 
-  public static void doCall(int[] array) {
-    try {
-      deopt(array);
-    } catch (IndexOutOfBoundsException ioobe) {
-      // Expected
+    public static void doCall(int[] array) {
+        try {
+            deopt(array);
+        } catch (IndexOutOfBoundsException ioobe) {
+            // Expected
+        }
     }
-  }
 
-  public static void deopt(int[] array) {
-    // Invoke `deopt` much more than `$inline$deopt` so that only `deopt` gets
-    // initially JITted.
-    if (call == 100) {
-      call = 0;
-      $inline$deopt(array);
-    } else {
-      call++;
+    public static void deopt(int[] array) {
+        // Invoke `deopt` much more than `$inline$deopt` so that only `deopt` gets
+        // initially JITted.
+        if (call == 100) {
+            call = 0;
+            $inline$deopt(array);
+        } else {
+            call++;
+        }
     }
-  }
 
-  public static void $inline$deopt(int[] array) {
-    array[0] = 1;
-    array[1] = 1;
-  }
+    public static void $inline$deopt(int[] array) {
+        array[0] = 1;
+        array[1] = 1;
+    }
 
-  static int call = 0;
+    static int call = 0;
 }

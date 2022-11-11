@@ -17,31 +17,31 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
 
-    Class<?> c = Class.forName("Test");
-    ensureJitCompiled(c, "testEmpty");
-    ensureJitCompiled(c, "testPrimitive");
+        Class<?> c = Class.forName("Test");
+        ensureJitCompiled(c, "testEmpty");
+        ensureJitCompiled(c, "testPrimitive");
 
-    Method m = c.getMethod("testEmpty");
-    m.invoke(c.newInstance());
-    if (field != null) {
-      throw new Error("Expected null");
+        Method m = c.getMethod("testEmpty");
+        m.invoke(c.newInstance());
+        if (field != null) {
+            throw new Error("Expected null");
+        }
+
+        m = c.getMethod("testPrimitive");
+        int a = (Integer) m.invoke(c.newInstance());
+        if (a != 1) {
+            throw new Error("Expected 1, got " + a);
+        }
+        if (field != null) {
+            throw new Error("Expected null");
+        }
     }
 
-    m = c.getMethod("testPrimitive");
-    int a = (Integer)m.invoke(c.newInstance());
-    if (a != 1) {
-      throw new Error("Expected 1, got " + a);
-    }
-    if (field != null) {
-      throw new Error("Expected null");
-    }
-  }
+    public static Object field;
 
-  public static Object field;
-
-  private static native void ensureJitCompiled(Class<?> itf, String method_name);
-  public static native Object getThisOfCaller();
+    private static native void ensureJitCompiled(Class<?> itf, String method_name);
+    public static native Object getThisOfCaller();
 }

@@ -17,70 +17,70 @@
 import java.lang.annotation.Annotation;
 
 public class AnnotationTestHelpers {
-  // Provide custom print function that print a deterministic output.
-  // Note that Annotation#toString has unspecified order: it prints out the
-  // fields, which is why we can't rely on it.
+    // Provide custom print function that print a deterministic output.
+    // Note that Annotation#toString has unspecified order: it prints out the
+    // fields, which is why we can't rely on it.
 
-  public static String asString(Annotation anno) {
-    if (anno instanceof Calendar) {
-      return asString((Calendar)anno);
-    } else if (anno instanceof Calendars) {
-      return asString((Calendars)anno);
-    } else {
-      if (anno == null) {
-        return "<null>";
-      }
-      // Fall-back, usually would only go here in a test failure.
-      return anno.toString();
-    }
-  }
-
-  public static String asString(Annotation[] annos) {
-    String msg = "";
-
-    if (annos == null) {
-      msg += "<null>";
-    } else if (annos.length == 0) {
-      msg += "<empty>";
-    } else {
-      for (int i = 0; i < annos.length; ++i) {
-        msg += asString(annos[i]);
-
-        if (i != annos.length - 1) {
-          msg += ", ";
+    public static String asString(Annotation anno) {
+        if (anno instanceof Calendar) {
+            return asString((Calendar) anno);
+        } else if (anno instanceof Calendars) {
+            return asString((Calendars) anno);
+        } else {
+            if (anno == null) {
+                return "<null>";
+            }
+            // Fall-back, usually would only go here in a test failure.
+            return anno.toString();
         }
-      }
     }
 
-    return msg;
-  }
+    public static String asString(Annotation[] annos) {
+        String msg = "";
 
-  public static String asString(Calendar calendar) {
-    if (calendar == null) {
-      return "<null>";
+        if (annos == null) {
+            msg += "<null>";
+        } else if (annos.length == 0) {
+            msg += "<empty>";
+        } else {
+            for (int i = 0; i < annos.length; ++i) {
+                msg += asString(annos[i]);
+
+                if (i != annos.length - 1) {
+                    msg += ", ";
+                }
+            }
+        }
+
+        return msg;
     }
 
-    return "@Calendar(dayOfMonth=" + calendar.dayOfMonth() + ", dayOfWeek=" +
-      calendar.dayOfWeek() + ", hour=" + calendar.hour() + ")";
-  }
+    public static String asString(Calendar calendar) {
+        if (calendar == null) {
+            return "<null>";
+        }
 
-  public static String asString(Calendars calendars) {
-    if (calendars == null) {
-      return "<null>";
+        return "@Calendar(dayOfMonth=" + calendar.dayOfMonth()
+                + ", dayOfWeek=" + calendar.dayOfWeek() + ", hour=" + calendar.hour() + ")";
     }
 
-    String s = "@Calendars(value=[";
+    public static String asString(Calendars calendars) {
+        if (calendars == null) {
+            return "<null>";
+        }
 
-    Calendar[] allValues = calendars.value();
-    for (int i = 0; i < allValues.length; ++i) {
-      s += asString(allValues[i]);
-      if (i != allValues.length - 1) {
-        s += ", ";
-      }
+        String s = "@Calendars(value=[";
+
+        Calendar[] allValues = calendars.value();
+        for (int i = 0; i < allValues.length; ++i) {
+            s += asString(allValues[i]);
+            if (i != allValues.length - 1) {
+                s += ", ";
+            }
+        }
+
+        s += "])";
+
+        return s;
     }
-
-    s += "])";
-
-    return s;
-  }
 }

@@ -15,38 +15,38 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    $opt$StaticSynchronizedMethod();
-    new Main().$opt$InstanceSynchronizedMethod();
-    $opt$SynchronizedBlock();
-    new Main().$opt$DoubleInstanceSynchronized();
-    $opt$DoubleStaticSynchronized();
-  }
-
-  public static synchronized void $opt$StaticSynchronizedMethod() {
-    System.out.println("In static method");
-  }
-
-  public synchronized void $opt$InstanceSynchronizedMethod() {
-    System.out.println("In instance method");
-  }
-
-  public static void $opt$SynchronizedBlock() {
-    Object o = new Object();
-    synchronized(o) {
-      System.out.println("In synchronized block");
+    public static void main(String[] args) {
+        $opt$StaticSynchronizedMethod();
+        new Main().$opt$InstanceSynchronizedMethod();
+        $opt$SynchronizedBlock();
+        new Main().$opt$DoubleInstanceSynchronized();
+        $opt$DoubleStaticSynchronized();
     }
-  }
 
-  public synchronized void $opt$DoubleInstanceSynchronized() {
-    synchronized (this) {
-      System.out.println("In second instance method");
+    public static synchronized void $opt$StaticSynchronizedMethod() {
+        System.out.println("In static method");
     }
-  }
 
-  public synchronized static void $opt$DoubleStaticSynchronized() {
-    synchronized (Main.class) {
-      System.out.println("In second static method");
+    public synchronized void $opt$InstanceSynchronizedMethod() {
+        System.out.println("In instance method");
     }
-  }
+
+    public static void $opt$SynchronizedBlock() {
+        Object o = new Object();
+        synchronized (o) {
+            System.out.println("In synchronized block");
+        }
+    }
+
+    public synchronized void $opt$DoubleInstanceSynchronized() {
+        synchronized (this) {
+            System.out.println("In second instance method");
+        }
+    }
+
+    public synchronized static void $opt$DoubleStaticSynchronized() {
+        synchronized (Main.class) {
+            System.out.println("In second static method");
+        }
+    }
 }

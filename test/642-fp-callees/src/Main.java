@@ -15,20 +15,17 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
-    holdFpTemporaries();
-    System.out.println("Done");
-  }
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
+        holdFpTemporaries();
+        System.out.println("Done");
+    }
 
-  public static void caller(int a, int b, long c) {
-    $noinline$callee(a, b, c);
-  }
+    public static void caller(int a, int b, long c) { $noinline$callee(a, b, c); }
 
-  // This method is "no inline", in order to generate the
-  // bad floating point use at the call site.
-  public static void $noinline$callee(int a, int b, long c) {
-  }
+    // This method is "no inline", in order to generate the
+    // bad floating point use at the call site.
+    public static void $noinline$callee(int a, int b, long c) {}
 
-  public native static void holdFpTemporaries();
+    public native static void holdFpTemporaries();
 }

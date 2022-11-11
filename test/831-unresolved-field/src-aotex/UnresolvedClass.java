@@ -15,5 +15,5 @@
  */
 
 public class UnresolvedClass {
-  public int field;
+    public int field;
 }

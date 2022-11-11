@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 public interface Iface2 {
-  public default String sayHi() {
-    return "hello";
-  }
+    public default String sayHi() { return "hello"; }
 }

@@ -15,7 +15,5 @@
  */
 
 interface D1MD extends D1M {
-    default String testMethod() {
-        return "D1MD.testMethod()";
-    }
+    default String testMethod() { return "D1MD.testMethod()"; }
 }

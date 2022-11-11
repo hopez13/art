@@ -37,94 +37,91 @@ class ClassExtendsB extends ClassB {}
 class ClassImplementsInterfaceA extends ClassSuper implements InterfaceA {}
 
 public class Main {
+    /// CHECK-START: java.lang.Object Main.testMergeNullContant(boolean) builder (after)
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:Main
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeNullContant(boolean cond) { return cond ? null : new Main(); }
 
-  /// CHECK-START: java.lang.Object Main.testMergeNullContant(boolean) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:Main
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeNullContant(boolean cond) {
-    return cond ? null : new Main();
-  }
+    /// CHECK-START: java.lang.Object Main.testMergeClasses(boolean, ClassExtendsA, ClassExtendsB) builder (after)
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:ClassSuper
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeClasses(boolean cond, ClassExtendsA a, ClassExtendsB b) {
+        // Different classes, have a common super type.
+        return cond ? a : b;
+    }
 
-  /// CHECK-START: java.lang.Object Main.testMergeClasses(boolean, ClassExtendsA, ClassExtendsB) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:ClassSuper
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeClasses(boolean cond, ClassExtendsA a, ClassExtendsB b) {
-    // Different classes, have a common super type.
-    return cond ? a : b;
-  }
+    /// CHECK-START: java.lang.Object Main.testMergeClasses(boolean, ClassExtendsA, ClassSuper) builder (after)
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:ClassSuper
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeClasses(boolean cond, ClassExtendsA a, ClassSuper b) {
+        // Different classes, one is the super type of the other.
+        return cond ? a : b;
+    }
 
-  /// CHECK-START: java.lang.Object Main.testMergeClasses(boolean, ClassExtendsA, ClassSuper) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:ClassSuper
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeClasses(boolean cond, ClassExtendsA a, ClassSuper b) {
-    // Different classes, one is the super type of the other.
-    return cond ? a : b;
-  }
+    /// CHECK-START: java.lang.Object Main.testMergeClasses(boolean, ClassSuper, ClassSuper) builder (after)
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:ClassSuper
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeClasses(boolean cond, ClassSuper a, ClassSuper b) {
+        // Same classes.
+        return cond ? a : b;
+    }
 
-  /// CHECK-START: java.lang.Object Main.testMergeClasses(boolean, ClassSuper, ClassSuper) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:ClassSuper
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeClasses(boolean cond, ClassSuper a, ClassSuper b) {
-    // Same classes.
-    return cond ? a : b;
-  }
+    /// CHECK-START: java.lang.Object Main.testMergeClasses(boolean, ClassOtherSuper, ClassSuper) builder (after)
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:java.lang.Object
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeClasses(boolean cond, ClassOtherSuper a, ClassSuper b) {
+        // Different classes, have Object as the common super type.
+        return cond ? a : b;
+    }
 
-  /// CHECK-START: java.lang.Object Main.testMergeClasses(boolean, ClassOtherSuper, ClassSuper) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:java.lang.Object
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeClasses(boolean cond, ClassOtherSuper a, ClassSuper b) {
-    // Different classes, have Object as the common super type.
-    return cond ? a : b;
-  }
+    /// CHECK-START: java.lang.Object Main.testMergeClassWithInterface(boolean, ClassImplementsInterfaceA, InterfaceSuper) builder (after)
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:InterfaceSuper
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeClassWithInterface(
+            boolean cond, ClassImplementsInterfaceA a, InterfaceSuper b) {
+        // Class implements interface.
+        return cond ? a : b;
+    }
 
-  /// CHECK-START: java.lang.Object Main.testMergeClassWithInterface(boolean, ClassImplementsInterfaceA, InterfaceSuper) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:InterfaceSuper
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeClassWithInterface(boolean cond, ClassImplementsInterfaceA a, InterfaceSuper b) {
-    // Class implements interface.
-    return cond ? a : b;
-  }
+    /// CHECK-START: java.lang.Object Main.testMergeClassWithInterface(boolean, ClassSuper, InterfaceSuper) builder (after)
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:java.lang.Object
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeClassWithInterface(boolean cond, ClassSuper a, InterfaceSuper b) {
+        // Class doesn't implement interface.
+        return cond ? a : b;
+    }
 
-  /// CHECK-START: java.lang.Object Main.testMergeClassWithInterface(boolean, ClassSuper, InterfaceSuper) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:java.lang.Object
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeClassWithInterface(boolean cond, ClassSuper a, InterfaceSuper b) {
-    // Class doesn't implement interface.
-    return cond ? a : b;
-  }
+    /// CHECK-START: java.lang.Object Main.testMergeInterfaces(boolean, InterfaceExtendsA, InterfaceSuper) builder (after)
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:InterfaceSuper
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeInterfaces(boolean cond, InterfaceExtendsA a, InterfaceSuper b) {
+        // Different Interfaces, one implements the other.
+        return cond ? a : b;
+    }
 
-  /// CHECK-START: java.lang.Object Main.testMergeInterfaces(boolean, InterfaceExtendsA, InterfaceSuper) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:InterfaceSuper
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeInterfaces(boolean cond, InterfaceExtendsA a, InterfaceSuper b) {
-    // Different Interfaces, one implements the other.
-    return cond ? a : b;
-  }
+    /// CHECK-START: java.lang.Object Main.testMergeInterfaces(boolean, InterfaceSuper, InterfaceSuper) builder (after)
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:InterfaceSuper
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeInterfaces(boolean cond, InterfaceSuper a, InterfaceSuper b) {
+        // Same interfaces.
+        return cond ? a : b;
+    }
 
-  /// CHECK-START: java.lang.Object Main.testMergeInterfaces(boolean, InterfaceSuper, InterfaceSuper) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:InterfaceSuper
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeInterfaces(boolean cond, InterfaceSuper a, InterfaceSuper b) {
-    // Same interfaces.
-    return cond ? a : b;
-  }
-
-  /// CHECK-START: java.lang.Object Main.testMergeInterfaces(boolean, InterfaceExtendsA, InterfaceExtendsB) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:java.lang.Object
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeInterfaces(boolean cond, InterfaceExtendsA a, InterfaceExtendsB b) {
-    // Different Interfaces, have a common super type.
-    return cond ? a : b;
-  }
+    /// CHECK-START: java.lang.Object Main.testMergeInterfaces(boolean, InterfaceExtendsA, InterfaceExtendsB) builder (after)
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:java.lang.Object
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeInterfaces(boolean cond, InterfaceExtendsA a, InterfaceExtendsB b) {
+        // Different Interfaces, have a common super type.
+        return cond ? a : b;
+    }
 
     /// CHECK-START: java.lang.Object Main.testMergeInterfaces(boolean, InterfaceSuper, InterfaceOtherSuper) builder (after)
-  /// CHECK:      <<Phi:l\d+>>       Phi klass:java.lang.Object
-  /// CHECK:                         Return [<<Phi>>]
-  private Object testMergeInterfaces(boolean cond, InterfaceSuper a, InterfaceOtherSuper b) {
-    // Different interfaces.
-    return cond ? a : b;
-  }
+    /// CHECK:      <<Phi:l\d+>>       Phi klass:java.lang.Object
+    /// CHECK:                         Return [<<Phi>>]
+    private Object testMergeInterfaces(boolean cond, InterfaceSuper a, InterfaceOtherSuper b) {
+        // Different interfaces.
+        return cond ? a : b;
+    }
 
-  public static void main(String[] args) {
-  }
+    public static void main(String[] args) {}
 }

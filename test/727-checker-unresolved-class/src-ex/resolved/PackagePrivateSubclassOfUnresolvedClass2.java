@@ -23,7 +23,5 @@ import unresolved.UnresolvedPublicClass;
 // replaced by a package-private class from src-ex2/ with reduced access
 // to run tests, including access check tests.
 public class PackagePrivateSubclassOfUnresolvedClass2 extends UnresolvedPublicClass {
-  public static void $noinline$main() {
-    throw new Error("Unreachable");
-  }
+    public static void $noinline$main() { throw new Error("Unreachable"); }
 }

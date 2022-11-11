@@ -16,11 +16,10 @@
 
 import java.util.concurrent.CountDownLatch;
 
-interface I {
-}
+interface I {}
 
 class A implements I {
-    static int x = (int)(10*Math.random());  // Suppress compile-time initialization.
+    static int x = (int) (10 * Math.random()); // Suppress compile-time initialization.
 }
 
 public class Main {
@@ -31,7 +30,7 @@ public class Main {
         new Thread(new Runnable() {
             public void run() {
                 try {
-                    synchronized(I.class) {
+                    synchronized (I.class) {
                         first.countDown();
                         second.await();
                     }
@@ -42,7 +41,7 @@ public class Main {
         }).start();
 
         first.await();
-        new A();  // Will initialize A.
+        new A(); // Will initialize A.
         second.countDown();
 
         System.out.println("Done.");

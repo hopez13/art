@@ -34,7 +34,7 @@ public class Main {
         derived.overrideStaticWithVirtual();
 
         try {
-            ((Base)derived).overrideVirtualWithStatic();
+            ((Base) derived).overrideVirtualWithStatic();
         } catch (NoSuchMethodError nsme) {
             /* NSME is subclass of ICCE, so check it explicitly */
             System.out.println("Got NSME - ovws");
@@ -44,7 +44,7 @@ public class Main {
         }
 
         try {
-            ((Base)derived).overrideStaticWithVirtual();
+            ((Base) derived).overrideStaticWithVirtual();
         } catch (NoSuchMethodError nsme) {
             System.out.println("Got NSME - oswv");
             nsme.printStackTrace(System.out);

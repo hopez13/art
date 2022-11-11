@@ -19,7 +19,5 @@
  * access, so this setup allows the correct disambiguation between multiple class-loaders.
  */
 public class Mutator {
-    public static void mutate(int v) {
-        MutationTarget.value = v;
-    }
+    public static void mutate(int v) { MutationTarget.value = v; }
 }

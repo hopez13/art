@@ -15,28 +15,27 @@
  */
 
 public class Main {
+    public static int array_int[] = {0};
+    public static long array_long[] = {0};
+    public static float array_float[] = {0.0f};
+    public static double array_double[] = {0.0};
 
-  public static int array_int[] = { 0 };
-  public static long array_long[] = { 0 };
-  public static float array_float[] = { 0.0f };
-  public static double array_double[] = { 0.0 };
+    // The code used to print constant locations in parallel moves is architecture
+    // independent. We only test for ARM and ARM64 as it is easy: 'store'
+    // instructions only take registers as a source.
 
-  // The code used to print constant locations in parallel moves is architecture
-  // independent. We only test for ARM and ARM64 as it is easy: 'store'
-  // instructions only take registers as a source.
+    /// CHECK-START-ARM: void Main.store_to_arrays() register (after)
+    /// CHECK:    ParallelMove {{.*#1->.*#2->.*#3\.3->.*#4\.4->.*}}
 
-  /// CHECK-START-ARM: void Main.store_to_arrays() register (after)
-  /// CHECK:    ParallelMove {{.*#1->.*#2->.*#3\.3->.*#4\.4->.*}}
+    /// CHECK-START-ARM64: void Main.store_to_arrays() register (after)
+    /// CHECK:    ParallelMove {{.*#1->.*#2->.*#3\.3->.*#4\.4->.*}}
 
-  /// CHECK-START-ARM64: void Main.store_to_arrays() register (after)
-  /// CHECK:    ParallelMove {{.*#1->.*#2->.*#3\.3->.*#4\.4->.*}}
+    public void store_to_arrays() {
+        array_int[0] = 1;
+        array_long[0] = 2;
+        array_float[0] = 3.3f;
+        array_double[0] = 4.4;
+    }
 
-  public void store_to_arrays() {
-    array_int[0] = 1;
-    array_long[0] = 2;
-    array_float[0] = 3.3f;
-    array_double[0] = 4.4;
-  }
-
-  public static void main(String args[]) {}
+    public static void main(String args[]) {}
 }

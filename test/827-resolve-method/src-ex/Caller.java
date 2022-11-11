@@ -15,15 +15,14 @@
  */
 
 public class Caller {
-  public static void doCall() {
-    // `callMethod` is declared in a class that isn't visible to `Caller`. However, we are
-    // accessing it through `LocalClass` and that makes it accessible.
-    LocalClass.callMethod();
+    public static void doCall() {
+        // `callMethod` is declared in a class that isn't visible to `Caller`. However, we are
+        // accessing it through `LocalClass` and that makes it accessible.
+        LocalClass.callMethod();
 
-    // Also invoke it directly through the subclass.
-    pkg1.SubClass.callMethod();
-  }
+        // Also invoke it directly through the subclass.
+        pkg1.SubClass.callMethod();
+    }
 }
 
-class LocalClass extends pkg1.SubClass {
-}
+class LocalClass extends pkg1.SubClass {}

@@ -15,6 +15,7 @@
  */
 
 import junit.framework.Assert;
+
 import java.util.Locale;
 
 /**
@@ -23,8 +24,8 @@ import java.util.Locale;
 public class Main {
     public static void main(String args[]) {
         String test = "0123456789";
-        String test1 = new String("0123456789");    // different object
-        String test2 = new String("0123456780");    // different value
+        String test1 = new String("0123456789"); // different object
+        String test2 = new String("0123456780"); // different value
         String offset = new String("xxx0123456789yyy");
         String sub = offset.substring(3, 13);
         Object blah = new Object();
@@ -75,7 +76,7 @@ public class Main {
         test = test.substring(1);
         Assert.assertTrue(test.equals("456789"));
 
-        test = test.substring(3,5);
+        test = test.substring(3, 5);
         Assert.assertTrue(test.equals("78"));
 
         test = "this/is/a/path";
@@ -85,7 +86,7 @@ public class Main {
         Assert.assertEquals("this is a path", test.replaceAll("/", " "));
         Assert.assertEquals("this is a path", test.replace("/", " "));
 
-        String result = new String(new char[] { 'O', 'K' });
+        String result = new String(new char[] {'O', 'K'});
         System.out.println(result);
 
         testCompareToAndEquals();
@@ -93,28 +94,16 @@ public class Main {
 
         String s0_0 = "\u0000";
         String s0_1 = new String(s0_0);
-        String s0_2 = new String(new char[] { '\u0000' });
+        String s0_2 = new String(new char[] {'\u0000'});
         String s0_3 = s0_0 + "";
-        System.out.println(
-            " " + $noinline$equals(s0_0, s0_0) +
-            " " + $noinline$equals(s0_0, s0_1) +
-            " " + $noinline$equals(s0_0, s0_2) +
-            " " + $noinline$equals(s0_0, s0_3));
-        System.out.println(
-            " " + $noinline$equals(s0_1, s0_0) +
-            " " + $noinline$equals(s0_1, s0_1) +
-            " " + $noinline$equals(s0_1, s0_2) +
-            " " + $noinline$equals(s0_1, s0_3));
-        System.out.println(
-            " " + $noinline$equals(s0_2, s0_0) +
-            " " + $noinline$equals(s0_2, s0_1) +
-            " " + $noinline$equals(s0_2, s0_2) +
-            " " + $noinline$equals(s0_2, s0_3));
-        System.out.println(
-            " " + $noinline$equals(s0_3, s0_0) +
-            " " + $noinline$equals(s0_3, s0_1) +
-            " " + $noinline$equals(s0_3, s0_2) +
-            " " + $noinline$equals(s0_3, s0_3));
+        System.out.println(" " + $noinline$equals(s0_0, s0_0) + " " + $noinline$equals(s0_0, s0_1)
+                + " " + $noinline$equals(s0_0, s0_2) + " " + $noinline$equals(s0_0, s0_3));
+        System.out.println(" " + $noinline$equals(s0_1, s0_0) + " " + $noinline$equals(s0_1, s0_1)
+                + " " + $noinline$equals(s0_1, s0_2) + " " + $noinline$equals(s0_1, s0_3));
+        System.out.println(" " + $noinline$equals(s0_2, s0_0) + " " + $noinline$equals(s0_2, s0_1)
+                + " " + $noinline$equals(s0_2, s0_2) + " " + $noinline$equals(s0_2, s0_3));
+        System.out.println(" " + $noinline$equals(s0_3, s0_0) + " " + $noinline$equals(s0_3, s0_1)
+                + " " + $noinline$equals(s0_3, s0_2) + " " + $noinline$equals(s0_3, s0_3));
 
         testEqualsConstString();
         testConstStringEquals();
@@ -128,7 +117,8 @@ public class Main {
         Assert.assertEquals("a\u0131c", "abc".replace('b', '\u0131'));
 
         // Regression test for scratch register exhaustion in String.equals() intrinsic on arm64.
-        Assert.assertFalse(result.equals("Very long constant string, so that the known constant count field cannot be embedded in a CMP immediate instruction on arm64. Since it can hold 12-bit values, optionally shifted left by 12, let's go somewhere over 2^12, i.e. 4096. That should trigger the bug with or without string compression. 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/"));
+        Assert.assertFalse(result.equals(
+                "Very long constant string, so that the known constant count field cannot be embedded in a CMP immediate instruction on arm64. Since it can hold 12-bit values, optionally shifted left by 12, let's go somewhere over 2^12, i.e. 4096. That should trigger the bug with or without string compression. 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/"));
     }
 
     public static void testCompareToAndEquals() {
@@ -338,60 +328,67 @@ public class Main {
                     int min_ij_index = (i_index < j_index) ? i_index : j_index;
                     if (i_category == j_category) {
                         switch (i_category) {
-                            case 0: case 3: case 6: case 9:
+                            case 0:
+                            case 3:
+                            case 6:
+                            case 9:
                                 // Differs in length.
                                 expected = lhs.length() - rhs.length();
                                 break;
-                            case 1: case 2: case 4: case 5: case 7: case 8:
+                            case 1:
+                            case 2:
+                            case 4:
+                            case 5:
+                            case 7:
+                            case 8:
                                 // Differs in charAt(min_ij_index).
                                 expected = lhs.charAt(min_ij_index) - rhs.charAt(min_ij_index);
                                 break;
-                            default: throw new Error("Unexpected category.");
-                      }
-                    } else if (i_category == 3 || i_category == 6 || i_category == 9 ||
-                               j_category == 3 || j_category == 6 || j_category == 9) {
+                            default:
+                                throw new Error("Unexpected category.");
+                        }
+                    } else if (i_category == 3 || i_category == 6 || i_category == 9
+                            || j_category == 3 || j_category == 6 || j_category == 9) {
                         // In these categories, charAt(0) differs from other categories' strings.
                         expected = lhs.charAt(0) - rhs.charAt(0);
-                    } else if (// Category 0 string is a prefix to any longer string in
-                               // remaining categories.
-                               (i_category == 0 && i_index < j_index) ||
-                               (j_category == 0 && j_index < i_index) ||
-                               // Category 2 string is a prefix to category 3 string at the same
-                               // index. Similar for categories 4 and 5 and also 7 and 8.
-                               // This includes matching last strings of these pairs of categories.
-                               (i_index == j_index &&
-                                   ((i_category == 1 && j_category == 2) ||
-                                    (i_category == 2 && j_category == 1) ||
-                                    (i_category == 4 && j_category == 5) ||
-                                    (i_category == 5 && j_category == 4) ||
-                                    (i_category == 7 && j_category == 8) ||
-                                    (i_category == 8 && j_category == 7)))) {
+                    } else if ( // Category 0 string is a prefix to any longer string in
+                                // remaining categories.
+                            (i_category == 0 && i_index < j_index)
+                            || (j_category == 0 && j_index < i_index) ||
+                            // Category 2 string is a prefix to category 3 string at the same
+                            // index. Similar for categories 4 and 5 and also 7 and 8.
+                            // This includes matching last strings of these pairs of categories.
+                            (i_index == j_index
+                                    && ((i_category == 1 && j_category == 2)
+                                            || (i_category == 2 && j_category == 1)
+                                            || (i_category == 4 && j_category == 5)
+                                            || (i_category == 5 && j_category == 4)
+                                            || (i_category == 7 && j_category == 8)
+                                            || (i_category == 8 && j_category == 7)))) {
                         // Differs in length.
                         expected = lhs.length() - rhs.length();
                     } else {
                         // The remaining cases differ in charAt(min_ij_index), the characters
                         // before that are "0123456789abcdef".substring(0, min_ij_index).
                         for (int k = 0; k < min_ij_index; ++k) {
-                          Assert.assertEquals("0123456789abcdef".charAt(k), lhs.charAt(k));
-                          Assert.assertEquals("0123456789abcdef".charAt(k), rhs.charAt(k));
+                            Assert.assertEquals("0123456789abcdef".charAt(k), lhs.charAt(k));
+                            Assert.assertEquals("0123456789abcdef".charAt(k), rhs.charAt(k));
                         }
                         expected = lhs.charAt(min_ij_index) - rhs.charAt(min_ij_index);
                         Assert.assertFalse(expected == 0);
                     }
                 }
                 if (expected != result) {
-                  throw new Error(
-                      "Mismatch at i=" + i + ", j=" + j + ", expected=" + expected +
-                      ", result=" + result);
+                    throw new Error("Mismatch at i=" + i + ", j=" + j + ", expected=" + expected
+                            + ", result=" + result);
                 }
-                boolean equalsExpected =
-                    (i == j) ||
-                    // Last string in categories 1 and 2.
-                    (i == 32 && j == 48) || (i == 48 && j == 32) ||
-                    // Last string in categories 4 and 5.
-                    (i == 80 && j == 96) || (i == 96 && j == 80) ||
-                    // Last string in categories 7 and 8.
-                    (i == 128 && j == 144) || (i == 144 && j == 128);
+                boolean equalsExpected = (i == j) ||
+                        // Last string in categories 1 and 2.
+                        (i == 32 && j == 48) || (i == 48 && j == 32) ||
+                        // Last string in categories 4 and 5.
+                        (i == 80 && j == 96) || (i == 96 && j == 80) ||
+                        // Last string in categories 7 and 8.
+                        (i == 128 && j == 144) || (i == 144 && j == 128);
                 Assert.assertEquals(equalsExpected, $noinline$equals(lhs, rhs));
             }
         }
@@ -596,7 +593,7 @@ public class Main {
         Assert.assertFalse($noinline$equalsConstString35("012345678901234567890123456789012345"));
         Assert.assertFalse($noinline$equalsConstString35("0123456789012345678901234567890123x"));
         Assert.assertFalse(
-            $noinline$equalsConstString35("0123456789012345678901234567890123\u0440"));
+                $noinline$equalsConstString35("0123456789012345678901234567890123\u0440"));
 
         Assert.assertTrue($noinline$equalsConstNonAsciiString3("\u044012"));
         Assert.assertFalse($noinline$equalsConstNonAsciiString3("\u04401"));
@@ -629,25 +626,25 @@ public class Main {
         Assert.assertFalse($noinline$equalsConstNonAsciiString24("\012345678901234567890123"));
 
         Assert.assertTrue(
-            $noinline$equalsConstNonAsciiString29("\u04401234567890123456789012345678"));
+                $noinline$equalsConstNonAsciiString29("\u04401234567890123456789012345678"));
         Assert.assertFalse(
-            $noinline$equalsConstNonAsciiString29("\u0440123456789012345678901234567"));
+                $noinline$equalsConstNonAsciiString29("\u0440123456789012345678901234567"));
         Assert.assertFalse(
-            $noinline$equalsConstNonAsciiString29("\u044012345678901234567890123456789"));
+                $noinline$equalsConstNonAsciiString29("\u044012345678901234567890123456789"));
         Assert.assertFalse(
-            $noinline$equalsConstNonAsciiString29("\u0440123456789012345678901234567x"));
+                $noinline$equalsConstNonAsciiString29("\u0440123456789012345678901234567x"));
         Assert.assertFalse($noinline$equalsConstNonAsciiString29("01234567890123456789012345678"));
 
         Assert.assertTrue(
-            $noinline$equalsConstNonAsciiString35("\u04401234567890123456789012345678901234"));
+                $noinline$equalsConstNonAsciiString35("\u04401234567890123456789012345678901234"));
         Assert.assertFalse(
-            $noinline$equalsConstNonAsciiString35("\u0440123456789012345678901234567890123"));
+                $noinline$equalsConstNonAsciiString35("\u0440123456789012345678901234567890123"));
         Assert.assertFalse(
-            $noinline$equalsConstNonAsciiString35("\u044012345678901234567890123456789012345"));
+                $noinline$equalsConstNonAsciiString35("\u044012345678901234567890123456789012345"));
         Assert.assertFalse(
-            $noinline$equalsConstNonAsciiString35("\u0440123456789012345678901234567890123x"));
+                $noinline$equalsConstNonAsciiString35("\u0440123456789012345678901234567890123x"));
         Assert.assertFalse(
-            $noinline$equalsConstNonAsciiString35("01234567890123456789012345678901234"));
+                $noinline$equalsConstNonAsciiString35("01234567890123456789012345678901234"));
     }
 
     public static void testConstStringEquals() {
@@ -695,7 +692,7 @@ public class Main {
         Assert.assertFalse($noinline$constString35Equals("012345678901234567890123456789012345"));
         Assert.assertFalse($noinline$constString35Equals("0123456789012345678901234567890123x"));
         Assert.assertFalse(
-            $noinline$constString35Equals("0123456789012345678901234567890123\u0040"));
+                $noinline$constString35Equals("0123456789012345678901234567890123\u0040"));
 
         Assert.assertTrue($noinline$constNonAsciiString3Equals("\u044012"));
         Assert.assertFalse($noinline$constNonAsciiString3Equals("\u04401"));
@@ -728,30 +725,30 @@ public class Main {
         Assert.assertFalse($noinline$constNonAsciiString24Equals("\012345678901234567890123"));
 
         Assert.assertTrue(
-            $noinline$constNonAsciiString29Equals("\u04401234567890123456789012345678"));
+                $noinline$constNonAsciiString29Equals("\u04401234567890123456789012345678"));
         Assert.assertFalse(
-            $noinline$constNonAsciiString29Equals("\u0440123456789012345678901234567"));
+                $noinline$constNonAsciiString29Equals("\u0440123456789012345678901234567"));
         Assert.assertFalse(
-            $noinline$constNonAsciiString29Equals("\u044012345678901234567890123456789"));
+                $noinline$constNonAsciiString29Equals("\u044012345678901234567890123456789"));
         Assert.assertFalse(
-            $noinline$constNonAsciiString29Equals("\u0440123456789012345678901234567x"));
+                $noinline$constNonAsciiString29Equals("\u0440123456789012345678901234567x"));
         Assert.assertFalse($noinline$constNonAsciiString29Equals("01234567890123456789012345678"));
 
         Assert.assertTrue(
-            $noinline$constNonAsciiString35Equals("\u04401234567890123456789012345678901234"));
+                $noinline$constNonAsciiString35Equals("\u04401234567890123456789012345678901234"));
         Assert.assertFalse(
-            $noinline$constNonAsciiString35Equals("\u0440123456789012345678901234567890123"));
+                $noinline$constNonAsciiString35Equals("\u0440123456789012345678901234567890123"));
         Assert.assertFalse(
-            $noinline$constNonAsciiString35Equals("\u044012345678901234567890123456789012345"));
+                $noinline$constNonAsciiString35Equals("\u044012345678901234567890123456789012345"));
         Assert.assertFalse(
-            $noinline$constNonAsciiString35Equals("\u0440123456789012345678901234567890123x"));
+                $noinline$constNonAsciiString35Equals("\u0440123456789012345678901234567890123x"));
         Assert.assertFalse(
-            $noinline$constNonAsciiString35Equals("01234567890123456789012345678901234"));
+                $noinline$constNonAsciiString35Equals("01234567890123456789012345678901234"));
 
         // Regression test for incorrectly creating an uncompressed string when the
         // string should be compressed. Only the low 8 bits are relevant but the whole
         // `hibyte` was erroneously tested. Bug: 63661357
-        Assert.assertTrue("A".equals(new String(new byte[] { (byte)'A' }, /* hibyte */ 0x100)));
+        Assert.assertTrue("A".equals(new String(new byte[] {(byte) 'A'}, /* hibyte */ 0x100)));
     }
 
     public static void testStringConcat() {
@@ -766,17 +763,11 @@ public class Main {
         Assert.assertEquals("", empty);
     }
 
-    public static boolean $noinline$equalsConstString0(String s) {
-        return s.equals("");
-    }
+    public static boolean $noinline$equalsConstString0(String s) { return s.equals(""); }
 
-    public static boolean $noinline$equalsConstString3(String s) {
-        return s.equals("012");
-    }
+    public static boolean $noinline$equalsConstString3(String s) { return s.equals("012"); }
 
-    public static boolean $noinline$equalsConstString7(String s) {
-        return s.equals("0123456");
-    }
+    public static boolean $noinline$equalsConstString7(String s) { return s.equals("0123456"); }
 
     public static boolean $noinline$equalsConstString12(String s) {
         return s.equals("012345678901");
@@ -826,17 +817,11 @@ public class Main {
         return s.equals("\u04401234567890123456789012345678901234");
     }
 
-    public static boolean $noinline$constString0Equals(String s) {
-        return s.equals("");
-    }
+    public static boolean $noinline$constString0Equals(String s) { return s.equals(""); }
 
-    public static boolean $noinline$constString3Equals(String s) {
-        return "012".equals(s);
-    }
+    public static boolean $noinline$constString3Equals(String s) { return "012".equals(s); }
 
-    public static boolean $noinline$constString7Equals(String s) {
-        return "0123456".equals(s);
-    }
+    public static boolean $noinline$constString7Equals(String s) { return "0123456".equals(s); }
 
     public static boolean $noinline$constString12Equals(String s) {
         return "012345678901".equals(s);
@@ -886,17 +871,11 @@ public class Main {
         return "\u04401234567890123456789012345678901234".equals(s);
     }
 
-    public static int $noinline$compareTo(String lhs, String rhs) {
-        return lhs.compareTo(rhs);
-    }
+    public static int $noinline$compareTo(String lhs, String rhs) { return lhs.compareTo(rhs); }
 
-    public static boolean $noinline$equals(String lhs, String rhs) {
-        return lhs.equals(rhs);
-    }
+    public static boolean $noinline$equals(String lhs, String rhs) { return lhs.equals(rhs); }
 
-    public static int $noinline$indexOf(String lhs, int ch) {
-        return lhs.indexOf(ch);
-    }
+    public static int $noinline$indexOf(String lhs, int ch) { return lhs.indexOf(ch); }
 
     public static int $noinline$indexOf(String lhs, int ch, int fromIndex) {
         return lhs.indexOf(ch, fromIndex);

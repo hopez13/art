@@ -15,10 +15,10 @@
  */
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
@@ -33,15 +33,13 @@ interface NativeInterface {
 }
 
 public class NativeProxy {
-
     public static void main(String[] args) {
         System.loadLibrary(args[0]);
 
         try {
-            NativeInterface inf = (NativeInterface)Proxy.newProxyInstance(
-                    NativeProxy.class.getClassLoader(),
-                    new Class<?>[] { NativeInterface.class },
-                    new NativeInvocationHandler());
+            NativeInterface inf =
+                    (NativeInterface) Proxy.newProxyInstance(NativeProxy.class.getClassLoader(),
+                            new Class<?>[] {NativeInterface.class}, new NativeInvocationHandler());
 
             nativeCall(inf);
         } catch (Exception exc) {
@@ -50,9 +48,8 @@ public class NativeProxy {
     }
 
     public static class NativeInvocationHandler implements InvocationHandler {
-        public Object invoke(final Object proxy,
-                             final Method method,
-                             final Object[] args) throws Throwable {
+        public Object invoke(final Object proxy, final Method method, final Object[] args)
+                throws Throwable {
             System.out.println(method.getName());
             return null;
         }

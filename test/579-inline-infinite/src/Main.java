@@ -15,24 +15,22 @@
  */
 
 class Infinite implements Runnable {
-  public int field;
+    public int field;
 
-  private final void $noinline$infinite() {
-    while(true) {
-      field++;
+    private final void $noinline$infinite() {
+        while (true) {
+            field++;
+        }
     }
-  }
 
-  public void run() {
-    $noinline$infinite();
-  }
+    public void run() { $noinline$infinite(); }
 }
 
 public class Main {
-  public static void main(String[] args) {
-    Thread thr = new Thread(new Infinite());
-    thr.setDaemon(true);
-    thr.start();
-    // This is a compiler test, so just finish.
-  }
+    public static void main(String[] args) {
+        Thread thr = new Thread(new Infinite());
+        thr.setDaemon(true);
+        thr.start();
+        // This is a compiler test, so just finish.
+    }
 }

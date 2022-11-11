@@ -15,67 +15,45 @@
  */
 
 public class Base {
-    public void declaredInBase() {
-        System.out.println("declaredInBase: Base");
-    }
+    public void declaredInBase() { System.out.println("declaredInBase: Base"); }
 
-    public void overridden() {
-        System.out.println("overridden: Base");
-    }
+    public void overridden() { System.out.println("overridden: Base"); }
 
     /* src2: removed */
-    public void wasOverridden() {
-        System.out.println("wasOverridden: Base");
-    }
+    public void wasOverridden() { System.out.println("wasOverridden: Base"); }
 
-    public void callOverrideWithPublic() {
-        overrideWithPublic();
-    }
-    public void overrideWithPublic() {
-        System.out.println("overrideWithPublic: Base");
-    }
+    public void callOverrideWithPublic() { overrideWithPublic(); }
+    public void overrideWithPublic() { System.out.println("overrideWithPublic: Base"); }
 
-    public void callOverridePublicWithProtected() {
-        overridePublicWithProtected();
-    }
+    public void callOverridePublicWithProtected() { overridePublicWithProtected(); }
     /* src2: public */
     protected void overridePublicWithProtected() {
         System.out.println("overridePublicWithProtected: Base");
     }
 
-    public void callOverrideProtectedWithPublic() {
-        overrideProtectedWithPublic();
-    }
+    public void callOverrideProtectedWithPublic() { overrideProtectedWithPublic(); }
     protected void overrideProtectedWithPublic() {
         System.out.println("overrideProtectedWithPublic: Base");
     }
 
-    public void callOverridePublicWithPrivate() {
-        overridePublicWithPrivate();
-    }
+    public void callOverridePublicWithPrivate() { overridePublicWithPrivate(); }
     /* src2: public */
     private void overridePublicWithPrivate() {
         System.out.println("overridePublicWithPrivate: Base");
     }
 
-    public void callOverridePrivateWithPublic() {
-        overridePrivateWithPublic();
-    }
+    public void callOverridePrivateWithPublic() { overridePrivateWithPublic(); }
     private void overridePrivateWithPublic() {
         System.out.println("overridePrivateWithPublic: Base");
     }
 
-    public void callOverrideVirtualWithStatic() {
-        overrideVirtualWithStatic();
-    }
+    public void callOverrideVirtualWithStatic() { overrideVirtualWithStatic(); }
     /* src2: non-static */
     public static void overrideVirtualWithStatic() {
         System.out.println("overrideVirtualWithStatic: Base");
     }
 
-    public void callOverrideStaticWithVirtual() {
-        overrideStaticWithVirtual();
-    }
+    public void callOverrideStaticWithVirtual() { overrideStaticWithVirtual(); }
     /* src2: static */
     public void overrideStaticWithVirtual() {
         System.out.println("overrideStaticWithVirtual: Base");

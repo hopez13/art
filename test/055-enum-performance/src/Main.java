@@ -1,6 +1,6 @@
-import otherpackage.OtherPackagePublicEnum;
-
 import java.lang.reflect.*;
+
+import otherpackage.OtherPackagePublicEnum;
 
 public class Main {
     /** used by {@link #basisCall} */
@@ -66,7 +66,6 @@ public class Main {
             System.out.printf("test2: %.3g msec per iteration\n", msec2);
             System.out.printf("test3: %.3g msec per iteration\n", msec3);
         }
-
     }
 
     static public void preTest() {
@@ -87,11 +86,9 @@ public class Main {
         System.out.println(Enum.valueOf(c, "ZERO").getClass().getName());
     }
 
-    static final String[] BASIS_COMPARE_ARRAY = {
-        "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT",
-        "NINE", "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN",
-        "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN"
-    };
+    static final String[] BASIS_COMPARE_ARRAY = {"ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE",
+            "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN",
+            "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN"};
 
     static public int basis(int iters) {
         for (int i = iters; i > 0; i--) {

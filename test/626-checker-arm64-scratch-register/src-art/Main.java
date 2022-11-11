@@ -15,9 +15,9 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Class main2 = Class.forName("Main2");
-    main2.getMethod("test").invoke(main2.newInstance());
-    System.out.println("passed");
-  }
+    public static void main(String[] args) throws Exception {
+        Class main2 = Class.forName("Main2");
+        main2.getMethod("test").invoke(main2.newInstance());
+        System.out.println("passed");
+    }
 }

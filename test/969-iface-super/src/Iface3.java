@@ -13,4 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public interface Iface3 extends Iface { }
+public interface Iface3 extends Iface {}

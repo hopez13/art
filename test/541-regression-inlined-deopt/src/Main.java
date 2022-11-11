@@ -17,16 +17,16 @@
 import java.lang.reflect.*;
 
 public class Main {
-  public static void main(String[] args) throws Throwable {
-    try {
-      Class<?> c = Class.forName("TestCase");
-      Method m = c.getMethod("foo");
-      m.invoke(null, (Object[]) null);
-    } catch (InvocationTargetException ex) {
-      // Code should have thrown AIOOB.
-      if (!(ex.getCause() instanceof ArrayIndexOutOfBoundsException)) {
-        throw ex;
-      }
+    public static void main(String[] args) throws Throwable {
+        try {
+            Class<?> c = Class.forName("TestCase");
+            Method m = c.getMethod("foo");
+            m.invoke(null, (Object[]) null);
+        } catch (InvocationTargetException ex) {
+            // Code should have thrown AIOOB.
+            if (!(ex.getCause() instanceof ArrayIndexOutOfBoundsException)) {
+                throw ex;
+            }
+        }
     }
-  }
 }

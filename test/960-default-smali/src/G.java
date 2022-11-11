@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 class G implements Attendant {
-  public String GetPlace() {
-    return "android";
-  }
+    public String GetPlace() { return "android"; }
 }

@@ -15,21 +15,13 @@
  */
 
 public class Derived extends Base {
-    public static void notDeclaredInBase() {
-        System.out.println("notDeclaredInBase: Derived");
-    }
+    public static void notDeclaredInBase() { System.out.println("notDeclaredInBase: Derived"); }
 
-    public void overridden() {
-        System.out.println("overridden: Derived");
-    }
+    public void overridden() { System.out.println("overridden: Derived"); }
 
-    public void wasOverridden() {
-        System.out.println("wasOverridden: Derived");
-    }
+    public void wasOverridden() { System.out.println("wasOverridden: Derived"); }
 
-    public void overrideWithPublic() {
-        System.out.println("overrideWithPublic: Derived");
-    }
+    public void overrideWithPublic() { System.out.println("overrideWithPublic: Derived"); }
 
     protected void overridePublicWithProtected() {
         System.out.println("overridePublicWithProtected: Derived");

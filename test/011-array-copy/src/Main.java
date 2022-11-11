@@ -40,9 +40,8 @@ public class Main {
         System.out.println("object -> string (modified)");
         objectArray[4] = new ImplA();
         try {
-            System.arraycopy(objectArray, 0, stringArray, 0,stringArray.length);
-        }
-        catch (ArrayStoreException ase) {
+            System.arraycopy(objectArray, 0, stringArray, 0, stringArray.length);
+        } catch (ArrayStoreException ase) {
             System.out.println("caught ArrayStoreException (expected)");
         }
     }
@@ -100,26 +99,26 @@ public class Main {
 
         for (int i = 0; i < ARRAY_SIZE; i++) {
             if (intArray[i] != byteArray[i]) {
-                System.out.println("mismatch int vs byte at " + i + " : " +
-                    Arrays.toString(byteArray));
+                System.out.println(
+                        "mismatch int vs byte at " + i + " : " + Arrays.toString(byteArray));
                 break;
             } else if (intArray[i] != shortArray[i]) {
-                System.out.println("mismatch int vs short at " + i + " : " +
-                    Arrays.toString(shortArray));
+                System.out.println(
+                        "mismatch int vs short at " + i + " : " + Arrays.toString(shortArray));
                 break;
             } else if (intArray[i] != longArray[i]) {
-                System.out.println("mismatch int vs long at " + i + " : " +
-                    Arrays.toString(longArray));
+                System.out.println(
+                        "mismatch int vs long at " + i + " : " + Arrays.toString(longArray));
                 break;
             } else if (intArray[i] != charArray[i]) {
-                System.out.println("mismatch int vs char at " + i + " : " +
-                    Arrays.toString(charArray));
+                System.out.println(
+                        "mismatch int vs char at " + i + " : " + Arrays.toString(charArray));
                 break;
             }
         }
 
-        System.out.println("copy: " + srcPos + "," + dstPos + "," + length +
-            ": " + Arrays.toString(intArray));
+        System.out.println(
+                "copy: " + srcPos + "," + dstPos + "," + length + ": " + Arrays.toString(intArray));
     }
 
     public static void testOverlappingMoves() {

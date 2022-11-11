@@ -15,15 +15,13 @@
  */
 
 public class Main {
-  // A very simple check that disassembly information has been added to the
-  // graph. We check that sections have been added for the frame entry and a
-  // slow path.
-  /// CHECK-START: int Main.DisassembledFunction(int) disassembly (after)
-  /// CHECK:       FrameEntry
-  /// CHECK:       DivZeroCheckSlowPath{{.*}}
-  public int DisassembledFunction(int arg) {
-    return 7 / arg;
-  }
+    // A very simple check that disassembly information has been added to the
+    // graph. We check that sections have been added for the frame entry and a
+    // slow path.
+    /// CHECK-START: int Main.DisassembledFunction(int) disassembly (after)
+    /// CHECK:       FrameEntry
+    /// CHECK:       DivZeroCheckSlowPath{{.*}}
+    public int DisassembledFunction(int arg) { return 7 / arg; }
 
-  public static void main(String[] args) {}
+    public static void main(String[] args) {}
 }

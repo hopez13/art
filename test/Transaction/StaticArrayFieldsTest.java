@@ -16,12 +16,12 @@
 
 public class StaticArrayFieldsTest {
     public static boolean[] booleanArrayField = new boolean[1];
-    public static byte[]    byteArrayField = new byte[1];
-    public static char []   charArrayField = new char[1];
-    public static short[]   shortArrayField = new short[1];
-    public static int[]     intArrayField = new int[1];
-    public static long[]    longArrayField = new long[1];
-    public static float[]   floatArrayField = new float[1];
-    public static double[]  doubleArrayField = new double[1];
-    public static Object[]  objectArrayField = new Object[1];
+    public static byte[] byteArrayField = new byte[1];
+    public static char[] charArrayField = new char[1];
+    public static short[] shortArrayField = new short[1];
+    public static int[] intArrayField = new int[1];
+    public static long[] longArrayField = new long[1];
+    public static float[] floatArrayField = new float[1];
+    public static double[] doubleArrayField = new double[1];
+    public static Object[] objectArrayField = new Object[1];
 }

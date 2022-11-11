@@ -15,56 +15,52 @@
  */
 
 public class Main {
-  public static Object a;
+    public static Object a;
 
-  public static void assertTrue(boolean value) {
-    if (!value) {
-      throw new Error("Wrong result");
+    public static void assertTrue(boolean value) {
+        if (!value) {
+            throw new Error("Wrong result");
+        }
     }
-  }
 
-  public static void assertFalse(boolean value) {
-    if (value) {
-      throw new Error("Wrong result");
+    public static void assertFalse(boolean value) {
+        if (value) {
+            throw new Error("Wrong result");
+        }
     }
-  }
 
-  public static boolean $opt$InstanceOfMain() {
-    return a instanceof Main;
-  }
+    public static boolean $opt$InstanceOfMain() { return a instanceof Main; }
 
-  public static boolean $opt$InstanceOfFinalClass() {
-    return a instanceof FinalClass;
-  }
+    public static boolean $opt$InstanceOfFinalClass() { return a instanceof FinalClass; }
 
-  public static void main(String[] args) {
-    $opt$TestMain();
-    $opt$TestFinalClass();
-  }
+    public static void main(String[] args) {
+        $opt$TestMain();
+        $opt$TestFinalClass();
+    }
 
-  public static void $opt$TestMain() {
-    a = new Main();
-    assertTrue($opt$InstanceOfMain());
-    a = null;
-    assertFalse($opt$InstanceOfMain());
-    a = new MainChild();
-    assertTrue($opt$InstanceOfMain());
-    a = new Object();
-    assertFalse($opt$InstanceOfMain());
-  }
+    public static void $opt$TestMain() {
+        a = new Main();
+        assertTrue($opt$InstanceOfMain());
+        a = null;
+        assertFalse($opt$InstanceOfMain());
+        a = new MainChild();
+        assertTrue($opt$InstanceOfMain());
+        a = new Object();
+        assertFalse($opt$InstanceOfMain());
+    }
 
-  public static void $opt$TestFinalClass() {
-    a = new FinalClass();
-    assertTrue($opt$InstanceOfFinalClass());
-    a = null;
-    assertFalse($opt$InstanceOfFinalClass());
-    a = new Main();
-    assertFalse($opt$InstanceOfFinalClass());
-    a = new Object();
-    assertFalse($opt$InstanceOfFinalClass());
-  }
+    public static void $opt$TestFinalClass() {
+        a = new FinalClass();
+        assertTrue($opt$InstanceOfFinalClass());
+        a = null;
+        assertFalse($opt$InstanceOfFinalClass());
+        a = new Main();
+        assertFalse($opt$InstanceOfFinalClass());
+        a = new Object();
+        assertFalse($opt$InstanceOfFinalClass());
+    }
 
-  static class MainChild extends Main {}
+    static class MainChild extends Main {}
 
-  static final class FinalClass {}
+    static final class FinalClass {}
 }

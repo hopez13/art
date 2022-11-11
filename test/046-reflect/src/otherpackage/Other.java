@@ -17,21 +17,13 @@
 package otherpackage;
 
 public class Other {
-    public void publicMethod() {
-        System.out.println("public method");
-    }
-    void packageMethod() {
-        System.out.println("package method");
-    }
+    public void publicMethod() { System.out.println("public method"); }
+    void packageMethod() { System.out.println("package method"); }
 
-    public static InnerOther getInnerClassInstance() {
-        return new InnerOther();
-    }
+    public static InnerOther getInnerClassInstance() { return new InnerOther(); }
 
     private static class InnerOther {
-        public void innerMethod() {
-            System.out.println("inner method");
-        }
+        public void innerMethod() { System.out.println("inner method"); }
 
         public int innerField = 7;
     }

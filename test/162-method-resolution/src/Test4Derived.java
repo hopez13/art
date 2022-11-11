@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-public class Test4Derived implements Test4Interface {
-}
+public class Test4Derived implements Test4Interface {}

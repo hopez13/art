@@ -15,16 +15,14 @@
  */
 
 public class Main {
-  static int $noinline$arrayAccess(int[] array) {
-    return array[82];
-  }
+    static int $noinline$arrayAccess(int[] array) { return array[82]; }
 
-  public static void main(String[] args) {
-    int[] array = new int[5];
-    try {
-      $noinline$arrayAccess(array);
-    } catch (Exception e) {
-      System.out.println(e);
+    public static void main(String[] args) {
+        int[] array = new int[5];
+        try {
+            $noinline$arrayAccess(array);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
-  }
 }

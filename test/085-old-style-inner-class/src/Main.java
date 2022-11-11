@@ -43,13 +43,10 @@ public class Main {
     }
 
     private static void infoFor(Class clazz) {
-        System.out.println("Class: " + nameOf(clazz) + "\n" +
-                "  getDeclaringClass(): " +
-                nameOf(clazz.getDeclaringClass()) + "\n" +
-                "  getEnclosingClass(): " +
-                nameOf(clazz.getEnclosingClass()) + "\n" +
-                "  getEnclosingMethod(): " +
-                nameOf(clazz.getEnclosingMethod()));
+        System.out.println("Class: " + nameOf(clazz) + "\n"
+                + "  getDeclaringClass(): " + nameOf(clazz.getDeclaringClass()) + "\n"
+                + "  getEnclosingClass(): " + nameOf(clazz.getEnclosingClass()) + "\n"
+                + "  getEnclosingMethod(): " + nameOf(clazz.getEnclosingMethod()));
     }
 
     public static void main(String args[]) throws ClassNotFoundException {

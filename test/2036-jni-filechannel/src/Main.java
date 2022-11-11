@@ -14,17 +14,16 @@
  * limitations under the License.
  */
 
-import java.nio.channels.FileChannel;
-import java.nio.file.*;
 import java.nio.Buffer;
 import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         System.loadLibrary(args[0]);
 
-        FileChannel channel = FileChannel.open(Paths.get("/dev", "null"),
-                                               StandardOpenOption.READ);
+        FileChannel channel = FileChannel.open(Paths.get("/dev", "null"), StandardOpenOption.READ);
         MappedByteBuffer buffer = channel.map(FileChannel.MapMode.READ_ONLY, 0, 0);
         checkBufferCapacity(buffer, 0);
     }

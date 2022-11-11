@@ -15,17 +15,17 @@
  */
 
 public class Main {
-  public static final int ROUNDS = 16;
-  public static final int SIZE = 8 * 1024;
+    public static final int ROUNDS = 16;
+    public static final int SIZE = 8 * 1024;
 
-  public static void main(String [] args) {
-    String s;
-    for (int j = 0; j < ROUNDS; j++) {
-      s = "";
-      for (int i = 0; i < SIZE; i++) {
-        s += "x";
-      }
+    public static void main(String[] args) {
+        String s;
+        for (int j = 0; j < ROUNDS; j++) {
+            s = "";
+            for (int i = 0; i < SIZE; i++) {
+                s += "x";
+            }
+        }
+        System.out.println("Test complete");
     }
-    System.out.println("Test complete");
-  }
 }

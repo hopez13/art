@@ -18,18 +18,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    private enum TestType {
-        ONE,
-        TWO
-    }
+    private enum TestType { ONE, TWO }
 
     private static TestType type = TestType.ONE;
 
     public static void main(String[] args) {
         float testFloat;
         switch (type) {
-            case ONE: testFloat = 1000.0f; break;
-            default: testFloat = 5f; break;
+            case ONE:
+                testFloat = 1000.0f;
+                break;
+            default:
+                testFloat = 5f;
+                break;
         }
 
         // Loop enough to potentially trigger OSR.
@@ -39,7 +40,7 @@ public class Main {
         }
 
         if (testFloat != 1000.0f) {
-          throw new Error("Expected 1000.0f, got " + testFloat);
+            throw new Error("Expected 1000.0f, got " + testFloat);
         }
     }
 }

@@ -15,7 +15,5 @@
  */
 
 public class A {
-  public int foo() {
-    return 42;
-  }
+    public int foo() { return 42; }
 }

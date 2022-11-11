@@ -15,33 +15,31 @@
  */
 
 public class Main {
-
-  /// CHECK-START: void Main.testRedundantPhiCycle(boolean) builder (after)
-  /// CHECK-NOT:  Phi
-  private void testRedundantPhiCycle(boolean cond) {
-    Object o = null;
-    while (true) {
-      if (cond) {
-        o = null;
-      }
-      System.out.println(o);
+    /// CHECK-START: void Main.testRedundantPhiCycle(boolean) builder (after)
+    /// CHECK-NOT:  Phi
+    private void testRedundantPhiCycle(boolean cond) {
+        Object o = null;
+        while (true) {
+            if (cond) {
+                o = null;
+            }
+            System.out.println(o);
+        }
     }
-  }
 
-  /// CHECK-START: void Main.testLoopPhisWithNullAndCrossUses(boolean) builder (after)
-  /// CHECK-NOT:  Phi
-  private void testLoopPhisWithNullAndCrossUses(boolean cond) {
-    Main a = null;
-    Main b = null;
-    while (a == null) {
-      if (cond) {
-        a = b;
-      } else {
-        b = a;
-      }
+    /// CHECK-START: void Main.testLoopPhisWithNullAndCrossUses(boolean) builder (after)
+    /// CHECK-NOT:  Phi
+    private void testLoopPhisWithNullAndCrossUses(boolean cond) {
+        Main a = null;
+        Main b = null;
+        while (a == null) {
+            if (cond) {
+                a = b;
+            } else {
+                b = a;
+            }
+        }
     }
-  }
 
-  public static void main(String[] args) {
-  }
+    public static void main(String[] args) {}
 }

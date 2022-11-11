@@ -15,7 +15,5 @@
  */
 
 public class SuperClass {
-  public int returnInt() {
-    return 42;
-  }
+    public int returnInt() { return 42; }
 }

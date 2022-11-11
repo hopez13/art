@@ -15,19 +15,19 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    // When calling resolution of a failed class twice, we expect a VerifyError to be
-    // thrown and not wrapped through a NoClassDefFoundError.
-    forName();
-    forName();
-  }
-
-  public static void forName() throws Exception {
-    try {
-      Class.forName("Bar");
-      throw new Error("Expected VerifyError");
-    } catch (VerifyError e) {
-      // Expected
+    public static void main(String[] args) throws Exception {
+        // When calling resolution of a failed class twice, we expect a VerifyError to be
+        // thrown and not wrapped through a NoClassDefFoundError.
+        forName();
+        forName();
     }
-  }
+
+    public static void forName() throws Exception {
+        try {
+            Class.forName("Bar");
+            throw new Error("Expected VerifyError");
+        } catch (VerifyError e) {
+            // Expected
+        }
+    }
 }

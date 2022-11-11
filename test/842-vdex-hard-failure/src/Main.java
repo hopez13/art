@@ -15,13 +15,12 @@
  */
 
 public class Main {
-
-  public static void main(String[] args) throws ClassNotFoundException {
-    try {
-      Class.forName("HardFail");
-      throw new Error("Expected VerifyError");
-    } catch (VerifyError e) {
-      // expected
+    public static void main(String[] args) throws ClassNotFoundException {
+        try {
+            Class.forName("HardFail");
+            throw new Error("Expected VerifyError");
+        } catch (VerifyError e) {
+            // expected
+        }
     }
-  }
 }

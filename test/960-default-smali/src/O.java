@@ -17,5 +17,4 @@
 /**
  * Regression test for b/31280371
  */
-class O extends N implements Foo2 {
-}
+class O extends N implements Foo2 {}

@@ -15,5 +15,5 @@
  */
 
 public interface UnresolvedInterface {
-  void interfaceMethod();
+    void interfaceMethod();
 }

@@ -16,24 +16,24 @@
 
 public class Main {
     static public void main(String[] args) throws Exception {
-      try {
-        check(false);
-      } catch (Throwable t) {          // Should catch the NoClassDefFoundError
-        System.out.println("Caught " + t.getClass());
-      }
+        try {
+            check(false);
+        } catch (Throwable t) { // Should catch the NoClassDefFoundError
+            System.out.println("Caught " + t.getClass());
+        }
     }
 
     private static void check(boolean b) {
-      try {
-        if (b) {                   // Need this to not be dead code, but also not be invoked.
-          throwsTestException();   // TestException is checked, so we need something potentially
-                                   // throwing it.
+        try {
+            if (b) { // Need this to not be dead code, but also not be invoked.
+                throwsTestException(); // TestException is checked, so we need something potentially
+                                       // throwing it.
+            }
+            throw new RuntimeException(); // Trigger exception handling.
+        } catch (TestException e) { // This handler will have an unresolvable class.
+        } catch (Exception e) { // General-purpose handler
+            System.out.println("Got expected exception.");
         }
-        throw new RuntimeException();  // Trigger exception handling.
-      } catch (TestException e) {      // This handler will have an unresolvable class.
-      } catch (Exception e) {          // General-purpose handler
-        System.out.println("Got expected exception.");
-      }
     }
 
     // This avoids having to construct one explicitly, which won't work.

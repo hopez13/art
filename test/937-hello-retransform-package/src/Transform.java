@@ -16,7 +16,5 @@
 
 package testing;
 public class Transform {
-  public void sayHi() {
-    System.out.println("hello");
-  }
+    public void sayHi() { System.out.println("hello"); }
 }

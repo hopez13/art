@@ -16,18 +16,18 @@
 
 import java.util.function.Consumer;
 class Transform {
-  public void sayHi(int recur, Consumer<String> reporter, Runnable r) {
-    privateSayHi(recur, reporter, r);
-  }
-
-  private void privateSayHi(int recur, Consumer<String> reporter, Runnable r) {
-    reporter.accept("hello" + recur);
-    if (recur == 1) {
-      r.run();
-      privateSayHi(recur - 1, reporter, r);
-    } else if (recur != 0) {
-      privateSayHi(recur - 1, reporter, r);
+    public void sayHi(int recur, Consumer<String> reporter, Runnable r) {
+        privateSayHi(recur, reporter, r);
     }
-    reporter.accept("goodbye" + recur);
-  }
+
+    private void privateSayHi(int recur, Consumer<String> reporter, Runnable r) {
+        reporter.accept("hello" + recur);
+        if (recur == 1) {
+            r.run();
+            privateSayHi(recur - 1, reporter, r);
+        } else if (recur != 0) {
+            privateSayHi(recur - 1, reporter, r);
+        }
+        reporter.accept("goodbye" + recur);
+    }
 }

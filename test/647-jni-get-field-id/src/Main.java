@@ -32,10 +32,8 @@ public class Main {
         testGetFieldId(TestClass.class, "stringField", "java.lang.String");
 
         try {
-            Method get = Main.class.getDeclaredMethod("getFieldId",
-                                                      Class.class,
-                                                      String.class,
-                                                      String.class);
+            Method get = Main.class.getDeclaredMethod(
+                    "getFieldId", Class.class, String.class, String.class);
             MyClassLoader loader = new MyClassLoader(Main.class.getClassLoader());
             Class<?> otherMain = Class.forName("Main", true, loader);
             Method m = otherMain.getDeclaredMethod("testClassLoading", Method.class);
@@ -47,15 +45,15 @@ public class Main {
 
     public static void testClassLoading(Method get) throws Exception {
         System.out.println("Test that MyClassLoader.loadClass(\"Bad.Class\") shall not be called.");
-        String[] bad_class_names = { "Bad/Class", "Bad.Class", "LBad.Class;" };
+        String[] bad_class_names = {"Bad/Class", "Bad.Class", "LBad.Class;"};
         for (String signature : bad_class_names) {
             try {
                 get.invoke(null, TestClass.class, "bogus", signature);
                 System.out.println("FAIL!");
             } catch (InvocationTargetException ite) {
-                if (!(ite.getCause() instanceof NoSuchFieldError) ||
-                    !(ite.getCause().getCause() instanceof NoClassDefFoundError)) {
-                  throw ite;
+                if (!(ite.getCause() instanceof NoSuchFieldError)
+                        || !(ite.getCause().getCause() instanceof NoClassDefFoundError)) {
+                    throw ite;
                 }
                 NoClassDefFoundError ncdfe = (NoClassDefFoundError) ite.getCause().getCause();
                 System.out.println("  Error message for " + signature + ": " + ncdfe.getMessage());
@@ -93,15 +91,12 @@ class TestClass {
 }
 
 class MyClassLoader extends DefiningLoader {
-  public MyClassLoader(ClassLoader parent) {
-      super(parent);
-  }
+    public MyClassLoader(ClassLoader parent) { super(parent); }
 
-  public Class<?> loadClass(String name) throws ClassNotFoundException
-  {
-      if (name.equals("Bad.Class")) {
-          throw new Error("findClass(\"Bad.Class\")");
-      }
-      return super.loadClass(name);
-  }
+    public Class<?> loadClass(String name) throws ClassNotFoundException {
+        if (name.equals("Bad.Class")) {
+            throw new Error("findClass(\"Bad.Class\")");
+        }
+        return super.loadClass(name);
+    }
 }

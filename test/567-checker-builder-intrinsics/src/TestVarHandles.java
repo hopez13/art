@@ -23,66 +23,55 @@ import java.lang.invoke.VarHandle;
  * as expected.
  */
 public class TestVarHandles {
+    //
+    // Fences (native).
+    //
 
-  //
-  // Fences (native).
-  //
+    /// CHECK-START: void TestVarHandles.fullFence() builder (after)
+    /// CHECK-NOT: InvokeStaticOrDirect
+    //
+    /// CHECK-START: void TestVarHandles.fullFence() builder (after)
+    /// CHECK-DAG: MemoryBarrier kind:AnyAny
+    private static void fullFence() { VarHandle.fullFence(); }
 
-  /// CHECK-START: void TestVarHandles.fullFence() builder (after)
-  /// CHECK-NOT: InvokeStaticOrDirect
-  //
-  /// CHECK-START: void TestVarHandles.fullFence() builder (after)
-  /// CHECK-DAG: MemoryBarrier kind:AnyAny
-  private static void fullFence() {
-      VarHandle.fullFence();
-  }
+    /// CHECK-START: void TestVarHandles.acquireFence() builder (after)
+    /// CHECK-NOT: InvokeStaticOrDirect
+    //
+    /// CHECK-START: void TestVarHandles.acquireFence() builder (after)
+    /// CHECK-DAG: MemoryBarrier kind:LoadAny
+    private static void acquireFence() { VarHandle.acquireFence(); }
 
-  /// CHECK-START: void TestVarHandles.acquireFence() builder (after)
-  /// CHECK-NOT: InvokeStaticOrDirect
-  //
-  /// CHECK-START: void TestVarHandles.acquireFence() builder (after)
-  /// CHECK-DAG: MemoryBarrier kind:LoadAny
-  private static void acquireFence() {
-      VarHandle.acquireFence();
-  }
+    /// CHECK-START: void TestVarHandles.releaseFence() builder (after)
+    /// CHECK-NOT: InvokeStaticOrDirect
+    //
+    /// CHECK-START: void TestVarHandles.releaseFence() builder (after)
+    /// CHECK-DAG: MemoryBarrier kind:AnyStore
+    private static void releaseFence() { VarHandle.releaseFence(); }
 
-  /// CHECK-START: void TestVarHandles.releaseFence() builder (after)
-  /// CHECK-NOT: InvokeStaticOrDirect
-  //
-  /// CHECK-START: void TestVarHandles.releaseFence() builder (after)
-  /// CHECK-DAG: MemoryBarrier kind:AnyStore
-  private static void releaseFence() {
-      VarHandle.releaseFence();
-  }
+    /// CHECK-START: void TestVarHandles.loadLoadFence() builder (after)
+    /// CHECK-NOT: InvokeStaticOrDirect
+    //
+    /// CHECK-START: void TestVarHandles.loadLoadFence() builder (after)
+    /// CHECK-DAG: MemoryBarrier kind:LoadAny
+    private static void loadLoadFence() { VarHandle.loadLoadFence(); }
 
-  /// CHECK-START: void TestVarHandles.loadLoadFence() builder (after)
-  /// CHECK-NOT: InvokeStaticOrDirect
-  //
-  /// CHECK-START: void TestVarHandles.loadLoadFence() builder (after)
-  /// CHECK-DAG: MemoryBarrier kind:LoadAny
-  private static void loadLoadFence() {
-      VarHandle.loadLoadFence();
-  }
+    /// CHECK-START: void TestVarHandles.storeStoreFence() builder (after)
+    /// CHECK-NOT: InvokeStaticOrDirect
+    //
+    /// CHECK-START: void TestVarHandles.storeStoreFence() builder (after)
+    /// CHECK-DAG: MemoryBarrier kind:StoreStore
+    private static void storeStoreFence() { VarHandle.storeStoreFence(); }
 
-  /// CHECK-START: void TestVarHandles.storeStoreFence() builder (after)
-  /// CHECK-NOT: InvokeStaticOrDirect
-  //
-  /// CHECK-START: void TestVarHandles.storeStoreFence() builder (after)
-  /// CHECK-DAG: MemoryBarrier kind:StoreStore
-  private static void storeStoreFence() {
-      VarHandle.storeStoreFence();
-  }
+    //
+    // Driver.
+    //
 
-  //
-  // Driver.
-  //
-
-  public static void main() {
-    acquireFence();
-    releaseFence();
-    loadLoadFence();
-    storeStoreFence();
-    fullFence();
-    System.out.println("TestVarHandles passed");
-  }
+    public static void main() {
+        acquireFence();
+        releaseFence();
+        loadLoadFence();
+        storeStoreFence();
+        fullFence();
+        System.out.println("TestVarHandles passed");
+    }
 }

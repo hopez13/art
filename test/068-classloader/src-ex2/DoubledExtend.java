@@ -19,16 +19,14 @@
  */
 public class DoubledExtend extends Base {
     public DoubledExtend() {
-        //System.out.println("Ctor: doubled extend, type 2");
+        // System.out.println("Ctor: doubled extend, type 2");
     }
 
     @Override
     public DoubledExtend getExtended() {
-        //System.out.println("getExtended 2");
+        // System.out.println("getExtended 2");
         return new DoubledExtend();
     }
 
-    public String getStr() {
-        return "DoubledExtend 2";
-    }
+    public String getStr() { return "DoubledExtend 2"; }
 }

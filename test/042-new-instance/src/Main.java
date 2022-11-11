@@ -20,7 +20,7 @@ import java.lang.reflect.Constructor;
  * Test instance creation.
  */
 public class Main {
-    private static boolean FULL_ACCESS_CHECKS = false;  // b/5861201
+    private static boolean FULL_ACCESS_CHECKS = false; // b/5861201
 
     public static void main(String[] args) {
         testClassNewInstance();
@@ -145,7 +145,9 @@ public class Main {
         try {
             Class<?> c = Class.forName("otherpackage.PackageAccess2");
             Constructor<?> cons = c.getConstructor();
-            if (!FULL_ACCESS_CHECKS) { throw new IllegalAccessException(); }
+            if (!FULL_ACCESS_CHECKS) {
+                throw new IllegalAccessException();
+            }
             Object obj = cons.newInstance();
             System.out.println("ERROR: Cons PackageAccess2 succeeded unexpectedly");
         } catch (IllegalAccessException iae) {
@@ -166,11 +168,9 @@ public class Main {
         }
     }
 
-    class InnerClass {
-    }
+    class InnerClass {}
 
-    static class StaticInnerClass {
-    }
+    static class StaticInnerClass {}
 }
 
 class LocalClass {

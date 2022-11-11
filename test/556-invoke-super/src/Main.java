@@ -17,15 +17,15 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  static void assertEquals(int expected, int value) {
-    if (expected != value) {
-      throw new Error("Expected " + expected + ", got " + value);
+    static void assertEquals(int expected, int value) {
+        if (expected != value) {
+            throw new Error("Expected " + expected + ", got " + value);
+        }
     }
-  }
 
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("InvokeSuper");
-    Method m = c.getMethod("run");
-    assertEquals(42, ((Integer)m.invoke(c.newInstance(), new Object[0])).intValue());
-  }
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("InvokeSuper");
+        Method m = c.getMethod("run");
+        assertEquals(42, ((Integer) m.invoke(c.newInstance(), new Object[0])).intValue());
+    }
 }

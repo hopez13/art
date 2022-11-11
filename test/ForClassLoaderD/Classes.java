@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-class DefinedInD {
-}
+class DefinedInD {}
 
-class DefinedInAD {
-}
+class DefinedInAD {}
 
-class DefinedInBD {
-}
+class DefinedInBD {}
 
-class DefinedInCD {
-}
+class DefinedInCD {}

@@ -16,16 +16,15 @@
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main implements Runnable {
-
     // Timeout in minutes. Make it larger than the run-test timeout to get a native thread dump by
     // ART on timeout when running on the host.
     private final static long TIMEOUT_VALUE = 7;
 
-    private final static long MAX_SIZE = 1000;  // Maximum size of array-list to allocate.
+    private final static long MAX_SIZE = 1000; // Maximum size of array-list to allocate.
 
     private final static int THREAD_COUNT = 16;
 
@@ -68,18 +67,16 @@ public class Main implements Runnable {
     }
 
     private static void allocateObjectsToRunGc() {
-      ArrayList<Object> l = new ArrayList<Object>();
-      try {
-          for (int i = 0; i < 100000; i++) {
-              l.add(new ArrayList<Object>(i));
-          }
-      } catch (OutOfMemoryError oom) {
-      }
+        ArrayList<Object> l = new ArrayList<Object>();
+        try {
+            for (int i = 0; i < 100000; i++) {
+                l.add(new ArrayList<Object>(i));
+            }
+        } catch (OutOfMemoryError oom) {
+        }
     }
 
-    private Main(CyclicBarrier startBarrier) {
-        this.startBarrier = startBarrier;
-    }
+    private Main(CyclicBarrier startBarrier) { this.startBarrier = startBarrier; }
 
     private ArrayList<Object> store;
     private CyclicBarrier startBarrier;
@@ -103,7 +100,7 @@ public class Main implements Runnable {
         // caller which should abort the whole runtime.
 
         ArrayList<Object> l = new ArrayList<Object>();
-        store = l;  // Keep it alive.
+        store = l; // Keep it alive.
 
         // Wait for the start signal.
         startBarrier.await(TIMEOUT_VALUE, java.util.concurrent.TimeUnit.MINUTES);
@@ -129,7 +126,7 @@ public class Main implements Runnable {
             }
         } else {
             // Last. Wait until waitCount == THREAD_COUNT - 1.
-            for (int loops = 0; ; loops++) {
+            for (int loops = 0;; loops++) {
                 synchronized (gate) {
                     if (waitCount == THREAD_COUNT - 1) {
                         // OK, everyone's waiting. Notify and break out.
@@ -146,6 +143,6 @@ public class Main implements Runnable {
             }
         }
 
-        store = null;  // Allow GC to reclaim it.
+        store = null; // Allow GC to reclaim it.
     }
 }

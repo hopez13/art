@@ -17,9 +17,7 @@
 import java.lang.ref.WeakReference;
 
 public class Main {
-    public static void main(String[] args) {
-        staleStackTest();
-    }
+    public static void main(String[] args) { staleStackTest(); }
 
     public static void staleStackTest() {
         WeakReference wrefs[] = new WeakReference[10];
@@ -58,9 +56,7 @@ public class Main {
         wrefs[9] = new WeakReference(str9);
     }
 
-    static String generateString(String base, int num) {
-        return base + num;
-    }
+    static String generateString(String base, int num) { return base + num; }
 
     static void check(WeakReference[] wrefs) {
         /*
@@ -108,6 +104,6 @@ public class Main {
         str7 = generateString("String", 7);
         str8 = generateString("String", 8);
         str9 = generateString("String", 9);
-        System.out.println(str0+str1+str2+str3+str4+str5+str6+str7+str8+str9);
+        System.out.println(str0 + str1 + str2 + str3 + str4 + str5 + str6 + str7 + str8 + str9);
     }
 }

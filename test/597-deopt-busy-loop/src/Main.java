@@ -15,7 +15,6 @@
  */
 
 public class Main {
-
     public static native void deoptimizeAll();
     public static native void undeoptimizeAll();
     public static native void assertIsInterpreted();

@@ -18,8 +18,8 @@
  * Regression test for b/31280371
  */
 interface Foo3 extends Foo {
-  @Override
-  public default String bar() {
-    return "I'm in conflict";
-  }
+    @Override
+    public default String bar() {
+        return "I'm in conflict";
+    }
 }

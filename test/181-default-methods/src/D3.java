@@ -15,7 +15,5 @@
  */
 
 interface D3 {
-    default String testMethod() {
-        return "D3.testMethod()";
-    }
+    default String testMethod() { return "D3.testMethod()"; }
 }

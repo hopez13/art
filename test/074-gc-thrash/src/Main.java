@@ -16,8 +16,8 @@
 
 import java.io.File;
 import java.lang.ref.WeakReference;
-import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class Main {
     public static volatile boolean quit = false;
@@ -101,7 +101,6 @@ public class Main {
         return null;
     }
 
-
     /**
      * Run the various tests for a set period.
      */
@@ -144,11 +143,8 @@ public class Main {
     /**
      * Sleeps briefly, allowing other threads some CPU time to get started.
      */
-    public static void startupDelay() {
-        sleep(500);
-    }
+    public static void startupDelay() { sleep(500); }
 }
-
 
 /**
  * Allocates useless objects and holds on to several of them.
@@ -190,7 +186,6 @@ class Robin extends Thread {
     }
 }
 
-
 /**
  * Allocates useless objects in recursive calls.
  */
@@ -222,8 +217,7 @@ class Deep extends Thread {
         /*
          * Wipe "strong", do a GC, see if "weak" got collected.
          */
-        for (int i = 0; i < MAX_DEPTH; i++)
-            strong[i] = null;
+        for (int i = 0; i < MAX_DEPTH; i++) strong[i] = null;
 
         Runtime.getRuntime().gc();
 
@@ -237,7 +231,6 @@ class Deep extends Thread {
             System.out.println("Deep: iters=" + iter / MAX_DEPTH);
     }
 
-
     /**
      * Check the results of the last trip through.  Everything in
      * "weak" should be matched in "strong", and the two should be
@@ -249,12 +242,12 @@ class Deep extends Thread {
      * or until they are updated to another value.
      */
     private static void checkStringReferences() {
-      for (int i = 0; i < MAX_DEPTH; i++) {
-          if (strong[i] != weak[i].get()) {
-              System.out.println("Deep: " + i + " strong=" + strong[i] +
-                  ", weak=" + weak[i].get());
-          }
-      }
+        for (int i = 0; i < MAX_DEPTH; i++) {
+            if (strong[i] != weak[i].get()) {
+                System.out.println(
+                        "Deep: " + i + " strong=" + strong[i] + ", weak=" + weak[i].get());
+            }
+        }
     }
 
     /**
@@ -303,8 +296,8 @@ class Deep extends Thread {
 
             weak[depth] = new WeakReference(funStr);
             strong[depth] = funStr;
-            if (depth+1 < MAX_DEPTH)
-                dive(depth+1, iteration+1);
+            if (depth + 1 < MAX_DEPTH)
+                dive(depth + 1, iteration + 1);
             else
                 Main.sleep(100);
             return funStr;
@@ -323,7 +316,6 @@ class Deep extends Thread {
         }
     }
 }
-
 
 /**
  * Allocates large useless objects.

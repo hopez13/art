@@ -15,9 +15,9 @@
  */
 
 interface Iface4 {
-  default void sayHiTwice(String s) {
-    sayHi(s);
-    sayHi(s);
-  }
-  void sayHi(String s);
+    default void sayHiTwice(String s) {
+        sayHi(s);
+        sayHi(s);
+    }
+    void sayHi(String s);
 }

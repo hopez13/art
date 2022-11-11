@@ -14,30 +14,21 @@
  * limitations under the License.
  */
 
-class Unrelated {
-}
+class Unrelated {}
 
 public class Main {
+    /// CHECK-START: int Main.attemptInlineMonomorphic(Main) inliner (after)
+    /// CHECK:       InvokeVirtual method_name:Main.getValue
+    public static int attemptInlineMonomorphic(Main a) { return a.getValue(); }
 
-  /// CHECK-START: int Main.attemptInlineMonomorphic(Main) inliner (after)
-  /// CHECK:       InvokeVirtual method_name:Main.getValue
-  public static int attemptInlineMonomorphic(Main a) {
-    return a.getValue();
-  }
+    /// CHECK-START: int Main.attemptInlinePolymorphic(Main) inliner (after)
+    /// CHECK:       InvokeVirtual method_name:Main.getValue
+    public static int attemptInlinePolymorphic(Main a) { return a.getValue(); }
 
-  /// CHECK-START: int Main.attemptInlinePolymorphic(Main) inliner (after)
-  /// CHECK:       InvokeVirtual method_name:Main.getValue
-  public static int attemptInlinePolymorphic(Main a) {
-    return a.getValue();
-  }
+    public int getValue() { return 42; }
 
-  public int getValue() {
-    return 42;
-  }
-
-  public static void main(String[] args) {
-    attemptInlineMonomorphic(new Main());
-    attemptInlinePolymorphic(new Main());
-  }
-
+    public static void main(String[] args) {
+        attemptInlineMonomorphic(new Main());
+        attemptInlinePolymorphic(new Main());
+    }
 }

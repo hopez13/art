@@ -22,10 +22,6 @@
  * @Calendar(dayOfMonth="last")
  * @Calendar(dayOfWeek="Fri", hour=23)
  */
-@Calendars ({
-  @Calendar(dayOfMonth="last"),
-  @Calendar(dayOfWeek="Fri", hour=23)
-})
-public class User {
-
-}
+@Calendars({ @Calendar(dayOfMonth = "last")
+             , @Calendar(dayOfWeek = "Fri", hour = 23) })
+public class User {}

@@ -15,7 +15,7 @@
  */
 
 public class NullaryConstructorSdk {
-  public NullaryConstructorSdk() { x = 22; }
-  public NullaryConstructorSdk(int y) { x = y; }
-  protected int x;
+    public NullaryConstructorSdk() { x = 22; }
+    public NullaryConstructorSdk(int y) { x = y; }
+    protected int x;
 }

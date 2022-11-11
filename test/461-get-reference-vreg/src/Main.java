@@ -15,48 +15,41 @@
  */
 
 public class Main {
-  public Main() {
-  }
+    public Main() {}
 
-  int $noinline$testThisWithInstanceCall() {
-    return doNativeCallRef();
-  }
+    int $noinline$testThisWithInstanceCall() { return doNativeCallRef(); }
 
-  int $noinline$testThisWithStaticCall() {
-    return doStaticNativeCallRef();
-  }
+    int $noinline$testThisWithStaticCall() { return doStaticNativeCallRef(); }
 
-  static int $noinline$testParameter(Object a) {
-    return doStaticNativeCallRef();
-  }
+    static int $noinline$testParameter(Object a) { return doStaticNativeCallRef(); }
 
-  static int $noinline$testObjectInScope() {
-    Object a = array[0];
-    return doStaticNativeCallRef();
-  }
-
-  native int doNativeCallRef();
-  static native int doStaticNativeCallRef();
-
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
-    Main rm = new Main();
-    if (rm.$noinline$testThisWithInstanceCall() != 1) {
-      throw new Error("Expected 1");
+    static int $noinline$testObjectInScope() {
+        Object a = array[0];
+        return doStaticNativeCallRef();
     }
 
-    if (rm.$noinline$testThisWithStaticCall() != 2) {
-      throw new Error("Expected 2");
+    native int doNativeCallRef();
+    static native int doStaticNativeCallRef();
+
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
+        Main rm = new Main();
+        if (rm.$noinline$testThisWithInstanceCall() != 1) {
+            throw new Error("Expected 1");
+        }
+
+        if (rm.$noinline$testThisWithStaticCall() != 2) {
+            throw new Error("Expected 2");
+        }
+
+        if ($noinline$testParameter(new Object()) != 3) {
+            throw new Error("Expected 3");
+        }
+
+        if ($noinline$testObjectInScope() != 4) {
+            throw new Error("Expected 4");
+        }
     }
 
-    if ($noinline$testParameter(new Object()) != 3) {
-      throw new Error("Expected 3");
-    }
-
-    if ($noinline$testObjectInScope() != 4) {
-      throw new Error("Expected 4");
-    }
-  }
-
-  static Object[] array = new Object[] { new Object() };
+    static Object[] array = new Object[] {new Object()};
 }

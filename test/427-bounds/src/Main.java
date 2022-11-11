@@ -15,37 +15,37 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    Exception exception = null;
-    try {
-      $opt$Throw(new int[1]);
-    } catch (ArrayIndexOutOfBoundsException e) {
-      exception = e;
+    public static void main(String[] args) {
+        Exception exception = null;
+        try {
+            $opt$Throw(new int[1]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            exception = e;
+        }
+
+        String exceptionMessage = exception.getMessage();
+
+        // Note that it's ART specific to emit the length.
+        if (exceptionMessage.contains("length")) {
+            if (!exceptionMessage.contains("length=1")) {
+                throw new Error("Wrong length in exception message: " + exceptionMessage);
+            }
+        }
+
+        // Note that it's ART specific to emit the index.
+        if (exceptionMessage.contains("index")) {
+            if (!exceptionMessage.contains("index=2")) {
+                throw new Error("Wrong index in exception message");
+            }
+        }
     }
 
-    String exceptionMessage = exception.getMessage();
-
-    // Note that it's ART specific to emit the length.
-    if (exceptionMessage.contains("length")) {
-      if (!exceptionMessage.contains("length=1")) {
-        throw new Error("Wrong length in exception message: " + exceptionMessage);
-      }
+    static void $opt$Throw(int[] array) {
+        // We fetch the length first, to ensure it is in EAX (on x86).
+        // The pThrowArrayBounds entrypoint expects the index in EAX and the
+        // length in ECX, and the optimizing compiler used to write to EAX
+        // before putting the length in ECX.
+        int length = array.length;
+        array[2] = 42;
     }
-
-    // Note that it's ART specific to emit the index.
-    if (exceptionMessage.contains("index")) {
-      if (!exceptionMessage.contains("index=2")) {
-        throw new Error("Wrong index in exception message");
-      }
-    }
-  }
-
-  static void $opt$Throw(int[] array) {
-    // We fetch the length first, to ensure it is in EAX (on x86).
-    // The pThrowArrayBounds entrypoint expects the index in EAX and the
-    // length in ECX, and the optimizing compiler used to write to EAX
-    // before putting the length in ECX.
-    int length = array.length;
-    array[2] = 42;
-  }
 }

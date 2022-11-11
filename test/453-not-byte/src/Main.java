@@ -17,12 +17,12 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("NotByte");
-    Method m = c.getMethod("notByte", byte.class);
-    int result = (Integer)m.invoke(null, (byte)42);
-    if (result != -43) {
-      throw new Error("Expected -43, got " + result);
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("NotByte");
+        Method m = c.getMethod("notByte", byte.class);
+        int result = (Integer) m.invoke(null, (byte) 42);
+        if (result != -43) {
+            throw new Error("Expected -43, got " + result);
+        }
     }
-  }
 }

@@ -16,14 +16,14 @@
 
 import java.util.function.Consumer;
 class Transform {
-  public void sayHi(int recur, Consumer<String> c, Runnable r) {
-    c.accept("hello" + recur);
-    if (recur == 1) {
-      r.run();
-      sayHi(recur - 1, c, r);
-    } else if (recur != 0) {
-      sayHi(recur - 1, c, r);
+    public void sayHi(int recur, Consumer<String> c, Runnable r) {
+        c.accept("hello" + recur);
+        if (recur == 1) {
+            r.run();
+            sayHi(recur - 1, c, r);
+        } else if (recur != 0) {
+            sayHi(recur - 1, c, r);
+        }
+        c.accept("goodbye" + recur);
     }
-    c.accept("goodbye" + recur);
-  }
 }

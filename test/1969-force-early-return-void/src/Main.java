@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    art.Test1969.run(!Arrays.asList(args).contains("DISABLE_CLASS_LOAD_TESTS"));
-  }
+    public static void main(String[] args) throws Exception {
+        art.Test1969.run(!Arrays.asList(args).contains("DISABLE_CLASS_LOAD_TESTS"));
+    }
 }

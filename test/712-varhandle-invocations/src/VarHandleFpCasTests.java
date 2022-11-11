@@ -43,9 +43,7 @@ public class VarHandleFpCasTests {
             assertTrue(vh.compareAndSet(a, Float.NaN, 0.0f));
         }
 
-        public static void main(String[] args) {
-            new FieldFloatTest().run();
-        }
+        public static void main(String[] args) { new FieldFloatTest().run(); }
     }
 
     public static class FieldDoubleTest extends VarHandleUnitTest {
@@ -73,9 +71,7 @@ public class VarHandleFpCasTests {
             assertTrue(vh.compareAndSet(a, Double.NaN, 0.0));
         }
 
-        public static void main(String[] args) {
-            new FieldDoubleTest().run();
-        }
+        public static void main(String[] args) { new FieldDoubleTest().run(); }
     }
 
     public static void main(String[] args) {

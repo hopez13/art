@@ -17,7 +17,5 @@
 package pkg2;
 
 public class PublicFooInheritsPkg3 extends pkg3.PublicFoo {
-  public Class<?> foo() {
-    return PublicFooInheritsPkg3.class;
-  }
+    public Class<?> foo() { return PublicFooInheritsPkg3.class; }
 }

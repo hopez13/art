@@ -12,11 +12,7 @@ public class UnresStuff {
     public double wideInstField;
     public static double wideStaticField;
 
-    public void virtualMethod() {
-        System.out.println("unres!");
-    }
+    public void virtualMethod() { System.out.println("unres!"); }
 
-    public static void staticMethod() {
-        System.out.println("unres!");
-    }
+    public static void staticMethod() { System.out.println("unres!"); }
 }

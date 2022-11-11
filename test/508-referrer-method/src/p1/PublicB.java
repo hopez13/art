@@ -16,5 +16,4 @@
 
 package p1;
 
-public class PublicB extends PackagePrivateA {
-}
+public class PublicB extends PackagePrivateA {}

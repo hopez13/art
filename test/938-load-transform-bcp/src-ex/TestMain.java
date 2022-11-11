@@ -17,19 +17,19 @@
 import java.lang.reflect.Method;
 import java.util.OptionalLong;
 public class TestMain {
-  public static void runTest() {
-    // This should be our redefined OptionalLong.
-    OptionalLong ol = OptionalLong.of(123);
-    try {
-      // OptionalLong is a class that is unlikely to be used by the time this test starts.
-      Method foo = OptionalLong.class.getMethod("foo");
-      System.out.println("ol.foo() -> '" + (String)foo.invoke(ol) + "'");
-      System.out.println("ol.toString() -> '" + ol.toString() + "'");
-    } catch (Exception e) {
-      System.out.println(
-          "Exception occured (did something load OptionalLong before this test method!: "
-          + e.toString());
-      e.printStackTrace(System.out);
+    public static void runTest() {
+        // This should be our redefined OptionalLong.
+        OptionalLong ol = OptionalLong.of(123);
+        try {
+            // OptionalLong is a class that is unlikely to be used by the time this test starts.
+            Method foo = OptionalLong.class.getMethod("foo");
+            System.out.println("ol.foo() -> '" + (String) foo.invoke(ol) + "'");
+            System.out.println("ol.toString() -> '" + ol.toString() + "'");
+        } catch (Exception e) {
+            System.out.println(
+                    "Exception occured (did something load OptionalLong before this test method!: "
+                    + e.toString());
+            e.printStackTrace(System.out);
+        }
     }
-  }
 }

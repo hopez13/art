@@ -15,24 +15,22 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    System.out.println(foo());
-  }
+    public static void main(String[] args) { System.out.println(foo()); }
 
-  public static int foo() {
-    Main m = new Main();
-    int a = m.field;
-    if (a == 0) {
-      m.field = 42;
-      if (m.test) {
-        a = 3;
-      }
+    public static int foo() {
+        Main m = new Main();
+        int a = m.field;
+        if (a == 0) {
+            m.field = 42;
+            if (m.test) {
+                a = 3;
+            }
+        }
+        // The compiler used to GVN this field get with the one line 24,
+        // even though the field is updated in the if.
+        return m.field;
     }
-    // The compiler used to GVN this field get with the one line 24,
-    // even though the field is updated in the if.
-    return m.field;
-  }
 
-  public int field;
-  public boolean test = true;
+    public int field;
+    public boolean test = true;
 }

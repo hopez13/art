@@ -15,7 +15,5 @@
  */
 
 class Transform {
-  public void sayHi(String name) {
-    System.out.println("hello - " + name);
-  }
+    public void sayHi(String name) { System.out.println("hello - " + name); }
 }

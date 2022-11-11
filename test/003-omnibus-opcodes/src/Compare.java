@@ -18,7 +18,6 @@
  * Test comparison operators.
  */
 public class Compare {
-
     /*
      * Test the integer comparisons in various ways.
      */
@@ -70,9 +69,7 @@ public class Compare {
      *
      * minus=-5, alsoMinus=0xFFFFFFFF00000009, plus=4, alsoPlus=8
      */
-    static void testLongCompare(long minus, long alsoMinus, long plus,
-        long alsoPlus) {
-
+    static void testLongCompare(long minus, long alsoMinus, long plus, long alsoPlus) {
         System.out.println("IntMath.testLongCompare");
         if (minus > plus)
             Main.assertTrue(false);
@@ -81,9 +78,9 @@ public class Compare {
         if (plus == minus)
             Main.assertTrue(false);
 
-        if (plus >= plus+1)
+        if (plus >= plus + 1)
             Main.assertTrue(false);
-        if (minus >= minus+1)
+        if (minus >= minus + 1)
             Main.assertTrue(false);
 
         /* try a branch-taken */
@@ -102,7 +99,7 @@ public class Compare {
             Main.assertTrue(false);
 
         /* high words are equal, low words have apparently different signs */
-        if (minus < alsoMinus)      // bug!
+        if (minus < alsoMinus) // bug!
             Main.assertTrue(false);
         if (alsoMinus > minus)
             Main.assertTrue(false);
@@ -113,9 +110,7 @@ public class Compare {
     /*
      * Test cmpl-float and cmpg-float.
      */
-    static void testFloatCompare(float minus, float plus, float plus2,
-        float nan) {
-
+    static void testFloatCompare(float minus, float plus, float plus2, float nan) {
         System.out.println("IntMath.testFloatCompare");
         if (minus > plus)
             Main.assertTrue(false);
@@ -143,9 +138,7 @@ public class Compare {
             Main.assertTrue(false);
     }
 
-    static void testDoubleCompare(double minus, double plus, double plus2,
-        double nan) {
-
+    static void testDoubleCompare(double minus, double plus, double plus2, double nan) {
         System.out.println("IntMath.testDoubleCompare");
         if (minus > plus)
             Main.assertTrue(false);
@@ -177,7 +170,7 @@ public class Compare {
         testIntCompare(-5, 4, 4, 0);
         testLongCompare(-5L, -4294967287L, 4L, 8L);
 
-        testFloatCompare(-5.0f, 4.0f, 4.0f, (1.0f/0.0f) / (1.0f/0.0f));
-        testDoubleCompare(-5.0, 4.0, 4.0, (1.0/0.0) / (1.0/0.0));
+        testFloatCompare(-5.0f, 4.0f, 4.0f, (1.0f / 0.0f) / (1.0f / 0.0f));
+        testDoubleCompare(-5.0, 4.0, 4.0, (1.0 / 0.0) / (1.0 / 0.0));
     }
 }

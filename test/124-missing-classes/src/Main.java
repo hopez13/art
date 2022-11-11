@@ -15,7 +15,6 @@
  */
 
 public final class Main {
-
     public static void main(String[] args) throws Exception {
         System.out.println("Test Started");
         testMissingFieldType();
@@ -39,9 +38,7 @@ public final class Main {
     }
 
     private static class ClassWithMissingMethodReturnType {
-        MissingClass method() {
-            return null;
-        }
+        MissingClass method() { return null; }
     }
 
     private static void testMissingMethodReturnType() throws Exception {
@@ -66,8 +63,7 @@ public final class Main {
         }
     }
 
-    private static final class MissingInnerClass {
-    }
+    private static final class MissingInnerClass {}
 
     private static void testMissingInnerClass() throws Exception {
         try {

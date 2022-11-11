@@ -15,7 +15,5 @@
  */
 
 class SuperClass {
-  public Class<?> foo() {
-    return SuperClass.class;
-  }
+    public Class<?> foo() { return SuperClass.class; }
 }

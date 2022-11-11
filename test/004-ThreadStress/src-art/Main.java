@@ -58,7 +58,6 @@ import java.util.concurrent.locks.LockSupport;
 //    -queuedwait:X ..... frequency of QueuedWait (double)
 
 public class Main implements Runnable {
-
     public static final boolean DEBUG = false;
 
     private static abstract class Operation {
@@ -98,11 +97,11 @@ public class Main implements Runnable {
             try {
                 Class<?> osClass = Class.forName("android.system.Os");
                 Method getpid = osClass.getDeclaredMethod("getpid");
-                pidTemp = (Integer)getpid.invoke(null);
+                pidTemp = (Integer) getpid.invoke(null);
 
                 Class<?> osConstants = Class.forName("android.system.OsConstants");
                 Field sigquitField = osConstants.getDeclaredField("SIGQUIT");
-                sigquitTemp = (Integer)sigquitField.get(null);
+                sigquitTemp = (Integer) sigquitField.get(null);
 
                 killTemp = osClass.getDeclaredMethod("kill", int.class, int.class);
             } catch (Exception e) {
@@ -129,7 +128,7 @@ public class Main implements Runnable {
     }
 
     private final static class Alloc extends Operation {
-        private final static int ALLOC_SIZE = 1024;  // Needs to be small enough to not be in LOS.
+        private final static int ALLOC_SIZE = 1024; // Needs to be small enough to not be in LOS.
         private final static int ALLOC_COUNT = 1024;
 
         @Override
@@ -147,7 +146,7 @@ public class Main implements Runnable {
 
     private final static class LargeAlloc extends Operation {
         private final static int PAGE_SIZE = 4096;
-        private final static int PAGE_SIZE_MODIFIER = 10;  // Needs to be large enough for LOS.
+        private final static int PAGE_SIZE_MODIFIER = 10; // Needs to be large enough for LOS.
         private final static int ALLOC_COUNT = 100;
 
         @Override
@@ -163,8 +162,8 @@ public class Main implements Runnable {
         }
     }
 
-  private final static class NonMovingAlloc extends Operation {
-        private final static int ALLOC_SIZE = 1024;  // Needs to be small enough to not be in LOS.
+    private final static class NonMovingAlloc extends Operation {
+        private final static int ALLOC_SIZE = 1024; // Needs to be small enough to not be in LOS.
         private final static int ALLOC_COUNT = 1024;
         private final static VMRuntime runtime = VMRuntime.getRuntime();
 
@@ -180,7 +179,6 @@ public class Main implements Runnable {
             return true;
         }
     }
-
 
     private final static class StackTrace extends Operation {
         @Override
@@ -218,9 +216,7 @@ public class Main implements Runnable {
 
         private final Object lock;
 
-        public TimedWait(Object lock) {
-            this.lock = lock;
-        }
+        public TimedWait(Object lock) { this.lock = lock; }
 
         @Override
         public boolean perform() {
@@ -237,9 +233,7 @@ public class Main implements Runnable {
     private final static class Wait extends Operation {
         private final Object lock;
 
-        public Wait(Object lock) {
-            this.lock = lock;
-        }
+        public Wait(Object lock) { this.lock = lock; }
 
         @Override
         public boolean perform() {
@@ -260,7 +254,7 @@ public class Main implements Runnable {
 
         @Override
         public boolean perform() {
-            LockSupport.parkNanos(this, 100*1000000);
+            LockSupport.parkNanos(this, 100 * 1000000);
             return true;
         }
     }
@@ -268,15 +262,13 @@ public class Main implements Runnable {
     private final static class SyncAndWork extends Operation {
         private final Object lock;
 
-        public SyncAndWork(Object lock) {
-            this.lock = lock;
-        }
+        public SyncAndWork(Object lock) { this.lock = lock; }
 
         @Override
         public boolean perform() {
             synchronized (lock) {
                 try {
-                    Thread.sleep((int)(Math.random() * 50 + 50));
+                    Thread.sleep((int) (Math.random() * 50 + 50));
                 } catch (InterruptedException ignored) {
                 }
             }
@@ -294,9 +286,7 @@ public class Main implements Runnable {
 
         private final Semaphore semaphore;
 
-        public QueuedWait(Semaphore semaphore) {
-            this.semaphore = semaphore;
-        }
+        public QueuedWait(Semaphore semaphore) { this.semaphore = semaphore; }
 
         @Override
         public boolean perform() {
@@ -306,14 +296,14 @@ public class Main implements Runnable {
                 permitAcquired = true;
                 Thread.sleep(SLEEP_TIME);
             } catch (OutOfMemoryError ignored) {
-              // The call to semaphore.acquire() above may trigger an OOME,
-              // despite the care taken doing some warm-up by forcing
-              // ahead-of-time initialization of classes used by the Semaphore
-              // class (see forceTransitiveClassInitialization below).
-              // For instance, one of the code paths executes
-              // AbstractQueuedSynchronizer.addWaiter, which allocates an
-              // AbstractQueuedSynchronizer$Node (see b/67730573).
-              // In that case, just ignore the OOME and continue.
+                // The call to semaphore.acquire() above may trigger an OOME,
+                // despite the care taken doing some warm-up by forcing
+                // ahead-of-time initialization of classes used by the Semaphore
+                // class (see forceTransitiveClassInitialization below).
+                // For instance, one of the code paths executes
+                // AbstractQueuedSynchronizer.addWaiter, which allocates an
+                // AbstractQueuedSynchronizer$Node (see b/67730573).
+                // In that case, just ignore the OOME and continue.
             } catch (InterruptedException ignored) {
             } finally {
                 if (permitAcquired) {
@@ -324,44 +314,44 @@ public class Main implements Runnable {
         }
     }
 
-    private final static Map<Operation, Double> createDefaultFrequencyMap(Object lock,
-            Semaphore semaphore) {
+    private final static Map<Operation, Double> createDefaultFrequencyMap(
+            Object lock, Semaphore semaphore) {
         Map<Operation, Double> frequencyMap = new HashMap<Operation, Double>();
-        frequencyMap.put(new OOM(), 0.005);                   //   1/200
-        frequencyMap.put(new SigQuit(), 0.095);               //  19/200
-        frequencyMap.put(new Alloc(), 0.2);                   //  40/200
-        frequencyMap.put(new LargeAlloc(), 0.05);             //  10/200
-        frequencyMap.put(new NonMovingAlloc(), 0.025);        //   5/200
-        frequencyMap.put(new StackTrace(), 0.1);              //  20/200
-        frequencyMap.put(new Exit(), 0.225);                  //  45/200
-        frequencyMap.put(new Sleep(), 0.075);                 //  15/200
-        frequencyMap.put(new TimedPark(), 0.05);              //  10/200
-        frequencyMap.put(new TimedWait(lock), 0.05);          //  10/200
-        frequencyMap.put(new Wait(lock), 0.075);              //  15/200
-        frequencyMap.put(new QueuedWait(semaphore), 0.05);    //  10/200
+        frequencyMap.put(new OOM(), 0.005); //   1/200
+        frequencyMap.put(new SigQuit(), 0.095); //  19/200
+        frequencyMap.put(new Alloc(), 0.2); //  40/200
+        frequencyMap.put(new LargeAlloc(), 0.05); //  10/200
+        frequencyMap.put(new NonMovingAlloc(), 0.025); //   5/200
+        frequencyMap.put(new StackTrace(), 0.1); //  20/200
+        frequencyMap.put(new Exit(), 0.225); //  45/200
+        frequencyMap.put(new Sleep(), 0.075); //  15/200
+        frequencyMap.put(new TimedPark(), 0.05); //  10/200
+        frequencyMap.put(new TimedWait(lock), 0.05); //  10/200
+        frequencyMap.put(new Wait(lock), 0.075); //  15/200
+        frequencyMap.put(new QueuedWait(semaphore), 0.05); //  10/200
 
         return frequencyMap;
     }
 
     private final static Map<Operation, Double> createAllocFrequencyMap() {
         Map<Operation, Double> frequencyMap = new HashMap<Operation, Double>();
-        frequencyMap.put(new Sleep(), 0.2);                   //  40/200
-        frequencyMap.put(new Alloc(), 0.575);                 // 115/200
-        frequencyMap.put(new LargeAlloc(), 0.15);             //  30/200
-        frequencyMap.put(new NonMovingAlloc(), 0.075);        //  15/200
+        frequencyMap.put(new Sleep(), 0.2); //  40/200
+        frequencyMap.put(new Alloc(), 0.575); // 115/200
+        frequencyMap.put(new LargeAlloc(), 0.15); //  30/200
+        frequencyMap.put(new NonMovingAlloc(), 0.075); //  15/200
 
         return frequencyMap;
     }
 
     private final static Map<Operation, Double> createLockFrequencyMap(Object lock) {
-      Map<Operation, Double> frequencyMap = new HashMap<Operation, Double>();
-      frequencyMap.put(new Sleep(), 0.2);                     //  40/200
-      frequencyMap.put(new TimedWait(lock), 0.1);             //  20/200
-      frequencyMap.put(new Wait(lock), 0.2);                  //  40/200
-      frequencyMap.put(new SyncAndWork(lock), 0.4);           //  80/200
-      frequencyMap.put(new TimedPark(), 0.1);                 //  20/200
+        Map<Operation, Double> frequencyMap = new HashMap<Operation, Double>();
+        frequencyMap.put(new Sleep(), 0.2); //  40/200
+        frequencyMap.put(new TimedWait(lock), 0.1); //  20/200
+        frequencyMap.put(new Wait(lock), 0.2); //  40/200
+        frequencyMap.put(new SyncAndWork(lock), 0.4); //  80/200
+        frequencyMap.put(new TimedPark(), 0.1); //  20/200
 
-      return frequencyMap;
+        return frequencyMap;
     }
 
     public static void main(String[] args) throws Exception {
@@ -369,8 +359,8 @@ public class Main implements Runnable {
         parseAndRun(args);
     }
 
-    private static Map<Operation, Double> updateFrequencyMap(Map<Operation, Double> in,
-            Object lock, Semaphore semaphore, String arg) {
+    private static Map<Operation, Double> updateFrequencyMap(
+            Map<Operation, Double> in, Object lock, Semaphore semaphore, String arg) {
         String split[] = arg.split(":");
         if (split.length != 2) {
             throw new IllegalArgumentException("Can't split argument " + arg);
@@ -501,7 +491,7 @@ public class Main implements Runnable {
         }
 
         if (operationsPerThread == -1) {
-            operationsPerThread = totalOperations/numberOfThreads;
+            operationsPerThread = totalOperations / numberOfThreads;
         }
 
         if (frequencyMap == null) {
@@ -595,8 +585,8 @@ public class Main implements Runnable {
     }
 
     public static void runTest(final int numberOfThreads, final int numberOfDaemons,
-                               final int operationsPerThread, final Object lock,
-                               Map<Operation, Double> frequencyMap) throws Exception {
+            final int operationsPerThread, final Object lock, Map<Operation, Double> frequencyMap)
+            throws Exception {
         final Thread mainThread = Thread.currentThread();
         final Barrier startBarrier = new Barrier(numberOfThreads + numberOfDaemons + 1);
 
@@ -618,10 +608,10 @@ public class Main implements Runnable {
         for (int t = 0; t < threadStresses.length; t++) {
             Operation[] operations = new Operation[operationsPerThread];
             int o = 0;
-            LOOP:
+        LOOP:
             while (true) {
                 for (Operation op : frequencyMap.keySet()) {
-                    int freq = (int)(frequencyMap.get(op) * operationsPerThread);
+                    int freq = (int) (frequencyMap.get(op) * operationsPerThread);
                     for (int f = 0; f < freq; f++) {
                         if (o == operations.length) {
                             break LOOP;
@@ -684,10 +674,9 @@ public class Main implements Runnable {
                                 thread.join();
 
                                 if (DEBUG) {
-                                    System.out.println(
-                                        "Thread exited for " + id + " with " +
-                                        (operationsPerThread - threadStress.nextOperation) +
-                                        " operations remaining.");
+                                    System.out.println("Thread exited for " + id + " with "
+                                            + (operationsPerThread - threadStress.nextOperation)
+                                            + " operations remaining.");
                                 }
                             } catch (OutOfMemoryError e) {
                                 // Ignore OOME since we need to print "Finishing worker"
@@ -720,9 +709,9 @@ public class Main implements Runnable {
                             lock.notifyAll();
                         }
                         for (Thread runner : runners) {
-                          if (runner != null) {
-                            LockSupport.unpark(runner);
-                          }
+                            if (runner != null) {
+                                LockSupport.unpark(runner);
+                            }
                         }
                     }
                 }
@@ -770,9 +759,8 @@ public class Main implements Runnable {
             while (nextOperation < operations.length) {
                 Operation operation = operations[nextOperation];
                 if (DEBUG) {
-                    System.out.println("ThreadStress " + id
-                                       + " operation " + nextOperation
-                                       + " is " + operation);
+                    System.out.println("ThreadStress " + id + " operation " + nextOperation + " is "
+                            + operation);
                 }
                 nextOperation++;
                 if (!operation.perform()) {
@@ -787,11 +775,8 @@ public class Main implements Runnable {
     }
 
     private static class Daemon extends Main {
-        private Daemon(Object lock,
-                       int id,
-                       Operation[] operations,
-                       Thread mainThread,
-                       Barrier startBarrier) {
+        private Daemon(Object lock, int id, Operation[] operations, Thread mainThread,
+                Barrier startBarrier) {
             super(lock, id, operations);
             this.mainThread = mainThread;
             this.startBarrier = startBarrier;
@@ -808,9 +793,8 @@ public class Main implements Runnable {
                     while (true) {
                         Operation operation = operations[i];
                         if (DEBUG) {
-                            System.out.println("ThreadStress Daemon " + id
-                                               + " operation " + i
-                                               + " is " + operation);
+                            System.out.println("ThreadStress Daemon " + id + " operation " + i
+                                    + " is " + operation);
                         }
                         // Ignore the result of the performed operation, making
                         // Exit.perform() essentially a no-op for daemon threads.
@@ -843,16 +827,14 @@ public class Main implements Runnable {
     // a native allocation. As such, it should succeed even if the Java heap is full.
     // If the native allocation surprisingly fails, the program shall abort().
     private static class Barrier {
-        public Barrier(int initialCount) {
-            count = initialCount;
-        }
+        public Barrier(int initialCount) { count = initialCount; }
 
         public synchronized void await() throws InterruptedException {
             --count;
             if (count != 0) {
                 do {
                     wait();
-                } while (count != 0);  // Check for spurious wakeup.
+                } while (count != 0); // Check for spurious wakeup.
             } else {
                 notifyAll();
             }

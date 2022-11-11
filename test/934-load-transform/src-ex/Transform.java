@@ -15,7 +15,5 @@
  */
 
 class Transform {
-  public void sayHi() {
-    throw new Error("Should not be called!");
-  }
+    public void sayHi() { throw new Error("Should not be called!"); }
 }

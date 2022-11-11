@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-public class TestException extends Exception {
-}
+public class TestException extends Exception {}

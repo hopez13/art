@@ -14,37 +14,28 @@
  * limitations under the License.
  */
 
-
 public class Main {
-  public static void main(String[] args) {
-    try {
-      doTopCall();
-    } catch (Error e) {
-      e.printStackTrace(System.out);
+    public static void main(String[] args) {
+        try {
+            doTopCall();
+        } catch (Error e) {
+            e.printStackTrace(System.out);
+        }
     }
-  }
 
-  // We check that some inlining happened by checking the
-  // method index of the called method.
+    // We check that some inlining happened by checking the
+    // method index of the called method.
 
-  /// CHECK-START: void Main.doTopCall() inliner (before)
-  /// CHECK:     InvokeStaticOrDirect dex_file_index:2
+    /// CHECK-START: void Main.doTopCall() inliner (before)
+    /// CHECK:     InvokeStaticOrDirect dex_file_index:2
 
-  /// CHECK-START: void Main.doTopCall() inliner (after)
-  /// CHECK:     InvokeStaticOrDirect dex_file_index:4
-  public static void doTopCall() {
-    inline1();
-  }
+    /// CHECK-START: void Main.doTopCall() inliner (after)
+    /// CHECK:     InvokeStaticOrDirect dex_file_index:4
+    public static void doTopCall() { inline1(); }
 
-  public static void inline1() {
-    inline2();
-  }
+    public static void inline1() { inline2(); }
 
-  public static void inline2() {
-    inline3();
-  }
+    public static void inline2() { inline3(); }
 
-  public static void inline3() {
-    throw new Error();
-  }
+    public static void inline3() { throw new Error(); }
 }

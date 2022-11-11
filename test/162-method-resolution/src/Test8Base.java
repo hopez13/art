@@ -15,7 +15,5 @@
  */
 
 public class Test8Base {
-    public static void foo() {
-        System.out.println("Test8Base.foo()");
-    }
+    public static void foo() { System.out.println("Test8Base.foo()"); }
 }

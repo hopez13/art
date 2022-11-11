@@ -14,8 +14,4 @@
  * limitations under the License.
  */
 
-public class UserSub
-  extends User
-  implements IFaceA, IFaceSimple {
-
-}
+public class UserSub extends User implements IFaceA, IFaceSimple {}

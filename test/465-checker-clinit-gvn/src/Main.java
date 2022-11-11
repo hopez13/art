@@ -15,64 +15,61 @@
  */
 
 class OtherClass {
-  static {
-    a = 42;
-    b = 54;
-  }
+    static {
+        a = 42;
+        b = 54;
+    }
 
-  static int a;
-  static int b;
+    static int a;
+    static int b;
 }
 
 public final class Main {
+    /// CHECK-START: int Main.accessTwoStatics() GVN (before)
+    /// CHECK-DAG:     <<Class1:l\d+>>  LoadClass
+    /// CHECK-DAG:                      ClinitCheck [<<Class1>>]
+    /// CHECK-DAG:     <<Class2:l\d+>>  LoadClass
+    /// CHECK-DAG:                      ClinitCheck [<<Class2>>]
 
-  /// CHECK-START: int Main.accessTwoStatics() GVN (before)
-  /// CHECK-DAG:     <<Class1:l\d+>>  LoadClass
-  /// CHECK-DAG:                      ClinitCheck [<<Class1>>]
-  /// CHECK-DAG:     <<Class2:l\d+>>  LoadClass
-  /// CHECK-DAG:                      ClinitCheck [<<Class2>>]
+    /// CHECK-START: int Main.accessTwoStatics() GVN (after)
+    /// CHECK-DAG:     <<Class:l\d+>>   LoadClass
+    /// CHECK-DAG:                      ClinitCheck [<<Class>>]
+    /// CHECK-NOT:                      ClinitCheck
 
-  /// CHECK-START: int Main.accessTwoStatics() GVN (after)
-  /// CHECK-DAG:     <<Class:l\d+>>   LoadClass
-  /// CHECK-DAG:                      ClinitCheck [<<Class>>]
-  /// CHECK-NOT:                      ClinitCheck
+    public static int accessTwoStatics() { return OtherClass.b - OtherClass.a; }
 
-  public static int accessTwoStatics() {
-    return OtherClass.b - OtherClass.a;
-  }
+    /// CHECK-START: int Main.accessTwoStaticsCallInBetween() GVN (before)
+    /// CHECK-DAG:     <<Class1:l\d+>>  LoadClass
+    /// CHECK-DAG:                      ClinitCheck [<<Class1>>]
+    /// CHECK-DAG:     <<Class2:l\d+>>  LoadClass
+    /// CHECK-DAG:                      ClinitCheck [<<Class2>>]
 
-  /// CHECK-START: int Main.accessTwoStaticsCallInBetween() GVN (before)
-  /// CHECK-DAG:     <<Class1:l\d+>>  LoadClass
-  /// CHECK-DAG:                      ClinitCheck [<<Class1>>]
-  /// CHECK-DAG:     <<Class2:l\d+>>  LoadClass
-  /// CHECK-DAG:                      ClinitCheck [<<Class2>>]
+    /// CHECK-START: int Main.accessTwoStaticsCallInBetween() GVN (after)
+    /// CHECK-DAG:     <<Class:l\d+>>   LoadClass
+    /// CHECK-DAG:                      ClinitCheck [<<Class>>]
+    /// CHECK-NOT:                      ClinitCheck
 
-  /// CHECK-START: int Main.accessTwoStaticsCallInBetween() GVN (after)
-  /// CHECK-DAG:     <<Class:l\d+>>   LoadClass
-  /// CHECK-DAG:                      ClinitCheck [<<Class>>]
-  /// CHECK-NOT:                      ClinitCheck
-
-  public static int accessTwoStaticsCallInBetween() {
-    int b = OtherClass.b;
-    $noinline$foo();
-    return b - OtherClass.a;
-  }
-
-  public static void $noinline$foo() {
-    try {
-      Thread.sleep(0);
-    } catch (Exception e) {
-      throw new Error(e);
-    }
-  }
-
-  public static void main(String[] args) {
-    if (accessTwoStatics() != 12) {
-      throw new Error("Expected 12");
+    public static int accessTwoStaticsCallInBetween() {
+        int b = OtherClass.b;
+        $noinline$foo();
+        return b - OtherClass.a;
     }
 
-    if (accessTwoStaticsCallInBetween() != 12) {
-      throw new Error("Expected 12");
+    public static void $noinline$foo() {
+        try {
+            Thread.sleep(0);
+        } catch (Exception e) {
+            throw new Error(e);
+        }
     }
-  }
+
+    public static void main(String[] args) {
+        if (accessTwoStatics() != 12) {
+            throw new Error("Expected 12");
+        }
+
+        if (accessTwoStaticsCallInBetween() != 12) {
+            throw new Error("Expected 12");
+        }
+    }
 }

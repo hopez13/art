@@ -15,8 +15,8 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    art.Test2031.$noinline$run(args[1]);
-  }
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        art.Test2031.$noinline$run(args[1]);
+    }
 }

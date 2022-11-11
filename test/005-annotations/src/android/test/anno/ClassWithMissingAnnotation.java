@@ -18,5 +18,4 @@ package android.test.anno;
 
 // Add annotation for missing type to cause TypeNotPresentException.
 @AnnoMissingClass(MissingAnnotation.class)
-public class ClassWithMissingAnnotation {
-}
+public class ClassWithMissingAnnotation {}

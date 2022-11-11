@@ -19,9 +19,7 @@ public class Main {
     private static native void terminateSignalTest();
     private static native int testSignal();
 
-    private static void stackOverflow() {
-        stackOverflow();
-    }
+    private static void stackOverflow() { stackOverflow(); }
 
     public static void main(String[] args) {
         System.loadLibrary(args[0]);

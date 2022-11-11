@@ -18,9 +18,7 @@
  * Verify that we don't reject this with a LinkageError.
  */
 public class AbstractGet extends AbstractBase {
-    public DoubledExtendOkay getExtended() {
-        return new DoubledExtendOkay();
-    }
+    public DoubledExtendOkay getExtended() { return new DoubledExtendOkay(); }
 }
 
 /**

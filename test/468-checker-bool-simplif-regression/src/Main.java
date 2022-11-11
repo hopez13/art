@@ -17,22 +17,21 @@
 import java.lang.reflect.*;
 
 public class Main {
-
-  public static boolean runTest(boolean input) throws Exception {
-    Class<?> c = Class.forName("TestCase");
-    Method m = c.getMethod("testCase");
-    Field f = c.getField("value");
-    f.set(null, (Boolean) input);
-    return (Boolean) m.invoke(null);
-  }
-
-  public static void main(String[] args) throws Exception {
-    if (runTest(true) != false) {
-      throw new Error("Expected false, got true");
+    public static boolean runTest(boolean input) throws Exception {
+        Class<?> c = Class.forName("TestCase");
+        Method m = c.getMethod("testCase");
+        Field f = c.getField("value");
+        f.set(null, (Boolean) input);
+        return (Boolean) m.invoke(null);
     }
 
-    if (runTest(false) != true) {
-      throw new Error("Expected true, got false");
+    public static void main(String[] args) throws Exception {
+        if (runTest(true) != false) {
+            throw new Error("Expected false, got true");
+        }
+
+        if (runTest(false) != true) {
+            throw new Error("Expected true, got false");
+        }
     }
-  }
 }

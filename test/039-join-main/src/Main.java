@@ -60,8 +60,7 @@ class JoinMainSub implements Runnable {
             System.out.print("@ JoinMainSub successfully joined main\n");
         } catch (InterruptedException ie) {
             System.out.print("@ JoinMainSub interrupted!\n");
-        }
-        finally {
+        } finally {
             System.out.print("@ JoinMainSub bailing\n");
         }
     }

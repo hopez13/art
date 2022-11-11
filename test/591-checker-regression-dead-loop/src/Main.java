@@ -15,21 +15,21 @@
  */
 
 class Main {
-  private static boolean $inline$false() { return false; }
+    private static boolean $inline$false() { return false; }
 
-  /// CHECK-START: void Main.main(java.lang.String[]) dead_code_elimination$initial (before)
-  /// CHECK-DAG:     <<Const0:i\d+>> IntConstant 0
-  /// CHECK-DAG:     <<Const1:i\d+>> IntConstant 1
-  /// CHECK-DAG:     <<Phi:i\d+>>    Phi [<<Const0>>,<<Add:i\d+>>] loop:{{B\d+}}
-  /// CHECK-DAG:                     InvokeVirtual [{{l\d+}},<<Phi>>] method_name:java.io.PrintStream.println
-  /// CHECK-DAG:     <<Add>>         Add [<<Phi>>,<<Const1>>]
+    /// CHECK-START: void Main.main(java.lang.String[]) dead_code_elimination$initial (before)
+    /// CHECK-DAG:     <<Const0:i\d+>> IntConstant 0
+    /// CHECK-DAG:     <<Const1:i\d+>> IntConstant 1
+    /// CHECK-DAG:     <<Phi:i\d+>>    Phi [<<Const0>>,<<Add:i\d+>>] loop:{{B\d+}}
+    /// CHECK-DAG:                     InvokeVirtual [{{l\d+}},<<Phi>>] method_name:java.io.PrintStream.println
+    /// CHECK-DAG:     <<Add>>         Add [<<Phi>>,<<Const1>>]
 
-  public static void main(String[] args) {
-    if ($inline$false()) {
-      int x = 0;
-      while (true) {
-        System.out.println(x++);
-      }
+    public static void main(String[] args) {
+        if ($inline$false()) {
+            int x = 0;
+            while (true) {
+                System.out.println(x++);
+            }
+        }
     }
-  }
 }

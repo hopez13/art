@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 public interface Greeter {
-  public String SayHi();
-  public default String SayHiTwice() {
-    return SayHi() + SayHi();
-  }
+    public String SayHi();
+    public default String SayHiTwice() { return SayHi() + SayHi(); }
 }

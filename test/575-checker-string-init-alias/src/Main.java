@@ -15,56 +15,56 @@
  */
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class Main {
-  public static native void assertIsInterpreted();
-  public static native void ensureJitCompiled(Class<?> cls, String methodName);
+    public static native void assertIsInterpreted();
+    public static native void ensureJitCompiled(Class<?> cls, String methodName);
 
-  private static void assertEqual(String expected, String actual) {
-    if (!expected.equals(actual)) {
-      throw new Error("Assertion failed: " + expected + " != " + actual);
-    }
-  }
-
-  public static void main(String[] args) throws Throwable {
-    System.loadLibrary(args[0]);
-    Class<?> c = Class.forName("TestCase");
-    int[] array = new int[1];
-
-    {
-      // If the JIT is enabled, ensure it has compiled the method to force the deopt.
-      ensureJitCompiled(c, "testNoAlias");
-      Method m = c.getMethod("testNoAlias", int[].class, String.class);
-      try {
-        m.invoke(null, new Object[] { array , "foo" });
-        throw new Error("Expected AIOOBE");
-      } catch (InvocationTargetException e) {
-        if (!(e.getCause() instanceof ArrayIndexOutOfBoundsException)) {
-          throw new Error("Expected AIOOBE");
+    private static void assertEqual(String expected, String actual) {
+        if (!expected.equals(actual)) {
+            throw new Error("Assertion failed: " + expected + " != " + actual);
         }
-        // Ignore
-      }
-      Field field = c.getField("staticField");
-      assertEqual("foo", (String)field.get(null));
     }
 
-    {
-      // If the JIT is enabled, ensure it has compiled the method to force the deopt.
-      ensureJitCompiled(c, "testAlias");
-      Method m = c.getMethod("testAlias", int[].class, String.class);
-      try {
-        m.invoke(null, new Object[] { array, "bar" });
-        throw new Error("Expected AIOOBE");
-      } catch (InvocationTargetException e) {
-        if (!(e.getCause() instanceof ArrayIndexOutOfBoundsException)) {
-          throw new Error("Expected AIOOBE");
+    public static void main(String[] args) throws Throwable {
+        System.loadLibrary(args[0]);
+        Class<?> c = Class.forName("TestCase");
+        int[] array = new int[1];
+
+        {
+            // If the JIT is enabled, ensure it has compiled the method to force the deopt.
+            ensureJitCompiled(c, "testNoAlias");
+            Method m = c.getMethod("testNoAlias", int[].class, String.class);
+            try {
+                m.invoke(null, new Object[] {array, "foo"});
+                throw new Error("Expected AIOOBE");
+            } catch (InvocationTargetException e) {
+                if (!(e.getCause() instanceof ArrayIndexOutOfBoundsException)) {
+                    throw new Error("Expected AIOOBE");
+                }
+                // Ignore
+            }
+            Field field = c.getField("staticField");
+            assertEqual("foo", (String) field.get(null));
         }
-        // Ignore
-      }
-      Field field = c.getField("staticField");
-      assertEqual("bar", (String)field.get(null));
+
+        {
+            // If the JIT is enabled, ensure it has compiled the method to force the deopt.
+            ensureJitCompiled(c, "testAlias");
+            Method m = c.getMethod("testAlias", int[].class, String.class);
+            try {
+                m.invoke(null, new Object[] {array, "bar"});
+                throw new Error("Expected AIOOBE");
+            } catch (InvocationTargetException e) {
+                if (!(e.getCause() instanceof ArrayIndexOutOfBoundsException)) {
+                    throw new Error("Expected AIOOBE");
+                }
+                // Ignore
+            }
+            Field field = c.getField("staticField");
+            assertEqual("bar", (String) field.get(null));
+        }
     }
-  }
 }

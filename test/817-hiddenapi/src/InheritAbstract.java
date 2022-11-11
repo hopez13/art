@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-public class InheritAbstract extends NotInAbstractParent implements OtherInterface, NotInAbstractInterface {
-  // We don't define methodPublicSdkNotInAbstractParent in this class so the method resolution in
-  // ART first hits the blocked method in NotInAbstractParent.
+public class InheritAbstract
+        extends NotInAbstractParent implements OtherInterface, NotInAbstractInterface {
+    // We don't define methodPublicSdkNotInAbstractParent in this class so the method resolution in
+    // ART first hits the blocked method in NotInAbstractParent.
 }

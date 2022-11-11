@@ -15,7 +15,7 @@
  */
 
 public class NullaryConstructorBlocklist {
-  public NullaryConstructorBlocklist() { x = 22; }
-  public NullaryConstructorBlocklist(int y) { x = y; }
-  protected int x;
+    public NullaryConstructorBlocklist() { x = 22; }
+    public NullaryConstructorBlocklist(int y) { x = y; }
+    protected int x;
 }

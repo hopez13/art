@@ -15,7 +15,5 @@
  */
 
 // Simple annotation, no container.
-@Calendar(dayOfMonth="if_simple_first")
-public interface IFaceSimple {
-
-}
+@Calendar(dayOfMonth = "if_simple_first")
+public interface IFaceSimple {}

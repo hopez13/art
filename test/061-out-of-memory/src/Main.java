@@ -33,7 +33,7 @@ public class Main {
     private static int[] $noinline$testHugeArray() {
         int[] tooBig = null;
         try {
-            final int COUNT = 32768*32768 + 4;
+            final int COUNT = 32768 * 32768 + 4;
             tooBig = new int[COUNT];
         } catch (OutOfMemoryError oom) {
             System.out.println("Got expected huge-array OOM");
@@ -56,8 +56,8 @@ public class Main {
         }
 
         if (!sawEx) {
-            throw new RuntimeException("Test failed: " +
-                    "OutOfMemoryError not thrown");
+            throw new RuntimeException("Test failed: "
+                    + "OutOfMemoryError not thrown");
         }
 
         System.out.println("testOomeLarge succeeded");
@@ -79,7 +79,7 @@ public class Main {
             boolean sawEx = false;
             try {
                 for (int i = 0; i < Runtime.getRuntime().maxMemory() / objSize; i++) {
-                    list.add((Object)new byte[objSize]);
+                    list.add((Object) new byte[objSize]);
                 }
             } catch (OutOfMemoryError oom) {
                 sawEx = true;
@@ -101,8 +101,8 @@ public class Main {
             /* Can't reliably throw this from inside the internal function, because
              * we may not be able to allocate the RuntimeException.
              */
-            throw new RuntimeException("Test failed: " +
-                    "OutOfMemoryError not thrown while filling heap");
+            throw new RuntimeException("Test failed: "
+                    + "OutOfMemoryError not thrown while filling heap");
         }
         System.out.println("testOomeSmall succeeded");
     }
@@ -113,7 +113,8 @@ public class Main {
         int i = 0;
         try {
             for (; i < o.length; ++i) o[i] = new char[1000000];
-        } catch (OutOfMemoryError oom) {}
+        } catch (OutOfMemoryError oom) {
+        }
         try {
             for (; i < o.length; ++i) {
                 o[i] = test.toCharArray();

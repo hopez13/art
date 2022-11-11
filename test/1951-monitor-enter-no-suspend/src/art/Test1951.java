@@ -23,43 +23,42 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 
 public class Test1951 {
+    // Wait up to 1 minute for the other thread to make progress.
+    public static final long WAIT_TIME_MILLIS = 1000 * 60;
+    public static void run() throws Exception {
+        Thread t = new Thread(Test1951::otherThreadStart);
+        t.setDaemon(true);
+        t.start();
+        waitForStart();
+        Suspension.suspend(t);
+        otherThreadResume();
+        long endTime = System.currentTimeMillis() + WAIT_TIME_MILLIS;
+        boolean otherProgressed = false;
+        while (true) {
+            if (otherThreadProgressed()) {
+                otherProgressed = true;
+                break;
+            } else if (System.currentTimeMillis() > endTime) {
+                break;
+            } else {
+                Thread.yield();
+            }
+        }
+        Suspension.resume(t);
+        if (otherProgressed) {
+            t.join(1000);
+        }
+        if (otherProgressed) {
+            System.out.println("Success");
+        } else {
+            System.out.println(
+                    "Failure: other thread did not make progress in " + WAIT_TIME_MILLIS + " ms");
+        }
+        return;
+    }
 
-  // Wait up to 1 minute for the other thread to make progress.
-  public static final long WAIT_TIME_MILLIS = 1000 * 60;
-  public static void run() throws Exception {
-    Thread t = new Thread(Test1951::otherThreadStart);
-    t.setDaemon(true);
-    t.start();
-    waitForStart();
-    Suspension.suspend(t);
-    otherThreadResume();
-    long endTime = System.currentTimeMillis() + WAIT_TIME_MILLIS;
-    boolean otherProgressed = false;
-    while (true) {
-      if (otherThreadProgressed()) {
-        otherProgressed = true;
-        break;
-      } else if (System.currentTimeMillis() > endTime) {
-        break;
-      } else {
-        Thread.yield();
-      }
-    }
-    Suspension.resume(t);
-    if (otherProgressed) {
-      t.join(1000);
-    }
-    if (otherProgressed) {
-      System.out.println("Success");
-    } else {
-      System.out.println(
-          "Failure: other thread did not make progress in " + WAIT_TIME_MILLIS + " ms");
-    }
-    return;
-  }
-
-  public static native void otherThreadStart();
-  public static native void waitForStart();
-  public static native void otherThreadResume();
-  public static native boolean otherThreadProgressed();
+    public static native void otherThreadStart();
+    public static native void waitForStart();
+    public static native void otherThreadResume();
+    public static native boolean otherThreadProgressed();
 }

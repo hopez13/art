@@ -17,85 +17,80 @@
 import java.util.function.*;
 
 public class Main {
-  public static final boolean IS_ART = System.getProperty("java.vm.name").equals("Dalvik");
+    public static final boolean IS_ART = System.getProperty("java.vm.name").equals("Dalvik");
 
-  public static final class Names {
-    public final String native_name;
-    public final String java_name;
+    public static final class Names {
+        public final String native_name;
+        public final String java_name;
 
-    public Names(String ntv, String java) {
-      this.native_name = ntv;
-      this.java_name = java;
+        public Names(String ntv, String java) {
+            this.native_name = ntv;
+            this.java_name = java;
+        }
+
+        public boolean equals(Object o) {
+            if (o instanceof Names) {
+                Names on = (Names) o;
+                return on.native_name.equals(native_name) && on.java_name.equals(java_name);
+            } else {
+                return false;
+            }
+        }
+
+        public String toString() {
+            return "Names{native: \"" + native_name + "\", java: \"" + java_name + "\"}";
+        }
     }
 
-    public boolean equals(Object o) {
-      if (o instanceof Names) {
-        Names on = (Names) o;
-        return on.native_name.equals(native_name) && on.java_name.equals(java_name);
-      } else {
-        return false;
-      }
+    public static void checkDefaultNames(Names res) {
+        if (IS_ART) {
+            if (!res.native_name.matches("Thread-[0-9]+")) {
+                throw new Error("Bad thread name! " + res);
+            }
+        } else {
+            if (!res.native_name.equals("native-thread")) {
+                throw new Error("Bad thread name! " + res);
+            }
+        }
+        if (!res.java_name.matches("Thread-[0-9]+")) {
+            throw new Error("Bad thread name! " + res);
+        }
     }
 
-    public String toString() {
-      return "Names{native: \"" + native_name + "\", java: \"" + java_name + "\"}";
+    public static void checkNames(Names res, Names art_exp, Names ri_exp) {
+        if (IS_ART) {
+            if (!res.equals(art_exp)) {
+                throw new Error("Not equal " + res + " != " + art_exp);
+            }
+        } else {
+            if (!res.equals(ri_exp)) {
+                throw new Error("Not equal " + res + " != " + ri_exp);
+            }
+        }
     }
-  }
 
-  public static void checkDefaultNames(Names res) {
-    if (IS_ART) {
-      if (!res.native_name.matches("Thread-[0-9]+")) {
-        throw new Error("Bad thread name! " + res);
-      }
-    } else {
-      if (!res.native_name.equals("native-thread")) {
-        throw new Error("Bad thread name! " + res);
-      }
-    }
-    if (!res.java_name.matches("Thread-[0-9]+")) {
-      throw new Error("Bad thread name! " + res);
-    }
-  }
-
-  public static void checkNames(Names res, Names art_exp, Names ri_exp) {
-    if (IS_ART) {
-      if (!res.equals(art_exp)) {
-        throw new Error("Not equal " + res + " != " + art_exp);
-      }
-    } else {
-      if (!res.equals(ri_exp)) {
-        throw new Error("Not equal " + res + " != " + ri_exp);
-      }
-    }
-  }
-
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    Names[] name = new Names[1];
-    BiConsumer<String, Thread> thdResult =
-        (String native_name, Thread jthread) -> {
-          name[0] = new Names(native_name, jthread.getName());
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        Names[] name = new Names[1];
+        BiConsumer<String, Thread> thdResult = (String native_name, Thread jthread) -> {
+            name[0] = new Names(native_name, jthread.getName());
         };
 
-    runThreadTest(thdResult);
-    checkDefaultNames(name[0]);
+        runThreadTest(thdResult);
+        checkDefaultNames(name[0]);
 
-    runThreadTestWithName(thdResult);
-    checkNames(
-        name[0],
-        new Names("java-native-thr", "java-native-thread"),
-        new Names("native-thread", "java-native-thread"));
+        runThreadTestWithName(thdResult);
+        checkNames(name[0], new Names("java-native-thr", "java-native-thread"),
+                new Names("native-thread", "java-native-thread"));
 
-    runThreadTestSetJava(thdResult);
-    checkNames(
-        name[0],
-        new Names("native-thread-s", "native-thread-set-java"),
-        new Names("native-thread", "native-thread-set-java"));
-  }
+        runThreadTestSetJava(thdResult);
+        checkNames(name[0], new Names("native-thread-s", "native-thread-set-java"),
+                new Names("native-thread", "native-thread-set-java"));
+    }
 
-  public static native void runThreadTest(BiConsumer<String, Thread> results);
+    public static native void runThreadTest(BiConsumer<String, Thread> results);
 
-  public static native void runThreadTestWithName(BiConsumer<String, Thread> results);
+    public static native void runThreadTestWithName(BiConsumer<String, Thread> results);
 
-  public static native void runThreadTestSetJava(BiConsumer<String, Thread> results);
+    public static native void runThreadTestSetJava(BiConsumer<String, Thread> results);
 }

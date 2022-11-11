@@ -15,34 +15,31 @@
  */
 
 public class Main {
+    // This tests a specific situation when condition ends up
+    // not getting materialized if only used by an environment.
 
-  // This tests a specific situation when condition ends up
-  // not getting materialized if only used by an environment.
+    private static Object obj;
 
-  private static Object obj;
+    private static int useValue(boolean value) { return 42; }
 
-  private static int useValue(boolean value) {
-    return 42;
-  }
-
-  private static int runTest(boolean input1) {
-    boolean negation = !input1;
-    // Need the negation to appear in front of an If, and
-    // its condition to disappear. 'javac' will generate
-    // "if (!input1)" here and GVN will collapse the two
-    // conditions.
-    if (input1) {
-      // Generates an environment use of 'negation'.
-      obj = new Object();
+    private static int runTest(boolean input1) {
+        boolean negation = !input1;
+        // Need the negation to appear in front of an If, and
+        // its condition to disappear. 'javac' will generate
+        // "if (!input1)" here and GVN will collapse the two
+        // conditions.
+        if (input1) {
+            // Generates an environment use of 'negation'.
+            obj = new Object();
+        }
+        // Uses 'negation' but disappears with inlining.
+        return useValue(negation);
     }
-    // Uses 'negation' but disappears with inlining.
-    return useValue(negation);
-  }
 
-  public static void main(String[] args) throws Exception {
-    int result = runTest(true);
-    if (result != 42) {
-      throw new Error("Expected 42, got " + result);
+    public static void main(String[] args) throws Exception {
+        int result = runTest(true);
+        if (result != 42) {
+            throw new Error("Expected 42, got " + result);
+        }
     }
-  }
 }

@@ -17,11 +17,9 @@
 import libcore.util.FP16;
 
 public class Main {
+    public static short FP16_ALT_NAN = (short) (FP16.NaN | 0x0098);
 
-    public static short FP16_ALT_NAN = (short)(FP16.NaN | 0x0098);
-
-    public Main() {
-    }
+    public Main() {}
 
     public static int TestFP16ToFloatRawIntBits(short half) {
         float f = FP16.toFloat(half);
@@ -58,7 +56,7 @@ public class Main {
         }
     }
 
-    public static void testHalfToFloatToHalfConversions(){
+    public static void testHalfToFloatToHalfConversions() {
         // Test FP16 to float and back to Half for all possible Short values
         for (short h = Short.MIN_VALUE; h < Short.MAX_VALUE; h++) {
             if (FP16.isNaN(h)) {
@@ -69,7 +67,7 @@ public class Main {
         }
     }
 
-    public static void testToHalf(){
+    public static void testToHalf() {
         // These asserts check some known values and edge cases for FP16.toHalf
         // and have been inspired by the cts HalfTest.
         // Zeroes, NaN and infinities
@@ -108,10 +106,9 @@ public class Main {
         assertEquals(0x7000, FP16.toHalf(8196.0f));
         assertEquals(0x7400, FP16.toHalf(16392.0f));
         assertEquals(0x7800, FP16.toHalf(32784.0f));
-
     }
 
-    public static void testToFloat(){
+    public static void testToFloat() {
         // FP16 SNaN/QNaN inputs to float
         // The most significant bit of mantissa:
         //                 V
@@ -121,14 +118,14 @@ public class Main {
         // 0xffff: 1 11111 1111111111 (quiet NaN)
         // This test is inspired by Java implementation of android.util.Half.toFloat(),
         // where the implementation performs SNaN->QNaN conversion.
-        assert(Float.isNaN(FP16.toFloat((short)0xfc01)));
-        assert(Float.isNaN(FP16.toFloat((short)0xfdff)));
-        assert(Float.isNaN(FP16.toFloat((short)0xfe00)));
-        assert(Float.isNaN(FP16.toFloat((short)0xffff)));
-        assertEquals(0xffc02000, TestFP16ToFloatRawIntBits((short)(0xfc01)));  // SNaN->QNaN
-        assertEquals(0xffffe000, TestFP16ToFloatRawIntBits((short)(0xfdff)));  // SNaN->QNaN
-        assertEquals(0xffc00000, TestFP16ToFloatRawIntBits((short)(0xfe00)));  // QNaN->QNaN
-        assertEquals(0xffffe000, TestFP16ToFloatRawIntBits((short)(0xffff)));  // QNaN->QNaN
+        assert (Float.isNaN(FP16.toFloat((short) 0xfc01)));
+        assert (Float.isNaN(FP16.toFloat((short) 0xfdff)));
+        assert (Float.isNaN(FP16.toFloat((short) 0xfe00)));
+        assert (Float.isNaN(FP16.toFloat((short) 0xffff)));
+        assertEquals(0xffc02000, TestFP16ToFloatRawIntBits((short) (0xfc01))); // SNaN->QNaN
+        assertEquals(0xffffe000, TestFP16ToFloatRawIntBits((short) (0xfdff))); // SNaN->QNaN
+        assertEquals(0xffc00000, TestFP16ToFloatRawIntBits((short) (0xfe00))); // QNaN->QNaN
+        assertEquals(0xffffe000, TestFP16ToFloatRawIntBits((short) (0xffff))); // QNaN->QNaN
     }
 
     public static void testFloor() {
@@ -206,7 +203,6 @@ public class Main {
         assertEquals((short) 0x7f00, FP16.floor((short) 0x7d00));
         assertEquals((short) 0xfe01, FP16.floor((short) 0xfc01));
         assertEquals((short) 0xff00, FP16.floor((short) 0xfd00));
-
     }
 
     public static void testGreater() {
@@ -423,7 +419,7 @@ public class Main {
         assertEquals(0, FP16.compare(FP16.toHalf(12.462f), FP16.toHalf(12.462f)));
     }
 
-    public static void assertMinPermutations(short small, short large){
+    public static void assertMinPermutations(short small, short large) {
         assertEquals(small, FP16.min(small, large));
         assertEquals(small, FP16.min(large, small));
 
@@ -433,7 +429,7 @@ public class Main {
 
     public static void testMin() {
         assertMinPermutations(FP16.NEGATIVE_INFINITY, FP16.POSITIVE_INFINITY);
-        assertMinPermutations(FP16.NEGATIVE_ZERO,FP16.POSITIVE_ZERO);
+        assertMinPermutations(FP16.NEGATIVE_ZERO, FP16.POSITIVE_ZERO);
         assertMinPermutations(FP16.NEGATIVE_INFINITY, FP16.LOWEST_VALUE);
         assertMinPermutations(FP16.MAX_VALUE, FP16.POSITIVE_INFINITY);
         assertMinPermutations(FP16.MIN_VALUE, FP16.MIN_NORMAL);
@@ -462,7 +458,7 @@ public class Main {
         assertEquals(FP16.toHalf(-3.456f), FP16.min(FP16.toHalf(-3.456f), FP16.toHalf(-3.453f)));
     }
 
-    public static void assertMaxPermutations(short small, short large){
+    public static void assertMaxPermutations(short small, short large) {
         assertEquals(large, FP16.max(small, large));
         assertEquals(large, FP16.max(large, small));
 
@@ -472,7 +468,7 @@ public class Main {
 
     public static void testMax() {
         assertMaxPermutations(FP16.NEGATIVE_INFINITY, FP16.POSITIVE_INFINITY);
-        assertMaxPermutations(FP16.NEGATIVE_ZERO,FP16.POSITIVE_ZERO);
+        assertMaxPermutations(FP16.NEGATIVE_ZERO, FP16.POSITIVE_ZERO);
         assertMaxPermutations(FP16.NEGATIVE_INFINITY, FP16.LOWEST_VALUE);
         assertMaxPermutations(FP16.MAX_VALUE, FP16.POSITIVE_INFINITY);
         assertMaxPermutations(FP16.MIN_VALUE, FP16.MIN_NORMAL);

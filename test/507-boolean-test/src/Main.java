@@ -15,13 +15,11 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    if (bar(true)) {
-      throw new Error("Expected false, got true");
+    public static void main(String[] args) {
+        if (bar(true)) {
+            throw new Error("Expected false, got true");
+        }
     }
-  }
 
-  public static boolean bar(boolean a) {
-    return (a ? 0 : 1) == 2;
-  }
+    public static boolean bar(boolean a) { return (a ? 0 : 1) == 2; }
 }

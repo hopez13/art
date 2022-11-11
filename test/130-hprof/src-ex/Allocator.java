@@ -16,7 +16,5 @@
 
 // Simple allocator that returns a boot class path object.
 public class Allocator {
-    public static Object allocObject() {
-        return new Object();
-    }
+    public static Object allocObject() { return new Object(); }
 }

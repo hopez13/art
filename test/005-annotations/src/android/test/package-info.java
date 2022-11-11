@@ -1,2 +1,1 @@
-@AnnoSimplePackage1
-package android.test;
+@AnnoSimplePackage1 package android.test;

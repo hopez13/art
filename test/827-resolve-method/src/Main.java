@@ -19,39 +19,38 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 final class Main {
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    MyLocalClass.callMethod();
-    pkg1.SubClass.callMethod();
-    loadClass();
-  }
-
-  public static void loadClass() throws Exception {
-    Class<?> pathClassLoader = Class.forName("dalvik.system.PathClassLoader");
-    if (pathClassLoader == null) {
-      throw new AssertionError("Couldn't find path class loader class");
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        MyLocalClass.callMethod();
+        pkg1.SubClass.callMethod();
+        loadClass();
     }
-    Constructor<?> constructor =
-       pathClassLoader.getDeclaredConstructor(String.class, String.class, ClassLoader.class);
-    ClassLoader loader = (ClassLoader) constructor.newInstance(
-        DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
-    Class<?> otherClass = loader.loadClass("Caller");
 
-    // Run the method in interpreter / AOT mode.
-    otherClass.getMethod("doCall").invoke(null);
+    public static void loadClass() throws Exception {
+        Class<?> pathClassLoader = Class.forName("dalvik.system.PathClassLoader");
+        if (pathClassLoader == null) {
+            throw new AssertionError("Couldn't find path class loader class");
+        }
+        Constructor<?> constructor = pathClassLoader.getDeclaredConstructor(
+                String.class, String.class, ClassLoader.class);
+        ClassLoader loader = (ClassLoader) constructor.newInstance(
+                DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
+        Class<?> otherClass = loader.loadClass("Caller");
 
-    // Run the method  in JIT mode.
-    ensureJitCompiled(otherClass, "doCall");
-    otherClass.getMethod("doCall").invoke(null);
-  }
+        // Run the method in interpreter / AOT mode.
+        otherClass.getMethod("doCall").invoke(null);
 
-  private static final String LIBRARY_SEARCH_PATH = System.getProperty("java.library.path");
-  private static final String DEX_LOCATION = System.getenv("DEX_LOCATION");
-  private static final String DEX_FILE =
-      new File(DEX_LOCATION, "827-resolve-method-ex.jar").getAbsolutePath();
+        // Run the method  in JIT mode.
+        ensureJitCompiled(otherClass, "doCall");
+        otherClass.getMethod("doCall").invoke(null);
+    }
 
-  private static native void ensureJitCompiled(Class<?> cls, String methodName);
+    private static final String LIBRARY_SEARCH_PATH = System.getProperty("java.library.path");
+    private static final String DEX_LOCATION = System.getenv("DEX_LOCATION");
+    private static final String DEX_FILE =
+            new File(DEX_LOCATION, "827-resolve-method-ex.jar").getAbsolutePath();
+
+    private static native void ensureJitCompiled(Class<?> cls, String methodName);
 }
 
-class MyLocalClass extends pkg1.SubClass {
-}
+class MyLocalClass extends pkg1.SubClass {}

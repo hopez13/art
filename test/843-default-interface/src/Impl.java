@@ -15,7 +15,5 @@
  */
 
 public class Impl implements SubItf {
-  public String foo() {
-    return "Impl";
-  }
+    public String foo() { return "Impl"; }
 }

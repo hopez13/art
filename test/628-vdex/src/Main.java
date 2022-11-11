@@ -15,22 +15,18 @@
  */
 
 public class Main {
-  Main() {
-  }
+    Main() {}
 
-  public static void main(String[] args) {
-    Main m = new Main();
-    Object o = m;
-    // The call and field accesses will be quickened.
-    m.foo(m.a);
+    public static void main(String[] args) {
+        Main m = new Main();
+        Object o = m;
+        // The call and field accesses will be quickened.
+        m.foo(m.a);
 
-    // The checkcast will be quickened.
-    m.foo(((Main)o).a);
-  }
+        // The checkcast will be quickened.
+        m.foo(((Main) o).a);
+    }
 
-  int a;
-  void foo(int a) {
-    System.out.println("In foo");
-  }
+    int a;
+    void foo(int a) { System.out.println("In foo"); }
 }
-

@@ -19,80 +19,80 @@ import java.lang.invoke.MethodType;
 
 /** Class with helper methods for field and method lookups using java.lang.invoke. */
 public class JLI {
-  public static boolean canDiscoverWithLookupFindGetter(
-      MethodHandles.Lookup lookup, Class<?> klass, String fieldName, Class<?> fieldType) {
-    try {
-      return lookup.findGetter(klass, fieldName, fieldType) != null;
-    } catch (NoSuchFieldException e) {
-      return false;
-    } catch (IllegalAccessException e) {
-      return true;
+    public static boolean canDiscoverWithLookupFindGetter(
+            MethodHandles.Lookup lookup, Class<?> klass, String fieldName, Class<?> fieldType) {
+        try {
+            return lookup.findGetter(klass, fieldName, fieldType) != null;
+        } catch (NoSuchFieldException e) {
+            return false;
+        } catch (IllegalAccessException e) {
+            return true;
+        }
     }
-  }
 
-  public static boolean canDiscoverWithLookupFindSetter(
-      MethodHandles.Lookup lookup, Class<?> klass, String fieldName, Class<?> fieldType) {
-    try {
-      return lookup.findSetter(klass, fieldName, fieldType) != null;
-    } catch (NoSuchFieldException e) {
-      return false;
-    } catch (IllegalAccessException e) {
-      return true;
+    public static boolean canDiscoverWithLookupFindSetter(
+            MethodHandles.Lookup lookup, Class<?> klass, String fieldName, Class<?> fieldType) {
+        try {
+            return lookup.findSetter(klass, fieldName, fieldType) != null;
+        } catch (NoSuchFieldException e) {
+            return false;
+        } catch (IllegalAccessException e) {
+            return true;
+        }
     }
-  }
 
-  public static boolean canDiscoverWithLookupFindStaticGetter(
-      MethodHandles.Lookup lookup, Class<?> klass, String fieldName, Class<?> fieldType) {
-    try {
-      return lookup.findStaticGetter(klass, fieldName, fieldType) != null;
-    } catch (NoSuchFieldException e) {
-      return false;
-    } catch (IllegalAccessException e) {
-      return true;
+    public static boolean canDiscoverWithLookupFindStaticGetter(
+            MethodHandles.Lookup lookup, Class<?> klass, String fieldName, Class<?> fieldType) {
+        try {
+            return lookup.findStaticGetter(klass, fieldName, fieldType) != null;
+        } catch (NoSuchFieldException e) {
+            return false;
+        } catch (IllegalAccessException e) {
+            return true;
+        }
     }
-  }
 
-  public static boolean canDiscoverWithLookupFindStaticSetter(
-      MethodHandles.Lookup lookup, Class<?> klass, String fieldName, Class<?> fieldType) {
-    try {
-      return lookup.findStaticSetter(klass, fieldName, fieldType) != null;
-    } catch (NoSuchFieldException e) {
-      return false;
-    } catch (IllegalAccessException e) {
-      return true;
+    public static boolean canDiscoverWithLookupFindStaticSetter(
+            MethodHandles.Lookup lookup, Class<?> klass, String fieldName, Class<?> fieldType) {
+        try {
+            return lookup.findStaticSetter(klass, fieldName, fieldType) != null;
+        } catch (NoSuchFieldException e) {
+            return false;
+        } catch (IllegalAccessException e) {
+            return true;
+        }
     }
-  }
 
-  public static boolean canDiscoverWithLookupFindConstructor(
-      MethodHandles.Lookup lookup, Class<?> klass, MethodType methodType) {
-    try {
-      return lookup.findConstructor(klass, methodType) != null;
-    } catch (NoSuchMethodException e) {
-      return false;
-    } catch (IllegalAccessException e) {
-      return true;
+    public static boolean canDiscoverWithLookupFindConstructor(
+            MethodHandles.Lookup lookup, Class<?> klass, MethodType methodType) {
+        try {
+            return lookup.findConstructor(klass, methodType) != null;
+        } catch (NoSuchMethodException e) {
+            return false;
+        } catch (IllegalAccessException e) {
+            return true;
+        }
     }
-  }
 
-  public static boolean canDiscoverWithLookupFindVirtual(
-      MethodHandles.Lookup lookup, Class<?> klass, String methodName, MethodType methodType) {
-    try {
-      return lookup.findVirtual(klass, methodName, methodType) != null;
-    } catch (NoSuchMethodException e) {
-      return false;
-    } catch (IllegalAccessException e) {
-      return true;
+    public static boolean canDiscoverWithLookupFindVirtual(
+            MethodHandles.Lookup lookup, Class<?> klass, String methodName, MethodType methodType) {
+        try {
+            return lookup.findVirtual(klass, methodName, methodType) != null;
+        } catch (NoSuchMethodException e) {
+            return false;
+        } catch (IllegalAccessException e) {
+            return true;
+        }
     }
-  }
 
-  public static boolean canDiscoverWithLookupFindStatic(
-      MethodHandles.Lookup lookup, Class<?> klass, String methodName, MethodType methodType) {
-    try {
-      return lookup.findStatic(klass, methodName, methodType) != null;
-    } catch (NoSuchMethodException e) {
-      return false;
-    } catch (IllegalAccessException e) {
-      return true;
+    public static boolean canDiscoverWithLookupFindStatic(
+            MethodHandles.Lookup lookup, Class<?> klass, String methodName, MethodType methodType) {
+        try {
+            return lookup.findStatic(klass, methodName, methodType) != null;
+        } catch (NoSuchMethodException e) {
+            return false;
+        } catch (IllegalAccessException e) {
+            return true;
+        }
     }
-  }
 }

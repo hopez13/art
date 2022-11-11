@@ -24,7 +24,5 @@ public class D extends C {
         foo();
     };
 
-    /*package-private*/ void foo() {
-        System.out.println("pkg2.D.foo");
-    }
+    /*package-private*/ void foo() { System.out.println("pkg2.D.foo"); }
 }

@@ -1,8 +1,5 @@
 class X {
-    public X() {
-    }
+    public X() {}
 
-    int foo() {
-        return 0;
-    }
+    int foo() { return 0; }
 }

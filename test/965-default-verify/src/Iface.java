@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 public interface Iface {
-  public default String sayHi() {
-    return "Hello";
-  }
-  public default void verificationSoftFail() {
-    Statics.nonexistentFunction();
-  }
+    public default String sayHi() { return "Hello"; }
+    public default void verificationSoftFail() { Statics.nonexistentFunction(); }
 }

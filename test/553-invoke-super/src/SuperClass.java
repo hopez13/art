@@ -15,7 +15,5 @@
  */
 
 public class SuperClass {
-  public int $noinline$returnInt() {
-    return 42;
-  }
+    public int $noinline$returnInt() { return 42; }
 }

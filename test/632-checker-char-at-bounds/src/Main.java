@@ -15,26 +15,25 @@
  */
 
 public class Main {
-
-  /// CHECK-START: void Main.main(java.lang.String[]) licm (after)
-  /// CHECK-DAG: <<NullCheck:l\d+>>   NullCheck
-  /// CHECK-DAG: <<BoundsCheck:i\d+>> BoundsCheck
-  /// CHECK-DAG:                      ArrayGet [<<NullCheck>>,<<BoundsCheck>>]
-  public static void main(String[] args) {
-    try {
-      String foo = myString;
-      foo.getClass(); // Make sure the null check is not in the loop.
-      char c = 0;
-      for (int i = 0; i < 10; i++) {
-        // The charAt may be licm'ed, but it has to be licm'ed with its
-        // bounds check.
-        c = foo.charAt(10000000);
-      }
-      System.out.println(c);
-    } catch (StringIndexOutOfBoundsException e) {
-      // Expected
+    /// CHECK-START: void Main.main(java.lang.String[]) licm (after)
+    /// CHECK-DAG: <<NullCheck:l\d+>>   NullCheck
+    /// CHECK-DAG: <<BoundsCheck:i\d+>> BoundsCheck
+    /// CHECK-DAG:                      ArrayGet [<<NullCheck>>,<<BoundsCheck>>]
+    public static void main(String[] args) {
+        try {
+            String foo = myString;
+            foo.getClass(); // Make sure the null check is not in the loop.
+            char c = 0;
+            for (int i = 0; i < 10; i++) {
+                // The charAt may be licm'ed, but it has to be licm'ed with its
+                // bounds check.
+                c = foo.charAt(10000000);
+            }
+            System.out.println(c);
+        } catch (StringIndexOutOfBoundsException e) {
+            // Expected
+        }
     }
-  }
 
-  static String myString = "foo";
+    static String myString = "foo";
 }

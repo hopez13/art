@@ -20,9 +20,8 @@ import java.lang.reflect.Proxy;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Interface i = (Interface) Proxy.newProxyInstance(Main.class.getClassLoader(),
-                                                         new Class<?>[] { Interface.class },
-                                                         new Handler());
+        Interface i = (Interface) Proxy.newProxyInstance(
+                Main.class.getClassLoader(), new Class<?>[] {Interface.class}, new Handler());
         i.foo();
     }
 }

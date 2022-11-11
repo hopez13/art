@@ -16,20 +16,19 @@
 
 public class Main {
     static public void main(String[] args) throws Exception {
-      System.out.println(new FillerA().getClass().getName());
+        System.out.println(new FillerA().getClass().getName());
 
-      Inf1 second = new Second();
-      System.out.println(second.getClass().getName());
-      second.zcall();
-      second.zcall1();
-      second.zcall2();
-      second.zcall3();
-      second.zcall4();
-      second.zcall5();
-      second.zcall6();
-      second.zcall7();
-      second.zcall8();
-      second.zcall9();
+        Inf1 second = new Second();
+        System.out.println(second.getClass().getName());
+        second.zcall();
+        second.zcall1();
+        second.zcall2();
+        second.zcall3();
+        second.zcall4();
+        second.zcall5();
+        second.zcall6();
+        second.zcall7();
+        second.zcall8();
+        second.zcall9();
     }
-
 }

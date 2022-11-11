@@ -15,34 +15,34 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
-    loop();
-    ensureJitCompiled(Main.class, "$noinline$doCall");
-    loop();
-  }
-
-  public static void loop() {
-    Main m = new Main();
-    for (int i = 0; i < 5000; i++) {
-      $noinline$doCall("foo");
-      $noinline$doCall(m);
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
+        loop();
+        ensureJitCompiled(Main.class, "$noinline$doCall");
+        loop();
     }
-  }
 
-  public static boolean $noinline$doCall(Object foo) {
-    boolean isCompiledAtEntry = !isInterpreted();
-    boolean result = foo.equals(Main.class);
-
-    // Test that the 'equals' above did not lead to a deoptimization.
-    if (isCompiledAtEntry) {
-      if (isInterpreted()) {
-        throw new Error("Unexpected deoptimization");
-      }
+    public static void loop() {
+        Main m = new Main();
+        for (int i = 0; i < 5000; i++) {
+            $noinline$doCall("foo");
+            $noinline$doCall(m);
+        }
     }
-    return result;
-  }
 
-  public static native boolean isInterpreted();
-  public static native void ensureJitCompiled(Class<?> cls, String methodName);
+    public static boolean $noinline$doCall(Object foo) {
+        boolean isCompiledAtEntry = !isInterpreted();
+        boolean result = foo.equals(Main.class);
+
+        // Test that the 'equals' above did not lead to a deoptimization.
+        if (isCompiledAtEntry) {
+            if (isInterpreted()) {
+                throw new Error("Unexpected deoptimization");
+            }
+        }
+        return result;
+    }
+
+    public static native boolean isInterpreted();
+    public static native void ensureJitCompiled(Class<?> cls, String methodName);
 }

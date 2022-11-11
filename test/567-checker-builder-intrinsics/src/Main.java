@@ -15,14 +15,14 @@
  */
 
 public class Main {
-  public static void main(String args[]) {
-    TestRotate.main();
-    TestCompare.main();
-    TestSignum.main();
-    TestIsNan.main();
-    TestVarHandles.main();
-    TestMinMax.main();
-    TestAbs.main();
-    TestFpAbs.main();
-  }
+    public static void main(String args[]) {
+        TestRotate.main();
+        TestCompare.main();
+        TestSignum.main();
+        TestIsNan.main();
+        TestVarHandles.main();
+        TestMinMax.main();
+        TestAbs.main();
+        TestFpAbs.main();
+    }
 }

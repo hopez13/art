@@ -15,32 +15,32 @@
  */
 
 class Main {
-  public static void assertIntEquals(int expected, int result) {
-    if (expected != result) {
-      throw new Error("Expected: " + expected + ", found: " + result);
+    public static void assertIntEquals(int expected, int result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    Main m = new Main();
+    public static void main(String[] args) {
+        Main m = new Main();
 
-    m.$noinline$SetInstanceField();
-    assertIntEquals(123456, m.i);
+        m.$noinline$SetInstanceField();
+        assertIntEquals(123456, m.i);
 
-    $noinline$SetStaticField();
-    assertIntEquals(456789, s);
-  }
+        $noinline$SetStaticField();
+        assertIntEquals(456789, s);
+    }
 
-  private void $noinline$SetInstanceField() {
-    // Set a value than does not fit in a 16-bit (signed) integer.
-    i = 123456;
-  }
+    private void $noinline$SetInstanceField() {
+        // Set a value than does not fit in a 16-bit (signed) integer.
+        i = 123456;
+    }
 
-  private static void $noinline$SetStaticField() {
-    // Set a value than does not fit in a 16-bit (signed) integer.
-    s = 456789;
-  }
+    private static void $noinline$SetStaticField() {
+        // Set a value than does not fit in a 16-bit (signed) integer.
+        s = 456789;
+    }
 
-  private int i = 0;
-  private static int s = 0;
+    private int i = 0;
+    private static int s = 0;
 }

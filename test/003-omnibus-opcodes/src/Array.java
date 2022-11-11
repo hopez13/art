@@ -18,7 +18,6 @@
  * Exercise arrays.
  */
 public class Array {
-
     /*
      * Verify array contents.
      */
@@ -89,42 +88,41 @@ public class Array {
         Main.assertTrue(ints.length == 5);
 
         try {
-            i = ints[5];            // exact bound
+            i = ints[5]; // exact bound
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
         try {
-            ints[5] = i;            // exact bound
+            ints[5] = i; // exact bound
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
         try {
-            i = ints[6];            // one past
+            i = ints[6]; // one past
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
         try {
-            i = ints[negVal1];      // -1
+            i = ints[negVal1]; // -1
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
         try {
-            ints[negVal1] = i;      // -1
+            ints[negVal1] = i; // -1
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
         try {
-            i = ints[negVal2];      // min int
+            i = ints[negVal2]; // min int
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
-
 
         try {
             i = empty[1];
@@ -144,37 +142,37 @@ public class Array {
         Main.assertTrue(longs.length == 5);
 
         try {
-            l = longs[5];            // exact bound
+            l = longs[5]; // exact bound
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
         try {
-            longs[5] = l;            // exact bound
+            longs[5] = l; // exact bound
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
         try {
-            l = longs[6];            // one past
+            l = longs[6]; // one past
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
         try {
-            l = longs[negVal1];      // -1
+            l = longs[negVal1]; // -1
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
         try {
-            longs[negVal1] = l;      // -1
+            longs[negVal1] = l; // -1
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
         }
         try {
-            l = longs[negVal2];      // min int
+            l = longs[negVal2]; // min int
             Main.assertTrue(false);
         } catch (ArrayIndexOutOfBoundsException aioobe) {
             // good
@@ -207,16 +205,14 @@ public class Array {
     public static void run() {
         System.out.println("Array check...");
 
-        byte[] xBytes = new byte[] { 0, -1, -2, -3, -4 };
-        short[] xShorts = new short[] { 20, 10, 0, -10, -20 };
-        char[] xChars = new char[] { 40000, 40001, 40002, 40003, 40004 };
-        int[] xInts = new int[] { 70000, 70001, 70002, 70003, 70004 };
-        boolean[] xBooleans = new boolean[] { true, true, false, true, false };
-        float[] xFloats = new float[] { -1.5f, -0.5f, 0.0f, 0.5f, 1.5f };
-        long[] xLongs = new long[] {
-            0x1122334455667788L, 0x8877665544332211L, 0L, 1L, -1l };
-        String[] xStrings = new String[] {
-            "zero", "one", "two", "three", "four" };
+        byte[] xBytes = new byte[] {0, -1, -2, -3, -4};
+        short[] xShorts = new short[] {20, 10, 0, -10, -20};
+        char[] xChars = new char[] {40000, 40001, 40002, 40003, 40004};
+        int[] xInts = new int[] {70000, 70001, 70002, 70003, 70004};
+        boolean[] xBooleans = new boolean[] {true, true, false, true, false};
+        float[] xFloats = new float[] {-1.5f, -0.5f, 0.0f, 0.5f, 1.5f};
+        long[] xLongs = new long[] {0x1122334455667788L, 0x8877665544332211L, 0L, 1L, -1l};
+        String[] xStrings = new String[] {"zero", "one", "two", "three", "four"};
 
         int[] xEmpty = new int[0];
 

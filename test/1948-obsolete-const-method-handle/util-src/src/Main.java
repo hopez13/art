@@ -15,7 +15,5 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Throwable {
-    art.Test1948.run();
-  }
+    public static void main(String[] args) throws Throwable { art.Test1948.run(); }
 }

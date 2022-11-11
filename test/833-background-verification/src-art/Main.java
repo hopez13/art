@@ -18,27 +18,26 @@ import dalvik.system.PathClassLoader;
 
 public class Main {
     static String DEX_FILE = System.getenv("DEX_LOCATION") + "/833-background-verification.jar";
-    static String DEX_FILE_EX = System.getenv("DEX_LOCATION") + "/833-background-verification-ex.jar";
+    static String DEX_FILE_EX =
+            System.getenv("DEX_LOCATION") + "/833-background-verification-ex.jar";
 
     public static void main(String[] args) throws Exception {
-      runTest(new UnknownLoader(DEX_FILE_EX));
-      runTest(new PathClassLoader(DEX_FILE_EX, new UnknownLoader(DEX_FILE)));
+        runTest(new UnknownLoader(DEX_FILE_EX));
+        runTest(new PathClassLoader(DEX_FILE_EX, new UnknownLoader(DEX_FILE)));
     }
 
     public static void runTest(ClassLoader loader) throws Exception {
-      // Use the class that will be verified the last by the background verifier. This maximises our
-      // chance of hitting the race. We load it now so that the background verifier can also load
-      // it.
-      Class<?> clsa = loader.loadClass("Classa");
-      Class<?> cls1 = Class.forName("Class1", true, loader);
-      // Give some time for the background verification to verify "Classa".
-      Thread.sleep(1000);
-      clsa.newInstance();
+        // Use the class that will be verified the last by the background verifier. This maximises
+        // our chance of hitting the race. We load it now so that the background verifier can also
+        // load it.
+        Class<?> clsa = loader.loadClass("Classa");
+        Class<?> cls1 = Class.forName("Class1", true, loader);
+        // Give some time for the background verification to verify "Classa".
+        Thread.sleep(1000);
+        clsa.newInstance();
     }
 }
 
 class UnknownLoader extends PathClassLoader {
-  public UnknownLoader(String dexFile) {
-    super(dexFile, Object.class.getClassLoader());
-  }
+    public UnknownLoader(String dexFile) { super(dexFile, Object.class.getClassLoader()); }
 }

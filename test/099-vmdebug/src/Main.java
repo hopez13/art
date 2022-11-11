@@ -17,8 +17,8 @@
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 public class Main {
@@ -42,7 +42,7 @@ public class Main {
 
     private static File createTempFile() throws Exception {
         try {
-            return  File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
+            return File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
         } catch (IOException e) {
             System.setProperty("java.io.tmpdir", "/data/local/tmp");
             try {
@@ -203,8 +203,8 @@ public class Main {
         // Invoke at least one GC and wait for 20 seconds or so so we get at
         // least one bucket in the histograms.
         for (int i = 0; i < 20; ++i) {
-          Runtime.getRuntime().gc();
-          Thread.sleep(1000L);
+            Runtime.getRuntime().gc();
+            Thread.sleep(1000L);
         }
         String gc_count = VMDebug.getRuntimeStat("art.gc.gc-count");
         String gc_time = VMDebug.getRuntimeStat("art.gc.gc-time");
@@ -214,7 +214,7 @@ public class Main {
         String blocking_gc_time = VMDebug.getRuntimeStat("art.gc.blocking-gc-time");
         String gc_count_rate_histogram = VMDebug.getRuntimeStat("art.gc.gc-count-rate-histogram");
         String blocking_gc_count_rate_histogram =
-            VMDebug.getRuntimeStat("art.gc.blocking-gc-count-rate-histogram");
+                VMDebug.getRuntimeStat("art.gc.blocking-gc-count-rate-histogram");
         checkNumber(gc_count);
         checkNumber(gc_time);
         checkNumber(bytes_allocated);
@@ -229,8 +229,8 @@ public class Main {
         // Invoke at least one GC and wait for 20 seconds or so so we get at
         // least one bucket in the histograms.
         for (int i = 0; i < 20; ++i) {
-          Runtime.getRuntime().gc();
-          Thread.sleep(1000L);
+            Runtime.getRuntime().gc();
+            Thread.sleep(1000L);
         }
         Map<String, String> map = VMDebug.getRuntimeStats();
         String gc_count = map.get("art.gc.gc-count");
@@ -241,7 +241,7 @@ public class Main {
         String blocking_gc_time = map.get("art.gc.blocking-gc-time");
         String gc_count_rate_histogram = map.get("art.gc.gc-count-rate-histogram");
         String blocking_gc_count_rate_histogram =
-            map.get("art.gc.blocking-gc-count-rate-histogram");
+                map.get("art.gc.blocking-gc-count-rate-histogram");
         checkNumber(gc_count);
         checkNumber(gc_time);
         checkNumber(bytes_allocated);
@@ -253,11 +253,11 @@ public class Main {
     }
 
     /* constants for getAllocCount */
-    private static final int KIND_ALLOCATED_OBJECTS     = 1<<0;
-    private static final int KIND_ALLOCATED_BYTES       = 1<<1;
-    private static final int KIND_FREED_OBJECTS         = 1<<2;
-    private static final int KIND_FREED_BYTES           = 1<<3;
-    private static final int RESET_ALL       = 0xffffffff;
+    private static final int KIND_ALLOCATED_OBJECTS = 1 << 0;
+    private static final int KIND_ALLOCATED_BYTES = 1 << 1;
+    private static final int KIND_FREED_OBJECTS = 1 << 2;
+    private static final int KIND_FREED_BYTES = 1 << 3;
+    private static final int RESET_ALL = 0xffffffff;
 
     private static void testGetAllocCount() throws Exception {
         VMDebug.startAllocCounting();
@@ -313,9 +313,9 @@ public class Main {
         VMDebug.dumpReferenceTables();
     }
 
-    static class ClassA { }
-    static class ClassB { }
-    static class ClassC extends ClassA { }
+    static class ClassA {}
+    static class ClassB {}
+    static class ClassC extends ClassA {}
 
     private static void testCountInstances() throws Exception {
         ArrayList<Object> l = new ArrayList<Object>();
@@ -324,13 +324,13 @@ public class Main {
         l.add(new ClassA());
         l.add(new ClassC());
         Runtime.getRuntime().gc();
-        System.out.println("Instances of ClassA " +
-                VMDebug.countInstancesofClass(ClassA.class, false));
-        System.out.println("Instances of ClassB " +
-                VMDebug.countInstancesofClass(ClassB.class, false));
+        System.out.println(
+                "Instances of ClassA " + VMDebug.countInstancesofClass(ClassA.class, false));
+        System.out.println(
+                "Instances of ClassB " + VMDebug.countInstancesofClass(ClassB.class, false));
         System.out.println("Instances of null " + VMDebug.countInstancesofClass(null, false));
-        System.out.println("Instances of ClassA assignable " +
-                VMDebug.countInstancesofClass(ClassA.class, true));
+        System.out.println("Instances of ClassA assignable "
+                + VMDebug.countInstancesofClass(ClassA.class, true));
         Class<?>[] classes = new Class<?>[] {ClassA.class, ClassB.class, null};
         long[] counts = VMDebug.countInstancesofClasses(classes, false);
         System.out.println("Array counts " + Arrays.toString(counts));
@@ -343,15 +343,11 @@ public class Main {
     static class ClassD {
         public int mask;
 
-        public ClassD(int mask) {
-            this.mask = mask;
-        }
+        public ClassD(int mask) { this.mask = mask; }
     }
 
     static class ClassE extends ClassD {
-        public ClassE(int mask) {
-            super(mask);
-        }
+        public ClassE(int mask) { super(mask); }
     }
 
     private static class VMDebug {
@@ -387,18 +383,16 @@ public class Main {
                 getMethodTracingModeMethod = c.getDeclaredMethod("getMethodTracingMode");
                 getRuntimeStatMethod = c.getDeclaredMethod("getRuntimeStat", String.class);
                 getRuntimeStatsMethod = c.getDeclaredMethod("getRuntimeStats");
-                countInstancesOfClassMethod = c.getDeclaredMethod("countInstancesOfClass",
-                        Class.class, Boolean.TYPE);
-                countInstancesOfClassesMethod = c.getDeclaredMethod("countInstancesOfClasses",
-                        Class[].class, Boolean.TYPE);
-                getAllocCountMethod = c.getDeclaredMethod("getAllocCount",
-                        Integer.TYPE);
+                countInstancesOfClassMethod =
+                        c.getDeclaredMethod("countInstancesOfClass", Class.class, Boolean.TYPE);
+                countInstancesOfClassesMethod =
+                        c.getDeclaredMethod("countInstancesOfClasses", Class[].class, Boolean.TYPE);
+                getAllocCountMethod = c.getDeclaredMethod("getAllocCount", Integer.TYPE);
                 startAllocCountingMethod = c.getDeclaredMethod("startAllocCounting");
                 stopAllocCountingMethod = c.getDeclaredMethod("stopAllocCounting");
-                setAllocTrackerStackDepthMethod = c.getDeclaredMethod("setAllocTrackerStackDepth",
-                        Integer.TYPE);
-                resetAllocCountMethod = c.getDeclaredMethod("resetAllocCount",
-                        Integer.TYPE);
+                setAllocTrackerStackDepthMethod =
+                        c.getDeclaredMethod("setAllocTrackerStackDepth", Integer.TYPE);
+                resetAllocCountMethod = c.getDeclaredMethod("resetAllocCount", Integer.TYPE);
                 getLoadedClassCountMethod = c.getDeclaredMethod("getLoadedClassCount");
                 getVmFeatureListMethod = c.getDeclaredMethod("getVmFeatureList");
                 isDebuggerConnectedMethod = c.getDeclaredMethod("isDebuggerConnected");
@@ -414,13 +408,13 @@ public class Main {
 
         public static void startMethodTracing(String filename, int bufferSize, int flags,
                 boolean samplingEnabled, int intervalUs) throws Exception {
-            startMethodTracingMethod.invoke(null, filename, bufferSize, flags, samplingEnabled,
-                    intervalUs);
+            startMethodTracingMethod.invoke(
+                    null, filename, bufferSize, flags, samplingEnabled, intervalUs);
         }
         public static void startMethodTracingDdms(int bufferSize, int flags,
                 boolean samplingEnabled, int intervalUs) throws Exception {
-            startMethodTracingDdmsMethod.invoke(null, bufferSize, flags, samplingEnabled,
-                    intervalUs);
+            startMethodTracingDdmsMethod.invoke(
+                    null, bufferSize, flags, samplingEnabled, intervalUs);
         }
         public static void stopMethodTracing() throws Exception {
             stopMethodTracingMethod.invoke(null);
@@ -435,12 +429,12 @@ public class Main {
             return (Map<String, String>) getRuntimeStatsMethod.invoke(null);
         }
         public static long countInstancesofClass(Class<?> c, boolean assignable) throws Exception {
-            return (long) countInstancesOfClassMethod.invoke(null, new Object[]{c, assignable});
+            return (long) countInstancesOfClassMethod.invoke(null, new Object[] {c, assignable});
         }
         public static long[] countInstancesofClasses(Class<?>[] classes, boolean assignable)
                 throws Exception {
             return (long[]) countInstancesOfClassesMethod.invoke(
-                    null, new Object[]{classes, assignable});
+                    null, new Object[] {classes, assignable});
         }
         public static int getAllocCount(Integer kind) throws Exception {
             return (int) getAllocCountMethod.invoke(null, kind);

@@ -47,12 +47,8 @@ public class VarHandleReflectiveTest {
             }
         }
 
-        public static void main(String[] args) {
-            new ReflectiveAccessorInvocations().run();
-        }
+        public static void main(String[] args) { new ReflectiveAccessorInvocations().run(); }
     }
 
-    public static void main(String[] args) {
-        ReflectiveAccessorInvocations.main(args);
-    }
+    public static void main(String[] args) { ReflectiveAccessorInvocations.main(args); }
 }

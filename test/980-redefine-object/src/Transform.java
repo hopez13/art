@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-class Transform { }
+class Transform {}

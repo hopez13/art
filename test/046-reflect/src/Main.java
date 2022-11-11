@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import java.lang.reflect.*;
 import java.io.IOException;
-import java.util.Collections;
+import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -27,7 +27,7 @@ import java.util.Set;
  * Reflection test.
  */
 public class Main {
-    private static boolean FULL_ACCESS_CHECKS = false;  // b/5861201
+    private static boolean FULL_ACCESS_CHECKS = false; // b/5861201
     public Main() {}
     public Main(ArrayList<Integer> stuff) {}
 
@@ -36,8 +36,7 @@ public class Main {
         int i;
 
         System.out.println("Method name is " + meth.getName());
-        System.out.println(" Declaring class is "
-            + meth.getDeclaringClass().getName());
+        System.out.println(" Declaring class is " + meth.getDeclaringClass().getName());
         params = meth.getParameterTypes();
         for (i = 0; i < params.length; i++)
             System.out.println(" Arg " + i + ": " + params[i].getName());
@@ -45,23 +44,18 @@ public class Main {
         for (i = 0; i < exceptions.length; i++)
             System.out.println(" Exc " + i + ": " + exceptions[i].getName());
         System.out.println(" Return type is " + meth.getReturnType().getName());
-        System.out.println(" Access flags are 0x"
-            + Integer.toHexString(meth.getModifiers()));
-        //System.out.println(" GenericStr is " + meth.toGenericString());
+        System.out.println(" Access flags are 0x" + Integer.toHexString(meth.getModifiers()));
+        // System.out.println(" GenericStr is " + meth.toGenericString());
     }
 
     void printFieldInfo(Field field) {
         System.out.println("Field name is " + field.getName());
-        System.out.println(" Declaring class is "
-            + field.getDeclaringClass().getName());
+        System.out.println(" Declaring class is " + field.getDeclaringClass().getName());
         System.out.println(" Field type is " + field.getType().getName());
-        System.out.println(" Access flags are 0x"
-            + Integer.toHexString(field.getModifiers()));
+        System.out.println(" Access flags are 0x" + Integer.toHexString(field.getModifiers()));
     }
 
-    private void showStrings(Target instance)
-        throws NoSuchFieldException, IllegalAccessException {
-
+    private void showStrings(Target instance) throws NoSuchFieldException, IllegalAccessException {
         Class<?> target = Target.class;
         String one, two, three, four;
         Field field = null;
@@ -94,12 +88,13 @@ public class Main {
                 // good
             }
 
-
             instance = otherpackage.Other.getInnerClassInstance();
             target = instance.getClass();
             meth = target.getMethod("innerMethod");
             try {
-                if (!FULL_ACCESS_CHECKS) { throw new IllegalAccessException(); }
+                if (!FULL_ACCESS_CHECKS) {
+                    throw new IllegalAccessException();
+                }
                 meth.invoke(instance);
                 System.out.println("inner-method invoke unexpectedly worked");
             } catch (IllegalAccessException iae) {
@@ -109,7 +104,9 @@ public class Main {
             Field field = target.getField("innerField");
             try {
                 int x = field.getInt(instance);
-                if (!FULL_ACCESS_CHECKS) { throw new IllegalAccessException(); }
+                if (!FULL_ACCESS_CHECKS) {
+                    throw new IllegalAccessException();
+                }
                 System.out.println("field get unexpectedly worked: " + x);
             } catch (IllegalAccessException iae) {
                 // good
@@ -144,12 +141,8 @@ public class Main {
 
             Target instance = new Target();
             Object[] argList = new Object[] {
-                new String[] { "hi there" },
-                new Float(3.1415926f),
-                new Character('\u2714')
-            };
-            System.out.println("Before, float is "
-                + ((Float)argList[1]).floatValue());
+                    new String[] {"hi there"}, new Float(3.1415926f), new Character('\u2714')};
+            System.out.println("Before, float is " + ((Float) argList[1]).floatValue());
 
             Integer boxval;
             boxval = (Integer) meth.invoke(instance, argList);
@@ -168,13 +161,11 @@ public class Main {
                 System.out.println("Invoke got expected exception:");
                 System.out.println(ite.getClass().getName());
                 System.out.println(ite.getCause());
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 System.out.println("GLITCH: invoke got wrong exception:");
                 ex.printStackTrace(System.out);
             }
             System.out.println("");
-
 
             field = target.getField("string1");
             if (field.getDeclaringClass() != target)
@@ -194,33 +185,26 @@ public class Main {
             try {
                 field.set(instance, new Object());
                 System.out.println("WARNING: able to store Object into String");
-            }
-            catch (IllegalArgumentException iae) {
+            } catch (IllegalArgumentException iae) {
                 System.out.println("  got expected illegal obj store exc");
             }
-
 
             try {
                 String four;
                 field = target.getField("string4");
                 four = (String) field.get(instance);
-                System.out.println("WARNING: able to access string4: "
-                    + four);
-            }
-            catch (IllegalAccessException iae) {
+                System.out.println("WARNING: able to access string4: " + four);
+            } catch (IllegalAccessException iae) {
                 System.out.println("  got expected access exc");
-            }
-            catch (NoSuchFieldException nsfe) {
+            } catch (NoSuchFieldException nsfe) {
                 System.out.println("  got the other expected access exc");
             }
             try {
                 String three;
                 field = target.getField("string3");
                 three = (String) field.get(this);
-                System.out.println("WARNING: able to get string3 in wrong obj: "
-                    + three);
-            }
-            catch (IllegalArgumentException iae) {
+                System.out.println("WARNING: able to get string3 in wrong obj: " + three);
+            } catch (IllegalArgumentException iae) {
                 System.out.println("  got expected arg exc");
             }
 
@@ -240,8 +224,7 @@ public class Main {
             } catch (NoSuchFieldException nsfe) {
                 String msg = nsfe.getMessage();
                 if (!msg.contains("Target;")) {
-                    System.out.println("  NoSuchFieldException '" + msg +
-                        "' didn't contain class");
+                    System.out.println("  NoSuchFieldException '" + msg + "' didn't contain class");
                 }
             }
 
@@ -251,13 +234,10 @@ public class Main {
             long longVal;
             field = target.getField("pubLong");
             longVal = field.getLong(instance);
-            System.out.println("pubLong initial value is " +
-                Long.toHexString(longVal));
+            System.out.println("pubLong initial value is " + Long.toHexString(longVal));
             field.setLong(instance, 0x9988776655443322L);
             longVal = field.getLong(instance);
-            System.out.println("pubLong new value is " +
-                Long.toHexString(longVal));
-
+            System.out.println("pubLong new value is " + Long.toHexString(longVal));
 
             field = target.getField("superInt");
             if (field.getDeclaringClass() == target)
@@ -271,39 +251,35 @@ public class Main {
             field.set(instance, new Integer(20202));
             intVal = field.getInt(instance);
             System.out.println("  superInt value is now " + intVal);
-            field.setShort(instance, (short)30303);
+            field.setShort(instance, (short) 30303);
             intVal = field.getInt(instance);
-            System.out.println("  superInt value (from short) is now " +intVal);
+            System.out.println("  superInt value (from short) is now " + intVal);
             field.setInt(instance, 40404);
             intVal = field.getInt(instance);
             System.out.println("  superInt value is now " + intVal);
             try {
                 field.set(instance, new Long(123));
                 System.out.println("FAIL: expected exception not thrown");
-            }
-            catch (IllegalArgumentException iae) {
+            } catch (IllegalArgumentException iae) {
                 System.out.println("  got expected long->int failure");
             }
             try {
                 field.setLong(instance, 123);
                 System.out.println("FAIL: expected exception not thrown");
-            }
-            catch (IllegalArgumentException iae) {
+            } catch (IllegalArgumentException iae) {
                 System.out.println("  got expected long->int failure");
             }
             try {
                 field.set(instance, new String("abc"));
                 System.out.println("FAIL: expected exception not thrown");
-            }
-            catch (IllegalArgumentException iae) {
+            } catch (IllegalArgumentException iae) {
                 System.out.println("  got expected string->int failure");
             }
 
             try {
                 field.getShort(instance);
                 System.out.println("FAIL: expected exception not thrown");
-            }
-            catch (IllegalArgumentException iae) {
+            } catch (IllegalArgumentException iae) {
                 System.out.println("  got expected int->short failure");
             }
 
@@ -320,8 +296,7 @@ public class Main {
             try {
                 field.getLong(instance);
                 System.out.println("FAIL: expected exception not thrown");
-            }
-            catch (IllegalArgumentException iae) {
+            } catch (IllegalArgumentException iae) {
                 System.out.println("  got expected double->long failure");
             }
 
@@ -329,20 +304,17 @@ public class Main {
             try {
                 field = target.getField("aPrivateInt");
                 printFieldInfo(field);
-            }
-            catch (NoSuchFieldException nsfe) {
+            } catch (NoSuchFieldException nsfe) {
                 System.out.println("as expected: aPrivateInt not found");
                 excep = true;
             }
             if (!excep)
                 System.out.println("BUG: got aPrivateInt");
 
-
             field = target.getField("constantString");
             printFieldInfo(field);
             String val = (String) field.get(instance);
             System.out.println("  Constant test value is " + val);
-
 
             field = target.getField("cantTouchThis");
             printFieldInfo(field);
@@ -360,10 +332,10 @@ public class Main {
             System.out.println("  " + field + " accessible=" + field.isAccessible());
             field.setAccessible(true);
             System.out.println("  " + field + " accessible=" + field.isAccessible());
-            field.setInt(instance, 87);     // exercise int version
+            field.setInt(instance, 87); // exercise int version
             intVal = field.getInt(instance);
             System.out.println("  cantTouchThis is now " + intVal);
-            field.set(instance, 88);        // exercise Object version
+            field.set(instance, 88); // exercise Object version
             intVal = field.getInt(instance);
             System.out.println("  cantTouchThis is now " + intVal);
 
@@ -372,7 +344,7 @@ public class Main {
             Object[] args;
 
             cons = target.getConstructor(int.class, float.class);
-            args = new Object[] { new Integer(7), new Float(3.3333) };
+            args = new Object[] {new Integer(7), new Float(3.3333)};
             System.out.println("cons modifiers=" + cons.getModifiers());
             targ = cons.newInstance(args);
             targ.myMethod(17);
@@ -383,8 +355,8 @@ public class Main {
             } catch (UnsupportedOperationException uoe) {
                 System.out.println("got expected exception for Class.newInstance");
             } catch (Exception e) {
-                System.out.println("ERROR: Class.newInstance got unexpected exception: " +
-                                   e.getClass().getName());
+                System.out.println("ERROR: Class.newInstance got unexpected exception: "
+                        + e.getClass().getName());
             }
 
             try {
@@ -394,8 +366,8 @@ public class Main {
             } catch (InvocationTargetException ite) {
                 System.out.println("got expected exception for Constructor.newInstance");
             } catch (Exception e) {
-                System.out.println("ERROR: Constructor.newInstance got unexpected exception: " +
-                                   e.getClass().getName());
+                System.out.println("ERROR: Constructor.newInstance got unexpected exception: "
+                        + e.getClass().getName());
             }
 
         } catch (Exception ex) {
@@ -411,8 +383,7 @@ public class Main {
 
         final Object[] objects = new Object[2];
         try {
-            m = Collections.class.getDeclaredMethod("swap",
-                            Object[].class, int.class, int.class);
+            m = Collections.class.getDeclaredMethod("swap", Object[].class, int.class, int.class);
         } catch (NoSuchMethodException nsme) {
             nsme.printStackTrace(System.out);
             return;
@@ -455,55 +426,56 @@ public class Main {
     }
 
     public static void checkClinitForFields() throws Exception {
-      // Loading a class constant shouldn't run <clinit>.
-      System.out.println("calling const-class FieldNoisyInitUser.class");
-      Class<?> niuClass = FieldNoisyInitUser.class;
-      System.out.println("called const-class FieldNoisyInitUser.class");
+        // Loading a class constant shouldn't run <clinit>.
+        System.out.println("calling const-class FieldNoisyInitUser.class");
+        Class<?> niuClass = FieldNoisyInitUser.class;
+        System.out.println("called const-class FieldNoisyInitUser.class");
 
-      // Getting the declared fields doesn't run <clinit>.
-      Field[] fields = niuClass.getDeclaredFields();
-      System.out.println("got fields");
+        // Getting the declared fields doesn't run <clinit>.
+        Field[] fields = niuClass.getDeclaredFields();
+        System.out.println("got fields");
 
-      Field field = niuClass.getField("staticField");
-      System.out.println("got field");
-      field.get(null);
-      System.out.println("read field value");
+        Field field = niuClass.getField("staticField");
+        System.out.println("got field");
+        field.get(null);
+        System.out.println("read field value");
 
-      // FieldNoisyInitUser should now be initialized, but FieldNoisyInit shouldn't be initialized yet.
-      FieldNoisyInitUser niu = new FieldNoisyInitUser();
-      FieldNoisyInit ni = new FieldNoisyInit();
+        // FieldNoisyInitUser should now be initialized, but FieldNoisyInit shouldn't be initialized
+        // yet.
+        FieldNoisyInitUser niu = new FieldNoisyInitUser();
+        FieldNoisyInit ni = new FieldNoisyInit();
 
-      System.out.println("");
+        System.out.println("");
     }
 
     public static void checkClinitForMethods() throws Exception {
-      // Loading a class constant shouldn't run <clinit>.
-      System.out.println("calling const-class MethodNoisyInitUser.class");
-      Class<?> niuClass = MethodNoisyInitUser.class;
-      System.out.println("called const-class MethodNoisyInitUser.class");
+        // Loading a class constant shouldn't run <clinit>.
+        System.out.println("calling const-class MethodNoisyInitUser.class");
+        Class<?> niuClass = MethodNoisyInitUser.class;
+        System.out.println("called const-class MethodNoisyInitUser.class");
 
-      // Getting the declared methods doesn't run <clinit>.
-      Method[] methods = niuClass.getDeclaredMethods();
-      System.out.println("got methods");
+        // Getting the declared methods doesn't run <clinit>.
+        Method[] methods = niuClass.getDeclaredMethods();
+        System.out.println("got methods");
 
-      Method method = niuClass.getMethod("staticMethod");
-      System.out.println("got method");
-      method.invoke(null);
-      System.out.println("invoked method");
+        Method method = niuClass.getMethod("staticMethod");
+        System.out.println("got method");
+        method.invoke(null);
+        System.out.println("invoked method");
 
-      // MethodNoisyInitUser should now be initialized, but MethodNoisyInit shouldn't be initialized yet.
-      MethodNoisyInitUser niu = new MethodNoisyInitUser();
-      MethodNoisyInit ni = new MethodNoisyInit();
+        // MethodNoisyInitUser should now be initialized, but MethodNoisyInit shouldn't be
+        // initialized yet.
+        MethodNoisyInitUser niu = new MethodNoisyInitUser();
+        MethodNoisyInit ni = new MethodNoisyInit();
 
-      System.out.println("");
+        System.out.println("");
     }
-
 
     /*
      * Test some generic type stuff.
      */
     public List<String> stringList;
-    public Map<Integer,String> fancyMethod(ArrayList<String> blah) { return null; }
+    public Map<Integer, String> fancyMethod(ArrayList<String> blah) { return null; }
     public static void checkGeneric() {
         Field field;
         try {
@@ -523,17 +495,17 @@ public class Main {
         Type[] parmTypes = method.getGenericParameterTypes();
         Type ret = method.getGenericReturnType();
         System.out.println("generic method " + method.getName() + " params='"
-            + stringifyTypeArray(parmTypes) + "' ret='" + ret + "'");
+                + stringifyTypeArray(parmTypes) + "' ret='" + ret + "'");
 
         Constructor<?> ctor;
         try {
-            ctor = Main.class.getConstructor( ArrayList.class);
+            ctor = Main.class.getConstructor(ArrayList.class);
         } catch (NoSuchMethodException nsme) {
             throw new RuntimeException(nsme);
         }
         parmTypes = ctor.getGenericParameterTypes();
         System.out.println("generic ctor " + ctor.getName() + " params='"
-            + stringifyTypeArray(parmTypes) + "'");
+                + stringifyTypeArray(parmTypes) + "'");
     }
 
     /*
@@ -545,7 +517,7 @@ public class Main {
 
         stb.append("[" + types.length + "]");
 
-        for (Type t: types) {
+        for (Type t : types) {
             if (first) {
                 stb.append(" ");
                 first = false;
@@ -626,28 +598,30 @@ public class Main {
         }
 
         if (type1.equals(type2)) {
-            System.out.println("type1("+type1+") equals type2("+type2+")");
+            System.out.println("type1(" + type1 + ") equals type2(" + type2 + ")");
         } else {
-            System.out.println("type1("+type1+") does not equal type2("+type2+")");
+            System.out.println("type1(" + type1 + ") does not equal type2(" + type2 + ")");
         }
 
         if (type1.equals(type3)) {
-            System.out.println("type1("+type1+") equals type3("+type3+")");
+            System.out.println("type1(" + type1 + ") equals type3(" + type3 + ")");
         } else {
-            System.out.println("type1("+type1+") does not equal type3("+type3+")");
+            System.out.println("type1(" + type1 + ") does not equal type3(" + type3 + ")");
         }
         if (type1.hashCode() == type2.hashCode()) {
-            System.out.println("type1("+type1+") hashCode equals type2("+type2+") hashCode");
+            System.out.println(
+                    "type1(" + type1 + ") hashCode equals type2(" + type2 + ") hashCode");
         } else {
             System.out.println(
-                   "type1("+type1+") hashCode does not equal type2("+type2+") hashCode");
+                    "type1(" + type1 + ") hashCode does not equal type2(" + type2 + ") hashCode");
         }
 
         if (type1.hashCode() == type3.hashCode()) {
-            System.out.println("type1("+type1+") hashCode equals type3("+type3+") hashCode");
+            System.out.println(
+                    "type1(" + type1 + ") hashCode equals type3(" + type3 + ") hashCode");
         } else {
             System.out.println(
-                    "type1("+type1+") hashCode does not equal type3("+type3+") hashCode");
+                    "type1(" + type1 + ") hashCode does not equal type3(" + type3 + ") hashCode");
         }
     }
 
@@ -658,7 +632,8 @@ public class Main {
         try {
             method1 = GenericArrayTypeTest.class.getDeclaredMethod("aMethod", Object[].class);
             method2 = GenericArrayTypeTest.class.getDeclaredMethod("aMethod", Object[].class);
-            method3 = GenericArrayTypeTest.class.getDeclaredMethod("aMethodIdentical", Object[].class);
+            method3 = GenericArrayTypeTest.class.getDeclaredMethod(
+                    "aMethodIdentical", Object[].class);
         } catch (NoSuchMethodException nsme) {
             throw new RuntimeException(nsme);
         }
@@ -682,35 +657,38 @@ public class Main {
         }
 
         if (type1.equals(type2)) {
-            System.out.println("type1("+type1+") equals type2("+type2+")");
+            System.out.println("type1(" + type1 + ") equals type2(" + type2 + ")");
         } else {
-            System.out.println("type1("+type1+") does not equal type2("+type2+")");
+            System.out.println("type1(" + type1 + ") does not equal type2(" + type2 + ")");
         }
 
         if (type1.equals(type3)) {
-            System.out.println("type1("+type1+") equals type3("+type3+")");
+            System.out.println("type1(" + type1 + ") equals type3(" + type3 + ")");
         } else {
-            System.out.println("type1("+type1+") does not equal type3("+type3+")");
+            System.out.println("type1(" + type1 + ") does not equal type3(" + type3 + ")");
         }
         if (type1.hashCode() == type2.hashCode()) {
-            System.out.println("type1("+type1+") hashCode equals type2("+type2+") hashCode");
+            System.out.println(
+                    "type1(" + type1 + ") hashCode equals type2(" + type2 + ") hashCode");
         } else {
             System.out.println(
-                   "type1("+type1+") hashCode does not equal type2("+type2+") hashCode");
+                    "type1(" + type1 + ") hashCode does not equal type2(" + type2 + ") hashCode");
         }
 
         if (type1.hashCode() == type3.hashCode()) {
-            System.out.println("type1("+type1+") hashCode equals type3("+type3+") hashCode");
+            System.out.println(
+                    "type1(" + type1 + ") hashCode equals type3(" + type3 + ") hashCode");
         } else {
             System.out.println(
-                    "type1("+type1+") hashCode does not equal type3("+type3+") hashCode");
+                    "type1(" + type1 + ") hashCode does not equal type3(" + type3 + ") hashCode");
         }
     }
 
     private static void checkGetDeclaredConstructor() {
         try {
             Method.class.getDeclaredConstructor().setAccessible(true);
-            System.out.println("Didn't get an exception from Method.class.getDeclaredConstructor().setAccessible");
+            System.out.println(
+                    "Didn't get an exception from Method.class.getDeclaredConstructor().setAccessible");
         } catch (SecurityException e) {
         } catch (NoSuchMethodException e) {
         } catch (Exception e) {
@@ -718,7 +696,8 @@ public class Main {
         }
         try {
             Field.class.getDeclaredConstructor().setAccessible(true);
-            System.out.println("Didn't get an exception from Field.class.getDeclaredConstructor().setAccessible");
+            System.out.println(
+                    "Didn't get an exception from Field.class.getDeclaredConstructor().setAccessible");
         } catch (SecurityException e) {
         } catch (NoSuchMethodException e) {
         } catch (Exception e) {
@@ -726,7 +705,8 @@ public class Main {
         }
         try {
             Class.class.getDeclaredConstructor().setAccessible(true);
-            System.out.println("Didn't get an exception from Class.class.getDeclaredConstructor().setAccessible");
+            System.out.println(
+                    "Didn't get an exception from Class.class.getDeclaredConstructor().setAccessible");
         } catch (SecurityException e) {
         } catch (NoSuchMethodException e) {
         } catch (Exception e) {
@@ -734,9 +714,7 @@ public class Main {
         }
     }
 
-    static void checkPrivateFieldAccess() {
-        (new OtherClass()).test();
-    }
+    static void checkPrivateFieldAccess() { (new OtherClass()).test(); }
 
     public static void main(String[] args) throws Exception {
         Main test = new Main();
@@ -755,7 +733,6 @@ public class Main {
     }
 }
 
-
 class SuperTarget {
     public SuperTarget() {
         System.out.println("SuperTarget constructor ()V");
@@ -773,13 +750,10 @@ class SuperTarget {
 }
 
 class Target extends SuperTarget {
-    public Target() {
-        System.out.println("Target constructor ()V");
-    }
+    public Target() { System.out.println("Target constructor ()V"); }
 
     public Target(int ii, float ff) {
-        System.out.println("Target constructor (IF)V : ii="
-            + ii + " ff=" + ff);
+        System.out.println("Target constructor (IF)V : ii=" + ii + " ff=" + ff);
         anInt = ii;
     }
 
@@ -794,18 +768,14 @@ class Target extends SuperTarget {
         return 7;
     }
 
-    public static void myNoargMethod() {
-        System.out.println("myNoargMethod ()V");
-    }
+    public static void myNoargMethod() { System.out.println("myNoargMethod ()V"); }
 
     public void throwingMethod() {
         System.out.println("throwingMethod");
         throw new NullPointerException("gratuitous throw!");
     }
 
-    public void misc() {
-        System.out.println("misc");
-    }
+    public void misc() { System.out.println("misc"); }
 
     public int anInt;
     public String string1 = "hey";
@@ -825,15 +795,13 @@ class Target extends SuperTarget {
 class FieldNoisyInit {
     static {
         System.out.println("FieldNoisyInit is initializing");
-        //Throwable th = new Throwable();
-        //th.printStackTrace(System.out);
+        // Throwable th = new Throwable();
+        // th.printStackTrace(System.out);
     }
 }
 
 class FieldNoisyInitUser {
-    static {
-        System.out.println("FieldNoisyInitUser is initializing");
-    }
+    static { System.out.println("FieldNoisyInitUser is initializing"); }
     public static int staticField;
     public static FieldNoisyInit noisy;
 }
@@ -841,15 +809,13 @@ class FieldNoisyInitUser {
 class MethodNoisyInit {
     static {
         System.out.println("MethodNoisyInit is initializing");
-        //Throwable th = new Throwable();
-        //th.printStackTrace(System.out);
+        // Throwable th = new Throwable();
+        // th.printStackTrace(System.out);
     }
 }
 
 class MethodNoisyInitUser {
-    static {
-        System.out.println("MethodNoisyInitUser is initializing");
-    }
+    static { System.out.println("MethodNoisyInitUser is initializing"); }
     public static void staticMethod() {}
     public void createMethodNoisyInit(MethodNoisyInit ni) {}
 }
@@ -876,7 +842,7 @@ class OtherClass {
         try {
             Field field = getClass().getDeclaredField("LONG");
             if (1234 != field.getLong(null)) {
-              System.out.println("ERROR: values don't match");
+                System.out.println("ERROR: values don't match");
             }
         } catch (Exception e) {
             System.out.println(e);

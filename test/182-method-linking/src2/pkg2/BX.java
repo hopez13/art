@@ -20,7 +20,5 @@ import pkg1.A;
 
 // This is the class BX used at runtime.
 public class BX extends A {
-    public void foo() {
-        System.out.println("pkg2.BX.foo");
-    }
+    public void foo() { System.out.println("pkg2.BX.foo"); }
 }

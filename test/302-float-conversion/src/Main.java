@@ -25,16 +25,15 @@ public class Main {
     }
 
     public static void test1() {
-
         long sumInf = 0;
         long sumRes = 0;
 
-        for (long i = 0 ; i < NUM_ITERATIONS ; i++) {
-            //Every second iteration, sumInf becomes 0
+        for (long i = 0; i < NUM_ITERATIONS; i++) {
+            // Every second iteration, sumInf becomes 0
             sumInf += (long) negInfinity;
 
-            //Some extra work for compilers to make this
-            //loop seem important
+            // Some extra work for compilers to make this
+            // loop seem important
             if (sumInf == Long.MIN_VALUE) {
                 sumRes++;
             }
@@ -58,7 +57,6 @@ public class Main {
 
     public static void test3() {
         double d = Long.MAX_VALUE;
-        System.out.println("max_long:" + (long)d);
+        System.out.println("max_long:" + (long) d);
     }
-
 }

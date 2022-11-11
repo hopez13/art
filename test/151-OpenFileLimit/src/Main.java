@@ -15,8 +15,9 @@
  */
 
 import static java.nio.file.StandardOpenOption.*;
-import java.nio.file.*;
+
 import java.io.*;
+import java.nio.file.*;
 import java.util.*;
 
 public class Main {
@@ -24,12 +25,11 @@ public class Main {
     private static final String TEMP_FILE_NAME_SUFFIX = ".txt";
 
     public static void main(String[] args) throws IOException {
-
         // Exhaust the number of open file descriptors.
         List<File> files = new ArrayList<File>();
         List<OutputStream> streams = new ArrayList<OutputStream>();
         try {
-            for (int i = 0; ; i++) {
+            for (int i = 0;; i++) {
                 File file = createTempFile();
                 files.add(file);
                 streams.add(Files.newOutputStream(file.toPath(), CREATE, APPEND));
@@ -57,18 +57,18 @@ public class Main {
         }
 
         for (int i = 0; i < streams.size(); i++) {
-          streams.get(i).close();
+            streams.get(i).close();
         }
 
         for (int i = 0; i < files.size(); i++) {
-          files.get(i).delete();
+            files.get(i).delete();
         }
         System.out.println("done.");
     }
 
     private static File createTempFile() throws Exception {
         try {
-            return  File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
+            return File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
         } catch (IOException e) {
             System.setProperty("java.io.tmpdir", "/data/local/tmp");
             try {

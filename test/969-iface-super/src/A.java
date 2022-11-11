@@ -13,4 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class A implements Iface { }
+public class A implements Iface {}

@@ -15,77 +15,76 @@
  */
 
 public class Main {
+    static final int ITERATIONS = 16;
 
-  static final int ITERATIONS = 16;
+    // Test 1: This test checks whether the SuspendCheck is removed from the
+    // header.
 
-  // Test 1: This test checks whether the SuspendCheck is removed from the
-  // header.
+    /// CHECK-START-ARM64: void Main.$noinline$testRemoveSuspendCheck(int[]) disassembly (after)
+    /// CHECK:        SuspendCheck         loop:<<LoopId:B\d+>>
+    /// CHECK-NEXT:   dex_pc:{{.*}}
+    /// CHECK:        Goto                 loop:<<LoopId>>
+    /// CHECK-NEXT:   b
+    /// CHECK-NOT:    SuspendCheckSlowPathARM64
 
-  /// CHECK-START-ARM64: void Main.$noinline$testRemoveSuspendCheck(int[]) disassembly (after)
-  /// CHECK:        SuspendCheck         loop:<<LoopId:B\d+>>
-  /// CHECK-NEXT:   dex_pc:{{.*}}
-  /// CHECK:        Goto                 loop:<<LoopId>>
-  /// CHECK-NEXT:   b
-  /// CHECK-NOT:    SuspendCheckSlowPathARM64
-
-  public static void $noinline$testRemoveSuspendCheck(int[] a) {
-    for (int i = 0; i < ITERATIONS; i++) {
-      a[i++] = i;
+    public static void $noinline$testRemoveSuspendCheck(int[] a) {
+        for (int i = 0; i < ITERATIONS; i++) {
+            a[i++] = i;
+        }
     }
-  }
 
-  // Test 2: This test checks that the SuspendCheck is not removed from the
-  // header because it contains a call to another function.
+    // Test 2: This test checks that the SuspendCheck is not removed from the
+    // header because it contains a call to another function.
 
-  /// CHECK-START-ARM64: void Main.testRemoveSuspendCheckWithCall(int[]) disassembly (after)
-  /// CHECK:        SuspendCheck         loop:<<LoopId:B\d+>>
-  /// CHECK:        Goto                 loop:<<LoopId>>
-  /// CHECK-NEXT:   ldr
-  /// CHECK:        SuspendCheckSlowPathARM64
-  /// CHECK:        SuspendCheckSlowPathARM64
+    /// CHECK-START-ARM64: void Main.testRemoveSuspendCheckWithCall(int[]) disassembly (after)
+    /// CHECK:        SuspendCheck         loop:<<LoopId:B\d+>>
+    /// CHECK:        Goto                 loop:<<LoopId>>
+    /// CHECK-NEXT:   ldr
+    /// CHECK:        SuspendCheckSlowPathARM64
+    /// CHECK:        SuspendCheckSlowPathARM64
 
-  public static void testRemoveSuspendCheckWithCall(int[] a) {
-    for (int i = 0; i < ITERATIONS; i++) {
-      a[i++] = i;
-      $noinline$testRemoveSuspendCheck(a);
+    public static void testRemoveSuspendCheckWithCall(int[] a) {
+        for (int i = 0; i < ITERATIONS; i++) {
+            a[i++] = i;
+            $noinline$testRemoveSuspendCheck(a);
+        }
     }
-  }
 
-  // Test 3:  This test checks that the SuspendCheck is not removed from the
-  // header because INSTR_COUNT * TRIP_COUNT exceeds the defined heuristic.
+    // Test 3:  This test checks that the SuspendCheck is not removed from the
+    // header because INSTR_COUNT * TRIP_COUNT exceeds the defined heuristic.
 
-  /// CHECK-START-ARM64: void Main.testRemoveSuspendCheckAboveHeuristic(int[]) disassembly (after)
-  /// CHECK:        SuspendCheck         loop:<<LoopId:B\d+>>
-  /// CHECK:        Goto                 loop:<<LoopId>>
-  /// CHECK-NEXT:   ldr
-  /// CHECK:        SuspendCheckSlowPathARM64
+    /// CHECK-START-ARM64: void Main.testRemoveSuspendCheckAboveHeuristic(int[]) disassembly (after)
+    /// CHECK:        SuspendCheck         loop:<<LoopId:B\d+>>
+    /// CHECK:        Goto                 loop:<<LoopId>>
+    /// CHECK-NEXT:   ldr
+    /// CHECK:        SuspendCheckSlowPathARM64
 
-  public static void testRemoveSuspendCheckAboveHeuristic(int[] a) {
-    for (int i = 0; i < ITERATIONS * 6; i++) {
-      a[i++] = i;
+    public static void testRemoveSuspendCheckAboveHeuristic(int[] a) {
+        for (int i = 0; i < ITERATIONS * 6; i++) {
+            a[i++] = i;
+        }
     }
-  }
 
-  // Test 4:  This test checks that the SuspendCheck is not removed from the
-  // header because the trip count is not known at compile time.
+    // Test 4:  This test checks that the SuspendCheck is not removed from the
+    // header because the trip count is not known at compile time.
 
-  /// CHECK-START-ARM64: void Main.testRemoveSuspendCheckUnknownCount(int[], int) disassembly (after)
-  /// CHECK:        SuspendCheck         loop:<<LoopId:B\d+>>
-  /// CHECK:        Goto                 loop:<<LoopId>>
-  /// CHECK-NEXT:   ldr
-  /// CHECK:        SuspendCheckSlowPathARM64
+    /// CHECK-START-ARM64: void Main.testRemoveSuspendCheckUnknownCount(int[], int) disassembly (after)
+    /// CHECK:        SuspendCheck         loop:<<LoopId:B\d+>>
+    /// CHECK:        Goto                 loop:<<LoopId>>
+    /// CHECK-NEXT:   ldr
+    /// CHECK:        SuspendCheckSlowPathARM64
 
-  public static void testRemoveSuspendCheckUnknownCount(int[] a, int n) {
-    for (int i = 0; i < n; i++) {
-      a[i++] = i;
+    public static void testRemoveSuspendCheckUnknownCount(int[] a, int n) {
+        for (int i = 0; i < n; i++) {
+            a[i++] = i;
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    int[] a = new int[100];
-    $noinline$testRemoveSuspendCheck(a);
-    testRemoveSuspendCheckWithCall(a);
-    testRemoveSuspendCheckAboveHeuristic(a);
-    testRemoveSuspendCheckUnknownCount(a, 4);
-  }
+    public static void main(String[] args) {
+        int[] a = new int[100];
+        $noinline$testRemoveSuspendCheck(a);
+        testRemoveSuspendCheckWithCall(a);
+        testRemoveSuspendCheckAboveHeuristic(a);
+        testRemoveSuspendCheckUnknownCount(a, 4);
+    }
 }

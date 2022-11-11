@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 class E extends A implements Greeter2 {
-  public String SayHi() {
-    return "Hi2 ";
-  }
+    public String SayHi() { return "Hi2 "; }
 }

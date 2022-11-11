@@ -17,16 +17,13 @@
 /**
  * Miranda testing.
  */
-public abstract class MirandaAbstract implements MirandaInterface, MirandaInterface2
-{
-    protected MirandaAbstract() { }
+public abstract class MirandaAbstract implements MirandaInterface, MirandaInterface2 {
+    protected MirandaAbstract() {}
 
     // These will be miranda methods, as the interfaces define them, but they are not
     // implemented in this abstract class:
-    //public abstract boolean inInterface();
-    //public abstract int inInterface2();
+    // public abstract boolean inInterface();
+    // public abstract int inInterface2();
 
-    public boolean inAbstract() {
-        return true;
-    }
+    public boolean inAbstract() { return true; }
 }

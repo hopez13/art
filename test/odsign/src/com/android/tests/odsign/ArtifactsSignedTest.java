@@ -18,6 +18,7 @@ package com.android.tests.odsign;
 
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
+
 import static org.junit.Assume.assumeTrue;
 
 import androidx.annotation.NonNull;
@@ -41,30 +42,28 @@ public class ArtifactsSignedTest {
     // Verifying that they are generated for the correct architectures is currently out of
     // scope for this test.
     private static final String[] REQUIRED_ARTIFACT_NAMES = {
-        "boot.art",
-        "boot.oat",
-        "boot.vdex",
-        "system@framework@services.jar@classes.vdex",
-        "system@framework@services.jar@classes.odex",
-        "system@framework@services.jar@classes.art",
+            "boot.art",
+            "boot.oat",
+            "boot.vdex",
+            "system@framework@services.jar@classes.vdex",
+            "system@framework@services.jar@classes.odex",
+            "system@framework@services.jar@classes.art",
     };
 
-    static {
-        System.loadLibrary("OdsignTestAppJni");
-    }
+    static { System.loadLibrary("OdsignTestAppJni"); }
 
     private static native boolean hasFsverityNative(@NonNull String path);
 
-    public boolean isFsVeritySupported() {
-        return new File(FS_VERITY_PROC_PATH).exists();
-    }
+    public boolean isFsVeritySupported() { return new File(FS_VERITY_PROC_PATH).exists(); }
 
     @Test
     public void testArtArtifactsHaveFsverity() throws Exception {
         assumeTrue("fs-verity is not supported on this device.", isFsVeritySupported());
         assertWithMessage("Found artifacts not in fs-verity")
-                .that(getArtifacts().map(File::getPath).filter((path) -> !hasFsverityNative(path))
-                        .collect(Collectors.toList()))
+                .that(getArtifacts()
+                                .map(File::getPath)
+                                .filter((path) -> !hasFsverityNative(path))
+                                .collect(Collectors.toList()))
                 .isEmpty();
     }
 

@@ -21,36 +21,34 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    init();
-    appendToBootClassLoader(DEX_EXTRA, /* isCorePlatform */ false);
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        init();
+        appendToBootClassLoader(DEX_EXTRA, /* isCorePlatform */ false);
 
-    Class<?> klass = Object.class.getClassLoader().loadClass("MyInterface");
-    Object obj = Proxy.newProxyInstance(
-        klass.getClassLoader(),
-        new Class[] { klass, Cloneable.class },
-        new InvocationHandler() {
-          @Override
-          public Object invoke(Object proxy, Method method, Object[] args) {
-            return null;
-          }
-        });
+        Class<?> klass = Object.class.getClassLoader().loadClass("MyInterface");
+        Object obj = Proxy.newProxyInstance(klass.getClassLoader(),
+                new Class[] {klass, Cloneable.class}, new InvocationHandler() {
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args) {
+                        return null;
+                    }
+                });
 
-    // Print names of declared methods - this should not include "hidden()".
-    for (Method m : obj.getClass().getDeclaredMethods()) {
-      System.out.println(m.getName());
+        // Print names of declared methods - this should not include "hidden()".
+        for (Method m : obj.getClass().getDeclaredMethods()) {
+            System.out.println(m.getName());
+        }
+
+        // Do not print names of fields. They do not have a set Java name.
+        if (obj.getClass().getDeclaredFields().length != 2) {
+            throw new Exception("Expected two fields in a proxy class: 'interfaces' and 'throws'");
+        }
     }
 
-    // Do not print names of fields. They do not have a set Java name.
-    if (obj.getClass().getDeclaredFields().length != 2) {
-      throw new Exception("Expected two fields in a proxy class: 'interfaces' and 'throws'");
-    }
-  }
+    private static final String DEX_EXTRA =
+            new File(System.getenv("DEX_LOCATION"), "691-hiddenapi-proxy-ex.jar").getAbsolutePath();
 
-  private static final String DEX_EXTRA = new File(System.getenv("DEX_LOCATION"),
-      "691-hiddenapi-proxy-ex.jar").getAbsolutePath();
-
-  private static native void init();
-  private static native void appendToBootClassLoader(String dexPath, boolean isCorePlatform);
+    private static native void init();
+    private static native void appendToBootClassLoader(String dexPath, boolean isCorePlatform);
 }

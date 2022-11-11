@@ -15,13 +15,13 @@
  */
 
 class CommonClassDefinition {
-  public final Class<?> target;
-  public final byte[] class_file_bytes;
-  public final byte[] dex_file_bytes;
+    public final Class<?> target;
+    public final byte[] class_file_bytes;
+    public final byte[] dex_file_bytes;
 
-  CommonClassDefinition(Class<?> target, byte[] class_file_bytes, byte[] dex_file_bytes) {
-    this.target = target;
-    this.class_file_bytes = class_file_bytes;
-    this.dex_file_bytes = dex_file_bytes;
-  }
+    CommonClassDefinition(Class<?> target, byte[] class_file_bytes, byte[] dex_file_bytes) {
+        this.target = target;
+        this.class_file_bytes = class_file_bytes;
+        this.dex_file_bytes = dex_file_bytes;
+    }
 }

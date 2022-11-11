@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
+import dalvik.annotation.optimization.CriticalNative;
+import dalvik.annotation.optimization.FastNative;
+
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;
 import java.util.regex.Pattern;
-
-import dalvik.annotation.optimization.CriticalNative;
-import dalvik.annotation.optimization.FastNative;
 
 public class Main {
     public static void main(String[] args) {
         System.loadLibrary(args[0]);
 
         if (!isSlowDebug()) {
-          throw new RuntimeException("Slow-debug flags unexpectedly off.");
+            throw new RuntimeException("Slow-debug flags unexpectedly off.");
         }
 
         testFieldSubclass();
@@ -70,15 +70,17 @@ public class Main {
         testBadFastCriticalNatives();
     }
 
-    static class ABC { public static int XYZ = 12; }
+    static class ABC {
+        public static int XYZ = 12;
+    }
     static class DEF extends ABC {}
     public static void testFieldSubclass() {
-      try {
-        System.out.println("ABC.XYZ = " + ABC.XYZ + ", GetStaticIntField(DEF.class, 'XYZ') = " +
-            getFieldSubclass(ABC.class.getDeclaredField("XYZ"), DEF.class));
-      } catch (Exception e) {
-        throw new RuntimeException("Failed to test get static field on a subclass", e);
-      }
+        try {
+            System.out.println("ABC.XYZ = " + ABC.XYZ + ", GetStaticIntField(DEF.class, 'XYZ') = "
+                    + getFieldSubclass(ABC.class.getDeclaredField("XYZ"), DEF.class));
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to test get static field on a subclass", e);
+        }
     }
 
     public static native void testUTFRegion(String null_str);
@@ -98,8 +100,8 @@ public class Main {
     public static boolean testReflectFieldGetFromAttachedNativeThreadField;
 
     private static void testFindFieldOnAttachedNativeThread() {
-      testFindFieldOnAttachedNativeThreadNative();
-      if (!testFindFieldOnAttachedNativeThreadField) {
+        testFindFieldOnAttachedNativeThreadNative();
+        if (!testFindFieldOnAttachedNativeThreadField) {
             throw new AssertionError();
         }
     }
@@ -117,14 +119,11 @@ public class Main {
 
     private static class testCallStaticVoidMethodOnSubClass_SuperClass {
         private static boolean executed = false;
-        private static void execute() {
-            executed = true;
-        }
+        private static void execute() { executed = true; }
     }
 
     private static class testCallStaticVoidMethodOnSubClass_SubClass
-        extends testCallStaticVoidMethodOnSubClass_SuperClass {
-    }
+            extends testCallStaticVoidMethodOnSubClass_SuperClass {}
 
     private static native Method testGetMirandaMethodNative();
 
@@ -137,10 +136,9 @@ public class Main {
 
     private static native void testZeroLengthByteBuffers();
 
-    private static abstract class testGetMirandaMethod_MirandaAbstract implements testGetMirandaMethod_MirandaInterface {
-        public boolean inAbstract() {
-            return true;
-        }
+    private static abstract class testGetMirandaMethod_MirandaAbstract
+            implements testGetMirandaMethod_MirandaInterface {
+        public boolean inAbstract() { return true; }
     }
 
     private static interface testGetMirandaMethod_MirandaInterface {
@@ -150,83 +148,84 @@ public class Main {
     // Test sign-extension for values < 32b
 
     static native byte byteMethod(byte b1, byte b2, byte b3, byte b4, byte b5, byte b6, byte b7,
-        byte b8, byte b9, byte b10);
+            byte b8, byte b9, byte b10);
 
     private static void testByteMethod() {
-      byte returns[] = { 0, 1, 2, 127, -1, -2, -128 };
-      for (int i = 0; i < returns.length; i++) {
-        byte result = byteMethod((byte)i, (byte)2, (byte)(-3), (byte)4, (byte)(-5), (byte)6,
-            (byte)(-7), (byte)8, (byte)(-9), (byte)10);
-        if (returns[i] != result) {
-          System.out.println("Run " + i + " with " + returns[i] + " vs " + result);
-          throw new AssertionError();
+        byte returns[] = {0, 1, 2, 127, -1, -2, -128};
+        for (int i = 0; i < returns.length; i++) {
+            byte result = byteMethod((byte) i, (byte) 2, (byte) (-3), (byte) 4, (byte) (-5),
+                    (byte) 6, (byte) (-7), (byte) 8, (byte) (-9), (byte) 10);
+            if (returns[i] != result) {
+                System.out.println("Run " + i + " with " + returns[i] + " vs " + result);
+                throw new AssertionError();
+            }
         }
-      }
     }
 
     private static native void removeLocalObject(Object o);
 
-    private static void testRemoveLocalObject() {
-        removeLocalObject(new Object());
-    }
+    private static void testRemoveLocalObject() { removeLocalObject(new Object()); }
 
-    private static native short shortMethod(short s1, short s2, short s3, short s4, short s5, short s6, short s7,
-        short s8, short s9, short s10);
+    private static native short shortMethod(short s1, short s2, short s3, short s4, short s5,
+            short s6, short s7, short s8, short s9, short s10);
 
     private static void testShortMethod() {
-      short returns[] = { 0, 1, 2, 127, 32767, -1, -2, -128, -32768 };
-      for (int i = 0; i < returns.length; i++) {
-        short result = shortMethod((short)i, (short)2, (short)(-3), (short)4, (short)(-5), (short)6,
-            (short)(-7), (short)8, (short)(-9), (short)10);
-        if (returns[i] != result) {
-          System.out.println("Run " + i + " with " + returns[i] + " vs " + result);
-          throw new AssertionError();
+        short returns[] = {0, 1, 2, 127, 32767, -1, -2, -128, -32768};
+        for (int i = 0; i < returns.length; i++) {
+            short result = shortMethod((short) i, (short) 2, (short) (-3), (short) 4, (short) (-5),
+                    (short) 6, (short) (-7), (short) 8, (short) (-9), (short) 10);
+            if (returns[i] != result) {
+                System.out.println("Run " + i + " with " + returns[i] + " vs " + result);
+                throw new AssertionError();
+            }
         }
-      }
     }
 
     // Test zero-extension for values < 32b
 
-    private static native boolean booleanMethod(boolean b1, boolean b2, boolean b3, boolean b4, boolean b5, boolean b6, boolean b7,
-        boolean b8, boolean b9, boolean b10);
+    private static native boolean booleanMethod(boolean b1, boolean b2, boolean b3, boolean b4,
+            boolean b5, boolean b6, boolean b7, boolean b8, boolean b9, boolean b10);
 
     private static void testBooleanMethod() {
-      if (booleanMethod(false, true, false, true, false, true, false, true, false, true)) {
-        throw new AssertionError();
-      }
+        if (booleanMethod(false, true, false, true, false, true, false, true, false, true)) {
+            throw new AssertionError();
+        }
 
-      if (!booleanMethod(true, true, false, true, false, true, false, true, false, true)) {
-        throw new AssertionError();
-      }
+        if (!booleanMethod(true, true, false, true, false, true, false, true, false, true)) {
+            throw new AssertionError();
+        }
     }
 
-    private static native char charMethod(char c1, char c2, char c3, char c4, char c5, char c6, char c7,
-        char c8, char c9, char c10);
+    private static native char charMethod(char c1, char c2, char c3, char c4, char c5, char c6,
+            char c7, char c8, char c9, char c10);
 
     private static void testCharMethod() {
-      char returns[] = { (char)0, (char)1, (char)2, (char)127, (char)255, (char)256, (char)15000,
-          (char)34000 };
-      for (int i = 0; i < returns.length; i++) {
-        char result = charMethod((char)i, 'a', 'b', 'c', '0', '1', '2', (char)1234, (char)2345,
-            (char)3456);
-        if (returns[i] != result) {
-          System.out.println("Run " + i + " with " + (int)returns[i] + " vs " + (int)result);
-          throw new AssertionError();
+        char returns[] = {(char) 0, (char) 1, (char) 2, (char) 127, (char) 255, (char) 256,
+                (char) 15000, (char) 34000};
+        for (int i = 0; i < returns.length; i++) {
+            char result = charMethod(
+                    (char) i, 'a', 'b', 'c', '0', '1', '2', (char) 1234, (char) 2345, (char) 3456);
+            if (returns[i] != result) {
+                System.out.println(
+                        "Run " + i + " with " + (int) returns[i] + " vs " + (int) result);
+                throw new AssertionError();
+            }
         }
-      }
     }
 
     // http://b/16531674
     private static void testIsAssignableFromOnPrimitiveTypes() {
-      if (!nativeIsAssignableFrom(int.class, Integer.TYPE)) {
-        System.out.println("IsAssignableFrom(int.class, Integer.TYPE) returned false, expected true");
-        throw new AssertionError();
-      }
+        if (!nativeIsAssignableFrom(int.class, Integer.TYPE)) {
+            System.out.println(
+                    "IsAssignableFrom(int.class, Integer.TYPE) returned false, expected true");
+            throw new AssertionError();
+        }
 
-      if (!nativeIsAssignableFrom(Integer.TYPE, int.class)) {
-        System.out.println("IsAssignableFrom(Integer.TYPE, int.class) returned false, expected true");
-        throw new AssertionError();
-      }
+        if (!nativeIsAssignableFrom(Integer.TYPE, int.class)) {
+            System.out.println(
+                    "IsAssignableFrom(Integer.TYPE, int.class) returned false, expected true");
+            throw new AssertionError();
+        }
     }
 
     private static native boolean nativeIsAssignableFrom(Class<?> from, Class<?> to);
@@ -237,9 +236,7 @@ public class Main {
 
     private native static void nativeTestShallowGetCallingClassLoader();
 
-    private static void testShallowGetStackClass2() {
-        nativeTestShallowGetStackClass2();
-    }
+    private static void testShallowGetStackClass2() { nativeTestShallowGetStackClass2(); }
 
     private static native void nativeTestShallowGetStackClass2();
 
@@ -296,7 +293,8 @@ public class Main {
         try {
             jniCriticalThread.join();
             runGcThread.join();
-        } catch (InterruptedException ignored) {}
+        } catch (InterruptedException ignored) {
+        }
     }
 
     private static native void enterJniCriticalSection(int arraySize, byte[] array0, byte[] array);
@@ -308,147 +306,151 @@ public class Main {
     // Test invoking @FastNative methods works correctly.
 
     // Return sum of a+b+c.
-    @FastNative
-    static native int intFastNativeMethod(int a, int b, int c);
+    @FastNative static native int intFastNativeMethod(int a, int b, int c);
 
     private static void testFastNativeMethods() {
-      int returns[] = { 0, 3, 6, 9, 12 };
-      for (int i = 0; i < returns.length; i++) {
-        int result = intFastNativeMethod(i, i, i);
-        if (returns[i] != result) {
-          System.out.println("FastNative Int Run " + i + " with " + returns[i] + " vs " + result);
-          throw new AssertionError();
+        int returns[] = {0, 3, 6, 9, 12};
+        for (int i = 0; i < returns.length; i++) {
+            int result = intFastNativeMethod(i, i, i);
+            if (returns[i] != result) {
+                System.out.println(
+                        "FastNative Int Run " + i + " with " + returns[i] + " vs " + result);
+                throw new AssertionError();
+            }
         }
-      }
     }
 
     // Smoke test for @CriticalNative
     // TODO: Way more thorough tests since it involved quite a bit of changes.
 
     // Return sum of a+b+c.
-    @CriticalNative
-    static native int intCriticalNativeMethod(int a, int b, int c);
+    @CriticalNative static native int intCriticalNativeMethod(int a, int b, int c);
 
     private static void testCriticalNativeMethods() {
-      int returns[] = { 3, 6, 9, 12, 15 };
-      for (int i = 0; i < returns.length; i++) {
-        int result = intCriticalNativeMethod(i, i+1, i+2);
-        if (returns[i] != result) {
-          System.out.println("CriticalNative Int Run " + i + " with " + returns[i] + " vs " + result);
-          throw new AssertionError();
+        int returns[] = {3, 6, 9, 12, 15};
+        for (int i = 0; i < returns.length; i++) {
+            int result = intCriticalNativeMethod(i, i + 1, i + 2);
+            if (returns[i] != result) {
+                System.out.println(
+                        "CriticalNative Int Run " + i + " with " + returns[i] + " vs " + result);
+                throw new AssertionError();
+            }
         }
-      }
     }
 
     private static native boolean isSlowDebug();
 
     private static void testClinitMethodLookup() {
-      // Expect this to print <NSME Exception>
-      try {
-        System.out.println("Clinit Lookup: ClassWithoutClinit: " + methodString(lookupClinit(ClassWithoutClinit.class)));
-      } catch (NoSuchMethodError e) {
-        System.out.println("Clinit Lookup: ClassWithoutClinit: <NSME Exception>");
-      }
-      // Expect this to print <clinit>
-      try {
-        System.out.println("Clinit Lookup: ClassWithClinit: " + methodString(lookupClinit(ClassWithClinit.class)));
-      } catch (NoSuchMethodError e) {
-        System.out.println("Clinit Lookup: ClassWithClinit: <NSME Exception>");
-      }
-   }
+        // Expect this to print <NSME Exception>
+        try {
+            System.out.println("Clinit Lookup: ClassWithoutClinit: "
+                    + methodString(lookupClinit(ClassWithoutClinit.class)));
+        } catch (NoSuchMethodError e) {
+            System.out.println("Clinit Lookup: ClassWithoutClinit: <NSME Exception>");
+        }
+        // Expect this to print <clinit>
+        try {
+            System.out.println("Clinit Lookup: ClassWithClinit: "
+                    + methodString(lookupClinit(ClassWithClinit.class)));
+        } catch (NoSuchMethodError e) {
+            System.out.println("Clinit Lookup: ClassWithClinit: <NSME Exception>");
+        }
+    }
 
     private static String methodString(java.lang.reflect.Executable method) {
-      if (method == null) {
-        return "<<null>>";
-      } else {
-        return method.toString() + "(Class: " + method.getClass().toString() + ")";
-      }
+        if (method == null) {
+            return "<<null>>";
+        } else {
+            return method.toString() + "(Class: " + method.getClass().toString() + ")";
+        }
     }
     private static native java.lang.reflect.Executable lookupClinit(Class kls);
 
-    private static class ClassWithoutClinit {
-    }
+    private static class ClassWithoutClinit {}
     private static class ClassWithClinit {
-      static {}
+        static {}
     }
 
-  private static void testDoubleLoad(String library) {
-    // Test that nothing observably happens on loading "library" again.
-    System.loadLibrary(library);
+    private static void testDoubleLoad(String library) {
+        // Test that nothing observably happens on loading "library" again.
+        System.loadLibrary(library);
 
-    // Now load code in a separate classloader and try to let it load.
-    ClassLoader loader = createClassLoader();
-    try {
-      Class<?> aClass = loader.loadClass("A");
-      Method runMethod = aClass.getDeclaredMethod("run", String.class);
-      runMethod.invoke(null, library);
-    } catch (InvocationTargetException ite) {
-      if (ite.getCause() instanceof UnsatisfiedLinkError) {
-        if (!(loader instanceof java.net.URLClassLoader)) {
-          String msg = ite.getCause().getMessage();
-          String pattern = "^Shared library .*libarttest.* already opened by ClassLoader.*" +
-                           "004-JniTest.jar.*; can't open in ClassLoader.*004-JniTest-ex.jar.*";
-          if (!Pattern.matches(pattern, msg)) {
-            throw new RuntimeException("Could not find pattern in message", ite.getCause());
-          }
+        // Now load code in a separate classloader and try to let it load.
+        ClassLoader loader = createClassLoader();
+        try {
+            Class<?> aClass = loader.loadClass("A");
+            Method runMethod = aClass.getDeclaredMethod("run", String.class);
+            runMethod.invoke(null, library);
+        } catch (InvocationTargetException ite) {
+            if (ite.getCause() instanceof UnsatisfiedLinkError) {
+                if (!(loader instanceof java.net.URLClassLoader)) {
+                    String msg = ite.getCause().getMessage();
+                    String pattern =
+                            "^Shared library .*libarttest.* already opened by ClassLoader.*"
+                            + "004-JniTest.jar.*; can't open in ClassLoader.*004-JniTest-ex.jar.*";
+                    if (!Pattern.matches(pattern, msg)) {
+                        throw new RuntimeException(
+                                "Could not find pattern in message", ite.getCause());
+                    }
+                }
+                System.out.println("Got UnsatisfiedLinkError for duplicate loadLibrary");
+            } else {
+                throw new RuntimeException(ite);
+            }
+        } catch (Throwable t) {
+            // Anything else just let die.
+            throw new RuntimeException(t);
         }
-        System.out.println("Got UnsatisfiedLinkError for duplicate loadLibrary");
-      } else {
-        throw new RuntimeException(ite);
-      }
-    } catch (Throwable t) {
-      // Anything else just let die.
-      throw new RuntimeException(t);
     }
-  }
 
-  private static ClassLoader createClassLoader() {
-    String location = System.getenv("DEX_LOCATION");
-    try {
-      Class<?> class_loader_class = Class.forName("dalvik.system.PathClassLoader");
-      Constructor<?> ctor = class_loader_class.getConstructor(String.class, ClassLoader.class);
+    private static ClassLoader createClassLoader() {
+        String location = System.getenv("DEX_LOCATION");
+        try {
+            Class<?> class_loader_class = Class.forName("dalvik.system.PathClassLoader");
+            Constructor<?> ctor =
+                    class_loader_class.getConstructor(String.class, ClassLoader.class);
 
-      return (ClassLoader)ctor.newInstance(location + "/004-JniTest-ex.jar",
-                                           Main.class.getClassLoader());
-    } catch (ClassNotFoundException e) {
-      // Running on RI. Use URLClassLoader.
-      try {
-        return new java.net.URLClassLoader(
-            new java.net.URL[] { new java.net.URL("file://" + location + "/classes-ex/") });
-      } catch (Throwable t) {
-        throw new RuntimeException(t);
-      }
-    } catch (Throwable t) {
-      throw new RuntimeException(t);
+            return (ClassLoader) ctor.newInstance(
+                    location + "/004-JniTest-ex.jar", Main.class.getClassLoader());
+        } catch (ClassNotFoundException e) {
+            // Running on RI. Use URLClassLoader.
+            try {
+                return new java.net.URLClassLoader(new java.net.URL[] {
+                        new java.net.URL("file://" + location + "/classes-ex/")});
+            } catch (Throwable t) {
+                throw new RuntimeException(t);
+            }
+        } catch (Throwable t) {
+            throw new RuntimeException(t);
+        }
     }
-  }
 
-  private static void testBadFastCriticalNatives() {
-    testBadFastCriticalNative("BadFastNative");
-    testBadFastCriticalNative("BadCriticalNative");
-    testBadFastCriticalNative("BadCriticalNative2");
-    testBadFastCriticalNative("BadCriticalNative3");
-  }
-
-  private static void testBadFastCriticalNative(String className) {
-    try {
-      Class.forName(className);
-      throw new Error("Expected verification error");
-    } catch (VerifyError e) {
-      // Expected.
-    } catch (Throwable e) {
-      throw new Error("Expected verification error");
+    private static void testBadFastCriticalNatives() {
+        testBadFastCriticalNative("BadFastNative");
+        testBadFastCriticalNative("BadCriticalNative");
+        testBadFastCriticalNative("BadCriticalNative2");
+        testBadFastCriticalNative("BadCriticalNative3");
     }
-  }
+
+    private static void testBadFastCriticalNative(String className) {
+        try {
+            Class.forName(className);
+            throw new Error("Expected verification error");
+        } catch (VerifyError e) {
+            // Expected.
+        } catch (Throwable e) {
+            throw new Error("Expected verification error");
+        }
+    }
 }
 
 @FunctionalInterface
 interface LambdaInterface {
-  public void sayHi();
-  public default void sayHiTwice() {
-    sayHi();
-    sayHi();
-  }
+    public void sayHi();
+    public default void sayHiTwice() {
+        sayHi();
+        sayHi();
+    }
 }
 
 class JniCallNonvirtualTest {
@@ -457,13 +459,9 @@ class JniCallNonvirtualTest {
 
     private static native void testCallNonvirtual();
 
-    public JniCallNonvirtualTest() {
-        System.out.println("Super.<init>");
-    }
+    public JniCallNonvirtualTest() { System.out.println("Super.<init>"); }
 
-    public static void staticMethod() {
-        System.out.println("Super.staticMethod");
-    }
+    public static void staticMethod() { System.out.println("Super.staticMethod"); }
 
     public void nonstaticMethod() {
         System.out.println("Super.nonstaticMethod");
@@ -472,14 +470,9 @@ class JniCallNonvirtualTest {
 }
 
 class JniCallNonvirtualTestSubclass extends JniCallNonvirtualTest {
+    public JniCallNonvirtualTestSubclass() { System.out.println("Subclass.<init>"); }
 
-    public JniCallNonvirtualTestSubclass() {
-        System.out.println("Subclass.<init>");
-    }
-
-    public static void staticMethod() {
-        System.out.println("Subclass.staticMethod");
-    }
+    public static void staticMethod() { System.out.println("Subclass.staticMethod"); }
 
     public void nonstaticMethod() {
         System.out.println("Subclass.nonstaticMethod");
@@ -488,21 +481,17 @@ class JniCallNonvirtualTestSubclass extends JniCallNonvirtualTest {
 }
 
 class BadFastNative {
-  @FastNative
-  public static native synchronized void test();
+    @FastNative public static native synchronized void test();
 }
 
 class BadCriticalNative {
-  @CriticalNative
-  public static native synchronized void test();
+    @CriticalNative public static native synchronized void test();
 }
 
 class BadCriticalNative2 {
-  @CriticalNative
-  public native void test();
+    @CriticalNative public native void test();
 }
 
 class BadCriticalNative3 {
-  @CriticalNative
-  public static native void test(Object o);
+    @CriticalNative public static native void test(Object o);
 }

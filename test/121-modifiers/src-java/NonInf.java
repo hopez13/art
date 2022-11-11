@@ -15,58 +15,41 @@
  */
 
 public abstract class NonInf {
+    public int publicField;
+    private int privateField;
+    protected int protectedField;
+    static int staticField;
+    transient int transientField;
+    volatile int volatileField;
+    final int finalField;
 
-  public int publicField;
-  private int privateField;
-  protected int protectedField;
-  static int staticField;
-  transient int transientField;
-  volatile int volatileField;
-  final int finalField;
+    public NonInf() {
+        publicField = 0;
+        privateField = 1;
+        protectedField = 2;
+        staticField = 3;
+        transientField = 4;
+        volatileField = 5;
+        finalField = 6;
+    }
 
-  public NonInf() {
-    publicField = 0;
-    privateField = 1;
-    protectedField = 2;
-    staticField = 3;
-    transientField = 4;
-    volatileField = 5;
-    finalField = 6;
-  }
+    public native void nativeMethod();
 
-  public native void nativeMethod();
+    private int privateMethod() { return 0; }
 
-  private int privateMethod() {
-    return 0;
-  }
+    protected int protectedMethod() { return 0; }
 
-  protected int protectedMethod() {
-    return 0;
-  }
+    public int publicMethod() { return 0; }
 
-  public int publicMethod() {
-    return 0;
-  }
+    public abstract int abstractMethod();
 
-  public abstract int abstractMethod();
+    public synchronized int synchronizedMethod() { return 0; }
 
-  public synchronized int synchronizedMethod() {
-    return 0;
-  }
+    public static int staticMethod() { return 0; }
 
-  public static int staticMethod() {
-    return 0;
-  }
+    public strictfp double strictfpMethod() { return 0.0; }
 
-  public strictfp double strictfpMethod() {
-    return 0.0;
-  }
+    public int varargsMethod(Object... args) { return 0; }
 
-  public int varargsMethod(Object... args) {
-    return 0;
-  }
-
-  public final int finalMethod() {
-    return 0;
-  }
+    public final int finalMethod() { return 0; }
 }

@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-import java.lang.ref.ReferenceQueue;
 import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
 import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 
 public class Bitmap {
-    String mName;           /* for debugging */
+    String mName; /* for debugging */
     int mWidth, mHeight;
     Bitmap.NativeWrapper mNativeWrapper;
 
@@ -44,13 +44,11 @@ public class Bitmap {
     }
 
     public String toString() {
-        return "Bitmap " + mName + ": " + mWidth + "x" + mHeight + " (" +
-                mNativeWrapper.mNativeData + ")";
+        return "Bitmap " + mName + ": " + mWidth + "x" + mHeight + " (" + mNativeWrapper.mNativeData
+                + ")";
     }
 
-    public void drawAt(int x, int y) {
-        System.out.println("Drawing " + this);
-    }
+    public void drawAt(int x, int y) { System.out.println("Drawing " + this); }
 
     public static void shutDown() {
         sWatcher.shutDown();
@@ -74,8 +72,7 @@ public class Bitmap {
         }
 
         Bitmap.NativeWrapper wrapper = new Bitmap.NativeWrapper(nativeData);
-        PhantomWrapper phan = new PhantomWrapper(wrapper, sPhantomQueue,
-                nativeData);
+        PhantomWrapper phan = new PhantomWrapper(wrapper, sPhantomQueue, nativeData);
         sPhantomList.add(phan);
         wrapper.mPhantomWrapper = phan;
         return wrapper;
@@ -92,9 +89,7 @@ public class Bitmap {
      * longer referenced, we free the native data.
      */
     static class NativeWrapper {
-        public NativeWrapper(int nativeDataPtr) {
-            mNativeData = nativeDataPtr;
-        }
+        public NativeWrapper(int nativeDataPtr) { mNativeData = nativeDataPtr; }
         public int mNativeData;
 
         // The PhantomWrapper corresponding to this NativeWrapper.
@@ -117,9 +112,8 @@ public class Bitmap {
  * object back out of a PhantomReference.
  */
 class PhantomWrapper extends PhantomReference {
-    PhantomWrapper(Bitmap.NativeWrapper wrapper,
-        ReferenceQueue<PhantomWrapper> queue, int nativeDataPtr)
-    {
+    PhantomWrapper(
+            Bitmap.NativeWrapper wrapper, ReferenceQueue<PhantomWrapper> queue, int nativeDataPtr) {
         super(wrapper, queue);
         mNativeData = nativeDataPtr;
     }
@@ -144,8 +138,8 @@ class BitmapWatcher extends Thread {
         while (true) {
             try {
                 PhantomWrapper ref = (PhantomWrapper) mQueue.remove();
-                //System.out.println("dequeued ref " + ref.mNativeData +
-                //    " - " + ref);
+                // System.out.println("dequeued ref " + ref.mNativeData +
+                //     " - " + ref);
                 Bitmap.freeNativeStorage(ref.mNativeData, ref.mFreeSignal);
             } catch (InterruptedException ie) {
                 System.out.println("intr");
@@ -154,7 +148,5 @@ class BitmapWatcher extends Thread {
         }
     }
 
-    public void shutDown() {
-        interrupt();
-    }
+    public void shutDown() { interrupt(); }
 }

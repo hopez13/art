@@ -17,7 +17,5 @@
 package art;
 
 public class ClassB {
-  public static void printHello() {
-    System.out.println(ClassA.getHello());
-  }
+    public static void printHello() { System.out.println(ClassA.getHello()); }
 }

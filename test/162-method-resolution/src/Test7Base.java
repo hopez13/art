@@ -15,7 +15,5 @@
  */
 
 public class Test7Base {
-    private void foo() {
-        System.out.println("Test7Base.foo()");
-    }
+    private void foo() { System.out.println("Test7Base.foo()"); }
 }

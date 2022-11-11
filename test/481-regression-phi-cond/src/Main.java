@@ -14,38 +14,35 @@
  * limitations under the License.
  */
 
-
 public class Main {
-  public static void assertBooleanEquals(boolean expected, boolean result) {
-    if (expected != result) {
-      throw new Error("Expected: " + expected + ", found: " + result);
+    public static void assertBooleanEquals(boolean expected, boolean result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
     }
-  }
 
-  public static boolean inlinePhi(boolean x, boolean y, boolean z) {
-    boolean phi;
-    if (z) {
-      phi = x;
-    } else {
-      phi = y;
+    public static boolean inlinePhi(boolean x, boolean y, boolean z) {
+        boolean phi;
+        if (z) {
+            phi = x;
+        } else {
+            phi = y;
+        }
+        return phi;
     }
-    return phi;
-  }
 
-  public static boolean dontUseParam(boolean x) {
-    return false;
-  }
+    public static boolean dontUseParam(boolean x) { return false; }
 
-  public static boolean testCase(boolean x, boolean y, boolean z) {
-    // First create a Phi(x, y).
-    boolean phi = inlinePhi(x, y, z);
-    // Now use the phi as a condition which the boolean simplifier will try to
-    // optimize out. If the result is not used, the algorithm will try to remove
-    // the original condition (phi) and crash.
-    return dontUseParam(phi == false ? false : true);
-  }
+    public static boolean testCase(boolean x, boolean y, boolean z) {
+        // First create a Phi(x, y).
+        boolean phi = inlinePhi(x, y, z);
+        // Now use the phi as a condition which the boolean simplifier will try to
+        // optimize out. If the result is not used, the algorithm will try to remove
+        // the original condition (phi) and crash.
+        return dontUseParam(phi == false ? false : true);
+    }
 
-  public static void main(String[] args) {
-    assertBooleanEquals(false, testCase(true, true, true));
-  }
+    public static void main(String[] args) {
+        assertBooleanEquals(false, testCase(true, true, true));
+    }
 }

@@ -23,10 +23,7 @@ public class Base extends Thread {
         }
     }
 
-    public void incrimentValue() {
-    }
+    public void incrimentValue() {}
 
-    public int getValue() {
-        return value;
-    }
+    public int getValue() { return value; }
 }

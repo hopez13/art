@@ -17,7 +17,5 @@
 package pkg1;
 
 public class LowerIndexPublicFoo extends pkg2.Pkg2Foo {
-  public Class<?> foo() {
-    return LowerIndexPublicFoo.class;
-  }
+    public Class<?> foo() { return LowerIndexPublicFoo.class; }
 }

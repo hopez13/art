@@ -19,7 +19,5 @@ package pkg1;
 import pkg2.BX;
 
 public class CX extends BX {
-    /*package-private*/ void foo() {
-        System.out.println("pkg1.CX.foo");
-    }
+    /*package-private*/ void foo() { System.out.println("pkg1.CX.foo"); }
 }

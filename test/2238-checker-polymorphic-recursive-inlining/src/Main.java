@@ -35,7 +35,8 @@
 //   HInvokeVirtual
 // }
 
-// We should see LoadClasses for BaseClassNoRecursion, and BaseClassAnotherWrapper<BaseClassNoRecursion>, in some order.
+// We should see LoadClasses for BaseClassNoRecursion, and
+// BaseClassAnotherWrapper<BaseClassNoRecursion>, in some order.
 /// CHECK-START: boolean BaseClassWrapper.recursiveTwoWrappers() inliner (after)
 /// CHECK-DAG:   LoadClass load_kind:BssEntry class_name:BaseClassAnotherWrapper
 /// CHECK-DAG:   LoadClass load_kind:BssEntry class_name:BaseClassNoRecursion
@@ -47,15 +48,11 @@
 /// CHECK:       InvokeVirtual method_name:BaseClass.recursiveTwoWrappers
 /// CHECK-NOT:   InvokeVirtual method_name:BaseClass.recursiveTwoWrappers
 class BaseClassWrapper extends BaseClass {
-  protected final BaseClass mBaseClass;
+    protected final BaseClass mBaseClass;
 
-  public BaseClassWrapper(BaseClass BaseClass) {
-    mBaseClass = BaseClass;
-  }
+    public BaseClassWrapper(BaseClass BaseClass) { mBaseClass = BaseClass; }
 
-  boolean recursiveTwoWrappers() {
-    return mBaseClass.recursiveTwoWrappers();
-  }
+    boolean recursiveTwoWrappers() { return mBaseClass.recursiveTwoWrappers(); }
 }
 
 // Same thing here as above but swapping BaseClassWrapper and BaseClassAnotherWrapper.
@@ -70,21 +67,15 @@ class BaseClassWrapper extends BaseClass {
 /// CHECK:       InvokeVirtual method_name:BaseClass.recursiveTwoWrappers
 /// CHECK-NOT:   InvokeVirtual method_name:BaseClass.recursiveTwoWrappers
 class BaseClassAnotherWrapper extends BaseClass {
-  protected final BaseClass mBaseClass;
+    protected final BaseClass mBaseClass;
 
-  public BaseClassAnotherWrapper(BaseClass BaseClass) {
-    mBaseClass = BaseClass;
-  }
+    public BaseClassAnotherWrapper(BaseClass BaseClass) { mBaseClass = BaseClass; }
 
-  boolean recursiveTwoWrappers() {
-    return mBaseClass.recursiveTwoWrappers();
-  }
+    boolean recursiveTwoWrappers() { return mBaseClass.recursiveTwoWrappers(); }
 }
 
 class BaseClassNoRecursion extends BaseClass {
-  boolean recursiveTwoWrappers() {
-    return false;
-  }
+    boolean recursiveTwoWrappers() { return false; }
 }
 
 // Check that we have only one call before the inliner.
@@ -105,23 +96,19 @@ class BaseClassNoRecursion extends BaseClass {
 /// CHECK:       InvokeVirtual method_name:BaseClassShallow.recursiveShallow
 /// CHECK-NOT:   InvokeVirtual method_name:BaseClassShallow.recursiveShallow
 class BaseClassShallowWrapper extends BaseClassShallow {
-  protected final BaseClassShallow mBaseClassShallow;
+    protected final BaseClassShallow mBaseClassShallow;
 
-  public BaseClassShallowWrapper(BaseClassShallow BaseClassShallow) {
-    mBaseClassShallow = BaseClassShallow;
-  }
+    public BaseClassShallowWrapper(BaseClassShallow BaseClassShallow) {
+        mBaseClassShallow = BaseClassShallow;
+    }
 
-  boolean recursiveShallow() {
-    return mBaseClassShallow.recursiveShallow();
-  }
+    boolean recursiveShallow() { return mBaseClassShallow.recursiveShallow(); }
 }
 
 class BaseClassShallowNoRecursion extends BaseClassShallow {
-  boolean recursiveShallow() {
-    return false;
-  }
+    boolean recursiveShallow() { return false; }
 }
 
 public class Main {
-  public static void main(String[] args) {}
+    public static void main(String[] args) {}
 }

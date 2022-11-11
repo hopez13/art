@@ -15,7 +15,5 @@
  */
 
 public class Derived3 extends Base {
-    public void incrimentValue() {
-        value += 3;
-    }
+    public void incrimentValue() { value += 3; }
 }

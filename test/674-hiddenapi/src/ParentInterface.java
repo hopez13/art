@@ -15,31 +15,31 @@
  */
 
 public interface ParentInterface {
-  // STATIC FIELD
-  static int fieldPublicStaticSdk = 11;
-  static int fieldPublicStaticUnsupported = 12;
-  static int fieldPublicStaticConditionallyBlocked = 13;
-  static int fieldPublicStaticBlocklist = 14;
-  static int fieldPublicStaticBlocklistAndCorePlatformApi = 15;
+    // STATIC FIELD
+    static int fieldPublicStaticSdk = 11;
+    static int fieldPublicStaticUnsupported = 12;
+    static int fieldPublicStaticConditionallyBlocked = 13;
+    static int fieldPublicStaticBlocklist = 14;
+    static int fieldPublicStaticBlocklistAndCorePlatformApi = 15;
 
-  // INSTANCE METHOD
-  int methodPublicSdk();
-  int methodPublicUnsupported();
-  int methodPublicConditionallyBlocked();
-  int methodPublicBlocklist();
-  int methodPublicBlocklistAndCorePlatformApi();
+    // INSTANCE METHOD
+    int methodPublicSdk();
+    int methodPublicUnsupported();
+    int methodPublicConditionallyBlocked();
+    int methodPublicBlocklist();
+    int methodPublicBlocklistAndCorePlatformApi();
 
-  // STATIC METHOD
-  static int methodPublicStaticSdk() { return 21; }
-  static int methodPublicStaticUnsupported() { return 22; }
-  static int methodPublicStaticConditionallyBlocked() { return 23; }
-  static int methodPublicStaticBlocklist() { return 24; }
-  static int methodPublicStaticBlocklistAndCorePlatformApi() { return 25; }
+    // STATIC METHOD
+    static int methodPublicStaticSdk() { return 21; }
+    static int methodPublicStaticUnsupported() { return 22; }
+    static int methodPublicStaticConditionallyBlocked() { return 23; }
+    static int methodPublicStaticBlocklist() { return 24; }
+    static int methodPublicStaticBlocklistAndCorePlatformApi() { return 25; }
 
-  // DEFAULT METHOD
-  default int methodPublicDefaultSdk() { return 31; }
-  default int methodPublicDefaultUnsupported() { return 32; }
-  default int methodPublicDefaultConditionallyBlocked() { return 33; }
-  default int methodPublicDefaultBlocklist() { return 34; }
-  default int methodPublicDefaultBlocklistAndCorePlatformApi() { return 35; }
+    // DEFAULT METHOD
+    default int methodPublicDefaultSdk() { return 31; }
+    default int methodPublicDefaultUnsupported() { return 32; }
+    default int methodPublicDefaultConditionallyBlocked() { return 33; }
+    default int methodPublicDefaultBlocklist() { return 34; }
+    default int methodPublicDefaultBlocklistAndCorePlatformApi() { return 35; }
 }

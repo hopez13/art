@@ -15,7 +15,5 @@
  */
 
 public interface Test2Interface {
-    default void foo() {
-        System.out.println("Test2Interface.foo()");
-    }
+    default void foo() { System.out.println("Test2Interface.foo()"); }
 }

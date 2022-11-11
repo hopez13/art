@@ -15,36 +15,33 @@
  */
 
 public class Main {
-  public Main() {
-  }
+    public Main() {}
 
-  int testSimpleVReg(int a, float f, short s, boolean z, byte b, char c) {
-    int e = doCall();
-    int g = doNativeCall();
-    return e + g;
-  }
-
-  long testPairVReg(long a, long b, long c, double e) {
-    long f = doCall();
-    long g = doNativeCall();
-    return f + g;
-  }
-
-  native int doNativeCall();
-
-  int doCall() {
-    return 42;
-  }
-
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
-    Main rm = new Main();
-    if (rm.testSimpleVReg(1, 1.0f, (short)2, true, (byte)3, 'c') != 43) {
-      throw new Error("Expected 43");
+    int testSimpleVReg(int a, float f, short s, boolean z, byte b, char c) {
+        int e = doCall();
+        int g = doNativeCall();
+        return e + g;
     }
 
-    if (rm.testPairVReg(Long.MIN_VALUE, Long.MAX_VALUE, 0, 2.0) != 44) {
-      throw new Error("Expected 44");
+    long testPairVReg(long a, long b, long c, double e) {
+        long f = doCall();
+        long g = doNativeCall();
+        return f + g;
     }
-  }
+
+    native int doNativeCall();
+
+    int doCall() { return 42; }
+
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
+        Main rm = new Main();
+        if (rm.testSimpleVReg(1, 1.0f, (short) 2, true, (byte) 3, 'c') != 43) {
+            throw new Error("Expected 43");
+        }
+
+        if (rm.testPairVReg(Long.MIN_VALUE, Long.MAX_VALUE, 0, 2.0) != 44) {
+            throw new Error("Expected 44");
+        }
+    }
 }

@@ -132,9 +132,11 @@ public class Main {
                     String hasAnnotation = (annotation != null ? "Yes" : "No");
                     System.out.println("    " + annotationClass.getName() + " " + hasAnnotation);
 
-                    Annotation[] parameterAnnotations = parameters[i].getDeclaredAnnotationsByType(annotationClass);
+                    Annotation[] parameterAnnotations =
+                            parameters[i].getDeclaredAnnotationsByType(annotationClass);
                     for (Annotation parameterAnnotation : parameterAnnotations) {
-                        System.out.println("    " + annotationToNormalizedString(parameterAnnotation));
+                        System.out.println(
+                                "    " + annotationToNormalizedString(parameterAnnotation));
                     }
                 }
             }
@@ -145,9 +147,7 @@ public class Main {
         class LocalClass {
             private final int integerValue;
 
-            LocalClass(@AnnotationA int integerValue) {
-                this.integerValue = integerValue;
-            }
+            LocalClass(@AnnotationA int integerValue) { this.integerValue = integerValue; }
         }
         return LocalClass.class;
     }
@@ -171,9 +171,7 @@ public class Main {
         class LocalClassStaticContext {
             private final int value;
 
-            LocalClassStaticContext(@AnnotationA int p0) {
-                this.value = p0;
-            }
+            LocalClassStaticContext(@AnnotationA int p0) { this.value = p0; }
         }
 
         final long CAPTURED_VALUE = System.currentTimeMillis();
@@ -202,7 +200,8 @@ public class Main {
         DumpConstructorParameterAnnotations(Main.class);
         DumpConstructorParameterAnnotations(LocalClassStaticContext.class);
         DumpConstructorParameterAnnotations(LocalClassStaticContextWithCapture.class);
-        DumpConstructorParameterAnnotations(LocalClassStaticContextWithCaptureAlternateOrdering.class);
+        DumpConstructorParameterAnnotations(
+                LocalClassStaticContextWithCaptureAlternateOrdering.class);
         Main m = new Main();
         DumpConstructorParameterAnnotations(m.getLocalClassWithEnclosingInstanceCapture());
         DumpConstructorParameterAnnotations(m.getLocalClassWithEnclosingInstanceAndLocalCapture());

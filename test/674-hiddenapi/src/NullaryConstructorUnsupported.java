@@ -15,7 +15,7 @@
  */
 
 public class NullaryConstructorUnsupported {
-  public NullaryConstructorUnsupported() { x = 22; }
-  public NullaryConstructorUnsupported(int y) { x = y; }
-  protected int x;
+    public NullaryConstructorUnsupported() { x = 22; }
+    public NullaryConstructorUnsupported(int y) { x = y; }
+    protected int x;
 }

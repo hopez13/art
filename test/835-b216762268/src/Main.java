@@ -61,14 +61,14 @@ public class Main {
     }
 
     public static void assertEquals(int expected, int actual) {
-      if (expected != actual) {
-        throw new Error("Expected " + expected + ", got " +  actual);
-      }
+        if (expected != actual) {
+            throw new Error("Expected " + expected + ", got " + actual);
+        }
     }
 
     public static void main(String[] strArr) {
-      assertEquals(-1, $noinline$verySimpleTest());
-      assertEquals(175, $noinline$simpleTest());
-      assertEquals(23539, $noinline$mainTest());
+        assertEquals(-1, $noinline$verySimpleTest());
+        assertEquals(175, $noinline$simpleTest());
+        assertEquals(23539, $noinline$mainTest());
     }
 }

@@ -15,73 +15,70 @@
  */
 
 public class Main {
+    static boolean doThrow = false;
 
-  static boolean doThrow = false;
-
-  private void inlinedForNull(Iterable it) {
-    if (it != null) {
-      // We're not inlining throw at the moment.
-      if (doThrow) { throw new Error(""); }
+    private void inlinedForNull(Iterable it) {
+        if (it != null) {
+            // We're not inlining throw at the moment.
+            if (doThrow) {
+                throw new Error("");
+            }
+        }
     }
-  }
 
-  private void inlinedForFalse(boolean value, Iterable it) {
-    if (value) {
-      // We're not inlining throw at the moment.
-      if (doThrow) { throw new Error(""); }
+    private void inlinedForFalse(boolean value, Iterable it) {
+        if (value) {
+            // We're not inlining throw at the moment.
+            if (doThrow) {
+                throw new Error("");
+            }
+        }
     }
-  }
 
-  /// CHECK-START: void Main.testInlinedForFalseInlined(java.lang.Iterable) inliner (before)
-  /// CHECK:                          InvokeStaticOrDirect
+    /// CHECK-START: void Main.testInlinedForFalseInlined(java.lang.Iterable) inliner (before)
+    /// CHECK:                          InvokeStaticOrDirect
 
-  /// CHECK-START: void Main.testInlinedForFalseInlined(java.lang.Iterable) inliner (after)
-  /// CHECK-NOT:                      InvokeStaticOrDirect
-  /// CHECK-NOT:                      InvokeInterface
+    /// CHECK-START: void Main.testInlinedForFalseInlined(java.lang.Iterable) inliner (after)
+    /// CHECK-NOT:                      InvokeStaticOrDirect
+    /// CHECK-NOT:                      InvokeInterface
 
-  public void testInlinedForFalseInlined(Iterable it) {
-    inlinedForFalse(false, it);
-  }
+    public void testInlinedForFalseInlined(Iterable it) { inlinedForFalse(false, it); }
 
-  /// CHECK-START: void Main.testInlinedForFalseNotInlined(java.lang.Iterable) inliner (before)
-  /// CHECK:                          InvokeStaticOrDirect
+    /// CHECK-START: void Main.testInlinedForFalseNotInlined(java.lang.Iterable) inliner (before)
+    /// CHECK:                          InvokeStaticOrDirect
 
-  /// CHECK-START: void Main.testInlinedForFalseNotInlined(java.lang.Iterable) inliner (after)
-  /// CHECK:                          InvokeStaticOrDirect
+    /// CHECK-START: void Main.testInlinedForFalseNotInlined(java.lang.Iterable) inliner (after)
+    /// CHECK:                          InvokeStaticOrDirect
 
-  public void testInlinedForFalseNotInlined(Iterable it) {
-    inlinedForFalse(true, it);
-  }
+    public void testInlinedForFalseNotInlined(Iterable it) { inlinedForFalse(true, it); }
 
-  /// CHECK-START: void Main.testInlinedForNullInlined(java.lang.Iterable) inliner (before)
-  /// CHECK:                          InvokeStaticOrDirect
+    /// CHECK-START: void Main.testInlinedForNullInlined(java.lang.Iterable) inliner (before)
+    /// CHECK:                          InvokeStaticOrDirect
 
-  /// CHECK-START: void Main.testInlinedForNullInlined(java.lang.Iterable) inliner (after)
-  /// CHECK-NOT:                      InvokeStaticOrDirect
-  /// CHECK-NOT:                      InvokeInterface
+    /// CHECK-START: void Main.testInlinedForNullInlined(java.lang.Iterable) inliner (after)
+    /// CHECK-NOT:                      InvokeStaticOrDirect
+    /// CHECK-NOT:                      InvokeInterface
 
-  public void testInlinedForNullInlined(Iterable it) {
-    inlinedForNull(null);
-  }
+    public void testInlinedForNullInlined(Iterable it) { inlinedForNull(null); }
 
-  /// CHECK-START: void Main.testInlinedForNullNotInlined(java.lang.Iterable) inliner (before)
-  /// CHECK:                          InvokeStaticOrDirect
+    /// CHECK-START: void Main.testInlinedForNullNotInlined(java.lang.Iterable) inliner (before)
+    /// CHECK:                          InvokeStaticOrDirect
 
-  /// CHECK-START: void Main.testInlinedForNullNotInlined(java.lang.Iterable) inliner (after)
-  /// CHECK:                          InvokeStaticOrDirect
+    /// CHECK-START: void Main.testInlinedForNullNotInlined(java.lang.Iterable) inliner (after)
+    /// CHECK:                          InvokeStaticOrDirect
 
-  public void testInlinedForNullNotInlined(Iterable it) {
-    inlinedForNull(it);
-  }
+    public void testInlinedForNullNotInlined(Iterable it) { inlinedForNull(it); }
 
-  public static void main(String[] args) {
-    Main m = new Main();
-    Iterable it = new Iterable() {
-      public java.util.Iterator iterator() { return null; }
-    };
-    m.testInlinedForFalseInlined(it);
-    m.testInlinedForFalseNotInlined(it);
-    m.testInlinedForNullInlined(it);
-    m.testInlinedForNullNotInlined(it);
-  }
+    public static void main(String[] args) {
+        Main m = new Main();
+        Iterable it = new Iterable() {
+            public java.util.Iterator iterator() {
+                return null;
+            }
+        };
+        m.testInlinedForFalseInlined(it);
+        m.testInlinedForFalseNotInlined(it);
+        m.testInlinedForNullInlined(it);
+        m.testInlinedForNullNotInlined(it);
+    }
 }

@@ -15,5 +15,5 @@
  */
 
 public interface TestCase {
-  public void runTest(Transform t);
+    public void runTest(Transform t);
 }

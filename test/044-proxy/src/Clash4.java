@@ -29,26 +29,32 @@ public class Clash4 {
 
         try {
             Proxy.newProxyInstance(Clash.class.getClassLoader(),
-                new Class<?>[] {
-                    Interface4a.class,
-                    Interface4aa.class,
-                    Interface4base.class,
-                    Interface4b.class,
-                    Interface4bb.class },
-                handler);
+                    new Class<?>[] {Interface4a.class, Interface4aa.class, Interface4base.class,
+                            Interface4b.class, Interface4bb.class},
+                    handler);
             System.out.println("Clash4 did not throw expected exception");
         } catch (IllegalArgumentException iae) {
             System.out.println("Clash4 threw expected exception");
-            //System.out.println(iae);
+            // System.out.println(iae);
         }
     }
 }
 
-class R4base { int mBlah;  }
-class R4a extends R4base { int mBlah_a;  }
-class R4aa extends R4a { int mBlah_aa;  }
-class R4b extends R4base { int mBlah_b;  }
-class R4bb extends R4b { int mBlah_bb;  }
+class R4base {
+    int mBlah;
+}
+class R4a extends R4base {
+    int mBlah_a;
+}
+class R4aa extends R4a {
+    int mBlah_aa;
+}
+class R4b extends R4base {
+    int mBlah_b;
+}
+class R4bb extends R4b {
+    int mBlah_bb;
+}
 
 interface Interface4base {
     public R4base thisIsTrouble();
@@ -69,9 +75,7 @@ interface Interface4bb {
 
 class Clash4InvocationHandler implements InvocationHandler {
     /* don't really need to do anything -- should never get this far */
-    public Object invoke(Object proxy, Method method, Object[] args)
-        throws Throwable {
-
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         return null;
     }
 }

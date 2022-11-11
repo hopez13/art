@@ -15,7 +15,5 @@
  */
 
 public class Test11Base {
-    Test11Base(String message) {
-        System.out.println("Test11Base.<init>(\"" + message + "\")");
-    }
+    Test11Base(String message) { System.out.println("Test11Base.<init>(\"" + message + "\")"); }
 }

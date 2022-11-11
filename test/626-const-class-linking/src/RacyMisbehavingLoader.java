@@ -47,30 +47,27 @@ public class RacyMisbehavingLoader extends DefiningLoader {
         }
     }
 
-    protected Class<?> findClass(String name) throws ClassNotFoundException
-    {
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
         if (name.equals("Test")) {
             throw new Error("Unexpected RacyLoader.findClass(\"" + name + "\")");
         }
         return super.findClass(name);
     }
 
-    protected Class<?> loadClass(String name, boolean resolve)
-        throws ClassNotFoundException
-    {
+    protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
         if (name.equals("Test")) {
             int my_index = syncWithOtherInstances(count);
             Class<?> result;
             if ((my_index & 1) == 0) {
-              // Do not delay loading the correct class.
-              result = defining_loaders[my_index & 1].loadClass(name, resolve);
+                // Do not delay loading the correct class.
+                result = defining_loaders[my_index & 1].loadClass(name, resolve);
             } else {
-              // Delay loading the wrong class.
-              syncWithOtherInstances(2 * count);
-              if (throw_error) {
-                throw new Error("RacyMisbehavingLoader throw_error=true");
-              }
-              result = defining_loaders[my_index & 1].loadClass("Test3", resolve);
+                // Delay loading the wrong class.
+                syncWithOtherInstances(2 * count);
+                if (throw_error) {
+                    throw new Error("RacyMisbehavingLoader throw_error=true");
+                }
+                result = defining_loaders[my_index & 1].loadClass("Test3", resolve);
             }
             return result;
         }

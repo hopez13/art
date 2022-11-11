@@ -15,5 +15,5 @@
  */
 
 public class Foo {
-  public static Main mainObject;
+    public static Main mainObject;
 }

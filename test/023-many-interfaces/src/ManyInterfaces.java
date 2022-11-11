@@ -62,119 +62,36 @@ testInst099: 845526us  (1612ns per use)         * 1394ns
  * Semi-generated class with many interfaces.
  */
 public class ManyInterfaces
-    implements
-        Interface000,
-        Interface001,
-        Interface002,
-        Interface003,
-        Interface004,
-        Interface005,
-        Interface006,
-        Interface007,
-        Interface008,
-        Interface009,
-        Interface010,
-        Interface011,
-        Interface012,
-        Interface013,
-        Interface014,
-        Interface015,
-        Interface016,
-        Interface017,
-        Interface018,
-        Interface019,
-        Interface020,
-        Interface021,
-        Interface022,
-        Interface023,
-        Interface024,
-        Interface025,
-        Interface026,
-        Interface027,
-        Interface028,
-        Interface029,
-        Interface030,
-        Interface031,
-        Interface032,
-        Interface033,
-        Interface034,
-        Interface035,
-        Interface036,
-        Interface037,
-        Interface038,
-        Interface039,
-        Interface040,
-        Interface041,
-        Interface042,
-        Interface043,
-        Interface044,
-        Interface045,
-        Interface046,
-        Interface047,
-        Interface048,
-        Interface049,
-        Interface050,
-        Interface051,
-        Interface052,
-        Interface053,
-        Interface054,
-        Interface055,
-        Interface056,
-        Interface057,
-        Interface058,
-        Interface059,
-        Interface060,
-        Interface061,
-        Interface062,
-        Interface063,
-        Interface064,
-        Interface065,
-        Interface066,
-        Interface067,
-        Interface068,
-        Interface069,
-        Interface070,
-        Interface071,
-        Interface072,
-        Interface073,
-        Interface074,
-        Interface075,
-        Interface076,
-        Interface077,
-        Interface078,
-        Interface079,
-        Interface080,
-        Interface081,
-        Interface082,
-        Interface083,
-        Interface084,
-        Interface085,
-        Interface086,
-        Interface087,
-        Interface088,
-        Interface089,
-        Interface090,
-        Interface091,
-        Interface092,
-        Interface093,
-        Interface094,
-        Interface095,
-        Interface096,
-        Interface097,
-        Interface098,
-        Interface099
-{
+        implements Interface000, Interface001, Interface002, Interface003, Interface004,
+                   Interface005, Interface006, Interface007, Interface008, Interface009,
+                   Interface010, Interface011, Interface012, Interface013, Interface014,
+                   Interface015, Interface016, Interface017, Interface018, Interface019,
+                   Interface020, Interface021, Interface022, Interface023, Interface024,
+                   Interface025, Interface026, Interface027, Interface028, Interface029,
+                   Interface030, Interface031, Interface032, Interface033, Interface034,
+                   Interface035, Interface036, Interface037, Interface038, Interface039,
+                   Interface040, Interface041, Interface042, Interface043, Interface044,
+                   Interface045, Interface046, Interface047, Interface048, Interface049,
+                   Interface050, Interface051, Interface052, Interface053, Interface054,
+                   Interface055, Interface056, Interface057, Interface058, Interface059,
+                   Interface060, Interface061, Interface062, Interface063, Interface064,
+                   Interface065, Interface066, Interface067, Interface068, Interface069,
+                   Interface070, Interface071, Interface072, Interface073, Interface074,
+                   Interface075, Interface076, Interface077, Interface078, Interface079,
+                   Interface080, Interface081, Interface082, Interface083, Interface084,
+                   Interface085, Interface086, Interface087, Interface088, Interface089,
+                   Interface090, Interface091, Interface092, Interface093, Interface094,
+                   Interface095, Interface096, Interface097, Interface098, Interface099 {
     /** whether to report timing information */
     private static boolean timing = false;
 
     /**
      * Report on a section.
      */
-    private static void report(String label, long start, long end, int iter,
-            int rept) {
+    private static void report(String label, long start, long end, int iter, int rept) {
         if (timing) {
             System.out.println(label + ": " + (end - start) / 1000 + "us"
-                    + "  (" + (end - start) / (iter*rept) + "ns per call)");
+                    + "  (" + (end - start) / (iter * rept) + "ns per call)");
         } else {
             System.out.println(label + ": done");
         }
@@ -301,55 +218,127 @@ public class ManyInterfaces
 
     static void testIface001(Interface001 iface, int count) {
         while (count-- != 0) {
-            iface.func001(); iface.func001(); iface.func001(); iface.func001();
-            iface.func001(); iface.func001(); iface.func001(); iface.func001();
-            iface.func001(); iface.func001(); iface.func001(); iface.func001();
-            iface.func001(); iface.func001(); iface.func001(); iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
+            iface.func001();
         }
     }
 
     static void testIface049(Interface049 iface, int count) {
         while (count-- != 0) {
-            iface.func049(); iface.func049(); iface.func049(); iface.func049();
-            iface.func049(); iface.func049(); iface.func049(); iface.func049();
-            iface.func049(); iface.func049(); iface.func049(); iface.func049();
-            iface.func049(); iface.func049(); iface.func049(); iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
+            iface.func049();
         }
     }
 
     static void testIface099(Interface099 iface, int count) {
         while (count-- != 0) {
-            iface.func099(); iface.func099(); iface.func099(); iface.func099();
-            iface.func099(); iface.func099(); iface.func099(); iface.func099();
-            iface.func099(); iface.func099(); iface.func099(); iface.func099();
-            iface.func099(); iface.func099(); iface.func099(); iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
+            iface.func099();
         }
     }
 
     static void testVirt001(ManyInterfaces obj, int count) {
         while (count-- != 0) {
-            obj.func001(); obj.func001(); obj.func001(); obj.func001();
-            obj.func001(); obj.func001(); obj.func001(); obj.func001();
-            obj.func001(); obj.func001(); obj.func001(); obj.func001();
-            obj.func001(); obj.func001(); obj.func001(); obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
+            obj.func001();
         }
     }
 
     static void testVirt049(ManyInterfaces obj, int count) {
         while (count-- != 0) {
-            obj.func049(); obj.func049(); obj.func049(); obj.func049();
-            obj.func049(); obj.func049(); obj.func049(); obj.func049();
-            obj.func049(); obj.func049(); obj.func049(); obj.func049();
-            obj.func049(); obj.func049(); obj.func049(); obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
+            obj.func049();
         }
     }
 
     static void testVirt099(ManyInterfaces obj, int count) {
         while (count-- != 0) {
-            obj.func099(); obj.func099(); obj.func099(); obj.func099();
-            obj.func099(); obj.func099(); obj.func099(); obj.func099();
-            obj.func099(); obj.func099(); obj.func099(); obj.func099();
-            obj.func099(); obj.func099(); obj.func099(); obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
+            obj.func099();
         }
     }
 

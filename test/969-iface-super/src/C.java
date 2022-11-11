@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 public class C implements Iface {
-  public String SayHi() {
-    return Iface.super.SayHi() + " and welcome ";
-  }
+    public String SayHi() { return Iface.super.SayHi() + " and welcome "; }
 }

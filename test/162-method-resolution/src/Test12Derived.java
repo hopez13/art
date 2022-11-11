@@ -16,5 +16,4 @@
 
 import pkg.Test12Base;
 
-public class Test12Derived extends Test12Base {
-}
+public class Test12Derived extends Test12Base {}

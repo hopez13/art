@@ -31,7 +31,7 @@ public class Main {
             // we see the Cloneable in the dex cache, so we do not try to look it up
             // or resolve it.
             Class<?> timpl =
-                Class.forName("TestImplementation", false, Main.class.getClassLoader());
+                    Class.forName("TestImplementation", false, Main.class.getClassLoader());
             // Clear the dex cache resolved types to force a proper lookup the next time
             // we need to find TestInterface.
             clearResolvedTypes(timpl);

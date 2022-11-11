@@ -18,7 +18,6 @@
  * Test stuff.
  */
 public interface Iface1 {
-
     public int iFunc1(int ii);
 
     public float mFloaty = 5.0f;

@@ -15,103 +15,100 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
-    testRegistration1();
-    testRegistration2();
-    testRegistration3();
-  }
-
-  // Test that a subclass' method is registered instead of a superclass' method.
-  private static void testRegistration1() {
-    registerNatives(TestSub.class);
-
-    expectNotThrows(new TestSub());
-    expectThrows(new TestSuper());
-  }
-
-  // Test that a superclass' method is registered if the subclass doesn't have a matching method.
-  private static void testRegistration2() {
-    registerNatives(TestSub2.class);
-
-    expectNotThrows(new TestSub2());
-    expectNotThrows(new TestSuper2());
-  }
-
-  // Test that registration fails if the subclass has a matching non-native method.
-  private static void testRegistration3() {
-    try {
-      registerNatives(TestSub3.class);
-      System.out.println("Expected exception for registerNatives(TestSub3.class)");
-    } catch (NoSuchMethodError ignored) {
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
+        testRegistration1();
+        testRegistration2();
+        testRegistration3();
     }
-  }
 
-  private native static int registerNatives(Class<?> c);
+    // Test that a subclass' method is registered instead of a superclass' method.
+    private static void testRegistration1() {
+        registerNatives(TestSub.class);
 
-  private static void expectThrows(Base b) {
-    try {
-      b.callMyFoo();
-      System.out.println("Expected exception for " + b.getClass().getName());
-    } catch (Throwable ignored) {
+        expectNotThrows(new TestSub());
+        expectThrows(new TestSuper());
     }
-  }
 
-  private static void expectNotThrows(Base b) {
-    try {
-      b.callMyFoo();
-    } catch (Throwable t) {
-      System.out.println("Did not expect an exception for " + b.getClass().getName());
-      t.printStackTrace(System.out);
+    // Test that a superclass' method is registered if the subclass doesn't have a matching method.
+    private static void testRegistration2() {
+        registerNatives(TestSub2.class);
+
+        expectNotThrows(new TestSub2());
+        expectNotThrows(new TestSuper2());
     }
-  }
+
+    // Test that registration fails if the subclass has a matching non-native method.
+    private static void testRegistration3() {
+        try {
+            registerNatives(TestSub3.class);
+            System.out.println("Expected exception for registerNatives(TestSub3.class)");
+        } catch (NoSuchMethodError ignored) {
+        }
+    }
+
+    private native static int registerNatives(Class<?> c);
+
+    private static void expectThrows(Base b) {
+        try {
+            b.callMyFoo();
+            System.out.println("Expected exception for " + b.getClass().getName());
+        } catch (Throwable ignored) {
+        }
+    }
+
+    private static void expectNotThrows(Base b) {
+        try {
+            b.callMyFoo();
+        } catch (Throwable t) {
+            System.out.println("Did not expect an exception for " + b.getClass().getName());
+            t.printStackTrace(System.out);
+        }
+    }
 }
 
 abstract class Base {
-  public abstract void callMyFoo();
+    public abstract void callMyFoo();
 }
 
 class TestSuper extends Base {
-  private native void foo();
+    private native void foo();
 
-  @Override
-  public void callMyFoo() {
-    foo();
-  }
+    @Override
+    public void callMyFoo() {
+        foo();
+    }
 }
 
 class TestSub extends TestSuper {
-  public native void foo();
+    public native void foo();
 
-  @Override
-  public void callMyFoo() {
-    foo();
-  }
+    @Override
+    public void callMyFoo() {
+        foo();
+    }
 }
 
-class TestSuper2 extends Base{
-  public native void foo();
+class TestSuper2 extends Base {
+    public native void foo();
 
-  @Override
-  public void callMyFoo() {
-    foo();
-  }
+    @Override
+    public void callMyFoo() {
+        foo();
+    }
 }
 
-class TestSub2 extends TestSuper2 {
-}
+class TestSub2 extends TestSuper2 {}
 
 class TestSuper3 extends Base {
-  public native void foo();
+    public native void foo();
 
-  @Override
-  public void callMyFoo() {
-    foo();
-  }
+    @Override
+    public void callMyFoo() {
+        foo();
+    }
 }
 
 class TestSub3 extends TestSuper3 {
-  public void foo() {
-    System.out.println("TestSub3.foo()");
-  }
+    public void foo() { System.out.println("TestSub3.foo()"); }
 }

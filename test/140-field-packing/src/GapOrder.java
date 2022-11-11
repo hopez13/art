@@ -22,57 +22,55 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 class GapOrder extends GapOrderBase {
-  // The base class is 9 bytes. The entire class should be packed as:
-  //
-  //    00: oooo oooo
-  //    08: b-ss rrrr
-  //    16: rrrr iiii
-  //    24: dddd dddd
-  //
-  // The problem was, the packer wasn't finding the gap where iiii should go,
-  // because the gap where ss goes was given priority. Instead it packed as:
-  //    00: oooo oooo
-  //    08: b--- rrrr
-  //    16: rrrr ----
-  //    24: dddd dddd
-  //    32: iiii ss
-  public Object r1;
-  public Object r2;
-  public double d;
-  public int i;
-  public short s;
+    // The base class is 9 bytes. The entire class should be packed as:
+    //
+    //    00: oooo oooo
+    //    08: b-ss rrrr
+    //    16: rrrr iiii
+    //    24: dddd dddd
+    //
+    // The problem was, the packer wasn't finding the gap where iiii should go,
+    // because the gap where ss goes was given priority. Instead it packed as:
+    //    00: oooo oooo
+    //    08: b--- rrrr
+    //    16: rrrr ----
+    //    24: dddd dddd
+    //    32: iiii ss
+    public Object r1;
+    public Object r2;
+    public double d;
+    public int i;
+    public short s;
 
-  static private void CheckField(String fieldName, int expected) {
-    Field field = null;
-    try {
-      field = GapOrder.class.getField(fieldName);
-    } catch (ReflectiveOperationException e) {
-      System.out.println(fieldName + " not found in GapOrder.");
-      return;
+    static private void CheckField(String fieldName, int expected) {
+        Field field = null;
+        try {
+            field = GapOrder.class.getField(fieldName);
+        } catch (ReflectiveOperationException e) {
+            System.out.println(fieldName + " not found in GapOrder.");
+            return;
+        }
+
+        int actual = -1;
+        try {
+            Method getOffset = Field.class.getMethod("getOffset");
+            actual = (Integer) getOffset.invoke(field);
+        } catch (ReflectiveOperationException e) {
+            System.out.println("Unable to get field offset for " + fieldName + ":" + e);
+            return;
+        }
+
+        if (actual != expected) {
+            System.out.println(String.format(
+                    "GapOrder.%s has offset %d, but expected %d", fieldName, actual, expected));
+        }
     }
 
-    int actual = -1;
-    try {
-      Method getOffset = Field.class.getMethod("getOffset");
-      actual = (Integer)getOffset.invoke(field);
-    } catch (ReflectiveOperationException e) {
-      System.out.println("Unable to get field offset for " + fieldName + ":" + e);
-      return;
+    static public void Check() {
+        CheckField("r1", 12);
+        CheckField("r2", 16);
+        CheckField("d", 24);
+        CheckField("i", 20);
+        CheckField("s", 10);
     }
-
-    if (actual != expected) {
-      System.out.println(
-          String.format("GapOrder.%s has offset %d, but expected %d",
-            fieldName, actual, expected));
-    }
-  }
-
-  static public void Check() {
-    CheckField("r1", 12);
-    CheckField("r2", 16);
-    CheckField("d", 24);
-    CheckField("i", 20);
-    CheckField("s", 10);
-  }
 }
-

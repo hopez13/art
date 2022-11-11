@@ -19,7 +19,5 @@ package pkg2;
 import pkg1.CX;
 
 public class DX extends CX {
-    /*package-private*/ void foo() {
-        System.out.println("pkg1.DX.foo");
-    }
+    /*package-private*/ void foo() { System.out.println("pkg1.DX.foo"); }
 }

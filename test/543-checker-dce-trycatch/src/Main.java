@@ -15,48 +15,46 @@
  */
 
 public class Main {
-  static boolean $inline$False() { return false; }
+    static boolean $inline$False() { return false; }
 
-  // DCE should only merge blocks where the first ends with a Goto.
-  // SSAChecker will fail if the following Throw->TryBoundary blocks are merged.
-  public static void doNotMergeThrow(String str) {
-    try {
-      throw new Exception(str);
-    } catch (Exception ex) {
-      return;
-    }
-  }
-
-  // Test deletion of all try/catch blocks. Multiple catch blocks test deletion
-  // where TryBoundary still has exception handler successors after having removed
-  // some already.
-
-  /// CHECK-START: void Main.testDeadTryCatch(boolean) dead_code_elimination$after_inlining (after)
-  /// CHECK-NOT: TryBoundary
-
-  /// CHECK-START: void Main.testDeadTryCatch(boolean) dead_code_elimination$after_inlining (after)
-  /// CHECK: begin_block
-  /// CHECK: begin_block
-  /// CHECK: begin_block
-  /// CHECK-NOT: begin_block
-
-  public static void testDeadTryCatch(boolean val) {
-    if ($inline$False()) {
-      try {
-        if (val) {
-          throw new ArithmeticException();
-        } else {
-          throw new ArrayIndexOutOfBoundsException();
+    // DCE should only merge blocks where the first ends with a Goto.
+    // SSAChecker will fail if the following Throw->TryBoundary blocks are merged.
+    public static void doNotMergeThrow(String str) {
+        try {
+            throw new Exception(str);
+        } catch (Exception ex) {
+            return;
         }
-      } catch (ArithmeticException ex) {
-        System.out.println("Unexpected AE catch");
-      } catch (ArrayIndexOutOfBoundsException ex) {
-        System.out.println("Unexpected AIIOB catch");
-      }
     }
-  }
 
-  public static void main(String[] args) {
+    // Test deletion of all try/catch blocks. Multiple catch blocks test deletion
+    // where TryBoundary still has exception handler successors after having removed
+    // some already.
 
-  }
+    /// CHECK-START: void Main.testDeadTryCatch(boolean) dead_code_elimination$after_inlining (after)
+    /// CHECK-NOT: TryBoundary
+
+    /// CHECK-START: void Main.testDeadTryCatch(boolean) dead_code_elimination$after_inlining (after)
+    /// CHECK: begin_block
+    /// CHECK: begin_block
+    /// CHECK: begin_block
+    /// CHECK-NOT: begin_block
+
+    public static void testDeadTryCatch(boolean val) {
+        if ($inline$False()) {
+            try {
+                if (val) {
+                    throw new ArithmeticException();
+                } else {
+                    throw new ArrayIndexOutOfBoundsException();
+                }
+            } catch (ArithmeticException ex) {
+                System.out.println("Unexpected AE catch");
+            } catch (ArrayIndexOutOfBoundsException ex) {
+                System.out.println("Unexpected AIIOB catch");
+            }
+        }
+    }
+
+    public static void main(String[] args) {}
 }

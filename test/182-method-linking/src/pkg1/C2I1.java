@@ -16,5 +16,4 @@
 
 package pkg1;
 
-public class C2I1 extends C2 implements I1 {
-}
+public class C2I1 extends C2 implements I1 {}

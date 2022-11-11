@@ -17,14 +17,14 @@
 import java.lang.reflect.Method;
 
 public class TestMain {
-  public static void runTest() throws Exception {
-    Transform t = new Transform();
-    // Call functions with reflection. Since the sayGoodbye function does not exist in the
-    // LTransform; when we compile this for the first time we need to use reflection.
-    Method hi = Transform.class.getMethod("sayHi");
-    Method bye = Transform.class.getMethod("sayGoodbye");
-    hi.invoke(t);
-    t.sayHi();
-    bye.invoke(t);
-  }
+    public static void runTest() throws Exception {
+        Transform t = new Transform();
+        // Call functions with reflection. Since the sayGoodbye function does not exist in the
+        // LTransform; when we compile this for the first time we need to use reflection.
+        Method hi = Transform.class.getMethod("sayHi");
+        Method bye = Transform.class.getMethod("sayGoodbye");
+        hi.invoke(t);
+        t.sayHi();
+        bye.invoke(t);
+    }
 }

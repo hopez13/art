@@ -18,10 +18,8 @@ package pkg1;
 
 // `SuperClass` is only visible to classes in packge `pkg1`.
 class SuperClass {
-  public static void callMethod() {
-  }
+    public static void callMethod() {}
 }
 
 // Any class that extends `SubClass` will be able to access `SuperClass.callMethod`.
-public class SubClass extends SuperClass {
-}
+public class SubClass extends SuperClass {}

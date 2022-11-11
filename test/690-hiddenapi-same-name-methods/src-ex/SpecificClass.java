@@ -15,7 +15,5 @@
  */
 
 public class SpecificClass implements GenericInterface<Double> {
-  public Double foo() {
-    return 42.0;
-  }
+    public Double foo() { return 42.0; }
 }

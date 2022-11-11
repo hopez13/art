@@ -15,6 +15,7 @@
  */
 
 import dalvik.system.PathClassLoader;
+
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -22,25 +23,23 @@ import java.nio.file.Files;
 import java.util.Arrays;
 
 public class Main {
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        appendToBootClassLoader(OTHER_DEX, /* isCorePlatform */ false);
 
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    appendToBootClassLoader(OTHER_DEX, /* isCorePlatform */ false);
-
-    try {
-      Class.forName("NonVerifiedClass");
-      throw new Error("Expected VerifyError");
-    } catch (VerifyError e) {
-      // Expected.
+        try {
+            Class.forName("NonVerifiedClass");
+            throw new Error("Expected VerifyError");
+        } catch (VerifyError e) {
+            // Expected.
+        }
     }
-  }
 
-  private static native int appendToBootClassLoader(String dexPath, boolean isCorePlatform);
+    private static native int appendToBootClassLoader(String dexPath, boolean isCorePlatform);
 
-  private static final String OTHER_DEX =
-      new File(System.getenv("DEX_LOCATION"), "831-unverified-bcp-ex.jar").getAbsolutePath();
+    private static final String OTHER_DEX =
+            new File(System.getenv("DEX_LOCATION"), "831-unverified-bcp-ex.jar").getAbsolutePath();
 }
 
 // Define the class also in the classpath, to trigger the AssertNoPendingException crash.
-class NonVerifiedClass {
-}
+class NonVerifiedClass {}

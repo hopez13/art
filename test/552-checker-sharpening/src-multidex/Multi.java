@@ -15,12 +15,10 @@
  */
 
 public class Multi {
-  /// CHECK-START: java.lang.String Multi.localToHexString() builder (after)
-  /// CHECK-NOT:   LoadClass
+    /// CHECK-START: java.lang.String Multi.localToHexString() builder (after)
+    /// CHECK-NOT:   LoadClass
 
-  /// CHECK-START: java.lang.String Multi.localToHexString() builder (after)
-  /// CHECK:       InvokeStaticOrDirect method_name:Main.$noinline$toHexString method_load_kind:BssEntry clinit_check:implicit
-  public static String localToHexString() {
-    return MainExtension.$noinline$toHexString(42);
-  }
+    /// CHECK-START: java.lang.String Multi.localToHexString() builder (after)
+    /// CHECK:       InvokeStaticOrDirect method_name:Main.$noinline$toHexString method_load_kind:BssEntry clinit_check:implicit
+    public static String localToHexString() { return MainExtension.$noinline$toHexString(42); }
 }

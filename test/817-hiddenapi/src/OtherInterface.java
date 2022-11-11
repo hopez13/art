@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 interface OtherInterface {
-  // This method will be blocked.
-  int methodPublicSdkNotInAbstractParent();
+    // This method will be blocked.
+    int methodPublicSdkNotInAbstractParent();
 }

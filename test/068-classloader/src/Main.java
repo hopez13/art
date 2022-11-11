@@ -28,8 +28,8 @@ public class Main {
         FancyLoader loader;
 
         loader = new FancyLoader(ClassLoader.getSystemClassLoader());
-        //System.out.println("SYSTEM: " + ClassLoader.getSystemClassLoader());
-        //System.out.println("ALTERN: " + loader);
+        // System.out.println("SYSTEM: " + ClassLoader.getSystemClassLoader());
+        // System.out.println("ALTERN: " + loader);
 
         /*
          * This statement has no effect on this program, but it can
@@ -168,7 +168,7 @@ public class Main {
             return;
         } catch (IllegalAccessException iae) {
             System.out.println("Got expected access exception #1");
-            //System.out.println("+++ " + iae);
+            // System.out.println("+++ " + iae);
             return;
         }
     }
@@ -224,8 +224,8 @@ public class Main {
         /* get the "alternate" version of DoubledExtend */
         try {
             doubledExtendClass = loader.loadClass("DoubledExtend");
-            //System.out.println("+++ DoubledExtend is " + doubledExtendClass
-            //    + " in " + doubledExtendClass.getClassLoader());
+            // System.out.println("+++ DoubledExtend is " + doubledExtendClass
+            //     + " in " + doubledExtendClass.getClassLoader());
         } catch (ClassNotFoundException cnfe) {
             System.out.println("loadClass failed: " + cnfe);
             return;
@@ -442,8 +442,8 @@ public class Main {
      * Do something with a DoubledImplement instance.
      */
     static void useImplement(DoubledImplement di, boolean isOne) {
-        //System.out.println("useObject: " + di.toString() + " -- "
-        //    + di.getClass().getClassLoader());
+        // System.out.println("useObject: " + di.toString() + " -- "
+        //     + di.getClass().getClassLoader());
         try {
             di.one();
             if (!isOne) {
@@ -457,7 +457,6 @@ public class Main {
             }
         }
     }
-
 
     /**
      * Test a class that implements an interface with a super-interface
@@ -491,7 +490,7 @@ public class Main {
             return;
         } catch (LinkageError le) {
             System.out.println("Got LinkageError on IDI (early)");
-            //System.out.println(le);
+            // System.out.println(le);
             return;
         }
 

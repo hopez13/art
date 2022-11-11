@@ -15,39 +15,37 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    for (int i = 0; i < 20000; ++i) {
-      $noinline$testInTryCatch(new Main(), i);
-      $noinline$testInTryCatch(new SubMain(), i);
+    public static void main(String[] args) {
+        for (int i = 0; i < 20000; ++i) {
+            $noinline$testInTryCatch(new Main(), i);
+            $noinline$testInTryCatch(new SubMain(), i);
+        }
     }
-  }
 
-  public static void $noinline$testInTryCatch(Main m, int i) {
-    final int value;
-    try {
-      throw new Exception();
-    } catch (Exception e) {
-      // The polymorphic inlining of 'willInlineVoid' used to generate an
-      // incorrect graph, by setting the inlined blocks as catch blocks.
-      m.willInlineVoid(i);
-      return;
+    public static void $noinline$testInTryCatch(Main m, int i) {
+        final int value;
+        try {
+            throw new Exception();
+        } catch (Exception e) {
+            // The polymorphic inlining of 'willInlineVoid' used to generate an
+            // incorrect graph, by setting the inlined blocks as catch blocks.
+            m.willInlineVoid(i);
+            return;
+        }
     }
-  }
 
-  public void willInlineVoid(int i) {
-    if (i == 0) {
-      $noinline$foo();
-    } else {
-      $noinline$foo();
-      $noinline$foo();
+    public void willInlineVoid(int i) {
+        if (i == 0) {
+            $noinline$foo();
+        } else {
+            $noinline$foo();
+            $noinline$foo();
+        }
     }
-  }
 
-  public static void $noinline$foo() {
-  }
+    public static void $noinline$foo() {}
 }
 
 class SubMain extends Main {
-  public void willInlineVoid(int i) {
-  }
+    public void willInlineVoid(int i) {}
 }

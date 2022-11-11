@@ -15,19 +15,17 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    int foo = Main.a;
-    new Bar();
-    foo = Main.a;
-    if (foo != 43) {
-      throw new Error("Expected 43, got " + foo);
+    public static void main(String[] args) {
+        int foo = Main.a;
+        new Bar();
+        foo = Main.a;
+        if (foo != 43) {
+            throw new Error("Expected 43, got " + foo);
+        }
     }
-  }
-  static int a = 42;
+    static int a = 42;
 }
 
 class Bar {
-  static {
-    Main.a++;
-  }
+    static { Main.a++; }
 }

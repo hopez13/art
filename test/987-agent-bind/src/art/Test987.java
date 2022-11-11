@@ -17,26 +17,20 @@
 package art;
 
 public class Test987 {
-  // A class with a native method we can play with.
-  static class Transform {
-    private static native void sayHi();
-    private static native void sayHi2();
-  }
+    // A class with a native method we can play with.
+    static class Transform {
+        private static native void sayHi();
+        private static native void sayHi2();
+    }
 
-  public static void run() throws Exception {
-    doTest();
-  }
+    public static void run() throws Exception { doTest(); }
 
-  public static void doTest() throws Exception {
-    Transform.sayHi();
-    Transform.sayHi2();
-  }
-  // Functions called from native code.
-  public static void doSayHi() {
-    System.out.println("Hello");
-  }
+    public static void doTest() throws Exception {
+        Transform.sayHi();
+        Transform.sayHi2();
+    }
+    // Functions called from native code.
+    public static void doSayHi() { System.out.println("Hello"); }
 
-  public static void doSayHi2() {
-    System.out.println("Hello - 2");
-  }
+    public static void doSayHi2() { System.out.println("Hello - 2"); }
 }

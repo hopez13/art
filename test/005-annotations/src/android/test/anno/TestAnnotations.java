@@ -30,8 +30,7 @@ public class TestAnnotations {
      * any (legitimate) non-determinism with regard to the iteration order.
      */
     static private void printAnnotationArray(String prefix, Annotation[] arr) {
-        TreeMap<String, Annotation> sorted =
-            new TreeMap<String, Annotation>();
+        TreeMap<String, Annotation> sorted = new TreeMap<String, Annotation>();
 
         for (Annotation a : arr) {
             sorted.put(a.annotationType().getName(), a);
@@ -48,34 +47,33 @@ public class TestAnnotations {
         Annotation[][] parAnnos;
 
         annos = clazz.getAnnotations();
-        System.out.println("annotations on TYPE " + clazz +
-            "(" + annos.length + "):");
+        System.out.println("annotations on TYPE " + clazz + "(" + annos.length + "):");
         printAnnotationArray("", annos);
         System.out.println();
 
-        for (Constructor<?> c: clazz.getDeclaredConstructors()) {
+        for (Constructor<?> c : clazz.getDeclaredConstructors()) {
             annos = c.getDeclaredAnnotations();
             System.out.println("  annotations on CTOR " + c + ":");
             printAnnotationArray("  ", annos);
 
             System.out.println("    constructor parameter annotations:");
-            for (Annotation[] pannos: c.getParameterAnnotations()) {
+            for (Annotation[] pannos : c.getParameterAnnotations()) {
                 printAnnotationArray("    ", pannos);
             }
         }
 
-        for (Method m: clazz.getDeclaredMethods()) {
+        for (Method m : clazz.getDeclaredMethods()) {
             annos = m.getDeclaredAnnotations();
             System.out.println("  annotations on METH " + m + ":");
             printAnnotationArray("  ", annos);
 
             System.out.println("    method parameter annotations:");
-            for (Annotation[] pannos: m.getParameterAnnotations()) {
+            for (Annotation[] pannos : m.getParameterAnnotations()) {
                 printAnnotationArray("    ", pannos);
             }
         }
 
-        for (Field f: clazz.getDeclaredFields()) {
+        for (Field f : clazz.getDeclaredFields()) {
             annos = f.getDeclaredAnnotations();
             System.out.println("  annotations on FIELD " + f + ":");
             printAnnotationArray("  ", annos);
@@ -90,30 +88,21 @@ public class TestAnnotations {
         System.out.println();
     }
 
-
-    @ExportedProperty(mapping = {
-        @IntToString(from = 0, to = "NORMAL_FOCUS"),
-        @IntToString(from = 2, to = "WEAK_FOCUS")
-    })
-    public int getFocusType() {
+    @ExportedProperty(mapping =
+            {
+                @IntToString(from = 0, to = "NORMAL_FOCUS")
+                , @IntToString(from = 2, to = "WEAK_FOCUS")
+            })
+    public int
+    getFocusType() {
         return 2;
     }
 
+    @AnnoArrayField String thing1;
 
-    @AnnoArrayField
-    String thing1;
-
-    @AnnoArrayField(
-            zz = {true,false,true},
-            bb = {-1,0,1},
-            cc = {'Q'},
-            ss = {12,13,14,15,16,17},
-            ii = {1,2,3,4},
-            ff = {1.1f,1.2f,1.3f},
-            jj = {-5,0,5},
-            dd = {0.3,0.6,0.9},
-            str = {"hickory","dickory","dock"}
-            )
+    @AnnoArrayField(zz = {true, false, true}, bb = {-1, 0, 1}, cc = {'Q'},
+            ss = {12, 13, 14, 15, 16, 17}, ii = {1, 2, 3, 4}, ff = {1.1f, 1.2f, 1.3f},
+            jj = {-5, 0, 5}, dd = {0.3, 0.6, 0.9}, str = {"hickory", "dickory", "dock"})
     String thing2;
 
     public static void testArrays() {
@@ -147,14 +136,14 @@ public class TestAnnotations {
         property = meth.getAnnotation(ExportedProperty.class);
         mapping = property.mapping();
 
-        System.out.println("mapping is " + mapping.getClass() +
-            "\n  0='" + mapping[0] + "'\n  1='" + mapping[1] + "'");
+        System.out.println("mapping is " + mapping.getClass() + "\n  0='" + mapping[0] + "'\n  1='"
+                + mapping[1] + "'");
 
         /* while we're here, check isAnnotationPresent on Method */
-        System.out.println("present(getFocusType, ExportedProperty): " +
-            meth.isAnnotationPresent(ExportedProperty.class));
-        System.out.println("present(getFocusType, AnnoSimpleType): " +
-            meth.isAnnotationPresent(AnnoSimpleType.class));
+        System.out.println("present(getFocusType, ExportedProperty): "
+                + meth.isAnnotationPresent(ExportedProperty.class));
+        System.out.println("present(getFocusType, AnnoSimpleType): "
+                + meth.isAnnotationPresent(AnnoSimpleType.class));
 
         System.out.println("");
     }
@@ -171,8 +160,8 @@ public class TestAnnotations {
         // This annotation has CLASS retention, but is visible to the runtime in M and earlier.
         Annotation anno = SimplyNoted.class.getAnnotation(AnnoSimpleTypeInvis.class);
         if (anno == null) {
-            System.out.println("testVisibilityCompatibility failed: " +
-                    "SimplyNoted.get(AnnoSimpleTypeInvis) should not be null");
+            System.out.println("testVisibilityCompatibility failed: "
+                    + "SimplyNoted.get(AnnoSimpleTypeInvis) should not be null");
         }
         VMRuntime.setTargetSdkVersion(runtime, currentSdkVersion);
     }
@@ -183,9 +172,8 @@ public class TestAnnotations {
         testArrays();
         testArrayProblem();
 
-        System.out.println(
-            "AnnoSimpleField " + AnnoSimpleField.class.isAnnotation() +
-            ", SimplyNoted " + SimplyNoted.class.isAnnotation());
+        System.out.println("AnnoSimpleField " + AnnoSimpleField.class.isAnnotation()
+                + ", SimplyNoted " + SimplyNoted.class.isAnnotation());
 
         printAnnotations(SimplyNoted.class);
         printAnnotations(INoted.class);
@@ -228,7 +216,7 @@ public class TestAnnotations {
         // Test TypeNotPresentException.
         try {
             AnnoMissingClass missingAnno =
-                ClassWithMissingAnnotation.class.getAnnotation(AnnoMissingClass.class);
+                    ClassWithMissingAnnotation.class.getAnnotation(AnnoMissingClass.class);
             System.out.println("Get annotation with missing class should not throw");
             System.out.println(missingAnno.value());
             System.out.println("Getting value of missing annotaton should have thrown");
@@ -238,7 +226,7 @@ public class TestAnnotations {
 
         // Test renamed enums.
         try {
-            for (Method m: RenamedNoted.class.getDeclaredMethods()) {
+            for (Method m : RenamedNoted.class.getDeclaredMethods()) {
                 Annotation[] annos = m.getDeclaredAnnotations();
                 System.out.println("  annotations on METH " + m + ":");
             }
@@ -259,9 +247,7 @@ public class TestAnnotations {
         private static Method getRuntimeMethod;
         private static Method getTargetSdkVersionMethod;
         private static Method setTargetSdkVersionMethod;
-        static {
-            init();
-        }
+        static { init(); }
 
         private static void init() {
             try {
@@ -271,8 +257,7 @@ public class TestAnnotations {
             }
             try {
                 getRuntimeMethod = vmRuntimeClass.getDeclaredMethod("getRuntime");
-                getTargetSdkVersionMethod =
-                        vmRuntimeClass.getDeclaredMethod("getTargetSdkVersion");
+                getTargetSdkVersionMethod = vmRuntimeClass.getDeclaredMethod("getTargetSdkVersion");
                 setTargetSdkVersionMethod =
                         vmRuntimeClass.getDeclaredMethod("setTargetSdkVersion", Integer.TYPE);
             } catch (Exception e) {
@@ -280,13 +265,9 @@ public class TestAnnotations {
             }
         }
 
-        public static boolean isAndroid() {
-            return vmRuntimeClass != null;
-        }
+        public static boolean isAndroid() { return vmRuntimeClass != null; }
 
-        public static Object getRuntime() throws Exception {
-            return getRuntimeMethod.invoke(null);
-        }
+        public static Object getRuntime() throws Exception { return getRuntimeMethod.invoke(null); }
 
         public static int getTargetSdkVersion(Object runtime) throws Exception {
             return (int) getTargetSdkVersionMethod.invoke(runtime);

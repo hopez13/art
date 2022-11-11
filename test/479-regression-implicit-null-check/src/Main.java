@@ -14,37 +14,34 @@
  * limitations under the License.
  */
 
-
 public class Main {
-  public int x = 0;
+    public int x = 0;
 
-  public Main(Main c) {
-    // After inlining the graph will look like:
-    //     NullCheck c
-    //     InstanceFieldGet c
-    //     InstanceFieldSet this 3
-    // The dead code will eliminate the InstanceFieldGet and we'll end up with:
-    //     NullCheck c
-    //     InstanceFieldSet this 3
-    // At codegen, when verifying if we can move the null check to the user,
-    // we should check that we actually have the same user (not only that the
-    // next instruction can do implicit null checks).
-    // In this case we should generate code for the NullCheck since the next
-    // instruction checks a different object.
-    c.willBeInlined();
-    x = 3;
-  }
-
-  private int willBeInlined() {
-    return x;
-  }
-
-  public static void main(String[] args) {
-    try {
-      new Main(null);
-      throw new RuntimeException("Failed to throw NullPointerException");
-    } catch (NullPointerException e) {
-      // expected
+    public Main(Main c) {
+        // After inlining the graph will look like:
+        //     NullCheck c
+        //     InstanceFieldGet c
+        //     InstanceFieldSet this 3
+        // The dead code will eliminate the InstanceFieldGet and we'll end up with:
+        //     NullCheck c
+        //     InstanceFieldSet this 3
+        // At codegen, when verifying if we can move the null check to the user,
+        // we should check that we actually have the same user (not only that the
+        // next instruction can do implicit null checks).
+        // In this case we should generate code for the NullCheck since the next
+        // instruction checks a different object.
+        c.willBeInlined();
+        x = 3;
     }
-  }
+
+    private int willBeInlined() { return x; }
+
+    public static void main(String[] args) {
+        try {
+            new Main(null);
+            throw new RuntimeException("Failed to throw NullPointerException");
+        } catch (NullPointerException e) {
+            // expected
+        }
+    }
 }

@@ -17,16 +17,11 @@
 package p1;
 
 class OtherInP1 {
-  OtherInP1() {
-  }
-  static Object staticField = new Object();
-  Object instanceField = new Object();
+    OtherInP1() {}
+    static Object staticField = new Object();
+    Object instanceField = new Object();
 
-  static Object doTheStaticCall() {
-    return null;
-  }
+    static Object doTheStaticCall() { return null; }
 
-  Object doTheInstanceCall() {
-    return null;
-  }
+    Object doTheInstanceCall() { return null; }
 }

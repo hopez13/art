@@ -46,12 +46,11 @@ public class Main {
             Constructor<?> ctor =
                     class_loader_class.getConstructor(String.class, ClassLoader.class);
             String path = location + "/" + TEST_NAME + (ex ? "-ex.jar" : ".jar");
-            return (ClassLoader)ctor.newInstance(path, parent);
+            return (ClassLoader) ctor.newInstance(path, parent);
         } catch (ClassNotFoundException e) {
             // Running on RI. Use URLClassLoader.
             String url = "file://" + location + (ex ? "/classes-ex/" : "/classes/");
-            return new java.net.URLClassLoader(
-                    new java.net.URL[] { new java.net.URL(url) }, parent);
+            return new java.net.URLClassLoader(new java.net.URL[] {new java.net.URL(url)}, parent);
         }
     }
 

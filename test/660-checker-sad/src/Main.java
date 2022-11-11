@@ -15,11 +15,11 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    SadByte.main();
-    SadShort.main();
-    SadChar.main();
-    SadInt.main();
-    SadLong.main();
-  }
+    public static void main(String[] args) {
+        SadByte.main();
+        SadShort.main();
+        SadChar.main();
+        SadInt.main();
+        SadLong.main();
+    }
 }

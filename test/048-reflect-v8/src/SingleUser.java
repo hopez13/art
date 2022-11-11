@@ -15,7 +15,5 @@
  */
 
 // Stored as a single "Calendar" annotation in the binary.
-@Calendar(dayOfWeek="single", hour=23)
-public class SingleUser {
-
-}
+@Calendar(dayOfWeek = "single", hour = 23)
+public class SingleUser {}

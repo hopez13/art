@@ -12,7 +12,7 @@ class UnresTest1 {
         } catch (NoSuchFieldError nsfe) {
             // good
         }
-        try {       // hit the same one a second time
+        try { // hit the same one a second time
             int x = stuff.instField;
             Main.assertTrue(false);
         } catch (NoSuchFieldError nsfe) {

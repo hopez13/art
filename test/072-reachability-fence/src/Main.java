@@ -43,9 +43,9 @@ public class Main {
         String str9 = generateString("String", 9);
         Runtime.getRuntime().gc();
         for (int i = 0; i < 5; ++i) {
-          if (wrefs[i].get() != null) {
-            System.out.println("Reference " + i + " was live.");
-          }
+            if (wrefs[i].get() != null) {
+                System.out.println("Reference " + i + " was live.");
+            }
         }
         Reference.reachabilityFence(str0);
         Reference.reachabilityFence(str1);
@@ -55,7 +55,5 @@ public class Main {
         System.out.println("Finished");
     }
 
-    private static String generateString(String base, int num) {
-        return base + num;
-    }
+    private static String generateString(String base, int num) { return base + num; }
 }

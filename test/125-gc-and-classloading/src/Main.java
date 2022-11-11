@@ -17,7 +17,6 @@
 import java.util.concurrent.CountDownLatch;
 
 public class Main {
-
     public static void main(String[] args) throws Exception {
         // Try to cause a class loading/linking while GC is running.
         CountDownLatch cdl = new CountDownLatch(1);
@@ -33,9 +32,7 @@ public class Main {
     static class GcThread extends Thread {
         CountDownLatch cdl;
 
-        GcThread(CountDownLatch cdl) {
-            this.cdl = cdl;
-        }
+        GcThread(CountDownLatch cdl) { this.cdl = cdl; }
 
         public void run() {
             for (int i = 0; i < 10; ++i) {
@@ -50,9 +47,7 @@ public class Main {
     static class ClassLoadingThread extends Thread {
         CountDownLatch cdl;
 
-        ClassLoadingThread(CountDownLatch cdl) {
-            this.cdl = cdl;
-        }
+        ClassLoadingThread(CountDownLatch cdl) { this.cdl = cdl; }
 
         public void run() {
             try {
@@ -3068,5 +3063,4 @@ public class Main {
         static Object sf2999;
         static Object sf3000;
     }
-
 }

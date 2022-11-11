@@ -17,7 +17,5 @@
 package p1;
 
 class PackagePrivateA {
-  protected static int method() {
-    return 42;
-  }
+    protected static int method() { return 42; }
 }

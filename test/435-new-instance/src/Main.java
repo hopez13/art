@@ -18,29 +18,28 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Main {
-
-  public static void main(String[] args) throws Throwable {
-    // Attempt to instantiate an interface.
-    $opt$NewInstance("newInstanceInterface", InstantiationError.class.getCanonicalName());
-    // Attempt to instantiate an abstract class.
-    $opt$NewInstance("newInstanceClass", InstantiationError.class.getCanonicalName());
-    // Attempt to instantiate an interface.
-    $opt$NewInstance("newInstancePrivateClass", IllegalAccessError.class.getCanonicalName());
-    // Attempt to instantiate an abstract class.
-    $opt$NewInstance("newInstanceUnknownClass", NoClassDefFoundError.class.getCanonicalName());
-  }
-
-  private static void $opt$NewInstance(String method, String errorName) throws Throwable {
-    try {
-      Class<?> c = Class.forName("NewInstance");
-      Method m = c.getMethod(method);
-      m.invoke(c.newInstance());
-      throw new RuntimeException("Failed to throw " + errorName);
-    } catch (InvocationTargetException e) {
-      if (!e.getCause().getClass().getCanonicalName().equals(errorName)) {
-        throw new RuntimeException("Failed to throw " + errorName
-            + ". Threw: " + e.getCause());
-      }
+    public static void main(String[] args) throws Throwable {
+        // Attempt to instantiate an interface.
+        $opt$NewInstance("newInstanceInterface", InstantiationError.class.getCanonicalName());
+        // Attempt to instantiate an abstract class.
+        $opt$NewInstance("newInstanceClass", InstantiationError.class.getCanonicalName());
+        // Attempt to instantiate an interface.
+        $opt$NewInstance("newInstancePrivateClass", IllegalAccessError.class.getCanonicalName());
+        // Attempt to instantiate an abstract class.
+        $opt$NewInstance("newInstanceUnknownClass", NoClassDefFoundError.class.getCanonicalName());
     }
-  }
+
+    private static void $opt$NewInstance(String method, String errorName) throws Throwable {
+        try {
+            Class<?> c = Class.forName("NewInstance");
+            Method m = c.getMethod(method);
+            m.invoke(c.newInstance());
+            throw new RuntimeException("Failed to throw " + errorName);
+        } catch (InvocationTargetException e) {
+            if (!e.getCause().getClass().getCanonicalName().equals(errorName)) {
+                throw new RuntimeException(
+                        "Failed to throw " + errorName + ". Threw: " + e.getCause());
+            }
+        }
+    }
 }

@@ -15,7 +15,6 @@
  */
 
 public class Main {
-
     static int imax = Integer.MAX_VALUE;
     static int imin = Integer.MIN_VALUE;
     static long lmax = Long.MAX_VALUE;
@@ -41,53 +40,53 @@ public class Main {
         int c = 10;
         int d = c;
         int tmp = 0;
-        int [] ia = new int[5];
+        int[] ia = new int[5];
         for (int i = 0; i < 100; i++) {
-            tmp = i*c;
-            result += i*i;
+            tmp = i * c;
+            result += i * i;
             result = i - tmp;
         }
         expectEquals(result, -891);
 
-        result = c*c + (result - c);
+        result = c * c + (result - c);
         expectEquals(result, -801);
 
-        result = a + a*a;
+        result = a + a * a;
         expectEquals(result, -2147483648);
 
-        result = b + b*b;
+        result = b + b * b;
         expectEquals(result, -2147483648);
 
-        result = b - a*a;
+        result = b - a * a;
         expectEquals(result, 2147483647);
 
-        result = d*d;
+        result = d * d;
         d++;
         result += result;
         expectEquals(result, 200);
 
-        result = c*c;
+        result = c * c;
         tmp++;
         result += result;
         expectEquals(result, 200);
 
         result = 0;
         try {
-            result = c*c;
-            ia[c] = d;  // array out of bound.
+            result = c * c;
+            ia[c] = d; // array out of bound.
             result += d;
         } catch (Exception e) {
         }
         expectEquals(result, 100);
 
         CA obj = new CA();
-        result = a*c + obj.ia;
+        result = a * c + obj.ia;
         expectEquals(result, 2);
 
         result = 0;
         obj = ca;
         try {
-            result = a*c;
+            result = a * c;
             tmp = obj.ia;
             result = result + tmp;
         } catch (Exception e) {
@@ -102,32 +101,32 @@ public class Main {
         long c = 10;
         long d = c;
         long tmp = 0;
-        int [] ia = new int[5];
+        int[] ia = new int[5];
         for (long i = 0; i < 100; i++) {
-            tmp = i*c;
-            result += i*i;
+            tmp = i * c;
+            result += i * i;
             result = i - tmp;
         }
         expectEquals(result, -891L);
 
-        result = c*c + (result - c);
+        result = c * c + (result - c);
         expectEquals(result, -801L);
 
-        result = a + a*a;
+        result = a + a * a;
         expectEquals(result, -9223372036854775808L);
 
-        result = b + b*b;
+        result = b + b * b;
         expectEquals(result, -9223372036854775808L);
 
-        result = b - a*a;
+        result = b - a * a;
         expectEquals(result, 9223372036854775807L);
 
-        result = d*d;
+        result = d * d;
         d++;
         result += result;
         expectEquals(result, 200L);
 
-        result = c*c;
+        result = c * c;
         tmp++;
         result += result;
         expectEquals(result, 200L);
@@ -135,21 +134,21 @@ public class Main {
         result = 0;
         int index = 10;
         try {
-            result = c*c;
-            ia[index] = 10;  // array out of bound.
+            result = c * c;
+            ia[index] = 10; // array out of bound.
             result += d;
         } catch (Exception e) {
         }
         expectEquals(result, 100L);
 
         CA obj = new CA();
-        result = a*c + obj.la;
+        result = a * c + obj.la;
         expectEquals(result, 113L);
 
         result = 0;
         obj = ca;
         try {
-            result = a*c;
+            result = a * c;
             tmp = obj.la;
             result = result + tmp;
         } catch (Exception e) {
@@ -162,7 +161,6 @@ public class Main {
         test_long();
         System.out.println("Done!");
     }
-
 }
 
 class CA {

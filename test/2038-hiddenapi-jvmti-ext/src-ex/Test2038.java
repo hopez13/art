@@ -17,9 +17,7 @@
 package art;
 
 public class Test2038 {
-  public void foo() {
-    System.out.println("hello");
-  }
+    public void foo() { System.out.println("hello"); }
 
-  public int bar = 42;
+    public int bar = 42;
 }

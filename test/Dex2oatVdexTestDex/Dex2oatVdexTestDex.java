@@ -19,34 +19,24 @@
  */
 
 class AccessPublicCtor {
-  public Integer foo() {
-    return new Integer(1);
-  }
+    public Integer foo() { return new Integer(1); }
 }
 
 class AccessPublicMethod {
-  public double foo(Integer i) {
-    return i.doubleValue();
-  }
+    public double foo(Integer i) { return i.doubleValue(); }
 }
 
 @SuppressWarnings("LockOnBoxedPrimitive")
 class AccessPublicMethodFromParent {
-  public void foo(Integer i) {
-    i.notify();
-  }
+    public void foo(Integer i) { i.notify(); }
 }
 
 class AccessPublicStaticMethod {
-  public Integer foo() {
-    return Integer.getInteger("1");
-  }
+    public Integer foo() { return Integer.getInteger("1"); }
 }
 
 class AccessPublicStaticField {
-  public int foo() {
-    return Integer.BYTES;
-  }
+    public int foo() { return Integer.BYTES; }
 }
 
 /**
@@ -54,32 +44,22 @@ class AccessPublicStaticField {
  */
 
 class AccessNonPublicCtor {
-  public Integer foo() {
-    return new Integer("1");
-  }
+    public Integer foo() { return new Integer("1"); }
 }
 
 class AccessNonPublicMethod {
-  public float foo(Integer i) {
-    return i.floatValue();
-  }
+    public float foo(Integer i) { return i.floatValue(); }
 }
 
 @SuppressWarnings("LockOnBoxedPrimitive")
 class AccessNonPublicMethodFromParent {
-  public void foo(Integer i) {
-    i.notifyAll();
-  }
+    public void foo(Integer i) { i.notifyAll(); }
 }
 
 class AccessNonPublicStaticMethod {
-  public Integer foo() {
-    return Integer.getInteger("1", 0);
-  }
+    public Integer foo() { return Integer.getInteger("1", 0); }
 }
 
 class AccessNonPublicStaticField {
-  public Class foo() {
-    return Integer.TYPE;
-  }
+    public Class foo() { return Integer.TYPE; }
 }

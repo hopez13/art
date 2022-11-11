@@ -31,7 +31,5 @@ interface IMagic {
 }
 
 class MagicClass implements IMagic {
-    public double getSomeData() {
-        return this.MAGIC_INT;
-    }
+    public double getSomeData() { return this.MAGIC_INT; }
 }

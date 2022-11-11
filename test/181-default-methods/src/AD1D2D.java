@@ -15,7 +15,5 @@
  */
 
 interface AD1D2D extends Abstract, D1, D2 {
-    default String testMethod() {
-        return "AD1D2D.testMethod()";
-    }
+    default String testMethod() { return "AD1D2D.testMethod()"; }
 }

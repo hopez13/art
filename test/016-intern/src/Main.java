@@ -33,7 +33,7 @@ public class Main {
         }
 
         // An interned string should match a string literal.
-        a = ("f" + foo.substring(1,3)).intern();
+        a = ("f" + foo.substring(1, 3)).intern();
         if (a == foo) {
             System.out.println("good! " + a);
         } else {

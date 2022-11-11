@@ -17,22 +17,22 @@
 import dalvik.system.VMRuntime;
 
 class Main {
-  public static void main(String[] args) {
-    runTest();
-    try {
-      VMRuntime.getRuntime().notifyStartupCompleted();
-    } catch (Throwable e) {
-      System.out.println("Exception finishing startup " + e);
+    public static void main(String[] args) {
+        runTest();
+        try {
+            VMRuntime.getRuntime().notifyStartupCompleted();
+        } catch (Throwable e) {
+            System.out.println("Exception finishing startup " + e);
+        }
+        System.out.println("After startup completed");
+        runTest();
     }
-    System.out.println("After startup completed");
-    runTest();
-  }
 
-  private static void runTest() {
-    // Test that reference equality works regarding the cache.
-    System.out.println(Other.getString(1) == "string1");
-    System.out.println(Other.getString(2000) == "string2000");
-    System.out.println(Other.getString(3000) == "string3000");
-    System.out.println(Other.getString(5000) == "string5000");
-  }
+    private static void runTest() {
+        // Test that reference equality works regarding the cache.
+        System.out.println(Other.getString(1) == "string1");
+        System.out.println(Other.getString(2000) == "string2000");
+        System.out.println(Other.getString(3000) == "string3000");
+        System.out.println(Other.getString(5000) == "string5000");
+    }
 }

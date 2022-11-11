@@ -21,9 +21,7 @@ public class Main {
         Class.forName("TestSync").getMethod("run").invoke(null);
     }
 
-    public static void run(Object o) {
-        testVisitLocks();
-    }
+    public static void run(Object o) { testVisitLocks(); }
 
     public static native void testVisitLocks();
 }

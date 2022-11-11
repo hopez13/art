@@ -15,5 +15,5 @@
  */
 
 public abstract class AbstractCHATester {
-  public abstract void lonelyMethod();
+    public abstract void lonelyMethod();
 }

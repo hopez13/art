@@ -19,9 +19,7 @@ package getters;
 import unresolved.UnresolvedPackagePrivateClass;
 
 public class GetUnresolvedPackagePrivateClass {
-  // TODO: When we relax verifier to ignore access check failures,
-  // change this method to `$inline$`.
-  public static Class<?> get() {
-    return UnresolvedPackagePrivateClass.class;
-  }
+    // TODO: When we relax verifier to ignore access check failures,
+    // change this method to `$inline$`.
+    public static Class<?> get() { return UnresolvedPackagePrivateClass.class; }
 }

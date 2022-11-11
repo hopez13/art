@@ -16,8 +16,6 @@
 
 // These classes are to check the additional flags for inner classes.
 class A {
-  private static class B {
-  }
-  protected static interface C {
-  }
+    private static class B {}
+    protected static interface C {}
 }

@@ -17,7 +17,8 @@
 package art;
 
 public class Test1946 {
-  public static void run() {
-    System.out.println("Failed! This should not be run. The test is in src-art/art/Test1946.java");
-  }
+    public static void run() {
+        System.out.println(
+                "Failed! This should not be run. The test is in src-art/art/Test1946.java");
+    }
 }

@@ -18,9 +18,7 @@ public class Main {
     static class ArrayObj {
         int[] array;
 
-        int getArrayElement(int i) throws NullPointerException {
-            return array[i];
-        }
+        int getArrayElement(int i) throws NullPointerException { return array[i]; }
     }
 
     public static void main(String[] args) {

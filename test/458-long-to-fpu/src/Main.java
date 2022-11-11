@@ -15,24 +15,24 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    System.out.println($noinline$FloatConvert(false));
-    System.out.println($noinline$DoubleConvert(false));
-  }
+    public static void main(String[] args) {
+        System.out.println($noinline$FloatConvert(false));
+        System.out.println($noinline$DoubleConvert(false));
+    }
 
-  public static long $noinline$FloatConvert(boolean flag) {
-    long l = myLong;
-    myFloat = (float)l;
-    return l;
-  }
+    public static long $noinline$FloatConvert(boolean flag) {
+        long l = myLong;
+        myFloat = (float) l;
+        return l;
+    }
 
-  public static long $noinline$DoubleConvert(boolean flag) {
-    long l = myLong;
-    myDouble = (double)l;
-    return l;
-  }
+    public static long $noinline$DoubleConvert(boolean flag) {
+        long l = myLong;
+        myDouble = (double) l;
+        return l;
+    }
 
-  public static long myLong = 42;
-  public static float myFloat = 2.0f;
-  public static double myDouble = 4.0d;
+    public static long myLong = 42;
+    public static float myFloat = 2.0f;
+    public static double myDouble = 4.0d;
 }

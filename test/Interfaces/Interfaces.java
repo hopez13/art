@@ -26,16 +26,15 @@ class Interfaces {
     interface K extends J {
         public void k();
     }
-    interface L extends I, J {
-    }
+    interface L extends I, J {}
     class A implements I, J {
-        public void i() {};
-        public void j1() {};
-        public void j2() {};
+        public void i(){};
+        public void j1(){};
+        public void j2(){};
     }
     class B implements K {
-        public void j1() {};
-        public void j2() {};
-        public void k() {};
+        public void j1(){};
+        public void j2(){};
+        public void k(){};
     }
 }

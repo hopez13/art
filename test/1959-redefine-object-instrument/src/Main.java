@@ -14,63 +14,62 @@
  * limitations under the License.
  */
 
+import java.lang.reflect.Executable;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.LinkedList;
-import java.lang.reflect.Executable;
 
 import art.*;
 
 public class Main {
-  /**
-   * NB This test cannot be run on the RI.
-   * TODO We should make this run on the RI.
-   */
+    /**
+     * NB This test cannot be run on the RI.
+     * TODO We should make this run on the RI.
+     */
 
-  public static void main(String[] args) throws Exception {
-    doTest();
-  }
+    public static void main(String[] args) throws Exception { doTest(); }
 
-  public static volatile boolean started = false;
+    public static volatile boolean started = false;
 
-  public static void doNothing() {}
-  public static void notifyBreakpointReached(Thread thr, Executable e, long l) {}
+    public static void doNothing() {}
+    public static void notifyBreakpointReached(Thread thr, Executable e, long l) {}
 
-  public static void doTest() throws Exception {
-    final Object lock = new Object();
-    Breakpoint.Manager manager = new Breakpoint.Manager();
-    Breakpoint.startBreakpointWatch(
-        Main.class,
-        Main.class.getDeclaredMethod("notifyBreakpointReached", Thread.class, Executable.class, Long.TYPE),
-        null);
+    public static void doTest() throws Exception {
+        final Object lock = new Object();
+        Breakpoint.Manager manager = new Breakpoint.Manager();
+        Breakpoint.startBreakpointWatch(Main.class,
+                Main.class.getDeclaredMethod(
+                        "notifyBreakpointReached", Thread.class, Executable.class, Long.TYPE),
+                null);
     Thread thr = new Thread(() -> {
       synchronized (lock) {
         started = true;
         // Wait basically forever.
         try {
-          lock.wait(Integer.MAX_VALUE - 1);
+            lock.wait(Integer.MAX_VALUE - 1);
         } catch (Exception e) {
-          throw new Error("WAIT EXCEPTION", e);
+            throw new Error("WAIT EXCEPTION", e);
         }
-      }
-    });
-    // set the breakpoint.
-    manager.setBreakpoint(Main.class.getDeclaredMethod("doNothing"), 0l);
-    thr.start();
-    while (!started || thr.getState() != Thread.State.TIMED_WAITING);
-    // Redefine while thread is paused.
-    forceRedefine(Object.class, Thread.currentThread());
-    // Clear breakpoints.
-    manager.clearAllBreakpoints();
-    // set the breakpoint again.
-    manager.setBreakpoint(Main.class.getDeclaredMethod("doNothing"), 0l);
-    // Wakeup
-    synchronized(lock) {
-      lock.notifyAll();
     }
-    thr.join();
-  }
+});
+// set the breakpoint.
+manager.setBreakpoint(Main.class.getDeclaredMethod("doNothing"), 0l);
+thr.start();
+while (!started || thr.getState() != Thread.State.TIMED_WAITING)
+    ;
+// Redefine while thread is paused.
+forceRedefine(Object.class, Thread.currentThread());
+// Clear breakpoints.
+manager.clearAllBreakpoints();
+// set the breakpoint again.
+manager.setBreakpoint(Main.class.getDeclaredMethod("doNothing"), 0l);
+// Wakeup
+synchronized (lock) {
+    lock.notifyAll();
+}
+thr.join();
+}
 
-  private static native void forceRedefine(Class c, Thread thr);
+private static native void forceRedefine(Class c, Thread thr);
 }

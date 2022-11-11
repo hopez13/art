@@ -15,27 +15,26 @@
  */
 
 public class Main {
+    // Check that we don't put a null check in the card marking code.
 
-  // Check that we don't put a null check in the card marking code.
+    /// CHECK-START: void Main.test() instruction_simplifier (before)
+    /// CHECK:          ArraySet value_can_be_null:true
 
-  /// CHECK-START: void Main.test() instruction_simplifier (before)
-  /// CHECK:          ArraySet value_can_be_null:true
+    /// CHECK-START: void Main.test() instruction_simplifier (after)
+    /// CHECK:          ArraySet value_can_be_null:false
 
-  /// CHECK-START: void Main.test() instruction_simplifier (after)
-  /// CHECK:          ArraySet value_can_be_null:false
+    /// CHECK-START-X86: void Main.test() disassembly (after)
+    /// CHECK:          ArraySet value_can_be_null:false
+    /// CHECK-NOT:      test
+    /// CHECK:          ReturnVoid
+    public static void test() {
+        Object[] array = sArray;
+        Object nonNull = array[0];
+        nonNull.getClass(); // Ensure nonNull has an implicit null check.
+        array[1] = nonNull;
+    }
 
-  /// CHECK-START-X86: void Main.test() disassembly (after)
-  /// CHECK:          ArraySet value_can_be_null:false
-  /// CHECK-NOT:      test
-  /// CHECK:          ReturnVoid
-  public static void test() {
-    Object[] array = sArray;
-    Object nonNull = array[0];
-    nonNull.getClass(); // Ensure nonNull has an implicit null check.
-    array[1] = nonNull;
-  }
+    public static void main(String[] args) {}
 
-  public static void main(String[] args) {}
-
-  static Object[] sArray;
+    static Object[] sArray;
 }

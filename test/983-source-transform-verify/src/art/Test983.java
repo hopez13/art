@@ -17,30 +17,24 @@
 package art;
 
 public class Test983 {
-  static class Transform {
-    public void sayHi() {
-      System.out.println("hello");
+    static class Transform {
+        public void sayHi() { System.out.println("hello"); }
     }
-  }
 
-  public static void run() {
-    doTest();
-  }
+    public static void run() { doTest(); }
 
-  private native static void setupLoadHook();
+    private native static void setupLoadHook();
 
-  /* called from JNI */
-  public static void doPrintln(String str) {
-    System.out.println(str);
-  }
+    /* called from JNI */
+    public static void doPrintln(String str) { System.out.println(str); }
 
-  public static void doTest() {
-    setupLoadHook();
-    Redefinition.enableCommonRetransformation(true);
-    Redefinition.doCommonClassRetransformation(Transform.class);
-    Redefinition.doCommonClassRetransformation(Object.class);
-    // NB java.lang.ClassLoader has hidden fields.
-    Redefinition.doCommonClassRetransformation(ClassLoader.class);
-    Redefinition.enableCommonRetransformation(false);
-  }
+    public static void doTest() {
+        setupLoadHook();
+        Redefinition.enableCommonRetransformation(true);
+        Redefinition.doCommonClassRetransformation(Transform.class);
+        Redefinition.doCommonClassRetransformation(Object.class);
+        // NB java.lang.ClassLoader has hidden fields.
+        Redefinition.doCommonClassRetransformation(ClassLoader.class);
+        Redefinition.enableCommonRetransformation(false);
+    }
 }

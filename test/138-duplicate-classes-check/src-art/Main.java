@@ -15,6 +15,7 @@
  */
 
 import dalvik.system.PathClassLoader;
+
 import java.io.File;
 import java.lang.reflect.Method;
 
@@ -22,9 +23,7 @@ import java.lang.reflect.Method;
  * Structural hazard test.
  */
 public class Main {
-    public static void main(String[] args) {
-        new Main().run();
-    }
+    public static void main(String[] args) { new Main().run(); }
 
     private void run() {
         System.out.println(new A().i);
@@ -33,8 +32,8 @@ public class Main {
 
         String dexPath = System.getenv("DEX_LOCATION") + "/138-duplicate-classes-check-ex.jar";
         String librarySearchPath = null;
-        PathClassLoader loader = new PathClassLoader(dexPath, librarySearchPath,
-                getClass().getClassLoader());
+        PathClassLoader loader =
+                new PathClassLoader(dexPath, librarySearchPath, getClass().getClassLoader());
 
         try {
             Class<?> testEx = loader.loadClass("TestEx");

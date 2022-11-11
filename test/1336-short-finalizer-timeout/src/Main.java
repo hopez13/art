@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-import dalvik.system.VMRuntime;
-import java.util.concurrent.CountDownLatch;
 import static java.util.concurrent.TimeUnit.MINUTES;
+
+import dalvik.system.VMRuntime;
+
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Test a class with a bad finalizer in an environment with a short finalizer timeout.
@@ -30,8 +32,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         CountDownLatch finalizerWait = new CountDownLatch(1);
 
-        System.out.println("Finalizer timeout = "
-                + VMRuntime.getRuntime().getFinalizerTimeoutMs() + " msecs.");
+        System.out.println("Finalizer timeout = " + VMRuntime.getRuntime().getFinalizerTimeoutMs()
+                + " msecs.");
         // A separate method to ensure no dex register keeps the object alive.
         createBadFinalizer(finalizerWait);
 
@@ -59,7 +61,7 @@ public class Main {
         BadFinalizer bf = new BadFinalizer(finalizerWait);
 
         System.out.println("About to null reference.");
-        bf = null;  // Not that this would make a difference, could be eliminated earlier.
+        bf = null; // Not that this would make a difference, could be eliminated earlier.
     }
 
     public static void snooze(int ms) {
@@ -75,11 +77,9 @@ public class Main {
      */
     public static class BadFinalizer {
         private CountDownLatch finalizerWait;
-        private volatile int j = 0;  // Volatile in an effort to curb loop optimization.
+        private volatile int j = 0; // Volatile in an effort to curb loop optimization.
 
-        public BadFinalizer(CountDownLatch finalizerWait) {
-            this.finalizerWait = finalizerWait;
-        }
+        public BadFinalizer(CountDownLatch finalizerWait) { this.finalizerWait = finalizerWait; }
 
         protected void finalize() {
             System.out.println("Finalizer started and snoozing...");

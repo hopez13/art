@@ -18,22 +18,19 @@ package art;
 
 import java.util.Base64;
 public class Test982 {
-
-  static class Transform {
-    public void sayHi() {
-      System.out.println("hello");
+    static class Transform {
+        public void sayHi() { System.out.println("hello"); }
     }
-  }
 
-  public static void run() {
-    Redefinition.setTestConfiguration(Redefinition.Config.COMMON_RETRANSFORM);
-    doTest(new Transform());
-  }
+    public static void run() {
+        Redefinition.setTestConfiguration(Redefinition.Config.COMMON_RETRANSFORM);
+        doTest(new Transform());
+    }
 
-  public static void doTest(Transform t) {
-    t.sayHi();
-    Redefinition.enableCommonRetransformation(true);
-    Redefinition.doCommonClassRetransformation(Transform.class);
-    t.sayHi();
-  }
+    public static void doTest(Transform t) {
+        t.sayHi();
+        Redefinition.enableCommonRetransformation(true);
+        Redefinition.doCommonClassRetransformation(Transform.class);
+        t.sayHi();
+    }
 }

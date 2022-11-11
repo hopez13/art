@@ -17,12 +17,11 @@
 import java.lang.reflect.*;
 
 public class Main {
-
-  public static void main(String args[]) throws Throwable {
-    Class<?> c = Class.forName("NewInstance");
-    Method m = c.getMethod("multipleInit", int.class);
-    m.invoke(null, 0);
-    m.invoke(null, 1);
-    System.out.println("passed");
-  }
+    public static void main(String args[]) throws Throwable {
+        Class<?> c = Class.forName("NewInstance");
+        Method m = c.getMethod("multipleInit", int.class);
+        m.invoke(null, 0);
+        m.invoke(null, 1);
+        System.out.println("passed");
+    }
 }

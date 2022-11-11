@@ -20,7 +20,5 @@ package unresolved;
 // replaced by a package-private class from src2/ with reduced access
 // to run tests, including access check tests.
 public class UnresolvedPackagePrivateClass implements BcpExMarker {
-  public static void $noinline$main() {
-    throw new Error("Unreachable");
-  }
+    public static void $noinline$main() { throw new Error("Unreachable"); }
 }

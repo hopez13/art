@@ -15,27 +15,22 @@
  */
 
 public class Main {
-
-  public static void main(String[] args) {
-    try {
-      foo(intField);
-      throw new Error("Expected ArithmeticException");
-    } catch (ArithmeticException e) {
-      // expected
+    public static void main(String[] args) {
+        try {
+            foo(intField);
+            throw new Error("Expected ArithmeticException");
+        } catch (ArithmeticException e) {
+            // expected
+        }
     }
-  }
 
-  /// CHECK-START: int Main.foo(int) register (after)
-  /// CHECK: <<BoolField:z\d+>> StaticFieldGet
-  /// CHECK:                    DivZeroCheck [<<BoolField>>]
-  public static int foo(int a) {
-    return a / bar();
-  }
+    /// CHECK-START: int Main.foo(int) register (after)
+    /// CHECK: <<BoolField:z\d+>> StaticFieldGet
+    /// CHECK:                    DivZeroCheck [<<BoolField>>]
+    public static int foo(int a) { return a / bar(); }
 
-  public static int bar() {
-    return booleanField ? 1 : 0;
-  }
+    public static int bar() { return booleanField ? 1 : 0; }
 
-  public static boolean booleanField;
-  public static int intField;
+    public static boolean booleanField;
+    public static int intField;
 }

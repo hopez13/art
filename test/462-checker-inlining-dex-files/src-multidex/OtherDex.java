@@ -15,50 +15,31 @@
  */
 
 public class OtherDex {
-  public static void emptyMethod() {
-  }
+    public static void emptyMethod() {}
 
-  public static int returnIntMethod() {
-    return 38;
-  }
+    public static int returnIntMethod() { return 38; }
 
-  public static int returnOtherDexStatic() {
-    return myStatic;
-  }
+    public static int returnOtherDexStatic() { return myStatic; }
 
-  public static int returnMainStatic() {
-    return Main.myStatic;
-  }
+    public static int returnMainStatic() { return Main.myStatic; }
 
-  public static int recursiveCall() {
-    return recursiveCall();
-  }
+    public static int recursiveCall() { return recursiveCall(); }
 
-  public static String returnString() {
-    return "OtherDex";
-  }
+    public static String returnString() { return "OtherDex"; }
 
-  public static Class<?> returnOtherDexClass() {
-    return OtherDex.class;
-  }
+    public static Class<?> returnOtherDexClass() { return OtherDex.class; }
 
-  public static Class<?> returnMainClass() {
-    return Main.class;
-  }
+    public static Class<?> returnMainClass() { return Main.class; }
 
-  private static Class<?> returnOtherDexClass2() {
-    return OtherDex.class;
-  }
+    private static Class<?> returnOtherDexClass2() { return OtherDex.class; }
 
-  public static Class<?> returnOtherDexClassStaticCall() {
-    // Do not call returnOtherDexClass, as it may have been flagged
-    // as non-inlineable.
-    return returnOtherDexClass2();
-  }
+    public static Class<?> returnOtherDexClassStaticCall() {
+        // Do not call returnOtherDexClass, as it may have been flagged
+        // as non-inlineable.
+        return returnOtherDexClass2();
+    }
 
-  public static Class<?> returnOtherDexCallingMain() {
-    return Main.getOtherClass();
-  }
+    public static Class<?> returnOtherDexCallingMain() { return Main.getOtherClass(); }
 
-  static int myStatic = 1;
+    static int myStatic = 1;
 }

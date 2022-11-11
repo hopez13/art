@@ -15,7 +15,7 @@
  */
 
 public interface MyInterface {
-  public void bar(Integer i);
-  public void foo(Long l);
-  public void hidden();
+    public void bar(Integer i);
+    public void foo(Long l);
+    public void hidden();
 }

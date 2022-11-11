@@ -17,7 +17,7 @@
 import java.lang.reflect.Method;
 
 public class Main {
-    static char [][] holder;
+    static char[][] holder;
     static boolean sawOome;
 
     static void blowup() {

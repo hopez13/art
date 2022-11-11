@@ -15,7 +15,6 @@
  */
 
 class Y extends X {
-  static Z z = new Z();
-  static class Z {
-  }
+    static Z z = new Z();
+    static class Z {}
 }

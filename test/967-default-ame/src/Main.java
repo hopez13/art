@@ -14,58 +14,58 @@
  * limitations under the License.
  */
 class Main implements Iface, Iface2, Iface3 {
-  public static void main(String[] args) {
-    System.out.println("Create Main instance");
-    Main m = new Main();
-    System.out.println("Calling functions on concrete Main");
-    callMain(m);
-    System.out.println("Calling functions on interface Iface");
-    callIface(m);
-    System.out.println("Calling functions on interface Iface2");
-    callIface2(m);
-  }
-  public static void callMain(Main m) {
-    System.out.println("Calling non-abstract function on Main");
-    System.out.println(m.charge());
-    System.out.println("Calling abstract function on Main");
-    try {
-      System.out.println(m.sayHi());
-      System.out.println("Unexpected no error Thrown on Main");
-    } catch (AbstractMethodError e) {
-      System.out.println("Expected AME Thrown on Main");
-    } catch (IncompatibleClassChangeError e) {
-      System.out.println("Unexpected ICCE Thrown on Main");
+    public static void main(String[] args) {
+        System.out.println("Create Main instance");
+        Main m = new Main();
+        System.out.println("Calling functions on concrete Main");
+        callMain(m);
+        System.out.println("Calling functions on interface Iface");
+        callIface(m);
+        System.out.println("Calling functions on interface Iface2");
+        callIface2(m);
     }
-    System.out.println("Calling non-abstract function on Main");
-    System.out.println(m.charge());
-    return;
-  }
-  public static void callIface(Iface m) {
-    System.out.println("Calling non-abstract function on Iface");
-    System.out.println(m.charge());
-    System.out.println("Calling abstract function on Iface");
-    try {
-      System.out.println(m.sayHi());
-      System.out.println("Unexpected no error Thrown on Iface");
-    } catch (AbstractMethodError e) {
-      System.out.println("Expected AME Thrown on Iface");
-    } catch (IncompatibleClassChangeError e) {
-      System.out.println("Unexpected ICCE Thrown on Iface");
+    public static void callMain(Main m) {
+        System.out.println("Calling non-abstract function on Main");
+        System.out.println(m.charge());
+        System.out.println("Calling abstract function on Main");
+        try {
+            System.out.println(m.sayHi());
+            System.out.println("Unexpected no error Thrown on Main");
+        } catch (AbstractMethodError e) {
+            System.out.println("Expected AME Thrown on Main");
+        } catch (IncompatibleClassChangeError e) {
+            System.out.println("Unexpected ICCE Thrown on Main");
+        }
+        System.out.println("Calling non-abstract function on Main");
+        System.out.println(m.charge());
+        return;
     }
-    System.out.println("Calling non-abstract function on Iface");
-    System.out.println(m.charge());
-    return;
-  }
-  public static void callIface2(Iface2 m) {
-    System.out.println("Calling abstract function on Iface2");
-    try {
-      System.out.println(m.sayHi());
-      System.out.println("Unexpected no error Thrown on Iface2");
-    } catch (AbstractMethodError e) {
-      System.out.println("Expected AME Thrown on Iface2");
-    } catch (IncompatibleClassChangeError e) {
-      System.out.println("Unexpected ICCE Thrown on Iface2");
+    public static void callIface(Iface m) {
+        System.out.println("Calling non-abstract function on Iface");
+        System.out.println(m.charge());
+        System.out.println("Calling abstract function on Iface");
+        try {
+            System.out.println(m.sayHi());
+            System.out.println("Unexpected no error Thrown on Iface");
+        } catch (AbstractMethodError e) {
+            System.out.println("Expected AME Thrown on Iface");
+        } catch (IncompatibleClassChangeError e) {
+            System.out.println("Unexpected ICCE Thrown on Iface");
+        }
+        System.out.println("Calling non-abstract function on Iface");
+        System.out.println(m.charge());
+        return;
     }
-    return;
-  }
+    public static void callIface2(Iface2 m) {
+        System.out.println("Calling abstract function on Iface2");
+        try {
+            System.out.println(m.sayHi());
+            System.out.println("Unexpected no error Thrown on Iface2");
+        } catch (AbstractMethodError e) {
+            System.out.println("Expected AME Thrown on Iface2");
+        } catch (IncompatibleClassChangeError e) {
+            System.out.println("Unexpected ICCE Thrown on Iface2");
+        }
+        return;
+    }
 }

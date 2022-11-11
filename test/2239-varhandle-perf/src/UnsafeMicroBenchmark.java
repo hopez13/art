@@ -16,30 +16,31 @@
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
 import jdk.internal.misc.Unsafe;
 
 class UnsafeMicroBenchmark extends MicroBenchmark {
-  protected Unsafe theUnsafe;
+    protected Unsafe theUnsafe;
 
-  UnsafeMicroBenchmark() throws Throwable {
-    Field f = Unsafe.class.getDeclaredField("theUnsafe");
-    f.setAccessible(true);
-    theUnsafe = (Unsafe) f.get(null);
-  }
-
-  protected long getFieldOffset(Field field) throws Throwable {
-    return theUnsafe.objectFieldOffset(field);
-  }
-
-  protected long getStaticFieldOffset(Field staticField) throws Throwable {
-    if (System.getProperty("java.vm.name").equals("Dalvik")) {
-        // field.getOffset(); ()J
-        Method m = Field.class.getDeclaredMethod("getOffset");
-        return (Integer) m.invoke(staticField);
-    } else {
-        // theUnsafe.staticFieldOffset(field) (Ljava/lang/Field;)J
-        Method m = Unsafe.class.getDeclaredMethod("staticFieldOffset", Field.class);
-        return (Long) m.invoke(theUnsafe, staticField);
+    UnsafeMicroBenchmark() throws Throwable {
+        Field f = Unsafe.class.getDeclaredField("theUnsafe");
+        f.setAccessible(true);
+        theUnsafe = (Unsafe) f.get(null);
     }
-  }
+
+    protected long getFieldOffset(Field field) throws Throwable {
+        return theUnsafe.objectFieldOffset(field);
+    }
+
+    protected long getStaticFieldOffset(Field staticField) throws Throwable {
+        if (System.getProperty("java.vm.name").equals("Dalvik")) {
+            // field.getOffset(); ()J
+            Method m = Field.class.getDeclaredMethod("getOffset");
+            return (Integer) m.invoke(staticField);
+        } else {
+            // theUnsafe.staticFieldOffset(field) (Ljava/lang/Field;)J
+            Method m = Unsafe.class.getDeclaredMethod("staticFieldOffset", Field.class);
+            return (Long) m.invoke(theUnsafe, staticField);
+        }
+    }
 }

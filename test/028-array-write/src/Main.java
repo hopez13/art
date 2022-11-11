@@ -21,32 +21,29 @@ public class Main {
     /** whether to report times */
     static boolean timing = false;
 
-    static final int STORAGE_SIZE = 128*1024;
+    static final int STORAGE_SIZE = 128 * 1024;
     static int[] mStorage = new int[STORAGE_SIZE];
 
     static public void report(long start, long end) {
-        if (! timing) {
+        if (!timing) {
             return;
         }
 
-        System.out.println("Finished in " + ((end - start) / 1000000.0)
-            + " msec");
+        System.out.println("Finished in " + ((end - start) / 1000000.0) + " msec");
     }
 
     static void writeArray(int val) {
-        for (int i = STORAGE_SIZE-1; i >= 0; i--)
-            mStorage[i] = val;
+        for (int i = STORAGE_SIZE - 1; i >= 0; i--) mStorage[i] = val;
     }
 
     static void writeTest() {
         long start, end;
 
-        writeArray(0);  // touch all the memory
+        writeArray(0); // touch all the memory
 
         System.out.println("Running writeTest...");
         start = System.nanoTime();
-        for (int i = 1; i < 20; i++)
-            writeArray(i);
+        for (int i = 1; i < 20; i++) writeArray(i);
         end = System.nanoTime();
 
         report(start, end);
@@ -56,14 +53,12 @@ public class Main {
         long start, end;
 
         // touch once
-        System.arraycopy(mStorage, 0, mStorage,
-            STORAGE_SIZE/2, STORAGE_SIZE/2);
+        System.arraycopy(mStorage, 0, mStorage, STORAGE_SIZE / 2, STORAGE_SIZE / 2);
 
         System.out.println("Running copyTest...");
         start = System.nanoTime();
         for (int i = 1; i < 35; i++) {
-            System.arraycopy(mStorage, 0, mStorage,
-                STORAGE_SIZE/2, STORAGE_SIZE/2);
+            System.arraycopy(mStorage, 0, mStorage, STORAGE_SIZE / 2, STORAGE_SIZE / 2);
         }
         end = System.nanoTime();
 

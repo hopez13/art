@@ -17,7 +17,5 @@
 // This version of `Base` is not used. We use the version from `src2/` instead.
 class Base {
     // Removed in `src2/`.
-    public String testMethod() {
-        throw new Error("Unreachable!");
-    }
+    public String testMethod() { throw new Error("Unreachable!"); }
 }

@@ -33,9 +33,7 @@ public class VarHandleAccessorExceptionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new NullReceiverTest().run();
-        }
+        public static void main(String[] args) { new NullReceiverTest().run(); }
     }
 
     public static class UnsupportedAccessModeTest extends VarHandleUnitTest {
@@ -64,9 +62,7 @@ public class VarHandleAccessorExceptionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new UnsupportedAccessModeTest().run();
-        }
+        public static void main(String[] args) { new UnsupportedAccessModeTest().run(); }
     }
 
     public static class WrongArgumentTypeCausingWrongMethodTypeTest extends VarHandleUnitTest {
@@ -183,9 +179,7 @@ public class VarHandleAccessorExceptionTests {
             assertEquals(null, runtime);
         }
 
-        public static void main(String[] args) {
-            new ReturnTypeCausingWrongMethodTypeTest().run();
-        }
+        public static void main(String[] args) { new ReturnTypeCausingWrongMethodTypeTest().run(); }
     }
 
     public static class UnsupportedAccessModePreemptsWrongMethodTypeExceptionTest

@@ -17,7 +17,5 @@
 class StaticsFromCode {
     static final Object s0 = "android";
 
-    static Object getS0() {
-        return s0;
-    }
+    static Object getS0() { return s0; }
 }

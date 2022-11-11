@@ -18,7 +18,5 @@
  * even more instanceof cases
  */
 public class Main {
-    public static void main(String args[]) {
-        InstanceTest.main(null);
-    }
+    public static void main(String args[]) { InstanceTest.main(null); }
 }

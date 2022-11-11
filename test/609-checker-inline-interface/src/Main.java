@@ -15,64 +15,57 @@
  */
 
 public final class Main implements Interface {
+    static void methodWithInvokeInterface(Interface interf) { interf.doCall(); }
 
-  static void methodWithInvokeInterface(Interface interf) {
-    interf.doCall();
-  }
-
-  public void doCall() {
-    // We do not inline methods that always throw.
-    throw new Error("");
-  }
-
-  public static void main(String[] args) {
-    try {
-      testInlineInterfaceCall();
-    } catch (Error e) {
-      // Expected
+    public void doCall() {
+        // We do not inline methods that always throw.
+        throw new Error("");
     }
-    try {
-      testInterfaceToDirectCall();
-    } catch (Error e) {
-      // Expected.
+
+    public static void main(String[] args) {
+        try {
+            testInlineInterfaceCall();
+        } catch (Error e) {
+            // Expected
+        }
+        try {
+            testInterfaceToDirectCall();
+        } catch (Error e) {
+            // Expected.
+        }
     }
-  }
 
-  /// CHECK-START: void Main.testInlineInterfaceCall() inliner (before)
-  /// CHECK:                          InvokeStaticOrDirect method_name:Main.methodWithInvokeInterface
+    /// CHECK-START: void Main.testInlineInterfaceCall() inliner (before)
+    /// CHECK:                          InvokeStaticOrDirect method_name:Main.methodWithInvokeInterface
 
-  /// CHECK-START: void Main.testInlineInterfaceCall() inliner (before)
-  /// CHECK-NOT:                      InvokeInterface
+    /// CHECK-START: void Main.testInlineInterfaceCall() inliner (before)
+    /// CHECK-NOT:                      InvokeInterface
 
-  /// CHECK-START: void Main.testInlineInterfaceCall() inliner (after)
-  /// CHECK:                          InvokeInterface method_name:Interface.doCall
+    /// CHECK-START: void Main.testInlineInterfaceCall() inliner (after)
+    /// CHECK:                          InvokeInterface method_name:Interface.doCall
 
-  /// CHECK-START: void Main.testInlineInterfaceCall() inliner (after)
-  /// CHECK-NOT:                      InvokeStaticOrDirect
-  public static void testInlineInterfaceCall() {
-    methodWithInvokeInterface(itf);
-  }
+    /// CHECK-START: void Main.testInlineInterfaceCall() inliner (after)
+    /// CHECK-NOT:                      InvokeStaticOrDirect
+    public static void testInlineInterfaceCall() { methodWithInvokeInterface(itf); }
 
-  /// CHECK-START: void Main.testInterfaceToDirectCall() inliner (before)
-  /// CHECK:                          InvokeStaticOrDirect method_name:Main.methodWithInvokeInterface
+    /// CHECK-START: void Main.testInterfaceToDirectCall() inliner (before)
+    /// CHECK:                          InvokeStaticOrDirect method_name:Main.methodWithInvokeInterface
 
-  /// CHECK-START: void Main.testInterfaceToDirectCall() inliner (before)
-  /// CHECK-NOT:                      InvokeInterface
+    /// CHECK-START: void Main.testInterfaceToDirectCall() inliner (before)
+    /// CHECK-NOT:                      InvokeInterface
 
-  /// CHECK-START: void Main.testInterfaceToDirectCall() inliner (after)
-  /// CHECK:                          InvokeStaticOrDirect method_name:Main.doCall
+    /// CHECK-START: void Main.testInterfaceToDirectCall() inliner (after)
+    /// CHECK:                          InvokeStaticOrDirect method_name:Main.doCall
 
-  /// CHECK-START: void Main.testInterfaceToDirectCall() inliner (after)
-  /// CHECK-NOT:                      InvokeVirtual
-  /// CHECK-NOT:                      InvokeInterface
-  public static void testInterfaceToDirectCall() {
-    methodWithInvokeInterface(m);
-  }
+    /// CHECK-START: void Main.testInterfaceToDirectCall() inliner (after)
+    /// CHECK-NOT:                      InvokeVirtual
+    /// CHECK-NOT:                      InvokeInterface
+    public static void testInterfaceToDirectCall() { methodWithInvokeInterface(m); }
 
-  static Interface itf = new Main();
-  static Main m = new Main();
+    static Interface itf = new Main();
+    static Main m = new Main();
 }
 
 interface Interface {
-  public void doCall();
+    public void doCall();
 }

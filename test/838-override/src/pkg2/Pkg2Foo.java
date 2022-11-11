@@ -16,12 +16,8 @@
 
 package pkg2;
 
-public class Pkg2Foo extends pkg1.Pkg1Foo{
-  Class<?> foo() {
-    return Pkg2Foo.class;
-  }
+public class Pkg2Foo extends pkg1.Pkg1Foo {
+    Class<?> foo() { return Pkg2Foo.class; }
 
-  public static Class<?> callFoo(Pkg2Foo obj) {
-    return obj.foo();
-  }
+    public static Class<?> callFoo(Pkg2Foo obj) { return obj.foo(); }
 }

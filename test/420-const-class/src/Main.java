@@ -15,63 +15,56 @@
  */
 
 public class Main {
-  static class Other {
-  }
+    static class Other {}
 
-  static class OtherWithClinit {
-    static int a;
-    static {
-      System.out.println("Hello from OtherWithClinit");
-      a = 42;
+    static class OtherWithClinit {
+        static int a;
+        static {
+            System.out.println("Hello from OtherWithClinit");
+            a = 42;
+        }
     }
-  }
 
-  static class OtherWithClinit2 {
-    static int a;
-    static {
-      System.out.println("Hello from OtherWithClinit2");
-      a = 43;
+    static class OtherWithClinit2 {
+        static int a;
+        static {
+            System.out.println("Hello from OtherWithClinit2");
+            a = 43;
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    // Call methods twice in case they have a slow path.
+    public static void main(String[] args) {
+        // Call methods twice in case they have a slow path.
 
-    System.out.println($opt$LoadThisClass());
-    System.out.println($opt$LoadThisClass());
+        System.out.println($opt$LoadThisClass());
+        System.out.println($opt$LoadThisClass());
 
-    System.out.println($opt$LoadOtherClass());
-    System.out.println($opt$LoadOtherClass());
+        System.out.println($opt$LoadOtherClass());
+        System.out.println($opt$LoadOtherClass());
 
-    System.out.println($opt$LoadSystemClass());
-    System.out.println($opt$LoadSystemClass());
+        System.out.println($opt$LoadSystemClass());
+        System.out.println($opt$LoadSystemClass());
 
-    $opt$ClinitCheckAndLoad();
-    $opt$ClinitCheckAndLoad();
+        $opt$ClinitCheckAndLoad();
+        $opt$ClinitCheckAndLoad();
 
-    $opt$LoadAndClinitCheck();
-    $opt$LoadAndClinitCheck();
-  }
+        $opt$LoadAndClinitCheck();
+        $opt$LoadAndClinitCheck();
+    }
 
-  public static Class<?> $opt$LoadThisClass() {
-    return Main.class;
-  }
+    public static Class<?> $opt$LoadThisClass() { return Main.class; }
 
-  public static Class<?> $opt$LoadOtherClass() {
-    return Other.class;
-  }
+    public static Class<?> $opt$LoadOtherClass() { return Other.class; }
 
-  public static Class<?> $opt$LoadSystemClass() {
-    return System.class;
-  }
+    public static Class<?> $opt$LoadSystemClass() { return System.class; }
 
-  public static void $opt$ClinitCheckAndLoad() {
-    System.out.println(OtherWithClinit.a);
-    System.out.println(OtherWithClinit.class);
-  }
+    public static void $opt$ClinitCheckAndLoad() {
+        System.out.println(OtherWithClinit.a);
+        System.out.println(OtherWithClinit.class);
+    }
 
-  public static void $opt$LoadAndClinitCheck() {
-    System.out.println(OtherWithClinit2.class);
-    System.out.println(OtherWithClinit2.a);
-  }
+    public static void $opt$LoadAndClinitCheck() {
+        System.out.println(OtherWithClinit2.class);
+        System.out.println(OtherWithClinit2.a);
+    }
 }

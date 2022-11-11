@@ -26,17 +26,14 @@ public class DelegatingLoader extends DefiningLoader {
         this.defining_loader = defining_loader;
     }
 
-    protected Class<?> findClass(String name) throws ClassNotFoundException
-    {
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
         if (name.equals("Test")) {
             throw new Error("Unexpected DelegatingLoader.findClass(\"Test\")");
         }
         return super.findClass(name);
     }
 
-    protected Class<?> loadClass(String name, boolean resolve)
-        throws ClassNotFoundException
-    {
+    protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
         if (name.equals("Test")) {
             return defining_loader.loadClass(name, resolve);
         }

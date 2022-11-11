@@ -15,5 +15,5 @@
  */
 
 abstract class AbstractPackageClass {
-  public void publicMethod2() {}
+    public void publicMethod2() {}
 }

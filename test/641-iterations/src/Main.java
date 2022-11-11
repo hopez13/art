@@ -19,55 +19,50 @@
  * core and cleanup loop after vectorization.
  */
 public class Main {
+    static int[] sA;
 
-  static int[] sA;
-
-  static void init() {
-    for (int i = 0; i < sA.length; i++)
-      sA[i] = 100;
-  }
-
-  static void doitTo(int n) {
-    for (int i = 0; i < n; i++)
-      sA[i] += 1;
-  }
-
-  static void doitFrom(int n) {
-    for (int i = n; i < sA.length; i++)
-      sA[i] += 1;
-  }
-
-  static void verify(int n) {
-    for (int i = 0; i < n; i++)
-      if (sA[i] != 101)
-        throw new Error("failed inside loop");
-    for (int i = n; i < sA.length; i++)
-      if (sA[i] != 100)
-        throw new Error("failed outside loop");
-  }
-
-  static void verify() {
-    for (int i = 0; i < sA.length; i++)
-      if (sA[i] != 101)
-        throw new Error("failed inside loop");
-  }
-
-  static void driver() {
-    for (int n = 0; n <= sA.length; n++) {
-      init();
-      doitTo(n);
-      verify(n);
-      doitFrom(n);
-      verify();
+    static void init() {
+        for (int i = 0; i < sA.length; i++) sA[i] = 100;
     }
-  }
 
-  public static void main(String[] args) {
-    sA = new int[17];
-    driver();
-    sA = new int[32];
-    driver();
-    System.out.println("passed");
-  }
+    static void doitTo(int n) {
+        for (int i = 0; i < n; i++) sA[i] += 1;
+    }
+
+    static void doitFrom(int n) {
+        for (int i = n; i < sA.length; i++) sA[i] += 1;
+    }
+
+    static void verify(int n) {
+        for (int i = 0; i < n; i++)
+            if (sA[i] != 101)
+                throw new Error("failed inside loop");
+        for (int i = n; i < sA.length; i++)
+            if (sA[i] != 100)
+                throw new Error("failed outside loop");
+    }
+
+    static void verify() {
+        for (int i = 0; i < sA.length; i++)
+            if (sA[i] != 101)
+                throw new Error("failed inside loop");
+    }
+
+    static void driver() {
+        for (int n = 0; n <= sA.length; n++) {
+            init();
+            doitTo(n);
+            verify(n);
+            doitFrom(n);
+            verify();
+        }
+    }
+
+    public static void main(String[] args) {
+        sA = new int[17];
+        driver();
+        sA = new int[32];
+        driver();
+        System.out.println("passed");
+    }
 }
-

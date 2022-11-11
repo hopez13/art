@@ -19,11 +19,11 @@ package art;
 import java.util.Arrays;
 
 public class Test931 {
-  public static void run() throws Exception {
-    testAgentThread();
+    public static void run() throws Exception {
+        testAgentThread();
 
-    System.out.println("Done");
-  }
+        System.out.println("Done");
+    }
 
-  private static native void testAgentThread();
+    private static native void testAgentThread();
 }

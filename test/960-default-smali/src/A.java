@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 class A implements Greeter {
-  public String SayHi() {
-    return "Hi ";
-  }
+    public String SayHi() { return "Hi "; }
 }

@@ -17,17 +17,16 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String args[]) throws Exception {
-    try {
-      Class<?> c = Class.forName("Test");
-      Method m = c.getMethod("ThrowException");
-      m.invoke(null);
-    } catch (VerifyError e) {
-       // Compilation should go fine but we expect the runtime verification to fail.
-      return;
+    public static void main(String args[]) throws Exception {
+        try {
+            Class<?> c = Class.forName("Test");
+            Method m = c.getMethod("ThrowException");
+            m.invoke(null);
+        } catch (VerifyError e) {
+            // Compilation should go fine but we expect the runtime verification to fail.
+            return;
+        }
+
+        throw new Error("Failed to preset verification error!");
     }
-
-    throw new Error("Failed to preset verification error!");
-  }
-
 }

@@ -14,44 +14,42 @@
  * limitations under the License.
  */
 
-
 public class Main {
-
-  public static void assertIntEquals(int expected, int result) {
-    if (expected != result) {
-      throw new Error("Expected: " + expected + ", found: " + result);
+    public static void assertIntEquals(int expected, int result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
     }
-  }
 
-  public static int Inline(int x, int y) {
-    int result;
-    if (x <= y) {
-      result = x * y;
-    } else {
-      result = 0;
+    public static int Inline(int x, int y) {
+        int result;
+        if (x <= y) {
+            result = x * y;
+        } else {
+            result = 0;
+        }
+        return result;
     }
-    return result;
-  }
 
-  /// CHECK-START: int Main.NestedLoop(int, int) inliner (before)
-  /// CHECK-NOT:     Mul
+    /// CHECK-START: int Main.NestedLoop(int, int) inliner (before)
+    /// CHECK-NOT:     Mul
 
-  /// CHECK-START: int Main.NestedLoop(int, int) inliner (after)
-  /// CHECK:         Mul
-  /// CHECK-NOT:     Mul
+    /// CHECK-START: int Main.NestedLoop(int, int) inliner (after)
+    /// CHECK:         Mul
+    /// CHECK-NOT:     Mul
 
-  public static int NestedLoop(int max_x, int max_y) {
-    int total = 0;
-    for (int x = 0; x < max_x; ++x) {
-      for (int y = 0; y < max_y; ++y) {
-        total += Inline(x, y);
-      }
+    public static int NestedLoop(int max_x, int max_y) {
+        int total = 0;
+        for (int x = 0; x < max_x; ++x) {
+            for (int y = 0; y < max_y; ++y) {
+                total += Inline(x, y);
+            }
+        }
+        return total;
     }
-    return total;
-  }
 
-  public static void main(String[] args) {
-    assertIntEquals(0, NestedLoop(1, 1));
-    assertIntEquals(3, NestedLoop(2, 3));
-  }
+    public static void main(String[] args) {
+        assertIntEquals(0, NestedLoop(1, 1));
+        assertIntEquals(3, NestedLoop(2, 3));
+    }
 }

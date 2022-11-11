@@ -17,16 +17,20 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    try {
-      Class.forName("VerifyAPut1");
-      throw new Error("expected verification error");
-    } catch (VerifyError e) { /* ignore */
-    } catch (Error e) { System.out.println(e.getClass() + " " + e.getClass().getClassLoader()); }
-    try {
-      Class.forName("VerifyAPut2");
-      throw new Error("expected verification error");
-    } catch (VerifyError e) { /* ignore */
-    } catch (Error e) { System.out.println(e.getClass() + " " + e.getClass().getClassLoader()); }
-  }
+    public static void main(String[] args) throws Exception {
+        try {
+            Class.forName("VerifyAPut1");
+            throw new Error("expected verification error");
+        } catch (VerifyError e) { /* ignore */
+        } catch (Error e) {
+            System.out.println(e.getClass() + " " + e.getClass().getClassLoader());
+        }
+        try {
+            Class.forName("VerifyAPut2");
+            throw new Error("expected verification error");
+        } catch (VerifyError e) { /* ignore */
+        } catch (Error e) {
+            System.out.println(e.getClass() + " " + e.getClass().getClassLoader());
+        }
+    }
 }

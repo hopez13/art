@@ -3,7 +3,7 @@ package android.test.anno;
 
 import java.lang.annotation.*;
 
-@Target({ ElementType.TYPE })
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 
 public @interface IntToString {

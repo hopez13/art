@@ -18,6 +18,5 @@ package sub;
 
 // A package-private class with a public constructor.
 class PPClass {
-    public PPClass() {
-    }
+    public PPClass() {}
 }

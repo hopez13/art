@@ -15,20 +15,18 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    try {
-      doThrow(new Error());
-    } catch (Error e) {
-      e.printStackTrace(System.out);
+    public static void main(String[] args) {
+        try {
+            doThrow(new Error());
+        } catch (Error e) {
+            e.printStackTrace(System.out);
+        }
+        try {
+            doThrow(null);
+        } catch (Throwable t) {
+            t.printStackTrace(System.out);
+        }
     }
-    try {
-      doThrow(null);
-    } catch (Throwable t) {
-      t.printStackTrace(System.out);
-    }
-  }
 
-  public static void doThrow(Error e) {
-    throw e;
-  }
+    public static void doThrow(Error e) { throw e; }
 }

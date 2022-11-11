@@ -15,7 +15,5 @@
  */
 
 public class Base {
-    public void foo(Class main) {
-        System.out.println("Base.foo() on " + getClass().getName());
-    }
+    public void foo(Class main) { System.out.println("Base.foo() on " + getClass().getName()); }
 }

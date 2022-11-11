@@ -15,5 +15,5 @@
  */
 
 public class TestParameter {
-  public void bar(TestInterface ti) { }
+    public void bar(TestInterface ti) {}
 }

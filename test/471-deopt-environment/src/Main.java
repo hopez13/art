@@ -15,33 +15,30 @@
  */
 
 public class Main {
+    private static int willInline(int a, int b) { return a & b; }
 
-  private static int willInline(int a, int b) {
-    return a & b;
-  }
+    static int[] a = new int[4];
+    static int field = 42;
 
-  static int[] a = new int[4];
-  static int field = 42;
+    public static void main(String[] args) throws Exception {
+        // The order of optimizations that would lead to the problem was:
+        // 1) Inlining of `willInline`.
+        // 2) Bounds check elimination inserting a deopt at a[0] and removing the HBoundsCheck.
+        // 3) Instruction simplifier simpilifying the inlined willInline to just `field`.
+        //
+        // At this point, if the environment of the HDeoptimization instruction was
+        // just a pointer to the one in a[0], the uses lists would have not been updated
+        // and the HBoundsCheck being dead code after the HDeoptimization, the simplifcation
+        // at step 3) would not updated that environment.
+        int inEnv = willInline(field, field);
+        int doAdds = a[0] + a[1] + a[2] + a[3];
 
-  public static void main(String[] args) throws Exception {
-    // The order of optimizations that would lead to the problem was:
-    // 1) Inlining of `willInline`.
-    // 2) Bounds check elimination inserting a deopt at a[0] and removing the HBoundsCheck.
-    // 3) Instruction simplifier simpilifying the inlined willInline to just `field`.
-    //
-    // At this point, if the environment of the HDeoptimization instruction was
-    // just a pointer to the one in a[0], the uses lists would have not been updated
-    // and the HBoundsCheck being dead code after the HDeoptimization, the simplifcation
-    // at step 3) would not updated that environment.
-    int inEnv = willInline(field, field);
-    int doAdds = a[0] + a[1] + a[2] + a[3];
+        if (inEnv != 42) {
+            throw new Error("Expected 42");
+        }
 
-    if (inEnv != 42) {
-      throw new Error("Expected 42");
+        if (doAdds != 0) {
+            throw new Error("Expected 0");
+        }
     }
-
-    if (doAdds != 0) {
-      throw new Error("Expected 0");
-    }
-  }
 }

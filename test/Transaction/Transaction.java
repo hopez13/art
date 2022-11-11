@@ -15,96 +15,87 @@
  */
 
 public class Transaction {
-    static class EmptyStatic {
-    }
+    static class EmptyStatic {}
 
     static class ResolveString {
-      static String s = "ResolvedString";
+        static String s = "ResolvedString";
     }
 
     static class StaticFieldClass {
-      public static int intField;
-      static {
-        intField = 5;
-      }
+        public static int intField;
+        static { intField = 5; }
     }
 
     static class FinalizableAbortClass {
-      public static AbortHelperClass finalizableObject;
-      static {
-        finalizableObject = new AbortHelperClass();
-      }
+        public static AbortHelperClass finalizableObject;
+        static { finalizableObject = new AbortHelperClass(); }
     }
 
     static class NativeCallAbortClass {
-      static {
-        AbortHelperClass.nativeMethod();
-      }
+        static { AbortHelperClass.nativeMethod(); }
     }
 
     static class SynchronizedNativeCallAbortClass {
-      static {
-        synchronized (SynchronizedNativeCallAbortClass.class) {
-          AbortHelperClass.nativeMethod();
+        static {
+            synchronized (SynchronizedNativeCallAbortClass.class) {
+                AbortHelperClass.nativeMethod();
+            }
         }
-      }
     }
 
     static class CatchNativeCallAbortClass {
-      static {
-        try {
-          AbortHelperClass.nativeMethod();
-        } catch (Throwable e) {
-          // ignore exception.
+        static {
+            try {
+                AbortHelperClass.nativeMethod();
+            } catch (Throwable e) {
+                // ignore exception.
+            }
         }
-      }
     }
 
     static class MultipleNativeCallAbortClass {
-      static {
-        // Call native method but catch the transaction exception.
-        try {
-          AbortHelperClass.nativeMethod();
-        } catch (Throwable e) {
-          // ignore exception.
-        }
+        static {
+            // Call native method but catch the transaction exception.
+            try {
+                AbortHelperClass.nativeMethod();
+            } catch (Throwable e) {
+                // ignore exception.
+            }
 
-        // Call another native method.
-        AbortHelperClass.nativeMethod2();
-      }
+            // Call another native method.
+            AbortHelperClass.nativeMethod2();
+        }
     }
 
     static class CatchClassForNameAbortClass {
-      static {
-        try {
-          Class.forName("non.existent.TestClass");
-        } catch (Throwable e) {
-          // ignore exception.
+        static {
+            try {
+                Class.forName("non.existent.TestClass");
+            } catch (Throwable e) {
+                // ignore exception.
+            }
         }
-      }
     }
 
     static class CatchClassForNameAbortClassTwice {
-      static {
-        try {
-          Class.forName("non.existent.TestClass");
-        } catch (Throwable e) {
-          // ignore exception.
+        static {
+            try {
+                Class.forName("non.existent.TestClass");
+            } catch (Throwable e) {
+                // ignore exception.
+            }
+            try {
+                Class.forName("non.existent.TestClass");
+            } catch (Throwable e) {
+                // ignore exception.
+            }
         }
-        try {
-          Class.forName("non.existent.TestClass");
-        } catch (Throwable e) {
-          // ignore exception.
-        }
-      }
     }
 
     // Helper class to abort transaction: finalizable class with natve methods.
     static class AbortHelperClass {
-      public void finalize() throws Throwable {
-        super.finalize();
-      }
-      public static native void nativeMethod();
-      public static native void nativeMethod2();
+        public void finalize() throws Throwable { super.finalize(); }
+        public static native void nativeMethod();
+        public static native void nativeMethod2();
     }
 }

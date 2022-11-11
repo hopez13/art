@@ -24,8 +24,8 @@ class Main {
         try {
             Class.forName(className);
         } catch (ClassFormatError e) {
-            System.out.println(
-                "Caught " + e.getClass().getName() + " when trying to resolve " + className + ".");
+            System.out.println("Caught " + e.getClass().getName() + " when trying to resolve "
+                    + className + ".");
         }
     }
 }

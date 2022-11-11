@@ -15,7 +15,5 @@
  */
 
 public class Test3Base {
-    public static void foo() {
-        System.out.println("Test3Base.foo()");
-    }
+    public static void foo() { System.out.println("Test3Base.foo()"); }
 }

@@ -98,11 +98,9 @@ public class Main {
 
             try {
                 Thread.sleep(2000);
-            }
-            catch (InterruptedException ie) {
+            } catch (InterruptedException ie) {
                 System.out.print("testThreadDaemons @ Interrupted!\n");
-            }
-            finally {
+            } finally {
                 System.out.print("testThreadDaemons @ Thread bailing\n");
             }
         }
@@ -130,7 +128,7 @@ public class Main {
             }
         };
         thread.start();
-        thread.setName("HelloWorld");  // b/17302037 hang if setName called after start
+        thread.setName("HelloWorld"); // b/17302037 hang if setName called after start
         if (!thread.getName().equals("HelloWorld")) {
             throw new AssertionError("Unexpected thread name: " + thread.getName());
         }
@@ -149,62 +147,62 @@ public class Main {
         t1.start();
         t1.join();
         if (supportsThreadPriorities() && (t1.getNativePriority() != Thread.MAX_PRIORITY)) {
-            System.out.print("thread priority for t1 was " + t1.getNativePriority() +
-                " [expected Thread.MAX_PRIORITY]\n");
+            System.out.print("thread priority for t1 was " + t1.getNativePriority()
+                    + " [expected Thread.MAX_PRIORITY]\n");
         }
 
         PriorityStoringThread t2 = new PriorityStoringThread(true);
         t2.start();
         t2.join();
         if (supportsThreadPriorities() && (t2.getNativePriority() != Thread.MAX_PRIORITY)) {
-            System.out.print("thread priority for t2 was " + t2.getNativePriority() +
-                " [expected Thread.MAX_PRIORITY]\n");
+            System.out.print("thread priority for t2 was " + t2.getNativePriority()
+                    + " [expected Thread.MAX_PRIORITY]\n");
         }
 
         System.out.print("testThreadPriorities finished\n");
     }
 
     private static void testMainThreadGroup() {
-      Thread threads[] = new Thread[10];
-      Thread current = Thread.currentThread();
-      current.getThreadGroup().enumerate(threads);
+        Thread threads[] = new Thread[10];
+        Thread current = Thread.currentThread();
+        current.getThreadGroup().enumerate(threads);
 
-      for (Thread t : threads) {
-        if (t == current) {
-          System.out.println("Found current Thread in ThreadGroup");
-          return;
+        for (Thread t : threads) {
+            if (t == current) {
+                System.out.println("Found current Thread in ThreadGroup");
+                return;
+            }
         }
-      }
-      throw new RuntimeException("Did not find main thread: " + Arrays.toString(threads));
+        throw new RuntimeException("Did not find main thread: " + Arrays.toString(threads));
     }
 
     private static void testMainThreadAllStackTraces() {
-      StackTraceElement[] trace = Thread.getAllStackTraces().get(Thread.currentThread());
-      if (trace == null) {
-        throw new RuntimeException("Did not find main thread: " + Thread.getAllStackTraces());
-      }
-      List<StackTraceElement> list = Arrays.asList(trace);
-      Iterator<StackTraceElement> it = list.iterator();
-      while (it.hasNext()) {
-        StackTraceElement ste = it.next();
-        if (ste.getClassName().equals("Main")) {
-          if (!ste.getMethodName().equals("testMainThreadAllStackTraces")) {
-            throw new RuntimeException(list.toString());
-          }
-
-          StackTraceElement ste2 = it.next();
-          if (!ste2.getClassName().equals("Main")) {
-            throw new RuntimeException(list.toString());
-          }
-          if (!ste2.getMethodName().equals("main")) {
-            throw new RuntimeException(list.toString());
-          }
-
-          System.out.println("Found expected stack in getAllStackTraces()");
-          return;
+        StackTraceElement[] trace = Thread.getAllStackTraces().get(Thread.currentThread());
+        if (trace == null) {
+            throw new RuntimeException("Did not find main thread: " + Thread.getAllStackTraces());
         }
-      }
-      throw new RuntimeException(list.toString());
+        List<StackTraceElement> list = Arrays.asList(trace);
+        Iterator<StackTraceElement> it = list.iterator();
+        while (it.hasNext()) {
+            StackTraceElement ste = it.next();
+            if (ste.getClassName().equals("Main")) {
+                if (!ste.getMethodName().equals("testMainThreadAllStackTraces")) {
+                    throw new RuntimeException(list.toString());
+                }
+
+                StackTraceElement ste2 = it.next();
+                if (!ste2.getClassName().equals("Main")) {
+                    throw new RuntimeException(list.toString());
+                }
+                if (!ste2.getMethodName().equals("main")) {
+                    throw new RuntimeException(list.toString());
+                }
+
+                System.out.println("Found expected stack in getAllStackTraces()");
+                return;
+            }
+        }
+        throw new RuntimeException(list.toString());
     }
 
     private static native int getNativePriority();
@@ -228,8 +226,6 @@ public class Main {
             nativePriority = Main.getNativePriority();
         }
 
-        public int getNativePriority() {
-            return nativePriority;
-        }
+        public int getNativePriority() { return nativePriority; }
     }
 }

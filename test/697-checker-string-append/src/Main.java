@@ -28,83 +28,26 @@ public class Main {
 
     private static final String APPEND_LONG_PREFIX = "Long/";
     private static final String[] APPEND_LONG_TEST_CASES = {
-        "Long/0",
-        "Long/1",
-        "Long/9",
-        "Long/10",
-        "Long/99",
-        "Long/100",
-        "Long/999",
-        "Long/1000",
-        "Long/9999",
-        "Long/10000",
-        "Long/99999",
-        "Long/100000",
-        "Long/999999",
-        "Long/1000000",
-        "Long/9999999",
-        "Long/10000000",
-        "Long/99999999",
-        "Long/100000000",
-        "Long/999999999",
-        "Long/1000000000",
-        "Long/9999999999",
-        "Long/10000000000",
-        "Long/99999999999",
-        "Long/100000000000",
-        "Long/999999999999",
-        "Long/1000000000000",
-        "Long/9999999999999",
-        "Long/10000000000000",
-        "Long/99999999999999",
-        "Long/100000000000000",
-        "Long/999999999999999",
-        "Long/1000000000000000",
-        "Long/9999999999999999",
-        "Long/10000000000000000",
-        "Long/99999999999999999",
-        "Long/100000000000000000",
-        "Long/999999999999999999",
-        "Long/1000000000000000000",
-        "Long/9223372036854775807",  // Long.MAX_VALUE
-        "Long/-1",
-        "Long/-9",
-        "Long/-10",
-        "Long/-99",
-        "Long/-100",
-        "Long/-999",
-        "Long/-1000",
-        "Long/-9999",
-        "Long/-10000",
-        "Long/-99999",
-        "Long/-100000",
-        "Long/-999999",
-        "Long/-1000000",
-        "Long/-9999999",
-        "Long/-10000000",
-        "Long/-99999999",
-        "Long/-100000000",
-        "Long/-999999999",
-        "Long/-1000000000",
-        "Long/-9999999999",
-        "Long/-10000000000",
-        "Long/-99999999999",
-        "Long/-100000000000",
-        "Long/-999999999999",
-        "Long/-1000000000000",
-        "Long/-9999999999999",
-        "Long/-10000000000000",
-        "Long/-99999999999999",
-        "Long/-100000000000000",
-        "Long/-999999999999999",
-        "Long/-1000000000000000",
-        "Long/-9999999999999999",
-        "Long/-10000000000000000",
-        "Long/-99999999999999999",
-        "Long/-100000000000000000",
-        "Long/-999999999999999999",
-        "Long/-1000000000000000000",
-        "Long/-9223372036854775808",  // Long.MIN_VALUE
+            "Long/0", "Long/1", "Long/9", "Long/10", "Long/99", "Long/100", "Long/999", "Long/1000",
+            "Long/9999", "Long/10000", "Long/99999", "Long/100000", "Long/999999", "Long/1000000",
+            "Long/9999999", "Long/10000000", "Long/99999999", "Long/100000000", "Long/999999999",
+            "Long/1000000000", "Long/9999999999", "Long/10000000000", "Long/99999999999",
+            "Long/100000000000", "Long/999999999999", "Long/1000000000000", "Long/9999999999999",
+            "Long/10000000000000", "Long/99999999999999", "Long/100000000000000",
+            "Long/999999999999999", "Long/1000000000000000", "Long/9999999999999999",
+            "Long/10000000000000000", "Long/99999999999999999", "Long/100000000000000000",
+            "Long/999999999999999999", "Long/1000000000000000000",
+            "Long/9223372036854775807", // Long.MAX_VALUE
+            "Long/-1", "Long/-9", "Long/-10", "Long/-99", "Long/-100", "Long/-999", "Long/-1000",
+            "Long/-9999", "Long/-10000", "Long/-99999", "Long/-100000", "Long/-999999",
+            "Long/-1000000", "Long/-9999999", "Long/-10000000", "Long/-99999999", "Long/-100000000",
+            "Long/-999999999", "Long/-1000000000", "Long/-9999999999", "Long/-10000000000",
+            "Long/-99999999999", "Long/-100000000000", "Long/-999999999999", "Long/-1000000000000",
+            "Long/-9999999999999", "Long/-10000000000000", "Long/-99999999999999",
+            "Long/-100000000000000", "Long/-999999999999999", "Long/-1000000000000000",
+            "Long/-9999999999999999", "Long/-10000000000000000", "Long/-99999999999999999",
+            "Long/-100000000000000000", "Long/-999999999999999999", "Long/-1000000000000000000",
+            "Long/-9223372036854775808", // Long.MIN_VALUE
     };
 
     /// CHECK-START: java.lang.String Main.$noinline$appendStringAndLong(java.lang.String, long) instruction_simplifier (before)
@@ -126,47 +69,16 @@ public class Main {
 
     private static final String APPEND_INT_PREFIX = "Int/";
     private static final String[] APPEND_INT_TEST_CASES = {
-        "Int/0",
-        "Int/1",
-        "Int/9",
-        "Int/10",
-        "Int/99",
-        "Int/100",
-        "Int/999",
-        "Int/1000",
-        "Int/9999",
-        "Int/10000",
-        "Int/99999",
-        "Int/100000",
-        "Int/999999",
-        "Int/1000000",
-        "Int/9999999",
-        "Int/10000000",
-        "Int/99999999",
-        "Int/100000000",
-        "Int/999999999",
-        "Int/1000000000",
-        "Int/2147483647",  // Integer.MAX_VALUE
-        "Int/-1",
-        "Int/-9",
-        "Int/-10",
-        "Int/-99",
-        "Int/-100",
-        "Int/-999",
-        "Int/-1000",
-        "Int/-9999",
-        "Int/-10000",
-        "Int/-99999",
-        "Int/-100000",
-        "Int/-999999",
-        "Int/-1000000",
-        "Int/-9999999",
-        "Int/-10000000",
-        "Int/-99999999",
-        "Int/-100000000",
-        "Int/-999999999",
-        "Int/-1000000000",
-        "Int/-2147483648",  // Integer.MIN_VALUE
+            "Int/0", "Int/1", "Int/9", "Int/10", "Int/99", "Int/100", "Int/999", "Int/1000",
+            "Int/9999", "Int/10000", "Int/99999", "Int/100000", "Int/999999", "Int/1000000",
+            "Int/9999999", "Int/10000000", "Int/99999999", "Int/100000000", "Int/999999999",
+            "Int/1000000000",
+            "Int/2147483647", // Integer.MAX_VALUE
+            "Int/-1", "Int/-9", "Int/-10", "Int/-99", "Int/-100", "Int/-999", "Int/-1000",
+            "Int/-9999", "Int/-10000", "Int/-99999", "Int/-100000", "Int/-999999", "Int/-1000000",
+            "Int/-9999999", "Int/-10000000", "Int/-99999999", "Int/-100000000", "Int/-999999999",
+            "Int/-1000000000",
+            "Int/-2147483648", // Integer.MIN_VALUE
     };
 
     /// CHECK-START: java.lang.String Main.$noinline$appendStringAndInt(java.lang.String, int) instruction_simplifier (before)
@@ -206,33 +118,18 @@ public class Main {
 
     /// CHECK-START: java.lang.String Main.$noinline$appendSLILC(java.lang.String, long, int, long, char) instruction_simplifier (after)
     /// CHECK:                  StringBuilderAppend
-    public static String $noinline$appendSLILC(String s,
-                                               long l1,
-                                               int i,
-                                               long l2,
-                                               char c) {
-        return new StringBuilder().append(s)
-                                  .append(l1)
-                                  .append(i)
-                                  .append(l2)
-                                  .append(c).toString();
+    public static String $noinline$appendSLILC(String s, long l1, int i, long l2, char c) {
+        return new StringBuilder().append(s).append(l1).append(i).append(l2).append(c).toString();
     }
 
     public static void testMiscelaneous() {
-        assertEquals("x17-1q",
-                     $noinline$appendSLILC("x", 1L, 7, -1L, 'q'));
-        assertEquals("null17-1q",
-                     $noinline$appendSLILC(null, 1L, 7, -1L, 'q'));
-        assertEquals("x\u013117-1q",
-                     $noinline$appendSLILC("x\u0131", 1L, 7, -1L, 'q'));
-        assertEquals("x427-1q",
-                     $noinline$appendSLILC("x", 42L, 7, -1L, 'q'));
-        assertEquals("x1-42-1q",
-                     $noinline$appendSLILC("x", 1L, -42, -1L, 'q'));
-        assertEquals("x17424242q",
-                     $noinline$appendSLILC("x", 1L, 7, 424242L, 'q'));
-        assertEquals("x17-1\u0131",
-                     $noinline$appendSLILC("x", 1L, 7, -1L, '\u0131'));
+        assertEquals("x17-1q", $noinline$appendSLILC("x", 1L, 7, -1L, 'q'));
+        assertEquals("null17-1q", $noinline$appendSLILC(null, 1L, 7, -1L, 'q'));
+        assertEquals("x\u013117-1q", $noinline$appendSLILC("x\u0131", 1L, 7, -1L, 'q'));
+        assertEquals("x427-1q", $noinline$appendSLILC("x", 42L, 7, -1L, 'q'));
+        assertEquals("x1-42-1q", $noinline$appendSLILC("x", 1L, -42, -1L, 'q'));
+        assertEquals("x17424242q", $noinline$appendSLILC("x", 1L, 7, 424242L, 'q'));
+        assertEquals("x17-1\u0131", $noinline$appendSLILC("x", 1L, 7, -1L, '\u0131'));
     }
 
     public static String $inline$testInlineInner(StringBuilder sb, String s, int i) {
@@ -249,22 +146,16 @@ public class Main {
         return $inline$testInlineInner(sb, s, i);
     }
 
-    public static void testInline() {
-        assertEquals("x42", $noinline$testInlineOuter("x", 42));
-    }
+    public static void testInline() { assertEquals("x42", $noinline$testInlineOuter("x", 42)); }
 
     /// CHECK-START: java.lang.String Main.$noinline$appendNothing() instruction_simplifier (before)
     /// CHECK-NOT:              StringBuilderAppend
 
     /// CHECK-START: java.lang.String Main.$noinline$appendNothing() instruction_simplifier (after)
     /// CHECK-NOT:              StringBuilderAppend
-    public static String $noinline$appendNothing() {
-        return new StringBuilder().toString();
-    }
+    public static String $noinline$appendNothing() { return new StringBuilder().toString(); }
 
-    public static void testNoArgs() {
-        assertEquals("", $noinline$appendNothing());
-    }
+    public static void testNoArgs() { assertEquals("", $noinline$appendNothing()); }
 
     /// CHECK-START: boolean Main.$noinline$testAppendEquals(java.lang.String, int) instruction_simplifier (before)
     /// CHECK-NOT:              StringBuilderAppend
@@ -272,23 +163,23 @@ public class Main {
     /// CHECK-START: boolean Main.$noinline$testAppendEquals(java.lang.String, int) instruction_simplifier (after)
     /// CHECK:                  StringBuilderAppend
     public static boolean $noinline$testAppendEquals(String s, int i) {
-      // Regression test for b/151107293 .
-      // When a string is used as both receiver and argument of String.equals(), we DCHECK()
-      // that it cannot be null. However, when replacing the call to StringBuilder.toString()
-      // with the HStringBuilderAppend(), the former reported CanBeNull() as false and
-      // therefore no explicit null checks were needed, but the replacement reported
-      // CanBeNull() as true, so when the result was used in String.equals() for both
-      // receiver and argument, the DCHECK() failed. This was fixed by overriding
-      // CanBeNull() in HStringBuilderAppend to correctly return false; the string that
-      // previously didn't require null check still does not require it.
-      String str = new StringBuilder().append(s).append(i).toString();
-      return str.equals(str);
+        // Regression test for b/151107293 .
+        // When a string is used as both receiver and argument of String.equals(), we DCHECK()
+        // that it cannot be null. However, when replacing the call to StringBuilder.toString()
+        // with the HStringBuilderAppend(), the former reported CanBeNull() as false and
+        // therefore no explicit null checks were needed, but the replacement reported
+        // CanBeNull() as true, so when the result was used in String.equals() for both
+        // receiver and argument, the DCHECK() failed. This was fixed by overriding
+        // CanBeNull() in HStringBuilderAppend to correctly return false; the string that
+        // previously didn't require null check still does not require it.
+        String str = new StringBuilder().append(s).append(i).toString();
+        return str.equals(str);
     }
 
     public static void testEquals() {
-      if (!$noinline$testAppendEquals("Test", 42)) {
-        throw new Error("str.equals(str) is false");
-      }
+        if (!$noinline$testAppendEquals("Test", 42)) {
+            throw new Error("str.equals(str) is false");
+        }
     }
 
     public static void assertEquals(String expected, String actual) {

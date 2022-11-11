@@ -15,9 +15,7 @@
  */
 
 public class FillerA {
-  public void methodA() {
-  }
+    public void methodA() {}
 
-  public void methodB() {
-  }
+    public void methodB() {}
 }

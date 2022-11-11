@@ -18,25 +18,23 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 class Main {
-  public static void main(String[] args) throws Exception {
-    Class<?> cls = Class.forName("TestCase");
-    test("testSuper", cls);
-    test("testSuperRange", cls);
-  }
-
-  public static void test(String methodName, Class<?> cls) throws Exception {
-    Method m = cls.getDeclaredMethod(methodName, cls);
-    try {
-      m.invoke(cls.newInstance(), (Object)null);
-      throw new Error("Expected NullPointerException");
-    } catch (InvocationTargetException e) {
-      if (e.getCause().getClass() != NullPointerException.class) {
-        throw new Error("Expected NullPointerException, got " + e.getCause().getClass());
-      }
+    public static void main(String[] args) throws Exception {
+        Class<?> cls = Class.forName("TestCase");
+        test("testSuper", cls);
+        test("testSuperRange", cls);
     }
-  }
 
-  public int toInt() {
-    return 42;
-  }
+    public static void test(String methodName, Class<?> cls) throws Exception {
+        Method m = cls.getDeclaredMethod(methodName, cls);
+        try {
+            m.invoke(cls.newInstance(), (Object) null);
+            throw new Error("Expected NullPointerException");
+        } catch (InvocationTargetException e) {
+            if (e.getCause().getClass() != NullPointerException.class) {
+                throw new Error("Expected NullPointerException, got " + e.getCause().getClass());
+            }
+        }
+    }
+
+    public int toInt() { return 42; }
 }

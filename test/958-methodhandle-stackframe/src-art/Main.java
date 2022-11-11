@@ -14,162 +14,146 @@
  * limitations under the License.
  */
 
+import dalvik.system.EmulatedStackFrame;
+
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.lang.invoke.MethodType;
-import java.lang.invoke.WrongMethodTypeException;
 import java.lang.invoke.Transformers.Transformer;
-
-import dalvik.system.EmulatedStackFrame;
+import java.lang.invoke.WrongMethodTypeException;
 
 public class Main {
-
-  public static void testDelegate_allTypes(boolean z, char a, short b, int c, long d,
-                                           float e, double f, String g, Object h) {
-    System.out.println("boolean: " + z);
-    System.out.println("char: " + a);
-    System.out.println("short: " + b);
-    System.out.println("int: " + c);
-    System.out.println("long: " + d);
-    System.out.println("float: " + e);
-    System.out.println("double: " + f);
-    System.out.println("String: " + g);
-    System.out.println("Object: " + h);
-  }
-
-  public static boolean testDelegate_returnBoolean() {
-    return true;
-  }
-
-  public static char testDelegate_returnChar() {
-    return 'a';
-  }
-
-  public static int testDelegate_returnInt() {
-    return 42;
-  }
-
-  public static long testDelegate_returnLong() {
-    return 43;
-  }
-
-  public static float testDelegate_returnFloat() {
-    return 43.0f;
-  }
-
-  public static double testDelegate_returnDouble() {
-    return 43.0;
-  }
-
-  public static String testDelegate_returnString() {
-    return "plank";
-  }
-
-  public static class DelegatingTransformer extends Transformer {
-    private final MethodHandle delegate;
-
-    public DelegatingTransformer(MethodHandle delegate) {
-      super(delegate.type());
-      this.delegate = delegate;
+    public static void testDelegate_allTypes(
+            boolean z, char a, short b, int c, long d, float e, double f, String g, Object h) {
+        System.out.println("boolean: " + z);
+        System.out.println("char: " + a);
+        System.out.println("short: " + b);
+        System.out.println("int: " + c);
+        System.out.println("long: " + d);
+        System.out.println("float: " + e);
+        System.out.println("double: " + f);
+        System.out.println("String: " + g);
+        System.out.println("Object: " + h);
     }
 
-    @Override
-    public void transform(EmulatedStackFrame stackFrame) throws Throwable {
-        invokeFromTransform(delegate, stackFrame);
-    }
-  }
+    public static boolean testDelegate_returnBoolean() { return true; }
 
-  public static void main(String[] args) throws Throwable {
-    MethodHandle specialFunctionHandle = MethodHandles.lookup().findStatic(
-        Main.class, "testDelegate_allTypes", MethodType.methodType(void.class,
-          new Class<?>[] { boolean.class, char.class, short.class, int.class, long.class,
-            float.class, double.class, String.class, Object.class }));
+    public static char testDelegate_returnChar() { return 'a'; }
 
-    MethodHandle delegate = new DelegatingTransformer(specialFunctionHandle);
+    public static int testDelegate_returnInt() { return 42; }
 
-    // Test an exact invoke.
-    //
-    // Note that the shorter form below doesn't work and must be
-    // investigated on the jack side :  b/32536744
-    //
-    // delegate.invokeExact(false, 'h', (short) 56, 72, Integer.MAX_VALUE + 42l,
-    //    0.56f, 100.0d, "hello", (Object) "goodbye");
+    public static long testDelegate_returnLong() { return 43; }
 
-    Object obj = "goodbye";
-    delegate.invokeExact(false, 'h', (short) 56, 72, Integer.MAX_VALUE + 42l,
-        0.56f, 100.0d, "hello", obj);
+    public static float testDelegate_returnFloat() { return 43.0f; }
 
-    // Test a non exact invoke with one int -> long conversion and a float -> double
-    // conversion.
-    delegate.invoke(false, 'h', (short) 56, 72, 73,
-        0.56f, 100.0f, "hello", "goodbye");
+    public static double testDelegate_returnDouble() { return 43.0; }
 
-    // Should throw a WrongMethodTypeException if the types don't align.
-    try {
-      delegate.invoke(false);
-      throw new AssertionError("Call to invoke unexpectedly succeeded");
-    } catch (WrongMethodTypeException expected) {
+    public static String testDelegate_returnString() { return "plank"; }
+
+    public static class DelegatingTransformer extends Transformer {
+        private final MethodHandle delegate;
+
+        public DelegatingTransformer(MethodHandle delegate) {
+            super(delegate.type());
+            this.delegate = delegate;
+        }
+
+        @Override
+        public void transform(EmulatedStackFrame stackFrame) throws Throwable {
+            invokeFromTransform(delegate, stackFrame);
+        }
     }
 
-    // Test return values.
+    public static void main(String[] args) throws Throwable {
+        MethodHandle specialFunctionHandle =
+                MethodHandles.lookup().findStatic(Main.class, "testDelegate_allTypes",
+                        MethodType.methodType(void.class,
+                                new Class<?>[] {boolean.class, char.class, short.class, int.class,
+                                        long.class, float.class, double.class, String.class,
+                                        Object.class}));
 
-    // boolean.
-    MethodHandle returner = MethodHandles.lookup().findStatic(
-        Main.class, "testDelegate_returnBoolean", MethodType.methodType(boolean.class));
-    delegate = new DelegatingTransformer(returner);
+        MethodHandle delegate = new DelegatingTransformer(specialFunctionHandle);
 
-    System.out.println((boolean) delegate.invoke());
-    System.out.println((boolean) delegate.invokeExact());
+        // Test an exact invoke.
+        //
+        // Note that the shorter form below doesn't work and must be
+        // investigated on the jack side :  b/32536744
+        //
+        // delegate.invokeExact(false, 'h', (short) 56, 72, Integer.MAX_VALUE + 42l,
+        //    0.56f, 100.0d, "hello", (Object) "goodbye");
 
-    // char.
-    returner = MethodHandles.lookup().findStatic(
-        Main.class, "testDelegate_returnChar", MethodType.methodType(char.class));
-    delegate = new DelegatingTransformer(returner);
+        Object obj = "goodbye";
+        delegate.invokeExact(
+                false, 'h', (short) 56, 72, Integer.MAX_VALUE + 42l, 0.56f, 100.0d, "hello", obj);
 
-    System.out.println((char) delegate.invoke());
-    System.out.println((char) delegate.invokeExact());
+        // Test a non exact invoke with one int -> long conversion and a float -> double
+        // conversion.
+        delegate.invoke(false, 'h', (short) 56, 72, 73, 0.56f, 100.0f, "hello", "goodbye");
 
-    // int.
-    returner = MethodHandles.lookup().findStatic(
-        Main.class, "testDelegate_returnInt", MethodType.methodType(int.class));
-    delegate = new DelegatingTransformer(returner);
+        // Should throw a WrongMethodTypeException if the types don't align.
+        try {
+            delegate.invoke(false);
+            throw new AssertionError("Call to invoke unexpectedly succeeded");
+        } catch (WrongMethodTypeException expected) {
+        }
 
-    System.out.println((int) delegate.invoke());
-    System.out.println((int) delegate.invokeExact());
+        // Test return values.
 
-    // long.
-    returner = MethodHandles.lookup().findStatic(
-        Main.class, "testDelegate_returnLong", MethodType.methodType(long.class));
-    delegate = new DelegatingTransformer(returner);
+        // boolean.
+        MethodHandle returner = MethodHandles.lookup().findStatic(
+                Main.class, "testDelegate_returnBoolean", MethodType.methodType(boolean.class));
+        delegate = new DelegatingTransformer(returner);
 
-    System.out.println((long) delegate.invoke());
-    System.out.println((long) delegate.invokeExact());
+        System.out.println((boolean) delegate.invoke());
+        System.out.println((boolean) delegate.invokeExact());
 
-    // float.
-    returner = MethodHandles.lookup().findStatic(
-        Main.class, "testDelegate_returnFloat", MethodType.methodType(float.class));
-    delegate = new DelegatingTransformer(returner);
+        // char.
+        returner = MethodHandles.lookup().findStatic(
+                Main.class, "testDelegate_returnChar", MethodType.methodType(char.class));
+        delegate = new DelegatingTransformer(returner);
 
-    System.out.println((float) delegate.invoke());
-    System.out.println((float) delegate.invokeExact());
+        System.out.println((char) delegate.invoke());
+        System.out.println((char) delegate.invokeExact());
 
-    // double.
-    returner = MethodHandles.lookup().findStatic(
-        Main.class, "testDelegate_returnDouble", MethodType.methodType(double.class));
-    delegate = new DelegatingTransformer(returner);
+        // int.
+        returner = MethodHandles.lookup().findStatic(
+                Main.class, "testDelegate_returnInt", MethodType.methodType(int.class));
+        delegate = new DelegatingTransformer(returner);
 
-    System.out.println((double) delegate.invoke());
-    System.out.println((double) delegate.invokeExact());
+        System.out.println((int) delegate.invoke());
+        System.out.println((int) delegate.invokeExact());
 
-    // references.
-    returner = MethodHandles.lookup().findStatic(
-        Main.class, "testDelegate_returnString", MethodType.methodType(String.class));
-    delegate = new DelegatingTransformer(returner);
+        // long.
+        returner = MethodHandles.lookup().findStatic(
+                Main.class, "testDelegate_returnLong", MethodType.methodType(long.class));
+        delegate = new DelegatingTransformer(returner);
 
-    System.out.println((String) delegate.invoke());
-    System.out.println((String) delegate.invokeExact());
-  }
+        System.out.println((long) delegate.invoke());
+        System.out.println((long) delegate.invokeExact());
+
+        // float.
+        returner = MethodHandles.lookup().findStatic(
+                Main.class, "testDelegate_returnFloat", MethodType.methodType(float.class));
+        delegate = new DelegatingTransformer(returner);
+
+        System.out.println((float) delegate.invoke());
+        System.out.println((float) delegate.invokeExact());
+
+        // double.
+        returner = MethodHandles.lookup().findStatic(
+                Main.class, "testDelegate_returnDouble", MethodType.methodType(double.class));
+        delegate = new DelegatingTransformer(returner);
+
+        System.out.println((double) delegate.invoke());
+        System.out.println((double) delegate.invokeExact());
+
+        // references.
+        returner = MethodHandles.lookup().findStatic(
+                Main.class, "testDelegate_returnString", MethodType.methodType(String.class));
+        delegate = new DelegatingTransformer(returner);
+
+        System.out.println((String) delegate.invoke());
+        System.out.println((String) delegate.invokeExact());
+    }
 }
-
-

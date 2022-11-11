@@ -24,7 +24,7 @@ public class Main {
         testNativeThread(group);
 
         if (!executed) {
-          throw new IllegalStateException("Expected runFromNative to be done.");
+            throw new IllegalStateException("Expected runFromNative to be done.");
         }
         if (!group.isDestroyed()) {
             throw new IllegalStateException("Threadgroup should be destroyed.");
@@ -32,8 +32,6 @@ public class Main {
     }
 
     private static boolean executed = false;
-    private static void runFromNative() {
-        executed = true;
-    }
+    private static void runFromNative() { executed = true; }
     private static native void testNativeThread(ThreadGroup group);
 }

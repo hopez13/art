@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-public interface SubObjectOverridingInterface extends ObjectOverridingInterface {
-}
+public interface SubObjectOverridingInterface extends ObjectOverridingInterface {}

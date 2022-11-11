@@ -16,8 +16,14 @@
 
 package transformer;
 
-import annotations.ConstantMethodHandle;
-import annotations.ConstantMethodType;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.Handle;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Type;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.invoke.MethodHandle;
@@ -31,13 +37,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.Handle;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.Type;
+
+import annotations.ConstantMethodHandle;
+import annotations.ConstantMethodType;
 
 /**
  * Class for transforming invoke static bytecodes into constant method handle loads and and constant
@@ -70,9 +72,7 @@ class ConstantTransformer {
         private final Map<String, ConstantMethodHandle> constantMethodHandles;
         private final Map<String, ConstantMethodType> constantMethodTypes;
 
-        ConstantBuilder(
-                int api,
-                ClassVisitor cv,
+        ConstantBuilder(int api, ClassVisitor cv,
                 Map<String, ConstantMethodHandle> constantMethodHandles,
                 Map<String, ConstantMethodType> constantMethodTypes) {
             super(api, cv);
@@ -137,21 +137,16 @@ class ConstantTransformer {
                 }
 
                 private void insertConstantMethodHandle(ConstantMethodHandle constantMethodHandle) {
-                    Handle handle =
-                            new Handle(
-                                    getHandleTag(constantMethodHandle.kind()),
-                                    constantMethodHandle.owner(),
-                                    constantMethodHandle.fieldOrMethodName(),
-                                    constantMethodHandle.descriptor(),
-                                    constantMethodHandle.ownerIsInterface());
+                    Handle handle = new Handle(getHandleTag(constantMethodHandle.kind()),
+                            constantMethodHandle.owner(), constantMethodHandle.fieldOrMethodName(),
+                            constantMethodHandle.descriptor(),
+                            constantMethodHandle.ownerIsInterface());
                     mv.visitLdcInsn(handle);
                 }
 
                 private void insertConstantMethodType(ConstantMethodType constantMethodType) {
-                    Type methodType =
-                            buildMethodType(
-                                    constantMethodType.returnType(),
-                                    constantMethodType.parameterTypes());
+                    Type methodType = buildMethodType(
+                            constantMethodType.returnType(), constantMethodType.parameterTypes());
                     mv.visitLdcInsn(methodType);
                 }
             };
@@ -186,9 +181,8 @@ class ConstantTransformer {
 
     private static void transform(Path inputClassPath, Path outputClassPath) throws Throwable {
         Path classLoadPath = inputClassPath.toAbsolutePath().getParent();
-        URLClassLoader classLoader =
-                new URLClassLoader(new URL[] {classLoadPath.toUri().toURL()},
-                                   ClassLoader.getSystemClassLoader());
+        URLClassLoader classLoader = new URLClassLoader(
+                new URL[] {classLoadPath.toUri().toURL()}, ClassLoader.getSystemClassLoader());
         String inputClassName = inputClassPath.getFileName().toString().replace(".class", "");
         Class<?> inputClass = classLoader.loadClass(inputClassName);
 
@@ -213,9 +207,8 @@ class ConstantTransformer {
         ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
         try (InputStream is = Files.newInputStream(inputClassPath)) {
             ClassReader cr = new ClassReader(is);
-            ConstantBuilder cb =
-                    new ConstantBuilder(
-                            Opcodes.ASM7, cw, constantMethodHandles, constantMethodTypes);
+            ConstantBuilder cb = new ConstantBuilder(
+                    Opcodes.ASM7, cw, constantMethodHandles, constantMethodTypes);
             cr.accept(cb, 0);
         }
         try (OutputStream os = Files.newOutputStream(outputClassPath)) {

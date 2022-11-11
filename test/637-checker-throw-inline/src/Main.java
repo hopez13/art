@@ -15,50 +15,49 @@
  */
 
 public class Main {
-
-  public static void $inline$doCall() {
-    if (doThrow) throw new Error("");
-  }
-
-  public static void tryInline() {
-    if (doThrow) throw new Error("");
-  }
-
-  /// CHECK-START: void Main.test() inliner (before)
-  /// CHECK:      InvokeStaticOrDirect method_name:Main.$inline$doCall loop:none
-
-  /// CHECK-START: void Main.test() inliner (after)
-  /// CHECK-NOT:  InvokeStaticOrDirect method_name:Main.$inline$doCall
-  public static void test() {
-    $inline$doCall();
-  }
-
-  /// CHECK-START: void Main.testInLoop() inliner (before)
-  /// CHECK:      InvokeStaticOrDirect method_name:Main.$inline$doCall loop:{{B\d+}}
-
-  /// CHECK-START: void Main.testInLoop() inliner (after)
-  /// CHECK-NOT:  InvokeStaticOrDirect method_name:Main.$inline$doCall
-  public static void testInLoop() {
-    for (int i = 0; i < 10; ++i) {
-      $inline$doCall();
+    public static void $inline$doCall() {
+        if (doThrow)
+            throw new Error("");
     }
-  }
 
-  /// CHECK-START: void Main.testInInfiniteLoop() inliner (before)
-  /// CHECK:      InvokeStaticOrDirect method_name:Main.tryInline loop:{{B\d+}}
-
-  /// CHECK-START: void Main.testInInfiniteLoop() inliner (after)
-  /// CHECK:      InvokeStaticOrDirect method_name:Main.tryInline loop:{{B\d+}}
-  public static void testInInfiniteLoop() {
-    while (true) {
-      tryInline();
+    public static void tryInline() {
+        if (doThrow)
+            throw new Error("");
     }
-  }
 
-  public static void main(String[] args) {
-    test();
-    testInLoop();
-  }
+    /// CHECK-START: void Main.test() inliner (before)
+    /// CHECK:      InvokeStaticOrDirect method_name:Main.$inline$doCall loop:none
 
-  static boolean doThrow = false;
+    /// CHECK-START: void Main.test() inliner (after)
+    /// CHECK-NOT:  InvokeStaticOrDirect method_name:Main.$inline$doCall
+    public static void test() { $inline$doCall(); }
+
+    /// CHECK-START: void Main.testInLoop() inliner (before)
+    /// CHECK:      InvokeStaticOrDirect method_name:Main.$inline$doCall loop:{{B\d+}}
+
+    /// CHECK-START: void Main.testInLoop() inliner (after)
+    /// CHECK-NOT:  InvokeStaticOrDirect method_name:Main.$inline$doCall
+    public static void testInLoop() {
+        for (int i = 0; i < 10; ++i) {
+            $inline$doCall();
+        }
+    }
+
+    /// CHECK-START: void Main.testInInfiniteLoop() inliner (before)
+    /// CHECK:      InvokeStaticOrDirect method_name:Main.tryInline loop:{{B\d+}}
+
+    /// CHECK-START: void Main.testInInfiniteLoop() inliner (after)
+    /// CHECK:      InvokeStaticOrDirect method_name:Main.tryInline loop:{{B\d+}}
+    public static void testInInfiniteLoop() {
+        while (true) {
+            tryInline();
+        }
+    }
+
+    public static void main(String[] args) {
+        test();
+        testInLoop();
+    }
+
+    static boolean doThrow = false;
 }

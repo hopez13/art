@@ -17,65 +17,64 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("IrreducibleLoop");
-    {
-      Method m = c.getMethod("simpleLoop", int.class);
-      Object[] arguments = { 42 };
-      System.out.println(m.invoke(null, arguments));
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("IrreducibleLoop");
+        {
+            Method m = c.getMethod("simpleLoop", int.class);
+            Object[] arguments = {42};
+            System.out.println(m.invoke(null, arguments));
+        }
+
+        {
+            Method m = c.getMethod("lse", int.class, Main.class);
+            Object[] arguments = {42, new Main()};
+            System.out.println(m.invoke(null, arguments));
+        }
+
+        {
+            Method m = c.getMethod("dce", int.class);
+            Object[] arguments = {42};
+            System.out.println(m.invoke(null, arguments));
+        }
+
+        {
+            Method m = c.getMethod("liveness", int.class, int.class);
+            Object[] arguments = {42, 42};
+            System.out.println(m.invoke(null, arguments));
+        }
+
+        {
+            Method m = c.getMethod("gvn");
+            Object[] arguments = {};
+            System.out.println(m.invoke(null, arguments));
+        }
+
+        {
+            Method m = c.getMethod("licm1", int.class);
+            Object[] arguments = {42};
+            System.out.println(m.invoke(null, arguments));
+        }
+
+        {
+            Method m = c.getMethod("licm2", int.class);
+            Object[] arguments = {42};
+            System.out.println(m.invoke(null, arguments));
+        }
+
+        {
+            Method m = c.getMethod("testDoNotInlineIrreducible", int.class);
+            Object[] arguments = {42};
+            System.out.println(m.invoke(null, arguments));
+        }
+
+        {
+            Method m = c.getMethod("testDoNotInlineIrreducible", int.class);
+            Object[] arguments = {0};
+            System.out.println(m.invoke(null, arguments));
+        }
     }
 
-    {
-      Method m = c.getMethod("lse", int.class, Main.class);
-      Object[] arguments = { 42, new Main() };
-      System.out.println(m.invoke(null, arguments));
-    }
-
-    {
-      Method m = c.getMethod("dce", int.class);
-      Object[] arguments = { 42 };
-      System.out.println(m.invoke(null, arguments));
-    }
-
-    {
-      Method m = c.getMethod("liveness", int.class, int.class);
-      Object[] arguments = { 42, 42 };
-      System.out.println(m.invoke(null, arguments));
-    }
-
-    {
-      Method m = c.getMethod("gvn");
-      Object[] arguments = { };
-      System.out.println(m.invoke(null, arguments));
-    }
-
-    {
-      Method m = c.getMethod("licm1", int.class);
-      Object[] arguments = { 42 };
-      System.out.println(m.invoke(null, arguments));
-    }
-
-    {
-      Method m = c.getMethod("licm2", int.class);
-      Object[] arguments = { 42 };
-      System.out.println(m.invoke(null, arguments));
-    }
-
-    {
-      Method m = c.getMethod("testDoNotInlineIrreducible", int.class);
-      Object[] arguments = { 42 };
-      System.out.println(m.invoke(null, arguments));
-    }
-
-    {
-      Method m = c.getMethod("testDoNotInlineIrreducible", int.class);
-      Object[] arguments = { 0 };
-      System.out.println(m.invoke(null, arguments));
-    }
-  }
-
-  int myField;
+    int myField;
 }
 
-class Other {
-}
+class Other {}

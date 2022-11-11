@@ -5,13 +5,9 @@ package android.test.anno;
 @AnnoSimpleTypeInvis
 @MissingAnnotation
 public class SimplyNoted {
-    @AnnoSimpleField
-    @MissingAnnotation
-    public int mFoo;
+    @AnnoSimpleField @MissingAnnotation public int mFoo;
 
-    @AnnoSimpleField
-    @MissingAnnotation
-    public static int mOneFoo;
+    @AnnoSimpleField @MissingAnnotation public static int mOneFoo;
 
     @AnnoSimpleConstructor
     @MissingAnnotation
@@ -28,8 +24,7 @@ public class SimplyNoted {
     @AnnoSimpleMethod
     @MissingAnnotation
     public int foo() {
-        @AnnoSimpleLocalVariable
-        int bar = 5;
+        @AnnoSimpleLocalVariable int bar = 5;
 
         return bar;
     }

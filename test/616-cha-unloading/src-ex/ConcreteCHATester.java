@@ -15,5 +15,5 @@
  */
 
 public class ConcreteCHATester extends AbstractCHATester {
-  public void lonelyMethod() {}
+    public void lonelyMethod() {}
 }

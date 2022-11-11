@@ -15,10 +15,6 @@
  */
 // This class is b/c java does not allow static {} blocks in interfaces.
 public class Displayer {
-  public Displayer(String type) {
-    System.out.println("initialization of " + type);
-  }
-  public void touch() {
-    return;
-  }
+    public Displayer(String type) { System.out.println("initialization of " + type); }
+    public void touch() { return; }
 }

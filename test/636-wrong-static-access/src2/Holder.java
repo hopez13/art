@@ -15,5 +15,5 @@
  */
 
 public class Holder {
-  public int field = 42;
+    public int field = 42;
 }

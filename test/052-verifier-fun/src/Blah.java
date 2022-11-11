@@ -1,4 +1,3 @@
 public abstract class Blah {
-    public void unrelatedStuff() {
-    }
+    public void unrelatedStuff() {}
 }

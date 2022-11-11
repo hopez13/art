@@ -17,54 +17,51 @@ import java.lang.reflect.*;
 import java.util.Arrays;
 
 class NarrowingTest {
+    interface I1 {
+        public Object foo();
+    }
 
-   interface I1 {
-       public Object foo();
-   }
+    interface I2 extends I1 {
+        // Note that this method declaration narrows the return type.
+        @Override public String foo();
+    }
 
-   interface I2 extends I1 {
-       // Note that this method declaration narrows the return type.
-       @Override
-       public String foo();
-   }
+    public static void main(String[] args) {
+        I2 proxy = (I2) Proxy.newProxyInstance(NarrowingTest.class.getClassLoader(),
+                new Class<?>[] {I2.class}, new InvocationHandler() {
+                    int count = 0;
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args)
+                            throws Throwable {
+                        System.out.println("Invocation of " + method);
+                        if (count == 0) {
+                            count++;
+                            return "hello";
+                        } else {
+                            return Integer.valueOf(1);
+                        }
+                    }
+                });
+        Main.registerProxyClassName(proxy.getClass().getCanonicalName());
 
-   public static void main(String[] args) {
-       I2 proxy = (I2) Proxy.newProxyInstance(NarrowingTest.class.getClassLoader(),
-                                              new Class<?>[] { I2.class },
-               new InvocationHandler() {
-                   int count = 0;
-                   @Override
-                   public Object invoke(Object proxy, Method method,
-                                        Object[] args) throws Throwable {
-                       System.out.println("Invocation of " + method);
-                       if (count == 0) {
-                           count++;
-                           return "hello";
-                       } else {
-                           return Integer.valueOf(1);
-                       }
-                   }
-               });
-       Main.registerProxyClassName(proxy.getClass().getCanonicalName());
+        Method[] methods = proxy.getClass().getDeclaredMethods();
+        Arrays.sort(methods, new MethodComparator());
+        System.out.println("Proxy methods: "
+                + Main.replaceProxyClassNamesForOutput(Arrays.deepToString(methods)));
 
-       Method[] methods = proxy.getClass().getDeclaredMethods();
-       Arrays.sort(methods, new MethodComparator());
-       System.out.println("Proxy methods: " +
-                          Main.replaceProxyClassNamesForOutput(Arrays.deepToString(methods)));
+        System.out.println("Invoking foo using I2 type: " + proxy.foo());
 
-       System.out.println("Invoking foo using I2 type: " + proxy.foo());
+        I1 proxyAsParent = proxy;
+        System.out.println("Invoking foo using I1 type: " + proxyAsParent.foo());
 
-       I1 proxyAsParent = proxy;
-       System.out.println("Invoking foo using I1 type: " + proxyAsParent.foo());
+        try {
+            proxy.foo();
+            System.out.println("Didn't get expected exception");
+        } catch (ClassCastException e) {
+            // With an I2 invocation returning an integer is an exception.
+            System.out.println("Got expected exception");
+        }
 
-       try {
-           proxy.foo();
-           System.out.println("Didn't get expected exception");
-       } catch (ClassCastException e) {
-           // With an I2 invocation returning an integer is an exception.
-           System.out.println("Got expected exception");
-       }
-
-       System.out.println("Proxy narrowed invocation return type passed");
-   }
+        System.out.println("Proxy narrowed invocation return type passed");
+    }
 }

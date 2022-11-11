@@ -19,5 +19,5 @@ package unresolved;
 // Declaring a class as implementing this interface shall make the class unresolved
 // during AOT compilation. This interface shall be available only at runtime.
 public interface BcpExMarker {
-  // Marker interface: no methods.
+    // Marker interface: no methods.
 }

@@ -15,270 +15,263 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    $noinline$testSingleTryCatch();
-    $noinline$testSingleTryCatchTwice();
-    $noinline$testSingleTryCatchDifferentInputs();
-    $noinline$testDifferentTryCatches();
-    $noinline$testTryCatchFinally();
-    $noinline$testTryCatchFinallyDifferentInputs();
-    $noinline$testRecursiveTryCatch();
-    $noinline$testDoNotInlineInsideTryOrCatch();
-    $noinline$testBeforeAfterTryCatch();
-    $noinline$testDifferentTypes();
-    $noinline$testRawThrow();
-    $noinline$testRawThrowTwice();
-    $noinline$testThrowCaughtInOuterMethod();
-  }
-
-  public static void $noinline$assertEquals(int expected, int result) {
-    if (expected != result) {
-      throw new Error("Expected: " + expected + ", found: " + result);
+    public static void main(String[] args) {
+        $noinline$testSingleTryCatch();
+        $noinline$testSingleTryCatchTwice();
+        $noinline$testSingleTryCatchDifferentInputs();
+        $noinline$testDifferentTryCatches();
+        $noinline$testTryCatchFinally();
+        $noinline$testTryCatchFinallyDifferentInputs();
+        $noinline$testRecursiveTryCatch();
+        $noinline$testDoNotInlineInsideTryOrCatch();
+        $noinline$testBeforeAfterTryCatch();
+        $noinline$testDifferentTypes();
+        $noinline$testRawThrow();
+        $noinline$testRawThrowTwice();
+        $noinline$testThrowCaughtInOuterMethod();
     }
-  }
 
-  // Basic try catch inline.
-  private static void $noinline$testSingleTryCatch() {
-    int[] numbers = {};
-    $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
-  }
-
-  // Two instances of the same method with a try catch.
-  private static void $noinline$testSingleTryCatchTwice() {
-    int[] numbers = {};
-    $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
-    $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
-  }
-
-  // Triggering both normal and the exceptional flow.
-  private static void $noinline$testSingleTryCatchDifferentInputs() {
-    $noinline$assertEquals(1, $inline$OOBTryCatch(null));
-    int[] numbers = {};
-    $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
-    int[] filled_numbers = {42};
-    $noinline$assertEquals(42, $inline$OOBTryCatch(filled_numbers));
-  }
-
-
-  // Two different try catches, with the same catch's dex_pc.
-  private static void $noinline$testDifferentTryCatches() {
-    int[] numbers = {};
-    $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
-    $noinline$assertEquals(2, $inline$OtherOOBTryCatch(numbers));
-  }
-
-  // Basic try/catch/finally.
-  private static void $noinline$testTryCatchFinally() {
-    int[] numbers = {};
-    $noinline$assertEquals(3, $inline$OOBTryCatchFinally(numbers));
-  }
-
-  // Triggering both normal and the exceptional flow.
-  private static void $noinline$testTryCatchFinallyDifferentInputs() {
-    $noinline$assertEquals(3, $inline$OOBTryCatchFinally(null));
-    int[] numbers = {};
-    $noinline$assertEquals(3, $inline$OOBTryCatchFinally(numbers));
-    int[] filled_numbers = {42};
-    $noinline$assertEquals(42, $inline$OOBTryCatchFinally(filled_numbers));
-  }
-
-  // Test that we can inline even when the try catch is several levels deep.
-  private static void $noinline$testRecursiveTryCatch() {
-    int[] numbers = {};
-    $noinline$assertEquals(1, $inline$OOBTryCatchLevel4(numbers));
-  }
-
-  // Tests that we don't inline inside outer tries or catches.
-  /// CHECK-START: void Main.$noinline$testDoNotInlineInsideTryOrCatch() inliner (before)
-  /// CHECK:       InvokeStaticOrDirect method_name:Main.DoNotInlineOOBTryCatch
-  /// CHECK:       InvokeStaticOrDirect method_name:Main.DoNotInlineOOBTryCatch
-
-  /// CHECK-START: void Main.$noinline$testDoNotInlineInsideTryOrCatch() inliner (after)
-  /// CHECK:       InvokeStaticOrDirect method_name:Main.DoNotInlineOOBTryCatch
-  /// CHECK:       InvokeStaticOrDirect method_name:Main.DoNotInlineOOBTryCatch
-  private static void $noinline$testDoNotInlineInsideTryOrCatch() {
-    int val = 0;
-    try {
-      int[] numbers = {};
-      val = DoNotInlineOOBTryCatch(numbers);
-    } catch (Exception ex) {
-      unreachable();
-      // This is unreachable but we will still compile it so it works for checker purposes
-      int[] numbers = {};
-      DoNotInlineOOBTryCatch(numbers);
+    public static void $noinline$assertEquals(int expected, int result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
     }
-    $noinline$assertEquals(1, val);
-  }
 
-  // Tests that outer tries or catches don't affect as long as we are not inlining the inner
-  // try/catch inside of them.
-  private static void $noinline$testBeforeAfterTryCatch() {
-    int[] numbers = {};
-    $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
-
-    // Unrelated try catch does not block inlining outside of it. We fill it in to make sure it is
-    // still there by the time the inliner runs.
-    int val = 0;
-    try {
-      int[] other_array = {};
-      val = other_array[0];
-    } catch (Exception ex) {
-      $noinline$assertEquals(0, val);
-      val = 1;
+    // Basic try catch inline.
+    private static void $noinline$testSingleTryCatch() {
+        int[] numbers = {};
+        $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
     }
-    $noinline$assertEquals(1, val);
 
-    $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
-  }
-
-  // Tests different try catch types in the same outer method.
-  private static void $noinline$testDifferentTypes() {
-    int[] numbers = {};
-    $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
-    $noinline$assertEquals(2, $inline$OtherOOBTryCatch(numbers));
-    $noinline$assertEquals(123, $inline$ParseIntTryCatch("123"));
-    $noinline$assertEquals(-1, $inline$ParseIntTryCatch("abc"));
-  }
-
-  // Tests a raw throw (rather than an instruction that happens to throw).
-  private static void $noinline$testRawThrow() {
-    $noinline$assertEquals(1, $inline$rawThrowCaught());
-  }
-
-  // Tests a raw throw twice.
-  private static void $noinline$testRawThrowTwice() {
-    $noinline$assertEquals(1, $inline$rawThrowCaught());
-    $noinline$assertEquals(1, $inline$rawThrowCaught());
-  }
-
-  // Tests that the outer method can successfully catch the throw in the inner method.
-  private static void $noinline$testThrowCaughtInOuterMethod() {
-    int[] numbers = {};
-    $noinline$assertEquals(1, $inline$testThrowCaughtInOuterMethod_simpleTryCatch(numbers));
-    $noinline$assertEquals(1, $inline$testThrowCaughtInOuterMethod_simpleTryCatch_inliningInner(numbers));
-    $noinline$assertEquals(1, $inline$testThrowCaughtInOuterMethod_withFinally(numbers));
-  }
-
-  // Building blocks for the test functions.
-  private static int $inline$OOBTryCatch(int[] array) {
-    try {
-      return array[0];
-    } catch (Exception e) {
-      return 1;
+    // Two instances of the same method with a try catch.
+    private static void $noinline$testSingleTryCatchTwice() {
+        int[] numbers = {};
+        $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
+        $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
     }
-  }
 
-  private static int $inline$OtherOOBTryCatch(int[] array) {
-    try {
-      return array[0];
-    } catch (Exception e) {
-      return 2;
+    // Triggering both normal and the exceptional flow.
+    private static void $noinline$testSingleTryCatchDifferentInputs() {
+        $noinline$assertEquals(1, $inline$OOBTryCatch(null));
+        int[] numbers = {};
+        $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
+        int[] filled_numbers = {42};
+        $noinline$assertEquals(42, $inline$OOBTryCatch(filled_numbers));
     }
-  }
 
-  private static int $inline$OOBTryCatchFinally(int[] array) {
-    int val = 0;
-    try {
-      val = 1;
-      return array[0];
-    } catch (Exception e) {
-      val = 2;
-    } finally {
-      val = 3;
+    // Two different try catches, with the same catch's dex_pc.
+    private static void $noinline$testDifferentTryCatches() {
+        int[] numbers = {};
+        $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
+        $noinline$assertEquals(2, $inline$OtherOOBTryCatch(numbers));
     }
-    return val;
-  }
 
-  // If we make the depthness a parameter, we wouldn't be able to mark as $inline$ and we would
-  // need extra CHECKer statements.
-  private static int $inline$OOBTryCatchLevel4(int[] array) {
-    return $inline$OOBTryCatchLevel3(array);
-  }
-
-  private static int $inline$OOBTryCatchLevel3(int[] array) {
-    return $inline$OOBTryCatchLevel2(array);
-  }
-
-  private static int $inline$OOBTryCatchLevel2(int[] array) {
-    return $inline$OOBTryCatchLevel1(array);
-  }
-
-  private static int $inline$OOBTryCatchLevel1(int[] array) {
-    return $inline$OOBTryCatch(array);
-  }
-
-  private static int DoNotInlineOOBTryCatch(int[] array) {
-    try {
-      return array[0];
-    } catch (Exception e) {
-      return 1;
+    // Basic try/catch/finally.
+    private static void $noinline$testTryCatchFinally() {
+        int[] numbers = {};
+        $noinline$assertEquals(3, $inline$OOBTryCatchFinally(numbers));
     }
-  }
 
-  private static void unreachable() {
-    throw new Error("Unreachable");
-  }
-
-  private static int $inline$ParseIntTryCatch(String str) {
-    try {
-      return Integer.parseInt(str);
-    } catch (NumberFormatException ex) {
-      return -1;
+    // Triggering both normal and the exceptional flow.
+    private static void $noinline$testTryCatchFinallyDifferentInputs() {
+        $noinline$assertEquals(3, $inline$OOBTryCatchFinally(null));
+        int[] numbers = {};
+        $noinline$assertEquals(3, $inline$OOBTryCatchFinally(numbers));
+        int[] filled_numbers = {42};
+        $noinline$assertEquals(42, $inline$OOBTryCatchFinally(filled_numbers));
     }
-  }
 
-  private static int $inline$rawThrowCaught() {
-    try {
-      throw new Error();
-    } catch (Error e) {
-      return 1;
+    // Test that we can inline even when the try catch is several levels deep.
+    private static void $noinline$testRecursiveTryCatch() {
+        int[] numbers = {};
+        $noinline$assertEquals(1, $inline$OOBTryCatchLevel4(numbers));
     }
-  }
 
-  private static int $inline$testThrowCaughtInOuterMethod_simpleTryCatch(int[] array) {
-    int val = 0;
-    try {
-      $noinline$throwingMethod(array);
-    } catch (Exception ex) {
-      val = 1;
+    // Tests that we don't inline inside outer tries or catches.
+    /// CHECK-START: void Main.$noinline$testDoNotInlineInsideTryOrCatch() inliner (before)
+    /// CHECK:       InvokeStaticOrDirect method_name:Main.DoNotInlineOOBTryCatch
+    /// CHECK:       InvokeStaticOrDirect method_name:Main.DoNotInlineOOBTryCatch
+
+    /// CHECK-START: void Main.$noinline$testDoNotInlineInsideTryOrCatch() inliner (after)
+    /// CHECK:       InvokeStaticOrDirect method_name:Main.DoNotInlineOOBTryCatch
+    /// CHECK:       InvokeStaticOrDirect method_name:Main.DoNotInlineOOBTryCatch
+    private static void $noinline$testDoNotInlineInsideTryOrCatch() {
+        int val = 0;
+        try {
+            int[] numbers = {};
+            val = DoNotInlineOOBTryCatch(numbers);
+        } catch (Exception ex) {
+            unreachable();
+            // This is unreachable but we will still compile it so it works for checker purposes
+            int[] numbers = {};
+            DoNotInlineOOBTryCatch(numbers);
+        }
+        $noinline$assertEquals(1, val);
     }
-    return val;
-  }
 
-  private static int $noinline$throwingMethod(int[] array) {
-    return array[0];
-  }
+    // Tests that outer tries or catches don't affect as long as we are not inlining the inner
+    // try/catch inside of them.
+    private static void $noinline$testBeforeAfterTryCatch() {
+        int[] numbers = {};
+        $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
 
-  private static int $inline$testThrowCaughtInOuterMethod_simpleTryCatch_inliningInner(int[] array) {
-    int val = 0;
-    try {
-      $inline$throwingMethod(array);
-    } catch (Exception ex) {
-      val = 1;
+        // Unrelated try catch does not block inlining outside of it. We fill it in to make sure it
+        // is still there by the time the inliner runs.
+        int val = 0;
+        try {
+            int[] other_array = {};
+            val = other_array[0];
+        } catch (Exception ex) {
+            $noinline$assertEquals(0, val);
+            val = 1;
+        }
+        $noinline$assertEquals(1, val);
+
+        $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
     }
-    return val;
-  }
 
-  private static int $inline$throwingMethod(int[] array) {
-    return array[0];
-  }
-
-  private static int $inline$testThrowCaughtInOuterMethod_withFinally(int[] array) {
-    int val = 0;
-    try {
-      $noinline$throwingMethodWithFinally(array);
-    } catch (Exception ex) {
-      System.out.println("Our battle it will be legendary!");
-      val = 1;
+    // Tests different try catch types in the same outer method.
+    private static void $noinline$testDifferentTypes() {
+        int[] numbers = {};
+        $noinline$assertEquals(1, $inline$OOBTryCatch(numbers));
+        $noinline$assertEquals(2, $inline$OtherOOBTryCatch(numbers));
+        $noinline$assertEquals(123, $inline$ParseIntTryCatch("123"));
+        $noinline$assertEquals(-1, $inline$ParseIntTryCatch("abc"));
     }
-    return val;
-  }
 
-  private static int $noinline$throwingMethodWithFinally(int[] array) {
-    try {
-      return array[0];
-    } finally {
-      System.out.println("Finally, a worthy opponent!");
+    // Tests a raw throw (rather than an instruction that happens to throw).
+    private static void $noinline$testRawThrow() {
+        $noinline$assertEquals(1, $inline$rawThrowCaught());
     }
-  }
+
+    // Tests a raw throw twice.
+    private static void $noinline$testRawThrowTwice() {
+        $noinline$assertEquals(1, $inline$rawThrowCaught());
+        $noinline$assertEquals(1, $inline$rawThrowCaught());
+    }
+
+    // Tests that the outer method can successfully catch the throw in the inner method.
+    private static void $noinline$testThrowCaughtInOuterMethod() {
+        int[] numbers = {};
+        $noinline$assertEquals(1, $inline$testThrowCaughtInOuterMethod_simpleTryCatch(numbers));
+        $noinline$assertEquals(
+                1, $inline$testThrowCaughtInOuterMethod_simpleTryCatch_inliningInner(numbers));
+        $noinline$assertEquals(1, $inline$testThrowCaughtInOuterMethod_withFinally(numbers));
+    }
+
+    // Building blocks for the test functions.
+    private static int $inline$OOBTryCatch(int[] array) {
+        try {
+            return array[0];
+        } catch (Exception e) {
+            return 1;
+        }
+    }
+
+    private static int $inline$OtherOOBTryCatch(int[] array) {
+        try {
+            return array[0];
+        } catch (Exception e) {
+            return 2;
+        }
+    }
+
+    private static int $inline$OOBTryCatchFinally(int[] array) {
+        int val = 0;
+        try {
+            val = 1;
+            return array[0];
+        } catch (Exception e) {
+            val = 2;
+        } finally {
+            val = 3;
+        }
+        return val;
+    }
+
+    // If we make the depthness a parameter, we wouldn't be able to mark as $inline$ and we would
+    // need extra CHECKer statements.
+    private static int $inline$OOBTryCatchLevel4(int[] array) {
+        return $inline$OOBTryCatchLevel3(array);
+    }
+
+    private static int $inline$OOBTryCatchLevel3(int[] array) {
+        return $inline$OOBTryCatchLevel2(array);
+    }
+
+    private static int $inline$OOBTryCatchLevel2(int[] array) {
+        return $inline$OOBTryCatchLevel1(array);
+    }
+
+    private static int $inline$OOBTryCatchLevel1(int[] array) { return $inline$OOBTryCatch(array); }
+
+    private static int DoNotInlineOOBTryCatch(int[] array) {
+        try {
+            return array[0];
+        } catch (Exception e) {
+            return 1;
+        }
+    }
+
+    private static void unreachable() { throw new Error("Unreachable"); }
+
+    private static int $inline$ParseIntTryCatch(String str) {
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException ex) {
+            return -1;
+        }
+    }
+
+    private static int $inline$rawThrowCaught() {
+        try {
+            throw new Error();
+        } catch (Error e) {
+            return 1;
+        }
+    }
+
+    private static int $inline$testThrowCaughtInOuterMethod_simpleTryCatch(int[] array) {
+        int val = 0;
+        try {
+            $noinline$throwingMethod(array);
+        } catch (Exception ex) {
+            val = 1;
+        }
+        return val;
+    }
+
+    private static int $noinline$throwingMethod(int[] array) { return array[0]; }
+
+    private static int $inline$testThrowCaughtInOuterMethod_simpleTryCatch_inliningInner(
+            int[] array) {
+        int val = 0;
+        try {
+            $inline$throwingMethod(array);
+        } catch (Exception ex) {
+            val = 1;
+        }
+        return val;
+    }
+
+    private static int $inline$throwingMethod(int[] array) { return array[0]; }
+
+    private static int $inline$testThrowCaughtInOuterMethod_withFinally(int[] array) {
+        int val = 0;
+        try {
+            $noinline$throwingMethodWithFinally(array);
+        } catch (Exception ex) {
+            System.out.println("Our battle it will be legendary!");
+            val = 1;
+        }
+        return val;
+    }
+
+    private static int $noinline$throwingMethodWithFinally(int[] array) {
+        try {
+            return array[0];
+        } finally {
+            System.out.println("Finally, a worthy opponent!");
+        }
+    }
 }

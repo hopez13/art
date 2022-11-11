@@ -17,13 +17,13 @@
 import java.util.concurrent.CountDownLatch;
 
 public class Main {
-   static final CountDownLatch processStarted = new CountDownLatch(1);
-   static final CountDownLatch prioritySet = new CountDownLatch(1);
+    static final CountDownLatch processStarted = new CountDownLatch(1);
+    static final CountDownLatch prioritySet = new CountDownLatch(1);
 
-   static int initialPlatformPriority = 0;
-   static int maxPlatformPriority = 0;
+    static int initialPlatformPriority = 0;
+    static int maxPlatformPriority = 0;
 
-   static class MyThread extends Thread {
+    static class MyThread extends Thread {
         public void run() {
             try {
                 int priority = getThreadPlatformPriority();

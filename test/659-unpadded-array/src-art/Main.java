@@ -17,36 +17,36 @@
 import dalvik.system.VMRuntime;
 
 public class Main {
-  public static void main(String[] args) {
-    // Call our optimization API, we used to have a bug in the RegionSpace on large
-    // objects allocated through it.
-    Object[] o = (Object[]) VMRuntime.getRuntime().newUnpaddedArray(Object.class, 70000);
+    public static void main(String[] args) {
+        // Call our optimization API, we used to have a bug in the RegionSpace on large
+        // objects allocated through it.
+        Object[] o = (Object[]) VMRuntime.getRuntime().newUnpaddedArray(Object.class, 70000);
 
-    // Make the test run for 30 seconds to be less dependent on GC heuristics.
-    long time = System.currentTimeMillis();
-    int i = 1;
-    do {
-      allocateIntArray(i);
-      for (int j = 0; j < o.length; j++) {
-        if (o[j] != null) {
-          // Just print, not throw, to get into "interesting" issues (eg the first
-          // element that will not be null is the class of the object, the second is
-          // actually the first element of the int array).
-          System.out.println("Unexpected value: " + o[j]);
-        }
-      }
-      if (i < 100000) {
-        i++;
-      } else {
-        i = 0;
-      }
-    } while (System.currentTimeMillis() - time < 30000);
-  }
-
-  static void allocateIntArray(int i) {
-    int[] intArray = new int[i];
-    for (int j = 0; j < intArray.length; j++) {
-      intArray[j] = 1;
+        // Make the test run for 30 seconds to be less dependent on GC heuristics.
+        long time = System.currentTimeMillis();
+        int i = 1;
+        do {
+            allocateIntArray(i);
+            for (int j = 0; j < o.length; j++) {
+                if (o[j] != null) {
+                    // Just print, not throw, to get into "interesting" issues (eg the first
+                    // element that will not be null is the class of the object, the second is
+                    // actually the first element of the int array).
+                    System.out.println("Unexpected value: " + o[j]);
+                }
+            }
+            if (i < 100000) {
+                i++;
+            } else {
+                i = 0;
+            }
+        } while (System.currentTimeMillis() - time < 30000);
     }
-  }
+
+    static void allocateIntArray(int i) {
+        int[] intArray = new int[i];
+        for (int j = 0; j < intArray.length; j++) {
+            intArray[j] = 1;
+        }
+    }
 }

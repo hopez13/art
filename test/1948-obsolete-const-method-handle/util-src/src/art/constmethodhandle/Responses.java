@@ -19,11 +19,7 @@ package art.constmethodhandle;
 // We call one of these using a constant method-handle. Which one is called is changed by the
 // redefinition.
 public class Responses {
-  public static void sayHi() {
-    System.out.println("Hello");
-  }
+    public static void sayHi() { System.out.println("Hello"); }
 
-  public static void sayBye() {
-    System.out.println("Goodbye");
-  }
+    public static void sayBye() { System.out.println("Goodbye"); }
 }

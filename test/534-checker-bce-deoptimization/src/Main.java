@@ -32,7 +32,7 @@ public class Main {
 
     void foo1(double a[][], int n, double b[]) {
         double t;
-        int i,k;
+        int i, k;
 
         for (i = 0; i < n; i++) {
             k = n - (i + 1);
@@ -124,4 +124,3 @@ public class Main {
         }
     }
 }
-

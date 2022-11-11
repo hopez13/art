@@ -17,12 +17,9 @@
 package p1;
 
 interface Itf {
-  public default int defaultMethod() {
-    return 42;
-  }
+    public default int defaultMethod() { return 42; }
 }
 
 public class OtherClass implements Itf {
-  public void foo() {
-  }
+    public void foo() {}
 }

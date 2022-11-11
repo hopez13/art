@@ -15,34 +15,30 @@
  */
 
 interface Itf {
-  public void foo();
+    public void foo();
 }
 
 class ForceStatic {
-  static {
-    System.out.println("Hello from clinit");
-    new Exception().printStackTrace(System.out);
-  }
-  static int field;
+    static {
+        System.out.println("Hello from clinit");
+        new Exception().printStackTrace(System.out);
+    }
+    static int field;
 }
 
 public class Main implements Itf {
-  public void foo() {
-    int a = ForceStatic.field;
-  }
+    public void foo() { int a = ForceStatic.field; }
 
-  /// CHECK-START: void Main.main(java.lang.String[]) inliner (before)
-  /// CHECK:           InvokeStaticOrDirect
-  /// CHECK:           InvokeInterface
+    /// CHECK-START: void Main.main(java.lang.String[]) inliner (before)
+    /// CHECK:           InvokeStaticOrDirect
+    /// CHECK:           InvokeInterface
 
-  /// CHECK-START: void Main.main(java.lang.String[]) inliner (after)
-  /// CHECK-NOT:       Invoke{{.*Object\.<init>.*}}
-  public static void main(String[] args) {
-    Itf itf = bar();
-    itf.foo();
-  }
+    /// CHECK-START: void Main.main(java.lang.String[]) inliner (after)
+    /// CHECK-NOT:       Invoke{{.*Object\.<init>.*}}
+    public static void main(String[] args) {
+        Itf itf = bar();
+        itf.foo();
+    }
 
-  public static Itf bar() {
-    return new Main();
-  }
+    public static Itf bar() { return new Main(); }
 }

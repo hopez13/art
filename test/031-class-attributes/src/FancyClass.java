@@ -17,6 +17,4 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class FancyClass<K,V> extends HashMap<K,V> implements Map<K,V> {
-}
-
+public class FancyClass<K, V> extends HashMap<K, V> implements Map<K, V> {}

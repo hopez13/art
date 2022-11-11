@@ -15,7 +15,5 @@
  */
 
 public class Test7User {
-    public static void test() {
-        new Test7Derived().foo();
-    }
+    public static void test() { new Test7Derived().foo(); }
 }

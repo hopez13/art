@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-public class Test7Derived extends Test7Base implements Test7Interface {
-}
+public class Test7Derived extends Test7Base implements Test7Interface {}

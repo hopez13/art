@@ -18,7 +18,6 @@
  * Test that daemon threads that call into a JNI env after the runtime is shutdown do not crash.
  */
 public class Main {
-
     public final static int THREAD_COUNT = 4;
 
     public static void main(String[] args) throws Exception {

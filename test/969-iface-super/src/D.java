@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 public class D implements Iface2 {
-  public String SayHi() {
-    return Iface2.super.SayHi() + " and welcome ";
-  }
+    public String SayHi() { return Iface2.super.SayHi() + " and welcome "; }
 }

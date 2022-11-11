@@ -14,32 +14,31 @@
  * limitations under the License.
  */
 
-import sun.misc.Unsafe;
 import java.lang.reflect.Field;
 
+import sun.misc.Unsafe;
+
 public class Main {
+    long instanceField;
+    static long myLongField1;
+    static long myLongField2;
 
-  long instanceField;
-  static long myLongField1;
-  static long myLongField2;
+    public static void main(String[] args) throws Exception {
+        Unsafe unsafe = getUnsafe();
+        Main f = new Main();
+        long offset = unsafe.objectFieldOffset(Main.class.getDeclaredField("instanceField"));
+        getUnsafe(); // spill offset
+        long a = myLongField1;
+        // We used the hinted register for the low part of b, which is EBX, as requested
+        // by the intrinsic below. Allocating EBX for the low part, would put ESP as the high
+        // part, and we did not check that ESP was blocked.
+        long b = myLongField2;
+        unsafe.compareAndSwapLong(f, offset, a, b);
+    }
 
-  public static void main(String[] args) throws Exception {
-    Unsafe unsafe = getUnsafe();
-    Main f = new Main();
-    long offset = unsafe.objectFieldOffset(Main.class.getDeclaredField("instanceField"));
-    getUnsafe(); // spill offset
-    long a = myLongField1;
-    // We used the hinted register for the low part of b, which is EBX, as requested
-    // by the intrinsic below. Allocating EBX for the low part, would put ESP as the high
-    // part, and we did not check that ESP was blocked.
-    long b = myLongField2;
-    unsafe.compareAndSwapLong(f, offset, a, b);
-  }
-
-
-  private static Unsafe getUnsafe() throws Exception {
-    Field f = Unsafe.class.getDeclaredField("theUnsafe");
-    f.setAccessible(true);
-    return (Unsafe) f.get(null);
-  }
+    private static Unsafe getUnsafe() throws Exception {
+        Field f = Unsafe.class.getDeclaredField("theUnsafe");
+        f.setAccessible(true);
+        return (Unsafe) f.get(null);
+    }
 }

@@ -18,28 +18,27 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Main {
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("java.lang.StringFactory");
+        Method m = c.getDeclaredMethod("newStringFromBytes", byte[].class, int.class);
 
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("java.lang.StringFactory");
-    Method m = c.getDeclaredMethod("newStringFromBytes", byte[].class, int.class);
-
-    // Loop over allocations to get more chances of doing GC while in the
-    // newStringFromBytes intrinsic.
-    for (int i = 0; i < 10; i++) {
-      try {
-        byte[] f = new byte[100000000];
-        f[0] = (byte)i;
-        f[1] = (byte)i;
-        m.invoke(null, f, 0);
-      } catch (InvocationTargetException e) {
-        if (e.getCause() instanceof OutOfMemoryError) {
-          // Ignore, this is a stress test.
-        } else {
-          throw e;
+        // Loop over allocations to get more chances of doing GC while in the
+        // newStringFromBytes intrinsic.
+        for (int i = 0; i < 10; i++) {
+            try {
+                byte[] f = new byte[100000000];
+                f[0] = (byte) i;
+                f[1] = (byte) i;
+                m.invoke(null, f, 0);
+            } catch (InvocationTargetException e) {
+                if (e.getCause() instanceof OutOfMemoryError) {
+                    // Ignore, this is a stress test.
+                } else {
+                    throw e;
+                }
+            } catch (OutOfMemoryError e) {
+                // Ignore, this is a stress test.
+            }
         }
-      } catch (OutOfMemoryError e) {
-        // Ignore, this is a stress test.
-      }
     }
-  }
 }

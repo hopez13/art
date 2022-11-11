@@ -15,19 +15,19 @@
  */
 
 public class Main {
-  public static void sayHi(String klass) throws Exception {
-    try {
-      System.out.println(klass);
-      IFace iface = (IFace)Class.forName(klass).newInstance();
-      iface.sayHi();
-    } catch (Exception e) {
-      System.out.println("Exception thrown!");
-      System.out.println(e);
+    public static void sayHi(String klass) throws Exception {
+        try {
+            System.out.println(klass);
+            IFace iface = (IFace) Class.forName(klass).newInstance();
+            iface.sayHi();
+        } catch (Exception e) {
+            System.out.println("Exception thrown!");
+            System.out.println(e);
+        }
     }
-  }
-  public static void main(String[] args) throws Exception {
-    sayHi("Concrete1");
-    sayHi("Concrete2");
-    sayHi("Concrete3");
-  }
+    public static void main(String[] args) throws Exception {
+        sayHi("Concrete1");
+        sayHi("Concrete2");
+        sayHi("Concrete3");
+    }
 }

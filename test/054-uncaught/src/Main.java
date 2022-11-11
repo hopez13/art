@@ -48,14 +48,12 @@ public class Main {
                 break;
             }
             case 2: {
-                Thread.currentThread().setUncaughtExceptionHandler(
-                        threadHandler);
+                Thread.currentThread().setUncaughtExceptionHandler(threadHandler);
                 break;
             }
             case 3: {
                 Thread.setDefaultUncaughtExceptionHandler(defHandler);
-                Thread.currentThread().setUncaughtExceptionHandler(
-                        threadHandler);
+                Thread.currentThread().setUncaughtExceptionHandler(threadHandler);
                 break;
             }
         }
@@ -66,12 +64,8 @@ public class Main {
     private static class Helper extends Thread {
         private int which;
 
-        public Helper(int which) {
-            this.which = which;
-        }
+        public Helper(int which) { this.which = which; }
 
-        public void run() {
-            catchTheUncaught(which);
-        }
+        public void run() { catchTheUncaught(which); }
     }
 }

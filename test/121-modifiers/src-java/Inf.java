@@ -15,7 +15,5 @@
  */
 
 public interface Inf {
-
-  public final int I = 0;
-
+    public final int I = 0;
 }

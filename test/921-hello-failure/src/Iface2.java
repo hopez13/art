@@ -15,5 +15,5 @@
  */
 
 interface Iface2 {
-  void sayHi(String s);
+    void sayHi(String s);
 }

@@ -21,13 +21,12 @@ import java.lang.reflect.Field;
  * PathClassLoader test.
  */
 public class Main {
-
     private static ClassLoader createClassLoader(String dexPath, ClassLoader parent) {
         try {
             Class<?> myClassLoaderClass = Class.forName("MyPathClassLoader");
-            Constructor<?> constructor = myClassLoaderClass.getConstructor(String.class,
-                                                                           ClassLoader.class);
-            return (ClassLoader)constructor.newInstance(dexPath, parent);
+            Constructor<?> constructor =
+                    myClassLoaderClass.getConstructor(String.class, ClassLoader.class);
+            return (ClassLoader) constructor.newInstance(dexPath, parent);
         } catch (Exception e) {
             // Ups, not available?!?!
             throw new RuntimeException(e);
@@ -49,8 +48,8 @@ public class Main {
         }
         cp = cp.replace("classloader2.jar", "classloader2-ex.jar");
 
-        ClassLoader myClassLoader = createClassLoader(
-                cp, ClassLoader.getSystemClassLoader().getParent());
+        ClassLoader myClassLoader =
+                createClassLoader(cp, ClassLoader.getSystemClassLoader().getParent());
 
         // Now load our test class.
         Class<?> srcClass = A.class;
@@ -62,11 +61,11 @@ public class Main {
         }
 
         // Secondary checks: get the static field values and make sure they aren't the same.
-        String srcValue = (String)srcClass.getDeclaredField("value").get(null);
+        String srcValue = (String) srcClass.getDeclaredField("value").get(null);
         if (!"Src-A".equals(srcValue)) {
             throw new IllegalStateException("Expected Src-A, found " + srcValue);
         }
-        String exValue = (String)exClass.getDeclaredField("value").get(null);
+        String exValue = (String) exClass.getDeclaredField("value").get(null);
         if (!"Ex-A".equals(exValue)) {
             throw new IllegalStateException("Expected Ex-A, found " + exValue);
         }
@@ -74,27 +73,27 @@ public class Main {
         // Try to load a dex file with bad dex code. Use new instance to force verification.
         VerifyError existing = null;
         try {
-          Class<?> badClass = Main.class.getClassLoader().loadClass("B");
-          System.out.println("Loaded class B.");
-          badClass.newInstance();
-          System.out.println("Should not be able to instantiate B with bad dex bytecode.");
+            Class<?> badClass = Main.class.getClassLoader().loadClass("B");
+            System.out.println("Loaded class B.");
+            badClass.newInstance();
+            System.out.println("Should not be able to instantiate B with bad dex bytecode.");
         } catch (VerifyError e) {
-          System.out.println("Caught VerifyError.");
-          existing = e;
+            System.out.println("Caught VerifyError.");
+            existing = e;
         }
 
         // Make sure the same error is rethrown when reloading the bad class.
         try {
-          Class<?> badClass = Main.class.getClassLoader().loadClass("B");
-          System.out.println("Loaded class B.");
-          badClass.newInstance();
-          System.out.println("Should not be able to instantiate B with bad dex bytecode.");
+            Class<?> badClass = Main.class.getClassLoader().loadClass("B");
+            System.out.println("Loaded class B.");
+            badClass.newInstance();
+            System.out.println("Should not be able to instantiate B with bad dex bytecode.");
         } catch (VerifyError e) {
-          if (e == existing) {
-            System.out.println("Caught existing VerifyError.");
-          } else {
-            e.printStackTrace(System.out);
-          }
+            if (e == existing) {
+                System.out.println("Caught existing VerifyError.");
+            } else {
+                e.printStackTrace(System.out);
+            }
         }
 
         System.out.println("Everything OK.");

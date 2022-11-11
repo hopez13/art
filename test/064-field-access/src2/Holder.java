@@ -15,5 +15,5 @@
  */
 
 public class Holder {
-    //public static Object mObject = new Object();
+    // public static Object mObject = new Object();
 }

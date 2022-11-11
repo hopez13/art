@@ -15,45 +15,45 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    try {
-      $noinline$testEndsWithThrow();
-      throw new Exception("Unreachable");
-    } catch (Error expected) {
+    public static void main(String[] args) throws Exception {
+        try {
+            $noinline$testEndsWithThrow();
+            throw new Exception("Unreachable");
+        } catch (Error expected) {
+        }
+
+        try {
+            $noinline$testEndsWithThrowButNotDirectly();
+            throw new Exception("Unreachable");
+        } catch (Error expected) {
+        }
     }
 
-    try {
-      $noinline$testEndsWithThrowButNotDirectly();
-      throw new Exception("Unreachable");
-    } catch (Error expected) {
+    // Empty methods are easy to inline anywhere.
+    private static void easyToInline() {}
+    private static void $inline$easyToInline() {}
+
+    /// CHECK-START: int Main.$noinline$testEndsWithThrow() inliner (before)
+    /// CHECK: InvokeStaticOrDirect method_name:Main.easyToInline
+
+    /// CHECK-START: int Main.$noinline$testEndsWithThrow() inliner (after)
+    /// CHECK: InvokeStaticOrDirect method_name:Main.easyToInline
+    static int $noinline$testEndsWithThrow() {
+        easyToInline();
+        throw new Error("");
     }
-  }
 
-  // Empty methods are easy to inline anywhere.
-  private static void easyToInline() {}
-  private static void $inline$easyToInline() {}
-
-  /// CHECK-START: int Main.$noinline$testEndsWithThrow() inliner (before)
-  /// CHECK: InvokeStaticOrDirect method_name:Main.easyToInline
-
-  /// CHECK-START: int Main.$noinline$testEndsWithThrow() inliner (after)
-  /// CHECK: InvokeStaticOrDirect method_name:Main.easyToInline
-  static int $noinline$testEndsWithThrow() {
-    easyToInline();
-    throw new Error("");
-  }
-
-  // Currently we only stop inlining if the method's basic block ends with a throw. We do not stop
-  // inlining for methods that eventually always end with a throw.
-  static int $noinline$testEndsWithThrowButNotDirectly() {
-    $inline$easyToInline();
-    if (justABoolean) {
-      $inline$easyToInline();
-    } else {
-      $inline$easyToInline();
+    // Currently we only stop inlining if the method's basic block ends with a throw. We do not stop
+    // inlining for methods that eventually always end with a throw.
+    static int $noinline$testEndsWithThrowButNotDirectly() {
+        $inline$easyToInline();
+        if (justABoolean) {
+            $inline$easyToInline();
+        } else {
+            $inline$easyToInline();
+        }
+        throw new Error("");
     }
-    throw new Error("");
-  }
 
-  static boolean justABoolean;
+    static boolean justABoolean;
 }

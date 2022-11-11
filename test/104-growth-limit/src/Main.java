@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-
     public static void main(String[] args) throws Exception {
         // Setup reflection stuff before allocating to prevent OOME caused by allocations from
         // Class.forName or getDeclaredMethod.
@@ -40,26 +39,26 @@ public class Main {
         int alloc2 = allocateTillOOME();
 
         if (alloc1 > alloc2) {
-            System.out.println("ERROR: Allocated less memory after growth" +
-                    "limit cleared (" + alloc1 + " MBs > " + alloc2 + " MBs");
+            System.out.println("ERROR: Allocated less memory after growth"
+                    + "limit cleared (" + alloc1 + " MBs > " + alloc2 + " MBs");
         } else {
             System.out.println("Test complete");
         }
     }
 
     private static int allocateTillOOME() {
-      int allocations = 0;
-      List<byte[]> l = new ArrayList<byte[]>();
-      try {
-          while (true) {
-              // Allocate a MB at a time
-              l.add(new byte[1048576]);
-              allocations++;
-          }
-      } catch (OutOfMemoryError e) {
-          // Help clean up.
-          l.clear();
-      }
-      return allocations;
+        int allocations = 0;
+        List<byte[]> l = new ArrayList<byte[]>();
+        try {
+            while (true) {
+                // Allocate a MB at a time
+                l.add(new byte[1048576]);
+                allocations++;
+            }
+        } catch (OutOfMemoryError e) {
+            // Help clean up.
+            l.clear();
+        }
+        return allocations;
     }
 }

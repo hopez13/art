@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Holds an int.
  */
@@ -32,10 +31,6 @@ public class IntHolder {
         mValue = initialVal;
     }
 
-    public int getValue() {
-        return mValue;
-    }
-    public void setValue(int val) {
-        mValue = val;
-    }
+    public int getValue() { return mValue; }
+    public void setValue(int val) { mValue = val; }
 }

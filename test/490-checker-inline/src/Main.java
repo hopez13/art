@@ -15,38 +15,29 @@
  */
 
 interface Itf {
-  public void invokeInterface();
+    public void invokeInterface();
 }
 
 public class Main implements Itf {
+    public void invokeInterface() {}
 
-  public void invokeInterface () {
-  }
+    public void invokeVirtual() {}
 
-  public void invokeVirtual() {
-  }
+    public static Main createMain() { return new Main(); }
 
-  public static Main createMain() {
-    return new Main();
-  }
+    public static Itf createItf() { return new Main(); }
 
-  public static Itf createItf() {
-    return new Main();
-  }
+    /// CHECK-START: void Main.testMethod() inliner (before)
+    /// CHECK-DAG:     InvokeVirtual
+    /// CHECK-DAG:     InvokeInterface
 
-  /// CHECK-START: void Main.testMethod() inliner (before)
-  /// CHECK-DAG:     InvokeVirtual
-  /// CHECK-DAG:     InvokeInterface
+    /// CHECK-START: void Main.testMethod() inliner (after)
+    /// CHECK-NOT:     Invoke{{.*Object\.<init>.*}}
 
-  /// CHECK-START: void Main.testMethod() inliner (after)
-  /// CHECK-NOT:     Invoke{{.*Object\.<init>.*}}
+    public static void testMethod() {
+        createMain().invokeVirtual();
+        createItf().invokeInterface();
+    }
 
-  public static void testMethod() {
-    createMain().invokeVirtual();
-    createItf().invokeInterface();
-  }
-
-  public static void main(String[] args) {
-    testMethod();
-  }
+    public static void main(String[] args) { testMethod(); }
 }

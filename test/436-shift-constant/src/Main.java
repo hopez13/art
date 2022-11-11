@@ -15,28 +15,24 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    assertEquals(0x80000000, doShiftInt(1));
-    assertEquals(0x8000000000000000L, doShiftLong(1L));
-  }
-
-  public static int doShiftInt(int value) {
-    return value << 0xFFFF;
-  }
-
-  public static long doShiftLong(long value) {
-    return value << 0xFFFF;
-  }
-
-  public static void assertEquals(int a, int b) {
-    if (a != b) {
-      throw new Error("Expected " + a + ", got " + b);
+    public static void main(String[] args) {
+        assertEquals(0x80000000, doShiftInt(1));
+        assertEquals(0x8000000000000000L, doShiftLong(1L));
     }
-  }
 
-  public static void assertEquals(long a, long b) {
-    if (a != b) {
-      throw new Error("Expected " + a + ", got " + b);
+    public static int doShiftInt(int value) { return value << 0xFFFF; }
+
+    public static long doShiftLong(long value) { return value << 0xFFFF; }
+
+    public static void assertEquals(int a, int b) {
+        if (a != b) {
+            throw new Error("Expected " + a + ", got " + b);
+        }
     }
-  }
+
+    public static void assertEquals(long a, long b) {
+        if (a != b) {
+            throw new Error("Expected " + a + ", got " + b);
+        }
+    }
 }

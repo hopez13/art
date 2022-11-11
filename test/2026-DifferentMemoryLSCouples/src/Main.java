@@ -29,7 +29,6 @@ public class Main {
         }
     }
 
-
     public void testLoop() {
         A inst1 = new A();
         B inst2 = new B();

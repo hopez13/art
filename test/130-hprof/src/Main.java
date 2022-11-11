@@ -17,15 +17,13 @@
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class Main {
     private static final int TEST_LENGTH = 100;
 
-    private static boolean makeArray(int i) {
-        return i % 10 == 0;
-    }
+    private static boolean makeArray(int i) { return i % 10 == 0; }
 
     private static void fillArray(Object global[], Object local[], int i) {
         // Very stupid linking.
@@ -42,9 +40,9 @@ public class Main {
             throw new AssertionError("Couldn't find path class loader class");
         }
         Constructor<?> constructor =
-            pathClassLoader.getDeclaredConstructor(String.class, ClassLoader.class);
-        ClassLoader loader = (ClassLoader)constructor.newInstance(
-                DEX_FILE, ClassLoader.getSystemClassLoader());
+                pathClassLoader.getDeclaredConstructor(String.class, ClassLoader.class);
+        ClassLoader loader =
+                (ClassLoader) constructor.newInstance(DEX_FILE, ClassLoader.getSystemClassLoader());
         Class<?> allocator = loader.loadClass("Allocator");
         return allocator.getDeclaredMethod("allocObject", null).invoke(null);
     }
@@ -62,8 +60,7 @@ public class Main {
 
             File hprof_conv = getHprofConf();
             try {
-                ProcessBuilder pb = new ProcessBuilder(
-                        hprof_conv.getAbsoluteFile().toString(),
+                ProcessBuilder pb = new ProcessBuilder(hprof_conv.getAbsoluteFile().toString(),
                         dumpFile.getAbsoluteFile().toString(),
                         convFile.getAbsoluteFile().toString());
                 pb.redirectErrorStream(true);
@@ -117,8 +114,8 @@ public class Main {
         if (klass == null) {
             throw new AssertionError("Couldn't find path class loader class");
         }
-        Method enableMethod = klass.getDeclaredMethod("setRecentAllocationsTrackingEnabled",
-            boolean.class);
+        Method enableMethod =
+                klass.getDeclaredMethod("setRecentAllocationsTrackingEnabled", boolean.class);
         if (enableMethod == null) {
             throw new AssertionError("Couldn't find setRecentAllocationsTrackingEnabled method");
         }
@@ -161,9 +158,7 @@ public class Main {
     }
 
     private static class Dumper extends Thread {
-        Dumper(Allocator allocator) {
-            this.allocator = allocator;
-        }
+        Dumper(Allocator allocator) { this.allocator = allocator; }
         Allocator allocator;
         public void run() {
             for (int i = 0; i < 5; ++i) {

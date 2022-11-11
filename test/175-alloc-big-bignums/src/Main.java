@@ -20,19 +20,19 @@ import java.math.BigInteger;
 // underneath. That's true (in 2018) on Android.
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    final int nIters = 20_000;  // Presumed < 1_000_000.
-    final BigInteger big2_20 = BigInteger.valueOf(1024*1024); // 2^20
-    BigInteger huge = BigInteger.valueOf(1).shiftLeft(4_000_000);  // ~0.5MB
-    for (int i = 0; i < nIters; ++i) {  // 10 GB total
-      huge = huge.add(BigInteger.ONE);
+    public static void main(String[] args) throws Exception {
+        final int nIters = 20_000; // Presumed < 1_000_000.
+        final BigInteger big2_20 = BigInteger.valueOf(1024 * 1024); // 2^20
+        BigInteger huge = BigInteger.valueOf(1).shiftLeft(4_000_000); // ~0.5MB
+        for (int i = 0; i < nIters; ++i) { // 10 GB total
+            huge = huge.add(BigInteger.ONE);
+        }
+        if (huge.bitLength() != 4_000_001) {
+            System.out.println("Wrong answer length: " + huge.bitLength());
+        } else if (huge.mod(big2_20).compareTo(BigInteger.valueOf(nIters)) != 0) {
+            System.out.println("Wrong answer: ..." + huge.mod(big2_20));
+        } else {
+            System.out.println("Test complete");
+        }
     }
-    if (huge.bitLength() != 4_000_001) {
-      System.out.println("Wrong answer length: " + huge.bitLength());
-    } else if (huge.mod(big2_20).compareTo(BigInteger.valueOf(nIters)) != 0) {
-      System.out.println("Wrong answer: ..." + huge.mod(big2_20));
-    } else {
-      System.out.println("Test complete");
-    }
-  }
 }

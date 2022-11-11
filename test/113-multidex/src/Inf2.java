@@ -15,14 +15,14 @@
  */
 
 public interface Inf2 {
-  public void zcall();
-  public void zcall1();
-  public void zcall2();
-  public void zcall3();
-  public void zcall4();
-  public void zcall5();
-  public void zcall6();
-  public void zcall7();
-  public void zcall8();
-  public void zcall9();
+    public void zcall();
+    public void zcall1();
+    public void zcall2();
+    public void zcall3();
+    public void zcall4();
+    public void zcall5();
+    public void zcall6();
+    public void zcall7();
+    public void zcall8();
+    public void zcall9();
 }

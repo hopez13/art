@@ -17,23 +17,23 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Throwable {
-    System.loadLibrary(args[0]);
-    Class<?> c = Class.forName("TestCase");
-    Method m = c.getMethod("testCase");
-    Integer a = (Integer)m.invoke(null, (Object[]) null);
-    System.out.println(a);
-  }
-
-  public static Main $noinline$allocate(long a) {
-    try {
-      return new Main();
-    } catch (Exception e) {
-      throw new Error(e);
+    public static void main(String[] args) throws Throwable {
+        System.loadLibrary(args[0]);
+        Class<?> c = Class.forName("TestCase");
+        Method m = c.getMethod("testCase");
+        Integer a = (Integer) m.invoke(null, (Object[]) null);
+        System.out.println(a);
     }
-  }
 
-  public static native void lookForMyRegisters(Main m);
+    public static Main $noinline$allocate(long a) {
+        try {
+            return new Main();
+        } catch (Exception e) {
+            throw new Error(e);
+        }
+    }
 
-  int field = 42;
+    public static native void lookForMyRegisters(Main m);
+
+    int field = 42;
 }

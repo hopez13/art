@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-public abstract class Test5Base implements Test5Interface {
-}
+public abstract class Test5Base implements Test5Interface {}

@@ -15,7 +15,5 @@
  */
 
 public interface Test7Interface {
-    default void foo() {
-        System.out.println("Test7Interface.foo()");
-    }
+    default void foo() { System.out.println("Test7Interface.foo()"); }
 }

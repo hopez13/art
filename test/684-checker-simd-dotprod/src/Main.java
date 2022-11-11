@@ -16,18 +16,18 @@
 
 import other.TestByte;
 import other.TestCharShort;
-import other.TestVarious;
 import other.TestFloatDouble;
+import other.TestVarious;
 
 /**
  * Tests for dot product idiom vectorization.
  */
 public class Main {
-  public static void main(String[] args) {
-     TestByte.run();
-     TestCharShort.run();
-     TestVarious.run();
-     TestFloatDouble.run();
-     System.out.println("passed");
-  }
+    public static void main(String[] args) {
+        TestByte.run();
+        TestCharShort.run();
+        TestVarious.run();
+        TestFloatDouble.run();
+        System.out.println("passed");
+    }
 }

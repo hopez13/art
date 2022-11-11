@@ -15,12 +15,8 @@
  */
 
 public abstract class NotInAbstractParent {
-  // This method will be in the blocklist.
-  public int methodPublicSdkNotInAbstractParent() {
-    return 42;
-  }
-  // This method will be in the blocklist.
-  public int methodUnsupportedNotInAbstractParent() {
-    return 43;
-  }
+    // This method will be in the blocklist.
+    public int methodPublicSdkNotInAbstractParent() { return 42; }
+    // This method will be in the blocklist.
+    public int methodUnsupportedNotInAbstractParent() { return 43; }
 }

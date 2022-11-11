@@ -15,36 +15,27 @@
  */
 
 public class UnresolvedClass extends UnresolvedSuperClass implements UnresolvedInterface {
-  static public void staticMethod() {
-    System.out.println("UnresolvedClass.staticMethod()");
-  }
+    static public void staticMethod() { System.out.println("UnresolvedClass.staticMethod()"); }
 
-  public UnresolvedClass() {
-    System.out.println("UnresolvedClass.directCall()");
-  }
+    public UnresolvedClass() { System.out.println("UnresolvedClass.directCall()"); }
 
-  public void virtualMethod() {
-    System.out.println("UnresolvedClass.virtualMethod()");
-  }
+    public void virtualMethod() { System.out.println("UnresolvedClass.virtualMethod()"); }
 
-  public void interfaceMethod() {
-    System.out.println("UnresolvedClass.interfaceMethod()");
-  }
+    public void interfaceMethod() { System.out.println("UnresolvedClass.interfaceMethod()"); }
 
-  public static byte staticByte;
-  public static char staticChar;
-  public static int staticInt;
-  public static long staticLong;
-  public static float staticFloat;
-  public static double staticDouble;
-  public static Object staticObject;
+    public static byte staticByte;
+    public static char staticChar;
+    public static int staticInt;
+    public static long staticLong;
+    public static float staticFloat;
+    public static double staticDouble;
+    public static Object staticObject;
 
-  public byte instanceByte;
-  public char instanceChar;
-  public int instanceInt;
-  public long instanceLong;
-  public float instanceFloat;
-  public double instanceDouble;
-  public Object instanceObject;
+    public byte instanceByte;
+    public char instanceChar;
+    public int instanceInt;
+    public long instanceLong;
+    public float instanceFloat;
+    public double instanceDouble;
+    public Object instanceObject;
 }
-

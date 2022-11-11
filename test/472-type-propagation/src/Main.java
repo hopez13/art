@@ -15,19 +15,19 @@
  */
 
 class Main {
-  public static void main(String[] args) {
-    ssaBuilderDouble(new double[] { 1.2, 4.3, 5.2 });
-    ssaBuilderDouble(new double[] { 1.2, 4.3, 5.2, 6.8 });
-  }
-
-  public static void ssaBuilderDouble(double[] array) {
-    double x;
-    if (array.length > 3) {
-      x = array[0];
-    } else {
-      x = array[1];
+    public static void main(String[] args) {
+        ssaBuilderDouble(new double[] {1.2, 4.3, 5.2});
+        ssaBuilderDouble(new double[] {1.2, 4.3, 5.2, 6.8});
     }
-    array[2] = x;
-    System.out.println(x);
-  }
+
+    public static void ssaBuilderDouble(double[] array) {
+        double x;
+        if (array.length > 3) {
+            x = array[0];
+        } else {
+            x = array[1];
+        }
+        array[2] = x;
+        System.out.println(x);
+    }
 }

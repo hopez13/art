@@ -33,18 +33,17 @@ class OOMEHelper {
  * induced low-memory situation, will throw itself an OutOfMemoryError.
  */
 public class OOMEOnNullAccess {
-
     static ArrayList<Object> storage = new ArrayList<>(100000);
 
     private static void exhaustJavaHeap(int size) {
-      Runtime.getRuntime().gc();
-      while (size > 0) {
-        try {
-          storage.add(new byte[size]);
-        } catch (OutOfMemoryError e) {
-          size = size/2;
+        Runtime.getRuntime().gc();
+        while (size > 0) {
+            try {
+                storage.add(new byte[size]);
+            } catch (OutOfMemoryError e) {
+                size = size / 2;
+            }
         }
-      }
     }
 
     public static void main(String[] args) {
@@ -64,7 +63,6 @@ public class OOMEOnNullAccess {
         exhaustJavaHeap(initial_size);
         exhaustJavaHeap(/*size*/ 4);
         exhaustJavaHeap(/*size*/ 4);
-
 
         try {
             nullAccess(null);

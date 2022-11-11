@@ -15,12 +15,9 @@
  */
 
 public class BaseInMainDex {
-  BaseInMainDex() {
-  }
+    BaseInMainDex() {}
 
-  BaseInMainDex(int intValue) {
-    intField = intValue;
-  }
+    BaseInMainDex(int intValue) { intField = intValue; }
 
-  public int intField;
+    public int intField;
 }

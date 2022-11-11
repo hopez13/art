@@ -17,7 +17,5 @@
 package pkg;
 
 public class Test12Base {
-    /* package-private */ void foo() {
-        System.out.println("pkg.Test12Base.foo()");
-    }
+    /* package-private */ void foo() { System.out.println("pkg.Test12Base.foo()"); }
 }

@@ -15,20 +15,16 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    System.out.println(foo(1, 0));
-  }
+    public static void main(String[] args) { System.out.println(foo(1, 0)); }
 
-  public static String foo(int a, int b) {
-    if (a == 42) {
-      // The class loading will be seen as dead code by
-      // the optimizer.
-      Class<?> c = Main.class;
+    public static String foo(int a, int b) {
+        if (a == 42) {
+            // The class loading will be seen as dead code by
+            // the optimizer.
+            Class<?> c = Main.class;
+        }
+        return new Main().bar();
     }
-    return new Main().bar();
-  }
 
-  public String bar() {
-    return "In bar";
-  }
+    public String bar() { return "In bar"; }
 }

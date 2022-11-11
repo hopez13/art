@@ -20,49 +20,34 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 public class Trace {
-  public static native void enableTracing(Class<?> methodClass,
-                                          Method entryMethod,
-                                          Method exitMethod,
-                                          Method fieldAccess,
-                                          Method fieldModify,
-                                          Method singleStep,
-                                          Thread thr);
-  public static native void disableTracing(Thread thr);
+    public static native void enableTracing(Class<?> methodClass, Method entryMethod,
+            Method exitMethod, Method fieldAccess, Method fieldModify, Method singleStep,
+            Thread thr);
+    public static native void disableTracing(Thread thr);
 
-  public static void enableFieldTracing(Class<?> methodClass,
-                                        Method fieldAccess,
-                                        Method fieldModify,
-                                        Thread thr) {
-    enableTracing(methodClass, null, null, fieldAccess, fieldModify, null, thr);
-  }
+    public static void enableFieldTracing(
+            Class<?> methodClass, Method fieldAccess, Method fieldModify, Thread thr) {
+        enableTracing(methodClass, null, null, fieldAccess, fieldModify, null, thr);
+    }
 
-  public static void enableMethodTracing(Class<?> methodClass,
-                                         Method entryMethod,
-                                         Method exitMethod,
-                                         Thread thr) {
-    enableTracing(methodClass, entryMethod, exitMethod, null, null, null, thr);
-  }
+    public static void enableMethodTracing(
+            Class<?> methodClass, Method entryMethod, Method exitMethod, Thread thr) {
+        enableTracing(methodClass, entryMethod, exitMethod, null, null, null, thr);
+    }
 
-  public static void enableSingleStepTracing(Class<?> methodClass,
-                                             Method singleStep,
-                                             Thread thr) {
-    enableTracing(methodClass, null, null, null, null, singleStep, thr);
-  }
+    public static void enableSingleStepTracing(
+            Class<?> methodClass, Method singleStep, Thread thr) {
+        enableTracing(methodClass, null, null, null, null, singleStep, thr);
+    }
 
-  public static native void watchFieldAccess(Field f);
-  public static native void watchFieldModification(Field f);
-  public static native void watchAllFieldAccesses();
-  public static native void watchAllFieldModifications();
+    public static native void watchFieldAccess(Field f);
+    public static native void watchFieldModification(Field f);
+    public static native void watchAllFieldAccesses();
+    public static native void watchAllFieldModifications();
 
-  // the names, arguments, and even line numbers of these functions are embedded in the tests so we
-  // need to add to the bottom and not modify old ones to maintain compat.
-  public static native void enableTracing2(Class<?> methodClass,
-                                           Method entryMethod,
-                                           Method exitMethod,
-                                           Method fieldAccess,
-                                           Method fieldModify,
-                                           Method singleStep,
-                                           Method ThreadStart,
-                                           Method ThreadEnd,
-                                           Thread thr);
+    // the names, arguments, and even line numbers of these functions are embedded in the tests so
+    // we need to add to the bottom and not modify old ones to maintain compat.
+    public static native void enableTracing2(Class<?> methodClass, Method entryMethod,
+            Method exitMethod, Method fieldAccess, Method fieldModify, Method singleStep,
+            Method ThreadStart, Method ThreadEnd, Thread thr);
 }

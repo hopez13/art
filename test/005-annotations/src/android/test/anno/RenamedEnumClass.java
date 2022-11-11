@@ -22,5 +22,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 
 public @interface RenamedEnumClass {
-    enum RenamedEnum { FOO, BAR };
+    enum RenamedEnum { FOO, BAR }
+    ;
 }

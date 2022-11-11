@@ -15,39 +15,38 @@
  */
 
 public class Main {
-  static volatile long long_volatile;
-  static volatile double double_volatile;
+    static volatile long long_volatile;
+    static volatile double double_volatile;
 
-  public static void main(String[] args) {
-    checkVolatileUpdate(0L);
-    checkVolatileUpdate(Long.MAX_VALUE);
-    checkVolatileUpdate(Long.MIN_VALUE);
+    public static void main(String[] args) {
+        checkVolatileUpdate(0L);
+        checkVolatileUpdate(Long.MAX_VALUE);
+        checkVolatileUpdate(Long.MIN_VALUE);
 
-    checkVolatileUpdate(0.0);
-    checkVolatileUpdate(Double.MAX_VALUE);
-    checkVolatileUpdate(-Double.MAX_VALUE);
-  }
-
-  public static long $opt$update(long a) {
-     long_volatile = a;
-     return long_volatile;
-  }
-
-  public static double $opt$update(double a) {
-     double_volatile = a;
-     return double_volatile;
-  }
-
-  public static void checkVolatileUpdate(long value) {
-    if (value != $opt$update(value)) {
-      throw new RuntimeException("Volatile update failed for long:" + value);
+        checkVolatileUpdate(0.0);
+        checkVolatileUpdate(Double.MAX_VALUE);
+        checkVolatileUpdate(-Double.MAX_VALUE);
     }
-  }
 
-  public static void checkVolatileUpdate(double value) {
-    if (value != $opt$update(value)) {
-      throw new RuntimeException("Volatile update failed for double:" + value);
+    public static long $opt$update(long a) {
+        long_volatile = a;
+        return long_volatile;
     }
-  }
 
+    public static double $opt$update(double a) {
+        double_volatile = a;
+        return double_volatile;
+    }
+
+    public static void checkVolatileUpdate(long value) {
+        if (value != $opt$update(value)) {
+            throw new RuntimeException("Volatile update failed for long:" + value);
+        }
+    }
+
+    public static void checkVolatileUpdate(double value) {
+        if (value != $opt$update(value)) {
+            throw new RuntimeException("Volatile update failed for double:" + value);
+        }
+    }
 }

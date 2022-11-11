@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
-/** Sample values for use in VarHandle tests. These are here to avoid repeatedly boxing which
- * makes gcstress tests run slowly. */
+/**
+ * Sample values for use in VarHandle tests. These are here to avoid repeatedly boxing which
+ * makes gcstress tests run slowly.
+ */
 public class SampleValues {
     public static final boolean[] PRIMITIVE_BOOLEANS = new boolean[] {true, false};
 
@@ -33,11 +35,9 @@ public class SampleValues {
     public static final Short[] SHORTS =
             new Short[] {(short) -32768, (short) -384, (short) 32767, (short) 0xaa55};
 
-    public static final char[] PRIMITIVE_CHARS =
-            new char[] {'A', '#', '$', 'Z', 't', 'c'};
+    public static final char[] PRIMITIVE_CHARS = new char[] {'A', '#', '$', 'Z', 't', 'c'};
 
-    public static final Character[] CHARACTERS =
-            new Character[] {'A', '#', '$', 'Z', 't', 'c'};
+    public static final Character[] CHARACTERS = new Character[] {'A', '#', '$', 'Z', 't', 'c'};
 
     public static final int[] PRIMITIVE_INTS =
             new int[] {-0x01234567, 0x7f6e5d4c, 0x12345678, 0x10215220, 42};
@@ -63,68 +63,35 @@ public class SampleValues {
     public static final Double[] DOUBLES =
             new Double[] {-1.0e-200, 1.11e200, 3.141, 1.1111, 6.022e23, 6.626e-34};
 
-    public static boolean get_boolean(int index) {
-        return PRIMITIVE_BOOLEANS[index];
-    }
+    public static boolean get_boolean(int index) { return PRIMITIVE_BOOLEANS[index]; }
 
-    public static Boolean get_Boolean(int index) {
-        return BOOLEANS[index];
-    }
+    public static Boolean get_Boolean(int index) { return BOOLEANS[index]; }
 
-    public static byte get_byte(int index) {
-        return PRIMITIVE_BYTES[index];
-    }
+    public static byte get_byte(int index) { return PRIMITIVE_BYTES[index]; }
 
-    public static Byte get_Byte(int index) {
-        return BYTES[index];
-    }
+    public static Byte get_Byte(int index) { return BYTES[index]; }
 
-    public static short get_short(int index) {
-        return PRIMITIVE_SHORTS[index];
-    }
+    public static short get_short(int index) { return PRIMITIVE_SHORTS[index]; }
 
-    public static Short get_Short(int index) {
-        return SHORTS[index];
-    }
+    public static Short get_Short(int index) { return SHORTS[index]; }
 
-    public static char get_char(int index) {
-        return PRIMITIVE_CHARS[index];
-    }
+    public static char get_char(int index) { return PRIMITIVE_CHARS[index]; }
 
-    public static Character get_Character(int index) {
-        return CHARACTERS[index];
-    }
+    public static Character get_Character(int index) { return CHARACTERS[index]; }
 
-    public static int get_int(int index) {
-        return PRIMITIVE_INTS[index];
-    }
+    public static int get_int(int index) { return PRIMITIVE_INTS[index]; }
 
-    public static Integer get_Integer(int index) {
-        return INTEGERS[index];
-    }
+    public static Integer get_Integer(int index) { return INTEGERS[index]; }
 
-    public static long get_long(int index) {
-        return PRIMITIVE_LONGS[index];
-    }
+    public static long get_long(int index) { return PRIMITIVE_LONGS[index]; }
 
-    public static Long get_Long(int index) {
-        return LONGS[index];
-    }
+    public static Long get_Long(int index) { return LONGS[index]; }
 
-    public static float get_float(int index) {
-        return PRIMITIVE_FLOATS[index];
-    }
+    public static float get_float(int index) { return PRIMITIVE_FLOATS[index]; }
 
-    public static Float get_Float(int index) {
-        return FLOATS[index];
-    }
+    public static Float get_Float(int index) { return FLOATS[index]; }
 
-    public static double get_double(int index) {
-        return PRIMITIVE_DOUBLES[index];
-    }
+    public static double get_double(int index) { return PRIMITIVE_DOUBLES[index]; }
 
-    public static Double get_Double(int index) {
-        return DOUBLES[index];
-    }
+    public static Double get_Double(int index) { return DOUBLES[index]; }
 }
-

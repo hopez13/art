@@ -17,5 +17,4 @@
 /**
  * Regression test for b/31280371
  */
-class N implements Foo {
-}
+class N implements Foo {}

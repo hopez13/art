@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 class Main {
-  public static void main(String[] args) {
-    System.out.println(Iface.SayHi());
-  }
+    public static void main(String[] args) { System.out.println(Iface.SayHi()); }
 }

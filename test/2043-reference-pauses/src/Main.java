@@ -15,8 +15,8 @@
  */
 
 import java.lang.ref.Reference;
-import java.lang.ref.WeakReference;
 import java.lang.ref.SoftReference;
+import java.lang.ref.WeakReference;
 import java.math.BigInteger;
 import java.util.ArrayList;
 
@@ -26,10 +26,10 @@ import java.util.ArrayList;
  * Can easily be modified to time Reference.get() blocking.
  */
 public class Main {
-    static final boolean PRINT_TIMES = false;  // true will cause benchmark failure.
+    static final boolean PRINT_TIMES = false; // true will cause benchmark failure.
     // Data structures repeatedly allocated in background to trigger GC.
     // Size of finalizer reachable trees.
-    static final int TREE_HEIGHT = 15;  // Trees contain 2^TREE_HEIGHT -1 allocated objects.
+    static final int TREE_HEIGHT = 15; // Trees contain 2^TREE_HEIGHT -1 allocated objects.
     // Number of finalizable tree-owning objects that exist at one point.
     static final int N_RESURRECTING_OBJECTS = 10;
     // Number of short-lived, not finalizer-reachable, objects allocated between trees.
@@ -39,7 +39,7 @@ public class Main {
 
     static final boolean BACKGROUND_GC_THREAD = true;
     static final int NBATCHES = 10;
-    static final int NREFS = PRINT_TIMES ? 1_000_000 : 300_000;  // Multiple of NBATCHES.
+    static final int NREFS = PRINT_TIMES ? 1_000_000 : 300_000; // Multiple of NBATCHES.
     static final int REFS_PER_BATCH = NREFS / NBATCHES;
 
     static volatile boolean pleaseStop = false;
@@ -82,7 +82,6 @@ public class Main {
         }
     }
 
-
     /**
      * A finalizable object that refers to O(2^TREE_HEIGHT) otherwise unreachable memory.
      * When finalized, it creates a new identical object, making sure that one always stays
@@ -90,9 +89,7 @@ public class Main {
      */
     static class ResurrectingObject {
         CBT stuff;
-        ResurrectingObject() {
-            stuff = CBT.make(TREE_HEIGHT);
-        }
+        ResurrectingObject() { stuff = CBT.make(TREE_HEIGHT); }
         static ResurrectingObject a[] = new ResurrectingObject[2];
         static int i = 0;
         static synchronized void allocOne() {
@@ -111,7 +108,7 @@ public class Main {
 
     void fillWeakRefs() {
         for (int i = 0; i < NREFS; ++i) {
-             weakRefs.add(null);
+            weakRefs.add(null);
         }
     }
 
@@ -168,7 +165,7 @@ public class Main {
     long timeUnreachable() {
         long maxNanos = timeUnreachableInner();
         Runtime.getRuntime().gc();
-        System.runFinalization();  // Presumed to wait for reference clearing.
+        System.runFinalization(); // Presumed to wait for reference clearing.
         for (int i = 0; i < NREFS; ++i) {
             if (weakRefs.get(i) != null && weakRefs.get(i).get() != null) {
                 System.out.println("WeakReference to " + i + " wasn't cleared");
@@ -180,7 +177,7 @@ public class Main {
     /**
      * Return maximum observed time in nanos to dereference a WeakReference to a reachable
      * object. Overwrites weakRefs, which is presumed to have NREFS entries already.
-    */
+     */
     long timeReachable() {
         long maxNanos = 0;
         // Similar to the above, but we use WeakReferences to otherwise reachable objects,
@@ -218,15 +215,12 @@ public class Main {
             System.out.println("Finished timeUnrechable()");
         }
         long reachableNanos = timeReachable();
-        String unreachableMillis =
-                String. format("%,.3f", ((double) unreachableNanos) / 1_000_000);
-        String reachableMillis =
-                String. format("%,.3f", ((double) reachableNanos) / 1_000_000);
+        String unreachableMillis = String.format("%,.3f", ((double) unreachableNanos) / 1_000_000);
+        String reachableMillis = String.format("%,.3f", ((double) reachableNanos) / 1_000_000);
         if (PRINT_TIMES) {
             System.out.println(
                     "Max time for WeakReference.get (unreachable): " + unreachableMillis);
-            System.out.println(
-                    "Max time for WeakReference.get (reachable): " + reachableMillis);
+            System.out.println("Max time for WeakReference.get (reachable): " + reachableMillis);
         }
         // Only report extremely egregious pauses to avoid spurious failures.
         if (unreachableNanos > 10_000_000_000L) {
@@ -277,7 +271,7 @@ public class Main {
             // To be safe, access softRefs.
             final CBT sample = softRefs.get(N_SOFTREFS / 2).get();
             if (sample != null) {
-              sample.check(TREE_HEIGHT, 47 /* some path descriptor */);
+                sample.check(TREE_HEIGHT, 47 /* some path descriptor */);
             }
         }
     };
@@ -287,7 +281,7 @@ public class Main {
         Thread allocThread = null;
         if (BACKGROUND_GC_THREAD) {
             allocThread = new Thread(allocFinalizable);
-            allocThread.setDaemon(true);  // Terminate if main thread dies.
+            allocThread.setDaemon(true); // Terminate if main thread dies.
             allocThread.start();
         }
         theTest.runTest();

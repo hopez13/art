@@ -17,5 +17,4 @@
 /**
  * Non-public base class, inaccessible from alternate class loader.
  */
-class InaccessibleBase {
-}
+class InaccessibleBase {}

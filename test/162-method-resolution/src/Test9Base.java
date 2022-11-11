@@ -15,7 +15,5 @@
  */
 
 public class Test9Base {
-    public void foo() {
-        System.out.println("Test9Base.foo()");
-    }
+    public void foo() { System.out.println("Test9Base.foo()"); }
 }

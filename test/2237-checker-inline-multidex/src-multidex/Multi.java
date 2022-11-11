@@ -15,35 +15,29 @@
  */
 
 public class Multi {
-  public static String $inline$NeedsEnvironmentMultiDex(String str) {
-    // StringBuilderAppend needs an environment but it doesn't need a .bss entry.
-    StringBuilder sb = new StringBuilder();
-    return sb.append(str).toString();
-  }
-
-  public static String $inline$NeedsBssEntryStringMultiDex() {
-    return "def";
-  }
-
-  private static String $noinline$InnerInvokeMultiDex() {
-    return "ghi";
-  }
-
-  public static String $inline$NeedsBssEntryInvokeMultiDex() {
-    return $noinline$InnerInvokeMultiDex();
-  }
-
-  public static Class<?> NeedsBssEntryClassMultiDex() {
-    return Multi2.class;
-  }
-
-  private class Multi2 {}
-
-  public static int $inline$TryCatch(String str) {
-    try {
-      return Integer.parseInt(str);
-    } catch (NumberFormatException ex) {
-      return -1;
+    public static String $inline$NeedsEnvironmentMultiDex(String str) {
+        // StringBuilderAppend needs an environment but it doesn't need a .bss entry.
+        StringBuilder sb = new StringBuilder();
+        return sb.append(str).toString();
     }
-  }
+
+    public static String $inline$NeedsBssEntryStringMultiDex() { return "def"; }
+
+    private static String $noinline$InnerInvokeMultiDex() { return "ghi"; }
+
+    public static String $inline$NeedsBssEntryInvokeMultiDex() {
+        return $noinline$InnerInvokeMultiDex();
+    }
+
+    public static Class<?> NeedsBssEntryClassMultiDex() { return Multi2.class; }
+
+    private class Multi2 {}
+
+    public static int $inline$TryCatch(String str) {
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException ex) {
+            return -1;
+        }
+    }
 }

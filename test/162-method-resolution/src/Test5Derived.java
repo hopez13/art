@@ -15,7 +15,5 @@
  */
 
 public class Test5Derived extends Test5Base {
-    public void foo() {
-        System.out.println("Test5Derived.foo()");
-    }
+    public void foo() { System.out.println("Test5Derived.foo()"); }
 }

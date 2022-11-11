@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-public class BadIfaceImpl implements BadInterface { }
+public class BadIfaceImpl implements BadInterface {}

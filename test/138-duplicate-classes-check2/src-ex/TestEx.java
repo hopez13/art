@@ -15,7 +15,5 @@
  */
 
 public class TestEx {
-    public static void test() {
-        System.out.println(new A().i);
-    }
+    public static void test() { System.out.println(new A().i); }
 }

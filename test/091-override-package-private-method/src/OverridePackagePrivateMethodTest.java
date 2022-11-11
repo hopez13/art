@@ -22,7 +22,5 @@ public class OverridePackagePrivateMethodTest extends OverridePackagePrivateMeth
         print();
     }
 
-    void print() {
-        System.out.println("OverridePackagePrivateMethodTest");
-    }
+    void print() { System.out.println("OverridePackagePrivateMethodTest"); }
 }

@@ -15,13 +15,11 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    System.out.println(foo(42));
-    System.out.println(foo(0xffffffff));
-    System.out.println(foo(0xf0000000));
-  }
+    public static void main(String[] args) {
+        System.out.println(foo(42));
+        System.out.println(foo(0xffffffff));
+        System.out.println(foo(0xf0000000));
+    }
 
-  public static boolean foo(int a) {
-    return a < 0xf000000b;
-  }
+    public static boolean foo(int a) { return a < 0xf000000b; }
 }

@@ -15,5 +15,5 @@
  */
 
 public interface GenericInterface<T extends Number> {
-  public T foo();
+    public T foo();
 }

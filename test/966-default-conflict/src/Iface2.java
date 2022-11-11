@@ -17,9 +17,7 @@
 // We extend Iface so that javac will not complain that Iface2 does not declare a sayHi method or
 // has a soft-conflict on the sayHi method if it did.
 public interface Iface2 extends Iface {
-  // public default String sayHi() {
-  //   return "hello";
-  // }
+    // public default String sayHi() {
+    //   return "hello";
+    // }
 }
-
-

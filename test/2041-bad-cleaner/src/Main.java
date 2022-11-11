@@ -14,10 +14,13 @@
  * limitations under the License.
  */
 
-import dalvik.system.VMRuntime;
-import sun.misc.Cleaner;
-import java.util.concurrent.CountDownLatch;
 import static java.util.concurrent.TimeUnit.MINUTES;
+
+import dalvik.system.VMRuntime;
+
+import java.util.concurrent.CountDownLatch;
+
+import sun.misc.Cleaner;
 
 /**
  * Test a class with a bad finalizer.
@@ -52,7 +55,7 @@ public class Main {
         long remainingWait = timeout;
         final long waitStart = System.currentTimeMillis();
         while (remainingWait > 0) {
-            synchronized (args) {  // Just use an already existing object for simplicity...
+            synchronized (args) { // Just use an already existing object for simplicity...
                 try {
                     args.wait(remainingWait);
                 } catch (Exception e) {
@@ -70,7 +73,7 @@ public class Main {
     private static void createBadCleanable(CountDownLatch finalizerWait) {
         Object badCleanable = new Object();
         Runnable badRunnable = new Runnable() {
-            public void run () {
+            public void run() {
                 finalizerWait.countDown();
 
                 System.out.println("Cleaner started and sleeping briefly...");
@@ -87,7 +90,7 @@ public class Main {
         final Cleaner badCleaner = Cleaner.create(badCleanable, badRunnable);
 
         System.out.println("About to null reference.");
-        badCleanable = null;  // Not that this would make a difference, could be eliminated earlier.
+        badCleanable = null; // Not that this would make a difference, could be eliminated earlier.
     }
 
     public static void snooze(int ms) {
@@ -96,5 +99,4 @@ public class Main {
         } catch (InterruptedException ie) {
         }
     }
-
 }

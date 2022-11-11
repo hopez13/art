@@ -22,56 +22,56 @@ public class Main {
         int pad0, pad1, pad2, pad3, pad4, pad5, pad6, pad7;
         int pad8, pad9, pad10, pad11, pad12, pad13, pad14, pad15;
         int a, b, res;
-        //long a, b, res;
+        // long a, b, res;
 
         a = 3;
         b = 7;
 
         res = a + b;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
         res = a - b;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
         res = 5 - a;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
         res = a - 5;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
         res = a * b;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
         res = a / b;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
         res = a % b;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
         res = a ^ b;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
         res = a << b;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
         res = a >> b;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
         res = a >>> b;
-        System.out.println("res:" +res);
+        System.out.println("res:" + res);
 
         a += b;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
         a -= b;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
         a = 5 - a;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
         a -= 5;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
         a *= b;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
         a /= b;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
         a %= b;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
         a ^= b;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
         a <<= b;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
         a >>= b;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
         a >>>= b;
-        System.out.println("a:" +a);
+        System.out.println("a:" + a);
 
         double f, g, fres;
 
@@ -79,25 +79,25 @@ public class Main {
         g = 7.0f;
 
         fres = f + g;
-        System.out.println("fres:" +fres);
+        System.out.println("fres:" + fres);
         fres = f - g;
-        System.out.println("fres:" +fres);
+        System.out.println("fres:" + fres);
         fres = f * g;
-        System.out.println("fres:" +fres);
+        System.out.println("fres:" + fres);
         fres = f / g;
-        System.out.println("fres:" +fres);
+        System.out.println("fres:" + fres);
         fres = f % g;
-        System.out.println("fres:" +fres);
+        System.out.println("fres:" + fres);
         f += g;
-        System.out.println("f:" +f);
+        System.out.println("f:" + f);
         f -= g;
-        System.out.println("f:" +f);
+        System.out.println("f:" + f);
         f *= g;
-        System.out.println("f:" +f);
+        System.out.println("f:" + f);
         f /= g;
-        System.out.println("f:" +f);
+        System.out.println("f:" + f);
         f %= g;
-        System.out.println("f:" +f);
+        System.out.println("f:" + f);
     }
     public static void math_012_numerator(int a, int b, int d, int e, int f) {
         int c = 0;
@@ -119,7 +119,7 @@ public class Main {
         System.out.println(c);
     }
     public static void main(String args[]) {
-      math_012();
-      math_012_numerator(0, 3, -1, 4, 5);
+        math_012();
+        math_012_numerator(0, 3, -1, 4, 5);
     }
 }

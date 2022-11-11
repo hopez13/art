@@ -17,34 +17,35 @@
 package art;
 
 public class NonStandardExit {
-  public static native void popFrame(Thread thr);
-  public static native void forceEarlyReturnVoid(Thread thr);
-  public static native void forceEarlyReturnFloat(Thread thr, float f);
-  public static native void forceEarlyReturnDouble(Thread thr, double f);
-  public static native void forceEarlyReturnInt(Thread thr, int f);
-  public static native void forceEarlyReturnLong(Thread thr, long f);
-  public static native void forceEarlyReturnObject(Thread thr, Object f);
+    public static native void popFrame(Thread thr);
+    public static native void forceEarlyReturnVoid(Thread thr);
+    public static native void forceEarlyReturnFloat(Thread thr, float f);
+    public static native void forceEarlyReturnDouble(Thread thr, double f);
+    public static native void forceEarlyReturnInt(Thread thr, int f);
+    public static native void forceEarlyReturnLong(Thread thr, long f);
+    public static native void forceEarlyReturnObject(Thread thr, Object f);
 
-  public static void forceEarlyReturn(Thread thr, Object o) {
-    if (o instanceof Number && o.getClass().getPackage().equals(Object.class.getPackage())) {
-      Number n = (Number)o;
-      if (n instanceof Integer || n instanceof Short || n instanceof Byte) {
-        forceEarlyReturnInt(thr, n.intValue());
-      } else if (n instanceof Long) {
-        forceEarlyReturnLong(thr, n.longValue());
-      } else if (n instanceof Float) {
-        forceEarlyReturnFloat(thr, n.floatValue());
-      } else if (n instanceof Double) {
-        forceEarlyReturnDouble(thr, n.doubleValue());
-      } else {
-        throw new IllegalArgumentException("Unknown number subtype: " + n.getClass() + " - " + n);
-      }
-    } else if (o instanceof Character) {
-      forceEarlyReturnInt(thr, ((Character)o).charValue());
-    } else if (o instanceof Boolean) {
-      forceEarlyReturnInt(thr, ((Boolean)o).booleanValue() ? 1 : 0);
-    } else {
-      forceEarlyReturnObject(thr, o);
+    public static void forceEarlyReturn(Thread thr, Object o) {
+        if (o instanceof Number && o.getClass().getPackage().equals(Object.class.getPackage())) {
+            Number n = (Number) o;
+            if (n instanceof Integer || n instanceof Short || n instanceof Byte) {
+                forceEarlyReturnInt(thr, n.intValue());
+            } else if (n instanceof Long) {
+                forceEarlyReturnLong(thr, n.longValue());
+            } else if (n instanceof Float) {
+                forceEarlyReturnFloat(thr, n.floatValue());
+            } else if (n instanceof Double) {
+                forceEarlyReturnDouble(thr, n.doubleValue());
+            } else {
+                throw new IllegalArgumentException(
+                        "Unknown number subtype: " + n.getClass() + " - " + n);
+            }
+        } else if (o instanceof Character) {
+            forceEarlyReturnInt(thr, ((Character) o).charValue());
+        } else if (o instanceof Boolean) {
+            forceEarlyReturnInt(thr, ((Boolean) o).booleanValue() ? 1 : 0);
+        } else {
+            forceEarlyReturnObject(thr, o);
+        }
     }
-  }
 }

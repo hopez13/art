@@ -17,15 +17,15 @@
 import java.util.zip.ZipFile;
 
 public class Main {
-      public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         // By throwing an exception when setting up arguments of
         // the constructor, we end up with a not fully constructed
         // ZipFile.
         try {
-          new ZipFile(null, throwException(), null);
-          throw new Error("Expected Exception");
+            new ZipFile(null, throwException(), null);
+            throw new Error("Expected Exception");
         } catch (Exception e) {
-          // expected
+            // expected
         }
 
         // Run finalizers. The golden file of this test checks
@@ -34,7 +34,5 @@ public class Main {
         System.runFinalization();
     }
 
-    public static int throwException() throws Exception {
-      throw new Exception();
-    }
+    public static int throwException() throws Exception { throw new Exception(); }
 }

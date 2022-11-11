@@ -49,9 +49,7 @@ public class VarHandleTypeConversionTests {
             vh.weakCompareAndSet(this, 17, 19);
         }
 
-        public static void main(String[] args) {
-            new VoidReturnTypeTest().run();
-        }
+        public static void main(String[] args) { new VoidReturnTypeTest().run(); }
     }
 
     //
@@ -83,9 +81,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new BoxedNullBooleanThrowsNPETest().run();
-        }
+        public static void main(String[] args) { new BoxedNullBooleanThrowsNPETest().run(); }
     }
 
     public static class BoxedNullByteThrowsNPETest extends VarHandleUnitTest {
@@ -111,9 +107,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new BoxedNullByteThrowsNPETest().run();
-        }
+        public static void main(String[] args) { new BoxedNullByteThrowsNPETest().run(); }
     }
 
     public static class BoxedNullCharacterThrowsNPETest extends VarHandleUnitTest {
@@ -138,9 +132,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new BoxedNullCharacterThrowsNPETest().run();
-        }
+        public static void main(String[] args) { new BoxedNullCharacterThrowsNPETest().run(); }
     }
 
     public static class BoxedNullShortThrowsNPETest extends VarHandleUnitTest {
@@ -167,9 +159,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new BoxedNullShortThrowsNPETest().run();
-        }
+        public static void main(String[] args) { new BoxedNullShortThrowsNPETest().run(); }
     }
 
     public static class BoxedNullIntegerThrowsNPETest extends VarHandleUnitTest {
@@ -195,9 +185,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new BoxedNullIntegerThrowsNPETest().run();
-        }
+        public static void main(String[] args) { new BoxedNullIntegerThrowsNPETest().run(); }
     }
 
     public static class BoxedNullLongThrowsNPETest extends VarHandleUnitTest {
@@ -224,9 +212,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new BoxedNullLongThrowsNPETest().run();
-        }
+        public static void main(String[] args) { new BoxedNullLongThrowsNPETest().run(); }
     }
 
     public static class BoxedNullFloatThrowsNPETest extends VarHandleUnitTest {
@@ -253,9 +239,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new BoxedNullFloatThrowsNPETest().run();
-        }
+        public static void main(String[] args) { new BoxedNullFloatThrowsNPETest().run(); }
     }
 
     public static class BoxedNullDoubleThrowsNPETest extends VarHandleUnitTest {
@@ -284,9 +268,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new BoxedNullDoubleThrowsNPETest().run();
-        }
+        public static void main(String[] args) { new BoxedNullDoubleThrowsNPETest().run(); }
     }
 
     public static class WideningBooleanArgumentTest extends VarHandleUnitTest {
@@ -342,9 +324,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningBooleanArgumentTest().run();
-        }
+        public static void main(String[] args) { new WideningBooleanArgumentTest().run(); }
     }
 
     public static class WideningByteArgumentTest extends VarHandleUnitTest {
@@ -400,9 +380,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningByteArgumentTest().run();
-        }
+        public static void main(String[] args) { new WideningByteArgumentTest().run(); }
     }
 
     public static class WideningCharacterArgumentTest extends VarHandleUnitTest {
@@ -458,9 +436,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningCharacterArgumentTest().run();
-        }
+        public static void main(String[] args) { new WideningCharacterArgumentTest().run(); }
     }
 
     public static class WideningShortArgumentTest extends VarHandleUnitTest {
@@ -512,9 +488,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningShortArgumentTest().run();
-        }
+        public static void main(String[] args) { new WideningShortArgumentTest().run(); }
     }
 
     public static class WideningIntegerArgumentTest extends VarHandleUnitTest {
@@ -560,9 +534,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningIntegerArgumentTest().run();
-        }
+        public static void main(String[] args) { new WideningIntegerArgumentTest().run(); }
     }
 
     public static class WideningLongArgumentTest extends VarHandleUnitTest {
@@ -602,9 +574,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningLongArgumentTest().run();
-        }
+        public static void main(String[] args) { new WideningLongArgumentTest().run(); }
     }
 
     public static class WideningFloatArgumentTest extends VarHandleUnitTest {
@@ -640,9 +610,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningFloatArgumentTest().run();
-        }
+        public static void main(String[] args) { new WideningFloatArgumentTest().run(); }
     }
 
     public static class WideningDoubleArgumentTest extends VarHandleUnitTest {
@@ -674,9 +642,7 @@ public class VarHandleTypeConversionTests {
             vh.set((double) 1.0);
         }
 
-        public static void main(String[] args) {
-            new WideningDoubleArgumentTest().run();
-        }
+        public static void main(String[] args) { new WideningDoubleArgumentTest().run(); }
     }
 
     public static class WideningBooleanReturnValueTest extends VarHandleUnitTest {
@@ -734,9 +700,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningBooleanReturnValueTest().run();
-        }
+        public static void main(String[] args) { new WideningBooleanReturnValueTest().run(); }
     }
 
     public static class WideningByteReturnValueTest extends VarHandleUnitTest {
@@ -775,9 +739,7 @@ public class VarHandleTypeConversionTests {
             double d = (double) vh.get();
         }
 
-        public static void main(String[] args) {
-            new WideningByteReturnValueTest().run();
-        }
+        public static void main(String[] args) { new WideningByteReturnValueTest().run(); }
     }
 
     public static class WideningCharacterReturnValueTest extends VarHandleUnitTest {
@@ -793,9 +755,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningCharacterReturnValueTest().run();
-        }
+        public static void main(String[] args) { new WideningCharacterReturnValueTest().run(); }
 
         @Override
         protected void doTest() {
@@ -837,9 +797,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningShortReturnValueTest().run();
-        }
+        public static void main(String[] args) { new WideningShortReturnValueTest().run(); }
 
         @Override
         protected void doTest() {
@@ -881,9 +839,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningIntegerReturnValueTest().run();
-        }
+        public static void main(String[] args) { new WideningIntegerReturnValueTest().run(); }
 
         @Override
         protected void doTest() {
@@ -929,9 +885,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningLongReturnValueTest().run();
-        }
+        public static void main(String[] args) { new WideningLongReturnValueTest().run(); }
 
         @Override
         protected void doTest() {
@@ -981,9 +935,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningFloatReturnValueTest().run();
-        }
+        public static void main(String[] args) { new WideningFloatReturnValueTest().run(); }
 
         @Override
         protected void doTest() {
@@ -1037,9 +989,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new WideningDoubleReturnValueTest().run();
-        }
+        public static void main(String[] args) { new WideningDoubleReturnValueTest().run(); }
 
         @Override
         protected void doTest() {
@@ -1097,9 +1047,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new SubtypeTest().run();
-        }
+        public static void main(String[] args) { new SubtypeTest().run(); }
 
         // A sub-type of the Widget class
         public static class WidgetChild extends Widget {
@@ -1133,9 +1081,8 @@ public class VarHandleTypeConversionTests {
             Widget rw = (Widget) vh.compareAndExchange(this, null, WidgetChild.ONE);
             assertEquals(null, rw);
             assertEquals(WidgetChild.ONE, this.w);
-            WidgetChild rwc =
-                    (WidgetChild)
-                            vh.compareAndExchangeRelease(this, WidgetChild.ONE, WidgetChild.TWO);
+            WidgetChild rwc = (WidgetChild) vh.compareAndExchangeRelease(
+                    this, WidgetChild.ONE, WidgetChild.TWO);
             assertEquals(WidgetChild.TWO, w);
             rwc = (WidgetChild) vh.compareAndExchangeAcquire(this, WidgetChild.TWO, Widget.ONE);
             assertEquals(Widget.ONE, w);
@@ -1237,9 +1184,7 @@ public class VarHandleTypeConversionTests {
             }
         }
 
-        public static void main(String[] args) {
-            new SupertypeTest().run();
-        }
+        public static void main(String[] args) { new SupertypeTest().run(); }
 
         @Override
         public void doTest() {
@@ -1278,18 +1223,16 @@ public class VarHandleTypeConversionTests {
         private VarHandle vh_obj;
         {
             try {
-                vh_pi = MethodHandles.lookup().findVarHandle(InterfaceTest.class, "pi",
-                                                             InterfaceTest.ParentInterface.class);
-                vh_obj = MethodHandles.lookup().findVarHandle(InterfaceTest.class, "obj",
-                                                              InterfaceTest.A.class);
+                vh_pi = MethodHandles.lookup().findVarHandle(
+                        InterfaceTest.class, "pi", InterfaceTest.ParentInterface.class);
+                vh_obj = MethodHandles.lookup().findVarHandle(
+                        InterfaceTest.class, "obj", InterfaceTest.A.class);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
 
-        public static void main(String[] args) {
-            new InterfaceTest().run();
-        }
+        public static void main(String[] args) { new InterfaceTest().run(); }
 
         @Override
         public void doTest() {
@@ -1301,7 +1244,8 @@ public class VarHandleTypeConversionTests {
                 try {
                     ChildInterface c = (ChildInterface) vh_pi.get(this);
                     failUnreachable();
-                } catch (ClassCastException expected) {}
+                } catch (ClassCastException expected) {
+                }
             }
             {
                 pi = new B();
@@ -1327,11 +1271,13 @@ public class VarHandleTypeConversionTests {
                 try {
                     B b = (B) vh_obj.get(this);
                     failUnreachable();
-                } catch (ClassCastException e) {}
+                } catch (ClassCastException e) {
+                }
                 try {
                     ChildInterface c = (ChildInterface) vh_obj.get(this);
                     failUnreachable();
-                } catch (ClassCastException e) {}
+                } catch (ClassCastException e) {
+                }
             }
             {
                 obj = new B();
@@ -1358,18 +1304,14 @@ public class VarHandleTypeConversionTests {
 
         static {
             try {
-                vh =
-                        MethodHandles.lookup()
-                                .findStaticVarHandle(
-                                        ImplicitBoxingIntegerTest.class, "field", Integer.class);
+                vh = MethodHandles.lookup().findStaticVarHandle(
+                        ImplicitBoxingIntegerTest.class, "field", Integer.class);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
 
-        public static void main(String[] args) {
-            new ImplicitBoxingIntegerTest().run();
-        }
+        public static void main(String[] args) { new ImplicitBoxingIntegerTest().run(); }
 
         @Override
         public void doTest() {

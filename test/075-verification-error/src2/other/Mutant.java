@@ -20,24 +20,20 @@ package other;
  * Parts of this class will disappear or change form.
  */
 public class Mutant {
-    //public int disappearingField = 3;
-    //public static int disappearingStaticField = 4;
+    // public int disappearingField = 3;
+    // public static int disappearingStaticField = 4;
 
-    //public static void disappearingMethod() {
-    //    System.out.println("bye");
-    //}
-    //public static void disappearingStaticMethod() {
-    //    System.out.println("kthxbai");
-    //}
+    // public static void disappearingMethod() {
+    //     System.out.println("bye");
+    // }
+    // public static void disappearingStaticMethod() {
+    //     System.out.println("kthxbai");
+    // }
 
     protected int inaccessibleField = 5;
     protected static int inaccessibleStaticField = 6;
 
-    protected void inaccessibleMethod() {
-        System.out.println("no");
-    }
+    protected void inaccessibleMethod() { System.out.println("no"); }
 
-    protected static void inaccessibleStaticMethod() {
-        System.out.println("nay");
-    }
+    protected static void inaccessibleStaticMethod() { System.out.println("nay"); }
 }

@@ -15,7 +15,5 @@
  */
 
 class Transform2 implements Iface1, Iface2 {
-  public void sayHi(String name) {
-    System.out.println("hello2 - " + name);
-  }
+    public void sayHi(String name) { System.out.println("hello2 - " + name); }
 }

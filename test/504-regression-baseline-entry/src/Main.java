@@ -18,12 +18,12 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 public class Main {
-  public static void main(String args[]) throws Exception {
-    Class<?> c = Class.forName("Test");
-    Method m = c.getMethod("SingleGotoStart");
-    Integer result = (Integer) m.invoke(null);
-    if (result != 5) {
-      throw new Error("Expected 5, got " + result);
+    public static void main(String args[]) throws Exception {
+        Class<?> c = Class.forName("Test");
+        Method m = c.getMethod("SingleGotoStart");
+        Integer result = (Integer) m.invoke(null);
+        if (result != 5) {
+            throw new Error("Expected 5, got " + result);
+        }
     }
-  }
 }

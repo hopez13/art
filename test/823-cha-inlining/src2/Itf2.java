@@ -15,7 +15,5 @@
  */
 
 interface Itf2 {
-  public default void mConflict() throws Exception {
-    throw new Exception("Don't inline me");
-  }
+    public default void mConflict() throws Exception { throw new Exception("Don't inline me"); }
 }

@@ -18,11 +18,11 @@
  * Ensure unverified method is not analyzed.
  */
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Object o = new Object();
-    Class<?> c = Class.forName("TestCase");
-    Object[] arguments = { o };
-    c.getMethod("foo", Object.class).invoke(null, arguments);
-    System.out.println("passed");
-  }
+    public static void main(String[] args) throws Exception {
+        Object o = new Object();
+        Class<?> c = Class.forName("TestCase");
+        Object[] arguments = {o};
+        c.getMethod("foo", Object.class).invoke(null, arguments);
+        System.out.println("passed");
+    }
 }

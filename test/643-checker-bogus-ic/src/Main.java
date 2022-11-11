@@ -14,36 +14,25 @@
  * limitations under the License.
  */
 
-class Unrelated {
-}
+class Unrelated {}
 
 public class Main {
+    /// CHECK-START: int Main.inlineMonomorphic(Main) inliner (before)
+    /// CHECK:       InvokeVirtual method_name:Main.getValue
 
-  /// CHECK-START: int Main.inlineMonomorphic(Main) inliner (before)
-  /// CHECK:       InvokeVirtual method_name:Main.getValue
+    /// CHECK-START: int Main.inlineMonomorphic(Main) inliner (after)
+    /// CHECK:   InvokeVirtual method_name:Main.getValue
 
-  /// CHECK-START: int Main.inlineMonomorphic(Main) inliner (after)
-  /// CHECK:   InvokeVirtual method_name:Main.getValue
+    public static int inlineMonomorphic(Main a) { return a.getValue(); }
 
-  public static int inlineMonomorphic(Main a) {
-    return a.getValue();
-  }
+    /// CHECK-START: int Main.inlinePolymorphic(Main) inliner (before)
+    /// CHECK:       InvokeVirtual method_name:Main.getValue
 
-  /// CHECK-START: int Main.inlinePolymorphic(Main) inliner (before)
-  /// CHECK:       InvokeVirtual method_name:Main.getValue
+    /// CHECK-START: int Main.inlinePolymorphic(Main) inliner (after)
+    /// CHECK:   InvokeVirtual method_name:Main.getValue
+    public static int inlinePolymorphic(Main a) { return a.getValue(); }
 
-  /// CHECK-START: int Main.inlinePolymorphic(Main) inliner (after)
-  /// CHECK:   InvokeVirtual method_name:Main.getValue
-  public static int inlinePolymorphic(Main a) {
-    return a.getValue();
-  }
+    public int getValue() { return 42; }
 
-  public int getValue() {
-    return 42;
-  }
-
-  public static void main(String[] args) {
-    inlineMonomorphic(new Main());
-  }
-
+    public static void main(String[] args) { inlineMonomorphic(new Main()); }
 }

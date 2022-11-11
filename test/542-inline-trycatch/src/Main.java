@@ -15,115 +15,113 @@
  */
 
 public class Main {
+    // The following tests make sure that we inline methods used inside try and catch
+    // blocks, provided they meet other inlining criteria. To do that, we rely on
+    // the compiler recognizing and enforcing the $inline$ and $noinline$ markers.
 
-  // The following tests make sure that we inline methods used inside try and catch
-  // blocks, provided they meet other inlining criteria. To do that, we rely on
-  // the compiler recognizing and enforcing the $inline$ and $noinline$ markers.
+    // We expect a single block to always be inlined.
 
-  // We expect a single block to always be inlined.
-
-  private static int $inline$SingleBlock(String str) throws NumberFormatException {
-    return Integer.parseInt(str);
-  }
-
-  // We expect a "simple" method with multiple blocks to always be inlined.
-
-  private static int $inline$MultipleBlocks(String str, boolean is_hex)
-      throws NumberFormatException {
-    return is_hex ? Integer.parseInt(str, 16) : Integer.parseInt(str);
-  }
-
-  public static void testSingleBlockFromTry() {
-    int val = 0;
-
-    try {
-      val = $inline$SingleBlock("42");
-    } catch (NumberFormatException ex) {
-      unreachable();
+    private static int $inline$SingleBlock(String str) throws NumberFormatException {
+        return Integer.parseInt(str);
     }
-    assertEquals(42, val);
 
-    try {
-      $inline$SingleBlock("xyz");
-      unreachable();
-    } catch (NumberFormatException ex) {}
-  }
+    // We expect a "simple" method with multiple blocks to always be inlined.
 
-  public static void testSingleBlockFromCatch() {
-    int val = 0;
-
-    try {
-      throwException();
-    } catch (Exception ex) {
-      val = $inline$SingleBlock("42");
+    private static int $inline$MultipleBlocks(String str, boolean is_hex)
+            throws NumberFormatException {
+        return is_hex ? Integer.parseInt(str, 16) : Integer.parseInt(str);
     }
-    assertEquals(42, val);
-  }
 
-  public static void testMultipleBlocksFromTry() {
-    int val = 0;
+    public static void testSingleBlockFromTry() {
+        int val = 0;
 
-    try {
-      val = $inline$MultipleBlocks("42", false);
-    } catch (NumberFormatException ex) {
-      unreachable();
+        try {
+            val = $inline$SingleBlock("42");
+        } catch (NumberFormatException ex) {
+            unreachable();
+        }
+        assertEquals(42, val);
+
+        try {
+            $inline$SingleBlock("xyz");
+            unreachable();
+        } catch (NumberFormatException ex) {
+        }
     }
-    assertEquals(42, val);
 
-    try {
-      val = $inline$MultipleBlocks("20", true);
-    } catch (NumberFormatException ex) {
-      unreachable();
+    public static void testSingleBlockFromCatch() {
+        int val = 0;
+
+        try {
+            throwException();
+        } catch (Exception ex) {
+            val = $inline$SingleBlock("42");
+        }
+        assertEquals(42, val);
     }
-    assertEquals(32, val);
 
-    try {
-      $inline$MultipleBlocks("xyz", false);
-      unreachable();
-    } catch (NumberFormatException ex) {}
+    public static void testMultipleBlocksFromTry() {
+        int val = 0;
 
-    try {
-      $inline$MultipleBlocks("xyz", true);
-      unreachable();
-    } catch (NumberFormatException ex) {}
-  }
+        try {
+            val = $inline$MultipleBlocks("42", false);
+        } catch (NumberFormatException ex) {
+            unreachable();
+        }
+        assertEquals(42, val);
 
-  public static void testMultipleBlocksFromCatch() {
-    int val = 0;
+        try {
+            val = $inline$MultipleBlocks("20", true);
+        } catch (NumberFormatException ex) {
+            unreachable();
+        }
+        assertEquals(32, val);
 
-    try {
-      throwException();
-    } catch (Exception ex) {
-      val = $inline$MultipleBlocks("42", false);
+        try {
+            $inline$MultipleBlocks("xyz", false);
+            unreachable();
+        } catch (NumberFormatException ex) {
+        }
+
+        try {
+            $inline$MultipleBlocks("xyz", true);
+            unreachable();
+        } catch (NumberFormatException ex) {
+        }
     }
-    assertEquals(42, val);
 
-    try {
-      throwException();
-    } catch (Exception ex) {
-      val = $inline$MultipleBlocks("20", true);
+    public static void testMultipleBlocksFromCatch() {
+        int val = 0;
+
+        try {
+            throwException();
+        } catch (Exception ex) {
+            val = $inline$MultipleBlocks("42", false);
+        }
+        assertEquals(42, val);
+
+        try {
+            throwException();
+        } catch (Exception ex) {
+            val = $inline$MultipleBlocks("20", true);
+        }
+        assertEquals(32, val);
     }
-    assertEquals(32, val);
-  }
 
-  public static void main(String[] args) {
-    testSingleBlockFromTry();
-    testSingleBlockFromCatch();
-    testMultipleBlocksFromTry();
-    testMultipleBlocksFromCatch();
-  }
-
-  private static void assertEquals(int expected, int actual) {
-    if (expected != actual) {
-      throw new AssertionError("Wrong result: " + expected + " != " + actual);
+    public static void main(String[] args) {
+        testSingleBlockFromTry();
+        testSingleBlockFromCatch();
+        testMultipleBlocksFromTry();
+        testMultipleBlocksFromCatch();
     }
-  }
 
-  private static void unreachable() {
-    throw new Error("Unreachable");
-  }
+    private static void assertEquals(int expected, int actual) {
+        if (expected != actual) {
+            throw new AssertionError("Wrong result: " + expected + " != " + actual);
+        }
+    }
 
-  private static void throwException() throws Exception {
-    throw new Exception();
-  }
+    private static void unreachable() { throw new Error("Unreachable"); }
+
+    private static void throwException() throws Exception { throw new Exception(); }
 }

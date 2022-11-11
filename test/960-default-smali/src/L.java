@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-class L extends K { }
+class L extends K {}

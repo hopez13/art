@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 class D implements Greeter3 {
-  public String GetName() {
-    return "Alex ";
-  }
+    public String GetName() { return "Alex "; }
 }

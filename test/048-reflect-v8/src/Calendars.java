@@ -20,7 +20,7 @@ import java.lang.annotation.RetentionPolicy;
 
 // Plain old annotation, there's nothing 1.8 specific about it.
 @Retention(RetentionPolicy.RUNTIME)
-@Inherited  // note: elements must also be @Inherited by JLS.
+@Inherited // note: elements must also be @Inherited by JLS.
 public @interface Calendars {
-  Calendar[] value();
+    Calendar[] value();
 }

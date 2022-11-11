@@ -25,7 +25,7 @@ public class Main {
         }
 
         /* for fun, verify that it's the "alternate" type */
-        //Comparable cmpx = holder.mValue;      /* compiler rejects */
+        // Comparable cmpx = holder.mValue;      /* compiler rejects */
         Comparable cmp = (Comparable) holder.mValue;
         cmp.compareTo(cmp);
 

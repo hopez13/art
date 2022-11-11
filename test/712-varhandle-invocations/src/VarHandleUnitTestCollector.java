@@ -29,8 +29,7 @@ public final class VarHandleUnitTestCollector {
     private long startMillis;
 
     public void start(String testName) {
-        out.append(testName)
-                .append("...");
+        out.append(testName).append("...");
         consecutiveResults = 0;
         current = testName;
         startMillis = System.currentTimeMillis();
@@ -77,7 +76,5 @@ public final class VarHandleUnitTestCollector {
         out.println();
     }
 
-    boolean failuresOccurred() {
-        return numberOfFailures != 0;
-    }
+    boolean failuresOccurred() { return numberOfFailures != 0; }
 }

@@ -15,16 +15,16 @@
  */
 
 public class Main {
-  // Test that by inlining new Float(-0f), we still keep the store of
-  // -0f to the instance field. We used to remove it due to wrong assumptions
-  // around art::HConstant::IsZero (now replaced with
-  // art::HConstant::IsArithmeticZero and art::HConstant::IsZeroBitPattern).
+    // Test that by inlining new Float(-0f), we still keep the store of
+    // -0f to the instance field. We used to remove it due to wrong assumptions
+    // around art::HConstant::IsZero (now replaced with
+    // art::HConstant::IsArithmeticZero and art::HConstant::IsZeroBitPattern).
 
-  /// CHECK-START: void Main.main(java.lang.String[]) inliner (after)
-  /// CHECK: InstanceFieldSet
-  public static void main(String[] args) {
-    if (new Float(0f).equals(new Float(-0f))) {
-      throw new Error("Expected not equal");
+    /// CHECK-START: void Main.main(java.lang.String[]) inliner (after)
+    /// CHECK: InstanceFieldSet
+    public static void main(String[] args) {
+        if (new Float(0f).equals(new Float(-0f))) {
+            throw new Error("Expected not equal");
+        }
     }
-  }
 }

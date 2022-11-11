@@ -16,5 +16,4 @@
 
 package p;
 
-class Foo {
-}
+class Foo {}

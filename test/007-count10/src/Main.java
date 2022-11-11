@@ -23,7 +23,5 @@ public class Main {
             System.out.println(i);
         }
     }
-    public static void main(String args[]) {
-        count10_006();
-    }
+    public static void main(String args[]) { count10_006(); }
 }

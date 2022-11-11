@@ -30,7 +30,5 @@ public class Main {
         System.out.println("a:" + a);
         System.out.println("b:" + b);
     }
-    public static void main(String args[]) {
-        math_013();
-    }
+    public static void main(String args[]) { math_013(); }
 }

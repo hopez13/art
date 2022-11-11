@@ -17,8 +17,6 @@
 package art.constmethodhandle;
 
 public class BaseTestInvoke {
-  // Simply used to make sure that everything links right when building.
-  public void runTest(Runnable preCall) {
-    throw new Error("Should not be called!");
-  }
+    // Simply used to make sure that everything links right when building.
+    public void runTest(Runnable preCall) { throw new Error("Should not be called!"); }
 }

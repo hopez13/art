@@ -30,7 +30,7 @@ public class Main {
         System.out.println("class: " + foo.getClass());
 
         for (int i = 0; i < foo.length; i++) {
-            System.out.println(i + ": "  + foo[i]);
+            System.out.println(i + ": " + foo[i]);
         }
     }
 
@@ -41,7 +41,7 @@ public class Main {
         Object[] array = new Object[5];
         showObject(array);
 
-        String[] niftyStrings = new String[] { "hey", "you", "there" };
+        String[] niftyStrings = new String[] {"hey", "you", "there"};
         array = niftyStrings;
         showObject(array);
     }

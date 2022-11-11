@@ -15,8 +15,8 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("TestCase");
-    c.getMethod("topLevel").invoke(null);
-  }
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("TestCase");
+        c.getMethod("topLevel").invoke(null);
+    }
 }

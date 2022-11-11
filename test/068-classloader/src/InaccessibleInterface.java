@@ -17,5 +17,4 @@
 /**
  * Non-public interface class, inaccessible from alternate class loader.
  */
-interface InaccessibleInterface {
-}
+interface InaccessibleInterface {}

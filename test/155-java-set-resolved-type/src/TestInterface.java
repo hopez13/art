@@ -15,5 +15,5 @@
  */
 
 public interface TestInterface {
-  public void foo();
+    public void foo();
 }

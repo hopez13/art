@@ -16,7 +16,9 @@
 
 class MultiDexBadInitWrapper1 {
     public static void setIntField(int value) {
-        if (doThrow) { throw new Error(); }
+        if (doThrow) {
+            throw new Error();
+        }
         MultiDexBadInit.intField = value;
     }
 

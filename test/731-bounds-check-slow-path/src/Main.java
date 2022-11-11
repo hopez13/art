@@ -35,7 +35,8 @@ class Test227365246 {
         int i17, i18 = 5788, i19, i21, i22 = 127, i23;
         byte[] byArr = new byte[N];
         for (i17 = 14; 297 > i17; ++i17)
-            for (int ax$2 = 151430; ax$2 < 235417; ax$2 += 2) {}
+            for (int ax$2 = 151430; ax$2 < 235417; ax$2 += 2) {
+            }
         try {
             for (i19 = 4; 179 > i19; ++i19) {
                 i18 *= i18;
@@ -59,18 +60,17 @@ class Test216608614 {
     int N = 400;
     long lFld;
     double dFld;
-    int iArrFld[]=new int[N];
+    int iArrFld[] = new int[N];
     void $noinline$mainTest(String[] strArr1) {
         // Note: The original bug report started with `l=-1213929899L` but this took
         // too long when running with interpreter without JIT and we want to allow
         // this test to run for all configurations. Starting with `l=-1000000L` was
         // enough to allow JIT to compile the method for OSR and trigger the bug on host.
-        long l=-1000000L;
-        int i19= 46, i20=100, i21, i22=13, i25;
+        long l = -1000000L;
+        int i19 = 46, i20 = 100, i21, i22 = 13, i25;
         try {
             do
-                for (; i19 < 172; ++i19)
-                    lFld = (long) dFld;
+                for (; i19 < 172; ++i19) lFld = (long) dFld;
             while (++l < 146);
             for (i21 = 8;; ++i21)
                 for (i25 = 1; i25 < 2; i25++) {
@@ -87,26 +87,23 @@ class Test216608614 {
 
 class Test216629762 {
     static int N = 400;
-    int iFld=29275;
+    int iFld = 29275;
     volatile double dFld;
-    static long lArrFld[][]=new long[N][N];
+    static long lArrFld[][] = new long[N][N];
 
     void $noinline$mainTest(String[] strArr1) {
-        int i8, i10=181, i11, i12=-57574, i13=69, i15= 6, i16= 186, i17= 227;
+        int i8, i10 = 181, i11, i12 = -57574, i13 = 69, i15 = 6, i16 = 186, i17 = 227;
         try {
-            for (i11 = 6; i11 < 278 + 400; ++i11)
-                i12 *= iFld;
+            for (i11 = 6; i11 < 278 + 400; ++i11) i12 *= iFld;
             for (;; i13++) {
                 i10 /= i10;
                 i16 += i15;
                 lArrFld[i13][i15] >>= 31616;
-                for (i17 = 1; i17 <  1 + 400; i17++)
-                dFld += dFld;
+                for (i17 = 1; i17 < 1 + 400; i17++) dFld += dFld;
             }
-        }
-        catch (ArrayIndexOutOfBoundsException exc2) {
+        } catch (ArrayIndexOutOfBoundsException exc2) {
             i16 += i12;
         }
-        System.out.println("i16 b i17 = " + i16 + "," + 0  + "," + i17);
+        System.out.println("i16 b i17 = " + i16 + "," + 0 + "," + i17);
     }
 }

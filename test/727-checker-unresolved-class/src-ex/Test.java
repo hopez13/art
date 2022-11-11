@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-import resolved.PackagePrivateSubclassOfUnresolvedClassProxy;
 import resolved.PackagePrivateSubclassOfUnresolvedClass2Proxy;
+import resolved.PackagePrivateSubclassOfUnresolvedClassProxy;
 import resolved.PublicSubclassOfUnresolvedClass;
 import resolved.PublicSubclassOfUnresolvedClass2;
 import unresolved.UnresolvedPackagePrivateClassProxy;
 import unresolved.UnresolvedPublicClass;
 
 public class Test {
-  public static void $noinline$main() {
-    UnresolvedPublicClass.$noinline$main();
-    UnresolvedPackagePrivateClassProxy.$noinline$main();
-    PublicSubclassOfUnresolvedClass.$noinline$main();
-    PublicSubclassOfUnresolvedClass2.$noinline$main();
-    PackagePrivateSubclassOfUnresolvedClassProxy.$noinline$main();
-    PackagePrivateSubclassOfUnresolvedClass2Proxy.$noinline$main();
-  }
+    public static void $noinline$main() {
+        UnresolvedPublicClass.$noinline$main();
+        UnresolvedPackagePrivateClassProxy.$noinline$main();
+        PublicSubclassOfUnresolvedClass.$noinline$main();
+        PublicSubclassOfUnresolvedClass2.$noinline$main();
+        PackagePrivateSubclassOfUnresolvedClassProxy.$noinline$main();
+        PackagePrivateSubclassOfUnresolvedClass2Proxy.$noinline$main();
+    }
 }

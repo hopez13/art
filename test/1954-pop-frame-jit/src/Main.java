@@ -19,10 +19,7 @@ import java.lang.reflect.Executable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-
 import java.time.Duration;
-
-import java.util.concurrent.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,31 +27,32 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.Stack;
 import java.util.Vector;
-
+import java.util.concurrent.*;
 import java.util.function.Supplier;
 
 import art.*;
 
 public class Main extends Test1953 {
-  public Main(boolean run_class_load_tests) {
-    super(run_class_load_tests, (testObj) -> {
-      try {
-        // Make sure everything is jitted in the method. We do this before calling setup since the
-        // suspend setup might make it impossible to jit the methods (by setting breakpoints or
-        // something).
-        for (Method m : testObj.getClass().getMethods()) {
-          if ((m.getModifiers() & Modifier.NATIVE) == 0 &&
-              !m.getName().startsWith("$noprecompile$")) {
-            ensureMethodJitCompiled(m);
-          }
-        }
-      } catch (Exception e) {}
-    });
-  }
+    public Main(boolean run_class_load_tests) {
+        super(run_class_load_tests, (testObj) -> {
+            try {
+                // Make sure everything is jitted in the method. We do this before calling setup
+                // since the suspend setup might make it impossible to jit the methods (by setting
+                // breakpoints or something).
+                for (Method m : testObj.getClass().getMethods()) {
+                    if ((m.getModifiers() & Modifier.NATIVE) == 0
+                            && !m.getName().startsWith("$noprecompile$")) {
+                        ensureMethodJitCompiled(m);
+                    }
+                }
+            } catch (Exception e) {
+            }
+        });
+    }
 
-  public static void main(String[] args) throws Exception {
-    new Main(!Arrays.asList(args).contains("DISABLE_CLASS_LOAD_TESTS")).runTests();
-  }
+    public static void main(String[] args) throws Exception {
+        new Main(!Arrays.asList(args).contains("DISABLE_CLASS_LOAD_TESTS")).runTests();
+    }
 
-  public static native void ensureMethodJitCompiled(Method meth);
+    public static native void ensureMethodJitCompiled(Method meth);
 }

@@ -15,55 +15,50 @@
  */
 
 public class Main {
+    public static void main(String[] args) {
+        crash();
+        npe();
+    }
 
-  public static void main(String[] args) {
-    crash();
-    npe();
-  }
+    static void crash() {
+        boolean b = baz();
+        // Create many objects to starve registers.
+        Main foo1 = create();
+        Main foo2 = create();
+        Main foo3 = create();
+        Main foo4 = create();
+        foo1.otherField = null;
+        // On X86, we would force b to be in a byte register, which
+        // would generate moves. This code exposed a bug in the
+        // register allocator, where an input move was not just before
+        // the instruction itself, and its destination was overridden
+        // by another value.
+        foo1.field = b;
+        foo2.field = b;
+        foo3.field = b;
+        foo4.field = b;
+        foo1.lastField = b;
+    }
 
-  static void crash() {
-    boolean b = baz();
-    // Create many objects to starve registers.
-    Main foo1 = create();
-    Main foo2 = create();
-    Main foo3 = create();
-    Main foo4 = create();
-    foo1.otherField = null;
-    // On X86, we would force b to be in a byte register, which
-    // would generate moves. This code exposed a bug in the
-    // register allocator, where an input move was not just before
-    // the instruction itself, and its destination was overridden
-    // by another value.
-    foo1.field = b;
-    foo2.field = b;
-    foo3.field = b;
-    foo4.field = b;
-    foo1.lastField = b;
-  }
+    // Similar to `crash` but generated an NPE.
+    static void npe() {
+        boolean b = baz();
+        Main foo1 = create();
+        Main foo2 = create();
+        Main foo3 = create();
+        Main foo4 = create();
+        foo1.field = b;
+        foo2.field = b;
+        foo3.field = b;
+        foo4.field = b;
+        foo1.lastField = b;
+    }
 
-  // Similar to `crash` but generated an NPE.
-  static void npe() {
-    boolean b = baz();
-    Main foo1 = create();
-    Main foo2 = create();
-    Main foo3 = create();
-    Main foo4 = create();
-    foo1.field = b;
-    foo2.field = b;
-    foo3.field = b;
-    foo4.field = b;
-    foo1.lastField = b;
-  }
+    static Main create() { return new Main(); }
 
-  static Main create() {
-    return new Main();
-  }
+    static boolean baz() { return false; }
 
-  static boolean baz() {
-    return false;
-  }
-
-  boolean field;
-  Object otherField;
-  boolean lastField;
+    boolean field;
+    Object otherField;
+    boolean lastField;
 }

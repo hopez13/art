@@ -17,27 +17,23 @@
 import java.lang.reflect.Method;
 
 public class Main {
-
-    public static void main(String args[]) throws Exception {
-      b2302318Test();
-    }
+    public static void main(String args[]) throws Exception { b2302318Test(); }
 
     static void b2302318Test() {
-      SpinThread st = new SpinThread();
-      st.setDaemon(true);
-      st.start();
-      Thread.yield();
-      Runtime.getRuntime().gc();
+        SpinThread st = new SpinThread();
+        st.setDaemon(true);
+        st.start();
+        Thread.yield();
+        Runtime.getRuntime().gc();
     }
-
 }
 class SpinThread extends Thread {
     public void run() {
-      try {
-        Class<?> cls = Class.forName("SmaliClass");
-        cls.getDeclaredMethod("gotoZero").invoke(null);
-      } catch (Exception e) {
-        throw new Error(e);
-      }
+        try {
+            Class<?> cls = Class.forName("SmaliClass");
+            cls.getDeclaredMethod("gotoZero").invoke(null);
+        } catch (Exception e) {
+            throw new Error(e);
+        }
     }
 }

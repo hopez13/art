@@ -15,44 +15,44 @@
  */
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class Main {
-  public static boolean field0;
-  public static boolean field1;
-  public static boolean field2;
+    public static boolean field0;
+    public static boolean field1;
+    public static boolean field2;
 
-  public static void assertTrue(boolean result) {
-    if (!result) {
-      throw new Error("Expected true");
+    public static void assertTrue(boolean result) {
+        if (!result) {
+            throw new Error("Expected true");
+        }
     }
-  }
 
-  public static void assertFalse(boolean result) {
-    if (result) {
-      throw new Error("Expected false");
+    public static void assertFalse(boolean result) {
+        if (result) {
+            throw new Error("Expected false");
+        }
     }
-  }
 
-  public static void main(String[] args) throws Throwable {
-    Class<?> c = Class.forName("TestCase");
-    Method m = c.getMethod("testCase");
+    public static void main(String[] args) throws Throwable {
+        Class<?> c = Class.forName("TestCase");
+        Method m = c.getMethod("testCase");
 
-    try {
-      field0 = true;
-      field1 = false;
-      assertTrue((Boolean) m.invoke(null, null));
+        try {
+            field0 = true;
+            field1 = false;
+            assertTrue((Boolean) m.invoke(null, null));
 
-      field0 = true;
-      field1 = true;
-      assertTrue((Boolean) m.invoke(null, null));
+            field0 = true;
+            field1 = true;
+            assertTrue((Boolean) m.invoke(null, null));
 
-      field0 = false;
-      field1 = false;
-      assertFalse((Boolean) m.invoke(null, null));
-    } catch (Exception e) {
-      throw new Error(e);
+            field0 = false;
+            field1 = false;
+            assertFalse((Boolean) m.invoke(null, null));
+        } catch (Exception e) {
+            throw new Error(e);
+        }
     }
-  }
 }

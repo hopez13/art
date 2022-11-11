@@ -15,7 +15,6 @@
  */
 
 public class Main {
-
     public static void assertIntEquals(int expected, int result) {
         if (expected != result) {
             throw new Error("Expected: " + expected + ", found: " + result);
@@ -30,8 +29,8 @@ public class Main {
         A x;
         x = new A();
 
-        int []a0 = {0x7, 0x77, 0x707};
-        int []b0 = {0x7007, 0x70007, 0x700007};
+        int[] a0 = {0x7, 0x77, 0x707};
+        int[] b0 = {0x7007, 0x70007, 0x700007};
 
         for (int i = 0; i < 10; i++) {
             b0[0]++;
@@ -45,7 +44,6 @@ public class Main {
 
         assertIntEquals(x.value[0], 28689);
         return x.value[0];
-
     }
 
     public static void main(String[] args) {

@@ -17,20 +17,20 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  private static int runTestCase(String name, long arg) throws Exception {
-    Class<?> c = Class.forName("TestCase");
-    Method m = c.getMethod(name, long.class);
-    int result = (Integer) m.invoke(null, arg);
-    return result;
-  }
-
-  private static void assertEquals(int expected, int actual) {
-    if (expected != actual) {
-      throw new Error("Wrong result: " + expected + " != " + actual);
+    private static int runTestCase(String name, long arg) throws Exception {
+        Class<?> c = Class.forName("TestCase");
+        Method m = c.getMethod(name, long.class);
+        int result = (Integer) m.invoke(null, arg);
+        return result;
     }
-  }
 
-  public static void main(String[] args) throws Exception {
-    assertEquals(42, runTestCase("invalidateLow", 42L));
-  }
+    private static void assertEquals(int expected, int actual) {
+        if (expected != actual) {
+            throw new Error("Wrong result: " + expected + " != " + actual);
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        assertEquals(42, runTestCase("invalidateLow", 42L));
+    }
 }

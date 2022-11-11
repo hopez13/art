@@ -32,9 +32,7 @@ public class Main {
 
     static class ObjectCreatorThread extends Thread {
         boolean mDoLog;
-        public ObjectCreatorThread(boolean doLog) {
-            mDoLog = doLog;
-        }
+        public ObjectCreatorThread(boolean doLog) { mDoLog = doLog; }
 
         @Override
         public void run() {
@@ -42,15 +40,15 @@ public class Main {
         }
     }
 
-    Object [] array = new Object[8000];
+    Object[] array = new Object[8000];
 
     void allocateFourStrings() {
-      for (int i = 0; i < 4; i++) {
-        String str = new String("Creating some garbage" + Math.random());
-        if (str.length() < 22) {
-          System.out.println("bad length");
+        for (int i = 0; i < 4; i++) {
+            String str = new String("Creating some garbage" + Math.random());
+            if (str.length() < 22) {
+                System.out.println("bad length");
+            }
         }
-      }
     }
 
     void stressArray(boolean doLog) {
@@ -60,7 +58,7 @@ public class Main {
         if (doLog) {
             System.out.println("Initializing...");
         }
-        for (int i = 0; i < array.length; i+=2) {
+        for (int i = 0; i < array.length; i += 2) {
             array[i] = new String("Creating some garbage" + i);
         }
 

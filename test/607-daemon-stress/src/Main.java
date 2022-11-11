@@ -15,17 +15,18 @@
  */
 
 public class Main extends Thread {
-  public static void main(String[] args) throws Exception {
-    for (int i = 0; i < 5; i++) {
-      Main m = new Main();
-      m.setDaemon(true);
-      m.start();
+    public static void main(String[] args) throws Exception {
+        for (int i = 0; i < 5; i++) {
+            Main m = new Main();
+            m.setDaemon(true);
+            m.start();
+        }
+        // Sleep a while to give some time for the threads to start.
+        Thread.sleep(1000);
     }
-    // Sleep a while to give some time for the threads to start.
-    Thread.sleep(1000);
-  }
 
-  public void run() {
-    while (!isInterrupted());
-  }
+    public void run() {
+        while (!isInterrupted())
+            ;
+    }
 }

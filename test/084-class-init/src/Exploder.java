@@ -14,15 +14,12 @@
  * limitations under the License.
  */
 
-
 /**
  * Throws an Error rather than an exception from its class initializer.
  */
 public class Exploder {
     public static final Object FIELD = new AssertThrower();
     static class AssertThrower {
-        AssertThrower() {
-            throw new AssertionError("hello!");
-        }
+        AssertThrower() { throw new AssertionError("hello!"); }
     }
 }

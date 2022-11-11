@@ -14,58 +14,57 @@
  * limitations under the License.
  */
 
-
 public class Main {
-  public static int FIBCOUNT = 64;
-  public static int[] fibs;
+    public static int FIBCOUNT = 64;
+    public static int[] fibs;
 
-  /// CHECK-START-X86_64: int Main.test() licm (before)
-  /// CHECK-DAG:                        StaticFieldGet field_name:Main.fibs loop:none
-  /// CHECK-DAG:                        StaticFieldGet field_name:Main.fibs loop:B{{\d+}}
+    /// CHECK-START-X86_64: int Main.test() licm (before)
+    /// CHECK-DAG:                        StaticFieldGet field_name:Main.fibs loop:none
+    /// CHECK-DAG:                        StaticFieldGet field_name:Main.fibs loop:B{{\d+}}
 
-  /// CHECK-START-X86_64: int Main.test() licm (after)
-  /// CHECK:                            StaticFieldGet field_name:Main.fibs loop:none
-  /// CHECK:                            StaticFieldGet field_name:Main.fibs loop:none
+    /// CHECK-START-X86_64: int Main.test() licm (after)
+    /// CHECK:                            StaticFieldGet field_name:Main.fibs loop:none
+    /// CHECK:                            StaticFieldGet field_name:Main.fibs loop:none
 
-  /// CHECK-START-X86_64: int Main.test() licm (after)
-  /// CHECK-NOT:                        StaticFieldGet field_name:Main.fibs loop:B{{\d+}}
+    /// CHECK-START-X86_64: int Main.test() licm (after)
+    /// CHECK-NOT:                        StaticFieldGet field_name:Main.fibs loop:B{{\d+}}
 
-  /// CHECK-START-X86_64: int Main.test() load_store_elimination (after)
-  /// CHECK:                            StaticFieldGet field_name:Main.fibs
-  /// CHECK-NOT:                        StaticFieldGet field_name:Main.fibs
+    /// CHECK-START-X86_64: int Main.test() load_store_elimination (after)
+    /// CHECK:                            StaticFieldGet field_name:Main.fibs
+    /// CHECK-NOT:                        StaticFieldGet field_name:Main.fibs
 
-  /// CHECK-START-X86_64: int Main.test() disassembly (after)
-  /// CHECK-DAG:   <<Zero:i\d+>>        IntConstant 0
-  /// CHECK-DAG:   <<Fibs:l\d+>>        StaticFieldGet field_name:Main.fibs
-  //
-  /// CHECK:                            If
-  /// CHECK-NEXT:                       cmp
-  /// CHECK-NEXT:                       jle/ng
-  //
-  /// CHECK-DAG:                        NullCheck [<<Fibs>>]
-  /// CHECK-NOT:                        jmp
-  /// CHECK-DAG:   <<FibsAtZero:i\d+>>  ArrayGet [<<Fibs>>,<<Zero>>]
-  /// CHECK-DAG:                        Return [<<FibsAtZero>>]
-  //
-  // Checks that there is no conditional jump over a `jmp`
-  // instruction. The `ArrayGet` instruction is in the next block.
-  //
-  // Note that the `StaticFieldGet` HIR instruction above (captured as
-  // `Fibs`) can produce a `jmp` x86-64 instruction when read barriers
-  // are enabled (to jump into the read barrier slow path), which is
-  // different from the `jmp` in the `CHECK-NOT` assertion.
-  public static int test() {
-    for (int i = 1; ; i++) {
-      if (i >= FIBCOUNT) {
-        return fibs[0];
-      }
-      fibs[i] = (i + fibs[(i - 1)]);
+    /// CHECK-START-X86_64: int Main.test() disassembly (after)
+    /// CHECK-DAG:   <<Zero:i\d+>>        IntConstant 0
+    /// CHECK-DAG:   <<Fibs:l\d+>>        StaticFieldGet field_name:Main.fibs
+    //
+    /// CHECK:                            If
+    /// CHECK-NEXT:                       cmp
+    /// CHECK-NEXT:                       jle/ng
+    //
+    /// CHECK-DAG:                        NullCheck [<<Fibs>>]
+    /// CHECK-NOT:                        jmp
+    /// CHECK-DAG:   <<FibsAtZero:i\d+>>  ArrayGet [<<Fibs>>,<<Zero>>]
+    /// CHECK-DAG:                        Return [<<FibsAtZero>>]
+    //
+    // Checks that there is no conditional jump over a `jmp`
+    // instruction. The `ArrayGet` instruction is in the next block.
+    //
+    // Note that the `StaticFieldGet` HIR instruction above (captured as
+    // `Fibs`) can produce a `jmp` x86-64 instruction when read barriers
+    // are enabled (to jump into the read barrier slow path), which is
+    // different from the `jmp` in the `CHECK-NOT` assertion.
+    public static int test() {
+        for (int i = 1;; i++) {
+            if (i >= FIBCOUNT) {
+                return fibs[0];
+            }
+            fibs[i] = (i + fibs[(i - 1)]);
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    fibs = new int[FIBCOUNT];
-    fibs[0] = 1;
-    test();
-  }
+    public static void main(String[] args) {
+        fibs = new int[FIBCOUNT];
+        fibs[0] = 1;
+        test();
+    }
 }

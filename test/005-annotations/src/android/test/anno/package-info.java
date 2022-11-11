@@ -1,2 +1,1 @@
-@AnnoSimplePackage
-package android.test.anno;
+@AnnoSimplePackage package android.test.anno;

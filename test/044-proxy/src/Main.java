@@ -41,8 +41,8 @@ public class Main {
     // undeterministic proxy class naming.
 
     public static void registerProxyClassName(String proxyClassName) {
-        proxyClassNameMap.put(proxyClassName,
-                              "$PROXY_CLASS_NAME" + (uniqueTestProxyClassNum++) + "$");
+        proxyClassNameMap.put(
+                proxyClassName, "$PROXY_CLASS_NAME" + (uniqueTestProxyClassNum++) + "$");
     }
 
     public static String replaceProxyClassNamesForOutput(String str) {

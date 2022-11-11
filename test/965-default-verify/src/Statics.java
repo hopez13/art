@@ -15,7 +15,5 @@
  */
 
 class Statics {
-  public static void nonexistentFunction() {
-    System.out.println("I don't exist");
-  }
+    public static void nonexistentFunction() { System.out.println("I don't exist"); }
 }

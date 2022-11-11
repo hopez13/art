@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-import annotations.BootstrapMethod;
-import annotations.CalledByIndy;
 import java.lang.invoke.CallSite;
 import java.lang.invoke.ConstantCallSite;
 import java.lang.invoke.MethodHandle;
@@ -24,18 +22,20 @@ import java.lang.invoke.MethodType;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import annotations.BootstrapMethod;
+import annotations.CalledByIndy;
+
 public class TestInvokeCustomWithConcurrentThreads extends TestBase implements Runnable {
     private static final int NUMBER_OF_THREADS = 16;
 
     private static final AtomicInteger nextIndex = new AtomicInteger(0);
 
-    private static final ThreadLocal<Integer> threadIndex =
-            new ThreadLocal<Integer>() {
-                @Override
-                protected Integer initialValue() {
-                    return nextIndex.getAndIncrement();
-                }
-            };
+    private static final ThreadLocal<Integer> threadIndex = new ThreadLocal<Integer>() {
+        @Override
+        protected Integer initialValue() {
+            return nextIndex.getAndIncrement();
+        }
+    };
 
     // Array of call sites instantiated, one per thread
     private static final CallSite[] instantiated = new CallSite[NUMBER_OF_THREADS];
@@ -51,13 +51,9 @@ public class TestInvokeCustomWithConcurrentThreads extends TestBase implements R
 
     private TestInvokeCustomWithConcurrentThreads() {}
 
-    private static int getThreadIndex() {
-        return threadIndex.get().intValue();
-    }
+    private static int getThreadIndex() { return threadIndex.get().intValue(); }
 
-    public static int notUsed(int x) {
-        return x;
-    }
+    public static int notUsed(int x) { return x; }
 
     public void run() {
         int x = setCalled(-1 /* argument dropped */);
@@ -65,17 +61,13 @@ public class TestInvokeCustomWithConcurrentThreads extends TestBase implements R
     }
 
     @CalledByIndy(
-        bootstrapMethod =
-                @BootstrapMethod(
+            bootstrapMethod = @BootstrapMethod(
                     enclosingType = TestInvokeCustomWithConcurrentThreads.class,
                     name = "linkerMethod",
-                    parameterTypes = {MethodHandles.Lookup.class, String.class, MethodType.class}
-                ),
-        fieldOrMethodName = "setCalled",
-        returnType = int.class,
-        parameterTypes = {int.class}
-    )
-    private static int setCalled(int index) {
+                    parameterTypes = {MethodHandles.Lookup.class, String.class, MethodType.class}),
+            fieldOrMethodName = "setCalled", returnType = int.class, parameterTypes = {int.class})
+    private static int
+    setCalled(int index) {
         called[index].getAndIncrement();
         targetted[getThreadIndex()].set(index);
         return 0;

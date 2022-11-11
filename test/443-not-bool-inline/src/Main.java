@@ -15,17 +15,17 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    // For some reason, dx wants != for generating if-eq.
-    if (falseField != false) {
-      System.out.println("Hello World 1");
+    public static void main(String[] args) {
+        // For some reason, dx wants != for generating if-eq.
+        if (falseField != false) {
+            System.out.println("Hello World 1");
+        }
+
+        if (trueField != false) {
+            System.out.println("Hello World 2");
+        }
     }
 
-    if (trueField != false) {
-      System.out.println("Hello World 2");
-    }
-  }
-
-  static boolean falseField = false;
-  static boolean trueField = true;
+    static boolean falseField = false;
+    static boolean trueField = true;
 }

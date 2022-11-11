@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-interface Itf {
-}
+interface Itf {}
 
-class Foo {
-}
+class Foo {}
 
 class Main extends Foo implements Itf {
-  public static void main(String[] args) {
-    Itf parent = getParent();
-    if (!(parent instanceof Foo)) {
-      throw new Error("Instanceof should have succeeded");
+    public static void main(String[] args) {
+        Itf parent = getParent();
+        if (!(parent instanceof Foo)) {
+            throw new Error("Instanceof should have succeeded");
+        }
     }
-  }
 
-  static Itf getParent() { return new Main(); }
+    static Itf getParent() { return new Main(); }
 }

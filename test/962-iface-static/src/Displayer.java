@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 public class Displayer {
-  static {
-    System.out.println("init");
-  }
-  public Displayer() {
-    System.out.println("constructor");
-  }
+    static { System.out.println("init"); }
+    public Displayer() { System.out.println("constructor"); }
 }

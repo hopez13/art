@@ -19,9 +19,7 @@ package mypackage.packagea;
 public class Class2 {
     public int field1;
 
-    public void method1() {
-    }
+    public void method1() {}
 
-    public void method1(int i) {
-    }
+    public void method1(int i) {}
 }

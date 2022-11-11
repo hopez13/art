@@ -16,48 +16,45 @@
 
 import java.lang.reflect.Method;
 
-public class Main  {
+public class Main {
+    class MyClassA {}
+    class MyClassB extends MyClassA {}
 
-  class MyClassA {}
-  class MyClassB extends MyClassA {}
-
-  public static void main(String[] args) throws Exception {
-    testReferenceTypePropagation();
-    invokeTestInliner();
-  }
-
-  // Reference type propagation (RTP) used to assume that if a class is final,
-  // then the type must be exact. This does not hold for arrays which are always
-  // final, i.e. not extendable, but may be assigned to from values of the
-  // components type subclasses.
-
-  public static void testReferenceTypePropagation() throws Exception {
-    boolean expectTrue;
-
-    // Bug #1: RTP would set the type of `array` to exact Object[]. Instruction
-    // simplifier would then simplify the instanceof to `false`.
-    Object[] array = $noinline$getArray();
-    expectTrue = array instanceof MyClassA[];
-    if (!expectTrue) {
-      throw new Exception("Incorrect type check.");
+    public static void main(String[] args) throws Exception {
+        testReferenceTypePropagation();
+        invokeTestInliner();
     }
 
-    // Bug #2: This is the true-branch of the instanceof above. The bound type
-    // for `array` would be again set to exact MyClassA[] and incorrectly
-    // simplify the second instanceof to `false`.
-    expectTrue = array instanceof MyClassB[];
-    if (!expectTrue) {
-      throw new Exception("Incorrect type bound.");
+    // Reference type propagation (RTP) used to assume that if a class is final,
+    // then the type must be exact. This does not hold for arrays which are always
+    // final, i.e. not extendable, but may be assigned to from values of the
+    // components type subclasses.
+
+    public static void testReferenceTypePropagation() throws Exception {
+        boolean expectTrue;
+
+        // Bug #1: RTP would set the type of `array` to exact Object[]. Instruction
+        // simplifier would then simplify the instanceof to `false`.
+        Object[] array = $noinline$getArray();
+        expectTrue = array instanceof MyClassA[];
+        if (!expectTrue) {
+            throw new Exception("Incorrect type check.");
+        }
+
+        // Bug #2: This is the true-branch of the instanceof above. The bound type
+        // for `array` would be again set to exact MyClassA[] and incorrectly
+        // simplify the second instanceof to `false`.
+        expectTrue = array instanceof MyClassB[];
+        if (!expectTrue) {
+            throw new Exception("Incorrect type bound.");
+        }
     }
-  }
 
-  public static void invokeTestInliner() throws Exception {
-    Class<?> c = Class.forName("TestCase");
-    Method m = c.getMethod("testInliner");
-    m.invoke(null);
-  }
+    public static void invokeTestInliner() throws Exception {
+        Class<?> c = Class.forName("TestCase");
+        Method m = c.getMethod("testInliner");
+        m.invoke(null);
+    }
 
-  public static Object[] $noinline$getArray() {
-    return new MyClassB[2];
-  }
+    public static Object[] $noinline$getArray() { return new MyClassB[2]; }
 }

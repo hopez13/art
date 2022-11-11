@@ -17,17 +17,15 @@
 import java.lang.reflect.Method;
 
 interface Itf {
-  public void invokeInterface(long l, int i);
+    public void invokeInterface(long l, int i);
 }
 
 public class Main implements Itf {
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("TestCase");
-    Method m = c.getMethod("testCase", byte[].class, Main.class);
-    m.invoke(null, new byte[] { 0, 1, 2, 3, 4, 5, 6, 7 }, new Main());
-  }
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("TestCase");
+        Method m = c.getMethod("testCase", byte[].class, Main.class);
+        m.invoke(null, new byte[] {0, 1, 2, 3, 4, 5, 6, 7}, new Main());
+    }
 
-  public void invokeInterface(long l, int i) {
-    System.out.println("In interface");
-  }
+    public void invokeInterface(long l, int i) { System.out.println("In interface"); }
 }

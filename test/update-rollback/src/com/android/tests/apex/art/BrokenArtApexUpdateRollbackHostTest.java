@@ -39,7 +39,6 @@ import org.junit.runner.RunWith;
  */
 @RunWith(DeviceJUnit4ClassRunner.class)
 public class BrokenArtApexUpdateRollbackHostTest extends BaseHostJUnit4Test {
-
     private static final long EVENT_TIMEOUT_MS = 30 * 1000L;
 
     private ApexUpdateLogcatEventParser mLogcatEventParser;
@@ -61,8 +60,8 @@ public class BrokenArtApexUpdateRollbackHostTest extends BaseHostJUnit4Test {
                     mLogcatEventParser.waitForEvent(EVENT_TIMEOUT_MS);
             assertNotNull(result);
             assertEquals(ApexUpdateLogcatEventType.SESSION_REVERTED, result.getEventType());
-            CLog.i("Found event type " + result.getEventType() + " in logcat: "
-                    + result.getMessage());
+            CLog.i("Found event type " + result.getEventType()
+                    + " in logcat: " + result.getMessage());
         }
 
         {
@@ -70,8 +69,8 @@ public class BrokenArtApexUpdateRollbackHostTest extends BaseHostJUnit4Test {
                     mLogcatEventParser.waitForEvent(EVENT_TIMEOUT_MS);
             assertNotNull(result);
             assertEquals(ApexUpdateLogcatEventType.ROLLBACK_SUCCESS, result.getEventType());
-            CLog.i("Found event type " + result.getEventType() + " in logcat: "
-                    + result.getMessage());
+            CLog.i("Found event type " + result.getEventType()
+                    + " in logcat: " + result.getMessage());
         }
 
         stopLogcatListener();
@@ -97,11 +96,8 @@ public class BrokenArtApexUpdateRollbackHostTest extends BaseHostJUnit4Test {
         mLogcatEventParser.start();
     }
 
-    private void stopLogcatListener() {
-        StreamUtil.close(mLogcatEventParser);
-    }
+    private void stopLogcatListener() { StreamUtil.close(mLogcatEventParser); }
 }
-
 
 /** Event types for {@link ApexUpdateLogcatEventParser}. */
 enum ApexUpdateLogcatEventType {
@@ -111,40 +107,37 @@ enum ApexUpdateLogcatEventType {
 
 /** Logcat parser for APEX update related events. */
 class ApexUpdateLogcatEventParser extends GenericLogcatEventParser<ApexUpdateLogcatEventType> {
-    public ApexUpdateLogcatEventParser(ITestDevice device) {
-        super(device);
-    }
+    public ApexUpdateLogcatEventParser(ITestDevice device) { super(device); }
 }
 
 /** Creates a ApexUpdateLogcatEventParser populated with event triggers for APEX update tests. */
 class ApexUpdateLogcatEventParserFactory {
-
     public static ApexUpdateLogcatEventParser buildParser(ITestDevice device) {
         ApexUpdateLogcatEventParser parser = new ApexUpdateLogcatEventParser(device);
         return registerEventTriggers(parser);
     }
 
     public static ApexUpdateLogcatEventParser registerEventTriggers(
-        ApexUpdateLogcatEventParser parser) {
+            ApexUpdateLogcatEventParser parser) {
         // Note: Events registered first are matched first.
 
         // Look for a line like:
         //
-        //   04-17 16:22:09.776  1728  1728 D PackageInstallerSession: Marking session 530520784 as failed: Session reverted due to crashing native process: zygote
+        //   04-17 16:22:09.776  1728  1728 D PackageInstallerSession: Marking session 530520784 as
+        //   failed: Session reverted due to crashing native process: zygote
         //
-        parser.registerEventTrigger(
-                LogLevel.DEBUG,
-                "PackageInstallerSession",
+        parser.registerEventTrigger(LogLevel.DEBUG, "PackageInstallerSession",
                 "Session reverted due to crashing native process: zygote",
                 ApexUpdateLogcatEventType.SESSION_REVERTED);
 
         // Look for a line like:
         //
-        //   04-17 16:22:23.938  1728  1880 I WatchdogRollbackLogger: Watchdog event occurred with type: ROLLBACK_SUCCESS logPackage: VersionedPackage[com.google.android.modulemetadata/310000000] rollbackReason: REASON_NATIVE_CRASH_DURING_BOOT failedPackageName: zygote
+        //   04-17 16:22:23.938  1728  1880 I WatchdogRollbackLogger: Watchdog event occurred with
+        //   type: ROLLBACK_SUCCESS logPackage:
+        //   VersionedPackage[com.google.android.modulemetadata/310000000] rollbackReason:
+        //   REASON_NATIVE_CRASH_DURING_BOOT failedPackageName: zygote
         //
-        parser.registerEventTrigger(
-                LogLevel.INFO,
-                "WatchdogRollbackLogger",
+        parser.registerEventTrigger(LogLevel.INFO, "WatchdogRollbackLogger",
                 "Watchdog event occurred with type: ROLLBACK_SUCCESS",
                 ApexUpdateLogcatEventType.ROLLBACK_SUCCESS);
 

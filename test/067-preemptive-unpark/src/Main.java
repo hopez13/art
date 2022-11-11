@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import sun.misc.Unsafe;
-
 import java.lang.reflect.Field;
+
+import sun.misc.Unsafe;
 
 public class Main {
     private static Unsafe UNSAFE;
@@ -55,14 +55,14 @@ public class Main {
             System.out.println("Value of success = " + test.success);
             Thread.sleep(3000);
             System.out.println("Value of success after sleeping = " + test.success);
-            test.printTimes();  // In case they weren't ready the first time.
+            test.printTimes(); // In case they weren't ready the first time.
         }
     }
 
     /**
      * Set up {@link #UNSAFE}.
      */
-    public static void setUp() throws Exception{
+    public static void setUp() throws Exception {
         /*
          * Subvert the access check to get the unique Unsafe instance.
          * We can do this because there's no security manager
@@ -117,8 +117,8 @@ public class Main {
         }
 
         public void printTimes() {
-          System.out.println("Started at " + startTime + "ms, took " + elapsedTime
-              + "ms, signalled at " + finishTime + "ms");
+            System.out.println("Started at " + startTime + "ms, took " + elapsedTime
+                    + "ms, signalled at " + finishTime + "ms");
         }
     }
 }

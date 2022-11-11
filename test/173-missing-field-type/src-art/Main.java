@@ -25,16 +25,16 @@ public class Main {
         // Storing null is OK.
         c.getMethod("storeStaticNull").invoke(null);
         c.getMethod("storeInstanceNull").invoke(null);
-        c.getMethod("storeStatic", Object.class).invoke(null, new Object[]{ null });
-        c.getMethod("storeInstance", c, Object.class).invoke(
-            null, new Object[]{ c.newInstance(), null });
+        c.getMethod("storeStatic", Object.class).invoke(null, new Object[] {null});
+        c.getMethod("storeInstance", c, Object.class)
+                .invoke(null, new Object[] {c.newInstance(), null});
 
         // Storing anything else should throw an exception.
         testStoreObject(c.getMethod("storeStaticObject"));
         testStoreObject(c.getMethod("storeInstanceObject"));
         testStoreObject(c.getMethod("storeStatic", Object.class), new Object());
         testStoreObject(
-            c.getMethod("storeInstance", c, Object.class), c.newInstance(), new Object());
+                c.getMethod("storeInstance", c, Object.class), c.newInstance(), new Object());
 
         // Loading is OK.
         c = Class.forName("BadFieldGet");
@@ -42,26 +42,25 @@ public class Main {
     }
 
     public static void testLoadObject(Class<?> c, String methodName) throws Throwable {
-      c.getMethod(methodName).invoke(null);
+        c.getMethod(methodName).invoke(null);
     }
 
     public static void testStoreObject(Method method, Object... arguments) throws Throwable {
         try {
-          method.invoke(null, arguments);
-          throw new Error("Expected NoClassDefFoundError");
+            method.invoke(null, arguments);
+            throw new Error("Expected NoClassDefFoundError");
         } catch (InvocationTargetException expected) {
-          Throwable e = expected.getCause();
-          if (e instanceof NoClassDefFoundError) {
-            // The NoClassDefFoundError is for the field widget in class BadField.
-            if (!e.getMessage().equals("Failed resolution of: LWidget;")) {
+            Throwable e = expected.getCause();
+            if (e instanceof NoClassDefFoundError) {
+                // The NoClassDefFoundError is for the field widget in class BadField.
+                if (!e.getMessage().equals("Failed resolution of: LWidget;")) {
+                    throw new Error("Unexpected " + e);
+                }
+            } else {
                 throw new Error("Unexpected " + e);
             }
-          } else {
-            throw new Error("Unexpected " + e);
-          }
         }
     }
 
-    private static void privateMethod() {
-    }
+    private static void privateMethod() {}
 }

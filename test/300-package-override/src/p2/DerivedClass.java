@@ -17,6 +17,8 @@
 package p2;
 
 public class DerivedClass extends p1.BaseClass {
-  void foo() { System.out.println("DerivedClass overrode package-private method!"); } // This should not override BaseClass.foo.
-  public void bar() { System.out.println("This should be visible!"); }
+    void foo() {
+        System.out.println("DerivedClass overrode package-private method!");
+    } // This should not override BaseClass.foo.
+    public void bar() { System.out.println("This should be visible!"); }
 }

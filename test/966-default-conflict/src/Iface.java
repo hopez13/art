@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 public interface Iface {
-  public default String sayHi() {
-    return "Hi";
-  }
-  public default String charge() {
-    return "CHARGE";
-  }
+    public default String sayHi() { return "Hi"; }
+    public default String charge() { return "CHARGE"; }
 }

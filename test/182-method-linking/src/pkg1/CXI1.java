@@ -16,5 +16,4 @@
 
 package pkg1;
 
-public class CXI1 extends CX implements I1 {
-}
+public class CXI1 extends CX implements I1 {}

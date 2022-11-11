@@ -20,16 +20,11 @@ public class Class1 {
     public int field1;
     public int field12;
 
-    public Class1() {
-    }
+    public Class1() {}
 
-    public void method1() {
-    }
+    public void method1() {}
 
-    public void method1(int i) {
-    }
+    public void method1(int i) {}
 
-    public void method12() {
-    }
-
+    public void method12() {}
 }

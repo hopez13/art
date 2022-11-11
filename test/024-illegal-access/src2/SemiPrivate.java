@@ -20,13 +20,9 @@
 public class SemiPrivate {
     private static String mStaticPrivvy = "stuff";
 
-    private static String privvyStaticMethod() {
-      return "stuff";
-    }
+    private static String privvyStaticMethod() { return "stuff"; }
 
     private String mInstancePrivvy = "stuff";
 
-    private String privvyInstanceMethod() {
-      return "stuff";
-    }
+    private String privvyInstanceMethod() { return "stuff"; }
 }

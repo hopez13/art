@@ -19,7 +19,7 @@
  */
 public class DoubledExtendOkay extends BaseOkay {
     public DoubledExtendOkay() {
-        //System.out.println("Ctor: doubled extend okay, type 1");
+        // System.out.println("Ctor: doubled extend okay, type 1");
     }
 
     /*
@@ -30,7 +30,5 @@ public class DoubledExtendOkay extends BaseOkay {
     }
     */
 
-    public String getStr() {
-        return "DoubledExtendOkay 1";
-    }
+    public String getStr() { return "DoubledExtendOkay 1"; }
 }

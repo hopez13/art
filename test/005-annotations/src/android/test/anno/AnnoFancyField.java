@@ -4,7 +4,7 @@ import java.lang.annotation.*;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Inherited      // should have no effect
+@Inherited // should have no effect
 @Documented
 
 public @interface AnnoFancyField {

@@ -15,5 +15,5 @@
  */
 
 class PackageClass extends AbstractPackageClass implements PublicInterface {
-  public void publicMethod1() {}
+    public void publicMethod1() {}
 }

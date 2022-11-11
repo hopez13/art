@@ -15,10 +15,10 @@
  */
 
 public interface OtherItf {
-  // javac will complain when compiling SubItf if both superinterfaces Itf and OtherItf
-  // define a default method bar(), so we do not define bar() here.
-  // What will be loaded at runtime will actually be src2/OtherItf.
-  // public default String bar() {
-  //   return "OtherItf";
-  // }
+    // javac will complain when compiling SubItf if both superinterfaces Itf and OtherItf
+    // define a default method bar(), so we do not define bar() here.
+    // What will be loaded at runtime will actually be src2/OtherItf.
+    // public default String bar() {
+    //   return "OtherItf";
+    // }
 }

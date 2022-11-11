@@ -30,18 +30,16 @@ public class Main {
             Constructor<?> ctor =
                     class_loader_class.getConstructor(String.class, ClassLoader.class);
             /* on Dalvik, this is a DexFile; otherwise, it's null */
-            return (ClassLoader) ctor.newInstance(location + "/" + TEST_NAME + "-ex.jar",
-                                                  Main.class.getClassLoader());
+            return (ClassLoader) ctor.newInstance(
+                    location + "/" + TEST_NAME + "-ex.jar", Main.class.getClassLoader());
         } catch (ClassNotFoundException e) {
             // Running on RI. Use URLClassLoader.
             return new java.net.URLClassLoader(
-                    new java.net.URL[] { new java.net.URL("file://" + location + "/classes-ex/") });
+                    new java.net.URL[] {new java.net.URL("file://" + location + "/classes-ex/")});
         }
     }
 
-    public static void main(String[] args) {
-        new Main().run();
-    }
+    public static void main(String[] args) { new Main().run(); }
 
     private void run() {
         System.out.println(new A().i);

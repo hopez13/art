@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-import annotations.ConstantMethodHandle;
-import annotations.ConstantMethodType;
+import java.io.StreamTokenizer;
+import java.io.StringReader;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodType;
 import java.lang.invoke.WrongMethodTypeException;
-
-import java.io.StreamTokenizer;
-import java.io.StringReader;
 import java.util.Stack;
+
+import annotations.ConstantMethodHandle;
+import annotations.ConstantMethodType;
 
 class Main {
     /**
@@ -34,9 +34,7 @@ class Main {
     /** A static field updated by method handle getters and setters. */
     private static String name = "default";
 
-    private static void unreachable() {
-        throw new Error("Unreachable");
-    }
+    private static void unreachable() { throw new Error("Unreachable"); }
 
     private static void assertEquals(Object expected, Object actual) {
         if (!expected.equals(actual)) {
@@ -51,30 +49,24 @@ class Main {
     }
 
     private static class TestTokenizer extends StreamTokenizer {
-        public TestTokenizer(String message) {
-            super(new StringReader(message));
-        }
+        public TestTokenizer(String message) { super(new StringReader(message)); }
     }
 
     @ConstantMethodType(
-            returnType = String.class,
-            parameterTypes = {int.class, Integer.class, System.class})
-    private static MethodType methodType0() {
+            returnType = String.class, parameterTypes = {int.class, Integer.class, System.class})
+    private static MethodType
+    methodType0() {
         unreachable();
         return null;
     }
 
-    @ConstantMethodType(
-            returnType = void.class,
-            parameterTypes = {LocalClass.class})
+    @ConstantMethodType(returnType = void.class, parameterTypes = {LocalClass.class})
     private static MethodType methodType1() {
         unreachable();
         return null;
     }
 
-    @ConstantMethodType(
-            returnType = void.class,
-            parameterTypes = {MissingType.class})
+    @ConstantMethodType(returnType = void.class, parameterTypes = {MissingType.class})
     private static MethodType missingType() {
         unreachable();
         return null;
@@ -105,104 +97,85 @@ class Main {
         System.out.println(who);
     }
 
-    @ConstantMethodHandle(
-            kind = ConstantMethodHandle.INVOKE_STATIC,
-            owner = "Main",
-            fieldOrMethodName = "helloWorld",
-            descriptor = "(Ljava/lang/String;)V")
-    private static MethodHandle printHelloHandle() {
+    @ConstantMethodHandle(kind = ConstantMethodHandle.INVOKE_STATIC, owner = "Main",
+            fieldOrMethodName = "helloWorld", descriptor = "(Ljava/lang/String;)V")
+    private static MethodHandle
+    printHelloHandle() {
         unreachable();
         return null;
     }
 
-    @ConstantMethodHandle(
-            kind = ConstantMethodHandle.STATIC_PUT,
-            owner = "Main",
-            fieldOrMethodName = "name",
+    @ConstantMethodHandle(kind = ConstantMethodHandle.STATIC_PUT, owner = "Main",
+            fieldOrMethodName = "name", descriptor = "Ljava/lang/String;")
+    private static MethodHandle
+    setNameHandle() {
+        unreachable();
+        return null;
+    }
+
+    @ConstantMethodHandle(kind = ConstantMethodHandle.STATIC_GET, owner = "Main",
+            fieldOrMethodName = "name", descriptor = "Ljava/lang/String;")
+    private static MethodHandle
+    getNameHandle() {
+        unreachable();
+        return null;
+    }
+
+    @ConstantMethodHandle(kind = ConstantMethodHandle.STATIC_GET, owner = "java/lang/Math",
+            fieldOrMethodName = "E", descriptor = "D")
+    private static MethodHandle
+    getMathE() {
+        unreachable();
+        return null;
+    }
+
+    @ConstantMethodHandle(kind = ConstantMethodHandle.STATIC_PUT, owner = "java/lang/Math",
+            fieldOrMethodName = "E", descriptor = "D")
+    private static MethodHandle
+    putMathE() {
+        unreachable();
+        return null;
+    }
+
+    @ConstantMethodHandle(kind = ConstantMethodHandle.INSTANCE_GET,
+            owner = "java/io/StreamTokenizer", fieldOrMethodName = "sval",
             descriptor = "Ljava/lang/String;")
-    private static MethodHandle setNameHandle() {
-        unreachable();
-        return null;
-    }
-
-    @ConstantMethodHandle(
-            kind = ConstantMethodHandle.STATIC_GET,
-            owner = "Main",
-            fieldOrMethodName = "name",
-            descriptor = "Ljava/lang/String;")
-    private static MethodHandle getNameHandle() {
-        unreachable();
-        return null;
-    }
-
-    @ConstantMethodHandle(
-            kind = ConstantMethodHandle.STATIC_GET,
-            owner = "java/lang/Math",
-            fieldOrMethodName = "E",
-            descriptor = "D")
-    private static MethodHandle getMathE() {
-        unreachable();
-        return null;
-    }
-
-    @ConstantMethodHandle(
-            kind = ConstantMethodHandle.STATIC_PUT,
-            owner = "java/lang/Math",
-            fieldOrMethodName = "E",
-            descriptor = "D")
-    private static MethodHandle putMathE() {
-        unreachable();
-        return null;
-    }
-
-    @ConstantMethodHandle(
-        kind = ConstantMethodHandle.INSTANCE_GET,
-        owner = "java/io/StreamTokenizer",
-        fieldOrMethodName = "sval",
-        descriptor = "Ljava/lang/String;")
-     private static MethodHandle getSval() {
+    private static MethodHandle
+    getSval() {
         unreachable();
         return null;
     }
 
     // This constant-method-handle references a private instance field. If
     // referenced in bytecode it raises IAE at load time.
-    @ConstantMethodHandle(
-        kind = ConstantMethodHandle.INSTANCE_PUT,
-        owner = "java/io/StreamTokenizer",
-        fieldOrMethodName = "peekc",
-        descriptor = "I")
-     private static MethodHandle putPeekc() {
+    @ConstantMethodHandle(kind = ConstantMethodHandle.INSTANCE_PUT,
+            owner = "java/io/StreamTokenizer", fieldOrMethodName = "peekc", descriptor = "I")
+    private static MethodHandle
+    putPeekc() {
         unreachable();
         return null;
     }
 
-    @ConstantMethodHandle(
-        kind = ConstantMethodHandle.INVOKE_VIRTUAL,
-        owner = "java/util/Stack",
-        fieldOrMethodName = "pop",
-        descriptor = "()Ljava/lang/Object;")
-    private static MethodHandle stackPop() {
+    @ConstantMethodHandle(kind = ConstantMethodHandle.INVOKE_VIRTUAL, owner = "java/util/Stack",
+            fieldOrMethodName = "pop", descriptor = "()Ljava/lang/Object;")
+    private static MethodHandle
+    stackPop() {
         unreachable();
         return null;
     }
 
-    @ConstantMethodHandle(
-        kind = ConstantMethodHandle.INVOKE_VIRTUAL,
-        owner = "java/util/Stack",
-        fieldOrMethodName = "trimToSize",
-        descriptor = "()V")
-    private static MethodHandle stackTrim() {
+    @ConstantMethodHandle(kind = ConstantMethodHandle.INVOKE_VIRTUAL, owner = "java/util/Stack",
+            fieldOrMethodName = "trimToSize", descriptor = "()V")
+    private static MethodHandle
+    stackTrim() {
         unreachable();
         return null;
     }
 
-    @ConstantMethodHandle(
-            kind = ConstantMethodHandle.STATIC_GET,
-            owner = "PrivateMember",
-            fieldOrMethodName = "privateField",
-            descriptor = "I")
-    private static MethodHandle getPrivateField() {
+    @ConstantMethodHandle(kind = ConstantMethodHandle.STATIC_GET, owner = "PrivateMember",
+            fieldOrMethodName = "privateField", descriptor = "I")
+    private static MethodHandle
+    getPrivateField() {
         unreachable();
         return null;
     }
@@ -266,32 +239,27 @@ class Main {
         // can throw, which meant we were not catching the exception in the situation where we
         // inline the loading.
         try {
-          $inline$getPrivateField();
-          System.out.println("Expected IllegalAccessError");
+            $inline$getPrivateField();
+            System.out.println("Expected IllegalAccessError");
         } catch (IllegalAccessError e) {
-          // expected
+            // expected
         }
 
         try {
-          $inline$missingType();
-          System.out.println("Expected NoClassDefFoundError");
+            $inline$missingType();
+            System.out.println("Expected NoClassDefFoundError");
         } catch (NoClassDefFoundError e) {
-          // expected
+            // expected
         }
     }
 
-    public static void $inline$getPrivateField() {
-      getPrivateField();
-    }
+    public static void $inline$getPrivateField() { getPrivateField(); }
 
-    public static void $inline$missingType() {
-      missingType();
-    }
+    public static void $inline$missingType() { missingType(); }
 }
 
 class PrivateMember {
-  private static int privateField;
+    private static int privateField;
 }
 
-class MissingType {
-}
+class MissingType {}

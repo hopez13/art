@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-public class Concrete2Base implements IFace { }
+public class Concrete2Base implements IFace {}

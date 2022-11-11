@@ -19,7 +19,5 @@ package other2;
 import other.InaccessibleClass;
 
 public class GetInaccessibleClass {
-  public static Class<?> $inline$get() {
-    return InaccessibleClass.class;
-  }
+    public static Class<?> $inline$get() { return InaccessibleClass.class; }
 }

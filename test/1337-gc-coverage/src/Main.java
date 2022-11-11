@@ -17,60 +17,60 @@
 import java.util.TreeMap;
 
 public class Main {
-  private static TreeMap treeMap = new TreeMap();
+    private static TreeMap treeMap = new TreeMap();
 
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
-    testHomogeneousCompaction();
-    System.out.println("Done.");
-  }
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
+        testHomogeneousCompaction();
+        System.out.println("Done.");
+    }
 
-  private static void allocateStuff() {
-    for (int i = 0; i < 1000; ++i) {
-      Object o = new Object();
-      treeMap.put(o.hashCode(), o);
+    private static void allocateStuff() {
+        for (int i = 0; i < 1000; ++i) {
+            Object o = new Object();
+            treeMap.put(o.hashCode(), o);
+        }
     }
-  }
 
-  public static void testHomogeneousCompaction() {
-    System.out.println("Attempting homogeneous compaction");
-    final boolean supportHSC = supportHomogeneousSpaceCompact();
-    Object o = new Object();
-    long addressBefore = objectAddress(o);
-    long addressAfter;
-    allocateStuff();
-    final boolean success = performHomogeneousSpaceCompact();
-    allocateStuff();
-    System.out.println("Homogeneous compaction support=" + supportHSC + " success=" + success);
-    if (supportHSC != success) {
-      System.out.println("error: Expected " + supportHSC + " but got " + success);
+    public static void testHomogeneousCompaction() {
+        System.out.println("Attempting homogeneous compaction");
+        final boolean supportHSC = supportHomogeneousSpaceCompact();
+        Object o = new Object();
+        long addressBefore = objectAddress(o);
+        long addressAfter;
+        allocateStuff();
+        final boolean success = performHomogeneousSpaceCompact();
+        allocateStuff();
+        System.out.println("Homogeneous compaction support=" + supportHSC + " success=" + success);
+        if (supportHSC != success) {
+            System.out.println("error: Expected " + supportHSC + " but got " + success);
+        }
+        if (success) {
+            allocateStuff();
+            addressAfter = objectAddress(o);
+            // This relies on the compaction copying from one space to another space and there being
+            // no overlap.
+            if (addressBefore == addressAfter) {
+                System.out.println("error: Expected different adddress " + addressBefore + " vs "
+                        + addressAfter);
+            }
+        }
+        if (supportHSC) {
+            incrementDisableMovingGC();
+            if (performHomogeneousSpaceCompact()) {
+                System.out.println("error: Compaction succeeded when moving GC is disabled");
+            }
+            decrementDisableMovingGC();
+            if (!performHomogeneousSpaceCompact()) {
+                System.out.println("error: Compaction failed when moving GC is enabled");
+            }
+        }
     }
-    if (success) {
-      allocateStuff();
-      addressAfter = objectAddress(o);
-      // This relies on the compaction copying from one space to another space and there being no
-      // overlap.
-      if (addressBefore == addressAfter) {
-        System.out.println("error: Expected different adddress " + addressBefore + " vs " +
-            addressAfter);
-      }
-    }
-    if (supportHSC) {
-      incrementDisableMovingGC();
-      if (performHomogeneousSpaceCompact()) {
-        System.out.println("error: Compaction succeeded when moving GC is disabled");
-      }
-      decrementDisableMovingGC();
-      if (!performHomogeneousSpaceCompact()) {
-        System.out.println("error: Compaction failed when moving GC is enabled");
-      }
-    }
-  }
 
-  // Methods to get access to ART internals.
-  private static native boolean supportHomogeneousSpaceCompact();
-  private static native boolean performHomogeneousSpaceCompact();
-  private static native void incrementDisableMovingGC();
-  private static native void decrementDisableMovingGC();
-  private static native long objectAddress(Object object);
+    // Methods to get access to ART internals.
+    private static native boolean supportHomogeneousSpaceCompact();
+    private static native boolean performHomogeneousSpaceCompact();
+    private static native void incrementDisableMovingGC();
+    private static native void decrementDisableMovingGC();
+    private static native long objectAddress(Object object);
 }

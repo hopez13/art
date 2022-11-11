@@ -30,13 +30,9 @@ public class Main {
     public static native int getHotnessCounter(Class<?> cls, String methodName);
 
     public static class Widget {
-        public Widget(int id) {
-            this.id = id;
-        }
+        public Widget(int id) { this.id = id; }
 
-        int getId() {
-            return id;
-        }
+        int getId() { return id; }
 
         int id;
     }
@@ -79,23 +75,20 @@ public class Main {
     private static void testMethodHandleCounters() throws Throwable {
         for (int i = 0; i < ITERATIONS; ++i) {
             // Regular MethodHandle invocations
-            MethodHandle mh =
-                    MethodHandles.lookup()
-                            .findConstructor(
-                                    Widget.class, MethodType.methodType(void.class, int.class));
+            MethodHandle mh = MethodHandles.lookup().findConstructor(
+                    Widget.class, MethodType.methodType(void.class, int.class));
             Widget w = (Widget) mh.invoke(3);
             w = (Widget) mh.invokeExact(3);
             assertEquals(initialHotnessCounter, getHotnessCounter(MethodHandle.class, "invoke"));
-            assertEquals(initialHotnessCounter, getHotnessCounter(MethodHandle.class, "invokeExact"));
+            assertEquals(
+                    initialHotnessCounter, getHotnessCounter(MethodHandle.class, "invokeExact"));
 
             // Reflective MethodHandle invocations
             String[] methodNames = {"invoke", "invokeExact"};
             for (String methodName : methodNames) {
                 Method invokeMethod = MethodHandle.class.getMethod(methodName, Object[].class);
-                MethodHandle instance =
-                        MethodHandles.lookup()
-                                .findVirtual(
-                                        Widget.class, "getId", MethodType.methodType(int.class));
+                MethodHandle instance = MethodHandles.lookup().findVirtual(
+                        Widget.class, "getId", MethodType.methodType(int.class));
                 try {
                     invokeMethod.invoke(instance, new Object[] {new Object[] {}});
                     fail();
@@ -103,10 +96,9 @@ public class Main {
                     assertEquals(ite.getCause().getClass(), UnsupportedOperationException.class);
                 }
             }
-            assertEquals(initialHotnessCounter,
-                getHotnessCounter(MethodHandle.class, "invoke"));
-            assertEquals(initialHotnessCounter,
-                getHotnessCounter(MethodHandle.class, "invokeExact"));
+            assertEquals(initialHotnessCounter, getHotnessCounter(MethodHandle.class, "invoke"));
+            assertEquals(
+                    initialHotnessCounter, getHotnessCounter(MethodHandle.class, "invokeExact"));
         }
 
         System.out.println("MethodHandle OK");

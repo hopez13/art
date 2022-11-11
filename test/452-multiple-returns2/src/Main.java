@@ -17,12 +17,12 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("MultipleReturns");
-    Method m = c.getMethod("caller");
-    int result = (Integer)m.invoke(null);
-    if (result != 4) {
-      throw new Error("Expected 4, got " + result);
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("MultipleReturns");
+        Method m = c.getMethod("caller");
+        int result = (Integer) m.invoke(null);
+        if (result != 4) {
+            throw new Error("Expected 4, got " + result);
+        }
     }
-  }
 }

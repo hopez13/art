@@ -15,54 +15,53 @@
  */
 
 public class Main {
-
-  private class Inner {
-    private long i1;
-    private double i2;
-  }
-  private Inner inst;
-
-  public static void main(String args[]) throws Exception {
-    Main m = new Main();
-    try {
-      m.$opt$noinline$testGetLong();
-    } catch (NullPointerException ex) {
-      System.out.println("NPE from GetLong");
+    private class Inner {
+        private long i1;
+        private double i2;
     }
-    try {
-      m.$opt$noinline$testPutLong(778899112233L);
-    } catch (NullPointerException ex) {
-      System.out.println("NPE from PutLong");
+    private Inner inst;
+
+    public static void main(String args[]) throws Exception {
+        Main m = new Main();
+        try {
+            m.$opt$noinline$testGetLong();
+        } catch (NullPointerException ex) {
+            System.out.println("NPE from GetLong");
+        }
+        try {
+            m.$opt$noinline$testPutLong(778899112233L);
+        } catch (NullPointerException ex) {
+            System.out.println("NPE from PutLong");
+        }
+        try {
+            m.$opt$noinline$testGetDouble();
+        } catch (NullPointerException ex) {
+            System.out.println("NPE from GetDouble");
+        }
+        try {
+            m.$opt$noinline$testPutDouble(1.0);
+        } catch (NullPointerException ex) {
+            System.out.println("NPE from PutDouble");
+        }
     }
-    try {
-      m.$opt$noinline$testGetDouble();
-    } catch (NullPointerException ex) {
-      System.out.println("NPE from GetDouble");
+
+    public void $opt$noinline$testGetLong() throws Exception {
+        long result = inst.i1;
+        throw new Exception(); // prevent inline
     }
-    try {
-      m.$opt$noinline$testPutDouble(1.0);
-    } catch (NullPointerException ex) {
-      System.out.println("NPE from PutDouble");
+
+    public void $opt$noinline$testPutLong(long a) throws Exception {
+        inst.i1 = a;
+        throw new Exception(); // prevent inline
     }
-  }
 
-  public void $opt$noinline$testGetLong() throws Exception {
-    long result = inst.i1;
-    throw new Exception();  // prevent inline
-  }
+    public void $opt$noinline$testGetDouble() throws Exception {
+        double result = inst.i2;
+        throw new Exception(); // prevent inline
+    }
 
-  public void $opt$noinline$testPutLong(long a) throws Exception {
-    inst.i1 = a;
-    throw new Exception();  // prevent inline
-  }
-
-  public void $opt$noinline$testGetDouble() throws Exception {
-    double result = inst.i2;
-    throw new Exception();  // prevent inline
-  }
-
-  public void $opt$noinline$testPutDouble(double a) throws Exception {
-    inst.i2 = a;
-    throw new Exception();  // prevent inline
-  }
+    public void $opt$noinline$testPutDouble(double a) throws Exception {
+        inst.i2 = a;
+        throw new Exception(); // prevent inline
+    }
 }

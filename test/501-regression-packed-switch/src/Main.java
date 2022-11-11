@@ -18,17 +18,17 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 public class Main {
-  public static void main(String args[]) throws Exception {
-    Class<?> c = Class.forName("Test");
-    Method m = c.getMethod("EmptyPackedSwitch", int.class);
-    Integer result = (Integer) m.invoke(null, new Integer(42));
-    if (result != 5) {
-      throw new Error("Expected 5, got " + result);
+    public static void main(String args[]) throws Exception {
+        Class<?> c = Class.forName("Test");
+        Method m = c.getMethod("EmptyPackedSwitch", int.class);
+        Integer result = (Integer) m.invoke(null, new Integer(42));
+        if (result != 5) {
+            throw new Error("Expected 5, got " + result);
+        }
+        m = c.getMethod("PackedSwitchAfterData", int.class);
+        result = (Integer) m.invoke(null, new Integer(0));
+        if (result != 1) {
+            throw new Error("Expected 1, got " + result);
+        }
     }
-    m = c.getMethod("PackedSwitchAfterData", int.class);
-    result = (Integer) m.invoke(null, new Integer(0));
-    if (result != 1) {
-      throw new Error("Expected 1, got " + result);
-    }
-  }
 }

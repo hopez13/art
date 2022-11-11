@@ -15,13 +15,13 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    HaddAltByte.main();
-    HaddAltShort.main();
-    HaddAltChar.main();
-    HaddByte.main();
-    HaddShort.main();
-    HaddChar.main();
-    HaddOther.main();
-  }
+    public static void main(String[] args) {
+        HaddAltByte.main();
+        HaddAltShort.main();
+        HaddAltChar.main();
+        HaddByte.main();
+        HaddShort.main();
+        HaddChar.main();
+        HaddOther.main();
+    }
 }

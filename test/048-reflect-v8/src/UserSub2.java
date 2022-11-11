@@ -15,9 +15,5 @@
  */
 
 // This calendar subsumes anything else we would've normally gotten from the subclass.
-@Calendar(dayOfMonth="sub2")
-public class UserSub2
-  extends User
-  implements IFaceA, IFaceSimple {
-
-}
+@Calendar(dayOfMonth = "sub2")
+public class UserSub2 extends User implements IFaceA, IFaceSimple {}

@@ -17,5 +17,5 @@
 package pkg1;
 
 public interface InterfaceFoo {
-  public Class<?> foo();
+    public Class<?> foo();
 }

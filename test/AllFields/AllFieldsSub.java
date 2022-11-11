@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-public class AllFieldsSub extends AllFields { }
+public class AllFieldsSub extends AllFields {}

@@ -26,7 +26,6 @@ import java.lang.reflect.Modifier;
  * interpreter.
  */
 public class TwoPath {
-
     /**
      * Conditionally uses one of the synchronized objects.
      */
@@ -36,7 +35,7 @@ public class TwoPath {
         Object localObj;
 
         synchronized (obj1) {
-            synchronized(obj2) {
+            synchronized (obj2) {
                 if (x == 0) {
                     localObj = obj2;
                 } else {
@@ -48,6 +47,5 @@ public class TwoPath {
         doNothing(localObj);
     }
 
-    private static void doNothing(Object o) {
-    }
+    private static void doNothing(Object o) {}
 }

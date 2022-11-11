@@ -18,8 +18,8 @@
  * Regression test for b/31280371
  */
 class P extends O implements Foo2 {
-  @Override
-  public String bar() {
-    return "not foobar!";
-  }
+    @Override
+    public String bar() {
+        return "not foobar!";
+    }
 }

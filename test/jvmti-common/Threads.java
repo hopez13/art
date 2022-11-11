@@ -17,6 +17,6 @@
 package art;
 
 public class Threads {
-  public static native void interruptThread(Thread t);
-  public static native void stopThread(Thread t, Throwable thr);
+    public static native void interruptThread(Thread t);
+    public static native void stopThread(Thread t, Throwable thr);
 }

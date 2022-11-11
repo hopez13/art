@@ -16,5 +16,4 @@
 
 package pkg1;
 
-public class LowerIndexImplementsFoo extends LowerIndexPublicFoo implements InterfaceFoo {
-}
+public class LowerIndexImplementsFoo extends LowerIndexPublicFoo implements InterfaceFoo {}

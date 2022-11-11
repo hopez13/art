@@ -19,14 +19,13 @@
  */
 public class Main {
     public static void main(String[] args) {
-
         System.out.println("pick 1");
         pickOne(1).run();
-        System.out.println(((CommonInterface)pickOne(1)).doStuff());
+        System.out.println(((CommonInterface) pickOne(1)).doStuff());
 
         System.out.println("pick 2");
         pickOne(2).run();
-        System.out.println(((CommonInterface)pickOne(2)).doStuff());
+        System.out.println(((CommonInterface) pickOne(2)).doStuff());
 
         System.out.println("pick 3");
         pickOne(3).run();
@@ -49,9 +48,7 @@ public class Main {
 }
 
 class ClassOne implements CommonInterface, Runnable {
-    public void run() {
-        System.out.println("one running");
-    }
+    public void run() { System.out.println("one running"); }
     public int doStuff() {
         System.out.println("one");
         return 1;
@@ -59,9 +56,7 @@ class ClassOne implements CommonInterface, Runnable {
 }
 
 class ClassTwo implements CommonInterface, Runnable {
-    public void run() {
-        System.out.println("two running");
-    }
+    public void run() { System.out.println("two running"); }
     public int doStuff() {
         System.out.println("two");
         return 2;
@@ -69,9 +64,7 @@ class ClassTwo implements CommonInterface, Runnable {
 }
 
 class ClassThree implements Runnable {
-    public void run() {
-        System.out.println("three running");
-    }
+    public void run() { System.out.println("three running"); }
 }
 
 interface CommonInterface {

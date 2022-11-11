@@ -23,54 +23,52 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class Main {
+    public static void main(String[] args) throws Exception {
+        // Extract Dex file contents from the secondary Jar file.
+        String jarFilename =
+                System.getenv("DEX_LOCATION") + "/656-annotation-lookup-generic-jni-ex.jar";
+        ZipFile zipFile = new ZipFile(jarFilename);
+        ZipEntry zipEntry = zipFile.getEntry("classes.dex");
+        InputStream inputStream = zipFile.getInputStream(zipEntry);
+        int dexFileSize = (int) zipEntry.getSize();
+        byte[] dexFileContents = new byte[dexFileSize];
+        inputStream.read(dexFileContents, 0, dexFileSize);
 
-  public static void main(String[] args) throws Exception {
-    // Extract Dex file contents from the secondary Jar file.
-    String jarFilename =
-        System.getenv("DEX_LOCATION") + "/656-annotation-lookup-generic-jni-ex.jar";
-    ZipFile zipFile = new ZipFile(jarFilename);
-    ZipEntry zipEntry = zipFile.getEntry("classes.dex");
-    InputStream inputStream = zipFile.getInputStream(zipEntry);
-    int dexFileSize = (int) zipEntry.getSize();
-    byte[] dexFileContents = new byte[dexFileSize];
-    inputStream.read(dexFileContents, 0, dexFileSize);
+        // Create class loader from secondary Dex file.
+        ByteBuffer dexBuffer = ByteBuffer.wrap(dexFileContents);
+        ClassLoader classLoader = createUnquickenedDexClassLoader(dexBuffer);
 
-    // Create class loader from secondary Dex file.
-    ByteBuffer dexBuffer = ByteBuffer.wrap(dexFileContents);
-    ClassLoader classLoader = createUnquickenedDexClassLoader(dexBuffer);
+        // Load and initialize the Test class.
+        Class<?> testClass = classLoader.loadClass("Test");
+        Method initialize = testClass.getMethod("initialize", String.class);
+        initialize.invoke(null, args[0]);
 
-    // Load and initialize the Test class.
-    Class<?> testClass = classLoader.loadClass("Test");
-    Method initialize = testClass.getMethod("initialize", String.class);
-    initialize.invoke(null, args[0]);
+        // Invoke Test.nativeMethodWithAnnotation().
+        Method nativeMethodWithAnnotation = testClass.getMethod("nativeMethodWithAnnotation");
+        // Invoking the native method Test.nativeMethodWithAnnotation used
+        // to crash the Generic JNI trampoline during the resolution of
+        // the method's annotations (SampleAnnotation) (see b/38454151).
+        nativeMethodWithAnnotation.invoke(null);
 
-    // Invoke Test.nativeMethodWithAnnotation().
-    Method nativeMethodWithAnnotation = testClass.getMethod("nativeMethodWithAnnotation");
-    // Invoking the native method Test.nativeMethodWithAnnotation used
-    // to crash the Generic JNI trampoline during the resolution of
-    // the method's annotations (SampleAnnotation) (see b/38454151).
-    nativeMethodWithAnnotation.invoke(null);
-
-    zipFile.close();
-    System.out.println("passed");
-  }
-
-  // Create a class loader loading a Dex file in memory
-  // *without creating an Oat file*. This way, the Dex file won't be
-  // quickened and JNI stubs won't be compiled, thus forcing the use
-  // of Generic JNI when invoking the native method
-  // Test.nativeMethodWithAnnotation.
-  static ClassLoader createUnquickenedDexClassLoader(ByteBuffer dexBuffer) {
-    InMemoryDexClassLoader cl = new InMemoryDexClassLoader(dexBuffer, getBootClassLoader());
-    return cl;
-  }
-
-  static ClassLoader getBootClassLoader() {
-    ClassLoader cl = Main.class.getClassLoader();
-    while (cl.getParent() != null) {
-      cl = cl.getParent();
+        zipFile.close();
+        System.out.println("passed");
     }
-    return cl;
-  }
 
+    // Create a class loader loading a Dex file in memory
+    // *without creating an Oat file*. This way, the Dex file won't be
+    // quickened and JNI stubs won't be compiled, thus forcing the use
+    // of Generic JNI when invoking the native method
+    // Test.nativeMethodWithAnnotation.
+    static ClassLoader createUnquickenedDexClassLoader(ByteBuffer dexBuffer) {
+        InMemoryDexClassLoader cl = new InMemoryDexClassLoader(dexBuffer, getBootClassLoader());
+        return cl;
+    }
+
+    static ClassLoader getBootClassLoader() {
+        ClassLoader cl = Main.class.getClassLoader();
+        while (cl.getParent() != null) {
+            cl = cl.getParent();
+        }
+        return cl;
+    }
 }

@@ -17,24 +17,24 @@
 // Note that $opt$ is a marker for the optimizing compiler to test
 // it does compile the method.
 public class Main {
-
-  public static void assertFloatEquals(float expected, float result) {
-    if (expected != result) {
-      throw new Error("Expected: " + expected + ", found: " + result);
+    public static void assertFloatEquals(float expected, float result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    // Generate, compile and check long-to-float Dex instructions.
-    longToFloat();
-  }
+    public static void main(String[] args) {
+        // Generate, compile and check long-to-float Dex instructions.
+        longToFloat();
+    }
 
-  private static void longToFloat() {
-    // The result for this test case used to be slightly less accurate
-    // on ARM (both in Quick and Optimizing).
-    assertFloatEquals(Float.intBitsToFloat(-555858671), $opt$LongToFloat(-8008112895877447681L));
-  }
+    private static void longToFloat() {
+        // The result for this test case used to be slightly less accurate
+        // on ARM (both in Quick and Optimizing).
+        assertFloatEquals(
+                Float.intBitsToFloat(-555858671), $opt$LongToFloat(-8008112895877447681L));
+    }
 
-  // This method produces a long-to-float Dex instruction.
-  static float $opt$LongToFloat(long a) { return (float)a; }
+    // This method produces a long-to-float Dex instruction.
+    static float $opt$LongToFloat(long a) { return (float) a; }
 }

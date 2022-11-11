@@ -18,15 +18,12 @@
  * Class that initializes with a pause.
  */
 public class SlowInit {
-
     public static final IntHolder FIELD0 = new IntHolder(0);
     public static final IntHolder FIELD1 = new IntHolder(0);
     public static final IntHolder FIELD2 = new IntHolder(0);
     public static final IntHolder FIELD3 = new IntHolder(0);
 
-    public static void printMsg(String msg) {
-        System.out.println(msg);
-    }
+    public static void printMsg(String msg) { System.out.println(msg); }
 
     static {
         FIELD0.setValue(111);

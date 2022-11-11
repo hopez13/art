@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-public final class Final {
-}
+public final class Final {}

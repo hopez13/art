@@ -15,42 +15,41 @@
  */
 
 public class Main {
-  public static void $noinline$hotnessCount() {
-  }
+    public static void $noinline$hotnessCount() {}
 
-  public static void $noinline$hotnessCountWithLoop(int count) {
-    for (int i = 0; i < count; i++) {
-      $noinline$hotnessCount();
-    }
-  }
-
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
-    if (!isAotCompiled(Main.class, "main")) {
-      return;
-    }
-    int counter = getHotnessCounter(Main.class, "$noinline$hotnessCount");
-    $noinline$hotnessCount();
-    int newCounter = getHotnessCounter(Main.class, "$noinline$hotnessCount");
-    if (counter == newCounter) {
-      throw new Error("Expected hotness counter to be updated");
+    public static void $noinline$hotnessCountWithLoop(int count) {
+        for (int i = 0; i < count; i++) {
+            $noinline$hotnessCount();
+        }
     }
 
-    counter = getHotnessCounter(Main.class, "$noinline$hotnessCountWithLoop");
-    $noinline$hotnessCountWithLoop(1000);
-    newCounter = getHotnessCounter(Main.class, "$noinline$hotnessCountWithLoop");
-    if (newCounter == counter) {
-      throw new Error("Expected counter " + newCounter + " to be different than " + counter);
-    }
-    counter = newCounter;
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
+        if (!isAotCompiled(Main.class, "main")) {
+            return;
+        }
+        int counter = getHotnessCounter(Main.class, "$noinline$hotnessCount");
+        $noinline$hotnessCount();
+        int newCounter = getHotnessCounter(Main.class, "$noinline$hotnessCount");
+        if (counter == newCounter) {
+            throw new Error("Expected hotness counter to be updated");
+        }
 
-    $noinline$hotnessCountWithLoop(65500);
-    newCounter = getHotnessCounter(Main.class, "$noinline$hotnessCountWithLoop");
-    if (newCounter == counter) {
-      throw new Error("Expected counter " + newCounter + " to be different than " + counter);
-    }
-  }
+        counter = getHotnessCounter(Main.class, "$noinline$hotnessCountWithLoop");
+        $noinline$hotnessCountWithLoop(1000);
+        newCounter = getHotnessCounter(Main.class, "$noinline$hotnessCountWithLoop");
+        if (newCounter == counter) {
+            throw new Error("Expected counter " + newCounter + " to be different than " + counter);
+        }
+        counter = newCounter;
 
-  public static native int getHotnessCounter(Class<?> cls, String methodName);
-  public static native boolean isAotCompiled(Class<?> cls, String methodName);
+        $noinline$hotnessCountWithLoop(65500);
+        newCounter = getHotnessCounter(Main.class, "$noinline$hotnessCountWithLoop");
+        if (newCounter == counter) {
+            throw new Error("Expected counter " + newCounter + " to be different than " + counter);
+        }
+    }
+
+    public static native int getHotnessCounter(Class<?> cls, String methodName);
+    public static native boolean isAotCompiled(Class<?> cls, String methodName);
 }

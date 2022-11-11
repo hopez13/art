@@ -19,8 +19,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * A class loader with atypical behavior: we try to load a private
@@ -65,8 +65,7 @@ public class FancyLoader extends ClassLoader {
      * We search for a file in CLASS_PATH or pull an entry from DEX_FILE.
      * If we don't find a match, we throw an exception.
      */
-    protected Class<?> findClass(String name) throws ClassNotFoundException
-    {
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
         if (mDexClass != null) {
             return findClassDalvik(name);
         } else {
@@ -77,9 +76,7 @@ public class FancyLoader extends ClassLoader {
     /**
      * Finds the class with the specified binary name, from a DEX file.
      */
-    private Class<?> findClassDalvik(String name)
-        throws ClassNotFoundException {
-
+    private Class<?> findClassDalvik(String name) throws ClassNotFoundException {
         if (mDexFile == null) {
             synchronized (FancyLoader.class) {
                 Constructor<?> ctor;
@@ -89,8 +86,7 @@ public class FancyLoader extends ClassLoader {
                 try {
                     ctor = mDexClass.getConstructor(String.class);
                 } catch (NoSuchMethodException nsme) {
-                    throw new ClassNotFoundException("getConstructor failed",
-                        nsme);
+                    throw new ClassNotFoundException("getConstructor failed", nsme);
                 }
 
                 try {
@@ -121,8 +117,7 @@ public class FancyLoader extends ClassLoader {
         } catch (IllegalAccessException iae) {
             throw new ClassNotFoundException("loadClass failed", iae);
         } catch (InvocationTargetException ite) {
-            throw new ClassNotFoundException("loadClass failed",
-                ite.getCause());
+            throw new ClassNotFoundException("loadClass failed", ite.getCause());
         }
 
         return null;
@@ -131,11 +126,9 @@ public class FancyLoader extends ClassLoader {
     /**
      * Finds the class with the specified binary name, from .class files.
      */
-    private Class<?> findClassNonDalvik(String name)
-        throws ClassNotFoundException {
-
+    private Class<?> findClassNonDalvik(String name) throws ClassNotFoundException {
         String pathName = CLASS_PATH + name + ".class";
-        //System.out.println("--- Fancy: looking for " + pathName);
+        // System.out.println("--- Fancy: looking for " + pathName);
 
         File path = new File(pathName);
         RandomAccessFile raf;
@@ -162,7 +155,7 @@ public class FancyLoader extends ClassLoader {
         }
 
         /* create the class */
-        //System.out.println("--- Fancy: defining " + name);
+        // System.out.println("--- Fancy: defining " + name);
         try {
             return defineClass(name, fileData, 0, fileData.length);
         } catch (Throwable th) {
@@ -180,9 +173,7 @@ public class FancyLoader extends ClassLoader {
      * We still want the system classes (e.g. java.lang.Object) from the
      * bootstrap class loader.
      */
-    protected Class<?> loadClass(String name, boolean resolve)
-        throws ClassNotFoundException
-    {
+    protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
         Class<?> res;
 
         /*
@@ -193,8 +184,7 @@ public class FancyLoader extends ClassLoader {
          */
         res = findLoadedClass(name);
         if (res != null) {
-            System.out.println("FancyLoader.loadClass: "
-                + name + " already loaded");
+            System.out.println("FancyLoader.loadClass: " + name + " already loaded");
             if (resolve)
                 resolveClass(res);
             return res;
@@ -207,8 +197,7 @@ public class FancyLoader extends ClassLoader {
             res = findClass(name);
             if (resolve)
                 resolveClass(res);
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             // we couldn't find it, so eat the exception and keep going
         }
 
@@ -221,7 +210,7 @@ public class FancyLoader extends ClassLoader {
          * parent's loadClass() method, but we passed our parent to the
          * super-class which can take care of it for us.)
          */
-        res = super.loadClass(name, resolve);   // returns class or throws
+        res = super.loadClass(name, resolve); // returns class or throws
         return res;
     }
 }

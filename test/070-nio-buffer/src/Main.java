@@ -39,25 +39,22 @@ public class Main {
      */
     public static void basicShortTest() {
         ByteBuffer directBuf = ByteBuffer.allocateDirect(64);
-        //ByteBuffer directBuf = ByteBuffer.allocateDirect(65);
+        // ByteBuffer directBuf = ByteBuffer.allocateDirect(65);
 
         ShortBuffer shortBuf = directBuf.asShortBuffer();
 
-        short[] myShorts = {
-            1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007,
-            1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015,
-            1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023,
-            1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031
-        };
+        short[] myShorts = {1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011,
+                1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025,
+                1026, 1027, 1028, 1029, 1030, 1031};
 
         shortBuf.position(0);
-        shortBuf.put(myShorts, 0, 32);      // should work
+        shortBuf.put(myShorts, 0, 32); // should work
         shortBuf.position(0);
-        shortBuf.put(myShorts, 16, 16);     // should work
-        shortBuf.put(myShorts, 16, 16);     // advance to end
+        shortBuf.put(myShorts, 16, 16); // should work
+        shortBuf.put(myShorts, 16, 16); // advance to end
 
         try {
-            shortBuf.put(myShorts, 0, 1);     // should fail
+            shortBuf.put(myShorts, 0, 1); // should fail
             System.out.println("ERROR: out-of-bounds put succeeded\n");
         } catch (BufferOverflowException boe) {
             System.out.println("Got expected buffer overflow exception");
@@ -65,7 +62,7 @@ public class Main {
 
         try {
             shortBuf.position(0);
-            shortBuf.put(myShorts, 0, 33);     // should fail
+            shortBuf.put(myShorts, 0, 33); // should fail
             System.out.println("ERROR: out-of-bounds put succeeded\n");
         } catch (IndexOutOfBoundsException ioobe) {
             System.out.println("Got expected out-of-bounds exception");
@@ -73,7 +70,7 @@ public class Main {
 
         try {
             shortBuf.position(16);
-            shortBuf.put(myShorts, 0, 17);     // should fail
+            shortBuf.put(myShorts, 0, 17); // should fail
             System.out.println("ERROR: out-of-bounds put succeeded\n");
         } catch (BufferOverflowException boe) {
             System.out.println("Got expected buffer overflow exception");
@@ -91,15 +88,15 @@ public class Main {
         direct.order(ByteOrder.nativeOrder());
         IntBuffer int1 = direct.asIntBuffer();
         int data[] = new int[25];
-        //FloatBuffer int1 = direct.asFloatBuffer();
-        //float data[] = new float[25];
-        int1.clear ();
-        int1.put (data);
-        int1.position (0);
+        // FloatBuffer int1 = direct.asFloatBuffer();
+        // float data[] = new float[25];
+        int1.clear();
+        int1.put(data);
+        int1.position(0);
 
-        int1.clear ();
-        int1.put (data);
-        int1.position (0);
+        int1.clear();
+        int1.put(data);
+        int1.position(0);
     }
 
     /*
@@ -161,8 +158,8 @@ public class Main {
         char[] outBuf = new char[directBuf.limit() * 2];
         for (int i = 0; i < directBuf.limit(); i++) {
             byte b = directBuf.get();
-            outBuf[i*2] = hexChar((byte) ((b >> 4) & 0x0f));
-            outBuf[i*2+1] = hexChar((byte) (b & 0x0f));
+            outBuf[i * 2] = hexChar((byte) ((b >> 4) & 0x0f));
+            outBuf[i * 2 + 1] = hexChar((byte) (b & 0x0f));
         }
         System.out.println(new String(outBuf));
     }

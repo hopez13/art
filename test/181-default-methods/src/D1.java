@@ -15,7 +15,5 @@
  */
 
 interface D1 {
-    default String testMethod() {
-        return "D1.testMethod()";
-    }
+    default String testMethod() { return "D1.testMethod()"; }
 }

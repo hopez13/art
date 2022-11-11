@@ -15,7 +15,5 @@
  */
 
 public interface IFace {
-  public default void sayHi() {
-    System.out.println("Hello");
-  }
+    public default void sayHi() { System.out.println("Hello"); }
 }

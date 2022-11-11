@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-import annotations.BootstrapMethod;
-import annotations.CalledByIndy;
 import java.lang.invoke.CallSite;
 import java.lang.invoke.ConstantCallSite;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
+
+import annotations.BootstrapMethod;
+import annotations.CalledByIndy;
 
 class TestReturnValues extends TestBase {
     static CallSite bsm(MethodHandles.Lookup lookup, String name, MethodType methodType)
@@ -33,138 +34,108 @@ class TestReturnValues extends TestBase {
     // Methods that pass through a single argument.
     // Used to check return path.
     //
-    static byte passThrough(byte value) {
-        return value;
-    }
+    static byte passThrough(byte value) { return value; }
 
-    static char passThrough(char value) {
-        return value;
-    }
+    static char passThrough(char value) { return value; }
 
-    static double passThrough(double value) {
-        return value;
-    }
+    static double passThrough(double value) { return value; }
 
-    static float passThrough(float value) {
-        return value;
-    }
+    static float passThrough(float value) { return value; }
 
-    static int passThrough(int value) {
-        return value;
-    }
+    static int passThrough(int value) { return value; }
 
-    static Object passThrough(Object value) {
-        return value;
-    }
+    static Object passThrough(Object value) { return value; }
 
-    static Object[] passThrough(Object[] value) {
-        return value;
-    }
+    static Object[] passThrough(Object[] value) { return value; }
 
-    static long passThrough(long value) {
-        return value;
-    }
+    static long passThrough(long value) { return value; }
 
-    static short passThrough(short value) {
-        return value;
-    }
+    static short passThrough(short value) { return value; }
 
     static void passThrough() {}
 
-    static boolean passThrough(boolean value) {
-        return value;
-    }
+    static boolean passThrough(boolean value) { return value; }
 
     // byte
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = byte.class,
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = byte.class,
             parameterTypes = {byte.class})
-    private static byte passThroughCallSite(byte value) {
+    private static byte
+    passThroughCallSite(byte value) {
         assertNotReached();
         return (byte) 0;
     }
 
     // char
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = char.class,
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = char.class,
             parameterTypes = {char.class})
-    private static char passThroughCallSite(char value) {
+    private static char
+    passThroughCallSite(char value) {
         assertNotReached();
         return 'Z';
     }
 
     // double
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = double.class,
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = double.class,
             parameterTypes = {double.class})
-    private static double passThroughCallSite(double value) {
+    private static double
+    passThroughCallSite(double value) {
         assertNotReached();
         return Double.NaN;
     }
 
     // float
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = float.class,
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = float.class,
             parameterTypes = {float.class})
-    private static float passThroughCallSite(float value) {
+    private static float
+    passThroughCallSite(float value) {
         assertNotReached();
         return Float.NaN;
     }
 
     // int
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = int.class,
-            parameterTypes = {int.class})
-    private static int passThroughCallSite(int value) {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = int.class, parameterTypes = {int.class})
+    private static int
+    passThroughCallSite(int value) {
         assertNotReached();
         return 0;
     }
 
     // long
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = long.class,
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = long.class,
             parameterTypes = {long.class})
-    private static long passThroughCallSite(long value) {
+    private static long
+    passThroughCallSite(long value) {
         assertNotReached();
         return Long.MIN_VALUE;
     }
 
     // Object
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = Object.class,
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = Object.class,
             parameterTypes = {Object.class})
-    private static Object passThroughCallSite(Object value) {
+    private static Object
+    passThroughCallSite(Object value) {
         assertNotReached();
         return null;
     }
 
     // Object[]
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = Object[].class,
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = Object[].class,
             parameterTypes = {Object[].class})
     private static Object[] passThroughCallSite(Object[] value) {
         assertNotReached();
@@ -172,36 +143,32 @@ class TestReturnValues extends TestBase {
     }
 
     // short
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = short.class,
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = short.class,
             parameterTypes = {short.class})
-    private static short passThroughCallSite(short value) {
+    private static short
+    passThroughCallSite(short value) {
         assertNotReached();
         return (short) 0;
     }
 
     // void
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = void.class,
-            parameterTypes = {})
-    private static void passThroughCallSite() {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = void.class, parameterTypes = {})
+    private static void
+    passThroughCallSite() {
         assertNotReached();
     }
 
     // boolean
-    @CalledByIndy(
-            bootstrapMethod =
-                    @BootstrapMethod(enclosingType = TestReturnValues.class, name = "bsm"),
-            fieldOrMethodName = "passThrough",
-            returnType = boolean.class,
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestReturnValues.class, name = "bsm"),
+            fieldOrMethodName = "passThrough", returnType = boolean.class,
             parameterTypes = {boolean.class})
-    private static boolean passThroughCallSite(boolean value) {
+    private static boolean
+    passThroughCallSite(boolean value) {
         assertNotReached();
         return false;
     }
@@ -214,40 +181,24 @@ class TestReturnValues extends TestBase {
     }
 
     private static void testCharReturnValues() {
-        char[] values = {
-            Character.MIN_VALUE,
-            Character.MAX_HIGH_SURROGATE,
-            Character.MAX_LOW_SURROGATE,
-            Character.MAX_VALUE
-        };
+        char[] values = {Character.MIN_VALUE, Character.MAX_HIGH_SURROGATE,
+                Character.MAX_LOW_SURROGATE, Character.MAX_VALUE};
         for (char value : values) {
             assertEquals(value, (char) passThroughCallSite(value));
         }
     }
 
     private static void testDoubleReturnValues() {
-        double[] values = {
-            Double.MIN_VALUE,
-            Double.MIN_NORMAL,
-            Double.NaN,
-            Double.POSITIVE_INFINITY,
-            Double.NEGATIVE_INFINITY,
-            Double.MAX_VALUE
-        };
+        double[] values = {Double.MIN_VALUE, Double.MIN_NORMAL, Double.NaN,
+                Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.MAX_VALUE};
         for (double value : values) {
             assertEquals(value, (double) passThroughCallSite(value));
         }
     }
 
     private static void testFloatReturnValues() {
-        float[] values = {
-            Float.MIN_VALUE,
-            Float.MIN_NORMAL,
-            Float.NaN,
-            Float.POSITIVE_INFINITY,
-            Float.NEGATIVE_INFINITY,
-            Float.MAX_VALUE
-        };
+        float[] values = {Float.MIN_VALUE, Float.MIN_NORMAL, Float.NaN, Float.POSITIVE_INFINITY,
+                Float.NEGATIVE_INFINITY, Float.MAX_VALUE};
         for (float value : values) {
             assertEquals(value, (float) passThroughCallSite(value));
         }
@@ -282,8 +233,7 @@ class TestReturnValues extends TestBase {
 
     private static void testShortReturnValues() {
         short[] values = {
-            Short.MIN_VALUE, Short.MAX_VALUE, (short) Short.SIZE, (short) -Short.SIZE
-        };
+                Short.MIN_VALUE, Short.MAX_VALUE, (short) Short.SIZE, (short) -Short.SIZE};
         for (short value : values) {
             assertEquals(value, (short) passThroughCallSite(value));
         }

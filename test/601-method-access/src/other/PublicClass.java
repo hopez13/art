@@ -17,5 +17,4 @@
 package other;
 
 // Class that makes the ProtectedClass sub-classable by classes outside of package other.
-public class PublicClass extends ProtectedClass {
-}
+public class PublicClass extends ProtectedClass {}

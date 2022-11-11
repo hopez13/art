@@ -18,55 +18,44 @@
  * Test arithmetic operations.
  */
 public class Main {
-
-    static void shiftTest1()
-    {
-        final int[] mBytes = {
-            0x11, 0x22, 0x33, 0x44, 0x88, 0x99, 0xaa, 0xbb
-        };
+    static void shiftTest1() {
+        final int[] mBytes = {0x11, 0x22, 0x33, 0x44, 0x88, 0x99, 0xaa, 0xbb};
         long l;
         int i1, i2;
 
         i1 = mBytes[0] | mBytes[1] << 8 | mBytes[2] << 16 | mBytes[3] << 24;
         i2 = mBytes[4] | mBytes[5] << 8 | mBytes[6] << 16 | mBytes[7] << 24;
-        l = i1 | ((long)i2 << 32);
+        l = i1 | ((long) i2 << 32);
 
-	System.out.println("values are " + Integer.toHexString(i1)
-	    + " and " + Integer.toHexString(i2));
+        System.out.println(
+                "values are " + Integer.toHexString(i1) + " and " + Integer.toHexString(i2));
 
         System.out.println("First l is " + Long.toHexString(l));
 
-        l = (long)mBytes[0]
-            | (long)mBytes[1] << 8
-            | (long)mBytes[2] << 16
-            | (long)mBytes[3] << 24
-            | (long)mBytes[4] << 32
-            | (long)mBytes[5] << 40
-            | (long)mBytes[6] << 48
-            | (long)mBytes[7] << 56;
+        l = (long) mBytes[0] | (long) mBytes[1] << 8 | (long) mBytes[2] << 16
+                | (long) mBytes[3] << 24 | (long) mBytes[4] << 32 | (long) mBytes[5] << 40
+                | (long) mBytes[6] << 48 | (long) mBytes[7] << 56;
 
         System.out.println("Second l is " + Long.toHexString(l));
     }
 
-    static void shiftTest2()
-    {
-        long    a = 0x11;
-        long    b = 0x22;
-        long    c = 0x33;
-        long    d = 0x44;
-        long    e = 0x55;
-        long    f = 0x66;
-        long    g = 0x77;
-        long    h = 0x88;
+    static void shiftTest2() {
+        long a = 0x11;
+        long b = 0x22;
+        long c = 0x33;
+        long d = 0x44;
+        long e = 0x55;
+        long f = 0x66;
+        long g = 0x77;
+        long h = 0x88;
 
-        long    result = ((a << 56) | (b << 48) | (c << 40) | (d << 32) |
-                         (e << 24) | (f << 16) | (g << 8) | h);
+        long result = ((a << 56) | (b << 48) | (c << 40) | (d << 32) | (e << 24) | (f << 16)
+                | (g << 8) | h);
 
         System.out.println("shiftTest2 l is " + Long.toHexString(result));
     }
 
-    static void convTest()
-    {
+    static void convTest() {
         float f;
         double d;
         int i;
@@ -127,8 +116,7 @@ public class Main {
         System.out.println("i=" + i + " --> f=" + f);
     }
 
-    static void unsignedShiftTest()
-    {
+    static void unsignedShiftTest() {
         byte b = -4;
         short s = -4;
         char c = 0xfffc;
@@ -139,11 +127,10 @@ public class Main {
         c >>>= 4;
         i >>>= 4;
 
-        System.out.println("b=" + b + ", s=" + s + ", c=" + (int)c + ", i=" +i);
-        System.out.println("b=0x" + Integer.toHexString((int)b)
-            + ", s=0x" + Integer.toHexString((int)s)
-            + ", c=0x" + Integer.toHexString((int)c)
-            + ", i=0x" + Integer.toHexString(i));
+        System.out.println("b=" + b + ", s=" + s + ", c=" + (int) c + ", i=" + i);
+        System.out.println("b=0x" + Integer.toHexString((int) b) + ", s=0x"
+                + Integer.toHexString((int) s) + ", c=0x" + Integer.toHexString((int) c) + ", i=0x"
+                + Integer.toHexString(i));
     }
 
     public static void main(String[] args) {

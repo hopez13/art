@@ -15,165 +15,159 @@
  */
 
 public class Main {
+    // Testcase 1: the superclass has a package private version in the same package.
+    static Interface s = new SubClass();
 
-  // Testcase 1: the superclass has a package private version in the same package.
-  static Interface s = new SubClass();
+    // Testcase 2: the class has a package private version.
+    static Interface s2;
 
-  // Testcase 2: the class has a package private version.
-  static Interface s2;
+    // Testcase 3: the superclass has a package private version in a different package.
+    static Interface s3 = new SubClassFromPkg();
 
-  // Testcase 3: the superclass has a package private version in a different package.
-  static Interface s3 = new SubClassFromPkg();
+    // Testcase 4: there is no implementation in the hierarchy.
+    static Interface s4 = new SubClassNoFoo();
 
-  // Testcase 4: there is no implementation in the hierarchy.
-  static Interface s4 = new SubClassNoFoo();
+    // Testcase 5: there is a private method in the hierarchy.
+    static Interface s5 = new SubClassPrivateFoo();
 
-  // Testcase 5: there is a private method in the hierarchy.
-  static Interface s5 = new SubClassPrivateFoo();
+    // Testcase 6: there is a static method in the hierarchy.
+    static Interface s6 = new SubClassStaticFoo();
 
-  // Testcase 6: there is a static method in the hierarchy.
-  static Interface s6 = new SubClassStaticFoo();
-
-  static {
-    try {
-      s2 = (Interface) Class.forName("SubClass2").newInstance();
-    } catch (Exception e) {
-      throw new Error(e);
-    }
-  }
-
-  public static void assertEquals(Object expected, Object actual) {
-    if (expected != actual) {
-      throw new Error("Expected " + expected + ", got " + actual);
-    }
-  }
-
-  public static void assertTrue(boolean value) {
-    if (!value) {
-      throw new Error("");
-    }
-  }
-
-  public static void main(String[] args) throws Exception {
-    assertEquals(SuperClass.class, ((SubClass) s).foo());
-    assertEquals(SuperClass.class, ((SuperClass) s).foo());
-
-    try {
-      s.foo();
-      throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError ie) {
-      // expected
+    static {
+        try {
+            s2 = (Interface) Class.forName("SubClass2").newInstance();
+        } catch (Exception e) {
+            throw new Error(e);
+        }
     }
 
-    assertEquals(null, ((SuperClass) s2).foo());
-    try {
-      s2.foo();
-      throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError ie) {
-      // expected
+    public static void assertEquals(Object expected, Object actual) {
+        if (expected != actual) {
+            throw new Error("Expected " + expected + ", got " + actual);
+        }
     }
 
-    try {
-      ((pkg.PkgSuperClass) s3).foo();
-      throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError ie) {
-      // expected
+    public static void assertTrue(boolean value) {
+        if (!value) {
+            throw new Error("");
+        }
     }
 
-    try {
-      ((SubClassFromPkg) s3).foo();
-      throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError ie) {
-      // expected
-    }
+    public static void main(String[] args) throws Exception {
+        assertEquals(SuperClass.class, ((SubClass) s).foo());
+        assertEquals(SuperClass.class, ((SuperClass) s).foo());
 
-    try {
-      s3.foo();
-      throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError ie) {
-      // expected
-    }
+        try {
+            s.foo();
+            throw new Error("Expected IllegalAccessError");
+        } catch (IllegalAccessError ie) {
+            // expected
+        }
 
-    try {
-      ((SuperClassNoFoo) s4).foo();
-      throw new Error("Expected NoSuchMethodError");
-    } catch (NoSuchMethodError e) {
-      // expected
-    }
+        assertEquals(null, ((SuperClass) s2).foo());
+        try {
+            s2.foo();
+            throw new Error("Expected IllegalAccessError");
+        } catch (IllegalAccessError ie) {
+            // expected
+        }
 
-    try {
-      ((SubClassNoFoo) s4).foo();
-      throw new Error("Expected AbstractMethodError");
-    } catch (AbstractMethodError e) {
-      // expected
-    }
+        try {
+            ((pkg.PkgSuperClass) s3).foo();
+            throw new Error("Expected IllegalAccessError");
+        } catch (IllegalAccessError ie) {
+            // expected
+        }
 
-    try {
-      s4.foo();
-      throw new Error("Expected AbstractMethodError");
-    } catch (AbstractMethodError e) {
-      // expected
-    }
+        try {
+            ((SubClassFromPkg) s3).foo();
+            throw new Error("Expected IllegalAccessError");
+        } catch (IllegalAccessError ie) {
+            // expected
+        }
 
-    try {
-      ((SuperClassPrivateFoo) s5).foo();
-      throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError e) {
-      // expected
-    }
+        try {
+            s3.foo();
+            throw new Error("Expected IllegalAccessError");
+        } catch (IllegalAccessError ie) {
+            // expected
+        }
 
-    try {
-      ((SubClassPrivateFoo) s5).foo();
-      throw new Error("Expected IllegalAccessError");
-    } catch (IllegalAccessError e) {
-      // expected
-    }
+        try {
+            ((SuperClassNoFoo) s4).foo();
+            throw new Error("Expected NoSuchMethodError");
+        } catch (NoSuchMethodError e) {
+            // expected
+        }
 
-    try {
-      s5.foo();
-      throw new Error("Expected AbstractMethodError on RI, IllegalAccessError on ART");
-    } catch (AbstractMethodError | IllegalAccessError e) {
-      // expected
-    }
+        try {
+            ((SubClassNoFoo) s4).foo();
+            throw new Error("Expected AbstractMethodError");
+        } catch (AbstractMethodError e) {
+            // expected
+        }
 
-    try {
-      ((SuperClassStaticFoo) s6).foo();
-      throw new Error("Expected IncompatibleClassChangeError");
-    } catch (IncompatibleClassChangeError e) {
-      // expected
-    }
+        try {
+            s4.foo();
+            throw new Error("Expected AbstractMethodError");
+        } catch (AbstractMethodError e) {
+            // expected
+        }
 
-    try {
-      ((SubClassStaticFoo) s6).foo();
-      throw new Error("Expected IncompatibleClassChangeError");
-    } catch (IncompatibleClassChangeError e) {
-      // expected
-    }
+        try {
+            ((SuperClassPrivateFoo) s5).foo();
+            throw new Error("Expected IllegalAccessError");
+        } catch (IllegalAccessError e) {
+            // expected
+        }
 
-    try {
-      s6.foo();
-      throw new Error("Expected AbstractMethodError");
-    } catch (AbstractMethodError e) {
-      // expected
+        try {
+            ((SubClassPrivateFoo) s5).foo();
+            throw new Error("Expected IllegalAccessError");
+        } catch (IllegalAccessError e) {
+            // expected
+        }
+
+        try {
+            s5.foo();
+            throw new Error("Expected AbstractMethodError on RI, IllegalAccessError on ART");
+        } catch (AbstractMethodError | IllegalAccessError e) {
+            // expected
+        }
+
+        try {
+            ((SuperClassStaticFoo) s6).foo();
+            throw new Error("Expected IncompatibleClassChangeError");
+        } catch (IncompatibleClassChangeError e) {
+            // expected
+        }
+
+        try {
+            ((SubClassStaticFoo) s6).foo();
+            throw new Error("Expected IncompatibleClassChangeError");
+        } catch (IncompatibleClassChangeError e) {
+            // expected
+        }
+
+        try {
+            s6.foo();
+            throw new Error("Expected AbstractMethodError");
+        } catch (AbstractMethodError e) {
+            // expected
+        }
     }
-  }
 }
 
 interface Interface {
-  public Class<?> foo();
+    public Class<?> foo();
 }
 
-class SubClass extends SuperClass implements Interface {
-}
+class SubClass extends SuperClass implements Interface {}
 
-class SubClassFromPkg extends pkg.PkgSuperClass implements Interface {
-}
+class SubClassFromPkg extends pkg.PkgSuperClass implements Interface {}
 
-class SubClassNoFoo extends SuperClassNoFoo implements Interface {
-}
+class SubClassNoFoo extends SuperClassNoFoo implements Interface {}
 
-class SubClassPrivateFoo extends SuperClassPrivateFoo implements Interface {
-}
+class SubClassPrivateFoo extends SuperClassPrivateFoo implements Interface {}
 
-class SubClassStaticFoo extends SuperClassStaticFoo implements Interface {
-}
+class SubClassStaticFoo extends SuperClassStaticFoo implements Interface {}

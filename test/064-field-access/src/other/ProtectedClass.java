@@ -48,15 +48,15 @@ class ProtectedClass {
     private double otherProtectedClassPrivateDoubleInstanceField = 24.0;
     private Object otherProtectedClassPrivateObjectInstanceField = "25";
 
- /* package */ boolean otherProtectedClassPackageBooleanInstanceField = true;
- /* package */ byte otherProtectedClassPackageByteInstanceField = 26;
- /* package */ char otherProtectedClassPackageCharInstanceField = 27;
- /* package */ short otherProtectedClassPackageShortInstanceField = 28;
- /* package */ int otherProtectedClassPackageIntInstanceField = 29;
- /* package */ long otherProtectedClassPackageLongInstanceField = 30;
- /* package */ float otherProtectedClassPackageFloatInstanceField = 31.0f;
- /* package */ double otherProtectedClassPackageDoubleInstanceField = 32.0;
- /* package */ Object otherProtectedClassPackageObjectInstanceField = "33";
+    /* package */ boolean otherProtectedClassPackageBooleanInstanceField = true;
+    /* package */ byte otherProtectedClassPackageByteInstanceField = 26;
+    /* package */ char otherProtectedClassPackageCharInstanceField = 27;
+    /* package */ short otherProtectedClassPackageShortInstanceField = 28;
+    /* package */ int otherProtectedClassPackageIntInstanceField = 29;
+    /* package */ long otherProtectedClassPackageLongInstanceField = 30;
+    /* package */ float otherProtectedClassPackageFloatInstanceField = 31.0f;
+    /* package */ double otherProtectedClassPackageDoubleInstanceField = 32.0;
+    /* package */ Object otherProtectedClassPackageObjectInstanceField = "33";
 
     public static boolean otherProtectedClassPublicBooleanStaticField = true;
     public static byte otherProtectedClassPublicByteStaticField = 34;
@@ -88,19 +88,18 @@ class ProtectedClass {
     private static double otherProtectedClassPrivateDoubleStaticField = 56.0;
     private static Object otherProtectedClassPrivateObjectStaticField = "57";
 
- /* package */ static boolean otherProtectedClassPackageBooleanStaticField = true;
- /* package */ static byte otherProtectedClassPackageByteStaticField = 58;
- /* package */ static char otherProtectedClassPackageCharStaticField = 59;
- /* package */ static short otherProtectedClassPackageShortStaticField = 60;
- /* package */ static int otherProtectedClassPackageIntStaticField = 61;
- /* package */ static long otherProtectedClassPackageLongStaticField = 62;
- /* package */ static float otherProtectedClassPackageFloatStaticField = 63.0f;
- /* package */ static double otherProtectedClassPackageDoubleStaticField = 64.0;
- /* package */ static Object otherProtectedClassPackageObjectStaticField = "65";
+    /* package */ static boolean otherProtectedClassPackageBooleanStaticField = true;
+    /* package */ static byte otherProtectedClassPackageByteStaticField = 58;
+    /* package */ static char otherProtectedClassPackageCharStaticField = 59;
+    /* package */ static short otherProtectedClassPackageShortStaticField = 60;
+    /* package */ static int otherProtectedClassPackageIntStaticField = 61;
+    /* package */ static long otherProtectedClassPackageLongStaticField = 62;
+    /* package */ static float otherProtectedClassPackageFloatStaticField = 63.0f;
+    /* package */ static double otherProtectedClassPackageDoubleStaticField = 64.0;
+    /* package */ static Object otherProtectedClassPackageObjectStaticField = "65";
 
-    public void otherPublicMethod() { }
-    protected void otherProtectedMethod() { }
-    private void otherPrivateMethod() { }
-    /* package */ void otherPackageMethod() { }
-
+    public void otherPublicMethod() {}
+    protected void otherProtectedMethod() {}
+    private void otherPrivateMethod() {}
+    /* package */ void otherPackageMethod() {}
 }

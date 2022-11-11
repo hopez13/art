@@ -14,25 +14,21 @@
  * limitations under the License.
  */
 
-import annotations.BootstrapMethod;
-import annotations.CalledByIndy;
-import annotations.Constant;
 import java.lang.invoke.CallSite;
 import java.lang.invoke.ConstantCallSite;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 
+import annotations.BootstrapMethod;
+import annotations.CalledByIndy;
+import annotations.Constant;
+
 class TestDynamicBootstrapArguments extends TestBase {
     private static int bsmCalls = 0;
 
-    static CallSite bsm(
-            MethodHandles.Lookup lookup,
-            String name,
-            MethodType methodType,
-            String otherNameComponent,
-            long nameSuffix)
-            throws Throwable {
+    static CallSite bsm(MethodHandles.Lookup lookup, String name, MethodType methodType,
+            String otherNameComponent, long nameSuffix) throws Throwable {
         bsmCalls = bsmCalls + 1;
         Class<?> definingClass = TestDynamicBootstrapArguments.class;
         String methodName = name + otherNameComponent + nameSuffix;
@@ -41,28 +37,17 @@ class TestDynamicBootstrapArguments extends TestBase {
         return new ConstantCallSite(mh);
     }
 
-    @CalledByIndy(
-        bootstrapMethod =
-                @BootstrapMethod(
-                    enclosingType = TestDynamicBootstrapArguments.class,
-                    name = "bsm",
-                    parameterTypes = {
-                        MethodHandles.Lookup.class,
-                        String.class,
-                        MethodType.class,
-                        String.class,
-                        long.class
-                    }
-                ),
-        fieldOrMethodName = "target",
-        returnType = int.class,
-        parameterTypes = {int.class, String.class, double.class},
-        constantArgumentsForBootstrapMethod = {
-            @Constant(stringValue = "A"),
-            @Constant(longValue = 100000000l)
-        }
-    )
-    private static int testDynamic(int i, String s, Double d) {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestDynamicBootstrapArguments.class, name = "bsm",
+                          parameterTypes = {MethodHandles.Lookup.class, String.class,
+                                  MethodType.class, String.class, long.class}),
+            fieldOrMethodName = "target", returnType = int.class,
+            parameterTypes = {int.class, String.class, double.class},
+            constantArgumentsForBootstrapMethod =
+            { @Constant(stringValue = "A")
+              , @Constant(longValue = 100000000l) })
+    private static int
+    testDynamic(int i, String s, Double d) {
         assertNotReached();
         return 0;
     }

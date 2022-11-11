@@ -31,17 +31,15 @@ public class MostDerived extends Derived {
         try {
             // This discrepancy then used to crash when resolving the Base.foo(.) method
             // for JIT compilation of another method.
-            main.getDeclaredMethod("ensureJitCompiled", Class.class, String.class).invoke(
-                    null, MostDerived.class, "bar");
+            main.getDeclaredMethod("ensureJitCompiled", Class.class, String.class)
+                    .invoke(null, MostDerived.class, "bar");
         } catch (Throwable t) {
             t.printStackTrace(System.out);
         }
         System.out.println("MostDerived.test(.) done.");
     }
 
-    public void foo(Class main) {
-        super.foo(main);
-    }
+    public void foo(Class main) { super.foo(main); }
 
     public void bar(Class main) {
         Base b = this;

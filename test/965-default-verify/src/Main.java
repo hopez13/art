@@ -14,48 +14,48 @@
  * limitations under the License.
  */
 class Main implements Iface {
-  public static void main(String[] args) {
-    System.out.println("Create Main instance");
-    Main m = new Main();
-    System.out.println("Calling functions on concrete Main");
-    callMain(m);
-    System.out.println("Calling functions on interface Iface");
-    callIface(m);
-  }
-
-  public static void callMain(Main m) {
-    System.out.println("Calling verifiable function on Main");
-    System.out.println(m.sayHi());
-    System.out.println("Calling unverifiable function on Main");
-    try {
-      m.verificationSoftFail();
-      System.out.println("Unexpected no error Thrown on Main");
-    } catch (NoSuchMethodError e) {
-      System.out.println("Expected NSME Thrown on Main");
-    } catch (Throwable e) {
-      System.out.println("Unexpected Error Thrown on Main");
-      e.printStackTrace(System.out);
+    public static void main(String[] args) {
+        System.out.println("Create Main instance");
+        Main m = new Main();
+        System.out.println("Calling functions on concrete Main");
+        callMain(m);
+        System.out.println("Calling functions on interface Iface");
+        callIface(m);
     }
-    System.out.println("Calling verifiable function on Main");
-    System.out.println(m.sayHi());
-    return;
-  }
 
-  public static void callIface(Iface m) {
-    System.out.println("Calling verifiable function on Iface");
-    System.out.println(m.sayHi());
-    System.out.println("Calling unverifiable function on Iface");
-    try {
-      m.verificationSoftFail();
-      System.out.println("Unexpected no error Thrown on Iface");
-    } catch (NoSuchMethodError e) {
-      System.out.println("Expected NSME Thrown on Iface");
-    } catch (Throwable e) {
-      System.out.println("Unexpected Error Thrown on Iface");
-      e.printStackTrace(System.out);
+    public static void callMain(Main m) {
+        System.out.println("Calling verifiable function on Main");
+        System.out.println(m.sayHi());
+        System.out.println("Calling unverifiable function on Main");
+        try {
+            m.verificationSoftFail();
+            System.out.println("Unexpected no error Thrown on Main");
+        } catch (NoSuchMethodError e) {
+            System.out.println("Expected NSME Thrown on Main");
+        } catch (Throwable e) {
+            System.out.println("Unexpected Error Thrown on Main");
+            e.printStackTrace(System.out);
+        }
+        System.out.println("Calling verifiable function on Main");
+        System.out.println(m.sayHi());
+        return;
     }
-    System.out.println("Calling verifiable function on Iface");
-    System.out.println(m.sayHi());
-    return;
-  }
+
+    public static void callIface(Iface m) {
+        System.out.println("Calling verifiable function on Iface");
+        System.out.println(m.sayHi());
+        System.out.println("Calling unverifiable function on Iface");
+        try {
+            m.verificationSoftFail();
+            System.out.println("Unexpected no error Thrown on Iface");
+        } catch (NoSuchMethodError e) {
+            System.out.println("Expected NSME Thrown on Iface");
+        } catch (Throwable e) {
+            System.out.println("Unexpected Error Thrown on Iface");
+            e.printStackTrace(System.out);
+        }
+        System.out.println("Calling verifiable function on Iface");
+        System.out.println(m.sayHi());
+        return;
+    }
 }

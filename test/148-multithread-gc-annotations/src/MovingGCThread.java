@@ -43,8 +43,8 @@ public class MovingGCThread implements Runnable {
         // This relies on the compaction copying from one space to another space and there being
         // no overlap.
         if (addressBefore == addressAfter) {
-            System.out.println("error: Expected different adddress " + addressBefore + " vs " +
-                    addressAfter);
+            System.out.println(
+                    "error: Expected different adddress " + addressBefore + " vs " + addressAfter);
         }
     }
 

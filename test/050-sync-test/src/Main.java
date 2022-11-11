@@ -62,7 +62,7 @@ public class Main {
 
         two.start();
 
-        //System.out.println("main: off and running");
+        // System.out.println("main: off and running");
 
         try {
             one.join();
@@ -98,8 +98,8 @@ class CpuThread extends Thread {
     }
 
     public void run() {
-        //System.out.print("thread running -- ");
-        //System.out.println(Thread.currentThread().getName());
+        // System.out.print("thread running -- ");
+        // System.out.println(Thread.currentThread().getName());
 
         synchronized (mSyncable) {
             synchronized (this) {
@@ -132,7 +132,7 @@ class CpuThread extends Thread {
 
 class SleepyThread extends Thread {
     private SleepyThread mOther;
-    private Integer[] mWaitOnMe;      // any type of object will do
+    private Integer[] mWaitOnMe; // any type of object will do
     private volatile boolean otherDone;
 
     private static int count = 0;
@@ -140,7 +140,7 @@ class SleepyThread extends Thread {
     SleepyThread(SleepyThread other) {
         mOther = other;
         otherDone = false;
-        mWaitOnMe = new Integer[] { 1, 2 };
+        mWaitOnMe = new Integer[] {1, 2};
 
         setName("thread#" + count);
         count++;
@@ -150,8 +150,7 @@ class SleepyThread extends Thread {
         System.out.println("SleepyThread.run starting");
 
         if (false) {
-            ThreadDeathHandler threadHandler =
-                new ThreadDeathHandler("SYNC THREAD");
+            ThreadDeathHandler threadHandler = new ThreadDeathHandler("SYNC THREAD");
             Thread.currentThread().setUncaughtExceptionHandler(threadHandler);
             throw new NullPointerException("die");
         }
@@ -160,15 +159,15 @@ class SleepyThread extends Thread {
             boolean intr = false;
 
             try {
-              do {
-                synchronized (mWaitOnMe) {
-                    mWaitOnMe.wait(9000);
-                }
-              } while (!otherDone);
+                do {
+                    synchronized (mWaitOnMe) {
+                        mWaitOnMe.wait(9000);
+                    }
+                } while (!otherDone);
             } catch (InterruptedException ie) {
                 // Expecting this; interrupted should be false.
-                System.out.println(Thread.currentThread().getName() +
-                        " interrupted, flag=" + Thread.interrupted());
+                System.out.println(Thread.currentThread().getName()
+                        + " interrupted, flag=" + Thread.interrupted());
                 intr = true;
             } catch (Exception ex) {
                 ex.printStackTrace(System.out);
@@ -183,8 +182,7 @@ class SleepyThread extends Thread {
                 System.out.println("PESKY INTERRUPTED?");
             }
 
-            System.out.println("interrupting other (isAlive="
-                + mOther.isAlive() + ")");
+            System.out.println("interrupting other (isAlive=" + mOther.isAlive() + ")");
             mOther.interrupt();
             mOther.otherDone = true;
         }

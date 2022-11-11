@@ -14,41 +14,39 @@
  * limitations under the License.
  */
 
-
 public class Main {
+    /// CHECK-START: void Main.boundTypeForIfNotNull() builder (after)
+    /// CHECK-DAG:     <<Null:l\d+>>        NullConstant
+    /// CHECK-DAG:     <<Cst5:i\d+>>        IntConstant 5
+    /// CHECK-DAG:     <<Cst10:i\d+>>       IntConstant 10
 
-  /// CHECK-START: void Main.boundTypeForIfNotNull() builder (after)
-  /// CHECK-DAG:     <<Null:l\d+>>        NullConstant
-  /// CHECK-DAG:     <<Cst5:i\d+>>        IntConstant 5
-  /// CHECK-DAG:     <<Cst10:i\d+>>       IntConstant 10
+    /// CHECK-DAG:                          InvokeVirtual [<<NullCheck:l\d+>>]
+    /// CHECK-DAG:     <<NullCheck>>        NullCheck [<<LoopPhi:l\d+>>] klass:int[]
+    /// CHECK-DAG:     <<LoopPhi>>          Phi [<<Null>>,<<MergePhi:l\d+>>] klass:int[]
 
-  /// CHECK-DAG:                          InvokeVirtual [<<NullCheck:l\d+>>]
-  /// CHECK-DAG:     <<NullCheck>>        NullCheck [<<LoopPhi:l\d+>>] klass:int[]
-  /// CHECK-DAG:     <<LoopPhi>>          Phi [<<Null>>,<<MergePhi:l\d+>>] klass:int[]
+    /// CHECK-DAG:     <<BoundType:l\d+>>   BoundType [<<LoopPhi>>] klass:int[] can_be_null:false
+    /// CHECK-DAG:     <<LoadClass1:l\d+>>  LoadClass
+    /// CHECK-DAG:     <<LoadClass2:l\d+>>  LoadClass
+    /// CHECK-DAG:     <<NewArray10:l\d+>>  NewArray [<<LoadClass2>>,<<Cst10>>] klass:int[]
+    /// CHECK-DAG:     <<NotNullPhi:l\d+>>  Phi [<<BoundType>>,<<NewArray10>>] klass:int[]
 
-  /// CHECK-DAG:     <<BoundType:l\d+>>   BoundType [<<LoopPhi>>] klass:int[] can_be_null:false
-  /// CHECK-DAG:     <<LoadClass1:l\d+>>  LoadClass
-  /// CHECK-DAG:     <<LoadClass2:l\d+>>  LoadClass
-  /// CHECK-DAG:     <<NewArray10:l\d+>>  NewArray [<<LoadClass2>>,<<Cst10>>] klass:int[]
-  /// CHECK-DAG:     <<NotNullPhi:l\d+>>  Phi [<<BoundType>>,<<NewArray10>>] klass:int[]
+    /// CHECK-DAG:     <<NewArray5:l\d+>>   NewArray [<<LoadClass1>>,<<Cst5>>] klass:int[]
+    /// CHECK-DAG:     <<MergePhi>>         Phi [<<NewArray5>>,<<NotNullPhi>>] klass:int[]
 
-  /// CHECK-DAG:     <<NewArray5:l\d+>>   NewArray [<<LoadClass1>>,<<Cst5>>] klass:int[]
-  /// CHECK-DAG:     <<MergePhi>>         Phi [<<NewArray5>>,<<NotNullPhi>>] klass:int[]
-
-  public static void boundTypeForIfNotNull() {
-    int[] array = null;
-    for (int i = -1; i < 10; ++i) {
-      if (array == null) {
-        array = new int[5];
-      } else {
-        if (i == 5) {
-          array = new int[10];
+    public static void boundTypeForIfNotNull() {
+        int[] array = null;
+        for (int i = -1; i < 10; ++i) {
+            if (array == null) {
+                array = new int[5];
+            } else {
+                if (i == 5) {
+                    array = new int[10];
+                }
+                array[i] = i;
+            }
         }
-        array[i] = i;
-      }
+        array.hashCode();
     }
-    array.hashCode();
-  }
 
-  public static void main(String[] args) {  }
+    public static void main(String[] args) {}
 }

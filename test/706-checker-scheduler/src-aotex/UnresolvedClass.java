@@ -15,7 +15,6 @@
  */
 
 public class UnresolvedClass {
-  public static int staticInt;
-  public int instanceInt;
+    public static int staticInt;
+    public int instanceInt;
 }
-

@@ -16,18 +16,14 @@
 
 public class SimpleTests {
     public static class TestGuardSkips extends VarHandleUnitTest {
-        public boolean checkGuard() {
-            return false;
-        }
+        public boolean checkGuard() { return false; }
 
         @Override
         protected void doTest() {
             throw new IllegalStateException("Not reachable");
         }
 
-        public static void main(String[] args) {
-            new TestGuardSkips().run();
-        }
+        public static void main(String[] args) { new TestGuardSkips().run(); }
     }
 
     public static class TestEqualsOK extends VarHandleUnitTest {

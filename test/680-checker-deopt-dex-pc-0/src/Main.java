@@ -21,16 +21,14 @@ public class Main {
     public static int $noinline$getInt(byte[] array, int offset) {
         // The aget for `array[offset]` is at dex pc 0, so the Deoptimize
         // from dynamic BCE shall also be at dex pc 0.
-        return ((array[offset    ] & 0xFF) <<  0) +
-               ((array[offset + 1] & 0xFF) <<  8) +
-               ((array[offset + 2] & 0xFF) << 16) +
-               ((array[offset + 3] & 0xFF) << 24);
+        return ((array[offset] & 0xFF) << 0) + ((array[offset + 1] & 0xFF) << 8)
+                + ((array[offset + 2] & 0xFF) << 16) + ((array[offset + 3] & 0xFF) << 24);
     }
 
     public static void main(String[] args) {
         System.loadLibrary(args[0]);
         if (hasJit()) {
-            byte[] array = { 0, 1, 2, 3 };
+            byte[] array = {0, 1, 2, 3};
             ensureJitCompiled(Main.class, "$noinline$getInt");
             if (!hasJitCompiledEntrypoint(Main.class, "$noinline$getInt")) {
                 throw new Error("Unexpected entrypoint!");
@@ -46,7 +44,8 @@ public class Main {
                 // immediatelly recompile the method and run the compiled code leading to
                 // a an infinite deoptimization recursion, yielding StackOverflowError.
                 $noinline$getInt(array, 1);
-            } catch (ArrayIndexOutOfBoundsException ignored) {}
+            } catch (ArrayIndexOutOfBoundsException ignored) {
+            }
         }
         System.out.println("passed");
     }

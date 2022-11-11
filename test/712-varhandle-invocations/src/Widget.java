@@ -18,9 +18,7 @@
 public class Widget implements WidgetInterface {
     protected int requisitionNumber;
 
-    public Widget(int requisitionNumber) {
-        this.requisitionNumber = requisitionNumber;
-    }
+    public Widget(int requisitionNumber) { this.requisitionNumber = requisitionNumber; }
 
     @Override
     public boolean equals(Object o) {

@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 class C extends A {
-  public String SayHiTwice() {
-    return "You don't control me";
-  }
+    public String SayHiTwice() { return "You don't control me"; }
 }

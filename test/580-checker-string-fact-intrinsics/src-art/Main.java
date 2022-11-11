@@ -15,58 +15,57 @@
  */
 
 public class Main {
+    /// CHECK-START: void Main.testNewStringFromBytes() builder (after)
+    /// CHECK-DAG:     InvokeStaticOrDirect method_name:java.lang.StringFactory.newStringFromBytes intrinsic:StringNewStringFromBytes
 
-  /// CHECK-START: void Main.testNewStringFromBytes() builder (after)
-  /// CHECK-DAG:     InvokeStaticOrDirect method_name:java.lang.StringFactory.newStringFromBytes intrinsic:StringNewStringFromBytes
+    public static void testNewStringFromBytes() {
+        byte[] bytes = {'f', 'o', 'o'};
+        String s = StringFactory.newStringFromBytes(bytes, 0, 0, 3);
+        System.out.println(s);
+    }
 
-  public static void testNewStringFromBytes() {
-    byte[] bytes = { 'f', 'o', 'o' };
-    String s = StringFactory.newStringFromBytes(bytes, 0, 0, 3);
-    System.out.println(s);
-  }
+    // The (native) method
+    //
+    //   java.lang.StringFactory.newStringFromChars(int offset, int charCount, char[] data)
+    //
+    // is recognized as intrinsic StringNewStringFromChars.  However,
+    // because this method is not public, we cannot call it and check
+    // that the compiler actually intrinsifies it (as it does for the
+    // StringNewStringFromBytes and StringNewStringFromString
+    // intrinsics) with Checker.
+    //
+    // We can call a public method such as
+    //
+    //   java.lang.StringFactory.newStringFromChars(char[] data)
+    //
+    // which contains a call to the former (non-public) native method.
+    // After the inliner runs, we can see the inlined call and check
+    // that the compiler intrinsifies it.
 
-  // The (native) method
-  //
-  //   java.lang.StringFactory.newStringFromChars(int offset, int charCount, char[] data)
-  //
-  // is recognized as intrinsic StringNewStringFromChars.  However,
-  // because this method is not public, we cannot call it and check
-  // that the compiler actually intrinsifies it (as it does for the
-  // StringNewStringFromBytes and StringNewStringFromString
-  // intrinsics) with Checker.
-  //
-  // We can call a public method such as
-  //
-  //   java.lang.StringFactory.newStringFromChars(char[] data)
-  //
-  // which contains a call to the former (non-public) native method.
-  // After the inliner runs, we can see the inlined call and check
-  // that the compiler intrinsifies it.
+    /// CHECK-START: void Main.testNewStringFromChars() builder (after)
+    /// CHECK-DAG:     InvokeStaticOrDirect method_name:java.lang.StringFactory.newStringFromChars intrinsic:None
 
-  /// CHECK-START: void Main.testNewStringFromChars() builder (after)
-  /// CHECK-DAG:     InvokeStaticOrDirect method_name:java.lang.StringFactory.newStringFromChars intrinsic:None
+    /// CHECK-START: void Main.testNewStringFromChars() inliner (after)
+    /// CHECK-DAG:     InvokeStaticOrDirect method_name:java.lang.StringFactory.newStringFromChars intrinsic:StringNewStringFromChars
 
-  /// CHECK-START: void Main.testNewStringFromChars() inliner (after)
-  /// CHECK-DAG:     InvokeStaticOrDirect method_name:java.lang.StringFactory.newStringFromChars intrinsic:StringNewStringFromChars
+    public static void testNewStringFromChars() {
+        char[] chars = {'b', 'a', 'r'};
+        String s = StringFactory.newStringFromChars(chars);
+        System.out.println(s);
+    }
 
-  public static void testNewStringFromChars() {
-    char[] chars = { 'b', 'a', 'r' };
-    String s = StringFactory.newStringFromChars(chars);
-    System.out.println(s);
-  }
+    /// CHECK-START: void Main.testNewStringFromString() builder (after)
+    /// CHECK-DAG:     InvokeStaticOrDirect method_name:java.lang.StringFactory.newStringFromString intrinsic:StringNewStringFromString
 
-  /// CHECK-START: void Main.testNewStringFromString() builder (after)
-  /// CHECK-DAG:     InvokeStaticOrDirect method_name:java.lang.StringFactory.newStringFromString intrinsic:StringNewStringFromString
+    public static void testNewStringFromString() {
+        String s1 = "baz";
+        String s2 = StringFactory.newStringFromString(s1);
+        System.out.println(s2);
+    }
 
-  public static void testNewStringFromString() {
-    String s1 = "baz";
-    String s2 = StringFactory.newStringFromString(s1);
-    System.out.println(s2);
-  }
-
-  public static void main(String[] args) throws Exception {
-    testNewStringFromBytes();
-    testNewStringFromChars();
-    testNewStringFromString();
-  }
+    public static void main(String[] args) throws Exception {
+        testNewStringFromBytes();
+        testNewStringFromChars();
+        testNewStringFromString();
+    }
 }

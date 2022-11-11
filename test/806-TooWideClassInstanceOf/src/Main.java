@@ -1231,50 +1231,50 @@ class F3 extends E1200 {}
 // TODO: manually initialize every (leaf) class to ensure SubtypeCheck are Assigned.
 
 public class Main {
-  public static void main(String[] args) {
-    String yes = "Yes";
-    String no = "No";
+    public static void main(String[] args) {
+        String yes = "Yes";
+        String no = "No";
 
-    A a = new A();
-    A c1 = new C1();
-    A c2 = new C2();
-    A e1 = new E1199();
-    A e2 = new E1200();
-    A f1 = new F1();
-    A f2 = new F3();
+        A a = new A();
+        A c1 = new C1();
+        A c2 = new C2();
+        A e1 = new E1199();
+        A e2 = new E1200();
+        A f1 = new F1();
+        A f2 = new F3();
 
-    expectTrue(f1 instanceof E1199);
-    expectFalse(f1 instanceof E1200);
-    expectFalse(f2 instanceof E1199);
-    expectTrue(f2 instanceof E1200);
+        expectTrue(f1 instanceof E1199);
+        expectFalse(f1 instanceof E1200);
+        expectFalse(f2 instanceof E1199);
+        expectTrue(f2 instanceof E1200);
 
-    expectFalse(e1 instanceof F1);
-    expectFalse(e1 instanceof F3);
-    expectFalse(e2 instanceof F1);
-    expectFalse(e2 instanceof F3);
+        expectFalse(e1 instanceof F1);
+        expectFalse(e1 instanceof F3);
+        expectFalse(e2 instanceof F1);
+        expectFalse(e2 instanceof F3);
 
-    expectFalse(e1 instanceof C1);
-    expectTrue(e2 instanceof C1);
-    expectTrue(e1 instanceof C2);
-    expectFalse(e2 instanceof C2);
+        expectFalse(e1 instanceof C1);
+        expectTrue(e2 instanceof C1);
+        expectTrue(e1 instanceof C2);
+        expectFalse(e2 instanceof C2);
 
-    expectFalse(c1 instanceof F1);
-    expectFalse(c1 instanceof F3);
-    expectFalse(c2 instanceof F1);
-    expectFalse(c2 instanceof F3);
+        expectFalse(c1 instanceof F1);
+        expectFalse(c1 instanceof F3);
+        expectFalse(c2 instanceof F1);
+        expectFalse(c2 instanceof F3);
 
-    System.out.println("passed");
-  }
-
-  private static void expectTrue(boolean value) {
-    if (!value) {
-      throw new Error("Expected True");
+        System.out.println("passed");
     }
-  }
 
-  private static void expectFalse(boolean value) {
-    if (value) {
-      throw new Error("Expected False");
+    private static void expectTrue(boolean value) {
+        if (!value) {
+            throw new Error("Expected True");
+        }
     }
-  }
+
+    private static void expectFalse(boolean value) {
+        if (value) {
+            throw new Error("Expected False");
+        }
+    }
 }

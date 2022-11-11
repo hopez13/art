@@ -20,69 +20,69 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 class MyClassLoader extends ClassLoader {
-  MyClassLoader() throws Exception {
-    super(MyClassLoader.class.getClassLoader());
+    MyClassLoader() throws Exception {
+        super(MyClassLoader.class.getClassLoader());
 
-    // Some magic to get access to the pathList field of BaseDexClassLoader.
-    ClassLoader loader = getClass().getClassLoader();
-    Class<?> baseDexClassLoader = loader.getClass().getSuperclass();
-    Field f = baseDexClassLoader.getDeclaredField("pathList");
-    f.setAccessible(true);
-    Object pathList = f.get(loader);
+        // Some magic to get access to the pathList field of BaseDexClassLoader.
+        ClassLoader loader = getClass().getClassLoader();
+        Class<?> baseDexClassLoader = loader.getClass().getSuperclass();
+        Field f = baseDexClassLoader.getDeclaredField("pathList");
+        f.setAccessible(true);
+        Object pathList = f.get(loader);
 
-    // Some magic to get access to the dexField field of pathList.
-    f = pathList.getClass().getDeclaredField("dexElements");
-    f.setAccessible(true);
-    dexElements = (Object[]) f.get(pathList);
-    dexFileField = dexElements[0].getClass().getDeclaredField("dexFile");
-    dexFileField.setAccessible(true);
-  }
-
-  Object[] dexElements;
-  Field dexFileField;
-
-  protected Class<?> loadClass(String className, boolean resolve) throws ClassNotFoundException {
-    // Mimic what DexPathList.findClass is doing.
-    try {
-      for (Object element : dexElements) {
-        Object dex = dexFileField.get(element);
-        Method method = dex.getClass().getDeclaredMethod(
-            "loadClassBinaryName", String.class, ClassLoader.class, List.class);
-
-        if (dex != null) {
-          Class<?> clazz = (Class<?>)method.invoke(dex, className, this, null);
-          if (clazz != null) {
-            return clazz;
-          }
-        }
-      }
-    } catch (InvocationTargetException ite) {
-      throw new ClassNotFoundException(className, ite.getCause());
-    } catch (Exception e) {
-      throw new Error(e);
+        // Some magic to get access to the dexField field of pathList.
+        f = pathList.getClass().getDeclaredField("dexElements");
+        f.setAccessible(true);
+        dexElements = (Object[]) f.get(pathList);
+        dexFileField = dexElements[0].getClass().getDeclaredField("dexFile");
+        dexFileField.setAccessible(true);
     }
-    return getParent().loadClass(className);
-  }
+
+    Object[] dexElements;
+    Field dexFileField;
+
+    protected Class<?> loadClass(String className, boolean resolve) throws ClassNotFoundException {
+        // Mimic what DexPathList.findClass is doing.
+        try {
+            for (Object element : dexElements) {
+                Object dex = dexFileField.get(element);
+                Method method = dex.getClass().getDeclaredMethod(
+                        "loadClassBinaryName", String.class, ClassLoader.class, List.class);
+
+                if (dex != null) {
+                    Class<?> clazz = (Class<?>) method.invoke(dex, className, this, null);
+                    if (clazz != null) {
+                        return clazz;
+                    }
+                }
+            }
+        } catch (InvocationTargetException ite) {
+            throw new ClassNotFoundException(className, ite.getCause());
+        } catch (Exception e) {
+            throw new Error(e);
+        }
+        return getParent().loadClass(className);
+    }
 }
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    MyClassLoader o = new MyClassLoader();
-    try {
-      Class<?> foo = o.loadClass("Main");
-      throw new Error("Unreachable");
-    } catch (ClassNotFoundException cnfe) {
-      boolean unexpected = false;
-      if (!(cnfe.getCause() instanceof InternalError)) {
-        unexpected = true;
-      } else {
-        String message = cnfe.getCause().getMessage();
-        unexpected = !message.startsWith("Attempt to register dex file ") ||
-                     !message.endsWith(" with multiple class loaders");
-      }
-      if (unexpected) {
-        cnfe.getCause().printStackTrace(System.out);
-      }
+    public static void main(String[] args) throws Exception {
+        MyClassLoader o = new MyClassLoader();
+        try {
+            Class<?> foo = o.loadClass("Main");
+            throw new Error("Unreachable");
+        } catch (ClassNotFoundException cnfe) {
+            boolean unexpected = false;
+            if (!(cnfe.getCause() instanceof InternalError)) {
+                unexpected = true;
+            } else {
+                String message = cnfe.getCause().getMessage();
+                unexpected = !message.startsWith("Attempt to register dex file ")
+                        || !message.endsWith(" with multiple class loaders");
+            }
+            if (unexpected) {
+                cnfe.getCause().printStackTrace(System.out);
+            }
+        }
     }
-  }
 }

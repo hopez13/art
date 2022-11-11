@@ -26,31 +26,21 @@ public abstract class VarHandleUnitTest {
     // Tracker of test events (starts, skips, ends)
     private final VarHandleUnitTestCollector collector;
 
-    public VarHandleUnitTest(VarHandleUnitTestCollector collector) {
-        this.collector = collector;
-    }
+    public VarHandleUnitTest(VarHandleUnitTestCollector collector) { this.collector = collector; }
 
-    public VarHandleUnitTest() {
-        this.collector = DEFAULT_COLLECTOR;
-    }
+    public VarHandleUnitTest() { this.collector = DEFAULT_COLLECTOR; }
 
     // Method that can be overloaded to signify that a test should be
     // run or skipped. Returns true if the test should be run and
     // false if the test should be skipped.
-    public boolean checkGuard() {
-        return true;
-    }
+    public boolean checkGuard() { return true; }
 
     // Method that implementations should use to perform a specific test.
     protected abstract void doTest() throws Exception;
 
-    public final void assertTrue(boolean value) {
-        assertEquals(true, value);
-    }
+    public final void assertTrue(boolean value) { assertEquals(true, value); }
 
-    public final void assertFalse(boolean value) {
-        assertEquals(false, value);
-    }
+    public final void assertFalse(boolean value) { assertEquals(false, value); }
 
     public final void assertEquals(boolean expected, boolean actual) {
         assertEquals(Boolean.valueOf(expected), Boolean.valueOf(actual));
@@ -138,9 +128,7 @@ public abstract class VarHandleUnitTest {
         assertThrows(WrongMethodTypeException.class, access);
     }
 
-    public final void failUnreachable() {
-        fail("Unreachable code");
-    }
+    public final void failUnreachable() { fail("Unreachable code"); }
 
     public final void run() {
         collector.start(getClass().getSimpleName());

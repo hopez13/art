@@ -18,32 +18,24 @@
  * Tests long division by zero for both / and %.
  */
 public class ZeroTests {
-    public static void longDivTest() throws Exception {
-      longTest("longDivTest", true);
-    }
+    public static void longDivTest() throws Exception { longTest("longDivTest", true); }
 
-    public static void longModTest() throws Exception {
-      longTest("longModTest", false);
-    }
+    public static void longModTest() throws Exception { longTest("longModTest", false); }
 
     private static void longTest(String name, boolean divide) throws Exception {
-      try {
-        if (divide) {
-          longDiv(1, 0);
-        } else {
-          longMod(1, 0);
+        try {
+            if (divide) {
+                longDiv(1, 0);
+            } else {
+                longMod(1, 0);
+            }
+            throw new AssertionError(name + " failed to throw");
+        } catch (ArithmeticException expected) {
+            System.out.println(name + " passes");
         }
-        throw new AssertionError(name + " failed to throw");
-      } catch (ArithmeticException expected) {
-        System.out.println(name + " passes");
-      }
     }
 
-    private static long longDiv(long lhs, long rhs) {
-      return lhs / rhs;
-    }
+    private static long longDiv(long lhs, long rhs) { return lhs / rhs; }
 
-    private static long longMod(long lhs, long rhs) {
-      return lhs % rhs;
-    }
+    private static long longMod(long lhs, long rhs) { return lhs % rhs; }
 }

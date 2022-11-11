@@ -24,7 +24,6 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 public class Main {
-
     static class Runner implements Runnable {
         List<Object> locks;
         List<CyclicBarrier> barriers;
@@ -61,7 +60,7 @@ public class Main {
                     step(l, b);
                 } else if (barrierObject != null) {
                     // Have barrier: sync, wait and recurse.
-                    synchronized(lockObject) {
+                    synchronized (lockObject) {
                         try {
                             barrierObject.await();
                         } catch (InterruptedException | BrokenBarrierException e) {
@@ -74,7 +73,7 @@ public class Main {
                     synchronized (lockObject) {
                         Object lockObject2 = l.remove(0);
                         CyclicBarrier barrierObject2 = b.remove(0);
-                        synchronized(lockObject2) {
+                        synchronized (lockObject2) {
                             try {
                                 barrierObject2.await();
                             } catch (InterruptedException | BrokenBarrierException e) {
@@ -92,8 +91,8 @@ public class Main {
         try {
             testCluster1();
         } catch (Exception e) {
-            Map<Thread,StackTraceElement[]> stacks = Thread.getAllStackTraces();
-            for (Map.Entry<Thread,StackTraceElement[]> entry : stacks.entrySet()) {
+            Map<Thread, StackTraceElement[]> stacks = Thread.getAllStackTraces();
+            for (Map.Entry<Thread, StackTraceElement[]> entry : stacks.entrySet()) {
                 System.out.println(entry.getKey());
                 System.out.println(Arrays.toString(entry.getValue()));
             }
@@ -149,29 +148,29 @@ public class Main {
 
         waitNotRunnable(t1);
         waitNotRunnable(t2);
-        Thread.sleep(250);    // Unfortunately this seems necessary. :-(
+        Thread.sleep(250); // Unfortunately this seems necessary. :-(
 
         // Thread 1.
         {
             Object[] stack1 = getAnnotatedStack(t1);
-            assertBlockedOn(stack1[0], o2);              // Blocked on o2.
-            assertLocks(stack1[0], o3);                  // Locked o3.
+            assertBlockedOn(stack1[0], o2); // Blocked on o2.
+            assertLocks(stack1[0], o3); // Locked o3.
             assertStackTraceElementStep(stack1[0]);
 
-            assertBlockedOn(stack1[1], null);            // Frame can't be blocked.
-            assertLocks(stack1[1], o1);                  // Locked o1.
+            assertBlockedOn(stack1[1], null); // Frame can't be blocked.
+            assertLocks(stack1[1], o1); // Locked o1.
             assertStackTraceElementStep(stack1[1]);
         }
 
         // Thread 2.
         {
             Object[] stack2 = getAnnotatedStack(t2);
-            assertBlockedOn(stack2[0], o1);              // Blocked on o1.
-            assertLocks(stack2[0]);                      // Nothing locked.
+            assertBlockedOn(stack2[0], o1); // Blocked on o1.
+            assertLocks(stack2[0]); // Nothing locked.
             assertStackTraceElementStep(stack2[0]);
 
-            assertBlockedOn(stack2[1], null);            // Frame can't be blocked.
-            assertLocks(stack2[1], o4, o2);              // Locked o4, o2.
+            assertBlockedOn(stack2[1], null); // Frame can't be blocked.
+            assertLocks(stack2[1], o4, o2); // Locked o4, o2.
             assertStackTraceElementStep(stack2[1]);
         }
     }
@@ -194,14 +193,14 @@ public class Main {
         }
     }
     private static void assertLocks(Object fromTrace, Object... locks) throws Exception {
-        Object fieldValue = fromTrace.getClass().getDeclaredMethod("getHeldLocks").
-                invoke(fromTrace);
-        assertEquals((Object[]) fieldValue,
-                (locks == null) ? null : (locks.length == 0 ? null : locks));
+        Object fieldValue =
+                fromTrace.getClass().getDeclaredMethod("getHeldLocks").invoke(fromTrace);
+        assertEquals(
+                (Object[]) fieldValue, (locks == null) ? null : (locks.length == 0 ? null : locks));
     }
     private static void assertBlockedOn(Object fromTrace, Object block) throws Exception {
-        Object fieldValue = fromTrace.getClass().getDeclaredMethod("getBlockedOn").
-                invoke(fromTrace);
+        Object fieldValue =
+                fromTrace.getClass().getDeclaredMethod("getBlockedOn").invoke(fromTrace);
         assertEquals(fieldValue, block);
     }
     private static void assertEquals(Object[] o1, Object[] o2) {
@@ -222,4 +221,3 @@ public class Main {
         throw new RuntimeException("Expected StackTraceElement " + fieldValue + " / " + o);
     }
 }
-

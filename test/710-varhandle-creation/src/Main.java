@@ -224,9 +224,7 @@ public final class Main {
         }
     }
 
-    public static void fail(String reason) {
-        throw new RuntimeException("FAIL: " + reason);
-    }
+    public static void fail(String reason) { throw new RuntimeException("FAIL: " + reason); }
 
     private static void checkNull(VarHandle v) {
         if (v != null) {
@@ -254,17 +252,17 @@ public final class Main {
     }
 
     private static void checkVarHandleAccessMode(VarHandle v, VarHandle.AccessMode accessMode,
-                                                 boolean expectedSupported, String expectedAccessModeType) {
+            boolean expectedSupported, String expectedAccessModeType) {
         boolean actualSupported = v.isAccessModeSupported(accessMode);
         if (actualSupported != expectedSupported) {
-            fail("isAccessModeSupported(" + accessMode + ") is " +
-                 actualSupported + " != " + expectedSupported);
+            fail("isAccessModeSupported(" + accessMode + ") is " + actualSupported
+                    + " != " + expectedSupported);
         }
 
         String actualAccessModeType = v.accessModeType(accessMode).toString();
         if (!actualAccessModeType.equals(expectedAccessModeType)) {
-            fail("accessModeType(" + accessMode + ") is " +
-                 actualAccessModeType + " != " + expectedAccessModeType);
+            fail("accessModeType(" + accessMode + ") is " + actualAccessModeType
+                    + " != " + expectedAccessModeType);
         }
     }
 
@@ -2059,9 +2057,7 @@ public final class Main {
     }
 
     private static void checkAccessMode(final VarHandle.AccessMode accessMode,
-                                        final String expectedName,
-                                        final String expectedMethodName,
-                                        final int expectedOrdinal) {
+            final String expectedName, final String expectedMethodName, final int expectedOrdinal) {
         final String actualName = accessMode.toString();
         if (!actualName.equals(expectedName)) {
             fail("AccessMode " + actualName + " != " + expectedName);
@@ -2069,14 +2065,14 @@ public final class Main {
 
         final String actualMethodName = accessMode.methodName();
         if (!actualMethodName.equals(expectedMethodName)) {
-            fail("AccessMode " + actualName + " method name " + actualMethodName + " != " +
-                 expectedMethodName);
+            fail("AccessMode " + actualName + " method name " + actualMethodName
+                    + " != " + expectedMethodName);
         }
 
         final int actualOrdinal = accessMode.ordinal();
         if (actualOrdinal != expectedOrdinal) {
-            fail("AccessMode " + accessMode + " ordinal " + actualOrdinal + " != " +
-                 expectedOrdinal);
+            fail("AccessMode " + accessMode + " ordinal " + actualOrdinal
+                    + " != " + expectedOrdinal);
         }
 
         VarHandle.AccessMode accessModeByName = VarHandle.AccessMode.valueOf(expectedName);
@@ -2156,79 +2152,104 @@ public final class Main {
                     // Mis-spelling field name
                     MethodHandles.lookup().findVarHandle(LookupCheckA.class, "feldA", Object.class);
                     fail("Misspelled field name succeeded.");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
 
                 try {
                     // Using wrong field type
                     MethodHandles.lookup().findVarHandle(LookupCheckA.class, "fieldA", Float.class);
                     fail("Misspelled field name succeeded.");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
 
                 try {
                     // Using wrong field type
                     MethodHandles.lookup().findVarHandle(LookupCheckA.class, "fieldB", Float.class);
                     fail("Wrong field type succeeded.");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
 
                 try {
                     // Looking up static field
-                    MethodHandles.lookup().findVarHandle(LookupCheckA.class, "staticFieldA", String.class);
+                    MethodHandles.lookup().findVarHandle(
+                            LookupCheckA.class, "staticFieldA", String.class);
                     fail("Static field resolved as instance field.");
-                } catch (IllegalAccessException e) {}
+                } catch (IllegalAccessException e) {
+                }
 
-                vhA = MethodHandles.lookup().findVarHandle(LookupCheckA.class, "fieldA", String.class);
-                vhB = MethodHandles.lookup().findVarHandle(LookupCheckA.class, "fieldB", Object.class);
+                vhA = MethodHandles.lookup().findVarHandle(
+                        LookupCheckA.class, "fieldA", String.class);
+                vhB = MethodHandles.lookup().findVarHandle(
+                        LookupCheckA.class, "fieldB", Object.class);
                 vhC = MethodHandles.lookup().findVarHandle(LookupCheckA.class, "fieldC", int.class);
                 vhD = MethodHandles.lookup().findVarHandle(LookupCheckA.class, "fieldD", int.class);
 
                 // Static fields
                 try {
                     // Mis-spelling field name
-                    MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFeldA", Object.class);
+                    MethodHandles.lookup().findStaticVarHandle(
+                            LookupCheckA.class, "staticFeldA", Object.class);
                     fail("Misspelled field name succeeded.");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
 
                 try {
                     // Using wrong field type
-                    MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFieldA", Float.class);
+                    MethodHandles.lookup().findStaticVarHandle(
+                            LookupCheckA.class, "staticFieldA", Float.class);
                     fail("Misspelled field name succeeded.");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
 
                 try {
                     // Using wrong field type
-                    MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFieldB", Float.class);
+                    MethodHandles.lookup().findStaticVarHandle(
+                            LookupCheckA.class, "staticFieldB", Float.class);
                     fail("Wrong field type succeeded");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
 
                 try {
                     // Looking up instance field
-                    MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "fieldA", String.class);
+                    MethodHandles.lookup().findStaticVarHandle(
+                            LookupCheckA.class, "fieldA", String.class);
                     fail("Instance field resolved as static field");
-                } catch (IllegalAccessException e) {}
+                } catch (IllegalAccessException e) {
+                }
 
-                vhsA = MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFieldA", String.class);
-                vhsB = MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFieldB", Object.class);
-                vhsC = MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFieldC", int.class);
-                vhsD = MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFieldD", int.class);
+                vhsA = MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckA.class, "staticFieldA", String.class);
+                vhsB = MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckA.class, "staticFieldB", Object.class);
+                vhsC = MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckA.class, "staticFieldC", int.class);
+                vhsD = MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckA.class, "staticFieldD", int.class);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
 
-        protected static void fail(String reason) {
-            Main.fail(reason);
-        }
+        protected static void fail(String reason) { Main.fail(reason); }
 
         public static void run() {
             System.out.print("LookupCheckA...");
-            if (vhA == null) fail("vhA is null");
-            if (vhB == null) fail("vhB is null");
-            if (vhC == null) fail("vhC is null");
-            if (vhD == null) fail("vhD is null");
-            if (vhsA == null) fail("vhsA is null");
-            if (vhsB == null) fail("vhsB is null");
-            if (vhsC == null) fail("vhsC is null");
-            if (vhsD == null) fail("vhsD is null");
+            if (vhA == null)
+                fail("vhA is null");
+            if (vhB == null)
+                fail("vhB is null");
+            if (vhC == null)
+                fail("vhC is null");
+            if (vhD == null)
+                fail("vhD is null");
+            if (vhsA == null)
+                fail("vhsA is null");
+            if (vhsB == null)
+                fail("vhsB is null");
+            if (vhsC == null)
+                fail("vhsC is null");
+            if (vhsD == null)
+                fail("vhsD is null");
             System.out.println("PASS");
         }
     }
@@ -2244,10 +2265,12 @@ public final class Main {
 
         static {
             try {
-                vhA = MethodHandles.lookup().findVarHandle(LookupCheckA.class, "fieldA", String.class);
+                vhA = MethodHandles.lookup().findVarHandle(
+                        LookupCheckA.class, "fieldA", String.class);
                 MethodHandles.lookup().findVarHandle(LookupCheckB.class, "fieldA", String.class);
 
-                vhB = MethodHandles.lookup().findVarHandle(LookupCheckA.class, "fieldB", Object.class);
+                vhB = MethodHandles.lookup().findVarHandle(
+                        LookupCheckA.class, "fieldB", Object.class);
                 MethodHandles.lookup().findVarHandle(LookupCheckB.class, "fieldB", Object.class);
 
                 vhC = MethodHandles.lookup().findVarHandle(LookupCheckA.class, "fieldC", int.class);
@@ -2256,21 +2279,30 @@ public final class Main {
                 try {
                     MethodHandles.lookup().findVarHandle(LookupCheckA.class, "fieldD", int.class);
                     fail("Accessing private field");
-                } catch (IllegalAccessException e) {}
+                } catch (IllegalAccessException e) {
+                }
 
-                vhsA = MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFieldA", String.class);
-                MethodHandles.lookup().findStaticVarHandle(LookupCheckB.class, "staticFieldA", String.class);
+                vhsA = MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckA.class, "staticFieldA", String.class);
+                MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckB.class, "staticFieldA", String.class);
 
-                vhsB = MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFieldB", Object.class);
-                MethodHandles.lookup().findStaticVarHandle(LookupCheckB.class, "staticFieldB", Object.class);
+                vhsB = MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckA.class, "staticFieldB", Object.class);
+                MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckB.class, "staticFieldB", Object.class);
 
-                vhsC = MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFieldC", int.class);
-                MethodHandles.lookup().findStaticVarHandle(LookupCheckB.class, "staticFieldC", int.class);
+                vhsC = MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckA.class, "staticFieldC", int.class);
+                MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckB.class, "staticFieldC", int.class);
 
                 try {
-                    MethodHandles.lookup().findStaticVarHandle(LookupCheckA.class, "staticFieldD", int.class);
+                    MethodHandles.lookup().findStaticVarHandle(
+                            LookupCheckA.class, "staticFieldD", int.class);
                     fail("Accessing private field");
-                } catch (IllegalAccessException e) {}
+                } catch (IllegalAccessException e) {
+                }
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -2279,12 +2311,18 @@ public final class Main {
         public static void run() {
             // Testing access
             System.out.print("LookupCheckB...");
-            if (vhA == null) fail("vhA is null");
-            if (vhB == null) fail("vhB is null");
-            if (vhC == null) fail("vhC is null");
-            if (vhsA == null) fail("vhsA is null");
-            if (vhsB == null) fail("vhsB is null");
-            if (vhsC == null) fail("vhsC is null");
+            if (vhA == null)
+                fail("vhA is null");
+            if (vhB == null)
+                fail("vhB is null");
+            if (vhC == null)
+                fail("vhC is null");
+            if (vhsA == null)
+                fail("vhsA is null");
+            if (vhsB == null)
+                fail("vhsB is null");
+            if (vhsC == null)
+                fail("vhsC is null");
             System.out.println("PASS");
         }
     }
@@ -2299,42 +2337,60 @@ public final class Main {
 
         static {
             try {
-                vhA = MethodHandles.lookup().findVarHandle(LookupCheckB.class, "fieldA", String.class);
+                vhA = MethodHandles.lookup().findVarHandle(
+                        LookupCheckB.class, "fieldA", String.class);
                 try {
                     MethodHandles.lookup().findVarHandle(LookupCheckB.class, "fieldA", Float.class);
-                } catch (NoSuchFieldException e) {}
-                vhB = MethodHandles.lookup().findVarHandle(LookupCheckB.class, "fieldB", Object.class);
+                } catch (NoSuchFieldException e) {
+                }
+                vhB = MethodHandles.lookup().findVarHandle(
+                        LookupCheckB.class, "fieldB", Object.class);
                 try {
                     MethodHandles.lookup().findVarHandle(LookupCheckB.class, "fieldB", int.class);
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
                 vhC = MethodHandles.lookup().findVarHandle(LookupCheckB.class, "fieldC", int.class);
                 try {
                     MethodHandles.lookup().findVarHandle(LookupCheckB.class, "fieldD", int.class);
                     fail("Accessing private field in unrelated class");
-                } catch (IllegalAccessException e) {}
+                } catch (IllegalAccessException e) {
+                }
 
-                vhsA = MethodHandles.lookup().findStaticVarHandle(LookupCheckB.class, "staticFieldA", String.class);
+                vhsA = MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckB.class, "staticFieldA", String.class);
                 try {
-                    MethodHandles.lookup().findStaticVarHandle(LookupCheckB.class, "staticFieldA", Float.class);
-                } catch (NoSuchFieldException e) {}
-                vhsB = MethodHandles.lookup().findStaticVarHandle(LookupCheckB.class, "staticFieldB", Object.class);
+                    MethodHandles.lookup().findStaticVarHandle(
+                            LookupCheckB.class, "staticFieldA", Float.class);
+                } catch (NoSuchFieldException e) {
+                }
+                vhsB = MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckB.class, "staticFieldB", Object.class);
                 try {
-                    MethodHandles.lookup().findStaticVarHandle(LookupCheckB.class, "staticFieldB", int.class);
-                } catch (NoSuchFieldException e) {}
-                vhsC = MethodHandles.lookup().findStaticVarHandle(LookupCheckB.class, "staticFieldC", int.class);
+                    MethodHandles.lookup().findStaticVarHandle(
+                            LookupCheckB.class, "staticFieldB", int.class);
+                } catch (NoSuchFieldException e) {
+                }
+                vhsC = MethodHandles.lookup().findStaticVarHandle(
+                        LookupCheckB.class, "staticFieldC", int.class);
                 try {
-                    MethodHandles.lookup().findStaticVarHandle(LookupCheckB.class, "staticFieldD", int.class);
+                    MethodHandles.lookup().findStaticVarHandle(
+                            LookupCheckB.class, "staticFieldD", int.class);
                     fail("Accessing private field in unrelated class");
-                } catch (IllegalAccessException e) {}
+                } catch (IllegalAccessException e) {
+                }
 
                 try {
-                    MethodHandles.lookup().findStaticVarHandle(LookupCheckB.class, "fieldA", String.class);
+                    MethodHandles.lookup().findStaticVarHandle(
+                            LookupCheckB.class, "fieldA", String.class);
                     fail("Found instance field looking for static");
-                } catch (IllegalAccessException e) {}
+                } catch (IllegalAccessException e) {
+                }
                 try {
-                    MethodHandles.lookup().findVarHandle(LookupCheckB.class, "staticFieldA", String.class);
+                    MethodHandles.lookup().findVarHandle(
+                            LookupCheckB.class, "staticFieldA", String.class);
                     fail("Found static field looking for instance");
-                } catch (IllegalAccessException e) {}
+                } catch (IllegalAccessException e) {
+                }
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -2342,10 +2398,14 @@ public final class Main {
 
         public static void run() {
             System.out.print("UnreflectCheck...");
-            if (vhA == null) fail("vhA is null");
-            if (vhB == null) fail("vhB is null");
-            if (vhsA == null) fail("vhsA is null");
-            if (vhsB == null) fail("vhsB is null");
+            if (vhA == null)
+                fail("vhA is null");
+            if (vhB == null)
+                fail("vhB is null");
+            if (vhsA == null)
+                fail("vhsA is null");
+            if (vhsB == null)
+                fail("vhsB is null");
             System.out.println("PASS");
         }
     }
@@ -2362,18 +2422,21 @@ public final class Main {
                     Field protectedField = LookupCheckA.class.getField("fieldC");
                     MethodHandles.lookup().unreflectVarHandle(protectedField);
                     fail("Unreflected protected field");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
                 try {
                     Field privateField = LookupCheckA.class.getField("fieldD");
                     MethodHandles.lookup().unreflectVarHandle(privateField);
                     fail("Unreflected private field");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
                 try {
                     Field privateField = LookupCheckA.class.getField("fieldD");
                     privateField.setAccessible(true);
                     MethodHandles.lookup().unreflectVarHandle(privateField);
                     fail("Unreflected private field");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
 
                 Field staticPublicField = LookupCheckA.class.getField("staticFieldA");
                 vhsA = MethodHandles.lookup().unreflectVarHandle(staticPublicField);
@@ -2381,18 +2444,21 @@ public final class Main {
                     Field protectedField = LookupCheckA.class.getField("staticFieldC");
                     MethodHandles.lookup().unreflectVarHandle(protectedField);
                     fail("Unreflected protected field");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
                 try {
                     Field privateField = LookupCheckA.class.getField("staticFieldD");
                     MethodHandles.lookup().unreflectVarHandle(privateField);
                     fail("Unreflected private field");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
                 try {
                     Field privateField = LookupCheckA.class.getField("staticFieldD");
                     privateField.setAccessible(true);
                     MethodHandles.lookup().unreflectVarHandle(privateField);
                     fail("Unreflected private field");
-                } catch (NoSuchFieldException e) {}
+                } catch (NoSuchFieldException e) {
+                }
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -2400,8 +2466,10 @@ public final class Main {
 
         public static void run() {
             System.out.print("LookupCheckC...");
-            if (vhA == null) fail("vhA is null");
-            if (vhsA == null) fail("vhsA is null");
+            if (vhA == null)
+                fail("vhA is null");
+            if (vhsA == null)
+                fail("vhsA is null");
             System.out.println("PASS");
         }
     }
@@ -2413,12 +2481,12 @@ public final class Main {
             Constructor<?> ctor =
                     class_loader_class.getConstructor(String.class, ClassLoader.class);
 
-            return (ClassLoader)ctor.newInstance(location + "/710-varhandle-creation-ex.jar",
-                                                 Main.class.getClassLoader());
+            return (ClassLoader) ctor.newInstance(
+                    location + "/710-varhandle-creation-ex.jar", Main.class.getClassLoader());
         } catch (ClassNotFoundException e) {
             // Running on RI. Use URLClassLoader.
             return new java.net.URLClassLoader(
-                    new java.net.URL[] { new java.net.URL("file://" + location + "/classes-ex/") });
+                    new java.net.URL[] {new java.net.URL("file://" + location + "/classes-ex/")});
         }
     }
 
@@ -2441,7 +2509,7 @@ public final class Main {
             System.out.println("Initial value of UnloadTest.i: " + (int) vh.get());
             // Try to collect all garbage thoroughly.
             for (int i = 0; i < 5; ++i) {
-               Runtime.getRuntime().gc();
+                Runtime.getRuntime().gc();
             }
             // Print the value again.
             System.out.println("Final value of UnloadTest.i: " + (int) vh.get());

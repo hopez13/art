@@ -16,16 +16,16 @@
 
 import java.lang.reflect.*;
 public class Main {
-  public static void main(String[] args) {
-    Class<?> c = null;
-    try {
-      c = Class.forName("ConcreteClass");
-      Method m = c.getMethod("callMethod");
-      System.out.println(m.invoke(c.newInstance(), new Object[0]));
-    } catch (Exception e) {
-      e.printStackTrace(System.out);
-      System.out.println("FAILED: Could not call method");
-      return;
+    public static void main(String[] args) {
+        Class<?> c = null;
+        try {
+            c = Class.forName("ConcreteClass");
+            Method m = c.getMethod("callMethod");
+            System.out.println(m.invoke(c.newInstance(), new Object[0]));
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+            System.out.println("FAILED: Could not call method");
+            return;
+        }
     }
-  }
 }

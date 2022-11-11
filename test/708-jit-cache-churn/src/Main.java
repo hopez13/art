@@ -15,17 +15,16 @@
  */
 
 public class Main {
-
-  public static void main(String[] args) throws Exception {
-    // Explicit loadLibrary here to pull JNI exports from arttestd.
-    System.loadLibrary(args[0]);
-    if (hasJit()) {
-      JitCacheChurnTest.run();
+    public static void main(String[] args) throws Exception {
+        // Explicit loadLibrary here to pull JNI exports from arttestd.
+        System.loadLibrary(args[0]);
+        if (hasJit()) {
+            JitCacheChurnTest.run();
+        }
+        System.out.println("Done");
     }
-    System.out.println("Done");
-  }
 
-  static native boolean hasJit();
+    static native boolean hasJit();
 
-  static native void ensureJitCompiled(Class<?> klass, String methodName);
+    static native void ensureJitCompiled(Class<?> klass, String methodName);
 }

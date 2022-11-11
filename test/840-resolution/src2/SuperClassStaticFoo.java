@@ -15,7 +15,5 @@
  */
 
 public class SuperClassStaticFoo {
-  public static Class<?> foo() {
-    return SuperClassStaticFoo.class;
-  }
+    public static Class<?> foo() { return SuperClassStaticFoo.class; }
 }

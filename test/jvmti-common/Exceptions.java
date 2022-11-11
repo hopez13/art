@@ -20,14 +20,11 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 public class Exceptions {
-  public static native void setupExceptionTracing(
-      Class<?> methodClass,
-      Class<?> exceptionClass,
-      Method exceptionEventMethod,
-      Method exceptionCaughtEventMethod);
+    public static native void setupExceptionTracing(Class<?> methodClass, Class<?> exceptionClass,
+            Method exceptionEventMethod, Method exceptionCaughtEventMethod);
 
-  public static native void enableExceptionCatchEvent(Thread thr);
-  public static native void enableExceptionEvent(Thread thr);
-  public static native void disableExceptionCatchEvent(Thread thr);
-  public static native void disableExceptionEvent(Thread thr);
+    public static native void enableExceptionCatchEvent(Thread thr);
+    public static native void enableExceptionEvent(Thread thr);
+    public static native void disableExceptionCatchEvent(Thread thr);
+    public static native void disableExceptionEvent(Thread thr);
 }

@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 /*
  * A test that checks that the inliner does not inline functions that contain
  * a loop with no exit.  This because the incremental update to
@@ -23,38 +22,36 @@
  */
 
 public class Main {
-
-  public static void assertIntEquals(int expected, int result) {
-    if (expected != result) {
-      throw new Error("Expected: " + expected + ", found: " + result);
+    public static void assertIntEquals(int expected, int result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
     }
-  }
 
-  public static int $opt$noinline$Function(int x, int y) {
-    int result;
-    if (x <= y) {
-      result = 42;
-    } else {
-      while (true);
+    public static int $opt$noinline$Function(int x, int y) {
+        int result;
+        if (x <= y) {
+            result = 42;
+        } else {
+            while (true)
+                ;
+        }
+        return result;
     }
-    return result;
-  }
 
-  /// CHECK-START: int Main.callerLoop(int, int) inliner (before)
-  /// CHECK:         InvokeStaticOrDirect method_name:Main.$opt$noinline$Function  loop:{{B\d+}}
+    /// CHECK-START: int Main.callerLoop(int, int) inliner (before)
+    /// CHECK:         InvokeStaticOrDirect method_name:Main.$opt$noinline$Function  loop:{{B\d+}}
 
-  /// CHECK-START: int Main.callerLoop(int, int) inliner (after)
-  /// CHECK:         InvokeStaticOrDirect method_name:Main.$opt$noinline$Function  loop:{{B\d+}}
+    /// CHECK-START: int Main.callerLoop(int, int) inliner (after)
+    /// CHECK:         InvokeStaticOrDirect method_name:Main.$opt$noinline$Function  loop:{{B\d+}}
 
-  public static int callerLoop(int max_x, int max_y) {
-    int total = 0;
-    for (int x = 0; x < max_x; ++x) {
-      total += $opt$noinline$Function(x, max_y);
+    public static int callerLoop(int max_x, int max_y) {
+        int total = 0;
+        for (int x = 0; x < max_x; ++x) {
+            total += $opt$noinline$Function(x, max_y);
+        }
+        return total;
     }
-    return total;
-  }
 
-  public static void main(String[] args) {
-    assertIntEquals(42, callerLoop(1, 1));
-  }
+    public static void main(String[] args) { assertIntEquals(42, callerLoop(1, 1)); }
 }

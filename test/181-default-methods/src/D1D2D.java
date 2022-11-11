@@ -15,7 +15,5 @@
  */
 
 interface D1D2D extends D1, D2 {
-    default String testMethod() {
-        return "D1D2D.testMethod()";
-    }
+    default String testMethod() { return "D1D2D.testMethod()"; }
 }

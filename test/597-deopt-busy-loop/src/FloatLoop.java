@@ -22,9 +22,7 @@ public class FloatLoop implements Runnable {
     volatile static boolean sEntered = false;
     int threadIndex;
 
-    FloatLoop(int index) {
-        threadIndex = index;
-    }
+    FloatLoop(int index) { threadIndex = index; }
 
     public static void main() throws Exception {
         final Thread[] threads = new Thread[numberOfThreads];
@@ -46,8 +44,7 @@ public class FloatLoop implements Runnable {
 
     public void expectEqualToEither(float value, float expected0, float expected1) {
         if (value != expected0 && value != expected1) {
-            throw new Error("Expected:  " + expected0 + " or "+ expected1 +
-                            ", found: " + value);
+            throw new Error("Expected:  " + expected0 + " or " + expected1 + ", found: " + value);
         }
     }
 
@@ -90,7 +87,7 @@ public class FloatLoop implements Runnable {
     public void run() {
         if (threadIndex == 0) {
             while (!sEntered) {
-              Thread.yield();
+                Thread.yield();
             }
             Main.deoptimizeAll();
             sExitFlag = true;

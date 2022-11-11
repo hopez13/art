@@ -18,5 +18,5 @@ package p2;
 
 // Regression test for b/32193118
 public class DerivedClass2 extends p2.DerivedClass {
-  public void bar() { System.out.println("This should override!"); }
+    public void bar() { System.out.println("This should override!"); }
 }

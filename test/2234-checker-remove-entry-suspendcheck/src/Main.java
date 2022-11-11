@@ -15,51 +15,45 @@
  */
 
 public class Main {
-  public static class Inner {
-    String str;
-    int[] arr = {1, 2, 3};
+    public static class Inner {
+        String str;
+        int[] arr = {1, 2, 3};
 
-    // Test 1: This test checks whether the SuspendCheck is removed from a simple field get.
+        // Test 1: This test checks whether the SuspendCheck is removed from a simple field get.
 
-    /// CHECK-START: java.lang.String Main$Inner.$noinline$removeSuspendCheckFieldGet() register (before)
-    /// CHECK: SuspendCheck
-    /// CHECK: InstanceFieldGet
-    /// CHECK-START: java.lang.String Main$Inner.$noinline$removeSuspendCheckFieldGet() register (after)
-    /// CHECK-NOT: SuspendCheck
-    /// CHECK: InstanceFieldGet
-    public String $noinline$removeSuspendCheckFieldGet() {
-      return this.str;
+        /// CHECK-START: java.lang.String Main$Inner.$noinline$removeSuspendCheckFieldGet() register (before)
+        /// CHECK: SuspendCheck
+        /// CHECK: InstanceFieldGet
+        /// CHECK-START: java.lang.String Main$Inner.$noinline$removeSuspendCheckFieldGet() register (after)
+        /// CHECK-NOT: SuspendCheck
+        /// CHECK: InstanceFieldGet
+        public String $noinline$removeSuspendCheckFieldGet() { return this.str; }
+
+        // Test 2: This test checks whether the SuspendCheck is removed from a simple array get.
+
+        /// CHECK-START: int Main$Inner.$noinline$removeSuspendCheckArrayGet() register (before)
+        /// CHECK: SuspendCheck
+        /// CHECK: ArrayGet
+        /// CHECK-START: int Main$Inner.$noinline$removeSuspendCheckArrayGet() register (after)
+        /// CHECK-NOT: SuspendCheck
+        /// CHECK: ArrayGet
+        public int $noinline$removeSuspendCheckArrayGet() { return this.arr[0]; }
+
+        // Test 3: This test checks whether the SuspendCheck is removed from a simple array set.
+
+        /// CHECK-START: int Main$Inner.$noinline$removeSuspendCheckArraySet() register (before)
+        /// CHECK: SuspendCheck
+        /// CHECK: ArraySet
+        /// CHECK-START: int Main$Inner.$noinline$removeSuspendCheckArraySet() register (after)
+        /// CHECK-NOT: SuspendCheck
+        /// CHECK: ArraySet
+        public int $noinline$removeSuspendCheckArraySet() { return this.arr[0] = 2; }
     }
 
-    // Test 2: This test checks whether the SuspendCheck is removed from a simple array get.
-
-    /// CHECK-START: int Main$Inner.$noinline$removeSuspendCheckArrayGet() register (before)
-    /// CHECK: SuspendCheck
-    /// CHECK: ArrayGet
-    /// CHECK-START: int Main$Inner.$noinline$removeSuspendCheckArrayGet() register (after)
-    /// CHECK-NOT: SuspendCheck
-    /// CHECK: ArrayGet
-    public int $noinline$removeSuspendCheckArrayGet() {
-      return this.arr[0];
+    public static void main(String[] args) throws Exception {
+        Inner i = new Inner();
+        i.$noinline$removeSuspendCheckFieldGet();
+        i.$noinline$removeSuspendCheckArrayGet();
+        i.$noinline$removeSuspendCheckArraySet();
     }
-
-    // Test 3: This test checks whether the SuspendCheck is removed from a simple array set.
-
-    /// CHECK-START: int Main$Inner.$noinline$removeSuspendCheckArraySet() register (before)
-    /// CHECK: SuspendCheck
-    /// CHECK: ArraySet
-    /// CHECK-START: int Main$Inner.$noinline$removeSuspendCheckArraySet() register (after)
-    /// CHECK-NOT: SuspendCheck
-    /// CHECK: ArraySet
-    public int $noinline$removeSuspendCheckArraySet() {
-      return this.arr[0] = 2;
-    }
-  }
-
-  public static void main(String[] args) throws Exception {
-    Inner i = new Inner();
-    i.$noinline$removeSuspendCheckFieldGet();
-    i.$noinline$removeSuspendCheckArrayGet();
-    i.$noinline$removeSuspendCheckArraySet();
-  }
 }

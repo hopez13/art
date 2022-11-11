@@ -196,8 +196,7 @@ public class VarHandleArrayTests {
                         final int value = (i + 1) * 0x11223344;
                         vhInt.set(array, i, value);
                         assertEquals(value, vhInt.get(array, i));
-                        assertEquals(
-                                value,
+                        assertEquals(value,
                                 toHost(order, array[i], array[i + 1], array[i + 2], array[i + 3]));
                         for (int j = 0; j < array.length; ++j) {
                             if (j < i || j > i + 3) {
@@ -227,16 +226,12 @@ public class VarHandleArrayTests {
                 final ByteBuffer directBuffer = ByteBuffer.allocateDirect(32);
                 final ByteBuffer arrayBuffer = ByteBuffer.wrap(new byte[32]);
                 final ByteBuffer anotherArrayBuffer = ByteBuffer.wrap(new byte[32], 3, 23);
-                final ByteBuffer[] buffers = {
-                    heapBuffer,
-                    ((ByteBuffer) heapBuffer.duplicate().position(1)).slice(),
-                    directBuffer,
-                    ((ByteBuffer) directBuffer.duplicate().position(1)).slice(),
-                    arrayBuffer,
-                    ((ByteBuffer) arrayBuffer.duplicate().position(1)).slice(),
-                    anotherArrayBuffer,
-                    ((ByteBuffer) anotherArrayBuffer.duplicate().position(1)).slice()
-                };
+                final ByteBuffer[] buffers = {heapBuffer,
+                        ((ByteBuffer) heapBuffer.duplicate().position(1)).slice(), directBuffer,
+                        ((ByteBuffer) directBuffer.duplicate().position(1)).slice(), arrayBuffer,
+                        ((ByteBuffer) arrayBuffer.duplicate().position(1)).slice(),
+                        anotherArrayBuffer,
+                        ((ByteBuffer) anotherArrayBuffer.duplicate().position(1)).slice()};
                 for (final ByteBuffer buffer : buffers) {
                     {
                         final VarHandle vhShort =
@@ -286,14 +281,9 @@ public class VarHandleArrayTests {
                             final int value = (i + 1) * 0x11223344;
                             vhInt.set(buffer, i, value);
                             assertEquals(value, vhInt.get(buffer, i));
-                            assertEquals(
-                                    value,
-                                    toHost(
-                                            byteOrder,
-                                            buffer.get(i),
-                                            buffer.get(i + 1),
-                                            buffer.get(i + 2),
-                                            buffer.get(i + 3)));
+                            assertEquals(value,
+                                    toHost(byteOrder, buffer.get(i), buffer.get(i + 1),
+                                            buffer.get(i + 2), buffer.get(i + 3)));
                             for (int j = 0; j < buffer.limit(); ++j) {
                                 if (j < i || j > i + 3) {
                                     assertEquals((byte) 0, buffer.get(j));
@@ -322,12 +312,8 @@ public class VarHandleArrayTests {
             testByteBufferVarHandle();
         }
 
-        public static void main(String[] args) {
-            new ArrayStoreTest().run();
-        }
+        public static void main(String[] args) { new ArrayStoreTest().run(); }
     }
 
-    public static void main(String[] args) {
-        ArrayStoreTest.main(args);
-    }
+    public static void main(String[] args) { ArrayStoreTest.main(args); }
 }

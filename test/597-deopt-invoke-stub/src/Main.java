@@ -25,9 +25,7 @@ public class Main implements Runnable {
     private static native void assertIsManaged();
     private static native void ensureJitCompiled(Class<?> cls, String methodName);
 
-    Main(int index) {
-        threadIndex = index;
-    }
+    Main(int index) { threadIndex = index; }
 
     public static void main(String[] args) throws Exception {
         System.loadLibrary(args[0]);

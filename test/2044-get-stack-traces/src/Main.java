@@ -15,8 +15,8 @@
  */
 
 import java.lang.ref.Reference;
-import java.lang.ref.WeakReference;
 import java.lang.ref.SoftReference;
+import java.lang.ref.WeakReference;
 import java.math.BigInteger;
 import java.util.ArrayList;
 
@@ -31,17 +31,17 @@ public class Main {
     static volatile boolean pleaseStop = false;
 
     private static void getTrace(Thread t) {
-      StackTraceElement trace[] = t.getStackTrace();
-      if (!pleaseStop && (trace.length < 1 || trace.length > 20)) {
-        // If called from traceGetter, we were started by the main thread, and it was still
-        // running after the trace, so the main thread should have at least one frame on
-        // the stack. If called by main(), we waited for all the traceGetters to start,
-        // and didn't yet allow them to stop, so the same should be true.
-        System.out.println("Stack trace for " + t.getName() + " has size " + trace.length);
-        for (StackTraceElement e : trace) {
-          System.out.println(e.toString());
+        StackTraceElement trace[] = t.getStackTrace();
+        if (!pleaseStop && (trace.length < 1 || trace.length > 20)) {
+            // If called from traceGetter, we were started by the main thread, and it was still
+            // running after the trace, so the main thread should have at least one frame on
+            // the stack. If called by main(), we waited for all the traceGetters to start,
+            // and didn't yet allow them to stop, so the same should be true.
+            System.out.println("Stack trace for " + t.getName() + " has size " + trace.length);
+            for (StackTraceElement e : trace) {
+                System.out.println(e.toString());
+            }
         }
-      }
     }
 
     /**
@@ -49,10 +49,10 @@ public class Main {
      */
     static Runnable traceGetter = new Runnable() {
         public void run() {
-          System.out.println("Starting helper");
-          while (!pleaseStop) {
-            getTrace(mainThread);
-          }
+            System.out.println("Starting helper");
+            while (!pleaseStop) {
+                getTrace(mainThread);
+            }
         }
     };
 
@@ -61,25 +61,25 @@ public class Main {
         Thread[] t = new Thread[NUM_THREADS];
         mainThread = Thread.currentThread();
         for (int i = 0; i < NUM_THREADS; ++i) {
-          t[i] = new Thread(traceGetter);
-          t[i].start();
+            t[i] = new Thread(traceGetter);
+            t[i].start();
         }
         try {
-          Thread.sleep(1000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             System.out.println("Unexpectedly interrupted");
         }
         for (int i = 0; i < NUM_THREADS; ++i) {
-          getTrace(t[i]);
+            getTrace(t[i]);
         }
         System.out.println("Finished worker stack traces");
         long now = System.currentTimeMillis();
         while (System.currentTimeMillis() - now < 2000) {
-          try {
-            Thread.sleep(1);
-          } catch (InterruptedException e) {
-            System.out.println("Unexpectedly interrupted");
-          }
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                System.out.println("Unexpectedly interrupted");
+            }
         }
         pleaseStop = true;
         System.out.println("Finished");

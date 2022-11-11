@@ -15,27 +15,21 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    testWithNull(new Object[2]);
-    testWithUnknown(new Object[2], new Object());
-    testWithSame(new Object[2]);
-  }
+    public static void main(String[] args) {
+        testWithNull(new Object[2]);
+        testWithUnknown(new Object[2], new Object());
+        testWithSame(new Object[2]);
+    }
 
-  /// CHECK-START: void Main.testWithNull(java.lang.Object[]) disassembly (after)
-  /// CHECK:          ArraySet needs_type_check:false
-  public static void testWithNull(Object[] o) {
-    o[0] = null;
-  }
+    /// CHECK-START: void Main.testWithNull(java.lang.Object[]) disassembly (after)
+    /// CHECK:          ArraySet needs_type_check:false
+    public static void testWithNull(Object[] o) { o[0] = null; }
 
-  /// CHECK-START: void Main.testWithUnknown(java.lang.Object[], java.lang.Object) disassembly (after)
-  /// CHECK:          ArraySet needs_type_check:true
-  public static void testWithUnknown(Object[] o, Object obj) {
-    o[0] = obj;
-  }
+    /// CHECK-START: void Main.testWithUnknown(java.lang.Object[], java.lang.Object) disassembly (after)
+    /// CHECK:          ArraySet needs_type_check:true
+    public static void testWithUnknown(Object[] o, Object obj) { o[0] = obj; }
 
-  /// CHECK-START: void Main.testWithSame(java.lang.Object[]) disassembly (after)
-  /// CHECK:          ArraySet needs_type_check:false
-  public static void testWithSame(Object[] o) {
-    o[0] = o[1];
-  }
+    /// CHECK-START: void Main.testWithSame(java.lang.Object[]) disassembly (after)
+    /// CHECK:          ArraySet needs_type_check:false
+    public static void testWithSame(Object[] o) { o[0] = o[1]; }
 }

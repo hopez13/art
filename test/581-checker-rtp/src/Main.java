@@ -15,30 +15,29 @@
  */
 
 public final class Main {
-
-  /// CHECK-START: void Main.main(java.lang.String[]) builder (after)
-  /// CHECK: StaticFieldGet klass:Main[] exact:true
-  /// CHECK: ArrayGet klass:Main exact:true
-  /// CHECK: BoundType klass:Main exact:true
-  public static void main(String[] args) {
-    Object o = null;
-    Main f = a[0];
-    for (int i = 0; i < 2; ++i) {
-      // We used to crash in the fixed point iteration of
-      // the reference type propagation while handling the instanceof:
-      // we were expecting `o` to get the same exact-ness as the
-      // `HBoundType` but the typing of the `ArrayGet` used to not
-      // propagate the exact-ness.
-      if (o instanceof Main) {
-        field = o;
-      }
-      o = f;
+    /// CHECK-START: void Main.main(java.lang.String[]) builder (after)
+    /// CHECK: StaticFieldGet klass:Main[] exact:true
+    /// CHECK: ArrayGet klass:Main exact:true
+    /// CHECK: BoundType klass:Main exact:true
+    public static void main(String[] args) {
+        Object o = null;
+        Main f = a[0];
+        for (int i = 0; i < 2; ++i) {
+            // We used to crash in the fixed point iteration of
+            // the reference type propagation while handling the instanceof:
+            // we were expecting `o` to get the same exact-ness as the
+            // `HBoundType` but the typing of the `ArrayGet` used to not
+            // propagate the exact-ness.
+            if (o instanceof Main) {
+                field = o;
+            }
+            o = f;
+        }
+        if (field != null) {
+            throw new Error("Expected null");
+        }
     }
-    if (field != null) {
-      throw new Error("Expected null");
-    }
-  }
 
-  static Main[] a = new Main[1];
-  static Object field;
+    static Main[] a = new Main[1];
+    static Object field;
 }

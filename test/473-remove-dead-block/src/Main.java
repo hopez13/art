@@ -15,28 +15,27 @@
  */
 
 class Main {
-  public static void main(String[] args) {
-    System.out.println(test(false, 5));
-  }
+    public static void main(String[] args) { System.out.println(test(false, 5)); }
 
-  public static int test(boolean b, int i1) {
-    int j=4;
-    int s1=26294;
+    public static int test(boolean b, int i1) {
+        int j = 4;
+        int s1 = 26294;
 
-    for (int i = 25; i > 1; --i) {
-      if (b) continue;
-      // javac/dx will remove the catch information, but
-      // keep the catch code around. The optimizing compiler
-      // used to crash in the presence of dead blocks like the
-      // code in catch.
-      try {
-        i1 = i1 * 26295 + (s1 / 26295);
-      } catch (Throwable exc2) {
-        for (j = 1; j < 39; ++j) {
-          j++;
+        for (int i = 25; i > 1; --i) {
+            if (b)
+                continue;
+            // javac/dx will remove the catch information, but
+            // keep the catch code around. The optimizing compiler
+            // used to crash in the presence of dead blocks like the
+            // code in catch.
+            try {
+                i1 = i1 * 26295 + (s1 / 26295);
+            } catch (Throwable exc2) {
+                for (j = 1; j < 39; ++j) {
+                    j++;
+                }
+            }
         }
-      }
+        return i1;
     }
-    return i1;
-  }
 }

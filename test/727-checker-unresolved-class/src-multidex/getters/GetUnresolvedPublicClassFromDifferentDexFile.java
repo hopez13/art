@@ -21,18 +21,14 @@ import unresolved.UnresolvedPublicClass;
 import unresolved.UnresolvedPublicClazz;
 
 public class GetUnresolvedPublicClassFromDifferentDexFile {
-  // TODO: Make $inline$ when we relax the verifier. b/28313047
-  public static Class<?> get() {
-    return UnresolvedPublicClass.class;
-  }
+    // TODO: Make $inline$ when we relax the verifier. b/28313047
+    public static Class<?> get() { return UnresolvedPublicClass.class; }
 
-  // TODO: Make $inline$ when we relax the verifier. b/28313047
-  public static Class<?> getOtherClass() {
-    return PublicSubclassOfUnresolvedClass.class;
-  }
+    // TODO: Make $inline$ when we relax the verifier. b/28313047
+    public static Class<?> getOtherClass() { return PublicSubclassOfUnresolvedClass.class; }
 
-  // TODO: Make $inline$ when we relax the verifier. b/28313047
-  public static Class<?> getOtherClassWithSameDescriptorLength() {
-    return UnresolvedPublicClazz.class;
-  }
+    // TODO: Make $inline$ when we relax the verifier. b/28313047
+    public static Class<?> getOtherClassWithSameDescriptorLength() {
+        return UnresolvedPublicClazz.class;
+    }
 }

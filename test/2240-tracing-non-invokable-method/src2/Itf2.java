@@ -15,6 +15,5 @@
  */
 
 interface Itf2 {
-  public default void mConflict(){
-  }
+    public default void mConflict() {}
 }

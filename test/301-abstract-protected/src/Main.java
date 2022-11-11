@@ -15,19 +15,23 @@
  */
 
 public class Main {
-  public static void main(String args[]) throws Exception {
-    System.out.println(new C().m());
-  }
+    public static void main(String args[]) throws Exception { System.out.println(new C().m()); }
 }
 
 // An arbitrary interface.
-interface I { public String m(); }
+interface I {
+    public String m();
+}
 
 // This is I-like, but doesn't actually claim to implement I.
-abstract class Abstract { protected abstract String m(); }
+abstract class Abstract {
+    protected abstract String m();
+}
 
 // This claims to implement I, but the inherited m isn't sufficiently visible.
-abstract class AbstractI extends Abstract implements I { }
+abstract class AbstractI extends Abstract implements I {}
 
 // This has a concrete m that's sufficiently visible, so all should be good.
-class C extends AbstractI { public String m() { return "passed"; }; }
+class C extends AbstractI {
+    public String m() { return "passed"; };
+}

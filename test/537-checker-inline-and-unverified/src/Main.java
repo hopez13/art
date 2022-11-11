@@ -31,18 +31,14 @@ public class Main {
 
     /// CHECK-START: void Main.testNoInline() inliner (after)
     /// CHECK: InvokeStaticOrDirect method_name:Main.$opt$noinline$testNoInline
-    public static void testNoInline() {
-        $opt$noinline$testNoInline();
-    }
+    public static void testNoInline() { $opt$noinline$testNoInline(); }
 
     /// CHECK-START: void Main.testInline() inliner (before)
     /// CHECK: InvokeStaticOrDirect method_name:Main.$opt$inline$testInline
 
     /// CHECK-START: void Main.testInline() inliner (after)
     /// CHECK-NOT: InvokeStaticOrDirect
-    public static void testInline() {
-        $opt$inline$testInline();
-    }
+    public static void testInline() { $opt$inline$testInline(); }
 
     public static boolean $opt$noinline$testNoInline() {
         try {
@@ -53,7 +49,5 @@ public class Main {
         return false;
     }
 
-    public static boolean $opt$inline$testInline() {
-        return null instanceof Main;
-    }
+    public static boolean $opt$inline$testInline() { return null instanceof Main; }
 }

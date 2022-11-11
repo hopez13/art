@@ -18,16 +18,16 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("InvokeSuper");
-    try {
-      Method m = c.getMethod("run");
-      m.invoke(c.newInstance(), new Object[0]);
-      throw new Error("Expected NoSuchMethodError");
-    } catch (InvocationTargetException e) {
-      if (!(e.getCause() instanceof NoSuchMethodError)) {
-        throw new Error("Expected NoSuchMethodError");
-      }
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("InvokeSuper");
+        try {
+            Method m = c.getMethod("run");
+            m.invoke(c.newInstance(), new Object[0]);
+            throw new Error("Expected NoSuchMethodError");
+        } catch (InvocationTargetException e) {
+            if (!(e.getCause() instanceof NoSuchMethodError)) {
+                throw new Error("Expected NoSuchMethodError");
+            }
+        }
     }
-  }
 }

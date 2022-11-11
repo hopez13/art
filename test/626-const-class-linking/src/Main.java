@@ -99,7 +99,7 @@ public class Main {
         ClassLoader system_loader = ClassLoader.getSystemClassLoader();
         DefiningLoader defining_loader = new DefiningLoader(system_loader);
         MisbehavingLoader misbehaving_loader =
-            new MisbehavingLoader(system_loader, defining_loader);
+                new MisbehavingLoader(system_loader, defining_loader);
         Class<?> helper = misbehaving_loader.loadClass("Helper1");
 
         try {
@@ -107,10 +107,10 @@ public class Main {
         } catch (InvocationTargetException ite) {
             String message = ite.getCause().getMessage();
             if (usingRI && "Test".equals(message)) {
-              // Replace RI message with dalvik message to match expected-stdout.txt.
-              message = "Initiating class loader of type " +
-                  misbehaving_loader.getClass().getName() +
-                  " returned class Helper2 instead of Test.";
+                // Replace RI message with dalvik message to match expected-stdout.txt.
+                message = "Initiating class loader of type "
+                        + misbehaving_loader.getClass().getName()
+                        + " returned class Helper2 instead of Test.";
             }
             System.out.println(ite.getCause().getClass().getName() + ": " + message);
         }
@@ -125,7 +125,7 @@ public class Main {
 
         final RacyLoader racy_loader = new RacyLoader(system_loader, threads.length);
         final Class<?> helper1 = racy_loader.loadClass("Helper1");
-        skipVerification(helper1);  // Avoid class loading during verification.
+        skipVerification(helper1); // Avoid class loading during verification.
 
         for (int i = 0; i != threads.length; ++i) {
             final int my_index = i;
@@ -159,9 +159,9 @@ public class Main {
 
         final RacyLoader racy_loader = new RacyLoader(system_loader, threads.length);
         final Class<?> helper1 = racy_loader.loadClass("Helper1");
-        skipVerification(helper1);  // Avoid class loading during verification.
+        skipVerification(helper1); // Avoid class loading during verification.
         final Class<?> helper3 = racy_loader.loadClass("Helper3");
-        skipVerification(helper3);  // Avoid class loading during verification.
+        skipVerification(helper3); // Avoid class loading during verification.
 
         for (int i = 0; i != threads.length; ++i) {
             final int my_index = i;
@@ -195,9 +195,9 @@ public class Main {
         final Object[] results = new Object[threads.length];
 
         final RacyMisbehavingLoader racy_loader =
-            new RacyMisbehavingLoader(system_loader, threads.length, false);
+                new RacyMisbehavingLoader(system_loader, threads.length, false);
         final Class<?> helper1 = racy_loader.loadClass("RacyMisbehavingHelper");
-        skipVerification(helper1);  // Avoid class loading during verification.
+        skipVerification(helper1); // Avoid class loading during verification.
 
         for (int i = 0; i != threads.length; ++i) {
             final int my_index = i;
@@ -230,9 +230,9 @@ public class Main {
         final Object[] results = new Object[threads.length];
 
         final RacyMisbehavingLoader racy_loader =
-            new RacyMisbehavingLoader(system_loader, threads.length, true);
+                new RacyMisbehavingLoader(system_loader, threads.length, true);
         final Class<?> helper1 = racy_loader.loadClass("RacyMisbehavingHelper");
-        skipVerification(helper1);  // Avoid class loading during verification.
+        skipVerification(helper1); // Avoid class loading during verification.
 
         for (int i = 0; i != threads.length; ++i) {
             final int my_index = i;
@@ -283,8 +283,7 @@ public class Main {
         }
         System.out.println("total: " + results.length);
         System.out.println("  throwables: " + throwables);
-        System.out.println("  classes: " + classes
-            + " (" + unique_classes + " unique)");
+        System.out.println("  classes: " + classes + " (" + unique_classes + " unique)");
         if (expected_unique != unique_classes) {
             System.out.println("MISMATCH with expected_unique: " + expected_unique);
             ArrayList<Class<?>> list = new ArrayList<Class<?>>();

@@ -32,8 +32,7 @@ public class WrappedThrow {
 
         try {
             proxy = Proxy.newProxyInstance(WrappedThrow.class.getClassLoader(),
-                new Class<?>[] { InterfaceW1.class, InterfaceW2.class },
-                handler);
+                    new Class<?>[] {InterfaceW1.class, InterfaceW2.class}, handler);
         } catch (IllegalArgumentException iae) {
             System.out.println("WT init failed");
             return;
@@ -129,8 +128,7 @@ class SubSubException extends SubException {}
 interface InterfaceW1 {
     public void throwFunky();
 
-    public void throwFunky2() throws BaseException,
-           NoSuchMethodException, IOException;
+    public void throwFunky2() throws BaseException, NoSuchMethodException, IOException;
 
     public void throwException() throws BaseException;
     public void throwBase() throws BaseException;
@@ -141,8 +139,7 @@ interface InterfaceW1 {
 }
 
 interface InterfaceW2 {
-    public void throwFunky2() throws InterruptedException,
-           NoSuchMethodException, IOException;
+    public void throwFunky2() throws InterruptedException, NoSuchMethodException, IOException;
 
     public void throwException() throws SubException;
     public void throwBase() throws SubException;
@@ -178,22 +175,18 @@ class WTMix implements InterfaceW1, InterfaceW2 {
 class WTInvocationHandler implements InvocationHandler {
     private Object mObj;
 
-    public WTInvocationHandler(Object obj) {
-        mObj = obj;
-    }
+    public WTInvocationHandler(Object obj) { mObj = obj; }
 
     /*
      * This is called when anything gets invoked in the proxy object.
      */
-    public Object invoke(Object proxy, Method method, Object[] args)
-        throws Throwable {
-
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object result = null;
 
         // Trap Object calls.  This is important here to avoid a recursive
         // invocation of toString() in the print statements below.
         if (method.getDeclaringClass() == java.lang.Object.class) {
-            //System.out.println("!!! object " + method.getName());
+            // System.out.println("!!! object " + method.getName());
             if (method.getName().equals("toString"))
                 return super.toString();
             else if (method.getName().equals("hashCode"))
@@ -208,8 +201,7 @@ class WTInvocationHandler implements InvocationHandler {
         if (args == null || args.length == 0) {
             System.out.println(" (no args)");
         } else {
-            for (int i = 0; i < args.length; i++)
-                System.out.println(" " + i + ": " + args[i]);
+            for (int i = 0; i < args.length; i++) System.out.println(" " + i + ": " + args[i]);
         }
 
         try {
@@ -232,8 +224,7 @@ class WTInvocationHandler implements InvocationHandler {
                 result = method.invoke(mObj, args);
             else
                 result = -1;
-            System.out.println("Success: method " + method.getName()
-                + " res=" + result);
+            System.out.println("Success: method " + method.getName() + " res=" + result);
         } catch (InvocationTargetException ite) {
             throw ite.getTargetException();
         } catch (IllegalAccessException iae) {

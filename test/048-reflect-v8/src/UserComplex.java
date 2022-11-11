@@ -20,12 +20,8 @@
 //
 // Note that trying to do {C,Calendars,C} or similar
 // is illegal by the JLS.
-@Calendar(dayOfMonth="afirst")
-@Calendars ({
-  @Calendar(dayOfMonth="zsecond"),
-  @Calendar(dayOfMonth="athird", hour=23)
-})
+@Calendar(dayOfMonth = "afirst")
+@Calendars({ @Calendar(dayOfMonth = "zsecond")
+             , @Calendar(dayOfMonth = "athird", hour = 23) })
 // @Calendar(dayOfMonth="zlast")  // Leave for future ordering test
-public class UserComplex {
-
-}
+public class UserComplex {}

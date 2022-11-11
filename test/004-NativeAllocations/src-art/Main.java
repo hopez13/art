@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-import java.lang.Runtime;
-import java.lang.ref.ReferenceQueue;
-import java.lang.ref.PhantomReference;
 import dalvik.system.VMRuntime;
+
+import java.lang.Runtime;
+import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
 
 public class Main {
     static Object deadlockLock = new Object();
@@ -32,13 +33,11 @@ public class Main {
     static class DeadlockingFinalizer {
         protected void finalize() throws Exception {
             aboutToDeadlock = true;
-            synchronized (deadlockLock) { }
+            synchronized (deadlockLock) {}
         }
     }
 
-    private static void allocateDeadlockingFinalizer() {
-        new DeadlockingFinalizer();
-    }
+    private static void allocateDeadlockingFinalizer() { new DeadlockingFinalizer(); }
 
     public static PhantomReference allocPhantom(ReferenceQueue<Object> queue) {
         return new PhantomReference(new Object(), queue);
@@ -48,7 +47,7 @@ public class Main {
     // after a substantial number of registered native bytes.
     private static void checkRegisterNativeAllocation() throws Exception {
         long maxMem = Runtime.getRuntime().maxMemory();
-        int size = (int)(maxMem / 32);
+        int size = (int) (maxMem / 32);
         int allocationCount = 256;
 
         ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
@@ -85,7 +84,7 @@ public class Main {
         final long finalizerTimeoutMs = VMRuntime.getRuntime().getFinalizerTimeoutMs();
         final long quittingTime = startTime + finalizerTimeoutMs - MAX_EXPECTED_GC_DURATION_MS;
         long maxMem = Runtime.getRuntime().maxMemory();
-        int size = (int)(maxMem / 5);
+        int size = (int) (maxMem / 5);
         int allocationCount = 10;
 
         long total = 0;
@@ -124,4 +123,3 @@ public class Main {
         System.out.println("Test complete");
     }
 }
-

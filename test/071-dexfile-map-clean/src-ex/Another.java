@@ -15,7 +15,5 @@
  */
 
 public class Another {
-    public Another() {
-        System.out.println("Another Instance");
-    }
+    public Another() { System.out.println("Another Instance"); }
 }

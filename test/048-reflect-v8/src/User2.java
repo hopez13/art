@@ -17,11 +17,7 @@
 // Stored as a complex annotation Calendars(Calendar,Calendar,Calendar)
 // in the binary.
 // (Check for order, should be z,x,y)
-@Calendars ({
-  @Calendar(dayOfMonth="z"),
-  @Calendar(dayOfMonth="x"),
-  @Calendar(dayOfMonth="y")
+@Calendars({
+    @Calendar(dayOfMonth = "z"), @Calendar(dayOfMonth = "x"), @Calendar(dayOfMonth = "y")
 })
-public class User2 {
-
-}
+public class User2 {}

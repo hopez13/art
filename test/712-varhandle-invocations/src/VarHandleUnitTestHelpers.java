@@ -31,19 +31,11 @@ public class VarHandleUnitTestHelpers {
         if (isRunningOnAndroid()) {
             try {
                 Class<?> runtimeClass = Class.forName("dalvik.system.VMRuntime");
-                MethodHandle getRuntimeMH =
-                        MethodHandles.lookup()
-                                .findStatic(
-                                        runtimeClass,
-                                        "getRuntime",
-                                        MethodType.methodType(runtimeClass));
+                MethodHandle getRuntimeMH = MethodHandles.lookup().findStatic(
+                        runtimeClass, "getRuntime", MethodType.methodType(runtimeClass));
                 Object runtime = getRuntimeMH.invoke();
-                MethodHandle is64BitMH =
-                        MethodHandles.lookup()
-                                .findVirtual(
-                                        runtimeClass,
-                                        "is64Bit",
-                                        MethodType.methodType(boolean.class));
+                MethodHandle is64BitMH = MethodHandles.lookup().findVirtual(
+                        runtimeClass, "is64Bit", MethodType.methodType(boolean.class));
                 return (boolean) is64BitMH.invoke(runtime);
             } catch (Throwable t) {
                 throw new RuntimeException(t);

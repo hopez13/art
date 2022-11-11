@@ -15,97 +15,89 @@
  */
 
 public class Main {
+    /// CHECK-START: int Main.bar(Main) inliner (before)
+    /// CHECK: InvokeVirtual
+    /// CHECK: InvokeVirtual
 
-  /// CHECK-START: int Main.bar(Main) inliner (before)
-  /// CHECK: InvokeVirtual
-  /// CHECK: InvokeVirtual
-
-  /// CHECK-START: int Main.bar(Main) inliner (after)
-  /// CHECK-NOT: InvokeVirtual
-  public static int bar(Main m) {
-    if (m.getClass() == Main.class) {
-      return m.foo();
+    /// CHECK-START: int Main.bar(Main) inliner (after)
+    /// CHECK-NOT: InvokeVirtual
+    public static int bar(Main m) {
+        if (m.getClass() == Main.class) {
+            return m.foo();
+        }
+        return 4;
     }
-    return 4;
-  }
 
-  public int foo() {
-    return 42;
-  }
+    public int foo() { return 42; }
 
-  /// CHECK-START: boolean Main.classEquality1() instruction_simplifier$after_inlining (before)
-  /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
-  /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
-  /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
-  /// CHECK-DAG:                 If [<<Eq>>]
-  /// CHECK-DAG: <<Phi:i\d+>>    Phi [<<Const1>>,<<Const0>>]
-  /// CHECK-DAG:                 Return [<<Phi>>]
+    /// CHECK-START: boolean Main.classEquality1() instruction_simplifier$after_inlining (before)
+    /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
+    /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
+    /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
+    /// CHECK-DAG:                 If [<<Eq>>]
+    /// CHECK-DAG: <<Phi:i\d+>>    Phi [<<Const1>>,<<Const0>>]
+    /// CHECK-DAG:                 Return [<<Phi>>]
 
-  /// CHECK-START: boolean Main.classEquality1() dead_code_elimination$after_inlining (after)
-  /// CHECK-DAG: <<Constant:i\d+>> IntConstant 1
-  /// CHECK-DAG:                   Return [<<Constant>>]
-  public static boolean classEquality1() {
-    return new Main().getClass() == Main.class;
-  }
+    /// CHECK-START: boolean Main.classEquality1() dead_code_elimination$after_inlining (after)
+    /// CHECK-DAG: <<Constant:i\d+>> IntConstant 1
+    /// CHECK-DAG:                   Return [<<Constant>>]
+    public static boolean classEquality1() { return new Main().getClass() == Main.class; }
 
-  /// CHECK-START: boolean Main.classEquality2() instruction_simplifier$after_inlining (before)
-  /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
-  /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
-  /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
-  /// CHECK-DAG:                 If [<<Eq>>]
-  /// CHECK-DAG: <<Phi:i\d+>>    Phi [<<Const1>>,<<Const0>>]
-  /// CHECK-DAG:                 Return [<<Phi>>]
+    /// CHECK-START: boolean Main.classEquality2() instruction_simplifier$after_inlining (before)
+    /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
+    /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
+    /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
+    /// CHECK-DAG:                 If [<<Eq>>]
+    /// CHECK-DAG: <<Phi:i\d+>>    Phi [<<Const1>>,<<Const0>>]
+    /// CHECK-DAG:                 Return [<<Phi>>]
 
-  /// CHECK-START: boolean Main.classEquality2() dead_code_elimination$after_inlining (after)
-  /// CHECK-DAG: <<Constant:i\d+>> IntConstant 0
-  /// CHECK-DAG:                   Return [<<Constant>>]
-  public static boolean classEquality2() {
-    Object o = new SubMain();
-    return o.getClass() == Main.class;
-  }
-
-  /// CHECK-START: boolean Main.classEquality3() instruction_simplifier$after_inlining (before)
-  /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
-  /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
-  /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
-  /// CHECK-DAG:                 If [<<Eq>>]
-  /// CHECK-DAG: <<Phi:i\d+>>    Phi [<<Const1>>,<<Const0>>]
-  /// CHECK-DAG:                 Return [<<Phi>>]
-
-  /// CHECK-START: boolean Main.classEquality3() dead_code_elimination$after_inlining (after)
-  /// CHECK-DAG: <<Constant:i\d+>> IntConstant 0
-  /// CHECK-DAG:                   Return [<<Constant>>]
-  public static boolean classEquality3() {
-    return new Main().getClass() != Main.class;
-  }
-
-  /// CHECK-START: boolean Main.classEquality4() instruction_simplifier$after_inlining (before)
-  /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
-  /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
-  /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
-  /// CHECK-DAG:                 If [<<Eq>>]
-  /// CHECK-DAG: <<Phi:i\d+>>    Phi [<<Const1>>,<<Const0>>]
-  /// CHECK-DAG:                 Return [<<Phi>>]
-
-  /// CHECK-START: boolean Main.classEquality4() dead_code_elimination$after_inlining (after)
-  /// CHECK-DAG: <<Constant:i\d+>> IntConstant 1
-  /// CHECK-DAG:                   Return [<<Constant>>]
-  public static boolean classEquality4() {
-    Object o = new SubMain();
-    return o.getClass() != Main.class;
-  }
-
-  public static void main(String[] args) {
-    int actual = bar(new Main());
-    if (actual != 42) {
-      throw new Error("Expected 42, got " + actual);
+    /// CHECK-START: boolean Main.classEquality2() dead_code_elimination$after_inlining (after)
+    /// CHECK-DAG: <<Constant:i\d+>> IntConstant 0
+    /// CHECK-DAG:                   Return [<<Constant>>]
+    public static boolean classEquality2() {
+        Object o = new SubMain();
+        return o.getClass() == Main.class;
     }
-    actual = bar(new SubMain());
-    if (actual != 4) {
-      throw new Error("Expected 4, got " + actual);
+
+    /// CHECK-START: boolean Main.classEquality3() instruction_simplifier$after_inlining (before)
+    /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
+    /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
+    /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
+    /// CHECK-DAG:                 If [<<Eq>>]
+    /// CHECK-DAG: <<Phi:i\d+>>    Phi [<<Const1>>,<<Const0>>]
+    /// CHECK-DAG:                 Return [<<Phi>>]
+
+    /// CHECK-START: boolean Main.classEquality3() dead_code_elimination$after_inlining (after)
+    /// CHECK-DAG: <<Constant:i\d+>> IntConstant 0
+    /// CHECK-DAG:                   Return [<<Constant>>]
+    public static boolean classEquality3() { return new Main().getClass() != Main.class; }
+
+    /// CHECK-START: boolean Main.classEquality4() instruction_simplifier$after_inlining (before)
+    /// CHECK-DAG: <<Const0:i\d+>> IntConstant 0
+    /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
+    /// CHECK-DAG: <<Eq:z\d+>>     {{Equal|NotEqual}}
+    /// CHECK-DAG:                 If [<<Eq>>]
+    /// CHECK-DAG: <<Phi:i\d+>>    Phi [<<Const1>>,<<Const0>>]
+    /// CHECK-DAG:                 Return [<<Phi>>]
+
+    /// CHECK-START: boolean Main.classEquality4() dead_code_elimination$after_inlining (after)
+    /// CHECK-DAG: <<Constant:i\d+>> IntConstant 1
+    /// CHECK-DAG:                   Return [<<Constant>>]
+    public static boolean classEquality4() {
+        Object o = new SubMain();
+        return o.getClass() != Main.class;
     }
-  }
+
+    public static void main(String[] args) {
+        int actual = bar(new Main());
+        if (actual != 42) {
+            throw new Error("Expected 42, got " + actual);
+        }
+        actual = bar(new SubMain());
+        if (actual != 4) {
+            throw new Error("Expected 4, got " + actual);
+        }
+    }
 }
 
-class SubMain extends Main {
-}
+class SubMain extends Main {}

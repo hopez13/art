@@ -18,76 +18,76 @@ package p1;
 
 public class InP1 {
     public static Object $inline$AllocateOtherInP1(int i) {
-      // Let this method execute a while to make sure the JIT sees it hot.
-      if (i <= 10000) {
-        return null;
-      }
-      // Set the flag that we have entered InP1 code to get OtherInP1 loaded.
-      PlaceHolder.entered = true;
-      return new OtherInP1();
+        // Let this method execute a while to make sure the JIT sees it hot.
+        if (i <= 10000) {
+            return null;
+        }
+        // Set the flag that we have entered InP1 code to get OtherInP1 loaded.
+        PlaceHolder.entered = true;
+        return new OtherInP1();
     }
 
     public static Object $inline$AllocateArrayOtherInP1(int i) {
-      if (i <= 10000) {
-        return null;
-      }
-      return new OtherInP1[10];
+        if (i <= 10000) {
+            return null;
+        }
+        return new OtherInP1[10];
     }
 
     public static Object $inline$UseStaticFieldOtherInP1(int i) {
-      if (i <= 10000) {
-        return null;
-      }
-      return OtherInP1.staticField;
+        if (i <= 10000) {
+            return null;
+        }
+        return OtherInP1.staticField;
     }
 
     public static void $inline$SetStaticFieldOtherInP1(int i) {
-      if (i <= 10000) {
-        return;
-      }
-      OtherInP1.staticField = new Object();
+        if (i <= 10000) {
+            return;
+        }
+        OtherInP1.staticField = new Object();
     }
 
     public static Object $inline$UseInstanceFieldOtherInP1(int i) {
-      if (i <= 10000) {
-        return null;
-      }
-      return $noinline$AllocateOtherInP1().instanceField;
+        if (i <= 10000) {
+            return null;
+        }
+        return $noinline$AllocateOtherInP1().instanceField;
     }
 
     public static void $inline$SetInstanceFieldOtherInP1(int i) {
-      if (i <= 10000) {
-        return;
-      }
-      $noinline$AllocateOtherInP1().instanceField = new Object();
+        if (i <= 10000) {
+            return;
+        }
+        $noinline$AllocateOtherInP1().instanceField = new Object();
     }
 
     public static OtherInP1 $noinline$AllocateOtherInP1() {
-      try {
-        return new OtherInP1();
-      } catch (Exception e) {
-        throw new Error(e);
-      }
+        try {
+            return new OtherInP1();
+        } catch (Exception e) {
+            throw new Error(e);
+        }
     }
 
     public static Object $inline$LoadOtherInP1(int i) {
-      if (i <= 10000) {
-        return null;
-      }
-      return OtherInP1.class;
+        if (i <= 10000) {
+            return null;
+        }
+        return OtherInP1.class;
     }
 
     public static Object $inline$StaticCallOtherInP1(int i) {
-      if (i <= 10000) {
-        return null;
-      }
-      return OtherInP1.doTheStaticCall();
+        if (i <= 10000) {
+            return null;
+        }
+        return OtherInP1.doTheStaticCall();
     }
 
     public static Object $inline$InstanceCallOtherInP1(int i) {
-      if (i <= 10000) {
-        return null;
-      }
-      return $noinline$AllocateOtherInP1().doTheInstanceCall();
+        if (i <= 10000) {
+            return null;
+        }
+        return $noinline$AllocateOtherInP1().doTheInstanceCall();
     }
 }

@@ -15,56 +15,50 @@
  */
 
 public class Base {
-  Base() {
-    intField = 0;               // Unnecessary IPUT.
-    doubleField = 0.0;          // Unnecessary IPUT.
-    objectField = null;         // Unnecessary IPUT.
-  }
+    Base() {
+        intField = 0; // Unnecessary IPUT.
+        doubleField = 0.0; // Unnecessary IPUT.
+        objectField = null; // Unnecessary IPUT.
+    }
 
-  Base(int intValue) {
-    intField = intValue;
-  }
+    Base(int intValue) { intField = intValue; }
 
-  Base(String stringValue) {
-    objectField = stringValue;  // Unnecessary IPUT.
-    stringField = stringValue;
-    objectField = null;         // Unnecessary IPUT.
-  }
+    Base(String stringValue) {
+        objectField = stringValue; // Unnecessary IPUT.
+        stringField = stringValue;
+        objectField = null; // Unnecessary IPUT.
+    }
 
-  Base(double doubleValue, Object objectValue) {
-    doubleField = doubleValue;
-    objectField = objectValue;
-  }
+    Base(double doubleValue, Object objectValue) {
+        doubleField = doubleValue;
+        objectField = objectValue;
+    }
 
-  Base(int intValue, double doubleValue, Object objectValue) {
-    intField = intValue;
-    doubleField = doubleValue;
-    objectField = objectValue;
-  }
+    Base(int intValue, double doubleValue, Object objectValue) {
+        intField = intValue;
+        doubleField = doubleValue;
+        objectField = objectValue;
+    }
 
-  Base(int intValue, double doubleValue, Object objectValue, String stringValue) {
-    // Outside our limit of 3 IPUTs.
-    intField = intValue;
-    doubleField = doubleValue;
-    objectField = objectValue;
-    stringField = stringValue;
-  }
+    Base(int intValue, double doubleValue, Object objectValue, String stringValue) {
+        // Outside our limit of 3 IPUTs.
+        intField = intValue;
+        doubleField = doubleValue;
+        objectField = objectValue;
+        stringField = stringValue;
+    }
 
-  Base(double doubleValue) {
-    this(doubleValue, null);
-  }
+    Base(double doubleValue) { this(doubleValue, null); }
 
-  Base(Object objectValue) {
-    // Unsupported forwarding of a value after a zero.
-    this(0.0, objectValue);
-  }
+    Base(Object objectValue) {
+        // Unsupported forwarding of a value after a zero.
+        this(0.0, objectValue);
+    }
 
-  Base(int intValue, long unused) {
-    this(intValue, 0.0, null);
-  }
+    Base(int intValue, long unused) { this(intValue, 0.0, null); }
 
-  public int intField;
-  public double doubleField;
-  public Object objectField;
-  public String stringField;
+    public int intField;
+    public double doubleField;
+    public Object objectField;
+    public String stringField;
 }

@@ -41,7 +41,9 @@ public class Main {
             // Get declared methods of TestParameter.
             // This still does not resolve method parameter types.
             Method[] ms = tpc.getDeclaredMethods();
-            if (ms == null || ms.length != 1) { throw new Error("Unexpected methods"); };
+            if (ms == null || ms.length != 1) {
+                throw new Error("Unexpected methods");
+            };
             // Call getParameterTypes() to resolve parameter types. The parameter type
             // TestInterface shall be defined by the exLoader. This used to store the
             // TestInterface class in the dex cache resolved types for the mainLoader
@@ -73,12 +75,11 @@ public class Main {
                     class_loader_class.getConstructor(String.class, ClassLoader.class);
             /* on Dalvik, this is a DexFile; otherwise, it's null */
             String path = location + "/" + TEST_NAME + (ex ? "-ex.jar" : ".jar");
-            return (ClassLoader)ctor.newInstance(path, parent);
+            return (ClassLoader) ctor.newInstance(path, parent);
         } catch (ClassNotFoundException e) {
             // Running on RI. Use URLClassLoader.
             String url = "file://" + location + (ex ? "/classes-ex/" : "/classes/");
-            return new java.net.URLClassLoader(
-                    new java.net.URL[] { new java.net.URL(url) }, parent);
+            return new java.net.URLClassLoader(new java.net.URL[] {new java.net.URL(url)}, parent);
         }
     }
 

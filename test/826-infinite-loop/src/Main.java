@@ -15,12 +15,12 @@
  */
 
 final class Main {
-  public static void main(String[] args) {
-    Object o = new Object();
-    if (args.length == 0) {
-      while (true) {
-        System.out.println(new Object());
-      }
+    public static void main(String[] args) {
+        Object o = new Object();
+        if (args.length == 0) {
+            while (true) {
+                System.out.println(new Object());
+            }
+        }
     }
-  }
 }

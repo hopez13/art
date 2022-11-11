@@ -19,9 +19,8 @@ package otherpackage;
 import java.lang.reflect.Constructor;
 
 public class ConstructorAccess {
-
     static class Inner {
-      Inner() {}
+        Inner() {}
     }
 
     // Test for regression in b/25817515. Inner class constructor should
@@ -29,8 +28,8 @@ public class ConstructorAccess {
     // accessibility using the frame below (in Main class), we will see an
     // IllegalAccessException from #newInstance
     static public void newConstructorInstance() throws Exception {
-      Class<?> c = Inner.class;
-      Constructor cons = c.getDeclaredConstructor();
-      Object obj = cons.newInstance();
+        Class<?> c = Inner.class;
+        Constructor cons = c.getDeclaredConstructor();
+        Object obj = cons.newInstance();
     }
 }

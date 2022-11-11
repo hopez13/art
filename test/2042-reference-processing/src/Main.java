@@ -19,10 +19,10 @@ import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.HashMap;
 import java.util.TreeMap;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Test that objects get finalized and their references cleared in the right order.
@@ -41,9 +41,9 @@ public class Main {
     static final boolean CHECK_PHANTOM_REFS = false;
 
     static final int MAX_LIVE_OBJS = 150;
-    static final int DROP_OBJS = 50;  // Number of linked objects dropped in each batch.
+    static final int DROP_OBJS = 50; // Number of linked objects dropped in each batch.
     static final int MIN_LIVE_OBJS = MAX_LIVE_OBJS - DROP_OBJS;
-    static final int TOTAL_OBJS = 200_000;  // Allocate this many finalizable objects in total.
+    static final int TOTAL_OBJS = 200_000; // Allocate this many finalizable objects in total.
     static final boolean REPORT_DROPS = false;
     static volatile boolean pleaseStop;
 
@@ -101,7 +101,7 @@ public class Main {
         }
     }
     boolean inPhantomRefs(int n) {
-        synchronized(phantomRefsLock) {
+        synchronized (phantomRefsLock) {
             MyPhantomReference ref = phantomRefs.get(n);
             if (ref == null) {
                 return false;
@@ -126,8 +126,8 @@ public class Main {
             if (wr.get() != null) {
                 // This violates the WeakReference spec, and can result in strong references
                 // to objects that have been cleaned.
-                System.out.println("WeakReference to " + wr.n
-                    + " was erroneously cleared after " + num);
+                System.out.println(
+                        "WeakReference to " + wr.n + " was erroneously cleared after " + num);
             }
         }
     }
@@ -187,7 +187,6 @@ public class Main {
         }
     }
 
-
     /**
      * Add n objects to the head of the list. These will be assigned the next n consecutive
      * numbers after the current head of the list.
@@ -197,7 +196,7 @@ public class Main {
             int me = nextAllocated++;
             listHead = new FinalizableObject(me, listHead);
             weakRefs.put(me, new MyWeakReference(listHead));
-            synchronized(phantomRefsLock) {
+            synchronized (phantomRefsLock) {
                 phantomRefs.put(me, new MyPhantomReference(listHead));
             }
         }
@@ -293,7 +292,7 @@ public class Main {
             }
             // Look at counter to reduce chance of optimizing out the allocation.
             if (counter.longValue() % 10 != 0) {
-                 System.out.println("Bad causeGCs counter value: " + counter);
+                System.out.println("Bad causeGCs counter value: " + counter);
             }
         }
     };
@@ -301,7 +300,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Main theTest = new Main();
         Thread gcThread = new Thread(causeGCs);
-        gcThread.setDaemon(true);  // Terminate if main thread dies.
+        gcThread.setDaemon(true); // Terminate if main thread dies.
         gcThread.start();
         theTest.testLoop();
         pleaseStop = true;

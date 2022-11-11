@@ -17,10 +17,10 @@
 package p1;
 
 public class InPackage {
-  public static int $inline$method() {
-    // Call must be through a public subclass of the holder
-    // of the protected method, so that the Main class also has
-    // access to it.
-    return PublicB.method();
-  }
+    public static int $inline$method() {
+        // Call must be through a public subclass of the holder
+        // of the protected method, so that the Main class also has
+        // access to it.
+        return PublicB.method();
+    }
 }

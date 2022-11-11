@@ -19,61 +19,59 @@ package art;
 import java.util.ArrayList;
 
 public class Test908 {
-  public static void run() throws Exception {
-    doTest();
-  }
+    public static void run() throws Exception { doTest(); }
 
-  public static void doTest() throws Exception {
-    // Use a list to ensure objects must be allocated.
-    ArrayList<Object> l = new ArrayList<>(100);
+    public static void doTest() throws Exception {
+        // Use a list to ensure objects must be allocated.
+        ArrayList<Object> l = new ArrayList<>(100);
 
-    setupGcCallback();
+        setupGcCallback();
 
-    enableGcTracking(true);
-    run(l);
+        enableGcTracking(true);
+        run(l);
 
-    enableGcTracking(false);
-    run(l);
-  }
-
-  private static void run(ArrayList<Object> l) {
-    allocate(l, 1);
-    l.clear();
-
-    Runtime.getRuntime().gc();
-
-    printStats();
-
-    // Note: the reporting will not depend on the heap layout (which could be unstable). Walking
-    //       the tag table should give us a stable output order.
-    for (int i = 10; i <= 1000; i *= 10) {
-      allocate(l, i);
+        enableGcTracking(false);
+        run(l);
     }
-    l.clear();
 
-    Runtime.getRuntime().gc();
+    private static void run(ArrayList<Object> l) {
+        allocate(l, 1);
+        l.clear();
 
-    printStats();
+        Runtime.getRuntime().gc();
 
-    Runtime.getRuntime().gc();
+        printStats();
 
-    printStats();
-  }
+        // Note: the reporting will not depend on the heap layout (which could be unstable). Walking
+        //       the tag table should give us a stable output order.
+        for (int i = 10; i <= 1000; i *= 10) {
+            allocate(l, i);
+        }
+        l.clear();
 
-  private static void allocate(ArrayList<Object> l, long tag) {
-    Object obj = new Object();
-    l.add(obj);
-  }
+        Runtime.getRuntime().gc();
 
-  private static void printStats() {
-      System.out.println("---");
-      int s = getGcStarts();
-      int f = getGcFinishes();
-      System.out.println((s > 0) + " " + (f > 0));
-  }
+        printStats();
 
-  private static native void setupGcCallback();
-  private static native void enableGcTracking(boolean enable);
-  private static native int getGcStarts();
-  private static native int getGcFinishes();
+        Runtime.getRuntime().gc();
+
+        printStats();
+    }
+
+    private static void allocate(ArrayList<Object> l, long tag) {
+        Object obj = new Object();
+        l.add(obj);
+    }
+
+    private static void printStats() {
+        System.out.println("---");
+        int s = getGcStarts();
+        int f = getGcFinishes();
+        System.out.println((s > 0) + " " + (f > 0));
+    }
+
+    private static native void setupGcCallback();
+    private static native void enableGcTracking(boolean enable);
+    private static native int getGcStarts();
+    private static native int getGcFinishes();
 }

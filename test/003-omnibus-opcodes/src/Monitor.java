@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 /**
  * Exercise monitors.
  */
@@ -25,11 +24,10 @@ public class Monitor {
         Object obj = new Object();
         synchronized (obj) {
             mVal++;
-            obj = null;     // does NOT cause a failure on exit
+            obj = null; // does NOT cause a failure on exit
             Main.assertTrue(obj == null);
         }
     }
-
 
     public static void run() {
         System.out.println("Monitor.run");

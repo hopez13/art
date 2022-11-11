@@ -15,17 +15,16 @@
  */
 
 import java.lang.reflect.Method;
-import java.util.Enumeration;
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Enumeration;
 
 /**
  * DexFile tests (Dalvik-specific).
  */
 public class Main {
     private static final String CLASS_PATH =
-        System.getenv("DEX_LOCATION") + "/071-dexfile-map-clean-ex.jar";
+            System.getenv("DEX_LOCATION") + "/071-dexfile-map-clean-ex.jar";
 
     /**
      * Prep the environment then run the test.
@@ -43,51 +42,52 @@ public class Main {
     }
 
     private static boolean checkSmapsEntry(String[] smapsLines, int offset) {
-      String nameDescription = smapsLines[offset];
-      String[] split = nameDescription.split(" ");
+        String nameDescription = smapsLines[offset];
+        String[] split = nameDescription.split(" ");
 
-      String permissions = split[1];
-      // Mapped as read-only + anonymous.
-      if (!permissions.startsWith("r--p")) {
-        return false;
-      }
+        String permissions = split[1];
+        // Mapped as read-only + anonymous.
+        if (!permissions.startsWith("r--p")) {
+            return false;
+        }
 
-      boolean validated = false;
+        boolean validated = false;
 
-      // We have the right entry, now make sure it's valid.
-      for (int i = offset; i < smapsLines.length; ++i) {
-        String line = smapsLines[i];
+        // We have the right entry, now make sure it's valid.
+        for (int i = offset; i < smapsLines.length; ++i) {
+            String line = smapsLines[i];
 
-        if (line.startsWith("Shared_Dirty") || line.startsWith("Private_Dirty")) {
-          String lineTrimmed = line.trim();
-          String[] lineSplit = lineTrimmed.split(" +");
+            if (line.startsWith("Shared_Dirty") || line.startsWith("Private_Dirty")) {
+                String lineTrimmed = line.trim();
+                String[] lineSplit = lineTrimmed.split(" +");
 
-          String sizeUsuallyInKb = lineSplit[lineSplit.length - 2];
+                String sizeUsuallyInKb = lineSplit[lineSplit.length - 2];
 
-          sizeUsuallyInKb = sizeUsuallyInKb.trim();
+                sizeUsuallyInKb = sizeUsuallyInKb.trim();
 
-          if (!sizeUsuallyInKb.equals("0")) {
+                if (!sizeUsuallyInKb.equals("0")) {
+                    System.out.println(
+                            "ERROR: Memory mapping for " + CLASS_PATH + " is unexpectedly dirty");
+                    System.out.println(line);
+                } else {
+                    validated = true;
+                }
+            }
+
+            // VmFlags marks the "end" of an smaps entry.
+            if (line.startsWith("VmFlags")) {
+                break;
+            }
+        }
+
+        if (validated) {
+            System.out.println("Secondary dexfile mmap is clean");
+        } else {
             System.out.println(
-                "ERROR: Memory mapping for " + CLASS_PATH + " is unexpectedly dirty");
-            System.out.println(line);
-          } else {
-            validated = true;
-          }
+                    "ERROR: Memory mapping is missing Shared_Dirty/Private_Dirty entries");
         }
 
-        // VmFlags marks the "end" of an smaps entry.
-        if (line.startsWith("VmFlags")) {
-          break;
-        }
-      }
-
-      if (validated) {
-        System.out.println("Secondary dexfile mmap is clean");
-      } else {
-        System.out.println("ERROR: Memory mapping is missing Shared_Dirty/Private_Dirty entries");
-      }
-
-      return true;
+        return true;
     }
 
     private static void testDexMemoryMaps() throws Exception {
@@ -97,11 +97,11 @@ public class Main {
         String[] smapsLines = smaps.split("\n");
         boolean found = true;
         for (int i = 0; i < smapsLines.length; ++i) {
-          if (smapsLines[i].contains(CLASS_PATH)) {
-            if (checkSmapsEntry(smapsLines, i)) {
-              return;
-            } // else we found the wrong one, keep going.
-          }
+            if (smapsLines[i].contains(CLASS_PATH)) {
+                if (checkSmapsEntry(smapsLines, i)) {
+                    return;
+                } // else we found the wrong one, keep going.
+            }
         }
 
         // Error case:
@@ -112,10 +112,8 @@ public class Main {
     private static Class<?> testDexFile() throws Exception {
         ClassLoader classLoader = Main.class.getClassLoader();
         Class<?> DexFile = classLoader.loadClass("dalvik.system.DexFile");
-        Method DexFile_loadDex = DexFile.getMethod("loadDex",
-                                                   String.class,
-                                                   String.class,
-                                                   Integer.TYPE);
+        Method DexFile_loadDex =
+                DexFile.getMethod("loadDex", String.class, String.class, Integer.TYPE);
         Method DexFile_entries = DexFile.getMethod("entries");
         Object dexFile = DexFile_loadDex.invoke(null, CLASS_PATH, null, 0);
         Enumeration<String> e = (Enumeration<String>) DexFile_entries.invoke(dexFile);
@@ -124,11 +122,9 @@ public class Main {
             System.out.println(className);
         }
 
-        Method DexFile_loadClass = DexFile.getMethod("loadClass",
-                                                     String.class,
-                                                     ClassLoader.class);
-        Class<?> AnotherClass = (Class<?>)DexFile_loadClass.invoke(dexFile,
-            "Another", Main.class.getClassLoader());
+        Method DexFile_loadClass = DexFile.getMethod("loadClass", String.class, ClassLoader.class);
+        Class<?> AnotherClass = (Class<?>) DexFile_loadClass.invoke(
+                dexFile, "Another", Main.class.getClassLoader());
         return AnotherClass;
     }
 }

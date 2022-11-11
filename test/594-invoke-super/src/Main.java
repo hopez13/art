@@ -22,19 +22,19 @@ import java.lang.reflect.Method;
 //
 
 class A {
-  A() { System.out.println("new A"); }
+    A() { System.out.println("new A"); }
 
-  public void foo() { System.out.println("I am A's foo"); }
+    public void foo() { System.out.println("I am A's foo"); }
 
-  // We previously used to invoke this method with a Y instance, due
-  // to invoke-super underspecified behavior.
-  public void bar() { System.out.println("I am A's bar"); }
+    // We previously used to invoke this method with a Y instance, due
+    // to invoke-super underspecified behavior.
+    public void bar() { System.out.println("I am A's bar"); }
 }
 
 class B {
-  B() { System.out.println("new B"); }
+    B() { System.out.println("new B"); }
 
-  public void foo() { System.out.println("I am B's foo"); }
+    public void foo() { System.out.println("I am B's foo"); }
 }
 
 //
@@ -42,11 +42,11 @@ class B {
 //
 
 class X extends A {
-  public void foo() { super.foo(); }
+    public void foo() { super.foo(); }
 }
 
 class Y extends B {
-  public void foo() { super.foo(); }
+    public void foo() { super.foo(); }
 }
 
 //
@@ -54,27 +54,26 @@ class Y extends B {
 //
 
 public class Main {
+    public static void main(String[] args) throws Exception {
+        // The normal stuff, X's super goes to A, Y's super goes to B.
+        new X().foo();
+        new Y().foo();
 
-  public static void main(String[] args) throws Exception {
-    // The normal stuff, X's super goes to A, Y's super goes to B.
-    new X().foo();
-    new Y().foo();
+        // And now it gets interesting.
 
-    // And now it gets interesting.
+        // In bytecode, we define a class Z that is a subclass of A, and we call
+        // invoke-super on an instance of Y.
+        Class<?> z = Class.forName("Z");
+        Method m = z.getMethod("foo");
+        try {
+            m.invoke(z.newInstance());
+            throw new Error("Expected InvocationTargetException");
+        } catch (InvocationTargetException e) {
+            if (!(e.getCause() instanceof NoSuchMethodError)) {
+                throw new Error("Expected NoSuchMethodError");
+            }
+        }
 
-    // In bytecode, we define a class Z that is a subclass of A, and we call
-    // invoke-super on an instance of Y.
-    Class<?> z = Class.forName("Z");
-    Method m = z.getMethod("foo");
-    try {
-      m.invoke(z.newInstance());
-      throw new Error("Expected InvocationTargetException");
-    } catch (InvocationTargetException e) {
-      if (!(e.getCause() instanceof NoSuchMethodError)) {
-        throw new Error("Expected NoSuchMethodError");
-      }
+        System.out.println("passed");
     }
-
-    System.out.println("passed");
-  }
 }

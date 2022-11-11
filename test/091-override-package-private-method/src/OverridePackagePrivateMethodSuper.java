@@ -15,7 +15,5 @@
  */
 
 public class OverridePackagePrivateMethodSuper {
-    void print() {
-        System.out.println("OverridePackagePrivateMethodSuper");
-    }
+    void print() { System.out.println("OverridePackagePrivateMethodSuper"); }
 }

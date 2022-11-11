@@ -1,4 +1,3 @@
 public class UnresClassSubclass extends UnresClass {
-  public UnresClassSubclass() {
-  }
+    public UnresClassSubclass() {}
 }

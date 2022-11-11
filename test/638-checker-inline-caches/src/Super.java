@@ -15,6 +15,6 @@
  */
 
 public abstract class Super {
-  abstract int getValue();
-  abstract void someSubclassesThrow();
+    abstract int getValue();
+    abstract void someSubclassesThrow();
 }

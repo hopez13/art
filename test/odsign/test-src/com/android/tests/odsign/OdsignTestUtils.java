@@ -86,17 +86,17 @@ public class OdsignTestUtils {
         String packagesOutput =
                 mTestInfo.getDevice().executeShellCommand("pm list packages -f --apex-only");
         Pattern p = Pattern.compile(
-                "^package:(.*)=(com(?:\\.google)?\\.android(?:\\.go)?\\.art)$",
-                Pattern.MULTILINE);
+                "^package:(.*)=(com(?:\\.google)?\\.android(?:\\.go)?\\.art)$", Pattern.MULTILINE);
         Matcher m = p.matcher(packagesOutput);
         assertTrue("ART module not found. Packages are:\n" + packagesOutput, m.find());
         String artApexPath = m.group(1);
         String artApexName = m.group(2);
 
-        CommandResult result = mTestInfo.getDevice().executeShellV2Command(
-                "pm install --apex " + artApexPath);
+        CommandResult result =
+                mTestInfo.getDevice().executeShellV2Command("pm install --apex " + artApexPath);
         assertWithMessage("Failed to install APEX. Reason: " + result.toString())
-            .that(result.getExitCode()).isEqualTo(0);
+                .that(result.getExitCode())
+                .isEqualTo(0);
 
         mTestInfo.properties().put(PACKAGE_NAME_KEY, artApexName);
 
@@ -154,8 +154,7 @@ public class OdsignTestUtils {
         assertTrue(result.toString(), result.getExitCode() == 0);
         final String systemServerPid = result.getStdout().trim();
         assertTrue(!systemServerPid.isEmpty());
-        assertTrue(
-                "There should be exactly one `system_server` process",
+        assertTrue("There should be exactly one `system_server` process",
                 systemServerPid.matches("\\d+"));
 
         // system_server artifacts are in the APEX data dalvik cache and names all contain
@@ -165,8 +164,8 @@ public class OdsignTestUtils {
         return getMappedArtifacts(systemServerPid, grepPattern);
     }
 
-    public void verifyZygoteLoadedArtifacts(String zygoteName, Set<String> mappedArtifacts,
-            String bootImageStem) throws Exception {
+    public void verifyZygoteLoadedArtifacts(
+            String zygoteName, Set<String> mappedArtifacts, String bootImageStem) throws Exception {
         assertTrue("Expect 3 bootclasspath artifacts", mappedArtifacts.size() == 3);
 
         String allArtifacts = mappedArtifacts.stream().collect(Collectors.joining(","));
@@ -202,32 +201,32 @@ public class OdsignTestUtils {
         String[] classpathElements = getListFromEnvironmentVariable("SYSTEMSERVERCLASSPATH");
         assertTrue("SYSTEMSERVERCLASSPATH is empty", classpathElements.length > 0);
         String[] standaloneJars = getListFromEnvironmentVariable("STANDALONE_SYSTEMSERVER_JARS");
-        String[] allSystemServerJars = Stream
-                .concat(Arrays.stream(classpathElements), Arrays.stream(standaloneJars))
-                .toArray(String[]::new);
+        String[] allSystemServerJars =
+                Stream.concat(Arrays.stream(classpathElements), Arrays.stream(standaloneJars))
+                        .toArray(String[] ::new);
 
         final Set<String> mappedArtifacts = getSystemServerLoadedArtifacts();
-        assertTrue(
-                "No mapped artifacts under " + ART_APEX_DALVIK_CACHE_DIRNAME,
+        assertTrue("No mapped artifacts under " + ART_APEX_DALVIK_CACHE_DIRNAME,
                 mappedArtifacts.size() > 0);
         final String isa = getSystemServerIsa(mappedArtifacts.iterator().next());
         final String isaCacheDirectory = String.format("%s/%s", ART_APEX_DALVIK_CACHE_DIRNAME, isa);
 
         // Check components in the system_server classpath have mapped artifacts.
         for (String element : allSystemServerJars) {
-          String escapedPath = element.substring(1).replace('/', '@');
-          for (String extension : APP_ARTIFACT_EXTENSIONS) {
-            final String fullArtifactPath =
-                    String.format("%s/%s@classes%s", isaCacheDirectory, escapedPath, extension);
-            assertTrue("Missing " + fullArtifactPath, mappedArtifacts.contains(fullArtifactPath));
-          }
+            String escapedPath = element.substring(1).replace('/', '@');
+            for (String extension : APP_ARTIFACT_EXTENSIONS) {
+                final String fullArtifactPath =
+                        String.format("%s/%s@classes%s", isaCacheDirectory, escapedPath, extension);
+                assertTrue(
+                        "Missing " + fullArtifactPath, mappedArtifacts.contains(fullArtifactPath));
+            }
         }
 
         for (String mappedArtifact : mappedArtifacts) {
-          // Check the mapped artifact has a .art, .odex or .vdex extension.
-          final boolean knownArtifactKind =
+            // Check the mapped artifact has a .art, .odex or .vdex extension.
+            final boolean knownArtifactKind =
                     APP_ARTIFACT_EXTENSIONS.stream().anyMatch(e -> mappedArtifact.endsWith(e));
-          assertTrue("Unknown artifact kind: " + mappedArtifact, knownArtifactKind);
+            assertTrue("Unknown artifact kind: " + mappedArtifact, knownArtifactKind);
         }
     }
 
@@ -246,7 +245,7 @@ public class OdsignTestUtils {
         // store default value and increase time-out for reboot
         int rebootTimeout = options.getRebootTimeout();
         long onlineTimeout = options.getOnlineTimeout();
-        options.setRebootTimeout((int)BOOT_COMPLETE_TIMEOUT.toMillis());
+        options.setRebootTimeout((int) BOOT_COMPLETE_TIMEOUT.toMillis());
         options.setOnlineTimeout(BOOT_COMPLETE_TIMEOUT.toMillis());
         mTestInfo.getDevice().setOptions(options);
 
@@ -266,9 +265,10 @@ public class OdsignTestUtils {
         // `waitForBootComplete` relies on `dev.bootcomplete`.
         mTestInfo.getDevice().executeShellCommand("setprop dev.bootcomplete 0");
         mTestInfo.getDevice().executeShellCommand("setprop ctl.restart zygote");
-        boolean success = mTestInfo.getDevice()
-                .waitForBootComplete(RESTART_ZYGOTE_COMPLETE_TIMEOUT.toMillis());
-        assertWithMessage("Zygote didn't start in %s", BOOT_COMPLETE_TIMEOUT).that(success)
+        boolean success = mTestInfo.getDevice().waitForBootComplete(
+                RESTART_ZYGOTE_COMPLETE_TIMEOUT.toMillis());
+        assertWithMessage("Zygote didn't start in %s", BOOT_COMPLETE_TIMEOUT)
+                .that(success)
                 .isTrue();
     }
 
@@ -304,8 +304,8 @@ public class OdsignTestUtils {
     }
 
     private long parseFormattedDateTime(String dateTimeStr) throws Exception {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
-                "yyyy-MM-dd HH:mm:ss.nnnnnnnnn Z");
+        DateTimeFormatter formatter =
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.nnnnnnnnn Z");
         ZonedDateTime zonedDateTime = ZonedDateTime.parse(dateTimeStr, formatter);
         return zonedDateTime.toInstant().toEpochMilli();
     }
@@ -363,5 +363,4 @@ public class OdsignTestUtils {
             device.deleteFile(remotePath);
         }
     }
-
 }

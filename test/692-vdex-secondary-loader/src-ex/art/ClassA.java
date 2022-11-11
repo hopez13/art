@@ -17,7 +17,5 @@
 package art;
 
 public class ClassA {
-  public static String getHello() {
-    return "Hello";
-  }
+    public static String getHello() { return "Hello"; }
 }

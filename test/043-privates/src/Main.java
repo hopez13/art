@@ -33,13 +33,9 @@ public class Main {
 }
 
 class PrivatePackage {
-    public String getStr() {
-        return privGetStr();
-    }
+    public String getStr() { return privGetStr(); }
 
-    private String privGetStr() {
-        return "PrivatePackage!";
-    }
+    private String privGetStr() { return "PrivatePackage!"; }
 
     public void stretchTest() {
         PrivatePackage inst = new PrivatePackageSub();
@@ -49,11 +45,7 @@ class PrivatePackage {
 }
 
 class PrivatePackageSub extends PrivatePackage {
-    public String getStrSub() {
-        return privGetStr();
-    }
+    public String getStrSub() { return privGetStr(); }
 
-    private String privGetStr() {
-        return "PrivatePackageSub!";
-    }
+    private String privGetStr() { return "PrivatePackageSub!"; }
 }

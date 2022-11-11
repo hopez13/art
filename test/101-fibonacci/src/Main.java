@@ -15,26 +15,25 @@
  */
 
 class Main {
+    /*
+        // Iterative version
+        static int fibonacci(int n) {
+            if (n == 0) {
+                return 0;
+            }
+            int x = 1;
+            int y = 1;
+            for (int i = 3; i <= n; i++) {
+                int z = x + y;
+                x = y;
+                y = z;
+            }
+            return y;
+        }
+    */
 
-/*
-    // Iterative version
+    // Recursive version
     static int fibonacci(int n) {
-        if (n == 0) {
-            return 0;
-        }
-        int x = 1;
-        int y = 1;
-        for (int i = 3; i <= n; i++) {
-            int z = x + y;
-            x = y;
-            y = z;
-        }
-        return y;
-    }
-*/
-
-   // Recursive version
-   static int fibonacci(int n) {
         if ((n == 0) || (n == 1)) {
             return n;
         } else {

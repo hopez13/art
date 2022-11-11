@@ -60,7 +60,8 @@ public class Main {
                     WeakReference<Class<?>> ref = $noinline$loadClassInLoader();
                     Runtime.getRuntime().gc();
                     Thread.yield();
-                    // Don't validate the unloading since app images will keep classes live (for now).
+                    // Don't validate the unloading since app images will keep classes live (for
+                    // now).
                 } catch (Throwable e) {
                     System.err.println(e);
                     break;

@@ -15,31 +15,30 @@
  */
 
 public class Main {
-
-  private static class Child implements Runnable {
-    @Override
-    public void run() {
-      System.out.println("Child started");
-      // Enter native method and stay there, monitoring shutdown behavior.  Since we're a daemon,
-      // the process should shut down anyway, and we should be able to observe changes in the
-      // extended JNI environment.
-      monitorShutdown();
+    private static class Child implements Runnable {
+        @Override
+        public void run() {
+            System.out.println("Child started");
+            // Enter native method and stay there, monitoring shutdown behavior.  Since we're a
+            // daemon, the process should shut down anyway, and we should be able to observe changes
+            // in the extended JNI environment.
+            monitorShutdown();
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
-    System.out.println("Main Started");
-    Thread t = new Thread(new Child());
-    t.setDaemon(true);
-    t.start();
-    try {
-      Thread.sleep(400);
-    } catch (InterruptedException e) {
-      System.out.println("Unexpected interrupt");
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
+        System.out.println("Main Started");
+        Thread t = new Thread(new Child());
+        t.setDaemon(true);
+        t.start();
+        try {
+            Thread.sleep(400);
+        } catch (InterruptedException e) {
+            System.out.println("Unexpected interrupt");
+        }
+        System.out.println("Main Finished");
     }
-    System.out.println("Main Finished");
-  }
 
-  private static native void monitorShutdown();
+    private static native void monitorShutdown();
 }

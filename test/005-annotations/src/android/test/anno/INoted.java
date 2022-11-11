@@ -2,6 +2,5 @@ package android.test.anno;
 
 @AnnoSimpleType2
 public interface INoted {
-    @AnnoSimpleMethod
-    public int bar();
+    @AnnoSimpleMethod public int bar();
 }

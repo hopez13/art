@@ -39,7 +39,6 @@ import java.util.stream.Stream;
 /** Test to check if bad CompOS pending artifacts can be denied by odsign. */
 @RunWith(DeviceJUnit4ClassRunner.class)
 public class CompOsDenialHostTest extends BaseHostJUnit4Test {
-
     private static final String PENDING_ARTIFACTS_BACKUP_DIR =
             "/data/misc/apexdata/com.android.art/compos-pending-backup";
 
@@ -63,8 +62,8 @@ public class CompOsDenialHostTest extends BaseHostJUnit4Test {
         // Compile once, then backup the compiled artifacts to be reused by each test case just to
         // reduce testing time.
         compOsTestUtils.runCompilationJobEarlyAndWait();
-        testInfo.properties().put(TIMESTAMP_COMPOS_COMPILED_KEY,
-                String.valueOf(testUtils.getCurrentTimeMs()));
+        testInfo.properties().put(
+                TIMESTAMP_COMPOS_COMPILED_KEY, String.valueOf(testUtils.getCurrentTimeMs()));
         testUtils.assertCommandSucceeds(
                 "mv " + PENDING_ARTIFACTS_DIR + " " + PENDING_ARTIFACTS_BACKUP_DIR);
     }
@@ -91,8 +90,8 @@ public class CompOsDenialHostTest extends BaseHostJUnit4Test {
 
         // Restore the pending artifacts for each test to mess up with.
         mTestUtils.assertCommandSucceeds("rm -rf " + PENDING_ARTIFACTS_DIR);
-        mTestUtils.assertCommandSucceeds("cp -rp " + PENDING_ARTIFACTS_BACKUP_DIR + " " +
-                PENDING_ARTIFACTS_DIR);
+        mTestUtils.assertCommandSucceeds(
+                "cp -rp " + PENDING_ARTIFACTS_BACKUP_DIR + " " + PENDING_ARTIFACTS_DIR);
     }
 
     @Test
@@ -101,8 +100,8 @@ public class CompOsDenialHostTest extends BaseHostJUnit4Test {
         // class, in beforeClassWithDevice before any tests run. It's implemented as a test methond
         // because TestLogData doesn't seem to work in a class method.
         OdsignTestUtils testUtils = new OdsignTestUtils(getTestInformation());
-        testUtils.archiveLogThenDelete(mTestLogs, CompOsTestUtils.APEXDATA_DIR + "/vm.log",
-                "vm.log-CompOsDenialHostTest");
+        testUtils.archiveLogThenDelete(
+                mTestLogs, CompOsTestUtils.APEXDATA_DIR + "/vm.log", "vm.log-CompOsDenialHostTest");
         testUtils.archiveLogThenDelete(mTestLogs, CompOsTestUtils.APEXDATA_DIR + "/vm_console.log",
                 "vm_console.log-CompOsDenialHostTest");
     }
@@ -115,10 +114,9 @@ public class CompOsDenialHostTest extends BaseHostJUnit4Test {
         String odex1 = paths[0];
         String odex2 = paths[1];
         String temp = PENDING_ARTIFACTS_DIR + "/temp";
-        mTestUtils.assertCommandSucceeds(
-                "mv " + odex1 + " " + temp + " && " +
-                "mv " + odex2 + " " + odex1 + " && " +
-                "mv " + temp + " " + odex2);
+        mTestUtils.assertCommandSucceeds("mv " + odex1 + " " + temp + " && "
+                + "mv " + odex2 + " " + odex1 + " && "
+                + "mv " + temp + " " + odex2);
 
         // Expect the pending artifacts to be denied by odsign during the reboot.
         mTestUtils.reboot();
@@ -155,11 +153,10 @@ public class CompOsDenialHostTest extends BaseHostJUnit4Test {
 
     private void expectNoCurrentFilesFromCompOs() throws DeviceNotAvailableException {
         // None of the files should have a timestamp earlier than the first reboot.
-        long timestamp = Long.parseLong(getTestInformation().properties().get(
-                    TIMESTAMP_COMPOS_COMPILED_KEY));
+        long timestamp = Long.parseLong(
+                getTestInformation().properties().get(TIMESTAMP_COMPOS_COMPILED_KEY));
         int numFiles = mTestUtils.countFilesCreatedBeforeTime(
-                OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME,
-                timestamp);
+                OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME, timestamp);
         assertThat(numFiles).isEqualTo(0);
 
         // odsign should have deleted the pending directory.
@@ -171,6 +168,6 @@ public class CompOsDenialHostTest extends BaseHostJUnit4Test {
         return Stream.of(getDevice().getChildren(dir))
                 .filter(name -> name.endsWith(".odex"))
                 .map(name -> dir + "/" + name)
-                .toArray(String[]::new);
+                .toArray(String[] ::new);
     }
 }

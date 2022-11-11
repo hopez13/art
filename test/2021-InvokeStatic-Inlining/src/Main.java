@@ -41,7 +41,6 @@ class Main {
         }
     }
 
-
     public static long simpleMethod(long jj, long kk) {
         jj = jj >>> kk;
         return jj;
@@ -50,7 +49,7 @@ class Main {
         jj = jj << kk;
         jj = jj << kk;
         return jj;
-      }
+    }
     public static float simpleMethod2(float jj, float ii) {
         jj = ii / jj;
         jj = jj / ii;
@@ -64,8 +63,6 @@ class Main {
         int workK1 = 0xF8E9;
         float workJ2 = 10.0f;
         float workK2 = 15.0f;
-
-
 
         for (long i = 0; i < iterations; i++) {
             workJ = simpleMethod(workJ, workK) + i;

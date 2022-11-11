@@ -20,10 +20,8 @@ public class Main {
     private static long getDexFileSize(String filename) throws Exception {
         ClassLoader loader = Main.class.getClassLoader();
         Class<?> DexFile = loader.loadClass("dalvik.system.DexFile");
-        Method DexFile_loadDex = DexFile.getMethod("loadDex",
-                                                   String.class,
-                                                   String.class,
-                                                   Integer.TYPE);
+        Method DexFile_loadDex =
+                DexFile.getMethod("loadDex", String.class, String.class, Integer.TYPE);
         Method DexFile_getStaticSizeOfDexFile = DexFile.getMethod("getStaticSizeOfDexFile");
         Object dexFile = DexFile_loadDex.invoke(null, filename, null, 0);
         return (Long) DexFile_getStaticSizeOfDexFile.invoke(dexFile);

@@ -15,15 +15,15 @@
  */
 
 public class JNI {
-  public static native boolean canDiscoverField(Class<?> klass, String name, boolean isStatic);
-  public static native boolean canGetField(Class<?> klass, String name, boolean isStatic);
-  public static native boolean canSetField(Class<?> klass, String name, boolean isStatic);
+    public static native boolean canDiscoverField(Class<?> klass, String name, boolean isStatic);
+    public static native boolean canGetField(Class<?> klass, String name, boolean isStatic);
+    public static native boolean canSetField(Class<?> klass, String name, boolean isStatic);
 
-  public static native boolean canDiscoverMethod(Class<?> klass, String name, boolean isStatic);
-  public static native boolean canInvokeMethodA(Class<?> klass, String name, boolean isStatic);
-  public static native boolean canInvokeMethodV(Class<?> klass, String name, boolean isStatic);
+    public static native boolean canDiscoverMethod(Class<?> klass, String name, boolean isStatic);
+    public static native boolean canInvokeMethodA(Class<?> klass, String name, boolean isStatic);
+    public static native boolean canInvokeMethodV(Class<?> klass, String name, boolean isStatic);
 
-  public static native boolean canDiscoverConstructor(Class<?> klass, String signature);
-  public static native boolean canInvokeConstructorA(Class<?> klass, String signature);
-  public static native boolean canInvokeConstructorV(Class<?> klass, String signature);
+    public static native boolean canDiscoverConstructor(Class<?> klass, String signature);
+    public static native boolean canInvokeConstructorA(Class<?> klass, String signature);
+    public static native boolean canInvokeConstructorV(Class<?> klass, String signature);
 }

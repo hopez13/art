@@ -15,7 +15,7 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    art.Test1981.run(new art.Test1981_Varhandles());
-  }
+    public static void main(String[] args) throws Exception {
+        art.Test1981.run(new art.Test1981_Varhandles());
+    }
 }

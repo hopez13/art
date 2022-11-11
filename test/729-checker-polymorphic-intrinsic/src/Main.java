@@ -15,25 +15,22 @@
  */
 
 public class Main {
+    /// CHECK-START: java.lang.String Main.inlinePolymorphic(java.lang.Object) inliner (before)
+    /// CHECK:       InvokeVirtual method_name:java.lang.Object.toString
 
-  /// CHECK-START: java.lang.String Main.inlinePolymorphic(java.lang.Object) inliner (before)
-  /// CHECK:       InvokeVirtual method_name:java.lang.Object.toString
+    /// CHECK-START: java.lang.String Main.inlinePolymorphic(java.lang.Object) inliner (after)
+    /// CHECK-DAG:   InvokeVirtual method_name:java.lang.Object.toString
+    /// CHECK-DAG:   InvokeVirtual method_name:java.lang.StringBuilder.toString intrinsic:StringBuilderToString
+    public static String inlinePolymorphic(Object obj) { return obj.toString(); }
 
-  /// CHECK-START: java.lang.String Main.inlinePolymorphic(java.lang.Object) inliner (after)
-  /// CHECK-DAG:   InvokeVirtual method_name:java.lang.Object.toString
-  /// CHECK-DAG:   InvokeVirtual method_name:java.lang.StringBuilder.toString intrinsic:StringBuilderToString
-  public static String inlinePolymorphic(Object obj) {
-    return obj.toString();
-  }
-
-  public static void assertEquals(String actual, String expected) {
-    if (!expected.equals(actual)) {
-      throw new Error("Expected " + expected + ", got " + actual);
+    public static void assertEquals(String actual, String expected) {
+        if (!expected.equals(actual)) {
+            throw new Error("Expected " + expected + ", got " + actual);
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    assertEquals(inlinePolymorphic(new StringBuilder("abc")), "abc");
-    assertEquals(inlinePolymorphic("def"), "def");
-  }
+    public static void main(String[] args) {
+        assertEquals(inlinePolymorphic(new StringBuilder("abc")), "abc");
+        assertEquals(inlinePolymorphic("def"), "def");
+    }
 }

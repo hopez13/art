@@ -15,9 +15,9 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    System.out.println("running test...");
-    GapOrder.Check();
-    System.out.println("test completed.");
-  }
+    public static void main(String[] args) {
+        System.out.println("running test...");
+        GapOrder.Check();
+        System.out.println("test completed.");
+    }
 }

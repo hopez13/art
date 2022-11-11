@@ -18,8 +18,8 @@
  * Regression test for b/31280371
  */
 interface Foo2 extends Foo {
-  @Override
-  public default String bar() {
-    return "foobar foobar";
-  }
+    @Override
+    public default String bar() {
+        return "foobar foobar";
+    }
 }

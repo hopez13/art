@@ -15,7 +15,6 @@
  */
 
 public class Main {
-
     public static void assertIntEquals(int expected, int result) {
         if (expected != result) {
             throw new Error("Expected: " + expected + ", found: " + result);
@@ -38,16 +37,15 @@ public class Main {
         byte invar3 = 35;
         byte invar4 = 45;
 
-
         for (byte i = 0; i < 127; i++) {
-            used1 -= (byte)(invar1 + invar2);
-            used2 *= (byte)(invar2 - invar3);
-            used3 += (byte)(invar3 * invar4);
-            used4 /= (byte)(invar1 * invar2 - invar3 + invar4);
+            used1 -= (byte) (invar1 + invar2);
+            used2 *= (byte) (invar2 - invar3);
+            used3 += (byte) (invar3 * invar4);
+            used4 /= (byte) (invar1 * invar2 - invar3 + invar4);
         }
 
-        assertIntEquals((byte)(used1 + used2 + used3 + used4), -123);
-        return (byte)(used1 + used2 + used3 + used4);
+        assertIntEquals((byte) (used1 + used2 + used3 + used4), -123);
+        return (byte) (used1 + used2 + used3 + used4);
     }
 
     public long loop2() {
@@ -66,10 +64,9 @@ public class Main {
             used3 -= invar3 * invar4;
             used4 /= invar1 * invar2 - invar3 + invar4;
         }
-        assertLongEquals(Double.doubleToLongBits(used1 + used2 + used3 + used4),
-            9218868437227405312l);
+        assertLongEquals(
+                Double.doubleToLongBits(used1 + used2 + used3 + used4), 9218868437227405312l);
         return Double.doubleToLongBits(used1 + used2 + used3 + used4);
-
     }
 
     public static void main(String[] args) {

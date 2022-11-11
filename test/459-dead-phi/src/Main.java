@@ -17,9 +17,9 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("EquivalentPhi");
-    Method m = c.getMethod("equivalentPhi", float[].class);
-    System.out.println(m.invoke(null, new float[] { 0.0f }));
-  }
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("EquivalentPhi");
+        Method m = c.getMethod("equivalentPhi", float[].class);
+        System.out.println(m.invoke(null, new float[] {0.0f}));
+    }
 }

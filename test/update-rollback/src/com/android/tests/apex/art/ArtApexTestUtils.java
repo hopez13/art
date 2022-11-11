@@ -35,7 +35,6 @@ import java.time.Duration;
  * rollback during the next boot).
  */
 public class ArtApexTestUtils {
-
     private static final String APEX_FILENAME = "test_broken_com.android.art.apex";
     private static final Duration BOOT_COMPLETE_TIMEOUT = Duration.ofMinutes(2);
 

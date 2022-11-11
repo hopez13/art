@@ -14,13 +14,7 @@
  * limitations under the License.
  */
 public class H extends A {
-  public String SayHi() {
-    return super.SayHi() + "?";
-  }
-  public String SaySurprisedHi() {
-    return super.SayHi() + "!";
-  }
-  public String SayConfusedHi() {
-    return SayHi() + "!";
-  }
+    public String SayHi() { return super.SayHi() + "?"; }
+    public String SaySurprisedHi() { return super.SayHi() + "!"; }
+    public String SayConfusedHi() { return SayHi() + "!"; }
 }

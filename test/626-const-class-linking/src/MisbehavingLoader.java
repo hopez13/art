@@ -23,8 +23,7 @@ public class MisbehavingLoader extends DefiningLoader {
         this.defining_loader = defining_loader;
     }
 
-    protected Class<?> findClass(String name) throws ClassNotFoundException
-    {
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
         if (name.equals("Helper1") || name.equals("Helper2")) {
             return super.findClass(name);
         } else if (name.equals("Test")) {
@@ -33,9 +32,7 @@ public class MisbehavingLoader extends DefiningLoader {
         return super.findClass(name);
     }
 
-    protected Class<?> loadClass(String name, boolean resolve)
-        throws ClassNotFoundException
-    {
+    protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
         if (name.equals("Helper1") || name.equals("Helper2")) {
             return super.loadClass(name, resolve);
         } else if (name.equals("Test")) {

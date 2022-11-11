@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 interface Foo {
-  public default String bar() {
-    return "foobar";
-  }
+    public default String bar() { return "foobar"; }
 }

@@ -17,14 +17,14 @@
 package art;
 
 public class Suspension {
-  // Suspends a thread using jvmti.
-  public native static void suspend(Thread thr);
+    // Suspends a thread using jvmti.
+    public native static void suspend(Thread thr);
 
-  // Resumes a thread using jvmti.
-  public native static void resume(Thread thr);
+    // Resumes a thread using jvmti.
+    public native static void resume(Thread thr);
 
-  public native static boolean isSuspended(Thread thr);
+    public native static boolean isSuspended(Thread thr);
 
-  public native static int[] suspendList(Thread... threads);
-  public native static int[] resumeList(Thread... threads);
+    public native static int[] suspendList(Thread... threads);
+    public native static int[] resumeList(Thread... threads);
 }

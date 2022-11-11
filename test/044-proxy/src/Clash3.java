@@ -29,12 +29,9 @@ public class Clash3 {
 
         try {
             Proxy.newProxyInstance(Clash.class.getClassLoader(),
-                new Class<?>[] {
-                    Interface3a.class,
-                    Interface3base.class,
-                    Interface3aa.class,
-                    Interface3b.class },
-                handler);
+                    new Class<?>[] {Interface3a.class, Interface3base.class, Interface3aa.class,
+                            Interface3b.class},
+                    handler);
             System.out.println("Clash3 did not throw expected exception");
         } catch (IllegalArgumentException iae) {
             System.out.println("Clash3 threw expected exception");
@@ -42,10 +39,20 @@ public class Clash3 {
     }
 }
 
-class R3base implements I3 { int mBlah; public void x() {} }
-class R3a extends R3base { int mBlah_a;  }
-class R3aa extends R3a { int mBlah_aa;  }
-class R3b implements I3 { int mBlah_b; public void x() {} }
+class R3base implements I3 {
+    int mBlah;
+    public void x() {}
+}
+class R3a extends R3base {
+    int mBlah_a;
+}
+class R3aa extends R3a {
+    int mBlah_aa;
+}
+class R3b implements I3 {
+    int mBlah_b;
+    public void x() {}
+}
 
 interface I3 {
     void x();
@@ -67,9 +74,7 @@ interface Interface3b {
 
 class Clash3InvocationHandler implements InvocationHandler {
     /* don't really need to do anything -- should never get this far */
-    public Object invoke(Object proxy, Method method, Object[] args)
-        throws Throwable {
-
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         return null;
     }
 }

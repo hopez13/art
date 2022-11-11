@@ -19,22 +19,23 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    init();
-    appendToBootClassLoader(DEX_EXTRA, /* isCorePlatform */ false);
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        init();
+        appendToBootClassLoader(DEX_EXTRA, /* isCorePlatform */ false);
 
-    Class<?> klass = Object.class.getClassLoader().loadClass("MyClass");
-    Method m = klass.getDeclaredMethod("futureHidden");
-    Integer result = (Integer) m.invoke(null);
-    if (result.intValue() != 42) {
-      throw new Error("Expected 42, got " + result.intValue());
+        Class<?> klass = Object.class.getClassLoader().loadClass("MyClass");
+        Method m = klass.getDeclaredMethod("futureHidden");
+        Integer result = (Integer) m.invoke(null);
+        if (result.intValue() != 42) {
+            throw new Error("Expected 42, got " + result.intValue());
+        }
     }
-  }
 
-  private static final String DEX_EXTRA = new File(System.getenv("DEX_LOCATION"),
-      "822-hiddenapi-future-ex.jar").getAbsolutePath();
+    private static final String DEX_EXTRA =
+            new File(System.getenv("DEX_LOCATION"), "822-hiddenapi-future-ex.jar")
+                    .getAbsolutePath();
 
-  private static native void init();
-  private static native void appendToBootClassLoader(String dexPath, boolean isCorePlatform);
+    private static native void init();
+    private static native void appendToBootClassLoader(String dexPath, boolean isCorePlatform);
 }

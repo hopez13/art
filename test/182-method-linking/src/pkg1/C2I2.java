@@ -18,5 +18,4 @@ package pkg1;
 
 import pkg2.I2;
 
-public class C2I2 extends C2 implements I2 {
-}
+public class C2I2 extends C2 implements I2 {}

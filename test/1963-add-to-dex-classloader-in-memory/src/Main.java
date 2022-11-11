@@ -15,18 +15,18 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    try {
-      if (!hasWorkingMemfdCreate()) {
-        System.out.println("---NO memfd_create---");
-      }
-      art.Test1963.run();
-    } catch (Throwable t) {
-      System.out.println(t);
-      t.printStackTrace(System.out);
-      return;
+    public static void main(String[] args) throws Exception {
+        try {
+            if (!hasWorkingMemfdCreate()) {
+                System.out.println("---NO memfd_create---");
+            }
+            art.Test1963.run();
+        } catch (Throwable t) {
+            System.out.println(t);
+            t.printStackTrace(System.out);
+            return;
+        }
     }
-  }
 
-  public static native boolean hasWorkingMemfdCreate();
+    public static native boolean hasWorkingMemfdCreate();
 }

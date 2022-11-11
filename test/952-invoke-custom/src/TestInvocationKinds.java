@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-import annotations.BootstrapMethod;
-import annotations.CalledByIndy;
 import java.lang.invoke.CallSite;
 import java.lang.invoke.ConstantCallSite;
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
+
+import annotations.BootstrapMethod;
+import annotations.CalledByIndy;
 
 class TestInvocationKinds extends TestBase {
     private static int static_field;
@@ -34,40 +35,28 @@ class TestInvocationKinds extends TestBase {
         return new ConstantCallSite(mh);
     }
 
-    @CalledByIndy(
-        bootstrapMethod =
-                @BootstrapMethod(
-                    enclosingType = TestInvocationKinds.class,
-                    name = "lookupStaticFieldSetter"
-                ),
-        fieldOrMethodName = "static_field",
-        returnType = void.class,
-        parameterTypes = {int.class}
-    )
-    private static void setStaticField(int value) {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(enclosingType = TestInvocationKinds.class,
+                          name = "lookupStaticFieldSetter"),
+            fieldOrMethodName = "static_field", returnType = void.class,
+            parameterTypes = {int.class})
+    private static void
+    setStaticField(int value) {
         assertNotReached();
     }
 
     static CallSite lookupStaticFieldSetter(
             MethodHandles.Lookup lookup, String name, MethodType methodType) throws Throwable {
         // methodType = "(LfieldType;)V"
-        MethodHandle mh =
-                lookup.findStaticSetter(
-                        TestInvocationKinds.class, name, methodType.parameterType(0));
+        MethodHandle mh = lookup.findStaticSetter(
+                TestInvocationKinds.class, name, methodType.parameterType(0));
         return new ConstantCallSite(mh);
     }
 
-    @CalledByIndy(
-        bootstrapMethod =
-                @BootstrapMethod(
-                    enclosingType = TestInvocationKinds.class,
-                    name = "lookupStaticFieldGetter"
-                ),
-        fieldOrMethodName = "static_field",
-        returnType = int.class,
-        parameterTypes = {}
-    )
-    private static int getStaticField() {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(enclosingType = TestInvocationKinds.class,
+                          name = "lookupStaticFieldGetter"),
+            fieldOrMethodName = "static_field", returnType = int.class, parameterTypes = {})
+    private static int
+    getStaticField() {
         assertNotReached();
         return 0;
     }
@@ -80,17 +69,12 @@ class TestInvocationKinds extends TestBase {
         return new ConstantCallSite(mh);
     }
 
-    @CalledByIndy(
-        bootstrapMethod =
-                @BootstrapMethod(
-                    enclosingType = TestInvocationKinds.class,
-                    name = "lookupInstanceFieldSetter"
-                ),
-        fieldOrMethodName = "instance_field",
-        returnType = void.class,
-        parameterTypes = {TestInvocationKinds.class, double.class}
-    )
-    private static void setInstanceField(TestInvocationKinds instance, double value) {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(enclosingType = TestInvocationKinds.class,
+                          name = "lookupInstanceFieldSetter"),
+            fieldOrMethodName = "instance_field", returnType = void.class,
+            parameterTypes = {TestInvocationKinds.class, double.class})
+    private static void
+    setInstanceField(TestInvocationKinds instance, double value) {
         assertNotReached();
         instance.instance_field = Double.NaN;
     }
@@ -103,17 +87,12 @@ class TestInvocationKinds extends TestBase {
         return new ConstantCallSite(mh);
     }
 
-    @CalledByIndy(
-        bootstrapMethod =
-                @BootstrapMethod(
-                    enclosingType = TestInvocationKinds.class,
-                    name = "lookupInstanceFieldGetter"
-                ),
-        fieldOrMethodName = "instance_field",
-        returnType = double.class,
-        parameterTypes = {TestInvocationKinds.class}
-    )
-    private static double getInstanceField(TestInvocationKinds instance) {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(enclosingType = TestInvocationKinds.class,
+                          name = "lookupInstanceFieldGetter"),
+            fieldOrMethodName = "instance_field", returnType = double.class,
+            parameterTypes = {TestInvocationKinds.class})
+    private static double
+    getInstanceField(TestInvocationKinds instance) {
         assertNotReached();
         return Double.NaN;
     }
@@ -148,21 +127,17 @@ class TestInvocationKinds extends TestBase {
         return new ConstantCallSite(mh);
     }
 
-    @CalledByIndy(
-        bootstrapMethod =
-                @BootstrapMethod(enclosingType = TestInvocationKinds.class, name = "lookupVirtual"),
-        fieldOrMethodName = "getMaxIntegerValue",
-        returnType = int.class,
-        parameterTypes = {TestInvocationKinds.class, int.class, int.class}
-    )
-    private static int maxIntegerValue(TestInvocationKinds receiver, int x, int y) {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestInvocationKinds.class, name = "lookupVirtual"),
+            fieldOrMethodName = "getMaxIntegerValue", returnType = int.class,
+            parameterTypes = {TestInvocationKinds.class, int.class, int.class})
+    private static int
+    maxIntegerValue(TestInvocationKinds receiver, int x, int y) {
         assertNotReached();
         return 0;
     }
 
-    public int getMaxIntegerValue(int x, int y) {
-        return x > y ? x : y;
-    }
+    public int getMaxIntegerValue(int x, int y) { return x > y ? x : y; }
 
     static void testInvokeVirtual() {
         System.out.print("testInvokeVirtual => max(77, -3) = ");
@@ -186,17 +161,11 @@ class TestInvocationKinds extends TestBase {
         return new ConstantCallSite(mh);
     }
 
-    @CalledByIndy(
-        bootstrapMethod =
-                @BootstrapMethod(
-                    enclosingType = TestInvocationKinds.class,
-                    name = "lookupConstructor"
-                ),
-        fieldOrMethodName = "unused",
-        returnType = Widget.class,
-        parameterTypes = {int.class}
-    )
-    private static Widget makeWidget(int v) {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(
+                          enclosingType = TestInvocationKinds.class, name = "lookupConstructor"),
+            fieldOrMethodName = "unused", returnType = Widget.class, parameterTypes = {int.class})
+    private static Widget
+    makeWidget(int v) {
         assertNotReached();
         return null;
     }

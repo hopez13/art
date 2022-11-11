@@ -15,7 +15,5 @@
  */
 
 public interface OtherItf {
-  public default String bar() {
-    return "OtherItf";
-  }
+    public default String bar() { return "OtherItf"; }
 }

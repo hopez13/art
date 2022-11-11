@@ -14,11 +14,7 @@
  * limitations under the License.
  */
 public interface Attendant {
-  public default String SayHi() {
-    return "welcome to " + GetPlace();
-  }
-  public default String SayHiTwice() {
-    return SayHi() + SayHi();
-  }
-  public String GetPlace();
+    public default String SayHi() { return "welcome to " + GetPlace(); }
+    public default String SayHiTwice() { return SayHi() + SayHi(); }
+    public String GetPlace();
 }

@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class Main {
     public static void main(String[] args) throws Exception {
         Class<?> c = Class.forName("Test");
         Method test = c.getDeclaredMethod("test", int[].class);
-        assertIntEquals(-2, (int)test.invoke(null, new Object[] { null }));
-        assertIntEquals(-1, (int)test.invoke(null, new Object[] { new int[0] }));
-        assertIntEquals(42, (int)test.invoke(null, new Object[] { new int[] { 42 } }));
+        assertIntEquals(-2, (int) test.invoke(null, new Object[] {null}));
+        assertIntEquals(-1, (int) test.invoke(null, new Object[] {new int[0]}));
+        assertIntEquals(42, (int) test.invoke(null, new Object[] {new int[] {42}}));
 
         Method test2 = c.getDeclaredMethod("test2", int[].class, int.class);
-        assertIntEquals(-2, (int)test2.invoke(null, new Object[] { null, 0 }));
-        assertIntEquals(-1, (int)test2.invoke(null, new Object[] { new int[0], 0 }));
-        assertIntEquals(-1, (int)test2.invoke(null, new Object[] { new int[0], 1 }));
-        assertIntEquals(3, (int)test2.invoke(null, new Object[] { new int[] { 42 }, 0 }));
+        assertIntEquals(-2, (int) test2.invoke(null, new Object[] {null, 0}));
+        assertIntEquals(-1, (int) test2.invoke(null, new Object[] {new int[0], 0}));
+        assertIntEquals(-1, (int) test2.invoke(null, new Object[] {new int[0], 1}));
+        assertIntEquals(3, (int) test2.invoke(null, new Object[] {new int[] {42}, 0}));
     }
 
     public static void assertIntEquals(int expected, int result) {

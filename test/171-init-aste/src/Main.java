@@ -18,7 +18,5 @@ public class Main {
     // Note: This file is used for the RI which does not support
     // dalvik.system.AnnotatedStackTraceElement (see src-art/Main.java),
     // so that we do not need an exclusion in known failures.
-    public static void main(String args[]) throws Exception {
-        System.out.println("passed");
-    }
+    public static void main(String args[]) throws Exception { System.out.println("passed"); }
 }

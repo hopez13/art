@@ -17,5 +17,4 @@
 package resolved;
 
 public class PackagePrivateSubclassOfUnresolvedClass2Proxy
-    extends PackagePrivateSubclassOfUnresolvedClass2 {
-}
+        extends PackagePrivateSubclassOfUnresolvedClass2 {}

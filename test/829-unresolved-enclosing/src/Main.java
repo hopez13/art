@@ -15,43 +15,41 @@
  */
 
 public class Main {
+    public static void main(String[] args) throws ClassNotFoundException {
+        try {
+            System.out.println(SubClass.SubEnclosed.class.getEnclosingClass());
+            throw new Error("Expected NoClassDefFoundError");
+        } catch (NoClassDefFoundError e) {
+        }
+        try {
+            System.out.println(SubClass.SuperEnclosed.class.getEnclosingClass());
+            throw new Error("Expected NoClassDefFoundError");
+        } catch (NoClassDefFoundError e) {
+        }
 
-  public static void main(String[] args) throws ClassNotFoundException {
-    try {
-      System.out.println(SubClass.SubEnclosed.class.getEnclosingClass());
-      throw new Error("Expected NoClassDefFoundError");
-    } catch (NoClassDefFoundError e) {
+        Class<?> cls = Class.forName("MissingSuperClass$1LocalClass");
+        try {
+            System.out.println(cls.getEnclosingClass());
+            throw new Error("Expected NoClassDefFoundError");
+        } catch (NoClassDefFoundError e) {
+        }
+        try {
+            System.out.println(cls.getEnclosingMethod());
+            throw new Error("Expected NoClassDefFoundError");
+        } catch (NoClassDefFoundError e) {
+        }
     }
-    try {
-      System.out.println(SubClass.SuperEnclosed.class.getEnclosingClass());
-      throw new Error("Expected NoClassDefFoundError");
-    } catch (NoClassDefFoundError e) {
-    }
-
-    Class<?> cls = Class.forName("MissingSuperClass$1LocalClass");
-    try {
-      System.out.println(cls.getEnclosingClass());
-      throw new Error("Expected NoClassDefFoundError");
-    } catch (NoClassDefFoundError e) {
-    }
-    try {
-      System.out.println(cls.getEnclosingMethod());
-      throw new Error("Expected NoClassDefFoundError");
-    } catch (NoClassDefFoundError e) {
-    }
-  }
 }
 
 class MissingSuperClass {
-  static class SuperEnclosed {}
+    static class SuperEnclosed {}
 
-  static Object returnLocalClass() {
-    class LocalClass {}
-    return new LocalClass();
-  }
+    static Object returnLocalClass() {
+        class LocalClass {}
+        return new LocalClass();
+    }
 }
 
 class SubClass extends MissingSuperClass {
-  static class SubEnclosed {}
+    static class SubEnclosed {}
 }
-

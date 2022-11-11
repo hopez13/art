@@ -19,7 +19,5 @@ package art;
 public class Test993AttachAgent {
     public static native void setupJvmti();
 
-    public static void loadAgent() throws Exception {
-      setupJvmti();
-    }
+    public static void loadAgent() throws Exception { setupJvmti(); }
 }

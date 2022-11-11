@@ -15,7 +15,5 @@
  */
 
 public class Test11Derived extends Test11Base {
-    Test11Derived() {
-        super("Test11Derived");
-    }
+    Test11Derived() { super("Test11Derived"); }
 }

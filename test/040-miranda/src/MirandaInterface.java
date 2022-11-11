@@ -18,7 +18,5 @@
  * Miranda testing.
  */
 public interface MirandaInterface {
-
     public boolean inInterface();
-
 }

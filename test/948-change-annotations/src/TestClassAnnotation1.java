@@ -17,6 +17,6 @@
 import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @ interface TestClassAnnotation1 {
-  public String value();
+public @interface TestClassAnnotation1 {
+    public String value();
 }

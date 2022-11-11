@@ -18,13 +18,12 @@
  * Helper class used by smali test classes.
  */
 public class CatchHandlerOnEntryHelper {
-
-  public static void throwExceptionDuringDeopt(int i) {
-    if (i == 0) {
-      DeoptimizationController.startDeoptimization();
-      throw new RuntimeException("Test exception");
-    } else {
-      DeoptimizationController.stopDeoptimization();
+    public static void throwExceptionDuringDeopt(int i) {
+        if (i == 0) {
+            DeoptimizationController.startDeoptimization();
+            throw new RuntimeException("Test exception");
+        } else {
+            DeoptimizationController.stopDeoptimization();
+        }
     }
-  }
 }

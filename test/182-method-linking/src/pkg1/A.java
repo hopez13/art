@@ -22,7 +22,5 @@ public class A {
         foo();
     };
 
-    /*package-private*/ void foo() {
-        System.out.println("pkg1.A.foo");
-    }
+    /*package-private*/ void foo() { System.out.println("pkg1.A.foo"); }
 }

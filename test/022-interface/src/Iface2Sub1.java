@@ -18,6 +18,5 @@
  * Another interface.
  */
 public interface Iface2Sub1 extends Iface2, Cloneable {
-
-    //public int iFunc2(int ii);
+    // public int iFunc2(int ii);
 }

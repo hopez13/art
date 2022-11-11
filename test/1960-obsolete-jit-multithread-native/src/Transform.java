@@ -17,16 +17,16 @@
 import java.util.function.Consumer;
 
 class Transform {
-  public native void nativeSayHi(Consumer<Consumer<String>> r, Consumer<String> rep);
-  /*
-   * {
-   *   sayHi(r, rep);
-   * }
-   */
+    public native void nativeSayHi(Consumer<Consumer<String>> r, Consumer<String> rep);
+    /*
+     * {
+     *   sayHi(r, rep);
+     * }
+     */
 
-  public void sayHi(Consumer<Consumer<String>> r, Consumer<String> reporter) {
-    reporter.accept("Hello - Start method sayHi");
-    r.accept(reporter);
-    reporter.accept("Hello - End method sayHi");
-  }
+    public void sayHi(Consumer<Consumer<String>> r, Consumer<String> reporter) {
+        reporter.accept("Hello - Start method sayHi");
+        r.accept(reporter);
+        reporter.accept("Hello - End method sayHi");
+    }
 }

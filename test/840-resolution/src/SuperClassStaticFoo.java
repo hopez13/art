@@ -15,7 +15,5 @@
  */
 
 public class SuperClassStaticFoo {
-  public Class<?> foo() {
-    throw new Error("Unreachable");
-  }
+    public Class<?> foo() { throw new Error("Unreachable"); }
 }

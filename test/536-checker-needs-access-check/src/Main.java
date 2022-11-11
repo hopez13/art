@@ -25,7 +25,7 @@ public class Main {
             System.out.println("Got expected error instanceof");
         }
 
-         try {
+        try {
             testInstanceOfNull();
         } catch (IllegalAccessError e) {
             System.out.println("Got expected error instanceof null");
@@ -60,23 +60,17 @@ public class Main {
 
     /// CHECK-START: boolean Main.testInstanceOf() register (after)
     /// CHECK: LoadClass class_name:other.InaccessibleClass
-    public static boolean testInstanceOf() {
-        return ic instanceof InaccessibleClass;
-    }
+    public static boolean testInstanceOf() { return ic instanceof InaccessibleClass; }
 
     /// CHECK-START: boolean Main.testInstanceOfNull() register (after)
     /// CHECK: LoadClass class_name:other.InaccessibleClass
-    public static boolean testInstanceOfNull() {
-        return null instanceof InaccessibleClass;
-    }
+    public static boolean testInstanceOfNull() { return null instanceof InaccessibleClass; }
 
     // TODO: write a test for for CheckCast with not null constant (after RTP can parse arguments).
 
     /// CHECK-START: other.InaccessibleClass Main.testCheckCastNull() register (after)
     /// CHECK: LoadClass class_name:other.InaccessibleClass
-    public static InaccessibleClass testCheckCastNull() {
-        return (InaccessibleClass) null;
-    }
+    public static InaccessibleClass testCheckCastNull() { return (InaccessibleClass) null; }
 
     /// CHECK-START: other.InaccessibleClass Main.$noinline$testCheckCast(java.lang.Object) register (after)
     /// CHECK: LoadClass class_name:other.InaccessibleClass

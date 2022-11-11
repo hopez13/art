@@ -15,18 +15,18 @@
  */
 
 public class Main {
-  public static void main(String args[]) {
-    try {
-      // Regression test for default native methods that should cause ClassFormatException
-      // if they pass the dex file verification, i.e. for old dex file versions.
-      // We previously did not handle this case properly and failed a DCHECK() for
-      // a non-interface class creating a copied method that was native. b/157170505
-      Class.forName("TestClass");
-      throw new Error("UNREACHABLE");
-    } catch (ClassFormatError expected) {
-      System.out.println("passed");
-    } catch (Throwable unexpected) {
-      unexpected.printStackTrace();
+    public static void main(String args[]) {
+        try {
+            // Regression test for default native methods that should cause ClassFormatException
+            // if they pass the dex file verification, i.e. for old dex file versions.
+            // We previously did not handle this case properly and failed a DCHECK() for
+            // a non-interface class creating a copied method that was native. b/157170505
+            Class.forName("TestClass");
+            throw new Error("UNREACHABLE");
+        } catch (ClassFormatError expected) {
+            System.out.println("passed");
+        } catch (Throwable unexpected) {
+            unexpected.printStackTrace();
+        }
     }
-  }
 }

@@ -16,5 +16,4 @@
 
 package other;
 
-/* package */ class InaccessibleClass {
-}
+/* package */ class InaccessibleClass {}

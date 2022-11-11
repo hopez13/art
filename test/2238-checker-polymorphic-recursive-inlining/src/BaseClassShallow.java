@@ -15,5 +15,5 @@
  */
 
 public abstract class BaseClassShallow {
-  abstract boolean recursiveShallow();
+    abstract boolean recursiveShallow();
 }

@@ -15,12 +15,12 @@
  */
 
 public class Classa {
-  public Classa() {
-    Integer a = new Integer(42);
-    // This would lead to a hard failure in the situation where j.l.Integer
-    // is found in the class loader table but j.l.Number is not.
-    ((Number)a).intValue();
-  }
+    public Classa() {
+        Integer a = new Integer(42);
+        // This would lead to a hard failure in the situation where j.l.Integer
+        // is found in the class loader table but j.l.Number is not.
+        ((Number) a).intValue();
+    }
 }
 
 // Make sure there are a lot of classes to go through for the race to happen.

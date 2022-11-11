@@ -15,33 +15,27 @@
  */
 
 public class Main {
+    public static void main(String[] args) { checkClinitCheckBeforeStaticMethodInvoke(); }
 
-  public static void main(String[] args) {
-    checkClinitCheckBeforeStaticMethodInvoke();
-  }
+    static void checkClinitCheckBeforeStaticMethodInvoke() {
+        System.out.println("checkClinitCheckBeforeStaticMethodInvoke START");
 
-  static void checkClinitCheckBeforeStaticMethodInvoke() {
-    System.out.println("checkClinitCheckBeforeStaticMethodInvoke START");
+        // Call static method to cause implicit class initialization, even
+        // if it is inlined.
+        ClassWithClinit.$opt$inline$StaticMethod();
+        if (!classWithClinitInitialized) {
+            System.out.println("checkClinitCheckBeforeStaticMethodInvoke FAILED");
+            return;
+        }
 
-    // Call static method to cause implicit class initialization, even
-    // if it is inlined.
-    ClassWithClinit.$opt$inline$StaticMethod();
-    if (!classWithClinitInitialized) {
-      System.out.println("checkClinitCheckBeforeStaticMethodInvoke FAILED");
-      return;
+        System.out.println("checkClinitCheckBeforeStaticMethodInvoke PASSED");
     }
 
-    System.out.println("checkClinitCheckBeforeStaticMethodInvoke PASSED");
-  }
+    static class ClassWithClinit {
+        static { Main.classWithClinitInitialized = true; }
 
-  static class ClassWithClinit {
-    static {
-      Main.classWithClinitInitialized = true;
+        static void $opt$inline$StaticMethod() {}
     }
 
-    static void $opt$inline$StaticMethod() {
-    }
-  }
-
-  static boolean classWithClinitInitialized = false;
+    static boolean classWithClinitInitialized = false;
 }

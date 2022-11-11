@@ -17,41 +17,41 @@
 import java.util.Base64;
 
 class DifferentAccess {
-  // The following is a base64 encoding of the following class.
-  // public class NotTransform {
-  //   public void sayHi(String name) {
-  //     throw new Error("Should not be called!");
-  //   }
-  // }
-  private static final byte[] CLASS_BYTES = Base64.getDecoder().decode(
-    "yv66vgAAADQAFQoABgAPBwAQCAARCgACABIHABMHABQBAAY8aW5pdD4BAAMoKVYBAARDb2RlAQAP" +
-    "TGluZU51bWJlclRhYmxlAQAFc2F5SGkBABUoTGphdmEvbGFuZy9TdHJpbmc7KVYBAApTb3VyY2VG" +
-    "aWxlAQAOVHJhbnNmb3JtLmphdmEMAAcACAEAD2phdmEvbGFuZy9FcnJvcgEAFVNob3VsZCBub3Qg" +
-    "YmUgY2FsbGVkIQwABwAMAQAJVHJhbnNmb3JtAQAQamF2YS9sYW5nL09iamVjdAAhAAUABgAAAAAA" +
-    "AgABAAcACAABAAkAAAAdAAEAAQAAAAUqtwABsQAAAAEACgAAAAYAAQAAAAEAAQALAAwAAQAJAAAA" +
-    "IgADAAIAAAAKuwACWRIDtwAEvwAAAAEACgAAAAYAAQAAAAMAAQANAAAAAgAO");
-  private static final byte[] DEX_BYTES = Base64.getDecoder().decode(
-    "ZGV4CjAzNQANVRT7zleRLG4E5DhtK7OtoDxZlUQMI5eQAgAAcAAAAHhWNBIAAAAAAAAAAPwBAAAL" +
-    "AAAAcAAAAAUAAACcAAAAAgAAALAAAAAAAAAAAAAAAAQAAADIAAAAAQAAAOgAAACIAQAACAEAAEoB" +
-    "AABSAQAAXwEAAHIBAACGAQAAmgEAALEBAADBAQAAxAEAAMgBAADcAQAAAQAAAAIAAAADAAAABAAA" +
-    "AAcAAAAHAAAABAAAAAAAAAAIAAAABAAAAEQBAAAAAAAAAAAAAAAAAQAKAAAAAQABAAAAAAACAAAA" +
-    "AAAAAAAAAAABAAAAAgAAAAAAAAAGAAAAAAAAAO4BAAAAAAAAAQABAAEAAADjAQAABAAAAHAQAwAA" +
-    "AA4ABAACAAIAAADoAQAACQAAACIAAQAbAQUAAABwIAIAEAAnAAAAAQAAAAMABjxpbml0PgALTFRy" +
-    "YW5zZm9ybTsAEUxqYXZhL2xhbmcvRXJyb3I7ABJMamF2YS9sYW5nL09iamVjdDsAEkxqYXZhL2xh" +
-    "bmcvU3RyaW5nOwAVU2hvdWxkIG5vdCBiZSBjYWxsZWQhAA5UcmFuc2Zvcm0uamF2YQABVgACVkwA" +
-    "EmVtaXR0ZXI6IGphY2stNC4yMAAFc2F5SGkAAQAHDgADAQAHDgAAAAEBAIGABIgCAQGgAgwAAAAA" +
-    "AAAAAQAAAAAAAAABAAAACwAAAHAAAAACAAAABQAAAJwAAAADAAAAAgAAALAAAAAFAAAABAAAAMgA" +
-    "AAAGAAAAAQAAAOgAAAABIAAAAgAAAAgBAAABEAAAAQAAAEQBAAACIAAACwAAAEoBAAADIAAAAgAA" +
-    "AOMBAAAAIAAAAQAAAO4BAAAAEAAAAQAAAPwBAAA=");
+    // The following is a base64 encoding of the following class.
+    // public class NotTransform {
+    //   public void sayHi(String name) {
+    //     throw new Error("Should not be called!");
+    //   }
+    // }
+    private static final byte[] CLASS_BYTES = Base64.getDecoder().decode(
+            "yv66vgAAADQAFQoABgAPBwAQCAARCgACABIHABMHABQBAAY8aW5pdD4BAAMoKVYBAARDb2RlAQAP"
+            + "TGluZU51bWJlclRhYmxlAQAFc2F5SGkBABUoTGphdmEvbGFuZy9TdHJpbmc7KVYBAApTb3VyY2VG"
+            + "aWxlAQAOVHJhbnNmb3JtLmphdmEMAAcACAEAD2phdmEvbGFuZy9FcnJvcgEAFVNob3VsZCBub3Qg"
+            + "YmUgY2FsbGVkIQwABwAMAQAJVHJhbnNmb3JtAQAQamF2YS9sYW5nL09iamVjdAAhAAUABgAAAAAA"
+            + "AgABAAcACAABAAkAAAAdAAEAAQAAAAUqtwABsQAAAAEACgAAAAYAAQAAAAEAAQALAAwAAQAJAAAA"
+            + "IgADAAIAAAAKuwACWRIDtwAEvwAAAAEACgAAAAYAAQAAAAMAAQANAAAAAgAO");
+    private static final byte[] DEX_BYTES = Base64.getDecoder().decode(
+            "ZGV4CjAzNQANVRT7zleRLG4E5DhtK7OtoDxZlUQMI5eQAgAAcAAAAHhWNBIAAAAAAAAAAPwBAAAL"
+            + "AAAAcAAAAAUAAACcAAAAAgAAALAAAAAAAAAAAAAAAAQAAADIAAAAAQAAAOgAAACIAQAACAEAAEoB"
+            + "AABSAQAAXwEAAHIBAACGAQAAmgEAALEBAADBAQAAxAEAAMgBAADcAQAAAQAAAAIAAAADAAAABAAA"
+            + "AAcAAAAHAAAABAAAAAAAAAAIAAAABAAAAEQBAAAAAAAAAAAAAAAAAQAKAAAAAQABAAAAAAACAAAA"
+            + "AAAAAAAAAAABAAAAAgAAAAAAAAAGAAAAAAAAAO4BAAAAAAAAAQABAAEAAADjAQAABAAAAHAQAwAA"
+            + "AA4ABAACAAIAAADoAQAACQAAACIAAQAbAQUAAABwIAIAEAAnAAAAAQAAAAMABjxpbml0PgALTFRy"
+            + "YW5zZm9ybTsAEUxqYXZhL2xhbmcvRXJyb3I7ABJMamF2YS9sYW5nL09iamVjdDsAEkxqYXZhL2xh"
+            + "bmcvU3RyaW5nOwAVU2hvdWxkIG5vdCBiZSBjYWxsZWQhAA5UcmFuc2Zvcm0uamF2YQABVgACVkwA"
+            + "EmVtaXR0ZXI6IGphY2stNC4yMAAFc2F5SGkAAQAHDgADAQAHDgAAAAEBAIGABIgCAQGgAgwAAAAA"
+            + "AAAAAQAAAAAAAAABAAAACwAAAHAAAAACAAAABQAAAJwAAAADAAAAAgAAALAAAAAFAAAABAAAAMgA"
+            + "AAAGAAAAAQAAAOgAAAABIAAAAgAAAAgBAAABEAAAAQAAAEQBAAACIAAACwAAAEoBAAADIAAAAgAA"
+            + "AOMBAAAAIAAAAQAAAO4BAAAAEAAAAQAAAPwBAAA=");
 
-  public static void doTest(Transform t) {
-    t.sayHi("DifferentAccess");
-    try {
-      Main.doCommonClassRedefinition(Transform.class, CLASS_BYTES, DEX_BYTES);
-    } catch (Exception e) {
-      System.out.println(
-          "Transformation error : " + e.getClass().getName() + "(" + e.getMessage() + ")");
+    public static void doTest(Transform t) {
+        t.sayHi("DifferentAccess");
+        try {
+            Main.doCommonClassRedefinition(Transform.class, CLASS_BYTES, DEX_BYTES);
+        } catch (Exception e) {
+            System.out.println("Transformation error : " + e.getClass().getName() + "("
+                    + e.getMessage() + ")");
+        }
+        t.sayHi("DifferentAccess");
     }
-    t.sayHi("DifferentAccess");
-  }
 }

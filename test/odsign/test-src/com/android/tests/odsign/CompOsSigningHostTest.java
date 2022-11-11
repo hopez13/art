@@ -46,7 +46,6 @@ import java.util.concurrent.TimeUnit;
  */
 @RunWith(DeviceJUnit4ClassRunner.class)
 public class CompOsSigningHostTest extends ActivationTest {
-
     private static final String ORIGINAL_CHECKSUMS_KEY = "compos_test_orig_checksums";
     private static final String PENDING_CHECKSUMS_KEY = "compos_test_pending_checksums";
     private static final String TIMESTAMP_VM_START_KEY = "compos_test_timestamp_vm_start";
@@ -68,16 +67,16 @@ public class CompOsSigningHostTest extends ActivationTest {
 
         testUtils.installTestApex();
 
-        testInfo.properties().put(TIMESTAMP_VM_START_KEY,
-                        String.valueOf(testUtils.getCurrentTimeMs()));
+        testInfo.properties().put(
+                TIMESTAMP_VM_START_KEY, String.valueOf(testUtils.getCurrentTimeMs()));
 
         compOsTestUtils.runCompilationJobEarlyAndWait();
 
         testInfo.properties().put(PENDING_CHECKSUMS_KEY,
                 compOsTestUtils.checksumDirectoryContentPartial(PENDING_ARTIFACTS_DIR));
 
-        testInfo.properties().put(TIMESTAMP_REBOOT_KEY,
-                        String.valueOf(testUtils.getCurrentTimeMs()));
+        testInfo.properties().put(
+                TIMESTAMP_REBOOT_KEY, String.valueOf(testUtils.getCurrentTimeMs()));
         testUtils.reboot();
     }
 
@@ -98,9 +97,9 @@ public class CompOsSigningHostTest extends ActivationTest {
         OdsignTestUtils testUtils = new OdsignTestUtils(getTestInformation());
 
         testUtils.archiveLogThenDelete(mTestLogs, CompOsTestUtils.APEXDATA_DIR + "/vm.log",
-                        "vm.log-CompOsSigningHostTest");
+                "vm.log-CompOsSigningHostTest");
         testUtils.archiveLogThenDelete(mTestLogs, CompOsTestUtils.APEXDATA_DIR + "/vm_console.log",
-                        "vm_console.log-CompOsSigningHostTest");
+                "vm_console.log-CompOsSigningHostTest");
     }
 
     @Test

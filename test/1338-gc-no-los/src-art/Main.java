@@ -15,6 +15,7 @@
  */
 
 import dalvik.system.VMRuntime;
+
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 
@@ -24,7 +25,7 @@ public class Main {
             // Allocate a large object.
             byte[] arr = new byte[128 * 1024];
             // Allocate a non movable object.
-            byte[] arr2 = (byte[])VMRuntime.getRuntime().newNonMovableArray(Byte.TYPE, 200);
+            byte[] arr2 = (byte[]) VMRuntime.getRuntime().newNonMovableArray(Byte.TYPE, 200);
             // Put the array in a weak reference so that IsMarked is called by the GC.
             WeakReference weakRef = new WeakReference(arr2);
             // Do a GC.

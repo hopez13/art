@@ -17,14 +17,13 @@
 import java.lang.reflect.*;
 
 public class Main {
-
-  public static void main(String args[]) throws Throwable {
-    Class<?> c = Class.forName("Merge");
-    Method m = c.getMethod("select", boolean.class);
-    Object x = m.invoke(null, true);
-    if (x == null) {
-      throw new Error("Did not get array");
+    public static void main(String args[]) throws Throwable {
+        Class<?> c = Class.forName("Merge");
+        Method m = c.getMethod("select", boolean.class);
+        Object x = m.invoke(null, true);
+        if (x == null) {
+            throw new Error("Did not get array");
+        }
+        System.out.println("passed");
     }
-    System.out.println("passed");
-  }
 }

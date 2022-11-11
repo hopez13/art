@@ -20,7 +20,5 @@ import pkg1.A;
 
 // This definition is used for compiling but the class used at runtime is in src2/.
 public class BX extends A {
-    /* public in src2/ */ void foo() {
-        System.out.println("pkg2.BX.foo");
-    }
+    /* public in src2/ */ void foo() { System.out.println("pkg2.BX.foo"); }
 }

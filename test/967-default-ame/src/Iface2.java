@@ -15,7 +15,5 @@
  */
 
 public interface Iface2 extends Iface {
-  // public String sayHi();
+    // public String sayHi();
 }
-
-

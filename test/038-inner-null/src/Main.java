@@ -23,19 +23,12 @@ public class Main {
     public static class Special {
         Blort mBlort = null;
 
-        Special() {
-            System.out.println("new Special()");
-        }
+        Special() { System.out.println("new Special()"); }
 
-        public void callInner() {
-            mBlort.repaint();
-        }
+        public void callInner() { mBlort.repaint(); }
     }
 
     private class Blort {
-        public void repaint() {
-            System.out.println("shouldn't see this");
-        }
+        public void repaint() { System.out.println("shouldn't see this"); }
     }
-
 }

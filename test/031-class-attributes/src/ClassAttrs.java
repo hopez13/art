@@ -1,5 +1,3 @@
-import otherpackage.OtherPackageClass;
-
 import java.io.Serializable;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
@@ -14,42 +12,34 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import otherpackage.OtherPackageClass;
+
 public class ClassAttrs {
     ClassAttrs() {
         /* local, not anonymous, not member */
         class ConsInnerNamed {
-            public void showMe() {
-                printClassAttrs(this.getClass());
-            }
+            public void showMe() { printClassAttrs(this.getClass()); }
         }
 
         ConsInnerNamed cinner = new ConsInnerNamed();
         cinner.showMe();
     }
 
-    public class PublicInnerClass {
-    }
+    public class PublicInnerClass {}
 
-    protected class ProtectedInnerClass {
-    }
+    protected class ProtectedInnerClass {}
 
-    private class PrivateInnerClass {
-    }
+    private class PrivateInnerClass {}
 
-    class PackagePrivateInnerClass {
-    }
+    class PackagePrivateInnerClass {}
 
-    public interface PublicInnerInterface {
-    }
+    public interface PublicInnerInterface {}
 
-    protected interface ProtectedInnerInterface {
-    }
+    protected interface ProtectedInnerInterface {}
 
-    private interface PrivateInnerInterface {
-    }
+    private interface PrivateInnerInterface {}
 
-    interface PackagePrivateInnerInterface {
-    }
+    interface PackagePrivateInnerInterface {}
 
     private static void showModifiers(Class<?> c) {
         System.out.println(Modifier.toString(c.getModifiers()) + " " + c.getName());
@@ -99,9 +89,7 @@ public class ClassAttrs {
 
         /* local, not anonymous, not member */
         class InnerNamed {
-            public void showMe() {
-                printClassAttrs(this.getClass());
-            }
+            public void showMe() { printClassAttrs(this.getClass()); }
         }
         InnerNamed inner = new InnerNamed();
         inner.showMe();
@@ -125,18 +113,15 @@ public class ClassAttrs {
         try {
             Constructor<?> cons;
             cons = MemberClass.class.getConstructor(MemberClass.class);
-            System.out.println("constructor signature: "
-                    + getSignatureAttribute(cons));
+            System.out.println("constructor signature: " + getSignatureAttribute(cons));
 
             Method meth;
             meth = MemberClass.class.getMethod("foo");
-            System.out.println("method signature: "
-                    + getSignatureAttribute(meth));
+            System.out.println("method signature: " + getSignatureAttribute(meth));
 
             Field field;
             field = MemberClass.class.getField("mWha");
-            System.out.println("field signature: "
-                    + getSignatureAttribute(field));
+            System.out.println("field signature: " + getSignatureAttribute(field));
         } catch (NoSuchMethodException nsme) {
             System.out.println("FAILED: " + nsme);
         } catch (NoSuchFieldException nsfe) {
@@ -211,16 +196,16 @@ public class ClassAttrs {
     }
 
     private static void assertTrue(boolean b) {
-        if (!b) throw new RuntimeException();
+        if (!b)
+            throw new RuntimeException();
     }
 
     private static void assertFalse(boolean b) {
-        if (b) throw new RuntimeException();
+        if (b)
+            throw new RuntimeException();
     }
 
-    private static void fail() {
-        throw new RuntimeException();
-    }
+    private static void fail() { throw new RuntimeException(); }
 
     /* to call the (out-of-scope) <code>getSignatureAttribute</code> methods */
     public static String getSignatureAttribute(Object obj) {
@@ -228,7 +213,7 @@ public class ClassAttrs {
         try {
             Class<?> c = obj.getClass();
             if (c == Method.class || c == Constructor.class) {
-              c = Executable.class;
+                c = Executable.class;
             }
             method = c.getDeclaredMethod("getSignatureAttribute");
             method.setAccessible(true);
@@ -250,13 +235,9 @@ public class ClassAttrs {
     static class MemberClass<XYZ> {
         public MemberClass<XYZ> mWha;
 
-        public MemberClass(MemberClass<XYZ> memb) {
-            mWha = memb;
-        }
+        public MemberClass(MemberClass<XYZ> memb) { mWha = memb; }
 
-        public Class<XYZ> foo() throws NoSuchMethodException {
-            return null;
-        }
+        public Class<XYZ> foo() throws NoSuchMethodException { return null; }
     }
 
     /* for reflection testing (getClasses vs getDeclaredClasses) */
@@ -270,62 +251,38 @@ public class ClassAttrs {
     public static <T> void printClassAttrs(Class<T> clazz) {
         System.out.println("***** " + clazz + ":");
 
-        System.out.println("  name: "
-            + clazz.getName());
-        System.out.println("  canonical: "
-            + clazz.getCanonicalName());
-        System.out.println("  simple: "
-            + clazz.getSimpleName());
-        System.out.println("  genericSignature: "
-            + getSignatureAttribute(clazz));
+        System.out.println("  name: " + clazz.getName());
+        System.out.println("  canonical: " + clazz.getCanonicalName());
+        System.out.println("  simple: " + clazz.getSimpleName());
+        System.out.println("  genericSignature: " + getSignatureAttribute(clazz));
 
-        System.out.println("  super: "
-            + clazz.getSuperclass());
-        System.out.println("  genericSuperclass: "
-            + clazz.getGenericSuperclass());
-        System.out.println("  declaring: "
-            + clazz.getDeclaringClass());
-        System.out.println("  enclosing: "
-            + clazz.getEnclosingClass());
-        System.out.println("  enclosingCon: "
-            + clazz.getEnclosingConstructor());
-        System.out.println("  enclosingMeth: "
-            + clazz.getEnclosingMethod());
-        System.out.println("  modifiers: "
-            + clazz.getModifiers());
-        System.out.println("  package: "
-            + clazz.getPackage());
+        System.out.println("  super: " + clazz.getSuperclass());
+        System.out.println("  genericSuperclass: " + clazz.getGenericSuperclass());
+        System.out.println("  declaring: " + clazz.getDeclaringClass());
+        System.out.println("  enclosing: " + clazz.getEnclosingClass());
+        System.out.println("  enclosingCon: " + clazz.getEnclosingConstructor());
+        System.out.println("  enclosingMeth: " + clazz.getEnclosingMethod());
+        System.out.println("  modifiers: " + clazz.getModifiers());
+        System.out.println("  package: " + clazz.getPackage());
 
-        System.out.println("  declaredClasses: "
-            + stringifyTypeArray(clazz.getDeclaredClasses()));
-        System.out.println("  member classes: "
-            + stringifyTypeArray(clazz.getClasses()));
+        System.out.println("  declaredClasses: " + stringifyTypeArray(clazz.getDeclaredClasses()));
+        System.out.println("  member classes: " + stringifyTypeArray(clazz.getClasses()));
 
-        System.out.println("  isAnnotation: "
-            + clazz.isAnnotation());
-        System.out.println("  isAnonymous: "
-            + clazz.isAnonymousClass());
-        System.out.println("  isArray: "
-            + clazz.isArray());
-        System.out.println("  isEnum: "
-            + clazz.isEnum());
-        System.out.println("  isInterface: "
-            + clazz.isInterface());
-        System.out.println("  isLocalClass: "
-            + clazz.isLocalClass());
-        System.out.println("  isMemberClass: "
-            + clazz.isMemberClass());
-        System.out.println("  isPrimitive: "
-            + clazz.isPrimitive());
-        System.out.println("  isSynthetic: "
-            + clazz.isSynthetic());
+        System.out.println("  isAnnotation: " + clazz.isAnnotation());
+        System.out.println("  isAnonymous: " + clazz.isAnonymousClass());
+        System.out.println("  isArray: " + clazz.isArray());
+        System.out.println("  isEnum: " + clazz.isEnum());
+        System.out.println("  isInterface: " + clazz.isInterface());
+        System.out.println("  isLocalClass: " + clazz.isLocalClass());
+        System.out.println("  isMemberClass: " + clazz.isMemberClass());
+        System.out.println("  isPrimitive: " + clazz.isPrimitive());
+        System.out.println("  isSynthetic: " + clazz.isSynthetic());
 
-        System.out.println("  genericInterfaces: "
-            + stringifyTypeArray(clazz.getGenericInterfaces()));
+        System.out.println(
+                "  genericInterfaces: " + stringifyTypeArray(clazz.getGenericInterfaces()));
 
         TypeVariable<Class<T>>[] typeParameters = clazz.getTypeParameters();
-        System.out.println("  typeParameters: "
-            + stringifyTypeArray(typeParameters));
+        System.out.println("  typeParameters: " + stringifyTypeArray(typeParameters));
     }
 
     /*
@@ -334,7 +291,7 @@ public class ClassAttrs {
     private static String stringifyTypeArray(Type[] types) {
         List<String> typeStringList = new ArrayList<String>();
         for (Type t : types) {
-          typeStringList.add(t.toString());
+            typeStringList.add(t.toString());
         }
         // Sort types alphabetically so they're always printed in the same order.
         // For instance, Class.getClasses() does not guarantee any order for the

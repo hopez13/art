@@ -19,7 +19,6 @@ import java.lang.invoke.MethodType;
 import java.lang.invoke.MutableCallSite;
 
 public class Main extends TestBase {
-
     private static void TestUninitializedCallSite() throws Throwable {
         CallSite callSite = new MutableCallSite(MethodType.methodType(int.class));
         try {
@@ -50,20 +49,19 @@ public class Main extends TestBase {
         TestLinkerMethodWithRange.test(811, 823, 947, 967, 1087, 1093);
 
         TestLinkerMethodWithRange.test(null, null, null, null, null, null);
-        TestLinkerMethodWithRange.test(Double.valueOf(1.0), null, Double.valueOf(3.0), null,
-                                       Double.valueOf(37.0), null);
-        TestLinkerMethodWithRange.test(null, Double.valueOf(3.0), null,
-                                       Double.valueOf(37.0), null, Double.valueOf(113.0));
+        TestLinkerMethodWithRange.test(
+                Double.valueOf(1.0), null, Double.valueOf(3.0), null, Double.valueOf(37.0), null);
+        TestLinkerMethodWithRange.test(
+                null, Double.valueOf(3.0), null, Double.valueOf(37.0), null, Double.valueOf(113.0));
         TestLinkerMethodWithRange.test(Double.valueOf(1.0), Double.valueOf(2.0),
-                                       Double.valueOf(3.0), Double.valueOf(5.0),
-                                       Double.valueOf(7.0), Double.valueOf(11.0));
+                Double.valueOf(3.0), Double.valueOf(5.0), Double.valueOf(7.0),
+                Double.valueOf(11.0));
     }
 
     private static void TestLinkerMethodMinimalArguments() throws Throwable {
         try {
             TestLinkerMethodMinimalArguments.test(
-                    TestLinkerMethodMinimalArguments.FAILURE_TYPE_LINKER_METHOD_RETURNS_NULL,
-                    10,
+                    TestLinkerMethodMinimalArguments.FAILURE_TYPE_LINKER_METHOD_RETURNS_NULL, 10,
                     10);
             assertNotReached();
         } catch (BootstrapMethodError e) {

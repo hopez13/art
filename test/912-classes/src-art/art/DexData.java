@@ -16,85 +16,75 @@
 
 package art;
 
+import dalvik.system.InMemoryDexClassLoader;
+
 import java.nio.ByteBuffer;
 import java.util.Base64;
 
-import dalvik.system.InMemoryDexClassLoader;
-
 public class DexData {
-  public static ClassLoader getBootClassLoader() {
-    ClassLoader cl = DexData.class.getClassLoader();
-    while (cl.getParent() != null) {
-      cl = cl.getParent();
+    public static ClassLoader getBootClassLoader() {
+        ClassLoader cl = DexData.class.getClassLoader();
+        while (cl.getParent() != null) {
+            cl = cl.getParent();
+        }
+        return cl;
     }
-    return cl;
-  }
 
-  public static ClassLoader create1() {
-    return create1(getBootClassLoader());
-  }
-  public static ClassLoader create1(ClassLoader parent) {
-    return create(parent, DEX_DATA_B);
-  }
+    public static ClassLoader create1() { return create1(getBootClassLoader()); }
+    public static ClassLoader create1(ClassLoader parent) { return create(parent, DEX_DATA_B); }
 
-  public static ClassLoader create2() {
-    return create2(getBootClassLoader());
-  }
-  public static ClassLoader create2(ClassLoader parent) {
-    return create(parent, DEX_DATA_AC);
-  }
+    public static ClassLoader create2() { return create2(getBootClassLoader()); }
+    public static ClassLoader create2(ClassLoader parent) { return create(parent, DEX_DATA_AC); }
 
-  public static ClassLoader create12() {
-    return create12(getBootClassLoader());
-  }
-  public static ClassLoader create12(ClassLoader parent) {
-    return create(parent, DEX_DATA_AC, DEX_DATA_B);
-  }
-
-  private static ClassLoader create(ClassLoader parent, String... stringData) {
-    ByteBuffer byteBuffers[] = new ByteBuffer[stringData.length];
-    for (int i = 0; i < stringData.length; i++) {
-      byteBuffers[i] = ByteBuffer.wrap(Base64.getDecoder().decode(stringData[i]));
+    public static ClassLoader create12() { return create12(getBootClassLoader()); }
+    public static ClassLoader create12(ClassLoader parent) {
+        return create(parent, DEX_DATA_AC, DEX_DATA_B);
     }
-    return new InMemoryDexClassLoader(byteBuffers, parent);
-  }
 
-  /*
-   * Derived from:
-   *
-   *   public class A {
-   *   }
-   *
-   *   public class C extends A {
-   *   }
-   *
-   */
-  private final static String DEX_DATA_AC =
-      "ZGV4CjAzNQD5KyH7WmGuqVEyL+2aKG1nyb27UJaCjFwQAgAAcAAAAHhWNBIAAAAAAAAAAIgBAAAH" +
-      "AAAAcAAAAAQAAACMAAAAAQAAAJwAAAAAAAAAAAAAAAMAAACoAAAAAgAAAMAAAAAQAQAAAAEAADAB" +
-      "AAA4AQAAQAEAAEgBAABNAQAAUgEAAGYBAAADAAAABAAAAAUAAAAGAAAABgAAAAMAAAAAAAAAAAAA" +
-      "AAAAAAABAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAACAAAAAAAAAAEAAAAAAAAAcwEAAAAAAAABAAAA" +
-      "AQAAAAAAAAAAAAAAAgAAAAAAAAB9AQAAAAAAAAEAAQABAAAAaQEAAAQAAABwEAIAAAAOAAEAAQAB" +
-      "AAAAbgEAAAQAAABwEAAAAAAOAAY8aW5pdD4ABkEuamF2YQAGQy5qYXZhAANMQTsAA0xDOwASTGph" +
-      "dmEvbGFuZy9PYmplY3Q7AAFWABEABw4AEQAHDgAAAAEAAIGABIACAAABAAGBgASYAgALAAAAAAAA" +
-      "AAEAAAAAAAAAAQAAAAcAAABwAAAAAgAAAAQAAACMAAAAAwAAAAEAAACcAAAABQAAAAMAAACoAAAA" +
-      "BgAAAAIAAADAAAAAASAAAAIAAAAAAQAAAiAAAAcAAAAwAQAAAyAAAAIAAABpAQAAACAAAAIAAABz" +
-      "AQAAABAAAAEAAACIAQAA";
+    private static ClassLoader create(ClassLoader parent, String... stringData) {
+        ByteBuffer byteBuffers[] = new ByteBuffer[stringData.length];
+        for (int i = 0; i < stringData.length; i++) {
+            byteBuffers[i] = ByteBuffer.wrap(Base64.getDecoder().decode(stringData[i]));
+        }
+        return new InMemoryDexClassLoader(byteBuffers, parent);
+    }
 
-  /*
-   * Derived from:
-   *
-   *   public class B {
-   *   }
-   *
-   */
-  private final static String DEX_DATA_B =
-      "ZGV4CjAzNQBgKV6iWFG4aOm5WEy8oGtDZjqsftBgwJ2oAQAAcAAAAHhWNBIAAAAAAAAAACABAAAF" +
-      "AAAAcAAAAAMAAACEAAAAAQAAAJAAAAAAAAAAAAAAAAIAAACcAAAAAQAAAKwAAADcAAAAzAAAAOQA" +
-      "AADsAAAA9AAAAPkAAAANAQAAAgAAAAMAAAAEAAAABAAAAAIAAAAAAAAAAAAAAAAAAAABAAAAAAAA" +
-      "AAAAAAABAAAAAQAAAAAAAAABAAAAAAAAABUBAAAAAAAAAQABAAEAAAAQAQAABAAAAHAQAQAAAA4A" +
-      "Bjxpbml0PgAGQi5qYXZhAANMQjsAEkxqYXZhL2xhbmcvT2JqZWN0OwABVgARAAcOAAAAAQAAgYAE" +
-      "zAEACwAAAAAAAAABAAAAAAAAAAEAAAAFAAAAcAAAAAIAAAADAAAAhAAAAAMAAAABAAAAkAAAAAUA" +
-      "AAACAAAAnAAAAAYAAAABAAAArAAAAAEgAAABAAAAzAAAAAIgAAAFAAAA5AAAAAMgAAABAAAAEAEA" +
-      "AAAgAAABAAAAFQEAAAAQAAABAAAAIAEAAA==";
+    /*
+     * Derived from:
+     *
+     *   public class A {
+     *   }
+     *
+     *   public class C extends A {
+     *   }
+     *
+     */
+    private final static String DEX_DATA_AC =
+            "ZGV4CjAzNQD5KyH7WmGuqVEyL+2aKG1nyb27UJaCjFwQAgAAcAAAAHhWNBIAAAAAAAAAAIgBAAAH"
+            + "AAAAcAAAAAQAAACMAAAAAQAAAJwAAAAAAAAAAAAAAAMAAACoAAAAAgAAAMAAAAAQAQAAAAEAADAB"
+            + "AAA4AQAAQAEAAEgBAABNAQAAUgEAAGYBAAADAAAABAAAAAUAAAAGAAAABgAAAAMAAAAAAAAAAAAA"
+            + "AAAAAAABAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAACAAAAAAAAAAEAAAAAAAAAcwEAAAAAAAABAAAA"
+            + "AQAAAAAAAAAAAAAAAgAAAAAAAAB9AQAAAAAAAAEAAQABAAAAaQEAAAQAAABwEAIAAAAOAAEAAQAB"
+            + "AAAAbgEAAAQAAABwEAAAAAAOAAY8aW5pdD4ABkEuamF2YQAGQy5qYXZhAANMQTsAA0xDOwASTGph"
+            + "dmEvbGFuZy9PYmplY3Q7AAFWABEABw4AEQAHDgAAAAEAAIGABIACAAABAAGBgASYAgALAAAAAAAA"
+            + "AAEAAAAAAAAAAQAAAAcAAABwAAAAAgAAAAQAAACMAAAAAwAAAAEAAACcAAAABQAAAAMAAACoAAAA"
+            + "BgAAAAIAAADAAAAAASAAAAIAAAAAAQAAAiAAAAcAAAAwAQAAAyAAAAIAAABpAQAAACAAAAIAAABz"
+            + "AQAAABAAAAEAAACIAQAA";
+
+    /*
+     * Derived from:
+     *
+     *   public class B {
+     *   }
+     *
+     */
+    private final static String DEX_DATA_B =
+            "ZGV4CjAzNQBgKV6iWFG4aOm5WEy8oGtDZjqsftBgwJ2oAQAAcAAAAHhWNBIAAAAAAAAAACABAAAF"
+            + "AAAAcAAAAAMAAACEAAAAAQAAAJAAAAAAAAAAAAAAAAIAAACcAAAAAQAAAKwAAADcAAAAzAAAAOQA"
+            + "AADsAAAA9AAAAPkAAAANAQAAAgAAAAMAAAAEAAAABAAAAAIAAAAAAAAAAAAAAAAAAAABAAAAAAAA"
+            + "AAAAAAABAAAAAQAAAAAAAAABAAAAAAAAABUBAAAAAAAAAQABAAEAAAAQAQAABAAAAHAQAQAAAA4A"
+            + "Bjxpbml0PgAGQi5qYXZhAANMQjsAEkxqYXZhL2xhbmcvT2JqZWN0OwABVgARAAcOAAAAAQAAgYAE"
+            + "zAEACwAAAAAAAAABAAAAAAAAAAEAAAAFAAAAcAAAAAIAAAADAAAAhAAAAAMAAAABAAAAkAAAAAUA"
+            + "AAACAAAAnAAAAAYAAAABAAAArAAAAAEgAAABAAAAzAAAAAIgAAAFAAAA5AAAAAMgAAABAAAAEAEA"
+            + "AAAgAAABAAAAFQEAAAAQAAABAAAAIAEAAA==";
 }

@@ -18,7 +18,6 @@
  * Test arithmetic operations.
  */
 public class FloatMath {
-
     static void convTest() {
         System.out.println("FloatMath.convTest");
 
@@ -239,8 +238,8 @@ public class FloatMath {
         results[0] = (int) l;
         results[1] = (int) f;
         results[2] = (int) d;
-        results[3] = (int) (1.0f / zero);       // +inf
-        results[4] = (int) (-1.0f / zero);      // -inf
+        results[3] = (int) (1.0f / zero); // +inf
+        results[4] = (int) (-1.0f / zero); // -inf
         results[5] = (int) ((1.0f / zero) / (1.0f / zero)); // NaN
         return results;
     }
@@ -259,9 +258,9 @@ public class FloatMath {
         results[0] = (long) i;
         results[1] = (long) f;
         results[2] = (long) d;
-        results[3] = (long) (1.0 / zero);       // +inf
-        results[4] = (long) (-1.0 / zero);      // -inf
-        results[5] = (long) ((1.0 / zero) / (1.0 / zero));  // NaN
+        results[3] = (long) (1.0 / zero); // +inf
+        results[4] = (long) (-1.0 / zero); // -inf
+        results[5] = (long) ((1.0 / zero) / (1.0 / zero)); // NaN
         return results;
     }
     static void checkConvL(long[] results) {
@@ -305,10 +304,10 @@ public class FloatMath {
     static void checkConsts() {
         System.out.println("FloatMath.checkConsts");
 
-        float f = 10.0f;        // const/special
+        float f = 10.0f; // const/special
         Main.assertTrue(f > 9.9 && f < 10.1);
 
-        double d = 10.0;        // const-wide/special
+        double d = 10.0; // const-wide/special
         Main.assertTrue(d > 9.9 && d < 10.1);
     }
 
@@ -350,7 +349,7 @@ public class FloatMath {
         Main.assertTrue(approxEqual(Math.max(dd, -5.0), dd, 0.001));
 
         double sq = Math.sqrt(dd);
-        Main.assertTrue(approxEqual(sq*sq, dd, 0.001));
+        Main.assertTrue(approxEqual(sq * sq, dd, 0.001));
 
         Main.assertTrue(approxEqual(0.5403023058681398, Math.cos(1.0), 0.00000001));
         Main.assertTrue(approxEqual(0.8414709848078965, Math.sin(1.0), 0.00000001));

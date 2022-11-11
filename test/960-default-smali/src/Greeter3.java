@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 public interface Greeter3 extends Greeter {
-  public String GetName();
-  public default String SayHi() {
-    return "Hello " + GetName();
-  }
+    public String GetName();
+    public default String SayHi() { return "Hello " + GetName(); }
 }

@@ -15,7 +15,6 @@
  */
 
 public class Main {
-
     public static void assertIntEquals(int expected, int result) {
         if (expected != result) {
             throw new Error("Expected: " + expected + ", found: " + result);
@@ -42,7 +41,5 @@ public class Main {
         return used1 + used2 + used3 + used4;
     }
 
-    public static void main(String[] args) {
-        int res = new Main().loop1();
-    }
+    public static void main(String[] args) { int res = new Main().loop1(); }
 }

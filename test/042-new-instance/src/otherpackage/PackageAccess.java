@@ -17,13 +17,9 @@
 package otherpackage;
 
 class PackageAccess {
-    /*package*/ PackageAccess() {
-        System.out.println("created PackageAccess");
-    }
+    /*package*/ PackageAccess() { System.out.println("created PackageAccess"); }
 }
 
 class PackageAccess2 {
-    public PackageAccess2() {
-        System.out.println("created PackageAccess2");
-    }
+    public PackageAccess2() { System.out.println("created PackageAccess2"); }
 }

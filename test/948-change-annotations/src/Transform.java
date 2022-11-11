@@ -16,8 +16,8 @@
 
 @TestClassAnnotation1("hello")
 class Transform {
-  @TestMethodAnnotation1("hi hi")
-  public void sayHi() {
-    System.out.println("hello");
-  }
+    @TestMethodAnnotation1("hi hi")
+    public void sayHi() {
+        System.out.println("hello");
+    }
 }

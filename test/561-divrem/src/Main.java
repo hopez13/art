@@ -15,75 +15,67 @@
  */
 
 public class Main {
-  public static void assertEquals(int expected, int actual) {
-    if (expected != actual) {
-      throw new Error("Expected " + expected + ", got " + actual);
+    public static void assertEquals(int expected, int actual) {
+        if (expected != actual) {
+            throw new Error("Expected " + expected + ", got " + actual);
+        }
     }
-  }
 
-  public static void assertEquals(long expected, long actual) {
-    if (expected != actual) {
-      throw new Error("Expected " + expected + ", got " + actual);
+    public static void assertEquals(long expected, long actual) {
+        if (expected != actual) {
+            throw new Error("Expected " + expected + ", got " + actual);
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    assertEquals(0, $noinline$divInt(1));
-    assertEquals(1, $noinline$remInt(1));
+    public static void main(String[] args) {
+        assertEquals(0, $noinline$divInt(1));
+        assertEquals(1, $noinline$remInt(1));
 
-    assertEquals(0, $noinline$divInt(-1));
-    assertEquals(-1, $noinline$remInt(-1));
+        assertEquals(0, $noinline$divInt(-1));
+        assertEquals(-1, $noinline$remInt(-1));
 
-    assertEquals(0, $noinline$divInt(0));
-    assertEquals(0, $noinline$remInt(0));
+        assertEquals(0, $noinline$divInt(0));
+        assertEquals(0, $noinline$remInt(0));
 
-    assertEquals(1, $noinline$divInt(Integer.MIN_VALUE));
-    assertEquals(0, $noinline$remInt(Integer.MIN_VALUE));
+        assertEquals(1, $noinline$divInt(Integer.MIN_VALUE));
+        assertEquals(0, $noinline$remInt(Integer.MIN_VALUE));
 
-    assertEquals(0, $noinline$divInt(Integer.MAX_VALUE));
-    assertEquals(Integer.MAX_VALUE, $noinline$remInt(Integer.MAX_VALUE));
+        assertEquals(0, $noinline$divInt(Integer.MAX_VALUE));
+        assertEquals(Integer.MAX_VALUE, $noinline$remInt(Integer.MAX_VALUE));
 
-    assertEquals(0, $noinline$divInt(Integer.MAX_VALUE - 1));
-    assertEquals(Integer.MAX_VALUE - 1, $noinline$remInt(Integer.MAX_VALUE - 1));
+        assertEquals(0, $noinline$divInt(Integer.MAX_VALUE - 1));
+        assertEquals(Integer.MAX_VALUE - 1, $noinline$remInt(Integer.MAX_VALUE - 1));
 
-    assertEquals(0, $noinline$divInt(Integer.MIN_VALUE + 1));
-    assertEquals(Integer.MIN_VALUE + 1, $noinline$remInt(Integer.MIN_VALUE + 1));
+        assertEquals(0, $noinline$divInt(Integer.MIN_VALUE + 1));
+        assertEquals(Integer.MIN_VALUE + 1, $noinline$remInt(Integer.MIN_VALUE + 1));
 
-    assertEquals(0L, $noinline$divLong(1L));
-    assertEquals(1L, $noinline$remLong(1L));
+        assertEquals(0L, $noinline$divLong(1L));
+        assertEquals(1L, $noinline$remLong(1L));
 
-    assertEquals(0L, $noinline$divLong(-1L));
-    assertEquals(-1L, $noinline$remLong(-1L));
+        assertEquals(0L, $noinline$divLong(-1L));
+        assertEquals(-1L, $noinline$remLong(-1L));
 
-    assertEquals(0L, $noinline$divLong(0L));
-    assertEquals(0L, $noinline$remLong(0L));
+        assertEquals(0L, $noinline$divLong(0L));
+        assertEquals(0L, $noinline$remLong(0L));
 
-    assertEquals(1L, $noinline$divLong(Long.MIN_VALUE));
-    assertEquals(0L, $noinline$remLong(Long.MIN_VALUE));
+        assertEquals(1L, $noinline$divLong(Long.MIN_VALUE));
+        assertEquals(0L, $noinline$remLong(Long.MIN_VALUE));
 
-    assertEquals(0L, $noinline$divLong(Long.MAX_VALUE));
-    assertEquals(Long.MAX_VALUE, $noinline$remLong(Long.MAX_VALUE));
+        assertEquals(0L, $noinline$divLong(Long.MAX_VALUE));
+        assertEquals(Long.MAX_VALUE, $noinline$remLong(Long.MAX_VALUE));
 
-    assertEquals(0L, $noinline$divLong(Long.MAX_VALUE - 1));
-    assertEquals(Long.MAX_VALUE - 1, $noinline$remLong(Long.MAX_VALUE - 1));
+        assertEquals(0L, $noinline$divLong(Long.MAX_VALUE - 1));
+        assertEquals(Long.MAX_VALUE - 1, $noinline$remLong(Long.MAX_VALUE - 1));
 
-    assertEquals(0L, $noinline$divLong(Integer.MIN_VALUE + 1));
-    assertEquals(Long.MIN_VALUE + 1, $noinline$remLong(Long.MIN_VALUE + 1));
-  }
+        assertEquals(0L, $noinline$divLong(Integer.MIN_VALUE + 1));
+        assertEquals(Long.MIN_VALUE + 1, $noinline$remLong(Long.MIN_VALUE + 1));
+    }
 
-  public static int $noinline$divInt(int value) {
-    return value / Integer.MIN_VALUE;
-  }
+    public static int $noinline$divInt(int value) { return value / Integer.MIN_VALUE; }
 
-  public static int $noinline$remInt(int value) {
-    return value % Integer.MIN_VALUE;
-  }
+    public static int $noinline$remInt(int value) { return value % Integer.MIN_VALUE; }
 
-  public static long $noinline$divLong(long value) {
-    return value / Long.MIN_VALUE;
-  }
+    public static long $noinline$divLong(long value) { return value / Long.MIN_VALUE; }
 
-  public static long $noinline$remLong(long value) {
-    return value % Long.MIN_VALUE;
-  }
+    public static long $noinline$remLong(long value) { return value % Long.MIN_VALUE; }
 }

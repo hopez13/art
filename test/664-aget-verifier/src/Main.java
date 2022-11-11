@@ -17,33 +17,32 @@
 import java.lang.reflect.Method;
 
 public class Main {
+    public static void main(String[] args) {
+        System.loadLibrary(args[0]);
 
-  public static void main(String[] args) {
-    System.loadLibrary(args[0]);
+        test();
 
-    test();
-
-    try {
-      if (testCompiled(Main.class.getDeclaredMethod("test"))) {
-        System.out.println("test method successfully verified/compiled.");
-      } else {
-        System.out.println("test method failed to verify/compile.");
-      }
-    } catch (Exception e) {
-      System.out.println("Got unexpected exception: " + e);
+        try {
+            if (testCompiled(Main.class.getDeclaredMethod("test"))) {
+                System.out.println("test method successfully verified/compiled.");
+            } else {
+                System.out.println("test method failed to verify/compile.");
+            }
+        } catch (Exception e) {
+            System.out.println("Got unexpected exception: " + e);
+        }
     }
-  }
 
-  public static void test() {
-    int[] maybe_null_array = null;
-    for (int i = 0; i < 2; i++) {
-      int[] non_null_array = new int[1];
-      if (maybe_null_array != null) {
-        i = maybe_null_array[0] + 1;
-      }
-      maybe_null_array = non_null_array;
+    public static void test() {
+        int[] maybe_null_array = null;
+        for (int i = 0; i < 2; i++) {
+            int[] non_null_array = new int[1];
+            if (maybe_null_array != null) {
+                i = maybe_null_array[0] + 1;
+            }
+            maybe_null_array = non_null_array;
+        }
     }
-  }
 
-  public static native boolean testCompiled(Method method);
+    public static native boolean testCompiled(Method method);
 }

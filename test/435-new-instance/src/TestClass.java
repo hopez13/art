@@ -15,7 +15,7 @@
  */
 
 public abstract class TestClass {
-  // Bogus fields to satisfy dex merger. See b/18051191
-  public int val;
-  public void method() {};
+    // Bogus fields to satisfy dex merger. See b/18051191
+    public int val;
+    public void method(){};
 }

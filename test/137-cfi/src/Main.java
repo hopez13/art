@@ -21,69 +21,69 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class Main extends Base implements Comparator<Main> {
-  // Whether to test local unwinding.
-  private static boolean testLocal;
+    // Whether to test local unwinding.
+    private static boolean testLocal;
 
-  // Unwinding another process, modelling debuggerd.
-  private static boolean testRemote;
+    // Unwinding another process, modelling debuggerd.
+    private static boolean testRemote;
 
-  // We fork ourself to create the secondary process for remote unwinding.
-  private static boolean secondary;
+    // We fork ourself to create the secondary process for remote unwinding.
+    private static boolean secondary;
 
-  public static void main(String[] args) throws Exception {
-      System.out.println("args: " + String.join(" ", Arrays.copyOfRange(args, 1, args.length)));
+    public static void main(String[] args) throws Exception {
+        System.out.println("args: " + String.join(" ", Arrays.copyOfRange(args, 1, args.length)));
 
-      System.loadLibrary(args[0]);
-      for (int i = 1; i < args.length; i++) {
-          if (args[i].equals("--test-local")) {
-              testLocal = true;
-          } else if (args[i].equals("--test-remote")) {
-              testRemote = true;
-          } else if (args[i].equals("--secondary")) {
-              secondary = true;
-          } else {
-              System.out.println("Unknown argument: " + args[i]);
-              System.exit(1);
-          }
-      }
+        System.loadLibrary(args[0]);
+        for (int i = 1; i < args.length; i++) {
+            if (args[i].equals("--test-local")) {
+                testLocal = true;
+            } else if (args[i].equals("--test-remote")) {
+                testRemote = true;
+            } else if (args[i].equals("--secondary")) {
+                secondary = true;
+            } else {
+                System.out.println("Unknown argument: " + args[i]);
+                System.exit(1);
+            }
+        }
 
-      // Call test() via base class to test unwinding through multidex.
-      new Main().$noinline$runTest();
-  }
+        // Call test() via base class to test unwinding through multidex.
+        new Main().$noinline$runTest();
+    }
 
-  public void test() {
-      // Call unwind() via Arrays.binarySearch to test unwinding through framework.
-      Main[] array = { this, this, this };
-      Arrays.binarySearch(array, 0, 3, this /* value */, this /* comparator */);
-  }
+    public void test() {
+        // Call unwind() via Arrays.binarySearch to test unwinding through framework.
+        Main[] array = {this, this, this};
+        Arrays.binarySearch(array, 0, 3, this /* value */, this /* comparator */);
+    }
 
-  public int compare(Main lhs, Main rhs) {
-      unwind();
-      // Returning "equal" ensures that we terminate search
-      // after first item and thus call unwind() only once.
-      return 0;
-  }
+    public int compare(Main lhs, Main rhs) {
+        unwind();
+        // Returning "equal" ensures that we terminate search
+        // after first item and thus call unwind() only once.
+        return 0;
+    }
 
-  public void unwind() {
-      if (secondary) {
-          sigstop();  // This is helper child process. Stop and wait for unwinding.
-          return;     // Don't run the tests again in the secondary helper process.
-      }
+    public void unwind() {
+        if (secondary) {
+            sigstop(); // This is helper child process. Stop and wait for unwinding.
+            return; // Don't run the tests again in the secondary helper process.
+        }
 
-      if (testLocal) {
-          System.out.println(unwindInProcess() ? "PASS" : "FAIL");
-      }
+        if (testLocal) {
+            System.out.println(unwindInProcess() ? "PASS" : "FAIL");
+        }
 
-      if (testRemote) {
-          // Start a secondary helper process. It will stop itself when it is ready.
-          int pid = startSecondaryProcess();
-          // Wait for the secondary process to stop and then unwind it remotely.
-          System.out.println(unwindOtherProcess(pid) ? "PASS" : "FAIL");
-      }
-  }
+        if (testRemote) {
+            // Start a secondary helper process. It will stop itself when it is ready.
+            int pid = startSecondaryProcess();
+            // Wait for the secondary process to stop and then unwind it remotely.
+            System.out.println(unwindOtherProcess(pid) ? "PASS" : "FAIL");
+        }
+    }
 
-  public static native int startSecondaryProcess();
-  public static native boolean sigstop();
-  public static native boolean unwindInProcess();
-  public static native boolean unwindOtherProcess(int pid);
+    public static native int startSecondaryProcess();
+    public static native boolean sigstop();
+    public static native boolean unwindInProcess();
+    public static native boolean unwindOtherProcess(int pid);
 }

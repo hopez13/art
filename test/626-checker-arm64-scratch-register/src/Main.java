@@ -16,7 +16,5 @@
 
 // This file is just for running on the RI as the test is ART specific.
 public class Main {
-  public static void main(String[] args) {
-    System.out.println("passed");
-  }
+    public static void main(String[] args) { System.out.println("passed"); }
 }

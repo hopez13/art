@@ -15,33 +15,31 @@
  */
 
 class Main {
-  public static void main(String[] args) {
-    new Main().bar();
-  }
+    public static void main(String[] args) { new Main().bar(); }
 
-  public void bar() {
-    // Use up all available D registers on ARM.
-    baz(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o);
-  }
+    public void bar() {
+        // Use up all available D registers on ARM.
+        baz(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o);
+    }
 
-  public static void baz(float a, float b, float c, float d, float e, float f, float g,
-                         float h, float i, float j, float k, float l, float m, float n, float o) {
-    System.out.println(a - b - c - d - e - f - g - h - i - j - k - l - m - n - o);
-  }
+    public static void baz(float a, float b, float c, float d, float e, float f, float g, float h,
+            float i, float j, float k, float l, float m, float n, float o) {
+        System.out.println(a - b - c - d - e - f - g - h - i - j - k - l - m - n - o);
+    }
 
-  float a = 1.0f;
-  float b = 2.0f;
-  float c = 3.0f;
-  float d = 4.0f;
-  float e = 5.0f;
-  float f = 6.0f;
-  float g = 7.0f;
-  float h = 8.0f;
-  float i = 9.0f;
-  float j = 10.0f;
-  float k = 11.0f;
-  float l = 12.0f;
-  float m = 13.0f;
-  float n = 14.0f;
-  float o = 15.0f;
+    float a = 1.0f;
+    float b = 2.0f;
+    float c = 3.0f;
+    float d = 4.0f;
+    float e = 5.0f;
+    float f = 6.0f;
+    float g = 7.0f;
+    float h = 8.0f;
+    float i = 9.0f;
+    float j = 10.0f;
+    float k = 11.0f;
+    float l = 12.0f;
+    float m = 13.0f;
+    float n = 14.0f;
+    float o = 15.0f;
 }

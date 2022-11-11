@@ -17,52 +17,49 @@
 package art;
 
 public class Test1936 {
-  public static void foo() {}
+    public static void foo() {}
 
-  public static void NotifyThreadEnd(Thread me) {
-    // Don't actually do anything.
-    foo();
-  }
-
-  public static void NotifyMethodEntry(Object o) {
-    System.out.println("Entered " + o.toString());
-    Thread me = Thread.currentThread();
-    System.out.println(String.format(
-        "Thread: %s\n" +
-        "  | alive: %b\n" +
-        "  | interrupted: %b\n" +
-        "  | daemon: %b\n" +
-        "  | group: %s\n",
-        me.getName(), me.isAlive(), me.isInterrupted(), me.isDaemon(), me.getThreadGroup()));
-  }
-
-  public static native void waitForever();
-  private static void setupTracing(Thread target) throws Exception {
-    Trace.disableTracing(target);
-    Trace.enableTracing2(
-        Test1936.class,
-        Test1936.class.getDeclaredMethod("NotifyMethodEntry", Object.class),
-        /*exit*/null,
-        /*field_access*/null,
-        /*field_modify*/null,
-        /*single_step*/null,
-        /*thread_start*/null,
-        Test1936.class.getDeclaredMethod("NotifyThreadEnd", Thread.class),
-        target);
-  }
-
-
-  public static void run() throws Exception {
-    Thread t = new Thread(() -> {
-      try {
-        setupTracing(Thread.currentThread());
+    public static void NotifyThreadEnd(Thread me) {
+        // Don't actually do anything.
         foo();
-      } catch (Exception e) {
-        System.out.println("Caught exception " + e + "!");
-        e.printStackTrace();
-      }
-    }, "test-thread");
-    t.start();
-    t.join();
-  }
+    }
+
+    public static void NotifyMethodEntry(Object o) {
+        System.out.println("Entered " + o.toString());
+        Thread me = Thread.currentThread();
+        System.out.println(String.format("Thread: %s\n"
+                        + "  | alive: %b\n"
+                        + "  | interrupted: %b\n"
+                        + "  | daemon: %b\n"
+                        + "  | group: %s\n",
+                me.getName(), me.isAlive(), me.isInterrupted(), me.isDaemon(),
+                me.getThreadGroup()));
+    }
+
+    public static native void waitForever();
+    private static void setupTracing(Thread target) throws Exception {
+        Trace.disableTracing(target);
+        Trace.enableTracing2(Test1936.class,
+                Test1936.class.getDeclaredMethod("NotifyMethodEntry", Object.class),
+                /*exit*/ null,
+                /*field_access*/ null,
+                /*field_modify*/ null,
+                /*single_step*/ null,
+                /*thread_start*/ null,
+                Test1936.class.getDeclaredMethod("NotifyThreadEnd", Thread.class), target);
+    }
+
+    public static void run() throws Exception {
+        Thread t = new Thread(() -> {
+            try {
+                setupTracing(Thread.currentThread());
+                foo();
+            } catch (Exception e) {
+                System.out.println("Caught exception " + e + "!");
+                e.printStackTrace();
+            }
+        }, "test-thread");
+        t.start();
+        t.join();
+    }
 }

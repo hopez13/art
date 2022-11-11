@@ -24,54 +24,50 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class Test912Art {
-  public static void run() throws Exception {
-    doTest();
-  }
+    public static void run() throws Exception { doTest(); }
 
-  public static void doTest() throws Exception {
-    testClassEvents();
-  }
+    public static void doTest() throws Exception { testClassEvents(); }
 
-  private static void testClassEvents() throws Exception {
-    // Note: the JIT part of this test is about the JIT pulling in a class not yet touched by
-    //       anything else in the system. This could be the verifier or the interpreter. We
-    //       block the interpreter by calling ensureJitCompiled. The verifier, however, must
-    //       run in configurations where dex2oat didn't verify the class itself. So explicitly
-    //       check whether the class has been already loaded, and skip then.
-    // TODO: Add multiple configurations to the run script once that becomes easier to do.
-    if (hasJit() && !isLoadedClass("Lart/Test912Art$ClassD;")) {
-      testClassEventsJit();
+    private static void testClassEvents() throws Exception {
+        // Note: the JIT part of this test is about the JIT pulling in a class not yet touched by
+        //       anything else in the system. This could be the verifier or the interpreter. We
+        //       block the interpreter by calling ensureJitCompiled. The verifier, however, must
+        //       run in configurations where dex2oat didn't verify the class itself. So explicitly
+        //       check whether the class has been already loaded, and skip then.
+        // TODO: Add multiple configurations to the run script once that becomes easier to do.
+        if (hasJit() && !isLoadedClass("Lart/Test912Art$ClassD;")) {
+            testClassEventsJit();
+        }
     }
-  }
 
-  private static void testClassEventsJit() throws Exception {
-    enableClassLoadSeenEvents(true);
+    private static void testClassEventsJit() throws Exception {
+        enableClassLoadSeenEvents(true);
 
-    testClassEventsJitImpl();
+        testClassEventsJitImpl();
 
-    enableClassLoadSeenEvents(false);
+        enableClassLoadSeenEvents(false);
 
-    if (!hadLoadEvent()) {
-      throw new RuntimeException("Did not get expected load event.");
+        if (!hadLoadEvent()) {
+            throw new RuntimeException("Did not get expected load event.");
+        }
     }
-  }
 
-  private static void testClassEventsJitImpl() throws Exception {
-    ensureJitCompiled(Test912Art.class, "testClassEventsJitImpl");
+    private static void testClassEventsJitImpl() throws Exception {
+        ensureJitCompiled(Test912Art.class, "testClassEventsJitImpl");
 
-    if (ClassD.x != 1) {
-      throw new RuntimeException("Unexpected value");
+        if (ClassD.x != 1) {
+            throw new RuntimeException("Unexpected value");
+        }
     }
-  }
 
-  private static native void ensureJitCompiled(Class<?> c, String name);
+    private static native void ensureJitCompiled(Class<?> c, String name);
 
-  private static native boolean hasJit();
-  private static native boolean isLoadedClass(String name);
-  private static native void enableClassLoadSeenEvents(boolean b);
-  private static native boolean hadLoadEvent();
+    private static native boolean hasJit();
+    private static native boolean isLoadedClass(String name);
+    private static native void enableClassLoadSeenEvents(boolean b);
+    private static native boolean hadLoadEvent();
 
-  public static class ClassD {
-    static int x = 1;
-  }
+    public static class ClassD {
+        static int x = 1;
+    }
 }

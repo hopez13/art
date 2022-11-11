@@ -17,17 +17,16 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String args[]) throws Exception {
-    System.out.println("Test started.");
-    Class<?> c = Class.forName("Test");
+    public static void main(String args[]) throws Exception {
+        System.out.println("Test started.");
+        Class<?> c = Class.forName("Test");
 
-    Method unreachableIf = c.getMethod("UnreachableIf");
-    unreachableIf.invoke(null);
-    System.out.println("Successfully called UnreachableIf().");
+        Method unreachableIf = c.getMethod("UnreachableIf");
+        unreachableIf.invoke(null);
+        System.out.println("Successfully called UnreachableIf().");
 
-    Method unreachablePackedSwitch = c.getMethod("UnreachablePackedSwitch");
-    unreachablePackedSwitch.invoke(null);
-    System.out.println("Successfully called UnreachablePackedSwitch().");
-  }
-
+        Method unreachablePackedSwitch = c.getMethod("UnreachablePackedSwitch");
+        unreachablePackedSwitch.invoke(null);
+        System.out.println("Successfully called UnreachablePackedSwitch().");
+    }
 }

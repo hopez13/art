@@ -41,8 +41,7 @@ public class Main {
         bb = (ImplBSub) face1;
         try {
             aa = (ImplA) face1;
-        }
-        catch (ClassCastException cce) {
+        } catch (ClassCastException cce) {
             System.out.println("Caught a ClassCastException (expected)");
         }
 
@@ -54,11 +53,11 @@ public class Main {
         faceArray = bbArray;
 
         System.out.print("instanceof Serializable = ");
-        System.out.println((Object)aaArray instanceof java.io.Serializable);
+        System.out.println((Object) aaArray instanceof java.io.Serializable);
         System.out.print("instanceof Cloneable = ");
-        System.out.println((Object)aaArray instanceof java.lang.Cloneable);
+        System.out.println((Object) aaArray instanceof java.lang.Cloneable);
         System.out.print("instanceof Runnable = ");
-        System.out.println((Object)aaArray instanceof java.lang.Runnable);
+        System.out.println((Object) aaArray instanceof java.lang.Runnable);
 
         aaOkay = faceArray instanceof ImplA[];
         System.out.print("aaOkay (false) = ");

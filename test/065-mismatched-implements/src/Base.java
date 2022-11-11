@@ -15,7 +15,5 @@
  */
 
 public class Base implements Defs {
-    public void func() {
-        System.out.println("whee");
-    }
+    public void func() { System.out.println("whee"); }
 };

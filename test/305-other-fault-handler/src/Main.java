@@ -15,11 +15,11 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    runFaultHandlerTest();
-    System.out.println("Passed!");
-  }
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        runFaultHandlerTest();
+        System.out.println("Passed!");
+    }
 
-  public static native void runFaultHandlerTest();
+    public static native void runFaultHandlerTest();
 }

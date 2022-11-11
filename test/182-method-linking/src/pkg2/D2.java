@@ -25,7 +25,5 @@ public class D2 extends C2 {
     };
 
     // This overrides both public pkg1.C2.foo() and package-private pkg2.B.foo().
-    public void foo() {
-        System.out.println("pkg2.D2.foo");
-    }
+    public void foo() { System.out.println("pkg2.D2.foo"); }
 }

@@ -15,10 +15,6 @@
  */
 
 class Transform3 {
-  public void extraMethod(String name) {
-    System.out.println("extraMethod - " + name);
-  }
-  public void sayHi(String name) {
-    System.out.println("hello2 - " + name);
-  }
+    public void extraMethod(String name) { System.out.println("extraMethod - " + name); }
+    public void sayHi(String name) { System.out.println("hello2 - " + name); }
 }

@@ -16,5 +16,4 @@
 
 package sun.misc;
 
-public class Unsafe {
-}
+public class Unsafe {}

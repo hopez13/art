@@ -20,9 +20,7 @@ public class SimpleLoop implements Runnable {
     volatile static boolean sEntered = false;
     int threadIndex;
 
-    SimpleLoop(int index) {
-        threadIndex = index;
-    }
+    SimpleLoop(int index) { threadIndex = index; }
 
     public static void main() throws Exception {
         final Thread[] threads = new Thread[numberOfThreads];
@@ -51,7 +49,7 @@ public class SimpleLoop implements Runnable {
     public void run() {
         if (threadIndex == 0) {
             while (!sEntered) {
-              Thread.yield();
+                Thread.yield();
             }
             Main.deoptimizeAll();
             sExitFlag = true;

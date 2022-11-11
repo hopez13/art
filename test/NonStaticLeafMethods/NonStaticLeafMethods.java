@@ -15,41 +15,17 @@
  */
 
 class NonStaticLeafMethods {
-    NonStaticLeafMethods() {
-    }
-    void nop() {
-    }
-    byte identity(byte x) {
-        return x;
-    }
-    int identity(int x) {
-        return x;
-    }
-    int sum(int a, int b) {
-        return a + b;
-    }
-    int sum(int a, int b, int c) {
-        return a + b + c;
-    }
-    int sum(int a, int b, int c, int d) {
-        return a + b + c + d;
-    }
-    int sum(int a, int b, int c, int d, int e) {
-        return a + b + c + d + e;
-    }
-    double identity(double x) {
-        return x;
-    }
-    double sum(double a, double b) {
-        return a + b;
-    }
-    double sum(double a, double b, double c) {
-        return a + b + c;
-    }
-    double sum(double a, double b, double c, double d) {
-        return a + b + c + d;
-    }
-    double sum(double a, double b, double c, double d, double e) {
-        return a + b + c + d + e;
-    }
+    NonStaticLeafMethods() {}
+    void nop() {}
+    byte identity(byte x) { return x; }
+    int identity(int x) { return x; }
+    int sum(int a, int b) { return a + b; }
+    int sum(int a, int b, int c) { return a + b + c; }
+    int sum(int a, int b, int c, int d) { return a + b + c + d; }
+    int sum(int a, int b, int c, int d, int e) { return a + b + c + d + e; }
+    double identity(double x) { return x; }
+    double sum(double a, double b) { return a + b; }
+    double sum(double a, double b, double c) { return a + b + c; }
+    double sum(double a, double b, double c, double d) { return a + b + c + d; }
+    double sum(double a, double b, double c, double d, double e) { return a + b + c + d + e; }
 }

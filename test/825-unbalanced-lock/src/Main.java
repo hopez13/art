@@ -15,11 +15,11 @@
  */
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    try {
-      new Unbalanced().unbalanced();
-      throw new Error("Expected IllegalMonitorStateException");
-    } catch (IllegalMonitorStateException expected) {
+    public static void main(String[] args) throws Exception {
+        try {
+            new Unbalanced().unbalanced();
+            throw new Error("Expected IllegalMonitorStateException");
+        } catch (IllegalMonitorStateException expected) {
+        }
     }
-  }
 }

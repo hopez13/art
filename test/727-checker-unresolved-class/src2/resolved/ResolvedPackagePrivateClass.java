@@ -22,14 +22,14 @@ class ResolvedPackagePrivateClass {
     static int intField;
 
     public static void $noinline$publicStaticMethod() {
-      System.out.println("ResolvedPackagePrivateClass.$noinline$publicStaticMethod()");
+        System.out.println("ResolvedPackagePrivateClass.$noinline$publicStaticMethod()");
     }
 
     private static void $noinline$privateStaticMethod() {
-      System.out.println("ResolvedPackagePrivateClass.$noinline$privateStaticMethod()");
+        System.out.println("ResolvedPackagePrivateClass.$noinline$privateStaticMethod()");
     }
 
     static void $noinline$staticMethod() {
-      System.out.println("ResolvedPackagePrivateClass.$noinline$staticMethod()");
+        System.out.println("ResolvedPackagePrivateClass.$noinline$staticMethod()");
     }
 }

@@ -17,21 +17,21 @@
 import java.lang.reflect.InvocationTargetException;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    try {
-      Class<?> v = Class.forName("VerifyError");
-      throw new Error("Expected LinkageError");
-    } catch (LinkageError e) {
-      // expected
-    }
+    public static void main(String[] args) throws Exception {
+        try {
+            Class<?> v = Class.forName("VerifyError");
+            throw new Error("Expected LinkageError");
+        } catch (LinkageError e) {
+            // expected
+        }
 
-    try {
-      Class.forName("TestCase").getMethod("topLevel").invoke(null);
-      throw new Error("Expected InvocationTargetException");
-    } catch (InvocationTargetException e) {
-      if (!(e.getCause() instanceof NullPointerException)) {
-        throw new Error("Expected NullPointerException, got " + e.getCause());
-      }
+        try {
+            Class.forName("TestCase").getMethod("topLevel").invoke(null);
+            throw new Error("Expected InvocationTargetException");
+        } catch (InvocationTargetException e) {
+            if (!(e.getCause() instanceof NullPointerException)) {
+                throw new Error("Expected NullPointerException, got " + e.getCause());
+            }
+        }
     }
-  }
 }

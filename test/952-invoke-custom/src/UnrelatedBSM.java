@@ -21,9 +21,8 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 
 class UnrelatedBSM {
-    static CallSite bsm(
-            MethodHandles.Lookup lookup, String name, MethodType methodType, Class<?> target)
-            throws Throwable {
+    static CallSite bsm(MethodHandles.Lookup lookup, String name, MethodType methodType,
+            Class<?> target) throws Throwable {
         MethodHandle mh = lookup.findStatic(target, name, methodType);
         return new ConstantCallSite(mh);
     }

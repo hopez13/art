@@ -49,9 +49,7 @@ public class CompOsTestUtils {
 
     private final ITestDevice mDevice;
 
-    public CompOsTestUtils(ITestDevice device) {
-        mDevice = device;
-    }
+    public CompOsTestUtils(ITestDevice device) { mDevice = device; }
 
     /**
      * Start CompOS compilation right away, and return once the job completes successfully.
@@ -79,8 +77,7 @@ public class CompOsTestUtils {
                 + "| sort -k2");
     }
 
-    private void waitForJobToBeScheduled()
-            throws Exception {
+    private void waitForJobToBeScheduled() throws Exception {
         for (int i = 0; i < JOB_CREATION_MAX_SECONDS; i++) {
             CommandResult result = mDevice.executeShellV2Command(
                     "cmd jobscheduler get-job-state android " + JOB_ID);

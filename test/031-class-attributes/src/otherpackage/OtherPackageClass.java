@@ -1,4 +1,3 @@
 package otherpackage;
 
-public class OtherPackageClass {
-}
+public class OtherPackageClass {}

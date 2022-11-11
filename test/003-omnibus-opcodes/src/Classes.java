@@ -23,9 +23,7 @@ import java.util.Arrays;
 public class Classes {
     int mSome;
 
-    public void subFunc(boolean wantSub) {
-        Main.assertTrue(!wantSub);
-    }
+    public void subFunc(boolean wantSub) { Main.assertTrue(!wantSub); }
 
     void checkCast(Object thisRef, Object moreRef, Object nullRef) {
         System.out.println("Classes.checkCast");
@@ -46,8 +44,8 @@ public class Classes {
             more = (MoreClasses) thisRef;
             Main.assertTrue(false);
         } catch (ClassCastException cce) {
-            //System.out.println("  class cast msg: " + cce.getMessage());
-            //Dalvik throws terser message than Hotspot VM
+            // System.out.println("  class cast msg: " + cce.getMessage());
+            // Dalvik throws terser message than Hotspot VM
             Main.assertTrue(cce.getMessage().regionMatches(false, 0, "Classes", 0, 7));
         }
         Main.assertTrue(!(thisRef instanceof MoreClasses));
@@ -57,8 +55,8 @@ public class Classes {
             java.math.RoundingMode mode = (java.math.RoundingMode) thisRef;
             Main.assertTrue(false);
         } catch (ClassCastException cce) {
-            //System.out.println("  class cast msg: " + cce.getMessage());
-            //Dalvik throws terser message than Hotspot VM
+            // System.out.println("  class cast msg: " + cce.getMessage());
+            // Dalvik throws terser message than Hotspot VM
             Main.assertTrue(cce.getMessage().regionMatches(false, 0, "Classes", 0, 7));
         }
         Main.assertTrue(!(thisRef instanceof java.math.BigDecimal));
@@ -68,55 +66,53 @@ public class Classes {
         classes = (MoreClasses) nullRef;
         more = (MoreClasses) nullRef;
         Main.assertTrue(!(nullRef instanceof Classes));
-
     }
 
-
     static void xTests(Object x) {
-        Main.assertTrue(  x instanceof Classes);
+        Main.assertTrue(x instanceof Classes);
         Main.assertTrue(!(x instanceof MoreClasses));
     }
     static void yTests(Object y) {
-        Main.assertTrue(  y instanceof Classes);
-        Main.assertTrue(  y instanceof MoreClasses);
+        Main.assertTrue(y instanceof Classes);
+        Main.assertTrue(y instanceof MoreClasses);
     }
     static void xarTests(Object xar) {
-        Main.assertTrue(  xar instanceof Object);
+        Main.assertTrue(xar instanceof Object);
         Main.assertTrue(!(xar instanceof Classes));
-        Main.assertTrue(  xar instanceof Classes[]);
+        Main.assertTrue(xar instanceof Classes[]);
         Main.assertTrue(!(xar instanceof MoreClasses[]));
-        Main.assertTrue(  xar instanceof Object[]);
+        Main.assertTrue(xar instanceof Object[]);
         Main.assertTrue(!(xar instanceof Object[][]));
     }
     static void yarTests(Object yar) {
-        Main.assertTrue(  yar instanceof Classes[]);
-        Main.assertTrue(  yar instanceof MoreClasses[]);
+        Main.assertTrue(yar instanceof Classes[]);
+        Main.assertTrue(yar instanceof MoreClasses[]);
     }
     static void xarararTests(Object xararar) {
-        Main.assertTrue(  xararar instanceof Object);
-        Main.assertTrue(  xararar instanceof Object[]);
+        Main.assertTrue(xararar instanceof Object);
+        Main.assertTrue(xararar instanceof Object[]);
         Main.assertTrue(!(xararar instanceof Classes));
         Main.assertTrue(!(xararar instanceof Classes[]));
         Main.assertTrue(!(xararar instanceof Classes[][]));
-        Main.assertTrue(  xararar instanceof Classes[][][]);
+        Main.assertTrue(xararar instanceof Classes[][][]);
         Main.assertTrue(!(xararar instanceof MoreClasses[][][]));
-        Main.assertTrue(  xararar instanceof Object[][][]);
-        Main.assertTrue(  xararar instanceof Serializable);
-        Main.assertTrue(  xararar instanceof Serializable[]);
-        Main.assertTrue(  xararar instanceof Serializable[][]);
+        Main.assertTrue(xararar instanceof Object[][][]);
+        Main.assertTrue(xararar instanceof Serializable);
+        Main.assertTrue(xararar instanceof Serializable[]);
+        Main.assertTrue(xararar instanceof Serializable[][]);
         Main.assertTrue(!(xararar instanceof Serializable[][][]));
     }
     static void yarararTests(Object yararar) {
-        Main.assertTrue(  yararar instanceof Classes[][][]);
-        Main.assertTrue(  yararar instanceof MoreClasses[][][]);
+        Main.assertTrue(yararar instanceof Classes[][][]);
+        Main.assertTrue(yararar instanceof MoreClasses[][][]);
     }
     static void iarTests(Object iar) {
-        Main.assertTrue(  iar instanceof Object);
+        Main.assertTrue(iar instanceof Object);
         Main.assertTrue(!(iar instanceof Object[]));
     }
     static void iararTests(Object iarar) {
-        Main.assertTrue(  iarar instanceof Object);
-        Main.assertTrue(  iarar instanceof Object[]);
+        Main.assertTrue(iarar instanceof Object);
+        Main.assertTrue(iarar instanceof Object[]);
         Main.assertTrue(!(iarar instanceof Object[][]));
     }
 
@@ -177,7 +173,6 @@ public class Classes {
         multi2[0][1][2][1][4] = "HELLO-2";
         strForm = Arrays.deepToString(multi2);
 
-
         String[][][][][][] multi3 = new String[2][5][2][3][2][1];
         multi3[0] = new String[2][][][][];
         multi3[0][1] = new String[3][][][];
@@ -202,9 +197,8 @@ public class Classes {
             String[][][][][] multiX = new String[5][2][3][2][1073921584];
             Main.assertTrue(false);
         } catch (Error e) {
-            //System.out.println("  Got expected failure: " + e);
+            // System.out.println("  Got expected failure: " + e);
         }
-
     }
 
     public static void run() {
@@ -223,11 +217,7 @@ class MoreClasses extends Classes {
 
     public MoreClasses() {}
 
-    public void subFunc(boolean wantSub) {
-        Main.assertTrue(wantSub);
-    }
+    public void subFunc(boolean wantSub) { Main.assertTrue(wantSub); }
 
-    public void superFunc(boolean wantSub) {
-        super.subFunc(wantSub);
-    }
+    public void superFunc(boolean wantSub) { super.subFunc(wantSub); }
 }

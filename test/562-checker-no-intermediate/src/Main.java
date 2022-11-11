@@ -15,87 +15,81 @@
  */
 
 public class Main {
+    /**
+     * Check that the intermediate address computation is not reordered or merged
+     * across a method call.
+     */
 
-  /**
-   * Check that the intermediate address computation is not reordered or merged
-   * across a method call.
-   */
+    /// CHECK-START-ARM: void Main.main(java.lang.String[]) instruction_simplifier_arm (before)
+    /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
+    /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
+    /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
+    /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Array>>,<<Index>>]
+    /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
+    /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
+    /// CHECK-DAG:                                  ArraySet [<<Array>>,<<Index>>,<<Add>>]
 
-  /// CHECK-START-ARM: void Main.main(java.lang.String[]) instruction_simplifier_arm (before)
-  /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
-  /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
-  /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
-  /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Array>>,<<Index>>]
-  /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
-  /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
-  /// CHECK-DAG:                                  ArraySet [<<Array>>,<<Index>>,<<Add>>]
+    /// CHECK-START-ARM: void Main.main(java.lang.String[]) instruction_simplifier_arm (after)
+    /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
+    /// CHECK-DAG:           <<DataOffset:i\d+>>    IntConstant
+    /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
+    /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
+    /// CHECK-DAG:           <<Address1:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
+    /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Address1>>,<<Index>>]
+    /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
+    /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
+    /// CHECK-DAG:           <<Address2:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
+    /// CHECK-DAG:                                  ArraySet [<<Address2>>,<<Index>>,<<Add>>]
 
-  /// CHECK-START-ARM: void Main.main(java.lang.String[]) instruction_simplifier_arm (after)
-  /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
-  /// CHECK-DAG:           <<DataOffset:i\d+>>    IntConstant
-  /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
-  /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
-  /// CHECK-DAG:           <<Address1:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
-  /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Address1>>,<<Index>>]
-  /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
-  /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
-  /// CHECK-DAG:           <<Address2:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
-  /// CHECK-DAG:                                  ArraySet [<<Address2>>,<<Index>>,<<Add>>]
+    /// CHECK-START-ARM: void Main.main(java.lang.String[]) GVN$after_arch (after)
+    /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
+    /// CHECK-DAG:           <<DataOffset:i\d+>>    IntConstant
+    /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
+    /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
+    /// CHECK-DAG:           <<Address1:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
+    /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Address1>>,<<Index>>]
+    /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
+    /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
+    /// CHECK-DAG:           <<Address2:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
+    /// CHECK-DAG:                                  ArraySet [<<Address2>>,<<Index>>,<<Add>>]
 
-  /// CHECK-START-ARM: void Main.main(java.lang.String[]) GVN$after_arch (after)
-  /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
-  /// CHECK-DAG:           <<DataOffset:i\d+>>    IntConstant
-  /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
-  /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
-  /// CHECK-DAG:           <<Address1:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
-  /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Address1>>,<<Index>>]
-  /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
-  /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
-  /// CHECK-DAG:           <<Address2:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
-  /// CHECK-DAG:                                  ArraySet [<<Address2>>,<<Index>>,<<Add>>]
+    /// CHECK-START-ARM64: void Main.main(java.lang.String[]) instruction_simplifier_arm64 (before)
+    /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
+    /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
+    /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
+    /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Array>>,<<Index>>]
+    /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
+    /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
+    /// CHECK-DAG:                                  ArraySet [<<Array>>,<<Index>>,<<Add>>]
 
+    /// CHECK-START-ARM64: void Main.main(java.lang.String[]) instruction_simplifier_arm64 (after)
+    /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
+    /// CHECK-DAG:           <<DataOffset:i\d+>>    IntConstant
+    /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
+    /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
+    /// CHECK-DAG:           <<Address1:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
+    /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Address1>>,<<Index>>]
+    /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
+    /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
+    /// CHECK-DAG:           <<Address2:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
+    /// CHECK-DAG:                                  ArraySet [<<Address2>>,<<Index>>,<<Add>>]
 
-  /// CHECK-START-ARM64: void Main.main(java.lang.String[]) instruction_simplifier_arm64 (before)
-  /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
-  /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
-  /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
-  /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Array>>,<<Index>>]
-  /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
-  /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
-  /// CHECK-DAG:                                  ArraySet [<<Array>>,<<Index>>,<<Add>>]
+    /// CHECK-START-ARM64: void Main.main(java.lang.String[]) GVN$after_arch (after)
+    /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
+    /// CHECK-DAG:           <<DataOffset:i\d+>>    IntConstant
+    /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
+    /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
+    /// CHECK-DAG:           <<Address1:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
+    /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Address1>>,<<Index>>]
+    /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
+    /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
+    /// CHECK-DAG:           <<Address2:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
+    /// CHECK-DAG:                                  ArraySet [<<Address2>>,<<Index>>,<<Add>>]
 
-  /// CHECK-START-ARM64: void Main.main(java.lang.String[]) instruction_simplifier_arm64 (after)
-  /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
-  /// CHECK-DAG:           <<DataOffset:i\d+>>    IntConstant
-  /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
-  /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
-  /// CHECK-DAG:           <<Address1:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
-  /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Address1>>,<<Index>>]
-  /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
-  /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
-  /// CHECK-DAG:           <<Address2:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
-  /// CHECK-DAG:                                  ArraySet [<<Address2>>,<<Index>>,<<Add>>]
+    public static void main(String[] args) { array[index] += $noinline$abs(-42); }
 
-  /// CHECK-START-ARM64: void Main.main(java.lang.String[]) GVN$after_arch (after)
-  /// CHECK-DAG:           <<ConstM42:i\d+>>      IntConstant -42
-  /// CHECK-DAG:           <<DataOffset:i\d+>>    IntConstant
-  /// CHECK-DAG:           <<Array:l\d+>>         NullCheck
-  /// CHECK-DAG:           <<Index:i\d+>>         BoundsCheck
-  /// CHECK-DAG:           <<Address1:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
-  /// CHECK-DAG:           <<ArrayGet:i\d+>>      ArrayGet [<<Address1>>,<<Index>>]
-  /// CHECK-DAG:           <<AbsM42:i\d+>>        InvokeStaticOrDirect [<<ConstM42>>{{(,[ij]\d+)?}}] method_name:Main.$noinline$abs
-  /// CHECK-DAG:           <<Add:i\d+>>           Add [<<ArrayGet>>,<<AbsM42>>]
-  /// CHECK-DAG:           <<Address2:i\d+>>      IntermediateAddress [<<Array>>,<<DataOffset>>]
-  /// CHECK-DAG:                                  ArraySet [<<Address2>>,<<Index>>,<<Add>>]
+    public static int $noinline$abs(int value) { return Math.abs(value); }
 
-  public static void main(String[] args) {
-    array[index] += $noinline$abs(-42);
-  }
-
-  public static int $noinline$abs(int value) {
-    return Math.abs(value);
-  }
-
-  static int index = 0;
-  static int[] array = new int[2];
+    static int index = 0;
+    static int[] array = new int[2];
 }

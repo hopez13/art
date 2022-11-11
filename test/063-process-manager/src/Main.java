@@ -41,8 +41,7 @@ public class Main {
         Map<Thread, StackTraceElement[]> traces = Thread.getAllStackTraces();
         boolean found = false;
 
-        for (Map.Entry<Thread, StackTraceElement[]> entry :
-                 traces.entrySet()) {
+        for (Map.Entry<Thread, StackTraceElement[]> entry : traces.entrySet()) {
             Thread t = entry.getKey();
             if (isReaperThread(t)) {
                 Thread.State state = t.getState();
@@ -56,7 +55,7 @@ public class Main {
             }
         }
 
-        if (! found) {
+        if (!found) {
             System.out.println("process manager: nonexistent");
         }
     }

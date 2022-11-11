@@ -15,25 +15,21 @@
  */
 
 interface IFace {
-  public default void $noinline$aMethod() { throw new RuntimeException("Should not be called"); }
+    public default void $noinline$aMethod() { throw new RuntimeException("Should not be called"); }
 }
 
 class ClassImplA implements IFace {
-  /// CHECK-START: void ClassImplA.testSuperInvoke() builder (after)
-  /// CHECK:                       InvokeStaticOrDirect
-  public void testSuperInvoke() {
-    IFace.super.$noinline$aMethod();
-  }
+    /// CHECK-START: void ClassImplA.testSuperInvoke() builder (after)
+    /// CHECK:                       InvokeStaticOrDirect
+    public void testSuperInvoke() { IFace.super.$noinline$aMethod(); }
 }
 
 class ClassImplB extends ClassImplA {
-  /// CHECK-START: void ClassImplB.testSuperInvoke2() builder (after)
-  /// CHECK:                       InvokeStaticOrDirect
-  public void testSuperInvoke2() {
-    super.$noinline$aMethod();
-  }
+    /// CHECK-START: void ClassImplB.testSuperInvoke2() builder (after)
+    /// CHECK:                       InvokeStaticOrDirect
+    public void testSuperInvoke2() { super.$noinline$aMethod(); }
 }
 
 public class Main {
-  public static void main(String[] args) { }
+    public static void main(String[] args) {}
 }

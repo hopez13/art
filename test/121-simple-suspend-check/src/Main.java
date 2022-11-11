@@ -15,21 +15,23 @@
  */
 
 public class Main {
-  public static void main(String args[]) {
-    SpinThread thread = new SpinThread();
-    thread.setDaemon(true);
-    thread.start();
-    Runtime.getRuntime().gc();
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException ie) {/*ignore */}
-    Runtime.getRuntime().gc();
-    System.out.println("PASS");
-  }
+    public static void main(String args[]) {
+        SpinThread thread = new SpinThread();
+        thread.setDaemon(true);
+        thread.start();
+        Runtime.getRuntime().gc();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException ie) { /*ignore */
+        }
+        Runtime.getRuntime().gc();
+        System.out.println("PASS");
+    }
 }
 
 class SpinThread extends Thread {
-  public void run() {
-    while (true) {}
-  }
+    public void run() {
+        while (true) {
+        }
+    }
 }

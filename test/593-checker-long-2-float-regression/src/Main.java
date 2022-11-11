@@ -15,35 +15,30 @@
  */
 
 public class Main {
+    static long longValue;
 
-  static long longValue;
-
-  public static void assertEquals(float expected, float result) {
-    if (expected != result) {
-      throw new Error("Expected: " + expected + ", found: " + result);
+    public static void assertEquals(float expected, float result) {
+        if (expected != result) {
+            throw new Error("Expected: " + expected + ", found: " + result);
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    assertEquals(1.0F, $noinline$longToFloat());
-  }
+    public static void main(String[] args) { assertEquals(1.0F, $noinline$longToFloat()); }
 
-  /// CHECK-START: float Main.$noinline$longToFloat() register (after)
-  /// CHECK-DAG:     <<Const1:j\d+>>   LongConstant 1
-  /// CHECK-DAG:     <<Convert:f\d+>>  TypeConversion [<<Const1>>]
-  /// CHECK-DAG:                       Return [<<Convert>>]
+    /// CHECK-START: float Main.$noinline$longToFloat() register (after)
+    /// CHECK-DAG:     <<Const1:j\d+>>   LongConstant 1
+    /// CHECK-DAG:     <<Convert:f\d+>>  TypeConversion [<<Const1>>]
+    /// CHECK-DAG:                       Return [<<Convert>>]
 
-  static float $noinline$longToFloat() {
-    longValue = $inline$returnConst();
-    // This call prevents D8 from replacing the result of the sget instruction
-    // in line 41 by the result of the call to $inline$returnConst() in line 39.
-    $inline$preventRedundantFieldLoadEliminationInD8();
-    return (float) longValue;
-  }
+    static float $noinline$longToFloat() {
+        longValue = $inline$returnConst();
+        // This call prevents D8 from replacing the result of the sget instruction
+        // in line 41 by the result of the call to $inline$returnConst() in line 39.
+        $inline$preventRedundantFieldLoadEliminationInD8();
+        return (float) longValue;
+    }
 
-  static long $inline$returnConst() {
-    return 1L;
-  }
+    static long $inline$returnConst() { return 1L; }
 
-  static void $inline$preventRedundantFieldLoadEliminationInD8() {}
+    static void $inline$preventRedundantFieldLoadEliminationInD8() {}
 }

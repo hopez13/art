@@ -15,15 +15,15 @@
  */
 
 public class Main {
-  static SubItf itf = new Impl();
-  public static void main(String[] args) throws Exception {
-    // Loop enough to trigger the native OOME.
-    for (int i = 0; i < 50000; ++i) {
-      // Because the imt index was overwritten to 0, this call ended up
-      // in the conflict trampoline which wrongly updated the 0th entry
-      // of the imt table. This lead to this call always calling the
-      // conflict trampoline.
-      itf.foo();
+    static SubItf itf = new Impl();
+    public static void main(String[] args) throws Exception {
+        // Loop enough to trigger the native OOME.
+        for (int i = 0; i < 50000; ++i) {
+            // Because the imt index was overwritten to 0, this call ended up
+            // in the conflict trampoline which wrongly updated the 0th entry
+            // of the imt table. This lead to this call always calling the
+            // conflict trampoline.
+            itf.foo();
+        }
     }
-  }
 }

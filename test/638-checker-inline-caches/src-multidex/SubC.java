@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-public class SubC extends Super   {
-  public int getValue() { return 24; }
-  void someSubclassesThrow() { System.out.println("I don't throw"); }
+public class SubC extends Super {
+    public int getValue() { return 24; }
+    void someSubclassesThrow() { System.out.println("I don't throw"); }
 }

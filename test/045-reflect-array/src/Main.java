@@ -37,14 +37,14 @@ public class Main {
         try {
             array[2] = 27;
             throw new RuntimeException("store should have failed");
-        } catch (ArrayIndexOutOfBoundsException abe) { }
+        } catch (ArrayIndexOutOfBoundsException abe) {
+        }
         try {
             Array.setInt(intArray, 2, 27);
             throw new RuntimeException("store should have failed");
-        } catch (ArrayIndexOutOfBoundsException abe) { }
-        if (array.length != Array.getLength(intArray) ||
-            array.length != 2)
-        {
+        } catch (ArrayIndexOutOfBoundsException abe) {
+        }
+        if (array.length != Array.getLength(intArray) || array.length != 2) {
             throw new RuntimeException("bad len");
         }
 
@@ -61,7 +61,8 @@ public class Main {
         try {
             wrongArray = (int[][]) intArray;
             throw new RuntimeException("cast should have failed");
-        } catch (ClassCastException cce) { }
+        } catch (ClassCastException cce) {
+        }
 
         intArray = Array.newInstance(Integer.TYPE, 0);
         if (Array.getLength(intArray) != 0)
@@ -85,11 +86,13 @@ public class Main {
         try {
             Array.setShort(charArray, 3, (short) 'Y');
             throw new RuntimeException("shouldn't allow short in char array");
-        } catch (IllegalArgumentException iae) {}
+        } catch (IllegalArgumentException iae) {
+        }
         try {
             Array.setInt(charArray, 5, 'Z');
             throw new RuntimeException("shouldn't allow int in char array");
-        } catch (IllegalArgumentException iae) {}
+        } catch (IllegalArgumentException iae) {
+        }
 
         try {
             for (int i = 0; i < array.length; i++) {
@@ -107,13 +110,13 @@ public class Main {
         try {
             Array.getByte(charArray, 2);
             throw new RuntimeException("shouldn't allow read of char as byte");
-        } catch (IllegalArgumentException iae) {}
+        } catch (IllegalArgumentException iae) {
+        }
 
         Array.setChar(charArray, 3, (char) 0xffff);
         try {
             if (Array.getInt(charArray, 3) != 0xffff) {
-                throw new RuntimeException("char got sign-extended? "
-                    + Array.getInt(charArray, 3));
+                throw new RuntimeException("char got sign-extended? " + Array.getInt(charArray, 3));
             }
         } catch (IllegalArgumentException iae) {
             iae.printStackTrace(System.out);
@@ -141,7 +144,8 @@ public class Main {
         try {
             Array.getInt(longArray, 0);
             throw new RuntimeException("shouldn't allow read of long as int");
-        } catch (IllegalArgumentException iae) {}
+        } catch (IllegalArgumentException iae) {
+        }
 
         long[] array = (long[]) longArray;
         if (array[0] != 123 || array[1] != 0x1122334455667788L) {
@@ -170,50 +174,49 @@ public class Main {
         try {
             Array.set(strArray, 2, "entry two");
             throw new RuntimeException("store should have failed");
-        } catch (ArrayIndexOutOfBoundsException abe) { }
+        } catch (ArrayIndexOutOfBoundsException abe) {
+        }
 
-        //System.out.println("array: " + array);
+        // System.out.println("array: " + array);
 
         if (!"entry zero".equals(Array.get(strArray, 0)))
             throw new RuntimeException();
         if (!"entry one".equals(array[1]))
             throw new RuntimeException();
 
-        if (array.length != Array.getLength(strArray) ||
-            array.length != 2)
-        {
+        if (array.length != Array.getLength(strArray) || array.length != 2) {
             throw new RuntimeException("bad len");
         }
 
         try {
             Array.set(strArray, 0, new Integer(5));
             throw new RuntimeException("store of Integer should have failed");
-        } catch (IllegalArgumentException iae) {}
+        } catch (IllegalArgumentException iae) {
+        }
         System.out.println("ReflectArrayTest.testSingle passed");
     }
 
     static void testMultiInt() {
         Object intIntIntArray;
-        int[] dimensions = { 3, 2, 1 };
+        int[] dimensions = {3, 2, 1};
 
         intIntIntArray = Array.newInstance(Integer.TYPE, dimensions);
         int[][][] array3 = (int[][][]) intIntIntArray;
 
-        array3[0][0][0] = 123;      // trouble
+        array3[0][0][0] = 123; // trouble
         array3[2][1][0] = 456;
 
         try {
             array3[2][1][1] = 768;
             throw new RuntimeException("store should have failed");
-        }
-        catch (ArrayIndexOutOfBoundsException abe) {
+        } catch (ArrayIndexOutOfBoundsException abe) {
         }
         System.out.println("ReflectArrayTest.testMultiInt passed");
     }
 
     static void testMulti() {
         Object strStrStrArray;
-        int[] dimensions = { 1, 2, 3 };
+        int[] dimensions = {1, 2, 3};
 
         strStrStrArray = Array.newInstance(String.class, dimensions);
         String[][][] array3 = (String[][][]) strStrStrArray;
@@ -224,25 +227,22 @@ public class Main {
         try {
             array3[1][0][0] = "bad store";
             throw new RuntimeException("store should have failed");
-        }
-        catch (ArrayIndexOutOfBoundsException abe) {
+        } catch (ArrayIndexOutOfBoundsException abe) {
         }
 
         try {
             String[][] array2 = (String[][]) strStrStrArray;
             throw new RuntimeException("expecting bad cast");
-        }
-        catch (ClassCastException cce) {
+        } catch (ClassCastException cce) {
         }
 
         String[] strar = new String[4];
         strar[2] = "zero one two ++";
         array3[0][1] = strar;
         System.out.println(array3[0][1][2]);
-        //System.out.println("array3: " + array3);
+        // System.out.println("array3: " + array3);
 
-
-        int[] dimensions2 = { 1, 2 };
+        int[] dimensions2 = {1, 2};
         strStrStrArray = Array.newInstance(String[].class, dimensions2);
         array3 = (String[][][]) strStrStrArray;
 
@@ -251,19 +251,18 @@ public class Main {
         try {
             array3[1][0][0] = "bad store";
             throw new RuntimeException("store should have failed");
-        }
-        catch (ArrayIndexOutOfBoundsException abe) {
+        } catch (ArrayIndexOutOfBoundsException abe) {
         }
         System.out.println("ReflectArrayTest.testMulti passed");
     }
 
     static void testAbstract() {
         Object arrayOfAbstractClasses = Array.newInstance(Number.class, 1);
-        System.out.println(arrayOfAbstractClasses.getClass().toString() + " modifiers: " +
-                           arrayOfAbstractClasses.getClass().getModifiers());
+        System.out.println(arrayOfAbstractClasses.getClass().toString()
+                + " modifiers: " + arrayOfAbstractClasses.getClass().getModifiers());
         arrayOfAbstractClasses = Array.newInstance(Cloneable.class, 1);
-        System.out.println(arrayOfAbstractClasses.getClass().toString() + " modifiers: " +
-                           arrayOfAbstractClasses.getClass().getModifiers());
+        System.out.println(arrayOfAbstractClasses.getClass().toString()
+                + " modifiers: " + arrayOfAbstractClasses.getClass().getModifiers());
         System.out.println("ReflectArrayTest.testAbstract passed");
     }
 }

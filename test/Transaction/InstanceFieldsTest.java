@@ -16,12 +16,12 @@
 
 public class InstanceFieldsTest {
     public boolean booleanField;
-    public byte    byteField;
-    public char    charField;
-    public short   shortField;
-    public int     intField;
-    public long    longField;
-    public float   floatField;
-    public double  doubleField;
-    public Object  objectField;
+    public byte byteField;
+    public char charField;
+    public short shortField;
+    public int intField;
+    public long longField;
+    public float floatField;
+    public double doubleField;
+    public Object objectField;
 }

@@ -18,7 +18,7 @@
  * Interface methods that override those of Object, the parent of all interfaces
  */
 public interface ObjectOverridingInterface extends CharSequence {
-  public boolean equals(Object o);
-  public int hashCode();
-  public String toString();
+    public boolean equals(Object o);
+    public int hashCode();
+    public String toString();
 }

@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-public class ExtendsFinal extends Final {
-}
+public class ExtendsFinal extends Final {}

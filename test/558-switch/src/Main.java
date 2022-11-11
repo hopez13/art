@@ -15,21 +15,21 @@
  */
 
 public class Main {
-   public static boolean testMethod(int statusCode) {
+    public static boolean testMethod(int statusCode) {
         switch (statusCode) {
-        case 303:
-        case 301:
-        case 302:
-        case 307:
-            return true;
-        default:
-            return false;
-        } //end of switch
+            case 303:
+            case 301:
+            case 302:
+            case 307:
+                return true;
+            default:
+                return false;
+        } // end of switch
     }
 
-  public static void main(String[] args) {
-    if (!testMethod(301)) {
-      throw new Error("Unexpected result");
+    public static void main(String[] args) {
+        if (!testMethod(301)) {
+            throw new Error("Unexpected result");
+        }
     }
-  }
 }

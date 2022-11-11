@@ -17,15 +17,13 @@
 // Test case for AbstractMethodError, we will try to do a non-virtual call to
 // foo.
 abstract class AbstractClass {
-  public AbstractClass() {}
+    public AbstractClass() {}
 
-  abstract void foo();
+    abstract void foo();
 }
 
 class ConcreteClass extends AbstractClass {
-  public ConcreteClass() {}
+    public ConcreteClass() {}
 
-  void foo() {
-    throw new Error("This method shouldn't be called");
-  }
+    void foo() { throw new Error("This method shouldn't be called"); }
 }

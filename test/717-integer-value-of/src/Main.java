@@ -19,13 +19,13 @@ import java.lang.reflect.Field;
 public class Main {
     public static void main(String[] args) throws Exception {
         if (!isDalvik) {
-          // This test is ART-specific. Just fake the expected output.
-          System.out.println("JNI_OnLoad called");
-          return;
+            // This test is ART-specific. Just fake the expected output.
+            System.out.println("JNI_OnLoad called");
+            return;
         }
         System.loadLibrary(args[0]);
         if (!hasJit()) {
-          return;
+            return;
         }
         testValueOfArg();
         testValueOfConst();
@@ -60,7 +60,7 @@ public class Main {
         };
         synchronized (start_end) {
             t.start();
-            start_end.wait();  // Wait for the thread to start.
+            start_end.wait(); // Wait for the thread to start.
         }
         // Previously, this may have used an invalid IntegerValueOfInfo (because of seeing
         // the `alt_cache` which is not in the boot image) when asked to emit code after
@@ -70,7 +70,7 @@ public class Main {
         start_end.flag = true;
         t.join();
 
-        Runtime.getRuntime().gc();  // Collect the `alt_cache`.
+        Runtime.getRuntime().gc(); // Collect the `alt_cache`.
 
         // If `getAsInteger()` was miscompiled, it shall try to retrieve an Integer reference
         // from a collected array (low = 0, high = 0 means that this happens only for value 0),
@@ -119,13 +119,9 @@ public class Main {
         public volatile boolean flag = false;
     }
 
-    public static Integer get42AsInteger() {
-        return Integer.valueOf(42);
-    }
+    public static Integer get42AsInteger() { return Integer.valueOf(42); }
 
-    public static Integer getAsInteger(int value) {
-        return Integer.valueOf(value);
-    }
+    public static Integer getAsInteger(int value) { return Integer.valueOf(value); }
 
     private native static boolean hasJit();
     private static native void ensureJitCompiled(Class<?> itf, String method_name);

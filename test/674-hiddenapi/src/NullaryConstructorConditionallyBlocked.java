@@ -15,7 +15,7 @@
  */
 
 public class NullaryConstructorConditionallyBlocked {
-  public NullaryConstructorConditionallyBlocked() { x = 22; }
-  public NullaryConstructorConditionallyBlocked(int y) { x = y; }
-  protected int x;
+    public NullaryConstructorConditionallyBlocked() { x = 22; }
+    public NullaryConstructorConditionallyBlocked(int y) { x = y; }
+    protected int x;
 }

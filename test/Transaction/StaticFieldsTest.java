@@ -16,12 +16,12 @@
 
 public class StaticFieldsTest {
     public static boolean booleanField;
-    public static byte    byteField;
-    public static char    charField;
-    public static short   shortField;
-    public static int     intField;
-    public static long    longField;
-    public static float   floatField;
-    public static double  doubleField;
-    public static Object  objectField;
+    public static byte byteField;
+    public static char charField;
+    public static short shortField;
+    public static int intField;
+    public static long longField;
+    public static float floatField;
+    public static double doubleField;
+    public static Object objectField;
 }

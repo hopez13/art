@@ -159,9 +159,7 @@ public class Main {
      *   src/Test3Derived.java       - extends Test2Derived, implements Test2Interface.
      *   jasmin-multidex/Test3User.j - calls invokevirtual Test3Derived.foo()
      */
-    private static void test3() throws Exception {
-        invokeUserTest("Test3User");
-    }
+    private static void test3() throws Exception { invokeUserTest("Test3User"); }
 
     /*
      * Test4
@@ -184,9 +182,7 @@ public class Main {
      *   src/Test4Derived.java       - extends Test4Interface.
      *   jasmin/Test4User.j          - calls invokeinterface Test4Interface.toString().
      */
-    private static void test4() throws Exception {
-        invokeUserTest("Test4User");
-    }
+    private static void test4() throws Exception { invokeUserTest("Test4User"); }
 
     /*
      * Test5
@@ -310,8 +306,8 @@ public class Main {
     private static void test7() throws Exception {
         if (usingRI) {
             // For RI, just print the expected output to hide the deliberate divergence.
-            System.out.println("Calling Test7User.test():\n" +
-                               "Test7Interface.foo()");
+            System.out.println("Calling Test7User.test():\n"
+                    + "Test7Interface.foo()");
         } else {
             invokeUserTest("Test7User");
         }
@@ -402,9 +398,9 @@ public class Main {
     private static void test10() throws Exception {
         if (usingRI) {
             // For RI, just print the expected output to hide the divergence.
-            System.out.println("Calling Test10User.test():\n" +
-                               "Caught java.lang.reflect.InvocationTargetException\n" +
-                               "  caused by java.lang.IncompatibleClassChangeError");
+            System.out.println("Calling Test10User.test():\n"
+                    + "Caught java.lang.reflect.InvocationTargetException\n"
+                    + "  caused by java.lang.IncompatibleClassChangeError");
         } else {
             invokeUserTest("Test10User");
         }
@@ -435,8 +431,8 @@ public class Main {
     private static void test11() throws Exception {
         if (usingRI) {
             // For RI, just print the expected output to hide the divergence for now.
-            System.out.println("Calling Test11User.test():\n" +
-                               "Test11Base.<init>(\"Test\")");
+            System.out.println("Calling Test11User.test():\n"
+                    + "Test11Base.<init>(\"Test\")");
         } else {
             invokeUserTest("Test11User");
         }
@@ -465,9 +461,7 @@ public class Main {
      *   src/Test12Derived.java       - does not declare foo()V
      *   jasmin/Test12User.j          - invokevirtual Test12Derived.foo()V
      */
-    private static void test12() throws Exception {
-        invokeUserTest("Test12User");
-    }
+    private static void test12() throws Exception { invokeUserTest("Test12User"); }
 
     private static void invokeUserTest(String userName) throws Exception {
         System.out.println("Calling " + userName + ".test():");

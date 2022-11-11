@@ -18,6 +18,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
+
 import sun.misc.Unsafe;
 
 public class Main {
@@ -47,7 +48,7 @@ public class Main {
         // stress the read barrier implementation if concurrent collector is enabled.
         for (int i = 0; i != 64 * 1024; ++i) {
             allocateAtLeast1KiB();
-            ManyFields mf = manyFields;  // Load the volatile `manyFields` once on each iteration.
+            ManyFields mf = manyFields; // Load the volatile `manyFields` once on each iteration.
             // Test reference field access.
             assertSameObject(f0000, mf.testField0000);
             assertDifferentObject(f0000, mf.testField0001);
@@ -73,14 +74,14 @@ public class Main {
         tmp = new Integer(4998);
         largeArray[4998] = tmp;
         largeArray[4999] = f4999;
-        tmp = null;  // Do not keep a reference to objects in largeArray[1] or largeArray[4998].
+        tmp = null; // Do not keep a reference to objects in largeArray[1] or largeArray[4998].
 
         // Continually check reads from `largeArray` with constant indexes while allocating
         // over 64MiB memory (with heap size limited to 16MiB), ensuring we run GC and
         // stress the read barrier implementation if concurrent collector is enabled.
         for (int i = 0; i != 64 * 1024; ++i) {
             allocateAtLeast1KiB();
-            Object[] la = largeArray;    // Load the volatile `largeArray` once on each iteration.
+            Object[] la = largeArray; // Load the volatile `largeArray` once on each iteration.
             // Test array access with constant index.
             assertSameObject(f0000, la[0]);
             assertDifferentObject(f0000, la[1]);
@@ -106,7 +107,7 @@ public class Main {
         tmp = new Integer(4998);
         largeArray[4998] = tmp;
         largeArray[4999] = f4999;
-        tmp = null;  // Do not keep a reference to objects in largeArray[1] or largeArray[4998].
+        tmp = null; // Do not keep a reference to objects in largeArray[1] or largeArray[4998].
         // Read indexes, they cannot be considered constant because the variables are volatile.
         int i0 = index0;
         int i1 = index1;
@@ -120,7 +121,7 @@ public class Main {
         // stress the read barrier implementation if concurrent collector is enabled.
         for (int i = 0; i != 64 * 1024; ++i) {
             allocateAtLeast1KiB();
-            Object[] la = largeArray;    // Load the volatile `largeArray` once on each iteration.
+            Object[] la = largeArray; // Load the volatile `largeArray` once on each iteration.
             // Test array access with non-constant index.
             assertSameObject(f0000, la[i0]);
             assertDifferentObject(f0000, la[i1]);
@@ -170,10 +171,10 @@ public class Main {
             allocateAtLeast1KiB();
             // Test GC roots.
             if (index0 != 12345678) {
-              assertSameObject(testString0, "testString0");
-              assertSameObject(testString1, "testString1");
-              assertSameObject(testString2, "testString2");
-              assertSameObject(testString3, "testString3");
+                assertSameObject(testString0, "testString0");
+                assertSameObject(testString1, "testString1");
+                assertSameObject(testString2, "testString2");
+                assertSameObject(testString3, "testString3");
             }
             // TODO: Stress GC roots (const-class, kBssEntry/kReferrersClass).
         }
@@ -187,25 +188,19 @@ public class Main {
         Object f4999 = manyFields.testField4999;
         // Initialize Unsafe.
         Unsafe unsafe = getUnsafe();
-        long f0000Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField0000"));
-        long f0001Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField0001"));
-        long f1024Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField1024"));
-        long f4444Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField4444"));
-        long f4998Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField4998"));
-        long f4999Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField4999"));
+        long f0000Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField0000"));
+        long f0001Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField0001"));
+        long f1024Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField1024"));
+        long f4444Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField4444"));
+        long f4998Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField4998"));
+        long f4999Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField4999"));
 
         // Continually check unsafe.GetObject() while allocating
         // over 64MiB memory (with heap size limited to 16MiB), ensuring we run GC and
         // stress the read barrier implementation if concurrent collector is enabled.
         for (int i = 0; i != 64 * 1024; ++i) {
             allocateAtLeast1KiB();
-            ManyFields mf = manyFields;  // Load the volatile `manyFields` once on each iteration.
+            ManyFields mf = manyFields; // Load the volatile `manyFields` once on each iteration.
             // Test Unsafe.getObject().
             assertSameObject(f0000, unsafe.getObject(mf, f0000Offset));
             assertDifferentObject(f0000, unsafe.getObject(mf, f0001Offset));
@@ -224,25 +219,19 @@ public class Main {
         Object f4999 = manyFields.testField4999;
         // Initialize Unsafe.
         Unsafe unsafe = getUnsafe();
-        long f0000Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField0000"));
-        long f0001Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField0001"));
-        long f1024Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField1024"));
-        long f4444Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField4444"));
-        long f4998Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField4998"));
-        long f4999Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField4999"));
+        long f0000Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField0000"));
+        long f0001Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField0001"));
+        long f1024Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField1024"));
+        long f4444Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField4444"));
+        long f4998Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField4998"));
+        long f4999Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField4999"));
 
         // Continually check Unsafe.compareAndSwapObject() while allocating
         // over 64MiB memory (with heap size limited to 16MiB), ensuring we run GC and
         // stress the read barrier implementation if concurrent collector is enabled.
         for (int i = 0; i != 64 * 1024; ++i) {
             allocateAtLeast1KiB();
-            ManyFields mf = manyFields;  // Load the volatile `manyFields` once on each iteration.
+            ManyFields mf = manyFields; // Load the volatile `manyFields` once on each iteration.
             // Test Unsafe.compareAndSwapObject().
             assertEqual(false, unsafe.compareAndSwapObject(mf, f0000Offset, f1024, f4444));
             assertEqual(false, unsafe.compareAndSwapObject(mf, f0001Offset, f1024, f4444));
@@ -260,15 +249,14 @@ public class Main {
         Object f0000 = manyFields.testField0000;
         // Initialize Unsafe.
         Unsafe unsafe = getUnsafe();
-        long f0001Offset =
-            unsafe.objectFieldOffset(ManyFields.class.getField("testField0001"));
+        long f0001Offset = unsafe.objectFieldOffset(ManyFields.class.getField("testField0001"));
 
         // Continually check Unsafe.compareAndSwapObject() while allocating
         // over 64MiB memory (with heap size limited to 16MiB), ensuring we run GC and
         // stress the read barrier implementation if concurrent collector is enabled.
         for (int i = 0; i != 64 * 1024; ++i) {
             allocateAtLeast1KiB();
-            ManyFields mf = manyFields;  // Load the volatile `manyFields` once on each iteration.
+            ManyFields mf = manyFields; // Load the volatile `manyFields` once on each iteration.
 
             // With https://android-review.googlesource.com/729224 , the intrinsic could
             // erroneously clobber r0 on ARM for Baker read barriers because the introspection
@@ -279,9 +267,9 @@ public class Main {
             // do the UnsafeCasObject and check the result of the $noinline$ call (register
             // allocator should leave the result in r0, clobbered by the broken intrinsic).
             int x = $noinline$foo();
-            unsafe.compareAndSwapObject(mf, f0001Offset, f0000, null);  // Ignore the result.
+            unsafe.compareAndSwapObject(mf, f0001Offset, f0000, null); // Ignore the result.
             if (x != 42) {
-              throw new Error();
+                throw new Error();
             }
         }
     }
@@ -293,25 +281,25 @@ public class Main {
         Object f4444 = manyFields.testField4444;
         Object f4999 = manyFields.testField4999;
         // Initialize VarHandle objects.
-        VarHandle f0000vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField0000", Object.class);
-        VarHandle f0001vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField0001", Object.class);
-        VarHandle f1024vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField1024", Object.class);
-        VarHandle f4444vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField4444", Object.class);
-        VarHandle f4998vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField4998", Object.class);
-        VarHandle f4999vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField4999", Object.class);
+        VarHandle f0000vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField0000", Object.class);
+        VarHandle f0001vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField0001", Object.class);
+        VarHandle f1024vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField1024", Object.class);
+        VarHandle f4444vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField4444", Object.class);
+        VarHandle f4998vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField4998", Object.class);
+        VarHandle f4999vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField4999", Object.class);
 
         // Continually check VarHandle.compareAndSet() while allocating
         // over 64MiB memory (with heap size limited to 16MiB), ensuring we run GC and
         // stress the read barrier implementation if concurrent collector is enabled.
         for (int i = 0; i != 64 * 1024; ++i) {
             allocateAtLeast1KiB();
-            ManyFields mf = manyFields;  // Load the volatile `manyFields` once on each iteration.
+            ManyFields mf = manyFields; // Load the volatile `manyFields` once on each iteration.
             // Test VarHandle.compareAndSet().
             assertEqual(false, f0000vh.compareAndSet(mf, f1024, f4444));
             assertEqual(false, f0001vh.compareAndSet(mf, f1024, f4444));
@@ -333,34 +321,34 @@ public class Main {
         Object f4998 = manyFields.testField4998;
         Object f4999 = manyFields.testField4999;
         // Initialize VarHandle objects.
-        VarHandle f0000vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField0000", Object.class);
-        VarHandle f0001vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField0001", Object.class);
-        VarHandle f1024vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField1024", Object.class);
-        VarHandle f4444vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField4444", Object.class);
-        VarHandle f4998vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField4998", Object.class);
-        VarHandle f4999vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField4999", Object.class);
+        VarHandle f0000vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField0000", Object.class);
+        VarHandle f0001vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField0001", Object.class);
+        VarHandle f1024vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField1024", Object.class);
+        VarHandle f4444vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField4444", Object.class);
+        VarHandle f4998vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField4998", Object.class);
+        VarHandle f4999vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField4999", Object.class);
 
         // Continually check VarHandle.compareAndExchange() while allocating
         // over 64MiB memory (with heap size limited to 16MiB), ensuring we run GC and
         // stress the read barrier implementation if concurrent collector is enabled.
         for (int i = 0; i != 64 * 1024; ++i) {
             allocateAtLeast1KiB();
-            ManyFields mf = manyFields;  // Load the volatile `manyFields` once on each iteration.
+            ManyFields mf = manyFields; // Load the volatile `manyFields` once on each iteration.
             // Test VarHandle.compareAndExchange(). Use reference comparison, not equals().
-            assertSameObject(f0000, f0000vh.compareAndExchange(mf, f1024, f4444));  // Unchanged.
-            assertSameObject(f0001, f0001vh.compareAndExchange(mf, f1024, f4444));  // Unchanged.
-            assertSameObject(f1024, f1024vh.compareAndExchange(mf, f1024, f4444));  // Replaced.
-            assertSameObject(f4444, f1024vh.compareAndExchange(mf, f4444, f1024));  // Replaced.
-            assertSameObject(f1024, f1024vh.compareAndExchange(mf, f4444, f1024));  // Unchanged.
-            assertSameObject(f4444, f4444vh.compareAndExchange(mf, f1024, f4444));  // Unchanged.
-            assertSameObject(f4998, f4998vh.compareAndExchange(mf, f1024, f4444));  // Unchanged.
-            assertSameObject(f4999, f4999vh.compareAndExchange(mf, f1024, f4444));  // Unchanged.
+            assertSameObject(f0000, f0000vh.compareAndExchange(mf, f1024, f4444)); // Unchanged.
+            assertSameObject(f0001, f0001vh.compareAndExchange(mf, f1024, f4444)); // Unchanged.
+            assertSameObject(f1024, f1024vh.compareAndExchange(mf, f1024, f4444)); // Replaced.
+            assertSameObject(f4444, f1024vh.compareAndExchange(mf, f4444, f1024)); // Replaced.
+            assertSameObject(f1024, f1024vh.compareAndExchange(mf, f4444, f1024)); // Unchanged.
+            assertSameObject(f4444, f4444vh.compareAndExchange(mf, f1024, f4444)); // Unchanged.
+            assertSameObject(f4998, f4998vh.compareAndExchange(mf, f1024, f4444)); // Unchanged.
+            assertSameObject(f4999, f4999vh.compareAndExchange(mf, f1024, f4444)); // Unchanged.
         }
     }
 
@@ -373,34 +361,34 @@ public class Main {
         Object f4998 = manyFields.testField4998;
         Object f4999 = manyFields.testField4999;
         // Initialize VarHandle objects.
-        VarHandle f0000vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField0000", Object.class);
-        VarHandle f0001vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField0001", Object.class);
-        VarHandle f1024vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField1024", Object.class);
-        VarHandle f4444vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField4444", Object.class);
-        VarHandle f4998vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField4998", Object.class);
-        VarHandle f4999vh =
-            MethodHandles.lookup().findVarHandle(ManyFields.class, "testField4999", Object.class);
+        VarHandle f0000vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField0000", Object.class);
+        VarHandle f0001vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField0001", Object.class);
+        VarHandle f1024vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField1024", Object.class);
+        VarHandle f4444vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField4444", Object.class);
+        VarHandle f4998vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField4998", Object.class);
+        VarHandle f4999vh = MethodHandles.lookup().findVarHandle(
+                ManyFields.class, "testField4999", Object.class);
 
         // Continually check VarHandle.getAndSet() while allocating
         // over 64MiB memory (with heap size limited to 16MiB), ensuring we run GC and
         // stress the read barrier implementation if concurrent collector is enabled.
         for (int i = 0; i != 64 * 1024; ++i) {
             allocateAtLeast1KiB();
-            ManyFields mf = manyFields;  // Load the volatile `manyFields` once on each iteration.
+            ManyFields mf = manyFields; // Load the volatile `manyFields` once on each iteration.
             // Test VarHandle.getAndSet(). Use reference comparison, not equals().
-            assertSameObject(f0000, f0000vh.getAndSet(mf, f0000));  // Unchanged.
-            assertSameObject(f0001, f0001vh.getAndSet(mf, f0001));  // Unchanged.
-            assertSameObject(f1024, f1024vh.getAndSet(mf, f4444));  // Replaced.
-            assertSameObject(f4444, f1024vh.getAndSet(mf, f1024));  // Replaced.
-            assertSameObject(f1024, f1024vh.getAndSet(mf, f1024));  // Unchanged.
-            assertSameObject(f4444, f4444vh.getAndSet(mf, f4444));  // Unchanged.
-            assertSameObject(f4998, f4998vh.getAndSet(mf, f4998));  // Unchanged.
-            assertSameObject(f4999, f4999vh.getAndSet(mf, f4999));  // Unchanged.
+            assertSameObject(f0000, f0000vh.getAndSet(mf, f0000)); // Unchanged.
+            assertSameObject(f0001, f0001vh.getAndSet(mf, f0001)); // Unchanged.
+            assertSameObject(f1024, f1024vh.getAndSet(mf, f4444)); // Replaced.
+            assertSameObject(f4444, f1024vh.getAndSet(mf, f1024)); // Replaced.
+            assertSameObject(f1024, f1024vh.getAndSet(mf, f1024)); // Unchanged.
+            assertSameObject(f4444, f4444vh.getAndSet(mf, f4444)); // Unchanged.
+            assertSameObject(f4998, f4998vh.getAndSet(mf, f4998)); // Unchanged.
+            assertSameObject(f4999, f4999vh.getAndSet(mf, f4999)); // Unchanged.
         }
     }
 
@@ -420,7 +408,7 @@ public class Main {
         // read barrier implementation in Reference.refersTo() if concurrent collector is enabled.
         for (int i = 0; i != 64 * 1024; ++i) {
             allocateAtLeast1KiB();
-            ManyFields mf = manyFields;  // Load the volatile `manyFields` once on each iteration.
+            ManyFields mf = manyFields; // Load the volatile `manyFields` once on each iteration.
             // Test Reference.refersTo() with reference field access.
             assertEqual(true, f0000.refersTo(mf.testField0000));
             assertEqual(false, f0000.refersTo(mf.testField0001));
@@ -440,22 +428,22 @@ public class Main {
     }
 
     public static void assertSameObject(Object lhs, Object rhs) {
-      if (lhs != rhs) {
-          throw new Error("Different objects: " + lhs + " and " + rhs);
-      }
-  }
+        if (lhs != rhs) {
+            throw new Error("Different objects: " + lhs + " and " + rhs);
+        }
+    }
 
     public static void assertEqual(boolean expected, boolean actual) {
-      if (expected != actual) {
-        throw new Error("Expected " + expected +", got " + actual);
-      }
+        if (expected != actual) {
+            throw new Error("Expected " + expected + ", got " + actual);
+        }
     }
 
     public static Unsafe getUnsafe() throws Exception {
-      Class<?> unsafeClass = Class.forName("sun.misc.Unsafe");
-      Field f = unsafeClass.getDeclaredField("theUnsafe");
-      f.setAccessible(true);
-      return (Unsafe) f.get(null);
+        Class<?> unsafeClass = Class.forName("sun.misc.Unsafe");
+        Field f = unsafeClass.getDeclaredField("theUnsafe");
+        f.setAccessible(true);
+        return (Unsafe) f.get(null);
     }
 
     public static void allocateAtLeast1KiB() {

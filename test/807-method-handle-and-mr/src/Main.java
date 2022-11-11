@@ -22,70 +22,63 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 
 class A {
-  public Long binaryFunction(int x, double y) {
-    return 1000l;
-  }
+    public Long binaryFunction(int x, double y) { return 1000l; }
 }
 
 class Test {
-  Test() throws Throwable {
-    this.handle = MethodHandles.lookup().findVirtual(A.class, "binaryFunction",
-                                                     MethodType.methodType(Long.class, int.class,
-                                                                           double.class));
-    this.a = new A();
-    this.x = new Integer(72);
-    this.y = new Double(-1.39e-31);
-  }
-
-  void execute() {
-    try {
-      executeFor(2000);
-      System.out.println(getName());
-    } catch (Throwable t) {
-      System.err.println("Exception during the execution of " + getName());
-      System.err.println(t);
-      t.printStackTrace(new PrintStream(System.err));
-      System.exit(1);
+    Test() throws Throwable {
+        this.handle = MethodHandles.lookup().findVirtual(A.class, "binaryFunction",
+                MethodType.methodType(Long.class, int.class, double.class));
+        this.a = new A();
+        this.x = new Integer(72);
+        this.y = new Double(-1.39e-31);
     }
-  }
 
-  void executeFor(long timeMinimumMillis) throws Throwable {
-    long startTime = System.currentTimeMillis();
-    long elapsed = 0;
-    while (elapsed < timeMinimumMillis) {
-      exercise();
-      elapsed = System.currentTimeMillis() - startTime;
+    void execute() {
+        try {
+            executeFor(2000);
+            System.out.println(getName());
+        } catch (Throwable t) {
+            System.err.println("Exception during the execution of " + getName());
+            System.err.println(t);
+            t.printStackTrace(new PrintStream(System.err));
+            System.exit(1);
+        }
     }
-  }
 
-  void exercise() throws Throwable {
-    for (int i = 0; i < EXERCISE_ITERATIONS; ++i) {
-      run();
+    void executeFor(long timeMinimumMillis) throws Throwable {
+        long startTime = System.currentTimeMillis();
+        long elapsed = 0;
+        while (elapsed < timeMinimumMillis) {
+            exercise();
+            elapsed = System.currentTimeMillis() - startTime;
+        }
     }
-  }
 
-  void run() throws Throwable {
-    long result = (long) handle.invoke(a, x, y);
-  }
+    void exercise() throws Throwable {
+        for (int i = 0; i < EXERCISE_ITERATIONS; ++i) {
+            run();
+        }
+    }
 
-  String getName() {
-    return getClass().getSimpleName();
-  }
+    void run() throws Throwable { long result = (long) handle.invoke(a, x, y); }
 
-  private static final int EXERCISE_ITERATIONS = 500;
+    String getName() { return getClass().getSimpleName(); }
 
-  private MethodHandle handle;
-  private A a;
-  private Integer x;
-  private Double y;
+    private static final int EXERCISE_ITERATIONS = 500;
+
+    private MethodHandle handle;
+    private A a;
+    private Integer x;
+    private Double y;
 }
 
 public class Main {
-  public static void main(String[] args) throws Throwable {
-    Test[] tests = new Test[] { new Test(), new Test(), new Test() };
-    for (Test test : tests) {
-      test.execute();
+    public static void main(String[] args) throws Throwable {
+        Test[] tests = new Test[] {new Test(), new Test(), new Test()};
+        for (Test test : tests) {
+            test.execute();
+        }
+        System.out.println("passed");
     }
-    System.out.println("passed");
-  }
 }

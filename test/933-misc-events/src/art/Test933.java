@@ -17,11 +17,11 @@
 package art;
 
 public class Test933 {
-  public static void run() throws Exception {
-    testSigQuit();
+    public static void run() throws Exception {
+        testSigQuit();
 
-    System.out.println("Done");
-  }
+        System.out.println("Done");
+    }
 
-  private static native void testSigQuit();
+    private static native void testSigQuit();
 }

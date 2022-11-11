@@ -14,64 +14,45 @@
  * limitations under the License.
  */
 
-import annotations.BootstrapMethod;
-import annotations.CalledByIndy;
-import annotations.Constant;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 
+import annotations.BootstrapMethod;
+import annotations.CalledByIndy;
+import annotations.Constant;
+
 class TestLinkerUnrelatedBSM extends TestBase {
-    @CalledByIndy(
-        bootstrapMethod =
-                @BootstrapMethod(
-                    enclosingType = UnrelatedBSM.class,
-                    parameterTypes = {
-                        MethodHandles.Lookup.class,
-                        String.class,
-                        MethodType.class,
-                        Class.class
-                    },
-                    name = "bsm"
-                ),
-        fieldOrMethodName = "_addf",
-        returnType = float.class,
-        parameterTypes = {float.class, float.class},
-        constantArgumentsForBootstrapMethod = {@Constant(classValue = TestLinkerUnrelatedBSM.class)}
-    )
-    private static float addf(float a, float b) {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(enclosingType = UnrelatedBSM.class,
+                          parameterTypes = {MethodHandles.Lookup.class, String.class,
+                                  MethodType.class, Class.class},
+                          name = "bsm"),
+            fieldOrMethodName = "_addf", returnType = float.class,
+            parameterTypes = {float.class, float.class},
+            constantArgumentsForBootstrapMethod =
+            { @Constant(classValue = TestLinkerUnrelatedBSM.class) })
+    private static float
+    addf(float a, float b) {
         assertNotReached();
         return Float.MIN_VALUE;
     }
 
-    public static float _addf(float a, float b) {
-        return a + b;
-    }
+    public static float _addf(float a, float b) { return a + b; }
 
-    @CalledByIndy(
-        bootstrapMethod =
-                @BootstrapMethod(
-                    enclosingType = UnrelatedBSM.class,
-                    parameterTypes = {
-                        MethodHandles.Lookup.class,
-                        String.class,
-                        MethodType.class,
-                        Class.class
-                    },
-                    name = "bsm"
-                ),
-        fieldOrMethodName = "_subf",
-        returnType = float.class,
-        parameterTypes = {float.class, float.class},
-        constantArgumentsForBootstrapMethod = {@Constant(classValue = TestLinkerUnrelatedBSM.class)}
-    )
-    private static float subf(float a, float b) {
+    @CalledByIndy(bootstrapMethod = @BootstrapMethod(enclosingType = UnrelatedBSM.class,
+                          parameterTypes = {MethodHandles.Lookup.class, String.class,
+                                  MethodType.class, Class.class},
+                          name = "bsm"),
+            fieldOrMethodName = "_subf", returnType = float.class,
+            parameterTypes = {float.class, float.class},
+            constantArgumentsForBootstrapMethod =
+            { @Constant(classValue = TestLinkerUnrelatedBSM.class) })
+    private static float
+    subf(float a, float b) {
         assertNotReached();
         return Float.MIN_VALUE;
     }
 
-    private static float _subf(float a, float b) {
-        return a - b;
-    }
+    private static float _subf(float a, float b) { return a - b; }
 
     public static void test() {
         System.out.println(TestLinkerUnrelatedBSM.class.getName());

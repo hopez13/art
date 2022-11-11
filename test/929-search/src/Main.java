@@ -17,36 +17,34 @@
 import java.util.Arrays;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    doTest();
-  }
+    public static void main(String[] args) throws Exception { doTest(); }
 
-  private static void doTest() throws Exception {
-    doTest(true, DEX1, "B");
-    doTest(false, DEX2, "A");
-    System.out.println("Done");
-  }
-
-  private static void doTest(boolean boot, String segment, String className) throws Exception {
-    ClassLoader expectedClassLoader;
-    if (boot) {
-      expectedClassLoader = Object.class.getClassLoader();
-      addToBootClassLoader(segment);
-    } else {
-      expectedClassLoader = ClassLoader.getSystemClassLoader();
-      addToSystemClassLoader(segment);
+    private static void doTest() throws Exception {
+        doTest(true, DEX1, "B");
+        doTest(false, DEX2, "A");
+        System.out.println("Done");
     }
 
-    Class<?> c = Class.forName(className);
-    if (c.getClassLoader() != expectedClassLoader) {
-      throw new RuntimeException(className + "(" + boot + "/" + segment + "): " +
-          c.getClassLoader() + " vs " + expectedClassLoader);
+    private static void doTest(boolean boot, String segment, String className) throws Exception {
+        ClassLoader expectedClassLoader;
+        if (boot) {
+            expectedClassLoader = Object.class.getClassLoader();
+            addToBootClassLoader(segment);
+        } else {
+            expectedClassLoader = ClassLoader.getSystemClassLoader();
+            addToSystemClassLoader(segment);
+        }
+
+        Class<?> c = Class.forName(className);
+        if (c.getClassLoader() != expectedClassLoader) {
+            throw new RuntimeException(className + "(" + boot + "/" + segment
+                    + "): " + c.getClassLoader() + " vs " + expectedClassLoader);
+        }
     }
-  }
 
-  private static native void addToBootClassLoader(String s);
-  private static native void addToSystemClassLoader(String s);
+    private static native void addToBootClassLoader(String s);
+    private static native void addToSystemClassLoader(String s);
 
-  private static final String DEX1 = System.getenv("DEX_LOCATION") + "/929-search.jar";
-  private static final String DEX2 = System.getenv("DEX_LOCATION") + "/929-search-ex.jar";
+    private static final String DEX1 = System.getenv("DEX_LOCATION") + "/929-search.jar";
+    private static final String DEX2 = System.getenv("DEX_LOCATION") + "/929-search-ex.jar";
 }

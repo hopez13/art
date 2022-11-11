@@ -15,6 +15,5 @@
  */
 
 public final class MissingClass {
-    public static final class MissingInnerClass {
-    }
+    public static final class MissingInnerClass {}
 }

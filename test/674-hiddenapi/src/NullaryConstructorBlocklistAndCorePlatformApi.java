@@ -15,7 +15,7 @@
  */
 
 public class NullaryConstructorBlocklistAndCorePlatformApi {
-  public NullaryConstructorBlocklistAndCorePlatformApi() { x = 22; }
-  public NullaryConstructorBlocklistAndCorePlatformApi(int y) { x = y; }
-  protected int x;
+    public NullaryConstructorBlocklistAndCorePlatformApi() { x = 22; }
+    public NullaryConstructorBlocklistAndCorePlatformApi(int y) { x = y; }
+    protected int x;
 }

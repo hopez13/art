@@ -28,13 +28,11 @@ public class Main {
             hashSystemInflated = System.identityHashCode(o);
         }
         // Make sure that all the hashes agree.
-        if (hashOrig != hashInflated || hashOrig != hashSystemOrig ||
-            hashSystemOrig != hashSystemInflated) {
-            System.out.println("hash codes dont match: " + hashOrig + " " + hashInflated + " " +
-            hashSystemOrig + " " + hashSystemInflated);
+        if (hashOrig != hashInflated || hashOrig != hashSystemOrig
+                || hashSystemOrig != hashSystemInflated) {
+            System.out.println("hash codes dont match: " + hashOrig + " " + hashInflated + " "
+                    + hashSystemOrig + " " + hashSystemInflated);
         }
         System.out.println("Done.");
     }
 }
-
-

@@ -16,16 +16,16 @@
 import java.lang.reflect.*;
 
 public class Main {
-  public static void main(String[] args) {
-    try {
-      Class<?> c = Class.forName("Klass");
-      Object o = c.newInstance();
-      Class<?> iface = Class.forName("Iface2");
-      Method test = c.getMethod("testMe", iface);
-      test.invoke(null, o);
-    } catch (Exception e) {
-      e.printStackTrace(System.out);
-      System.out.println("FAILED: could not run testMe!");
+    public static void main(String[] args) {
+        try {
+            Class<?> c = Class.forName("Klass");
+            Object o = c.newInstance();
+            Class<?> iface = Class.forName("Iface2");
+            Method test = c.getMethod("testMe", iface);
+            test.invoke(null, o);
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+            System.out.println("FAILED: could not run testMe!");
+        }
     }
-  }
 }

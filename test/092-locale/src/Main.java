@@ -29,7 +29,6 @@ import java.util.TimeZone;
  * Exercise some locale-table-driven stuff.
  */
 public class Main {
-
     public static void main(String[] args) {
         try {
             testCalendar();
@@ -67,19 +66,16 @@ public class Main {
 
         Locale usa = new Locale("en", "US");
         Calendar usaCal = Calendar.getInstance(tz, usa);
-        usaCal.clear();     // don't want current date/time
+        usaCal.clear(); // don't want current date/time
         usaCal.set(2012, Calendar.JANUARY, 1);
 
         Date when = usaCal.getTime();
         DateFormat fmt = DateFormat.getDateInstance(DateFormat.FULL, usa);
-        fmt.setTimeZone(tz);    // defaults to local TZ; force GMT
-        System.out.println("USA(" + fmt.getTimeZone().getID() + "): "
-            + fmt.format(when));
+        fmt.setTimeZone(tz); // defaults to local TZ; force GMT
+        System.out.println("USA(" + fmt.getTimeZone().getID() + "): " + fmt.format(when));
 
-        System.out.println("USA: first="
-            + usaCal.getFirstDayOfWeek() + ", name="
-            + usaCal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, usa));
-
+        System.out.println("USA: first=" + usaCal.getFirstDayOfWeek()
+                + ", name=" + usaCal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, usa));
 
         Locale france = new Locale("fr", "FR");
         Calendar franceCal = Calendar.getInstance(tz, france);
@@ -88,13 +84,11 @@ public class Main {
 
         when = franceCal.getTime();
         fmt = DateFormat.getDateInstance(DateFormat.FULL, usa);
-        fmt.setTimeZone(tz);    // defaults to local TZ; force GMT
-        System.out.println("France(" + fmt.getTimeZone().getID() + "): "
-            + fmt.format(when));
+        fmt.setTimeZone(tz); // defaults to local TZ; force GMT
+        System.out.println("France(" + fmt.getTimeZone().getID() + "): " + fmt.format(when));
 
-        System.out.println("France: first="
-            + franceCal.getFirstDayOfWeek() + ", name="
-            + franceCal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, france));
+        System.out.println("France: first=" + franceCal.getFirstDayOfWeek() + ", name="
+                + franceCal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, france));
     }
 
     static void testDateFormatSymbols() {
@@ -108,14 +102,14 @@ public class Main {
         Locale usa = new Locale("en", "US");
         Currency dollars = Currency.getInstance(usa);
 
-        System.out.println(usa.toString() + ": " + dollars.toString()
-            + " " + dollars.getSymbol() + dollars.getDefaultFractionDigits());
+        System.out.println(usa.toString() + ": " + dollars.toString() + " " + dollars.getSymbol()
+                + dollars.getDefaultFractionDigits());
 
         Locale japan = new Locale("jp", "JP");
         Currency yen = Currency.getInstance(japan);
 
-        System.out.println(japan.toString() + ": " + yen.toString()
-            + " " + yen.getSymbol() + yen.getDefaultFractionDigits());
+        System.out.println(japan.toString() + ": " + yen.toString() + " " + yen.getSymbol()
+                + yen.getDefaultFractionDigits());
     }
 
     static void testNormalizer() {
@@ -125,14 +119,12 @@ public class Main {
 
         res = Normalizer.normalize(composed, Normalizer.Form.NFD);
         if (!decomposed.equals(res)) {
-            System.out.println("Bad decompose: '" + composed + "' --> '"
-                + res + "'");
+            System.out.println("Bad decompose: '" + composed + "' --> '" + res + "'");
         }
 
         res = Normalizer.normalize(decomposed, Normalizer.Form.NFC);
         if (!composed.equals(res)) {
-            System.out.println("Bad compose: '" + decomposed + "' --> '"
-                + res + "'");
+            System.out.println("Bad compose: '" + decomposed + "' --> '" + res + "'");
         }
 
         System.out.println("Normalizer passed");

@@ -17,30 +17,28 @@
 // Test for the optimizing compiler's parallel swap support in
 // the presence of register pairs (in this case, doubles on ARM).
 public class Main {
-  public static void main(String[] args) {
-    new Main().foo();
-  }
+    public static void main(String[] args) { new Main().foo(); }
 
-  public void foo() {
-    // Do multiple calls to force swapping of registers. Note that
-    // this depends on the calling convention, as a stack-only convention
-    // may not need the swapping.
-    callWithDoubles(a, b, c, d, e, f, g);
-    callWithDoubles(b, c, d, e, f, g, a);
-    callWithDoubles(c, d, e, f, g, a, b);
-    callWithDoubles(d, e, f, g, a, b, c);
-  }
+    public void foo() {
+        // Do multiple calls to force swapping of registers. Note that
+        // this depends on the calling convention, as a stack-only convention
+        // may not need the swapping.
+        callWithDoubles(a, b, c, d, e, f, g);
+        callWithDoubles(b, c, d, e, f, g, a);
+        callWithDoubles(c, d, e, f, g, a, b);
+        callWithDoubles(d, e, f, g, a, b, c);
+    }
 
-  public static void callWithDoubles(
-      double a, double b, double c, double d, double e, double f, double g) {
-    System.out.println(a - b - c - d - e - f - g);
-  }
+    public static void callWithDoubles(
+            double a, double b, double c, double d, double e, double f, double g) {
+        System.out.println(a - b - c - d - e - f - g);
+    }
 
-  double a = 1.0;
-  double b = 2.0;
-  double c = 3.0;
-  double d = 4.0;
-  double e = 5.0;
-  double f = 6.0;
-  double g = 7.0;
+    double a = 1.0;
+    double b = 2.0;
+    double c = 3.0;
+    double d = 4.0;
+    double e = 5.0;
+    double f = 6.0;
+    double g = 7.0;
 }

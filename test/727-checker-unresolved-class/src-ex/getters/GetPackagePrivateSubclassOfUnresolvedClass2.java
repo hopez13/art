@@ -19,8 +19,6 @@ package getters;
 import resolved.PackagePrivateSubclassOfUnresolvedClass2;
 
 public class GetPackagePrivateSubclassOfUnresolvedClass2 {
-  // TODO: Make $inline$ when we relax the verifier. b/28313047
-  public static Class<?> get() {
-    return PackagePrivateSubclassOfUnresolvedClass2.class;
-  }
+    // TODO: Make $inline$ when we relax the verifier. b/28313047
+    public static Class<?> get() { return PackagePrivateSubclassOfUnresolvedClass2.class; }
 }

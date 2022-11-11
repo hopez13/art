@@ -15,5 +15,5 @@
  */
 
 public class Holder {
-  public static int field = 42;
+    public static int field = 42;
 }

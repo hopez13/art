@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 class F extends A implements Attendant {
-  public String GetPlace() {
-    return "android";
-  }
-  public String SayHiTwice() {
-    return "We can override both interfaces";
-  }
+    public String GetPlace() { return "android"; }
+    public String SayHiTwice() { return "We can override both interfaces"; }
 }

@@ -32,12 +32,12 @@ public class Main {
             }
             D d = (D) b;
             if (!(b instanceof D)) {
-                System.out.println("Error: No ClassCastException throuwn when it should have been.");
+                System.out.println(
+                        "Error: No ClassCastException throuwn when it should have been.");
             } else {
                 System.out.println("OK");
             }
-        }
-        catch (ClassCastException cce) {
+        } catch (ClassCastException cce) {
             if (b instanceof D) {
                 System.out.println("Error: ClassCastException thrown when it shouldn't have been.");
             } else {

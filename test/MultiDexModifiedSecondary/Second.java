@@ -15,11 +15,7 @@
  */
 
 class Second {
-  public String getThird() {
-    return "I Third That.";
-  }
+    public String getThird() { return "I Third That."; }
 
-  public String getSecond() {
-    return "I Second That.";
-  }
+    public String getSecond() { return "I Second That."; }
 }

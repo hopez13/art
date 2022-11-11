@@ -17,44 +17,43 @@
 package art;
 
 public class Test1905 {
-  public static void run() throws Exception {
-    final Thread spinner = new Thread(() -> {
-      nativeSpin();
-    }, "Spinner");
+    public static void run() throws Exception {
+        final Thread spinner = new Thread(() -> { nativeSpin(); }, "Spinner");
 
-    final Thread resumer = new Thread(() -> {
-      String me = Thread.currentThread().getName();
+        final Thread resumer = new Thread(() -> {
+            String me = Thread.currentThread().getName();
 
-      // wait for the other thread to start spinning.
-      while (!isNativeThreadSpinning()) { }
+            // wait for the other thread to start spinning.
+            while (!isNativeThreadSpinning()) {
+            }
 
-      System.out.println(me + ": isNativeThreadSpinning() = " + isNativeThreadSpinning());
-      System.out.println(me + ": isSuspended(spinner) = " + Suspension.isSuspended(spinner));
+            System.out.println(me + ": isNativeThreadSpinning() = " + isNativeThreadSpinning());
+            System.out.println(me + ": isSuspended(spinner) = " + Suspension.isSuspended(spinner));
 
-      // Suspend it from java.
-      Suspension.suspend(spinner);
+            // Suspend it from java.
+            Suspension.suspend(spinner);
 
-      System.out.println(me + ": Suspended spinner while native spinning");
-      System.out.println(me + ": isNativeThreadSpinning() = " + isNativeThreadSpinning());
-      System.out.println(me + ": isSuspended(spinner) = " + Suspension.isSuspended(spinner));
+            System.out.println(me + ": Suspended spinner while native spinning");
+            System.out.println(me + ": isNativeThreadSpinning() = " + isNativeThreadSpinning());
+            System.out.println(me + ": isSuspended(spinner) = " + Suspension.isSuspended(spinner));
 
-      // Resume it from java. It is still native spinning.
-      Suspension.resume(spinner);
+            // Resume it from java. It is still native spinning.
+            Suspension.resume(spinner);
 
-      System.out.println(me + ": resumed spinner while native spinning");
-      System.out.println(me + ": isNativeThreadSpinning() = " + isNativeThreadSpinning());
-      System.out.println(me + ": isSuspended(spinner) = " + Suspension.isSuspended(spinner));
-      nativeResume();
-    }, "Resumer");
+            System.out.println(me + ": resumed spinner while native spinning");
+            System.out.println(me + ": isNativeThreadSpinning() = " + isNativeThreadSpinning());
+            System.out.println(me + ": isSuspended(spinner) = " + Suspension.isSuspended(spinner));
+            nativeResume();
+        }, "Resumer");
 
-    spinner.start();
-    resumer.start();
+        spinner.start();
+        resumer.start();
 
-    spinner.join();
-    resumer.join();
-  }
+        spinner.join();
+        resumer.join();
+    }
 
-  public static native void nativeSpin();
-  public static native void nativeResume();
-  public static native boolean isNativeThreadSpinning();
+    public static native void nativeSpin();
+    public static native void nativeResume();
+    public static native boolean isNativeThreadSpinning();
 }

@@ -15,7 +15,5 @@
  */
 
 public class TestImplementation implements Cloneable {
-    public Object clone() {
-        return new TestImplementation();
-    }
+    public Object clone() { return new TestImplementation(); }
 }

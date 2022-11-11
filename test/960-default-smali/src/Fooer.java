@@ -15,5 +15,5 @@
  */
 
 interface Fooer extends Foo {
-  public String bar();
+    public String bar();
 }

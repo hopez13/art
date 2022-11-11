@@ -20,16 +20,13 @@ public class Main {
     static int counter = 0;
 
     static interface TheInterface {
-      public void m();
+        public void m();
     }
 
-    static abstract class AbstractClass implements TheInterface {
-    }
+    static abstract class AbstractClass implements TheInterface {}
 
     static class ConcreteClass extends AbstractClass {
-        public void m() {
-            ++counter;
-        }
+        public void m() { ++counter; }
     }
 
     static void doStuff(AbstractClass c) {
@@ -41,10 +38,10 @@ public class Main {
     public static void main(String[] args) throws Exception {
         ConcreteClass o = new ConcreteClass();
         for (int i = 0; i < loopIterations; ++i) {
-          doStuff(o);
+            doStuff(o);
         }
         if (counter != loopIterations * loopIterations) {
-          System.out.println("Expected " + loopIterations * loopIterations + " got " + counter);
+            System.out.println("Expected " + loopIterations * loopIterations + " got " + counter);
         }
 
         try {

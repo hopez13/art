@@ -27,9 +27,7 @@ public class Main {
 
     private volatile static Throwable preallocatedException;
 
-    static void createAndForget() {
-        Main main = new Main();
-    }
+    static void createAndForget() { Main main = new Main(); }
 
     public static void main(String[] args) {
         // Preallocate exception to lighten the load in the time-sensitive section.
@@ -43,11 +41,11 @@ public class Main {
         System.runFinalization();
 
         new Timer(true).schedule(new TimerTask() {
-                public void run() {
-                    System.out.println("Timed out, exiting");
-                    System.exit(1);
-                }
-            }, 30000);
+            public void run() {
+                System.out.println("Timed out, exiting");
+                System.exit(1);
+            }
+        }, 30000);
 
         while (!didFinal) {
             try {

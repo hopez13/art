@@ -84,9 +84,7 @@ abstract class TestBase {
         }
     }
 
-    static void assertNotReached() {
-        throw new AssertionError("Unreachable");
-    }
+    static void assertNotReached() { throw new AssertionError("Unreachable"); }
 
     static void fail() {
         System.out.println("fail");

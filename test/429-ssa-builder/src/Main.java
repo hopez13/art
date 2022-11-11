@@ -15,35 +15,35 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    if (new Main().$opt$TestFloatPhi() != 33.0f) {
-      throw new Error("Unexpected result");
+    public static void main(String[] args) {
+        if (new Main().$opt$TestFloatPhi() != 33.0f) {
+            throw new Error("Unexpected result");
+        }
     }
-  }
 
-  public float $opt$TestFloatPhi() {
-    float a = floatField;
-    float b = 42.0f;
-    if (test1) {
-      // The phi for `a` will be found to be of type float.
-      a = otherFloatField;
-      // The phi for `b` will be found to be of type int (constants in DEX).
-      b = 33.0f;
+    public float $opt$TestFloatPhi() {
+        float a = floatField;
+        float b = 42.0f;
+        if (test1) {
+            // The phi for `a` will be found to be of type float.
+            a = otherFloatField;
+            // The phi for `b` will be found to be of type int (constants in DEX).
+            b = 33.0f;
+        }
+        // Use a different condition to avoid having dx being too clever.
+        if (test2) {
+            // Type propagation now realizes that `b` must be of type float. So
+            // it requests a float equivalent for `b`. Because the phi for `a` is
+            // next to the phi for `b` in the phi list, the compiler used to crash,
+            // assuming that a float phi following a phi *must* be for the same DEX
+            // register.
+            a = b;
+        }
+        return a;
     }
-    // Use a different condition to avoid having dx being too clever.
-    if (test2) {
-      // Type propagation now realizes that `b` must be of type float. So
-      // it requests a float equivalent for `b`. Because the phi for `a` is
-      // next to the phi for `b` in the phi list, the compiler used to crash,
-      // assuming that a float phi following a phi *must* be for the same DEX
-      // register.
-      a = b;
-    }
-    return a;
-  }
 
-  float floatField = 4.2f;
-  float otherFloatField = 42.2f;
-  boolean test1 = true;
-  boolean test2 = true;
+    float floatField = 4.2f;
+    float otherFloatField = 42.2f;
+    boolean test1 = true;
+    boolean test2 = true;
 }

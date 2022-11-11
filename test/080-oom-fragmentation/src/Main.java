@@ -18,18 +18,19 @@ public class Main {
     public static void main(String[] args) {
         // Reserve around 1/4 of the RAM for keeping objects live.
         long maxMem = Runtime.getRuntime().maxMemory();
-        Object[] holder = new Object[(int)maxMem / 16];
+        Object[] holder = new Object[(int) maxMem / 16];
         int count = 0;
         try {
             while (true) {
-                holder[count++] = new Object[1025];  // A bit over one page.
+                holder[count++] = new Object[1025]; // A bit over one page.
             }
-        } catch (OutOfMemoryError e) {}
+        } catch (OutOfMemoryError e) {
+        }
         for (int i = 0; i < count; ++i) {
             holder[i] = null;
         }
         // Make sure the heap can handle allocating large object array. This makes sure that free
         // pages are correctly coalesced together by the allocator.
-        holder[0] = new Object[(int)maxMem / 8];
+        holder[0] = new Object[(int) maxMem / 8];
     }
 }

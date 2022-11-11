@@ -21,16 +21,14 @@ public class Main {
     public static void float_017() {
         float f = 3.1415926535f;
         double d = 3.1415926535;
-        //float fd = (float) d;
-        //Float off = new Float(f);
-        //Float ofd = new Float(d);
+        // float fd = (float) d;
+        // Float off = new Float(f);
+        // Float ofd = new Float(d);
         System.out.println("base values: d=" + d + " f=" + f);
         System.out.println("base values: d=" + d + " f=" + f);
         System.out.println("base values: f=" + f + " d=" + d);
-        //System.out.println("object values: off="
-        //    + off.floatValue() + " ofd=" + ofd.floatValue());
+        // System.out.println("object values: off="
+        //     + off.floatValue() + " ofd=" + ofd.floatValue());
     }
-    public static void main(String args[]) {
-        float_017();
-    }
+    public static void main(String args[]) { float_017(); }
 }

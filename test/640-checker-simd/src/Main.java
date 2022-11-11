@@ -15,13 +15,13 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    SimdByte.main();
-    SimdShort.main();
-    SimdChar.main();
-    SimdInt.main();
-    SimdLong.main();
-    SimdDouble.main();
-    SimdFloat.main();
-  }
+    public static void main(String[] args) {
+        SimdByte.main();
+        SimdShort.main();
+        SimdChar.main();
+        SimdInt.main();
+        SimdLong.main();
+        SimdDouble.main();
+        SimdFloat.main();
+    }
 }

@@ -83,9 +83,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new FieldCoordinateTypeTest().run();
-        }
+        public static void main(String[] args) { new FieldCoordinateTypeTest().run(); }
     }
 
     public static class ArrayElementOutOfBoundsIndexTest extends VarHandleUnitTest {
@@ -119,9 +117,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ArrayElementOutOfBoundsIndexTest().run();
-        }
+        public static void main(String[] args) { new ArrayElementOutOfBoundsIndexTest().run(); }
     }
 
     public static class ArrayElementBadIndexTypeTest extends VarHandleUnitTest {
@@ -147,9 +143,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ArrayElementBadIndexTypeTest().run();
-        }
+        public static void main(String[] args) { new ArrayElementBadIndexTypeTest().run(); }
     }
 
     public static class ArrayElementNullArrayTest extends VarHandleUnitTest {
@@ -173,9 +167,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ArrayElementNullArrayTest().run();
-        }
+        public static void main(String[] args) { new ArrayElementNullArrayTest().run(); }
     }
 
     public static class ArrayElementWrongArrayTypeTest extends VarHandleUnitTest {
@@ -198,9 +190,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ArrayElementWrongArrayTypeTest().run();
-        }
+        public static void main(String[] args) { new ArrayElementWrongArrayTypeTest().run(); }
     }
 
     public static class ArrayElementMissingIndexTest extends VarHandleUnitTest {
@@ -224,9 +214,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ArrayElementMissingIndexTest().run();
-        }
+        public static void main(String[] args) { new ArrayElementMissingIndexTest().run(); }
     }
 
     public static class ByteArrayViewOutOfBoundsIndexTest extends VarHandleUnitTest {
@@ -266,9 +254,7 @@ public class VarHandleBadCoordinateTests {
             vh.get(bytes, bytes.length - Integer.SIZE / 8);
         }
 
-        public static void main(String[] args) {
-            new ByteArrayViewOutOfBoundsIndexTest().run();
-        }
+        public static void main(String[] args) { new ByteArrayViewOutOfBoundsIndexTest().run(); }
     }
 
     public static class ByteArrayViewUnalignedAccessesIndexTest extends VarHandleUnitTest {
@@ -501,9 +487,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ByteArrayViewBadIndexTypeTest().run();
-        }
+        public static void main(String[] args) { new ByteArrayViewBadIndexTypeTest().run(); }
     }
 
     public static class ByteArrayViewMissingIndexTest extends VarHandleUnitTest {
@@ -527,9 +511,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ByteArrayViewMissingIndexTest().run();
-        }
+        public static void main(String[] args) { new ByteArrayViewMissingIndexTest().run(); }
     }
 
     public static class ByteArrayViewBadByteArrayTest extends VarHandleUnitTest {
@@ -558,9 +540,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ByteArrayViewBadByteArrayTest().run();
-        }
+        public static void main(String[] args) { new ByteArrayViewBadByteArrayTest().run(); }
     }
 
     public static class ByteBufferViewOutOfBoundsIndexTest extends VarHandleUnitTest {
@@ -578,12 +558,8 @@ public class VarHandleBadCoordinateTests {
 
         @Override
         protected void doTest() {
-            ByteBuffer[] buffers =
-                    new ByteBuffer[] {
-                        ByteBuffer.allocateDirect(16),
-                        ByteBuffer.allocate(37),
-                        ByteBuffer.wrap(new byte[27], 3, 27 - 3)
-                    };
+            ByteBuffer[] buffers = new ByteBuffer[] {ByteBuffer.allocateDirect(16),
+                    ByteBuffer.allocate(37), ByteBuffer.wrap(new byte[27], 3, 27 - 3)};
             for (ByteBuffer buffer : buffers) {
                 assertThrowsIOOBE(() -> vh.get(buffer, -1));
                 assertThrowsIOOBE(() -> vh.get(buffer, Integer.MIN_VALUE));
@@ -594,9 +570,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ByteBufferViewOutOfBoundsIndexTest().run();
-        }
+        public static void main(String[] args) { new ByteBufferViewOutOfBoundsIndexTest().run(); }
     }
 
     public static class ByteBufferViewUnalignedAccessesIndexTest extends VarHandleUnitTest {
@@ -612,12 +586,8 @@ public class VarHandleBadCoordinateTests {
 
         @Override
         protected void doTest() {
-            ByteBuffer[] buffers =
-                    new ByteBuffer[] {
-                        ByteBuffer.allocateDirect(16),
-                        ByteBuffer.allocate(37),
-                        ByteBuffer.wrap(new byte[27], 3, 27 - 3)
-                    };
+            ByteBuffer[] buffers = new ByteBuffer[] {ByteBuffer.allocateDirect(16),
+                    ByteBuffer.allocate(37), ByteBuffer.wrap(new byte[27], 3, 27 - 3)};
 
             for (ByteBuffer buffer : buffers) {
                 int alignedIndex = VarHandleUnitTestHelpers.alignedOffset_int(buffer, 0);
@@ -824,12 +794,8 @@ public class VarHandleBadCoordinateTests {
 
         @Override
         protected void doTest() {
-            ByteBuffer[] buffers =
-                    new ByteBuffer[] {
-                        ByteBuffer.allocateDirect(16),
-                        ByteBuffer.allocate(16),
-                        ByteBuffer.wrap(new byte[32], 4, 32 - 4)
-                    };
+            ByteBuffer[] buffers = new ByteBuffer[] {ByteBuffer.allocateDirect(16),
+                    ByteBuffer.allocate(16), ByteBuffer.wrap(new byte[32], 4, 32 - 4)};
 
             for (ByteBuffer buffer : buffers) {
                 // Boxed index goes through argument conversion so no exception expected.
@@ -844,9 +810,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ByteBufferViewBadIndexTypeTest().run();
-        }
+        public static void main(String[] args) { new ByteBufferViewBadIndexTypeTest().run(); }
     }
 
     public static class ByteBufferViewMissingIndexTest extends VarHandleUnitTest {
@@ -862,12 +826,8 @@ public class VarHandleBadCoordinateTests {
 
         @Override
         protected void doTest() {
-            ByteBuffer[] buffers =
-                    new ByteBuffer[] {
-                        ByteBuffer.allocateDirect(16),
-                        ByteBuffer.allocate(16),
-                        ByteBuffer.wrap(new byte[32], 4, 32 - 4)
-                    };
+            ByteBuffer[] buffers = new ByteBuffer[] {ByteBuffer.allocateDirect(16),
+                    ByteBuffer.allocate(16), ByteBuffer.wrap(new byte[32], 4, 32 - 4)};
             for (ByteBuffer buffer : buffers) {
                 try {
                     vh.get(buffer);
@@ -877,9 +837,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ByteBufferViewMissingIndexTest().run();
-        }
+        public static void main(String[] args) { new ByteBufferViewMissingIndexTest().run(); }
     }
 
     public static class ByteBufferViewBadByteBufferTest extends VarHandleUnitTest {
@@ -911,9 +869,7 @@ public class VarHandleBadCoordinateTests {
             }
         }
 
-        public static void main(String[] args) {
-            new ByteBufferViewBadByteBufferTest().run();
-        }
+        public static void main(String[] args) { new ByteBufferViewBadByteBufferTest().run(); }
     }
 
     public static void main(String[] args) {

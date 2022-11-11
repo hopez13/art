@@ -17,7 +17,7 @@
 package art;
 
 public class Test1940 {
-  public static void run() throws Exception {
-    throw new RuntimeException("Should not be called. Should use src-art/art/Test1940.java");
-  }
+    public static void run() throws Exception {
+        throw new RuntimeException("Should not be called. Should use src-art/art/Test1940.java");
+    }
 }

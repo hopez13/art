@@ -15,24 +15,22 @@
  */
 
 public final class DerivedWithFinalField extends BaseWithFinalField {
-  DerivedWithFinalField() {
-    this(0);
-  }
+    DerivedWithFinalField() { this(0); }
 
-  DerivedWithFinalField(int intValue) {
-    super(intValue);
-    doubleField = 0.0;
-  }
+    DerivedWithFinalField(int intValue) {
+        super(intValue);
+        doubleField = 0.0;
+    }
 
-  DerivedWithFinalField(double doubleValue) {
-    super(0);
-    doubleField = doubleValue;
-  }
+    DerivedWithFinalField(double doubleValue) {
+        super(0);
+        doubleField = doubleValue;
+    }
 
-  DerivedWithFinalField(int intValue, double doubleValue) {
-    super(intValue);
-    doubleField = doubleValue;
-  }
+    DerivedWithFinalField(int intValue, double doubleValue) {
+        super(intValue);
+        doubleField = doubleValue;
+    }
 
-  public final double doubleField;
+    public final double doubleField;
 }

@@ -17,9 +17,7 @@
 package p1;
 
 public class InPackage {
-  public static int $inline$foo() {
-    return myField;
-  }
+    public static int $inline$foo() { return myField; }
 
-  protected static int myField = 42;
+    protected static int myField = 42;
 }

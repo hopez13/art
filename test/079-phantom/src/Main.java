@@ -49,9 +49,9 @@ public class Main {
         mBitmap1 = null;
         Runtime.getRuntime().gc();
         try {
-          mFreeSignalA.await();  // Block until dataA is definitely freed.
+            mFreeSignalA.await(); // Block until dataA is definitely freed.
         } catch (InterruptedException e) {
-          System.out.println("got unexpected InterruptedException e: " + e);
+            System.out.println("got unexpected InterruptedException e: " + e);
         }
 
         System.out.println("nulling 2");
@@ -68,9 +68,9 @@ public class Main {
         mBitmap4 = null;
         Runtime.getRuntime().gc();
         try {
-          mFreeSignalB.await();  // Block until dataB is definitely freed.
+            mFreeSignalB.await(); // Block until dataB is definitely freed.
         } catch (InterruptedException e) {
-          System.out.println("got unexpected InterruptedException e: " + e);
+            System.out.println("got unexpected InterruptedException e: " + e);
         }
 
         Bitmap.shutDown();

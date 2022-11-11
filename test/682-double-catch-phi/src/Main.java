@@ -17,10 +17,10 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    if (System.getProperty("java.vm.name").equals("Dalvik")) {
-      Class<?> c = Class.forName("DoubleCatchPhi");
+    public static void main(String[] args) throws Exception {
+        if (System.getProperty("java.vm.name").equals("Dalvik")) {
+            Class<?> c = Class.forName("DoubleCatchPhi");
+        }
+        System.out.println("passed");
     }
-    System.out.println("passed");
-  }
 }

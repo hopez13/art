@@ -15,8 +15,8 @@
  */
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * Class loader test.
@@ -26,9 +26,7 @@ public class Main {
      * Thrown when an unexpected Exception is caught internally.
      */
     static class TestFailed extends Exception {
-        public TestFailed(Throwable cause) {
-            super(cause);
-        }
+        public TestFailed(Throwable cause) { super(cause); }
     }
 
     /**
@@ -45,30 +43,24 @@ public class Main {
      * Note that this depends heavily on the Dalvik test harness.
      */
     static class BrokenDexLoader extends ClassLoader {
-
         /** We return null when asked to load InaccessibleSuper. */
         private static class InaccessibleSuper {}
         private static class Inaccessible extends InaccessibleSuper {}
 
-        private static final String SUPERCLASS_NAME =
-                "Main$BrokenDexLoader$InaccessibleSuper";
-        private static final String CLASS_NAME =
-                "Main$BrokenDexLoader$Inaccessible";
+        private static final String SUPERCLASS_NAME = "Main$BrokenDexLoader$InaccessibleSuper";
+        private static final String CLASS_NAME = "Main$BrokenDexLoader$Inaccessible";
 
-        private static final String DEX_FILE = System.getenv("DEX_LOCATION") + "/087-gc-after-link.jar";
+        private static final String DEX_FILE =
+                System.getenv("DEX_LOCATION") + "/087-gc-after-link.jar";
 
-        public BrokenDexLoader(ClassLoader parent) {
-            super(parent);
-        }
+        public BrokenDexLoader(ClassLoader parent) { super(parent); }
 
         /**
          * Finds the class with the specified binary name, from DEX_FILE.
          *
          * If we don't find a match, we throw an exception.
          */
-        private Class<?> findDexClass(String name)
-                throws TestFailed, InvocationTargetException
-        {
+        private Class<?> findDexClass(String name) throws TestFailed, InvocationTargetException {
             Object dexFile = null;
             Class<?> dexClass = null;
 
@@ -78,8 +70,8 @@ public class Main {
                      * Find the DexFile class, and construct a DexFile object
                      * through reflection, then call loadClass on it.
                      */
-                    dexClass = ClassLoader.getSystemClassLoader().
-                            loadClass("dalvik.system.DexFile");
+                    dexClass =
+                            ClassLoader.getSystemClassLoader().loadClass("dalvik.system.DexFile");
                     Constructor<?> ctor = dexClass.getConstructor(String.class);
                     dexFile = ctor.newInstance(DEX_FILE);
                     Method meth = dexClass.getMethod("loadClass", String.class, ClassLoader.class);
@@ -116,9 +108,7 @@ public class Main {
          * Return null if the class's name is SUPERCLASS_NAME;
          * otherwise invoke the super's loadClass method.
          */
-        public Class<?> loadClass(String name, boolean resolve)
-                throws ClassNotFoundException
-        {
+        public Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
             if (SUPERCLASS_NAME.equals(name)) {
                 return null;
             }
@@ -132,9 +122,7 @@ public class Main {
          * InvocationTargetException, with a NullPointerException as
          * its cause.
          */
-        public void findBrokenClass()
-                throws TestFailed, InvocationTargetException
-        {
+        public void findBrokenClass() throws TestFailed, InvocationTargetException {
             findDexClass(CLASS_NAME);
         }
     }
@@ -142,8 +130,7 @@ public class Main {
     /**
      * Main entry point.
      */
-    public static void main(String[] args)
-            throws TestFailed, ClassNotFoundException {
+    public static void main(String[] args) throws TestFailed, ClassNotFoundException {
         /*
          * Run test.
          */

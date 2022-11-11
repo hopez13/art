@@ -23,10 +23,9 @@ import java.lang.annotation.RetentionPolicy;
 // "Repeatable" annotation if we query with getDeclaredAnnotation(Repeatable.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Repeatable(Calendars.class)
-@Inherited  // note: container must also be @Inherited by JLS.
+@Inherited // note: container must also be @Inherited by JLS.
 public @interface Calendar {
     String dayOfMonth() default "unspecified_month";
     String dayOfWeek() default "unspecified_week";
     int hour() default 6;
 }
-

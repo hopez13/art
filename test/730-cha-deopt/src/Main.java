@@ -15,43 +15,35 @@
  */
 
 interface Itf {
-  public String interfaceMethod();
+    public String interfaceMethod();
 }
 
 public class Main implements Itf {
+    public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
+        ensureJitCompiled(Main.class, "$noinline$invoke");
+        String result = $noinline$invoke(new Main());
+        if (!"Main".equals(result)) {
+            throw new Error("Expected Main, got " + result);
+        }
 
-  public static void main(String[] args) throws Exception {
-    System.loadLibrary(args[0]);
-    ensureJitCompiled(Main.class, "$noinline$invoke");
-    String result = $noinline$invoke(new Main());
-    if (!"Main".equals(result)) {
-      throw new Error("Expected Main, got " + result);
+        // Load SubItf dynamically, to avoid prior verification of this method to load it.
+        Class<?> cls = Class.forName("SubItf");
+        Itf itf = (Itf) cls.newInstance();
+
+        result = $noinline$invoke(itf);
+        if (!"SubItf".equals(result)) {
+            throw new Error("Expected SubItf, got " + result);
+        }
     }
 
-    // Load SubItf dynamically, to avoid prior verification of this method to load it.
-    Class<?> cls = Class.forName("SubItf");
-    Itf itf = (Itf) cls.newInstance();
+    public static String $noinline$invoke(Itf itf) { return itf.interfaceMethod(); }
 
-    result = $noinline$invoke(itf);
-    if (!"SubItf".equals(result)) {
-      throw new Error("Expected SubItf, got " + result);
-    }
+    public String interfaceMethod() { return "Main"; }
 
-  }
-
-  public static String $noinline$invoke(Itf itf) {
-    return itf.interfaceMethod();
-  }
-
-  public String interfaceMethod() {
-    return "Main";
-  }
-
-  public static native void ensureJitCompiled(Class<?> cls, String methodName);
+    public static native void ensureJitCompiled(Class<?> cls, String methodName);
 }
 
 class SubItf implements Itf {
-  public String interfaceMethod() {
-    return "SubItf";
-  }
+    public String interfaceMethod() { return "SubItf"; }
 }

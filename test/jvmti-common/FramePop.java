@@ -19,7 +19,7 @@ package art;
 import java.lang.reflect.Method;
 
 public class FramePop {
-  public static native void enableFramePopEvent(Class klass, Method method, Thread thr)
-      throws Exception;
-  public static native void notifyFramePop(Thread target, int depth) throws Exception;
+    public static native void enableFramePopEvent(Class klass, Method method, Thread thr)
+            throws Exception;
+    public static native void notifyFramePop(Thread target, int depth) throws Exception;
 }

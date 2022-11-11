@@ -17,44 +17,40 @@
 import java.lang.reflect.Method;
 
 public class IsDefaultTest {
-  interface DefaultInterface {
-    default void sayHi() {
-      System.out.println("hi default");
-    }
-  }
-
-  interface RegularInterface {
-    void sayHi();
-  }
-
-  class ImplementsWithDefault implements DefaultInterface {}
-  class ImplementsWithRegular implements RegularInterface {
-    public void sayHi() {
-      System.out.println("hello specific");
-    }
-  }
-
-  private static void printIsDefault(Class<?> klass) {
-    Method m;
-    try {
-      m = klass.getMethod("sayHi");
-    } catch (Throwable t) {
-      System.out.println(t);
-      return;
+    interface DefaultInterface {
+        default void sayHi() { System.out.println("hi default"); }
     }
 
-    boolean isDefault = m.isDefault();
-    System.out.println(klass.getName() + " is default = " + (isDefault ? "yes" : "no"));
-  }
+    interface RegularInterface {
+        void sayHi();
+    }
 
-  public static void test() {
-    System.out.println("==============================");
-    System.out.println("Are These Methods Default:");
-    System.out.println("==============================");
+    class ImplementsWithDefault implements DefaultInterface {}
+    class ImplementsWithRegular implements RegularInterface {
+        public void sayHi() { System.out.println("hello specific"); }
+    }
 
-    printIsDefault(DefaultInterface.class);
-    printIsDefault(RegularInterface.class);
-    printIsDefault(ImplementsWithDefault.class);
-    printIsDefault(ImplementsWithRegular.class);
-  }
+    private static void printIsDefault(Class<?> klass) {
+        Method m;
+        try {
+            m = klass.getMethod("sayHi");
+        } catch (Throwable t) {
+            System.out.println(t);
+            return;
+        }
+
+        boolean isDefault = m.isDefault();
+        System.out.println(klass.getName() + " is default = " + (isDefault ? "yes" : "no"));
+    }
+
+    public static void test() {
+        System.out.println("==============================");
+        System.out.println("Are These Methods Default:");
+        System.out.println("==============================");
+
+        printIsDefault(DefaultInterface.class);
+        printIsDefault(RegularInterface.class);
+        printIsDefault(ImplementsWithDefault.class);
+        printIsDefault(ImplementsWithRegular.class);
+    }
 }

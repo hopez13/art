@@ -15,9 +15,7 @@
  */
 
 public class InvokeDirectSuper {
-  public int val;
+    public int val;
 
-  private int privateMethod() {
-    return val;
-  }
+    private int privateMethod() { return val; }
 }

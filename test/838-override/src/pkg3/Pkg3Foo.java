@@ -17,11 +17,7 @@
 package pkg3;
 
 public class Pkg3Foo extends pkg2.Pkg2Foo {
-  Class<?> foo() {
-    return Pkg3Foo.class;
-  }
+    Class<?> foo() { return Pkg3Foo.class; }
 
-  public static Class<?> callFoo(Pkg3Foo obj) {
-    return obj.foo();
-  }
+    public static Class<?> callFoo(Pkg3Foo obj) { return obj.foo(); }
 }

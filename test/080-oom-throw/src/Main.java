@@ -48,9 +48,7 @@ public class Main {
             }
         }
 
-        static void confuseCompilerOptimization(InstanceMemEater instance) {
-          hook = instance;
-        }
+        static void confuseCompilerOptimization(InstanceMemEater instance) { hook = instance; }
     }
 
     private static int exhaustJavaHeap(Object[] data, int index, int size) {
@@ -130,14 +128,14 @@ public class Main {
 
     public static void blowup() throws Exception {
         int size = 2 * 1024 * 1024;
-        for (int i = 0; i < holder.length; ) {
+        for (int i = 0; i < holder.length;) {
             try {
                 holder[i] = new char[size];
                 i++;
             } catch (OutOfMemoryError oome) {
                 size = size / 16;
                 if (size == 0) {
-                     break;
+                    break;
                 }
             }
         }

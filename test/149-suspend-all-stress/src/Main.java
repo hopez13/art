@@ -32,9 +32,7 @@ public class Main implements Runnable {
         System.out.println("Finishing");
     }
 
-    public void run() {
-        suspendAndResume();
-    }
+    public void run() { suspendAndResume(); }
 
     private static native void suspendAndResume();
 }

@@ -16,9 +16,6 @@
 
 // Stored as a complex annotation Calendars(Calendar,Calendar)
 // in the binary.
-@Calendars ({
-  @Calendar(dayOfMonth="if_a_first"),
-  @Calendar(dayOfMonth="if_b_last")
-})
-public interface IFaceA {
-}
+@Calendars({ @Calendar(dayOfMonth = "if_a_first")
+             , @Calendar(dayOfMonth = "if_b_last") })
+public interface IFaceA {}

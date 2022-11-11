@@ -18,5 +18,4 @@ package pkg1;
 
 import pkg2.I2;
 
-public class CXI2 extends CX implements I2 {
-}
+public class CXI2 extends CX implements I2 {}

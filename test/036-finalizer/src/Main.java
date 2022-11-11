@@ -52,13 +52,13 @@ public class Main {
 
         final String[] s = new String[1];
         Thread t = new Thread() {
-                public void run() {
-                    FinalizerTest ref = wimp.get();
-                    if (ref != null) {
-                        s[0] = ref.toString();
-                    }
+            public void run() {
+                FinalizerTest ref = wimp.get();
+                if (ref != null) {
+                    s[0] = ref.toString();
                 }
-            };
+            }
+        };
 
         t.start();
 
@@ -82,7 +82,7 @@ public class Main {
         FinalizerTest keepLive = wimp.get();
         System.out.println("wimp: " + wimpString(wimp));
         Reference.reachabilityFence(keepLive);
-        keepLive = null;  // Clear the reference.
+        keepLive = null; // Clear the reference.
 
         /* this will try to collect and finalize ft */
         System.out.println("gc");
@@ -115,59 +115,58 @@ public class Main {
     }
 
     static class FinalizeCounter {
-      public static final int maxCount = 1024;
-      public static boolean finalized[] = new boolean[maxCount];
-      private static Object finalizeLock = new Object();
-      private static volatile int finalizeCount = 0;
-      private int index;
-      static int getCount() {
-        return finalizeCount;
-      }
-      static void printNonFinalized() {
-        for (int i = 0; i < maxCount; ++i) {
-          if (!FinalizeCounter.finalized[i]) {
-            System.out.println("Element " + i + " was not finalized");
-          }
+        public static final int maxCount = 1024;
+        public static boolean finalized[] = new boolean[maxCount];
+        private static Object finalizeLock = new Object();
+        private static volatile int finalizeCount = 0;
+        private int index;
+        static int getCount() { return finalizeCount; }
+        static void printNonFinalized() {
+            for (int i = 0; i < maxCount; ++i) {
+                if (!FinalizeCounter.finalized[i]) {
+                    System.out.println("Element " + i + " was not finalized");
+                }
+            }
         }
-      }
-      FinalizeCounter(int index) {
-        this.index = index;
-      }
-      protected void finalize() {
-        synchronized(finalizeLock) {
-          ++finalizeCount;
-          finalized[index] = true;
+        FinalizeCounter(int index) { this.index = index; }
+        protected void finalize() {
+            synchronized (finalizeLock) {
+                ++finalizeCount;
+                finalized[index] = true;
+            }
         }
-      }
     }
 
     private static void allocFinalizableObjects(int count) {
-      Object[] objs = new Object[count];
-      for (int i = 0; i < count; ++i) {
-        objs[i] = new FinalizeCounter(i);
-      }
+        Object[] objs = new Object[count];
+        for (int i = 0; i < count; ++i) {
+            objs[i] = new FinalizeCounter(i);
+        }
     }
 
     private static void runFinalizationTest() {
-      allocFinalizableObjects(FinalizeCounter.maxCount);
-      Runtime.getRuntime().gc();
-      System.runFinalization();
-      if (FinalizeCounter.getCount() != FinalizeCounter.maxCount) {
-        if (isDalvik) {
-          // runFinalization is "expend effort", only ART makes a strong effort all finalizers ran.
-          System.out.println("Finalized " + FinalizeCounter.getCount() + " / "  + FinalizeCounter.maxCount);
-          // Print out all the finalized elements.
-          FinalizeCounter.printNonFinalized();
+        allocFinalizableObjects(FinalizeCounter.maxCount);
+        Runtime.getRuntime().gc();
+        System.runFinalization();
+        if (FinalizeCounter.getCount() != FinalizeCounter.maxCount) {
+            if (isDalvik) {
+                // runFinalization is "expend effort", only ART makes a strong effort all finalizers
+                // ran.
+                System.out.println("Finalized " + FinalizeCounter.getCount() + " / "
+                        + FinalizeCounter.maxCount);
+                // Print out all the finalized elements.
+                FinalizeCounter.printNonFinalized();
+            }
+            // Try to sleep for a couple seconds to see if the objects became finalized after.
+            try {
+                java.lang.Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                throw new AssertionError(e);
+            }
         }
-        // Try to sleep for a couple seconds to see if the objects became finalized after.
-        try {
-          java.lang.Thread.sleep(2000);
-        } catch (InterruptedException e) {
-          throw new AssertionError(e);
-        }
-      }
-      System.out.println("After sleep finalized " + FinalizeCounter.getCount() + " / "  + FinalizeCounter.maxCount);
-      FinalizeCounter.printNonFinalized();
+        System.out.println("After sleep finalized " + FinalizeCounter.getCount() + " / "
+                + FinalizeCounter.maxCount);
+        FinalizeCounter.printNonFinalized();
     }
 
     public static class FinalizerTest {
@@ -177,13 +176,10 @@ public class Main {
         private final String message;
         private boolean finalized = false;
 
-        public FinalizerTest(String message) {
-            this.message = message;
-        }
+        public FinalizerTest(String message) { this.message = message; }
 
         public String toString() {
-            return "[FinalizerTest message=" + message +
-                    ", finalized=" + finalized + "]";
+            return "[FinalizerTest message=" + message + ", finalized=" + finalized + "]";
         }
 
         protected void finalize() {

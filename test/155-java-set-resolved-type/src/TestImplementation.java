@@ -15,5 +15,5 @@
  */
 
 public class TestImplementation implements TestInterface {
-  public void foo() { }
+    public void foo() {}
 }

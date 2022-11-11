@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-import java.lang.reflect.Method;
 import dalvik.system.AnnotatedStackTraceElement;
+
+import java.lang.reflect.Method;
 
 public class Main {
     public static void main(String args[]) throws Exception {
@@ -25,7 +26,7 @@ public class Main {
         Object[] annotatedStackTrace =
                 (Object[]) getAnnotatedThreadStackTrace.invoke(null, Thread.currentThread());
         AnnotatedStackTraceElement annotatedElement =
-            (AnnotatedStackTraceElement) annotatedStackTrace[0];
+                (AnnotatedStackTraceElement) annotatedStackTrace[0];
         // This used to fail an assertion that the AnnotatedStackTraceElement.class
         // is at least initializing (i.e. initializing, initialized or resolved-erroneous).
         // Note: We cannot use reflection for this test because getDeclaredMethod() would

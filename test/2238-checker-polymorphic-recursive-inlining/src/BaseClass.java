@@ -15,5 +15,5 @@
  */
 
 public abstract class BaseClass {
-  abstract boolean recursiveTwoWrappers();
+    abstract boolean recursiveTwoWrappers();
 }

@@ -21,7 +21,5 @@
  * refuse to load this class at all.
  */
 public class Indirect {
-    public static void main() {
-        Base base = new Base();
-    }
+    public static void main() { Base base = new Base(); }
 }

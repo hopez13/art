@@ -25,10 +25,7 @@ import java.io.Serializable;
  * Exercise serialization.
  */
 public class Main {
-
-    public static void main(String[] args) {
-        testObjectSerialization();
-    }
+    public static void main(String[] args) { testObjectSerialization(); }
 
     static void testObjectSerialization() {
         byte[] serialData;
@@ -79,13 +76,9 @@ public class Main {
     static class Inner implements Serializable {
         private static final long serialVersionUID = 319009;
         private final int x;
-        public Inner (int x) {
-            this.x = x;
-        }
+        public Inner(int x) { this.x = x; }
 
-        public void check() {
-            System.out.println("x=" + Integer.toHexString(x));
-        }
+        public void check() { System.out.println("x=" + Integer.toHexString(x)); }
     }
 }
 
@@ -124,9 +117,8 @@ class Sub extends Base {
     }
 
     public void check() {
-        System.out.println("one=" + one + " two=" + two + " three=" + three
-            + " four=" + four + " five=" + five + " six=" + six
-            + " seven=" + seven + " eight=" + eight + " nine=" + nine
-            + " thing=" + thing);
+        System.out.println("one=" + one + " two=" + two + " three=" + three + " four=" + four
+                + " five=" + five + " six=" + six + " seven=" + seven + " eight=" + eight
+                + " nine=" + nine + " thing=" + thing);
     }
 }

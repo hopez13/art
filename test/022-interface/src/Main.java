@@ -37,61 +37,51 @@ public class Main {
         objectOverrideTests();
     }
 
-  static void check(boolean z) {
-    if (!z) {
-      throw new AssertionError();
+    static void check(boolean z) {
+        if (!z) {
+            throw new AssertionError();
+        }
     }
-  }
 
-  static void objectOverrideTests() {
-    ObjectOverridingInterface o =
-        new ObjectOverridingInterface() {
-          public boolean equals(Object o) {
-            return true;
-          }
-          public int hashCode() {
-            return 0xC001D00D;
-          }
-          public String toString() {
-            return "Mallet's Mallet";
-          }
-          public int length() {
-            return toString().length();
-          }
-          public char charAt(int i) {
-            return toString().charAt(i);
-          }
-          public CharSequence subSequence(int s, int e) {
-            return toString().subSequence(s, e);
-          }
+    static void objectOverrideTests() {
+        ObjectOverridingInterface o = new ObjectOverridingInterface() {
+            public boolean equals(Object o) {
+                return true;
+            }
+            public int hashCode() {
+                return 0xC001D00D;
+            }
+            public String toString() {
+                return "Mallet's Mallet";
+            }
+            public int length() {
+                return toString().length();
+            }
+            public char charAt(int i) {
+                return toString().charAt(i);
+            }
+            public CharSequence subSequence(int s, int e) {
+                return toString().subSequence(s, e);
+            }
         };
-    doObjectOverrideTests(o);
-  }
-
-  private static interface SubInterface extends Cloneable, SubObjectOverridingInterface {
-  }
-
-  private static class SubInterfaceImpl implements SubInterface {
-    public int length() {
-      return 0;
+        doObjectOverrideTests(o);
     }
-    public char charAt(int i) {
-      return '!';
-    }
-    public CharSequence subSequence(int s, int e) {
-      return "";
-    }
-  }
 
-  static String subObjectOverrideTests(SubInterface i) {
-    return i.toString();
-  }
+    private static interface SubInterface extends Cloneable, SubObjectOverridingInterface {}
 
-  static void doObjectOverrideTests(ObjectOverridingInterface o) {
-    check(o.equals(null));
-    check(o.hashCode() == 0xC001D00D);
-    check(o.toString().equals("Mallet's Mallet"));
-    check(subObjectOverrideTests(new SubInterfaceImpl()) != null);
-    System.out.println("objectOverrideTests: SUCCESS");
-  }
+    private static class SubInterfaceImpl implements SubInterface {
+        public int length() { return 0; }
+        public char charAt(int i) { return '!'; }
+        public CharSequence subSequence(int s, int e) { return ""; }
+    }
+
+    static String subObjectOverrideTests(SubInterface i) { return i.toString(); }
+
+    static void doObjectOverrideTests(ObjectOverridingInterface o) {
+        check(o.equals(null));
+        check(o.hashCode() == 0xC001D00D);
+        check(o.toString().equals("Mallet's Mallet"));
+        check(subObjectOverrideTests(new SubInterfaceImpl()) != null);
+        System.out.println("objectOverrideTests: SUCCESS");
+    }
 }

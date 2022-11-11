@@ -44,13 +44,13 @@ public class Main {
 
         System.out.println("Test getting miranda method via reflection:");
         try {
-          Class<?> mirandaClass = Class.forName("MirandaAbstract");
-          Method mirandaMethod = mirandaClass.getDeclaredMethod("inInterface");
-          System.out.println("  did not expect to find miranda method");
+            Class<?> mirandaClass = Class.forName("MirandaAbstract");
+            Method mirandaMethod = mirandaClass.getDeclaredMethod("inInterface");
+            System.out.println("  did not expect to find miranda method");
         } catch (NoSuchMethodException nsme) {
-          System.out.println("  caught expected NoSuchMethodException");
+            System.out.println("  caught expected NoSuchMethodException");
         } catch (Exception e) {
-          System.out.println("  caught unexpected exception " + e);
+            System.out.println("  caught unexpected exception " + e);
         }
     }
 }

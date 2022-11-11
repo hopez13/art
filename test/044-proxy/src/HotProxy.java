@@ -16,40 +16,35 @@
 import java.lang.reflect.*;
 
 public class HotProxy {
+    public static final String testName = "HotProxy";
 
-  public static final String testName = "HotProxy";
-
-  interface MyInterface {
-    void voidFoo();
-  }
-
-  static void check(boolean x) {
-    if (!x) {
-      throw new AssertionError(testName + " Check failed");
+    interface MyInterface {
+        void voidFoo();
     }
-  }
 
-  static class MyInvocationHandler implements InvocationHandler {
-    public Object invoke(Object proxy, Method method, Object[] args) {
-      check(proxy instanceof Proxy);
-      check(method.getDeclaringClass() == MyInterface.class);
-      return null;
+    static void check(boolean x) {
+        if (!x) {
+            throw new AssertionError(testName + " Check failed");
+        }
     }
-  }
 
-  static void testProxy() {
-    MyInvocationHandler myHandler = new MyInvocationHandler();
-    MyInterface proxyMyInterface =
-        (MyInterface)Proxy.newProxyInstance(HotProxy.class.getClassLoader(),
-                                            new Class<?>[] { MyInterface.class },
-                                            myHandler);
-    // Invoke the proxy method multiple times to ensure it becomes hot and the JIT handles it.
-    for (int i = 0; i < 0x10000; i++) {
-      proxyMyInterface.voidFoo();
+    static class MyInvocationHandler implements InvocationHandler {
+        public Object invoke(Object proxy, Method method, Object[] args) {
+            check(proxy instanceof Proxy);
+            check(method.getDeclaringClass() == MyInterface.class);
+            return null;
+        }
     }
-  }
 
-  public static void main(String args[]) {
-    testProxy();
-  }
+    static void testProxy() {
+        MyInvocationHandler myHandler = new MyInvocationHandler();
+        MyInterface proxyMyInterface = (MyInterface) Proxy.newProxyInstance(
+                HotProxy.class.getClassLoader(), new Class<?>[] {MyInterface.class}, myHandler);
+        // Invoke the proxy method multiple times to ensure it becomes hot and the JIT handles it.
+        for (int i = 0; i < 0x10000; i++) {
+            proxyMyInterface.voidFoo();
+        }
+    }
+
+    public static void main(String args[]) { testProxy(); }
 }

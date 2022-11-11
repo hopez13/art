@@ -24,9 +24,7 @@ import java.lang.invoke.WrongMethodTypeException;
 
 public final class Main {
     static class TestSetupError extends Error {
-        TestSetupError(String message, Throwable cause) {
-            super(message, cause);
-        }
+        TestSetupError(String message, Throwable cause) { super(message, cause); }
     }
 
     private static void failAssertion(String message) {
@@ -36,9 +34,7 @@ public final class Main {
         throw new AssertionError(sb.toString());
     }
 
-    private static void assertUnreachable() throws Throwable {
-        failAssertion("Unreachable");
-    }
+    private static void assertUnreachable() throws Throwable { failAssertion("Unreachable"); }
 
     private static void failAssertEquals(Object expected, Object actual) {
         StringBuilder sb = new StringBuilder();
@@ -89,10 +85,8 @@ public final class Main {
         void run() throws Throwable {
             System.out.println(THIS_CLASS.getName());
 
-            MethodHandle invokerMethodHandle =
-                    MethodHandles.varHandleExactInvoker(
-                            VarHandle.AccessMode.GET_AND_SET,
-                            methodType(int.class, THIS_CLASS, int.class));
+            MethodHandle invokerMethodHandle = MethodHandles.varHandleExactInvoker(
+                    VarHandle.AccessMode.GET_AND_SET, methodType(int.class, THIS_CLASS, int.class));
 
             field = 3;
             assertEquals(3, (int) invokerMethodHandle.invokeExact(fieldVarHandle, this, 4));
@@ -103,10 +97,8 @@ public final class Main {
             //
             try {
                 // Check for unboxing
-                int i =
-                        (int)
-                                invokerMethodHandle.invokeExact(
-                                        fieldVarHandle, this, Integer.valueOf(3));
+                int i = (int) invokerMethodHandle.invokeExact(
+                        fieldVarHandle, this, Integer.valueOf(3));
                 assertUnreachable();
             } catch (WrongMethodTypeException expected) {
                 assertEquals(4, field);
@@ -197,8 +189,7 @@ public final class Main {
             System.out.println(THIS_CLASS.getName());
 
             MethodHandle invokerMethodHandle =
-                    MethodHandles.varHandleExactInvoker(
-                            VarHandle.AccessMode.COMPARE_AND_SET,
+                    MethodHandles.varHandleExactInvoker(VarHandle.AccessMode.COMPARE_AND_SET,
                             methodType(boolean.class, THIS_CLASS, long.class, long.class));
             checkCompareAndSet(invokerMethodHandle, 0L, CANARY);
             checkCompareAndSet(invokerMethodHandle, 1L, 1L);
@@ -210,8 +201,7 @@ public final class Main {
                 throws Throwable {
             final boolean expectSuccess = (oldValue == field);
             final long oldFieldValue = field;
-            assertEquals(
-                    expectSuccess,
+            assertEquals(expectSuccess,
                     (boolean) compareAndSet.invoke(fieldVarHandle, this, oldValue, newValue));
             assertEquals(expectSuccess ? newValue : oldFieldValue, field);
         }
@@ -232,10 +222,8 @@ public final class Main {
 
         void run() throws Throwable {
             System.out.println("fieldVarHandleInvokerTest");
-            MethodHandle invokerMethodHandle =
-                    MethodHandles.varHandleInvoker(
-                            VarHandle.AccessMode.GET_AND_SET,
-                            methodType(int.class, THIS_CLASS, int.class));
+            MethodHandle invokerMethodHandle = MethodHandles.varHandleInvoker(
+                    VarHandle.AccessMode.GET_AND_SET, methodType(int.class, THIS_CLASS, int.class));
 
             field = 3;
             int oldField = (int) invokerMethodHandle.invoke(fieldVarHandle, this, 4);
@@ -357,27 +345,15 @@ public final class Main {
             float[] floatsArray = new float[4];
             // Exact invoker of an accessor having the form:
             //  float accessor(float[] values, int index, Float current, float replacement)
-            MethodHandle exactInvoker =
-                    MethodHandles.varHandleExactInvoker(
-                            VarHandle.AccessMode.COMPARE_AND_EXCHANGE,
-                            methodType(
-                                    float.class,
-                                    float[].class,
-                                    int.class,
-                                    Float.class,
-                                    float.class));
+            MethodHandle exactInvoker = MethodHandles.varHandleExactInvoker(
+                    VarHandle.AccessMode.COMPARE_AND_EXCHANGE,
+                    methodType(float.class, float[].class, int.class, Float.class, float.class));
             floatsArray[2] = Float.valueOf(4.0f);
             // Callsite that is an exact match with exactInvoker.type().
             try {
                 // exactInvoker.type() is not compatible with floatsArrayVarHandle accessor.
-                float old =
-                        (float)
-                                exactInvoker.invoke(
-                                        floatsArrayVarHandle,
-                                        floatsArray,
-                                        2,
-                                        Float.valueOf(4.0f),
-                                        8.0f);
+                float old = (float) exactInvoker.invoke(
+                        floatsArrayVarHandle, floatsArray, 2, Float.valueOf(4.0f), 8.0f);
                 assertUnreachable();
             } catch (WrongMethodTypeException expected) {
                 assertEquals(4.0f, floatsArray[2]);
@@ -386,20 +362,16 @@ public final class Main {
             // Callsites that are exact matches with exactInvoker.type()
             try {
                 // Mismatch between exactInvoker.type() and VarHandle type (Float != float)
-                float old =
-                        (float)
-                                exactInvoker.invoke(
-                                        floatsArrayVarHandle, floatsArray, 2, 8.0f, 16.0f);
+                float old = (float) exactInvoker.invoke(
+                        floatsArrayVarHandle, floatsArray, 2, 8.0f, 16.0f);
                 assertUnreachable();
             } catch (WrongMethodTypeException expected) {
                 assertEquals(4.0f, floatsArray[2]);
             }
             try {
                 // short not convertible to Float
-                float old =
-                        (float)
-                                exactInvoker.invoke(
-                                        floatsArrayVarHandle, floatsArray, 2, (short) 4, 13.0f);
+                float old = (float) exactInvoker.invoke(
+                        floatsArrayVarHandle, floatsArray, 2, (short) 4, 13.0f);
                 assertUnreachable();
             } catch (WrongMethodTypeException expected) {
                 assertEquals(4.0f, floatsArray[2]);
@@ -431,25 +403,13 @@ public final class Main {
             float[] floatsArray = new float[4];
             // Invoker of an accessor having the form:
             //  float accessor(float[] values, int index, Float current, float replacement)
-            MethodHandle invoker =
-                    MethodHandles.varHandleInvoker(
-                            VarHandle.AccessMode.COMPARE_AND_EXCHANGE,
-                            methodType(
-                                    float.class,
-                                    float[].class,
-                                    int.class,
-                                    Float.class,
-                                    float.class));
+            MethodHandle invoker = MethodHandles.varHandleInvoker(
+                    VarHandle.AccessMode.COMPARE_AND_EXCHANGE,
+                    methodType(float.class, float[].class, int.class, Float.class, float.class));
             floatsArray[2] = Float.valueOf(4.0f);
             // Callsite that is an exact match with invoker.type()
-            float old =
-                    (float)
-                            invoker.invoke(
-                                    floatsArrayVarHandle,
-                                    floatsArray,
-                                    2,
-                                    Float.valueOf(4.0f),
-                                    8.0f);
+            float old = (float) invoker.invoke(
+                    floatsArrayVarHandle, floatsArray, 2, Float.valueOf(4.0f), 8.0f);
             assertEquals(4.0f, old);
             assertEquals(8.0f, floatsArray[2]);
 
@@ -476,13 +436,10 @@ public final class Main {
 
             try {
                 MethodHandle unsupportedInvoker =
-                        MethodHandles.varHandleInvoker(
-                                VarHandle.AccessMode.GET_AND_BITWISE_OR,
+                        MethodHandles.varHandleInvoker(VarHandle.AccessMode.GET_AND_BITWISE_OR,
                                 methodType(float.class, float[].class, int.class, float.class));
-                old =
-                        (float)
-                                unsupportedInvoker.invoke(
-                                        floatsArrayVarHandle, floatsArray, 0, 2.71f);
+                old = (float) unsupportedInvoker.invoke(
+                        floatsArrayVarHandle, floatsArray, 0, 2.71f);
                 assertUnreachable();
             } catch (UnsupportedOperationException expected) {
             }

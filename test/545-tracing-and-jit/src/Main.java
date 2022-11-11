@@ -17,7 +17,6 @@
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -26,6 +25,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentSkipListMap;
 
 public class Main {
     private static final String TEMP_FILE_NAME_PREFIX = "test";
@@ -44,14 +44,14 @@ public class Main {
             new Main().ensureCaller(false, 0);
         } finally {
             if (file != null) {
-              file.delete();
+                file.delete();
             }
         }
     }
 
     private static File createTempFile() throws Exception {
         try {
-            return  File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
+            return File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
         } catch (IOException e) {
             System.setProperty("java.io.tmpdir", "/data/local/tmp");
             try {
@@ -238,8 +238,8 @@ public class Main {
 
         public static void startMethodTracing(String filename, int bufferSize, int flags,
                 boolean samplingEnabled, int intervalUs) throws Exception {
-            startMethodTracingMethod.invoke(null, filename, bufferSize, flags, samplingEnabled,
-                    intervalUs);
+            startMethodTracingMethod.invoke(
+                    null, filename, bufferSize, flags, samplingEnabled, intervalUs);
         }
         public static void stopMethodTracing() throws Exception {
             stopMethodTracingMethod.invoke(null);

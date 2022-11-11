@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import dalvik.annotation.optimization.FastNative;
 import dalvik.annotation.optimization.CriticalNative;
+import dalvik.annotation.optimization.FastNative;
 
 // clang-format off
 

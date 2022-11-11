@@ -17,6 +17,6 @@
 import sun.util.calendar.CalendarUtils;
 
 public abstract class MyCalendarUtils extends CalendarUtils {
-  // Reference to MyCalendarUtils.isJulianLeapYear() shall resolve to
-  // CalendarUtils.isJulianLeapYear() which should be easily inlined.
+    // Reference to MyCalendarUtils.isJulianLeapYear() shall resolve to
+    // CalendarUtils.isJulianLeapYear() which should be easily inlined.
 }

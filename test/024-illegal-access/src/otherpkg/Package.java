@@ -19,5 +19,4 @@ package otherpkg;
 /*
  * Package-scope class (public here).
  */
-public class Package {
-}
+public class Package {}

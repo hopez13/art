@@ -17,10 +17,10 @@
 // Main needs to be a subclass that has access to the
 // protected p1.PackagePrivateA.method.
 public class Main extends p1.PublicC {
-  public static void main(String[] args) {
-    int result = p1.InPackage.$inline$method();
-    if (result != 42) {
-      throw new Error("Expected 42, got " + result);
+    public static void main(String[] args) {
+        int result = p1.InPackage.$inline$method();
+        if (result != 42) {
+            throw new Error("Expected 42, got " + result);
+        }
     }
-  }
 }

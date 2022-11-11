@@ -15,30 +15,27 @@
  */
 
 class SuperClass {
-  public int doInvoke() {
-    synchronized (this) {
-      return 42;
+    public int doInvoke() {
+        synchronized (this) {
+            return 42;
+        }
     }
-  }
 }
 
 public class Main extends SuperClass {
-
-  public static void main(String[] args) {
-    Main m = new Main();
-    int value = doInvokeTypedSuperClass(m);
-    if (value != 43) {
-      throw new Error("Expected 43, got " + value);
+    public static void main(String[] args) {
+        Main m = new Main();
+        int value = doInvokeTypedSuperClass(m);
+        if (value != 43) {
+            throw new Error("Expected 43, got " + value);
+        }
     }
-  }
 
-  public static int doInvokeTypedSuperClass(SuperClass sc) {
-    return sc.doInvoke();
-  }
+    public static int doInvokeTypedSuperClass(SuperClass sc) { return sc.doInvoke(); }
 
-  public int doInvoke() {
-    synchronized (this) {
-      return super.doInvoke() + 1;
+    public int doInvoke() {
+        synchronized (this) {
+            return super.doInvoke() + 1;
+        }
     }
-  }
 }

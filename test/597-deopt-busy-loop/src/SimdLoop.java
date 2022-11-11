@@ -23,9 +23,7 @@ public class SimdLoop implements Runnable {
     volatile static boolean sEntered = false;
     int threadIndex;
 
-    SimdLoop(int index) {
-        threadIndex = index;
-    }
+    SimdLoop(int index) { threadIndex = index; }
 
     public static void main() throws Exception {
         final Thread[] threads = new Thread[numberOfThreads];
@@ -84,7 +82,7 @@ public class SimdLoop implements Runnable {
     public void run() {
         if (threadIndex == 0) {
             while (!sEntered) {
-              Thread.yield();
+                Thread.yield();
             }
 
             Main.deoptimizeAll();

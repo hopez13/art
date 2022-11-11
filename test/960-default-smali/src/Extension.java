@@ -14,7 +14,5 @@
  * limitations under the License.
  */
 public interface Extension {
-  public default String SayHi() {
-    return "welcome ";
-  }
+    public default String SayHi() { return "welcome "; }
 }

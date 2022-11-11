@@ -19,27 +19,26 @@ package unresolved;
 import getters.GetUnresolvedPackagePrivateClass;
 
 class UnresolvedPackagePrivateClass implements BcpExMarker {
-  public static void $noinline$main() {
-    $noinline$testReferrersClass();
-    $noinline$testInlinedReferrersClass();
+    public static void $noinline$main() {
+        $noinline$testReferrersClass();
+        $noinline$testInlinedReferrersClass();
 
-    System.out.println("UnresolvedPackagePrivateClass passed");
-  }
+        System.out.println("UnresolvedPackagePrivateClass passed");
+    }
 
-  /// CHECK-START: void unresolved.UnresolvedPackagePrivateClass.$noinline$testReferrersClass() builder (after)
-  /// CHECK: LoadClass class_name:unresolved.UnresolvedPackagePrivateClass needs_access_check:false
-  static void $noinline$testReferrersClass() {
-    Class<?> c = UnresolvedPackagePrivateClass.class;
-  }
+    /// CHECK-START: void unresolved.UnresolvedPackagePrivateClass.$noinline$testReferrersClass() builder (after)
+    /// CHECK: LoadClass class_name:unresolved.UnresolvedPackagePrivateClass needs_access_check:false
+    static void $noinline$testReferrersClass() { Class<?> c = UnresolvedPackagePrivateClass.class; }
 
-  /// CHECK-START: void unresolved.UnresolvedPackagePrivateClass.$noinline$testInlinedReferrersClass() inliner (after)
-  // CHECK: LoadClass class_name:unresolved.UnresolvedPackagePrivateClass needs_access_check:true
-  static void $noinline$testInlinedReferrersClass() {
-    try {
-      // TODO: When we relax verifier to ignore access check failures,
-      // change the called method to `$inline$` and enable the CHECK above.
-      Class<?> c = GetUnresolvedPackagePrivateClass.get();
-      throw new Error("Unreachable");
-    } catch (IllegalAccessError expected) {}
-  }
+    /// CHECK-START: void unresolved.UnresolvedPackagePrivateClass.$noinline$testInlinedReferrersClass() inliner (after)
+    // CHECK: LoadClass class_name:unresolved.UnresolvedPackagePrivateClass needs_access_check:true
+    static void $noinline$testInlinedReferrersClass() {
+        try {
+            // TODO: When we relax verifier to ignore access check failures,
+            // change the called method to `$inline$` and enable the CHECK above.
+            Class<?> c = GetUnresolvedPackagePrivateClass.get();
+            throw new Error("Unreachable");
+        } catch (IllegalAccessError expected) {
+        }
+    }
 }

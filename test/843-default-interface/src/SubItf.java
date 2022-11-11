@@ -19,5 +19,5 @@
 // The bug was that CopyFrom was overwriting the imt index of interface methods,
 // and for this example `foo`.
 public interface SubItf extends Itf, OtherItf {
-  public String foo();
+    public String foo();
 }

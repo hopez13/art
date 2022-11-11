@@ -14,40 +14,33 @@
  * limitations under the License.
  */
 
-
 public class Main {
-  public static void main(String[] args) {
-    try {
-      doTopCall(true);
-    } catch (Error e) {
-      e.printStackTrace(System.out);
+    public static void main(String[] args) {
+        try {
+            doTopCall(true);
+        } catch (Error e) {
+            e.printStackTrace(System.out);
+        }
     }
-  }
 
-  /// CHECK-START: void Main.doTopCall(boolean) inliner (before)
-  /// CHECK-NOT:   InvokeStaticOrDirect method_load_kind:Recursive
+    /// CHECK-START: void Main.doTopCall(boolean) inliner (before)
+    /// CHECK-NOT:   InvokeStaticOrDirect method_load_kind:Recursive
 
-  /// CHECK-START: void Main.doTopCall(boolean) inliner (after)
-  /// CHECK:       InvokeStaticOrDirect method_load_kind:Recursive
-  public static void doTopCall(boolean first_call) {
-    if (first_call) {
-      inline1();
-    } else {
-      while (true) {
-        inline3();
-      }
+    /// CHECK-START: void Main.doTopCall(boolean) inliner (after)
+    /// CHECK:       InvokeStaticOrDirect method_load_kind:Recursive
+    public static void doTopCall(boolean first_call) {
+        if (first_call) {
+            inline1();
+        } else {
+            while (true) {
+                inline3();
+            }
+        }
     }
-  }
 
-  public static void inline1() {
-    inline2();
-  }
+    public static void inline1() { inline2(); }
 
-  public static void inline2() {
-    doTopCall(false);
-  }
+    public static void inline2() { doTopCall(false); }
 
-  public static void inline3() {
-    throw new Error();
-  }
+    public static void inline3() { throw new Error(); }
 }

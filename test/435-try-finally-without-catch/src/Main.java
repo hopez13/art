@@ -15,27 +15,23 @@
  */
 
 public class Main {
+    public static void main(String[] args) { foo(); }
 
-  public static void main(String[] args){
-    foo();
-  }
+    // Reduced test case inspired by constantPropagationTest() from
+    // test/083-compiler-regressions.
+    static void foo() {
+        int a = 0;
+        int b = 1;
 
-  // Reduced test case inspired by constantPropagationTest() from
-  // test/083-compiler-regressions.
-  static void foo() {
-    int a = 0;
-    int b = 1;
-
-    for (int i = 0; i < 3; i++) {
-      try {
-        a = 1;
-        // Would throw an ArithmeticException if b were null (hence
-        // the enclosing `try' statement).
-        int c = a % b;
-      }
-      finally {
-        System.out.println("In finally");
-      }
+        for (int i = 0; i < 3; i++) {
+            try {
+                a = 1;
+                // Would throw an ArithmeticException if b were null (hence
+                // the enclosing `try' statement).
+                int c = a % b;
+            } finally {
+                System.out.println("In finally");
+            }
+        }
     }
-  }
 }

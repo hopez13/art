@@ -17,13 +17,13 @@
 import java.lang.reflect.Method;
 
 public class Main {
-  public static void main(String[] args) throws Exception {
-    Class<?> c = Class.forName("TestCase");
-    Method m = c.getMethod("testCase", int.class);
-    String actual = (String) m.invoke(null, 1);
-    String expected = "DEFAULT";
-    if (!expected.equals(actual)) {
-      throw new Error();
+    public static void main(String[] args) throws Exception {
+        Class<?> c = Class.forName("TestCase");
+        Method m = c.getMethod("testCase", int.class);
+        String actual = (String) m.invoke(null, 1);
+        String expected = "DEFAULT";
+        if (!expected.equals(actual)) {
+            throw new Error();
+        }
     }
-  }
 }

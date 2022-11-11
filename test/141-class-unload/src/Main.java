@@ -32,8 +32,8 @@ public class Main {
         if (pathClassLoader == null) {
             throw new AssertionError("Couldn't find path class loader class");
         }
-        Constructor<?> constructor =
-            pathClassLoader.getDeclaredConstructor(String.class, String.class, ClassLoader.class);
+        Constructor<?> constructor = pathClassLoader.getDeclaredConstructor(
+                String.class, String.class, ClassLoader.class);
         try {
             testUnloadClass(constructor);
             testUnloadLoader(constructor);
@@ -61,12 +61,12 @@ public class Main {
         stopJit();
         doUnloading();
         System.runFinalization();
-        BufferedReader reader = new BufferedReader(new FileReader ("/proc/" + pid + "/maps"));
+        BufferedReader reader = new BufferedReader(new FileReader("/proc/" + pid + "/maps"));
         String line;
         int count = 0;
         while ((line = reader.readLine()) != null) {
-            if (line.contains("141-class-unload-ex.odex") ||
-                line.contains("141-class-unload-ex.vdex")) {
+            if (line.contains("141-class-unload-ex.odex")
+                    || line.contains("141-class-unload-ex.vdex")) {
                 System.out.println(line);
                 ++count;
             }
@@ -85,11 +85,11 @@ public class Main {
     }
 
     private static void doUnloading() {
-      // Do multiple GCs to prevent rare flakiness if some other thread is keeping the
-      // classloader live.
-      for (int i = 0; i < 5; ++i) {
-         Runtime.getRuntime().gc();
-      }
+        // Do multiple GCs to prevent rare flakiness if some other thread is keeping the
+        // classloader live.
+        for (int i = 0; i < 5; ++i) {
+            Runtime.getRuntime().gc();
+        }
     }
 
     private static void testUnloadClass(Constructor<?> constructor) throws Exception {
@@ -103,13 +103,12 @@ public class Main {
         System.out.println(klass2.get());
     }
 
-    private static void testUnloadLoader(Constructor<?> constructor)
-        throws Exception {
-      WeakReference<ClassLoader> loader = setUpUnloadLoader(constructor, true);
-      // No strong references to class loader, should get unloaded.
-      doUnloading();
-      // If the weak reference is cleared, then it was unloaded.
-      System.out.println(loader.get());
+    private static void testUnloadLoader(Constructor<?> constructor) throws Exception {
+        WeakReference<ClassLoader> loader = setUpUnloadLoader(constructor, true);
+        // No strong references to class loader, should get unloaded.
+        doUnloading();
+        // If the weak reference is cleared, then it was unloaded.
+        System.out.println(loader.get());
     }
 
     private static void testStackTrace(Constructor<?> constructor) throws Exception {
@@ -138,18 +137,18 @@ public class Main {
     }
 
     static class Pair {
-      public Pair(Object o, ClassLoader l) {
-        object = o;
-        classLoader = new WeakReference<ClassLoader>(l);
-      }
+        public Pair(Object o, ClassLoader l) {
+            object = o;
+            classLoader = new WeakReference<ClassLoader>(l);
+        }
 
-      public Object object;
-      public WeakReference<ClassLoader> classLoader;
+        public Object object;
+        public WeakReference<ClassLoader> classLoader;
     }
 
     private static Pair testNoUnloadInstanceHelper(Constructor<?> constructor) throws Exception {
         ClassLoader loader = (ClassLoader) constructor.newInstance(
-            DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
+                DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
         Object o = testNoUnloadHelper(loader);
         return new Pair(o, loader);
     }
@@ -164,7 +163,7 @@ public class Main {
 
     private static Class<?> setUpUnloadClass(Constructor<?> constructor) throws Exception {
         ClassLoader loader = (ClassLoader) constructor.newInstance(
-            DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
+                DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
         Class<?> intHolder = loader.loadClass("IntHolder");
         Method getValue = intHolder.getDeclaredMethod("getValue");
         Method setValue = intHolder.getDeclaredMethod("setValue", Integer.TYPE);
@@ -179,9 +178,9 @@ public class Main {
 
     private static Object allocObjectInOtherClassLoader(Constructor<?> constructor)
             throws Exception {
-      ClassLoader loader = (ClassLoader) constructor.newInstance(
-              DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
-      return loader.loadClass("IntHolder").newInstance();
+        ClassLoader loader = (ClassLoader) constructor.newInstance(
+                DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
+        return loader.loadClass("IntHolder").newInstance();
     }
 
     // Regression test for public issue 227182.
@@ -206,11 +205,10 @@ public class Main {
         return new WeakReference<Class>(setUpUnloadClass(constructor));
     }
 
-    private static WeakReference<ClassLoader> setUpUnloadLoader(Constructor<?> constructor,
-                                                                boolean waitForCompilation)
-        throws Exception {
+    private static WeakReference<ClassLoader> setUpUnloadLoader(
+            Constructor<?> constructor, boolean waitForCompilation) throws Exception {
         ClassLoader loader = (ClassLoader) constructor.newInstance(
-            DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
+                DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
         Class<?> intHolder = loader.loadClass("IntHolder");
         Method setValue = intHolder.getDeclaredMethod("setValue", Integer.TYPE);
         setValue.invoke(intHolder, 2);
@@ -221,18 +219,18 @@ public class Main {
     }
 
     private static void waitForCompilation(Class<?> intHolder) throws Exception {
-      // Load the native library so that we can call waitForCompilation.
-      Method loadLibrary = intHolder.getDeclaredMethod("loadLibrary", String.class);
-      loadLibrary.invoke(intHolder, nativeLibraryName);
-      // Wait for JIT compilation to finish since the async threads may prevent unloading.
-      Method waitForCompilation = intHolder.getDeclaredMethod("waitForCompilation");
-      waitForCompilation.invoke(intHolder);
+        // Load the native library so that we can call waitForCompilation.
+        Method loadLibrary = intHolder.getDeclaredMethod("loadLibrary", String.class);
+        loadLibrary.invoke(intHolder, nativeLibraryName);
+        // Wait for JIT compilation to finish since the async threads may prevent unloading.
+        Method waitForCompilation = intHolder.getDeclaredMethod("waitForCompilation");
+        waitForCompilation.invoke(intHolder);
     }
 
     private static WeakReference<ClassLoader> setUpLoadLibrary(Constructor<?> constructor)
-        throws Exception {
+            throws Exception {
         ClassLoader loader = (ClassLoader) constructor.newInstance(
-            DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
+                DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
         Class<?> intHolder = loader.loadClass("IntHolder");
         Method loadLibrary = intHolder.getDeclaredMethod("loadLibrary", String.class);
         loadLibrary.invoke(intHolder, nativeLibraryName);
@@ -241,7 +239,7 @@ public class Main {
     }
 
     private static int getPid() throws Exception {
-      return Integer.parseInt(new File("/proc/self").getCanonicalFile().getName());
+        return Integer.parseInt(new File("/proc/self").getCanonicalFile().getName());
     }
 
     public static native void stopJit();

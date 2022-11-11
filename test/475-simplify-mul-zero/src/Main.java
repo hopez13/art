@@ -15,14 +15,14 @@
  */
 
 public class Main {
-  public static void main(String[] args) {
-    long l3 = 2207693990L;
-    int i12 = 5;
+    public static void main(String[] args) {
+        long l3 = 2207693990L;
+        int i12 = 5;
 
-    for (int i = 1; i < 2; ++i) {
-        i12 ^= (int)(-((-(-(l3 - l3))) * i));
+        for (int i = 1; i < 2; ++i) {
+            i12 ^= (int) (-((-(-(l3 - l3))) * i));
+        }
+
+        System.out.println(i12);
     }
-
-    System.out.println(i12);
-  }
 }

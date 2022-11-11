@@ -18,7 +18,5 @@ public class Unrelated {
     protected int instance_x;
     protected static int static_x = 5;
 
-    protected Unrelated(int x) {
-        instance_x = x;
-    }
+    protected Unrelated(int x) { instance_x = x; }
 }

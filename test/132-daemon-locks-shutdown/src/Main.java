@@ -18,7 +18,6 @@
  * Test that daemon threads still contending for a lock don't make the runtime abort on shutdown.
  */
 public class Main {
-
     public final static int THREAD_COUNT = 32;
 
     public static void main(String[] args) throws Exception {
@@ -34,13 +33,11 @@ public class Main {
     private static class Wait implements Runnable {
         private Object obj;
 
-        public Wait(Object obj) {
-            this.obj = obj;
-        }
+        public Wait(Object obj) { this.obj = obj; }
 
         public void run() {
             for (;;) {
-                synchronized(obj) {
+                synchronized (obj) {
                     try {
                         obj.wait(1);
                     } catch (Exception exc) {

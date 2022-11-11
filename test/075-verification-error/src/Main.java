@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import other.Mutant;
 import other.InaccessibleClass;
 import other.InaccessibleMethod;
+import other.Mutant;
 
 /**
  * Test some problematic situations that the verifier detects.
@@ -29,7 +29,7 @@ public class Main {
         testMissingStuff();
         testBadAccess();
         testBadInterfaceMethod();
-     }
+    }
     /**
      * Try to create and invoke a non-existent interface method.
      */
@@ -40,7 +40,8 @@ public class Main {
         } catch (IncompatibleClassChangeError icce) {
             // TODO b/64274113 This should really be an NSME
             System.out.println("Got expected IncompatibleClassChangeError (interface)");
-            if (VERBOSE) System.out.println("--- " + icce);
+            if (VERBOSE)
+                System.out.println("--- " + icce);
         }
     }
 
@@ -53,7 +54,8 @@ public class Main {
             System.out.println("ERROR: MaybeAbstract succeeded unexpectedly");
         } catch (InstantiationError ie) {
             System.out.println("Got expected InstantationError");
-            if (VERBOSE) System.out.println("--- " + ie);
+            if (VERBOSE)
+                System.out.println("--- " + ie);
         } catch (Exception ex) {
             System.out.println("Got unexpected MaybeAbstract failure");
         }
@@ -69,28 +71,32 @@ public class Main {
             int x = mutant.disappearingField;
         } catch (NoSuchFieldError nsfe) {
             System.out.println("Got expected NoSuchFieldError");
-            if (VERBOSE) System.out.println("--- " + nsfe);
+            if (VERBOSE)
+                System.out.println("--- " + nsfe);
         }
 
         try {
             int y = Mutant.disappearingStaticField;
         } catch (NoSuchFieldError nsfe) {
             System.out.println("Got expected NoSuchFieldError");
-            if (VERBOSE) System.out.println("--- " + nsfe);
+            if (VERBOSE)
+                System.out.println("--- " + nsfe);
         }
 
         try {
             mutant.disappearingMethod();
         } catch (NoSuchMethodError nsme) {
             System.out.println("Got expected NoSuchMethodError");
-            if (VERBOSE) System.out.println("--- " + nsme);
+            if (VERBOSE)
+                System.out.println("--- " + nsme);
         }
 
         try {
             Mutant.disappearingStaticMethod();
         } catch (NoSuchMethodError nsme) {
             System.out.println("Got expected NoSuchMethodError");
-            if (VERBOSE) System.out.println("--- " + nsme);
+            if (VERBOSE)
+                System.out.println("--- " + nsme);
         }
     }
 
@@ -105,7 +111,8 @@ public class Main {
             System.out.println("ERROR: bad access succeeded (ifield)");
         } catch (IllegalAccessError iae) {
             System.out.println("Got expected IllegalAccessError (ifield)");
-            if (VERBOSE) System.out.println("--- " + iae);
+            if (VERBOSE)
+                System.out.println("--- " + iae);
         }
 
         try {
@@ -113,7 +120,8 @@ public class Main {
             System.out.println("ERROR: bad access succeeded (sfield)");
         } catch (IllegalAccessError iae) {
             System.out.println("Got expected IllegalAccessError (sfield)");
-            if (VERBOSE) System.out.println("--- " + iae);
+            if (VERBOSE)
+                System.out.println("--- " + iae);
         }
 
         try {
@@ -121,7 +129,8 @@ public class Main {
             System.out.println("ERROR: bad access succeeded (method)");
         } catch (IllegalAccessError iae) {
             System.out.println("Got expected IllegalAccessError (method)");
-            if (VERBOSE) System.out.println("--- " + iae);
+            if (VERBOSE)
+                System.out.println("--- " + iae);
         }
 
         try {
@@ -129,7 +138,8 @@ public class Main {
             System.out.println("ERROR: bad access succeeded (smethod)");
         } catch (IllegalAccessError iae) {
             System.out.println("Got expected IllegalAccessError (smethod)");
-            if (VERBOSE) System.out.println("--- " + iae);
+            if (VERBOSE)
+                System.out.println("--- " + iae);
         }
 
         try {
@@ -138,7 +148,8 @@ public class Main {
             System.out.println("ERROR: bad meth-class access succeeded (meth-class)");
         } catch (IllegalAccessError iae) {
             System.out.println("Got expected IllegalAccessError (meth-class)");
-            if (VERBOSE) System.out.println("--- " + iae);
+            if (VERBOSE)
+                System.out.println("--- " + iae);
         }
 
         try {
@@ -147,7 +158,8 @@ public class Main {
             System.out.println("ERROR: bad field-class access succeeded (field-class)");
         } catch (IllegalAccessError iae) {
             System.out.println("Got expected IllegalAccessError (field-class)");
-            if (VERBOSE) System.out.println("--- " + iae);
+            if (VERBOSE)
+                System.out.println("--- " + iae);
         }
 
         try {
@@ -156,7 +168,8 @@ public class Main {
             System.out.println("ERROR: bad access succeeded (meth-meth)");
         } catch (IllegalAccessError iae) {
             System.out.println("Got expected IllegalAccessError (meth-meth)");
-            if (VERBOSE) System.out.println("--- " + iae);
+            if (VERBOSE)
+                System.out.println("--- " + iae);
         }
     }
 }

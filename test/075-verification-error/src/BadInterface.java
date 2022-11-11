@@ -15,7 +15,5 @@
  */
 
 public interface BadInterface {
-  public default Object internalClone() {
-    throw new Error("Should not be called");
-  }
+    public default Object internalClone() { throw new Error("Should not be called"); }
 }

@@ -15,21 +15,19 @@
  */
 
 public class Instrumentation {
-  private static int primitiveField;
-  private static Object referenceField;
+    private static int primitiveField;
+    private static Object referenceField;
 
-  // Direct method
-  private void instanceMethod() {
-    System.out.println("instanceMethod");
-  }
+    // Direct method
+    private void instanceMethod() { System.out.println("instanceMethod"); }
 
-  private Object returnReference() {
-    System.out.println("returnReference");
-    return null;
-  }
+    private Object returnReference() {
+        System.out.println("returnReference");
+        return null;
+    }
 
-  private int returnPrimitive() {
-    System.out.println("returnPrimitive");
-    return 0;
-  }
+    private int returnPrimitive() {
+        System.out.println("returnPrimitive");
+        return 0;
+    }
 }

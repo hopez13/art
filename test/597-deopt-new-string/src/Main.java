@@ -24,9 +24,7 @@ public class Main implements Runnable {
     public static native void deoptimizeAll();
     public static native void undeoptimizeAll();
 
-    Main(int index) {
-        threadIndex = index;
-    }
+    Main(int index) { threadIndex = index; }
 
     public static void main(String[] args) throws Exception {
         System.loadLibrary(args[0]);

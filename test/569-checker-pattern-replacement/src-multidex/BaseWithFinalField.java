@@ -15,13 +15,9 @@
  */
 
 public class BaseWithFinalField {
-  BaseWithFinalField() {
-    intField = 0;
-  }
+    BaseWithFinalField() { intField = 0; }
 
-  BaseWithFinalField(int intValue) {
-    intField = intValue;
-  }
+    BaseWithFinalField(int intValue) { intField = intValue; }
 
-  public final int intField;
+    public final int intField;
 }

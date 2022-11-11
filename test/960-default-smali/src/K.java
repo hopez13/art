@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-class K implements Foo { }
+class K implements Foo {}

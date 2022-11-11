@@ -18,5 +18,5 @@
  * Regression test for b/31280371
  */
 interface Foo3 extends Foo {
-  default void doNothing() {}
+    default void doNothing() {}
 }

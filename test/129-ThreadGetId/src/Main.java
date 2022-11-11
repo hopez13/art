@@ -46,9 +46,9 @@ public class Main implements Runnable {
             Thread[] array = new Thread[activeCount];
             systemThreadGroup.enumerate(array);
             for (Thread thread : array) {
-               if (thread.getName().equals("HeapTaskDaemon") &&
-                   thread.getState() != Thread.State.NEW) {
-                  return thread;
+                if (thread.getName().equals("HeapTaskDaemon")
+                        && thread.getState() != Thread.State.NEW) {
+                    return thread;
                 }
             }
             // Yield to eventually get the daemon started.
@@ -68,7 +68,7 @@ public class Main implements Runnable {
             // Expect empty stack trace since we do not support suspending the GC thread for
             // obtaining stack traces. See b/28261069.
             if (thread == heapDaemon) {
-                System.out.println(thread.getName() + " depth " + pair.getValue().length); 
+                System.out.println(thread.getName() + " depth " + pair.getValue().length);
             }
         }
     }

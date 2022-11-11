@@ -15,7 +15,6 @@
  */
 
 public class Main {
-
     public static void main(String[] args) throws Exception {
         Thread thread1 = new Thread(new SigQuit());
         Thread thread2 = new Thread(new SynchronizedUse());

@@ -16,5 +16,4 @@
 
 package pkg2;
 
-public class DXI2 extends DX implements I2 {
-}
+public class DXI2 extends DX implements I2 {}

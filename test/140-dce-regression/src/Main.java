@@ -15,19 +15,16 @@
  */
 
 public class Main {
-
     public static void testArrayLength() {
-      int[] arr = null;
-      int len = 0;
-      try {
-        len = arr.length;
-        len = 5;
-      } catch (NullPointerException npe) {
-        System.out.println("Passed");
-      }
+        int[] arr = null;
+        int len = 0;
+        try {
+            len = arr.length;
+            len = 5;
+        } catch (NullPointerException npe) {
+            System.out.println("Passed");
+        }
     }
 
-    public static void main(String[] args) {
-      testArrayLength();
-    }
+    public static void main(String[] args) { testArrayLength(); }
 }

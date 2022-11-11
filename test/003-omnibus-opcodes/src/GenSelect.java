@@ -16,13 +16,11 @@
 
 public class GenSelect {
     public static String test(boolean b) {
-      String str1 = null;
-      String str2 = null;
-      String res = b ? str1 : str2;
-      return res;
+        String str1 = null;
+        String str2 = null;
+        String res = b ? str1 : str2;
+        return res;
     }
 
-    public static void run() {
-      System.out.println(test(true));
-    }
+    public static void run() { System.out.println(test(true)); }
 }

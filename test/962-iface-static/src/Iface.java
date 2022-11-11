@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 public interface Iface {
-  public static final Displayer f = new Displayer();
-  public static String SayHi() {
-    return "Hello";
-  }
+    public static final Displayer f = new Displayer();
+    public static String SayHi() { return "Hello"; }
 }

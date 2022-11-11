@@ -18,13 +18,9 @@
  * Test exception throwing.
  */
 public class Throw {
-    public void throwNullPointerException() {
-        throw new NullPointerException("npe!");
-    }
+    public void throwNullPointerException() { throw new NullPointerException("npe!"); }
 
-    public void throwArithmeticException() {
-        throw new ArithmeticException();
-    }
+    public void throwArithmeticException() { throw new ArithmeticException(); }
 
     public void one() {
         System.out.println("Throw.one");
@@ -99,7 +95,7 @@ public class Throw {
                 }
                 if (ex instanceof NullPointerException) {
                     caught = true;
-                    throw (NullPointerException) ex;
+                    throw(NullPointerException) ex;
                 }
             } finally {
                 lly = true;

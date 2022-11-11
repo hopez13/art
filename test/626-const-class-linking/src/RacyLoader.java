@@ -36,17 +36,14 @@ public class RacyLoader extends DefiningLoader {
         }
     }
 
-    protected Class<?> findClass(String name) throws ClassNotFoundException
-    {
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
         if (name.equals("Test") || name.equals("Test3")) {
             throw new Error("Unexpected RacyLoader.findClass(\"" + name + "\")");
         }
         return super.findClass(name);
     }
 
-    protected Class<?> loadClass(String name, boolean resolve)
-        throws ClassNotFoundException
-    {
+    protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
         if (name.equals("Test") || name.equals("Test3")) {
             int my_index = syncWithOtherInstances(count);
             Class<?> result = defining_loaders[my_index & 1].loadClass(name, resolve);

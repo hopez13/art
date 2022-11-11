@@ -1,24 +1,20 @@
 
 public class Main {
     static class SuperClass {
-      protected static int getVar(int w) {
-          return w & 0xF;
-      }
+        protected static int getVar(int w) { return w & 0xF; }
     }
     static class SubClass extends SuperClass {
-      final int getVarDirect(int w) {
-        return w & 0xF;
-      }
-      public void testDirect(int max) {
-        for (int i = 0; i < max; ++i) {
-          getVarDirect(max);
+        final int getVarDirect(int w) { return w & 0xF; }
+        public void testDirect(int max) {
+            for (int i = 0; i < max; ++i) {
+                getVarDirect(max);
+            }
         }
-      }
-      public void testStatic(int max) {
-        for (int i = 0; i < max; ++i) {
-          getVar(max);
+        public void testStatic(int max) {
+            for (int i = 0; i < max; ++i) {
+                getVar(max);
+            }
         }
-      }
     }
 
     static public void main(String[] args) throws Exception {
@@ -27,13 +23,13 @@ public class Main {
     }
 
     static int testBasis(int iterations) {
-      (new SubClass()).testDirect(iterations);
-      return iterations;
+        (new SubClass()).testDirect(iterations);
+        return iterations;
     }
 
     static int testStatic(int iterations) {
-      (new SubClass()).testStatic(iterations);
-      return iterations;
+        (new SubClass()).testStatic(iterations);
+        return iterations;
     }
 
     static public void run(boolean timing) {

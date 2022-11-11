@@ -15,7 +15,5 @@
  */
 
 public class Super {
-    private void print() {
-        System.out.println("Super");
-    }
+    private void print() { System.out.println("Super"); }
 }

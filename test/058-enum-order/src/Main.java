@@ -19,7 +19,11 @@
  */
 public class Main {
     public static enum Muffin {
-        CORN, BLUEBERRY, CRANBERRY, BRAN, BLACKBERRY;
+        CORN,
+        BLUEBERRY,
+        CRANBERRY,
+        BRAN,
+        BLACKBERRY;
     }
 
     public static void main(String args[]) {

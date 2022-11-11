@@ -17,12 +17,7 @@
 package pkg1;
 
 public class Pkg1Foo {
+    Class<?> foo() { return Pkg1Foo.class; }
 
-  Class<?> foo() {
-    return Pkg1Foo.class;
-  }
-
-  public static Class<?> callFoo(Pkg1Foo obj) {
-    return obj.foo();
-  }
+    public static Class<?> callFoo(Pkg1Foo obj) { return obj.foo(); }
 }

@@ -17,7 +17,5 @@
 package pkg1;
 
 public class PublicFooInheritsPkg2 extends pkg2.PublicFooInheritsPkg3 {
-  public Class<?> foo() {
-    return PublicFooInheritsPkg2.class;
-  }
+    public Class<?> foo() { return PublicFooInheritsPkg2.class; }
 }
