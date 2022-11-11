@@ -205,14 +205,13 @@ uintptr_t NterpGetCatchHandler() {
   return reinterpret_cast<uintptr_t>(artNterpAsmInstructionEnd);
 }
 
-bool CanMethodUseNterp(ArtMethod* method, InstructionSet isa) {
+bool CanMethodUseNterp(ArtMethod* method) {
   return !method->IsNative() &&
       method->IsInvokable() &&
       !method->MustCountLocks() &&
       // Proxy methods do not go through the JIT like other methods, so we don't
       // run them with nterp.
-      !method->IsProxyMethod() &&
-      NterpGetFrameSize(method, isa) <= interpreter::kNterpMaxFrame;
+      !method->IsProxyMethod();
 }
 
 }  // namespace art

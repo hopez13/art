@@ -416,6 +416,8 @@ END_FUNCTION \name
     // Compute required frame size for dex registers: ((2 * ebx) + refs)
     leal (\refs, %ebx, 2), %edx
     sall $$2, %edx
+    cmpl $$NTERP_MAX_FRAME, %edx
+    jg NterpCallInterpreterBridge
 
     // Compute new stack pointer in fp: add 12 for saving the previous frame,
     // pc, and method being executed.
@@ -2342,6 +2344,10 @@ NterpHandleInvokeInterfaceOnObjectMethod:
    shrl $$16, %eax
    movl MIRROR_CLASS_VTABLE_OFFSET_32(%edx, %eax, 4), %eax
    jmp NterpCommonInvokeInstance
+
+NterpCallInterpreterBridge:
+   RESTORE_ALL_CALLEE_SAVES
+   jmp art_quick_to_interpreter_bridge
 
 // This is the logical end of ExecuteNterpImpl, where the frame info applies.
 // EndExecuteNterpImpl includes the methods below as we want the runtime to
