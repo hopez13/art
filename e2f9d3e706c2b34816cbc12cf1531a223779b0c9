@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "e2f9d3e706c2b34816cbc12cf1531a223779b0c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3ec79a_f1d36ee5",
+        "filename": "disassembler/disassembler_arm64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-11T13:35:20Z",
+      "side": 1,
+      "message": "This is also a known value now but, unlike the previous LDR, I think we should not hard-code it - the dissassembler could change the precision of printed FP numbers.",
+      "range": {
+        "startLine": 144,
+        "startChar": 50,
+        "endLine": 144,
+        "endChar": 77
+      },
+      "revId": "e2f9d3e706c2b34816cbc12cf1531a223779b0c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
