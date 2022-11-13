@@ -501,6 +501,11 @@ void JitMemoryRegion::FreeWritableData(uint8_t* writable_data) REQUIRES(Locks::j
   mspace_free(data_mspace_, writable_data);
 }
 
+void JitMemoryRegion::Trim() {
+  mspace_trim(exec_mspace_, kPageSize);
+  mspace_trim(data_mspace_, kPageSize);
+}
+
 #if defined(__BIONIC__) && defined(ART_TARGET)
 // The code below only works on bionic on target.
 
