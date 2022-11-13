@@ -475,6 +475,8 @@ void JitCodeCache::FreeAllMethodHeaders(
     FreeCodeAndData(method_header->GetCode());
   }
 
+  private_region_.Trim();
+
   // We have potentially removed a lot of debug info. Do maintenance pass to save space.
   RepackNativeDebugInfoForJit();
 

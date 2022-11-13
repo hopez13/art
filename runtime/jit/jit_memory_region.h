@@ -85,6 +85,7 @@ class JitMemoryRegion {
   void FreeData(const uint8_t* data) REQUIRES(Locks::jit_lock_);
   void FreeData(uint8_t* writable_data) REQUIRES(Locks::jit_lock_) = delete;
   void FreeWritableData(uint8_t* writable_data) REQUIRES(Locks::jit_lock_);
+  void Trim() REQUIRES(Locks::jit_lock_);
 
   // Emit header and code into the memory pointed by `reserved_code` (despite it being const).
   // Returns pointer to copied code (within reserved_code region; after OatQuickMethodHeader).
