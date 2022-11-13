@@ -1523,6 +1523,8 @@ void Heap::ThrowOutOfMemoryError(Thread* self, size_t byte_count, AllocatorType 
     }
   }
   self->ThrowOutOfMemoryError(oss.str().c_str());
+  // Allow plugins to intercept out of memory errors.
+  Runtime::Current()->OutOfMemoryErrorHook();
 }
 
 void Heap::DoPendingCollectorTransition() {
