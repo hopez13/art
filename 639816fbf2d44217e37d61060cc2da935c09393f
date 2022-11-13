@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bfdad00_54e378c8",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-11-13T22:12:06Z",
+      "side": 1,
+      "message": "Because of Mainline, we\u0027re double gating changes relating to the core library. The preferred check considers both the feature and the device API level:\n\n(compatFramework.IsChangeEnabled(kEnforceReadOnlyJavaDcl) \u0026\u0026\n  android_get_device_api_level() \u003e\u003d __ANDROID_API_U__)\n\nExample of the existing pattern:\n\nhttps://r.android.com/c/platform/libcore/+/2214816/3/ojluni/src/main/java/java/util/regex/Matcher.java#887\n\nThere\u0027s no need for the CTS target SDK change proposed this route.",
+      "range": {
+        "startLine": 343,
+        "startChar": 10,
+        "endLine": 343,
+        "endChar": 41
+      },
+      "revId": "639816fbf2d44217e37d61060cc2da935c09393f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
