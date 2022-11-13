@@ -3659,6 +3659,8 @@ void Thread::ThrowOutOfMemoryError(const char* msg) {
     Dump(LOG_STREAM(WARNING));  // The pre-allocated OOME has no stack, so help out and log one.
     SetException(Runtime::Current()->GetPreAllocatedOutOfMemoryErrorWhenThrowingOOME());
   }
+  // Allow plugins to intercept out of memory errors.
+  Runtime::Current()->OutOfMemoryErrorHook();
 }
 
 Thread* Thread::CurrentFromGdb() {
