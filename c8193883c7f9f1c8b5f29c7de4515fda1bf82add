@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9290455_65d8f8cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-14T11:06:52Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfc07d1e_92efd7e2",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-14T11:06:52Z",
+      "side": 1,
+      "message": "WDYT about adding this? It was useful for me when creating this CL.",
+      "range": {
+        "startLine": 912,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 5
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
