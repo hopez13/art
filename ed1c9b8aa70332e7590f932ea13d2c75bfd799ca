@@ -16,6 +16,24 @@
       "message": "LGTM, thanks!\n\nWe might want to have a script that creates these CLs for us, so that we don\u0027t have to do it manually 99 more times.",
       "revId": "ed1c9b8aa70332e7590f932ea13d2c75bfd799ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c773468_fa642cbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-14T14:12:52Z",
+      "side": 1,
+      "message": "I do not want to make too big CLs but one can easily select multiple shards with an extra `for i in {95-99}; ...`, for example. I would still want to manually check for long lines.\n\nAnd the script does not handle argument alignment correctly, so that shall need manual editing as well.",
+      "parentUuid": "33ada9ce_56c6490f",
+      "revId": "ed1c9b8aa70332e7590f932ea13d2c75bfd799ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
