@@ -167,6 +167,12 @@ static jboolean VMDebug_isDebuggerConnected(JNIEnv*, jclass) {
   return false;
 }
 
+static jboolean VMDebug_didSuspendAll(JNIEnv*, jclass) {
+  // This function will be replaced by the debugger when it's connected. See
+  // external/oj-libjdwp/src/share/vmDebug.c for implementation when debugger is connected.
+  return false;
+}
+
 static jboolean VMDebug_isDebuggingEnabled(JNIEnv* env, jclass) {
   ScopedObjectAccess soa(env);
   return Runtime::Current()->GetRuntimeCallbacks()->IsDebuggerConfigured();
