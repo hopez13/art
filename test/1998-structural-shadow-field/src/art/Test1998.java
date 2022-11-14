@@ -20,19 +20,19 @@ import java.util.Base64;
 
 public class Test1998 {
 
-  public static class SuperTransform {
-    public static String greeting = "Hello";
-  }
+    public static class SuperTransform {
+        public static String greeting = "Hello";
+    }
 
-  // The class we will be transforming.
-  public static class Transform extends SuperTransform { }
+    // The class we will be transforming.
+    public static class Transform extends SuperTransform { }
 
-  // public static class Transform extends SuperTransform {
-  //   public static String greeting;
-  // }
-  private static final byte[] DEX_BYTES =
-      Base64.getDecoder()
-          .decode(
+    // public static class Transform extends SuperTransform {
+    //   public static String greeting;
+    // }
+    private static final byte[] DEX_BYTES =
+            Base64.getDecoder()
+                    .decode(
 "ZGV4CjAzNQCYmnoWz4BqygrZQM4zf/mJ/25+dM86MHKAAwAAcAAAAHhWNBIAAAAAAAAAAMgCAAAP" +
 "AAAAcAAAAAcAAACsAAAAAQAAAMgAAAABAAAA1AAAAAIAAADcAAAAAQAAAOwAAAB0AgAADAEAACgB" +
 "AAAwAQAATwEAAGkBAAB5AQAAnQEAAL0BAADRAQAA4AEAAOsBAADuAQAA+wEAAAUCAAALAgAAEgIA" +
@@ -50,16 +50,16 @@ public class Test1998 {
 "AAABIAAAAQAAAAwBAAADIAAAAQAAACQBAAACIAAADwAAACgBAAAEIAAAAgAAAIoCAAAAIAAAAQAA" +
 "AJkCAAADEAAAAgAAAKgCAAAGIAAAAQAAALgCAAAAEAAAAQAAAMgCAAA=");
 
-  public static void run() throws Exception {
-    Redefinition.setTestConfiguration(Redefinition.Config.COMMON_REDEFINE);
-    doTest();
-  }
+    public static void run() throws Exception {
+        Redefinition.setTestConfiguration(Redefinition.Config.COMMON_REDEFINE);
+        doTest();
+    }
 
-  public static void doTest() throws Exception {
-    System.out.println(Transform.greeting);
-    System.out.println(SuperTransform.greeting);
-    Redefinition.doCommonStructuralClassRedefinition(Transform.class, DEX_BYTES);
-    System.out.println(Transform.greeting);
-    System.out.println(SuperTransform.greeting);
-  }
+    public static void doTest() throws Exception {
+        System.out.println(Transform.greeting);
+        System.out.println(SuperTransform.greeting);
+        Redefinition.doCommonStructuralClassRedefinition(Transform.class, DEX_BYTES);
+        System.out.println(Transform.greeting);
+        System.out.println(SuperTransform.greeting);
+    }
 }

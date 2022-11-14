@@ -19,32 +19,32 @@ package art;
 import java.util.Base64;
 public class Test1999 {
 
-  public static class Transform {
-    public String getGreeting() {
-      return "Hi";
+    public static class Transform {
+        public String getGreeting() {
+            return "Hi";
+        }
     }
-  }
 
-  public static class SubTransform extends Transform {
-    private int count = 0;
-    public void sayHi() {
-      System.out.println(getGreeting() + "(SubTransform called " + (++count) + " times)");
+    public static class SubTransform extends Transform {
+        private int count = 0;
+        public void sayHi() {
+            System.out.println(getGreeting() + "(SubTransform called " + (++count) + " times)");
+        }
     }
-  }
 
-  /**
-   * base64 encoded class/dex file for
-   * public static class Transform {
-   *   private int count;
-   *   public String getGreeting() {
-   *     return "Hello (Transform called " + incrCount() + " times)";
-   *   }
-   *   protected int incrCount() {
-   *     return ++count;
-   *   }
-   * }
-   */
-  private static final byte[] DEX_BYTES = Base64.getDecoder().decode(
+    /**
+     * base64 encoded class/dex file for
+     * public static class Transform {
+     *   private int count;
+     *   public String getGreeting() {
+     *     return "Hello (Transform called " + incrCount() + " times)";
+     *   }
+     *   protected int incrCount() {
+     *     return ++count;
+     *   }
+     * }
+     */
+    private static final byte[] DEX_BYTES = Base64.getDecoder().decode(
 "ZGV4CjAzNQAwwbMpPdPdWkU+6UJnvqa7v4VBdcuq2vkMBQAAcAAAAHhWNBIAAAAAAAAAAEgEAAAa" +
 "AAAAcAAAAAkAAADYAAAABQAAAPwAAAABAAAAOAEAAAgAAABAAQAAAQAAAIABAABsAwAAoAEAADoC" +
 "AABDAgAASwIAAGUCAABoAgAAawIAAG8CAABzAgAAjQIAAJ0CAADBAgAA4QIAAPUCAAAJAwAAJAMA" +
@@ -70,16 +70,16 @@ public class Test1999 {
 "AAADEAAAAgAAACgEAAAGIAAAAQAAADgEAAAAEAAAAQAAAEgEAAA=");
 
 
-  public static void run() {
-    Redefinition.setTestConfiguration(Redefinition.Config.COMMON_REDEFINE);
-    doTest(new SubTransform());
-  }
+    public static void run() {
+        Redefinition.setTestConfiguration(Redefinition.Config.COMMON_REDEFINE);
+        doTest(new SubTransform());
+    }
 
-  public static void doTest(SubTransform t) {
-    t.sayHi();
-    t.sayHi();
-    t.sayHi();
-    Redefinition.doCommonStructuralClassRedefinition(Transform.class, DEX_BYTES);
-    t.sayHi();
-  }
+    public static void doTest(SubTransform t) {
+        t.sayHi();
+        t.sayHi();
+        t.sayHi();
+        Redefinition.doCommonStructuralClassRedefinition(Transform.class, DEX_BYTES);
+        t.sayHi();
+    }
 }

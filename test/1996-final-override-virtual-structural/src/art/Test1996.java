@@ -19,37 +19,37 @@ package art;
 import java.util.Base64;
 public class Test1996 {
 
-  public static class SuperTransform {
-    public String hiValue = "Hi";
-    public String sayHi() {
-      return this.hiValue;
+    public static class SuperTransform {
+        public String hiValue = "Hi";
+        public String sayHi() {
+            return this.hiValue;
+        }
     }
-  }
-  public static final class Transform extends SuperTransform {
-    public void PostTransform() { }
-    public String sayHiTwice(Runnable run) {
-      run.run();
-      return "super: " + super.sayHi() + " this: " + sayHi();
+    public static final class Transform extends SuperTransform {
+        public void PostTransform() { }
+        public String sayHiTwice(Runnable run) {
+            run.run();
+            return "super: " + super.sayHi() + " this: " + sayHi();
+        }
     }
-  }
 
-  /**
-   * base64 encoded class/dex file for
-   * public static final class Transform extends SuperTransform {
-   *   public String myGreeting;
-   *   public void PostTransform() {
-   *     myGreeting = "SALUTATIONS";
-   *   }
-   *   public String sayHiTwice(Runnable run) {
-   *     run.run();
-   *     return "super: " + super.sayHi() + " and then this: " + sayHi();
-   *   }
-   *   public String sayHi() {
-   *     return myGreeting;
-   *   }
-   * }
-   */
-  private static final byte[] DEX_BYTES = Base64.getDecoder().decode(
+    /**
+     * base64 encoded class/dex file for
+     * public static final class Transform extends SuperTransform {
+     *   public String myGreeting;
+     *   public void PostTransform() {
+     *     myGreeting = "SALUTATIONS";
+     *   }
+     *   public String sayHiTwice(Runnable run) {
+     *     run.run();
+     *     return "super: " + super.sayHi() + " and then this: " + sayHi();
+     *   }
+     *   public String sayHi() {
+     *     return myGreeting;
+     *   }
+     * }
+     */
+    private static final byte[] DEX_BYTES = Base64.getDecoder().decode(
 "ZGV4CjAzNQAO4Dwurw97RcUtfH7np7S5RR8gsJYOfmeABQAAcAAAAHhWNBIAAAAAAAAAALwEAAAc" +
 "AAAAcAAAAAkAAADgAAAABAAAAAQBAAABAAAANAEAAAoAAAA8AQAAAQAAAIwBAADUAwAArAEAAHYC" +
 "AACIAgAAkAIAAJMCAACXAgAAtgIAANACAADgAgAABAMAACQDAAA6AwAATgMAAGkDAAB4AwAAhQMA" +
@@ -76,19 +76,19 @@ public class Test1996 {
 "AAMgAAAEAAAAUgIAAAEQAAACAAAAaAIAAAIgAAAcAAAAdgIAAAQgAAACAAAAcwQAAAAgAAABAAAA" +
 "ggQAAAMQAAACAAAAnAQAAAYgAAABAAAArAQAAAAQAAABAAAAvAQAAA==");
 
-  public static void run() {
-    Redefinition.setTestConfiguration(Redefinition.Config.COMMON_REDEFINE);
-    doTest(new Transform());
-  }
+    public static void run() {
+        Redefinition.setTestConfiguration(Redefinition.Config.COMMON_REDEFINE);
+        doTest(new Transform());
+    }
 
-  public static void doTest(final Transform t) {
-    System.out.println(t.sayHiTwice(() -> { System.out.println("Not doing anything"); }));
-    System.out.println(t.sayHiTwice(
-      () -> {
-        System.out.println("Redefining calling class");
-        Redefinition.doCommonStructuralClassRedefinition(Transform.class, DEX_BYTES);
-        t.PostTransform();
-      }));
-    System.out.println(t.sayHiTwice(() -> { System.out.println("Not doing anything"); }));
-  }
+    public static void doTest(final Transform t) {
+        System.out.println(t.sayHiTwice(() -> { System.out.println("Not doing anything"); }));
+        System.out.println(t.sayHiTwice(
+            () -> {
+                System.out.println("Redefining calling class");
+                Redefinition.doCommonStructuralClassRedefinition(Transform.class, DEX_BYTES);
+                t.PostTransform();
+            }));
+        System.out.println(t.sayHiTwice(() -> { System.out.println("Not doing anything"); }));
+    }
 }
