@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dfb6143_1cf0f701",
+        "filename": "test/180-native-default-method/build.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-14T13:43:47Z",
+      "side": 1,
+      "message": "Yes, we passed just the filename before but we pass the full path now, so junk the path.",
+      "parentUuid": "e2bf2c62_8f085e00",
+      "range": {
+        "startLine": 30,
+        "startChar": 75,
+        "endLine": 30,
+        "endChar": 79
+      },
+      "revId": "2ef6e3dab0e6ae3c77c1c10a7409e02745f60090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "723cf795_34fb1433",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-14T12:58:46Z",
       "side": 1,
       "message": "test?",
+      "range": {
+        "startLine": 588,
+        "startChar": 49,
+        "endLine": 588,
+        "endChar": 54
+      },
+      "revId": "2ef6e3dab0e6ae3c77c1c10a7409e02745f60090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9156bdc_d3146c5f",
+        "filename": "test/run_test_build.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-14T13:43:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723cf795_34fb1433",
       "range": {
         "startLine": 588,
         "startChar": 49,
