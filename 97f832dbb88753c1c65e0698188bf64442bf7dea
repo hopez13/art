@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5819a6ca_12f34ab8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-14T15:07:10Z",
+      "side": 1,
+      "message": "nit: Can you add to the description saying we are also introducing `--android-log-tags`/`-min-log-tag`, and deprecating `--external-log-tags`/`--verbose`? As you said, the  aim is that with this CL the run-test-option should not be needed anymore.",
+      "revId": "97f832dbb88753c1c65e0698188bf64442bf7dea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31fb8216_54724dbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-14T15:07:10Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "97f832dbb88753c1c65e0698188bf64442bf7dea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
