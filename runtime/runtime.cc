@@ -3299,11 +3299,28 @@ void Runtime::ResetStartupCompleted() {
   startup_completed_.store(false, std::memory_order_seq_cst);
 }
 
-class UnlinkStartupDexCacheVisitor : public DexCacheVisitor {
+class CollectStartupDexCacheVisitor : public DexCacheVisitor {
  public:
+  CollectStartupDexCacheVisitor(VariableSizedHandleScope& handles) : handles_(handles) {}
+
   void Visit(ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES_SHARED(Locks::dex_lock_, Locks::mutator_lock_) override {
-    dex_cache->UnlinkStartupCaches();
+    handles_.NewHandle(dex_cache);
+  }
+
+ private:
+  VariableSizedHandleScope& handles_;
+};
+
+class UnlinkVisitor {
+ public:
+  UnlinkVisitor() {}
+
+  void VisitRootIfNonNull(StackReference<mirror::Object>* ref)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    if (!ref->IsNull()) {
+      ref->AsMirrorPtr()->AsDexCache()->UnlinkStartupCaches();
+    }
   }
 };
 
@@ -3321,9 +3338,10 @@ class Runtime::NotifyStartupCompletedTask : public gc::HeapTask {
       ScopedTrace trace("Releasing dex caches and app image spaces metadata");
       ScopedObjectAccess soa(Thread::Current());
 
+      // Collect dex caches that were allocated with the startup linear alloc.
+      VariableSizedHandleScope handles(soa.Self());
       {
-        // Unlink dex caches that were allocated with the startup linear alloc.
-        UnlinkStartupDexCacheVisitor visitor;
+        CollectStartupDexCacheVisitor visitor(handles);
         ReaderMutexLock mu(self, *Locks::dex_lock_);
         runtime->GetClassLinker()->VisitDexCaches(&visitor);
       }
@@ -3342,6 +3360,11 @@ class Runtime::NotifyStartupCompletedTask : public gc::HeapTask {
                                                        gc::kGcCauseRunEmptyCheckpoint,
                                                        gc::kCollectorTypeCriticalSection);
         runtime->GetThreadList()->RunEmptyCheckpoint();
+
+        // Do the unlinking of dex cache arrays in the GC critical section to
+        // avoid GC not seeing these arrays.
+        UnlinkVisitor visitor;
+        handles.VisitRoots(visitor);
       }
 
       for (gc::space::ContinuousSpace* space : runtime->GetHeap()->GetContinuousSpaces()) {
