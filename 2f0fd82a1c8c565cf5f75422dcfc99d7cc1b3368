@@ -34,6 +34,24 @@
       "parentUuid": "455bf2c8_3412b78d",
       "revId": "2f0fd82a1c8c565cf5f75422dcfc99d7cc1b3368",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c0d7361_e7c49a54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-14T14:16:54Z",
+      "side": 1,
+      "message": "I added a LOG(INFO) in DeadCodeElimination and tried:\n* `art/test/testrunner/testrunner.py --host --64 --optimizing -b -t 2243- --android-log-tags\u003d\"*:i\"`\n* `art/test/testrunner/testrunner.py --host --64 --optimizing -b -t 2243- --run-test-option\u003d\"--android-log-tags\u003d*:i\"`\n\nand I got no LOG(INFO) printed.\n\nI also tried exporting `ANDROID_LOG_TAGS` in my console but I got no INFO printed.\n\nIf I change the LOG(INFO) to LOG(ERROR) and I see it in the console.",
+      "parentUuid": "faa1edbc_545e2762",
+      "revId": "2f0fd82a1c8c565cf5f75422dcfc99d7cc1b3368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
