@@ -3301,10 +3301,19 @@ void Runtime::ResetStartupCompleted() {
 
 class UnlinkStartupDexCacheVisitor : public DexCacheVisitor {
  public:
+  UnlinkStartupDexCacheVisitor(VariableSizedHandleScope& handles) : handles_(handles) {}
+
   void Visit(ObjPtr<mirror::DexCache> dex_cache)
       REQUIRES_SHARED(Locks::dex_lock_, Locks::mutator_lock_) override {
-    dex_cache->UnlinkStartupCaches();
+    ObjPtr<mirror::DexCache> holder =
+        ObjPtr<mirror::DexCache>::DownCast(dex_cache->GetClass()->AllocObject(Thread::Current()));
+    holder->SetDexFile(dex_cache->GetDexFile());
+    handles_.NewHandle(holder);
+    dex_cache->UnlinkStartupCaches(holder);
   }
+
+ private:
+  VariableSizedHandleScope& handles_;
 };
 
 class Runtime::NotifyStartupCompletedTask : public gc::HeapTask {
@@ -3321,9 +3330,12 @@ class Runtime::NotifyStartupCompletedTask : public gc::HeapTask {
       ScopedTrace trace("Releasing dex caches and app image spaces metadata");
       ScopedObjectAccess soa(Thread::Current());
 
+      // We create temporary dex caches to store dex cache arrays, so that the
+      // GC still visits them while mutator may temporarily hold such arrays.
+      VariableSizedHandleScope handles(soa.Self());
       {
         // Unlink dex caches that were allocated with the startup linear alloc.
-        UnlinkStartupDexCacheVisitor visitor;
+        UnlinkStartupDexCacheVisitor visitor(handles);
         ReaderMutexLock mu(self, *Locks::dex_lock_);
         runtime->GetClassLinker()->VisitDexCaches(&visitor);
       }
@@ -3334,6 +3346,8 @@ class Runtime::NotifyStartupCompletedTask : public gc::HeapTask {
       //
       // Use GC exclusion to prevent deadlocks that may happen if
       // multiple threads are attempting to run empty checkpoints at the same time.
+      //
+      // After the checkpoint, the temporary dex caches can be released.
       {
         // Avoid using ScopedGCCriticalSection since that does not allow thread suspension. This is
         // not allowed to prevent allocations, but it's still safe to suspend temporarily for the

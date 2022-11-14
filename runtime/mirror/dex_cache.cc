@@ -203,16 +203,16 @@ bool DexCache::ShouldAllocateFullArrayAtStartup() {
   return true;
 }
 
-void DexCache::UnlinkStartupCaches() {
+void DexCache::UnlinkStartupCaches(ObjPtr<mirror::DexCache> other) {
   if (GetDexFile() == nullptr) {
     // Unused dex cache.
     return;
   }
-  UnlinkStringsArrayIfStartup();
-  UnlinkResolvedFieldsArrayIfStartup();
-  UnlinkResolvedMethodsArrayIfStartup();
-  UnlinkResolvedTypesArrayIfStartup();
-  UnlinkResolvedMethodTypesArrayIfStartup();
+  UnlinkStringsArrayIfStartup(other);
+  UnlinkResolvedFieldsArrayIfStartup(other);
+  UnlinkResolvedMethodsArrayIfStartup(other);
+  UnlinkResolvedTypesArrayIfStartup(other);
+  UnlinkResolvedMethodTypesArrayIfStartup(other);
 }
 
 void DexCache::SetResolvedType(dex::TypeIndex type_idx, ObjPtr<Class> resolved) {

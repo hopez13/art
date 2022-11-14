@@ -366,8 +366,8 @@ class MANAGED DexCache final : public Object {
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_);
 
   // Sets null to dex cache array fields which were allocated with the startup
-  // allocator.
-  void UnlinkStartupCaches() REQUIRES_SHARED(Locks::mutator_lock_);
+  // allocator and transfer the arrays to `other`.
+  void UnlinkStartupCaches(ObjPtr<mirror::DexCache> other) REQUIRES_SHARED(Locks::mutator_lock_);
 
 // NOLINTBEGIN(bugprone-macro-parentheses)
 #define DEFINE_ARRAY(name, array_kind, getter_setter, type, ids, alloc_kind) \
@@ -460,9 +460,10 @@ class MANAGED DexCache final : public Object {
       } \
     } \
   } \
-  void Unlink ##getter_setter ##ArrayIfStartup() \
+  void Unlink ##getter_setter ##ArrayIfStartup(ObjPtr<mirror::DexCache> other) \
       REQUIRES_SHARED(Locks::mutator_lock_) { \
     if (!ShouldAllocateFullArray(GetDexFile()->ids(), pair_size)) { \
+      other->Set ##getter_setter ##Array(Get ##getter_setter ##Array()); \
       Set ##getter_setter ##Array(nullptr) ; \
     } \
   }
