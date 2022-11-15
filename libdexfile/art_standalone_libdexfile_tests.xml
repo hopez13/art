@@ -30,11 +30,16 @@
         <option name="push" value="art-gtest-jars-Nested.jar->/data/local/tmp/art_standalone_libdexfile_tests/art-gtest-jars-Nested.jar" />
     </target_preparer>
 
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true" />
+        <option name="push-file" key="libart-with-public-symbols.so" value="/data/local/tmp/art_standalone_libdexfile_tests/libart-with-public-symbols.so" />
+    </target_preparer>
+
     <test class="com.android.tradefed.testtype.GTest" >
         <option name="native-test-device-path" value="/data/local/tmp/art_standalone_libdexfile_tests" />
         <option name="module-name" value="art_standalone_libdexfile_tests" />
-        <option name="ld-library-path-32" value="/apex/com.android.art/lib" />
-        <option name="ld-library-path-64" value="/apex/com.android.art/lib64" />
+        <option name="ld-library-path-32" value="/apex/com.android.art/lib:/data/local/tmp/art_standalone_libdexfile_tests" />
+        <option name="ld-library-path-64" value="/apex/com.android.art/lib64:/data/local/tmp/art_standalone_libdexfile_tests" />
     </test>
 
     <!-- When this test is run in a Mainline context (e.g. with `mts-tradefed`), only enable it if

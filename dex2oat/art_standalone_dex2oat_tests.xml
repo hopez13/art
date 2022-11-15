@@ -58,6 +58,11 @@
         <option name="push-file" key="generate-boot-image" value="/data/local/tmp/art_standalone_dex2oat_tests/generate-boot-image" />
     </target_preparer>
 
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true" />
+        <option name="push-file" key="libart-with-public-symbols.so" value="/data/local/tmp/art_standalone_dex2oat_tests/libart-with-public-symbols.so" />
+    </target_preparer>
+
     <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
         <option name="throw-if-cmd-fail" value="true" />
         <option name="run-command" value="mkdir -p /data/local/tmp/art_standalone_dex2oat_tests/art_boot_images" />
@@ -71,8 +76,8 @@
         <option name="test-case-timeout" value="5m" />
         <option name="native-test-device-path" value="/data/local/tmp/art_standalone_dex2oat_tests" />
         <option name="module-name" value="art_standalone_dex2oat_tests" />
-        <option name="ld-library-path-32" value="/apex/com.android.art/lib" />
-        <option name="ld-library-path-64" value="/apex/com.android.art/lib64" />
+        <option name="ld-library-path-32" value="/apex/com.android.art/lib:/data/local/tmp/art_standalone_dex2oat_tests" />
+        <option name="ld-library-path-64" value="/apex/com.android.art/lib64:/data/local/tmp/art_standalone_dex2oat_tests" />
     </test>
 
     <!-- When this test is run in a Mainline context (e.g. with `mts-tradefed`), only enable it if
