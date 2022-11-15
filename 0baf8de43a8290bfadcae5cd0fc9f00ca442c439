@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b302d87f_2cdd4530",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-15T09:22:55Z",
+      "side": 1,
+      "message": "\\`reuse\\`",
+      "range": {
+        "startLine": 293,
+        "startChar": 50,
+        "endLine": 293,
+        "endChar": 55
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b510b24_7ba5df6d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-15T09:22:55Z",
+      "side": 1,
+      "message": "nit: grammar. However, should we just use 2 as we generally want host to mimic Android behavior?",
+      "range": {
+        "startLine": 129,
+        "startChar": 42,
+        "endLine": 130,
+        "endChar": 23
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3165b533_48f5cce5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-15T09:22:55Z",
+      "side": 1,
+      "message": "nit: how about \"If that fails, we will run all GC cycles in copy-mode rather than minor-fault.\" ?",
+      "range": {
+        "startLine": 244,
+        "startChar": 51,
+        "endLine": 245,
+        "endChar": 63
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39c34673_64c3a934",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-15T09:22:55Z",
+      "side": 1,
+      "message": "nit: I think we prefer \u0027\u0026\u0026\u0027 at the end of the line.",
+      "range": {
+        "startLine": 588,
+        "startChar": 9,
+        "endLine": 590,
+        "endChar": 52
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5605b43c_29d837db",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3427,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-15T09:22:55Z",
+      "side": 1,
+      "message": "line too long (also \u0027||\u0027 at the end of the line).",
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
