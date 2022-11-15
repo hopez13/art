@@ -68,6 +68,11 @@
         <option name="push-file" key="generate-boot-image" value="/data/local/tmp/art_standalone_runtime_tests/generate-boot-image" />
     </target_preparer>
 
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true" />
+        <option name="push-file" key="libart-with-public-symbols.so" value="/data/local/tmp/art_standalone_runtime_tests/libart-with-public-symbols.so" />
+    </target_preparer>
+
     <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
         <option name="throw-if-cmd-fail" value="true" />
         <option name="run-command" value="mkdir -p /data/local/tmp/art_standalone_runtime_tests/art_boot_images" />

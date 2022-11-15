@@ -619,9 +619,12 @@ class Runtime {
   void EnterTransactionMode(bool strict, mirror::Class* root) REQUIRES_SHARED(Locks::mutator_lock_);
   void ExitTransactionMode();
   void RollbackAllTransactions() REQUIRES_SHARED(Locks::mutator_lock_);
+  // Mark HIDDEN to check that gtests fail to link with libart.so,
+  // but can link to libart-with-public-symbols.so
+  // TODO: remove after properly introducing HIDDEN/EXPORT to libart
   // Transaction rollback and exit transaction are always done together, it's convenience to
   // do them in one function.
-  void RollbackAndExitTransactionMode() REQUIRES_SHARED(Locks::mutator_lock_);
+  HIDDEN void RollbackAndExitTransactionMode() REQUIRES_SHARED(Locks::mutator_lock_);
   bool IsTransactionAborted() const;
   const Transaction* GetTransaction() const;
   Transaction* GetTransaction();
