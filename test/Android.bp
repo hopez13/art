@@ -238,6 +238,9 @@ art_cc_defaults {
         "art_test_defaults",
         "art_gtest_common_defaults",
         "art_debug_defaults",
+
+        // Make all symbols public for gtests
+        "libartbase_disable_symbol_visibility",
     ],
 
     test_suites: ["art-host-tests"],
@@ -246,7 +249,7 @@ art_cc_defaults {
     },
 
     shared_libs: [
-        "libartd",
+        "libartd-with-public-symbols",
         "libartd-disassembler",
         "libartd-gtest",
         "libdexfiled",
@@ -278,6 +281,9 @@ art_cc_defaults {
         // (including the Release ART APEX).
         "art_standalone_test_defaults",
         "art_gtest_common_defaults",
+
+        // Make all symbols public for gtests
+        "libartbase_disable_symbol_visibility",
     ],
 
     test_suites: [
@@ -301,7 +307,7 @@ art_cc_defaults {
     // We use the "non-d" variants of libraries, as the Release ART APEX does
     // not contain the "d" (debug) variants.
     shared_libs: [
-        "libart",
+        "libart-with-public-symbols",
         "libart-compiler",
         "libart-disassembler",
         "libdexfile",
@@ -342,6 +348,9 @@ art_cc_defaults {
     name: "libart-gtest-common-defaults",
     defaults: [
         "art_defaults",
+
+        // Make all symbols public for gtests
+        "libartbase_disable_symbol_visibility",
     ],
     host_supported: true,
     shared_libs: [
@@ -390,7 +399,7 @@ art_cc_defaults {
         "libart-gtest-common-defaults",
     ],
     shared_libs: [
-        "libart",
+        "libart-with-public-symbols",
         "libart-compiler",
         "libdexfile",
         "libprofile",
@@ -405,7 +414,7 @@ art_cc_defaults {
         "libart-gtest-common-defaults",
     ],
     shared_libs: [
-        "libartd",
+        "libartd-with-public-symbols",
         "libartd-compiler",
         "libdexfiled",
         "libprofiled",
@@ -461,7 +470,7 @@ art_cc_library {
         "libartbase-art-gtest",
     ],
     shared_libs: [
-        "libart",
+        "libart-with-public-symbols",
         "libart-compiler",
         "libdexfile",
         "libprofile",
@@ -482,7 +491,7 @@ art_cc_library {
         "libartbased-art-gtest",
     ],
     shared_libs: [
-        "libartd",
+        "libartd-with-public-symbols",
         "libartd-compiler",
         "libdexfiled",
         "libprofiled",
