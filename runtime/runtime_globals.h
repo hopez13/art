@@ -74,11 +74,7 @@ enum class TraceClockSource {
   kDual,  // Both wall and thread CPU clocks.
 };
 
-#if defined(__linux__)
-static constexpr TraceClockSource kDefaultTraceClockSource = TraceClockSource::kDual;
-#else
 static constexpr TraceClockSource kDefaultTraceClockSource = TraceClockSource::kWall;
-#endif
 
 static constexpr bool kDefaultMustRelocate = true;
 
