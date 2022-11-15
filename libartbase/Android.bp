@@ -174,6 +174,12 @@ cc_defaults {
     whole_static_libs: ["libartbased"],
 }
 
+// Disable symbol visibility macros in `libartbase/base/macros.h`
+cc_defaults {
+    name: "libartbase_disable_symbol_visibility",
+    cflags: ["-DDISABLE_SYMBOL_VISIBILITY"],
+}
+
 gensrcs {
     name: "art_libartbase_operator_srcs",
     cmd: "$(location generate_operator_out) art/libartbase $(in) > $(out)",
