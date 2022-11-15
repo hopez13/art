@@ -173,6 +173,12 @@ static jboolean VMDebug_didSuspendAll(JNIEnv*, jclass) {
   return false;
 }
 
+static jboolean VMDebug_hasReportedVMInit(JNIEnv*, jclass) {
+  // This function will be replaced by the debugger when it's connected. See
+  // external/oj-libjdwp/src/share/vmDebug.c for implementation when debugger is connected.
+  return false;
+}
+
 static jboolean VMDebug_isDebuggingEnabled(JNIEnv* env, jclass) {
   ScopedObjectAccess soa(env);
   return Runtime::Current()->GetRuntimeCallbacks()->IsDebuggerConfigured();
@@ -511,6 +517,7 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMDebug, getVmFeatureList, "()[Ljava/lang/String;"),
   FAST_NATIVE_METHOD(VMDebug, isDebuggerConnected, "()Z"),
   FAST_NATIVE_METHOD(VMDebug, isDebuggingEnabled, "()Z"),
+  FAST_NATIVE_METHOD(VMDebug, hasReportedVMInit, "()Z"),
   FAST_NATIVE_METHOD(VMDebug, didSuspendAll, "()Z"),
   NATIVE_METHOD(VMDebug, getMethodTracingMode, "()I"),
   FAST_NATIVE_METHOD(VMDebug, lastDebuggerActivity, "()J"),
