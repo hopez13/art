@@ -135,6 +135,30 @@
       },
       "revId": "6f3cb8bd66321d01ccce55cf11d25fe323722bdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f63720d_18b09ab9",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-16T16:31:57Z",
+      "side": 1,
+      "message": "\u003e Yes, from Chun-Yi\u0027s comment this change also seems to affect Mainline Presubmits via Test Mapping, but I\u0027m not sure how, as it seemed to me that those tests were able to run in pre-submit (and maybe post-submit) testing without this CL. To be explored…\n\nSo I was wrong: it seems some tests were not run _at all_ as part of Mainline Presubmits via Test Mapping, because of the missing metadata (that is being added by this CL). Case in point: `libnativeloader_e2e_tests` is now failing when run against an Android S platform in this CL\u0027s presubmits:\n\n```\nThere were 2 failures:\n  value of:\n    installPackage(...)\nexpected:\n    null\nbut was:\n    Unknown failure: Exception occurred while executing \u0027install\u0027:\n    java.lang.IllegalArgumentException: Error: Failed to parse APK file: /data/local/tmp/loadlibrarytest_data_app.apk: Requires development platform UpsideDownCake but this is a release platform.\n    at com.android.server.pm.PackageManagerShellCommand.setParamsSize(PackageManagerShellCommand.java:581)\n    at com.android.server.pm.PackageManagerShellCommand.doRunInstall(PackageManagerShellCommand.java:1337)\n    at com.android.server.pm.PackageManagerShellCommand.runInstall(PackageManagerShellCommand.java:1303)\n    at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:193)\n    at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)\n    at android.os.ShellCommand.exec(ShellCommand.java:38)\n    at com.android.server.pm.PackageManagerService.onShellCommand(PackageManagerService.java:24612)\n    at android.os.Binder.shellCommand(Binder.java:950)\n    at android.os.Binder.onTransact(Binder.java:834)\n    at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4818)\n    at com.android.server.pm.PackageManagerService.onTransact(PackageManagerService.java:8506)\n    at android.os.Binder.execTransactInternal(Binder.java:1184)\n    at android.os.Binder.execTransact(Binder.java:1143)\n  Exception with no error message\n```\n\n(and so are some `JniCompilerTest` test cases in `art_standalone_compiler_tests`).\n\nI\u0027ll investigate these failures.",
+      "parentUuid": "6044cce8_db91a7bf",
+      "range": {
+        "startLine": 17,
+        "startChar": 78,
+        "endLine": 17,
+        "endChar": 84
+      },
+      "revId": "6f3cb8bd66321d01ccce55cf11d25fe323722bdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
