@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa465d2e_1699696b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-16T02:12:14Z",
+      "side": 1,
+      "message": "Not quite done yet, here.",
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b302d87f_2cdd4530",
@@ -49,6 +66,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "415f2071_f1a1b02f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-16T02:12:14Z",
+      "side": 1,
+      "message": "Also limit to 1 for very small core counts, like 2? I think there are still some small/low end devices with 2, or possibly even 1.",
+      "parentUuid": "9b510b24_7ba5df6d",
+      "range": {
+        "startLine": 129,
+        "startChar": 42,
+        "endLine": 130,
+        "endChar": 23
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ca00f69_c170404f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-16T02:12:14Z",
+      "side": 1,
+      "message": "I think this is technically a C++20 feature, though C has had it much longer. Probably not an issue, and OK to leave.",
+      "range": {
+        "startLine": 152,
+        "startChar": 32,
+        "endLine": 154,
+        "endChar": 73
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3165b533_48f5cce5",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 10
@@ -60,6 +124,30 @@
       "writtenOn": "2022-11-15T09:22:55Z",
       "side": 1,
       "message": "nit: how about \"If that fails, we will run all GC cycles in copy-mode rather than minor-fault.\" ?",
+      "range": {
+        "startLine": 244,
+        "startChar": 51,
+        "endLine": 245,
+        "endChar": 63
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3896447_ffc46b11",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-16T02:12:14Z",
+      "side": 1,
+      "message": "Is this always safe, or do we risk succeeding here, and then causing a later low4GB mapping to fail? Are there later mappings we need to worry about?",
+      "parentUuid": "3165b533_48f5cce5",
       "range": {
         "startLine": 244,
         "startChar": 51,
@@ -95,6 +183,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "903a5c9b_dc8968be",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-16T02:12:14Z",
+      "side": 1,
+      "message": "Why isn\u0027t this already done by Reset() below?",
+      "range": {
+        "startLine": 699,
+        "startChar": 15,
+        "endLine": 699,
+        "endChar": 79
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5605b43c_29d837db",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 10
@@ -106,6 +217,29 @@
       "writtenOn": "2022-11-15T09:22:55Z",
       "side": 1,
       "message": "line too long (also \u0027||\u0027 at the end of the line).",
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86d8cbc7_1bc9eeff",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-16T02:12:14Z",
+      "side": 1,
+      "message": "I think these are only accessed as moving_space_fds_[0] and moving_space_fds_[1]. Can we give each of them its own name? As it stands, it\u0027s hard to follow what each one is for.",
+      "range": {
+        "startLine": 622,
+        "startChar": 2,
+        "endLine": 622,
+        "endChar": 38
+      },
       "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
