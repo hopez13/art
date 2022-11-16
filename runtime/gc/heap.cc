@@ -833,6 +833,7 @@ Heap::Heap(size_t initial_size,
   if (VLOG_IS_ON(heap) || VLOG_IS_ON(startup)) {
     LOG(INFO) << "Heap() exiting";
   }
+  LOG(INFO) << "Using " << foreground_collector_type_ << " GC.";
 }
 
 MemMap Heap::MapAnonymousPreferredAddress(const char* name,
