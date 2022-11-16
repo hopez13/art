@@ -317,7 +317,7 @@ std::vector<pid_t> GetPidByName(const std::string& process_name);
   }
 
 #define TEST_DISABLED_FOR_MEMORY_TOOL() \
-  if (kRunningOnMemoryTool) { \
+  if (art::kRunningOnMemoryTool) { \
     printf("WARNING: TEST DISABLED FOR MEMORY TOOL\n"); \
     return; \
   }
