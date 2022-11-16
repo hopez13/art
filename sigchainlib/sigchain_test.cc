@@ -97,6 +97,8 @@ class SigchainTest : public ::testing::Test {
 
 
 static void TestSignalBlocking(const std::function<void()>& fn) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
+
   // Unblock SIGSEGV, make sure it stays unblocked.
   sigset64_t mask;
   sigemptyset64(&mask);
@@ -214,6 +216,7 @@ TEST_F(SigchainTest, sigsetmask) {
 
 // Make sure that we properly put ourselves back in front if we get circumvented.
 TEST_F(SigchainTest, EnsureFrontOfChain) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
 #if defined(__BIONIC__)
   constexpr char kLibcSoName[] = "libc.so";
 #elif defined(__GNU_LIBRARY__) && __GNU_LIBRARY__ == 6
@@ -284,6 +287,7 @@ DISABLE_HWASAN void fault_address_tag_impl() {
 #endif
 
 TEST_F(SigchainTest, fault_address_tag) {
+  TEST_DISABLED_FOR_MEMORY_TOOL();
 #define SA_EXPOSE_TAGBITS 0x00000800
 #if defined(__aarch64__)
   fault_address_tag_impl();
