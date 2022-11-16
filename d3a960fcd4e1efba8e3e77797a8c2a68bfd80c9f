@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83c73bd8_28af4c9b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-16T13:59:05Z",
+      "side": 1,
+      "message": "Do we need to add a `NO_INLINE` attribute here to be sure not to miss the frames for this method, or is the stack walking working fine without it?",
+      "range": {
+        "startLine": 1556,
+        "startChar": 15,
+        "endLine": 1556,
+        "endChar": 39
+      },
+      "revId": "d3a960fcd4e1efba8e3e77797a8c2a68bfd80c9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
