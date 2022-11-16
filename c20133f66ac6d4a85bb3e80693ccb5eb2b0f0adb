@@ -22,6 +22,30 @@
       },
       "revId": "c20133f66ac6d4a85bb3e80693ccb5eb2b0f0adb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f8e4e70_b70ec321",
+        "filename": "test/run_test_build.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-16T11:45:46Z",
+      "side": 0,
+      "message": "`rm` was unused.\n\n`default_build` was an instance method forwarding to the global method of the same name.\n\nBy making the `default_build` indented, it is now an instance method, and the forward is no longer needed.",
+      "parentUuid": "d87a93bf_f9303df5",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "c20133f66ac6d4a85bb3e80693ccb5eb2b0f0adb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
