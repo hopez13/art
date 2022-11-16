@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c015a54a_404393fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-16T13:51:21Z",
+      "side": 1,
+      "message": "Thanks all!",
+      "revId": "6f3cb8bd66321d01ccce55cf11d25fe323722bdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6c083c6_25fb48c6",
@@ -86,6 +103,30 @@
       "side": 1,
       "message": "\u003e I\u0027m not sure this bit of the configuration is actually required to run Mainline Presubmits via Test Mapping (in AOSP or elsewhere) – I think this is only necessary for Atest to be able to run tests declared in the mainline-presubmit test group of a TEST_MAPPING file\n\nThe way I read it, that only leaves local atest use, but Chun-Yi\u0027s comment says differently then?",
       "parentUuid": "afc7746b_6d42c6fa",
+      "range": {
+        "startLine": 17,
+        "startChar": 78,
+        "endLine": 17,
+        "endChar": 84
+      },
+      "revId": "6f3cb8bd66321d01ccce55cf11d25fe323722bdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6044cce8_db91a7bf",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-16T13:51:21Z",
+      "side": 1,
+      "message": "Chun-Yi Lee:\n\n\u003e To clarify this, it\u0027s not used for ATest locally only, but used in presubmit as well.\n\nThanks for the clarification, Chun-Yi.\n\nMartin Stjernholm:\n\n\u003e The way I read it, that only leaves local atest use, but Chun-Yi\u0027s comment says differently then?\n\nYes, from Chun-Yi\u0027s comment this change also seems to affect Mainline Presubmits via Test Mapping, but I\u0027m not sure how, as it seemed to me that those tests were able to run in pre-submit (and maybe post-submit) testing without this CL. To be explored…",
+      "parentUuid": "0f34c451_030bb2fd",
       "range": {
         "startLine": 17,
         "startChar": 78,
