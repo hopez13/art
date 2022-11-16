@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fe57e2d_ca25f07f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-16T13:16:48Z",
+      "side": 1,
+      "message": "Could you move this higher in the constructor\u0027s code (e.g. between lines 420 and 421), so that this information is logged earlier? I\u0027m thinking about the case where there\u0027s an issue in `art::gc::Heap::Heap()` itself, where it might be useful to know which GC was used.",
+      "range": {
+        "startLine": 836,
+        "startChar": 2,
+        "endLine": 836,
+        "endChar": 64
+      },
+      "revId": "fcd8c0f173a5bcbfae85a86d003321c2d444a206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
