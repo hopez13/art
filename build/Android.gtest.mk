@@ -104,7 +104,8 @@ ART_GTEST_transaction_test_TARGET_DEPS := $(TARGET_CORE_IMAGE_DEFAULT_64) $(TARG
 LOCAL_PATH := art
 
 ART_TEST_MODULES_COMMON := \
-    art_cmdline_tests \
+    art_sigchain_tests \
+    #art_cmdline_tests \
     art_compiler_host_tests \
     art_compiler_tests \
     art_dex2oat_tests \
@@ -129,7 +130,6 @@ ART_TEST_MODULES_COMMON := \
     art_oatdump_tests \
     art_profman_tests \
     art_runtime_tests \
-    art_sigchain_tests \
 
 ART_TEST_MODULES_TARGET := $(ART_TEST_MODULES_COMMON) \
     art_artd_tests \
