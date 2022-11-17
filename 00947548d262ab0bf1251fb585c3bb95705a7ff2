@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a5cfe2b_591b349b",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2022-11-17T18:38:09Z",
+      "side": 1,
+      "message": "Maybe throw an exception here.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 91
+      },
+      "revId": "00947548d262ab0bf1251fb585c3bb95705a7ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
