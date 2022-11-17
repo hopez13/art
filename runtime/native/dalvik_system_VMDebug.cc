@@ -178,6 +178,11 @@ static jlong VMDebug_lastDebuggerActivity(JNIEnv*, jclass) {
   return -1;
 }
 
+static void VMDebug_suspendAllAndSendVmStart(JNIEnv*, jclass) {
+  // This function will be replaced by the debugger when it's connected. See
+  // external/oj-libjdwp/src/share/vmDebug.c for implementation when debugger is connected.
+}
+
 static void VMDebug_printLoadedClasses(JNIEnv* env, jclass, jint flags) {
   class DumpClassVisitor : public ClassVisitor {
    public:
@@ -521,6 +526,7 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMDebug, nativeAttachAgent, "(Ljava/lang/String;Ljava/lang/ClassLoader;)V"),
   NATIVE_METHOD(VMDebug, allowHiddenApiReflectionFrom, "(Ljava/lang/Class;)V"),
   NATIVE_METHOD(VMDebug, setAllocTrackerStackDepth, "(I)V"),
+  NATIVE_METHOD(VMDebug, suspendAllAndSendVmStart, "()V"),
 };
 
 void register_dalvik_system_VMDebug(JNIEnv* env) {
