@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93d7f817_1c950e88",
+        "filename": "runtime/native/dalvik_system_VMDebug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2022-11-17T02:00:18Z",
+      "side": 1,
+      "message": "With the removal of @fastnative from libcore you need to make this NATIVE_METHOD too.",
+      "range": {
+        "startLine": 514,
+        "startChar": 2,
+        "endLine": 514,
+        "endChar": 20
+      },
+      "revId": "c741815880974024ada086a243232759734746a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
