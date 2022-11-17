@@ -207,6 +207,8 @@ public class Main {
                 new Object() }, new VerifyError(), 0));
         testCases.add(new TestCase("b/121245951 (3)", "B121245951_3", "run", new Object[] {
                 new Object() }, new IllegalMonitorStateException(), 0));
+        testCases.add(new TestCase("b/252804549 (instance-of)", "B252804549", "compareInstanceOfWithTwo",
+                new Object[] { new Object() }, null, 3));
     }
 
     public void runTests() {
