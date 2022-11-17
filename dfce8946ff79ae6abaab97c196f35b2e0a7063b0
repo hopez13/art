@@ -16,6 +16,29 @@
       "message": "+jiyong@, do you have any concerns about renaming the `classloader-namespace` namespaces?",
       "revId": "dfce8946ff79ae6abaab97c196f35b2e0a7063b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc92c224_e175354a",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-17T17:52:16Z",
+      "side": 1,
+      "message": "Nit: Better to call it expected_namespace_prefix",
+      "range": {
+        "startLine": 195,
+        "startChar": 14,
+        "endLine": 195,
+        "endChar": 37
+      },
+      "revId": "dfce8946ff79ae6abaab97c196f35b2e0a7063b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
