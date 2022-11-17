@@ -46,6 +46,30 @@
       },
       "revId": "639816fbf2d44217e37d61060cc2da935c09393f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d2a911e_87477ed9",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-11-17T09:22:38Z",
+      "side": 1,
+      "message": "Rats!hTanks for trying John (Android has different versioning conventions in managed and native code).\n\nTwo possible fixes:\n\n1) Do the checking of the compat flag and version in Java and pass that down.\n\n2) Add an additional check for T and ro.build.version.preview_sdk set, or release_or_codename exists and is UpsideDownCake.\n\n```\n[ro.build.version.base_os]: []\n[ro.build.version.codename]: [UpsideDownCake]\n[ro.build.version.incremental]: [eng.oth.20221113.090541]\n[ro.build.version.known_codenames]: [Base,Base11,Cupcake,Donut,Eclair,Eclair01,EclairMr1,Froyo,Gingerbread,GingerbreadMr1,Honeycomb,HoneycombMr1,HoneycombMr2,IceCreamSandwich,IceCreamSandwichMr1,JellyBean,JellyBeanMr1,JellyBeanMr2,Kitkat,KitkatWatch,Lollipop,LollipopMr1,M,N,NMr1,O,OMr1,P,Q,R,S,Sv2,Tiramisu,UpsideDownCake]\n[ro.build.version.min_supported_target_sdk]: [23]\n[ro.build.version.preview_sdk]: [1]\n[ro.build.version.preview_sdk_fingerprint]: [d6bc2e56392576724c177957ae81e439]\n[ro.build.version.release]: [13]\n[ro.build.version.release_or_codename]: [UpsideDownCake]\n[ro.build.version.release_or_preview_display]: [13]\n[ro.build.version.sdk]: [33]\n```",
+      "parentUuid": "bfc3bc80_b8006428",
+      "range": {
+        "startLine": 343,
+        "startChar": 10,
+        "endLine": 343,
+        "endChar": 41
+      },
+      "revId": "639816fbf2d44217e37d61060cc2da935c09393f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
