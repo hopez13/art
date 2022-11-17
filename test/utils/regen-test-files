@@ -296,11 +296,12 @@ flaky_tests_excluded_from_mts = [
 ]
 
 # Tests failing because of linking issues, currently exluded from MTS
-# to minimize noise in continuous runs while we investigate.
+# and Mainline Presubmits to minimize noise in continuous runs while
+# we investigate.
 #
 # TODO(b/247108425): Address the linking issues and re-enable these
 # tests.
-failing_tests_excluded_from_mts = [
+failing_tests_excluded_from_mts_and_mainline_presubmits = [
     "art_standalone_compiler_tests JniCompilerTest*",
 ]
 
@@ -547,15 +548,24 @@ class Generator:
     run_test_module_names = [ART_RUN_TEST_MODULE_NAME_PREFIX + t for t in art_run_tests]
 
     # Mainline presubmits.
+    mainline_presubmit_apex_suffix = "[com.google.android.art.apex]"
     mainline_other_presubmit_tests = [
         "ComposHostTestCases",
     ]
     mainline_presubmit_tests = (mainline_other_presubmit_tests + run_test_module_names +
                                 art_gtests_mainline_presubmit_module_names)
-    mainline_presubmit_tests_with_apex = [t + "[com.google.android.art.apex]"
-                                          for t
-                                          in mainline_presubmit_tests]
-    mainline_presubmit_tests_dict = [{"name": t} for t in mainline_presubmit_tests_with_apex]
+    mainline_presubmit_tests_dict = [
+        ({"name": t + mainline_presubmit_apex_suffix,
+          "options": [{"exclude-filter": e}
+                      for e
+                      in failing_tests_excluded_from_mts_and_mainline_presubmits
+                      if e.startswith(t)]}
+         if [e
+             for e in failing_tests_excluded_from_mts_and_mainline_presubmits
+             if e.startswith(t)]
+         else {"name": t + mainline_presubmit_apex_suffix})
+        for t in mainline_presubmit_tests
+    ]
 
     # Presubmits.
     other_presubmit_tests = [
@@ -744,7 +754,7 @@ class Generator:
     # Excluded failing tests.
     xml_comment = root.createComment(" Excluded failing tests (b/247108425). ")
     configuration.appendChild(xml_comment)
-    for t in failing_tests_excluded_from_mts:
+    for t in failing_tests_excluded_from_mts_and_mainline_presubmits:
       append_test_exclusion(t)
 
     xml_str = root.toprettyxml(indent = XML_INDENT, encoding = "utf-8")
