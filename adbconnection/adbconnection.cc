@@ -814,6 +814,7 @@ void AdbConnectionState::PerformHandshake() {
 void AdbConnectionState::AttachJdwpAgent(art::Thread* self) {
   art::Runtime* runtime = art::Runtime::Current();
   self->AssertNoPendingException();
+
   runtime->AttachAgent(/* env= */ nullptr,
                        MakeAgentArg(),
                        /* class_loader= */ nullptr);
