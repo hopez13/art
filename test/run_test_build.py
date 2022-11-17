@@ -106,7 +106,7 @@ class BuildTestContext:
                           env=self.bash_env,
                           check=True)
 
-  def run(self, executable: pathlib.Path, args: List[str]):
+  def run(self, executable: pathlib.Path, args: List[Union[pathlib.Path, str]]):
     assert isinstance(executable, pathlib.Path), executable
     cmd: List[Union[pathlib.Path, str]] = []
     if executable.suffix == ".sh":
@@ -191,11 +191,13 @@ class BuildTestContext:
       zip_align_bytes=None,
       api_level:Union[int, str]=26,  # Can also be named alias (string).
       javac_args=[],
+      javac_classpath: List[Path]=[],
       d8_flags=[],
       smali_args=[],
       use_smali=True,
       use_jasmin=True,
     ):
+    javac_classpath = javac_classpath.copy()  # Do not modify default value.
 
     # Wrap "pathlib.Path" with our own version that ensures all paths are absolute.
     # Plain filenames are assumed to be relative to self.test_dir and made absolute.
@@ -221,11 +223,6 @@ class BuildTestContext:
       }
       api_level = API_LEVEL[api_level]
     assert isinstance(api_level, int), api_level
-
-    # If wrapper script exists, use it instead of the default javac.
-    javac_wrapper = Path("javac_wrapper.sh")
-    if javac_wrapper.exists():
-      self.javac = functools.partial(self.run, javac_wrapper)
 
     def zip(zip_target: Path, *files: Path):
       zip_args = ["-o", zip_target, "-C", zip_target.parent]
@@ -258,9 +255,6 @@ class BuildTestContext:
                  ["--output", dst_dex] + sorted(src_dir.glob("**/*.smali")))
       return dst_dex
 
-
-    java_classpath: List[Path] = []
-
     def make_java(dst_dir: Path, *src_dirs: Path) -> Optional[Path]:
       if not any(src_dir.exists() for src_dir in src_dirs):
         return None  # No sources to compile.
@@ -269,11 +263,14 @@ class BuildTestContext:
       args += ["-implicit:none", "-encoding", "utf8", "-d", dst_dir]
       if not self.jvm:
         args += ["-bootclasspath", self.bootclasspath]
-      if java_classpath:
-        args += ["-classpath", java_classpath]
+      if javac_classpath:
+        args += ["-classpath", javac_classpath]
       for src_dir in src_dirs:
         args += sorted(src_dir.glob("**/*.java"))
       self.javac(args)
+      javac_post = Path("javac_post.sh")
+      if javac_post.exists():
+        self.run(javac_post, [dst_dir])
       return dst_dir
 
 
@@ -332,10 +329,10 @@ class BuildTestContext:
       return
 
     if make_jasmin(Path("jasmin_classes"), Path("jasmin")):
-      java_classpath.append(Path("jasmin_classes"))
+      javac_classpath.append(Path("jasmin_classes"))
 
     if make_jasmin(Path("jasmin_classes2"), Path("jasmin-multidex")):
-      java_classpath.append(Path("jasmin_classes2"))
+      javac_classpath.append(Path("jasmin_classes2"))
 
     # To allow circular references, compile src/, src-multidex/, src-aotex/,
     # src-bcpex/, src-ex/ together and pass the output as class path argument.
@@ -347,7 +344,7 @@ class BuildTestContext:
     if (Path("src").exists() and
         any(Path(p).exists() for p in extra_srcs + replacement_srcs)):
       make_java(Path("classes-tmp-all"), Path("src"), *map(Path, extra_srcs))
-      java_classpath.append(Path("classes-tmp-all"))
+      javac_classpath.append(Path("classes-tmp-all"))
 
     if make_java(Path("classes-aotex"), Path("src-aotex")) and need_dex:
       make_dex(Path("classes-aotex"))
@@ -377,6 +374,10 @@ class BuildTestContext:
     # NB: some tests provide classes rather than java files.
     if any(Path("classes").glob("*")) and need_dex:
       make_dex(Path("classes"))
+
+    # TODO: Remove - isolating bug.
+    dex_size = Path("classes.dex").stat().st_size
+    assert dex_size == 38444, f"classes.dex has bad size {dex_size}"
 
     if Path("jasmin_classes").exists():
       # Compile Jasmin classes as if they were part of the classes.dex file.
@@ -491,6 +492,12 @@ def main() -> None:
   tests: List[BuildTestContext] = []
   for srcdir in filter(filter_by_hiddenapi, srcdirs):
     dstdir = ziproot / args.mode / srcdir.name
+
+    # TODO: Remove - isolating bug.
+    if srcdir.name != "952-invoke-custom":
+      os.makedirs(dstdir)
+      continue
+
     copytree(srcdir, dstdir)
     tests.append(BuildTestContext(args, android_build_top, dstdir))
 
