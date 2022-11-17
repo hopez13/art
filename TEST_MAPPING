@@ -1262,7 +1262,12 @@
       "name": "art_standalone_cmdline_tests[com.google.android.art.apex]"
     },
     {
-      "name": "art_standalone_compiler_tests[com.google.android.art.apex]"
+      "name": "art_standalone_compiler_tests[com.google.android.art.apex]",
+      "options": [
+        {
+          "exclude-filter": "art_standalone_compiler_tests JniCompilerTest*"
+        }
+      ]
     },
     {
       "name": "art_standalone_dex2oat_tests[com.google.android.art.apex]"
