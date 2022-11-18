@@ -16,6 +16,24 @@
       "message": "I rebased https://android-review.git.corp.google.com/c/platform/art/+/2306963 and https://android-review.git.corp.google.com/c/platform/art/+/2296137 on top of this CL to see if it addresses Mainline Presubmit failures from b/259544756; waiting for Treehugger\u0027s results.",
       "revId": "1792945365cb92c8cf2736e32b75976a71404c4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42e5810f_ec5a7769",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-18T14:41:40Z",
+      "side": 1,
+      "message": "Unfortunately it did not work:\n\nhttps://android-build.googleplex.com/builds/treetop/android-review/2296137?ref\u003dCOMMENT\u0026revision\u003d6\n\nhttps://android-build.googleplex.com/builds/tests/view?invocationId\u003dI84700010109638459\u0026testResultId\u003dTR22528379063428860\n\n```\nThere were 2 failures:\n  value of:\n    installPackage(...)\nexpected:\n    null\nbut was:\n    Unknown failure: Exception occurred while executing \u0027install\u0027:\n    java.lang.IllegalArgumentException: Error: Failed to parse APK file: /data/local/tmp/loadlibrarytest_data_app.apk: Requires newer sdk version #33 (current version is #31)\n    at com.android.server.pm.PackageManagerShellCommand.setParamsSize(PackageManagerShellCommand.java:581)\n    at com.android.server.pm.PackageManagerShellCommand.doRunInstall(PackageManagerShellCommand.java:1337)\n    at com.android.server.pm.PackageManagerShellCommand.runInstall(PackageManagerShellCommand.java:1303)\n    at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:193)\n    at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)\n    at android.os.ShellCommand.exec(ShellCommand.java:38)\n    at com.android.server.pm.PackageManagerService.onShellCommand(PackageManagerService.java:24612)\n    at android.os.Binder.shellCommand(Binder.java:950)\n    at android.os.Binder.onTransact(Binder.java:834)\n    at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4818)\n    at com.android.server.pm.PackageManagerService.onTransact(PackageManagerService.java:8506)\n    at android.os.Binder.execTransactInternal(Binder.java:1184)\n    at android.os.Binder.execTransact(Binder.java:1143)\n  Exception with no error message\n```",
+      "parentUuid": "182973de_b7963fbf",
+      "revId": "1792945365cb92c8cf2736e32b75976a71404c4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
