@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "636054dc_3b05897f",
+        "filename": "test/2245-checker-smali-instance-of-comparison/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-18T16:36:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbfe70b7_68375d9a",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 56
+      },
+      "revId": "77c40c7a5553ad739b3950ed2412be5b4fd14ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65ffcbe9_598e5e92",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-18T16:32:21Z",
       "side": 1,
       "message": "You can drop all these.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 59
+      },
+      "revId": "77c40c7a5553ad739b3950ed2412be5b4fd14ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49d94e9a_9c740ecb",
+        "filename": "test/2245-checker-smali-instance-of-comparison/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-18T16:36:56Z",
+      "side": 1,
+      "message": "Done, I dropped a few more too.",
+      "parentUuid": "65ffcbe9_598e5e92",
       "range": {
         "startLine": 37,
         "startChar": 0,
