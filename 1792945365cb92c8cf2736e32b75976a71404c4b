@@ -124,6 +124,24 @@
       "parentUuid": "a9d09d64_c0cb9037",
       "revId": "1792945365cb92c8cf2736e32b75976a71404c4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f1f4b7_64bf09b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-18T17:50:46Z",
+      "side": 1,
+      "message": "Interesting, that looks like a real bug. Regardless of that one, this CL fixes the SDK level issues, so I\u0027d like to submit it.\n\nI\u0027ll look into the issue on S, but if you\u0027d like to disable the test in the meantime, can it be done on S only (after submitting this)?",
+      "parentUuid": "c7cdebc6_d56ebdcd",
+      "revId": "1792945365cb92c8cf2736e32b75976a71404c4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
