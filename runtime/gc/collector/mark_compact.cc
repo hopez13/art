@@ -16,6 +16,9 @@
 
 #include "mark_compact-inl.h"
 
+#include "android-base/file.h"
+#include "android-base/parsebool.h"
+#include "android-base/properties.h"
 #include "base/quasi_atomic.h"
 #include "base/systrace.h"
 #include "base/utils.h"
@@ -36,6 +39,8 @@
 #include <sys/ioctl.h>
 #include <sys/mman.h>
 #include <unistd.h>
+
+#include <filesystem>
 #include <fstream>
 #include <numeric>
 
@@ -82,34 +87,71 @@ static bool gHaveMremapDontunmap = IsKernelVersionAtLeast(5, 13) || HaveMremapDo
 // userfaultfd is enabled.
 static const bool gKernelHasFaultRetry = kIsTargetAndroid || IsKernelVersionAtLeast(5, 7);
 
-#ifndef ART_FORCE_USE_READ_BARRIER
-static bool ShouldUseUserfaultfd() {
-#if !defined(__linux__)
-  return false;
-#endif
-  int fd = syscall(__NR_userfaultfd, O_CLOEXEC | UFFD_USER_MODE_ONLY);
-  // On non-android devices we may not have the kernel patches that restrict
-  // userfaultfd to user mode. But that is not a security concern as we are
-  // on host. Therefore, attempt one more time without UFFD_USER_MODE_ONLY.
-  if (!kIsTargetAndroid && fd == -1 && errno == EINVAL) {
-    fd = syscall(__NR_userfaultfd, O_CLOEXEC);
+// The other cases are defined as constexpr in runtime/read_barrier_config.h
+#if !defined(ART_FORCE_USE_READ_BARRIER) && defined(ART_USE_READ_BARRIER)
+static bool CmdlineSaysUffdGc(bool* is_dex2oat) {
+  std::string argv;
+  if (android::base::ReadFileToString("/proc/self/cmdline", &argv)) {
+    // Check if it's dex2oat. Elements are delimited by '\0'.
+    std::filesystem::path cmd(argv.substr(0, argv.find('\0')));
+    if (cmd.filename().native().find("dex2oat") == 0) {
+      *is_dex2oat = true;
+      char search_str[] = "--runtime-arg\0-Xgc:CMC";
+      return argv.find(search_str, /*pos=*/0, sizeof(search_str)) != std::string::npos;
+    }
   }
-  if (fd >= 0) {
-    close(fd);
-    return true;
-  } else {
-    return false;
+  return false;
+}
+
+static bool SysPropSaysUffdGc() {
+  using android::base::GetProperty;
+  using android::base::ParseBool;
+  using android::base::ParseBoolResult;
+  switch (ParseBool(GetProperty("persist.device_config.runtime_native_boot.enable_uffd_gc", ""))) {
+    case ParseBoolResult::kError:
+      switch (ParseBool(GetProperty("ro.dalvik.vm.enable_uffd_gc", ""))) {
+        case ParseBoolResult::kError:
+        case ParseBoolResult::kFalse:
+          return false;
+        case ParseBoolResult::kTrue:
+          return true;
+      }
+    case ParseBoolResult::kFalse:
+      return false;
+    case ParseBoolResult::kTrue:
+      return true;
   }
 }
-#endif
 
-// The other cases are defined as a constexpr in runtime/read_barrier_config.h
-#ifndef ART_FORCE_USE_READ_BARRIER
-const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
-                             && !ShouldUseUserfaultfd();
-#ifdef ART_DEFAULT_GC_TYPE_IS_CMC
-const bool gUseUserfaultfd = !gUseReadBarrier;
+static bool ShouldUseUserfaultfd() {
+  CHECK(kUseBakerReadBarrier || kUseTableLookupReadBarrier);
+#ifdef __linux__
+  bool is_dex2oat = false;
+  if (CmdlineSaysUffdGc(&is_dex2oat)) {
+    return true;
+  } else if (!kIsTargetAndroid && is_dex2oat) {
+    return false;
+  } else if (SysPropSaysUffdGc()) {
+    int fd = syscall(__NR_userfaultfd, O_CLOEXEC | UFFD_USER_MODE_ONLY);
+    // On non-android devices we may not have the kernel patches that restrict
+    // userfaultfd to user mode. But that is not a security concern as we are
+    // on host. Therefore, attempt one more time without UFFD_USER_MODE_ONLY.
+    if (!kIsTargetAndroid && fd == -1 && errno == EINVAL) {
+      fd = syscall(__NR_userfaultfd, O_CLOEXEC);
+    }
+    if (fd >= 0) {
+      close(fd);
+      return true;
+    } else {
+      return false;
+    }
+  }
 #endif
+  return false;
+}
+
+const bool gUseUserfaultfd = ShouldUseUserfaultfd();
+const bool gUseReadBarrier = !gUseUserfaultfd;
 #endif
 
 namespace gc {

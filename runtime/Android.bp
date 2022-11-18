@@ -478,6 +478,7 @@ libart_cc_defaults {
         "libart_headers",
     ],
     whole_static_libs: [
+        "libc++fs", // For std::filesystem.
         "libcpu_features",
     ],
     shared_libs: [
