@@ -16,6 +16,52 @@
       "message": "Not really sure why the art tests are failing for host on Gerrit. It is failing to see the class in smali. Locally they are passing",
       "revId": "77c40c7a5553ad739b3950ed2412be5b4fd14ef6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbfe70b7_68375d9a",
+        "filename": "test/2245-checker-smali-instance-of-comparison/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-18T16:32:21Z",
+      "side": 1,
+      "message": "Drop",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 56
+      },
+      "revId": "77c40c7a5553ad739b3950ed2412be5b4fd14ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65ffcbe9_598e5e92",
+        "filename": "test/2245-checker-smali-instance-of-comparison/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-18T16:32:21Z",
+      "side": 1,
+      "message": "You can drop all these.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 59
+      },
+      "revId": "77c40c7a5553ad739b3950ed2412be5b4fd14ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
