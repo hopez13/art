@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef683bc8_755ecee0",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-18T20:07:50Z",
+      "side": 1,
+      "message": "\u0027reuse\u0027 terminology is used by mem-map to indicate a mapping which is not owned by mem-map in the sense that it will not unmap the mapping in the destructor.\n\nBy release here I mean unmapping.",
+      "parentUuid": "64fd6568_0ce082b4",
+      "range": {
+        "startLine": 293,
+        "startChar": 47,
+        "endLine": 294,
+        "endChar": 50
+      },
+      "revId": "b06c26bdf18da7a2baace11ed974785a248a1e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5de588b8_9d3d5e07",
@@ -83,6 +107,30 @@
       "writtenOn": "2022-11-16T02:12:14Z",
       "side": 1,
       "message": "Only kFallbackmode is used as a file descriptor? This seems like an odd way to set these. Maybe just set them to -1, -2, and -3, with kFallbackMode last, and explaining that that one is used as a file descriptor?",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 55
+      },
+      "revId": "b06c26bdf18da7a2baace11ed974785a248a1e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09e1422c_f8bb5e41",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-18T20:07:50Z",
+      "side": 1,
+      "message": "Sure. Will address in the next patch.",
+      "parentUuid": "6557f74f_cc973aa4",
       "range": {
         "startLine": 56,
         "startChar": 2,

@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c69fe708_ed9829ef",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-18T20:07:50Z",
+      "side": 1,
+      "message": "Agree with both points. I\u0027ll fix it in next patch.",
+      "parentUuid": "415f2071_f1a1b02f",
+      "range": {
+        "startLine": 129,
+        "startChar": 42,
+        "endLine": 130,
+        "endChar": 23
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ca00f69_c170404f",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 10
@@ -101,6 +125,30 @@
       "writtenOn": "2022-11-16T02:12:14Z",
       "side": 1,
       "message": "I think this is technically a C++20 feature, though C has had it much longer. Probably not an issue, and OK to leave.",
+      "range": {
+        "startLine": 152,
+        "startChar": 32,
+        "endLine": 154,
+        "endChar": 73
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06a90fd2_d247525c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-18T20:07:50Z",
+      "side": 1,
+      "message": "I actually wrote it with C in mind :) It\u0027s not causing any compilation issues.",
+      "parentUuid": "3ca00f69_c170404f",
       "range": {
         "startLine": 152,
         "startChar": 32,
@@ -160,6 +208,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16c03f86_ff0d52f1",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-18T20:07:50Z",
+      "side": 1,
+      "message": "Actually we don\u0027t run all GC cycles in copy-mode if we fail once here.\n\nThe way I have implemented is that we hold on to the mapping and keep trying, if required, to increase its size in every GC cycle. In which cycle the mapping is smaller than what we need, then we run that cycle in copy-mode.\n\nThis works because we switch to using MAP_SHARED (which works for both copy and well as minor-fault mode) as soon as we are done with zygote fork.",
+      "parentUuid": "a3896447_ffc46b11",
+      "range": {
+        "startLine": 244,
+        "startChar": 51,
+        "endLine": 245,
+        "endChar": 63
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39c34673_64c3a934",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 10
@@ -206,6 +278,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e54a8028_eb1a77da",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-18T20:07:50Z",
+      "side": 1,
+      "message": "That\u0027s because we set \u0027reuse\u0027 to true for this mapping. This means that MemMap will not unmap as part of reset.\n\nThe comment below needs to be fixed and explain this. I\u0027ll do that in next patch.",
+      "parentUuid": "903a5c9b_dc8968be",
+      "range": {
+        "startLine": 699,
+        "startChar": 15,
+        "endLine": 699,
+        "endChar": 79
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5605b43c_29d837db",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 10
@@ -234,6 +330,30 @@
       "writtenOn": "2022-11-16T02:12:14Z",
       "side": 1,
       "message": "I think these are only accessed as moving_space_fds_[0] and moving_space_fds_[1]. Can we give each of them its own name? As it stands, it\u0027s hard to follow what each one is for.",
+      "range": {
+        "startLine": 622,
+        "startChar": 2,
+        "endLine": 622,
+        "endChar": 38
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac8aabfb_da3175c4",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-18T20:07:50Z",
+      "side": 1,
+      "message": "Sure. Will do that in next patch.\n\nJust to clarify so that you can continue with the reviews, we have two file descriptors which are swapped at the end of GC cycle. The first descriptor points to the memfd used by to-space and its shadow, and the second one points to the memfd of from-space.",
+      "parentUuid": "86d8cbc7_1bc9eeff",
       "range": {
         "startLine": 622,
         "startChar": 2,
