@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88a8843e_ad983f45",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T17:20:48Z",
+      "side": 1,
+      "message": "By \"at runtime\", you mean when the device is running? This flag is not toggable when the device is running. Basically, it is determined by the kernel support and two system properties: `persist.device_config.runtime_native_boot.enable_uffd_gc` and `ro.dalvik.vm.enable_uffd_gc`. The former one is in the `runtime_native_boot` namespace, meaning it can only change on boot; the latter one is `ro`.",
+      "parentUuid": "c83d40cd_3ff91d95",
+      "range": {
+        "startLine": 920,
+        "startChar": 30,
+        "endLine": 920,
+        "endChar": 45
+      },
+      "revId": "494a66846c2a79d8391ea411a9b30e7e497e0c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6052de0b_f989d3ee",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-18T17:10:13Z",
       "side": 1,
       "message": "built",
+      "range": {
+        "startLine": 153,
+        "startChar": 41,
+        "endLine": 153,
+        "endChar": 46
+      },
+      "revId": "494a66846c2a79d8391ea411a9b30e7e497e0c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfd101c1_6d5222b7",
+        "filename": "odrefresh/odrefresh.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T17:20:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6052de0b_f989d3ee",
       "range": {
         "startLine": 153,
         "startChar": 41,
