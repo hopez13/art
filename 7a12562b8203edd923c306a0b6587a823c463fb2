@@ -43,6 +43,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b0b3cce_d4c9a3bd",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "You don\u0027t need std::filesystem for this. You can use `android::base::Basename`.",
+      "range": {
+        "startLine": 97,
+        "startChar": 11,
+        "endLine": 97,
+        "endChar": 22
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab6b1c0c_c3db8e40",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "Ideally, this should also be obtained from the runtime: `Runtime::IsCompiler()`.",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d8f518a_7bb52ac8",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 1
@@ -59,6 +105,237 @@
         "startChar": 0,
         "endLine": 103,
         "endChar": 15
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02e90809_825eb3a5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "I also suggested to get the GC type from the runtime when I was discussing this with Lokesh, but IIRC there seemed to be some check failure that prevented us from doing so. Lokesh, maybe you can explain what failure to Nicolas and ask him for advice?",
+      "parentUuid": "1d8f518a_7bb52ac8",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 15
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebb2277b_b899540e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "Move using\u0027s to the top of the file, put them in an anonymous namespace, and fully qualify them (i.e., add \"::\" at the beginning). go/totw/119",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 39
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e882ee30_afab4161",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "GetBoolProperty",
+      "range": {
+        "startLine": 110,
+        "startChar": 10,
+        "endLine": 110,
+        "endChar": 31
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2089f2d_6fc09630",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "Also use GetBoolProperty for this one and pass this as the default value to the GetBoolProperty call above.",
+      "range": {
+        "startLine": 112,
+        "startChar": 14,
+        "endLine": 112,
+        "endChar": 71
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0bdf145_e6db2c08",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "Can we static_assert?",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 7
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "259a1926_9f9ef3b6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "Let\u0027s get this value from a separate function to improve the readability. I know the current code is more efficient, but this code path is not performance-critical.",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 35
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4095564_0eda3150",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "I remember you wanted to respect all GC types, not just UFFD GC?",
+      "range": {
+        "startLine": 130,
+        "startChar": 6,
+        "endLine": 130,
+        "endChar": 23
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80401cbf_8625d4d8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "Nit: Move these lines to a separate function?",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 5
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60b7b7f2_4bf9b7d2",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "Can we static_assert that this is false? It seems undesired to use userfaultfd when ART_FORCE_USE_READ_BARRIER is defined.",
+      "range": {
+        "startLine": 78,
+        "startChar": 15,
+        "endLine": 78,
+        "endChar": 30
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "559efd03_d20cbe9a",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T11:43:32Z",
+      "side": 1,
+      "message": "Is CMC the official name of the userfaultfd GC?",
+      "range": {
+        "startLine": 82,
+        "startChar": 30,
+        "endLine": 82,
+        "endChar": 33
       },
       "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
