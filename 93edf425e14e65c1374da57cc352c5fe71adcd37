@@ -16,6 +16,46 @@
       "message": "Nicolas PTAL",
       "revId": "93edf425e14e65c1374da57cc352c5fe71adcd37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7386a2b_13cb968c",
+        "filename": "test/800-smali/expected-stdout.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-18T11:08:22Z",
+      "side": 1,
+      "message": "Can you move this to its own test instead of adding it to 800-smali. 800-smali isn\u0027t parallelizable and adding many tests to it is problematic.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 25
+      },
+      "revId": "93edf425e14e65c1374da57cc352c5fe71adcd37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf207312_0f0631bb",
+        "filename": "test/800-smali/smali/b_252804549.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-18T11:08:22Z",
+      "side": 1,
+      "message": "Missing copyright",
+      "revId": "93edf425e14e65c1374da57cc352c5fe71adcd37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
