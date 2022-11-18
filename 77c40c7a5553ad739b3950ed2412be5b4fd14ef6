@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb5d1077_4d739942",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-18T16:04:29Z",
+      "side": 1,
+      "message": "Not really sure why the art tests are failing for host on Gerrit. It is failing to see the class in smali. Locally they are passing",
+      "revId": "77c40c7a5553ad739b3950ed2412be5b4fd14ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
