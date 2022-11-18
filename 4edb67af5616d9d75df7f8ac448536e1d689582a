@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3943878d_b64dd2af",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-18T19:04:07Z",
+      "side": 1,
+      "message": "This stuff is new in ART, is there no space overhead of using it?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 52
+      },
+      "revId": "4edb67af5616d9d75df7f8ac448536e1d689582a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
