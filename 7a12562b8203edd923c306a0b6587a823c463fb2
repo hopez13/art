@@ -16,6 +16,52 @@
       "message": "Jiakai, is it possible to force a system property on host? I was wondering that after this change, if someone wants to run run-tests on host with uffd GC, how will that happen. Setting ART_USE_READ_BARRIER\u003dfalse does that, but it changes the behavior slightly (by using constexpr instead of static globals) as compared to having the default value (true) for this flag and yet be able to use uffd GC.",
       "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53df546c_dc53e43c",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-18T10:10:47Z",
+      "side": 1,
+      "message": "Let\u0027s not add a new dependency.",
+      "range": {
+        "startLine": 481,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 43
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d8f518a_7bb52ac8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-18T10:10:47Z",
+      "side": 1,
+      "message": "This isn\u0027t right :) Surely you can get the argument from the runtime.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 15
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
