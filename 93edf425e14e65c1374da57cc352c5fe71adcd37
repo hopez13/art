@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca37207f_29c60085",
+        "filename": "test/800-smali/expected-stdout.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-18T11:24:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7386a2b_13cb968c",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 25
+      },
+      "revId": "93edf425e14e65c1374da57cc352c5fe71adcd37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf207312_0f0631bb",
@@ -54,6 +78,24 @@
       "writtenOn": "2022-11-18T11:08:22Z",
       "side": 1,
       "message": "Missing copyright",
+      "revId": "93edf425e14e65c1374da57cc352c5fe71adcd37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31721dc1_15bb1d45",
+        "filename": "test/800-smali/smali/b_252804549.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-18T11:24:20Z",
+      "side": 1,
+      "message": "Done.\n\nThe smali file I copied it from didn\u0027t have a copyright btw. Not sure if we want to retroactively add them.",
+      "parentUuid": "cf207312_0f0631bb",
       "revId": "93edf425e14e65c1374da57cc352c5fe71adcd37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
