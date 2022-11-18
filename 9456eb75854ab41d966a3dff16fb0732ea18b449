@@ -16,6 +16,24 @@
       "message": "Interesting, you are building directly on the host where the device lives?\nhttps://ci.chromium.org/ui/p/art/builders/ci/angler-armv7-non-gen-cc/2475/overview\n\nLooking at bot that ran this build, it has a \"builder\" dimension;\nhttps://chromium-swarm.appspot.com/bot?id\u003dbuild347-a9--device5\n\nYou may want to switch away from having a builders dimension toward specifying capabilities that you need, e.g. having a specific device attached (this CL) but also the host os, CPU arch if relevant (e.g. MBP M1), etc.",
       "revId": "9456eb75854ab41d966a3dff16fb0732ea18b449",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd678e17_a49c0ff7",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-18T23:15:43Z",
+      "side": 1,
+      "message": "Thanks!\n\nYes, we build directly on the bot.  I quite sub-optimal, I know.  We have incremental builds, but even with that it is slow.  I am thinking that if we could enable RBE, it would be much better.  Or I know we can build on separate bot and copy the data over, but the is quite a steep learning curve.  I wouldn\u0027t know where to start.\n\nI see, the \"builder\" here is just arbitrary user defined string?  I have trying to find the other end (is that configs/chromium-swarm/bots.cfg ?)  In that case yes, we need only very few dimensions.  I can try to rename those.\n\nWe also have the issue that all of the names are obsolete.  (e.g. Nexus 6P is Nexus from 2015; we have not been using that for ages).  We would like to rename all of those, but I not quite sure what are all the paces that need to change, and I worry we might break the console in the meantime.  Nonetheless, I should probably try to do that as well.",
+      "parentUuid": "04cc3a09_4b25f824",
+      "revId": "9456eb75854ab41d966a3dff16fb0732ea18b449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
