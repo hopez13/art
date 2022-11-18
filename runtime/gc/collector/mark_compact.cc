@@ -16,10 +16,13 @@
 
 #include "mark_compact-inl.h"
 
+#include "android-base/file.h"
+#include "android-base/properties.h"
 #include "base/quasi_atomic.h"
 #include "base/systrace.h"
 #include "base/utils.h"
 #include "gc/accounting/mod_union_table-inl.h"
+#include "gc/collector_type.h"
 #include "gc/reference_processor.h"
 #include "gc/space/bump_pointer_space.h"
 #include "gc/task_processor.h"
@@ -36,6 +39,7 @@
 #include <sys/ioctl.h>
 #include <sys/mman.h>
 #include <unistd.h>
+
 #include <fstream>
 #include <numeric>
 
@@ -57,6 +61,12 @@
 #endif
 #endif  // __NR_userfaultfd
 #endif  // __BIONIC__
+
+namespace {
+
+using ::android::base::GetBoolProperty;
+
+}
 
 namespace art {
 
@@ -82,11 +92,33 @@ static bool gHaveMremapDontunmap = IsKernelVersionAtLeast(5, 13) || HaveMremapDo
 // userfaultfd is enabled.
 static const bool gKernelHasFaultRetry = kIsTargetAndroid || IsKernelVersionAtLeast(5, 7);
 
-#ifndef ART_FORCE_USE_READ_BARRIER
-static bool ShouldUseUserfaultfd() {
-#if !defined(__linux__)
-  return false;
-#endif
+// The other cases are defined as constexpr in runtime/read_barrier_config.h
+#if !defined(ART_FORCE_USE_READ_BARRIER) && defined(ART_USE_READ_BARRIER)
+// Returns a pair of boolean and collector-type wherein first entry indicates if
+// this is a dex2oat process and second entry is set to CMC/CC if they are asked
+// for on the cmdline, otherwise none.
+static std::pair<bool, gc::CollectorType> FetchCmdlineProcessAndGcType() {
+  std::string argv;
+  bool is_dex2oat = false;
+  gc::CollectorType gc_type = gc::CollectorType::kCollectorTypeNone;
+  if (android::base::ReadFileToString("/proc/self/cmdline", &argv)) {
+    // Check if it's dex2oat. Elements are delimited by '\0'.
+    is_dex2oat = android::base::Basename(argv.substr(0, argv.find('\0'))).find("dex2oat") == 0;
+    if (argv.find("-Xgc:CMC") != std::string::npos) {
+      gc_type = gc::CollectorType::kCollectorTypeCMC;
+    } else if (argv.find("-Xgc:CC") != std::string::npos) {
+      gc_type = gc::CollectorType::kCollectorTypeCC;
+    }
+  }
+  return std::make_pair(is_dex2oat, gc_type);
+}
+
+static bool SysPropSaysUffdGc() {
+  return GetBoolProperty("persist.device_config.runtime_native_boot.enable_uffd_gc",
+                         GetBoolProperty("ro.dalvik.vm.enable_uffd_gc", false));
+}
+
+static bool KernelSupportsUffd() {
   int fd = syscall(__NR_userfaultfd, O_CLOEXEC | UFFD_USER_MODE_ONLY);
   // On non-android devices we may not have the kernel patches that restrict
   // userfaultfd to user mode. But that is not a security concern as we are
@@ -101,15 +133,28 @@ static bool ShouldUseUserfaultfd() {
     return false;
   }
 }
-#endif
 
-// The other cases are defined as a constexpr in runtime/read_barrier_config.h
-#ifndef ART_FORCE_USE_READ_BARRIER
-const bool gUseReadBarrier = (kUseBakerReadBarrier || kUseTableLookupReadBarrier)
-                             && !ShouldUseUserfaultfd();
-#ifdef ART_DEFAULT_GC_TYPE_IS_CMC
-const bool gUseUserfaultfd = !gUseReadBarrier;
+static bool ShouldUseUserfaultfd() {
+  static_assert(kUseBakerReadBarrier || kUseTableLookupReadBarrier);
+#ifdef __linux__
+  std::pair<bool, gc::CollectorType> cmdline_info = FetchCmdlineProcessAndGcType();
+  // Use CMC/CC if that is being explicitly asked for on cmdline.
+  if (cmdline_info.second == gc::CollectorType::kCollectorTypeCMC) {
+    return true;
+  } else if (cmdline_info.second == gc::CollectorType::kCollectorTypeCC) {
+    return false;
+  } else if (!kIsTargetAndroid && cmdline_info.first) {
+    // For host dex2oat always use CC.
+    return false;
+  } else if (SysPropSaysUffdGc() && KernelSupportsUffd()) {
+    return true;
+  }
 #endif
+  return false;
+}
+
+const bool gUseUserfaultfd = ShouldUseUserfaultfd();
+const bool gUseReadBarrier = !gUseUserfaultfd;
 #endif
 
 namespace gc {
