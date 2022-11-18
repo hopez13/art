@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc4fd96a_2cbd60f7",
+        "filename": "test/2245-smali-instance-of-comparison/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-18T11:31:22Z",
+      "side": 1,
+      "message": "It\u0027s not just about invoking but also getting the right result and making sure it does get compiled. Do you think I should just change it to an invoke?",
+      "parentUuid": "dffa8d02_6c95ccd1",
+      "revId": "3263e85a8c2eee80f0915179ba47d73369ace992",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c35a90a3_b349c88a",
