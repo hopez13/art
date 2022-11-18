@@ -208,6 +208,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6346dd10_32872319",
+        "filename": "runtime/arch/x86/fault_handler_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-18T10:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e242c771_3827275d",
+      "range": {
+        "startLine": 297,
+        "startChar": 54,
+        "endLine": 297,
+        "endChar": 77
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7265c36_071aeecf",
@@ -375,6 +399,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81b49059_b8dec39f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 10364,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-18T10:52:11Z",
+      "side": 1,
+      "message": "Done.\n\nAlso made the code more robust if other GC types are actually in Runnable state. This shall make the cleanup easier as we can deal with each GC on its own.",
+      "parentUuid": "af214423_a872bad5",
+      "range": {
+        "startLine": 10363,
+        "startChar": 4,
+        "endLine": 10364,
+        "endChar": 76
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f610755_14cb77c6",
@@ -530,6 +578,30 @@
       "side": 1,
       "message": "This seems to get into tricky memory model corners. Assume a thread adds two ranges and then removes the first one. A second thread asynchronously calls IsInGenerated Range. The second thread does an acquire load on the list head and sees the formerly second added range. But that was strored with a relaxed store. So there is no synchronizes-with relationship between the writer and the reader. So at a minimum all stores to the head of the list have to be release stores.\n\nThis argument ignores the fences. (See my comment in AddGeneratedCodeRange.) But I suspect they don\u0027t actually figure in here?",
       "parentUuid": "905a2184_a5816ed4",
+      "range": {
+        "startLine": 335,
+        "startChar": 29,
+        "endLine": 335,
+        "endChar": 54
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74bfefe6_4475bd03",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-18T10:52:11Z",
+      "side": 1,
+      "message": "No, the `std::atomic_thread_fence()`s are not relevant for this.\n\nThe second thread uses load-acquire on `generated_code_ranges_` (we never use relaxed operations on the list head), so it has memory visibility of all the ranges added before the corresponding store-release. The only operation allowed on that memory is to change the `next` link to skip some nodes where we no longer expect any faults. For the walking thread, it should not matter whether it sees the old value or the new value of the `next` node as visiting the removed node should not matter (the `start` and `size` are constant and should not match, the `next` can have its original value or skip one or more removed nodes).\n\n(There is also a question of the `next` links visibility for threads that fault after the removal but that is handled by the checkpoint.)",
+      "parentUuid": "624cd210_af5996fb",
       "range": {
         "startLine": 335,
         "startChar": 29,

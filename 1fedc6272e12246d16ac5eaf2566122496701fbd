@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88be80cc_60497085",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-18T10:52:11Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the intent and I\u0027m relying on the \"Fence-fence synchronization\" described at https://en.cppreference.com/w/cpp/atomic/atomic_thread_fence to ensure the visibility of the required `generated_code_ranges_` write (or a subsequent one). I\u0027m pretty sure this works when only two threads are involved. But I\u0027m not sure if the visibility is guaranteed for three threads.\nT1: stores `generated_code_ranges_`, issues release fence, stores object reference in location1.\nT2: loads object reference from location1, stores it in location2.\nT3: loads object reference from location2, uses it to execute code from the oat file, faults and issues acquire fence.\n\nOnce the thread sees that write, the visibility of actual data is guaranteed by the release and acquire operations on `generated_code_ranges_`.",
+      "parentUuid": "ef692c9e_e9400797",
+      "range": {
+        "startLine": 244,
+        "startChar": 29,
+        "endLine": 248,
+        "endChar": 36
+      },
+      "revId": "1fedc6272e12246d16ac5eaf2566122496701fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d14614d_6f0a0f2e",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 12
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-17T04:35:35Z",
       "side": 1,
       "message": "delete",
+      "range": {
+        "startLine": 408,
+        "startChar": 46,
+        "endLine": 408,
+        "endChar": 48
+      },
+      "revId": "1fedc6272e12246d16ac5eaf2566122496701fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10a066fb_33083554",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-18T10:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d14614d_6f0a0f2e",
       "range": {
         "startLine": 408,
         "startChar": 46,
