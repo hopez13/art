@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04cc3a09_4b25f824",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1002560
+      },
+      "writtenOn": "2022-11-18T21:25:13Z",
+      "side": 1,
+      "message": "Interesting, you are building directly on the host where the device lives?\nhttps://ci.chromium.org/ui/p/art/builders/ci/angler-armv7-non-gen-cc/2475/overview\n\nLooking at bot that ran this build, it has a \"builder\" dimension;\nhttps://chromium-swarm.appspot.com/bot?id\u003dbuild347-a9--device5\n\nYou may want to switch away from having a builders dimension toward specifying capabilities that you need, e.g. having a specific device attached (this CL) but also the host os, CPU arch if relevant (e.g. MBP M1), etc.",
+      "revId": "9456eb75854ab41d966a3dff16fb0732ea18b449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
