@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "dffa8d02_6c95ccd1",
+        "filename": "test/2245-smali-instance-of-comparison/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-18T11:28:52Z",
+      "side": 1,
+      "message": "That\u0027s a lot of code for just doing:\n\nClass.forName(\"B252804549\").invoke(\"compareInstanceOfWithTwo\", ...);\n\n;-)",
+      "revId": "3263e85a8c2eee80f0915179ba47d73369ace992",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c35a90a3_b349c88a",
