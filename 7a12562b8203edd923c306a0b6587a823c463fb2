@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "327b6de6_15f3bd2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-18T08:58:09Z",
+      "side": 1,
+      "message": "Jiakai, is it possible to force a system property on host? I was wondering that after this change, if someone wants to run run-tests on host with uffd GC, how will that happen. Setting ART_USE_READ_BARRIER\u003dfalse does that, but it changes the behavior slightly (by using constexpr instead of static globals) as compared to having the default value (true) for this flag and yet be able to use uffd GC.",
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
