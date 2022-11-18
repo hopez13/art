@@ -46,6 +46,30 @@
       },
       "revId": "ca8668f5f8ad010761230e8883d7757d337cc30c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4d91134_50485b77",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2022-11-18T18:01:33Z",
+      "side": 1,
+      "message": "Reintegrating this change here, as per the discussion in https://android-review.git.corp.google.com/c/platform/art/+/2307103/comments/182973de_b7963fbf.",
+      "parentUuid": "3a680fa8_80c04c3b",
+      "range": {
+        "startLine": 10,
+        "startChar": 63,
+        "endLine": 11,
+        "endChar": 25
+      },
+      "revId": "ca8668f5f8ad010761230e8883d7757d337cc30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
