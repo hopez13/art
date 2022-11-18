@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51dc9577_7a5c68a7",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-18T17:24:28Z",
+      "side": 1,
+      "message": "Or, you mean what if `persist.device_config.runtime_native_boot.enable_uffd_gc` is changed after a reboot? Then `CheckSystemPropertiesAreDefault` will fail, so this code won\u0027t be reached.",
+      "parentUuid": "88a8843e_ad983f45",
+      "range": {
+        "startLine": 920,
+        "startChar": 30,
+        "endLine": 920,
+        "endChar": 45
+      },
+      "revId": "494a66846c2a79d8391ea411a9b30e7e497e0c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6052de0b_f989d3ee",
