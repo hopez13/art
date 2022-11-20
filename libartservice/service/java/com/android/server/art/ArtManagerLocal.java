@@ -15,7 +15,6 @@
  */
 
 package com.android.server.art;
-
 import android.annotation.SystemApi;
 
 /**
@@ -25,7 +24,7 @@ import android.annotation.SystemApi;
  */
 @SystemApi(client = SystemApi.Client.SYSTEM_SERVER)
 public final class ArtManagerLocal {
-    private static final String TAG = "ArtService";
+  private static final String TAG = "ArtService";
 
-    public ArtManagerLocal() {}
+  public ArtManagerLocal() {}
 }

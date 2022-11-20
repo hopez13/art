@@ -23,7 +23,7 @@
 
 namespace art {
 
-template<>
+template <>
 struct CmdlineType<InstructionSet> : CmdlineTypeParser<InstructionSet> {
   Result Parse(const std::string& option) {
     InstructionSet set = GetInstructionSetFromString(option.c_str());
@@ -37,14 +37,14 @@ struct CmdlineType<InstructionSet> : CmdlineTypeParser<InstructionSet> {
   static const char* DescribeType() { return "arm|arm64|x86|x86_64|none"; }
 };
 
-#define COMPILER_OPTIONS_MAP_TYPE Dex2oatArgumentMap
+#define COMPILER_OPTIONS_MAP_TYPE     Dex2oatArgumentMap
 #define COMPILER_OPTIONS_MAP_KEY_TYPE Dex2oatArgumentMapKey
 #include "driver/compiler_options_map-storage.h"
 
 // Specify storage for the Dex2oatOptions keys.
 
 #define DEX2OAT_OPTIONS_KEY(Type, Name, ...) \
-  const Dex2oatArgumentMap::Key<Type> Dex2oatArgumentMap::Name {__VA_ARGS__};
+  const Dex2oatArgumentMap::Key<Type> Dex2oatArgumentMap::Name{__VA_ARGS__};
 #include "dex2oat_options.def"
 
 #pragma GCC diagnostic push
