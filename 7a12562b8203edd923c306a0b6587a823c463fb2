@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3e6cdc5_d2059391",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53df546c_dc53e43c",
+      "range": {
+        "startLine": 481,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 43
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b0b3cce_d4c9a3bd",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cef9e19_951a980f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Thanks for the suggestion.",
+      "parentUuid": "1b0b3cce_d4c9a3bd",
+      "range": {
+        "startLine": 97,
+        "startChar": 11,
+        "endLine": 97,
+        "endChar": 22
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab6b1c0c_c3db8e40",
@@ -77,6 +125,30 @@
       "writtenOn": "2022-11-18T11:43:32Z",
       "side": 1,
       "message": "Ideally, this should also be obtained from the runtime: `Runtime::IsCompiler()`.",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47462d90_3d40b2c0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "We can\u0027t do that because this initialization is going to happen even before runtime is constructed. I tried it before and it failed.",
+      "parentUuid": "ab6b1c0c_c3db8e40",
       "range": {
         "startLine": 98,
         "startChar": 6,
@@ -136,6 +208,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b404062_1474dc56",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Yeah. Initialization of these flags happen quite early. By that time the runtime is not constructed. So the only option is to parse the cmdline and fetch this info.",
+      "parentUuid": "02e90809_825eb3a5",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 15
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ebb2277b_b899540e",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 1
@@ -147,6 +243,30 @@
       "writtenOn": "2022-11-18T11:43:32Z",
       "side": 1,
       "message": "Move using\u0027s to the top of the file, put them in an anonymous namespace, and fully qualify them (i.e., add \"::\" at the beginning). go/totw/119",
+      "range": {
+        "startLine": 107,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 39
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45c6ab4a_0a4abbb6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebb2277b_b899540e",
       "range": {
         "startLine": 107,
         "startChar": 2,
@@ -180,6 +300,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b59d874_cc9ed51a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e882ee30_afab4161",
+      "range": {
+        "startLine": 110,
+        "startChar": 10,
+        "endLine": 110,
+        "endChar": 31
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2089f2d_6fc09630",
@@ -203,6 +347,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12477d60_eae2c2d3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2089f2d_6fc09630",
+      "range": {
+        "startLine": 112,
+        "startChar": 14,
+        "endLine": 112,
+        "endChar": 71
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0bdf145_e6db2c08",
@@ -216,6 +384,30 @@
       "writtenOn": "2022-11-18T11:43:32Z",
       "side": 1,
       "message": "Can we static_assert?",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 7
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43fec0e1_2deb7e83",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0bdf145_e6db2c08",
       "range": {
         "startLine": 127,
         "startChar": 2,
@@ -274,6 +466,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "381fa499_5ae9a948",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Reading from /proc/self/cmdline twice is an overkill. So I have made the function return a pair with the required information. PTAL.",
+      "parentUuid": "259a1926_9f9ef3b6",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 35
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4803043_dc1081d6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "When ART_USE_READ_BARRIER is true, we support only uffd GC or CC. I have made changes to incorporate that.\n\nNow since we do host dex2oat always with CC and uffd GC can handle read-barriers, I\u0027m able to run run-tests on host with either GCs.",
+      "parentUuid": "b4095564_0eda3150",
+      "range": {
+        "startLine": 130,
+        "startChar": 6,
+        "endLine": 130,
+        "endChar": 23
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "80401cbf_8625d4d8",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 1
@@ -285,6 +525,30 @@
       "writtenOn": "2022-11-18T11:43:32Z",
       "side": 1,
       "message": "Nit: Move these lines to a separate function?",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 5
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a999b5a_95c49310",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80401cbf_8625d4d8",
       "range": {
         "startLine": 135,
         "startChar": 4,
@@ -318,6 +582,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de9ec146_730e3004",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60b7b7f2_4bf9b7d2",
+      "range": {
+        "startLine": 78,
+        "startChar": 15,
+        "endLine": 78,
+        "endChar": 30
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "559efd03_d20cbe9a",
@@ -331,6 +619,30 @@
       "writtenOn": "2022-11-18T11:43:32Z",
       "side": 1,
       "message": "Is CMC the official name of the userfaultfd GC?",
+      "range": {
+        "startLine": 82,
+        "startChar": 30,
+        "endLine": 82,
+        "endChar": 33
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a60f632_dedcd4ad",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-20T03:24:58Z",
+      "side": 1,
+      "message": "Internally. It\u0027s a more generic name: \"Concurrent Mark Compact\". That\u0027s because a concurrent mark compact doesn\u0027t depend on userfaultfd.",
+      "parentUuid": "559efd03_d20cbe9a",
       "range": {
         "startLine": 82,
         "startChar": 30,
