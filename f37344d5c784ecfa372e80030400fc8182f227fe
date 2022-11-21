@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc500c88_98afda0e",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-21T11:57:48Z",
+      "side": 1,
+      "message": "Maybe add a helper for this? `art::WellKnownClasses::GetThreadClass` ?",
+      "range": {
+        "startLine": 195,
+        "startChar": 6,
+        "endLine": 195,
+        "endChar": 72
+      },
+      "revId": "f37344d5c784ecfa372e80030400fc8182f227fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "580bb0d9_68ce49d2",
+        "filename": "openjdkjvmti/ti_threadgroup.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-21T11:57:48Z",
+      "side": 1,
+      "message": "ditto about a helper",
+      "range": {
+        "startLine": 100,
+        "startChar": 19,
+        "endLine": 100,
+        "endChar": 88
+      },
+      "revId": "f37344d5c784ecfa372e80030400fc8182f227fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
