@@ -16,6 +16,29 @@
       "message": "Thank you!",
       "revId": "6132491e731483ea3830013739990e014f11be3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83c760e1_e203173c",
+        "filename": "test/default_run.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-11-21T12:21:41Z",
+      "side": 1,
+      "message": "Traditionally we\u0027ve used `isatty` type determination (e.g. L312)? The latter would also work on the command-line if someone is piping output.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "6132491e731483ea3830013739990e014f11be3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
