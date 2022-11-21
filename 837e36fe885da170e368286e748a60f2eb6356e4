@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eda1be09_2418c933",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-11-21T13:39:37Z",
+      "side": 1,
+      "message": "Overall looks very reasonable. Some thoughts.",
+      "revId": "837e36fe885da170e368286e748a60f2eb6356e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbe5a1b6_326c95fd",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-11-21T13:39:37Z",
+      "side": 1,
+      "message": "I probably wouldn\u0027t fatal here. Seems a bit excessive.",
+      "range": {
+        "startLine": 160,
+        "startChar": 48,
+        "endLine": 161,
+        "endChar": 44
+      },
+      "revId": "837e36fe885da170e368286e748a60f2eb6356e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8474010f_9150ecae",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-11-21T13:39:37Z",
+      "side": 1,
+      "message": "nit: inline",
+      "range": {
+        "startLine": 162,
+        "startChar": 3,
+        "endLine": 164,
+        "endChar": 19
+      },
+      "revId": "837e36fe885da170e368286e748a60f2eb6356e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7579aa6d_529ab0c2",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-11-21T13:39:37Z",
+      "side": 1,
+      "message": "bool verify_session_id_ \u003d false. You rarely want const varaibles.",
+      "range": {
+        "startLine": 252,
+        "startChar": 9,
+        "endLine": 253,
+        "endChar": 32
+      },
+      "revId": "837e36fe885da170e368286e748a60f2eb6356e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d19e5585_a5f4d157",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-11-21T13:39:37Z",
+      "side": 1,
+      "message": "Can we use a longer trigger name here? One including telemetry as the owner (similar to the slow start ones).",
+      "range": {
+        "startLine": 1087,
+        "startChar": 63,
+        "endLine": 1087,
+        "endChar": 71
+      },
+      "revId": "837e36fe885da170e368286e748a60f2eb6356e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
