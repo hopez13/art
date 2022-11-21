@@ -44,9 +44,8 @@
 #include "nativehelper/scoped_local_ref.h"
 #include "nativehelper/scoped_utf_chars.h"
 #include "nativeloader/native_loader.h"
-#include "object_callbacks.h"
 #include "parsed_options.h"
-#include "runtime-inl.h"
+#include "runtime.h"
 #include "runtime_options.h"
 #include "scoped_thread_state_change-inl.h"
 #include "sigchain.h"
@@ -504,10 +503,10 @@ JavaVMExt::JavaVMExt(Runtime* runtime, const RuntimeArgumentMap& runtime_options
       tracing_enabled_(runtime_options.Exists(RuntimeArgumentMap::JniTrace)
                        || VLOG_IS_ON(third_party_jni)),
       trace_(runtime_options.GetOrDefault(RuntimeArgumentMap::JniTrace)),
-      globals_(kGlobal, IndirectReferenceTable::ResizableCapacity::kNo),
+      globals_(kGlobal),
       libraries_(new Libraries),
       unchecked_functions_(&gJniInvokeInterface),
-      weak_globals_(kWeakGlobal, IndirectReferenceTable::ResizableCapacity::kNo),
+      weak_globals_(kWeakGlobal),
       allow_accessing_weak_globals_(true),
       weak_globals_add_condition_("weak globals add condition",
                                   (CHECK(Locks::jni_weak_globals_lock_ != nullptr),
@@ -538,7 +537,7 @@ std::unique_ptr<JavaVMExt> JavaVMExt::Create(Runtime* runtime,
   if (!java_vm->Initialize(error_msg)) {
     return nullptr;
   }
-  return java_vm;
+  return std::move(java_vm);
 }
 
 jint JavaVMExt::HandleGetEnv(/*out*/void** env, jint version) {
@@ -695,7 +694,7 @@ jobject JavaVMExt::AddGlobalRef(Thread* self, ObjPtr<mirror::Object> obj) {
   std::string error_msg;
   {
     WriterMutexLock mu(self, *Locks::jni_globals_lock_);
-    ref = globals_.Add(kIRTFirstSegment, obj, &error_msg);
+    ref = globals_.Add(obj, &error_msg);
     MaybeTraceGlobals();
   }
   if (UNLIKELY(ref == nullptr)) {
@@ -731,7 +730,7 @@ jweak JavaVMExt::AddWeakGlobalRef(Thread* self, ObjPtr<mirror::Object> obj) {
     WaitForWeakGlobalsAccess(self);
   }
   std::string error_msg;
-  IndirectRef ref = weak_globals_.Add(kIRTFirstSegment, obj, &error_msg);
+  IndirectRef ref = weak_globals_.Add(obj, &error_msg);
   MaybeTraceWeakGlobals();
   if (UNLIKELY(ref == nullptr)) {
     LOG(FATAL) << error_msg;
@@ -746,7 +745,7 @@ void JavaVMExt::DeleteGlobalRef(Thread* self, jobject obj) {
   }
   {
     WriterMutexLock mu(self, *Locks::jni_globals_lock_);
-    if (!globals_.Remove(kIRTFirstSegment, obj)) {
+    if (!globals_.Remove(obj)) {
       LOG(WARNING) << "JNI WARNING: DeleteGlobalRef(" << obj << ") "
                    << "failed to find entry";
     }
@@ -760,7 +759,7 @@ void JavaVMExt::DeleteWeakGlobalRef(Thread* self, jweak obj) {
     return;
   }
   MutexLock mu(self, *Locks::jni_weak_globals_lock_);
-  if (!weak_globals_.Remove(kIRTFirstSegment, obj)) {
+  if (!weak_globals_.Remove(obj)) {
     LOG(WARNING) << "JNI WARNING: DeleteWeakGlobalRef(" << obj << ") "
                  << "failed to find entry";
   }
@@ -831,7 +830,7 @@ void JavaVMExt::BroadcastForNewWeakGlobals() {
 }
 
 ObjPtr<mirror::Object> JavaVMExt::DecodeGlobal(IndirectRef ref) {
-  return globals_.SynchronizedGet(ref);
+  return globals_.Get(ref);
 }
 
 void JavaVMExt::UpdateGlobal(Thread* self, IndirectRef ref, ObjPtr<mirror::Object> result) {
@@ -848,7 +847,7 @@ ObjPtr<mirror::Object> JavaVMExt::DecodeWeakGlobal(Thread* self, IndirectRef ref
   // if MayAccessWeakGlobals is false.
   DCHECK_EQ(IndirectReferenceTable::GetIndirectRefKind(ref), kWeakGlobal);
   if (LIKELY(MayAccessWeakGlobals(self))) {
-    return weak_globals_.SynchronizedGet(ref);
+    return weak_globals_.Get(ref);
   }
   MutexLock mu(self, *Locks::jni_weak_globals_lock_);
   return DecodeWeakGlobalLocked(self, ref);
@@ -876,7 +875,7 @@ ObjPtr<mirror::Object> JavaVMExt::DecodeWeakGlobalDuringShutdown(Thread* self, I
   if (!gUseReadBarrier) {
     DCHECK(allow_accessing_weak_globals_.load(std::memory_order_seq_cst));
   }
-  return weak_globals_.SynchronizedGet(ref);
+  return weak_globals_.Get(ref);
 }
 
 bool JavaVMExt::IsWeakGlobalCleared(Thread* self, IndirectRef ref) {

@@ -220,7 +220,7 @@ class JavaVMExt : public JavaVM {
   static jstring GetLibrarySearchPath(JNIEnv* env, jobject class_loader);
 
  private:
-  // The constructor should not be called directly. Use `Create()` that initializes
+  // The constructor should not be called directly. Use `Create` that initializes
   // the new `JavaVMExt` object by calling `Initialize()`.
   JavaVMExt(Runtime* runtime, const RuntimeArgumentMap& runtime_options);
 
