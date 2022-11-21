@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "54b97e8f_5e49444e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-21T11:12:48Z",
+      "side": 1,
+      "message": "I don\u0027t doubt that this initialization happens very early. The question is why gUseReadBarrier/gUseUserfaultfd have to be determined that early. Can we initialize gUseReadBarrier/gUseUserfaultfd without parsing cmdline flags, and then update them as soon as this information is available in runtime options (e.g., in `Runtime::Init`)?\n\nI\u0027m not familiar with how the runtime initializes, so I may be commenting nonsense. Please talk to Nicolas for advice.",
+      "parentUuid": "47462d90_3d40b2c0",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d8f518a_7bb52ac8",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 1
@@ -243,6 +267,30 @@
       "writtenOn": "2022-11-21T09:18:04Z",
       "side": 1,
       "message": "Ack, please add that as a comment in FetchCmdlineProcessAndGcType",
+      "parentUuid": "8b404062_1474dc56",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 15
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42ac3473_1481bf1b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-21T11:12:48Z",
+      "side": 1,
+      "message": "See my comment above.",
       "parentUuid": "8b404062_1474dc56",
       "range": {
         "startLine": 93,
@@ -536,6 +584,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4786e07_8134ba34",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-21T11:12:48Z",
+      "side": 1,
+      "message": "That works too. Thank you.",
+      "parentUuid": "381fa499_5ae9a948",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 35
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80401cbf_8625d4d8",
@@ -667,6 +739,30 @@
       "side": 1,
       "message": "Internally. It\u0027s a more generic name: \"Concurrent Mark Compact\". That\u0027s because a concurrent mark compact doesn\u0027t depend on userfaultfd.",
       "parentUuid": "559efd03_d20cbe9a",
+      "range": {
+        "startLine": 82,
+        "startChar": 30,
+        "endLine": 82,
+        "endChar": 33
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52e0d7d3_36103b22",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-21T11:12:48Z",
+      "side": 1,
+      "message": "Thanks for the explanation. I\u0027m wondering if we need a more specific name for the userfaultfd GC to avoid the confusion. Does ART has a CMC implementation that depends on userfaultfd and another CMC implementation that doesn\u0027t? Then using the same name for both implementations is confusing. Or, is the userfaultfd implementation the only CMC implementation in ART?",
+      "parentUuid": "6a60f632_dedcd4ad",
       "range": {
         "startLine": 82,
         "startChar": 30,
