@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd8da4b5_1bc99db8",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-21T12:44:01Z",
+      "side": 1,
+      "message": "I don\u0027t want to use such helper here.\n\nI\u0027m instead thinking about introducing another helper `ArtMethod::NewObject(Args... args)` that takes `Handle\u003c\u003e`s instead of `ObjPtr\u003c\u003e` and bundles the allocation together with the constructor call. (And I\u0027m thinking whether to have a separate file `art_method-alloc-inl.h` to avoid #including `class-alloc-inl.h` from `art_method-inl.h`.)",
+      "parentUuid": "fc500c88_98afda0e",
+      "range": {
+        "startLine": 195,
+        "startChar": 6,
+        "endLine": 195,
+        "endChar": 72
+      },
+      "revId": "f37344d5c784ecfa372e80030400fc8182f227fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "580bb0d9_68ce49d2",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-21T11:57:48Z",
       "side": 1,
       "message": "ditto about a helper",
+      "range": {
+        "startLine": 100,
+        "startChar": 19,
+        "endLine": 100,
+        "endChar": 88
+      },
+      "revId": "f37344d5c784ecfa372e80030400fc8182f227fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a6c5d2e_733594fc",
+        "filename": "openjdkjvmti/ti_threadgroup.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-21T12:44:01Z",
+      "side": 1,
+      "message": "I\u0027m not too keen on #including `art_method-inl.h` from `well_known_classes.h`, or making an out-of-line helper for this. We do not have a `well_known_classes-inl.h` yet, so I may introduce such file for this helper but that\u0027s something for another CL.",
+      "parentUuid": "580bb0d9_68ce49d2",
       "range": {
         "startLine": 100,
         "startChar": 19,
