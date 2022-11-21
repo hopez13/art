@@ -34,6 +34,24 @@
       "parentUuid": "04cc3a09_4b25f824",
       "revId": "9456eb75854ab41d966a3dff16fb0732ea18b449",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c064abe5_3e197cab",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-21T19:43:39Z",
+      "side": 1,
+      "message": "Hi!  Can you please help me with the dimensions please?\n\nI think `os\u003d\u003dLinux` vs `os\u003d\u003dAndroid` is the main split for us.\n\nHowever we also need to distinguish ARM vs x86 Android devices, and I don\u0027t see a way to do that other then enumerating device names, but that is going to break when someone connects \"Pixel N+1\" next year to the devices pool.\n\n(for what it is worth, x86 Android is on life support for us, so also `device_type\u003d\u003dfugu` and `device_type!\u003dfugu` would work for us as well, but not sure if it is possible to express negative dimensions)",
+      "parentUuid": "dd678e17_a49c0ff7",
+      "revId": "9456eb75854ab41d966a3dff16fb0732ea18b449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
