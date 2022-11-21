@@ -22,6 +22,30 @@
       },
       "revId": "62d62756f9ced428e74c399e2904ab86ae116544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76a55e5e_14b032e4",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-21T12:55:45Z",
+      "side": 1,
+      "message": "I\u0027d rather not use the `BufferedRootVisitor\u003c\u003e` here as we already have all references in a flat \"buffer\" anyway.",
+      "parentUuid": "61046839_e2816979",
+      "range": {
+        "startLine": 544,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 3
+      },
+      "revId": "62d62756f9ced428e74c399e2904ab86ae116544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
