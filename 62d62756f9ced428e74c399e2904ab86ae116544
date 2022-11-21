@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61046839_e2816979",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-21T12:15:09Z",
+      "side": 1,
+      "message": "nit: you could use a visitor and call the VisitRoots above?",
+      "range": {
+        "startLine": 544,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 3
+      },
+      "revId": "62d62756f9ced428e74c399e2904ab86ae116544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
