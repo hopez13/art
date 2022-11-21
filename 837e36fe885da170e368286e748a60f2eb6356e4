@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2e7ebb9_cb2ff3c9",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2022-11-21T15:23:25Z",
+      "side": 1,
+      "message": "We avoid const in Perfetto due to problems with move/copy constructors, adding to vector etc. In this case, yes it\u0027s fine but in general, it\u0027s best to avoid entirely for a consistent style.",
+      "parentUuid": "c34efa9a_8942c6de",
+      "range": {
+        "startLine": 252,
+        "startChar": 9,
+        "endLine": 253,
+        "endChar": 32
+      },
+      "revId": "837e36fe885da170e368286e748a60f2eb6356e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d19e5585_a5f4d157",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 1
