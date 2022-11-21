@@ -2827,7 +2827,7 @@ class JNI {
     //
     // NB GetDirectBufferAddress() does not need to call Buffer.isDirect() since it is only
     // able return a valid address if the Buffer address field is not-null.
-    uint8_t direct = WellKnownClasses::java_nio_Buffer_isDirect->InvokeVirtual<'Z'>(
+    bool direct = WellKnownClasses::java_nio_Buffer_isDirect->InvokeVirtual<'Z'>(
         soa.Self(), buffer.Get());
     if (direct == 0u) {
       return -1;
