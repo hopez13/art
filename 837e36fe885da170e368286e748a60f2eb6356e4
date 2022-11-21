@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c73d357_15e3d19b",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-11-21T15:18:13Z",
+      "side": 1,
+      "message": "This was actually based on the existing code (I just extracted the method to reuse). That said, according to the man page this is really on EFAULT (ts ptr bad) or EINVAL (boottime clock does not exist) so I think that is actually the correct way to go",
+      "parentUuid": "bbe5a1b6_326c95fd",
+      "range": {
+        "startLine": 160,
+        "startChar": 48,
+        "endLine": 161,
+        "endChar": 44
+      },
+      "revId": "837e36fe885da170e368286e748a60f2eb6356e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8474010f_9150ecae",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-11-21T13:39:37Z",
       "side": 1,
       "message": "nit: inline",
+      "range": {
+        "startLine": 162,
+        "startChar": 3,
+        "endLine": 164,
+        "endChar": 19
+      },
+      "revId": "837e36fe885da170e368286e748a60f2eb6356e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12ee113e_719db262",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-11-21T15:18:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8474010f_9150ecae",
       "range": {
         "startLine": 162,
         "startChar": 3,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c34efa9a_8942c6de",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-11-21T15:18:13Z",
+      "side": 1,
+      "message": "In this case this is actually a trait of the producer (rather than a variable). I don\u0027t think it\u0027s really important, if you have a strong opinion I can change it",
+      "parentUuid": "7579aa6d_529ab0c2",
+      "range": {
+        "startLine": 252,
+        "startChar": 9,
+        "endLine": 253,
+        "endChar": 32
+      },
+      "revId": "837e36fe885da170e368286e748a60f2eb6356e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d19e5585_a5f4d157",
         "filename": "perfetto_hprof/perfetto_hprof.cc",
         "patchSetId": 1
@@ -100,6 +172,30 @@
       "writtenOn": "2022-11-21T13:39:37Z",
       "side": 1,
       "message": "Can we use a longer trigger name here? One including telemetry as the owner (similar to the slow start ones).",
+      "range": {
+        "startLine": 1087,
+        "startChar": 63,
+        "endLine": 1087,
+        "endChar": 71
+      },
+      "revId": "837e36fe885da170e368286e748a60f2eb6356e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e4610d1_8177a191",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-11-21T15:18:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d19e5585_a5f4d157",
       "range": {
         "startLine": 1087,
         "startChar": 63,
