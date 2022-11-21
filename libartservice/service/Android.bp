@@ -130,6 +130,8 @@ android_test {
         "service-art.impl",
     ],
 
+    compile_multilib: "both",
+
     sdk_version: "system_server_current",
     min_sdk_version: "31",
 
