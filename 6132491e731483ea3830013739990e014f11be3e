@@ -39,6 +39,30 @@
       },
       "revId": "6132491e731483ea3830013739990e014f11be3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a4330c0_d0741ec6",
+        "filename": "test/default_run.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-21T12:27:26Z",
+      "side": 1,
+      "message": "I tried that first, but:\n\n1) `test.py` captures output to buffer, so it is no longer `tty` locally.\n\n2) go/ab actually tends to have support for colours \n\nLong-term, I would like to add `--color`/`--no-color` argument to the scripts, but I will wait after things are a bit more refactored first.",
+      "parentUuid": "83c760e1_e203173c",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "6132491e731483ea3830013739990e014f11be3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
