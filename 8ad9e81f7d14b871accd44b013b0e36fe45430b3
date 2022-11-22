@@ -45,6 +45,30 @@
       },
       "revId": "8ad9e81f7d14b871accd44b013b0e36fe45430b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70d7529b_623398ac",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-22T20:24:27Z",
+      "side": 1,
+      "message": "This now becomes just an FYI.",
+      "parentUuid": "fd762d97_2473af78",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 3
+      },
+      "revId": "8ad9e81f7d14b871accd44b013b0e36fe45430b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -183,6 +183,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5cb671e_33bfe3d5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-22T20:24:27Z",
+      "side": 1,
+      "message": "Discussed offline. Currently, this is the only approach that works as far as we know, though it\u0027s not great. We can look into other solutions later. I +2 to unblock this CL as it needs to get into the February train. Please create a bug to track follow-up works.",
+      "parentUuid": "54b97e8f_5e49444e",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d8f518a_7bb52ac8",
