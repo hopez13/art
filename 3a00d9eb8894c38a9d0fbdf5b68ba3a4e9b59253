@@ -22,6 +22,30 @@
       },
       "revId": "3a00d9eb8894c38a9d0fbdf5b68ba3a4e9b59253",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e65c44f_c2028f6d",
+        "filename": "libnativeloader/test/src/android/test/lib/TestUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-22T12:18:41Z",
+      "side": 1,
+      "message": "`dalvik.system.VMRuntime` isn\u0027t available on the full-eng target: https://android-build.googleplex.com/builds/submitted/9310226/full-eng/latest/view/logs/build_error.log, and it\u0027s not a public API. Why it fails on that target and not anywhere else I\u0027ve no idea.",
+      "parentUuid": "9ade61e4_7375cab0",
+      "range": {
+        "startLine": 38,
+        "startChar": 28,
+        "endLine": 38,
+        "endChar": 79
+      },
+      "revId": "3a00d9eb8894c38a9d0fbdf5b68ba3a4e9b59253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
