@@ -37,6 +37,144 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef629938_fd35f558",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-22T10:06:45Z",
+      "side": 1,
+      "message": "other",
+      "range": {
+        "startLine": 578,
+        "startChar": 20,
+        "endLine": 578,
+        "endChar": 25
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b46484a2_4eb1d801",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-22T10:06:45Z",
+      "side": 1,
+      "message": "Always false. (We never erase `*it` above.)",
+      "range": {
+        "startLine": 595,
+        "startChar": 8,
+        "endLine": 595,
+        "endChar": 25
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "009878f8_c87d259f",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-22T10:06:45Z",
+      "side": 1,
+      "message": "What\u0027s the state of the graph without this CL when we remove try blocks with throwing instructions? Do we remove corresponding entries in catch Phis?\n\nSimilarly, what happens if GVN removes a `ClinitCheck` from a try block? Are catch Phis updated, or do they keep entries for the removed throwing instruction?",
+      "range": {
+        "startLine": 732,
+        "startChar": 30,
+        "endLine": 732,
+        "endChar": 48
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f163defc_a12711d3",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-22T10:06:45Z",
+      "side": 1,
+      "message": "Declare here, define in the .cc file.",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 32
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "798a07bb_5c5ef2fd",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-22T10:06:45Z",
+      "side": 1,
+      "message": "ScopedArenaSet",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 12
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82594507_6a6166e0",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-22T10:06:45Z",
+      "side": 1,
+      "message": "a",
+      "range": {
+        "startLine": 64,
+        "startChar": 32,
+        "endLine": 64,
+        "endChar": 34
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bfc07d1e_92efd7e2",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 4
@@ -48,6 +186,30 @@
       "writtenOn": "2022-11-14T11:06:52Z",
       "side": 1,
       "message": "WDYT about adding this? It was useful for me when creating this CL.",
+      "range": {
+        "startLine": 912,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 5
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1320138_44a86e65",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-22T10:06:45Z",
+      "side": 1,
+      "message": "Do you really need the `else` branch?\n\nThe property name should not contain spaces. Use `try_start`.",
+      "parentUuid": "bfc07d1e_92efd7e2",
       "range": {
         "startLine": 912,
         "startChar": 0,
