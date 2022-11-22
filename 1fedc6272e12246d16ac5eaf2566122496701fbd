@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2aa51fd_2f42f46a",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T17:22:33Z",
+      "side": 1,
+      "message": "I agree with our reading. I don\u0027t think it\u0027s guaranteed for the 3+ thread case. It probably is guaranteed by all currently relevant hardware specs, except maybe ARMv7. Do we still support ARMv7 hardware without the v8 memory model guarantees? I don\u0027t know.\n\nFor a more solid correctness argument, I think we could use an asymmetric fence, i.e. membarrier(MEMBARRIER_CMD_PRIVATE_EXPEDITED) when registering. That should ensure that everybody has seen the registration before they see the class. And it should be cheaper than a checkpoint, though significantly more expensive than atomic_thread_fence. I also like it better than a checkpoint because it can\u0027t possibly participate in deadlocks.",
+      "parentUuid": "bd7f7367_769496c8",
+      "range": {
+        "startLine": 244,
+        "startChar": 29,
+        "endLine": 248,
+        "endChar": 36
+      },
+      "revId": "1fedc6272e12246d16ac5eaf2566122496701fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d14614d_6f0a0f2e",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 12
