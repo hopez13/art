@@ -31,13 +31,13 @@ import org.junit.runner.RunWith;
 public class DataAppTest {
     @Test
     public void testLoadExtendedPublicLibraries() {
-        System.loadLibrary("foo.oem1");
-        System.loadLibrary("bar.oem1");
-        System.loadLibrary("foo.oem2");
+        System.loadLibrary("extpub.oem1");
+        System.loadLibrary("extpub.oem2");
+        System.loadLibrary("extpub1.oem1");
         TestUtils.assertLinkerNamespaceError(
-                () -> System.loadLibrary("bar.oem2")); // Missing <uses-native-library>.
-        System.loadLibrary("foo.product1");
-        System.loadLibrary("bar.product1");
+                () -> System.loadLibrary("extpub_nouses.oem2")); // Missing <uses-native-library>.
+        System.loadLibrary("extpub.product1");
+        System.loadLibrary("extpub1.product1");
     }
 
     @Test
@@ -80,6 +80,12 @@ public class DataAppTest {
                 () -> VendorSharedLib.loadLibrary("systemext_private5"));
         TestUtils.assertLibraryNotFound(() -> VendorSharedLib.loadLibrary("product_private5"));
         VendorSharedLib.loadLibrary("vendor_private5");
+    }
+
+    @Test
+    public void testLoadExtendedPublicLibrariesWithAbsolutePaths() {
+        System.load(TestUtils.libPath("/system", "extpub2.oem1"));
+        System.load(TestUtils.libPath("/product", "extpub2.product1"));
     }
 
     @Test
