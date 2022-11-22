@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5682e19e_cee7bb1d",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1002560
+      },
+      "writtenOn": "2022-11-22T21:43:54Z",
+      "side": 1,
+      "message": "Keep in mind that using a dict as a default argument means that the same dict keeps on being modified. Running the following:\n\n```\ndef foo(a\u003d{}):\n  a.setdefault(\"key\", 0)\n  a[\"key\"] +\u003d 1\n  print(a[\"key\"])\nfoo()\nfoo()\n```\n\nprints:\n```\n1\n2\n```",
+      "range": {
+        "startLine": 157,
+        "startChar": 43,
+        "endLine": 157,
+        "endChar": 56
+      },
+      "revId": "bbe2951e931addee79e998eaafba9e5a02ffd3d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e29ab43_bfd93761",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1002560
+      },
+      "writtenOn": "2022-11-22T21:43:54Z",
+      "side": 1,
+      "message": "It\u0027s shorter to write:\n\n    dimensions[\"os\"] \u003d [\"Linux\"]\n    \nIt has to be a list of values.",
+      "revId": "bbe2951e931addee79e998eaafba9e5a02ffd3d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
