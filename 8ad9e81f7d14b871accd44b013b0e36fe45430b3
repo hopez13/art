@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d725f85_2974ee3c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-22T11:23:20Z",
+      "side": 1,
+      "message": "Alternatively, `auto [is_dex2oat, gc_type] \u003d FetchCmdlineProcessAndGcType();`",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 49
+      },
+      "revId": "8ad9e81f7d14b871accd44b013b0e36fe45430b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd762d97_2473af78",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-22T11:23:20Z",
+      "side": 1,
+      "message": "Just to clarify, by moving to `Runtime::Init`, I mean to keep this branch here (as odrefresh and artd needs it), but to move the first three branches to `Runtime::Init` and override this value.",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 3
+      },
+      "revId": "8ad9e81f7d14b871accd44b013b0e36fe45430b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
