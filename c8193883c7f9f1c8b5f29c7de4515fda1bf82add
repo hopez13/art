@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5306dfbe_a519a6a7",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-22T11:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef629938_fd35f558",
+      "range": {
+        "startLine": 578,
+        "startChar": 20,
+        "endLine": 578,
+        "endChar": 25
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b46484a2_4eb1d801",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-11-22T10:06:45Z",
       "side": 1,
       "message": "Always false. (We never erase `*it` above.)",
+      "range": {
+        "startLine": 595,
+        "startChar": 8,
+        "endLine": 595,
+        "endChar": 25
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71f37735_11b118a9",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-22T11:40:21Z",
+      "side": 1,
+      "message": "You\u0027re right, removed and making it++ in the header.",
+      "parentUuid": "b46484a2_4eb1d801",
       "range": {
         "startLine": 595,
         "startChar": 8,
@@ -104,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "325d11c7_b426dce2",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-22T11:40:21Z",
+      "side": 1,
+      "message": "\u003e What\u0027s the state of the graph without this CL when we remove try blocks with throwing instructions? Do we remove corresponding entries in catch Phis?\n\nIf the catch is also dead, we would eliminate the catch before the try so updating the catch phis is not needed.\n\nIf the catch is alive but the try is dead, we update it in `RemoveCatchPhiUsesAndInstruction` (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/nodes.cc;l\u003d2445;drc\u003d434d968b4af0bc8af9889170250bee3e08839bea)\n\n\u003e Similarly, what happens if GVN removes a `ClinitCheck` from a try block? Are catch Phis updated, or do they keep entries for the removed throwing instruction?\n\nThe only way it could get removed it would be by another `ClinitCheck` from the same try block, right? If that\u0027s the case, we would update it to the other `ClinitCheck` before removing it (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/gvn.cc;l\u003d512;drc\u003d434d968b4af0bc8af9889170250bee3e08839bea) so the catch phi should be okay.\n\nAs a general note, when we remove an instruction we DCHECK that it doesn\u0027t have any uses left (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/nodes.cc;l\u003d1253;drc\u003d434d968b4af0bc8af9889170250bee3e08839bea).",
+      "parentUuid": "009878f8_c87d259f",
+      "range": {
+        "startLine": 732,
+        "startChar": 30,
+        "endLine": 732,
+        "endChar": 48
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f163defc_a12711d3",
@@ -117,6 +189,30 @@
       "writtenOn": "2022-11-22T10:06:45Z",
       "side": 1,
       "message": "Declare here, define in the .cc file.",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 32
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01c427ca_cbca818c",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-22T11:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f163defc_a12711d3",
       "range": {
         "startLine": 50,
         "startChar": 9,
@@ -150,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "342d7f36_1ca91922",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-22T11:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "798a07bb_5c5ef2fd",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 12
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82594507_6a6166e0",
@@ -163,6 +283,30 @@
       "writtenOn": "2022-11-22T10:06:45Z",
       "side": 1,
       "message": "a",
+      "range": {
+        "startLine": 64,
+        "startChar": 32,
+        "endLine": 64,
+        "endChar": 34
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f023897_0f081e2c",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-22T11:40:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82594507_6a6166e0",
       "range": {
         "startLine": 64,
         "startChar": 32,
@@ -210,6 +354,30 @@
       "side": 1,
       "message": "Do you really need the `else` branch?\n\nThe property name should not contain spaces. Use `try_start`.",
       "parentUuid": "bfc07d1e_92efd7e2",
+      "range": {
+        "startLine": 912,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 5
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "979cef0a_4db37281",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-22T11:40:21Z",
+      "side": 1,
+      "message": "I was emulating the `flags` property but I can remove the else.",
+      "parentUuid": "f1320138_44a86e65",
       "range": {
         "startLine": 912,
         "startChar": 0,

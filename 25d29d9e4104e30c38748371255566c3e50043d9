@@ -46,6 +46,30 @@
       },
       "revId": "25d29d9e4104e30c38748371255566c3e50043d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bbf8f6a_c349e511",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-22T11:40:21Z",
+      "side": 0,
+      "message": "If we use a method call, it is a throwing instruction so we keep the `TryBoundary`. However, when doing so we have a throwing instruction so we cannot code sink past it.",
+      "parentUuid": "dc8a57b4_2bdc54ce",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 7
+      },
+      "revId": "25d29d9e4104e30c38748371255566c3e50043d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
