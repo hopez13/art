@@ -104,31 +104,6 @@ ART_GTEST_transaction_test_TARGET_DEPS := $(TARGET_CORE_IMAGE_DEFAULT_64) $(TARG
 LOCAL_PATH := art
 
 ART_TEST_MODULES_COMMON := \
-    art_cmdline_tests \
-    art_compiler_host_tests \
-    art_compiler_tests \
-    art_dex2oat_tests \
-    art_dexanalyze_tests \
-    art_dexdiag_tests \
-    art_dexdump_tests \
-    art_dexlayout_tests \
-    art_dexlist_tests \
-    art_dexoptanalyzer_tests \
-    art_disassembler_tests \
-    art_hiddenapi_tests \
-    art_imgdiag_tests \
-    art_libartbase_tests \
-    art_libartpalette_tests \
-    art_libartservice_tests \
-    art_libarttools_tests \
-    art_libdexfile_external_tests \
-    art_libdexfile_support_static_tests \
-    art_libdexfile_support_tests \
-    art_libdexfile_tests \
-    art_libprofile_tests \
-    art_oatdump_tests \
-    art_profman_tests \
-    art_runtime_tests \
     art_sigchain_tests \
 
 ART_TEST_MODULES_TARGET := $(ART_TEST_MODULES_COMMON) \
