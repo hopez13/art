@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7afd7381_2c849a75",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-22T23:24:38Z",
+      "side": 1,
+      "message": "Yes, I am aware. I avoided modifying the default value.\n\nBut fair enough, it is fairly error prone.  Someone would miss that in the future.",
+      "parentUuid": "5682e19e_cee7bb1d",
+      "range": {
+        "startLine": 157,
+        "startChar": 43,
+        "endLine": 157,
+        "endChar": 56
+      },
+      "revId": "bbe2951e931addee79e998eaafba9e5a02ffd3d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e29ab43_bfd93761",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-11-22T21:43:54Z",
       "side": 1,
       "message": "It\u0027s shorter to write:\n\n    dimensions[\"os\"] \u003d [\"Linux\"]\n    \nIt has to be a list of values.",
+      "revId": "bbe2951e931addee79e998eaafba9e5a02ffd3d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c60f12ab_d50f74f4",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-22T23:24:38Z",
+      "side": 1,
+      "message": "PS: `d \u003d d | {...}` works but `d |\u003d {...}` or `d[k] \u003d v` triggers the issue above.\n\nDoes `os` have to be list?  The other dimensions are not lists and it \"compiled\".",
+      "parentUuid": "7e29ab43_bfd93761",
       "revId": "bbe2951e931addee79e998eaafba9e5a02ffd3d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
