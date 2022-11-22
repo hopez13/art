@@ -32,11 +32,11 @@ import org.junit.runner.RunWith;
 public class SystemAppTest {
     @Test
     public void testLoadExtendedPublicLibraries() {
-        System.loadLibrary("foo.oem1");
+        System.loadLibrary("foo1.oem1");
         System.loadLibrary("bar.oem1");
         System.loadLibrary("foo.oem2");
         System.loadLibrary("bar.oem2");
-        System.loadLibrary("foo.product1");
+        System.loadLibrary("foo1.product1");
         System.loadLibrary("bar.product1");
     }
 
@@ -78,6 +78,12 @@ public class SystemAppTest {
         VendorSharedLib.loadLibrary("systemext_private5");
         TestUtils.assertLibraryNotFound(() -> VendorSharedLib.loadLibrary("product_private5"));
         TestUtils.assertLibraryNotFound(() -> VendorSharedLib.loadLibrary("vendor_private5"));
+    }
+
+    @Test
+    public void testLoadExtendedPublicLibrariesWithAbsolutePaths() {
+        System.load(TestUtils.libPath("/system", "foo2.oem1"));
+        System.load(TestUtils.libPath("/product", "foo2.product1"));
     }
 
     @Test
