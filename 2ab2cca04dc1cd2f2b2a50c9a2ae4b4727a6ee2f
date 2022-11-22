@@ -610,6 +610,30 @@
       },
       "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8b80b27_54950375",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T23:31:38Z",
+      "side": 1,
+      "message": "My concern here is that in order for a thread to \"see\" memory accesses of another, it needs to see a value written by the \"release sequence\" of a release store to that location. The relevant text in the current draft is:\n\n\"An atomic operation A that performs a release operation on an atomic object M synchronizes with an atomic operation B that performs an acquire operation on M and takes its value from any side effect in the release sequence headed by A.\"\n\n\"Release sequence\" is now defined as:\n\n\"A release sequence headed by a release operation A on an atomic object M is a maximal contiguous subsequence of side effects in the modification order of M, where the first operation is A, and every subsequent operation is an atomic read-modify-write operation.\" (This changed in C++20, but I think only in that it might previously have made our examples more complicated.)\n\nIn this case, there are no relevant reaad-modify-write operations, so the \"release sequence\" consists of just the release store. When I read generated_code_ranges_ immediately after the first range was deleted, the value at that location was written by a relaxed store, so there is no synchronization relationship. So I get no ordering guarantee for the acquire load.\n\nThe value was of course stored there at some point with a release store. But I don\u0027t see how that suffices for the C++ model. \n\nSo I think the minimum fix here is to have RemoveGeneratedCodeRange() use a release store, either always, or only when overwriting generateed_code_ranges_.\n\nIs there any reason to believe that this is performance-sensitive enough for this to matter?",
+      "parentUuid": "74bfefe6_4475bd03",
+      "range": {
+        "startLine": 335,
+        "startChar": 29,
+        "endLine": 335,
+        "endChar": 54
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
