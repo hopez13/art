@@ -207,6 +207,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a730e6b1_b3e1bb71",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-22T21:33:06Z",
+      "side": 1,
+      "message": "After another offline discussion 😊, it is realized that we don\u0027t even need to know if it\u0027s dex2oat or not. So fetching it from runtime isn\u0027t applicable anymore.",
+      "parentUuid": "e5cb671e_33bfe3d5",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d8f518a_7bb52ac8",
@@ -787,6 +811,30 @@
       "side": 1,
       "message": "Thanks for the explanation. I\u0027m wondering if we need a more specific name for the userfaultfd GC to avoid the confusion. Does ART has a CMC implementation that depends on userfaultfd and another CMC implementation that doesn\u0027t? Then using the same name for both implementations is confusing. Or, is the userfaultfd implementation the only CMC implementation in ART?",
       "parentUuid": "6a60f632_dedcd4ad",
+      "range": {
+        "startLine": 82,
+        "startChar": 30,
+        "endLine": 82,
+        "endChar": 33
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fb63d48_ebd69308",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-22T21:33:06Z",
+      "side": 1,
+      "message": "userfaultfd implementation is the only one. But the reason I named it this way is because userfaultfd (UFFD) just happens to be a kernel feature which we are using. In future we may come up with an implementation using some other kernel mechanism, which, say, is more efficient than UFFD. In that case we will be able to reuse the same GC, with only some modifications to the compaction phase.",
+      "parentUuid": "52e0d7d3_36103b22",
       "range": {
         "startLine": 82,
         "startChar": 30,
