@@ -152,6 +152,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1ae9451_9f2364e8",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-11-22T22:19:03Z",
+      "side": 1,
+      "message": "Correct we already prevent \u003e 1 invocation in the lifetime of a process; this is the ~first thing DumpPerfettoOutOfMemory does. Would you prefer this is handled outside of plugin code?",
+      "parentUuid": "bf901504_1c9e6417",
+      "range": {
+        "startLine": 1172,
+        "startChar": 2,
+        "endLine": 1177,
+        "endChar": 0
+      },
+      "revId": "bdfd2c55db97f8e61df851eaf6a833099c8b4150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "541ff3ad_7f11d2d1",
         "filename": "runtime/thread.cc",
         "patchSetId": 4
@@ -163,6 +187,30 @@
       "writtenOn": "2022-11-22T22:03:57Z",
       "side": 1,
       "message": "As far as I can tell, this also gets invoked from a bunch of places where a Javaheap dump is not obviously helpful, like array size overflows, or in some cases when native allocation fails. Woud Heap::ThrowOutOfMemoryError be a better place to put this?",
+      "range": {
+        "startLine": 3648,
+        "startChar": 6,
+        "endLine": 3648,
+        "endChar": 34
+      },
+      "revId": "bdfd2c55db97f8e61df851eaf6a833099c8b4150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed7230d4_bc74aa93",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3648,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2022-11-22T22:19:03Z",
+      "side": 1,
+      "message": "Good point. I erred on the side of generality but with a second glance I agree the Heap-specific invocation is preferable. Will update with the next revision",
+      "parentUuid": "541ff3ad_7f11d2d1",
       "range": {
         "startLine": 3648,
         "startChar": 6,
