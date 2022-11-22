@@ -44,7 +44,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
 #include "thread_list.h"
-#include "well_known_classes.h"
+#include "well_known_classes-inl.h"
 
 namespace art {
 
@@ -165,7 +165,7 @@ TEST_F(ThreadLifecycleCallbackRuntimeCallbacksTest, ThreadLifecycleCallbackJava)
   cb_.state = CallbackState::kBase;  // Ignore main thread attach.
 
   ScopedObjectAccess soa(self);
-  MakeExecutable(WellKnownClasses::java_lang_Thread_init->GetDeclaringClass());
+  MakeExecutable(WellKnownClasses::java_lang_Thread.Get());
 
   StackHandleScope<3u> hs(self);
   Handle<mirror::String> thread_name = hs.NewHandle(
@@ -510,11 +510,11 @@ TEST_F(MonitorWaitCallbacksTest, WaitUnlocked) {
     {
       ScopedObjectAccess soa(self);
       cb_.SetInterestingObject(
-          WellKnownClasses::java_util_Collections_EMPTY_LIST->GetDeclaringClass());
+          WellKnownClasses::java_util_Collections.Get());
       Monitor::Wait(
           self,
           // Just a random class
-          WellKnownClasses::java_util_Collections_EMPTY_LIST->GetDeclaringClass(),
+          WellKnownClasses::java_util_Collections.Get(),
           /*ms=*/0,
           /*ns=*/0,
           /*interruptShouldThrow=*/false,
