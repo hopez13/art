@@ -70,6 +70,30 @@
       },
       "revId": "639816fbf2d44217e37d61060cc2da935c09393f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdc2329f_96408d5d",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1891746
+      },
+      "writtenOn": "2022-11-22T01:34:58Z",
+      "side": 1,
+      "message": "I\u0027ve updated the code to also check the `preview_sdk` property.",
+      "parentUuid": "5d2a911e_87477ed9",
+      "range": {
+        "startLine": 343,
+        "startChar": 10,
+        "endLine": 343,
+        "endChar": 41
+      },
+      "revId": "639816fbf2d44217e37d61060cc2da935c09393f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
