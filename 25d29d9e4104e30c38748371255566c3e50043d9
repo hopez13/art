@@ -70,6 +70,30 @@
       },
       "revId": "25d29d9e4104e30c38748371255566c3e50043d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8ec527c_abda3316",
+        "filename": "test/639-checker-code-sinking/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-22T11:58:51Z",
+      "side": 0,
+      "message": "Ack.",
+      "parentUuid": "3bbf8f6a_c349e511",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 7
+      },
+      "revId": "25d29d9e4104e30c38748371255566c3e50043d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

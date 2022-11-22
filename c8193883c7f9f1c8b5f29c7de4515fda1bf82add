@@ -176,6 +176,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c17b6503_bd068921",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-22T11:58:51Z",
+      "side": 1,
+      "message": "My question is not about uses of instructions we\u0027re removing. It\u0027s about catch Phi inputs corresponding to removed throwing instructions (those inputs are akin to environment uses by the throwing instruction).\n\nThere is a comment in `HBasicBlock::DisconnectAndDelete()` just before calling `RemoveCatchPhiUsesAndInstruction()`: \"Note that we may miss dead inputs this way but the graph will always remain consistent.\"\n\nSo, the answer to my question is that catch Phis can actually have entries even for removed throwing instructions and we don\u0027t really care.",
+      "parentUuid": "325d11c7_b426dce2",
+      "range": {
+        "startLine": 732,
+        "startChar": 30,
+        "endLine": 732,
+        "endChar": 48
+      },
+      "revId": "c8193883c7f9f1c8b5f29c7de4515fda1bf82add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f163defc_a12711d3",

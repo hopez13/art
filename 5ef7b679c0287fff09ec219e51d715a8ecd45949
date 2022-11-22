@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bb2b3e2_c5fabd90",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-22T11:58:51Z",
+      "side": 1,
+      "message": "Nit: I\u0027m not too fond of the post-increment operator (also above and below).\n\nThe `erase()` function conveniently returns the iterator to the next element (or past-the-end if none): `other_it \u003d tries.erase(other_it)`.",
+      "range": {
+        "startLine": 608,
+        "startChar": 8,
+        "endLine": 608,
+        "endChar": 32
+      },
+      "revId": "5ef7b679c0287fff09ec219e51d715a8ecd45949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
