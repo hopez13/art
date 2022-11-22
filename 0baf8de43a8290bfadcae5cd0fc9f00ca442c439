@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0383497b_c43043e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Finally finished a pass. Mostly nits, but there are a few places where I didn\u0027t understand the logic.",
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b302d87f_2cdd4530",
@@ -232,6 +249,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2331a7b8_61aa2826",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "You\u0027ll answer my comment later? My concern was more about later non-GC mappings. Are there any we need to worry about?",
+      "parentUuid": "16c03f86_ff0d52f1",
+      "range": {
+        "startLine": 244,
+        "startChar": 51,
+        "endLine": 245,
+        "endChar": 63
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60a8553d_64b4d72b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "This is really a question about the (under-documented?) MemMap API: Why can\u0027t we get this directly with MapAnonymous, rather than MapAnonymous reservation + TakeReservedMemory?",
+      "range": {
+        "startLine": 256,
+        "startChar": 4,
+        "endLine": 257,
+        "endChar": 74
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39c34673_64c3a934",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 10
@@ -248,6 +312,29 @@
         "startChar": 9,
         "endLine": 590,
         "endChar": 52
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49601964_aaa5b06f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "It would be a little cleaner to factor this out from under the if. It makes it clearer that the definition of buf is the only difference.",
+      "range": {
+        "startLine": 608,
+        "startChar": 6,
+        "endLine": 608,
+        "endChar": 68
       },
       "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -302,6 +389,582 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73ee785a_0ce7addf",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "I either don\u0027t understand, or dislike the MemMap API here.\n\n1) We\u0027re unmapping the memory while it\u0027s still nominally managed by shadow_to_space_map_. Given a full understanding of MemMap\u0027s inner workings, that\u0027s fine, but ...\n2) MemMap::DoReset() would also call MEMORY_TOOL_MAKE_UNDEFINED(), which we may want here as well. Unless munmap already effectively does that, and we didn\u0027t need it to start with?\n\nOTOH, I don\u0027t see an API to do this correctly. So maybe this is the best we can do.",
+      "parentUuid": "e54a8028_eb1a77da",
+      "range": {
+        "startLine": 699,
+        "startChar": 15,
+        "endLine": 699,
+        "endChar": 79
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf62a716_94d28fa8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "We already previously mapped this with PROT_NONE, right? Isn\u0027t mprotect more appropriate? You understand better than me whether that actually makes a difference.",
+      "range": {
+        "startLine": 734,
+        "startChar": 20,
+        "endLine": 739,
+        "endChar": 28
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7e3d5aa_74618c9c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "If we can\u0027t simplify this, can we refactor it to have a single InitializeShadowToSpaceMap() function? The code currently isn\u0027t identical in both places, but is that necessary?",
+      "range": {
+        "startLine": 748,
+        "startChar": 8,
+        "endLine": 762,
+        "endChar": 34
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "622ed5c1_54e30e41",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "I think this means the mprotect runs only in debug (libartd) builds. Is that intended? I don\u0027t quite understand what this does, but it looks strange.",
+      "range": {
+        "startLine": 771,
+        "startChar": 8,
+        "endLine": 772,
+        "endChar": 54
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4ce511e_9f114b23",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Again mprotect instead?",
+      "range": {
+        "startLine": 780,
+        "startChar": 20,
+        "endLine": 780,
+        "endChar": 24
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "962c2c85_d54ed3b8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "I\u0027m surprised this is necessary. You\u0027re creating files that are smaller than a reasonable movie, right?",
+      "range": {
+        "startLine": 790,
+        "startChar": 8,
+        "endLine": 799,
+        "endChar": 9
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25085769_855fb412",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Does it really make sense to make this a template, as opposed to a regular function, argument? It seems to be tested once or twice in these two functions, and thus should have negligible run-time impact. But it has a bit more of a code size impact to compiler the whole function twice.",
+      "range": {
+        "startLine": 1099,
+        "startChar": 10,
+        "endLine": 1099,
+        "endChar": 31
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3fc4cd0_d7b1ee69",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1447,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "I would probably move this into the loop, to make it clear to the reader and compiler that the updated value is dead at the end of the loop. Probably also for the next loop.",
+      "range": {
+        "startLine": 1447,
+        "startChar": 2,
+        "endLine": 1447,
+        "endChar": 51
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06db4cf3_2b583007",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1455,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "I think you need some ordering here, and acq_rel sounds right. If this became a performance issue, I might consider performing the CASes on vectors of 8 state bytes. But that gets signiicantly messier, I think.",
+      "range": {
+        "startLine": 1452,
+        "startChar": 2,
+        "endLine": 1455,
+        "endChar": 62
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5ef1387_a96195c4",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment.",
+      "range": {
+        "startLine": 1464,
+        "startChar": 4,
+        "endLine": 1466,
+        "endChar": 62
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d153c85_697e657f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "It\u0027s OK if another thread saw the intermediate kProcessedAndMapping state?",
+      "range": {
+        "startLine": 1498,
+        "startChar": 7,
+        "endLine": 1500,
+        "endChar": 95
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d1c853_039075a0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Would it be possible to factor this out into an inline DoCompactionWithStateChange() or the like, passing in the compaction call as a lambda? As it stands, this looks to me like a lot of duplicated code.",
+      "range": {
+        "startLine": 1623,
+        "startChar": 4,
+        "endLine": 1655,
+        "endChar": 7
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fed71e0_51cceda8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2219,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Can we avoid using magic integers in all these tests, and use suitably named functios or constants instead?",
+      "range": {
+        "startLine": 2219,
+        "startChar": 38,
+        "endLine": 2219,
+        "endChar": 46
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ecccdf1_542ac1bc",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2263,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "I would have associated the comment with the parameter rather than the entire call. But I\u0027m not sure what our preferred style is here.",
+      "range": {
+        "startLine": 2262,
+        "startChar": 8,
+        "endLine": 2263,
+        "endChar": 26
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "284ef6c0_46881966",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2270,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Capitals. i.e. MemMap?",
+      "range": {
+        "startLine": 2270,
+        "startChar": 60,
+        "endLine": 2270,
+        "endChar": 66
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b31b35e_9a949a80",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2296,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Again needs more meaningful names.",
+      "range": {
+        "startLine": 2296,
+        "startChar": 6,
+        "endLine": 2296,
+        "endChar": 32
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7236e399_35b149dc",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Needs symbolic names.",
+      "range": {
+        "startLine": 2319,
+        "startChar": 63,
+        "endLine": 2319,
+        "endChar": 70
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3df55518_0850ea5f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2342,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Should probably mention uffd somewhere in these messages, so that you don\u0027t need to look at the code to understand what broke.",
+      "range": {
+        "startLine": 2342,
+        "startChar": 34,
+        "endLine": 2342,
+        "endChar": 50
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5601fa17_7d13253e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2346,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "The DCHECK seems a bit excessive? Based on the man page, this is clearly the only option. Should probably be\n\nif (ret \u003d\u003d 0) {\n  DCHECK_EQ(uffd_z...);\n} else {\n  CHECK((tolerate_enoent \u0026\u0026 errno \u003d\u003d ENOENT) ...\n}",
+      "range": {
+        "startLine": 2345,
+        "startChar": 25,
+        "endLine": 2346,
+        "endChar": 47
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20b665ad_b219bdaf",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2357,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "same here.",
+      "range": {
+        "startLine": 2357,
+        "startChar": 46,
+        "endLine": 2357,
+        "endChar": 61
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6e791d7_1a2ca2fb",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2596,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "would",
+      "range": {
+        "startLine": 2596,
+        "startChar": 30,
+        "endLine": 2596,
+        "endChar": 34
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a607311c_165dfccf",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2599,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Why? Maybe the comment below should move here, or to both places?",
+      "range": {
+        "startLine": 2599,
+        "startChar": 12,
+        "endLine": 2599,
+        "endChar": 41
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50eb7cfa_68914656",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2614,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Isn\u0027t it clearer to put the CAS in a loop and retry if it fails? This code seems repetitive with the outer switch statement.",
+      "range": {
+        "startLine": 2606,
+        "startChar": 8,
+        "endLine": 2614,
+        "endChar": 29
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2c506c1_ff0b1651",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2739,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Can you explain why they aren\u0027t woken automatically here? The man page suggests this is only used in combination with DONTWAKE?",
+      "range": {
+        "startLine": 2738,
+        "startChar": 1,
+        "endLine": 2739,
+        "endChar": 19
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb565389_216d68b9",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2769,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "We should probably add a more general utility for that. We currently do it in some other places.",
+      "range": {
+        "startLine": 2769,
+        "startChar": 4,
+        "endLine": 2769,
+        "endChar": 29
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5605b43c_29d837db",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 10
@@ -313,6 +976,29 @@
       "writtenOn": "2022-11-15T09:22:55Z",
       "side": 1,
       "message": "line too long (also \u0027||\u0027 at the end of the line).",
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d01a9968_382e0ecd",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Can you define what this parameter is?",
+      "range": {
+        "startLine": 477,
+        "startChar": 17,
+        "endLine": 477,
+        "endChar": 34
+      },
       "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

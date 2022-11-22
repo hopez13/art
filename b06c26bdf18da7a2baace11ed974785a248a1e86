@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2956ea48_70c70c6c",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-22T01:23:05Z",
+      "side": 1,
+      "message": "Please just change the comment releasing --\u003e unmapping. Ideally that shuould be claified in the MemMap API as well, but that\u0027s a separate issue.",
+      "parentUuid": "ef683bc8_755ecee0",
+      "range": {
+        "startLine": 293,
+        "startChar": 47,
+        "endLine": 294,
+        "endChar": 50
+      },
+      "revId": "b06c26bdf18da7a2baace11ed974785a248a1e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5de588b8_9d3d5e07",
