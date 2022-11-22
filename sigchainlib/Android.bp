@@ -36,7 +36,7 @@ cc_library {
     //  -z,global marks the binary with the DF_1_GLOBAL flag which puts the symbols
     //  in the global group. It does not affect their visibilities like the version
     //  script does.
-    ldflags: ["-Wl,-z,global"],
+    // ldflags: ["-Wl,-z,global"],
 
     host_supported: true,
     target: {
