@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d998259f_3c588f6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-11-22T12:44:35Z",
+      "side": 1,
+      "message": "PTAL. Thanks!",
+      "revId": "b1ca41c9b4a569a398f88586aaaee85812b1a8ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f7cc20a_ed108a07",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-11-22T12:44:35Z",
+      "side": 1,
+      "message": "This is a bit confusing, I initially thought it should be ifneq here. I don\u0027t fully understand this syntax. I am assuming it is comparing with default value which is empty for non-asan builds.\n\nI verified this works as expected on asan and non-asan builds i.e. don\u0027t run sigchain and dex2oat on asan and run them on non-asan",
+      "revId": "b1ca41c9b4a569a398f88586aaaee85812b1a8ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
