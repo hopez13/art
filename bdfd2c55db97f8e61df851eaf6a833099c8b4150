@@ -33,6 +33,98 @@
       "message": "Thanks!",
       "revId": "bdfd2c55db97f8e61df851eaf6a833099c8b4150",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e04365a5_820c4df7",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2022-11-22T17:10:44Z",
+      "side": 1,
+      "message": "Nit: remove after my bug is fixed?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "bdfd2c55db97f8e61df851eaf6a833099c8b4150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9029f766_5a0be1ca",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2022-11-22T17:10:44Z",
+      "side": 1,
+      "message": "Discussed offline:\n\nWe probably need BusyWaitpid, like in the other case.\n\nThe child can get stuck in the heapprofd atfork handler (apparently that\u0027s the reason busy waiting was introduced), which is executed in the child before arming the watchdog",
+      "range": {
+        "startLine": 1069,
+        "startChar": 37,
+        "endLine": 1069,
+        "endChar": 45
+      },
+      "revId": "bdfd2c55db97f8e61df851eaf6a833099c8b4150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caef5d78_8027777f",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2022-11-22T17:10:44Z",
+      "side": 1,
+      "message": "Sorry for the trouble, fix on the way: r.android.com/2307791 :-)",
+      "range": {
+        "startLine": 1083,
+        "startChar": 43,
+        "endLine": 1083,
+        "endChar": 52
+      },
+      "revId": "bdfd2c55db97f8e61df851eaf6a833099c8b4150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd7a39aa_8deb2577",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2022-11-22T17:10:44Z",
+      "side": 1,
+      "message": "Nit: in perfetto profiler the check is the opposite way around.\n\nhttps://cs.android.com/android/platform/superproject/+/master:external/perfetto/src/profiling/common/producer_support.cc;l\u003d109;drc\u003d857b1f380d02a7d1dab011850257d472a27370cc\n\nI\u0027m not sure which is better, but at least I think we should handle eng builds?\n\nAnother way would be to get a flag (which includes userdebug and eng) at build time, like:\n\nhttps://cs.android.com/android/platform/superproject/+/master:external/perfetto/Android.bp;l\u003d1665;drc\u003da3284eb002658b3cc743ff21a77302053ef6e5fe\n\nbut I don\u0027t see any precedent in ART.",
+      "range": {
+        "startLine": 1102,
+        "startChar": 9,
+        "endLine": 1102,
+        "endChar": 72
+      },
+      "revId": "bdfd2c55db97f8e61df851eaf6a833099c8b4150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
