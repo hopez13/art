@@ -24,11 +24,13 @@
         <uses-library android:required="false" android:name="android.test.systemextsharedlib" />
         <uses-library android:required="false" android:name="android.test.productsharedlib" />
         <uses-library android:required="false" android:name="android.test.vendorsharedlib" />
-        <uses-native-library android:required="false" android:name="libfoo.oem1.so" />
+        <uses-native-library android:required="false" android:name="libfoo1.oem1.so" />
+        <uses-native-library android:required="false" android:name="libfoo2.oem1.so" />
         <uses-native-library android:required="false" android:name="libbar.oem1.so" />
         <uses-native-library android:required="false" android:name="libfoo.oem2.so" />
         <!--libbar.oem2.so is left out -->
-        <uses-native-library android:required="false" android:name="libfoo.product1.so" />
+        <uses-native-library android:required="false" android:name="libfoo1.product1.so" />
+        <uses-native-library android:required="false" android:name="libfoo2.product1.so" />
         <uses-native-library android:required="false" android:name="libbar.product1.so" />
     </application>
 </manifest>

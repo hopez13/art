@@ -31,11 +31,11 @@ import org.junit.runner.RunWith;
 public class VendorAppTest {
     @Test
     public void testLoadExtendedPublicLibraries() {
-        TestUtils.assertLinkerNamespaceError(() -> System.loadLibrary("foo.oem1"));
+        TestUtils.assertLinkerNamespaceError(() -> System.loadLibrary("foo1.oem1"));
         TestUtils.assertLinkerNamespaceError(() -> System.loadLibrary("bar.oem1"));
         TestUtils.assertLinkerNamespaceError(() -> System.loadLibrary("foo.oem2"));
         TestUtils.assertLinkerNamespaceError(() -> System.loadLibrary("bar.oem2"));
-        System.loadLibrary("foo.product1");
+        System.loadLibrary("foo1.product1");
         System.loadLibrary("bar.product1");
     }
 
@@ -79,6 +79,13 @@ public class VendorAppTest {
                 () -> VendorSharedLib.loadLibrary("systemext_private5"));
         TestUtils.assertLibraryNotFound(() -> VendorSharedLib.loadLibrary("product_private5"));
         VendorSharedLib.loadLibrary("vendor_private5");
+    }
+
+    @Test
+    public void testLoadExtendedPublicLibrariesWithAbsolutePaths() {
+        TestUtils.assertLinkerNamespaceError(
+                () -> System.load(TestUtils.libPath("/system", "foo2.oem1")));
+        System.load(TestUtils.libPath("/product", "foo2.product1"));
     }
 
     @Test
