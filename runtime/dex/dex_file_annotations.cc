@@ -21,7 +21,7 @@
 #include "android-base/stringprintf.h"
 
 #include "art_field-inl.h"
-#include "art_method-inl.h"
+#include "art_method-alloc-inl.h"
 #include "base/sdk_version.h"
 #include "class_linker-inl.h"
 #include "class_root-inl.h"
@@ -741,23 +741,12 @@ ObjPtr<mirror::Object> CreateAnnotationMember(const ClassData& klass,
     return nullptr;
   }
 
-  ArtMethod* annotation_member_init = WellKnownClasses::libcore_reflect_AnnotationMember_init;
-  DCHECK(annotation_member_init->GetDeclaringClass()->IsInitialized());
   Handle<mirror::Object> new_member =
-      hs.NewHandle(annotation_member_init->GetDeclaringClass()->AllocObject(self));
+      WellKnownClasses::libcore_reflect_AnnotationMember_init->NewObject<'L', 'L', 'L', 'L'>(
+          hs, self, string_name, value_object, method_return, method_object);
   if (new_member == nullptr) {
-    LOG(ERROR) << "Failed to allocate annotation member";
-    return nullptr;
-  }
-
-  annotation_member_init->InvokeInstance<'V', 'L', 'L', 'L', 'L'>(self,
-                                                                  new_member.Get(),
-                                                                  string_name.Get(),
-                                                                  value_object.Get(),
-                                                                  method_return.Get(),
-                                                                  method_object.Get());
-  if (self->IsExceptionPending()) {
-    LOG(INFO) << "Exception in AnnotationMember.<init>";
+    DCHECK(self->IsExceptionPending());
+    LOG(ERROR) << "Failed to create annotation member";
     return nullptr;
   }
 
