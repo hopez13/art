@@ -49,13 +49,13 @@ static void MarkReachableBlocks(HGraph* graph, ArenaBitVector* visited) {
       HIf* if_instruction = last_instruction->AsIf();
       HInstruction* condition = if_instruction->InputAt(0);
       if (condition->IsIntConstant()) {
-        if (condition->AsIntConstant()->IsTrue()) {
-          live_successors = live_successors.SubArray(0u, 1u);
-          DCHECK_EQ(live_successors[0], if_instruction->IfTrueSuccessor());
-        } else {
-          DCHECK(condition->AsIntConstant()->IsFalse()) << condition->AsIntConstant()->GetValue();
+        if (condition->AsIntConstant()->IsFalse()) {
           live_successors = live_successors.SubArray(1u, 1u);
           DCHECK_EQ(live_successors[0], if_instruction->IfFalseSuccessor());
+        } else {
+          // Treat non-zero values as true.
+          live_successors = live_successors.SubArray(0u, 1u);
+          DCHECK_EQ(live_successors[0], if_instruction->IfTrueSuccessor());
         }
       }
     } else if (last_instruction->IsPackedSwitch()) {
@@ -409,12 +409,12 @@ bool HDeadCodeElimination::SimplifyIfs() {
           } else {
             HBasicBlock* predecessor_to_update = block->GetPredecessors()[i];
             HBasicBlock* successor_to_update = nullptr;
-            if (value_to_check->AsIntConstant()->IsTrue()) {
-              successor_to_update = last->AsIf()->IfTrueSuccessor();
-            } else {
-              DCHECK(value_to_check->AsIntConstant()->IsFalse())
-                  << value_to_check->AsIntConstant()->GetValue();
+            // The if condition is not guaranteed to be 0 or 1 since we could have If(Phi(0,4))
+            // which gets optimized to If(0) and If(4). We treat non-zero values as 1.
+            if (value_to_check->AsIntConstant()->IsFalse()) {
               successor_to_update = last->AsIf()->IfFalseSuccessor();
+            } else {
+              successor_to_update = last->AsIf()->IfTrueSuccessor();
             }
             predecessor_to_update->ReplaceSuccessor(block, successor_to_update);
             phi->RemoveInputAt(i);

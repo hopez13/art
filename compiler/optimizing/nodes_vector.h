@@ -1310,8 +1310,6 @@ class HVecPredSetAll final : public HVecPredSetOperation {
   // Having governing predicate doesn't make sense for set all TRUE/FALSE instruction.
   bool MustBePredicatedInPredicatedSIMDMode() override { return false; }
 
-  bool IsSetTrue() const { return InputAt(0)->AsIntConstant()->IsTrue(); }
-
   // Vector predicates are not kept alive across vector loop boundaries.
   bool CanBeMoved() const override { return false; }
 
