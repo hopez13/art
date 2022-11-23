@@ -16,6 +16,24 @@
       "message": "The really safe way is:\n\n    dimensions \u003d (dimensions or {}).copy()\n\nWhile in an earlier comment I mentioned python3, it\u0027s true of starlark too:\nhttps://github.com/bazelbuild/starlark/blob/master/spec.md#functions",
       "revId": "02c9e0d30602d8adf0fd96f254ec71b709f7158c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4a02535_93fc4a64",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-23T16:21:56Z",
+      "side": 1,
+      "message": "Error: dict has no .copy field or method\n\nstarlark difference to python?",
+      "parentUuid": "c51bb1aa_e19e188f",
+      "revId": "02c9e0d30602d8adf0fd96f254ec71b709f7158c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
