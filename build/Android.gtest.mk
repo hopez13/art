@@ -104,37 +104,14 @@ ART_GTEST_transaction_test_TARGET_DEPS := $(TARGET_CORE_IMAGE_DEFAULT_64) $(TARG
 LOCAL_PATH := art
 
 ART_TEST_MODULES_COMMON := \
-    art_cmdline_tests \
-    art_compiler_host_tests \
-    art_compiler_tests \
-    art_dexanalyze_tests \
-    art_dexdiag_tests \
-    art_dexdump_tests \
-    art_dexlayout_tests \
-    art_dexlist_tests \
-    art_dexoptanalyzer_tests \
-    art_disassembler_tests \
-    art_hiddenapi_tests \
-    art_imgdiag_tests \
-    art_libartbase_tests \
-    art_libartpalette_tests \
-    art_libartservice_tests \
-    art_libarttools_tests \
-    art_libdexfile_external_tests \
-    art_libdexfile_support_static_tests \
-    art_libdexfile_support_tests \
-    art_libdexfile_tests \
-    art_libprofile_tests \
-    art_oatdump_tests \
-    art_profman_tests \
-    art_runtime_tests \
+    art_dex2oat_tests \
 
 # b/258770641 Temporarily disable sigchain and dex2oat tests on ASAN configuration while we
 # investigate the failures.
-ifeq (,$(SANITIZE_HOST))
-  ART_TEST_MODULES_COMMON += art_sigchain_tests
-  ART_TEST_MODULES_COMMON += art_dex2oat_tests
-endif
+#ifeq (,$(SANITIZE_HOST))
+#  ART_TEST_MODULES_COMMON += art_sigchain_tests
+#  ART_TEST_MODULES_COMMON += art_dex2oat_tests
+#endif
 
 ART_TEST_MODULES_TARGET := $(ART_TEST_MODULES_COMMON) \
     art_artd_tests \
@@ -275,7 +252,7 @@ else
 # under ASAN.
 $$(gtest_output): $$(gtest_exe) $$(gtest_deps)
 	$(hide) ($$(call ART_TEST_SKIP,$$(NAME)) && set -o pipefail && \
-		ASAN_OPTIONS=detect_leaks=1 timeout --foreground -k 120s 3600s \
+		ASAN_OPTIONS=detect_leaks=1 timeout --foreground -k 120s 600s \
 			$(HOST_OUT_EXECUTABLES)/signal_dumper -s 15 \
 				$$< --gtest_output=xml:$$@ 2>&1 | tee $$<.tmp.out >&2 && \
 		{ $$(call ART_TEST_PASSED,$$(NAME)) ; rm $$<.tmp.out ; }) || \
