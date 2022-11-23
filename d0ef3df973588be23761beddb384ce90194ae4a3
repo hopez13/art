@@ -16,6 +16,23 @@
       "message": "@jiakaiz@google.com all the failures are due to the check you added in (aosp/2309351). When I tried reproducing it locally, I found that boot image was preopted with `-Xgc:CMC`. That isn\u0027t a problem without this CL as in that case unless `ART_USE_READ_BARRIER\u003dfalse`, we ignore cmdline GC-type. But with this CL, we end up generating boot-image without read-barrier, but then while using it, the flags mismatch.\nI also tried using OVERRIDE_ENABLE_UFFD_GC with different values, which had no effect.\n\n\nCan you please see why `-Xgc:CMC` is emitted unconditionally on host? To confirm this you can just add `CHECK_EQ(gc_type, gc::CollectorType::kCollectorTypeNone);` in ShouldUseUserfaultfd() before returning.",
       "revId": "d0ef3df973588be23761beddb384ce90194ae4a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb0a247_1ec2701b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1261281
+      },
+      "writtenOn": "2022-11-23T07:18:43Z",
+      "side": 1,
+      "message": "Hi Lokesh,\nObserved this change is causing regression in \"Performance Presubmit\" where calculator app launch times is regressed(patch set 4).\n\nhttps://screenshot.googleplex.com/3Eh4aKpJwDkP4FM\n\nCan you please take a look and fix before merging this change.",
+      "revId": "d0ef3df973588be23761beddb384ce90194ae4a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
