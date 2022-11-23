@@ -114,18 +114,22 @@ bool ArtDexFileLoader::GetMultiDexChecksums(const char* filename,
       return false;
     }
 
+    if (zip_file_only_contains_uncompressed_dex != nullptr) {
+      // Start by assuming everything is uncompressed.
+      *zip_file_only_contains_uncompressed_dex = true;
+    }
+
     uint32_t idx = 0;
     std::string zip_entry_name = GetMultiDexClassesDexName(idx);
     std::unique_ptr<ZipEntry> zip_entry(zip_archive->Find(zip_entry_name.c_str(), error_msg));
     if (zip_entry.get() == nullptr) {
-      *error_msg = StringPrintf("Zip archive '%s' doesn't contain %s (error msg: %s)", filename,
-          zip_entry_name.c_str(), error_msg->c_str());
-      return false;
-    }
-
-    if (zip_file_only_contains_uncompressed_dex != nullptr) {
-      // Start by assuming everything is uncompressed.
-      *zip_file_only_contains_uncompressed_dex = true;
+      // A zip file with no dex code should be accepted. It's likely a config split APK, which we
+      // are currently passing from higher levels.
+      LOG(INFO) << StringPrintf("Zip archive '%s' doesn't contain %s (error msg: %s)",
+                                filename,
+                                zip_entry_name.c_str(),
+                                error_msg->c_str());
+      return true;
     }
 
     do {
