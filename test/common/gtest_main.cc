@@ -37,13 +37,18 @@ extern "C" bool GetInitialArgs(const char*** args, size_t* num_args) {
 // Allow other test code to run global initialization/configuration before gtest infra takes over.
 extern "C" __attribute__((visibility("default"))) __attribute__((weak)) void ArtTestGlobalInit();
 
-int main(int argc, char** argv, char** envp) {
+int main(int argc ATTRIBUTE_UNUSED, char** argv, char** envp ATTRIBUTE_UNUSED) {
+  LOG(INFO) << "Starting Running main() from common_runtime_test.cc...";
   art::Locks::Init();
   art::InitLogging(argv, art::Runtime::Abort);
   art::MemMap::Init();
   LOG(INFO) << "Running main() from common_runtime_test.cc...";
   if (ArtTestGlobalInit != nullptr) {
     ArtTestGlobalInit();
+    LOG(INFO) << "ArtTestGlobalInit Running main() from common_runtime_test.cc...";
   }
-  return IsolateMain(argc, argv, envp);
+  LOG(INFO) << "IsolateMainStart Running main() from common_runtime_test.cc...";
+  // int err = IsolateMain(argc, argv, envp);
+  LOG(INFO) << "IsolateMain1 Running main() from common_runtime_test.cc...";
+  return 1;
 }
