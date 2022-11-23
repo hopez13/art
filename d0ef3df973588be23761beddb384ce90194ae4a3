@@ -33,6 +33,64 @@
       "message": "Hi Lokesh,\nObserved this change is causing regression in \"Performance Presubmit\" where calculator app launch times is regressed(patch set 4).\n\nhttps://screenshot.googleplex.com/3Eh4aKpJwDkP4FM\n\nCan you please take a look and fix before merging this change.",
       "revId": "d0ef3df973588be23761beddb384ce90194ae4a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c3c6b69_08cbb1a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-23T14:07:50Z",
+      "side": 1,
+      "message": "It was my fault. aosp/2312212 should fix it.",
+      "parentUuid": "2ae946e5_6eb70ae4",
+      "revId": "d0ef3df973588be23761beddb384ce90194ae4a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92794351_5f8a3e7e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-23T14:07:50Z",
+      "side": 1,
+      "message": "No longer needed?",
+      "revId": "d0ef3df973588be23761beddb384ce90194ae4a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e485d894_f6720f90",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-23T14:07:50Z",
+      "side": 1,
+      "message": "Nit: The name doesn\u0027t apply anymore. Maybe rename it to `FetchCmdlineGcType`?",
+      "range": {
+        "startLine": 98,
+        "startChar": 25,
+        "endLine": 98,
+        "endChar": 53
+      },
+      "revId": "d0ef3df973588be23761beddb384ce90194ae4a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

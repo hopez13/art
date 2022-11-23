@@ -231,6 +231,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df502c76_3e83e90a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-23T14:07:50Z",
+      "side": 1,
+      "message": "Yep, though fetching the GC type from the runtime is still applicable.",
+      "parentUuid": "a730e6b1_b3e1bb71",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 25
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d8f518a_7bb52ac8",
@@ -835,6 +859,30 @@
       "side": 1,
       "message": "userfaultfd implementation is the only one. But the reason I named it this way is because userfaultfd (UFFD) just happens to be a kernel feature which we are using. In future we may come up with an implementation using some other kernel mechanism, which, say, is more efficient than UFFD. In that case we will be able to reuse the same GC, with only some modifications to the compaction phase.",
       "parentUuid": "52e0d7d3_36103b22",
+      "range": {
+        "startLine": 82,
+        "startChar": 30,
+        "endLine": 82,
+        "endChar": 33
+      },
+      "revId": "7a12562b8203edd923c306a0b6587a823c463fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a623584_1511c1ec",
+        "filename": "runtime/read_barrier_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-23T14:07:50Z",
+      "side": 1,
+      "message": "Got it. Thank you for the clarification!",
+      "parentUuid": "2fb63d48_ebd69308",
       "range": {
         "startLine": 82,
         "startChar": 30,
