@@ -159,7 +159,8 @@ def ci_builder(name, category, short_name, dimensions=None):
     if category.startswith("host"):
       dimensions["os"] = ["Linux"]
     else:
-      dimensions["builder"] = name
+      dimensions["os"] = ["Android"]
+      dimensions["device_abi"] = ['arm64-v8a'] if category != "fugu" else ['x86']
     luci.builder(
         name = name,
         bucket = "ci",
