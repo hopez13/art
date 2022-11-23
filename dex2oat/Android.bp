@@ -510,20 +510,20 @@ art_cc_defaults {
         "linker/arm64/relative_patcher_arm64_test.cc",
     ],
     srcs: [
-        "dex2oat_test.cc",
-        "dex2oat_vdex_test.cc",
-        "dex2oat_image_test.cc",
-        "driver/compiled_method_storage_test.cc",
-        "driver/compiler_driver_test.cc",
-        "linker/code_info_table_deduper_test.cc",
-        "linker/elf_writer_test.cc",
-        "linker/image_test.cc",
-        "linker/image_write_read_test.cc",
-        "linker/index_bss_mapping_encoder_test.cc",
-        "linker/multi_oat_relative_patcher_test.cc",
-        "linker/oat_writer_test.cc",
-        "verifier_deps_test.cc",
-        "utils/swap_space_test.cc",
+         "dex2oat_test.cc",
+        // "dex2oat_vdex_test.cc",
+        // "dex2oat_image_test.cc",
+        // "driver/compiled_method_storage_test.cc",
+        // "driver/compiler_driver_test.cc",
+        // "linker/code_info_table_deduper_test.cc",
+        // "linker/elf_writer_test.cc",
+        // "linker/image_test.cc",
+        // "linker/image_write_read_test.cc",
+        // "linker/index_bss_mapping_encoder_test.cc",
+        // "linker/multi_oat_relative_patcher_test.cc",
+        // "linker/oat_writer_test.cc",
+        // "verifier_deps_test.cc",
+        // "utils/swap_space_test.cc",
     ],
     target: {
         host: {
@@ -534,22 +534,22 @@ art_cc_defaults {
     codegen: {
         arm: {
             srcs: [
-                "linker/arm/relative_patcher_thumb2_test.cc",
+             //   "linker/arm/relative_patcher_thumb2_test.cc",
             ],
         },
         arm64: {
             srcs: [
-                "linker/arm64/relative_patcher_arm64_test.cc",
+              //  "linker/arm64/relative_patcher_arm64_test.cc",
             ],
         },
         x86: {
             srcs: [
-                "linker/x86/relative_patcher_x86_test.cc",
+              //  "linker/x86/relative_patcher_x86_test.cc",
             ],
         },
         x86_64: {
             srcs: [
-                "linker/x86_64/relative_patcher_x86_64_test.cc",
+              //  "linker/x86_64/relative_patcher_x86_64_test.cc",
             ],
         },
     },

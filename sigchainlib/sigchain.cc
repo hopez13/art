@@ -140,6 +140,7 @@ static void lookup_libc_symbol(T* output, T wrapper, const char* name) {
 
 __attribute__((constructor)) static void InitializeSignalChain() {
   static std::once_flag once;
+  printf("InitializingSignalChain ...........\n");
   std::call_once(once, []() {
     lookup_libc_symbol(&linked_sigaction, sigaction, "sigaction");
     lookup_libc_symbol(&linked_sigprocmask, sigprocmask, "sigprocmask");
