@@ -3054,29 +3054,23 @@ ObjPtr<mirror::Class> ClassLinker::FindClass(Thread* self,
                                  "%s",
                                  class_name_string.c_str());
       } else {
-        ScopedLocalRef<jobject> class_loader_object(
-            soa.Env(), soa.AddLocalReference<jobject>(class_loader.Get()));
-        ScopedLocalRef<jobject> result(soa.Env(), nullptr);
-        {
-          ScopedThreadStateChange tsc(self, ThreadState::kNative);
-          ScopedLocalRef<jobject> class_name_object(
-              soa.Env(), soa.Env()->NewStringUTF(class_name_string.c_str()));
-          if (class_name_object.get() == nullptr) {
-            DCHECK(self->IsExceptionPending());  // OOME.
-            return nullptr;
-          }
-          CHECK(class_loader_object.get() != nullptr);
-          result.reset(soa.Env()->CallObjectMethod(class_loader_object.get(),
-                                                   WellKnownClasses::java_lang_ClassLoader_loadClass,
-                                                   class_name_object.get()));
+        StackHandleScope<1u> hs(self);
+        Handle<mirror::String> class_name_object = hs.NewHandle(
+            mirror::String::AllocFromModifiedUtf8(self, class_name_string.c_str()));
+        if (class_name_object == nullptr) {
+          DCHECK(self->IsExceptionPending());  // OOME.
+          return nullptr;
         }
-        if (result.get() == nullptr && !self->IsExceptionPending()) {
+        DCHECK(class_loader != nullptr);
+        result_ptr = ObjPtr<mirror::Class>::DownCast(
+            WellKnownClasses::java_lang_ClassLoader_loadClass->InvokeVirtual<'L', 'L'>(
+                self, class_loader.Get(), class_name_object.Get()));
+        if (result_ptr == nullptr && !self->IsExceptionPending()) {
           // broken loader - throw NPE to be compatible with Dalvik
           ThrowNullPointerException(StringPrintf("ClassLoader.loadClass returned null for %s",
                                                  class_name_string.c_str()).c_str());
           return nullptr;
         }
-        result_ptr = soa.Decode<mirror::Class>(result.get());
         // Check the name of the returned class.
         descriptor_equals = (result_ptr != nullptr) && result_ptr->DescriptorEquals(descriptor);
       }
@@ -10088,6 +10082,9 @@ ObjPtr<mirror::ClassLoader> ClassLinker::CreateWellKnownClassLoader(
     Handle<mirror::ClassLoader> parent_loader,
     Handle<mirror::ObjectArray<mirror::ClassLoader>> shared_libraries,
     Handle<mirror::ObjectArray<mirror::ClassLoader>> shared_libraries_after) {
+  CHECK(loader_class.Get() == WellKnownClasses::dalvik_system_PathClassLoader ||
+        loader_class.Get() == WellKnownClasses::dalvik_system_DelegateLastClassLoader ||
+        loader_class.Get() == WellKnownClasses::dalvik_system_InMemoryDexClassLoader);
 
   StackHandleScope<5> hs(self);
 
@@ -10211,55 +10208,16 @@ ObjPtr<mirror::ClassLoader> ClassLinker::CreateWellKnownClassLoader(
   return h_class_loader.Get();
 }
 
-jobject ClassLinker::CreateWellKnownClassLoader(Thread* self,
-                                                const std::vector<const DexFile*>& dex_files,
-                                                jclass loader_class,
-                                                jobject parent_loader,
-                                                jobject shared_libraries,
-                                                jobject shared_libraries_after) {
-  CHECK(self->GetJniEnv()->IsSameObject(loader_class,
-                                        WellKnownClasses::dalvik_system_PathClassLoader) ||
-        self->GetJniEnv()->IsSameObject(loader_class,
-                                        WellKnownClasses::dalvik_system_DelegateLastClassLoader) ||
-        self->GetJniEnv()->IsSameObject(loader_class,
-                                        WellKnownClasses::dalvik_system_InMemoryDexClassLoader));
-
-  // SOAAlreadyRunnable is protected, and we need something to add a global reference.
-  // We could move the jobject to the callers, but all call-sites do this...
-  ScopedObjectAccessUnchecked soa(self);
-
-  // For now, create a libcore-level DexFile for each ART DexFile. This "explodes" multidex.
-  StackHandleScope<5> hs(self);
-
-  Handle<mirror::Class> h_loader_class =
-      hs.NewHandle<mirror::Class>(soa.Decode<mirror::Class>(loader_class));
-  Handle<mirror::ClassLoader> h_parent =
-      hs.NewHandle<mirror::ClassLoader>(soa.Decode<mirror::ClassLoader>(parent_loader));
-  Handle<mirror::ObjectArray<mirror::ClassLoader>> h_shared_libraries =
-      hs.NewHandle(soa.Decode<mirror::ObjectArray<mirror::ClassLoader>>(shared_libraries));
-  Handle<mirror::ObjectArray<mirror::ClassLoader>> h_shared_libraries_after =
-        hs.NewHandle(soa.Decode<mirror::ObjectArray<mirror::ClassLoader>>(shared_libraries_after));
-
-  ObjPtr<mirror::ClassLoader> loader = CreateWellKnownClassLoader(
-      self,
-      dex_files,
-      h_loader_class,
-      h_parent,
-      h_shared_libraries,
-      h_shared_libraries_after);
-
-  // Make it a global ref and return.
-  ScopedLocalRef<jobject> local_ref(
-      soa.Env(), soa.Env()->AddLocalReference<jobject>(loader));
-  return soa.Env()->NewGlobalRef(local_ref.get());
-}
-
 jobject ClassLinker::CreatePathClassLoader(Thread* self,
                                            const std::vector<const DexFile*>& dex_files) {
-  return CreateWellKnownClassLoader(self,
-                                    dex_files,
-                                    WellKnownClasses::dalvik_system_PathClassLoader,
-                                    nullptr);
+  StackHandleScope<3u> hs(self);
+  Handle<mirror::Class> d_s_pcl =
+      hs.NewHandle(WellKnownClasses::dalvik_system_PathClassLoader.Get());
+  auto null_parent = hs.NewHandle<mirror::ClassLoader>(nullptr);
+  auto null_libs = hs.NewHandle<mirror::ObjectArray<mirror::ClassLoader>>(nullptr);
+  ObjPtr<mirror::ClassLoader> class_loader =
+      CreateWellKnownClassLoader(self, dex_files, d_s_pcl, null_parent, null_libs, null_libs);
+  return Runtime::Current()->GetJavaVM()->AddGlobalRef(self, class_loader);
 }
 
 void ClassLinker::DropFindArrayClassCache() {
