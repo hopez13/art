@@ -658,6 +658,30 @@
       },
       "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b07bd347_43b4fad0",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-23T23:03:16Z",
+      "side": 1,
+      "message": "Yes, I believe this version. The lock ensures that updates by a third thread are visible to the removing thread, and the release store ensures visibility to a reader that didn\u0027t acquire the lock.",
+      "parentUuid": "0a0ac09a_0fa5fe1f",
+      "range": {
+        "startLine": 335,
+        "startChar": 29,
+        "endLine": 335,
+        "endChar": 54
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
