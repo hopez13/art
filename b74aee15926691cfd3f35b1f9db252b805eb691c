@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20a48378_aa852006",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-11-23T16:04:35Z",
+      "side": 1,
+      "message": "(relanded as https://android-review.git.corp.google.com/c/platform/art/+/2310508)\n\nTL;DR; The dimension value is just \"oriole\" not \"Pixel 6 (oriole)\" as it shows in LUCI UI.",
+      "revId": "b74aee15926691cfd3f35b1f9db252b805eb691c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
