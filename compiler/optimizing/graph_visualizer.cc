@@ -909,10 +909,6 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
       PrintEmptyProperty("flags");
     }
 
-    if (block->IsTryBlock()) {
-      PrintProperty("try_start", block->GetTryCatchInformation()->GetTryEntry().GetBlock());
-    }
-
     if (block->GetDominator() != nullptr) {
       PrintProperty("dominator", block->GetDominator());
     }
