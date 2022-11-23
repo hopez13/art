@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0d12aaf_8a02ff68",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-23T13:30:07Z",
+      "side": 1,
+      "message": "After talking to Nicolas, I decided to use the \"sync-core\" version just like JIT, just to be sure. (The unlikely case of unloading an oat file and loading another one to the same memory range probably needs flushing instruction caches.)\n\nPlease review PS16.",
+      "parentUuid": "a2aa51fd_2f42f46a",
+      "range": {
+        "startLine": 244,
+        "startChar": 29,
+        "endLine": 248,
+        "endChar": 36
+      },
+      "revId": "1fedc6272e12246d16ac5eaf2566122496701fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d14614d_6f0a0f2e",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 12

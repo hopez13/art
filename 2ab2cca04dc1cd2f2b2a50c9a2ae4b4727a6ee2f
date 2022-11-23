@@ -634,6 +634,30 @@
       },
       "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a0ac09a_0fa5fe1f",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-23T13:30:07Z",
+      "side": 1,
+      "message": "So the problem is that `RemoveGeneratedCodeRange()` is using a relaxed store (under a mutex) instead of RMW when writing the `generated_code_ranges_` (that is, `if (before \u003d\u003d \u0026generated_code_ranges_)`).\n\nPlease check that the PS14+ fixes the issue.",
+      "parentUuid": "b8b80b27_54950375",
+      "range": {
+        "startLine": 335,
+        "startChar": 29,
+        "endLine": 335,
+        "endChar": 54
+      },
+      "revId": "2ab2cca04dc1cd2f2b2a50c9a2ae4b4727a6ee2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
