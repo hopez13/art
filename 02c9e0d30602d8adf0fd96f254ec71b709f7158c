@@ -34,6 +34,24 @@
       "parentUuid": "c51bb1aa_e19e188f",
       "revId": "02c9e0d30602d8adf0fd96f254ec71b709f7158c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e9de404_5c5dcfb0",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1002560
+      },
+      "writtenOn": "2022-11-23T16:46:26Z",
+      "side": 1,
+      "message": "You are right, I hadn\u0027t realized. The list of methods is at https://github.com/bazelbuild/starlark/blob/master/spec.md#built-in-methods.",
+      "parentUuid": "e4a02535_93fc4a64",
+      "revId": "02c9e0d30602d8adf0fd96f254ec71b709f7158c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
