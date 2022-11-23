@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ae946e5_6eb70ae4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-23T06:34:37Z",
+      "side": 1,
+      "message": "@jiakaiz@google.com all the failures are due to the check you added in (aosp/2309351). When I tried reproducing it locally, I found that boot image was preopted with `-Xgc:CMC`. That isn\u0027t a problem without this CL as in that case unless `ART_USE_READ_BARRIER\u003dfalse`, we ignore cmdline GC-type. But with this CL, we end up generating boot-image without read-barrier, but then while using it, the flags mismatch.\nI also tried using OVERRIDE_ENABLE_UFFD_GC with different values, which had no effect.\n\n\nCan you please see why `-Xgc:CMC` is emitted unconditionally on host? To confirm this you can just add `CHECK_EQ(gc_type, gc::CollectorType::kCollectorTypeNone);` in ShouldUseUserfaultfd() before returning.",
+      "revId": "d0ef3df973588be23761beddb384ce90194ae4a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
