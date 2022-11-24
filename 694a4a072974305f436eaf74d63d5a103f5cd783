@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e74266e_d5499876",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-24T14:41:42Z",
+      "side": 1,
+      "message": "This is essentially a copy of the old `IndirectReferenceTable` with heavy renaming and a few things removed (`IndirectRef` remains in `indirect_reference_table`, `ResizableCapacity` and `IsValid()` were removed)",
+      "revId": "694a4a072974305f436eaf74d63d5a103f5cd783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
