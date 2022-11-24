@@ -16,6 +16,29 @@
       "message": "PS5 fixes one more test failure.",
       "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6df87c51_6320bad3",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-24T10:45:54Z",
+      "side": 1,
+      "message": "Why would an error occur in checking if the APK has dex files?",
+      "range": {
+        "startLine": 287,
+        "startChar": 65,
+        "endLine": 287,
+        "endChar": 98
+      },
+      "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
