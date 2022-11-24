@@ -16,6 +16,24 @@
       "message": "So if we don\u0027t succeed, we\u0027ll keep on calling GetMultiDexChecksums for every GetRequiredDexChecksums, which wasn\u0027t the case before. Is that change intended?",
       "revId": "30a8da61860ab3feaf1734d2a67f6d012a978361",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b9462a2_514336b6",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-24T18:33:35Z",
+      "side": 1,
+      "message": "That\u0027s a good point. We shouldn\u0027t change this behavior. Then we have to cache the error message as well. Done.\n\nI also realized that there was another subtle behavior change that wasn\u0027t covered by the tests. Although the new behavior is more correct, I\u0027d like to leave it out of this CL to make this one no-op API-wise. I added tests to cover it and created a separate CL for the change.",
+      "parentUuid": "703b80fd_4bd1e86e",
+      "revId": "30a8da61860ab3feaf1734d2a67f6d012a978361",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
