@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff7a5e69_7598f31a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-24T15:07:03Z",
+      "side": 1,
+      "message": "This is weird enough to warrant an explanation directly in the code. Can you please move this to a comment there?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 64
+      },
+      "revId": "2aff8546a1ab49d294cf612b7a7d5890b91f03ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2d687da_3042b58c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-24T15:07:03Z",
+      "side": 1,
+      "message": "There\u0027s no Test tag. Do you have a way of reproducing this? Any instructions to help do that means there\u0027s less risk the problem gets reintroduced somewhere down the line.",
+      "revId": "2aff8546a1ab49d294cf612b7a7d5890b91f03ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "88c4adfa_94a3654c",
