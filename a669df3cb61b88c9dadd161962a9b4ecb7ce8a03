@@ -22,6 +22,30 @@
       },
       "revId": "a669df3cb61b88c9dadd161962a9b4ecb7ce8a03",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fe6d666_ea82ad61",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1366,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-24T16:19:39Z",
+      "side": 0,
+      "message": "Yes. That code will generate\n    `(end - start) + (step - 1) / step`\nwhich can overflow if e.g. end \u003d `Integer.MAX_VALUE` and `start` \u003d `-1`.\n\n\u003e So, this \"fix\" is just a workaround to avoid calling the buggy code. It does not fix the underlying issue and it does not prevent other callers from hitting very similar overflow problems.\n\nYes, this CL makes periodic loop optimization safe from overflow by not bumping into the bug.",
+      "parentUuid": "ce0fe5a4_8940ca74",
+      "range": {
+        "startLine": 1359,
+        "startChar": 6,
+        "endLine": 1366,
+        "endChar": 40
+      },
+      "revId": "a669df3cb61b88c9dadd161962a9b4ecb7ce8a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
