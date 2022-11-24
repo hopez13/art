@@ -407,7 +407,11 @@ void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
     if (handler == SIG_IGN) {
       return;
     } else if (handler == SIG_DFL) {
-      fatal("exiting due to SIG_DFL handler for signal %d, ucontext %p", signo, ucontext);
+      log("exiting due to SIG_DFL handler for signal %d, ucontext %p", signo, ucontext);
+      struct sigaction dfl = {};
+      dfl.sa_handler = SIG_DFL;
+      linked_sigaction(signo, &dfl, nullptr);
+      return;
     } else {
       handler(signo);
     }
