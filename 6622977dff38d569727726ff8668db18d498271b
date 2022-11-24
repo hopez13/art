@@ -73,6 +73,24 @@
       "message": "If I understand this correctly, we\u0027re not fixing the optimization. We\u0027re just disabling it for pretty much all the relevant patterns. (The loop in this method is a very simple example.)\n\nLooking at the graph, I see no problem for this particular method. Omitting `Goto`s, we currently have `loop_optimization (after)`:\n\n    i0 ParameterValue\n    i3 IntConstant 0\n    i13 IntConstant 1\n    v1 SuspendCheck env:[[_,_,i0]]\n\n    i17 And [i0,i13]\n    z18 Equal [i17,i3]\n    i19 Select [i13,i3,z18]\n    z20 LessThan [i3,i0]\n    i21 Select [i3,i19,z20]\n\n    v11 Return [i21]\n\nThis looks correct to me, so I\u0027d like to keep the optimization for this method.",
       "revId": "6622977dff38d569727726ff8668db18d498271b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbc8967c_611ec931",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-24T15:42:04Z",
+      "side": 1,
+      "message": "We are disabling it if we cannot guarantee we won\u0027t overflow in the calculation. The easiest way to do it is to guarantee that we have constant values that we can check at compile time.\n\nIn the `periodicReturnedN` case, we could do it because we have a constant `0` as the start and because the step is `1`. The calculation\n  `(end - start) + (step - 1) / step`\nthen becomes\n  `end`.\n  \nHowever, if `start` was a negative number or if `step` was bigger than `1`, then we would have overflown. In order to support cases like this we would need to update loop optimization with cases like:\n* `constant start, variable end, constant step`\n* `variable start, constant end, constant step`\n* etc\n\nThe constants should be such that we can\u0027t overflow in signed 32 bit arithmetic no matter the variables. The cases also become impossible to figure out once you have two variables e.g. `variable start, variable end, constant step` could overflow no matter the step.\n\nWe would still perform the optimization for the cases in which we have constant values e.g. https://cs.android.com/android/platform/superproject/+/master:art/test/618-checker-induction/src/Main.java;l\u003d700;drc\u003ddb692461d217e59684baab57abcaf3055fa8ccf5.",
+      "parentUuid": "5a20188e_bacb8dcd",
+      "revId": "6622977dff38d569727726ff8668db18d498271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
