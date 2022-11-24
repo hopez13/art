@@ -91,6 +91,24 @@
       "parentUuid": "5a20188e_bacb8dcd",
       "revId": "6622977dff38d569727726ff8668db18d498271b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "623df53b_8fba5610",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-24T16:11:14Z",
+      "side": 1,
+      "message": "We could use 64-bit or unsigned division for the calculation to avoid overflow for reasonable start values such as 0. (Unsigned: if `IsPowerOfTwo(step)`, just use `HUshr`, otherwise create an `HInvokeStaticOrDirect/intrinsic\u003dIntegerDivideUnsigned`.)",
+      "parentUuid": "fbc8967c_611ec931",
+      "revId": "6622977dff38d569727726ff8668db18d498271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

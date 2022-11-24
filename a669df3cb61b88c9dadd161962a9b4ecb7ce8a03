@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce0fe5a4_8940ca74",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1366,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-24T16:11:14Z",
+      "side": 0,
+      "message": "If I understand correctly, the bug is that somewhere inside this call we can generate code that may overflow.\n\nSo, this \"fix\" is just a workaround to avoid calling the buggy code. It does not fix the underlying issue and it does not prevent other callers from hitting very similar overflow problems.",
+      "range": {
+        "startLine": 1359,
+        "startChar": 6,
+        "endLine": 1366,
+        "endChar": 40
+      },
+      "revId": "a669df3cb61b88c9dadd161962a9b4ecb7ce8a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
