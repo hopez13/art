@@ -465,21 +465,31 @@ ALL_BENCHMARKS = (
         for vartype in ["int", "String"]])
 
 
+
 MAIN = BANNER + """
 public class Main {
   static MicroBenchmark[] benchmarks;
 
   private static void initialize() throws Throwable {
     benchmarks = new MicroBenchmark[] {""" + "".join(["""
-      new {}(),""".format(b.fullname()) for b in ALL_BENCHMARKS]) + """
+      new {}(),""".format(b.fullname()) for b in ALL_BENCHMARKS if b.fullname() == "VarHandleCompareandsetFieldLittleEndianIntBenchmark"]) + """
     };
   }
 
   public static void main(String[] args) throws Throwable {
     initialize();
+      /*
+    Integer [] a = new Integer[8];
+    for (int i = -2000000; i < 20000000; ++i) {
+      Integer j = Integer.valueOf(i);
+      a[Math.abs(i) % a.length] = j;
+    }
+      */
+    System.gc();      
     for (MicroBenchmark benchmark : benchmarks) {
       benchmark.report();
     }
+    System.gc();
   }
 }"""
 

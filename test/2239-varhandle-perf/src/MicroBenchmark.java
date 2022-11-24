@@ -17,7 +17,7 @@
 import java.io.PrintStream;
 
 class MicroBenchmark extends BenchmarkBase {
-  private static final int EXERCISE_ITERATIONS = 1000;
+  private static final long EXERCISE_ITERATIONS = 500000;
 
   MicroBenchmark() {
     super(null);
@@ -30,7 +30,7 @@ class MicroBenchmark extends BenchmarkBase {
 
   @Override
   public void exercise() throws Throwable {
-    for (int i = 0; i < EXERCISE_ITERATIONS; ++i) {
+    for (long i = 0; i < EXERCISE_ITERATIONS; ++i) {
       run();
     }
   }
