@@ -25,16 +25,19 @@
 
 #include <android-base/logging.h>
 
+#include "base/bit_field.h"
 #include "base/bit_utils.h"
+#include "base/casts.h"
+#include "base/dchecked_vector.h"
 #include "base/locks.h"
 #include "base/macros.h"
 #include "base/mem_map.h"
 #include "base/mutex.h"
 #include "gc_root.h"
 #include "indirect_reference_table.h"
+#include "mirror/object_reference.h"
 #include "obj_ptr.h"
 #include "offsets.h"
-#include "read_barrier_option.h"
 
 namespace art {
 
@@ -46,15 +49,12 @@ class Object;
 
 namespace jni {
 
-// Maintain a table of local references.  Used for local JNI references.
-// TODO: Rewrite the implementation, so that valid local references are effectively
-// `CompressedReference<Object>*`, so that it can be decoded very quickly.
+// Maintain a table of local JNI references.
 //
-// The table contains object references, where the strong (local/global) references are part of the
-// GC root set (but not the weak global references). When an object is added we return an
-// IndirectRef that is not a valid pointer but can be used to find the original value in O(1) time.
-// Conversions to and from indirect references are performed on upcalls and downcalls, so they need
-// to be very fast.
+// The table contains object references that are part of the GC root set. When an object is
+// added we return an `IndirectRef` that is not a valid pointer but can be used to find the
+// original value in O(1) time. Conversions to and from local JNI references are performed
+// on upcalls and downcalls as well as in JNI functions, so they need to be very fast.
 //
 // To be efficient for JNI local variable storage, we need to provide operations that allow us to
 // operate on segments of the table, where segments are pushed and popped as if on a stack. For
@@ -69,10 +69,9 @@ namespace jni {
 //
 // In summary, these must be very fast:
 //  - adding or removing a segment
-//  - adding references to a new segment
-//  - converting an indirect reference back to an Object
+//  - adding references (always adding to the current segment)
+//  - converting an local reference back to an Object
 // These can be a little slower, but must still be pretty quick:
-//  - adding references to a "mature" segment
 //  - removing individual references
 //  - scanning the entire table straight through
 //
@@ -80,22 +79,7 @@ namespace jni {
 // we fail due to lack of space. We do ensure that the current segment will pack tightly, which
 // should satisfy JNI requirements (e.g. EnsureLocalCapacity).
 
-// Indirect reference definition.  This must be interchangeable with JNI's jobject, and it's
-// convenient to let null be null, so we use void*.
-//
-// We need a (potentially) large table index and a 2-bit reference type (global, local, weak
-// global). We also reserve some bits to be used to detect stale indirect references: we put a
-// serial number in the extra bits, and keep a copy of the serial number in the table. This requires
-// more memory and additional memory accesses on add/get, but is moving-GC safe. It will catch
-// additional problems, e.g.: create iref1 for obj, delete iref1, create iref2 for same obj,
-// lookup iref1. A pattern based on object bits will miss this.
-
-// Table definition.
-//
-// For the global reference table, the expected common operations are adding a new entry and
-// removing a recently-added entry (usually the most-recently-added entry).  For JNI local
-// references, the common operations are adding a new entry and removing an entire table segment.
-//
+// FIXME
 // If we delete entries from the middle of the list, we will be left with "holes".  We track the
 // number of holes so that, when adding new elements, we can quickly decide to do a trivial append
 // or go slot-hunting.
@@ -122,13 +106,6 @@ namespace jni {
 // the table when expanding it (so realloc() is out), and tricks like serial number checking to
 // detect stale references aren't possible (though we may be able to get similar benefits with other
 // approaches).
-//
-// TODO: consider a "lastDeleteIndex" for quick hole-filling when an add immediately follows a
-// delete; must invalidate after segment pop might be worth only using it for JNI globals.
-//
-// TODO: may want completely different add/remove algorithms for global and local refs to improve
-// performance.  A large circular buffer might reduce the amortized cost of adding global
-// references.
 
 // The state of the current segment. We only store the index. Splitting it for index and hole
 // count restricts the range too much.
@@ -139,107 +116,130 @@ struct LRTSegmentState {
 // Use as initial value for "cookie", and when table has only one segment.
 static constexpr LRTSegmentState kLRTFirstSegment = { 0 };
 
-// We associate a few bits of serial number with each reference, for error checking.
-static constexpr unsigned int kLRTSerialBits = 3;
-static constexpr uint32_t kLRTMaxSerial = ((1 << kLRTSerialBits) - 1);
-
+// The entry in the `LocalReferenceTable` can contain a null or reference, or
+// it can be marked as free and hold the index of the next free entry. For better
+// diagnostics of invalid uses, free entries can also be tagged as deleted.
 class LrtEntry {
  public:
-  void Add(ObjPtr<mirror::Object> obj) REQUIRES_SHARED(Locks::mutator_lock_);
+  void SetReference(ObjPtr<mirror::Object> ref) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  GcRoot<mirror::Object>* GetReference() {
-    DCHECK_LE(serial_, kLRTMaxSerial);
-    return &reference_;
+  ObjPtr<mirror::Object> GetReference() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool IsNull() const {
+    return root_.IsNull();
   }
 
-  const GcRoot<mirror::Object>* GetReference() const {
-    DCHECK_LE(serial_, kLRTMaxSerial);
-    return &reference_;
+  void SetFree(uint32_t next_free);
+
+  void SetDeleted(uint32_t next_free);
+
+  bool IsFree() {
+    return (AsVRegValue() & (1u << kFlagFree)) != 0u;
   }
 
-  uint32_t GetSerial() const {
-    return serial_;
+  bool IsDeleted() {
+    return (AsVRegValue() & (1u << kFlagDeleted)) != 0u;
   }
 
-  void SetReference(ObjPtr<mirror::Object> obj) REQUIRES_SHARED(Locks::mutator_lock_);
+  uint32_t GetNextFree() {
+    DCHECK(IsFree());
+    return NextFreeField::Decode(AsVRegValue());
+  }
+
+  GcRoot<mirror::Object>* GetRootAddress() {
+    return &root_;
+  }
+
+  static constexpr uint32_t FreeListEnd() {
+    return MaxInt<uint32_t>(kFieldNextFreeBits);
+  }
 
  private:
-  uint32_t serial_;  // Incremented for each reuse; checked against reference.
-  GcRoot<mirror::Object> reference_;
-};
-static_assert(sizeof(LrtEntry) == 2 * sizeof(uint32_t), "Unexpected sizeof(LrtEntry)");
-static_assert(IsPowerOfTwo(sizeof(LrtEntry)), "Unexpected sizeof(LrtEntry)");
+  static constexpr size_t kFlagFree = 0u;
+  static constexpr size_t kFlagDeleted = 1u;
+  static constexpr size_t kFieldNextFree = 2u;
+  static constexpr size_t kFieldNextFreeBits = BitSizeOf<uint32_t>() - kFieldNextFree;
 
-// We initially allocate local reference tables with a very small number of entries, packing
-// multiple tables into a single page. If we need to expand one, we allocate them in units of
-// pages.
-// TODO: We should allocate all LRT tables as nonmovable Java objects, That in turn works better
-// if we break up each table into 2 parallel arrays, one for the Java reference, and one for the
-// serial number. The current scheme page-aligns regions containing LRT tables, and so allows them
-// to be identified and page-protected in the future.
-constexpr size_t kInitialLrtBytes = 512;  // Number of bytes in an initial local table.
-constexpr size_t kSmallLrtEntries = kInitialLrtBytes / sizeof(LrtEntry);
+  using NextFreeField = BitField<uint32_t, kFieldNextFree, kFieldNextFreeBits>;
+
+  static_assert(kObjectAlignment > (1u << kFlagFree));
+  static_assert(kObjectAlignment > (1u << kFlagDeleted));
+
+  uint32_t AsVRegValue() {
+    return root_.AddressWithoutBarrier()->AsVRegValue();
+  }
+
+  // We record the contents as a `CompressedReference` but we 
+  GcRoot<mirror::Object> root_;
+};
+static_assert(sizeof(LrtEntry) == sizeof(mirror::CompressedReference<mirror::Object>));
+
+// We initially allocate local reference tables with a small number of entries, packing
+// multiple tables into a single page. If we need to expand, we double the capacity,
+// first allocating another chunk with the same number of entries as the first chunk
+// and then allocating twice as big chunk on each subsequent expansion.
+static constexpr size_t kInitialLrtBytes = 512;  // Number of bytes in an initial local table.
+static constexpr size_t kSmallLrtEntries = kInitialLrtBytes / sizeof(LrtEntry);
+static_assert(IsPowerOfTwo(kInitialLrtBytes));
 static_assert(kPageSize % kInitialLrtBytes == 0);
 static_assert(kInitialLrtBytes % sizeof(LrtEntry) == 0);
-static_assert(kInitialLrtBytes % sizeof(void *) == 0);
 
 // A minimal stopgap allocator for initial small local LRT tables.
 class SmallLrtAllocator {
  public:
   SmallLrtAllocator();
 
-  // Allocate a LRT table for kSmallLrtEntries.
-  LrtEntry* Allocate(std::string* error_msg) REQUIRES(!lock_);
+  // Allocate an LRT table for `kSmallLrtEntries`.
+  LrtEntry* Allocate(size_t size, std::string* error_msg) REQUIRES(!lock_);
 
-  void Deallocate(LrtEntry* unneeded) REQUIRES(!lock_);
+  void Deallocate(LrtEntry* unneeded, size_t size) REQUIRES(!lock_);
 
  private:
+  static constexpr size_t kNumSlots = WhichPowerOf2(kPageSize / kInitialLrtBytes);
+
+  static size_t GetIndex(size_t size);
+
   // A free list of kInitialLrtBytes chunks linked through the first word.
-  LrtEntry* small_lrt_freelist_;
+  dchecked_vector<void*> free_lists_;
 
   // Repository of MemMaps used for small LRT tables.
-  std::vector<MemMap> shared_lrt_maps_;
+  dchecked_vector<MemMap> shared_lrt_maps_;
 
   Mutex lock_;  // Level kGenericBottomLock; acquired before mem_map_lock_, which is a C++ mutex.
 };
 
 class LocalReferenceTable {
  public:
-  // Constructs an uninitialized indirect reference table. Use `Initialize()` to initialize it.
   LocalReferenceTable();
-
-  // Initialize the indirect reference table.
-  //
-  // Max_count is the minimum initial capacity (resizable).
-  // A value of 1 indicates an implementation-convenient small size.
-  bool Initialize(size_t max_count, std::string* error_msg);
-
   ~LocalReferenceTable();
 
-  /*
-   * Checks whether construction of the LocalReferenceTable succeeded.
-   *
-   * This object must only be used if IsValid() returns true. It is safe to
-   * call IsValid from multiple threads without locking or other explicit
-   * synchronization.
-   */
-  bool IsValid() const;
+  // Initialize the `LocalReferenceTable`.
+  // Must be called before the `LocalReferenceTable` can escape to other threads.
+  //
+  // Max_count is the requested minimum initial capacity (resizable). The actual initial
+  // capacity can be higher to utilize all allocated memory.
+  //
+  // Returns true on success.
+  // On failure, returns false and reports error in `*error_msg`.
+  bool Initialize(size_t max_count, std::string* error_msg);
 
-  // Add a new entry. "obj" must be a valid non-null object reference. This function will
-  // return null if an error happened (with an appropriate error message set).
+  // Add a new entry. The `obj` must be a valid non-null object reference. This function
+  // will return null if an error happened (with an appropriate error message set).
   IndirectRef Add(LRTSegmentState previous_state,
                   ObjPtr<mirror::Object> obj,
                   std::string* error_msg)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Given an IndirectRef in the table, return the Object it refers to.
+  // Given an `IndirectRef` in the table, return the Object it refers to.
   //
-  // This function may abort under error conditions.
-  template<ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
-  ObjPtr<mirror::Object> Get(IndirectRef iref) const REQUIRES_SHARED(Locks::mutator_lock_)
-      ALWAYS_INLINE;
+  // This function may abort under error conditions in debug build.
+  // In release builds, error conditions are unchecked and the function can
+  // return old or invalid references from popped segments and deleted entries.
+  ObjPtr<mirror::Object> Get(IndirectRef iref) const
+      REQUIRES_SHARED(Locks::mutator_lock_) ALWAYS_INLINE;
 
   // Updates an existing indirect reference to point to a new object.
+  // Used exclusively for updating `String` references after calling a `String` constructor.
   void Update(IndirectRef iref, ObjPtr<mirror::Object> obj) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Remove an existing entry.
@@ -249,7 +249,8 @@ class LocalReferenceTable {
   // required by JNI's DeleteLocalRef function.
   //
   // Returns "false" if nothing was removed.
-  bool Remove(LRTSegmentState previous_state, IndirectRef iref);
+  bool Remove(LRTSegmentState previous_state, IndirectRef iref)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   void AssertEmpty() REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -261,16 +262,10 @@ class LocalReferenceTable {
     return kLocal;
   }
 
-  // Return the #of entries in the entire table.  This includes holes, and
-  // so may be larger than the actual number of "live" entries.
+  // Return the  number of entries in the entire table.  This includes holes,
+  // and so may be larger than the actual number of "live" entries.
   size_t Capacity() const {
     return segment_state_.top_index;
-  }
-
-  // Return the number of non-null entries in the table. Only reliable for a
-  // single segment table.
-  int32_t NEntriesForGlobal() {
-    return segment_state_.top_index - current_num_holes_;
   }
 
   // Ensure that at least free_capacity elements are available, or return false.
@@ -300,94 +295,111 @@ class LocalReferenceTable {
   // Release pages past the end of the table that may have previously held references.
   void Trim() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Determine what kind of indirect reference this is. Opposite of EncodeIndirectRefKind.
-  ALWAYS_INLINE static inline IndirectRefKind GetIndirectRefKind(IndirectRef iref) {
-    return DecodeIndirectRefKind(reinterpret_cast<uintptr_t>(iref));
-  }
-
-  /* Reference validation for CheckJNI. */
+  /* Reference validation for CheckJNI and debug build. */
   bool IsValidReference(IndirectRef, /*out*/std::string* error_msg) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void SweepJniWeakGlobals(IsMarkedVisitor* visitor)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::jni_weak_globals_lock_);
+
  private:
-  static constexpr uint32_t kShiftedSerialMask = (1u << kLRTSerialBits) - 1;
+  // The value indicating the end of the free list.
+  static constexpr uint32_t kFreeListEnd = LrtEntry::FreeListEnd();
 
-  static constexpr size_t kKindBits = MinimumBitsToStore(
-      static_cast<uint32_t>(IndirectRefKind::kLastKind));
-  static constexpr uint32_t kKindMask = (1u << kKindBits) - 1;
+  // The maximum total table size we allow.
+  static constexpr size_t kMaxTableSizeInBytes = 128 * MB;
+  static_assert(IsPowerOfTwo(kMaxTableSizeInBytes));
+  static_assert(IsPowerOfTwo(sizeof(LrtEntry)));
+  static constexpr size_t kMaxTableSize = kMaxTableSizeInBytes / sizeof(LrtEntry);
 
-  static constexpr uintptr_t EncodeIndex(uint32_t table_index) {
-    static_assert(sizeof(IndirectRef) == sizeof(uintptr_t), "Unexpected IndirectRef size");
-    DCHECK_LE(MinimumBitsToStore(table_index), BitSizeOf<uintptr_t>() - kLRTSerialBits - kKindBits);
-    return (static_cast<uintptr_t>(table_index) << kKindBits << kLRTSerialBits);
-  }
-  static constexpr uint32_t DecodeIndex(uintptr_t uref) {
-    return static_cast<uint32_t>((uref >> kKindBits) >> kLRTSerialBits);
-  }
+  // Indirect reference encoding. This must be the same as in `IndirectReferenceTable`.
+  static constexpr size_t kKindBits =
+      MinimumBitsToStore(enum_cast<uint32_t>(IndirectRefKind::kLastKind));
+  static constexpr uintptr_t kKindMask = MaxInt<uint32_t>(kKindBits);
+  static_assert(kKindMask < alignof(LrtEntry));
 
-  static constexpr uintptr_t EncodeIndirectRefKind(IndirectRefKind kind) {
-    return static_cast<uintptr_t>(kind);
-  }
-  static constexpr IndirectRefKind DecodeIndirectRefKind(uintptr_t uref) {
-    return static_cast<IndirectRefKind>(uref & kKindMask);
+  ALWAYS_INLINE static inline IndirectRefKind GetIndirectRefKind(IndirectRef iref) {
+    return enum_cast<IndirectRefKind>(reinterpret_cast<uintptr_t>(iref) & kKindMask);
   }
 
-  static constexpr uintptr_t EncodeSerial(uint32_t serial) {
-    DCHECK_LE(MinimumBitsToStore(serial), kLRTSerialBits);
-    return serial << kKindBits;
-  }
-  static constexpr uint32_t DecodeSerial(uintptr_t uref) {
-    return static_cast<uint32_t>(uref >> kKindBits) & kShiftedSerialMask;
-  }
-
-  constexpr uintptr_t EncodeIndirectRef(uint32_t table_index, uint32_t serial) const {
-    DCHECK_LT(table_index, max_entries_);
-    return EncodeIndex(table_index) | EncodeSerial(serial) | EncodeIndirectRefKind(kLocal);
+  static IndirectRef ToIndirectRef(LrtEntry* entry) {
+    // The `IndirectRef` can be used to directly access the underlying `GcRoot<>`.
+    DCHECK_EQ(reinterpret_cast<GcRoot<mirror::Object>*>(entry), entry->GetRootAddress());
+    return reinterpret_cast<IndirectRef>(
+        reinterpret_cast<uintptr_t>(entry) | static_cast<uintptr_t>(kLocal));
   }
 
-  static void ConstexprChecks();
-
-  // Extract the table index from an indirect reference.
-  ALWAYS_INLINE static uint32_t ExtractIndex(IndirectRef iref) {
-    return DecodeIndex(reinterpret_cast<uintptr_t>(iref));
+  static LrtEntry* ToLrtEntry(IndirectRef iref) {
+    DCHECK_EQ(GetIndirectRefKind(iref), kLocal);
+    return reinterpret_cast<LrtEntry*>(
+        reinterpret_cast<uintptr_t>(iref) & ~static_cast<uintptr_t>(kKindMask));
   }
 
-  IndirectRef ToIndirectRef(uint32_t table_index) const {
-    DCHECK_LT(table_index, max_entries_);
-    uint32_t serial = table_[table_index].GetSerial();
-    return reinterpret_cast<IndirectRef>(EncodeIndirectRef(table_index, serial));
+  static constexpr size_t GetTableSize(size_t table_index) {
+    // First two tables have size `kSmallLrtEntries`, then it doubles for subsequent tables.
+    return kSmallLrtEntries << (table_index != 0u ? table_index - 1u : 0u);
   }
 
-  // Resize the backing table to be at least new_size elements long. Currently
+  static constexpr size_t NumTablesForSize(size_t size) {
+    DCHECK_GE(size, kSmallLrtEntries);
+    DCHECK(IsPowerOfTwo(size));
+    return 1u + WhichPowerOf2(size / kSmallLrtEntries);
+  }
+
+  static constexpr size_t MaxSmallTables() {
+    return NumTablesForSize(kPageSize / sizeof(LrtEntry));
+  }
+
+  LrtEntry* GetEntry(size_t entry_index) const {
+    DCHECK_LT(entry_index, max_entries_);
+    if (LIKELY(small_table_ != nullptr)) {
+      DCHECK_LT(entry_index, kSmallLrtEntries);
+      DCHECK_EQ(max_entries_, kSmallLrtEntries);
+      return &small_table_[entry_index];
+    }
+    size_t table_start_index =
+        (entry_index < kSmallLrtEntries) ? 0u : TruncToPowerOfTwo(entry_index);
+    size_t table_index =
+        (entry_index < kSmallLrtEntries) ? 0u : NumTablesForSize(table_start_index);
+    LrtEntry* table = tables_[table_index];
+    return &table[entry_index - table_start_index];
+  }
+
+  // Get the entry index for an indirect reference. Note that this may be higher than
+  // the current segment state. Returns maximum uint32 value if the reference does not
+  // point to one of the internal tables.
+  uint32_t GetReferenceEntryIndex(IndirectRef iref) const;
+
+  // Debug mode check that the reference is valid.
+  void DCheckValidReference(IndirectRef iref) const REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Resize the backing table to be at least `new_size` elements long. The `new_size`
   // must be larger than the current size. After return max_entries_ >= new_size.
   bool Resize(size_t new_size, std::string* error_msg);
 
-  void RecoverHoles(LRTSegmentState from);
-
-  // Abort if check_jni is not enabled. Otherwise, just log as an error.
-  static void AbortIfNoCheckJNI(const std::string& msg);
-
-  /* extra debugging checks */
-  bool CheckEntry(const char*, IndirectRef, uint32_t) const;
+  // Remove popped free entries from the list.
+  // Called only if `free_entries_list_` points to a popped entry.
+  void PrunePoppedFreeEntries();
 
   /// semi-public - read/write by jni down calls.
   LRTSegmentState segment_state_;
 
-  // Mem map where we store the indirect refs. If it's invalid, and table_ is non-null, then
-  // table_ is valid, but was allocated via `SmallLrtAllocator`;
-  MemMap table_mem_map_;
-  // bottom of the stack. Do not directly access the object references
-  // in this as they are roots. Use Get() that has a read barrier.
-  LrtEntry* table_;
+  // The maximum number of entries (modulo resizing).
+  uint32_t max_entries_;
 
-  // max #of entries allowed (modulo resizing).
-  size_t max_entries_;
+  // The singly-linked list of free nodes.
+  // These comprise of deleted nodes and skipped nodes.
+  uint32_t free_entries_list_;
 
-  // Some values to retain old behavior with holes. Description of the algorithm is in the .cc
-  // file.
-  // TODO: Consider other data structures for compact tables, e.g., free lists.
-  size_t current_num_holes_;  // Number of holes in the current / top segment.
-  LRTSegmentState last_known_previous_state_;
+  // Individual tables. As long as we have only one small table, we use
+  // `small_table_`, otherwise we set it to null and use `tables_`.
+  LrtEntry* small_table_;
+  dchecked_vector<LrtEntry*> tables_;
+
+  // Mem maps where we store tables allocated directly with `MemMap`
+  // rather than the `SmallLrtAllocator`.
+  dchecked_vector<MemMap> table_mem_maps_;
 };
 
 }  // namespace jni
