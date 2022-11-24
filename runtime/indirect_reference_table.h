@@ -87,9 +87,9 @@ const char* GetIndirectRefKindString(IndirectRefKind kind);
 //
 // In summary, these must be very fast:
 //  - adding references
+//  - removing references
 //  - converting an indirect reference back to an Object
 // These can be a little slower, but must still be pretty quick:
-//  - removing individual references
 //  - scanning the entire table straight through
 
 // Table definition.
@@ -216,6 +216,24 @@ class IndirectReferenceTable {
   // Determine what kind of indirect reference this is. Opposite of EncodeIndirectRefKind.
   ALWAYS_INLINE static inline IndirectRefKind GetIndirectRefKind(IndirectRef iref) {
     return DecodeIndirectRefKind(reinterpret_cast<uintptr_t>(iref));
+  }
+
+  static constexpr uintptr_t GetGlobalOrWeakGlobalMask() {
+    constexpr uintptr_t mask = enum_cast<uintptr_t>(kGlobal);
+    static_assert(IsPowerOfTwo(mask));
+    return mask;
+  }
+
+  static bool IsGlobalOrWeakGlobalReference(IndirectRef iref) {
+    return (reinterpret_cast<uintptr_t>(iref) & GetGlobalOrWeakGlobalMask()) != 0u;
+  }
+
+  static bool IsJniTransitionOrLocalReference(IndirectRef iref) {
+    return !IsGlobalOrWeakGlobalReference(iref);
+  }
+
+  static uintptr_t ClearIndirectRefKind(IndirectRef iref) {
+    return reinterpret_cast<uintptr_t>(iref) & ~static_cast<uintptr_t>(kKindMask);
   }
 
   /* Reference validation for CheckJNI. */
