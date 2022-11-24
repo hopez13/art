@@ -49,6 +49,7 @@
 #include "process_state.h"
 #include "quick/quick_method_frame_info.h"
 #include "reflective_value_visitor.h"
+#include "runtime_image.h"
 #include "runtime_stats.h"
 
 namespace art {
