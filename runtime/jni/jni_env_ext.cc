@@ -33,6 +33,7 @@
 #include "nth_caller_visitor.h"
 #include "scoped_thread_state_change.h"
 #include "thread-current-inl.h"
+#include "thread-inl.h"
 #include "thread_list.h"
 
 namespace art {
