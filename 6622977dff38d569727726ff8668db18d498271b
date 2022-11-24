@@ -56,6 +56,23 @@
       "message": "Friendly ping",
       "revId": "6622977dff38d569727726ff8668db18d498271b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a20188e_bacb8dcd",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-24T15:09:34Z",
+      "side": 1,
+      "message": "If I understand this correctly, we\u0027re not fixing the optimization. We\u0027re just disabling it for pretty much all the relevant patterns. (The loop in this method is a very simple example.)\n\nLooking at the graph, I see no problem for this particular method. Omitting `Goto`s, we currently have `loop_optimization (after)`:\n\n    i0 ParameterValue\n    i3 IntConstant 0\n    i13 IntConstant 1\n    v1 SuspendCheck env:[[_,_,i0]]\n\n    i17 And [i0,i13]\n    z18 Equal [i17,i3]\n    i19 Select [i13,i3,z18]\n    z20 LessThan [i3,i0]\n    i21 Select [i3,i19,z20]\n\n    v11 Return [i21]\n\nThis looks correct to me, so I\u0027d like to keep the optimization for this method.",
+      "revId": "6622977dff38d569727726ff8668db18d498271b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
