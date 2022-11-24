@@ -1164,6 +1164,12 @@ class Runtime {
 
   bool AllowInMemoryCompilation() const { return allow_in_memory_compilation_; }
 
+  // Writes an app image for the currently running process.
+  bool WriteImageToDisk(std::string* error_msg) const;
+
+  // Gets the path where a runtime-generated app image is stored.
+  std::string GetRuntimeImagePath(const std::string& dex_location) const;
+
  private:
   static void InitPlatformSignalHandlers();
 
