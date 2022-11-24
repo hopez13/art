@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "703b80fd_4bd1e86e",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-24T16:09:13Z",
+      "side": 1,
+      "message": "So if we don\u0027t succeed, we\u0027ll keep on calling GetMultiDexChecksums for every GetRequiredDexChecksums, which wasn\u0027t the case before. Is that change intended?",
+      "revId": "30a8da61860ab3feaf1734d2a67f6d012a978361",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
