@@ -87,6 +87,30 @@
       },
       "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b121128_46c3e75a",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-24T15:51:20Z",
+      "side": 1,
+      "message": "I had to change this in this CL because otherwise oat_file_assistant_test will fail (see the presubmit failures on PS3). Basically, I changed the semantics of `ArtDexFileLoader::GetMultiDexChecksums`, so I have to update all the callers to adapt to the new semantics, and `HasDexFiles` is one of them.\n\nThe change to this method is a no-op from the perspective of the API. The API that we expose to the platform is `GetDexOptNeeded`, and you can see that, in `GetDexOptNeeded`, I just log a warning for this error and ignore it, so that the API keeps behave the same.",
+      "parentUuid": "081b4b20_bd0fa7eb",
+      "range": {
+        "startLine": 287,
+        "startChar": 65,
+        "endLine": 287,
+        "endChar": 98
+      },
+      "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
