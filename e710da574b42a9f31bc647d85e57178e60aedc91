@@ -39,6 +39,30 @@
       },
       "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36ebb957_e3804438",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-24T15:25:34Z",
+      "side": 1,
+      "message": "Failed to open the file, failed to read the magic, failed to read the file as a zip file, etc.",
+      "parentUuid": "6df87c51_6320bad3",
+      "range": {
+        "startLine": 287,
+        "startChar": 65,
+        "endLine": 287,
+        "endChar": 98
+      },
+      "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
