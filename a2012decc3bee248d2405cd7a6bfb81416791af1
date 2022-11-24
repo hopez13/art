@@ -16,6 +16,24 @@
       "message": "I +2\u0027ed on this CL, but now I wonder we need so many exception rules for Java. I can\u0027t find the source of them in go/android-style except for `ColumnLimit: 100`, `ContinuationIndentWidth: 8`, `IndentWidth: 4`, and `JavaImportGroups: ...`.\n\nframeworks/base/.clang-format may not be a good reference. I doubt people are actually using it. Rules like `AllowShortFunctionsOnASingleLine: Inline` don\u0027t seem to match the existing code in framework/base. (Inline: https://source.corp.google.com/search?q\u003d%5Cw%2B%5C(.*%5C)%5C%20%5C%7B%5C%20%5CS%2B%5C%20%5C%7D%20lang:java%20f:frameworks%2Fbase\u0026sq\u003dpackage:%5Eandroid-internal$, Not inline: https://source.corp.google.com/search?q\u003d%5Cw%2B%5C(.*%5C)%5C%20%5C%7B%5Cn%5Cs*%5B%5E%5C%7D%5Cn%5D%7B1,20%7D%5Cn%5Cs*%5C%7D%20pcre:yes%20lang:java%20f:frameworks%2Fbase\u0026sq\u003dpackage:%5Eandroid-internal$)\n\nI\u0027d suggest to stick with the default unless there is a style guide says not to.",
       "revId": "a2012decc3bee248d2405cd7a6bfb81416791af1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3426692_00165158",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-24T14:38:57Z",
+      "side": 1,
+      "message": "You\u0027re right, when I copied it I thought the style was used for Java (and for me it has worked well enough there). However during review of http://ag/20418625 it became clear it was intended for C++ only.",
+      "parentUuid": "da2ff124_5af85b6f",
+      "revId": "a2012decc3bee248d2405cd7a6bfb81416791af1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
