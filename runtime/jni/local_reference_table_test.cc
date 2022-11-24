@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "indirect_reference_table-inl.h"
+#include "local_reference_table-inl.h"
 
 #include "android-base/stringprintf.h"
 
@@ -61,7 +61,7 @@ TEST_F(LocalReferenceTableTest, BasicTest) {
   ScopedObjectAccess soa(Thread::Current());
   static const size_t kTableMax = 20;
   std::string error_msg;
-  LocalReferenceTable lrt;
+  LocalReferenceTable lrt(/*check_jni=*/ true);
   bool success = lrt.Initialize(kTableMax, &error_msg);
   ASSERT_TRUE(success) << error_msg;
 
@@ -301,7 +301,7 @@ TEST_F(LocalReferenceTableTest, Holes) {
 
   // 1) Segment with holes (current_num_holes_ > 0), push new segment, add/remove reference.
   {
-    LocalReferenceTable lrt;
+    LocalReferenceTable lrt(/*check_jni=*/ true);
     bool success = lrt.Initialize(kTableMax, &error_msg);
     ASSERT_TRUE(success) << error_msg;
 
@@ -330,7 +330,7 @@ TEST_F(LocalReferenceTableTest, Holes) {
 
   // 2) Segment with holes (current_num_holes_ > 0), pop segment, add/remove reference
   {
-    LocalReferenceTable lrt;
+    LocalReferenceTable lrt(/*check_jni=*/ true);
     bool success = lrt.Initialize(kTableMax, &error_msg);
     ASSERT_TRUE(success) << error_msg;
 
@@ -364,7 +364,7 @@ TEST_F(LocalReferenceTableTest, Holes) {
   // 3) Segment with holes (current_num_holes_ > 0), push new segment, pop segment, add/remove
   //    reference.
   {
-    LocalReferenceTable lrt;
+    LocalReferenceTable lrt(/*check_jni=*/ true);
     bool success = lrt.Initialize(kTableMax, &error_msg);
     ASSERT_TRUE(success) << error_msg;
 
@@ -401,7 +401,7 @@ TEST_F(LocalReferenceTableTest, Holes) {
 
   // 4) Empty segment, push new segment, create a hole, pop a segment, add/remove a reference.
   {
-    LocalReferenceTable lrt;
+    LocalReferenceTable lrt(/*check_jni=*/ true);
     bool success = lrt.Initialize(kTableMax, &error_msg);
     ASSERT_TRUE(success) << error_msg;
 
@@ -442,7 +442,7 @@ TEST_F(LocalReferenceTableTest, Holes) {
   // 5) Base segment, push new segment, create a hole, pop a segment, push new segment, add/remove
   //    reference
   {
-    LocalReferenceTable lrt;
+    LocalReferenceTable lrt(/*check_jni=*/ true);
     bool success = lrt.Initialize(kTableMax, &error_msg);
     ASSERT_TRUE(success) << error_msg;
 
@@ -490,7 +490,7 @@ TEST_F(LocalReferenceTableTest, Resize) {
   ASSERT_TRUE(obj0 != nullptr);
 
   std::string error_msg;
-  LocalReferenceTable lrt;
+  LocalReferenceTable lrt(/*check_jni=*/ true);
   bool success = lrt.Initialize(kTableMax, &error_msg);
   ASSERT_TRUE(success) << error_msg;
 
