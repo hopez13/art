@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc72e8fc_17e72a71",
+        "filename": "libnativeloader/test/loadlibrarytest_data_app_manifest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-25T15:19:47Z",
+      "side": 1,
+      "message": "What bothers me is that I\u0027m not sure which libraries share the same nature by looking at the names.\n\nPrivate libraries are named like `libsystem_private1.so`, where the prefix clearly describes their properties (e.g., a private library on /system), and I could expect all the `libsystem_private1.so`, `libsystem_private2.so`, etc. to have the same visibility.\n\nIn contrast, when it comes to public libraries, it\u0027s unclear to me what to expect. Do `libextpub.oem1.so` and `libextpub1.oem1.so` have the same visibility? Do `libextpub.oem1.so` and `libextpub.oem2.so` have the same visibility? Which part of the name describes their properties? I had the wrong impression that \"oem1\" libraries and \"oem2\" libraries are on different partitions and hence should have different visibilities because \"product1\" libraries below is on a different partition.\n\nI see the necessity of having two companies in this test. It verifies that libnativeloader can handle libraries from multiple companies.\n\nOne way to avoid confusion is to use a more descriptive name as the prefix, like `libsystem_public1.oem1.so`. A bit verbose but clear. Then the libraries below should be `libproduct_public1.whatever.so`.",
+      "parentUuid": "96f17a66_04f26cdb",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 86
+      },
+      "revId": "1b3d53cc632abdd91946042a1519259b4c77a75f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61946cc0_64395a6f",
         "filename": "libnativeloader/test/src/android/test/app/VendorAppTest.java",
         "patchSetId": 2
@@ -181,6 +205,30 @@
       "side": 1,
       "message": "\u003e Aren\u0027t public libraries supposed to have stable APIs?\n\nI\u0027m not too acquainted with the API stability guarantees for extended public libs, but from an Android point of view they aren\u0027t stable by definition since they\u0027re OEM specific.\n\n\u003e I think apps on /data should have the same problem as apps on /vendor do.\n\nThe difference is that the apps in /vendor aren\u0027t updatable. Also, I\u0027d think that the only apps on /data that matters for tests are the ones that the tests themselves install.\n\nIn any case, this is intended behaviour that was added by Treble team I believe, and it\u0027s not something I\u0027ve changed in this CL.",
       "parentUuid": "32521dc4_5bacda4e",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 78
+      },
+      "revId": "1b3d53cc632abdd91946042a1519259b4c77a75f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9968db4a_8106ee83",
+        "filename": "libnativeloader/test/src/android/test/app/VendorAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-25T15:19:47Z",
+      "side": 1,
+      "message": "\u003e The difference is that the apps in /vendor aren\u0027t updatable.\n\nThat\u0027s a good point! Besides, I read https://android-developers.googleblog.com/2016/06/improving-stability-with-private-cc.html, and it seems to me that making public libraries available to apps is intentional. I assume public libraries maintain some level of API stability (as least they should give app developers some time to transition when they are making a breaking change).\n\nAnyway, I was being a bit off-topic. This test looks good to me.",
+      "parentUuid": "e0de2fdb_b2266cf8",
       "range": {
         "startLine": 86,
         "startChar": 8,
