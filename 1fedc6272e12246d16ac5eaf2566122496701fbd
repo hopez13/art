@@ -163,6 +163,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7d2b3ca_d61bdafe",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-25T13:52:44Z",
+      "side": 1,
+      "message": "I think the underlying `memmap` should make sure that all threads correctly see the newly-mapped data.\n\nAfter thinking about this, I decided to remove the \"SyncCore\". `FaultHandler` does not need it.",
+      "parentUuid": "44f69340_12ac0e11",
+      "range": {
+        "startLine": 244,
+        "startChar": 29,
+        "endLine": 248,
+        "endChar": 36
+      },
+      "revId": "1fedc6272e12246d16ac5eaf2566122496701fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d14614d_6f0a0f2e",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 12
