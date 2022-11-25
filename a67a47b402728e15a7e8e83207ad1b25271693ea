@@ -118,6 +118,30 @@
       },
       "revId": "a67a47b402728e15a7e8e83207ad1b25271693ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f077f0e0_84810e94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-25T16:15:56Z",
+      "side": 1,
+      "message": "Such fixed point loops are dangerous: there is no guarantee a pass will be a no-op if it\u0027s run twice directly, nor that passes won\u0027t just create work for one another.",
+      "parentUuid": "3e4de4ec_96a46029",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "a67a47b402728e15a7e8e83207ad1b25271693ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
