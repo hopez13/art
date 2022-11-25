@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ebfac0a_54667dd1",
+        "filename": "libnativeloader/test/loadlibrarytest_data_app_manifest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-25T12:46:20Z",
+      "side": 1,
+      "message": "This is still confusing. Which are different libraries and which are duplicates of the same library? I suggest to only use numbers for duplicates.",
+      "parentUuid": "7f6ee641_72eeef7c",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 86
+      },
+      "revId": "1b3d53cc632abdd91946042a1519259b4c77a75f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61946cc0_64395a6f",
         "filename": "libnativeloader/test/src/android/test/app/VendorAppTest.java",
         "patchSetId": 2
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "It\u0027d be a layering violation. Concretely, with GSI the system partition can get updated while vendor isn\u0027t, which may break GSI tests. https://cs.android.com/android/platform/superproject/+/master:art/libnativeloader/library_namespaces.cpp;l\u003d316-320;drc\u003de5f1d635677b297ca422fb981124fffa9386872c",
       "parentUuid": "61946cc0_64395a6f",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 78
+      },
+      "revId": "1b3d53cc632abdd91946042a1519259b4c77a75f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32521dc4_5bacda4e",
+        "filename": "libnativeloader/test/src/android/test/app/VendorAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-25T12:46:20Z",
+      "side": 1,
+      "message": "I\u0027m not sure what \"public library\" means. Aren\u0027t public libraries supposed to have stable APIs? If not, why can an app on /data load them? I think apps on /data should have the same problem as apps on /vendor do.",
+      "parentUuid": "70544fc9_6112bbee",
       "range": {
         "startLine": 86,
         "startChar": 8,
