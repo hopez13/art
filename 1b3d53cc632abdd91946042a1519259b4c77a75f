@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f6ee641_72eeef7c",
+        "filename": "libnativeloader/test/loadlibrarytest_data_app_manifest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-25T01:19:55Z",
+      "side": 1,
+      "message": "Yes, they\u0027re different. This is inherited from the old manual test script, and I suspect the intention was to test the same \"base names\" for different OEMs (since the OEM suffixes for essentially all intents and purposes are part of the library name it hardly matters in practice though).\n\nIn any case, I\u0027ve replaced \"foo\" and \"bar\" with somewhat more descriptive names.",
+      "parentUuid": "084993c7_da769b73",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 86
+      },
+      "revId": "1b3d53cc632abdd91946042a1519259b4c77a75f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61946cc0_64395a6f",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-24T13:36:01Z",
       "side": 1,
       "message": "Why can\u0027t an app on /vendor load a public library on /system, but an app on /data can?",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 78
+      },
+      "revId": "1b3d53cc632abdd91946042a1519259b4c77a75f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70544fc9_6112bbee",
+        "filename": "libnativeloader/test/src/android/test/app/VendorAppTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-11-25T01:19:55Z",
+      "side": 1,
+      "message": "It\u0027d be a layering violation. Concretely, with GSI the system partition can get updated while vendor isn\u0027t, which may break GSI tests. https://cs.android.com/android/platform/superproject/+/master:art/libnativeloader/library_namespaces.cpp;l\u003d316-320;drc\u003de5f1d635677b297ca422fb981124fffa9386872c",
+      "parentUuid": "61946cc0_64395a6f",
       "range": {
         "startLine": 86,
         "startChar": 8,
