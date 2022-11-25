@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2fd7e4c_9e5d6cc1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-25T17:50:03Z",
+      "side": 1,
+      "message": "2 tests failed\n\n    ArtRunTest_x86_64#art-run-test-823-cha-inlining\n    ArtRunTest_x86_64#art-run-test-966-default-conflict\n\nShould we disable them?",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "b09caedcf37c744f51c04206b2d42b4278e4a0db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
