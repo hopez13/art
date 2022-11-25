@@ -135,6 +135,30 @@
       },
       "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "944c3a86_a9ec8521",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-25T12:56:03Z",
+      "side": 1,
+      "message": "Then caller would lose the ability to distinguish failure from APK with no dex code. Someone may write buggy code that calls this function without being aware that it can actually fail, and introduce subtle bugs. In fact, it happened on `GetRequiredDexChecksums` (see the subsequent CL), and it can also happen on this function in the future.",
+      "parentUuid": "96fecb4b_31e51ee7",
+      "range": {
+        "startLine": 287,
+        "startChar": 65,
+        "endLine": 287,
+        "endChar": 98
+      },
+      "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
