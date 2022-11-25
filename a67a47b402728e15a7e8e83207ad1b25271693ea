@@ -46,6 +46,30 @@
       },
       "revId": "a67a47b402728e15a7e8e83207ad1b25271693ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58fbdfb9_52b35505",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-25T14:57:32Z",
+      "side": 1,
+      "message": "Ack. Can we add a regression test for seeing the `NewInstance-\u003eNullCheck` in CFRE?\n\nIt would be nice to be able to eliminate the NullCheck since it is not needed, but we can do that on a different CL.",
+      "parentUuid": "323baf72_2f448216",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "a67a47b402728e15a7e8e83207ad1b25271693ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
