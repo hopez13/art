@@ -22,6 +22,30 @@
       },
       "revId": "ed142a5cc4e717015286450abb97cae6f8fe91b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9af2618e_5576bf56",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-25T12:23:26Z",
+      "side": 1,
+      "message": "An app may delete its own secondary dex files, while the artifacts can still exist. This should be very rare in practice because dexopting normally happens in background dexopt job and this job calls [`reconcileSecondaryDexFiles`](http://cs/android-internal/frameworks/base/services/core/java/com/android/server/pm/BackgroundDexOptService.java;l\u003d624;rcl\u003daf64b519de2d0adcbd925454c936e8efc0010276) before it dexopts apps, so we are probably fine, but this looks too fragile and it\u0027s better not to rely on it.",
+      "parentUuid": "eab8045b_e9f79d17",
+      "range": {
+        "startLine": 11,
+        "startChar": 38,
+        "endLine": 12,
+        "endChar": 25
+      },
+      "revId": "ed142a5cc4e717015286450abb97cae6f8fe91b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
