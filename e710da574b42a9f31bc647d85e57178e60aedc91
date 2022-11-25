@@ -183,6 +183,30 @@
       },
       "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72310ee5_973a740d",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-11-25T15:32:02Z",
+      "side": 1,
+      "message": "I can\u0027t anticipate what could go wrong because I can\u0027t predict how people will use this function in the future. \"Just to say if we need to run dex2oat\" is not a trivial work. It involves very complex logic, and any wrong usage of a function deep in the code will lead to wrong outcome. The example of `GetRequiredDexChecksums` has proved this. The best we can do is to make the error case explicit to leave less pitfalls for the future.",
+      "parentUuid": "85403771_4557215a",
+      "range": {
+        "startLine": 287,
+        "startChar": 65,
+        "endLine": 287,
+        "endChar": 98
+      },
+      "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
