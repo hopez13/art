@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58bc26c5_20fe2f16",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-25T14:40:04Z",
+      "side": 1,
+      "message": "We optimize the NullCheck away in InstructionSimplifier (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/instruction_simplifier.cc;l\u003d576;drc\u003d434d968b4af0bc8af9889170250bee3e08839bea). When are we seeing this pattern created? Is this because of the newly added DCE passes in aosp/2278397?",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "a67a47b402728e15a7e8e83207ad1b25271693ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
