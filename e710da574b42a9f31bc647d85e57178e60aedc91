@@ -111,6 +111,30 @@
       },
       "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96fecb4b_31e51ee7",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-25T10:34:28Z",
+      "side": 1,
+      "message": "Sorry for re-opening again, but what\u0027s the downside of return false on HasDexfiles if there are any errors?",
+      "parentUuid": "2b121128_46c3e75a",
+      "range": {
+        "startLine": 287,
+        "startChar": 65,
+        "endLine": 287,
+        "endChar": 98
+      },
+      "revId": "e710da574b42a9f31bc647d85e57178e60aedc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
